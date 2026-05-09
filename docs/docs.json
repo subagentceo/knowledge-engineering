@@ -1,0 +1,45 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "Knowledge Engineering",
+  "theme": "mint",
+  "colors": { "primary": "#cc785c" },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          { "group": "Getting started", "pages": ["index", "quickstart"] },
+          { "group": "Strategy", "pages": ["mintlify-strategy", "session-artifact"] }
+        ]
+      },
+      {
+        "tab": "Tool lanes",
+        "groups": [
+          {
+            "group": "Decomposed from llms.txt",
+            "pages": [
+              "lanes/subagent-team",
+              "lanes/filesystem-edit",
+              "lanes/shell",
+              "lanes/mcp",
+              "lanes/skill",
+              "lanes/plan-worktree",
+              "lanes/task-todo",
+              "lanes/scheduling",
+              "lanes/web",
+              "lanes/onboarding"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Reference",
+        "groups": [
+          { "group": "MCP servers", "pages": ["reference/npm-registry-mcp"] },
+          { "group": "Agents", "pages": ["reference/orchestrator", "reference/npm-research-subagent"] }
+        ]
+      }
+    ]
+  }
+}
