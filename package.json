@@ -1,25 +1,23 @@
 {
   "name": "@subagentceo/knowledge-engineering",
   "version": "0.1.0",
-  "description": "Claude Agent SDK node with sub-agents, MCP tools, and a tool-anchored knowledge graph derived from llms.txt sources.",
+  "description": "Four-lane knowledge bridge (anthropic.com/engineering, claude.com/blog, support.claude.com, llms.txt namespaces) exposed over MCP SDK v2 to a Claude Agent SDK orchestrator. OAuth-only.",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "ke-npm-mcp": "dist/mcp/npm-registry-server.js",
+    "ke-bridge-mcp": "dist/mcp/bridge-server.js",
     "ke-agent": "dist/agent/run.js"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsx src/agent/run.ts",
-    "mcp:npm": "tsx src/mcp/npm-registry-server.ts",
-    "example:anthropic": "tsx src/examples/anthropic-features.ts",
+    "mcp:bridge": "tsx src/mcp/bridge-server.ts",
     "docs:dev": "mintlify dev",
     "lint": "tsc --noEmit"
   },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "^0.1.0",
-    "@anthropic-ai/sdk": "^0.40.0",
-    "@modelcontextprotocol/sdk": "^1.0.4",
+    "@modelcontextprotocol/sdk": "^2.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
