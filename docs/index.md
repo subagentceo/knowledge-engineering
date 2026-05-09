@@ -1,14 +1,21 @@
 ---
 title: Knowledge Engineering
-description: A Claude Agent SDK node with sub-agents, MCP tools, and a tool-anchored knowledge graph derived from llms.txt sources.
+description: A four-lane bridge from a Claude Agent SDK orchestrator to anthropic.com/engineering, claude.com/blog, support.claude.com, and the llms.txt namespaces. TypeScript only, MCP SDK v2, OAuth-only.
 ---
 
-This site documents a Claude Agent SDK node whose information architecture is
-**decomposed from the upstream `llms.txt` sources** at `code.claude.com` and
-`platform.claude.com`.
+This site documents a Claude Agent SDK node whose information architecture
+is a **four-lane bridge** to the upstream content sources we cite most:
 
-- **Tool lanes** — one page per Claude Code tool family.
-- **Reference** — the in-repo MCP servers and sub-agents we ship.
-- **Strategy** — how the docs are namespaced; the session artifact behind v0.1.
+- [`anthropic.com/engineering`](./lanes/anthropic-engineering)
+- [`claude.com/blog`](./lanes/claude-blog)
+- [`support.claude.com`](./lanes/support-claude)
+- [`llms.txt` namespaces](./lanes/llms-txt)
 
-Start with [Quickstart](./quickstart) or jump to the [session artifact](./session-artifact).
+Each bridge is a sub-agent restricted to a small set of MCP tools served by
+one stdio MCP server (`knowledge-bridge`, on
+[MCP SDK v2](./reference/bridge-mcp)). Upstream calls to Anthropic are
+[OAuth-only](./reference/auth).
+
+Start with [Quickstart](./quickstart) or jump to the
+[session artifact](./session-artifact) that captured the original
+decomposition.

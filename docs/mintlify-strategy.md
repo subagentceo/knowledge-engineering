@@ -1,56 +1,50 @@
 ---
 title: Mintlify documentation strategy
-description: How this repo's docs site is namespaced from the upstream llms.txt sources.
+description: Why the docs site has four bridge pages instead of ten tool-lane pages.
 ---
 
 ## Outcome
 
-A Mintlify site whose information architecture is a 1:1 reflection of the
-**tool lanes** identified in `code.claude.com/docs/llms.txt` and
-`platform.claude.com/docs/llms.txt`. Each lane is one page; each page is the
-canonical entry point for everything we know about that lane (tools,
-docs links, blog, engineering posts, support).
+A Mintlify site whose information architecture is **one page per bridge**:
+`anthropic-engineering`, `claude-blog`, `support-claude`, `llms-txt`.
+
+The earlier draft of v0.1 had one page per *tool family* (Subagent/Team,
+Filesystem, Shell, MCP, Skill, Plan/Worktree, Task/Todo, Scheduling, Web,
+Onboarding) — ten pages decomposed from `code.claude.com/docs/llms.txt` and
+`platform.claude.com/docs/llms.txt`. That decomposition lives on as the
+**session artifact**: it is the cross-lane index that informed how the
+bridges curate content.
 
 ## Namespacing rules
 
-| Source | Mintlify path prefix | Notes |
+| Source | Mintlify path | Notes |
 |---|---|---|
-| `code.claude.com/docs/en/...` | `lanes/<lane>` | The CLI / agent-runtime perspective. |
-| `platform.claude.com/docs/en/...` | `lanes/<lane>` (Platform section) | The Messages / Managed Agents API perspective. |
-| `claude.com/docs/...` | cross-linked inline | Connectors, Skills authoring. |
-| `claude.com/blog/...` | "Further reading" block on the lane page | Curated, not mirrored. |
-| `support.claude.com/...` | "Support" block | Linked, not mirrored. |
+| `anthropic.com/engineering` | `lanes/anthropic-engineering` | One bridge page; tools listed inline. |
+| `claude.com/blog` | `lanes/claude-blog` | Same shape. |
+| `support.claude.com` | `lanes/support-claude` | Same shape; collection slugs inline. |
+| `llms.txt` namespaces | `lanes/llms-txt` | The "index of indexes". |
+| MCP server reference | `reference/bridge-mcp` | One page; per-lane subsections live in the lane pages. |
+| Auth | `reference/auth` | OAuth-only contract. |
 
-## Per-lane page template
+## Per-bridge page template
 
 ```
-# <Lane name>
+# <Bridge name>
 
-> Outcome of this lane: <one sentence>
+> Outcome of this bridge: <one sentence>
 
-## Tools in this lane
-<bullets, each linking to a Reference page if we ship one>
+## Tools
+<table: tool name -> source endpoint>
 
-## Canonical docs
-- code.claude.com: ...
-- platform.claude.com: ...
+## Sub-agent
+<seed prompt link, restricted tool surface>
 
-## Further reading
-- Blog: ...
-- Engineering: ...
-- Support: ...
+## Density / Notes
+<which upstream slugs we expect to come back from this bridge most often>
 ```
-
-## Lanes shipped in v0.1
-
-`subagent-team`, `filesystem-edit`, `shell`, `mcp`, `skill`,
-`plan-worktree`, `task-todo`, `scheduling`, `web`, `onboarding` — exactly the
-ten lanes enumerated in the session artifact.
 
 ## Build
 
 ```
 npm run docs:dev   # mintlify dev
 ```
-
-CI: a future workflow will run `mintlify broken-links` on PRs that touch `docs/**`.

@@ -14,21 +14,15 @@
         ]
       },
       {
-        "tab": "Tool lanes",
+        "tab": "Bridges",
         "groups": [
           {
-            "group": "Decomposed from llms.txt",
+            "group": "Four-lane bridge",
             "pages": [
-              "lanes/subagent-team",
-              "lanes/filesystem-edit",
-              "lanes/shell",
-              "lanes/mcp",
-              "lanes/skill",
-              "lanes/plan-worktree",
-              "lanes/task-todo",
-              "lanes/scheduling",
-              "lanes/web",
-              "lanes/onboarding"
+              "lanes/anthropic-engineering",
+              "lanes/claude-blog",
+              "lanes/support-claude",
+              "lanes/llms-txt"
             ]
           }
         ]
@@ -36,8 +30,9 @@
       {
         "tab": "Reference",
         "groups": [
-          { "group": "MCP servers", "pages": ["reference/npm-registry-mcp"] },
-          { "group": "Agents", "pages": ["reference/orchestrator", "reference/npm-research-subagent"] }
+          { "group": "MCP", "pages": ["reference/bridge-mcp"] },
+          { "group": "Agent", "pages": ["reference/orchestrator"] },
+          { "group": "Auth", "pages": ["reference/auth"] }
         ]
       }
     ]

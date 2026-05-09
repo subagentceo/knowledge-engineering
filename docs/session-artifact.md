@@ -1,136 +1,88 @@
 ---
-title: Session artifact — tool-anchored llms.txt bridge
-description: Cross-lane index mapping each Claude Code tool family to docs, blog, engineering, and support sources.
+title: Session artifact — four-lane bridge decomposition
+description: How the original ten tool-lane decomposition was rotated into four content-source bridges.
 ---
 
-> **Provenance.** Captured from the chat session that produced this repo. No
-> new fetches were performed; every link below was already named in
-> `code.claude.com/docs/llms.txt` or `platform.claude.com/docs/llms.txt`.
+> **Provenance.** Captured from the chat session that produced this repo.
+> Every link below was named in `code.claude.com/docs/llms.txt` or
+> `platform.claude.com/docs/llms.txt`; no extra fetches were performed when
+> writing this page.
 
-## Subagent / team tools
+## Why four bridges
 
-`Agent`, `SendMessage`, `TeamCreate`, `TeamDelete`. Docs:
-`code.claude.com/docs/en/sub-agents`, `code.claude.com/docs/en/agent-sdk/subagents`,
-`code.claude.com/docs/en/agent-teams`, `code.claude.com/docs/en/agent-sdk/agent-loop`.
-Platform: `platform.claude.com/docs/en/managed-agents/*` (overview, quickstart,
-define-outcomes, agent-setup, environments, dreams). Blog:
-`/blog/building-multi-agent-systems-when-and-how-to-use-them`,
-`/blog/multi-agent-coordination-patterns`,
-`/blog/common-workflow-patterns-for-ai-agents-and-when-to-use-them`,
-`/blog/building-ai-agents-for-the-enterprise`. Engineering:
-`building-effective-agents`, `effective-context-engineering-for-ai-agents`,
-`claude-think-tool`, `demystifying-evals-for-ai-agents`. Support:
-`14445694-claude-code`.
+The earlier draft enumerated **ten Claude Code tool families**
+(Subagent/Team, Filesystem, Shell, MCP, Skill, Plan/Worktree, Task/Todo,
+Scheduling, Web, Onboarding) and gave each its own page.
 
-## Filesystem & code-edit tools
+For a knowledge bridge, the wrong axis. The same external content (an
+engineering post, a help-center article, a `llms.txt` line) was being cited
+across many lanes — so the page-per-tool-family layout duplicated content
+and made citation routing harder. We rotated the IA so each page is one
+**external source** and the sub-agent for that page is restricted to that
+source's MCP tools.
 
-`Read`, `Write`, `Edit`, `Glob`, `Grep`, `NotebookEdit`. Docs:
-`code.claude.com/docs/en/permissions`, `permission-modes`, `tools-reference`,
-`common-workflows`, `checkpointing`, `agent-sdk/file-checkpointing`,
-`claude-directory`, `memory`. Platform: — (no platform analog; these are
-CLI/agent tools). Blog: `/blog/eight-trends-defining-how-software-gets-built-in-2026`,
-`/blog/product-development-in-the-agentic-era`. Engineering:
-`claude-code-best-practices`, `building-c-compiler`. Support: `14445694-claude-code`.
+## The four bridges
 
-## Shell tools
+### 1. `anthropic.com/engineering`
 
-`Bash`, `PowerShell`, `Monitor`. Docs: `code.claude.com/docs/en/sandboxing`,
-`permissions`, `env-vars`, `hooks`, `hooks-guide`, `terminal-config`. Platform:
-`platform.claude.com/docs/en/agents-and-tools/tool-use/bash-tool` (the API-level
-bash tool — semantically related but a different surface). Blog: —. Engineering:
-`claude-code-sandboxing`, `claude-code-auto-mode`. Support: `4078535-safeguards`,
-`14445694-claude-code`.
+Engineering blog posts cited often: `building-effective-agents`,
+`effective-context-engineering-for-ai-agents`, `claude-think-tool`,
+`demystifying-evals-for-ai-agents`, `code-execution-with-mcp`,
+`claude-code-best-practices`, `claude-code-sandboxing`,
+`claude-code-auto-mode`, `desktop-extensions`, `contextual-retrieval`,
+`building-c-compiler`.
 
-## MCP tools
+### 2. `claude.com/blog`
 
-`ListMcpResourcesTool`, `ReadMcpResourceTool`, `ToolSearch` (and the broader
-MCP integration that produces dynamically-named MCP tools). Docs:
-`code.claude.com/docs/en/mcp`, `code.claude.com/docs/en/agent-sdk/mcp`,
-`code.claude.com/docs/en/agent-sdk/tool-search`,
-`code.claude.com/docs/en/channels`/`channels-reference`. Platform:
-`platform.claude.com/docs/en/agents-and-tools/tool-use/overview` and the
-`### Messages` tool-use entries. Claude.com docs: `claude.com/docs/connectors/*`
-and `claude.com/docs/connectors/building/mcp-apps/*` (cross-compatibility,
-design-guidelines, external-links, instance-supersession, transparent-theming,
-troubleshooting). Blog: `/blog/what-is-model-context-protocol`,
-`/blog/extending-claude-capabilities-with-skills-mcp-servers`,
-`/blog/building-agents-that-reach-production-systems-with-mcp`. Engineering:
-`code-execution-with-mcp`, `desktop-extensions`, `contextual-retrieval`. Support:
-`15399129-connectors`, `16163169-claude-desktop`.
+Strategy / product / announcement posts:
+`building-multi-agent-systems-when-and-how-to-use-them`,
+`multi-agent-coordination-patterns`,
+`common-workflow-patterns-for-ai-agents-and-when-to-use-them`,
+`building-ai-agents-for-the-enterprise`,
+`what-is-model-context-protocol`,
+`extending-claude-capabilities-with-skills-mcp-servers`,
+`building-agents-that-reach-production-systems-with-mcp`,
+`building-agents-with-skills-equipping-agents-for-specialized-work`,
+`claude-api-skill`, `eight-trends-defining-how-software-gets-built-in-2026`,
+`product-development-in-the-agentic-era`.
 
-## Skill tool
+### 3. `support.claude.com`
 
-`Skill`. Docs: `code.claude.com/docs/en/skills`,
-`code.claude.com/docs/en/agent-sdk/skills`. Claude.com docs:
-`claude.com/docs/skills/overview`, `claude.com/docs/skills/how-to`. Platform:
-`platform.claude.com/docs/en/agents-and-tools/agent-skills/overview`,
-`quickstart`. Blog:
-`/blog/building-agents-with-skills-equipping-agents-for-specialized-work`,
-`/blog/extending-claude-capabilities-with-skills-mcp-servers`,
-`/blog/claude-api-skill`. Engineering: —. Support: `14445694-claude-code`,
-`4078531-claude` (consumer skills).
+Curated help-center collections:
+`14445694-claude-code` (Claude Code), `15399129-connectors`,
+`16163169-claude-desktop`, `9387370-team-and-enterprise-plans`,
+`4078531-claude` (consumer), `4078534-privacy-and-legal`,
+`4078535-safeguards`.
 
-## Plan-mode & worktree tools
+### 4. `llms.txt` namespaces
 
-`EnterPlanMode`, `ExitPlanMode`, `EnterWorktree`, `ExitWorktree`. Docs:
-`code.claude.com/docs/en/ultraplan`, `code.claude.com/docs/en/checkpointing`,
-`code.claude.com/docs/en/agent-sdk/file-checkpointing`. Platform: —. Blog: —.
-Engineering: `claude-code-best-practices`, `claude-code-auto-mode`. Support:
-`14445694-claude-code`.
+Five namespaces, treated as the index-of-indexes:
+`claude.com/llms.txt`, `claude.com/docs/llms.txt`,
+`code.claude.com/docs/llms.txt`, `platform.claude.com/docs/llms.txt`,
+`anthropic.com/llms.txt`.
 
-## Task & todo tools
+## Mapping back to the old ten lanes
 
-`TaskCreate`, `TaskGet`, `TaskList`, `TaskUpdate`, `TaskStop`, deprecated
-`TaskOutput`, `TodoWrite`, `AskUserQuestion`. Docs:
-`code.claude.com/docs/en/agent-sdk/todo-tracking`,
-`code.claude.com/docs/en/agent-sdk/user-input`,
-`code.claude.com/docs/en/headless`. Platform:
-`platform.claude.com/docs/en/managed-agents/define-outcomes` is the conceptual
-cousin — it is how outcome-driven sessions express the same "track work to
-completion" shape at the API level. Blog:
-`/blog/common-workflow-patterns-for-ai-agents-and-when-to-use-them`,
-`/blog/building-ai-agents-for-the-enterprise`. Engineering:
-`effective-context-engineering-for-ai-agents`. Support: `14445694-claude-code`.
+The old tool-family lanes still exist in the upstream docs; this stack
+just reaches them through the `llms-txt` bridge instead of mirroring them
+locally:
 
-## Scheduling tools
-
-`CronCreate`, `CronList`, `CronDelete`. Docs:
-`code.claude.com/docs/en/scheduled-tasks`,
-`code.claude.com/docs/en/desktop-scheduled-tasks`,
-`code.claude.com/docs/en/routines`. Platform: —. Blog: —. Engineering: —.
-Support: `16163169-claude-desktop`, `14445694-claude-code`.
-
-## Web tools
-
-`WebFetch`, `WebSearch`. Docs: `code.claude.com/docs/en/network-config`,
-`code.claude.com/docs/en/auto-mode-config`, plus `claude.com/docs/cowork/3p/web-tools`.
-Platform: `platform.claude.com/docs/en/agents-and-tools/tool-use/*` includes the
-analogous server-side web/search tools. Blog: —. Engineering: —. Support:
-`4078534-privacy-and-legal`, `4078535-safeguards`.
-
-## Onboarding & sharing
-
-`ShareOnboardingGuide`. Docs: implied by `code.claude.com/docs/en/champion-kit`
-and `communications-kit`; called from `/team-onboarding`. Platform: —. Blog:
-`/blog/product-development-in-the-agentic-era`. Engineering: —. Support:
-`9387370-team-and-enterprise-plans`, `14445694-claude-code`.
-
-## Cross-cutting
-
-`code.claude.com/docs/en/tools-reference` is the index. Companion pages that
-govern *all* tools above: `permissions`, `permission-modes`, `hooks`,
-`hooks-guide`, `claude-directory`, `memory`, `glossary`, `how-claude-code-works`,
-`agent-sdk/agent-loop`, `agent-sdk/permissions`, `agent-sdk/hooks`,
-`agent-sdk/custom-tools`, `agent-sdk/observability`. On the platform side,
-`platform.claude.com/docs/en/agents-and-tools/tool-use/overview` is the
-conceptual analog for API users defining tool schemas.
+| Old tool family | Likely landing namespace |
+|---|---|
+| Subagent / Team | `code.claude.com/docs` (subagents, agent-teams), `platform.claude.com/docs` (managed-agents) |
+| Filesystem & code-edit | `code.claude.com/docs` (permissions, tools-reference, common-workflows) |
+| Shell | `code.claude.com/docs` (sandboxing, hooks); engineering for `claude-code-sandboxing`, `claude-code-auto-mode` |
+| MCP | `code.claude.com/docs` (mcp), `platform.claude.com/docs` (tool-use), `claude.com/docs` (connectors); engineering and blog for the named posts above |
+| Skill | `code.claude.com/docs` (skills), `claude.com/docs` (skills authoring), `platform.claude.com/docs` (agent-skills) |
+| Plan / Worktree | `code.claude.com/docs` (ultraplan, checkpointing) |
+| Task / Todo | `code.claude.com/docs` (todo-tracking, user-input, headless), `platform.claude.com/docs` (managed-agents/define-outcomes) |
+| Scheduling | `code.claude.com/docs` (scheduled-tasks, routines) |
+| Web | `code.claude.com/docs` (network-config, auto-mode-config), `claude.com/docs` (cowork web tools), `platform.claude.com/docs` (tool-use) |
+| Onboarding | `code.claude.com/docs` (champion-kit, communications-kit) |
 
 ## Density summary
 
-The `Agent` / `Team*` / `SendMessage` family is the densest cross-lane node
-(every lane has substantive content). MCP and Skill families come next (all
-four lanes covered, plus a fifth claude.com surface for connectors and skills
-authoring). Filesystem, plan/worktree, scheduling, and task/todo families are
-docs- and engineering-heavy with little blog presence. The shell family is
-docs-and-engineering with a unique safety story carried by `claude-code-sandboxing`.
-Web tools and cron tools are docs-only.
+The `claude-blog` and `anthropic-engineering` bridges carry the densest
+narrative material (multi-paragraph posts). `support-claude` is densest by
+*number* of articles but each article is short. `llms-txt` is the thinnest
+bridge but the most-traversed: most cross-cutting questions start there.
