@@ -1,0 +1,41 @@
+# .github/workflows/auto-merge.yml
+#
+# Enables auto-merge on PRs labeled `automerge` once required checks
+# pass. Combined with the branch ruleset created by
+# scripts/setup-branch-protection.ts, this completes the no-HITL loop.
+#
+# Cited from seeds/prompts/operator-2026-05-10-autonomy.md.
+#
+# Behavior:
+#   - On PR open / label / sync / ready_for_review: if labeled
+#     `automerge` and not a draft, call `gh pr merge --auto --squash`.
+#     GitHub then merges the PR automatically once required checks pass.
+#   - When the heartbeat opens a PR, it labels `automerge`. This
+#     workflow enables the auto-merge state machine; the branch
+#     ruleset's required checks decide when it fires.
+
+name: auto-merge
+
+on:
+  pull_request_target:
+    types: [opened, reopened, synchronize, labeled, ready_for_review]
+    branches: [main]
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  enable-auto-merge:
+    if: |
+      !github.event.pull_request.draft &&
+      contains(github.event.pull_request.labels.*.name, 'automerge')
+    name: Enable auto-merge (squash)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable auto-merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr merge --auto --squash "$PR_URL"

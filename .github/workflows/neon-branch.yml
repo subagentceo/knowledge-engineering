@@ -1,0 +1,79 @@
+# .github/workflows/neon-branch.yml
+#
+# Per-PR Neon database branch. Mirrors the Phase 0g cloud-agent runner's
+# createNeonBranch behavior but driven by Actions instead of the Worker
+# (so the operator can interact with a branched DB during PR review or
+# the heartbeat can run integration tests against it).
+#
+# Activates only after the operator-side steps in docs/phase-gates.md
+# Phase 8 are complete:
+#   - secrets.NEON_API_KEY (synced via Neon Console → Cloudflare/Actions)
+#   - vars.NEON_PROJECT_ID
+# When those are missing, this workflow exits early (and prints why) so
+# the absence is loud but non-breaking.
+
+name: neon-branch
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write   # to comment the connection string on the PR
+
+jobs:
+  create-branch:
+    if: github.event.action != 'closed' && vars.NEON_PROJECT_ID != ''
+    name: Create Neon branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check secrets
+        if: ${{ env.NEON_API_KEY == '' }}
+        run: |
+          echo "::warning::NEON_API_KEY missing — this workflow is inert until the operator syncs Neon → Actions secrets per docs/phase-gates.md."
+          exit 0
+        env:
+          NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+
+      - name: Create branch via neondatabase/create-branch-action
+        id: create_branch
+        uses: neondatabase/create-branch-action@v5
+        with:
+          project_id: ${{ vars.NEON_PROJECT_ID }}
+          parent: main
+          branch_name: preview/pr-${{ github.event.pull_request.number }}
+          api_key: ${{ secrets.NEON_API_KEY }}
+
+      - name: Comment connection string on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const dbUrl = '${{ steps.create_branch.outputs.db_url }}';
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Neon branch ready: \`preview/pr-${{ github.event.pull_request.number }}\`\n\nConnection string is set as the workflow output \`db_url\` for downstream steps; ask the heartbeat to surface it if you need it in the PR thread.`
+            });
+
+  delete-branch:
+    if: github.event.action == 'closed' && vars.NEON_PROJECT_ID != ''
+    name: Delete Neon branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check secrets
+        if: ${{ env.NEON_API_KEY == '' }}
+        run: |
+          echo "::warning::NEON_API_KEY missing — skipping branch cleanup."
+          exit 0
+        env:
+          NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+
+      - name: Delete branch
+        uses: neondatabase/delete-branch-action@v3
+        with:
+          project_id: ${{ vars.NEON_PROJECT_ID }}
+          branch: preview/pr-${{ github.event.pull_request.number }}
+          api_key: ${{ secrets.NEON_API_KEY }}

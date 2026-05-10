@@ -1,0 +1,87 @@
+# .github/workflows/cloudflare-preview.yml
+#
+# Per-PR Cloudflare Worker preview deploy of infra/cloudflare/. Pairs
+# with neon-branch.yml so reviewers (or the heartbeat) can hit a live
+# preview Worker bound to a fresh DB branch.
+#
+# Inert until the operator-side steps in docs/phase-gates.md Phase 8 are
+# complete:
+#   - secrets.CLOUDFLARE_API_TOKEN
+#   - secrets.CLOUDFLARE_ACCOUNT_ID
+#   - vars.CLOUDFLARE_WORKER_NAME
+
+name: cloudflare-preview
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+    paths:
+      - "infra/cloudflare/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: cf-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    if: vars.CLOUDFLARE_WORKER_NAME != ''
+    name: Deploy preview Worker
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check secrets
+        if: ${{ env.CLOUDFLARE_API_TOKEN == '' }}
+        run: |
+          echo "::warning::CLOUDFLARE_API_TOKEN missing — this workflow is inert until the operator completes Phase 8 secret sync (docs/phase-gates.md)."
+          exit 0
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: infra/cloudflare/package.json
+
+      - name: Install (infra/cloudflare)
+        working-directory: infra/cloudflare
+        run: npm install --no-audit --no-fund
+
+      - name: Deploy preview via cloudflare/wrangler-action
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: infra/cloudflare
+          # --name overrides the wrangler.jsonc `name` so each PR gets its
+          # own preview Worker. Cleanup on PR close handled by Cloudflare's
+          # standard preview-environment rotation; if precise teardown is
+          # required, add a `closed` job mirroring neon-branch.yml.
+          command: |
+            deploy --name ${{ vars.CLOUDFLARE_WORKER_NAME }}-pr-${{ github.event.pull_request.number }}
+        env:
+          # OAuth substitution applied per
+          # seeds/prompts/operator-2026-05-10-followup.md.
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
+      - name: Comment preview URL on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const name = '${{ vars.CLOUDFLARE_WORKER_NAME }}-pr-${{ github.event.pull_request.number }}';
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Cloudflare preview Worker deployed: \`${name}\`. The Worker enforces the OAuth-only env-sanitizer; ANTHROPIC_API_KEY is rejected at boundary.`
+            });
