@@ -4,11 +4,23 @@
 # with neon-branch.yml so reviewers (or the heartbeat) can hit a live
 # preview Worker bound to a fresh DB branch.
 #
-# Inert until the operator-side steps in docs/phase-gates.md Phase 8 are
-# complete:
-#   - secrets.CLOUDFLARE_API_TOKEN
+# Operator action minimized via Cloudflare Secrets Store. Cited from
+# https://developers.cloudflare.com/secrets-store/integrations/workers/
+# and https://developers.cloudflare.com/secrets-store/manage-secrets/how-to/.
+#
+# Operator-required (irreducible — no Cloudflare MCP tool exposes
+# Secrets Store creation, and no API token can be minted autonomously):
+#   - secrets.CLOUDFLARE_API_TOKEN  (with `Secrets Store Write` + `Workers Scripts Edit` permissions)
 #   - secrets.CLOUDFLARE_ACCOUNT_ID
 #   - vars.CLOUDFLARE_WORKER_NAME
+#
+# Operator NO-LONGER-required (autonomously bootstrapped by this workflow):
+#   - wrangler secret put CLAUDE_CODE_OAUTH_TOKEN  → bootstrap-secrets job
+#   - wrangler secret put NEON_API_KEY             → bootstrap-secrets job
+#   - wrangler secret put GITHUB_TOKEN             → bootstrap-secrets job
+#
+# Net reduction: 4 → 1 operator action for Phase 8 Cloudflare side
+# (per docs/phase-gates.md).
 
 name: cloudflare-preview
 
@@ -18,6 +30,7 @@ on:
     branches: [main]
     paths:
       - "infra/cloudflare/**"
+      - ".github/workflows/cloudflare-preview.yml"
   workflow_dispatch:
 
 permissions:
@@ -29,22 +42,136 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  bootstrap-secrets:
+    if: vars.CLOUDFLARE_WORKER_NAME != '' && secrets.CLOUDFLARE_API_TOKEN != ''
+    name: Bootstrap Secrets Store (idempotent)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      store_id: ${{ steps.resolve_store.outputs.store_id }}
+    steps:
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Wrangler
+        run: npm install -g wrangler@latest
+
+      # Step 1: Create the account-level Secrets Store if it doesn't exist.
+      # Wrangler's `secrets-store store create` is NOT idempotent (errors
+      # on duplicate name), so we list-then-create.
+      - name: Resolve or create Secrets Store
+        id: resolve_store
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          STORE_NAME: ke-cloud-agent
+        run: |
+          set -euo pipefail
+          echo "Listing existing stores..."
+          STORE_LIST=$(wrangler secrets-store store list --output json --remote || echo '[]')
+          STORE_ID=$(echo "$STORE_LIST" | jq -r --arg n "$STORE_NAME" '.[] | select(.name == $n) | .id' | head -1)
+          if [ -z "$STORE_ID" ]; then
+            echo "Creating new store: $STORE_NAME"
+            CREATE_OUT=$(wrangler secrets-store store create "$STORE_NAME" --remote --output json)
+            STORE_ID=$(echo "$CREATE_OUT" | jq -r '.id')
+          else
+            echo "Found existing store: $STORE_ID"
+          fi
+          echo "store_id=$STORE_ID" >> "$GITHUB_OUTPUT"
+
+      # Step 2: For each secret we need bound, upsert it from the
+      # corresponding GitHub repo secret. `wrangler secrets-store secret
+      # create` errors on duplicate name; `wrangler secrets-store secret
+      # update` requires the secret to exist. List-then-decide.
+      - name: Upsert CLAUDE_CODE_OAUTH_TOKEN
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          STORE_ID: ${{ steps.resolve_store.outputs.store_id }}
+          SECRET_NAME: CLAUDE_CODE_OAUTH_TOKEN
+          SECRET_VALUE: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          set -euo pipefail
+          EXISTS=$(wrangler secrets-store secret list "$STORE_ID" --output json --remote \
+            | jq -r --arg n "$SECRET_NAME" '.[] | select(.name == $n) | .id' | head -1 || echo "")
+          if [ -z "$EXISTS" ]; then
+            echo "Creating $SECRET_NAME"
+            printf '%s' "$SECRET_VALUE" | wrangler secrets-store secret create "$STORE_ID" \
+              --name "$SECRET_NAME" --scopes workers --remote
+          else
+            echo "Updating $SECRET_NAME (id=$EXISTS)"
+            printf '%s' "$SECRET_VALUE" | wrangler secrets-store secret update "$STORE_ID" \
+              --secret-id "$EXISTS" --remote
+          fi
+
+      - name: Upsert NEON_API_KEY
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          STORE_ID: ${{ steps.resolve_store.outputs.store_id }}
+          SECRET_NAME: NEON_API_KEY
+          SECRET_VALUE: ${{ secrets.NEON_API_KEY }}
+        run: |
+          set -euo pipefail
+          EXISTS=$(wrangler secrets-store secret list "$STORE_ID" --output json --remote \
+            | jq -r --arg n "$SECRET_NAME" '.[] | select(.name == $n) | .id' | head -1 || echo "")
+          if [ -z "$EXISTS" ]; then
+            printf '%s' "$SECRET_VALUE" | wrangler secrets-store secret create "$STORE_ID" \
+              --name "$SECRET_NAME" --scopes workers --remote
+          else
+            printf '%s' "$SECRET_VALUE" | wrangler secrets-store secret update "$STORE_ID" \
+              --secret-id "$EXISTS" --remote
+          fi
+
+      # GITHUB_TOKEN is the auto-provided Actions token; we use the
+      # workflow-scoped one rather than a separately-provisioned PAT.
+      - name: Upsert GITHUB_TOKEN
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          STORE_ID: ${{ steps.resolve_store.outputs.store_id }}
+          SECRET_NAME: GITHUB_TOKEN
+          SECRET_VALUE: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          EXISTS=$(wrangler secrets-store secret list "$STORE_ID" --output json --remote \
+            | jq -r --arg n "$SECRET_NAME" '.[] | select(.name == $n) | .id' | head -1 || echo "")
+          if [ -z "$EXISTS" ]; then
+            printf '%s' "$SECRET_VALUE" | wrangler secrets-store secret create "$STORE_ID" \
+              --name "$SECRET_NAME" --scopes workers --remote
+          else
+            printf '%s' "$SECRET_VALUE" | wrangler secrets-store secret update "$STORE_ID" \
+              --secret-id "$EXISTS" --remote
+          fi
+
+      # Verify ANTHROPIC_API_KEY is NOT in the store. Operator posture
+      # forbids it everywhere; this is the layer-2 defense for Secrets
+      # Store (layer-1 is the env-sanitizer in src/worker.ts).
+      - name: Assert ANTHROPIC_API_KEY is absent
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          STORE_ID: ${{ steps.resolve_store.outputs.store_id }}
+        run: |
+          FOUND=$(wrangler secrets-store secret list "$STORE_ID" --output json --remote \
+            | jq -r '.[] | select(.name == "ANTHROPIC_API_KEY") | .name')
+          if [ -n "$FOUND" ]; then
+            echo "::error::ANTHROPIC_API_KEY is in Secrets Store. Operator posture forbids this."
+            exit 1
+          fi
+          echo "::notice::ANTHROPIC_API_KEY confirmed absent from Secrets Store."
+
   preview:
-    if: vars.CLOUDFLARE_WORKER_NAME != ''
+    needs: bootstrap-secrets
+    if: vars.CLOUDFLARE_WORKER_NAME != '' && secrets.CLOUDFLARE_API_TOKEN != ''
     name: Deploy preview Worker
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Check secrets
-        if: ${{ env.CLOUDFLARE_API_TOKEN == '' }}
-        run: |
-          echo "::warning::CLOUDFLARE_API_TOKEN missing — this workflow is inert until the operator completes Phase 8 secret sync (docs/phase-gates.md)."
-          exit 0
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       - name: Setup Node 20
         uses: actions/setup-node@v4
@@ -56,6 +183,17 @@ jobs:
       - name: Install (infra/cloudflare)
         working-directory: infra/cloudflare
         run: npm install --no-audit --no-fund
+
+      # The wrangler.jsonc declares `secrets_store_secrets` bindings with
+      # store_id="BOOTSTRAP_PLACEHOLDER". Patch in-place with the real
+      # store_id resolved by the bootstrap job.
+      - name: Patch wrangler.jsonc with real store_id
+        env:
+          STORE_ID: ${{ needs.bootstrap-secrets.outputs.store_id }}
+        working-directory: infra/cloudflare
+        run: |
+          sed -i "s/BOOTSTRAP_PLACEHOLDER/${STORE_ID}/g" wrangler.jsonc
+          echo "Patched store_id → ${STORE_ID}"
 
       - name: Deploy preview via cloudflare/wrangler-action
         uses: cloudflare/wrangler-action@v3
@@ -69,10 +207,6 @@ jobs:
           # required, add a `closed` job mirroring neon-branch.yml.
           command: |
             deploy --name ${{ vars.CLOUDFLARE_WORKER_NAME }}-pr-${{ github.event.pull_request.number }}
-        env:
-          # OAuth substitution applied per
-          # seeds/prompts/operator-2026-05-10-followup.md.
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
       - name: Comment preview URL on PR
         uses: actions/github-script@v7
@@ -83,5 +217,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `Cloudflare preview Worker deployed: \`${name}\`. The Worker enforces the OAuth-only env-sanitizer; ANTHROPIC_API_KEY is rejected at boundary.`
+              body: `Cloudflare preview Worker deployed: \`${name}\`. Bindings resolved from Cloudflare Secrets Store (account-level, not per-Worker). The Worker uses \`await env.X.get()\` for OAuth + Neon credentials. ANTHROPIC_API_KEY is absent from the store (asserted by bootstrap-secrets job) AND rejected by the env-sanitizer at the sandbox boundary (src/worker.ts).`
             });

@@ -42,15 +42,49 @@
     }
   ],
 
-  // Secrets are NOT declared here. They are uploaded out-of-band via:
-  //   wrangler secret put NEON_API_KEY
-  //   wrangler secret put NEON_PROJECT_ID
-  //   wrangler secret put GITHUB_TOKEN
-  //   wrangler secret put CLAUDE_CODE_OAUTH_TOKEN
+  // Secrets via Cloudflare Secrets Store (account-level, bound here).
+  // Cited from:
+  //   https://developers.cloudflare.com/secrets-store/integrations/workers/
+  //   https://developers.cloudflare.com/secrets-store/manage-secrets/how-to/
   //
-  // ANTHROPIC_API_KEY MUST NOT be set. The Worker's sanitizeEnv() will
-  // throw ApiKeyForbiddenError if it ever appears in env.
+  // The store + secrets are bootstrapped autonomously by the
+  // cloudflare-preview.yml CI workflow on first deploy (idempotent
+  // `wrangler secrets-store store/secret create --remote`). The only
+  // required operator action is provisioning a `CLOUDFLARE_API_TOKEN`
+  // GH repo secret with `Secrets Store Write` permission — that's the
+  // irreducible minimum because no Cloudflare MCP tool exposes
+  // secret_store creation, and no token can be minted autonomously.
+  //
+  // store_id is intentionally a placeholder; the bootstrap workflow
+  // resolves it via `wrangler secrets-store store list --output json`
+  // and patches this file in-place if needed (or the operator can
+  // pin it directly).
+  //
+  // ANTHROPIC_API_KEY is NOT bound. The env-sanitizer in
+  // src/worker.ts rejects any forwarded env containing that key —
+  // independent layer-2 defense even if a misconfiguration ever
+  // attempts to bind it.
+  "secrets_store_secrets": [
+    {
+      "binding": "CLAUDE_CODE_OAUTH_TOKEN",
+      "store_id": "BOOTSTRAP_PLACEHOLDER",
+      "secret_name": "CLAUDE_CODE_OAUTH_TOKEN"
+    },
+    {
+      "binding": "NEON_API_KEY",
+      "store_id": "BOOTSTRAP_PLACEHOLDER",
+      "secret_name": "NEON_API_KEY"
+    },
+    {
+      "binding": "GITHUB_TOKEN",
+      "store_id": "BOOTSTRAP_PLACEHOLDER",
+      "secret_name": "GITHUB_TOKEN"
+    }
+  ],
+
   "vars": {
-    "IS_SANDBOX": "0"
+    "IS_SANDBOX": "0",
+    // Project ID is non-secret and matches the GH var of the same name.
+    "NEON_PROJECT_ID": "divine-cloud-27295848"
   }
 }

@@ -87,13 +87,16 @@ Re-generate with `npm run validate:gates`.
 | Install Neon's Claude/GitHub integration on `subagentceo/knowledge-engineering` | yes | **operator** | **DONE** (project: divine-cloud-27295848) |
 | Neon → GitHub: `secrets.NEON_API_KEY` + `vars.NEON_PROJECT_ID` provisioned | yes | **operator** | **DONE** (set via Neon integration) |
 | `secrets.CLAUDE_CODE_OAUTH_TOKEN` set on the repo | yes | **operator** | **DONE** |
-| Neon → Cloudflare: sync `NEON_API_KEY` + `NEON_PROJECT_ID` to Worker secrets | yes | **operator** | **pending** |
-| `wrangler secret put CLAUDE_CODE_OAUTH_TOKEN` (on the Worker) | yes | **operator** | **pending** |
-| `wrangler secret put GITHUB_TOKEN` (on the Worker) | yes | **operator** | **pending** |
-| Verify `wrangler secret list` excludes `ANTHROPIC_API_KEY` | yes | **operator** | **pending** |
+| `secrets.CLOUDFLARE_API_TOKEN` repo secret (with `Secrets Store Write` + `Workers Scripts Edit`) | yes | **operator** | **pending** (irreducible — no MCP path mints CF tokens) |
+| `secrets.CLOUDFLARE_ACCOUNT_ID` repo secret | yes | **operator** | **pending** |
+| `vars.CLOUDFLARE_WORKER_NAME` repo var | yes | **operator** | **pending** |
+| ~~Neon → Cloudflare: sync `NEON_API_KEY` to Worker secrets~~ | autonomous | **CI** | bootstrapped by cloudflare-preview.yml `bootstrap-secrets` job (Secrets Store) |
+| ~~`wrangler secret put CLAUDE_CODE_OAUTH_TOKEN`~~ | autonomous | **CI** | bootstrapped by cloudflare-preview.yml `bootstrap-secrets` job |
+| ~~`wrangler secret put GITHUB_TOKEN`~~ | autonomous | **CI** | bootstrapped from `secrets.GITHUB_TOKEN` (workflow-scoped) |
+| Verify ANTHROPIC_API_KEY absent from Secrets Store | autonomous | **CI** | asserted by cloudflare-preview.yml `bootstrap-secrets` job (layer-2 to env-sanitizer) |
 | `wrangler deploy` succeeds | yes | agent | tbd |
 
-**Status: BLOCKED by Phase 7. Operator-side: 3 of 7 actions DONE; 4 pending (all Cloudflare-Worker side).** GitHub Actions Neon integration is fully wired — neon-branch.yml will create branches per PR once this PR merges.
+**Status: BLOCKED by Phase 7. Operator-side: 3 of 8 actions DONE; 3 pending Cloudflare bootstrap secrets/vars; 4 actions auto-bootstrapped via Cloudflare Secrets Store + cloudflare-preview.yml.** GitHub Actions Neon integration is fully wired — neon-branch.yml will create branches per PR once this PR merges. Per-Worker `wrangler secret put` calls eliminated via the Secrets Store binding pattern (see `infra/cloudflare/wrangler.jsonc` + the `bootstrap-secrets` job in cloudflare-preview.yml).
 
 ### Phase 9 — ODD rubric grader
 
@@ -168,11 +171,12 @@ PR 4 merges.
 # Phase 8 (cloud-agent deploy):
 [x] Neon Console: install Claude/GitHub integration on subagentceo/knowledge-engineering — DONE (project: divine-cloud-27295848)
 [x] Neon → GitHub: secrets.NEON_API_KEY + vars.NEON_PROJECT_ID provisioned by the Neon integration wizard (powers neon-branch.yml)
-[ ] Neon → Cloudflare: sync NEON_API_KEY + NEON_PROJECT_ID to Cloudflare Worker secrets (Workers side, separate from GH secrets above; needed by infra/cloudflare/src/worker.ts)
-[ ] Cloudflare: set repo secrets CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID, repo var CLOUDFLARE_WORKER_NAME (for cloudflare-preview.yml)
-[ ] wrangler secret put CLAUDE_CODE_OAUTH_TOKEN
-[ ] wrangler secret put GITHUB_TOKEN
-[ ] wrangler secret list  → verify no ANTHROPIC_API_KEY
+[ ] Cloudflare: set secrets.CLOUDFLARE_API_TOKEN (with `Secrets Store Write` + `Workers Scripts Edit` perms) + secrets.CLOUDFLARE_ACCOUNT_ID + vars.CLOUDFLARE_WORKER_NAME — IRREDUCIBLE (no MCP tool / API path can mint a CF token autonomously)
+# Eliminated by autonomous CI bootstrap (cloudflare-preview.yml bootstrap-secrets job):
+[~] ~~Neon → Cloudflare: sync NEON_API_KEY to Worker secrets~~ → handled via Secrets Store + wrangler.jsonc binding
+[~] ~~wrangler secret put CLAUDE_CODE_OAUTH_TOKEN~~ → handled via Secrets Store
+[~] ~~wrangler secret put GITHUB_TOKEN~~ → handled via Secrets Store (uses workflow-scoped secrets.GITHUB_TOKEN)
+[~] ~~wrangler secret list → verify no ANTHROPIC_API_KEY~~ → asserted by 'Assert ANTHROPIC_API_KEY is absent' step
 
 # Phase 11 (optional embeddings flag only):
 [ ] Turbopuffer: provision workspace + API token
