@@ -44,6 +44,11 @@ jobs:
       scan-args: |-
         -r
         ./
+      # SARIF upload requires GitHub code-scanning to be enabled on the
+      # repo. Disabled here until the operator turns it on
+      # (Settings → Security → Code scanning). Scan still runs and
+      # fail-on-vuln still gates merges.
+      upload-sarif: false
 
   scan-main:
     if: github.event_name != 'pull_request'
@@ -53,3 +58,4 @@ jobs:
       scan-args: |-
         -r
         ./
+      upload-sarif: false
