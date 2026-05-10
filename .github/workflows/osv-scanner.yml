@@ -1,14 +1,19 @@
 # .github/workflows/osv-scanner.yml
 #
-# OSV-Scanner (Google) against the npm lockfile + infra/cloudflare's
-# package.json. Catches advisories from GHSA, npm, PyPI, RustSec, Go
-# vulndb, OSS-Fuzz. Cited from:
+# OSV-Scanner (Google) auto-discovers lockfiles under the repo root.
+# Cited from:
 #   https://osv.dev/
 #   https://google.github.io/osv-scanner/
 #   https://github.com/google/osv-scanner
 #
-# Runs on every PR + weekly on a schedule. Findings are uploaded to
-# GitHub's code-scanning UI via SARIF when on push to main.
+# Runs on every PR + weekly cron. On main pushes, uploads SARIF to the
+# GitHub Security tab.
+#
+# Note: infra/cloudflare/package.json has no lockfile yet (npm install
+# is run only at deploy time per docs/governance.md). We let OSV-Scanner
+# auto-discover lockfiles via `-r ./` and rely on it skipping the bare
+# package.json there; if/when infra/cloudflare gets its own lockfile,
+# it will be picked up automatically.
 
 name: osv-scanner
 
@@ -23,7 +28,7 @@ on:
 
 permissions:
   contents: read
-  security-events: write   # to upload SARIF on main pushes
+  security-events: write
   actions: read
 
 concurrency:
@@ -37,10 +42,8 @@ jobs:
     uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.5
     with:
       scan-args: |-
-        --recursive
+        -r
         --skip-git
-        --lockfile=./package-lock.json
-        --lockfile=./infra/cloudflare/package.json
         ./
 
   scan-main:
@@ -49,8 +52,6 @@ jobs:
     uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.5
     with:
       scan-args: |-
-        --recursive
+        -r
         --skip-git
-        --lockfile=./package-lock.json
-        --lockfile=./infra/cloudflare/package.json
         ./

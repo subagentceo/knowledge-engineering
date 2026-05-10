@@ -156,6 +156,7 @@ PR 4 merges.
 
 ```
 # Governance / no-HITL setup (one-time, after PR 4 merges):
+[ ] GitHub: Settings → General → Pull Requests → Allow auto-merge (repo-level toggle; required for auto-merge.yml to fire)
 [ ] GitHub: GITHUB_TOKEN=<pat> npm run setup:project          (milestones + Project v2 + link issues)
 [ ] GitHub: GITHUB_TOKEN=<pat> npm run setup:branch-protection (main ruleset; verify + osv-scanner required)
 [ ] GitHub: (optional) set vars.COPILOT_ENABLED=true if Copilot is enabled on the repo
