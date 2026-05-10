@@ -84,14 +84,16 @@ Re-generate with `npm run validate:gates`.
 | Gate | Required | Owner | Status |
 |---|---|---|---|
 | Phase 7 complete | yes | agent | depends on Phase 7 |
-| Install Neon's Claude/GitHub integration on `subagentceo/knowledge-engineering` | yes | **operator** | **pending** |
-| Neon → Cloudflare: sync `NEON_API_KEY` + `NEON_PROJECT_ID` Worker secrets | yes | **operator** | **pending** |
-| `wrangler secret put CLAUDE_CODE_OAUTH_TOKEN` | yes | **operator** | **pending** |
-| `wrangler secret put GITHUB_TOKEN` | yes | **operator** | **pending** |
+| Install Neon's Claude/GitHub integration on `subagentceo/knowledge-engineering` | yes | **operator** | **DONE** (project: divine-cloud-27295848) |
+| Neon → GitHub: `secrets.NEON_API_KEY` + `vars.NEON_PROJECT_ID` provisioned | yes | **operator** | **DONE** (set via Neon integration) |
+| `secrets.CLAUDE_CODE_OAUTH_TOKEN` set on the repo | yes | **operator** | **DONE** |
+| Neon → Cloudflare: sync `NEON_API_KEY` + `NEON_PROJECT_ID` to Worker secrets | yes | **operator** | **pending** |
+| `wrangler secret put CLAUDE_CODE_OAUTH_TOKEN` (on the Worker) | yes | **operator** | **pending** |
+| `wrangler secret put GITHUB_TOKEN` (on the Worker) | yes | **operator** | **pending** |
 | Verify `wrangler secret list` excludes `ANTHROPIC_API_KEY` | yes | **operator** | **pending** |
 | `wrangler deploy` succeeds | yes | agent | tbd |
 
-**Status: BLOCKED by Phase 7 AND by 5 pending operator actions.**
+**Status: BLOCKED by Phase 7. Operator-side: 3 of 7 actions DONE; 4 pending (all Cloudflare-Worker side).** GitHub Actions Neon integration is fully wired — neon-branch.yml will create branches per PR once this PR merges.
 
 ### Phase 9 — ODD rubric grader
 
@@ -158,14 +160,15 @@ PR 4 merges.
 # Governance / no-HITL setup (one-time, after PR 4 merges):
 [ ] GitHub: Settings → General → Pull Requests → Allow auto-merge (repo-level toggle; required for auto-merge.yml to fire)
 [ ] GitHub: Settings → Security → Code security → Code scanning → Enable (then flip `upload-sarif: true` in .github/workflows/osv-scanner.yml so findings land in the Security tab)
-[ ] GitHub: Settings → Secrets → Actions → add CLAUDE_CODE_OAUTH_TOKEN (used by .github/workflows/{claude,claude-code-review}.yml AND Phase 8 cloud-agent runner — one secret, two consumers)
+[x] GitHub: secrets.CLAUDE_CODE_OAUTH_TOKEN set (used by claude.yml + claude-code-review.yml + Phase 8 cloud-agent runner)
 [ ] GitHub: GITHUB_TOKEN=<pat> npm run setup:project          (milestones + Project v2 + link issues)
 [ ] GitHub: GITHUB_TOKEN=<pat> npm run setup:branch-protection (main ruleset; verify + osv-scanner required)
 [ ] GitHub: (optional) set vars.COPILOT_ENABLED=true if Copilot is enabled on the repo
 
 # Phase 8 (cloud-agent deploy):
-[ ] Neon Console: install Claude/GitHub integration on subagentceo/knowledge-engineering
-[ ] Neon: sync NEON_API_KEY + NEON_PROJECT_ID to Cloudflare Worker secrets AND to repo secrets (for neon-branch.yml)
+[x] Neon Console: install Claude/GitHub integration on subagentceo/knowledge-engineering — DONE (project: divine-cloud-27295848)
+[x] Neon → GitHub: secrets.NEON_API_KEY + vars.NEON_PROJECT_ID provisioned by the Neon integration wizard (powers neon-branch.yml)
+[ ] Neon → Cloudflare: sync NEON_API_KEY + NEON_PROJECT_ID to Cloudflare Worker secrets (Workers side, separate from GH secrets above; needed by infra/cloudflare/src/worker.ts)
 [ ] Cloudflare: set repo secrets CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID, repo var CLOUDFLARE_WORKER_NAME (for cloudflare-preview.yml)
 [ ] wrangler secret put CLAUDE_CODE_OAUTH_TOKEN
 [ ] wrangler secret put GITHUB_TOKEN
