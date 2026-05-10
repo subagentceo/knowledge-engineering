@@ -8,7 +8,7 @@
  */
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { fetchHtml, fetchText, jsonResult, normalizeSlug } from "../bridge-utils.js";
+import { fetchHtml, fetchText, jsonResult, mirrorOrFetch, normalizeSlug } from "../bridge-utils.js";
 
 const BASE = "https://www.claude.com";
 const INDEX_URL = `${BASE}/blog`;
@@ -48,13 +48,13 @@ export function registerClaudeBlog(server: McpServer): void {
 
   server.tool(
     "blog_fetch",
-    "Fetch a specific Claude blog post. Accepts a full https://www.claude.com/blog/<slug> URL or the slug alone.",
+    "Fetch a specific Claude blog post. Accepts a full https://www.claude.com/blog/<slug> URL or the slug alone. Mirror-first; falls back to live HTTP.",
     { target: z.string().min(1) },
     async ({ target }) => {
       const slug = normalizeSlug(target, `${BASE}/blog/`);
       const url = `${BASE}/blog/${slug}`;
-      const html = await fetchText(url);
-      return jsonResult({ source: url, slug, html });
+      const r = await mirrorOrFetch(url, fetchText);
+      return jsonResult({ source: r.source, vendor: r.vendor, url, slug, html: r.body });
     }
   );
 
