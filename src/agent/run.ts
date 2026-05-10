@@ -33,11 +33,12 @@ async function seed(name: string): Promise<string> {
 const auth = requireOAuth();
 
 // Concatenate the two orchestrator seeds: topology + planning discipline.
-const [topology, planningDiscipline, npmResearch, verifier] = await Promise.all([
+const [topology, planningDiscipline, npmResearch, verifier, crawlCurator] = await Promise.all([
   seed("system-orchestrator"),
   seed("orchestrator.system"),
   seed("subagent-npm-research"),
   seed("subagent-verifier"),
+  seed("subagent-crawl-curator"),
 ]);
 
 const systemPrompt = `${topology}\n\n---\n\n${planningDiscipline}`;
@@ -113,6 +114,21 @@ const result = query({
           "mcp__knowledge-bridge__llms_namespaces",
           "mcp__knowledge-bridge__llms_fetch",
           "mcp__knowledge-bridge__llms_grep",
+        ],
+      },
+      // Phase 10 — third sub-agent. Specialization per
+      // vendor/anthropics/platform.claude.com/docs/en/managed-agents/multi-agent.md.
+      // Owns the per-vendor crawl.json audit + drift detection on the
+      // local mirror. Restricted to the 3 vendor_* tools (not the full
+      // 16) so its blast radius stays small.
+      "crawl-curator": {
+        description:
+          "Per-vendor crawl.json auditor. Inspects vendor/<name>/urls.md + crawl.json against the upstream llms.txt; surfaces tune-crawl-json / recrawl / discover-llms-txt next_steps[]. Restricted to the 3 vendor_* tools.",
+        prompt: crawlCurator,
+        tools: [
+          "mcp__knowledge-bridge__vendor_list",
+          "mcp__knowledge-bridge__vendor_fetch",
+          "mcp__knowledge-bridge__vendor_grep",
         ],
       },
     },

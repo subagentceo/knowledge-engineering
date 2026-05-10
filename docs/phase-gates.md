@@ -113,7 +113,7 @@ Re-generate with `npm run validate:gates`.
 |---|---|---|---|
 | Phase 9 complete | yes | agent | depends on Phase 9 |
 
-**Status: BLOCKED by Phase 9.** No operator action.
+**Status: ✅ DONE 2026-05-10** — PR #29. crawl-curator sub-agent added; per-sub-agent allowlists kept until Phase 6.B codemode lands. Phase 11 unblocks (non-embeddings path).
 
 ### Phase 11 — Batched grading + optional embeddings
 
