@@ -34,7 +34,7 @@ Re-generate with `npm run validate:gates`.
 | Phase 1 complete | yes | agent | depends on Phase 1 |
 | Repo size budget (initial cap <500 MB) | warn-only | agent | tbd |
 
-**Status: READY** — Phase 1 done; Phase 2 unblocked. No operator action.
+**Status: ⚠️ Phase 2.A DONE 2026-05-10** — 8 of 12 vendors crawled & committed (~286 markdown files; vendor/ ~8.1MB). 4 deferred to Phase 2.B (brave-search, sentry, sift, twilio — see `rubrics/phase-2.md`). Phase 3 partially unblocks (lanes refactor can target the 8 working vendors).
 
 ### Phase 3 — Manifest loader + new vendor lane
 
