@@ -22,12 +22,15 @@
     "verify:planner": "tsx scripts/verify-planner.ts",
     "verify:citations": "tsx scripts/lib/citation-guard.ts",
     "verify:gates": "tsx scripts/validate-phase-gates.ts",
+    "verify:libs": "tsx scripts/lib/run-tests.ts",
     "verify:mcp": "tsx scripts/verify.ts && npm run verify:planner",
     "verify:tf": "terraform -chdir=infra/terraform validate && terraform -chdir=infra/terraform plan -lock=false -input=false",
-    "verify": "npm run verify:mcp && npm run verify:tf && npm run verify:citations && npm run verify:gates",
+    "verify": "npm run verify:mcp && npm run verify:tf && npm run verify:citations && npm run verify:gates && npm run verify:libs",
     "install:plugins": "tsx scripts/install-plugins.ts",
     "setup:project": "tsx scripts/setup-github-project.ts",
     "setup:branch-protection": "tsx scripts/setup-branch-protection.ts",
+    "crawl:vendors": "tsx scripts/crawl-vendors.ts",
+    "crawl:vendor": "tsx scripts/crawl-vendors.ts --vendor",
     "docs:dev": "mintlify dev",
     "lint": "tsc --noEmit"
   },
@@ -35,14 +38,18 @@
     "@anthropic-ai/claude-agent-sdk": "^0.2.0",
     "@anthropic-ai/sdk": "^0.95.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
+    "@crawlee/cheerio": "^3.0.0",
+    "turndown": "^7.0.0",
     "zod": "^4.0.0"
   },
   "overrides": {
-    "@anthropic-ai/sdk": "^0.95.0"
+    "@anthropic-ai/sdk": "^0.95.0",
+    "file-type": "^21.3.1"
   },
   "devDependencies": {
     "@modelcontextprotocol/inspector": "^0.21.0",
     "@types/node": "^22.7.0",
+    "@types/turndown": "^5.0.0",
     "tsx": "^4.21.0",
     "typescript": "^5.6.0"
   },
