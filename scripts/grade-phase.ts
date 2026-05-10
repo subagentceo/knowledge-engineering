@@ -138,28 +138,7 @@ async function gradeOne(client: Anthropic, criterion: Criterion, context: string
     };
   }
 
-  const prompt = `You are an outcome-driven-development grader.
-Cite: vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
-Per that doc, you grade against ONE criterion at a time, with no influence from
-the agent that produced the work.
-
-## Criterion ${criterion.index}: ${criterion.heading}
-
-${criterion.body}
-
-## Repository state (compact summary)
-${context}
-
-## Instructions
-Decide whether the criterion is satisfied based on the repository state above.
-
-Respond with EXACTLY this JSON shape (no prose around it):
-{
-  "verdict": "pass" | "fail" | "ambiguous",
-  "rationale": "<one or two sentences>"
-}
-
-Use "ambiguous" only when the repo state is insufficient to decide.`;
+  const prompt = buildPrompt(criterion, context);
 
   let iteration = 0;
   let lastErr: unknown = null;
@@ -203,16 +182,128 @@ Use "ambiguous" only when the repo state is insufficient to decide.`;
   };
 }
 
+function buildPrompt(criterion: Criterion, context: string): string {
+  return `You are an outcome-driven-development grader.
+Cite: vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
+Per that doc, you grade against ONE criterion at a time, with no influence from
+the agent that produced the work.
+
+## Criterion ${criterion.index}: ${criterion.heading}
+
+${criterion.body}
+
+## Repository state (compact summary)
+${context}
+
+## Instructions
+Decide whether the criterion is satisfied based on the repository state above.
+
+Respond with EXACTLY this JSON shape (no prose around it):
+{
+  "verdict": "pass" | "fail" | "ambiguous",
+  "rationale": "<one or two sentences>"
+}
+
+Use "ambiguous" only when the repo state is insufficient to decide.`;
+}
+
+interface BatchRequest {
+  custom_id: string;
+  params: {
+    model: string;
+    max_tokens: number;
+    messages: { role: "user"; content: string }[];
+  };
+}
+
+function listAllPhases(): number[] {
+  const dir = resolve(REPO_ROOT, "rubrics");
+  if (!existsSync(dir)) return [];
+  const re = /^phase-(\d+)\.md$/;
+  return readdirSync(dir)
+    .map((f) => f.match(re)?.[1])
+    .filter((s): s is string => s !== undefined)
+    .map((s) => parseInt(s, 10))
+    .sort((a, b) => a - b);
+}
+
 async function main(): Promise<void> {
   const args = process.argv.slice(2);
   const phaseArg = args.find((a) => /^phase-\d+$/.test(a));
   const dryRun = args.includes("--dry-run");
+  const all = args.includes("--all");
+  const batchPrepare = args.includes("--batch-prepare");
 
-  if (!phaseArg) {
-    console.error("usage: grade-phase phase-N [--dry-run]");
+  if (!phaseArg && !all) {
+    console.error("usage: grade-phase phase-N [--dry-run] [--batch-prepare]");
+    console.error("       grade-phase --all [--dry-run] [--batch-prepare]");
     process.exit(2);
   }
-  const phase = parseInt(phaseArg.slice(6), 10);
+
+  // --batch-prepare: build the Anthropic Batches API payload across all
+  // selected phases and write to /tmp/grade-batch.jsonl. The operator
+  // submits the batch; --batch-collect (Phase 11.B) will poll + parse.
+  if (batchPrepare) {
+    const phases = all ? listAllPhases() : [parseInt(phaseArg!.slice(6), 10)];
+    const context = repoStateContext();
+    const requests: BatchRequest[] = [];
+    for (const phase of phases) {
+      const path = resolve(REPO_ROOT, "rubrics", `phase-${phase}.md`);
+      if (!existsSync(path)) continue;
+      const body = readFileSync(path, "utf8");
+      const { criteria } = parseRubric(body);
+      for (const c of criteria) {
+        if (c.status === "DEFERRED") continue;
+        requests.push({
+          custom_id: `phase-${phase}_C${c.index}`,
+          params: {
+            model: MODEL,
+            max_tokens: MAX_TOKENS,
+            messages: [{ role: "user", content: buildPrompt(c, context) }],
+          },
+        });
+      }
+    }
+    const out = resolve(REPO_ROOT, "/tmp/grade-batch.jsonl");
+    const fs = await import("node:fs/promises");
+    await fs.writeFile(out, requests.map((r) => JSON.stringify(r)).join("\n") + "\n");
+    console.log(`grade-phase --batch-prepare: ${requests.length} requests written to ${out}`);
+    console.log(`Submit with: anthropic.messages.batches.create({requests: [...]})`);
+    console.log(`Per vendor/anthropics/platform.claude.com/docs/en/build-with-claude/batch-processing.md`);
+    console.log(`(50% pricing vs per-criterion live grading; up to 24h SLA.)`);
+    return;
+  }
+
+  // --all (no batch): grade phases sequentially via per-criterion live calls.
+  if (all) {
+    const phases = listAllPhases();
+    console.log(`grade --all: ${phases.length} phase(s)`);
+    let anyFail = false;
+    for (const p of phases) {
+      const path = resolve(REPO_ROOT, "rubrics", `phase-${p}.md`);
+      if (!existsSync(path)) continue;
+      const { title, criteria } = parseRubric(readFileSync(path, "utf8"));
+      console.log(`\n=== phase ${p} — ${title} (${criteria.length} criteria) ===`);
+      const context = repoStateContext();
+      if (dryRun) {
+        console.log(`  (dry run) would grade ${criteria.length} criteria`);
+        continue;
+      }
+      requireOAuth();
+      const client = new Anthropic({ authToken: process.env.CLAUDE_CODE_OAUTH_TOKEN });
+      for (const c of criteria) {
+        const v = await gradeOne(client, c, context);
+        const tag = v.verdict === "pass" ? "✓" : v.verdict === "fail" ? "✗" : v.verdict === "skipped" ? "·" : "?";
+        console.log(`  ${tag} C${v.index} | ${v.heading}: ${v.verdict}`);
+        if (v.verdict === "fail") anyFail = true;
+      }
+    }
+    if (anyFail) process.exit(1);
+    return;
+  }
+
+  // Single-phase live or dry-run grading (existing behavior).
+  const phase = parseInt(phaseArg!.slice(6), 10);
   const path = resolve(REPO_ROOT, "rubrics", `phase-${phase}.md`);
   if (!existsSync(path)) {
     console.error(`rubric not found: ${path}`);

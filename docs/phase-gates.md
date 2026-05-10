@@ -125,7 +125,7 @@ Re-generate with `npm run validate:gates`.
 | **Voyage AI API key** (or alternative embeddings provider) | for embeddings flag | **operator** | **pending** |
 | Batched-grading-only path works without Turbopuffer/Voyage | yes | agent | tbd |
 
-**Status: BLOCKED by Phase 10.** Embeddings flag adds 2 operator actions; the non-embeddings path needs none.
+**Status: ⚠️ Phase 11.A DONE 2026-05-10** — PR #30 (grade --all + --batch-prepare). Phase 11.B (live batch submit/collect) deferred. Phase 11.C (embeddings) operator-gated. Phase 12 still deferred operator-decision.
 
 ### Phase 12 — Bridge as a Connector (long-arc)
 
