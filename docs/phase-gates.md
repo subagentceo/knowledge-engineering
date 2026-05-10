@@ -25,7 +25,7 @@ Re-generate with `npm run validate:gates`.
 | Local Node 20+ runtime | yes | dev machine | ready |
 | Network egress to vendor llms.txt URLs | yes | dev machine | ready |
 
-**Status: READY** — Phase 1 can start immediately. No operator action.
+**Status: ✅ DONE 2026-05-10** — PRs #19, #20, #21. Issue #5 closed. All 4 rubric criteria green. `npm run verify` clean; `tools/list` still 12.
 
 ### Phase 2 — Crawl all 12 + commit
 
@@ -34,7 +34,7 @@ Re-generate with `npm run validate:gates`.
 | Phase 1 complete | yes | agent | depends on Phase 1 |
 | Repo size budget (initial cap <500 MB) | warn-only | agent | tbd |
 
-**Status: BLOCKED by Phase 1.** No operator action.
+**Status: READY** — Phase 1 done; Phase 2 unblocked. No operator action.
 
 ### Phase 3 — Manifest loader + new vendor lane
 
