@@ -71,10 +71,24 @@ prompt-injection warning in `seeds/citations/memory.md`.
    PR comment or in `open-questions.md` and pick the next action.
 4. **Execute.** Decompose the action into todos, run the work,
    commit per-todo per the operator discipline.
-5. **Record.** Append a one-line entry to `decisions.md` and update
+5. **Open PR with auto-merge.** When the work is ready, open a PR via
+   `mcp__github__create_pull_request`. Label it `automerge` (see
+   `.github/workflows/auto-merge.yml`). Required CI workflows
+   (`verify.yml`, `osv-scanner.yml`) gate the merge — operator does
+   NOT review. Subscribe to PR activity via
+   `mcp__github__subscribe_pr_activity` so failures wake the next
+   session.
+6. **Watch CI.** PR-activity events arrive as
+   `<github-webhook-activity>` messages in subsequent sessions. The
+   heartbeat reads each event, classifies the failure (see the table
+   in `docs/governance.md`), and either (a) pushes a fix, (b) posts a
+   question to the PR for the operator tiebreaker, or (c) skips
+   silently if no action is needed. Retry cap: 3 fix loops per PR.
+7. **Record.** Append a one-line entry to `decisions.md` and update
    `last-tick.md` with the final git SHA + ISO timestamp. Commit.
-6. **Yield.** Exit the session. The next heartbeat (next `/loop` tick
-   or next session) resumes from the new `last-tick.md`.
+8. **Yield.** Exit the session. The next heartbeat (next `/loop` tick
+   or next session, or the next webhook event) resumes from the new
+   `last-tick.md`.
 
 # Cross-session resumption
 
@@ -117,15 +131,33 @@ Phase 11 layers Turbopuffer on top: pre-embed all memory entries via
 Voyage AI, store vectors in Turbopuffer, query semantically when the
 heartbeat asks "what do I remember about X?".
 
+# CI-failure dispatch classifier
+
+Per `docs/governance.md`:
+
+| Failure signal in webhook event | Classifier verdict | Action |
+|---|---|---|
+| `verify.yml` exit ≠ 0 with `error TS` lines | typecheck | spawn type-fixer sub-agent against the offending file |
+| `verify.yml` exit ≠ 0 with `verify:citations` block | citations | spawn @cite-fixer sub-agent against the test file lacking a header |
+| `verify.yml` exit ≠ 0 with `verify:gates` block | gates drift | spawn gates-syncer against `docs/phase-gates.md` vs rubrics |
+| `verify.yml` exit ≠ 0 in MCP smoke | tool-list mismatch | check `scripts/verify.ts` `expected: N` vs the lane source |
+| `osv-scanner.yml` SARIF with high-severity | dep CVE | spawn dep-bumper sub-agent; bump the vulnerable package; verify |
+| `neon-branch.yml` / `cloudflare-preview.yml` ::warning::missing secret | operator gate | post a comment summarizing the missing secret; do NOT push |
+| Anything ambiguous / >3 retries | escalate | post a question to the PR for the operator |
+
+After each dispatch the heartbeat records the classifier verdict and
+the sub-agent's outcome in `seeds/memory/heartbeat/decisions.md`.
+
 # Boris Cherny lead orchestration pattern
 
 The heartbeat skill is the operator-side embodiment of the publicly-
 documented Anthropic pattern (Boris Cherny) where a sufficiently
 scaffolded agent system writes 100% of the codebase. The lead
 orchestrator (this skill) drives sub-agents (Phase 10's
-`npm-research` / `verifier` / `crawl-curator`) per rubric, opens PRs,
-listens for review feedback (subscribed via PR-activity events in
-Phase 4 plugin install), and continues across sessions.
+`npm-research` / `verifier` / `crawl-curator`) per rubric, opens PRs
+with auto-merge enabled, listens for CI events, dispatches fixers on
+failure, and continues across sessions. Operator becomes a
+tiebreaker, not a reviewer (see `docs/governance.md`).
 
 # Examples
 

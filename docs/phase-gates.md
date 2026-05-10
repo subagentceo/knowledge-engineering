@@ -155,13 +155,39 @@ PR 4 merges.
 ## Operator action checklist (pasteable)
 
 ```
+# Governance / no-HITL setup (one-time, after PR 4 merges):
+[ ] GitHub: GITHUB_TOKEN=<pat> npm run setup:project          (milestones + Project v2 + link issues)
+[ ] GitHub: GITHUB_TOKEN=<pat> npm run setup:branch-protection (main ruleset; verify + osv-scanner required)
+[ ] GitHub: (optional) set vars.COPILOT_ENABLED=true if Copilot is enabled on the repo
+
+# Phase 8 (cloud-agent deploy):
 [ ] Neon Console: install Claude/GitHub integration on subagentceo/knowledge-engineering
-[ ] Neon: sync NEON_API_KEY + NEON_PROJECT_ID to Cloudflare Worker secrets
+[ ] Neon: sync NEON_API_KEY + NEON_PROJECT_ID to Cloudflare Worker secrets AND to repo secrets (for neon-branch.yml)
+[ ] Cloudflare: set repo secrets CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID, repo var CLOUDFLARE_WORKER_NAME (for cloudflare-preview.yml)
 [ ] wrangler secret put CLAUDE_CODE_OAUTH_TOKEN
 [ ] wrangler secret put GITHUB_TOKEN
 [ ] wrangler secret list  → verify no ANTHROPIC_API_KEY
-[ ] Turbopuffer: provision workspace + API token (when ready for Phase 11)
-[ ] Voyage AI: sign up + provision VOYAGE_API_KEY (when ready for Phase 11)
-[ ] GitHub: run `npm run setup:project` after `GITHUB_TOKEN` is in env, to create the GitHub Project + milestones for phases 1-12 (PR 4 creates issues with phase labels as a milestone proxy until then)
+
+# Phase 11 (optional embeddings flag only):
+[ ] Turbopuffer: provision workspace + API token
+[ ] Voyage AI: sign up + provision VOYAGE_API_KEY
+
+# Phase 12:
 [ ] GitHub: decide whether Phase 12 (bridge-as-Connector) ships publicly
 ```
+
+## Governance gates (PR 4)
+
+| Gate | Required | Owner | Status |
+|---|---|---|---|
+| `.github/workflows/verify.yml` runs `npm run verify` on every PR | yes | **PR 4 — done** | ready |
+| `.github/workflows/osv-scanner.yml` scans the lockfile on every PR + weekly | yes | **PR 4 — done** | ready |
+| `.github/workflows/auto-merge.yml` enables `gh pr merge --auto --squash` on `automerge`-labeled PRs | yes | **PR 4 — done** | ready |
+| Branch ruleset on `main` (verify + osv-scanner required; 0 reviewers; no direct push) | yes | **operator** runs `scripts/setup-branch-protection.ts` | **pending** |
+| Heartbeat skill dispatches sub-agents on CI failure | yes | **PR 4 — done** (see `.claude/skills/heartbeat.md`) | ready |
+| Repo var `COPILOT_ENABLED` set if Copilot is licensed | optional | operator | pending |
+
+When the branch ruleset is in place AND `setup:project` has run, the
+no-HITL loop is operational: the heartbeat opens a PR per phase issue,
+required checks gate the merge, auto-merge fires on green, the
+heartbeat handles failure events.

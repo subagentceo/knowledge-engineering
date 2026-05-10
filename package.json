@@ -27,6 +27,7 @@
     "verify": "npm run verify:mcp && npm run verify:tf && npm run verify:citations && npm run verify:gates",
     "install:plugins": "tsx scripts/install-plugins.ts",
     "setup:project": "tsx scripts/setup-github-project.ts",
+    "setup:branch-protection": "tsx scripts/setup-branch-protection.ts",
     "docs:dev": "mintlify dev",
     "lint": "tsc --noEmit"
   },
