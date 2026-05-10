@@ -55,6 +55,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build (dist/ for verify:mcp)
+        run: npm run build
+
+      - name: Terraform init (no backend; verify:tf only validates + plans)
+        working-directory: infra/terraform
+        run: terraform init -backend=false -input=false
+
       - name: Lint
         run: npm run lint
 
@@ -62,6 +69,8 @@ jobs:
         run: npm run verify
         env:
           # No ANTHROPIC_API_KEY. The OAuth gate asserts its absence.
+          # verify:mcp does NOT require a CLAUDE_CODE_OAUTH_TOKEN — it just
+          # spawns the MCP servers and asserts tools/list shape over stdio.
           ANTHROPIC_API_KEY: ""
 
       - name: Env-sanitize test (cloud-agent runner)

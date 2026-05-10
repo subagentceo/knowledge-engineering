@@ -34,7 +34,7 @@ jobs:
   scan-pr:
     if: github.event_name == 'pull_request'
     name: OSV-Scanner (PR)
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.0.0
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.5
     with:
       scan-args: |-
         --recursive
@@ -46,7 +46,7 @@ jobs:
   scan-main:
     if: github.event_name != 'pull_request'
     name: OSV-Scanner (push / schedule)
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.0.0
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.5
     with:
       scan-args: |-
         --recursive
