@@ -105,7 +105,7 @@ Re-generate with `npm run validate:gates`.
 | Phase 8 complete | yes | agent | depends on Phase 8 |
 | Messages API over OAuth (no API key) | yes | existing | ready |
 
-**Status: BLOCKED by Phase 8.** No new operator action.
+**Status: ✅ DONE 2026-05-10** — PR #28. `scripts/grade-phase.ts` ships; dry-run validated on phases 0/1/3/6. Live grading (Messages API + OAuth) is operator-runnable; CI runs --dry-run only. Phase 10 unblocks (no operator gate).
 
 ### Phase 10 — Multi-agent decomposition refinement
 
