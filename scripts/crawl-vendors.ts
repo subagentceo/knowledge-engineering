@@ -32,6 +32,15 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import TurndownService from "turndown";
 
+import {
+  conditionalFetch,
+  hashBody,
+  isUnchanged,
+  loadChecksums,
+  saveChecksums,
+  type ChecksumEntry,
+  type ChecksumMap,
+} from "./lib/checksums.js";
 import { parseLlmsTxt, type LlmsTxt } from "./lib/llms-txt.js";
 import {
   TRANSFORMS,
@@ -63,6 +72,14 @@ interface CrawlConfig {
   page_cap: number;
   /** Optional turndown options for `html-extract`. */
   html_extract?: { selector?: string };
+  /**
+   * Phase 13.A. When true (default), the crawler does an RFC 7232
+   * conditional-GET pre-flight per URL using the stored ETag /
+   * Last-Modified in `.checksums.json`, and skips re-fetching anything
+   * the server reports as 304 Not Modified. Set to false to force a
+   * full re-fetch of every URL.
+   */
+  incremental?: boolean;
 }
 
 interface CrawlResult {
@@ -70,6 +87,9 @@ interface CrawlResult {
   llms_txt_url: string;
   pagesFetched: number;
   pagesSkipped: number;
+  pagesUnchanged: number;
+  preflight304: number;
+  preflight200: number;
   failures: { url: string; reason: string }[];
 }
 
@@ -213,7 +233,16 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   const llms = await discoverLlmsTxt(cfg);
   if (llms === null) {
     console.error(`[${vendor}] no valid llms.txt found in ${cfg.llms_txt_candidates.length} candidate(s)`);
-    return { vendor, llms_txt_url: "", pagesFetched: 0, pagesSkipped: 0, failures: [{ url: "<llms.txt discovery>", reason: "no valid candidate" }] };
+    return {
+      vendor,
+      llms_txt_url: "",
+      pagesFetched: 0,
+      pagesSkipped: 0,
+      pagesUnchanged: 0,
+      preflight304: 0,
+      preflight200: 0,
+      failures: [{ url: "<llms.txt discovery>", reason: "no valid candidate" }],
+    };
   }
   console.log(`[${vendor}] llms.txt (primary): ${llms.url}`);
 
@@ -264,11 +293,29 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   console.log(`[${vendor}] ${urls.length} link(s) across all sources; ${allowed.length} after allowlist + page_cap`);
 
   if (allowed.length === 0) {
-    return { vendor, llms_txt_url: llms.url, pagesFetched: 0, pagesSkipped: urls.length, failures: [] };
+    return {
+      vendor,
+      llms_txt_url: llms.url,
+      pagesFetched: 0,
+      pagesSkipped: urls.length,
+      pagesUnchanged: 0,
+      preflight304: 0,
+      preflight200: 0,
+      failures: [],
+    };
   }
 
   if (dryRun) {
-    return { vendor, llms_txt_url: llms.url, pagesFetched: 0, pagesSkipped: allowed.length, failures: [] };
+    return {
+      vendor,
+      llms_txt_url: llms.url,
+      pagesFetched: 0,
+      pagesSkipped: allowed.length,
+      pagesUnchanged: 0,
+      preflight304: 0,
+      preflight200: 0,
+      failures: [],
+    };
   }
 
   let fetched = 0;
@@ -281,6 +328,115 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
     const t = makeTransform(cfg.transform, origUrl, cfg);
     return { origUrl, fetchUrl: t.fetchUrl, transform: t };
   });
+
+  // ── Phase 13.A: incremental pre-flight ────────────────────────────
+  // Issue conditional GETs with the stored ETag / Last-Modified. URLs
+  // that return 304 Not Modified are recorded as `unchanged` and
+  // removed from the crawlee queue so the bandwidth cost on a clean
+  // re-crawl is zero.
+  const incremental = cfg.incremental ?? true;
+  const checksums: ChecksumMap = incremental ? loadChecksums(VENDOR_ROOT, vendor) : {};
+  const nowIso = new Date().toISOString();
+  let preflight304 = 0;
+  let preflight200 = 0;
+  let preflightUnchanged = 0;
+  const work2: typeof work = [];
+
+  if (incremental) {
+    console.log(`[${vendor}] preflight: ${work.length} URL(s), ${Object.keys(checksums).length} prior checksum(s)`);
+    // Small concurrency to keep latency reasonable without hammering CDNs.
+    const concurrency = 8;
+    let cursor = 0;
+    const realWorkers = Array.from({ length: concurrency }, async () => {
+      while (true) {
+        const i = cursor++;
+        if (i >= work.length) return;
+        const w = work[i];
+        const prior = checksums[w.origUrl];
+        try {
+          const res = await conditionalFetch(w.fetchUrl, prior, w.transform.headers ?? {});
+          if (res.status === 304) {
+            preflight304 += 1;
+            if (prior) {
+              checksums[w.origUrl] = { ...prior, fetchedAt: nowIso, lastStatus: 304 };
+            }
+            // Restore the index row so urls.md still lists this URL.
+            const { relPath } = urlToPath(w.origUrl, { vendor });
+            indexRows.push({ url: w.origUrl, relPath });
+            continue;
+          }
+          if (res.status === 200 && res.body !== null) {
+            preflight200 += 1;
+            if (!w.transform.validateBody(res.contentType, res.body)) {
+              failures.push({ url: w.origUrl, reason: `validateBody rejected (ct=${res.contentType ?? "?"})` });
+              continue;
+            }
+            const finalBody = w.transform.postProcess ? w.transform.postProcess(res.body) : res.body;
+            // Content-hash dedup: if the server didn't emit
+            // ETag/Last-Modified but the body is byte-identical to the
+            // last successful fetch, skip the disk write to preserve
+            // mtime and keep `git status` clean.
+            if (isUnchanged(prior, finalBody)) {
+              preflightUnchanged += 1;
+              const sha = prior!.sha256;
+              checksums[w.origUrl] = {
+                sha256: sha,
+                etag: res.etag ?? prior!.etag,
+                lastModified: res.lastModified ?? prior!.lastModified,
+                fetchedAt: nowIso,
+                lastStatus: 200,
+              };
+              const { relPath } = urlToPath(w.origUrl, { vendor });
+              indexRows.push({ url: w.origUrl, relPath });
+              continue;
+            }
+            const { segments, relPath } = urlToPath(w.origUrl, { vendor });
+            const target = resolve(VENDOR_ROOT, vendor, ...segments);
+            const result = writeIfChanged(target, finalBody);
+            if (result === "wrote") fetched += 1;
+            else skipped += 1;
+            checksums[w.origUrl] = {
+              sha256: hashBody(finalBody),
+              etag: res.etag ?? undefined,
+              lastModified: res.lastModified ?? undefined,
+              fetchedAt: nowIso,
+              lastStatus: 200,
+            };
+            indexRows.push({ url: w.origUrl, relPath });
+            continue;
+          }
+          // Non-200/304 status — record failure.
+          failures.push({ url: w.origUrl, reason: `HTTP ${res.status}` });
+        } catch (err) {
+          // Network errors fall through to the crawlee pass, which has
+          // built-in retries.
+          work2.push(w);
+        }
+      }
+    });
+    await Promise.all(realWorkers);
+    console.log(`[${vendor}] preflight done: 304=${preflight304} 200=${preflight200} unchanged-body=${preflightUnchanged} fallback-to-crawlee=${work2.length}`);
+  } else {
+    work2.push(...work);
+  }
+
+  // If pre-flight covered everything, skip crawlee entirely.
+  if (work2.length === 0) {
+    if (incremental) saveChecksums(VENDOR_ROOT, vendor, checksums);
+    const front = renderUrlsIndex(vendor, llms.url, cfg.transform, indexRows);
+    writeIfChanged(resolve(VENDOR_ROOT, vendor, "urls.md"), front);
+    console.log(`[${vendor}] fetched=${fetched} unchanged=${skipped + preflightUnchanged} preflight-304=${preflight304} failed=${failures.length}`);
+    return {
+      vendor,
+      llms_txt_url: llms.url,
+      pagesFetched: fetched,
+      pagesSkipped: skipped,
+      pagesUnchanged: preflightUnchanged,
+      preflight304,
+      preflight200,
+      failures,
+    };
+  }
 
   const config = new Configuration({ persistStorage: false, persistStateIntervalMillis: 0, storageClientOptions: { storageDir: STORAGE_DIR } });
   const crawler = new CheerioCrawler(
@@ -297,6 +453,10 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
         if (!item) return;
         const ct = ctx.response?.headers["content-type"];
         const ctStr = Array.isArray(ct) ? ct[0] : ct ?? null;
+        const etag = ctx.response?.headers["etag"];
+        const etagStr = Array.isArray(etag) ? etag[0] : etag ?? null;
+        const lm = ctx.response?.headers["last-modified"];
+        const lmStr = Array.isArray(lm) ? lm[0] : lm ?? null;
         const body = (ctx.body as Buffer | string).toString();
         if (!item.transform.validateBody(ctStr ?? null, body)) {
           failures.push({ url: meta.origUrl, reason: `validateBody rejected (ct=${ctStr ?? "?"})` });
@@ -309,6 +469,15 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
         if (result === "wrote") fetched += 1;
         else skipped += 1;
         indexRows.push({ url: meta.origUrl, relPath });
+        if (incremental) {
+          checksums[meta.origUrl] = {
+            sha256: hashBody(finalBody),
+            etag: etagStr ?? undefined,
+            lastModified: lmStr ?? undefined,
+            fetchedAt: nowIso,
+            lastStatus: 200,
+          };
+        }
       },
       failedRequestHandler: ({ request, error }) => {
         failures.push({ url: (request.userData as { origUrl: string }).origUrl, reason: (error as Error).message });
@@ -318,7 +487,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   );
 
   await crawler.addRequests(
-    work.map((w) => ({
+    work2.map((w) => ({
       url: w.fetchUrl,
       headers: w.transform.headers,
       userData: { origUrl: w.origUrl, transformName: cfg.transform },
@@ -326,14 +495,38 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   );
   await crawler.run();
 
+  if (incremental) saveChecksums(VENDOR_ROOT, vendor, checksums);
+
   // Emit urls.md index.
-  const front = [
+  const front = renderUrlsIndex(vendor, llms.url, cfg.transform, indexRows);
+  writeIfChanged(resolve(VENDOR_ROOT, vendor, "urls.md"), front);
+
+  console.log(`[${vendor}] fetched=${fetched} unchanged=${skipped + preflightUnchanged} preflight-304=${preflight304} failed=${failures.length}`);
+  return {
+    vendor,
+    llms_txt_url: llms.url,
+    pagesFetched: fetched,
+    pagesSkipped: skipped,
+    pagesUnchanged: preflightUnchanged,
+    preflight304,
+    preflight200,
+    failures,
+  };
+}
+
+function renderUrlsIndex(
+  vendor: string,
+  llmsUrl: string,
+  transform: TransformName,
+  indexRows: { url: string; relPath: string }[],
+): string {
+  return [
     `---`,
     `vendor: ${vendor}`,
-    `llms_txt: ${llms.url}`,
+    `llms_txt: ${llmsUrl}`,
     `last_crawled: ${new Date().toISOString()}`,
     `count: ${indexRows.length}`,
-    `transform: ${cfg.transform}`,
+    `transform: ${transform}`,
     `---`,
     "",
     `# ${vendor} URL index`,
@@ -345,10 +538,6 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
       .map((r) => `| ${r.url} | \`vendor/${vendor}/${r.relPath}\` |`),
     "",
   ].join("\n");
-  writeIfChanged(resolve(VENDOR_ROOT, vendor, "urls.md"), front);
-
-  console.log(`[${vendor}] fetched=${fetched} unchanged=${skipped} failed=${failures.length}`);
-  return { vendor, llms_txt_url: llms.url, pagesFetched: fetched, pagesSkipped: skipped, failures };
 }
 
 // ──────────────────────────────────────────────────────────────────────
@@ -389,13 +578,24 @@ async function main(): Promise<void> {
       results.push(await crawlVendor(v, dryRun));
     } catch (err) {
       console.error(`[${v}] FAILED:`, err);
-      results.push({ vendor: v, llms_txt_url: "", pagesFetched: 0, pagesSkipped: 0, failures: [{ url: "<crawl>", reason: (err as Error).message }] });
+      results.push({
+        vendor: v,
+        llms_txt_url: "",
+        pagesFetched: 0,
+        pagesSkipped: 0,
+        pagesUnchanged: 0,
+        preflight304: 0,
+        preflight200: 0,
+        failures: [{ url: "<crawl>", reason: (err as Error).message }],
+      });
     }
   }
   console.log("\n=== summary ===");
   for (const r of results) {
     const status = r.failures.length === 0 ? "ok" : "FAIL";
-    console.log(`  ${r.vendor.padEnd(20)} ${status.padEnd(5)} fetched=${r.pagesFetched} unchanged=${r.pagesSkipped} failed=${r.failures.length}`);
+    console.log(
+      `  ${r.vendor.padEnd(20)} ${status.padEnd(5)} fetched=${r.pagesFetched} unchanged=${r.pagesSkipped + r.pagesUnchanged} preflight-304=${r.preflight304} failed=${r.failures.length}`,
+    );
   }
   const anyFail = results.some((r) => r.failures.length > 0);
   process.exit(anyFail ? 1 : 0);
