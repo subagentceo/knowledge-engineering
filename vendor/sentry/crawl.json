@@ -10,7 +10,7 @@
     "https://docs.sentry.io/"
   ],
   "deny_prefixes": [
-    "https://docs.sentry.io/changelog/"
+    "__DEFER_TO_PHASE_2B__"
   ],
-  "page_cap": 200
+  "page_cap": 0
 }

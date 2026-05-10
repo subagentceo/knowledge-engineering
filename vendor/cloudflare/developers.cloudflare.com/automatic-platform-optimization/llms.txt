@@ -1,0 +1,38 @@
+# Automatic Platform Optimization
+
+Improve WordPress site performance by serving it from Cloudflare's global network
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/automatic-platform-optimization/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Automatic Platform Optimization llms-full.txt](https://developers.cloudflare.com/automatic-platform-optimization/llms-full.txt) for the complete Automatic Platform Optimization documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Automatic Platform Optimization](https://developers.cloudflare.com/automatic-platform-optimization/index.md): Cache and serve your entire WordPress site from the Cloudflare edge network.
+
+## About
+
+- [About](https://developers.cloudflare.com/automatic-platform-optimization/about/index.md): How APO caches dynamic WordPress content at the Cloudflare edge.
+- [Plugin compatibility](https://developers.cloudflare.com/automatic-platform-optimization/about/plugin-compatibility/index.md): WordPress plugins supported and known to conflict with APO.
+- [Test current speed](https://developers.cloudflare.com/automatic-platform-optimization/about/test-current-speed/index.md): Benchmark your site speed before enabling APO with GTmetrix.
+
+## Troubleshooting
+
+- [Troubleshooting](https://developers.cloudflare.com/automatic-platform-optimization/troubleshooting/index.md): Resolve common APO issues including plugin detection and stale content.
+- [FAQs](https://developers.cloudflare.com/automatic-platform-optimization/troubleshooting/faq/index.md): Answers to common questions about APO caching, Page Rules, and WordPress integration.
+
+## get-started
+
+- [Activate the Cloudflare WordPress plugin](https://developers.cloudflare.com/automatic-platform-optimization/get-started/activate-cf-wp-plugin/index.md): The easiest way to begin using APO is directly from Cloudflare's WordPress plugin. Before you can use APO, you must first install and activate the plugin and then activate APO.
+- [Change nameservers](https://developers.cloudflare.com/automatic-platform-optimization/get-started/change-nameservers/index.md): Update your domain nameservers to Cloudflare for APO to work.
+- [Confirm DNS records](https://developers.cloudflare.com/automatic-platform-optimization/get-started/confirm-dns-records/index.md): Verify your DNS records are correct before enabling APO.
+- [Verify APO works](https://developers.cloudflare.com/automatic-platform-optimization/get-started/verify-apo-works/index.md): When APO is working, three headers are present:  CF-Cache-Status, cf-apo-via,cf-edge-cache. APO works correctly when the headers exactly match the headers below.
+
+## reference
+
+- [Cache by device type](https://developers.cloudflare.com/automatic-platform-optimization/reference/cache-device-type/index.md): Serve different cached content to mobile, tablet, and desktop visitors.
+- [Page Rule integration with APO](https://developers.cloudflare.com/automatic-platform-optimization/reference/page-rule-integration/index.md): Page Rules that control APO caching behavior for specific URL patterns.
+- [Query parameters and cached responses](https://developers.cloudflare.com/automatic-platform-optimization/reference/query-parameters/index.md): How APO handles query parameters, UTMs, and cookies in cached responses.
+- [Subdomains and subdirectories](https://developers.cloudflare.com/automatic-platform-optimization/reference/subdomain-subdirectories/index.md): Run APO on WordPress subdomains and subdirectory installations.

@@ -1,0 +1,29 @@
+# DMARC Management
+
+Protect your email domain and stop brand impersonation
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/dmarc-management/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [DMARC Management llms-full.txt](https://developers.cloudflare.com/dmarc-management/llms-full.txt) for the complete DMARC Management documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare DMARC Management](https://developers.cloudflare.com/dmarc-management/index.md): Stop brand impersonation.
+
+## Enable DMARC Management
+
+- [Enable DMARC Management](https://developers.cloudflare.com/dmarc-management/enable/index.md): Allow Cloudflare to process DMARC reports for your apex domain.
+
+## Security records
+
+- [Security records](https://developers.cloudflare.com/dmarc-management/security-records/index.md): Learn how to configure SPF records, DKIM records, and DMARC records in your Cloudflare account to help improve email security.
+
+## DNS lookup limit
+
+- [DNS lookup limit](https://developers.cloudflare.com/dmarc-management/dns-lookup-limits/index.md): Review number of DNS lookups on your SPF records
+
+## Statistics and details
+
+- [Statistics and details](https://developers.cloudflare.com/dmarc-management/statistics/index.md): Review whether emails sent on your behalf passed DMARC, SPF, and DKIM checks.

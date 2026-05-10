@@ -1,0 +1,47 @@
+# Spectrum
+
+Secure and accelerate any TCP or UDP-based application
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/spectrum/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Spectrum llms-full.txt](https://developers.cloudflare.com/spectrum/llms-full.txt) for the complete Spectrum documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Spectrum](https://developers.cloudflare.com/spectrum/index.md): Proxy and protect TCP and UDP applications with Cloudflare Spectrum.
+
+## Protocols per plan
+
+- [Protocols per plan](https://developers.cloudflare.com/spectrum/protocols-per-plan/index.md): Supported protocols for Spectrum applications by Cloudflare plan.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/spectrum/get-started/index.md): Create a Spectrum application to proxy TCP or UDP traffic through Cloudflare.
+
+## Glossary
+
+- [Glossary](https://developers.cloudflare.com/spectrum/glossary/index.md): Definitions for terms used across Cloudflare Spectrum documentation.
+
+## about
+
+- [BYOIP](https://developers.cloudflare.com/spectrum/about/byoip/index.md): Use your own IP addresses with Spectrum applications.
+- [DDoS Protection for Spectrum](https://developers.cloudflare.com/spectrum/about/ddos-for-spectrum/index.md): Layer 3 and 4 DDoS protection for TCP and UDP Spectrum applications.
+- [FTP](https://developers.cloudflare.com/spectrum/about/ftp/index.md): Enable Spectrum for FTP services and understand protocol limitations.
+- [Cloudflare Load Balancing](https://developers.cloudflare.com/spectrum/about/load-balancer/index.md): Add TCP health checks, failover, and traffic steering to Spectrum applications.
+- [Static IP](https://developers.cloudflare.com/spectrum/about/static-ip/index.md): Assign persistent IP addresses to your Spectrum applications.
+
+## how-to
+
+- [Enable Proxy protocol](https://developers.cloudflare.com/spectrum/how-to/enable-proxy-protocol/index.md): Pass client IP information to your origin using Proxy protocol v1 or Simple Proxy Protocol.
+
+## reference
+
+- [Analytics](https://developers.cloudflare.com/spectrum/reference/analytics/index.md): Metrics tracked for every Spectrum connection, including bytes and connection duration.
+- [Configuration options](https://developers.cloudflare.com/spectrum/reference/configuration-options/index.md): Configurable options for Spectrum applications, including edge and origin ports and protocols.
+- [Why Spectrum-enabled hostnames might appear in Layer 7 Analytics](https://developers.cloudflare.com/spectrum/reference/layer-7-analytics/index.md): How Spectrum Layer 4 traffic can appear in Layer 7 analytics dashboards.
+- [Limitations](https://developers.cloudflare.com/spectrum/reference/limitations/index.md): Protocol-specific limitations for Spectrum applications.
+- [Event logs](https://developers.cloudflare.com/spectrum/reference/logs/index.md): Access Spectrum connection lifecycle logs through Logpush.
+- [Settings by plan](https://developers.cloudflare.com/spectrum/reference/settings-by-plan/index.md): Spectrum API fields and settings available by Cloudflare plan.
+- [Simple Proxy Protocol Header](https://developers.cloudflare.com/spectrum/reference/simple-proxy-protocol-header/index.md): Format of the Simple Proxy Protocol header prepended to UDP datagrams.

@@ -1,0 +1,37 @@
+# Notifications
+
+Define what you want to be notified about and how
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/notifications/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Notifications llms-full.txt](https://developers.cloudflare.com/notifications/llms-full.txt) for the complete Notifications documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Notifications](https://developers.cloudflare.com/notifications/index.md): Configure alerts for your Cloudflare account.
+
+## Configure Cloudflare Notifications
+
+- [Configure Cloudflare Notifications](https://developers.cloudflare.com/notifications/get-started/index.md): Set up notifications via email, webhooks, or PagerDuty.
+- [Configure PagerDuty](https://developers.cloudflare.com/notifications/get-started/configure-pagerduty/index.md): Route Cloudflare notifications to PagerDuty.
+- [Configure webhooks](https://developers.cloudflare.com/notifications/get-started/configure-webhooks/index.md): Send notifications to webhook endpoints.
+
+## Available Notifications
+
+- [Available Notifications](https://developers.cloudflare.com/notifications/notification-available/index.md): Browse available notification types by product.
+
+## Notification History
+
+- [Notification History](https://developers.cloudflare.com/notifications/notification-history/index.md): View a log of sent notifications.
+
+## API reference
+
+- [API reference](https://developers.cloudflare.com/api/resources/alerting/subresources/available_alerts/methods/list/index.md): Access the API reference documentation.
+
+## reference
+
+- [Common errors](https://developers.cloudflare.com/notifications/reference/common-errors/index.md): Troubleshoot common notification configuration errors.
+- [HTTP Traffic Alerts](https://developers.cloudflare.com/notifications/reference/traffic-alerts/index.md): Monitor origin and edge HTTP error rates.
+- [Webhook payload schema](https://developers.cloudflare.com/notifications/reference/webhook-payload-schema/index.md): Review the JSON payload structure for webhooks.

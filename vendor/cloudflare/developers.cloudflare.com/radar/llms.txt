@@ -1,0 +1,56 @@
+# Radar
+
+Investigate Internet usage around the world using Cloudflare's data
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/radar/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Radar llms-full.txt](https://developers.cloudflare.com/radar/llms-full.txt) for the complete Radar documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Radar](https://developers.cloudflare.com/radar/index.md): Access Cloudflare's data on global Internet traffic, attacks, and technology trends through the Radar dashboard and API.
+
+## Glossary
+
+- [Glossary](https://developers.cloudflare.com/radar/glossary/index.md): Definitions of key terms and concepts used across Cloudflare Radar, including traffic types, attack categories, and ranking methodologies.
+
+## API reference
+
+- [API reference](https://developers.cloudflare.com/api/resources/radar/index.md): Explore the Cloudflare Radar API endpoints for querying Internet traffic, attack, and routing data.
+
+## Release notes
+
+- [Release notes](https://developers.cloudflare.com/radar/release-notes/index.md): Review recent changes to Cloudflare Radar.
+
+## concepts
+
+- [Aggregation intervals](https://developers.cloudflare.com/radar/concepts/aggregation-intervals/index.md): Configure Cloudflare Radar aggregation intervals to control the frequency of returned data, from 15 minutes to one week.
+- [Bot classes](https://developers.cloudflare.com/radar/concepts/bot-classes/index.md): Cloudflare Radar classifies traffic as likely automated or likely human based on bot score ranges.
+- [Confidence levels](https://developers.cloudflare.com/radar/concepts/confidence-levels/index.md): Interpret Cloudflare Radar confidence levels to assess data quality and reliability for a given location or time range.
+- [Normalization methods](https://developers.cloudflare.com/radar/concepts/normalization/index.md): Understand how Cloudflare Radar normalizes data using percentages, min-max scaling, and other methods applied to API responses.
+
+## get-started
+
+- [Configure alerts](https://developers.cloudflare.com/radar/get-started/configure-alerts/index.md): Set up Cloudflare Radar notifications to receive alerts when changes affect countries, regions, or autonomous systems.
+- [Share a Radar chart](https://developers.cloudflare.com/radar/get-started/embed/index.md): Download Cloudflare Radar charts as PNG images or embed interactive charts in your website.
+- [Radar API error codes](https://developers.cloudflare.com/radar/get-started/error-codes/index.md): Reference table of Cloudflare Radar API error codes and their corresponding HTTP status codes.
+- [Make your first API request](https://developers.cloudflare.com/radar/get-started/first-request/index.md): Create an API token and query the Cloudflare Radar API for Internet traffic data using cURL or Python.
+- [Make comparisons](https://developers.cloudflare.com/radar/get-started/making-comparisons/index.md): Compare Radar API time series data across locations, date ranges, and autonomous systems in a single request.
+
+## investigate
+
+- [Application layer attacks](https://developers.cloudflare.com/radar/investigate/application-layer-attacks/index.md): Investigate mitigated HTTP request data in Cloudflare Radar, including attack sources, targets, and mitigation products.
+- [BGP anomalies](https://developers.cloudflare.com/radar/investigate/bgp-anomalies/index.md): Detect BGP hijack and route leak events using the Cloudflare Radar API, and build Workers-based alert systems for your autonomous system.
+- [DNS](https://developers.cloudflare.com/radar/investigate/dns/index.md): Access aggregated DNS query data from Cloudflare 1.1.1.1 resolver through Radar to explore top locations by hostname.
+- [Domains ranking](https://developers.cloudflare.com/radar/investigate/domain-ranking-datasets/index.md): Retrieve Cloudflare Radar domain rankings based on 1.1.1.1 DNS queries, including ordered top 100 lists and bucket datasets up to one million domains.
+- [HTTP requests](https://developers.cloudflare.com/radar/investigate/http-requests/index.md): Analyze HTTP request data in Cloudflare Radar by device type, IP version, bot class, and top locations using timeseries, summary, and top endpoints.
+- [NetFlows](https://developers.cloudflare.com/radar/investigate/netflows/index.md): Query Cloudflare Radar NetFlows data to analyze network traffic from edge routers, including filtering by product and autonomous system.
+- [Network layer attacks](https://developers.cloudflare.com/radar/investigate/network-layer-attacks/index.md): Examine network layer DDoS attack trends in Cloudflare Radar, broken down by protocol (TCP, UDP, ICMP) and source location.
+- [Outages](https://developers.cloudflare.com/radar/investigate/outages/index.md): Query the Cloudflare Radar Outage Center API for Internet outage data, including location, cause, scope, and duration.
+- [URL Scanner](https://developers.cloudflare.com/radar/investigate/url-scanner/index.md): Scan and investigate domains, IPs, and URLs using the Cloudflare Radar URL Scanner API and Security Center dashboard.
+
+## reference
+
+- [Quarterly DDoS threat reports](https://developers.cloudflare.com/radar/reference/quarterly-ddos-reports/index.md): Understand the methodologies behind Cloudflare Radar quarterly DDoS threat reports, including attack counting, ranking, and geographical insights.

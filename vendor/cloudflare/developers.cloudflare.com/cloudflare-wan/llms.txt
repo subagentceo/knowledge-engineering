@@ -1,0 +1,156 @@
+# Cloudflare WAN
+
+Replace legacy WAN and securely connect any traffic source to Cloudflare's network
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/cloudflare-wan/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Cloudflare WAN llms-full.txt](https://developers.cloudflare.com/cloudflare-wan/llms-full.txt) for the complete Cloudflare WAN documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare WAN](https://developers.cloudflare.com/cloudflare-wan/index.md): Connect and secure your network locations with Cloudflare WAN.
+
+## WAN transformation
+
+- [WAN transformation](https://developers.cloudflare.com/cloudflare-wan/wan-transformation/index.md): Transform WAN traffic with header and protocol modifications.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/cloudflare-wan/get-started/index.md): Set up Cloudflare WAN to connect your network locations.
+
+## On-ramps
+
+- [On-ramps](https://developers.cloudflare.com/cloudflare-wan/on-ramps/index.md): Connect to Cloudflare WAN using tunnels, Appliances, or CNI.
+
+## Security filters
+
+- [Security filters](https://developers.cloudflare.com/cloudflare-wan/security/index.md): Apply security filters to WAN traffic.
+
+## Cloudflare One integration
+
+- [Cloudflare One integration](https://developers.cloudflare.com/cloudflare-wan/zero-trust/index.md): Learn how to integrate Cloudflare WAN (formerly Magic WAN) with other Cloudflare Cloudflare One products, such as Cloudflare Gateway and the Cloudflare One Client.
+- [Cloudflare Gateway](https://developers.cloudflare.com/cloudflare-wan/zero-trust/cloudflare-gateway/index.md): Route WAN traffic through Cloudflare Gateway.
+- [WARP](https://developers.cloudflare.com/cloudflare-wan/zero-trust/cloudflare-one-client/index.md): Use the Cloudflare One Client as an on-ramp to Cloudflare WAN and route traffic from user devices with the Cloudflare One Client installed to any network connected with Cloudflare Tunnel or Magic IP-layer tunnels (anycast GRE, IPsec, or CNI).
+- [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-wan/zero-trust/cloudflare-tunnel/index.md): Connect WAN sites with Cloudflare Tunnel.
+- [Connectivity options](https://developers.cloudflare.com/cloudflare-wan/zero-trust/connectivity-options/index.md): Zero Trust connectivity options for Cloudflare WAN.
+- [Secure WAN traffic](https://developers.cloudflare.com/cloudflare-wan/zero-trust/security-services/index.md): Which security services apply to WAN traffic and when to use them.
+
+## Network Interconnect (CNI)
+
+- [Network Interconnect (CNI)](https://developers.cloudflare.com/cloudflare-wan/network-interconnect/index.md): Connect to Cloudflare WAN with Network Interconnect.
+
+## Load Balancing
+
+- [Load Balancing](https://developers.cloudflare.com/cloudflare-wan/load-balancing/index.md): Load balance traffic across WAN tunnel endpoints.
+
+## Analytics
+
+- [Analytics](https://developers.cloudflare.com/cloudflare-wan/analytics/index.md): Use Cloudflare WAN analytics to monitor site performance and troubleshoot issues.
+- [NetFlow statistics](https://developers.cloudflare.com/cloudflare-wan/analytics/netflow-analytics/index.md): View NetFlow statistics for WAN traffic.
+- [Network analytics](https://developers.cloudflare.com/cloudflare-wan/analytics/network-analytics/index.md): Analyze network traffic patterns with Network Analytics.
+- [Packet captures](https://developers.cloudflare.com/cloudflare-network-firewall/packet-captures/index.md): Capture and inspect WAN network packets.
+- [Querying Cloudflare WAN IPsec/GRE tunnel bandwidth analytics with GraphQL](https://developers.cloudflare.com/cloudflare-wan/analytics/query-bandwidth/index.md): Query tunnel bandwidth analytics with the GraphQL API.
+- [Querying Cloudflare WAN IPsec/GRE tunnel health check results with GraphQL](https://developers.cloudflare.com/cloudflare-wan/analytics/query-tunnel-health/index.md): Query tunnel health check results with the GraphQL API.
+- [Network overview](https://developers.cloudflare.com/cloudflare-wan/analytics/site-analytics/index.md): View network overview analytics for your WAN sites.
+- [Traceroutes](https://developers.cloudflare.com/cloudflare-wan/analytics/traceroutes/index.md): Run traceroutes across your WAN network.
+
+## Public to private via Cloudflare WAN
+
+- [Public to private via Cloudflare WAN](https://developers.cloudflare.com/dns/private-origins/index.md): Proxy public hostnames to origins on your private network.
+
+## Changelog
+
+- [Changelog](https://developers.cloudflare.com/cloudflare-wan/changelog/index.md): Review recent changes to Cloudflare WAN (formerly Magic WAN).
+
+## Glossary
+
+- [Glossary](https://developers.cloudflare.com/cloudflare-wan/glossary/index.md): Definitions for terms used across Cloudflare WAN documentation.
+
+## configuration
+
+- [Configure with Appliance](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/index.md): Configure Cloudflare WAN with a hardware or virtual Appliance.
+- [Configure hardware Appliance](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/configure-hardware-appliance/index.md): Configure the hardware Cloudflare One Appliance.
+- [SFP+ port information](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/configure-hardware-appliance/sfp-port-information/index.md): SFP+ port specifications for the hardware Appliance.
+- [Configure Virtual Appliance](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/configure-virtual-appliance/index.md): Learn how to configure Cloudflare One Virtual Appliance on VMWare ESXi or Proxmox Virtual Environment
+- [Device metrics](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/device-metrics/index.md): View hardware Appliance performance metrics.
+- [Activate Cloudflare One Appliance](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/maintenance/activate-appliance/index.md): Activate a Cloudflare One Appliance.
+- [Deactivate Cloudflare One Appliance](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/maintenance/deactivate-appliance/index.md): Deactivate a Cloudflare One Appliance.
+- [Default password](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/maintenance/default-password/index.md): Information about Cloudflare One Appliance's default password.
+- [Edit basic information](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/maintenance/edit-basic-info/index.md): Edit Appliance basic information.
+- [Edit network settings](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/maintenance/edit-network-settings/index.md): Edit Appliance network settings.
+- [Edit sites](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/maintenance/edit-sites/index.md): Edit Appliance site assignments.
+- [Edit traffic steering settings](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/maintenance/edit-traffic-steering-settings/index.md): Edit Appliance traffic steering settings.
+- [Heartbeat](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/maintenance/heartbeat/index.md): Monitor Appliance heartbeat status.
+- [Interrupt window](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/maintenance/interrupt-service-window/index.md): Learn how to set up when Cloudflare One Appliance can update its systems.
+- [Register a hardware Cloudflare One Appliance](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/maintenance/register-appliance/index.md): Register a hardware Cloudflare One Appliance.
+- [Remove appliances](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/maintenance/remove-appliances/index.md): Remove Appliances from your account.
+- [Application-aware policies](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/application-based-policies/index.md): Configure application-aware policies on the Appliance.
+- [Breakout traffic](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/application-based-policies/breakout-traffic/index.md): Breakout traffic allows you to define which applications should bypass Cloudflare's security filtering.
+- [Prioritized traffic](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/application-based-policies/prioritized-traffic/index.md): Prioritized traffic allows you to define which applications are processed first by Cloudflare One Appliance.
+- [DHCP relay](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/dhcp/dhcp-relay/index.md): Configure DHCP relay on the Appliance.
+- [DHCP server](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/dhcp/dhcp-server/index.md): Configure the Appliance DHCP server.
+- [DHCP static address reservation](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/dhcp/dhcp-static-address-reservation/index.md): Reserve static DHCP addresses on the Appliance.
+- [Configure link aggregation groups](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/link-aggregation/index.md): Bundle physical LAN ports into a single logical interface for redundancy and bandwidth.
+- [Enable NAT for a subnet](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/nat-subnet/index.md): Enable static NAT for subnets in Cloudflare One Appliance to re-use address spaces locally.
+- [Network segmentation](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/network-segmentation/index.md): Define policies to determine if traffic should flow between your LANs without leaving your local premises, or if traffic should be forwarded to Cloudflare for additional security configurations.
+- [Routed subnets](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/routed-subnets/index.md): Learn how to configure routed subnets on a Cloudflare One Appliance, including setting static routes and next-hop addresses for complex LAN setups.
+- [Reference](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/reference/index.md): Reference information for Appliance configuration.
+- [Troubleshooting](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/troubleshooting/index.md): Troubleshoot Appliance connectivity and configuration issues.
+- [Check tunnel health in the dashboard](https://developers.cloudflare.com/cloudflare-wan/configuration/common-settings/check-tunnel-health-dashboard/index.md): Check WAN tunnel health in the dashboard.
+- [Configure Tunnel Health Alerts](https://developers.cloudflare.com/cloudflare-wan/configuration/common-settings/configure-tunnel-health-alerts/index.md): Use the API to set up and configure Tunnel Health Alerts
+- [Custom IKE ID for IPsec](https://developers.cloudflare.com/cloudflare-wan/configuration/common-settings/custom-ike-id-ipsec/index.md): Use custom IKE IDs for IPsec tunnels.
+- [Enable user roles](https://developers.cloudflare.com/cloudflare-wan/configuration/common-settings/enable-roles/index.md): You can determine which users have, or do not have, configuration edit access for Magic products.
+- [Set up a site](https://developers.cloudflare.com/cloudflare-wan/configuration/common-settings/sites/index.md): Set up WAN sites for your network locations.
+- [Update tunnel health checks frequency](https://developers.cloudflare.com/cloudflare-wan/configuration/common-settings/update-tunnel-health-checks-frequency/index.md): Update tunnel health check frequency.
+- [Configure Cloudflare source IPs (beta)](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-cloudflare-source-ips/index.md): Configure the Cloudflare source IP range used when you receive traffic from Cloudflare services sent to your Cloudflare One private networks.
+- [Configure routes](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-routes/index.md): Cloudflare WAN uses a static configuration to route your traffic through anycast tunnels from Cloudflare's global network to your locations. If you are connected through CNI with Dataplane v2, you also have access to BGP peering (beta). Learn how to configure routing.
+- [Configure tunnel endpoints](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/configure-tunnel-endpoints/index.md): Cloudflare recommends two tunnels for each ISP and network location router combination, one per Cloudflare endpoint. Learn how to configure IPsec or GRE tunnels.
+- [Run traceroute](https://developers.cloudflare.com/cloudflare-wan/configuration/how-to/traceroute/index.md): Learn what settings you need to change to perform a useful `traceroute` to an endpoint behind a Cloudflare Tunnel.
+- [Configure cloud on-ramps](https://developers.cloudflare.com/cloudflare-wan/configuration/multi-cloud-networking/index.md): Use Multi-Cloud Networking to quickly and easily discover resources on your cloud provider, and configure them automatically.
+- [Alibaba Cloud VPN Gateway](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/alibaba-cloud/index.md): Connect Alibaba Cloud VPN Gateway to Cloudflare WAN.
+- [Aruba EdgeConnect Enterprise](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/aruba-edgeconnect/index.md): Connect Aruba EdgeConnect to Cloudflare WAN.
+- [Amazon AWS Transit Gateway](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/aws/index.md): Connect Amazon AWS Transit Gateway to Cloudflare WAN.
+- [Microsoft Azure Virtual WAN](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/azure/azure-virtual-wan/index.md): Connect Microsoft Azure Virtual WAN to Cloudflare WAN.
+- [Microsoft Azure VPN Gateway](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/azure/azure-vpn-gateway/index.md): Connect Azure VPN Gateway to Cloudflare WAN.
+- [Cisco IOS XE](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/cisco-ios-xe/index.md): Connect Cisco IOS XE to Cloudflare WAN.
+- [Cisco Meraki MX (static routing)](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/cisco-meraki-static/index.md): Configure static routing on Cisco Meraki MX with Cloudflare WAN.
+- [Furukawa Electric FITELnet](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/fitelnet/index.md): Connect Furukawa Electric FITELnet to Cloudflare WAN.
+- [Fortinet](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/fortinet/index.md): Connect Fortinet to Cloudflare WAN.
+- [Google Cloud VPN](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/google/index.md): Connect Google Cloud VPN to Cloudflare WAN.
+- [HPE Juniper Networking SRX Series Firewalls](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/juniper/index.md): Connect HPE Juniper SRX to Cloudflare WAN.
+- [Oracle Cloud](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/oracle/index.md): Connect Oracle Cloud to Cloudflare WAN.
+- [Palo Alto Networks NGFW](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/palo-alto/index.md): Connect Palo Alto Networks NGFW to Cloudflare WAN.
+- [pfSense](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/pfsense/index.md): Connect pfSense to Cloudflare WAN.
+- [SonicWall](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/sonicwall/index.md): Connect SonicWall to Cloudflare WAN.
+- [Sophos Firewall](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/sophos-firewall/index.md): Connect Sophos Firewall to Cloudflare WAN.
+- [strongSwan](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/strongswan/index.md): Connect strongSwan to Cloudflare WAN.
+- [Ubiquiti](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/ubiquiti/index.md): Connect Ubiquiti to Cloudflare WAN.
+- [Velocloud](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/velocloud/index.md): Connect Velocloud to Cloudflare WAN.
+- [Cisco SD-WAN](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/viptela/index.md): Connect Cisco SD-WAN to Cloudflare WAN.
+- [VyOS](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/vyos/index.md): Connect VyOS to Cloudflare WAN.
+- [Yamaha RTX Router](https://developers.cloudflare.com/cloudflare-wan/configuration/third-party/yamaha/index.md): Connect Yamaha RTX Router to Cloudflare WAN.
+
+## legal
+
+- [Third party licenses](https://developers.cloudflare.com/cloudflare-wan/legal/3rdparty/index.md): Third-party licenses used in Cloudflare WAN.
+
+## reference
+
+- [Anti-replay protection](https://developers.cloudflare.com/cloudflare-wan/reference/anti-replay-protection/index.md): If you use Cloudflare WAN and anycast IPsec tunnels, you will need to disable anti-replay protection. Review the information here to learn more.
+- [Bandwidth measurement](https://developers.cloudflare.com/cloudflare-wan/reference/bandwidth-measurement/index.md): How Cloudflare measures WAN tunnel bandwidth.
+- [Device compatibility](https://developers.cloudflare.com/cloudflare-wan/reference/device-compatibility/index.md): Devices compatible with Cloudflare WAN tunnels.
+- [GRE and IPsec tunnels](https://developers.cloudflare.com/cloudflare-wan/reference/gre-ipsec-tunnels/index.md): Cloudflare WAN uses Generic Routing Encapsulation (GRE) and IPsec tunnels to transmit packets from Cloudflare's global network to your origin network.
+- [How Cloudflare calculates tunnel health alerts](https://developers.cloudflare.com/cloudflare-wan/reference/how-cloudflare-calculates-tunnel-health-alerts/index.md): How tunnel health alert thresholds are calculated.
+- [Maximum transmission unit and maximum segment size](https://developers.cloudflare.com/cloudflare-wan/reference/mtu-mss/index.md): MTU and MSS values for WAN tunnels.
+- [Traffic steering](https://developers.cloudflare.com/cloudflare-wan/reference/traffic-steering/index.md): Cloudflare WAN uses a static configuration to route traffic through anycast tunnels using the Generic Routing Encapsulation (GRE) and Internet Protocol Security (IPsec) protocols from Cloudflare's global network to your network.
+- [Tunnel health checks](https://developers.cloudflare.com/cloudflare-wan/reference/tunnel-health-checks/index.md): Cloudflare WAN uses probes to check for tunnel health. Review information on this page to learn more.
+- [Virtual networks](https://developers.cloudflare.com/cloudflare-wan/reference/virtual-networks/index.md): Create virtual networks to segment WAN traffic.
+
+## troubleshooting
+
+- [Troubleshoot connectivity](https://developers.cloudflare.com/cloudflare-wan/troubleshooting/connectivity/index.md): Troubleshoot WAN connectivity issues.
+- [Troubleshoot IPsec tunnels](https://developers.cloudflare.com/cloudflare-wan/troubleshooting/ipsec-troubleshoot/index.md): Troubleshoot IPsec tunnel issues.
+- [Troubleshoot routing and BGP](https://developers.cloudflare.com/cloudflare-wan/troubleshooting/routing-and-bgp/index.md): Troubleshoot WAN routing and BGP issues.
+- [Troubleshoot tunnel health](https://developers.cloudflare.com/cloudflare-wan/troubleshooting/tunnel-health/index.md): Troubleshoot WAN tunnel health issues.

@@ -1,0 +1,132 @@
+# Analytics
+
+Visualize the performance, security, and reliability data collected by Cloudflare products
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/analytics/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Analytics llms-full.txt](https://developers.cloudflare.com/analytics/llms-full.txt) for the complete Analytics documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Analytics](https://developers.cloudflare.com/analytics/index.md): Access metadata and insights across Cloudflare products.
+
+## Types of analytics
+
+- [Types of analytics](https://developers.cloudflare.com/analytics/types-of-analytics/index.md): Explore the different analytics available in Cloudflare.
+
+## Understanding sampling in Cloudflare Analytics
+
+- [Understanding sampling in Cloudflare Analytics](https://developers.cloudflare.com/analytics/sampling/index.md): Understand how Cloudflare uses sampling for analytics.
+
+## Custom dashboards
+
+- [Custom dashboards](https://developers.cloudflare.com/analytics/custom-dashboards/index.md): Create custom dashboards to monitor log data.
+
+## Network analytics
+
+- [Network analytics](https://developers.cloudflare.com/analytics/network-analytics/index.md): Monitor network and transport-layer traffic and DDoS attacks.
+- [Adjust the displayed data](https://developers.cloudflare.com/analytics/network-analytics/configure/displayed-data/index.md): Filter and configure Network Analytics dashboard data.
+- [Share and export data](https://developers.cloudflare.com/analytics/network-analytics/configure/share-export/index.md): Share filters and export Network Analytics data.
+- [Adjust the time range](https://developers.cloudflare.com/analytics/network-analytics/configure/time-range/index.md): Change the time range in Network Analytics.
+- [Get started](https://developers.cloudflare.com/analytics/network-analytics/get-started/index.md): Learn how to view and use data from Network Analytics.
+- [Data collection](https://developers.cloudflare.com/analytics/network-analytics/reference/data-collection/index.md): Understand how Network Analytics collects packet data.
+- [Concepts](https://developers.cloudflare.com/analytics/network-analytics/understand/concepts/index.md): Understand Network Analytics sampling and enrichment concepts.
+- [Main dashboard](https://developers.cloudflare.com/analytics/network-analytics/understand/main-dashboard/index.md): Navigate the Network Analytics dashboard sections.
+
+## GraphQL Analytics API
+
+- [GraphQL Analytics API](https://developers.cloudflare.com/analytics/graphql-api/index.md): Query Cloudflare analytics data using GraphQL.
+- [Error responses](https://developers.cloudflare.com/analytics/graphql-api/errors/index.md): Understand GraphQL Analytics API error formats.
+- [Confidence Intervals](https://developers.cloudflare.com/analytics/graphql-api/features/confidence-intervals/index.md): Request confidence intervals for sampled data.
+- [Datasets (tables)](https://developers.cloudflare.com/analytics/graphql-api/features/data-sets/index.md): Explore available GraphQL Analytics API datasets.
+- [Discovery](https://developers.cloudflare.com/analytics/graphql-api/features/discovery/index.md): Discover available GraphQL Analytics API nodes and limits.
+- [Introspection](https://developers.cloudflare.com/analytics/graphql-api/features/discovery/introspection/index.md): Explore the GraphQL schema using introspection.
+- [Settings node](https://developers.cloudflare.com/analytics/graphql-api/features/discovery/settings/index.md): Query dataset-specific limits via the Settings node.
+- [Filtering](https://developers.cloudflare.com/analytics/graphql-api/features/filtering/index.md): Apply filters to GraphQL Analytics API queries.
+- [Nested Structures](https://developers.cloudflare.com/analytics/graphql-api/features/nested-structures/index.md): Query arrays and maps in GraphQL Analytics API.
+- [Pagination](https://developers.cloudflare.com/analytics/graphql-api/features/pagination/index.md): Paginate through GraphQL Analytics API results.
+- [Sorting](https://developers.cloudflare.com/analytics/graphql-api/features/sorting/index.md): Sort GraphQL Analytics API query results.
+- [Get started](https://developers.cloudflare.com/analytics/graphql-api/getting-started/index.md): Set up and access Network Analytics.
+- [Authentication](https://developers.cloudflare.com/analytics/graphql-api/getting-started/authentication/index.md): Authenticate requests to the GraphQL Analytics API.
+- [Authenticate with a Cloudflare API key](https://developers.cloudflare.com/analytics/graphql-api/getting-started/authentication/api-key-auth/index.md): Learn about authenticate with a cloudflare api key in Cloudflare analytics.
+- [Configure an Analytics API token](https://developers.cloudflare.com/analytics/graphql-api/getting-started/authentication/api-token-auth/index.md): Learn about configure an analytics api token in Cloudflare analytics.
+- [Configure GraphQL client endpoint and HTTP headers](https://developers.cloudflare.com/analytics/graphql-api/getting-started/authentication/graphql-client-headers/index.md): Learn about configure graphql client endpoint and http headers in Cloudflare analytics.
+- [Compose a query in GraphiQL](https://developers.cloudflare.com/analytics/graphql-api/getting-started/compose-graphql-query/index.md): Learn how to use a GraphiQL client to compose and execute a GraphQL query. This guide covers setting up a query, selecting the dataset, and configuring parameters and fields.
+- [Execute a GraphQL query with curl](https://developers.cloudflare.com/analytics/graphql-api/getting-started/execute-graphql-query/index.md): Learn about execute a graphql query with curl in Cloudflare analytics.
+- [Explore the GraphQL schema](https://developers.cloudflare.com/analytics/graphql-api/getting-started/explore-graphql-schema/index.md): Browse available datasets and fields via introspection.
+- [Querying basics](https://developers.cloudflare.com/analytics/graphql-api/getting-started/querying-basics/index.md): Learn the basics of querying with Cloudflare's GraphQL API. Understand query structure, schema, and how to fetch data using GraphQL queries.
+- [Limits](https://developers.cloudflare.com/analytics/graphql-api/limits/index.md): Review GraphQL Analytics API query limits.
+- [Migration guides](https://developers.cloudflare.com/analytics/graphql-api/migration-guides/index.md): Migrate from deprecated analytics APIs to GraphQL.
+- [HTTP Requests by Colo Groups to HTTP Requests by Adaptive Groups](https://developers.cloudflare.com/analytics/graphql-api/migration-guides/graphql-api-analytics/index.md): Migrate colo groups queries to adaptive groups.
+- [Network Analytics v1 to Network Analytics v2](https://developers.cloudflare.com/analytics/graphql-api/migration-guides/network-analytics-v2/index.md): Migrate from Network Analytics v1 to v2 nodes.
+- [Main differences](https://developers.cloudflare.com/analytics/graphql-api/migration-guides/network-analytics-v2/differences/index.md): Compare Network Analytics v1 and v2 sampling and retention.
+- [NAv2 node reference](https://developers.cloudflare.com/analytics/graphql-api/migration-guides/network-analytics-v2/node-reference/index.md): Reference for Network Analytics v2 GraphQL nodes.
+- [NAv1 to NAv2 schema map](https://developers.cloudflare.com/analytics/graphql-api/migration-guides/network-analytics-v2/schema-map/index.md): Map Network Analytics v1 fields to v2 fields.
+- [Zone Analytics to GraphQL Analytics](https://developers.cloudflare.com/analytics/graphql-api/migration-guides/zone-analytics/index.md): Migrate from Zone Analytics API to GraphQL.
+- [Zone Analytics Colos Endpoint to GraphQL Analytics](https://developers.cloudflare.com/analytics/graphql-api/migration-guides/zone-analytics-colos/index.md): Migrate colos endpoint queries to GraphQL.
+- [Sampling](https://developers.cloudflare.com/analytics/graphql-api/sampling/index.md): Understand sampling in GraphQL Analytics API datasets.
+- [Capture GraphQL queries with Chrome DevTools](https://developers.cloudflare.com/analytics/graphql-api/tutorials/capture-graphql-queries-from-dashboard/index.md): Capture dashboard GraphQL queries using Chrome DevTools.
+- [Querying HTTP events by hostname with GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/end-customer-analytics/index.md): Query HTTP request metrics by hostname.
+- [Querying Access login events with GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-access-login-events/index.md): Retrieve Access login event logs via GraphQL.
+- [Querying Containers metrics with GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-container-metrics/index.md): Query Cloudflare Containers metrics with the GraphQL Analytics API.
+- [Querying Email Routing events with GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-email-routing/index.md): Query Email Routing activity logs via GraphQL.
+- [Querying Firewall Events with GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-firewall-events/index.md): Query WAF firewall events via GraphQL.
+- [Querying Magic Transit endpoint health check results with GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-magic-transit-endpoint-healthcheck-results/index.md): Query Magic Transit endpoint health checks.
+- [Querying Magic Transit and Cloudflare WAN IPsec/GRE tunnel bandwidth analytics with GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-magic-transit-tunnel-bandwidth-analytics/index.md): Query Magic Transit tunnel bandwidth analytics.
+- [Querying Magic Transit and Cloudflare WAN IPsec/GRE tunnel health check results with GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-magic-transit-tunnel-healthcheck-results/index.md): Query Magic Transit tunnel health check results.
+- [Querying Cloudflare Network Firewall Intrusion Detection System (IDS) samples with GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-network-firewall-ids-samples/index.md): Query Network Firewall IDS samples via GraphQL.
+- [Querying Cloudflare Network Firewall Samples with GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-network-firewall-samples/index.md): Query Network Firewall packet samples via GraphQL.
+- [Querying Workers Metrics with GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-workers-metrics/index.md): Query Workers invocation metrics via GraphQL.
+- [Use GraphQL to create widgets](https://developers.cloudflare.com/analytics/graphql-api/tutorials/use-graphql-create-widgets/index.md): Build dashboard widgets with GraphQL Analytics queries.
+
+## Workers Analytics Engine
+
+- [Workers Analytics Engine](https://developers.cloudflare.com/analytics/analytics-engine/index.md): Send and query unlimited-cardinality analytics from Workers.
+- [Get started](https://developers.cloudflare.com/analytics/analytics-engine/get-started/index.md): Set up and access Network Analytics.
+- [Querying from Grafana](https://developers.cloudflare.com/analytics/analytics-engine/grafana/index.md): Visualize Workers Analytics Engine data in Grafana.
+- [Limits](https://developers.cloudflare.com/analytics/analytics-engine/limits/index.md): Review GraphQL Analytics API query limits.
+- [Pricing](https://developers.cloudflare.com/analytics/analytics-engine/pricing/index.md): Workers Analytics Engine is priced based on two metrics — data points written, and read queries.
+- [Usage-based billing](https://developers.cloudflare.com/analytics/analytics-engine/recipes/usage-based-billing-for-your-saas-product/index.md): How to use Workers Analytics Engine to build usage-based billing into your SaaS product
+- [Sampling with WAE](https://developers.cloudflare.com/analytics/analytics-engine/sampling/index.md): How data written to Workers Analytics Engine is automatically sampled at scale
+- [SQL API](https://developers.cloudflare.com/analytics/analytics-engine/sql-api/index.md): The SQL API for Workers Analytics Engine
+- [Aggregate functions](https://developers.cloudflare.com/analytics/analytics-engine/sql-reference/aggregate-functions/index.md): SQL aggregate functions for Analytics Engine queries.
+- [Bit functions](https://developers.cloudflare.com/analytics/analytics-engine/sql-reference/bit-functions/index.md): Bitwise SQL functions for Analytics Engine.
+- [Conditional functions](https://developers.cloudflare.com/analytics/analytics-engine/sql-reference/conditional-functions/index.md): Conditional SQL functions for Analytics Engine queries.
+- [Date and Time functions](https://developers.cloudflare.com/analytics/analytics-engine/sql-reference/date-time-functions/index.md): Date and time SQL functions for Analytics Engine.
+- [Encoding functions](https://developers.cloudflare.com/analytics/analytics-engine/sql-reference/encoding-functions/index.md): Encoding SQL functions for Analytics Engine queries.
+- [Literals](https://developers.cloudflare.com/analytics/analytics-engine/sql-reference/literals/index.md): Supported literal types in Analytics Engine SQL.
+- [Mathematical functions](https://developers.cloudflare.com/analytics/analytics-engine/sql-reference/mathematical-functions/index.md): Mathematical SQL functions for Analytics Engine.
+- [Operators](https://developers.cloudflare.com/analytics/analytics-engine/sql-reference/operators/index.md): Arithmetic, comparison, and logical SQL operators.
+- [Statements](https://developers.cloudflare.com/analytics/analytics-engine/sql-reference/statements/index.md): SQL statements supported by Analytics Engine.
+- [String functions](https://developers.cloudflare.com/analytics/analytics-engine/sql-reference/string-functions/index.md): String manipulation SQL functions for Analytics Engine.
+- [Type conversion functions](https://developers.cloudflare.com/analytics/analytics-engine/sql-reference/type-conversion-functions/index.md): Type conversion SQL functions for Analytics Engine.
+- [Querying from a Worker](https://developers.cloudflare.com/analytics/analytics-engine/worker-querying/index.md): Access Analytics Engine data from within a Worker.
+
+## Analytics integrations
+
+- [Analytics integrations](https://developers.cloudflare.com/analytics/analytics-integrations/index.md): Integrate Cloudflare analytics with third-party platforms.
+- [Datadog](https://developers.cloudflare.com/analytics/analytics-integrations/datadog/index.md): This tutorial explains how to analyze Cloudflare metrics using the Cloudflare Integration tile for Datadog
+- [Graylog](https://developers.cloudflare.com/analytics/analytics-integrations/graylog/index.md): This tutorial explains how to analyze Cloudflare Logs using Graylog. The Graylog integration is available on GitHub.
+- [New Relic](https://developers.cloudflare.com/analytics/analytics-integrations/new-relic/index.md): This tutorial explains how to analyze Cloudflare metrics using the New Relic One Cloudflare Quickstart.
+- [Prometheus](https://developers.cloudflare.com/analytics/analytics-integrations/prometheus/index.md): This tutorial explains how to export Cloudflare metrics to Prometheus using the Cloudflare Prometheus Exporter.
+- [Sentinel](https://developers.cloudflare.com/analytics/analytics-integrations/sentinel/index.md): Ingest Cloudflare logs into Microsoft Sentinel.
+- [Splunk](https://developers.cloudflare.com/analytics/analytics-integrations/splunk/index.md): This tutorial explains how to analyze Cloudflare Logs using the Cloudflare App for Splunk.
+
+## account-and-zone-analytics
+
+- [Account analytics (beta)](https://developers.cloudflare.com/analytics/account-and-zone-analytics/account-analytics/index.md): View aggregated metrics across all account domains.
+- [Cloudflare analytics with Workers](https://developers.cloudflare.com/analytics/account-and-zone-analytics/analytics-with-workers/index.md): Understand how Workers subrequests affect analytics.
+- [Security reports](https://developers.cloudflare.com/analytics/account-and-zone-analytics/app-security-reports/index.md): View account-wide application security reports covering WAF, bots, DDoS, and API Shield.
+- [Status codes](https://developers.cloudflare.com/analytics/account-and-zone-analytics/status-codes/index.md): Analyze HTTP status code distribution per data center.
+- [Threat types](https://developers.cloudflare.com/analytics/account-and-zone-analytics/threat-types/index.md): Review threat categories blocked by Cloudflare.
+- [Total threats stopped](https://developers.cloudflare.com/analytics/account-and-zone-analytics/total-threats-stopped/index.md): Understand how total threat counts are calculated.
+- [Zone Analytics](https://developers.cloudflare.com/analytics/account-and-zone-analytics/zone-analytics/index.md): Analyze request and bandwidth data per zone.
+
+## faq
+
+- [About Cloudflare Analytics](https://developers.cloudflare.com/analytics/faq/about-analytics/index.md): Overview of Cloudflare analytics data and processing.
+- [GraphQL API inconsistent results](https://developers.cloudflare.com/analytics/faq/graphql-api-inconsistent-results/index.md): Understand why GraphQL API results may vary slightly.
+- [Other FAQs](https://developers.cloudflare.com/analytics/faq/other-faqs/index.md): Additional frequently asked questions about analytics.
+- [Workers Analytics Engine FAQs](https://developers.cloudflare.com/analytics/faq/wae-faqs/index.md): Common questions about Workers Analytics Engine.

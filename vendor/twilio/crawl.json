@@ -11,6 +11,9 @@
     "https://www.twilio.com/docs/",
     "https://docs.twilio.com/"
   ],
-  "deny_prefixes": [],
-  "page_cap": 200
+  "deny_prefixes": [
+    "__DEFER_TO_PHASE_2B__"
+  ],
+  "page_cap": 0,
+  "llms_txt": "https://www.twilio.com/docs/llms.txt"
 }

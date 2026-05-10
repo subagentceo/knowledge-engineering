@@ -1,0 +1,62 @@
+# Web3
+
+Gateways to networks to help you develop applications without worrying about running infrastructure
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/web3/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Web3 llms-full.txt](https://developers.cloudflare.com/web3/llms-full.txt) for the complete Web3 documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Web3](https://developers.cloudflare.com/web3/index.md): Cloudflare offers gateways to various networks to help Web3 developers do what they do best, develop applications without having to worry about running infrastructure.
+
+## About
+
+- [About](https://developers.cloudflare.com/web3/about/index.md): How Cloudflare Web3 gateways connect HTTP clients to decentralized networks.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/web3/get-started/index.md): Set up a Cloudflare Web3 gateway for Ethereum or IPFS.
+
+## IPFS Gateway
+
+- [IPFS Gateway](https://developers.cloudflare.com/web3/ipfs-gateway/index.md): Serve IPFS content through Cloudflare without running an IPFS node.
+- [DNSLink gateways](https://developers.cloudflare.com/web3/ipfs-gateway/concepts/dnslink/index.md): Use DNSLink to map domain names to IPFS content.
+- [Interplanetary File System (IPFS)](https://developers.cloudflare.com/web3/ipfs-gateway/concepts/ipfs/index.md): How the InterPlanetary File System stores and retrieves content.
+- [Universal Path gateway](https://developers.cloudflare.com/web3/ipfs-gateway/concepts/universal-gateway/index.md): Access any IPFS content through the Universal Path gateway.
+- [Automated deployments](https://developers.cloudflare.com/web3/ipfs-gateway/reference/automated-deployment/index.md): Automate IPFS content deployment with CI/CD pipelines.
+- [Peering](https://developers.cloudflare.com/web3/ipfs-gateway/reference/peering-with-content-providers/index.md): Peer with IPFS content providers for faster content delivery.
+- [Using IPFS with your website](https://developers.cloudflare.com/web3/ipfs-gateway/reference/updating-for-ipfs/index.md): Host your website on IPFS and serve it through Cloudflare.
+- [Troubleshooting](https://developers.cloudflare.com/web3/ipfs-gateway/troubleshooting/index.md): Resolve common IPFS Gateway issues including 523 and 524 errors.
+
+## Ethereum Gateway
+
+- [Ethereum Gateway](https://developers.cloudflare.com/web3/ethereum-gateway/index.md): Access the Ethereum network through Cloudflare without running a node.
+- [Ethereum network](https://developers.cloudflare.com/web3/ethereum-gateway/concepts/ethereum/index.md): How the Ethereum blockchain and smart contracts work.
+- [Node types](https://developers.cloudflare.com/web3/ethereum-gateway/concepts/node-types/index.md): Full nodes, archive nodes, and their role in Ethereum queries.
+- [Kill Switches](https://developers.cloudflare.com/web3/ethereum-gateway/reference/kill-switches/index.md): Disable Ethereum Gateway features in an emergency.
+- [Rinkeby deprecation](https://developers.cloudflare.com/web3/ethereum-gateway/reference/rinkeby-deprecation/index.md): Deprecation notice for the Rinkeby test network.
+- [Supported API methods](https://developers.cloudflare.com/web3/ethereum-gateway/reference/supported-api-methods/index.md): Ethereum JSON-RPC methods supported by the Cloudflare gateway.
+- [Supported networks](https://developers.cloudflare.com/web3/ethereum-gateway/reference/supported-networks/index.md): Ethereum networks supported by the Cloudflare Ethereum Gateway.
+
+## API reference
+
+- [API reference](https://developers.cloudflare.com/api/resources/web3/subresources/hostnames/methods/list/index.md): API endpoints for managing Web3 gateways.
+
+## how-to
+
+- [Customize Cloudflare settings](https://developers.cloudflare.com/web3/how-to/customize-cloudflare-settings/index.md): Apply Cloudflare security and performance settings to your Web3 gateway.
+- [Subscribe to gateways](https://developers.cloudflare.com/web3/how-to/enable-gateways/index.md): Subscribe to Ethereum or IPFS gateways on your Cloudflare account.
+- [Manage gateways](https://developers.cloudflare.com/web3/how-to/manage-gateways/index.md): Create, edit, and delete Web3 gateways.
+- [Restrict gateway access](https://developers.cloudflare.com/web3/how-to/restrict-gateway-access/index.md): Restrict access to your Web3 gateway with WAF custom rules.
+- [Use Ethereum gateway](https://developers.cloudflare.com/web3/how-to/use-ethereum-gateway/index.md): Send JSON-RPC requests through the Cloudflare Ethereum Gateway.
+- [Use IPFS gateway](https://developers.cloudflare.com/web3/how-to/use-ipfs-gateway/index.md): Serve IPFS content through the Cloudflare IPFS Gateway.
+
+## reference
+
+- [Gateway DNS records](https://developers.cloudflare.com/web3/reference/gateway-dns-records/index.md): DNS records created for Web3 gateways.
+- [Gateway status](https://developers.cloudflare.com/web3/reference/gateway-status/index.md): Web3 gateway status values and their meanings.
+- [Limits](https://developers.cloudflare.com/web3/reference/limits/index.md): Rate limits and size limits for Web3 gateways.
+- [Legacy gateway migration](https://developers.cloudflare.com/web3/reference/migration-guide/index.md): Migrate from legacy Web3 gateways to the current setup.

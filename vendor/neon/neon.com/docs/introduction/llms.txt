@@ -1,0 +1,41 @@
+# Neon Introduction
+
+Architecture, features, autoscaling, branching concepts, billing, and plans.
+
+[Parent index](https://neon.com/docs/llms.txt)
+
+- [Autoscaling](https://neon.com/docs/introduction/autoscaling.md): An introduction to Neon's autoscaling
+- [Autoscaling architecture](https://neon.com/docs/introduction/autoscaling-architecture.md): Learn how Neon automatically scales compute resources on demand
+- [AWS Marketplace](https://neon.com/docs/introduction/billing-aws-marketplace.md): Paying for Neon via your AWS Billing account
+- [Branching](https://neon.com/docs/introduction/branching.md): Branch your data the same way you branch your code
+- [Compute lifecycle](https://neon.com/docs/introduction/compute-lifecycle.md)
+- [Cost optimization](https://neon.com/docs/introduction/cost-optimization.md): Strategies to manage and reduce your Neon costs
+- [High Availability (HA) in Neon](https://neon.com/docs/introduction/high-availability.md): Understanding Neon's approach to High Availability
+- [Instant restore](https://neon.com/docs/introduction/branch-restore.md): Learn how to revert changes or recover lost data using Neon's instant restore with Time Travel Assist
+- [IP Allow](https://neon.com/docs/introduction/ip-allow.md): Limit database access to trusted IP addresses
+- [Join the Early Access Program](https://neon.com/docs/introduction/early-access.md): Help shape the future of Neon
+- [Manage billing](https://neon.com/docs/introduction/manage-billing.md): Invoices, payment methods, changing your plan, and other actions around managing your bill
+- [Monitor active queries](https://neon.com/docs/introduction/monitor-active-queries.md): View and analyze running queries in your database
+- [Monitor billing and usage](https://neon.com/docs/introduction/monitor-usage.md): Where to see usage and costs in the Console and via the API
+- [Monitor Neon with pgAdmin](https://neon.com/docs/introduction/monitor-pgadmin.md): Monitor your Neon Postgres database with pgAdmin
+- [Monitor Neon with PgHero](https://neon.com/docs/introduction/monitor-pghero.md): Monitor your Neon Postgres database with PgHero
+- [Monitor query performance](https://neon.com/docs/introduction/monitor-query-performance.md): View and analyze query performance for your Neon database
+- [Monitoring dashboard](https://neon.com/docs/introduction/monitoring-page.md)
+- [Monitoring in Neon](https://neon.com/docs/introduction/monitoring.md): Learn about monitoring resources and metrics in Neon
+- [Neon Agent Plan](https://neon.com/docs/introduction/agent-plan.md): Learn about using Neon to provision and manage databases for agentic platforms
+- [Neon legacy plans](https://neon.com/docs/introduction/legacy-plans.md)
+- [Neon plans](https://neon.com/docs/introduction/plans.md)
+- [Neon Read Replicas](https://neon.com/docs/introduction/read-replicas.md): Scale your app, run ad-hoc queries, and provide read-only access without duplicating data
+- [Neon status](https://neon.com/docs/introduction/status.md): Stay informed about the performance and availability of Neon
+- [Neon vs Lakebase](https://neon.com/docs/introduction/neon-and-lakebase.md): Two products, one architectural foundation — how to choose
+- [Neon's lakebase architecture](https://neon.com/docs/introduction/architecture-overview.md): Serverless Postgres with decoupled compute and durable storage
+- [Plans and billing](https://neon.com/docs/introduction/about-billing.md): Learn about Neon's pricing plans and how to manage billing
+- [Reduce network transfer costs](https://neon.com/docs/introduction/network-transfer.md): Monitor and reduce data egress costs
+- [Regions](https://neon.com/docs/introduction/regions.md)
+- [Restore window](https://neon.com/docs/introduction/restore-window.md): Configure how far back you can restore your data and run Time Travel queries
+- [Roadmap](https://neon.com/docs/introduction/roadmap.md)
+- [Scale to Zero](https://neon.com/docs/introduction/scale-to-zero.md): Minimize costs by automatically scaling inactive databases to zero
+- [Serverless](https://neon.com/docs/introduction/serverless.md): Postgres with instant provisioning, no server management, and pay-per-usage billing
+- [Spending limit](https://neon.com/docs/introduction/spending-limit.md): Manage your organization's spending with better visibility and control
+- [Support](https://neon.com/docs/introduction/support.md)
+- [Usage and cost calculations](https://neon.com/docs/introduction/usage-calculations.md): Convert raw API metrics into billing units and calculate your costs

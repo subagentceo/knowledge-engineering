@@ -1,0 +1,68 @@
+# Client-side security
+
+Provide client-side protection for your website visitors
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/client-side-security/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Client-side security llms-full.txt](https://developers.cloudflare.com/client-side-security/llms-full.txt) for the complete Client-side security documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Client-side security](https://developers.cloudflare.com/client-side-security/index.md): Cloudflare's client-side security is a comprehensive client-side security and privacy solution that allows you to ensure the safety of your website visitors' browsing environment.
+
+## Get started with client-side security
+
+- [Get started with client-side security](https://developers.cloudflare.com/client-side-security/get-started/index.md): Learn how to get started with Cloudflare's client-side security.
+
+## How client-side security works
+
+- [How client-side security works](https://developers.cloudflare.com/client-side-security/how-it-works/index.md): Cloudflare's client-side security tracks resources (such as scripts) loaded by your website visitors and provides alerts when it detects new, changed, or malicious resources.
+- [Malicious script and connection detection](https://developers.cloudflare.com/client-side-security/how-it-works/malicious-script-detection/index.md): Cloudflare analyzes the JavaScript code of the scripts loaded by your website visitors, using threat intelligence and machine learning (including LLMs) to detect malicious behavior.
+
+## Alerts
+
+- [Alerts](https://developers.cloudflare.com/client-side-security/alerts/index.md): Cloudflare client-side resource alerts notify you when new scripts are detected on your domain or when Cloudflare detects resources that are likely malicious.
+- [Alert types](https://developers.cloudflare.com/client-side-security/alerts/alert-types/index.md): Available alert types for client-side resource detection, including new and malicious scripts.
+- [Configure an alert](https://developers.cloudflare.com/client-side-security/alerts/configure/index.md): Configure scoped or unscoped client-side resource alerts to get notified about relevant client-side changes on your zones.
+
+## Content security rules
+
+- [Content security rules](https://developers.cloudflare.com/client-side-security/rules/index.md): Use content security rules to define the resources (scripts) allowed on your applications.
+- [Create via API](https://developers.cloudflare.com/client-side-security/reference/api/#create-a-content-security-ruleindex.md): Create a content security rule using the client-side security API.
+- [Create a content security rule in the dashboard](https://developers.cloudflare.com/client-side-security/rules/create-dashboard/index.md): Learn how to create a content security rule in the Cloudflare dashboard.
+- [Supported CSP directives](https://developers.cloudflare.com/client-side-security/rules/csp-directives/index.md): CSP directives supported by content security rules
+- [Content security rule violations](https://developers.cloudflare.com/client-side-security/rules/violations/index.md): Cloudflare reports any violations to your content security rules.
+
+## Client-side security FAQ
+
+- [Client-side security FAQ](https://developers.cloudflare.com/client-side-security/faq/index.md): Answers to common questions about client-side security rules, CSP headers, and monitoring.
+
+## Troubleshooting
+
+- [Troubleshooting](https://developers.cloudflare.com/client-side-security/troubleshooting/index.md): Resolve common issues with client-side resource monitoring and script detection.
+
+## Release notes
+
+- [Release notes](https://developers.cloudflare.com/client-side-security/release-notes/index.md): Track the latest updates and changes to client-side security features.
+
+## best-practices
+
+- [Deploy content security rules in production](https://developers.cloudflare.com/client-side-security/best-practices/deploy-rules-in-production/index.md): Safe practices for deploying and updating content security rules.
+- [Handle a client-side resource alert](https://developers.cloudflare.com/client-side-security/best-practices/handle-an-alert/index.md): If you receive a client-side resource alert, sometimes you need to perform some manual investigation to confirm the nature of the script. Use the guidance provided in this page as a starting point for your investigation.
+
+## detection
+
+- [Monitor resources and cookies](https://developers.cloudflare.com/client-side-security/detection/monitor-connections-scripts/index.md): View and filter scripts, connections, and cookies detected on your domain.
+- [Review changed scripts](https://developers.cloudflare.com/client-side-security/detection/review-changed-scripts/index.md): Learn how to review scripts on your domain after receiving a code change alert.
+- [Review resources considered malicious](https://developers.cloudflare.com/client-side-security/detection/review-malicious-scripts/index.md): Learn how to review scripts and connections that Cloudflare's client-side security considered malicious.
+
+## reference
+
+- [Client-side security API](https://developers.cloudflare.com/client-side-security/reference/api/index.md): Manage resource monitoring, settings, and detected scripts using the client-side security API.
+- [CSP HTTP header format](https://developers.cloudflare.com/client-side-security/reference/csp-header/index.md): Format of the Content Security Policy report-only HTTP header added by Cloudflare.
+- [Client-side security and PCI DSS compliance](https://developers.cloudflare.com/client-side-security/reference/pci-dss/index.md): Use client-side security to meet PCI DSS v4 requirements 6.4.3 and 11.6.1.
+- [Roles and permissions](https://developers.cloudflare.com/client-side-security/reference/roles-and-permissions/index.md): User roles and API token permissions required to access and configure client-side security.
+- [Script and connection statuses](https://developers.cloudflare.com/client-side-security/reference/script-statuses/index.md): Status classifications for scripts and connections detected by client-side security.
+- [Configuration settings](https://developers.cloudflare.com/client-side-security/reference/settings/index.md): Configure client-side security monitoring, logging, and connection tracking settings.

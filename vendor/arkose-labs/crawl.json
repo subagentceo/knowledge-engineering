@@ -10,6 +10,9 @@
     "https://developer.arkoselabs.com/docs/"
   ],
   "deny_prefixes": [],
-  "page_cap": 50,
-  "html_extract": { "selector": "main" }
+  "page_cap": 30,
+  "html_extract": {
+    "selector": "main"
+  },
+  "llms_txt": "https://www.arkoselabs.com/llms.txt"
 }

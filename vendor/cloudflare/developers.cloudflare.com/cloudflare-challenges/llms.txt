@@ -1,0 +1,41 @@
+# Challenges
+
+Verify visitors are not bots with lightweight challenges
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/cloudflare-challenges/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Challenges llms-full.txt](https://developers.cloudflare.com/cloudflare-challenges/llms-full.txt) for the complete Challenges documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Challenges](https://developers.cloudflare.com/cloudflare-challenges/index.md): Verify visitors are human using challenge pages, Turnstile, and JavaScript detections.
+
+## Troubleshooting
+
+- [Troubleshooting](https://developers.cloudflare.com/cloudflare-challenges/troubleshooting/index.md): Resolve common issues with Cloudflare challenges, including loops and proxied hostnames.
+- [Challenge solve issues](https://developers.cloudflare.com/cloudflare-challenges/troubleshooting/challenge-solve-issues/index.md): Fix challenge loops, unsupported browser errors, and other solve failures.
+
+## challenge-types
+
+- [Interstitial Challenge Pages](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/challenge-pages/index.md): Full-page challenge screens that verify visitors before they reach your website.
+- [Additional configuration](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/challenge-pages/additional-configuration/index.md): Customize challenge pages with multi-language support, branding, and text options.
+- [Challenge Passage](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/challenge-pages/challenge-passage/index.md): Set a time period during which visitors do not have to solve repeat challenges.
+- [Implement a Challenge Page via WAF custom rules](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/challenge-pages/create-custom-rule/index.md): Create WAF custom rules that issue challenge pages based on bot scores or rate limits.
+- [Detect a Challenge Page response](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/challenge-pages/detect-response/index.md): Use the cf-mitigated header to identify challenge page responses in fetch and XHR requests.
+- [Resolve a Challenge](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/challenge-pages/resolve-challenge/index.md): Steps visitors and site owners can take when encountering a Cloudflare challenge page.
+- [JavaScript Detections](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/index.md): Client-side JavaScript challenges that run on every request to identify automated traffic.
+- [Turnstile](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/turnstile/index.md): Embed a CAPTCHA-alternative widget that verifies visitors without interrupting their experience.
+
+## concepts
+
+- [Clearance](https://developers.cloudflare.com/cloudflare-challenges/concepts/clearance/index.md): How cf_clearance cookies prove a visitor passed a Cloudflare challenge.
+- [How Challenges work](https://developers.cloudflare.com/cloudflare-challenges/concepts/how-challenges-work/index.md): How Cloudflare issues challenges through WAF rules, Bot Management, and Bot Fight Mode.
+
+## reference
+
+- [Challenge solve rate (CSR)](https://developers.cloudflare.com/cloudflare-challenges/reference/challenge-solve-rate/index.md): Measure the percentage of issued challenges that visitors solve successfully.
+- [Private Access Tokens (PAT)](https://developers.cloudflare.com/cloudflare-challenges/reference/private-access-tokens/index.md): How Private Access Tokens reduce challenge steps for visitors with valid tokens.
+- [Supported browsers](https://developers.cloudflare.com/cloudflare-challenges/reference/supported-browsers/index.md): Browser compatibility for challenge pages, Turnstile, and JavaScript detections.
+- [Supported languages](https://developers.cloudflare.com/cloudflare-challenges/reference/supported-languages/index.md): Languages supported by Cloudflare challenge pages, detected via navigator.language.

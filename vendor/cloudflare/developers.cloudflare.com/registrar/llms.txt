@@ -1,0 +1,63 @@
+# Registrar
+
+Buy and renew your domain at cost, add another layer of security to your DNS records for free
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/registrar/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Registrar llms-full.txt](https://developers.cloudflare.com/registrar/llms-full.txt) for the complete Registrar documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Registrar](https://developers.cloudflare.com/registrar/index.md): Register and manage domains at cost with Cloudflare.
+
+## About
+
+- [About](https://developers.cloudflare.com/registrar/about/index.md): Learn how Cloudflare Firewall Rules work.
+
+## Registrar API
+
+- [Registrar API](https://developers.cloudflare.com/registrar/registrar-api/index.md): Search and register domains via the Registrar API.
+
+## Top Level Domains supported
+
+- [Top Level Domains supported](https://developers.cloudflare.com/registrar/top-level-domains/index.md): View supported top-level domains for registration.
+- [.UK domains](https://developers.cloudflare.com/registrar/top-level-domains/uk-domains/index.md): Manage .UK domains with Cloudflare Registrar.
+- [.US domains](https://developers.cloudflare.com/registrar/top-level-domains/us-domains/index.md): Register and manage .US domains with Cloudflare.
+
+## Cloudflare Custom Domain Protection
+
+- [Cloudflare Custom Domain Protection](https://developers.cloudflare.com/registrar/custom-domain-protection/index.md): Enterprise domain protection against hijacking.
+
+## WHOIS requests
+
+- [WHOIS requests](https://developers.cloudflare.com/registrar/whoisrequests/index.md): Submit WHOIS disclosure requests to Cloudflare.
+
+## FAQ
+
+- [FAQ](https://developers.cloudflare.com/registrar/faq/index.md): Answers to common questions.
+
+## API reference
+
+- [API reference](https://developers.cloudflare.com/api/resources/registrar/index.md): Access the API reference documentation.
+
+## Troubleshoot failed domain transfers
+
+- [Troubleshoot failed domain transfers](https://developers.cloudflare.com/registrar/troubleshooting/index.md): Fix common domain transfer issues.
+
+## account-options
+
+- [Registrant contact updates](https://developers.cloudflare.com/registrar/account-options/domain-contact-updates/index.md): Update domain registrant contact information.
+- [Domain management](https://developers.cloudflare.com/registrar/account-options/domain-management/index.md): Manage your registered domains in the dashboard.
+- [iCloud Custom Email Domains](https://developers.cloudflare.com/registrar/account-options/icloud-domains/index.md): Set up iCloud custom email domains via Cloudflare.
+- [Move a Cloudflare Registrar domain registration between accounts](https://developers.cloudflare.com/registrar/account-options/inter-account-transfer/index.md): Transfer domain registration between Cloudflare accounts.
+- [Renew domains](https://developers.cloudflare.com/registrar/account-options/renew-domains/index.md): Manage automatic and manual domain renewals.
+- [Transfer domain out from Cloudflare](https://developers.cloudflare.com/registrar/account-options/transfer-out-from-cloudflare/index.md): Transfer your domain to another registrar.
+- [WHOIS redaction](https://developers.cloudflare.com/registrar/account-options/whois-redaction/index.md): Protect personal data with WHOIS redaction.
+
+## get-started
+
+- [Enable DNSSEC](https://developers.cloudflare.com/registrar/get-started/enable-dnssec/index.md): Enable DNSSEC for your registered domain.
+- [Register a new domain](https://developers.cloudflare.com/registrar/get-started/register-domain/index.md): Register a new domain with Cloudflare.
+- [Transfer your domain to Cloudflare](https://developers.cloudflare.com/registrar/get-started/transfer-domain-to-cloudflare/index.md): Transfer a domain to Cloudflare Registrar from another registrar.

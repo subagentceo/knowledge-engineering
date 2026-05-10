@@ -1,0 +1,90 @@
+# Bots
+
+Protect your domain from bad bot traffic
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/bots/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Bots llms-full.txt](https://developers.cloudflare.com/bots/llms-full.txt) for the complete Bots documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare bot solutions](https://developers.cloudflare.com/bots/index.md): Identify and mitigate automated traffic to protect your domain from bad bots.
+
+## Plans
+
+- [Plans](https://developers.cloudflare.com/bots/plans/index.md): Compare bot protection features available on each Cloudflare plan.
+- [Business](https://developers.cloudflare.com/bots/plans/biz-and-ent/index.md): Bot protection features included in the Business and Enterprise plans.
+- [Enterprise Bot Management](https://developers.cloudflare.com/bots/plans/bm-subscription/index.md): Advanced bot detection and mitigation features in the Bot Management add-on.
+- [Free](https://developers.cloudflare.com/bots/plans/free/index.md): Bot protection features included in the Cloudflare Free plan.
+- [Pro](https://developers.cloudflare.com/bots/plans/pro/index.md): Bot protection features included in the Cloudflare Pro plan.
+
+## Bot Analytics
+
+- [Bot Analytics](https://developers.cloudflare.com/bots/bot-analytics/index.md): Use Bot Analytics to examine bot traffic patterns on your domain.
+
+## Account Abuse Protection (Early Access)
+
+- [Account Abuse Protection (Early Access)](https://developers.cloudflare.com/bots/account-abuse-protection/index.md): Detect and block automated abuse on login and registration endpoints.
+
+## Glossary
+
+- [Glossary](https://developers.cloudflare.com/bots/glossary/index.md): Definitions for terms used across Cloudflare bot solutions documentation.
+
+## Changelog
+
+- [Changelog](https://developers.cloudflare.com/bots/changelog/index.md): Track the latest updates and changes to Cloudflare bot solutions.
+
+## additional-configurations
+
+- [AI Labyrinth](https://developers.cloudflare.com/bots/additional-configurations/ai-labyrinth/index.md): Trap unauthorized AI crawlers with invisible honeypot links to waste their resources.
+- [Block AI Bots](https://developers.cloudflare.com/bots/additional-configurations/block-ai-bots/index.md): Block AI crawlers and scrapers from accessing your website content.
+- [Custom rules](https://developers.cloudflare.com/bots/additional-configurations/custom-rules/index.md): Understand when to use the built-in bot protection settings in Security Settings versus creating WAF custom rules for bot management.
+- [Detection IDs](https://developers.cloudflare.com/bots/additional-configurations/detection-ids/index.md): Static rules that identify predictable bot behavior and configurable heuristics.
+- [Account takeover detections](https://developers.cloudflare.com/bots/additional-configurations/detection-ids/account-takeover-detections/index.md): Detection IDs for identifying and mitigating automated account takeover attacks.
+- [Additional detections](https://developers.cloudflare.com/bots/additional-configurations/detection-ids/additional-detections/index.md): Detection IDs for residential proxy traffic and other automated signals.
+- [Scraping detections](https://developers.cloudflare.com/bots/additional-configurations/detection-ids/scraping-detections/index.md): Detection IDs for identifying volumetric scraping attacks by ASN and fingerprint.
+- [JA3/JA4 fingerprint](https://developers.cloudflare.com/bots/additional-configurations/ja3-ja4-fingerprint/index.md): Profile SSL/TLS clients across requests using JA3 and JA4 fingerprints.
+- [Signals Intelligence](https://developers.cloudflare.com/bots/additional-configurations/ja3-ja4-fingerprint/signals-intelligence/index.md): View aggregate intelligence data for JA4 fingerprints across Cloudflare traffic.
+- [JavaScript detections](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/index.md): Client-side JavaScript challenges used to detect automated bot traffic.
+- [robots.txt setting](https://developers.cloudflare.com/bots/additional-configurations/managed-robots-txt/index.md): Manage a robots.txt file to direct AI bot operators on content scraping permissions.
+- [Sequence rules](https://developers.cloudflare.com/bots/additional-configurations/sequence-rules/index.md): Detect and mitigate bot traffic based on cookie-based request sequences.
+- [Static resource protection](https://developers.cloudflare.com/bots/additional-configurations/static-resources/index.md): Extend bot protection to static resources like images, CSS, and JavaScript files.
+
+## concepts
+
+- [Bots](https://developers.cloudflare.com/bots/concepts/bot/index.md): Automated software programs that interact with websites and APIs.
+- [Bot detection engines](https://developers.cloudflare.com/bots/concepts/bot-detection-engines/index.md): Heuristics, machine learning, and behavioral analysis engines used to detect bots.
+- [Bot scores](https://developers.cloudflare.com/bots/concepts/bot-score/index.md): Scores from 1 to 99 indicating the likelihood a request came from a bot.
+- [Bot tags](https://developers.cloudflare.com/bots/concepts/bot-tags/index.md): Tags that explain why Cloudflare assigned a specific bot score to a request.
+- [Signed agents](https://developers.cloudflare.com/bots/concepts/bot/signed-agents/index.md): End-user-controlled agents verified through Web Bot Auth cryptographic signatures.
+- [Signed agents policy](https://developers.cloudflare.com/bots/concepts/bot/signed-agents/policy/index.md): Requirements an agent must meet to be listed as a Cloudflare signed agent.
+- [Verified bots](https://developers.cloudflare.com/bots/concepts/bot/verified-bots/index.md): Bots confirmed by Cloudflare as legitimate, such as search engine crawlers.
+- [Verified bots policy](https://developers.cloudflare.com/bots/concepts/bot/verified-bots/policy/index.md): Requirements a bot must meet to be listed as a Cloudflare verified bot.
+- [Bot Feedback Loop](https://developers.cloudflare.com/bots/concepts/feedback-loop/index.md): Submit feedback to improve bot detection accuracy for your domain.
+
+## get-started
+
+- [Bot Fight Mode](https://developers.cloudflare.com/bots/get-started/bot-fight-mode/index.md): Turn on Bot Fight Mode to challenge requests matching bot patterns on Free plans.
+- [Bot Management](https://developers.cloudflare.com/bots/get-started/bot-management/index.md): Configure Bot Management for Enterprise to identify and act on automated traffic.
+- [Super Bot Fight Mode](https://developers.cloudflare.com/bots/get-started/super-bot-fight-mode/index.md): Configure Super Bot Fight Mode to challenge or block bots on Pro, Business, and Enterprise plans.
+
+## reference
+
+- [Bot Detection Alerts](https://developers.cloudflare.com/bots/reference/alerts/index.md): Set up notifications for spikes in bot traffic on your domain.
+- [Bot Management variables](https://developers.cloudflare.com/bots/reference/bot-management-variables/index.md): Ruleset Engine fields and Workers variables available for bot detection rules.
+- [IP validation](https://developers.cloudflare.com/bots/reference/bot-verification/ip-validation/index.md): Verify bot identity by matching request IP addresses against published bot IP lists.
+- [Web Bot Auth](https://developers.cloudflare.com/bots/reference/bot-verification/web-bot-auth/index.md): Verify bot identity using cryptographic HTTP message signatures.
+- [Machine Learning models](https://developers.cloudflare.com/bots/reference/machine-learning-models/index.md): Manage auto-updates for Bot Management machine learning models.
+- [Sample terms](https://developers.cloudflare.com/bots/reference/sample-terms/index.md): Example Terms of Service language for restricting AI bots and data scraping.
+
+## troubleshooting
+
+- [Bot Management skips](https://developers.cloudflare.com/bots/troubleshooting/bot-management-skips/index.md): Understand why Bot Management does not score certain requests.
+- [Handle False Positives from Bot Fight Mode or Super Bot Fight Mode](https://developers.cloudflare.com/bots/troubleshooting/false-positives/index.md): Resolve false positives where legitimate traffic is blocked by bot protection.
+- [Super Bot Fight Mode for WordPress](https://developers.cloudflare.com/bots/troubleshooting/wordpress-loopback-issue/index.md): Fix WordPress loopback errors caused by Super Bot Fight Mode blocking diagnostics.
+
+## workers-templates
+
+- [Delay action](https://developers.cloudflare.com/bots/workers-templates/delay-action/index.md): Use a Worker to add configurable delays to requests with low bot scores.

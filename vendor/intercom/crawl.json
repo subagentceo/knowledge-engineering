@@ -2,8 +2,8 @@
   "name": "intercom",
   "homepage": "https://www.intercom.com",
   "llms_txt_candidates": [
-    "https://www.intercom.com/llms.txt",
-    "https://developers.intercom.com/llms.txt"
+    "https://developers.intercom.com/llms.txt",
+    "https://www.intercom.com/llms.txt"
   ],
   "transform": "html-extract",
   "allow_prefixes": [
@@ -11,6 +11,8 @@
     "https://developers.intercom.com/"
   ],
   "deny_prefixes": [],
-  "page_cap": 50,
-  "html_extract": { "selector": "article" }
+  "page_cap": 30,
+  "html_extract": {
+    "selector": "article"
+  }
 }
