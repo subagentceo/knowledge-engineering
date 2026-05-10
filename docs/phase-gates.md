@@ -161,7 +161,7 @@ PR 4 merges.
 
 ```
 # Governance / no-HITL setup (one-time, after PR 4 merges):
-[ ] GitHub: Settings → General → Pull Requests → Allow auto-merge (repo-level toggle; required for auto-merge.yml to fire)
+[x] GitHub: Settings → General → Pull Requests → Allow auto-merge — DONE 2026-05-10 (operator enabled after PR #4 merged; auto-merge.yml fires on labels:[automerge] PRs)
 [ ] GitHub: Settings → Security → Code security → Code scanning → Enable (then flip `upload-sarif: true` in .github/workflows/osv-scanner.yml so findings land in the Security tab)
 [x] GitHub: secrets.CLAUDE_CODE_OAUTH_TOKEN set (used by claude.yml + claude-code-review.yml + Phase 8 cloud-agent runner)
 [ ] GitHub: GITHUB_TOKEN=<pat> npm run setup:project          (milestones + Project v2 + link issues)
