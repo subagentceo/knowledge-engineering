@@ -77,7 +77,7 @@ Re-generate with `npm run validate:gates`.
 | `@octokit/graphql` available + token | yes | dev machine | ready (token via OAuth in PR 4) |
 | `.claude/plugins.json` declares the 3 Anthropic marketplaces | yes | **PR 4 — done** | ready |
 
-**Status: BLOCKED by Phase 6.** No operator action.
+**Status: ⚠️ Phase 7.A DONE 2026-05-10** — PR #27 (discover-sources.ts + snapshot of 51 anthropics + 37 mcp repos; drift check). Phase 7.B (install-plugins real materializer) deferred. Phase 8 partially unblocks (still gated on operator-side CF API token).
 
 ### Phase 8 — Cloudflare Sandbox hosting (deploy)
 
