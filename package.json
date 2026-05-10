@@ -37,6 +37,9 @@
     "@modelcontextprotocol/sdk": "^1.29.0",
     "zod": "^4.0.0"
   },
+  "overrides": {
+    "@anthropic-ai/sdk": "^0.95.0"
+  },
   "devDependencies": {
     "@modelcontextprotocol/inspector": "^0.21.0",
     "@types/node": "^22.7.0",
