@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Session-start posture for the knowledge-engineering agent.
+  Loaded by src/agent/run.ts as a system-prompt prefix (wired in Phase 6).
+  In Phase 0 this file is a static artifact only.
+
+  Authoring source: seeds/prompts/operator-2026-05-10.md and
+  seeds/prompts/operator-2026-05-10-followup.md.
+-->
+<posture version="1" date="2026-05-10">
+
+  <auth>
+    <!-- Hard rule. Forbidden vars cause fail-closed. -->
+    <require key="CLAUDE_CODE_OAUTH_TOKEN"/>
+    <forbid key="ANTHROPIC_API_KEY">
+      Existing OAuth gate at src/oauth/token.ts fails closed when this is set.
+      Inside Cloudflare Sandboxes, the Worker env-sanitizer rejects any call
+      to setEnvVars that includes this key (see infra/cloudflare/src/worker.ts).
+    </forbid>
+    <managed-agents-api use="false">
+      We ingest the managed-agents documentation and reuse its rubric/outcome
+      pattern via the Messages API over OAuth. We do NOT call the managed-
+      agents endpoints and we do NOT build managed-agent products.
+    </managed-agents-api>
+  </auth>
+
+  <discipline>
+    <commit-per>todo</commit-per>
+    <commit-per>subtask</commit-per>
+    <commit-per>task</commit-per>
+    <multi-turn-only/>
+    <prompt-caching ref="src/examples/prompt-caching.ts"/>
+    <tool-caching ref="src/examples/tool-caching.ts"/>
+    <odd required="true">
+      Every phase from Phase 0 onward ships rubrics/phase-N.md modeled on
+      vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md.
+    </odd>
+    <tdd required="true"/>
+    <citations required="true">
+      Every new test file ships with a /** @cite path/under/vendor/... */
+      header. CI guard: scripts/lib/citation-guard.ts.
+    </citations>
+    <seed-vs-spec>
+      Operator prompts are seeds, not specs. When a directive in an operator
+      prompt conflicts with a cited doc, the cited doc wins and the conflict
+      is logged in the PR description. When two operator directives conflict,
+      the more restrictive auth posture wins.
+    </seed-vs-spec>
+  </discipline>
+
+  <routines>
+    <umbrella file=".claude/skills/routines.md"/>
+    <alias of="/loop" file=".claude/loop.md"/>
+    <alias of="/schedule" file=".claude/skills/schedule-bridge.md"/>
+  </routines>
+
+  <execution>
+    <codemode runtime="@cloudflare/codemode" status="planned-phase-6"/>
+    <sandbox provider="@cloudflare/sandbox" pattern="ephemeral" status="scaffolded-phase-0g"/>
+    <db-branching provider="neon" sdk="@neondatabase/api-client" status="scaffolded-phase-0g"/>
+    <long-arc>
+      Workers-resident agents writing the codebase end-to-end (Boris Cherny
+      pattern). Phase 0g is the first concrete step toward this; future PRs
+      relocate the orchestrator into a Durable Object on Cron Triggers.
+    </long-arc>
+  </execution>
+
+  <doc-rules>
+    <!-- .md-first hosts: append .md or /index.md, reject text/html responses -->
+    <host name="developers.cloudflare.com" rule="append-/index.md"/>
+    <host name="code.claude.com" rule="append-.md"/>
+    <host name="platform.claude.com" rule="append-.md"/>
+    <host name="claude.com/docs" rule="append-.md"/>
+    <host name="neon.com/guides" rule="append-.md"/>
+  </doc-rules>
+
+  <connectors strategy="connectors-first">
+    <!-- Pre-built connectors register first; gen:servers (Phase 6) emits
+         servers/<connector>/<tool>.ts; code-mode is the default path. -->
+    <connector name="cloudflare" status="loaded"/>
+    <connector name="github" status="loaded"/>
+    <connector name="neon" status="planned"/>
+    <connector name="sentry" status="planned"/>
+    <connector name="turbopuffer" status="planned"/>
+    <connector name="parallel.ai" status="tbd"/>
+    <connector name="nimbleway" status="tbd"/>
+    <connector name="ollama" status="tbd"/>
+  </connectors>
+
+  <accounts>
+    <github org="subagentceo">
+      <admin email="admin@jadecli.com"/>
+      <admin email="alex@jadecli.com"/>
+    </github>
+  </accounts>
+
+  <sources>
+    <!-- The 11 cited URLs ingested in Phase 0c. Local paths under vendor/anthropics/. -->
+    <doc path="vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md"
+         drives="ODD/rubric layer (Phase 9)"/>
+    <doc path="vendor/anthropics/platform.claude.com/docs/en/managed-agents/multi-agent.md"
+         drives="sub-agent decomposition (Phase 10)"/>
+    <doc path="vendor/anthropics/platform.claude.com/docs/en/build-with-claude/batch-processing.md"
+         drives="batched grading (Phase 11)"/>
+    <doc path="vendor/anthropics/platform.claude.com/docs/en/build-with-claude/embeddings.md"
+         drives="optional semantic vendor_grep (Phase 11)"/>
+    <doc path="vendor/anthropics/platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool.md"
+         drives="comparison: built-in code-exec vs codemode"/>
+    <doc path="vendor/anthropics/platform.claude.com/docs/en/agents-and-tools/tool-use/build-a-tool-using-agent.md"
+         drives="meta-pattern for gen:servers"/>
+    <doc path="vendor/anthropics/platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling.md"
+         drives="core citation for Phase 6 codemode"/>
+    <doc path="vendor/anthropics/code.claude.com/docs/en/commands.md"
+         drives="/routines skill"/>
+    <doc path="vendor/anthropics/code.claude.com/docs/en/agent-sdk/slash-commands.md"
+         drives="/routines skill"/>
+    <doc path="vendor/anthropics/claude.com/docs/connectors/building.md"
+         drives="bridge-as-connector (long-arc, Phase 12)"/>
+    <doc path="vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md"
+         drives="Full-Stack Cloud Agent runner (Phase 0g)"/>
+  </sources>
+
+</posture>
