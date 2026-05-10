@@ -1,0 +1,7 @@
+# Local state / plan artifacts — never commit.
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+*.tfplan
+crash.log
+crash.*.log
