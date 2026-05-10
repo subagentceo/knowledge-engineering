@@ -34,6 +34,7 @@
     "crawl:vendor": "tsx scripts/crawl-vendors.ts --vendor",
     "gen:servers": "tsx scripts/generate-server-tree.ts",
     "discover:sources": "tsx scripts/discover-sources.ts",
+    "grade": "tsx scripts/grade-phase.ts",
     "docs:dev": "mintlify dev",
     "lint": "tsc --noEmit"
   },
