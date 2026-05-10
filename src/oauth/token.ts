@@ -14,13 +14,23 @@ export interface OAuthEnv {
   source: "env" | "cli-session";
 }
 
-export function requireOAuth(): OAuthEnv {
+/**
+ * Strict subset of the gate: refuse to run if `ANTHROPIC_API_KEY` is set.
+ *
+ * Use this in modules that don't themselves need a token (e.g. the planner)
+ * but must guarantee billing stays on the OAuth identity.
+ */
+export function assertOAuthOnly(): void {
   if (process.env.ANTHROPIC_API_KEY) {
     throw new Error(
       "[oauth-only] ANTHROPIC_API_KEY is set. This stack is OAuth-only. " +
         "Unset ANTHROPIC_API_KEY before running."
     );
   }
+}
+
+export function requireOAuth(): OAuthEnv {
+  assertOAuthOnly();
 
   const envToken = process.env.CLAUDE_CODE_OAUTH_TOKEN;
   if (envToken && envToken.length > 0) {
