@@ -207,3 +207,20 @@ heartbeat handles failure events.
 For the full session-of-2026-05-10 scoreboard (17 PRs, Phases 0-11
 shipped, 4 operator-pending actions remaining), see
 [`docs/session-2026-05-10.md`](./session-2026-05-10.md).
+
+## Operator runbooks
+
+Each remaining operator-side action has a **Claude-in-Chrome paste-prompt
+runbook** at [`docs/operator-runbooks/`](./operator-runbooks/README.md).
+The operator pastes the prompt into `claude --chrome`; the agent drives
+the browser as the operator's authenticated identity (no auth bypass).
+Cited from `vendor/anthropics/code.claude.com/docs/en/chrome.md`.
+
+| Runbook | Maps to checklist item |
+|---|---|
+| [`cf-api-token.md`](./operator-runbooks/cf-api-token.md) | `secrets.CLOUDFLARE_API_TOKEN` |
+| [`cf-account-id.md`](./operator-runbooks/cf-account-id.md) | `secrets.CLOUDFLARE_ACCOUNT_ID` + `vars.CLOUDFLARE_WORKER_NAME` |
+| [`voyage-api-key.md`](./operator-runbooks/voyage-api-key.md) | `secrets.VOYAGE_API_KEY` (optional) |
+| [`code-scanning-toggle.md`](./operator-runbooks/code-scanning-toggle.md) | Code scanning toggle + `upload-sarif: true` |
+| [`github-pat.md`](./operator-runbooks/github-pat.md) | PAT + `setup:project` + `setup:branch-protection` |
+| [`connector-decision.md`](./operator-runbooks/connector-decision.md) | Phase 12 ship decision |
