@@ -67,7 +67,7 @@ Re-generate with `npm run validate:gates`.
 | Phase 5 complete | yes | agent | depends on Phase 5 |
 | `@cloudflare/codemode` available on npm | yes | n/a (public) | ready |
 
-**Status: BLOCKED by Phase 5.** No operator action.
+**Status: ⚠️ Phase 6.A DONE 2026-05-10** — PR #26 (servers/ tree + search_tools = 16 tools). Phase 6.B (src/agent/run.ts codemode wiring + token-cost measurement) deferred to follow-up. Phase 7 partially unblocks.
 
 ### Phase 7 — Source discovery + plugin marketplace
 

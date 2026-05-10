@@ -32,6 +32,7 @@
     "setup:branch-protection": "tsx scripts/setup-branch-protection.ts",
     "crawl:vendors": "tsx scripts/crawl-vendors.ts",
     "crawl:vendor": "tsx scripts/crawl-vendors.ts --vendor",
+    "gen:servers": "tsx scripts/generate-server-tree.ts",
     "docs:dev": "mintlify dev",
     "lint": "tsc --noEmit"
   },
