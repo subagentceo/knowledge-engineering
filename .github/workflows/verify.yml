@@ -1,0 +1,77 @@
+# .github/workflows/verify.yml
+#
+# Foundation CI for the no-HITL loop. Runs `npm run verify` on every PR
+# and push to main. Required status check on main per the branch
+# protection ruleset (see docs/governance.md and
+# scripts/setup-branch-protection.ts).
+#
+# Cited from seeds/prompts/operator-2026-05-10-autonomy.md.
+#
+# Notes:
+#   - OAuth-only posture: ANTHROPIC_API_KEY is NOT in env. The `verify`
+#     chain's MCP smoke tests use the existing src/oauth/token.ts gate.
+#   - terraform verify (verify:tf) requires terraform on the runner;
+#     'hashicorp/setup-terraform' below provides it.
+#   - The verify chain runs verify:mcp, verify:tf, verify:citations,
+#     and verify:gates (added in PR 4).
+
+name: verify
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: npm run verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.0"
+          terraform_wrapper: false
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (dist/ for verify:mcp)
+        run: npm run build
+
+      - name: Terraform init (no backend; verify:tf only validates + plans)
+        working-directory: infra/terraform
+        run: terraform init -backend=false -input=false
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Verify (mcp + tf + citations + gates)
+        run: npm run verify
+        env:
+          # No ANTHROPIC_API_KEY. The OAuth gate asserts its absence.
+          # verify:mcp does NOT require a CLAUDE_CODE_OAUTH_TOKEN — it just
+          # spawns the MCP servers and asserts tools/list shape over stdio.
+          ANTHROPIC_API_KEY: ""
+
+      - name: Env-sanitize test (cloud-agent runner)
+        run: npx tsx infra/cloudflare/src/env-sanitize.test.ts

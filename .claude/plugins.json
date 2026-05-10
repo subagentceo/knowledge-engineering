@@ -1,0 +1,74 @@
+{
+  "$schema": "https://schemas.anthropic.com/claude-plugins.schema.json",
+  "version": "1",
+  "marketplaces": [
+    {
+      "name": "official",
+      "repo": "anthropics/claude-plugins-official",
+      "ref": "main",
+      "comment": "Official Anthropic-managed plugin directory. Contains mcp-server-dev, agent-decomposition, etc."
+    },
+    {
+      "name": "knowledge-work",
+      "repo": "anthropics/knowledge-work-plugins",
+      "ref": "main",
+      "comment": "Cowork-targeted plugins (Knowledge Work workflows)."
+    },
+    {
+      "name": "community",
+      "repo": "anthropics/claude-plugins-community",
+      "ref": "main",
+      "comment": "Community marketplace (read-only mirror)."
+    }
+  ],
+  "install": [
+    {
+      "kind": "event-listener",
+      "name": "pr-activity",
+      "implementation": "github-mcp:subscribe_pr_activity",
+      "comment": "Subscribes the in-session orchestrator to GitHub PR webhook events (comments, CI, reviews). Pairs with .github/workflows/claude.yml (the CI-side responder)."
+    },
+    {
+      "kind": "ci-action",
+      "name": "claude-code-action",
+      "package": "anthropics/claude-code-action@v1",
+      "stage": "installed",
+      "workflows": [".github/workflows/claude.yml", ".github/workflows/claude-code-review.yml"],
+      "comment": "Canonical Claude Code GitHub Action. Auto-reviews every PR (claude-code-review.yml) and responds to @claude mentions (claude.yml). The in-CI half of the two-surface dispatch model: in-session heartbeat (.claude/skills/heartbeat.md) + in-CI claude-code-action. Both consume PR-activity events; the heartbeat dispatches by posting @claude comments; the action executes on the head SHA. Added by operator via PR #17 (add-claude-github-actions-* setup wizard)."
+    },
+    {
+      "kind": "skill",
+      "name": "code-review",
+      "marketplace": "official",
+      "package": "anthropics/claude-code-plugins/code-review",
+      "stage": "installed",
+      "loaded-by": ".github/workflows/claude-code-review.yml",
+      "comment": "The code-review plugin from anthropics/claude-code-plugins, loaded by claude-code-review.yml via plugin_marketplaces + plugins inputs. Operationalizes 'remove operator from PR-review HITL' (operator-2026-05-10-autonomy.md): Claude is the automated reviewer."
+    },
+    {
+      "kind": "language-server",
+      "name": "typescript-lsp",
+      "package": "@modelcontextprotocol/server-typescript-lsp",
+      "stage": "planned",
+      "comment": "TypeScript language server exposed via MCP for code-intelligence (go-to-definition, find-references, hover) inside agent sessions. Materialized by scripts/install-plugins.ts (Phase 7); PR 4 declares the manifest only."
+    },
+    {
+      "kind": "skill",
+      "name": "mcp-server-dev",
+      "marketplace": "official",
+      "stage": "planned",
+      "comment": "Interactive walkthrough for building MCP servers — referenced by vendor/anthropics/claude.com/docs/connectors/building.md. Materialized in Phase 7 / 12 (bridge-as-Connector)."
+    },
+    {
+      "kind": "skill",
+      "name": "agent-decomposition",
+      "marketplace": "official",
+      "stage": "planned",
+      "comment": "The cwc-workshops/agent-decomposition pattern — canonical worked example for decomposing a large-prompt agent into skills + code execution + callable_agents. Referenced in docs/architecture.md long-arc section."
+    }
+  ],
+  "notes": {
+    "phase-7-completion": "scripts/install-plugins.ts in Phase 7 materializes each install entry into .claude/plugins/<name>/ by shallow-cloning the marketplace subtree via GitHub MCP get_file_contents. Until then this manifest is the source-of-truth for operator + reviewer audit.",
+    "boris-cherny-pattern": "The marketplaces+manifest model is the publicly-documented Anthropic pattern: a lead orchestration agent enumerates available plugins via the marketplace, installs the ones its rubric requires, and the rest stay dormant. See docs/architecture.md#long-arc-workers-goal."
+  }
+}

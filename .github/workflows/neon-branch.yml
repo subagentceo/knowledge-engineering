@@ -1,0 +1,124 @@
+# .github/workflows/neon-branch.yml
+#
+# Canonical workflow from the Neon GitHub integration setup wizard,
+# layered with our operator discipline. Operator completed the Neon ↔
+# GitHub project link for `divine-cloud-27295848`; secrets +
+# variables are now provisioned:
+#
+#   secrets.NEON_API_KEY    (auto-set by Neon integration)
+#   vars.NEON_PROJECT_ID    (= divine-cloud-27295848)
+#
+# Replaces the scaffold version that gated on `vars.NEON_PROJECT_ID != ''`
+# (no longer needed; the var is set).
+#
+# Cited from:
+#   seeds/prompts/operator-2026-05-10-followup.md (Full-Stack Cloud Agent)
+#   seeds/prompts/operator-2026-05-10-autonomy.md (GitHub workflows as primitives)
+#   docs/governance.md
+#   docs/phase-gates.md (Phase 8 operator-gating)
+#
+# Per-PR: creates a Neon database branch on open/sync/reopen, names it
+# preview/pr-<N>-<branch-slug>, sets a 14-day expiry, posts the branch
+# info on the PR; deletes on close. Branch URLs (pooled + unpooled) are
+# emitted as job outputs for downstream steps (migrations, schema-diff).
+
+name: Create/Delete Branch for Pull Request
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  setup:
+    name: Setup
+    outputs:
+      branch: ${{ steps.branch_name.outputs.current_branch }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get branch name
+        id: branch_name
+        uses: tj-actions/branch-names@v8
+
+  create_neon_branch:
+    name: Create Neon Branch
+    outputs:
+      db_url: ${{ steps.create_neon_branch.outputs.db_url }}
+      db_url_with_pooler: ${{ steps.create_neon_branch.outputs.db_url_with_pooler }}
+    needs: setup
+    if: |
+      github.event_name == 'pull_request' && (
+      github.event.action == 'synchronize'
+      || github.event.action == 'opened'
+      || github.event.action == 'reopened')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Get branch expiration date as an env variable (2 weeks from now)
+        id: get_expiration_date
+        run: echo "EXPIRES_AT=$(date -u --date '+14 days' +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_ENV"
+
+      - name: Create Neon Branch
+        id: create_neon_branch
+        uses: neondatabase/create-branch-action@v6
+        with:
+          project_id: ${{ vars.NEON_PROJECT_ID }}
+          branch_name: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
+          api_key: ${{ secrets.NEON_API_KEY }}
+          expires_at: ${{ env.EXPIRES_AT }}
+
+      # Surface the branch name + expiry in a PR comment so the heartbeat
+      # orchestrator (and humans) can see what was provisioned. Important:
+      # never log db_url / db_url_with_pooler — they contain credentials.
+      - name: Comment branch info on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branchName = `preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}`;
+            const expires = '${{ env.EXPIRES_AT }}';
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: [
+                `Neon branch ready: \`${branchName}\``,
+                `Expires: \`${expires}\` (14d).`,
+                ``,
+                `Connection strings (pooled + unpooled) are emitted as job outputs for downstream steps. They are NOT printed in the workflow log — see Neon Console (project: divine-cloud-27295848) if you need to inspect them.`
+              ].join('\n')
+            });
+
+      # Migrations (commented; enable in Phase 8 once a schema lands):
+      # - name: Run Migrations
+      #   run: npm run db:migrate
+      #   env:
+      #     DATABASE_URL: "${{ steps.create_neon_branch.outputs.db_url_with_pooler }}"
+
+      # Schema diff (commented; enable in Phase 8 once a schema lands):
+      # - name: Post Schema Diff Comment to PR
+      #   uses: neondatabase/schema-diff-action@v1
+      #   with:
+      #     project_id: ${{ vars.NEON_PROJECT_ID }}
+      #     compare_branch: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
+      #     api_key: ${{ secrets.NEON_API_KEY }}
+
+  delete_neon_branch:
+    name: Delete Neon Branch
+    needs: setup
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete Neon Branch
+        uses: neondatabase/delete-branch-action@v3
+        with:
+          project_id: ${{ vars.NEON_PROJECT_ID }}
+          branch: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
+          api_key: ${{ secrets.NEON_API_KEY }}

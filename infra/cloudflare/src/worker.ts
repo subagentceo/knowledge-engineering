@@ -47,16 +47,26 @@ declare class NeonApiClient {
   }>;
 }
 
+// Secrets Store binding shape per
+// https://developers.cloudflare.com/secrets-store/integrations/workers/
+// Async get() is the only access path; values never appear in plain env.
+interface SecretsStoreBinding {
+  get(): Promise<string>;
+}
+
 interface Env {
   Sandbox: SandboxBinding;
-  NEON_API_KEY: string;
+  // Secrets Store bindings (account-level; bootstrapped by
+  // .github/workflows/cloudflare-preview.yml).
+  CLAUDE_CODE_OAUTH_TOKEN: SecretsStoreBinding;
+  NEON_API_KEY: SecretsStoreBinding;
+  GITHUB_TOKEN: SecretsStoreBinding;
+  // Worker var (non-secret).
   NEON_PROJECT_ID: string;
-  GITHUB_TOKEN: string;
-  CLAUDE_CODE_OAUTH_TOKEN: string;
-  // Bindings the operator posture forbids. If any of these ever appear,
-  // sanitizeEnv() throws.
-  ANTHROPIC_API_KEY?: never;
   IS_SANDBOX?: string;
+  // Bindings the operator posture forbids. Layer-2 defense: even if
+  // somehow bound, sanitizeEnv() throws when forwarding to the Sandbox.
+  ANTHROPIC_API_KEY?: never;
 }
 
 interface RunRequest {
@@ -170,8 +180,17 @@ export default {
     const agentId = crypto.randomUUID();
     const branch = `agent/${agentId}`;
 
+    // Resolve Secrets Store bindings up-front. The async get() pattern
+    // is the only access path per Cloudflare docs; values are never on
+    // the plain env object.
+    const [neonApiKey, claudeOauth, githubToken] = await Promise.all([
+      env.NEON_API_KEY.get(),
+      env.CLAUDE_CODE_OAUTH_TOKEN.get(),
+      env.GITHUB_TOKEN.get(),
+    ]);
+
     const { databaseUrl, branchId } = await createNeonBranch(
-      env.NEON_API_KEY,
+      neonApiKey,
       env.NEON_PROJECT_ID,
       agentId
     );
@@ -182,9 +201,9 @@ export default {
     // ANTHROPIC_API_KEY here. We forward CLAUDE_CODE_OAUTH_TOKEN.
     await sandbox.setEnvVars(
       sanitizeEnv({
-        CLAUDE_CODE_OAUTH_TOKEN: env.CLAUDE_CODE_OAUTH_TOKEN,
+        CLAUDE_CODE_OAUTH_TOKEN: claudeOauth,
         DATABASE_URL: databaseUrl,
-        GITHUB_TOKEN: env.GITHUB_TOKEN,
+        GITHUB_TOKEN: githubToken,
         IS_SANDBOX: "1",
       })
     );

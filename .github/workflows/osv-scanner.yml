@@ -1,0 +1,61 @@
+# .github/workflows/osv-scanner.yml
+#
+# OSV-Scanner (Google) auto-discovers lockfiles under the repo root.
+# Cited from:
+#   https://osv.dev/
+#   https://google.github.io/osv-scanner/
+#   https://github.com/google/osv-scanner
+#
+# Runs on every PR + weekly cron. On main pushes, uploads SARIF to the
+# GitHub Security tab.
+#
+# Note: infra/cloudflare/package.json has no lockfile yet (npm install
+# is run only at deploy time per docs/governance.md). We let OSV-Scanner
+# auto-discover lockfiles via `-r ./` and rely on it skipping the bare
+# package.json there; if/when infra/cloudflare gets its own lockfile,
+# it will be picked up automatically.
+
+name: osv-scanner
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1"   # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+concurrency:
+  group: osv-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scan-pr:
+    if: github.event_name == 'pull_request'
+    name: OSV-Scanner (PR)
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.5
+    with:
+      scan-args: |-
+        -r
+        ./
+      # SARIF upload requires GitHub code-scanning to be enabled on the
+      # repo. Disabled here until the operator turns it on
+      # (Settings → Security → Code scanning). Scan still runs and
+      # fail-on-vuln still gates merges.
+      upload-sarif: false
+
+  scan-main:
+    if: github.event_name != 'pull_request'
+    name: OSV-Scanner (push / schedule)
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.5
+    with:
+      scan-args: |-
+        -r
+        ./
+      upload-sarif: false
