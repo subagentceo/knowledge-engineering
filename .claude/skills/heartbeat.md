@@ -167,6 +167,37 @@ Per `docs/governance.md`:
 After each dispatch the heartbeat records the classifier verdict and
 the sub-agent's outcome in `seeds/memory/heartbeat/decisions.md`.
 
+# Per-tick read order (Phase 15 codification)
+
+This skill IS this repo's **Dispatch** per the Cowork primitive defined
+in `vendor/anthropics/claude.com/docs/cowork/guide/dispatch.md`:
+
+> Dispatch is a long-running agent in Cowork that takes high-level
+> instructions and carries them out in the background. ... it can run
+> many child tasks beneath that conversation.
+
+Each PR opened by this skill IS a Dispatch child task.
+
+On every tick, read state in this order — sourced from the canonical
+project manifest at `docs/PROJECT.md` (Phase 15.A):
+
+1. **`docs/PROJECT.md`** — the project manifest (Cowork-style; folders +
+   instructions + links + memory + plugins + dispatch wiring). Identifies
+   what "this project" is doing.
+2. **`docs/pending.md`** — the live 3-column dashboard (Phase 15.B):
+   operator browser actions / operator CLI actions / autonomous follow-ups.
+   Identifies what's blocked vs ready.
+3. **`docs/phase-gates.md`** — per-phase dependency map. Identifies which
+   phases can advance (operator-pending count = 0 for that phase).
+4. **`seeds/memory/heartbeat/last-tick.md`** — what the previous heartbeat
+   tick decided. Identifies where to resume.
+5. **`seeds/memory/heartbeat/next-actions.md`** — the queue (currently
+   derived from open GH issues; Phase 11.C lights up Turbopuffer-backed
+   semantic memory).
+
+Pop the top action whose phase rubric says READY (criteria 1-N met OR
+operator gates cleared). Execute. Open PR with `automerge` label. Yield.
+
 # Boris Cherny lead orchestration pattern
 
 The heartbeat skill is the operator-side embodiment of the publicly-

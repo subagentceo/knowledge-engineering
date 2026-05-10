@@ -208,6 +208,12 @@ For the full session-of-2026-05-10 scoreboard (17 PRs, Phases 0-11
 shipped, 4 operator-pending actions remaining), see
 [`docs/session-2026-05-10.md`](./session-2026-05-10.md).
 
+## Phase 15 — codify project management
+
+**Status: ⚠️ Phase 15.A-C DONE 2026-05-10** — `docs/PROJECT.md` (Cowork-style manifest) + `docs/pending.md` (3-column live dashboard) + `.claude/skills/heartbeat.md` updated with Cowork mapping. Phase 15.D (verify:project) + 15.E (render-pending) deferred. Cited from `vendor/anthropics/claude.com/docs/cowork/guide/{projects,dispatch,plugins}.md` + `vendor/anthropics/platform.claude.com/docs/en/managed-agents/{agent-setup,sessions,multi-agent,memory,dreams}.md`.
+
+The single-pane-of-glass for what's blocked is now `docs/pending.md`.
+
 ## Operator runbooks
 
 Each remaining operator-side action has a **Claude-in-Chrome paste-prompt
