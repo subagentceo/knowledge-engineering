@@ -43,7 +43,6 @@ jobs:
     with:
       scan-args: |-
         -r
-        --skip-git
         ./
 
   scan-main:
@@ -53,5 +52,4 @@ jobs:
     with:
       scan-args: |-
         -r
-        --skip-git
         ./
