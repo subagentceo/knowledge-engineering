@@ -48,6 +48,13 @@ interface CrawlConfig {
   name: string;
   homepage: string;
   llms_txt_candidates: string[];
+  /**
+   * Optional: list of llms.txt URLs to crawl IN ADDITION to the
+   * discovered candidate. Each source contributes URLs to the same
+   * vendor mirror. Used for multi-surface vendors (e.g. anthropics:
+   * code.claude.com + platform.claude.com + claude.com/docs).
+   */
+  llms_txt_sources?: string[];
   /** Resolved to a real URL after the discovery probe; persisted back. */
   llms_txt?: string;
   transform: TransformName;
@@ -197,15 +204,20 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   const cfg = loadConfig(vendor);
   console.log(`[${vendor}] crawl start (transform=${cfg.transform}, page_cap=${cfg.page_cap})`);
 
-  // Discover llms.txt.
+  // Declared up-front so the additional-source loop can record failures
+  // without needing to thread them through later.
+  const failures: CrawlResult["failures"] = [];
+
+  // Discover llms.txt (primary). If llms_txt_sources is set, also fetch each
+  // source body and merge its links into the URL pool.
   const llms = await discoverLlmsTxt(cfg);
   if (llms === null) {
     console.error(`[${vendor}] no valid llms.txt found in ${cfg.llms_txt_candidates.length} candidate(s)`);
     return { vendor, llms_txt_url: "", pagesFetched: 0, pagesSkipped: 0, failures: [{ url: "<llms.txt discovery>", reason: "no valid candidate" }] };
   }
-  console.log(`[${vendor}] llms.txt: ${llms.url}`);
+  console.log(`[${vendor}] llms.txt (primary): ${llms.url}`);
 
-  // Persist llms.txt + record discovered URL in crawl.json.
+  // Persist primary llms.txt + record discovered URL in crawl.json.
   if (!dryRun) {
     writeIfChanged(resolve(VENDOR_ROOT, vendor, "llms.txt"), llms.body);
     if (cfg.llms_txt !== llms.url) {
@@ -214,10 +226,42 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
     }
   }
 
-  const parsed = parseLlmsTxt(llms.body)!;
-  const urls = dedupeUrls(parsed);
+  // Collect URLs from primary + each llms_txt_sources entry.
+  const collectedUrls = new Set<string>();
+  const primaryParsed = parseLlmsTxt(llms.body);
+  if (primaryParsed) {
+    for (const u of dedupeUrls(primaryParsed)) collectedUrls.add(u);
+  }
+  for (const sourceUrl of cfg.llms_txt_sources ?? []) {
+    if (sourceUrl === llms.url) continue; // already captured above
+    try {
+      const r = await fetch(sourceUrl, { headers: { Accept: "text/plain, text/markdown" } });
+      if (!r.ok) {
+        failures.push({ url: sourceUrl, reason: `additional source HTTP ${r.status}` });
+        continue;
+      }
+      const body = await r.text();
+      const parsed = parseLlmsTxt(body);
+      if (parsed === null) {
+        console.warn(`[${vendor}] additional source not parseable as llms.txt: ${sourceUrl}`);
+        continue;
+      }
+      console.log(`[${vendor}] additional source: ${sourceUrl} (${parsed.sections.reduce((a, s) => a + s.links.length, 0)} links)`);
+      // Persist each additional source body too (host-pathed).
+      if (!dryRun) {
+        const u = new URL(sourceUrl);
+        const target = resolve(VENDOR_ROOT, vendor, u.host, ...u.pathname.replace(/^\//, "").split("/"));
+        writeIfChanged(target, body);
+      }
+      for (const u of dedupeUrls(parsed)) collectedUrls.add(u);
+    } catch (err) {
+      console.warn(`[${vendor}] additional source error: ${sourceUrl}: ${(err as Error).message}`);
+    }
+  }
+
+  const urls = Array.from(collectedUrls);
   const allowed = urls.filter((u) => inAllowlist(u, cfg)).slice(0, cfg.page_cap);
-  console.log(`[${vendor}] ${urls.length} link(s) in llms.txt; ${allowed.length} after allowlist + page_cap`);
+  console.log(`[${vendor}] ${urls.length} link(s) across all sources; ${allowed.length} after allowlist + page_cap`);
 
   if (allowed.length === 0) {
     return { vendor, llms_txt_url: llms.url, pagesFetched: 0, pagesSkipped: urls.length, failures: [] };
@@ -229,7 +273,6 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
 
   let fetched = 0;
   let skipped = 0;
-  const failures: CrawlResult["failures"] = [];
   const indexRows: { url: string; relPath: string }[] = [];
 
   // Build the list of {fetchUrl, originalUrl, transform} entries, then

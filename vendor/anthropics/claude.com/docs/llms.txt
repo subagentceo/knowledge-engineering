@@ -1,0 +1,71 @@
+# Claude.ai Documentation
+
+## Docs
+
+- [Manage your listing after publishing](https://claude.com/docs/connectors/building/after-publishing.md): Update your MCP server, plugin, and directory listing after publication
+- [Authentication for connectors](https://claude.com/docs/connectors/building/authentication.md): OAuth and authentication options for MCP servers in Claude
+- [Directory connectors vs custom connectors](https://claude.com/docs/connectors/building/directory-vs-custom.md): Understand the difference between directory-listed and custom connectors
+- [Building custom connectors](https://claude.com/docs/connectors/building/index.md): Build your own MCP servers to connect Claude to your tools and data
+- [Lazy authentication for MCP servers](https://claude.com/docs/connectors/building/lazy-authentication.md): Let users call public tools immediately and defer OAuth until a protected tool is actually invoked.
+- [Model Context Protocol (MCP)](https://claude.com/docs/connectors/building/mcp.md): Understanding the open standard powering Claude's connectors
+- [Building cross-platform MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/cross-compatibility.md): Build MCP Apps that work with both Claude and ChatGPT using a single codebase
+- [Design guidelines](https://claude.com/docs/connectors/building/mcp-apps/design-guidelines.md): Visual and interaction design guidelines for MCP Apps in Claude
+- [Opening external links from MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/external-links.md): How Claude handles ui/open-link requests, and how directory connectors can allowlist destinations to skip the confirmation modal
+- [Get started with MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/getting-started.md): Learn how to test MCP Apps in Claude
+- [Supersede older widget instances](https://claude.com/docs/connectors/building/mcp-apps/instance-supersession.md): Keep only the newest copy of a widget active when its tool is called more than once in a conversation
+- [Blend your MCP App with Claude's theme](https://claude.com/docs/connectors/building/mcp-apps/transparent-theming.md): Make your widget background transparent and style it with Claude's style variables
+- [Troubleshooting MCP Apps](https://claude.com/docs/connectors/building/mcp-apps/troubleshooting.md): Debug and resolve common issues with MCP Apps in Claude Desktop
+- [Build a desktop extension with MCPB](https://claude.com/docs/connectors/building/mcpb.md): Package a local MCP server as a single-click .mcpb install for Claude Desktop
+- [Pre-submission checklist](https://claude.com/docs/connectors/building/review-criteria.md): What Anthropic reviewers test, so you can pass on the first try
+- [Submitting to the Connectors Directory](https://claude.com/docs/connectors/building/submission.md): Submit your MCP connector to the Connectors Directory
+- [Testing your connector](https://claude.com/docs/connectors/building/testing.md): Test your MCP server against Claude before submitting to the directory
+- [What should I build: MCP, plugin, or both?](https://claude.com/docs/connectors/building/what-to-build.md): Decide between an MCP server, a plugin, or both for your Claude integration
+- [Desktop extensions](https://claude.com/docs/connectors/custom/desktop-extensions.md): Deploy enterprise-grade MCP servers with MCPB
+- [Third party connectors with remote MCP](https://claude.com/docs/connectors/custom/remote-mcp.md): Connect Claude to your tools using the Model Context Protocol
+- [Connectors directory](https://claude.com/docs/connectors/directory.md): Browse verified MCP integrations for Claude
+- [Get started with connectors](https://claude.com/docs/connectors/getting-started.md): Learn to connect Claude to your tools and data
+- [GitHub integration](https://claude.com/docs/connectors/github/index.md): Connect your code repositories to Claude
+- [Google Calendar integration](https://claude.com/docs/connectors/google/calendar.md): Access your calendar and meeting information with Claude
+- [Google Drive integration](https://claude.com/docs/connectors/google/drive.md): Connect Google Docs directly to Claude
+- [Gmail integration](https://claude.com/docs/connectors/google/gmail.md): Search and analyze emails with Claude
+- [Microsoft 365 connector](https://claude.com/docs/connectors/microsoft/365.md): Connect SharePoint, OneDrive, Outlook, and Teams to Claude
+- [Connectors overview](https://claude.com/docs/connectors/overview.md): Connect Claude to external tools, data, and UI through MCP
+- [Slack integration](https://claude.com/docs/connectors/slack/index.md): Use Claude directly in Slack and connect your workspace
+- [Deploy Cowork on 3P with Amazon Bedrock](https://claude.com/docs/cowork/3p/bedrock.md): Set up AWS, choose an authentication path for your organization, and configure Cowork on 3P to use Claude models on Amazon Bedrock
+- [Sign in with AWS for Amazon Bedrock](https://claude.com/docs/cowork/3p/bedrock-aws-sign-in.md): Configure per-user AWS IAM Identity Center authentication for Amazon Bedrock instead of distributing a bearer token or requiring the AWS CLI
+- [Code tab](https://claude.com/docs/cowork/3p/code.md): How the Code tab is configured in Cowork on 3P
+- [Configuration reference](https://claude.com/docs/cowork/3p/configuration.md): Every managed-configuration key Cowork on 3P supports, what it controls, and recommended security profiles
+- [User identity and local data](https://claude.com/docs/cowork/3p/data-storage.md): How Cowork on 3P identifies users and where it stores conversations, settings, and credentials on disk
+- [MCP, plugins, skills, and hooks](https://claude.com/docs/cowork/3p/extensions.md): Extend Cowork on 3P with connectors, organization plugins, skills, and hooks for administrators and end users
+- [Features on 3P](https://claude.com/docs/cowork/3p/feature-matrix.md): Feature comparison between Claude Enterprise and Cowork on third-party (3P)
+- [Using Cowork on 3P with Microsoft Foundry](https://claude.com/docs/cowork/3p/foundry.md): Configure Cowork on 3P to use Claude models on Microsoft Foundry
+- [Using Cowork on 3P with an LLM Gateway](https://claude.com/docs/cowork/3p/gateway.md): Configure Cowork on 3P to use Claude models on a self-hosted gateway that implements the Anthropic Messages API
+- [Installation and setup](https://claude.com/docs/cowork/3p/installation.md): Roll out Cowork on 3P to your organization, from a single evaluation machine to a fleet-wide MDM deployment
+- [Legal and compliance](https://claude.com/docs/cowork/3p/legal.md): Legal agreements, compliance, and security information for Cowork on 3P
+- [Desktop and filesystem access](https://claude.com/docs/cowork/3p/local-access.md): How Cowork on 3P reads and writes files on the user's machine, and how to constrain it
+- [Overview](https://claude.com/docs/cowork/3p/overview.md): Run Cowork against your own cloud inference provider
+- [Telemetry and egress](https://claude.com/docs/cowork/3p/telemetry.md): What Cowork on 3P sends to Anthropic, how to disable it, and the network paths your firewall needs to allow
+- [Deploy Cowork on 3P with Google Cloud's Vertex AI](https://claude.com/docs/cowork/3p/vertex.md): Set up Google Cloud, choose an authentication path for your organization, and configure Cowork on 3P to use Claude models on Vertex AI
+- [Sign in with Google for Google Cloud's Vertex AI](https://claude.com/docs/cowork/3p/vertex-google-sign-in.md): Configure per-user Google authentication for Google Cloud's Vertex AI instead of distributing a shared service-account key
+- [Web search and web fetch](https://claude.com/docs/cowork/3p/web-tools.md): How Cowork on 3P reaches the internet, which providers support search, and how to control or disable web access
+- [Run tasks in the background with Dispatch](https://claude.com/docs/cowork/guide/dispatch.md): Assign work to a Dispatch agent that plans, runs, and reports on tasks while you do something else, on this computer or from your phone.
+- [Install plugins](https://claude.com/docs/cowork/guide/plugins.md): Add packaged skills, connectors, and agents to Cowork from the plugin marketplace or a file.
+- [Organize work with projects](https://claude.com/docs/cowork/guide/projects.md): Group folders, instructions, and context into a Cowork project so Claude starts each session with the right setup.
+- [Monitoring](https://claude.com/docs/cowork/monitoring.md): Track Cowork usage and activity across your organization with OpenTelemetry
+- [Overview](https://claude.com/docs/cowork/overview.md): Learn about Cowork, Anthropic's agentic workspace
+- [Get started building with Claude.ai](https://claude.com/docs/index.md): Get started building with Connectors, Plugins, and other Claude.ai features.
+- [Connectors and Skills](https://claude.com/docs/office-agents/connectors-and-skills.md): Extend Claude for Excel, PowerPoint, Word, and Outlook with external context and reusable task recipes.
+- [Use dictation in Claude for M365](https://claude.com/docs/office-agents/dictation.md): Speak your prompts instead of typing them in Claude for Excel, PowerPoint, Word, and Outlook.
+- [Security, admin auditability, and analytics](https://claude.com/docs/office-agents/enterprise-readiness.md): Security architecture diagrams, OpenTelemetry audit, usage analytics, and spend tracking for enterprise admins deploying Claude for M365.
+- [Use Claude for Excel](https://claude.com/docs/office-agents/excel.md): An Excel add-in that integrates Claude into your spreadsheet workflow, for Pro, Max, Team, and Enterprise plans.
+- [Install financial services plugins for Cowork](https://claude.com/docs/office-agents/fsi-plugins.md): Add the open-source financial services plugin set to Cowork for financial modeling, equity research, investment banking, private equity, and wealth management workflows.
+- [Use Claude for Outlook](https://claude.com/docs/office-agents/outlook.md): An Outlook add-in that integrates Claude into your inbox and calendar, for Pro, Max, Team, and Enterprise plans.
+- [Claude for M365 overview](https://claude.com/docs/office-agents/overview.md): Claude for Excel, PowerPoint, Word, and Outlook.
+- [Use Claude for PowerPoint](https://claude.com/docs/office-agents/powerpoint.md): A PowerPoint add-in that integrates Claude into your presentation workflow, for Pro, Max, Team, and Enterprise plans.
+- [Use Claude for M365 with third-party platforms](https://claude.com/docs/office-agents/third-party-platforms.md): Deploy the Office add-ins through Amazon Bedrock, Google Cloud Vertex AI, Azure AI Foundry, or an LLM gateway, without individual Claude accounts.
+- [Use Claude for Word](https://claude.com/docs/office-agents/word.md): A Word add-in that integrates Claude into your document workflow, for Pro, Max, Team, and Enterprise plans.
+- [Work across M365 apps](https://claude.com/docs/office-agents/work-across-apps.md): Let Claude read from one Microsoft 365 app and make changes in another in a single conversation.
+- [Plugins overview](https://claude.com/docs/plugins/overview.md): Extend Claude with reusable capability packages that bundle MCP connectors, skills, slash commands, and sub-agents
+- [Submitting your plugin](https://claude.com/docs/plugins/submit.md): Submit your plugin to the plugin directory for Cowork
+- [Creating custom skills](https://claude.com/docs/skills/how-to.md): Learn how to create, structure, and test your own custom skills
+- [Skills overview](https://claude.com/docs/skills/overview.md): Extend Claude's capabilities with specialized instructions and workflows
