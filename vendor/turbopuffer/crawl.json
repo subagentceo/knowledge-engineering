@@ -1,0 +1,16 @@
+{
+  "name": "turbopuffer",
+  "homepage": "https://turbopuffer.com",
+  "llms_txt_candidates": [
+    "https://turbopuffer.com/docs/llms.txt",
+    "https://turbopuffer.com/llms.txt",
+    "https://docs.turbopuffer.com/llms.txt"
+  ],
+  "transform": "verbatim",
+  "allow_prefixes": [
+    "https://turbopuffer.com/docs/",
+    "https://docs.turbopuffer.com/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 200
+}

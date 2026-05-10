@@ -1,0 +1,16 @@
+{
+  "name": "stripe",
+  "homepage": "https://docs.stripe.com",
+  "llms_txt_candidates": [
+    "https://docs.stripe.com/llms.txt",
+    "https://docs.stripe.com/llms-full.txt"
+  ],
+  "transform": "append-md-and-accept",
+  "allow_prefixes": [
+    "https://docs.stripe.com/"
+  ],
+  "deny_prefixes": [
+    "https://docs.stripe.com/api-reference/changelog"
+  ],
+  "page_cap": 200
+}

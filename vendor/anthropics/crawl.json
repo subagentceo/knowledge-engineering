@@ -1,0 +1,16 @@
+{
+  "name": "anthropics",
+  "homepage": "https://code.claude.com",
+  "llms_txt_candidates": [
+    "https://code.claude.com/llms.txt",
+    "https://platform.claude.com/llms.txt",
+    "https://www.claude.com/llms.txt"
+  ],
+  "transform": "verbatim",
+  "allow_prefixes": [
+    "https://code.claude.com/docs/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 200,
+  "llms_txt": "https://code.claude.com/llms.txt"
+}

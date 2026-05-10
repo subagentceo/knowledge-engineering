@@ -1,0 +1,15 @@
+{
+  "name": "arkose-labs",
+  "homepage": "https://www.arkoselabs.com",
+  "llms_txt_candidates": [
+    "https://www.arkoselabs.com/llms.txt",
+    "https://developer.arkoselabs.com/llms.txt"
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://developer.arkoselabs.com/docs/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 50,
+  "html_extract": { "selector": "main" }
+}
