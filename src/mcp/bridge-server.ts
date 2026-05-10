@@ -19,6 +19,7 @@ import { registerClaudeBlog } from "./lanes/claude-blog.js";
 import { registerSupportClaude } from "./lanes/support-claude.js";
 import { registerLlmsTxt } from "./lanes/llms-txt.js";
 import { registerVendor } from "./lanes/vendor.js";
+import { registerSearchTools } from "./lanes/search-tools.js";
 
 const server = new McpServer({
   name: "knowledge-bridge",
@@ -30,5 +31,6 @@ registerClaudeBlog(server);
 registerSupportClaude(server);
 registerLlmsTxt(server);
 registerVendor(server);
+registerSearchTools(server);
 
 await server.connect(new StdioServerTransport());
