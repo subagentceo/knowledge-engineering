@@ -21,9 +21,12 @@
     "example:deep-links": "tsx src/examples/deep-links.ts",
     "verify:planner": "tsx scripts/verify-planner.ts",
     "verify:citations": "tsx scripts/lib/citation-guard.ts",
+    "verify:gates": "tsx scripts/validate-phase-gates.ts",
     "verify:mcp": "tsx scripts/verify.ts && npm run verify:planner",
     "verify:tf": "terraform -chdir=infra/terraform validate && terraform -chdir=infra/terraform plan -lock=false -input=false",
-    "verify": "npm run verify:mcp && npm run verify:tf && npm run verify:citations",
+    "verify": "npm run verify:mcp && npm run verify:tf && npm run verify:citations && npm run verify:gates",
+    "install:plugins": "tsx scripts/install-plugins.ts",
+    "setup:project": "tsx scripts/setup-github-project.ts",
     "docs:dev": "mintlify dev",
     "lint": "tsc --noEmit"
   },
