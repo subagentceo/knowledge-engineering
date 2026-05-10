@@ -1,0 +1,51 @@
+# Firewall Rules (deprecated)
+
+Create rules that examine incoming HTTP traffic against a set of powerful filters to block, challenge, log, or allow matching requests. Firewall Rules have been replaced with WAF custom rules.
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/firewall/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Firewall Rules (deprecated) llms-full.txt](https://developers.cloudflare.com/firewall/llms-full.txt) for the complete Firewall Rules (deprecated) documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Firewall Rules](https://developers.cloudflare.com/firewall/index.md): Create rules to inspect and act on incoming HTTP traffic.
+
+## About
+
+- [About](https://developers.cloudflare.com/firewall/cf-firewall-rules/index.md): Learn how Cloudflare Firewall Rules work.
+- [Firewall rules actions](https://developers.cloudflare.com/firewall/cf-firewall-rules/actions/index.md): Review available actions for firewall rules.
+- [Order and priority](https://developers.cloudflare.com/firewall/cf-firewall-rules/order-priority/index.md): Understand firewall rule evaluation order and priority.
+
+## Manage rules in the dashboard
+
+- [Manage rules in the dashboard](https://developers.cloudflare.com/firewall/cf-dashboard/index.md): Create and manage firewall rules in the dashboard.
+- [Create, edit, and delete rules](https://developers.cloudflare.com/firewall/cf-dashboard/create-edit-delete-rules/index.md): Create, edit, and delete firewall rules.
+- [Create a mTLS rule](https://developers.cloudflare.com/firewall/cf-dashboard/create-mtls-rule/index.md): Create a mutual TLS rule in the dashboard.
+- [Preview rules](https://developers.cloudflare.com/firewall/cf-dashboard/rule-preview/index.md): Test firewall rule impact before deployment.
+
+## Manage rules via the APIs
+
+- [Manage rules via the APIs](https://developers.cloudflare.com/firewall/api/index.md): Manage firewall rules programmatically via APIs.
+- [Call sequence](https://developers.cloudflare.com/firewall/api/call-sequence/index.md): Recommended API call sequence for firewall rules.
+- [Cloudflare Filters API](https://developers.cloudflare.com/firewall/api/cf-filters/index.md): Manage filters for firewall rules via the API.
+- [DELETE examples](https://developers.cloudflare.com/firewall/api/cf-filters/delete/index.md): Delete filters or rules with DELETE API requests.
+- [Endpoints](https://developers.cloudflare.com/firewall/api/cf-filters/endpoints/index.md): API endpoints for managing filters and firewall rules.
+- [GET examples](https://developers.cloudflare.com/firewall/api/cf-filters/get/index.md): Retrieve filters or rules with GET API requests.
+- [JSON object](https://developers.cloudflare.com/firewall/api/cf-filters/json-object/index.md): Review the JSON structure for filter and rule objects.
+- [POST example](https://developers.cloudflare.com/firewall/api/cf-filters/post/index.md): Create filters or rules with a POST API request.
+- [PUT examples](https://developers.cloudflare.com/firewall/api/cf-filters/put/index.md): Update filters or rules with PUT API requests.
+- [Expression validation](https://developers.cloudflare.com/firewall/api/cf-filters/validation/index.md): Validate firewall rule expressions via the API.
+- [What is a filter?](https://developers.cloudflare.com/firewall/api/cf-filters/what-is-a-filter/index.md): A filter is a way of setting up if (traffic matches certain criteria), then do something.
+- [Firewall Rules API](https://developers.cloudflare.com/firewall/api/cf-firewall-rules/index.md): Manage firewall rules via the Firewall Rules API.
+- [DELETE examples](https://developers.cloudflare.com/firewall/api/cf-firewall-rules/delete/index.md): Delete filters or rules with DELETE API requests.
+- [Endpoints](https://developers.cloudflare.com/firewall/api/cf-firewall-rules/endpoints/index.md): API endpoints for managing filters and firewall rules.
+- [GET examples](https://developers.cloudflare.com/firewall/api/cf-firewall-rules/get/index.md): Retrieve filters or rules with GET API requests.
+- [JSON object](https://developers.cloudflare.com/firewall/api/cf-firewall-rules/json-object/index.md): Review the JSON structure for filter and rule objects.
+- [POST example](https://developers.cloudflare.com/firewall/api/cf-firewall-rules/post/index.md): Create filters or rules with a POST API request.
+- [PUT examples](https://developers.cloudflare.com/firewall/api/cf-firewall-rules/put/index.md): Update filters or rules with PUT API requests.
+
+## troubleshooting
+
+- [Required firewall rule changes to enable URL normalization](https://developers.cloudflare.com/firewall/troubleshooting/required-changes-to-enable-url-normalization/index.md): Update firewall rules for URL normalization.

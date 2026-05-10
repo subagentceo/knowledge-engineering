@@ -1,0 +1,33 @@
+# Multi-Cloud Networking
+
+Automate resource discovery and simplify managing your public cloud infrastructure
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/multi-cloud-networking/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Multi-Cloud Networking llms-full.txt](https://developers.cloudflare.com/multi-cloud-networking/llms-full.txt) for the complete Multi-Cloud Networking documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare One Multi-Cloud Networking (beta)](https://developers.cloudflare.com/multi-cloud-networking/index.md): Connect multiple cloud providers through the Cloudflare network.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/multi-cloud-networking/get-started/index.md): Set up Multi-Cloud Networking to connect cloud environments.
+
+## Cloud on-ramps
+
+- [Cloud on-ramps](https://developers.cloudflare.com/multi-cloud-networking/cloud-on-ramps/index.md): Connect cloud providers to Cloudflare with cloud on-ramps.
+
+## Manage resources
+
+- [Manage resources](https://developers.cloudflare.com/multi-cloud-networking/manage-resources/index.md): Manage cloud on-ramp resources and connections.
+
+## Reference
+
+- [Reference](https://developers.cloudflare.com/multi-cloud-networking/reference/index.md): Reference information for Multi-Cloud Networking.
+
+## Changelog
+
+- [Changelog](https://developers.cloudflare.com/multi-cloud-networking/changelog/index.md): Review recent changes to Cloudflare One Multi-Cloud Networking (formerly Magic Cloud Networking) (beta).

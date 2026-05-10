@@ -1,0 +1,240 @@
+# Rules
+
+Modify incoming requests, change Cloudflare settings, or trigger actions
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/rules/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Rules llms-full.txt](https://developers.cloudflare.com/rules/llms-full.txt) for the complete Rules documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Rules](https://developers.cloudflare.com/rules/index.md): Use Cloudflare Rules to adjust requests and responses, configure settings, and trigger actions for specific requests.
+
+## Rules examples
+
+- [Rules examples](https://developers.cloudflare.com/rules/examples/index.md): Example configurations for Transform Rules, redirects, origin rules, and more.
+
+## Configuration Rules
+
+- [Configuration Rules](https://developers.cloudflare.com/rules/configuration-rules/index.md): Customize Cloudflare settings for matching incoming requests, such as security level and caching.
+- [Create a configuration rule via API](https://developers.cloudflare.com/rules/configuration-rules/create-api/index.md): Create configuration rules using the Rulesets API.
+- [Create a configuration rule in the dashboard](https://developers.cloudflare.com/rules/configuration-rules/create-dashboard/index.md): Create configuration rules in the Cloudflare dashboard.
+- [Configuration Rules examples](https://developers.cloudflare.com/rules/configuration-rules/examples/index.md): Example Configuration Rules for adjusting zone settings per request.
+- [Define a single configuration rule using Terraform](https://developers.cloudflare.com/rules/configuration-rules/examples/define-single-configuration-terraform/index.md): Create a configuration rule using Terraform to turn off Email Obfuscation and Browser Integrity Check for API requests in a given zone.
+- [Configuration Rules settings](https://developers.cloudflare.com/rules/configuration-rules/settings/index.md): Available settings you can customize with Configuration Rules.
+
+## Cloudflare Snippets
+
+- [Cloudflare Snippets](https://developers.cloudflare.com/rules/snippets/index.md): Run lightweight JavaScript at the edge to modify requests and responses.
+- [Configure Snippets via API](https://developers.cloudflare.com/rules/snippets/create-api/index.md): Create Snippets using the Cloudflare API.
+- [Create a snippet in the dashboard](https://developers.cloudflare.com/rules/snippets/create-dashboard/index.md): Create Snippets in the Cloudflare dashboard.
+- [Configure Snippets using Terraform](https://developers.cloudflare.com/rules/snippets/create-terraform/index.md): Create Snippets using the Terraform Cloudflare provider.
+- [Troubleshoot Snippets](https://developers.cloudflare.com/rules/snippets/errors/index.md): Common Snippet errors and how to resolve them.
+- [Snippets examples](https://developers.cloudflare.com/rules/snippets/examples/index.md): Example Snippets for headers, redirects, caching, and more.
+- [A/B testing with same-URL direct access](https://developers.cloudflare.com/rules/snippets/examples/ab-testing-same-url/index.md): Set up an A/B test by controlling what response is served based on cookies.
+- [Append dates to cookies to use with A/B testing](https://developers.cloudflare.com/rules/snippets/examples/append-dates-to-cookies/index.md): Dynamically set a cookie expiration and test group.
+- [Auth with headers](https://developers.cloudflare.com/rules/snippets/examples/auth-with-headers/index.md): Allow or deny a request based on a known pre-shared key in a header. This is not meant to replace the [WebCrypto API](/workers/runtime-apis/web-crypto/).
+- [Send Bot Management information to origin](https://developers.cloudflare.com/rules/snippets/examples/bot-data-to-origin/index.md): Send [Bots](/bots/) information to your origin. Refer to [Bot Management variables](/bots/reference/bot-management-variables/) for a full list of available fields.
+- [Send suspect bots to a honeypot](https://developers.cloudflare.com/rules/snippets/examples/bots-to-honeypot/index.md): Use the [bot score field](/workers/runtime-apis/request/#incomingrequestcfproperties) to send bots to a honeypot.
+- [Bulk redirect based on a map object](https://developers.cloudflare.com/rules/snippets/examples/bulk-redirect-map/index.md): Redirect requests to certain URLs based on a mapped object to the request's URL.
+- [Country code redirect](https://developers.cloudflare.com/rules/snippets/examples/country-code-redirect/index.md): Redirect a response based on the country code in the header of a visitor.
+- [Custom cache](https://developers.cloudflare.com/rules/snippets/examples/custom-cache/index.md): Store, retrieve, and remove assets from cache programmatically. Use this template to optimize performance and implement custom caching strategies.
+- [Debugging logs](https://developers.cloudflare.com/rules/snippets/examples/debugging-logs/index.md): Send debugging information in an errored response to a logging service.
+- [Define CORS headers](https://developers.cloudflare.com/rules/snippets/examples/define-cors-headers/index.md): Adjust [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers and handle preflight requests.
+- [Follow redirects from the origin](https://developers.cloudflare.com/rules/snippets/examples/follow-redirects/index.md): Modify the fetch request to follow redirects from the origin, ensuring the client receives the final response.
+- [Add HEX timestamp to a request header](https://developers.cloudflare.com/rules/snippets/examples/hex-timestamp/index.md): Add a custom header to requests sent to the origin server with the current timestamp in hexadecimal format for debugging, tracking, or custom routing purposes.
+- [Validate JSON web tokens (JWT)](https://developers.cloudflare.com/rules/snippets/examples/jwt-validation/index.md): Extract a JWT from the Authorization header, verify its HMAC-SHA256 signature using the WebCrypto API, and validate its claims.
+- [Maintenance page](https://developers.cloudflare.com/rules/snippets/examples/maintenance/index.md): Serve a custom maintenance page instead of fetching content from the origin server or cache. Ideal for downtime notifications, planned maintenance, or emergency messages.
+- [Override a Set-Cookie header with a certain value](https://developers.cloudflare.com/rules/snippets/examples/override-set-cookies-value/index.md): Get a specific `Set-Cookie` header and update it with a certain value.
+- [Redirect 403 Forbidden to a different page](https://developers.cloudflare.com/rules/snippets/examples/redirect-forbidden-status/index.md): If origin responded with `403 Forbidden` error code, redirect to different page.
+- [Redirect from one domain to another](https://developers.cloudflare.com/rules/snippets/examples/redirect-replaced-domain/index.md): Redirect all requests from one domain to another domain.
+- [Remove fields from API response](https://developers.cloudflare.com/rules/snippets/examples/remove-fields-api-response/index.md): If origin responds with `JSON`, parse the response and delete fields to return a modified response.
+- [Remove query strings before sending request to origin](https://developers.cloudflare.com/rules/snippets/examples/remove-query-strings/index.md): Remove certain query strings from a request before passing to the origin.
+- [Remove response headers](https://developers.cloudflare.com/rules/snippets/examples/remove-response-headers/index.md): Remove from response all headers that start with a certain name.
+- [Return information about the incoming request](https://developers.cloudflare.com/rules/snippets/examples/return-incoming-request-properties/index.md): Respond with information about the incoming request provided by Cloudflare’s global network.
+- [Rewrite links on HTML pages](https://developers.cloudflare.com/rules/snippets/examples/rewrite-site-links/index.md): Dynamically rewrite links in HTML responses. This is useful for site migrations and branding updates.
+- [Change origin and modify paths](https://developers.cloudflare.com/rules/snippets/examples/route-and-rewrite/index.md): Route requests to a different origin, prepend a directory to the URL path, and remove specific segments.
+- [Set security headers](https://developers.cloudflare.com/rules/snippets/examples/security-headers/index.md): Set common security headers such as X-XSS-Protection, X-Frame-Options, and X-Content-Type-Options.
+- [Send timestamp to origin as a custom header](https://developers.cloudflare.com/rules/snippets/examples/send-timestamp-to-origin/index.md): Convert timestamp to hexadecimal format and send it as a custom header to the origin.
+- [Route to a different origin based on origin response](https://developers.cloudflare.com/rules/snippets/examples/serve-different-origin/index.md): If response to the original request is not `200 OK` or a redirect, send to another origin.
+- [Sign requests](https://developers.cloudflare.com/rules/snippets/examples/signing-requests/index.md): Verify a signed request using the HMAC and SHA-256 algorithms or return a 403.
+- [Slow down suspicious requests](https://developers.cloudflare.com/rules/snippets/examples/slow-suspicious-requests/index.md): Define a delay to be used when incoming requests match a rule you consider suspicious based on the bot score.
+- [How Snippets work](https://developers.cloudflare.com/rules/snippets/how-it-works/index.md): How Snippets execute JavaScript at the edge for matching requests.
+- [When to use Snippets vs Workers](https://developers.cloudflare.com/rules/snippets/when-to-use/index.md): This guide helps you determine when to use Snippets or Workers on Cloudflare's global network.
+
+## Transform Rules
+
+- [Transform Rules](https://developers.cloudflare.com/rules/transform/index.md): Modify request URLs, headers, and response headers with Transform Rules.
+- [Transform Rules examples](https://developers.cloudflare.com/rules/transform/examples/index.md): Example Transform Rules for URL rewrites and header modifications.
+- [Add a wildcard CORS response header](https://developers.cloudflare.com/rules/transform/examples/add-cors-header/index.md): Create a CORS response header transform rule to add an `Access-Control-Allow-Origin` HTTP header to the response with wildcard as static value. (`cookiename=value`).
+- [Add a request header with the current bot score](https://developers.cloudflare.com/rules/transform/examples/add-request-header-bot-score/index.md): Create a request header transform rule to add a `X-Bot-Score` HTTP header to the request with the current bot score.
+- [Add request header with a static value](https://developers.cloudflare.com/rules/transform/examples/add-request-header-static-value/index.md): Create a request header transform rule to add an `X-Source` HTTP header to the request with a static value (`Cloudflare`).
+- [Add a request header for subrequests from other zones](https://developers.cloudflare.com/rules/transform/examples/add-request-header-subrequest-other-zone/index.md): Create a request header transform rule to add an HTTP header when the Workers subrequest comes from a different zone.
+- [Add a response header with a static value](https://developers.cloudflare.com/rules/transform/examples/add-response-header-static-value/index.md): Create a response header transform rule to add a `set-cookie` HTTP header to the response with a static value (`cookiename=value`).
+- [Normalize encoded slashes in URL path](https://developers.cloudflare.com/rules/transform/examples/normalize-encoded-slash/index.md): Create a URL rewrite rule (part of Transform Rules) to normalize encoded forward slashes (`%2F`) in the request path to standard slashes (`/`).
+- [Remove a request header](https://developers.cloudflare.com/rules/transform/examples/remove-request-header/index.md): Create a request header transform rule (part of Transform Rules) to remove the `cf-connecting-ip` HTTP header from the request.
+- [Remove a response header](https://developers.cloudflare.com/rules/transform/examples/remove-response-header/index.md): Create a response header transform rule (part of Transform Rules) to remove the `cf-connecting-ip` HTTP header from the response.
+- [Rewrite blog archive URLs](https://developers.cloudflare.com/rules/transform/examples/rewrite-archive-urls-new-format/index.md): Create a transform rule to rewrite the URL format `/posts/<YYYY>-<MM>-<DD>-<TITLE>` to the new format `/posts/<YYYY>/<MM>/<DD>/<TITLE>`.
+- [Rewrite path of moved section of a website](https://developers.cloudflare.com/rules/transform/examples/rewrite-moved-section/index.md): Create a URL rewrite rule (part of Transform Rules) to rewrite everything under `/blog/<PATH>` to `/marketing/<PATH>`.
+- [Rewrite path of archived blog posts](https://developers.cloudflare.com/rules/transform/examples/rewrite-path-archived-posts/index.md): Create a URL rewrite rule (part of Transform Rules) to rewrite any requests for `/news/2012/...` URI paths to `/archive/news/2012/...`.
+- [Rewrite path for object storage bucket](https://developers.cloudflare.com/rules/transform/examples/rewrite-path-object-storage/index.md): Create a URL rewrite rule (part of Transform Rules) to rewrite any requests for `/files/...` URI paths to `/...`.
+- [Rewrite image paths with several URL segments](https://developers.cloudflare.com/rules/transform/examples/rewrite-several-url-different-url/index.md): Create a URL rewrite rule (part of Transform Rules) to rewrite any requests for `/images/<FOLDER1>/<FOLDER2>/<FILENAME>` to `/img/<FILENAME>`.
+- [Rewrite URL query string](https://developers.cloudflare.com/rules/transform/examples/rewrite-url-string-visitors/index.md): Create a transform rule to rewrite the request path from `/blog` to `/blog?sort-by=date`.
+- [Rewrite page path for visitors in specific countries](https://developers.cloudflare.com/rules/transform/examples/rewrite-welcome-for-countries/index.md): Create two URL rewrite rules (part of Transform Rules) to rewrite the path of the welcome page for visitors in specific countries.
+- [Set a response header with the current bot score](https://developers.cloudflare.com/rules/transform/examples/set-response-header-bot-score/index.md): Create a response header transform rule (part of Transform Rules) to set an `X-Bot-Score` HTTP header in the response with the current bot score.
+- [Set response header with a static value](https://developers.cloudflare.com/rules/transform/examples/set-response-header-static-value/index.md): Create a response header transform rule (part of Transform Rules) to set an `X-Bot-Score` HTTP header in the response to a static value (`Cloudflare`).
+- [Managed Transforms](https://developers.cloudflare.com/rules/transform/managed-transforms/index.md): Pre-built Transform Rules managed by Cloudflare for common use cases.
+- [Configure Managed Transforms](https://developers.cloudflare.com/rules/transform/managed-transforms/configure/index.md): Learn how to configure Managed Transforms.
+- [Available Managed Transforms](https://developers.cloudflare.com/rules/transform/managed-transforms/reference/index.md): Learn about Cloudflare's Managed Transforms for modifying HTTP headers, including bot protection, TLS client auth, and leaked credentials checks.
+- [Request Header Transform Rules](https://developers.cloudflare.com/rules/transform/request-header-modification/index.md): Learn how to modify HTTP request headers with Cloudflare's rules.
+- [Create a request header transform rule via API](https://developers.cloudflare.com/rules/transform/request-header-modification/create-api/index.md): Create request header modification rules using the API.
+- [Create a request header transform rule in the dashboard](https://developers.cloudflare.com/rules/transform/request-header-modification/create-dashboard/index.md): Create request header modification rules in the dashboard.
+- [Create a rule using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/transform-rules/#create-a-request-header-transform-ruleindex.md): Create request header modification rules using Terraform.
+- [Available fields and functions](https://developers.cloudflare.com/rules/transform/request-header-modification/reference/fields-functions/index.md): Available fields and functions for request header modification rules.
+- [Format of HTTP request header names and values](https://developers.cloudflare.com/rules/transform/request-header-modification/reference/header-format/index.md): Supported header name and value formats for request header modifications.
+- [API parameter reference](https://developers.cloudflare.com/rules/transform/request-header-modification/reference/parameters/index.md): Configurable parameters for request header modification rules.
+- [Response Header Transform Rules](https://developers.cloudflare.com/rules/transform/response-header-modification/index.md): Add, set, or remove HTTP response headers with Transform Rules.
+- [Create a response header transform rule via API](https://developers.cloudflare.com/rules/transform/response-header-modification/create-api/index.md): Create response header modification rules using the API.
+- [Create a response header transform rule in the dashboard](https://developers.cloudflare.com/rules/transform/response-header-modification/create-dashboard/index.md): Create response header modification rules in the dashboard.
+- [Create a rule using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/transform-rules/#create-a-response-header-transform-ruleindex.md): Create response header modification rules using Terraform.
+- [Available fields and functions](https://developers.cloudflare.com/rules/transform/response-header-modification/reference/fields-functions/index.md): Available fields and functions for response header modification rules.
+- [Format of HTTP response header names and values](https://developers.cloudflare.com/rules/transform/response-header-modification/reference/header-format/index.md): Supported header name and value formats for response header modifications.
+- [API parameter reference](https://developers.cloudflare.com/rules/transform/response-header-modification/reference/parameters/index.md): Configurable parameters for response header modification rules.
+- [Troubleshoot Transform Rules](https://developers.cloudflare.com/rules/transform/troubleshooting/index.md): Resolve common issues with Transform Rules.
+- [URL Rewrite Rules](https://developers.cloudflare.com/rules/transform/url-rewrite/index.md): Rewrite request URL paths and query strings with Transform Rules.
+- [Create a URL rewrite rule via API](https://developers.cloudflare.com/rules/transform/url-rewrite/create-api/index.md): Create URL rewrite rules using the Rulesets API.
+- [Create a URL rewrite rule in the dashboard](https://developers.cloudflare.com/rules/transform/url-rewrite/create-dashboard/index.md): Create URL rewrite rules in the Cloudflare dashboard.
+- [Create a rule using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/transform-rules/#create-a-url-rewrite-ruleindex.md): Create URL rewrite rules using the Terraform Cloudflare provider.
+- [Available fields and functions](https://developers.cloudflare.com/rules/transform/url-rewrite/reference/fields-functions/index.md): Available fields and functions for URL rewrite rules.
+- [URL rewrite parameters](https://developers.cloudflare.com/rules/transform/url-rewrite/reference/parameters/index.md): Configurable parameters for URL rewrite rules.
+
+## Redirects
+
+- [Redirects](https://developers.cloudflare.com/rules/url-forwarding/index.md): Redirect visitors to different URLs with Single Redirects and Bulk Redirects.
+- [Bulk Redirects](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/index.md): Redirect large numbers of URLs with Bulk Redirects at the account level.
+- [Bulk Redirects concepts](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/concepts/index.md): Bulk Redirects work through a combination of URL redirects, a Bulk Redirect list, and a Bulk Redirect rule.
+- [Create Bulk Redirects via API](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/create-api/index.md): Learn how to create Bulk Redirects using the Cloudflare API.
+- [Create Bulk Redirects in the dashboard](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/create-dashboard/index.md): Create Bulk Redirects in the Cloudflare dashboard.
+- [Bulk Redirects FAQ](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/faq/index.md): Answers to common questions about Bulk Redirects.
+- [How Bulk Redirects work](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/how-it-works/index.md): How Bulk Redirects evaluate and match incoming requests.
+- [CSV file format for Bulk Redirects](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/reference/csv-file-format/index.md): CSV file format for importing Bulk Redirect lists.
+- [Available fields and functions](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/reference/fields-functions/index.md): Available fields and functions for Bulk Redirect rules.
+- [Bulk Redirects API JSON objects](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/reference/json-objects/index.md): JSON object structure for Bulk Redirect API requests.
+- [URL redirect parameters](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/reference/parameters/index.md): Configurable parameters for Bulk Redirect rules.
+- [Supported URL components in Bulk Redirects](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/reference/url-components/index.md): URL components used in Bulk Redirect source and target URLs.
+- [Configure Bulk Redirects using Terraform](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/terraform-example/index.md): Create Bulk Redirects using the Terraform Cloudflare provider.
+- [Redirect examples](https://developers.cloudflare.com/rules/url-forwarding/examples/index.md): Example URL forwarding rules for common redirect scenarios.
+- [Perform mobile redirects](https://developers.cloudflare.com/rules/url-forwarding/examples/perform-mobile-redirects/index.md): Create a redirect rule to redirect visitors using mobile devices to a different hostname.
+- [Redirect admin area requests to HTTPS](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-admin-https/index.md): Create a redirect rule to redirect requests for the administration area of `store.example.com` to HTTPS, keeping the original path and query string.
+- [Redirect requests from one domain to another](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-all-another-domain/index.md): Create a redirect rule to redirect all requests to a different domain, maintaining all functionality, except for the discontinued HTTP service (port 80).
+- [Redirect requests from one country to a domain](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-all-country/index.md): Create a redirect rule to redirect all website visitors from the United Kingdom to a different domain, maintaining the current functionality in the same paths.
+- [Redirect requests for a domain to a new domain](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-all-different-domain-root/index.md): Create a redirect rule to redirect all URLs for a domain to point to the root of a new domain, including any subdomains of the old domain.
+- [Redirect requests to a different hostname](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-all-different-hostname/index.md): Create a redirect rule to redirect all requests for `smallshop.example.com` to a different hostname using HTTPS, keeping the original path and query string.
+- [Redirect local visitors to specific subdomains](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-country-subdomains/index.md): Create a redirect rule to redirect United Kingdom and France visitors from the `example.com` website's  root path (`/`) to their localized subdomains `https://gb.example.com` and `https://fr.example.com`, respectively.
+- [Redirect visitors to a new page URL](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-new-url/index.md): Create a redirect rule to redirect visitors from `/contact-us/` to the page's new path `/contacts/`.
+- [Redirect from root to WWW](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-root-to-www/index.md): Create a redirect rule to forward HTTPS requests from the root (also known as the “apex” or “naked” domain) to the WWW subdomain.
+- [Redirect from WWW to root](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-www-to-root/index.md): Create a redirect rule to forward HTTPS requests from the WWW subdomain to the root (also known as the “apex” or “naked” domain).
+- [Remove locale from URL path](https://developers.cloudflare.com/rules/url-forwarding/examples/remove-locale-url/index.md): Create a redirect rule to redirect visitors from an old URL format with locale information to a new URL format.
+- [Single Redirects](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/index.md): Create URL redirects with expression-based Single Redirect rules.
+- [Create a redirect rule via API](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/create-api/index.md): Create Single Redirect rules using the Rulesets API.
+- [Create a redirect rule in the dashboard](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/create-dashboard/index.md): Create Single Redirect rules in the Cloudflare dashboard.
+- [Single Redirects settings](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/settings/index.md): Available settings for Single Redirect rules.
+- [Create a redirect rule using Terraform](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/terraform-example/index.md): Create Single Redirect rules using the Terraform Cloudflare provider.
+
+## Origin Rules
+
+- [Origin Rules](https://developers.cloudflare.com/rules/origin-rules/index.md): Override the origin server, host header, SNI, and DNS resolution for matching requests.
+- [Create an origin rule via API](https://developers.cloudflare.com/rules/origin-rules/create-api/index.md): Create origin rules using the Rulesets API.
+- [Create an origin rule in the dashboard](https://developers.cloudflare.com/rules/origin-rules/create-dashboard/index.md): Create origin rules in the Cloudflare dashboard.
+- [Origin Rules examples](https://developers.cloudflare.com/rules/origin-rules/examples/index.md): Example origin rules for routing and header modifications.
+- [Change the HTTP Host header and DNS record](https://developers.cloudflare.com/rules/origin-rules/examples/change-http-host-header/index.md): Create an origin rule to change the HTTP `Host` header and the resolved DNS record.
+- [Change the destination port](https://developers.cloudflare.com/rules/origin-rules/examples/change-port/index.md): Create an origin rule to change the destination port.
+- [Define a single origin rule using Terraform](https://developers.cloudflare.com/rules/origin-rules/examples/define-single-origin-terraform/index.md): Create an origin rule using Terraform to override the `Host` header, the resolved hostname, and the destination port of API requests.
+- [Origin Rules FAQ](https://developers.cloudflare.com/rules/origin-rules/faq/index.md): Answers to common questions about origin rules.
+- [Origin Rules settings](https://developers.cloudflare.com/rules/origin-rules/features/index.md): Supported origin rule features and their availability by plan.
+- [Origin Rules API parameter reference](https://developers.cloudflare.com/rules/origin-rules/parameters/index.md): Configurable parameters for origin rules.
+- [Origin Rules tutorials](https://developers.cloudflare.com/rules/origin-rules/tutorials/index.md): Step-by-step tutorials for common origin rule configurations.
+- [Change URI path and Host header](https://developers.cloudflare.com/rules/origin-rules/tutorials/change-uri-path-and-host-header/index.md): This tutorial shows you how to modify both the URI path and the Host header of incoming requests using Transform Rules and Origin Rules.
+- [Point to Pages with a custom domain](https://developers.cloudflare.com/rules/origin-rules/tutorials/point-to-pages-with-custom-domain/index.md): This tutorial will instruct you how to configure an origin rule and a DNS record to point to a Pages deployment with a custom domain.
+- [Point to R2 bucket with a custom domain](https://developers.cloudflare.com/rules/origin-rules/tutorials/point-to-r2-bucket-with-custom-domain/index.md): This tutorial will instruct you how to configure an origin rule and a DNS record to point to an R2 bucket configured with a custom domain.
+
+## Cache Rules
+
+- [Cache Rules](https://developers.cloudflare.com/cache/how-to/cache-rules/index.md): Configure caching behavior for matching requests using Cache Rules.
+
+## Cloud Connector
+
+- [Cloud Connector](https://developers.cloudflare.com/rules/cloud-connector/index.md): Route matching requests to cloud provider storage buckets and services.
+- [Configure a Cloud Connector rule via API](https://developers.cloudflare.com/rules/cloud-connector/create-api/index.md): Create Cloud Connector rules using the Cloudflare API.
+- [Configure a Cloud Connector rule in the dashboard](https://developers.cloudflare.com/rules/cloud-connector/create-dashboard/index.md): Create Cloud Connector rules in the Cloudflare dashboard.
+- [Configure Cloud Connector rules using Terraform](https://developers.cloudflare.com/rules/cloud-connector/create-terraform/index.md): Create Cloud Connector rules using the Terraform Cloudflare provider.
+- [Cloud Connector examples](https://developers.cloudflare.com/rules/cloud-connector/examples/index.md): Example Cloud Connector rules for routing traffic to cloud storage providers.
+- [Route /images to an S3 Bucket using Terraform](https://developers.cloudflare.com/rules/cloud-connector/examples/route-images-to-aws-s3-using-terraform/index.md): Route requests with a URI path starting with `/images` to a specific AWS S3 bucket with Cloud Connector using Terraform.
+- [Route /images to an S3 Bucket](https://developers.cloudflare.com/rules/cloud-connector/examples/route-images-to-s3/index.md): Route requests with a URI path starting with `/images` to a specific AWS S3 bucket using Cloud Connector.
+- [Send EU visitors to a Google Cloud Storage bucket](https://developers.cloudflare.com/rules/cloud-connector/examples/send-eu-visitors-to-gcs/index.md): Route all traffic from EU visitors to a Google Cloud Storage bucket using Cloud Connector.
+- [Serve /static-assets from Azure Blob Storage](https://developers.cloudflare.com/rules/cloud-connector/examples/serve-static-assets-from-azure/index.md): Route requests with a URI path starting with `/static-assets` to an Azure Blob Storage container using Cloud Connector.
+- [Supported cloud providers in Cloud Connector](https://developers.cloudflare.com/rules/cloud-connector/providers/index.md): Cloud providers and storage services supported by Cloud Connector.
+
+## Custom Errors
+
+- [Custom Errors](https://developers.cloudflare.com/rules/custom-errors/index.md): Serve custom error pages for Cloudflare or origin server errors.
+- [Common API calls for Custom Errors](https://developers.cloudflare.com/rules/custom-errors/api-calls/index.md): Manage custom error rules and error pages using the Cloudflare API.
+- [Create custom error rules](https://developers.cloudflare.com/rules/custom-errors/create-rules/index.md): Create custom error rules in the dashboard or via the API.
+- [Edit Error Pages](https://developers.cloudflare.com/rules/custom-errors/edit-error-pages/index.md): Edit and customize the HTML content of error pages.
+- [Example custom error rules](https://developers.cloudflare.com/rules/custom-errors/example-rules/index.md): Example custom error rules for common error handling scenarios.
+- [Error page types](https://developers.cloudflare.com/rules/custom-errors/reference/error-page-types/index.md): Types of error pages you can customize with custom error rules.
+- [Error tokens](https://developers.cloudflare.com/rules/custom-errors/reference/error-tokens/index.md): Dynamic tokens available for use in custom error page HTML.
+- [Custom Errors parameters](https://developers.cloudflare.com/rules/custom-errors/reference/parameters/index.md): Configurable parameters for custom error rules.
+- [Troubleshoot Error Pages issues](https://developers.cloudflare.com/rules/custom-errors/troubleshooting/index.md): Resolve common issues with custom error rules and error pages.
+
+## Compression Rules
+
+- [Compression Rules](https://developers.cloudflare.com/rules/compression-rules/index.md): Customize response compression algorithms for specific content types and file extensions.
+- [Create a compression rule via API](https://developers.cloudflare.com/rules/compression-rules/create-api/index.md): Create compression rules using the Rulesets API.
+- [Create a compression rule in the dashboard](https://developers.cloudflare.com/rules/compression-rules/create-dashboard/index.md): Create compression rules in the Cloudflare dashboard.
+- [Compression Rules examples](https://developers.cloudflare.com/rules/compression-rules/examples/index.md): Example Compression Rules for Brotli, Gzip, and Zstandard configurations.
+- [Disable Brotli compression](https://developers.cloudflare.com/rules/compression-rules/examples/disable-all-brotli/index.md): Create a compression rule to turn off Brotli compression for all incoming requests of a given zone.
+- [Disable compression for AVIF images](https://developers.cloudflare.com/rules/compression-rules/examples/disable-compression-avif/index.md): Create a compression rule to turn off compression for AVIF images, based on either the content type or the file extension specified in the request.
+- [Enable Zstandard compression for default content types](https://developers.cloudflare.com/rules/compression-rules/examples/enable-zstandard/index.md): Create a compression rule to turn on Zstandard compression for response content types where Cloudflare applies compression by default.
+- [Use Gzip compression for CSV files](https://developers.cloudflare.com/rules/compression-rules/examples/gzip-for-csv/index.md): Create a compression rule to set Gzip compression as the preferred compression method for CSV files.
+- [Use only Brotli compression for a specific path](https://developers.cloudflare.com/rules/compression-rules/examples/only-brotli-url-path/index.md): Create a compression rule to set Brotli as the only supported compression algorithm for a specific URI path.
+- [Compression Rules settings](https://developers.cloudflare.com/rules/compression-rules/settings/index.md): Available compression algorithms and content type settings for Compression Rules.
+
+## Page Rules
+
+- [Page Rules](https://developers.cloudflare.com/rules/page-rules/index.md): Trigger actions based on URL patterns with Page Rules (deprecated).
+- [URL forwarding with Page Rules](https://developers.cloudflare.com/rules/page-rules/how-to/url-forwarding/index.md): Create URL forwarding rules with Page Rules.
+- [Manage Page Rules](https://developers.cloudflare.com/rules/page-rules/manage/index.md): Create, edit, and manage Page Rules in the dashboard.
+- [Additional reference for Page Rules](https://developers.cloudflare.com/rules/page-rules/reference/additional-reference/index.md): Additional reference information for Page Rules settings.
+- [Recommended page rules](https://developers.cloudflare.com/rules/page-rules/reference/recommended-rules/index.md): Recommended Page Rules configurations for common use cases.
+- [Page Rules settings](https://developers.cloudflare.com/rules/page-rules/reference/settings/index.md): Available Page Rules settings and their descriptions.
+- [Wildcard matching in Page Rules](https://developers.cloudflare.com/rules/page-rules/reference/wildcard-matching/index.md): How wildcard and pattern matching works in Page Rules URLs.
+- [Troubleshoot Page Rules - Billing and subscription](https://developers.cloudflare.com/rules/page-rules/troubleshooting/billing-and-subscription/index.md): Resolve billing and subscription issues with Page Rules.
+- [Troubleshoot Page Rules - General](https://developers.cloudflare.com/rules/page-rules/troubleshooting/general/index.md): Resolve common issues with Page Rules configuration.
+
+## URL normalization
+
+- [URL normalization](https://developers.cloudflare.com/rules/normalization/index.md): Normalize incoming request URLs before they reach other Cloudflare Rules.
+- [URL normalization examples](https://developers.cloudflare.com/rules/normalization/examples/index.md): Examples of the impact of different URL normalization settings in the URLs of incoming requests.
+- [How URL normalization works](https://developers.cloudflare.com/rules/normalization/how-it-works/index.md): How URL normalization modifies incoming request URIs before rule evaluation.
+- [Configure URL normalization in the dashboard](https://developers.cloudflare.com/rules/normalization/manage/index.md): How to configure URL normalization in the Cloudflare dashboard.
+- [URL normalization settings](https://developers.cloudflare.com/rules/normalization/settings/index.md): Available URL normalization types and configuration settings.
+
+## Trace a request
+
+- [Trace a request](https://developers.cloudflare.com/rules/trace-request/index.md): Trace a request through Cloudflare to see which rules match and apply.
+- [Cloudflare Trace changelog](https://developers.cloudflare.com/rules/trace-request/changelog/index.md): Track the latest updates and changes to Trace requests.
+- [Use Cloudflare Trace](https://developers.cloudflare.com/rules/trace-request/how-to/index.md): Learn how to use Cloudflare Trace in the dashboard and with the API.
+- [Cloudflare Trace limitations](https://developers.cloudflare.com/rules/trace-request/limitations/index.md): Known limitations when using the Trace feature.
+
+## Rules changelog
+
+- [Rules changelog](https://developers.cloudflare.com/rules/changelog/index.md): Track the latest updates and changes to Cloudflare Rules features.
+
+## reference
+
+- [Rules language](https://developers.cloudflare.com/ruleset-engine/rules-language/index.md): Cloudflare Rules language reference for expressions and fields.
+- [Page Rules migration guide](https://developers.cloudflare.com/rules/reference/page-rules-migration/index.md): Migrate from Page Rules to modern Cloudflare Rules alternatives.
+- [Troubleshoot Rules](https://developers.cloudflare.com/rules/reference/troubleshooting/index.md): Review common troubleshooting scenarios for Rules features.

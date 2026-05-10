@@ -1,0 +1,124 @@
+# Cache / CDN
+
+Make websites faster by caching content across our global server network
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/cache/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Cache / CDN llms-full.txt](https://developers.cloudflare.com/cache/llms-full.txt) for the complete Cache / CDN documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Cache](https://developers.cloudflare.com/cache/index.md): Cache and serve static and dynamic content from Cloudflare edge servers.
+
+## Plans
+
+- [Plans](https://developers.cloudflare.com/cache/plans/index.md): Compare cache features available on each Cloudflare plan.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/cache/get-started/index.md): Set up and configure Cloudflare caching for your website.
+
+## Interaction with Cloudflare products
+
+- [Interaction with Cloudflare products](https://developers.cloudflare.com/cache/interaction-cloudflare-products/index.md): How caching interacts with Workers, R2, WAF, and other products.
+- [Enable cache in an R2 bucket](https://developers.cloudflare.com/cache/interaction-cloudflare-products/r2/index.md): Serve cached content from R2 buckets through Cloudflare.
+- [Control cache access with WAF and Snippets](https://developers.cloudflare.com/cache/interaction-cloudflare-products/waf-snippets/index.md): Control cache access using WAF custom rules and Snippets.
+- [Customize cache behavior with Workers](https://developers.cloudflare.com/cache/interaction-cloudflare-products/workers/index.md): Customize cache behavior with the Workers Cache API.
+- [How Workers interact with Cache Rules](https://developers.cloudflare.com/cache/interaction-cloudflare-products/workers-cache-rules/index.md): How Workers interact with Cache Rules execution.
+
+## Changelog
+
+- [Changelog](https://developers.cloudflare.com/cache/changelog/index.md): Track the latest updates and changes to Cloudflare Cache features.
+
+## advanced-configuration
+
+- [Cache Reserve](https://developers.cloudflare.com/cache/advanced-configuration/cache-reserve/index.md): Persist cached content in R2 storage to eliminate cache evictions.
+- [Crawler Hints](https://developers.cloudflare.com/cache/advanced-configuration/crawler-hints/index.md): Signal search engine crawlers when content changes with IndexNow.
+- [Early Hints](https://developers.cloudflare.com/cache/advanced-configuration/early-hints/index.md): Preload assets with 103 Early Hints to speed up page loads.
+- [Query String Sort](https://developers.cloudflare.com/cache/advanced-configuration/query-string-sort/index.md): Improve cache hit rates by sorting query string parameters.
+- [Serving tailored content with Cloudflare](https://developers.cloudflare.com/cache/advanced-configuration/serve-tailored-content/index.md): Serve different cached content based on device type, location, or language.
+- [Vary for images](https://developers.cloudflare.com/cache/advanced-configuration/vary-for-images/index.md): Serve images in the best format for each visitor browser.
+
+## cache-security
+
+- [Avoid web cache poisoning](https://developers.cloudflare.com/cache/cache-security/avoid-web-poisoning/index.md): Protect your site from web cache poisoning attacks.
+- [Cache Deception Armor](https://developers.cloudflare.com/cache/cache-security/cache-deception-armor/index.md): Prevent cache deception attacks that expose private content.
+- [Cross-Origin Resource Sharing (CORS)](https://developers.cloudflare.com/cache/cache-security/cors/index.md): How Cloudflare handles CORS headers and cross-origin resource caching.
+
+## concepts
+
+- [Head Requests and Set-Cookie Headers](https://developers.cloudflare.com/cache/concepts/cache-behavior/index.md): How Cloudflare handles HEAD requests and Set-Cookie headers.
+- [Origin Cache Control](https://developers.cloudflare.com/cache/concepts/cache-control/index.md): How origin Cache-Control headers affect Cloudflare caching behavior.
+- [Cloudflare cache responses](https://developers.cloudflare.com/cache/concepts/cache-responses/index.md): Cache status headers returned by Cloudflare in HTTP responses.
+- [CDN-Cache-Control](https://developers.cloudflare.com/cache/concepts/cdn-cache-control/index.md): Use CDN-Cache-Control headers to control Cloudflare cache independently.
+- [Customize cache](https://developers.cloudflare.com/cache/concepts/customize-cache/index.md): Methods for customizing cache behavior with rules, Workers, and headers.
+- [Default cache behavior](https://developers.cloudflare.com/cache/concepts/default-cache-behavior/index.md): Default file extensions and content types that Cloudflare caches.
+- [Retention vs Freshness (TTL)](https://developers.cloudflare.com/cache/concepts/retention-vs-freshness/index.md): How cache retention and TTL freshness differ in Cloudflare.
+- [Revalidation](https://developers.cloudflare.com/cache/concepts/revalidation/index.md): How Cloudflare revalidates stale cached content with your origin.
+
+## Glossary
+
+- [Glossary](https://developers.cloudflare.com/cache/glossary/index.md): Definitions for terms used across Cloudflare Cache documentation.
+
+## how-to
+
+- [Always Online](https://developers.cloudflare.com/cache/how-to/always-online/index.md): Serve cached pages when your origin server is unavailable.
+- [Cache keys](https://developers.cloudflare.com/cache/how-to/cache-keys/index.md): Customize cache keys to control how Cloudflare stores cached resources.
+- [Cache Response Rules](https://developers.cloudflare.com/cache/how-to/cache-response-rules/index.md): Control response headers and settings for cached content.
+- [Create a rule via API](https://developers.cloudflare.com/cache/how-to/cache-response-rules/create-api/index.md): Create cache response rules using the Rulesets API.
+- [Create a rule in the dashboard](https://developers.cloudflare.com/cache/how-to/cache-response-rules/create-dashboard/index.md): Create cache response rules in the Cloudflare dashboard.
+- [Available settings](https://developers.cloudflare.com/cache/how-to/cache-response-rules/settings/index.md): Available settings for cache response rules.
+- [Terraform example](https://developers.cloudflare.com/cache/how-to/cache-response-rules/terraform-example/index.md): Create cache response rules using Terraform.
+- [Cache Rules](https://developers.cloudflare.com/cache/how-to/cache-rules/index.md): Control what and how Cloudflare caches with Cache Rules.
+- [Create a rule via API](https://developers.cloudflare.com/cache/how-to/cache-rules/create-api/index.md): Create cache rules using the Rulesets API.
+- [Create a rule in the dashboard](https://developers.cloudflare.com/cache/how-to/cache-rules/create-dashboard/index.md): Create cache rules in the Cloudflare dashboard.
+- [Browser Cache TTL](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/browser-cache-ttl/index.md): Browser Cache TTL
+- [Bypass Cache on Cookie](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/bypass-cache-on-cookie/index.md): Bypass Cache on Cookie
+- [Cache Deception Armor](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/cache-deception-armor/index.md): Cache Deception Armor
+- [Cache by Device Type](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/cache-device-type/index.md): Cache by Device Type
+- [Cache Level (Cache Everything)](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/cache-everything/index.md): Cache Level (Cache Everything)
+- [Cache Everything while ignoring query strings](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/cache-everything-ignore-query-strings/index.md): Cache Everything while ignoring query strings
+- [Cache TTL by status code](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/cache-ttl-by-status-code/index.md): Cache TTL by status code
+- [Custom Cache Key](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/custom-cache-key/index.md): Custom Cache Key
+- [Edge Cache TTL](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/edge-ttl/index.md): Edge Cache TTL
+- [Origin Cache Control](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/origin-cache-control/index.md): Origin Cache Control
+- [Query String Sort](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/query-string-sort/index.md): Query String Sort
+- [Respect Strong ETags](https://developers.cloudflare.com/cache/how-to/cache-rules/examples/respect-strong-etags/index.md): Respect Strong ETags
+- [Order and priority](https://developers.cloudflare.com/cache/how-to/cache-rules/order/index.md): How Cache Rules are ordered and which rule takes priority.
+- [Migration from Page Rules](https://developers.cloudflare.com/cache/how-to/cache-rules/page-rules-migration/index.md): Migrate caching Page Rules to Cache Rules.
+- [Available settings](https://developers.cloudflare.com/cache/how-to/cache-rules/settings/index.md): Available settings for Cache Rules.
+- [Terraform example](https://developers.cloudflare.com/cache/how-to/cache-rules/terraform-example/index.md): Create Cache Rules using Terraform.
+- [Cache by status code](https://developers.cloudflare.com/cache/how-to/configure-cache-status-code/index.md): Cache responses based on origin HTTP status codes.
+- [Edge and Browser Cache TTL](https://developers.cloudflare.com/cache/how-to/edge-browser-cache-ttl/index.md): Configure edge and browser cache TTL for your resources.
+- [Set Browser Cache TTL](https://developers.cloudflare.com/cache/how-to/edge-browser-cache-ttl/set-browser-ttl/index.md): Set how long browsers cache resources from your site.
+- [Purge cache](https://developers.cloudflare.com/cache/how-to/purge-cache/index.md): Remove cached content from Cloudflare edge servers.
+- [​Purge cache by prefix (URL)](https://developers.cloudflare.com/cache/how-to/purge-cache/purge_by_prefix/index.md): Purge cached resources by URL prefix.
+- [​Purge cache by hostname](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-hostname/index.md): Purge all cached resources for a specific hostname.
+- [​Purge by single-file](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/index.md): Purge a single cached file by URL.
+- [Purge cache by cache-tags](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-tags/index.md): Purge cached resources by cache tag headers.
+- [Purge cache key resources](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-cache-key/index.md): Purge cached resources by custom cache key.
+- [​Purge everything](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-everything/index.md): Purge all cached content for your entire zone.
+- [P​urge varied images](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-varied-images/index.md): Purge cached image variants created by Vary for Images.
+- [Purge zone versions via API](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-zone-versions/index.md): Purge cache for specific zone versions using the API.
+- [Caching levels](https://developers.cloudflare.com/cache/how-to/set-caching-levels/index.md): Set caching levels to control query string behavior.
+- [Tiered Cache](https://developers.cloudflare.com/cache/how-to/tiered-cache/index.md): Reduce origin requests with tiered cache topology.
+
+## performance-review
+
+- [Cache Analytics](https://developers.cloudflare.com/cache/performance-review/cache-analytics/index.md): View cache hit rates and bandwidth savings in Cache Analytics.
+- [Cache performance](https://developers.cloudflare.com/cache/performance-review/cache-performance/index.md): Measure and improve cache performance for your site.
+
+## reference
+
+- [CDN Reference Architecture](https://developers.cloudflare.com/reference-architecture/architectures/cdn/index.md): CDN reference architecture for Cloudflare caching.
+- [CSAM Scanning Tool](https://developers.cloudflare.com/cache/reference/csam-scanning/index.md): Scan cached content for child sexual abuse material.
+- [Development Mode](https://developers.cloudflare.com/cache/reference/development-mode/index.md): Bypass the cache temporarily with Development Mode.
+- [Using ETag Headers with Cloudflare](https://developers.cloudflare.com/cache/reference/etag-headers/index.md): How ETag headers work with Cloudflare caching.
+
+## troubleshooting
+
+- [Always Online](https://developers.cloudflare.com/cache/troubleshooting/always-online/index.md): Troubleshoot Always Online cached page issues.
+- [Dynamic content and login issues](https://developers.cloudflare.com/cache/troubleshooting/dynamic-content-and-login-issues/index.md): Troubleshoot login failures, missing session cookies, and challenge loops caused by caching dynamic content.
+- [Issues with MP4 videos on iOS and Safari](https://developers.cloudflare.com/cache/troubleshooting/mp4-videos-on-ios-and-safari/index.md): Learn how to resolve issues with MP4 videos not playing on iOS and Safari.

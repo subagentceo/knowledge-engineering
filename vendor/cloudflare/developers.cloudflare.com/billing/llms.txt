@@ -1,0 +1,57 @@
+# Billing
+
+Manage billing, plans, and subscriptions for your account
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/billing/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Billing llms-full.txt](https://developers.cloudflare.com/billing/llms-full.txt) for the complete Billing documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Billing](https://developers.cloudflare.com/billing/index.md): Manage billing and subscriptions for your account.
+
+## Threshold billing
+
+- [Threshold billing](https://developers.cloudflare.com/billing/threshold-billing/index.md): Understand threshold-based billing for Cloudflare services.
+
+## get-started
+
+- [Create billing profile](https://developers.cloudflare.com/billing/get-started/create-billing-profile/index.md): Add a payment method to your Cloudflare account.
+- [Update billing information](https://developers.cloudflare.com/billing/get-started/update-billing-info/index.md): Update payment methods, billing address, or tax IDs.
+
+## manage
+
+- [Monitor billable usage](https://developers.cloudflare.com/billing/manage/billable-usage/index.md): Track daily usage-based costs across products.
+- [Budget alerts](https://developers.cloudflare.com/billing/manage/budget-alerts/index.md): Get notified when spend crosses a dollar threshold.
+- [Cancel Cloudflare subscriptions](https://developers.cloudflare.com/billing/manage/cancel-subscription/index.md): Cancel Cloudflare subscriptions
+- [Change domain plan](https://developers.cloudflare.com/billing/manage/change-plan/index.md): Upgrade or downgrade a domain's Cloudflare plan.
+- [Invoices](https://developers.cloudflare.com/billing/manage/invoices/index.md): View, download, and manage Cloudflare invoices.
+- [Optimize costs](https://developers.cloudflare.com/billing/manage/optimize-costs/index.md): Strategies for reducing usage-based charges across Cloudflare products.
+- [Pay an outstanding balance](https://developers.cloudflare.com/billing/manage/pay-invoices-overdue-balances/index.md): Resolve unpaid invoices and overdue balances.
+
+## payment-methods
+
+- [Backup payment method auto-retry](https://developers.cloudflare.com/billing/payment-methods/backup-payment-method-auto-retry/index.md): How Cloudflare retries failed payments using backup methods.
+- [Instant Bank Payments via Link](https://developers.cloudflare.com/billing/payment-methods/instant-bank-payments-link/index.md): Understand Instant Bank Payments via Link for Cloudflare services.
+
+## troubleshoot
+
+- [Billing error reference](https://developers.cloudflare.com/billing/troubleshoot/error-reference/index.md): Common billing error messages and solutions.
+- [Resolve "cannot remove payment method"](https://developers.cloudflare.com/billing/troubleshoot/resolve-cannot-remove-payment-method/index.md): Fix errors when removing a payment method.
+- [Resolve "you cannot modify this subscription"](https://developers.cloudflare.com/billing/troubleshoot/resolve-you-cannot-modify-this-subscription/index.md): Fix errors when modifying a cancelled subscription.
+- [Resolve the zone cannot be upgraded error](https://developers.cloudflare.com/billing/troubleshoot/resolve-zone-cannot-be-upgraded/index.md): Fix errors when upgrading a zone or subscription.
+- [Resolve a payment failure](https://developers.cloudflare.com/billing/troubleshoot/troubleshoot-failed-payments/index.md): Fix failed payment and declined card errors.
+- [Troubleshoot invoices](https://developers.cloudflare.com/billing/troubleshoot/troubleshoot-invoices/index.md): Resolve common invoice discrepancies.
+
+## understand
+
+- [Billing permissions](https://developers.cloudflare.com/billing/understand/billing-permissions/index.md): Who can view and manage billing on your Cloudflare account.
+- [Billing policy](https://developers.cloudflare.com/billing/understand/billing-policy/index.md): Review refund policy, payment methods, and billing terms.
+- [Billing FAQ](https://developers.cloudflare.com/billing/understand/faq/index.md): Answers to common billing questions.
+- [How Cloudflare billing works](https://developers.cloudflare.com/billing/understand/how-billing-works/index.md): Billing lifecycle, charge types, and invoice details.
+- [How charges accrue](https://developers.cloudflare.com/billing/understand/how-charges-accrue/index.md): How a request generates billable usage across Cloudflare products.
+- [Preview services](https://developers.cloudflare.com/billing/understand/preview-services/index.md): Try contracted products for 30 days before purchasing.
+- [Sales tax](https://developers.cloudflare.com/billing/understand/sales-tax/index.md): Understand Cloudflare sales tax by region.
+- [Usage-based billing](https://developers.cloudflare.com/billing/understand/usage-based-billing/index.md): Products that bill based on metered consumption.

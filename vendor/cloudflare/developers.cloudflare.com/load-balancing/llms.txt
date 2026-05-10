@@ -1,0 +1,107 @@
+# Load Balancing
+
+Maximize application performance and availability
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/load-balancing/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Load Balancing llms-full.txt](https://developers.cloudflare.com/load-balancing/llms-full.txt) for the complete Load Balancing documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Load Balancing](https://developers.cloudflare.com/load-balancing/index.md): Distribute traffic across origin servers for availability and performance.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/load-balancing/get-started/index.md): Set up Cloudflare Load Balancing for your applications.
+- [Enable](https://developers.cloudflare.com/load-balancing/get-started/enable-load-balancing/index.md): Learn how to enable load balancing.
+- [Learning path](https://developers.cloudflare.com/learning-paths/load-balancing/concepts/index.md): This guide provides an in-depth walkthrough for how to plan for and set up a load balancer. For a quicker explanation, refer to the [quickstart](/load-balancing/get-started/quickstart/).
+- [Quickstart](https://developers.cloudflare.com/load-balancing/get-started/quickstart/index.md): Create a load balancer with pools and monitors in a few steps.
+
+## Load balancers
+
+- [Load balancers](https://developers.cloudflare.com/load-balancing/load-balancers/index.md): Configure load balancers to distribute traffic across pools.
+- [Common configurations](https://developers.cloudflare.com/load-balancing/load-balancers/common-configurations/index.md): Common load balancer configurations for active-active and failover.
+- [Manage load balancers](https://developers.cloudflare.com/load-balancing/load-balancers/create-load-balancer/index.md): Learn how to set up and maintain load balancers.
+- [DNS records](https://developers.cloudflare.com/load-balancing/load-balancers/dns-records/index.md): DNS records created for load balanced hostnames.
+
+## Pools
+
+- [Pools](https://developers.cloudflare.com/load-balancing/pools/index.md): Pools of origin servers for load balancing traffic distribution.
+- [Use Pages as an origin for Load Balancing](https://developers.cloudflare.com/load-balancing/pools/cloudflare-pages-origin/index.md): This tutorial is intended as an introductory example of how you can leverage Cloudflare's global traffic management.
+- [Manage pools](https://developers.cloudflare.com/load-balancing/pools/create-pool/index.md): Learn how to set up and maintain pools.
+
+## Monitors
+
+- [Monitors](https://developers.cloudflare.com/load-balancing/monitors/index.md): Health monitors that check origin server availability.
+- [Manage monitors](https://developers.cloudflare.com/load-balancing/monitors/create-monitor/index.md): Learn how to set up and maintain monitors for your load balancer.
+- [Monitor Groups](https://developers.cloudflare.com/load-balancing/monitors/monitor-groups/index.md): Group monitors for coordinated health checking.
+
+## Private Network Load Balancing
+
+- [Private Network Load Balancing](https://developers.cloudflare.com/load-balancing/private-network/index.md): Use Private Network Load Balancing to load balance traffic between servers within a data center or between private applications, and eliminate the need for hardware appliances.
+- [Set up Private Network Load Balancing with Cloudflare WAN](https://developers.cloudflare.com/load-balancing/private-network/cloudflare-wan/index.md): Set up private load balancing with Cloudflare WAN.
+- [Set up Private Network Load Balancing for Public traffic to Tunnel](https://developers.cloudflare.com/load-balancing/private-network/public-to-tunnel/index.md): Load balance public traffic to private origins via Tunnel.
+- [Set up Private Network Load Balancing with Client-to-Tunnel](https://developers.cloudflare.com/load-balancing/private-network/warp-to-tunnel/index.md): Load balance WARP client traffic to private origins via Tunnel.
+
+## Additional configuration
+
+- [Additional configuration](https://developers.cloudflare.com/load-balancing/additional-options/index.md): Additional load balancing features and integrations.
+- [Additional DNS records](https://developers.cloudflare.com/load-balancing/additional-options/additional-dns-records/index.md): Use additional DNS records with load balancers.
+- [Cloudflare Tunnel (published applications)](https://developers.cloudflare.com/load-balancing/additional-options/cloudflare-tunnel/index.md): Load balance traffic to Cloudflare Tunnel applications.
+- [DNS persistence](https://developers.cloudflare.com/load-balancing/additional-options/dns-persistence/index.md): Maintain consistent DNS responses for load balanced hostnames.
+- [Load Balancing with the China Network](https://developers.cloudflare.com/load-balancing/additional-options/load-balancing-china/index.md): Use Load Balancing with the China Network.
+- [Custom load balancing rules](https://developers.cloudflare.com/load-balancing/additional-options/load-balancing-rules/index.md): Customize load balancing behavior with custom rules.
+- [Actions](https://developers.cloudflare.com/load-balancing/additional-options/load-balancing-rules/actions/index.md): Actions available in custom load balancing rules.
+- [Create custom rules](https://developers.cloudflare.com/load-balancing/additional-options/load-balancing-rules/create-rules/index.md): Create custom rules for load balancing behavior.
+- [Expressions](https://developers.cloudflare.com/load-balancing/additional-options/load-balancing-rules/expressions/index.md): Expression syntax for custom load balancing rules.
+- [Supported fields and operators](https://developers.cloudflare.com/load-balancing/additional-options/load-balancing-rules/reference/index.md): Fields and operators for load balancing rule expressions.
+- [Load shedding](https://developers.cloudflare.com/load-balancing/additional-options/load-shedding/index.md): Use load shedding to prevent an at-risk endpoint from becoming unhealthy and starting the failover process.
+- [Override HTTP Host headers](https://developers.cloudflare.com/load-balancing/additional-options/override-http-host-headers/index.md): Override HTTP Host headers sent to origin servers.
+- [Integrate with PagerDuty](https://developers.cloudflare.com/load-balancing/additional-options/pagerduty-integration/index.md): Send load balancing alerts to PagerDuty.
+- [Perform planned maintenance](https://developers.cloudflare.com/load-balancing/additional-options/planned-maintenance/index.md): When you change application settings or add new assets, you will likely want to make these changes on one endpoint at a time. Going endpoint by endpoint reduces the risk of changes and ensures a more consistent user experience.
+- [Spectrum](https://developers.cloudflare.com/load-balancing/additional-options/spectrum/index.md): Use Load Balancing with Spectrum for TCP and UDP traffic.
+
+## Reference architecture
+
+- [Reference architecture](https://developers.cloudflare.com/reference-architecture/architectures/load-balancing/index.md): Reference architecture for Cloudflare Load Balancing.
+
+## API reference
+
+- [API reference](https://developers.cloudflare.com/api/resources/load_balancers/methods/get/index.md): API endpoints for managing load balancers, pools, and monitors.
+
+## Changelog
+
+- [Changelog](https://developers.cloudflare.com/load-balancing/changelog/index.md): Track the latest updates and changes to Load Balancing features.
+
+## reference
+
+- [Limitations](https://developers.cloudflare.com/load-balancing/reference/limitations/index.md): Load Balancing limitations and quotas.
+- [Analytics](https://developers.cloudflare.com/load-balancing/reference/load-balancing-analytics/index.md): Use load balancing analytics to evaluate traffic flow, assess the health of endpoints, and review health changes over time.
+- [Health monitor notifications](https://developers.cloudflare.com/load-balancing/reference/migration-guides/health-monitor-notifications/index.md): Migrate health monitor notifications.
+- [Migrate to new GraphQL nodes](https://developers.cloudflare.com/load-balancing/reference/migration-guides/load-balancing-graphql-nodes/index.md): Migrate to new GraphQL analytics nodes.
+- [Regions API](https://developers.cloudflare.com/load-balancing/reference/region-mapping-api/index.md): Map geographic regions to pools using the API.
+
+## troubleshooting
+
+- [Common error codes](https://developers.cloudflare.com/load-balancing/troubleshooting/common-error-codes/index.md): Common Load Balancing error codes and resolutions.
+- [FAQs](https://developers.cloudflare.com/load-balancing/troubleshooting/load-balancing-faq/index.md): Answers to common Load Balancing questions.
+
+## understand-basics
+
+- [Adaptive routing](https://developers.cloudflare.com/load-balancing/understand-basics/adaptive-routing/index.md): Route traffic based on origin health and latency.
+- [How endpoints and pools become unhealthy](https://developers.cloudflare.com/load-balancing/understand-basics/health-details/index.md): How endpoints and pools become unhealthy.
+- [Load Balancing components](https://developers.cloudflare.com/load-balancing/understand-basics/load-balancing-components/index.md): Load balancers, pools, monitors, and how they work together.
+- [Proxy status](https://developers.cloudflare.com/load-balancing/understand-basics/proxy-modes/index.md): Proxy status options for load balanced traffic.
+- [Session affinity](https://developers.cloudflare.com/load-balancing/understand-basics/session-affinity/index.md): Route repeat visitors to the same origin server.
+- [Traffic steering](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/index.md): Control how traffic is distributed across pools and origins.
+- [Hash](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/origin-level-steering/hash-origin-steering/index.md): Distribute requests using hash-based origin steering.
+- [Least Outstanding Requests](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/origin-level-steering/least-outstanding-requests-pools/index.md): Route to the origin with the fewest active requests.
+- [Random](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/origin-level-steering/random-origin-steering/index.md): Distribute requests randomly across origins.
+- [Global traffic steering](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/steering-policies/index.md): Policies that control how traffic is distributed across pools.
+- [Dynamic](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/steering-policies/dynamic-steering/index.md): Route traffic to the fastest pool based on health check latency.
+- [Geo](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/steering-policies/geo-steering/index.md): Route traffic to pools based on visitor geographic location.
+- [Least Outstanding Requests](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/steering-policies/least-outstanding-requests/index.md): Route traffic to the pool with the fewest pending requests.
+- [Proximity](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/steering-policies/proximity-steering/index.md): Route traffic to the nearest pool by geographic proximity.
+- [Standard](https://developers.cloudflare.com/load-balancing/understand-basics/traffic-steering/steering-policies/standard-options/index.md): Standard traffic steering options including failover and random.

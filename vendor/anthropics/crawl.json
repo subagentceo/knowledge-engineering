@@ -11,6 +11,6 @@
     "https://code.claude.com/docs/"
   ],
   "deny_prefixes": [],
-  "page_cap": 200,
+  "page_cap": 60,
   "llms_txt": "https://code.claude.com/llms.txt"
 }

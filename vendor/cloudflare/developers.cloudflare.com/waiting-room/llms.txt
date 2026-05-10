@@ -1,0 +1,69 @@
+# Waiting Room
+
+Create a virtual waiting room to manage peak traffic
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/waiting-room/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Waiting Room llms-full.txt](https://developers.cloudflare.com/waiting-room/llms-full.txt) for the complete Waiting Room documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Waiting Room](https://developers.cloudflare.com/waiting-room/index.md): Queue visitors in a virtual waiting room during traffic surges.
+
+## About
+
+- [About](https://developers.cloudflare.com/waiting-room/about/index.md): How Cloudflare Waiting Room queues visitors during traffic surges.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/waiting-room/get-started/index.md): Create and configure a Cloudflare Waiting Room.
+
+## Plans
+
+- [Plans](https://developers.cloudflare.com/waiting-room/plans/index.md): Compare Waiting Room features available on each Cloudflare plan.
+
+## Waiting Room Analytics
+
+- [Waiting Room Analytics](https://developers.cloudflare.com/waiting-room/waiting-room-analytics/index.md): View waiting room queue depth, wait times, and visitor analytics.
+
+## API reference
+
+- [API reference](https://developers.cloudflare.com/api/resources/waiting_rooms/methods/list/index.md): API endpoints for managing waiting rooms and events.
+
+## FAQ
+
+- [FAQ](https://developers.cloudflare.com/waiting-room/troubleshooting/index.md): Answers to common Waiting Room questions and issues.
+
+## additional-options
+
+- [Create scheduled events](https://developers.cloudflare.com/waiting-room/additional-options/create-events/index.md): Create scheduled events with custom waiting room settings.
+- [Embed in an iFrame](https://developers.cloudflare.com/waiting-room/additional-options/embed-waiting-room-in-iframe/index.md): Embed a waiting room page inside an iFrame.
+- [Combine with Cloudflare for SaaS](https://developers.cloudflare.com/waiting-room/additional-options/ssl-for-saas/index.md): Use Waiting Room with Cloudflare for SaaS custom hostnames.
+- [Test a waiting room](https://developers.cloudflare.com/waiting-room/additional-options/test-waiting-room/index.md): Follow this tutorial to test your waiting room behavior in response to load. To accurately simulate traffic, run your test script or planner for a period of time longer than a minute, ideally more than 2-3 minutes.
+- [Waiting Room Bypass Rules](https://developers.cloudflare.com/waiting-room/additional-options/waiting-room-rules/bypass-rules/index.md): Create rules to bypass the waiting room for specific traffic.
+
+## Glossary
+
+- [Glossary](https://developers.cloudflare.com/waiting-room/glossary/index.md): Definitions for terms used across Waiting Room documentation.
+
+## how-to
+
+- [Control user session settings](https://developers.cloudflare.com/waiting-room/how-to/control-user-session/index.md): Configure session duration and renewal settings.
+- [Control waiting room traffic](https://developers.cloudflare.com/waiting-room/how-to/control-waiting-room/index.md): Manage active user limits and queueing behavior.
+- [Create a waiting room](https://developers.cloudflare.com/waiting-room/how-to/create-waiting-room/index.md): Create a new waiting room in the dashboard or via API.
+- [Customize a waiting room](https://developers.cloudflare.com/waiting-room/how-to/customize-waiting-room/index.md): Customize the waiting room page with HTML templates.
+- [Edit and delete waiting rooms](https://developers.cloudflare.com/waiting-room/how-to/edit-delete-waiting-room/index.md): Edit or delete existing waiting rooms.
+- [Get JSON response for mobile and other non-browser traffic](https://developers.cloudflare.com/waiting-room/how-to/json-response/index.md): Return JSON responses for mobile apps and non-browser clients.
+- [Monitor waiting room status](https://developers.cloudflare.com/waiting-room/how-to/monitor-waiting-room/index.md): Monitor active users and queue status in real time.
+- [Place a waiting room](https://developers.cloudflare.com/waiting-room/how-to/place-waiting-room/index.md): Place a waiting room on a specific path or hostname.
+- [Access Waiting Room](https://developers.cloudflare.com/waiting-room/how-to/waiting-room-dashboard/index.md): Access and manage waiting rooms in the Cloudflare dashboard.
+
+## reference
+
+- [Best practices](https://developers.cloudflare.com/waiting-room/reference/best-practices/index.md): Best practices for configuring and testing waiting rooms.
+- [Configuration settings](https://developers.cloudflare.com/waiting-room/reference/configuration-settings/index.md): Available configuration settings for waiting rooms.
+- [Queueing method](https://developers.cloudflare.com/waiting-room/reference/queueing-methods/index.md): Queueing methods including FIFO, random, and passthrough.
+- [API commands](https://developers.cloudflare.com/waiting-room/reference/waiting-room-api/index.md): API commands for managing waiting rooms.
+- [Cookies](https://developers.cloudflare.com/waiting-room/reference/waiting-room-cookie/index.md): How Waiting Room cookies track visitor sessions.

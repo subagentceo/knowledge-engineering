@@ -1,0 +1,210 @@
+# WAF
+
+Filter incoming traffic and protect against web app vulnerabilities
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/waf/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [WAF llms-full.txt](https://developers.cloudflare.com/waf/llms-full.txt) for the complete WAF documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Web Application Firewall](https://developers.cloudflare.com/waf/index.md): The Cloudflare Web Application Firewall (WAF) provides automatic protection from vulnerabilities and the flexibility to create custom rules.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/waf/get-started/index.md): Set up the Cloudflare WAF to protect your applications from attacks.
+
+## Concepts
+
+- [Concepts](https://developers.cloudflare.com/waf/concepts/index.md): Core WAF concepts including rules, rulesets, phases, and actions.
+
+## Traffic detections
+
+- [Traffic detections](https://developers.cloudflare.com/waf/detections/index.md): Traffic detection signals including attack scores, bot scores, and leaked credentials.
+- [AI Security for Apps](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/index.md): Detect prompt injection, PII, and unsafe topics in AI application traffic.
+- [Example mitigation rules](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/example-rules/index.md): Example mitigation rules for AI Security for Apps detections.
+- [AI Security for Apps fields](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/fields/index.md): Fields available for AI Security for Apps detections in rule expressions.
+- [Get started with AI Security for Apps](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/get-started/index.md): Enable AI Security for Apps to scan requests to AI-powered endpoints.
+- [Log mode versus production mode](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/log-mode-vs-production-mode/index.md): Differences between log mode and production mode for AI security detections.
+- [PII detection](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/pii-detection/index.md): Detect personally identifiable information in AI request and response bodies.
+- [Prompt injection detection](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/prompt-injection/index.md): Detect prompt injection attacks targeting your AI endpoints.
+- [Token counting](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/token-counting/index.md): Count tokens in AI requests and responses for rate limiting.
+- [Unsafe and custom topic detection](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/unsafe-topics/index.md): Detect unsafe and custom topics in AI application traffic.
+- [WAF attack score](https://developers.cloudflare.com/waf/detections/attack-score/index.md): Machine learning scores that classify each request for attack likelihood.
+- [Leaked credentials detection](https://developers.cloudflare.com/waf/detections/leaked-credentials/index.md): Scan incoming requests for usernames and passwords exposed in known data breaches.
+- [Common API calls](https://developers.cloudflare.com/waf/detections/leaked-credentials/api-calls/index.md): Manage leaked credentials detection rules and custom detections using the API.
+- [Example mitigation rules](https://developers.cloudflare.com/waf/detections/leaked-credentials/examples/index.md): Examples of rules for mitigating requests containing leaked credentials.
+- [Get started](https://developers.cloudflare.com/waf/detections/leaked-credentials/get-started/index.md): Enable leaked credentials detection and configure custom or managed detections.
+- [Terraform configuration examples](https://developers.cloudflare.com/waf/detections/leaked-credentials/terraform-examples/index.md): Terraform examples for managing and configuring leaked credentials detection.
+- [Bot score](https://developers.cloudflare.com/bots/concepts/bot-score/index.md): Bot score detection for identifying automated traffic.
+- [Malicious uploads detection](https://developers.cloudflare.com/waf/detections/malicious-uploads/index.md): Scan uploaded files for malware and malicious content.
+- [Common API calls](https://developers.cloudflare.com/waf/detections/malicious-uploads/api-calls/index.md): Manage malicious upload detection using the Cloudflare API.
+- [Example rules](https://developers.cloudflare.com/waf/detections/malicious-uploads/example-rules/index.md): Example rules for handling detected malicious file uploads.
+- [Get started](https://developers.cloudflare.com/waf/detections/malicious-uploads/get-started/index.md): Enable malicious upload detection for file upload endpoints.
+- [Terraform configuration examples](https://developers.cloudflare.com/waf/detections/malicious-uploads/terraform-examples/index.md): Configure malicious upload detection using Terraform.
+
+## Custom rules
+
+- [Custom rules](https://developers.cloudflare.com/waf/custom-rules/index.md): Block, challenge, or allow requests matching custom expressions.
+- [Create a custom rule via API](https://developers.cloudflare.com/waf/custom-rules/create-api/index.md): Create WAF custom rules using the Rulesets API.
+- [Create a custom rule in the dashboard](https://developers.cloudflare.com/waf/custom-rules/create-dashboard/index.md): Create WAF custom rules in the Cloudflare dashboard.
+- [Custom rulesets (zone level)](https://developers.cloudflare.com/waf/custom-rules/custom-rulesets/index.md): Create and manage zone-level custom rulesets for WAF rules.
+- [Create using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/waf-custom-rules/index.md): Create WAF custom rules using the Terraform provider.
+- [Configure a rule with the Skip action](https://developers.cloudflare.com/waf/custom-rules/skip/index.md): Use the Skip action to bypass security features for matching requests.
+- [API examples](https://developers.cloudflare.com/waf/custom-rules/skip/api-examples/index.md): API examples for configuring custom rules with the Skip action.
+- [Available skip options](https://developers.cloudflare.com/waf/custom-rules/skip/options/index.md): Available skip options for WAF custom rules.
+- [Allow traffic from IP addresses in allowlist only](https://developers.cloudflare.com/waf/custom-rules/use-cases/allow-traffic-from-ips-in-allowlist/index.md): Allow traffic only from IP addresses in an allowlist.
+- [Allow traffic from specific countries only](https://developers.cloudflare.com/waf/custom-rules/use-cases/allow-traffic-from-specific-countries/index.md): Allow traffic only from specific countries.
+- [Allow traffic from search engine bots](https://developers.cloudflare.com/waf/custom-rules/use-cases/allow-traffic-from-verified-bots/index.md): Allow traffic from search engine and verified bots.
+- [Block requests by attack score](https://developers.cloudflare.com/waf/custom-rules/use-cases/block-attack-score/index.md): Block requests with high WAF attack scores.
+- [Block traffic by geographical location](https://developers.cloudflare.com/waf/custom-rules/use-cases/block-by-geographical-location/index.md): Block traffic based on geographic location.
+- [Block Microsoft Exchange Autodiscover requests](https://developers.cloudflare.com/waf/custom-rules/use-cases/block-ms-exchange-autodiscover/index.md): Block Microsoft Exchange Autodiscover requests.
+- [Block traffic from specific countries](https://developers.cloudflare.com/waf/custom-rules/use-cases/block-traffic-from-specific-countries/index.md): Block traffic from specific countries with a custom rule.
+- [Challenge bad bots](https://developers.cloudflare.com/waf/custom-rules/use-cases/challenge-bad-bots/index.md): Challenge requests from bad bots with a managed challenge.
+- [Issue challenge for admin user in JWT claim based on attack score](https://developers.cloudflare.com/waf/custom-rules/use-cases/check-jwt-claim-to-protect-admin-user/index.md): Use JWT claims and attack scores to protect admin users.
+- [Configure token authentication](https://developers.cloudflare.com/waf/custom-rules/use-cases/configure-token-authentication/index.md): Configure token-based authentication with custom rules.
+- [Exempt partners from Hotlink Protection](https://developers.cloudflare.com/waf/custom-rules/use-cases/exempt-partners-hotlink-protection/index.md): Exempt partners from Hotlink Protection using custom rules.
+- [Require a specific cookie](https://developers.cloudflare.com/waf/custom-rules/use-cases/require-specific-cookie/index.md): Require a specific cookie value in incoming requests.
+- [Require specific HTTP headers](https://developers.cloudflare.com/waf/custom-rules/use-cases/require-specific-headers/index.md): Require specific HTTP headers in incoming requests.
+- [Require specific HTTP ports](https://developers.cloudflare.com/waf/custom-rules/use-cases/require-specific-http-ports/index.md): Restrict traffic to specific HTTP ports.
+- [Build a sequence rule within custom rules](https://developers.cloudflare.com/waf/custom-rules/use-cases/sequence-custom-rules/index.md): Build sequence-based rules within WAF custom rules.
+- [Require known IP addresses in site admin area](https://developers.cloudflare.com/waf/custom-rules/use-cases/site-admin-only-known-ips/index.md): Restrict admin area access to known IP addresses.
+- [Stop R-U-Dead-Yet? (R.U.D.Y.) attacks](https://developers.cloudflare.com/waf/custom-rules/use-cases/stop-rudy-attacks/index.md): Block R-U-Dead-Yet slow POST attacks with custom rules.
+- [Update custom rules for customers or partners](https://developers.cloudflare.com/waf/custom-rules/use-cases/update-rules-customers-partners/index.md): Manage custom rules for customer and partner traffic.
+
+## Rate limiting rules
+
+- [Rate limiting rules](https://developers.cloudflare.com/waf/rate-limiting-rules/index.md): Define rate limits for requests matching an expression and the action when limits are reached.
+- [Rate limiting best practices](https://developers.cloudflare.com/waf/rate-limiting-rules/best-practices/index.md): Typical rate limiting configurations for login protection, API abuse, and more.
+- [Create a rate limiting rule via API](https://developers.cloudflare.com/waf/rate-limiting-rules/create-api/index.md): Create zone-level rate limiting rules using the Rulesets API.
+- [Create a rate limiting rule in the dashboard](https://developers.cloudflare.com/waf/rate-limiting-rules/create-zone-dashboard/index.md): Create a rate limiting rule for your zone in the Cloudflare dashboard.
+- [Find appropriate rate limit](https://developers.cloudflare.com/waf/rate-limiting-rules/find-rate-limit/index.md): Use Security Analytics request rate data to determine an appropriate rate limit.
+- [Create using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/rate-limiting-rules/index.md): Create rate limiting rules using the Terraform Cloudflare provider.
+- [Rate limiting parameters](https://developers.cloudflare.com/waf/rate-limiting-rules/parameters/index.md): Configurable parameters for rate limiting rules, including expressions and characteristics.
+- [Request rate calculation](https://developers.cloudflare.com/waf/rate-limiting-rules/request-rate/index.md): How Cloudflare tracks and calculates request rates using rule characteristics.
+- [Troubleshoot rate limiting rules](https://developers.cloudflare.com/waf/rate-limiting-rules/troubleshooting/index.md): Resolve common issues with rate limiting rules, including Workers subrequests.
+- [Rate limiting rule examples](https://developers.cloudflare.com/waf/rate-limiting-rules/use-cases/index.md): Sample rate limiting rule configurations for login pages, APIs, and geographic restrictions.
+
+## Managed Rules
+
+- [Managed Rules](https://developers.cloudflare.com/waf/managed-rules/index.md): Deploy pre-configured managed rulesets to protect against common attacks.
+- [Check for exposed credentials](https://developers.cloudflare.com/waf/managed-rules/check-for-exposed-credentials/index.md): Detect login requests using credentials from known data breaches.
+- [Configure exposed credentials checks via API](https://developers.cloudflare.com/waf/managed-rules/check-for-exposed-credentials/configure-api/index.md): Configure exposed credentials checks using the API.
+- [Configure exposed credentials checks using Terraform](https://developers.cloudflare.com/waf/managed-rules/check-for-exposed-credentials/configure-terraform/index.md): Configure exposed credentials checks using Terraform.
+- [How exposed credentials checks work](https://developers.cloudflare.com/waf/managed-rules/check-for-exposed-credentials/how-checks-work/index.md): How exposed credentials checks detect compromised login attempts.
+- [Monitor exposed credentials events](https://developers.cloudflare.com/waf/managed-rules/check-for-exposed-credentials/monitor-events/index.md): Monitor exposed credentials events in Security Events.
+- [Test your exposed credentials checks configuration](https://developers.cloudflare.com/waf/managed-rules/check-for-exposed-credentials/test-configuration/index.md): Test your exposed credentials check configuration.
+- [Upgrade to leaked credentials detection](https://developers.cloudflare.com/waf/managed-rules/check-for-exposed-credentials/upgrade-to-leaked-credentials-detection/index.md): Upgrade from exposed credentials checks to leaked credentials detection.
+- [Deploy a WAF managed ruleset via API (zone)](https://developers.cloudflare.com/waf/managed-rules/deploy-api/index.md): Deploy WAF managed rulesets at the zone level using the API.
+- [Deploy a WAF managed ruleset in the dashboard](https://developers.cloudflare.com/waf/managed-rules/deploy-zone-dashboard/index.md): Deploy WAF managed rulesets at the zone level in the dashboard.
+- [Deploy using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/waf-managed-rulesets/index.md): Deploy WAF managed rulesets using the Terraform provider.
+- [Log the payload of matched rules](https://developers.cloudflare.com/waf/managed-rules/payload-logging/index.md): Log the request content that triggered a managed ruleset match.
+- [Command-line operations](https://developers.cloudflare.com/waf/managed-rules/payload-logging/command-line/index.md): Command-line tools for managing payload logging encryption keys.
+- [Decrypt the payload content](https://developers.cloudflare.com/waf/managed-rules/payload-logging/command-line/decrypt-payload/index.md): Decrypt matched rule payloads using the command-line tool.
+- [Generate a key pair](https://developers.cloudflare.com/waf/managed-rules/payload-logging/command-line/generate-key-pair/index.md): Generate a public/private key pair for payload logging encryption.
+- [Configure payload logging in the dashboard](https://developers.cloudflare.com/waf/managed-rules/payload-logging/configure/index.md): Configure payload logging for managed rulesets in the dashboard.
+- [Configure payload logging via API](https://developers.cloudflare.com/waf/managed-rules/payload-logging/configure-api/index.md): Configure payload logging for managed rulesets using the API.
+- [Store decrypted matched payloads in logs](https://developers.cloudflare.com/waf/managed-rules/payload-logging/decrypt-in-logs/index.md): Store decrypted matched payloads in Logpush logs.
+- [View the payload content in the dashboard](https://developers.cloudflare.com/waf/managed-rules/payload-logging/view/index.md): View matched payload content in the Cloudflare dashboard.
+- [Cloudflare Managed Ruleset](https://developers.cloudflare.com/waf/managed-rules/reference/cloudflare-managed-ruleset/index.md): Rules and categories in the Cloudflare Managed Ruleset.
+- [Cloudflare Exposed Credentials Check Managed Ruleset](https://developers.cloudflare.com/waf/managed-rules/reference/exposed-credentials-check/index.md): Rules in the Cloudflare Exposed Credentials Check managed ruleset.
+- [Cloudflare OWASP Core Ruleset](https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/index.md): Configure the Cloudflare OWASP Core Ruleset for your zone.
+- [Concepts](https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/concepts/index.md): Concepts for the OWASP ModSecurity Core Ruleset on Cloudflare.
+- [Configure via API](https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/configure-api/index.md): Configure the OWASP Core Ruleset using the API.
+- [Configure in the dashboard](https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/configure-dashboard/index.md): Configure the OWASP Core Ruleset in the dashboard.
+- [OWASP evaluation example](https://developers.cloudflare.com/waf/managed-rules/reference/owasp-core-ruleset/example/index.md): Example of how OWASP paranoia level and score threshold interact.
+- [Configure in Terraform](https://developers.cloudflare.com/terraform/additional-configurations/waf-managed-rulesets/#configure-the-owasp-paranoia-level-score-threshold-and-actionindex.md): Configure the OWASP Core Ruleset using Terraform.
+- [Cloudflare Sensitive Data Detection](https://developers.cloudflare.com/waf/managed-rules/reference/sensitive-data-detection/index.md): Detect sensitive data like credit card numbers in HTTP responses.
+- [Troubleshoot managed rules](https://developers.cloudflare.com/waf/managed-rules/troubleshooting/index.md): Troubleshoot WAF managed rules false positives and configuration issues.
+- [Create exceptions](https://developers.cloudflare.com/waf/managed-rules/waf-exceptions/index.md): Skip WAF managed rules for specific requests with exceptions.
+- [Add an exception via API](https://developers.cloudflare.com/waf/managed-rules/waf-exceptions/define-api/index.md): Create WAF exceptions using the Rulesets API.
+- [Add an exception in the dashboard](https://developers.cloudflare.com/waf/managed-rules/waf-exceptions/define-dashboard/index.md): Use the Cloudflare dashboard to create exceptions that skip the execution of WAF managed rulesets or specific ruleset rules.
+
+## Account-level WAF configuration
+
+- [Account-level WAF configuration](https://developers.cloudflare.com/waf/account/index.md): Configure WAF settings at the account level for multiple zones.
+- [Custom rulesets (account level)](https://developers.cloudflare.com/waf/account/custom-rulesets/index.md): Create custom rulesets at the account level and deploy them to multiple zones.
+- [Create a custom ruleset using the API](https://developers.cloudflare.com/waf/account/custom-rulesets/create-api/index.md): Create account-level custom rulesets using the Rulesets API.
+- [Work with custom rulesets in the dashboard](https://developers.cloudflare.com/waf/account/custom-rulesets/create-dashboard/index.md): Create and manage account-level custom rulesets in the dashboard.
+- [Use Terraform](https://developers.cloudflare.com/terraform/additional-configurations/waf-custom-rules/#create-and-deploy-a-custom-rulesetindex.md): Create account-level custom rulesets using Terraform.
+- [Managed rulesets](https://developers.cloudflare.com/waf/account/managed-rulesets/index.md): Deploy and manage WAF managed rulesets at the account level.
+- [Deploy a WAF managed ruleset via API (account)](https://developers.cloudflare.com/waf/account/managed-rulesets/deploy-api/index.md): Deploy WAF managed rulesets at the account level using the API.
+- [Deploy a WAF managed ruleset in the dashboard (account)](https://developers.cloudflare.com/waf/account/managed-rulesets/deploy-dashboard/index.md): Deploy WAF managed rulesets at the account level in the dashboard.
+- [Create exceptions](https://developers.cloudflare.com/waf/managed-rules/waf-exceptions/index.md): Create exceptions for account-level WAF managed rulesets.
+- [Deploy using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/waf-managed-rulesets/#deploy-managed-rulesets-at-the-account-levelindex.md): Deploy account-level WAF managed rulesets using Terraform.
+- [Rate limiting rulesets](https://developers.cloudflare.com/waf/account/rate-limiting-rulesets/index.md): Create rate limiting rulesets at the account level for multiple Enterprise zones.
+- [Create a rate limiting ruleset via API](https://developers.cloudflare.com/waf/account/rate-limiting-rulesets/create-api/index.md): Create account-level rate limiting rulesets using the API.
+- [Create a rate limiting ruleset in the dashboard](https://developers.cloudflare.com/waf/account/rate-limiting-rulesets/create-dashboard/index.md): Create account-level rate limiting rulesets in the dashboard.
+- [Create using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/rate-limiting-rules/#create-a-rate-limiting-rule-at-the-account-levelindex.md): Create account-level rate limiting rulesets using Terraform.
+
+## Security features interoperability
+
+- [Security features interoperability](https://developers.cloudflare.com/waf/feature-interoperability/index.md): How Cloudflare security features interact and execute in order.
+
+## Glossary
+
+- [Glossary](https://developers.cloudflare.com/waf/glossary/index.md): Definitions for terms used across WAF documentation.
+
+## WAF changelog overview
+
+- [WAF changelog overview](https://developers.cloudflare.com/waf/change-log/index.md): Overview of WAF changelog, scheduled changes, and historical updates.
+- [Changelog](https://developers.cloudflare.com/waf/change-log/changelog/index.md): Track changes to WAF managed rulesets and rule updates.
+- [Historical (2022)](https://developers.cloudflare.com/waf/change-log/historical-2022/index.md): Changes to WAF managed rulesets done in 2022.
+- [Historical (2023)](https://developers.cloudflare.com/waf/change-log/historical-2023/index.md): Changes to WAF managed rulesets done in 2023.
+- [Historical (2024)](https://developers.cloudflare.com/waf/change-log/historical-2024/index.md): Changes to WAF managed rulesets done in 2024.
+- [Scheduled changes](https://developers.cloudflare.com/waf/change-log/scheduled-changes/index.md): Upcoming scheduled changes to WAF managed rulesets.
+
+## analytics
+
+- [Security Analytics](https://developers.cloudflare.com/waf/analytics/security-analytics/index.md): Analyze traffic patterns and identify security threats with Security Analytics.
+- [Security Events](https://developers.cloudflare.com/waf/analytics/security-events/index.md): Review individual security events triggered by WAF rules.
+
+## reference
+
+- [Alerts for security events](https://developers.cloudflare.com/waf/reference/alerts/index.md): Set up alerts for WAF security events.
+- [Firewall rules upgrade](https://developers.cloudflare.com/waf/reference/legacy/firewall-rules-upgrade/index.md): Upgrade deprecated Firewall Rules to WAF custom rules.
+- [Firewall rules](https://developers.cloudflare.com/firewall/index.md): Documentation for deprecated Cloudflare Firewall Rules.
+- [Rate Limiting (previous version)](https://developers.cloudflare.com/waf/reference/legacy/old-rate-limiting/index.md): Documentation for the previous version of Rate Limiting.
+- [Troubleshoot Rate Limiting (previous version)](https://developers.cloudflare.com/waf/reference/legacy/old-rate-limiting/troubleshooting/index.md): Troubleshoot issues with the previous version of Rate Limiting.
+- [Rate limiting (previous version) upgrade](https://developers.cloudflare.com/waf/reference/legacy/old-rate-limiting/upgrade/index.md): Guide on upgrading rate limiting rules from the previous version to the new version.
+- [WAF managed rules (previous version)](https://developers.cloudflare.com/waf/reference/legacy/old-waf-managed-rules/index.md): Documentation for the previous version of WAF managed rules.
+- [Troubleshoot WAF managed rules (previous version)](https://developers.cloudflare.com/waf/reference/legacy/old-waf-managed-rules/troubleshooting/index.md): Troubleshoot issues with the previous version of WAF managed rules.
+- [WAF managed rules upgrade](https://developers.cloudflare.com/waf/reference/legacy/old-waf-managed-rules/upgrade/index.md): Upgrade from the previous version of WAF managed rules.
+- [WAF phases](https://developers.cloudflare.com/waf/reference/phases/index.md): WAF rule execution phases and their order of evaluation.
+
+## tools
+
+- [Browser Integrity Check](https://developers.cloudflare.com/waf/tools/browser-integrity-check/index.md): Block requests with suspicious HTTP headers using Browser Integrity Check.
+- [IP Access rules](https://developers.cloudflare.com/waf/tools/ip-access-rules/index.md): Control access based on IP address, range, country, or ASN.
+- [IP Access rules actions](https://developers.cloudflare.com/waf/tools/ip-access-rules/actions/index.md): Available actions for IP Access rules.
+- [Create an IP access rule](https://developers.cloudflare.com/waf/tools/ip-access-rules/create/index.md): Create IP Access rules to allow, block, or challenge by IP.
+- [IP Access rules parameters](https://developers.cloudflare.com/waf/tools/ip-access-rules/parameters/index.md): Configurable parameters for IP Access rules.
+- [Enable security.txt](https://developers.cloudflare.com/security-center/infrastructure/security-file/index.md): Configure your security.txt file for vulnerability disclosure.
+- [Lists](https://developers.cloudflare.com/waf/tools/lists/index.md): Use lists to reference groups of items in rule expressions.
+- [Create a list in the dashboard](https://developers.cloudflare.com/waf/tools/lists/create-dashboard/index.md): Create and manage lists in the Cloudflare dashboard.
+- [Custom lists](https://developers.cloudflare.com/waf/tools/lists/custom-lists/index.md): Create custom lists of IPs, hostnames, or ASNs for use in rules.
+- [Bulk Redirect Lists](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/concepts/#bulk-redirect-listsindex.md): Manage Bulk Redirect Lists for URL forwarding.
+- [Lists API](https://developers.cloudflare.com/waf/tools/lists/lists-api/index.md): Manage lists programmatically with the Lists API.
+- [Lists API endpoints](https://developers.cloudflare.com/waf/tools/lists/lists-api/endpoints/index.md): API endpoints for managing lists and list items.
+- [List JSON object](https://developers.cloudflare.com/waf/tools/lists/lists-api/json-object/index.md): Reference information on the JSON object used in Lists API calls.
+- [Managed Lists](https://developers.cloudflare.com/waf/tools/lists/managed-lists/index.md): Pre-built lists managed by Cloudflare for use in rule expressions.
+- [Use lists in expressions](https://developers.cloudflare.com/waf/tools/lists/use-in-expressions/index.md): Learn how to use lists in rule expressions.
+- [Privacy Pass](https://developers.cloudflare.com/waf/tools/privacy-pass/index.md): Allow Privacy Pass token holders to bypass challenges.
+- [Replace insecure JS libraries](https://developers.cloudflare.com/waf/tools/replace-insecure-js-libraries/index.md): Detect and notify about insecure JavaScript libraries on your site.
+- [Email Address Obfuscation](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/index.md): Hide email addresses from bots while keeping them visible to visitors.
+- [Hotlink Protection](https://developers.cloudflare.com/waf/tools/scrape-shield/hotlink-protection/index.md): Prevent other sites from linking to your hosted images.
+- [Security Level](https://developers.cloudflare.com/waf/tools/security-level/index.md): Set the Security Level threshold for challenging suspicious visitors.
+- [User Agent Blocking](https://developers.cloudflare.com/waf/tools/user-agent-blocking/index.md): Block or challenge requests based on User-Agent header values.
+- [Validation checks](https://developers.cloudflare.com/waf/tools/validation-checks/index.md): Automatic request validation for malformed packets and attack vectors.
+- [Zone Lockdown](https://developers.cloudflare.com/waf/tools/zone-lockdown/index.md): Restrict access to specific URLs by allowlisted IP addresses.
+
+## troubleshooting
+
+- [Bing's Site Scan blocked by a managed rule](https://developers.cloudflare.com/waf/troubleshooting/blocked-bing-site-scans/index.md): A WAF managed rule may block site scans performed by Bing Webmaster Tools.
+- [Issues sharing to Facebook](https://developers.cloudflare.com/waf/troubleshooting/facebook-sharing/index.md): Fix issues sharing your site content to Facebook.
+- [Fake bot detection blocking legitimate requests](https://developers.cloudflare.com/waf/troubleshooting/fake-bot-managed-rules/index.md): WAF managed rules that detect fake bots may block legitimate services that share infrastructure with known bots.
+- [FAQ](https://developers.cloudflare.com/waf/troubleshooting/faq/index.md): Answers to common questions about WAF configuration and behavior.
+- [Rule phase interactions](https://developers.cloudflare.com/waf/troubleshooting/phase-interactions/index.md): Understand how request rewrites, IP Access rules, custom rules, and managed rules interact across WAF phases.
+- [SameSite cookie interaction with Cloudflare](https://developers.cloudflare.com/waf/troubleshooting/samesite-cookie-interaction/index.md): How SameSite cookie attributes interact with Cloudflare challenges.

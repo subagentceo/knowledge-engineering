@@ -1,0 +1,59 @@
+# Terraform
+
+Define and store Cloudflare configurations in source code repositories like GitHub
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/terraform/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Terraform llms-full.txt](https://developers.cloudflare.com/terraform/llms-full.txt) for the complete Terraform documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Terraform provider](https://developers.cloudflare.com/terraform/index.md): Manage your Cloudflare configuration as infrastructure as code using the Terraform provider.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/terraform/installing/index.md): Install Terraform and configure the Cloudflare provider on your operating system.
+
+## Tutorials
+
+- [Tutorials](https://developers.cloudflare.com/terraform/tutorial/index.md): Step-by-step Cloudflare Terraform tutorials from initialization to advanced configuration.
+- [5 – Add exceptions with Page Rules](https://developers.cloudflare.com/terraform/tutorial/add-page-rules/index.md): Page Rules let you override zone settings for specific URL patterns. Redirects old URLs with a 301 permanent redirect.
+- [3 – Configure HTTPS settings](https://developers.cloudflare.com/terraform/tutorial/configure-https-settings/index.md): This tutorial shows how to enable TLS 1.3, Automatic HTTPS Rewrites, and Strict SSL mode using the updated v5 provider.
+- [1 –  Initialize Terraform](https://developers.cloudflare.com/terraform/tutorial/initialize-terraform/index.md): This tutorial shows you how to get started with Terraform. You will create a DNS record pointing www.example.com to a web server at 203.0.113.10.
+- [6 – Revert configuration](https://developers.cloudflare.com/terraform/tutorial/revert-configuration/index.md): Sometimes, you may have to roll back configuration changes. To revert your configuration, check out the desired branch and ask Terraform to move your Cloudflare settings back in time.
+- [2 – Track your history](https://developers.cloudflare.com/terraform/tutorial/track-history/index.md): Learn how to track history with Cloudflare Terraform.
+- [4 – Improve performance](https://developers.cloudflare.com/terraform/tutorial/use-load-balancing/index.md): Learn how to use Terraform with Cloudflare Load Balancing product to fail traffic over as needed.
+
+## additional-configurations
+
+- [DDoS managed rulesets configuration using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/ddos-managed-rulesets/index.md): Configure Cloudflare DDoS managed rulesets at the zone or account level using Terraform.
+- [Bulk Redirects](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/terraform-example/index.md): Configure Cloudflare Bulk Redirects using Terraform.
+- [Cache Rules](https://developers.cloudflare.com/cache/how-to/cache-rules/terraform-example/index.md): Configure Cloudflare Cache Rules using Terraform.
+- [Configuration Rules](https://developers.cloudflare.com/rules/configuration-rules/examples/define-single-configuration-terraform/index.md): Configure Cloudflare Configuration Rules using Terraform.
+- [Origin Rules](https://developers.cloudflare.com/rules/origin-rules/examples/define-single-origin-terraform/index.md): Configure Cloudflare Origin Rules using Terraform.
+- [Single Redirects](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/terraform-example/index.md): Configure Cloudflare Single Redirects using Terraform.
+- [Snippets](https://developers.cloudflare.com/rules/snippets/create-terraform/index.md): Configure Cloudflare Snippets using Terraform.
+- [Workers](https://developers.cloudflare.com/workers/platform/infrastructure-as-code/index.md): Manage Cloudflare Workers as infrastructure as code with Terraform.
+- [Rate limiting rules configuration using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/rate-limiting-rules/index.md): Create and configure Cloudflare rate limiting rules at the zone or account level using Terraform.
+- [Transform Rules configuration using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/transform-rules/index.md): Create URL rewrites, request header, and response header Transform Rules using Terraform.
+- [WAF custom rules configuration using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/waf-custom-rules/index.md): Create and deploy Cloudflare WAF custom rules at the zone or account level using Terraform.
+- [WAF Managed Rules configuration using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/waf-managed-rulesets/index.md): Deploy and configure Cloudflare WAF Managed Rules at the zone or account level using Terraform.
+
+## advanced-topics
+
+- [Best practices](https://developers.cloudflare.com/terraform/advanced-topics/best-practices/index.md): Recommended directory structure, state management, and workflow practices for Cloudflare Terraform.
+- [Import Cloudflare resources](https://developers.cloudflare.com/terraform/advanced-topics/import-cloudflare-resources/index.md): The Cloudflare Terraform tool is available in the Terraform ME repository. To use it, you must first install the Terraform app on your Mac or Linux system. You must then import Cloudflare resources individually by providing their IDs and names.
+- [Provider customization](https://developers.cloudflare.com/terraform/advanced-topics/provider-customization/index.md): Customize the Cloudflare Terraform provider settings using configuration parameters or environment variables.
+- [Remote R2 backend](https://developers.cloudflare.com/terraform/advanced-topics/remote-backend/index.md): Store Terraform state files remotely using Cloudflare R2 as an S3-compatible backend.
+
+## how-to
+
+- [Create a partial zone using Terraform](https://developers.cloudflare.com/terraform/how-to/create-partial-zone/index.md): Automate the setup of a Cloudflare partial (CNAME) zone using the Terraform provider.
+- [Create a subdomain zone using Terraform](https://developers.cloudflare.com/terraform/how-to/create-secondary-zone/index.md): Automate the setup of a Cloudflare subdomain zone for Enterprise accounts using Terraform.
+
+## troubleshooting
+
+- [403 Authentication error when creating DNS records](https://developers.cloudflare.com/terraform/troubleshooting/authentication-error-dns-records/index.md): Fix the 403 authentication error caused by incorrect zone data source indexing in Terraform.
+- [Rule IDs change when I modify a ruleset](https://developers.cloudflare.com/terraform/troubleshooting/rule-id-changes/index.md): Prevent rule ID changes in Cloudflare rulesets managed by Terraform by using the ref field.

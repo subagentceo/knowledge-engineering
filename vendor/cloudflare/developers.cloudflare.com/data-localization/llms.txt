@@ -1,0 +1,64 @@
+# Data Localization Suite
+
+Control where Cloudflare stores and inspects data
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/data-localization/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Data Localization Suite llms-full.txt](https://developers.cloudflare.com/data-localization/llms-full.txt) for the complete Data Localization Suite documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Data Localization Suite](https://developers.cloudflare.com/data-localization/index.md): Control where your data is inspected, processed, and stored with the Data Localization Suite.
+
+## Region support
+
+- [Region support](https://developers.cloudflare.com/data-localization/region-support/index.md): Supported regions for Geo Key Manager, Regional Services, and Customer Metadata Boundary.
+
+## Product compatibility
+
+- [Product compatibility](https://developers.cloudflare.com/data-localization/compatibility/index.md): Compatibility of Cloudflare products with Data Localization Suite features.
+
+## Geo Key Manager
+
+- [Geo Key Manager](https://developers.cloudflare.com/data-localization/geo-key-manager/index.md): Control the geographic storage location of your private SSL/TLS keys.
+
+## Customer Metadata Boundary
+
+- [Customer Metadata Boundary](https://developers.cloudflare.com/data-localization/metadata-boundary/index.md): Restrict where customer traffic metadata and logs are stored by region.
+- [FAQs](https://developers.cloudflare.com/data-localization/metadata-boundary/faq/index.md): Commonly asked questions about Cloudflare's Customer Metadata Boundary.
+- [Get started](https://developers.cloudflare.com/data-localization/metadata-boundary/get-started/index.md): Configure Customer Metadata Boundary to select the region for your logs and analytics.
+- [GraphQL datasets](https://developers.cloudflare.com/data-localization/metadata-boundary/graphql-datasets/index.md): GraphQL Analytics API fields that respect Customer Metadata Boundary configuration.
+- [Logpush datasets](https://developers.cloudflare.com/data-localization/metadata-boundary/logpush-datasets/index.md): Logpush datasets that support Customer Metadata Boundary by region.
+- [Out of region access](https://developers.cloudflare.com/data-localization/metadata-boundary/out-of-region-access/index.md): Allow authorized users to access logs and analytics stored outside their physical region.
+
+## Regional Services
+
+- [Regional Services](https://developers.cloudflare.com/data-localization/regional-services/index.md): Choose which data centers decrypt and service HTTPS traffic for your hostnames.
+- [Get started](https://developers.cloudflare.com/data-localization/regional-services/get-started/index.md): Enable and configure Regional Services for your hostnames via dashboard or API.
+- [Default HTTP Privacy](https://developers.cloudflare.com/data-localization/regional-services/http-requests/index.md): How Cloudflare encrypts and processes HTTP requests across its global network.
+
+## Configuration guides
+
+- [Configuration guides](https://developers.cloudflare.com/data-localization/how-to/index.md): Configure Cloudflare products with Regional Services and Customer Metadata Boundary.
+- [Cache](https://developers.cloudflare.com/data-localization/how-to/cache/index.md): Configure Cache with Regional Services and Customer Metadata Boundary.
+- [Cloudflare for SaaS](https://developers.cloudflare.com/data-localization/how-to/cloudflare-for-saas/index.md): Configure Cloudflare for SaaS with Regional Services and Customer Metadata Boundary.
+- [Durable Objects](https://developers.cloudflare.com/data-localization/how-to/durable-objects/index.md): Configure Durable Objects with Regional Services and Customer Metadata Boundary.
+- [Load Balancing](https://developers.cloudflare.com/data-localization/how-to/load-balancing/index.md): Configure Load Balancing with Regional Services and Customer Metadata Boundary.
+- [Pages](https://developers.cloudflare.com/data-localization/how-to/pages/index.md): Configure Pages with Regional Services and Customer Metadata Boundary.
+- [R2 Object Storage](https://developers.cloudflare.com/data-localization/how-to/r2/index.md): Configure R2 Object Storage with Regional Services and Customer Metadata Boundary.
+- [Workers](https://developers.cloudflare.com/data-localization/how-to/workers/index.md): Configure Workers with Regional Services and Customer Metadata Boundary.
+- [Zero Trust](https://developers.cloudflare.com/data-localization/how-to/zero-trust/index.md): Use Zero Trust products with the Data Localization Suite, including Gateway and CASB.
+
+## Limitations
+
+- [Limitations](https://developers.cloudflare.com/data-localization/limitations/index.md): Caveats and limitations when deploying Data Localization Suite features.
+
+## FAQs
+
+- [FAQs](https://developers.cloudflare.com/data-localization/faq/index.md): Answers to common questions about the Data Localization Suite and GDPR compliance.
+
+## Changelog
+
+- [Changelog](https://developers.cloudflare.com/data-localization/changelog/index.md): Track the latest updates and changes to Data Localization Suite features.

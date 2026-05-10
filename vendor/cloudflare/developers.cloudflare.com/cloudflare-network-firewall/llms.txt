@@ -1,0 +1,70 @@
+# Cloudflare Network Firewall
+
+Protect your enterprise network with advanced firewall-as-a-service protection
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/cloudflare-network-firewall/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Cloudflare Network Firewall llms-full.txt](https://developers.cloudflare.com/cloudflare-network-firewall/llms-full.txt) for the complete Cloudflare Network Firewall documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Network Firewall](https://developers.cloudflare.com/cloudflare-network-firewall/index.md): Filter and inspect network traffic with Cloudflare Network Firewall.
+
+## Plans
+
+- [Plans](https://developers.cloudflare.com/cloudflare-network-firewall/plans/index.md): Compare Network Firewall features by plan.
+
+## About
+
+- [About](https://developers.cloudflare.com/cloudflare-network-firewall/about/index.md): How Cloudflare Network Firewall protects your network traffic.
+- [Analytics](https://developers.cloudflare.com/cloudflare-network-firewall/about/analytics/index.md): View Network Firewall analytics and event logs.
+- [IDS](https://developers.cloudflare.com/cloudflare-network-firewall/about/ids/index.md): Detect threats with the Network Firewall Intrusion Detection System.
+- [List types](https://developers.cloudflare.com/cloudflare-network-firewall/about/list-types/index.md): IP list types available for Network Firewall policies.
+- [Protocol validation rules](https://developers.cloudflare.com/cloudflare-network-firewall/about/protocol-validation-rules/index.md): Protocol validation rules for network traffic.
+- [Ruleset logic](https://developers.cloudflare.com/cloudflare-network-firewall/about/ruleset-logic/index.md): How Network Firewall rulesets evaluate and match traffic.
+- [Traffic types](https://developers.cloudflare.com/cloudflare-network-firewall/about/traffic-types/index.md): Traffic types inspected by the Network Firewall.
+
+## Packet captures
+
+- [Packet captures](https://developers.cloudflare.com/cloudflare-network-firewall/packet-captures/index.md): Capture and analyze network packets.
+- [Collect PCAPs](https://developers.cloudflare.com/cloudflare-network-firewall/packet-captures/collect-pcaps/index.md): Collect packet captures for traffic analysis.
+- [PCAPs bucket setup](https://developers.cloudflare.com/cloudflare-network-firewall/packet-captures/pcaps-bucket-setup/index.md): Configure a storage bucket for packet captures.
+
+## Best practices
+
+- [Best practices](https://developers.cloudflare.com/cloudflare-network-firewall/best-practices/index.md): Best practices for configuring the Network Firewall.
+- [Extended ruleset](https://developers.cloudflare.com/cloudflare-network-firewall/best-practices/extended-ruleset/index.md): Extended ruleset configuration for comprehensive protection.
+- [Magic Transit egress](https://developers.cloudflare.com/cloudflare-network-firewall/best-practices/magic-transit-egress/index.md): Configure Network Firewall for Magic Transit egress traffic.
+- [Minimal ruleset](https://developers.cloudflare.com/cloudflare-network-firewall/best-practices/minimal-ruleset/index.md): Minimal ruleset configuration for basic protection.
+
+## Tutorials
+
+- [Tutorials](https://developers.cloudflare.com/cloudflare-network-firewall/tutorials/index.md): Tutorials for Network Firewall analytics and configuration.
+- [GraphQL Analytics](https://developers.cloudflare.com/cloudflare-network-firewall/tutorials/graphql-analytics/index.md): Use the GraphQL Analytics API to review data for Cloudflare Network Firewall network traffic related to rules matching your traffic.
+
+## Changelog
+
+- [Changelog](https://developers.cloudflare.com/cloudflare-network-firewall/changelog/index.md): Track updates and changes to Network Firewall features.
+
+## how-to
+
+- [Add custom policies](https://developers.cloudflare.com/cloudflare-network-firewall/how-to/add-policies/index.md): Add custom policies to the Network Firewall.
+- [Create Rate Limiting policies (beta)](https://developers.cloudflare.com/cloudflare-network-firewall/how-to/create-rate-limiting-policies/index.md): Create rate limiting policies for network traffic.
+- [Enable IDS](https://developers.cloudflare.com/cloudflare-network-firewall/how-to/enable-ids/index.md): Enable the Intrusion Detection System for your account.
+- [Enable Managed Rulesets](https://developers.cloudflare.com/cloudflare-network-firewall/how-to/enable-managed-rulesets/index.md): Enable managed rulesets for the Network Firewall.
+- [Enable user roles](https://developers.cloudflare.com/cloudflare-network-firewall/how-to/enable-roles/index.md): Enable user roles for Network Firewall management.
+- [Filter different views](https://developers.cloudflare.com/cloudflare-network-firewall/how-to/filter-views/index.md): Filter analytics views in the Network Firewall dashboard.
+- [Form expressions](https://developers.cloudflare.com/cloudflare-network-firewall/how-to/form-expressions/index.md): Write expressions for Network Firewall rules.
+- [Use Logpush with IDS](https://developers.cloudflare.com/cloudflare-network-firewall/how-to/use-logpush-with-ids/index.md): Send IDS events to Logpush destinations.
+- [Use IP lists](https://developers.cloudflare.com/cloudflare-network-firewall/how-to/use-rules-list/index.md): Use IP lists in Network Firewall policies.
+
+## reference
+
+- [Cloudflare Network Firewall fields](https://developers.cloudflare.com/cloudflare-network-firewall/reference/network-firewall-fields/index.md): Fields available in Network Firewall rule expressions.
+- [Cloudflare Network Firewall functions](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/#cloudflare-network-firewall-functionsindex.md): Functions available in Network Firewall rule expressions.
+
+## troubleshooting
+
+- [Diagnose traffic decisions](https://developers.cloudflare.com/cloudflare-network-firewall/troubleshooting/diagnose-traffic-decisions/index.md): Diagnose why the Network Firewall allowed or blocked traffic.

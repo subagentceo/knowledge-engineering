@@ -1,0 +1,25 @@
+# Pulumi
+
+Create, deploy, and manage Cloudflare resources in various programming languages
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/pulumi/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Pulumi llms-full.txt](https://developers.cloudflare.com/pulumi/llms-full.txt) for the complete Pulumi documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Pulumi](https://developers.cloudflare.com/pulumi/index.md): Provision and manage Cloudflare resources using Pulumi infrastructure as code in TypeScript, Python, Go, and other languages.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/pulumi/installing/index.md): Install the Pulumi CLI on Mac, Linux, or Windows and verify your installation.
+
+## Tutorials
+
+- [Tutorials](https://developers.cloudflare.com/pulumi/tutorial/index.md): Step-by-step Pulumi tutorials for adding sites, managing secrets, and deploying Workers on Cloudflare.
+- [Add a site](https://developers.cloudflare.com/pulumi/tutorial/add-site/index.md): This tutorial uses Pulumi infrastructure as code (IaC) to familiarize yourself with the resource management lifecycle.
+- [Create different resources using Pulumi and Wrangler](https://developers.cloudflare.com/pulumi/tutorial/dynamic-provider-and-wrangler/index.md): Pulumi and Wrangler can be used to create different types of resources.
+- [Deploy a Worker](https://developers.cloudflare.com/pulumi/tutorial/hello-world/index.md): In this tutorial, you will follow step-by-step instructions to deploy a Hello World application using Cloudflare Workers and Pulumi infrastructure as code (IaC).
+- [Manage secrets with Pulumi ESC](https://developers.cloudflare.com/pulumi/tutorial/manage-secrets/index.md): Pulumi ESC (Environments, Secrets, and Configuration) is a secure and robust secrets management solution. The tutorial will walk you through how to develop with Wrangler while following security best practices.

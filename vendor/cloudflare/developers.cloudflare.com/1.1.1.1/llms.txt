@@ -1,0 +1,82 @@
+# 1.1.1.1 (DNS Resolver)
+
+A blazing fast DNS resolver built for private browsing
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/1.1.1.1/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [1.1.1.1 (DNS Resolver) llms-full.txt](https://developers.cloudflare.com/1.1.1.1/llms-full.txt) for the complete 1.1.1.1 (DNS Resolver) documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [1.1.1.1 (DNS Resolver)](https://developers.cloudflare.com/1.1.1.1/index.md): Fast, private DNS resolution with Cloudflare 1.1.1.1 public resolver.
+
+## IP addresses
+
+- [IP addresses](https://developers.cloudflare.com/1.1.1.1/ip-addresses/index.md): Get IPv4 and IPv6 addresses for Cloudflare DNS resolvers, 1.1.1.1 and 1.1.1.1 for Families.
+
+## Set up
+
+- [Set up](https://developers.cloudflare.com/1.1.1.1/setup/index.md): Learn how to set up Cloudflare's 1.1.1.1 DNS resolver for enhanced security and privacy. Protect against malware and adult content with easy configuration.
+- [Android](https://developers.cloudflare.com/1.1.1.1/setup/android/index.md): Learn how to set up Cloudflare's 1.1.1.1 DNS resolver on Android devices. Encrypt DNS queries with DoT or DoH, and enable 1.1.1.1 for Families.
+- [Azure](https://developers.cloudflare.com/1.1.1.1/setup/azure/index.md): Configure 1.1.1.1 on Microsoft Azure virtual networks.
+- [Gaming consoles](https://developers.cloudflare.com/1.1.1.1/setup/gaming-consoles/index.md): Configure 1.1.1.1 on PlayStation and Xbox.
+- [Google Cloud](https://developers.cloudflare.com/1.1.1.1/setup/google-cloud/index.md): Configure 1.1.1.1 on Google Cloud instances.
+- [iOS](https://developers.cloudflare.com/1.1.1.1/setup/ios/index.md): Configure 1.1.1.1 on iOS devices.
+- [Linux](https://developers.cloudflare.com/1.1.1.1/setup/linux/index.md): Learn how to set up 1.1.1.1 as your DNS resolver on a Linux system.
+- [macOS](https://developers.cloudflare.com/1.1.1.1/setup/macos/index.md): Configure 1.1.1.1 on macOS.
+- [Router](https://developers.cloudflare.com/1.1.1.1/setup/router/index.md): Configure 1.1.1.1 on your router.
+- [Windows](https://developers.cloudflare.com/1.1.1.1/setup/windows/index.md): Configure 1.1.1.1 on Windows.
+
+## Encryption
+
+- [Encryption](https://developers.cloudflare.com/1.1.1.1/encryption/index.md): Encryption options for DNS queries to 1.1.1.1.
+- [DNS over HTTPS](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/index.md): Encrypt DNS queries using HTTPS with 1.1.1.1.
+- [Connect to 1.1.1.1 using DoH clients](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/dns-over-https-client/index.md): Learn how to connect to Cloudflare's 1.1.1.1 using DNS over HTTPS (DoH) clients.
+- [Configure DoH on your browser](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/encrypted-dns-browsers/index.md): Configure DNS over HTTPS in your browser.
+- [Make API requests to 1.1.1.1](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/make-api-requests/index.md): Make programmatic DNS queries to 1.1.1.1 over HTTPS.
+- [Using JSON](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/make-api-requests/dns-json/index.md): Query 1.1.1.1 DNS over HTTPS using JSON format.
+- [DNS Wireformat](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/make-api-requests/dns-wireformat/index.md): Query 1.1.1.1 DNS over HTTPS using wireformat.
+- [DNS over TLS](https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-tls/index.md): Encrypt DNS queries using TLS with 1.1.1.1.
+- [DNSKEY](https://developers.cloudflare.com/1.1.1.1/encryption/dnskey/index.md): DNSKEY records used by the 1.1.1.1 resolver.
+- [Oblivious DNS over HTTPS](https://developers.cloudflare.com/1.1.1.1/encryption/oblivious-dns-over-https/index.md): Learn how Cloudflare 1.1.1.1 supports Oblivious DNS over HTTPS (ODoH) to enhance privacy by separating HTTP request contents from requester IP addresses.
+
+## Upstream resolution
+
+- [Upstream resolution](https://developers.cloudflare.com/1.1.1.1/upstream-resolution/index.md): How 1.1.1.1 selects authoritative nameservers, retries failed queries, and determines which response to return.
+
+## Verify connection
+
+- [Verify connection](https://developers.cloudflare.com/1.1.1.1/check/index.md): Verify your device is connected to 1.1.1.1.
+
+## Privacy
+
+- [Privacy](https://developers.cloudflare.com/1.1.1.1/privacy/index.md): Privacy commitments and audits for the 1.1.1.1 resolver.
+- [Cloudflare Resolver for Firefox](https://developers.cloudflare.com/1.1.1.1/privacy/cloudflare-resolver-firefox/index.md): How 1.1.1.1 works as the trusted resolver for Firefox.
+- [1.1.1.1 Public DNS Resolver](https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver/index.md): Learn more about Cloudflare's commitment to privacy with the 1.1.1.1 Public DNS Resolver.
+
+## Troubleshooting
+
+- [Troubleshooting](https://developers.cloudflare.com/1.1.1.1/troubleshooting/index.md): Learn how to diagnose and report issues with Cloudflare's DNS Resolver
+
+## Terms of use
+
+- [Terms of use](https://developers.cloudflare.com/1.1.1.1/terms-of-use/index.md): Terms of use for the 1.1.1.1 DNS resolver.
+
+## FAQ
+
+- [FAQ](https://developers.cloudflare.com/1.1.1.1/faq/index.md): Find answers to common questions about Cloudflare's 1.1.1.1 DNS resolver, including setup, privacy features, IPv6 support, and troubleshooting tips.
+
+## additional-options
+
+- [DNS in Google Sheets](https://developers.cloudflare.com/1.1.1.1/additional-options/dns-in-google-sheets/index.md): Look up DNS records directly inside Google Sheets using Cloudflare's 1.1.1.1 DNS resolver and a custom Google Apps Script function.
+- [DNS over Discord](https://developers.cloudflare.com/1.1.1.1/additional-options/dns-over-discord/index.md): Run DNS lookups and WHOIS queries directly in Discord using the 1.1.1.1 bot. Invite the bot to a server or add it to your account to query DNS records without leaving Discord.
+- [DNS over Tor](https://developers.cloudflare.com/1.1.1.1/additional-options/dns-over-tor/index.md): If you do not want to disclose your IP address to the resolver, you can use our Tor onion service. Resolving DNS queries through the Tor network guarantees a significantly higher level of anonymity than making the requests directly.
+
+## infrastructure
+
+- [Extended DNS error codes](https://developers.cloudflare.com/1.1.1.1/infrastructure/extended-dns-error-codes/index.md): Extended DNS error codes returned by 1.1.1.1.
+- [Support for IPv6-only networks](https://developers.cloudflare.com/1.1.1.1/infrastructure/ipv6-networks/index.md): Use 1.1.1.1 on IPv6-only networks.
+- [Network operators](https://developers.cloudflare.com/1.1.1.1/infrastructure/network-operators/index.md): Information for network operators peering with 1.1.1.1.
+- [SLA and technical support](https://developers.cloudflare.com/1.1.1.1/infrastructure/sla-and-support/index.md): SLA and support details for the 1.1.1.1 resolver.

@@ -1,0 +1,52 @@
+# turbopuffer docs
+
+> turbopuffer is a vector and full-text search engine
+> built from first principles on object storage: fast, 10x cheaper,
+> and extremely scalable. This is the complete documentation for
+> the turbopuffer API and platform.
+
+- [Introduction](https://turbopuffer.com/docs/index.md): What turbopuffer is and how it works
+- [Architecture](https://turbopuffer.com/docs/architecture.md): System design: object storage, caching, WAL, and query routing
+- [Concepts](https://turbopuffer.com/docs/concepts.md): turbopuffer's concepts
+- [Guarantees](https://turbopuffer.com/docs/guarantees.md): Guarantees of turbopuffer's architecture
+- [Tradeoffs](https://turbopuffer.com/docs/tradeoffs.md): Tradeoffs of turbopuffer's architecture
+- [Limits](https://turbopuffer.com/docs/limits.md): Current limits for turbopuffer.
+- [Regions](https://turbopuffer.com/docs/regions.md): Available cloud regions and cross-region deployment options
+- [Roadmap & Changelog](https://turbopuffer.com/docs/roadmap.md): Upcoming features and detailed changelog
+- [Security](https://turbopuffer.com/docs/security.md): Compliance (SOC 2, HIPAA), encryption, and deployment options
+- [Encryption](https://turbopuffer.com/docs/cmek.md): Customer-managed encryption key setup for GCP and AWS
+- [Private Networking](https://turbopuffer.com/docs/private-networking.md): Configure private connections via AWS PrivateLink or GCP PSC
+- [Audit Logs](https://turbopuffer.com/docs/audit-logs.md)
+- [Backups](https://turbopuffer.com/docs/backups.md): Back up namespaces across turbopuffer regions
+- [Performance](https://turbopuffer.com/docs/performance.md): Learn how to improve the performance of your application
+- [Pinning](https://turbopuffer.com/docs/pinning.md): Reserved compute and disk for predictable cost and performance at sustained high QPS
+
+## Guides
+
+- [Quickstart](https://turbopuffer.com/docs/quickstart.md): Get started with the turbopuffer API using code examples
+- [Vector Search](https://turbopuffer.com/docs/vector.md): Perform vector similarity search with filtering
+- [Full-Text Search](https://turbopuffer.com/docs/fts.md): Learn how to use BM25 full-text search
+- [Hybrid Search](https://turbopuffer.com/docs/hybrid.md): Combine vector and BM25 search with rank fusion
+- [Testing](https://turbopuffer.com/docs/testing.md): Test with isolated per-test namespaces
+- [Permissions](https://turbopuffer.com/docs/permissions.md): Manage document-level access and permissions
+
+## API
+
+- [Auth & Encoding](https://turbopuffer.com/docs/auth.md): Overview of the API
+- [Write](https://turbopuffer.com/docs/write.md): Learn how to create, update, or delete documents
+- [Query](https://turbopuffer.com/docs/query.md): Learn how to query documents
+- [Namespace metadata](https://turbopuffer.com/docs/metadata.md): Learn how to get and update metadata about a namespace
+- [Export](https://turbopuffer.com/docs/export.md): Learn how to fetch a list documents for export
+- [Warm cache](https://turbopuffer.com/docs/warm-cache.md): Learn how to signal turbopuffer to prepare for low-latency requests
+- [List namespaces](https://turbopuffer.com/docs/namespaces.md): Learn how to fetch a list namespaces
+- [Delete namespace](https://turbopuffer.com/docs/delete-namespace.md): Learn how to delete a namespace
+- [Recall](https://turbopuffer.com/docs/recall.md): Learn how to evaluate recall performance
+
+## Optional
+
+- [BYOC](https://turbopuffer.com/docs/byoc.md): Deploy turbopuffer on your own cloud (AWS, GCP, or Azure)
+- [Deployment](https://turbopuffer.com/docs/byoc/deployment.md): Step-by-step BYOC deployment runlist
+- [Configuration](https://turbopuffer.com/docs/byoc/configuration.md): Configure turbopuffer via Kubernetes ConfigMap and values
+- [Control Plane](https://turbopuffer.com/docs/byoc/control-plane.md): Control plane agent for managing BYOC clusters
+- [Common Operations](https://turbopuffer.com/docs/byoc/operations.md): Common manual operations for BYOC deployments
+- [Requirements](https://turbopuffer.com/docs/byoc/requirements.md): Instance types and Kubernetes requirements for BYOC

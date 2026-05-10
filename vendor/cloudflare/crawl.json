@@ -11,5 +11,6 @@
   "deny_prefixes": [
     "https://developers.cloudflare.com/changelog/"
   ],
-  "page_cap": 200
+  "page_cap": 60,
+  "llms_txt": "https://developers.cloudflare.com/llms.txt"
 }

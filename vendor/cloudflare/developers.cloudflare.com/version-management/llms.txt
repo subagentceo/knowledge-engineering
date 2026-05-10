@@ -1,0 +1,38 @@
+# Version Management
+
+Safely manage configurations on Cloudflare's global network with versioning, staging, and rollbacks
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/version-management/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Version Management llms-full.txt](https://developers.cloudflare.com/version-management/llms-full.txt) for the complete Version Management documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Version Management](https://developers.cloudflare.com/version-management/index.md): Test, deploy, and roll back zone configuration changes safely.
+
+## About
+
+- [About](https://developers.cloudflare.com/version-management/about/index.md): Understand how environments and versions work together.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/version-management/get-started/index.md): Learn how to enable Version Management in the Cloudflare dashboard.
+
+## Changelog
+
+- [Changelog](https://developers.cloudflare.com/version-management/changelog/index.md): View recent changes and updates.
+
+## how-to
+
+- [Compare versions](https://developers.cloudflare.com/version-management/how-to/compare-versions/index.md): View differences between configuration versions.
+- [Enable](https://developers.cloudflare.com/version-management/how-to/enable/index.md): Enable Version Management in the Cloudflare dashboard.
+- [Manage environments](https://developers.cloudflare.com/version-management/how-to/environments/index.md): Create and configure Version Management environments.
+- [Manage versions](https://developers.cloudflare.com/version-management/how-to/versions/index.md): Create, edit, and deploy configuration versions.
+
+## reference
+
+- [Available configurations](https://developers.cloudflare.com/version-management/reference/available-configurations/index.md): View which zone configurations support versioning.
+- [Read-only environments](https://developers.cloudflare.com/version-management/reference/read-only-environments/index.md): Protect environments from accidental changes.
+- [Traffic filters](https://developers.cloudflare.com/version-management/reference/traffic-filters/index.md): Route traffic to specific environments with filters.

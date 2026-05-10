@@ -10,5 +10,6 @@
     "https://modelcontextprotocol.io/"
   ],
   "deny_prefixes": [],
-  "page_cap": 200
+  "page_cap": 60,
+  "llms_txt": "https://modelcontextprotocol.io/llms.txt"
 }

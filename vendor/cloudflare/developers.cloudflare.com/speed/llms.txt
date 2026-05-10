@@ -1,0 +1,70 @@
+# Speed
+
+Improve the performance of your website or web application
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/speed/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Speed llms-full.txt](https://developers.cloudflare.com/speed/llms-full.txt) for the complete Speed documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Speed](https://developers.cloudflare.com/speed/index.md): Optimize your website performance with Cloudflare Speed tools and settings.
+
+## Observatory (beta)
+
+- [Observatory (beta)](https://developers.cloudflare.com/speed/observatory/index.md): Test and monitor your website performance with Cloudflare Observatory.
+- [Observatory dashboard](https://developers.cloudflare.com/speed/observatory/dashboard/index.md): View speed test history and performance trends in the Observatory dashboard.
+- [FAQ](https://developers.cloudflare.com/speed/observatory/faq/index.md): Find answers to common questions about Cloudflare Observatory.
+- [RUM beacon for Web Analytics](https://developers.cloudflare.com/speed/observatory/rum-beacon/index.md): Collect real user performance metrics with the RUM beacon.
+- [Run test](https://developers.cloudflare.com/speed/observatory/run-speed-test/index.md): Learn how to use Cloudflare's Observatory to assess the performance of your website.
+- [Understand test results](https://developers.cloudflare.com/speed/observatory/test-results/index.md): Interpret Lighthouse scores and Core Web Vitals from Observatory tests.
+
+## Smart Shield
+
+- [Smart Shield](https://developers.cloudflare.com/smart-shield/index.md): Protect your origin and improve performance with Smart Shield.
+
+## Troubleshooting
+
+- [Troubleshooting](https://developers.cloudflare.com/speed/troubleshooting/index.md): Troubleshoot common speed and performance optimization issues.
+
+## Aggregated Internet Measurement
+
+- [Aggregated Internet Measurement](https://developers.cloudflare.com/speed/aim/index.md): Measure real-world internet quality metrics for your visitors.
+
+## Glossary
+
+- [Glossary](https://developers.cloudflare.com/speed/glossary/index.md): Definitions for terms used across Cloudflare Speed documentation.
+
+## optimization
+
+- [Automatic Platform Optimization](https://developers.cloudflare.com/automatic-platform-optimization/index.md): Cache and serve WordPress sites from the Cloudflare edge with APO.
+- [Content compression](https://developers.cloudflare.com/speed/optimization/content/compression/index.md): Learn how Cloudflare compresses content for faster web performance.
+- [Early Hints](https://developers.cloudflare.com/cache/advanced-configuration/early-hints/index.md): Preload resources with 103 Early Hints to speed up page rendering.
+- [Cloudflare Fonts](https://developers.cloudflare.com/speed/optimization/content/fonts/index.md): Serve Google Fonts from your domain to improve privacy and performance.
+- [FAQ](https://developers.cloudflare.com/speed/optimization/content/fonts/faq/index.md): Read FAQs about Cloudflare Fonts
+- [Troubleshooting](https://developers.cloudflare.com/speed/optimization/content/fonts/troubleshooting/index.md): Troubleshoot issues with Cloudflare Fonts
+- [Prefetch URLs](https://developers.cloudflare.com/speed/optimization/content/prefetch-urls/index.md): Prefetch URLs to load resources before visitors request them.
+- [Rocket Loader](https://developers.cloudflare.com/speed/optimization/content/rocket-loader/index.md): Defer JavaScript loading to improve page rendering speed.
+- [Enable](https://developers.cloudflare.com/speed/optimization/content/rocket-loader/enable/index.md): Turn on Rocket Loader for your zone.
+- [Ignore JavaScripts](https://developers.cloudflare.com/speed/optimization/content/rocket-loader/ignore-javascripts/index.md): Exclude specific scripts from Rocket Loader optimization.
+- [Shared dictionaries](https://developers.cloudflare.com/speed/optimization/content/shared-dictionaries/index.md): Shared dictionaries reduce repeat-visitor transfer size by compressing each response against a version the browser already has cached.
+- [Speed Brain](https://developers.cloudflare.com/speed/optimization/content/speed-brain/index.md): Learn how Speed Brain enhances web performance by prefetching likely next pages, improving metrics like LCP and TTFB.
+- [Content encoding issues](https://developers.cloudflare.com/speed/optimization/content/troubleshooting/content-encoding-issues/index.md): Fix content encoding mismatches with compression settings.
+- [Turn off Auto Minify via API](https://developers.cloudflare.com/speed/optimization/content/troubleshooting/disable-auto-minify/index.md): Learn how to turn off Auto Minify via API in Cloudflare.
+- [Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/overview/index.md): Resize, crop, and convert images on the fly at the edge.
+- [Cloudflare Mirage (deprecated)](https://developers.cloudflare.com/speed/optimization/images/mirage/index.md): Lazy-load images and reduce bandwidth on mobile connections.
+- [Polish](https://developers.cloudflare.com/images/polish/index.md): Compress and optimize images served through Cloudflare.
+- [Image optimization on optimized images](https://developers.cloudflare.com/speed/optimization/images/troubleshooting/multiple-optimizations/index.md): How multiple image optimizations interact with each other.
+- [Polish statuses](https://developers.cloudflare.com/images/polish/cf-polished-statuses/index.md): Understand Polish response header statuses.
+- [Troubleshoot missing images](https://developers.cloudflare.com/speed/optimization/images/troubleshooting/troubleshooting-missing-images/index.md): Fix missing or broken images after enabling image optimization.
+- [Measurement](https://developers.cloudflare.com/speed/optimization/measurement/index.md): Measure the impact of speed optimizations on your site.
+- [0-RTT Connection Resumption](https://developers.cloudflare.com/speed/optimization/protocol/0-rtt-connection-resumption/index.md): Resume TLS connections faster with zero round-trip time.
+- [Enhanced HTTP/2 Prioritization](https://developers.cloudflare.com/speed/optimization/protocol/enhanced-http2-prioritization/index.md): Improve page load order with Enhanced HTTP/2 Prioritization.
+- [HTTP/2](https://developers.cloudflare.com/speed/optimization/protocol/http2/index.md): Serve content over HTTP/2 for multiplexed, lower-latency connections.
+- [HTTP/2 to Origin](https://developers.cloudflare.com/speed/optimization/protocol/http2-to-origin/index.md): Use HTTP/2 for connections between Cloudflare and your origin.
+- [HTTP/3 (with QUIC)](https://developers.cloudflare.com/speed/optimization/protocol/http3/index.md): Serve content over HTTP/3 with QUIC for faster connections.
+- [Enhanced HTTP/2 Prioritization negatively affects iOS/Safari devices](https://developers.cloudflare.com/speed/optimization/protocol/troubleshooting/enhanced-http2-prioritization-ios-safari/index.md): Fix Enhanced HTTP/2 Prioritization issues on iOS and Safari.
+- [Troubleshoot protocol issues](https://developers.cloudflare.com/speed/optimization/protocol/troubleshooting/protocol-troubleshooting/index.md): Resolve common HTTP/2 and HTTP/3 connection issues.
+- [Recommendations](https://developers.cloudflare.com/speed/optimization/recommendations/index.md): View personalized speed optimization recommendations for your site.

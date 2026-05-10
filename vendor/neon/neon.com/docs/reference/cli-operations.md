@@ -1,0 +1,82 @@
+> This page location: Tools & Workflows > API, CLI & SDKs > CLI > operations
+> Full Neon documentation index: https://neon.com/docs/llms.txt
+
+# Neon CLI command: operations
+
+List and manage long-running operations for a Neon project
+
+## Before you begin
+
+- Before running the `operations` command, ensure that you have [installed the Neon CLI](https://neon.com/docs/reference/cli-install).
+- If you have not authenticated with the [neon auth](https://neon.com/docs/reference/cli-auth) command, running a Neon CLI command automatically launches the Neon CLI browser authentication process. Alternatively, you can specify a Neon API key using the `--api-key` option when running a command. See [Connect](https://neon.com/docs/reference/neon-cli#connect).
+
+For information about operations in Neon, see [System operations](https://neon.com/docs/manage/operations).
+
+## The `operations` command
+
+The `operations` command allows you to list operations for a Neon project.
+
+### Usage
+
+```bash
+neon operations <subcommand> [options]
+```
+
+| Subcommand                                                  | Description     |
+| ----------------------------------------------------------- | --------------- |
+| [list](https://neon.com/docs/reference/cli-operations#list) | List operations |
+
+### list
+
+This subcommand allows you to list operations.
+
+#### Usage
+
+```bash
+neon operations list [options]
+```
+
+#### Options
+
+In addition to the Neon CLI [global options](https://neon.com/docs/reference/neon-cli#global-options), the `list` subcommand supports this option:
+
+| Option           | Description                                                                                                   | Type   |                       Required                      |
+| ---------------- | ------------------------------------------------------------------------------------------------------------- | ------ | :-------------------------------------------------: |
+| `--context-file` | [Context file](https://neon.com/docs/reference/cli-set-context#using-a-named-context-file) path and file name | string |                                                     |
+| `--project-id`   | Project ID                                                                                                    | string | Only if your Neon account has more than one project |
+
+#### Example
+
+```bash
+neon operations list
+┌──────────────────────────────────────┬────────────────────┬──────────┬──────────────────────┐
+│ Id                                   │ Action             │ Status   │ Created At           │
+├──────────────────────────────────────┼────────────────────┼──────────┼──────────────────────┤
+│ fce8642e-259e-4662-bdce-518880aee723 │ apply_config       │ finished │ 2023-06-20T00:45:19Z │
+├──────────────────────────────────────┼────────────────────┼──────────┼──────────────────────┤
+│ dc1dfb0c-b854-474b-be20-2ea1d2172563 │ apply_config       │ finished │ 2023-06-20T00:43:17Z │
+├──────────────────────────────────────┼────────────────────┼──────────┼──────────────────────┤
+│ 7a83e300-cf5f-4c1a-b9b5-569b6d6feab9 │ suspend_compute    │ finished │ 2023-06-19T23:50:56Z │
+└──────────────────────────────────────┴────────────────────┴──────────┴──────────────────────┘
+```
+
+---
+
+## Related docs (CLI)
+
+- [Overview](https://neon.com/docs/reference/neon-cli)
+- [Quickstart](https://neon.com/docs/reference/cli-quickstart)
+- [Install and connect](https://neon.com/docs/reference/cli-install)
+- [auth](https://neon.com/docs/reference/cli-auth)
+- [me](https://neon.com/docs/reference/cli-me)
+- [orgs](https://neon.com/docs/reference/cli-orgs)
+- [projects](https://neon.com/docs/reference/cli-projects)
+- [ip-allow](https://neon.com/docs/reference/cli-ip-allow)
+- [vpc](https://neon.com/docs/reference/cli-vpc)
+- [branches](https://neon.com/docs/reference/cli-branches)
+- [databases](https://neon.com/docs/reference/cli-databases)
+- [roles](https://neon.com/docs/reference/cli-roles)
+- [connection-string](https://neon.com/docs/reference/cli-connection-string)
+- [set-context](https://neon.com/docs/reference/cli-set-context)
+- [init](https://neon.com/docs/reference/cli-init)
+- [completion](https://neon.com/docs/reference/cli-completion)

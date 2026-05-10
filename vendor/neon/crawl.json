@@ -2,14 +2,16 @@
   "name": "neon",
   "homepage": "https://neon.com",
   "llms_txt_candidates": [
-    "https://neon.com/docs/llms.txt",
-    "https://neon.com/llms.txt"
+    "https://neon.com/llms.txt",
+    "https://neon.com/docs/llms.txt"
   ],
-  "transform": "anthropic-mdfirst",
+  "transform": "verbatim",
   "allow_prefixes": [
     "https://neon.com/docs/",
-    "https://neon.com/guides/"
+    "https://neon.com/guides/",
+    "https://neon.com/pricing.md"
   ],
   "deny_prefixes": [],
-  "page_cap": 200
+  "page_cap": 60,
+  "llms_txt": "https://neon.com/llms.txt"
 }

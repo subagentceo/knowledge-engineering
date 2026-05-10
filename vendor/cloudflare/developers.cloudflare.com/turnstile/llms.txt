@@ -1,0 +1,92 @@
+# Turnstile
+
+Turnstile is Cloudflare's smart CAPTCHA alternative
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/turnstile/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Turnstile llms-full.txt](https://developers.cloudflare.com/turnstile/llms-full.txt) for the complete Turnstile documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/index.md): Verify visitors are human with a CAPTCHA-free, privacy-preserving alternative.
+
+## Plans
+
+- [Plans](https://developers.cloudflare.com/turnstile/plans/index.md): Compare Turnstile feature availability and widget limits across plans.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/turnstile/get-started/index.md): Set up Turnstile to verify visitors without a traditional CAPTCHA.
+- [Embed the widget](https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/index.md): Embed a Turnstile widget on your website with JavaScript or HTML.
+- [Widget configurations](https://developers.cloudflare.com/turnstile/get-started/client-side-rendering/widget-configurations/index.md): Configure widget appearance, language, and callback functions.
+- [Mobile implementation](https://developers.cloudflare.com/turnstile/get-started/mobile-implementation/index.md): Implement Turnstile in native mobile applications.
+- [Validate the token](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/index.md): Validate Turnstile tokens on your server with the siteverify API.
+- [Create and manage widgets using Cloudflare API](https://developers.cloudflare.com/turnstile/get-started/widget-management/api/index.md): Create and manage Turnstile widgets using the Cloudflare API.
+- [Create and manage widgets using the Cloudflare dashboard](https://developers.cloudflare.com/turnstile/get-started/widget-management/dashboard/index.md): Create and manage Turnstile widgets in the Cloudflare dashboard.
+- [Create and manage widgets using Terraform](https://developers.cloudflare.com/turnstile/get-started/widget-management/terraform/index.md): Create and manage Turnstile widgets using the Terraform provider.
+
+## Turnstile Analytics
+
+- [Turnstile Analytics](https://developers.cloudflare.com/turnstile/turnstile-analytics/index.md): Use Turnstile Analytics to view the number of challenges issued, the challenge solve rate, and the metrics of issued challenges.
+- [Challenge outcome](https://developers.cloudflare.com/turnstile/turnstile-analytics/challenge-outcomes/index.md): View challenge outcome metrics for your Turnstile widgets.
+- [Token validation](https://developers.cloudflare.com/turnstile/turnstile-analytics/token-validation/index.md): View token validation metrics for your Turnstile widgets.
+
+## Migration
+
+- [Migration](https://developers.cloudflare.com/turnstile/migration/index.md): Migrate to Turnstile from reCAPTCHA or hCaptcha.
+- [Migrate from hCaptcha](https://developers.cloudflare.com/turnstile/migration/hcaptcha/index.md): Migrate from hCaptcha to Cloudflare Turnstile.
+- [Migrate from reCAPTCHA](https://developers.cloudflare.com/turnstile/migration/recaptcha/index.md): Migrate from Google reCAPTCHA to Cloudflare Turnstile.
+
+## Tutorials
+
+- [Tutorials](https://developers.cloudflare.com/turnstile/tutorials/index.md): Tutorials for integrating Turnstile with WAF, login pages, and testing.
+- [Conditionally enforce Turnstile](https://developers.cloudflare.com/turnstile/tutorials/conditionally-enforcing-turnstile/index.md): This tutorial explains how to conditionally enforce Turnstile based on the incoming request, such as a pre-shared secret in a header or a specific IP address.
+- [Exclude Turnstile from E2E tests](https://developers.cloudflare.com/turnstile/tutorials/excluding-turnstile-from-e2e-tests/index.md): This tutorial explains how to handle Turnstile in your end-to-end (E2E) tests by using Turnstile's dedicated testing keys.
+- [Fraud detection with Ephemeral IDs](https://developers.cloudflare.com/turnstile/tutorials/fraud-detection-with-ephemeral-ids/index.md): Learn how to implement fraud detection using Turnstile's Ephemeral IDs to identify and block bad actors who rotate IP addresses.
+- [Integrate Turnstile, WAF, & Bot Management](https://developers.cloudflare.com/turnstile/tutorials/integrating-turnstile-waf-and-bot-management/index.md): This tutorial will guide you on how to integrate Cloudflare Turnstile, Web Application Firewall (WAF), and Bot Management. This combination creates a robust defense against various threats, including automated attacks and malicious login attempts.
+- [Protect your forms](https://developers.cloudflare.com/turnstile/tutorials/login-pages/index.md): This tutorial will guide you through integrating Cloudflare Turnstile to protect your web forms, such as login, signup, or contact forms.
+
+## Community resources
+
+- [Community resources](https://developers.cloudflare.com/turnstile/community-resources/index.md): Community-built libraries and integrations for Cloudflare Turnstile.
+
+## Changelog
+
+- [Changelog](https://developers.cloudflare.com/turnstile/changelog/index.md): Track the latest updates and changes to Cloudflare Turnstile.
+
+## additional-configuration
+
+- [Ephemeral IDs](https://developers.cloudflare.com/turnstile/additional-configuration/ephemeral-id/index.md): Generate single-use Ephemeral IDs for fraud detection and analytics.
+- [Hostname management](https://developers.cloudflare.com/turnstile/additional-configuration/hostname-management/index.md): Control which hostnames can serve your Turnstile widget.
+- [Any Hostname (Enterprise only)](https://developers.cloudflare.com/turnstile/additional-configuration/hostname-management/any-hostname/index.md): Allow Turnstile widgets on any hostname with Enterprise plans.
+- [Pre-clearance configuration](https://developers.cloudflare.com/turnstile/additional-configuration/hostname-management/pre-clearance/index.md): Configure Pre-clearance to reduce repeated challenges for visitors.
+- [Remove Cloudflare branding with Offlabel](https://developers.cloudflare.com/turnstile/additional-configuration/offlabel/index.md): Remove Cloudflare branding from Turnstile widgets with Offlabel mode.
+- [Pre-clearance support](https://developers.cloudflare.com/cloudflare-challenges/concepts/clearance/#pre-clearance-support-in-turnstileindex.md): Issue clearance cookies to reduce repeated challenges for valid visitors.
+
+## concepts
+
+- [Cloudflare Challenges](https://developers.cloudflare.com/cloudflare-challenges/index.md): How Cloudflare Challenges verify visitors in Turnstile widgets.
+- [Turnstile widgets](https://developers.cloudflare.com/turnstile/concepts/widget/index.md): Turnstile widget modes, sizes, and rendering behavior.
+
+## extensions
+
+- [Implement Turnstile with Google Firebase](https://developers.cloudflare.com/turnstile/extensions/google-firebase/index.md): Integrate Turnstile with Google Firebase for server-side validation.
+- [Pages Plugin](https://developers.cloudflare.com/pages/functions/plugins/turnstile/index.md): Add Turnstile to Cloudflare Pages with the Pages Plugin.
+- [Waiting Room Analytics](https://developers.cloudflare.com/waiting-room/waiting-room-analytics/#turnstile-widget-trafficindex.md): View Turnstile analytics for Waiting Room challenge events.
+
+## reference
+
+- [Content Security Policy](https://developers.cloudflare.com/turnstile/reference/content-security-policy/index.md): Content Security Policy directives required for Turnstile widgets.
+- [Supported browsers](https://developers.cloudflare.com/cloudflare-challenges/reference/supported-browsers/index.md): Browsers supported by Cloudflare Turnstile widgets.
+- [Supported languages](https://developers.cloudflare.com/turnstile/reference/supported-languages/index.md): Languages supported by Cloudflare Turnstile widgets.
+
+## troubleshooting
+
+- [Challenge solve issues](https://developers.cloudflare.com/cloudflare-challenges/troubleshooting/challenge-solve-issues/index.md): Fix challenge loops and solve failures in Turnstile widgets.
+- [Client-side errors](https://developers.cloudflare.com/turnstile/troubleshooting/client-side-errors/index.md): Resolve client-side errors in Turnstile widget rendering.
+- [Error codes](https://developers.cloudflare.com/turnstile/troubleshooting/client-side-errors/error-codes/index.md): Error codes returned by Turnstile widgets and their meanings.
+- [Feedback reports](https://developers.cloudflare.com/turnstile/troubleshooting/feedback-reports/index.md): Submit Turnstile feedback reports for false positive challenges.
+- [Rotate secret key](https://developers.cloudflare.com/turnstile/troubleshooting/rotate-secret-key/index.md): Rotate your Turnstile secret key for security or key compromise.
+- [Test your Turnstile implementation](https://developers.cloudflare.com/turnstile/troubleshooting/testing/index.md): Test your Turnstile implementation with test site keys.

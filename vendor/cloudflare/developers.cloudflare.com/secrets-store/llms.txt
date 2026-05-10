@@ -1,0 +1,35 @@
+# Secrets Store
+
+Encrypt and store sensitive information as secrets that are securely reusable across an account
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/secrets-store/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Secrets Store llms-full.txt](https://developers.cloudflare.com/secrets-store/llms-full.txt) for the complete Secrets Store documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Secrets Store](https://developers.cloudflare.com/secrets-store/index.md): Use Secrets Store to encrypt and store sensitive information as secrets that are securely reusable across your Cloudflare account.
+
+## Secrets Store access control
+
+- [Secrets Store access control](https://developers.cloudflare.com/secrets-store/access-control/index.md): Learn about role-based access control with Cloudflare Secrets Store
+
+## Manage account secrets
+
+- [Manage account secrets](https://developers.cloudflare.com/secrets-store/manage-secrets/index.md): Learn about different operations to manage your secrets in Cloudflare Secrets Store.
+- [How to](https://developers.cloudflare.com/secrets-store/manage-secrets/how-to/index.md): Create, update, duplicate, and delete secrets using the dashboard, API, or Wrangler.
+
+## Audit logs
+
+- [Audit logs](https://developers.cloudflare.com/secrets-store/audit-logs/index.md): Actions logged for Secrets Store operations, including create, update, and delete.
+
+## Secrets Store REST API
+
+- [Secrets Store REST API](https://developers.cloudflare.com/api/resources/secrets_store/index.md): REST API endpoints for managing Cloudflare Secrets Store.
+
+## integrations
+
+- [AI Gateway integration](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/index.md): Use Secrets Store to manage API keys for AI Gateway providers.
+- [Workers integration](https://developers.cloudflare.com/secrets-store/integrations/workers/index.md): Cloudflare Secrets Store is a secure, centralized location in which account-level secrets are stored and managed. The secrets are securely encrypted and stored across all Cloudflare data centers.

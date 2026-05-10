@@ -1,0 +1,130 @@
+# Logs
+
+Access detailed logs with metadata from Cloudflare products
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/logs/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Logs llms-full.txt](https://developers.cloudflare.com/logs/llms-full.txt) for the complete Logs documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Logs](https://developers.cloudflare.com/logs/index.md): Access detailed metadata logs from Cloudflare products.
+
+## Logpush
+
+- [Logpush](https://developers.cloudflare.com/logs/logpush/index.md): Push logs in near real-time to storage or SIEM.
+- [Logpush alerts and analytics](https://developers.cloudflare.com/logs/logpush/alerts-and-analytics/index.md): Monitor Logpush job health with alerts and analytics.
+- [Manage Logpush with cURL](https://developers.cloudflare.com/logs/logpush/examples/example-logpush-curl/index.md): Create and manage Logpush jobs using cURL.
+- [Manage Logpush with Python](https://developers.cloudflare.com/logs/logpush/examples/example-logpush-python/index.md): Create and manage Logpush jobs using Python.
+- [Logpush Health Dashboards](https://developers.cloudflare.com/logs/logpush/logpush-health/index.md): Monitor Logpush job performance and reliability.
+- [Logpush job setup](https://developers.cloudflare.com/logs/logpush/logpush-job/index.md): Configure and manage Logpush job settings.
+- [API configuration](https://developers.cloudflare.com/logs/logpush/logpush-job/api-configuration/index.md): Configure Logpush jobs via the API.
+- [Custom fields](https://developers.cloudflare.com/logs/logpush/logpush-job/custom-fields/index.md): Log custom request and response headers.
+- [Datasets](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/index.md): Browse available Logpush dataset fields by category.
+- [Access requests](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/access_requests/index.md)
+- [Audit Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/audit_logs/index.md)
+- [Audit Logs V2](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/audit_logs_v2/index.md)
+- [Browser Isolation User Actions](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/biso_user_actions/index.md)
+- [CASB Findings](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/casb_findings/index.md)
+- [Device posture results](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/device_posture_results/index.md)
+- [DEX Application Tests](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/dex_application_tests/index.md)
+- [DEX Device State Events](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/dex_device_state_events/index.md)
+- [DLP Forensic Copies](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/dlp_forensic_copies/index.md)
+- [DNS Firewall Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/dns_firewall_logs/index.md)
+- [Email Security Alerts](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/email_security_alerts/index.md)
+- [Gateway DNS](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/gateway_dns/index.md)
+- [Gateway HTTP](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/gateway_http/index.md)
+- [Gateway Network](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/gateway_network/index.md)
+- [IPSec Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/ipsec_logs/index.md)
+- [Magic IDS Detections](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/magic_ids_detections/index.md)
+- [MCP Portal Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/mcp_portal_logs/index.md)
+- [Network Analytics Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/network_analytics_logs/index.md)
+- [Sinkhole HTTP Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/sinkhole_http_logs/index.md)
+- [SSH Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/ssh_logs/index.md)
+- [WARP Config Changes](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/warp_config_changes/index.md)
+- [WARP Toggle Changes](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/warp_toggle_changes/index.md)
+- [Workers Trace Events](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/workers_trace_events/index.md)
+- [Zero Trust Network Session Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/zero_trust_network_sessions/index.md)
+- [CMB support by dataset](https://developers.cloudflare.com/data-localization/metadata-boundary/logpush-datasets/index.md): Learn about cmb support by dataset  in Cloudflare Logs.
+- [DNS logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/dns_logs/index.md)
+- [Firewall events](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/firewall_events/index.md)
+- [HTTP requests](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/http_requests/index.md)
+- [NEL reports](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/nel_reports/index.md)
+- [Page Shield events](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/page_shield_events/index.md)
+- [Spectrum events](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/spectrum_events/index.md)
+- [Zaraz Events](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/zone/zaraz_events/index.md)
+- [Edge Log Delivery](https://developers.cloudflare.com/logs/logpush/logpush-job/edge-log-delivery/index.md): Send logs directly from edge with low latency.
+- [Enable destinations](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/index.md): Configure Logpush to send logs to a destination.
+- [Enable Amazon S3](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/aws-s3/index.md): Push Cloudflare logs to Amazon S3.
+- [Enable Microsoft Azure](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/azure/index.md): Push Cloudflare logs to Microsoft Azure Blob Storage.
+- [Enable Google BigQuery](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/bigquery/index.md): Push Cloudflare logs to Google BigQuery.
+- [Enable Datadog](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/datadog/index.md): Push Cloudflare logs to Datadog.
+- [Dedicated Egress IP for Logpush](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/egress-ip/index.md): Send Logpush logs via a dedicated egress IP.
+- [Enable Elastic](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/elastic/index.md): Push Cloudflare logs to Elastic.
+- [Enable Google Cloud Storage](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/google-cloud-storage/index.md): Push Cloudflare logs to Google Cloud Storage.
+- [Enable HTTP destination](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/http/index.md): Push Cloudflare logs to a custom HTTP endpoint.
+- [Enable IBM Cloud Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/ibm-cloud-logs/index.md): Push Cloudflare logs to IBM Cloud Logs.
+- [Enable IBM QRadar](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/ibm-qradar/index.md): Learn about enable ibm qradar in Cloudflare Logs.
+- [Enable Amazon Kinesis](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/kinesis/index.md): Learn about enable amazon kinesis in Cloudflare Logs.
+- [Enable New Relic](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/new-relic/index.md): Push Cloudflare logs to New Relic.
+- [Enable other providers](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/other-providers/index.md): Learn about enable other providers in Cloudflare Logs.
+- [Enable Cloudflare Pipelines](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/pipelines/index.md): Push Cloudflare logs to Cloudflare Pipelines.
+- [Enable Cloudflare R2](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/r2/index.md): Push Cloudflare logs to Cloudflare R2.
+- [Enable S3-compatible endpoints](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/s3-compatible-endpoints/index.md): Push Cloudflare logs to S3-compatible storage.
+- [Enable SentinelOne](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/sentinelone/index.md): Push Cloudflare logs to SentinelOne Data Lake.
+- [Enable Splunk](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/splunk/index.md): Push Cloudflare logs to Splunk via HEC.
+- [Enable Sumo Logic](https://developers.cloudflare.com/logs/logpush/logpush-job/enable-destinations/sumo-logic/index.md): Push Cloudflare logs to Sumo Logic.
+- [Filters](https://developers.cloudflare.com/logs/logpush/logpush-job/filters/index.md): Apply filters to Logpush job log output.
+- [Log Output Options](https://developers.cloudflare.com/logs/logpush/logpush-job/log-output-options/index.md): Customize Logpush log output format and fields.
+- [Ownership challenge FAQ](https://developers.cloudflare.com/logs/logpush/logpush-job/logpush-ownership-challenge/index.md): Understand the Logpush destination ownership challenge.
+- [Subrequests](https://developers.cloudflare.com/logs/logpush/logpush-job/subrequests/index.md): Control how Worker subrequests appear in Logpush.
+- [Parse Cloudflare Logs JSON data](https://developers.cloudflare.com/logs/logpush/parsing-json-log-data/index.md): Parse and analyze downloaded Cloudflare Logs data.
+- [Permissions](https://developers.cloudflare.com/logs/logpush/permissions/index.md): Review API permissions required for Cloudflare Logs.
+
+## Instant Logs
+
+- [Instant Logs](https://developers.cloudflare.com/logs/instant-logs/index.md): Stream live traffic logs from the dashboard or CLI.
+
+## Logs Engine
+
+- [Logs Engine](https://developers.cloudflare.com/logs/r2-log-retrieval/index.md): Store logs in R2 and query them directly.
+
+## Logpull
+
+- [Logpull](https://developers.cloudflare.com/logs/logpull/index.md): Pull request logs via the Logpull REST API.
+- [Additional details](https://developers.cloudflare.com/logs/logpull/additional-details/index.md): Estimate data volume and troubleshoot Logpull.
+- [Enabling log retention](https://developers.cloudflare.com/logs/logpull/enabling-log-retention/index.md): Turn log retention on or off for Logpull.
+- [Requesting logs](https://developers.cloudflare.com/logs/logpull/requesting-logs/index.md): Use Logpull API endpoints to request log data.
+- [Understanding the basics](https://developers.cloudflare.com/logs/logpull/understanding-the-basics/index.md): Learn Logpull API access patterns and data retention.
+
+## Changelog
+
+- [Changelog](https://developers.cloudflare.com/logs/changelog/index.md): View recent changes to Cloudflare Logs.
+- [Audit Logs](https://developers.cloudflare.com/logs/changelog/audit-logs/index.md): View changelog entries for Audit Logs.
+- [Logs](https://developers.cloudflare.com/logs/changelog/logs/index.md): View changelog entries for Cloudflare Logs.
+
+## Glossary
+
+- [Glossary](https://developers.cloudflare.com/logs/glossary/index.md): Review definitions for Cloudflare Logs terminology.
+
+## FAQ
+
+- [FAQ](https://developers.cloudflare.com/logs/faq/index.md): Find answers to common Log Explorer questions.
+- [504 responses with origin status 0 in Logpush](https://developers.cloudflare.com/logs/faq/504-origin-status-0/index.md): Why internal subrequests appear as 504 with origin status 0 in Logpush.
+- [Common calculations FAQ](https://developers.cloudflare.com/logs/faq/common-calculations/index.md): Learn more about calculating bytes served by the origin and bandwidth usage.
+- [General FAQ](https://developers.cloudflare.com/logs/faq/general-faq/index.md): Review frequently asked questions about Cloudflare Logs.
+- [Instant Logs FAQ](https://developers.cloudflare.com/logs/faq/instant-logs/index.md): Review frequently asked questions about Instant Logs.
+- [Logpull API FAQ](https://developers.cloudflare.com/logs/faq/logpull-api/index.md): Review frequently asked questions about the Logpull API.
+- [Logpush FAQ](https://developers.cloudflare.com/logs/faq/logpush/index.md): Review frequently asked questions about Logpush.
+- [Random hostnames](https://developers.cloudflare.com/logs/faq/random-hostnames-partial-zones/index.md): Why unexpected hostnames appear in HTTP logs for partial zones.
+- [Worker subrequests](https://developers.cloudflare.com/logs/faq/worker-subrequests/index.md): Why origin fields appear on Worker subrequest log entries and how to correlate them with the initial request.
+
+## reference
+
+- [2023-02-01 - Updates to security fields](https://developers.cloudflare.com/logs/reference/change-notices/2023-02-01-security-fields-updates/index.md): Review updates to security fields in log datasets.
+- [ClientRequestSource field](https://developers.cloudflare.com/logs/reference/clientrequestsource/index.md): Understand ClientRequestSource field values in logs.
+- [Pathing status](https://developers.cloudflare.com/logs/reference/pathing-status/index.md): Understand edge pathing status fields in logs.
+- [Security fields](https://developers.cloudflare.com/logs/reference/security-fields/index.md): Review security action and rule field values.
+- [WAF fields](https://developers.cloudflare.com/logs/reference/waf-fields/index.md): Review WAF action and rule field values in logs.

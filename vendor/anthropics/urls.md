@@ -1,8 +1,8 @@
 ---
 vendor: anthropics
 llms_txt: https://code.claude.com/llms.txt
-last_crawled: 2026-05-10T20:39:51.499Z
-count: 126
+last_crawled: 2026-05-10T20:47:29.295Z
+count: 60
 transform: verbatim
 ---
 
@@ -70,69 +70,3 @@ transform: verbatim
 | https://code.claude.com/docs/en/desktop.md | `vendor/anthropics/code.claude.com/docs/en/desktop.md` |
 | https://code.claude.com/docs/en/devcontainer.md | `vendor/anthropics/code.claude.com/docs/en/devcontainer.md` |
 | https://code.claude.com/docs/en/discover-plugins.md | `vendor/anthropics/code.claude.com/docs/en/discover-plugins.md` |
-| https://code.claude.com/docs/en/env-vars.md | `vendor/anthropics/code.claude.com/docs/en/env-vars.md` |
-| https://code.claude.com/docs/en/errors.md | `vendor/anthropics/code.claude.com/docs/en/errors.md` |
-| https://code.claude.com/docs/en/fast-mode.md | `vendor/anthropics/code.claude.com/docs/en/fast-mode.md` |
-| https://code.claude.com/docs/en/features-overview.md | `vendor/anthropics/code.claude.com/docs/en/features-overview.md` |
-| https://code.claude.com/docs/en/fullscreen.md | `vendor/anthropics/code.claude.com/docs/en/fullscreen.md` |
-| https://code.claude.com/docs/en/github-actions.md | `vendor/anthropics/code.claude.com/docs/en/github-actions.md` |
-| https://code.claude.com/docs/en/github-enterprise-server.md | `vendor/anthropics/code.claude.com/docs/en/github-enterprise-server.md` |
-| https://code.claude.com/docs/en/gitlab-ci-cd.md | `vendor/anthropics/code.claude.com/docs/en/gitlab-ci-cd.md` |
-| https://code.claude.com/docs/en/glossary.md | `vendor/anthropics/code.claude.com/docs/en/glossary.md` |
-| https://code.claude.com/docs/en/google-vertex-ai.md | `vendor/anthropics/code.claude.com/docs/en/google-vertex-ai.md` |
-| https://code.claude.com/docs/en/headless.md | `vendor/anthropics/code.claude.com/docs/en/headless.md` |
-| https://code.claude.com/docs/en/hooks-guide.md | `vendor/anthropics/code.claude.com/docs/en/hooks-guide.md` |
-| https://code.claude.com/docs/en/hooks.md | `vendor/anthropics/code.claude.com/docs/en/hooks.md` |
-| https://code.claude.com/docs/en/how-claude-code-works.md | `vendor/anthropics/code.claude.com/docs/en/how-claude-code-works.md` |
-| https://code.claude.com/docs/en/interactive-mode.md | `vendor/anthropics/code.claude.com/docs/en/interactive-mode.md` |
-| https://code.claude.com/docs/en/jetbrains.md | `vendor/anthropics/code.claude.com/docs/en/jetbrains.md` |
-| https://code.claude.com/docs/en/keybindings.md | `vendor/anthropics/code.claude.com/docs/en/keybindings.md` |
-| https://code.claude.com/docs/en/legal-and-compliance.md | `vendor/anthropics/code.claude.com/docs/en/legal-and-compliance.md` |
-| https://code.claude.com/docs/en/llm-gateway.md | `vendor/anthropics/code.claude.com/docs/en/llm-gateway.md` |
-| https://code.claude.com/docs/en/mcp.md | `vendor/anthropics/code.claude.com/docs/en/mcp.md` |
-| https://code.claude.com/docs/en/memory.md | `vendor/anthropics/code.claude.com/docs/en/memory.md` |
-| https://code.claude.com/docs/en/microsoft-foundry.md | `vendor/anthropics/code.claude.com/docs/en/microsoft-foundry.md` |
-| https://code.claude.com/docs/en/model-config.md | `vendor/anthropics/code.claude.com/docs/en/model-config.md` |
-| https://code.claude.com/docs/en/monitoring-usage.md | `vendor/anthropics/code.claude.com/docs/en/monitoring-usage.md` |
-| https://code.claude.com/docs/en/network-config.md | `vendor/anthropics/code.claude.com/docs/en/network-config.md` |
-| https://code.claude.com/docs/en/output-styles.md | `vendor/anthropics/code.claude.com/docs/en/output-styles.md` |
-| https://code.claude.com/docs/en/overview.md | `vendor/anthropics/code.claude.com/docs/en/overview.md` |
-| https://code.claude.com/docs/en/permission-modes.md | `vendor/anthropics/code.claude.com/docs/en/permission-modes.md` |
-| https://code.claude.com/docs/en/permissions.md | `vendor/anthropics/code.claude.com/docs/en/permissions.md` |
-| https://code.claude.com/docs/en/platforms.md | `vendor/anthropics/code.claude.com/docs/en/platforms.md` |
-| https://code.claude.com/docs/en/plugin-dependencies.md | `vendor/anthropics/code.claude.com/docs/en/plugin-dependencies.md` |
-| https://code.claude.com/docs/en/plugin-marketplaces.md | `vendor/anthropics/code.claude.com/docs/en/plugin-marketplaces.md` |
-| https://code.claude.com/docs/en/plugins-reference.md | `vendor/anthropics/code.claude.com/docs/en/plugins-reference.md` |
-| https://code.claude.com/docs/en/plugins.md | `vendor/anthropics/code.claude.com/docs/en/plugins.md` |
-| https://code.claude.com/docs/en/quickstart.md | `vendor/anthropics/code.claude.com/docs/en/quickstart.md` |
-| https://code.claude.com/docs/en/remote-control.md | `vendor/anthropics/code.claude.com/docs/en/remote-control.md` |
-| https://code.claude.com/docs/en/routines.md | `vendor/anthropics/code.claude.com/docs/en/routines.md` |
-| https://code.claude.com/docs/en/sandboxing.md | `vendor/anthropics/code.claude.com/docs/en/sandboxing.md` |
-| https://code.claude.com/docs/en/scheduled-tasks.md | `vendor/anthropics/code.claude.com/docs/en/scheduled-tasks.md` |
-| https://code.claude.com/docs/en/security.md | `vendor/anthropics/code.claude.com/docs/en/security.md` |
-| https://code.claude.com/docs/en/server-managed-settings.md | `vendor/anthropics/code.claude.com/docs/en/server-managed-settings.md` |
-| https://code.claude.com/docs/en/settings.md | `vendor/anthropics/code.claude.com/docs/en/settings.md` |
-| https://code.claude.com/docs/en/setup.md | `vendor/anthropics/code.claude.com/docs/en/setup.md` |
-| https://code.claude.com/docs/en/skills.md | `vendor/anthropics/code.claude.com/docs/en/skills.md` |
-| https://code.claude.com/docs/en/slack.md | `vendor/anthropics/code.claude.com/docs/en/slack.md` |
-| https://code.claude.com/docs/en/statusline.md | `vendor/anthropics/code.claude.com/docs/en/statusline.md` |
-| https://code.claude.com/docs/en/sub-agents.md | `vendor/anthropics/code.claude.com/docs/en/sub-agents.md` |
-| https://code.claude.com/docs/en/terminal-config.md | `vendor/anthropics/code.claude.com/docs/en/terminal-config.md` |
-| https://code.claude.com/docs/en/third-party-integrations.md | `vendor/anthropics/code.claude.com/docs/en/third-party-integrations.md` |
-| https://code.claude.com/docs/en/tools-reference.md | `vendor/anthropics/code.claude.com/docs/en/tools-reference.md` |
-| https://code.claude.com/docs/en/troubleshoot-install.md | `vendor/anthropics/code.claude.com/docs/en/troubleshoot-install.md` |
-| https://code.claude.com/docs/en/troubleshooting.md | `vendor/anthropics/code.claude.com/docs/en/troubleshooting.md` |
-| https://code.claude.com/docs/en/ultraplan.md | `vendor/anthropics/code.claude.com/docs/en/ultraplan.md` |
-| https://code.claude.com/docs/en/ultrareview.md | `vendor/anthropics/code.claude.com/docs/en/ultrareview.md` |
-| https://code.claude.com/docs/en/voice-dictation.md | `vendor/anthropics/code.claude.com/docs/en/voice-dictation.md` |
-| https://code.claude.com/docs/en/vs-code.md | `vendor/anthropics/code.claude.com/docs/en/vs-code.md` |
-| https://code.claude.com/docs/en/web-quickstart.md | `vendor/anthropics/code.claude.com/docs/en/web-quickstart.md` |
-| https://code.claude.com/docs/en/whats-new/2026-w13.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w13.md` |
-| https://code.claude.com/docs/en/whats-new/2026-w14.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w14.md` |
-| https://code.claude.com/docs/en/whats-new/2026-w15.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w15.md` |
-| https://code.claude.com/docs/en/whats-new/2026-w16.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w16.md` |
-| https://code.claude.com/docs/en/whats-new/2026-w17.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w17.md` |
-| https://code.claude.com/docs/en/whats-new/2026-w18.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w18.md` |
-| https://code.claude.com/docs/en/whats-new/2026-w19.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w19.md` |
-| https://code.claude.com/docs/en/whats-new/index.md | `vendor/anthropics/code.claude.com/docs/en/whats-new/index.md` |
-| https://code.claude.com/docs/en/zero-data-retention.md | `vendor/anthropics/code.claude.com/docs/en/zero-data-retention.md` |
