@@ -164,6 +164,23 @@ on their domain.
   or failure) by rewriting `cse_*` → `session_*` from
   `CLAUDE_CODE_REMOTE_SESSION_ID`.
 
+### 6.9 Subprocessor disclosure (`SUBPROCESSORS.md`)
+
+- FR-SUB-1: A root-level `SUBPROCESSORS.md` MUST inventory every vendor
+  the chassis depends on (Tier 1: active outbound; Tier 2: mirrored
+  read-only), inspired by <https://trust.anthropic.com/subprocessors>.
+- FR-SUB-2: Each row MUST include the vendor's role, auth method, data
+  scope (what flows out), local-mirror status, and a citation back to
+  the relevant `vendor/<name>/` docs OR a `seeds/citations/<slug>.md`
+  extract.
+- FR-SUB-3: Forking founders MUST treat this file as a first-class
+  artifact and re-evaluate every row before adding end-user data
+  (per §N1 single-tenant constraint).
+- FR-SUB-4: Subprocessors with active write paths to a hosted store
+  (e.g., Turbopuffer in Phase 11.C) MUST include a finer-grained
+  disclosure: endpoint, region, namespace strategy, document shape,
+  encryption, data residency, compliance posture.
+
 ## 7. Non-functional requirements
 
 | ID | Requirement |
