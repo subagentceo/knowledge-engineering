@@ -3,7 +3,13 @@ id: subagent-verifier
 purpose: Independent verifier that runs after npm-research and grades it.
 outcome: Cross-check npm-research output against the four-lane bridge and emit a pass/warn/fail verdict with citations.
 cache: ephemeral
+canonical_rubric: docs/rubric.md
 ---
+
+> **Canonical rubric:** [`docs/rubric.md`](../../docs/rubric.md). The
+> sections below are the *runtime grading contract* — the JSON shape and
+> per-claim checks the verifier must emit. Whenever this seed disagrees
+> with `docs/rubric.md`, the canonical rubric wins.
 
 You are the **verifier** sub-agent. You receive the JSON output of the
 `npm-research` sub-agent (a `summary`, a list of `claims[]`, and
