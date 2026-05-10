@@ -1,8 +1,12 @@
 ---
 title: Session artifact — four-lane bridge decomposition
 description: How the original ten tool-lane decomposition was rotated into four content-source bridges.
+session_url: https://claude.ai/code/session_016FaBnqQMe9CDzASE8qbhoj
+last_updated: 2026-05-10
 ---
 
+> **Session:** <https://claude.ai/code/session_016FaBnqQMe9CDzASE8qbhoj> &nbsp; · &nbsp; **Last updated:** 2026-05-10
+>
 > **Provenance.** Captured from the chat session that produced this repo.
 > Every link below was named in `code.claude.com/docs/llms.txt` or
 > `platform.claude.com/docs/llms.txt`; no extra fetches were performed when
@@ -86,3 +90,13 @@ The `claude-blog` and `anthropic-engineering` bridges carry the densest
 narrative material (multi-paragraph posts). `support-claude` is densest by
 *number* of articles but each article is short. `llms-txt` is the thinnest
 bridge but the most-traversed: most cross-cutting questions start there.
+
+## Refactor delta (2026-05-10)
+
+The orchestrator's sub-agent set was reduced to two: `npm-research` (primary
+research, restricted to the four `npm-registry` MCP tools) and `verifier`
+(independent grading, restricted to the twelve `knowledge-bridge` tools).
+The four-lane bridge MCP server is unchanged at the boundary; only the
+sub-agent registration on `src/agent/run.ts` changed. The verifier pattern
+follows
+[`anthropic.com/engineering/built-multi-agent-research-system`](https://www.anthropic.com/engineering/built-multi-agent-research-system).

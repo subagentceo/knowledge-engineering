@@ -1,8 +1,12 @@
 ---
 title: support.claude.com bridge
 description: How the bridge MCP server reaches the Claude help center.
+source: https://support.claude.com
+last_fetched: 2026-05-10
 ---
 
+> **Source URL:** <https://support.claude.com> &nbsp; · &nbsp; **Last fetched:** 2026-05-10
+>
 > Outcome of this bridge: a sub-agent that returns help-center facts
 > (collection slug, article URL, body) for grounded support answers.
 
@@ -13,11 +17,6 @@ description: How the bridge MCP server reaches the Claude help center.
 | `support_collections` | curated list of collection slugs (no upstream JSON index) |
 | `support_collection` | `https://support.claude.com/en/collections/<slug>` |
 | `support_article` | `https://support.claude.com/en/articles/<id>-<slug>` |
-
-## Sub-agent
-
-Prompt: [`seeds/prompts/subagent-support-claude.md`](https://github.com/subagentceo/knowledge-engineering/blob/main/seeds/prompts/subagent-support-claude.md).
-Tool surface: the three `support_*` tools above.
 
 ## Curated collections
 
@@ -34,3 +33,9 @@ Tool surface: the three `support_*` tools above.
 The list is curated rather than discovered: `support.claude.com` does not
 expose a stable collection index, so the bridge ships the seven slugs the
 session artifact named.
+
+## How the verifier uses it
+
+When `npm-research` produces a claim about supported configurations, billing,
+or end-user behaviour, the verifier prefers a `support.claude.com` citation
+to mark `pass`.

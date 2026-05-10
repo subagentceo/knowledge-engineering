@@ -10,7 +10,10 @@
         "tab": "Guides",
         "groups": [
           { "group": "Getting started", "pages": ["index", "quickstart"] },
-          { "group": "Strategy", "pages": ["mintlify-strategy", "session-artifact"] }
+          {
+            "group": "Architecture",
+            "pages": ["architecture", "mintlify-strategy", "session-artifact"]
+          }
         ]
       },
       {
@@ -19,10 +22,10 @@
           {
             "group": "Four-lane bridge",
             "pages": [
-              "lanes/anthropic-engineering",
-              "lanes/claude-blog",
-              "lanes/support-claude",
-              "lanes/llms-txt"
+              "lanes/engineering/index",
+              "lanes/blog/index",
+              "lanes/support/index",
+              "lanes/llms/index"
             ]
           }
         ]
