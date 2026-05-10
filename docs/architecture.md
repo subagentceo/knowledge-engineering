@@ -117,6 +117,27 @@ Headline rules:
 The full posture (auth, discipline, routines, execution, doc-rules,
 connectors, accounts, sources) lives in `seeds/posture/session-start.xml`.
 
+## Subprocessors
+
+Per `SUBPROCESSORS.md` (root), inspired by
+<https://trust.anthropic.com/subprocessors>, we maintain a transparent
+inventory of every vendor the chassis depends on with auth, data scope,
+and cited docs. Tier 1 (active outbound calls):
+
+| Vendor | Role | Auth |
+|---|---|---|
+| Anthropic | Claude model + Messages/Batches API | `CLAUDE_CODE_OAUTH_TOKEN` (OAuth Bearer) |
+| GitHub | repo + Actions + secrets | GH MCP OAuth or workflow `GITHUB_TOKEN` |
+| Cloudflare | Worker + Sandbox + Secrets Store | `CLOUDFLARE_API_TOKEN` |
+| Neon | Postgres branching | `NEON_API_KEY` |
+| Turbopuffer (Phase 11.C) | vector + BM25 search | `TURBOPUFFER_API_KEY` — see `seeds/citations/turbopuffer.md` for the per-vendor namespace + hybrid-search plan |
+| Voyage AI (Phase 11.C optional) | embeddings | `VOYAGE_API_KEY` |
+| npm registry | public package metadata | none |
+
+Tier 2 (mirrored at crawl time, read-only at runtime) covers the other
+crawled vendors. Forking founders MUST re-evaluate every row before
+adding end-user data.
+
 ## Account ledger
 
 Two GitHub accounts run the `subagentceo` org and are admins on the

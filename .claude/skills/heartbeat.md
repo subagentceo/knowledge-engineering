@@ -131,6 +131,25 @@ Phase 11 layers Turbopuffer on top: pre-embed all memory entries via
 Voyage AI, store vectors in Turbopuffer, query semantically when the
 heartbeat asks "what do I remember about X?".
 
+### Turbopuffer dream-memory plan (cited from `seeds/citations/turbopuffer.md`)
+
+Once Phase 11.C lands (gated on `secrets.VOYAGE_API_KEY` + `secrets.TURBOPUFFER_API_KEY`):
+
+- `seeds/memory/heartbeat/decisions.md` entries become Turbopuffer
+  documents in a `heartbeat` namespace (per
+  `vendor/turbopuffer/turbopuffer.com/docs/namespaces.md`).
+- Each entry: `{id: <tick_iso>, vector: <Voyage 1024-dim>, decision,
+  sha, tick_iso}`.
+- Dream query: vector + BM25 hybrid search (per
+  `vendor/turbopuffer/turbopuffer.com/docs/hybrid.md`) — exact phrases
+  (PR numbers, file paths) rank alongside semantic matches.
+- Warm-cache pre-flight at tick start (per
+  `vendor/turbopuffer/turbopuffer.com/docs/warm-cache.md`) drops
+  first-query latency from p50=343ms (cold) to p50=8ms (warm).
+- Subprocessor disclosure: this surface is documented in the root
+  `SUBPROCESSORS.md` so forking founders re-evaluate before adding
+  end-user data (out of `PRODUCTRD.md` v1 scope).
+
 # CI-failure dispatch classifier
 
 Per `docs/governance.md`:
