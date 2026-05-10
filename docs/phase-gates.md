@@ -158,6 +158,7 @@ PR 4 merges.
 # Governance / no-HITL setup (one-time, after PR 4 merges):
 [ ] GitHub: Settings → General → Pull Requests → Allow auto-merge (repo-level toggle; required for auto-merge.yml to fire)
 [ ] GitHub: Settings → Security → Code security → Code scanning → Enable (then flip `upload-sarif: true` in .github/workflows/osv-scanner.yml so findings land in the Security tab)
+[ ] GitHub: Settings → Secrets → Actions → add CLAUDE_CODE_OAUTH_TOKEN (used by .github/workflows/{claude,claude-code-review}.yml AND Phase 8 cloud-agent runner — one secret, two consumers)
 [ ] GitHub: GITHUB_TOKEN=<pat> npm run setup:project          (milestones + Project v2 + link issues)
 [ ] GitHub: GITHUB_TOKEN=<pat> npm run setup:branch-protection (main ruleset; verify + osv-scanner required)
 [ ] GitHub: (optional) set vars.COPILOT_ENABLED=true if Copilot is enabled on the repo

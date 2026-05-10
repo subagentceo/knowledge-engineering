@@ -26,7 +26,24 @@
       "kind": "event-listener",
       "name": "pr-activity",
       "implementation": "github-mcp:subscribe_pr_activity",
-      "comment": "Subscribes the current session to GitHub PR webhook events (comments, CI, reviews). Wired via .claude/hooks/post-pr-create.sh which runs subscribe_pr_activity on every PR opened by this agent. Operator-side equivalent of managed-agents event streaming."
+      "comment": "Subscribes the in-session orchestrator to GitHub PR webhook events (comments, CI, reviews). Pairs with .github/workflows/claude.yml (the CI-side responder)."
+    },
+    {
+      "kind": "ci-action",
+      "name": "claude-code-action",
+      "package": "anthropics/claude-code-action@v1",
+      "stage": "installed",
+      "workflows": [".github/workflows/claude.yml", ".github/workflows/claude-code-review.yml"],
+      "comment": "Canonical Claude Code GitHub Action. Auto-reviews every PR (claude-code-review.yml) and responds to @claude mentions (claude.yml). The in-CI half of the two-surface dispatch model: in-session heartbeat (.claude/skills/heartbeat.md) + in-CI claude-code-action. Both consume PR-activity events; the heartbeat dispatches by posting @claude comments; the action executes on the head SHA. Added by operator via PR #17 (add-claude-github-actions-* setup wizard)."
+    },
+    {
+      "kind": "skill",
+      "name": "code-review",
+      "marketplace": "official",
+      "package": "anthropics/claude-code-plugins/code-review",
+      "stage": "installed",
+      "loaded-by": ".github/workflows/claude-code-review.yml",
+      "comment": "The code-review plugin from anthropics/claude-code-plugins, loaded by claude-code-review.yml via plugin_marketplaces + plugins inputs. Operationalizes 'remove operator from PR-review HITL' (operator-2026-05-10-autonomy.md): Claude is the automated reviewer."
     },
     {
       "kind": "language-server",

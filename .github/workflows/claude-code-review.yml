@@ -1,3 +1,20 @@
+# .github/workflows/claude-code-review.yml
+#
+# Canonical anthropics/claude-code-action template. Merged via PR #17
+# (operator added via the GitHub setup wizard). Integrated into the
+# operator-stated discipline; see seeds/prompts/operator-2026-05-10-autonomy.md
+# and docs/governance.md.
+#
+# Auto-reviews every PR via the code-review plugin from
+# anthropics/claude-code-plugins. This is the **automated reviewer**
+# that operationalizes "remove operator from PR-review HITL": Claude
+# posts review comments, the operator does not. Combined with
+# .github/workflows/auto-merge.yml + branch protection, the human PR
+# review step is eliminated for the no-HITL loop.
+#
+# OAuth-only: uses secrets.CLAUDE_CODE_OAUTH_TOKEN. Same token as
+# infra/cloudflare/src/worker.ts (Phase 8 cloud-agent runner).
+
 name: Claude Code Review
 
 on:
@@ -9,6 +26,10 @@ on:
     #   - "src/**/*.tsx"
     #   - "src/**/*.js"
     #   - "src/**/*.jsx"
+
+concurrency:
+  group: claude-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
 
 jobs:
   claude-review:

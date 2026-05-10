@@ -50,19 +50,45 @@ HITL the operator explicitly disabled.
 
 ## CI strategy
 
-Six workflows in `.github/workflows/`:
+Eight workflows in `.github/workflows/`:
 
 | Workflow | Purpose | Required? |
 |---|---|---|
 | `verify.yml` | `npm run verify` end-to-end | **yes** |
 | `osv-scanner.yml` | Lockfile vulnerability scan | **yes** |
+| `claude-code-review.yml` | Auto-review every PR via `anthropics/claude-code-action` + code-review plugin | advisory (posts comments; does not block merge) |
+| `claude.yml` | Respond to `@claude` mentions in issues + PR comments + reviews | utility (event-driven dispatch surface) |
 | `neon-branch.yml` | Per-PR Neon DB branch | optional (inert without `NEON_API_KEY`) |
 | `cloudflare-preview.yml` | Per-PR Cloudflare Worker preview | optional (inert without `CLOUDFLARE_API_TOKEN`) |
 | `copilot.yml` | Copilot Autofix + issue handoff | optional (inert without `vars.COPILOT_ENABLED`) |
 | `auto-merge.yml` | Enable auto-merge on `automerge`-labeled PRs | utility |
 
 The required workflows must pass for `auto-merge.yml` to fire. Optional
-workflows are advisory but non-blocking.
+workflows are advisory but non-blocking. Claude review is also advisory
+— Claude posts comments; the operator does NOT review; CI gates merge.
+
+## Two-surface dispatch model
+
+The no-HITL loop has two coordinating AI surfaces:
+
+| Surface | Where it runs | Triggered by | Citation |
+|---|---|---|---|
+| **Heartbeat orchestrator** | This session (Claude Code on a developer/CI machine) | Time-based (cron via `/schedule`) and event-based (subscribe_pr_activity webhooks) | `.claude/skills/heartbeat.md` |
+| **Claude Code Action** | GitHub Actions runner | PR open/sync/reopen → auto-review; `@claude` mention → directive execution | `.github/workflows/{claude,claude-code-review}.yml` |
+
+Both consume the same PR-activity events. They coordinate via comments:
+
+- The heartbeat dispatches a fix by posting `@claude please ...` to a PR.
+  `claude.yml` fires, executes the directive, pushes a commit, the
+  heartbeat sees the new push event and re-checks CI.
+- Claude review posts findings as PR comments. The heartbeat reads
+  those comments (via `pull_request_read.get_review_comments`) and
+  either acts on tractable suggestions or escalates to the operator
+  per the classifier table.
+
+This is the operationalized Boris Cherny pattern: the heartbeat
+**orchestrates**; claude-code-action **executes** discrete directives
+in a fresh CI environment with its own OAuth-scoped permissions.
 
 ## Auto-merge state machine
 
