@@ -1,0 +1,22 @@
+{
+  "name": "@subagentceo/ke-cloud-agent",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Cloudflare Worker that runs Claude Code in an ephemeral Sandbox against an ephemeral Neon database branch. Phase 0g scaffold per vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:dry-run": "wrangler deploy --dry-run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cloudflare/sandbox": "^0.5.0",
+    "@neondatabase/api-client": "^2.1.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260101.0",
+    "typescript": "^5.6.0",
+    "wrangler": "^4.0.0"
+  }
+}

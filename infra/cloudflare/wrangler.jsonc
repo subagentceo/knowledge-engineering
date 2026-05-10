@@ -1,0 +1,56 @@
+// infra/cloudflare/wrangler.jsonc
+//
+// Phase 0g scaffold. Per the cited Neon guide:
+//   vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md
+//
+// OAuth substitution: the cited guide pipes ANTHROPIC_API_KEY into the
+// sandbox; we forward CLAUDE_CODE_OAUTH_TOKEN instead. ANTHROPIC_API_KEY is
+// neither bound here nor forwarded into a sandbox at runtime (see the
+// env-sanitizer in src/worker.ts).
+//
+// Not deployed in this PR. `wrangler deploy --dry-run` should validate;
+// `wrangler deploy` is gated on Phase 8 + operator-side secret sync.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ke-cloud-agent",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Containers (Cloudflare Sandboxes run as Durable Object containers).
+  "containers": [
+    {
+      "class_name": "Sandbox",
+      "image": "./Dockerfile",
+      "max_instances": 50
+    }
+  ],
+
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "Sandbox",
+        "class_name": "Sandbox"
+      }
+    ]
+  },
+
+  "migrations": [
+    {
+      "new_sqlite_classes": ["Sandbox"],
+      "tag": "v1"
+    }
+  ],
+
+  // Secrets are NOT declared here. They are uploaded out-of-band via:
+  //   wrangler secret put NEON_API_KEY
+  //   wrangler secret put NEON_PROJECT_ID
+  //   wrangler secret put GITHUB_TOKEN
+  //   wrangler secret put CLAUDE_CODE_OAUTH_TOKEN
+  //
+  // ANTHROPIC_API_KEY MUST NOT be set. The Worker's sanitizeEnv() will
+  // throw ApiKeyForbiddenError if it ever appears in env.
+  "vars": {
+    "IS_SANDBOX": "0"
+  }
+}

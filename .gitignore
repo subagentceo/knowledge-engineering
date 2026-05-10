@@ -5,3 +5,8 @@ dist/
 *.log
 .DS_Store
 .mintlify/
+
+# Cloudflare Worker / Sandbox local-dev artifacts
+.wrangler/
+infra/cloudflare/.dev.vars
+infra/cloudflare/node_modules/

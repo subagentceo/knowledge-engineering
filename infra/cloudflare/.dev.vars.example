@@ -1,0 +1,21 @@
+# infra/cloudflare/.dev.vars.example
+#
+# Copy to .dev.vars (gitignored) for local `wrangler dev` runs.
+#
+# Cited from:
+#   vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md
+#   seeds/prompts/operator-2026-05-10-followup.md (OAuth substitution)
+#
+# DO NOT add ANTHROPIC_API_KEY here. The Worker's sanitizeEnv() throws
+# ApiKeyForbiddenError on sight. Use CLAUDE_CODE_OAUTH_TOKEN instead — the
+# Claude Code CLI honors it for auth.
+
+NEON_API_KEY=
+NEON_PROJECT_ID=
+GITHUB_TOKEN=
+CLAUDE_CODE_OAUTH_TOKEN=
+
+# Optional: set to "1" to make the Worker treat itself as running inside a
+# sandboxed container (relaxes some local checks). Production sets this via
+# wrangler.jsonc vars.
+IS_SANDBOX=0

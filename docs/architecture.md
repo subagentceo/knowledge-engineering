@@ -87,3 +87,119 @@ zone from `CLOUDFLARE_ZONE`). `verify:tf` runs `terraform validate` and
 `terraform plan` only — never `apply`. Production use should layer on the
 [Cloudflare MCP server](https://developers.cloudflare.com/agents/model-context-protocol/) at
 `${CLOUDFLARE_MCP_URL}` for runtime control, not Terraform.
+
+## Operator posture
+
+PR #3 introduces an explicit, citation-backed working agreement seeded
+from the operator prompt at `seeds/prompts/operator-2026-05-10.md` and
+its follow-up at `seeds/prompts/operator-2026-05-10-followup.md`. The
+posture is decomposed into XML at `seeds/posture/session-start.xml` and
+will be loaded by `src/agent/run.ts` as a system-prompt prefix in Phase 6.
+
+Headline rules:
+
+- **Auth.** OAuth-only. `CLAUDE_CODE_OAUTH_TOKEN` required;
+  `ANTHROPIC_API_KEY` is forbidden everywhere — host process, sandbox env,
+  and forwarded env maps. The OAuth gate (`src/oauth/token.ts`) fails
+  closed when `ANTHROPIC_API_KEY` is set; the cloud-agent runner repeats
+  the check at the Worker boundary (see below).
+- **Discipline.** Commit-per-todo / per-subtask / per-task; multi-turn
+  agent loops only; ODD + TDD + Citations on every new test file
+  (`@cite` headers resolved to `vendor/`, `seeds/`, or `rubrics/` by
+  `scripts/lib/citation-guard.ts`).
+- **Routines.** Single user-facing umbrella `/routines` at
+  `.claude/skills/routines.md`, dispatching to `/loop` (interval) or
+  `/schedule` (cron-style recurrence).
+- **Long-arc.** Workers-resident agents writing the codebase end-to-end
+  (the publicly-documented Boris Cherny subagent-loop-and-routines
+  pattern). Phase 0g is the first concrete step.
+
+The full posture (auth, discipline, routines, execution, doc-rules,
+connectors, accounts, sources) lives in `seeds/posture/session-start.xml`.
+
+## Account ledger
+
+Two GitHub accounts run the `subagentceo` org and are admins on the
+following services. Connectors for these services should be registered
+first; `gen:servers` (Phase 6) emits `servers/<connector>/<tool>.ts` for
+each, and code-mode programmatic tool calling becomes the default path.
+
+| Account             | GitHub org access      |
+| ------------------- | ---------------------- |
+| `admin@jadecli.com` | admin on `subagentceo` |
+| `alex@jadecli.com`  | admin on `subagentceo` |
+
+| Service                   | Connector role                                               | In the 12-vendor list? |
+| ------------------------- | ------------------------------------------------------------ | ---------------------- |
+| `parallel.ai`             | (TBD — connector availability check)                         | No (new)               |
+| `dash.cloudflare.com`     | sandbox host + edge runtime; `@cloudflare/codemode`          | Yes (cloudflare)       |
+| `neon.com`                | ephemeral DB branches + Neon SDK                             | Yes (neon)             |
+| `turbopuffer.com`         | vector store (future use for embeddings/grep)                | Yes (turbopuffer)      |
+| `nimbleway.com`           | (TBD — connector availability check)                         | No (new)               |
+| `ollama.com`              | local-model fallback for offline crawl/grade tasks           | No (new)               |
+| `sentry.com`              | error monitoring for the runner Worker                       | Yes (sentry)           |
+
+## Cloud agents (Cloudflare Sandbox + Neon Database Branching)
+
+Phase 0g of PR #3 scaffolds a Cloudflare Worker at `infra/cloudflare/`
+that, per task, creates a Neon database branch (ephemeral data), launches
+a Cloudflare Sandbox (ephemeral compute), clones the target repo into the
+sandbox, runs Claude Code, commits and pushes a per-task branch, opens a
+draft PR via `gh`, and returns the PR URL. The Neon branch is
+copy-on-write: production-like data, isolated per agent, deletable on PR
+merge.
+
+**Cited from** `vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md`.
+
+### Conflict resolution: ANTHROPIC_API_KEY → CLAUDE_CODE_OAUTH_TOKEN
+
+The cited Neon guide forwards `ANTHROPIC_API_KEY` into the sandbox via
+`sandbox.setEnvVars({ ANTHROPIC_API_KEY: env.ANTHROPIC_API_KEY, ... })`.
+The operator posture forbids `ANTHROPIC_API_KEY` everywhere. **The more
+restrictive auth posture wins.** Resolution:
+
+1. The Worker forwards `CLAUDE_CODE_OAUTH_TOKEN` instead — the Claude
+   Code CLI honors it for auth (existing pattern in
+   `src/oauth/token.ts`).
+2. A Worker-side env-sanitizer (`sanitizeEnv` in
+   `infra/cloudflare/src/worker.ts`) throws `ApiKeyForbiddenError`
+   whenever a forwarded env map includes `ANTHROPIC_API_KEY`. The check
+   is asserted by `infra/cloudflare/src/env-sanitize.test.ts`, which
+   carries `@cite` headers pointing to the Neon guide and the posture
+   XML.
+3. `wrangler secret list` on the deployed Worker must show
+   `NEON_API_KEY`, `NEON_PROJECT_ID`, `GITHUB_TOKEN`,
+   `CLAUDE_CODE_OAUTH_TOKEN` — and not `ANTHROPIC_API_KEY`. The Phase 8
+   rubric formalizes this check.
+
+### Status
+
+The runner is **scaffolded but not deployed.** Deployment requires
+operator-side action (Phase 8 rubric):
+
+1. Install Neon's Claude / GitHub integration on `subagentceo` →
+   `knowledge-engineering`.
+2. Sync Neon API key + project ID to Cloudflare Worker secrets via the
+   integration.
+3. Operator adds `CLAUDE_CODE_OAUTH_TOKEN` and `GITHUB_TOKEN` via
+   `wrangler secret put`.
+4. Run `wrangler deploy`.
+
+## Long-arc Workers goal
+
+Per the publicly-documented Boris Cherny pattern (Anthropic), a
+sufficiently scaffolded agent system can write 100% of a codebase. The
+trajectory:
+
+1. **Today.** Bridge MCP server + orchestrator running locally; tools
+   curated by hand.
+2. **PR #3 (this branch, Phase 0).** Posture seeds, citations, rubric
+   stubs, `/routines` umbrella, citation guard, **Full-Stack Cloud Agent
+   runner scaffolding under `infra/cloudflare/`** (not deployed). The
+   runner is the first concrete step.
+3. **Future PR.** Relocate the orchestrator into a Cloudflare Worker
+   (Durable Object) that wakes on Cron Triggers; vendor mirror hydrates
+   from R2; the agent writes 100% of new code by reading rubrics and
+   opening PRs against itself. Routines (`/loop`, `/schedule`) drive
+   scheduled work; sub-agent decomposition gates each iteration on the
+   relevant phase rubric.
