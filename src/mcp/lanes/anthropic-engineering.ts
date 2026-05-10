@@ -10,7 +10,7 @@
  */
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { fetchHtml, fetchText, jsonResult, normalizeSlug } from "../bridge-utils.js";
+import { fetchHtml, fetchText, jsonResult, mirrorOrFetch, normalizeSlug } from "../bridge-utils.js";
 
 const BASE = "https://www.anthropic.com";
 const INDEX_URL = `${BASE}/engineering`;
@@ -54,13 +54,13 @@ export function registerAnthropicEngineering(server: McpServer): void {
 
   server.tool(
     "engineering_fetch",
-    "Fetch a specific engineering post. Accepts either a full https://www.anthropic.com/engineering/<slug> URL or the slug alone.",
+    "Fetch a specific engineering post. Accepts either a full https://www.anthropic.com/engineering/<slug> URL or the slug alone. Mirror-first: returns local body when present (source:'mirror'), else falls back to live HTTP (source:'http').",
     { target: z.string().min(1) },
     async ({ target }) => {
       const slug = normalizeSlug(target, `${BASE}/engineering/`);
       const url = `${BASE}/engineering/${slug}`;
-      const html = await fetchText(url);
-      return jsonResult({ source: url, slug, html });
+      const r = await mirrorOrFetch(url, fetchText);
+      return jsonResult({ source: r.source, vendor: r.vendor, url, slug, html: r.body });
     }
   );
 

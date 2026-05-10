@@ -18,7 +18,7 @@
  */
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { fetchText, jsonResult } from "../bridge-utils.js";
+import { fetchText, jsonResult, mirrorOrFetch } from "../bridge-utils.js";
 
 interface Namespace {
   id: string;
@@ -73,37 +73,39 @@ export function registerLlmsTxt(server: McpServer): void {
       if (!ns) {
         throw new Error(`unknown namespace '${id}'. Use llms_namespaces to discover.`);
       }
-      const text = await fetchText(ns.url);
-      return jsonResult({ source: ns.url, id: ns.id, text });
+      const r = await mirrorOrFetch(ns.url, fetchText);
+      return jsonResult({ source: r.source, vendor: r.vendor, url: ns.url, id: ns.id, text: r.body });
     }
   );
 
   server.tool(
     "llms_grep",
-    "Case-insensitive line-grep across every known llms.txt namespace. Returns each hit with its source URL.",
+    "Case-insensitive line-grep across every known llms.txt namespace. Mirror-first per namespace (no HTTP if the body is in vendor/<name>/llms.txt mirror) — Phase 4 speed win. Returns each hit with its source URL.",
     {
       pattern: z.string().min(1),
       max_per_namespace: z.number().int().positive().max(100).default(20),
     },
     async ({ pattern, max_per_namespace }) => {
       const needle = pattern.toLowerCase();
-      const results: Array<{ id: string; source: string; line: string }> = [];
+      const results: Array<{ id: string; source: "mirror" | "http"; url: string; line: string }> = [];
       for (const ns of NAMESPACES) {
         try {
-          const text = await fetchText(ns.url);
+          const r = await mirrorOrFetch(ns.url, fetchText);
+          const text = r.body;
           const lines = text.split(/\r?\n/);
           let count = 0;
           for (const line of lines) {
             if (count >= max_per_namespace) break;
             if (line.toLowerCase().includes(needle)) {
-              results.push({ id: ns.id, source: ns.url, line });
+              results.push({ id: ns.id, source: r.source, url: ns.url, line });
               count++;
             }
           }
         } catch (err) {
           results.push({
             id: ns.id,
-            source: ns.url,
+            source: "http",
+            url: ns.url,
             line: `[error] ${(err as Error).message}`,
           });
         }

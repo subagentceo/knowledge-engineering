@@ -12,7 +12,7 @@
  */
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { fetchHtml, fetchText, jsonResult } from "../bridge-utils.js";
+import { fetchHtml, fetchText, jsonResult, mirrorOrFetch } from "../bridge-utils.js";
 
 const BASE = "https://support.claude.com";
 
@@ -69,15 +69,22 @@ export function registerSupportClaude(server: McpServer): void {
 
   server.tool(
     "support_article",
-    "Fetch a specific support article. Accepts a full https://support.claude.com/en/articles/<id-slug> URL or the bare '<id>-<slug>' fragment.",
+    "Fetch a specific support article. Accepts a full https://support.claude.com/en/articles/<id-slug> URL or the bare '<id>-<slug>' fragment. Mirror-first; allowlist-enforced HTTP fallback (rejects URLs outside support.claude.com/en/articles/).",
     { target: z.string().min(1) },
     async ({ target }) => {
       const ref = target.startsWith("http")
         ? target.replace(`${BASE}/en/articles/`, "")
         : target;
       const url = `${BASE}/en/articles/${ref}`;
-      const html = await fetchText(url);
-      return jsonResult({ source: url, ref, html });
+      // Phase 4 C3: allowlist enforcement. Reject URLs outside the
+      // support.claude.com/en/articles/ prefix so the tool can't be
+      // weaponized to fetch arbitrary URLs via the support_article
+      // surface.
+      if (!url.startsWith(`${BASE}/en/articles/`)) {
+        throw new Error(`AllowlistError: ${url} outside ${BASE}/en/articles/`);
+      }
+      const r = await mirrorOrFetch(url, fetchText);
+      return jsonResult({ source: r.source, vendor: r.vendor, url, ref, html: r.body });
     }
   );
 }

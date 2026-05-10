@@ -50,7 +50,7 @@ Re-generate with `npm run validate:gates`.
 |---|---|---|---|
 | Phase 3 complete | yes | agent | depends on Phase 3 |
 
-**Status: BLOCKED by Phase 3.** No operator action.
+**Status: ✅ DONE 2026-05-10** — PR #24. mirrorOrFetch helper + 4 lane refactors + allowlist enforcement on support_article. Phase 5 unblocks.
 
 ### Phase 5 — Refresh ergonomics
 
