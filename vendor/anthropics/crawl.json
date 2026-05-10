@@ -6,11 +6,18 @@
     "https://platform.claude.com/llms.txt",
     "https://www.claude.com/llms.txt"
   ],
+  "llms_txt_sources": [
+    "https://code.claude.com/llms.txt",
+    "https://platform.claude.com/llms.txt",
+    "https://claude.com/docs/llms.txt"
+  ],
   "transform": "verbatim",
   "allow_prefixes": [
-    "https://code.claude.com/docs/"
+    "https://code.claude.com/docs/",
+    "https://platform.claude.com/docs/en/",
+    "https://claude.com/docs/"
   ],
   "deny_prefixes": [],
-  "page_cap": 60,
+  "page_cap": 1700,
   "llms_txt": "https://code.claude.com/llms.txt"
 }
