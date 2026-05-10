@@ -58,7 +58,7 @@ Re-generate with `npm run validate:gates`.
 |---|---|---|---|
 | Phase 4 complete | yes | agent | depends on Phase 4 |
 
-**Status: BLOCKED by Phase 4.** No operator action.
+**Status: ✅ DONE 2026-05-10** — PRs #22 (verify:freshness) + #25 (refresh-vendors skill). Phase 6 unblocks.
 
 ### Phase 6 — Codemode layer
 
