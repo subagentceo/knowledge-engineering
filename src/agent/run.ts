@@ -1,19 +1,27 @@
 /**
- * Outcome: Run the orchestrator with the four-lane bridge MCP server mounted
- * and four sub-agents whose tool surfaces are each restricted to one lane.
+ * Outcome: Run the orchestrator. The orchestrator delegates primary research
+ * to `npm-research` (restricted to the four `npm-registry` MCP tools), then
+ * to `verifier` (restricted to the twelve `knowledge-bridge` MCP tools), per
+ * the multi-agent research pattern in
+ * `anthropic.com/engineering/built-multi-agent-research-system`.
  *
- * Auth: OAuth only. Run-time fails closed if ANTHROPIC_API_KEY is set or no
- * OAuth token is available (see src/oauth/token.ts).
+ * Auth: OAuth only. `requireOAuth()` fails closed if `ANTHROPIC_API_KEY` is
+ * set or no OAuth token is available (see src/oauth/token.ts).
  *
- * Mirrors the patterns in `code.claude.com/docs/en/agent-sdk/subagents` and
- * `code.claude.com/docs/en/agent-sdk/mcp`, decomposed against the four
- * content bridges captured in docs/session-artifact.md.
+ * MCP servers mounted (both stdio):
+ *   - npm-registry     -> dist/mcp/npm-registry/server.js
+ *   - knowledge-bridge -> dist/mcp/bridge-server.js
+ *
+ * Planning: Planner (src/agent/planning.ts) emits TodoWrite (headless) or
+ * TaskCreate/TaskUpdate (interactive). The TodoTracker (src/agent/todo-tracker.ts)
+ * is a thin display layer for either surface.
  */
 import { query } from "@anthropic-ai/claude-agent-sdk";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { requireOAuth } from "../oauth/token.js";
+import { Planner, type RunMode, type Plan } from "./planning.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..", "..");
@@ -24,23 +32,52 @@ async function seed(name: string): Promise<string> {
 
 const auth = requireOAuth();
 
-const [orchestrator, anthropicEngineering, claudeBlog, supportClaude, llmsTxt] = await Promise.all([
+// Concatenate the two orchestrator seeds: topology + planning discipline.
+const [topology, planningDiscipline, npmResearch, verifier] = await Promise.all([
   seed("system-orchestrator"),
-  seed("subagent-anthropic-engineering"),
-  seed("subagent-claude-blog"),
-  seed("subagent-support-claude"),
-  seed("subagent-llms-txt"),
+  seed("orchestrator.system"),
+  seed("subagent-npm-research"),
+  seed("subagent-verifier"),
 ]);
+
+const systemPrompt = `${topology}\n\n---\n\n${planningDiscipline}`;
+
+// Mode is headless when invoked from the Agent SDK; interactive when
+// launched from a Claude Code slash command. Allow override via env.
+const mode: RunMode =
+  process.env.KE_PLANNER_MODE === "interactive" ? "interactive" : "headless";
+
+// The Planner exists at module scope so future plan emissions go through one
+// invariant-checked surface. It is currently kept ready (not driven by a model
+// loop here); commit 12's `verify:planner` smoke-tests both modes.
+export const planner = new Planner({
+  mode,
+  emit: async (toolName, input) => {
+    process.stderr.write(`[planner] ${toolName} ${JSON.stringify(input).slice(0, 200)}\n`);
+  },
+});
+
+// Document the verifier-gate contract. The orchestrator system prompt
+// instructs the model to only mark docs-lane todos `completed` after the
+// verifier returns `pass`. The Planner's `enforceSinglyInProgress` invariant
+// runs on every status transition to keep the rule machine-checked.
+export const verifierGate = (verdict: "pass" | "warn" | "fail"): boolean =>
+  verdict === "pass";
 
 const userPrompt =
   process.argv.slice(2).join(" ") ||
-  "Across the four bridges, summarize what's been said about MCP in the last quarter and cite each source.";
+  "What does the npm registry say about @modelcontextprotocol/sdk's recent versions, and how does that line up with what anthropic.com/engineering or the llms.txt namespaces have said about MCP?";
 
 const result = query({
   prompt: userPrompt,
   options: {
-    systemPrompt: orchestrator,
+    systemPrompt,
     mcpServers: {
+      "npm-registry": {
+        type: "stdio",
+        command: "node",
+        args: [resolve(root, "dist/mcp/npm-registry/server.js")],
+      },
       "knowledge-bridge": {
         type: "stdio",
         command: "node",
@@ -48,37 +85,31 @@ const result = query({
       },
     },
     agents: {
-      "anthropic-engineering": {
-        description: "Sub-agent restricted to the anthropic.com/engineering bridge.",
-        prompt: anthropicEngineering,
+      "npm-research": {
+        description:
+          "Sub-agent restricted to the four npm-registry MCP tools. Pulls primary npm data; cites registry URLs.",
+        prompt: npmResearch,
+        tools: [
+          "mcp__npm-registry__npm_org_packages",
+          "mcp__npm-registry__npm_package_metadata",
+          "mcp__npm-registry__npm_downloads",
+          "mcp__npm-registry__npm_search",
+        ],
+      },
+      verifier: {
+        description:
+          "Independent verifier restricted to the four-lane knowledge-bridge tools. Runs after npm-research and grades its output against docs/rubric.md.",
+        prompt: verifier,
         tools: [
           "mcp__knowledge-bridge__engineering_index",
           "mcp__knowledge-bridge__engineering_fetch",
           "mcp__knowledge-bridge__engineering_search",
-        ],
-      },
-      "claude-blog": {
-        description: "Sub-agent restricted to the claude.com/blog bridge.",
-        prompt: claudeBlog,
-        tools: [
           "mcp__knowledge-bridge__blog_index",
           "mcp__knowledge-bridge__blog_fetch",
           "mcp__knowledge-bridge__blog_search",
-        ],
-      },
-      "support-claude": {
-        description: "Sub-agent restricted to the support.claude.com bridge.",
-        prompt: supportClaude,
-        tools: [
           "mcp__knowledge-bridge__support_collections",
           "mcp__knowledge-bridge__support_collection",
           "mcp__knowledge-bridge__support_article",
-        ],
-      },
-      "llms-txt": {
-        description: "Sub-agent restricted to the llms.txt namespace bridge.",
-        prompt: llmsTxt,
-        tools: [
           "mcp__knowledge-bridge__llms_namespaces",
           "mcp__knowledge-bridge__llms_fetch",
           "mcp__knowledge-bridge__llms_grep",
@@ -89,6 +120,10 @@ const result = query({
 });
 
 process.stderr.write(`[oauth] using ${auth.source} token\n`);
+process.stderr.write(`[planner] mode=${mode}\n`);
+
+// Type-only export so `Plan` flows out of this module for downstream loaders.
+export type { Plan };
 
 for await (const msg of result) {
   if (msg.type === "assistant") {
