@@ -42,7 +42,7 @@ Re-generate with `npm run validate:gates`.
 |---|---|---|---|
 | Phase 2 complete | yes | agent | depends on Phase 2 |
 
-**Status: BLOCKED by Phase 2.** No operator action.
+**Status: ✅ DONE 2026-05-10** — PR #23. `tools/list` returns 15. `vendor_*` lane wired. Phase 4 (lanes mirror-first refactor) unblocks.
 
 ### Phase 4 — Refactor 4 lanes to mirror-first
 
