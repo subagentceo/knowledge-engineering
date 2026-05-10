@@ -1,0 +1,15 @@
+{
+  "name": "neon",
+  "homepage": "https://neon.com",
+  "llms_txt_candidates": [
+    "https://neon.com/docs/llms.txt",
+    "https://neon.com/llms.txt"
+  ],
+  "transform": "anthropic-mdfirst",
+  "allow_prefixes": [
+    "https://neon.com/docs/",
+    "https://neon.com/guides/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 200
+}

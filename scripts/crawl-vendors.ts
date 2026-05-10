@@ -1,0 +1,364 @@
+#!/usr/bin/env tsx
+// scripts/crawl-vendors.ts
+//
+// Phase 1.B. Offline crawler that mirrors each vendor's llms.txt-linked
+// docs into vendor/<name>/<host>/<path>.md.
+//
+// Citations:
+//   @cite seeds/posture/session-start.xml          (.md-first hard rules)
+//   @cite seeds/prompts/operator-2026-05-10.md     (working agreement)
+//   @cite seeds/citations/connectors-building.md   (vendor-llms.txt as URL allowlist)
+//
+// CLI:
+//   npm run crawl:vendors                 — crawl all 12 (per vendor/*/crawl.json)
+//   npm run crawl:vendor -- <vendor>      — crawl one
+//   npm run crawl:vendor -- --help        — usage
+//
+// Outputs (per vendor):
+//   vendor/<name>/llms.txt                     — discovered llms.txt body, committed
+//   vendor/<name>/urls.md                      — auto-generated index (front matter + URL table)
+//   vendor/<name>/<host>/<path-segs>.md        — fetched body per the transform
+//
+// Idempotent: re-running with no source changes produces a zero-diff
+// tree (mtime preserved when content unchanged).
+//
+// No frameworks. Uses the cheerio crawler from @crawlee/cheerio for
+// rate-limiting + concurrency + retry, plus turndown for the
+// html-extract transform.
+
+import { CheerioCrawler, Configuration } from "@crawlee/cheerio";
+import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import TurndownService from "turndown";
+
+import { parseLlmsTxt, type LlmsTxt } from "./lib/llms-txt.js";
+import {
+  TRANSFORMS,
+  htmlExtract,
+  type TransformName,
+  type TransformOutput,
+} from "./lib/transforms.js";
+import { urlToPath } from "./lib/url-to-path.js";
+
+// ──────────────────────────────────────────────────────────────────────
+// Types
+
+interface CrawlConfig {
+  name: string;
+  homepage: string;
+  llms_txt_candidates: string[];
+  /** Resolved to a real URL after the discovery probe; persisted back. */
+  llms_txt?: string;
+  transform: TransformName;
+  allow_prefixes: string[];
+  deny_prefixes?: string[];
+  page_cap: number;
+  /** Optional turndown options for `html-extract`. */
+  html_extract?: { selector?: string };
+}
+
+interface CrawlResult {
+  vendor: string;
+  llms_txt_url: string;
+  pagesFetched: number;
+  pagesSkipped: number;
+  failures: { url: string; reason: string }[];
+}
+
+// ──────────────────────────────────────────────────────────────────────
+// Constants
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = resolve(__dirname, "..");
+const VENDOR_ROOT = resolve(REPO_ROOT, "vendor");
+// Crawlee writes its persistent storage somewhere in the repo by
+// default; redirect to a gitignored location.
+const STORAGE_DIR = resolve(REPO_ROOT, "node_modules", ".crawlee-storage");
+
+const DEFAULT_CANDIDATES = (host: string): string[] => [
+  `https://${host}/llms.txt`,
+  `https://${host}/llms-full.txt`,
+  `https://docs.${host}/llms.txt`,
+  `https://developers.${host}/llms.txt`,
+  `https://www.${host}/llms.txt`,
+];
+
+// ──────────────────────────────────────────────────────────────────────
+// I/O helpers
+
+function ensureDir(path: string): void {
+  mkdirSync(dirname(path), { recursive: true });
+}
+
+function writeIfChanged(path: string, body: string): "wrote" | "unchanged" {
+  ensureDir(path);
+  if (existsSync(path)) {
+    const cur = readFileSync(path, "utf8");
+    if (cur === body) return "unchanged";
+  }
+  writeFileSync(path, body);
+  return "wrote";
+}
+
+function loadConfig(vendor: string): CrawlConfig {
+  const path = resolve(VENDOR_ROOT, vendor, "crawl.json");
+  if (!existsSync(path)) throw new Error(`crawl.json not found for vendor=${vendor} at ${path}`);
+  return JSON.parse(readFileSync(path, "utf8")) as CrawlConfig;
+}
+
+function listVendorConfigs(): string[] {
+  if (!existsSync(VENDOR_ROOT)) return [];
+  return readdirSync(VENDOR_ROOT, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && existsSync(resolve(VENDOR_ROOT, e.name, "crawl.json")))
+    .map((e) => e.name)
+    .sort();
+}
+
+function persistConfig(cfg: CrawlConfig): void {
+  const path = resolve(VENDOR_ROOT, cfg.name, "crawl.json");
+  const body = JSON.stringify(cfg, null, 2) + "\n";
+  writeIfChanged(path, body);
+}
+
+// ──────────────────────────────────────────────────────────────────────
+// llms.txt discovery probe
+
+async function discoverLlmsTxt(cfg: CrawlConfig): Promise<{ url: string; body: string } | null> {
+  const candidates =
+    cfg.llms_txt_candidates.length > 0
+      ? cfg.llms_txt_candidates
+      : DEFAULT_CANDIDATES(new URL(cfg.homepage).host);
+  for (const candidate of candidates) {
+    try {
+      const r = await fetch(candidate, { headers: { Accept: "text/plain, text/markdown" } });
+      if (!r.ok) continue;
+      const body = await r.text();
+      const parsed = parseLlmsTxt(body);
+      if (parsed === null) continue;
+      return { url: candidate, body };
+    } catch {
+      // Network errors fall through.
+    }
+  }
+  return null;
+}
+
+// ──────────────────────────────────────────────────────────────────────
+// Transform dispatch (turndown wired here for html-extract)
+
+const turndown = new TurndownService({
+  headingStyle: "atx",
+  codeBlockStyle: "fenced",
+  bulletListMarker: "-",
+});
+
+function makeTransform(name: TransformName, url: string, cfg: CrawlConfig): TransformOutput {
+  if (name === "html-extract") {
+    return htmlExtract(url, (body) => {
+      let html = body;
+      // Optional CSS selector to focus on the main content container.
+      // Trim everything outside if specified.
+      if (cfg.html_extract?.selector) {
+        const m = html.match(new RegExp(`<${cfg.html_extract.selector}[\\s\\S]*?</${cfg.html_extract.selector}>`, "i"));
+        if (m) html = m[0];
+      }
+      return turndown.turndown(html);
+    });
+  }
+  const fn = TRANSFORMS[name];
+  if (!fn) throw new Error(`Unknown transform: ${name}`);
+  return fn(url);
+}
+
+// ──────────────────────────────────────────────────────────────────────
+// Per-vendor crawl
+
+function inAllowlist(url: string, cfg: CrawlConfig): boolean {
+  if (!cfg.allow_prefixes.some((p) => url.startsWith(p))) return false;
+  if (cfg.deny_prefixes?.some((p) => url.startsWith(p))) return false;
+  return true;
+}
+
+function dedupeUrls(parsed: LlmsTxt): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const section of parsed.sections) {
+    for (const link of section.links) {
+      if (seen.has(link.url)) continue;
+      seen.add(link.url);
+      out.push(link.url);
+    }
+  }
+  return out;
+}
+
+async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult> {
+  const cfg = loadConfig(vendor);
+  console.log(`[${vendor}] crawl start (transform=${cfg.transform}, page_cap=${cfg.page_cap})`);
+
+  // Discover llms.txt.
+  const llms = await discoverLlmsTxt(cfg);
+  if (llms === null) {
+    console.error(`[${vendor}] no valid llms.txt found in ${cfg.llms_txt_candidates.length} candidate(s)`);
+    return { vendor, llms_txt_url: "", pagesFetched: 0, pagesSkipped: 0, failures: [{ url: "<llms.txt discovery>", reason: "no valid candidate" }] };
+  }
+  console.log(`[${vendor}] llms.txt: ${llms.url}`);
+
+  // Persist llms.txt + record discovered URL in crawl.json.
+  if (!dryRun) {
+    writeIfChanged(resolve(VENDOR_ROOT, vendor, "llms.txt"), llms.body);
+    if (cfg.llms_txt !== llms.url) {
+      cfg.llms_txt = llms.url;
+      persistConfig(cfg);
+    }
+  }
+
+  const parsed = parseLlmsTxt(llms.body)!;
+  const urls = dedupeUrls(parsed);
+  const allowed = urls.filter((u) => inAllowlist(u, cfg)).slice(0, cfg.page_cap);
+  console.log(`[${vendor}] ${urls.length} link(s) in llms.txt; ${allowed.length} after allowlist + page_cap`);
+
+  if (allowed.length === 0) {
+    return { vendor, llms_txt_url: llms.url, pagesFetched: 0, pagesSkipped: urls.length, failures: [] };
+  }
+
+  if (dryRun) {
+    return { vendor, llms_txt_url: llms.url, pagesFetched: 0, pagesSkipped: allowed.length, failures: [] };
+  }
+
+  let fetched = 0;
+  let skipped = 0;
+  const failures: CrawlResult["failures"] = [];
+  const indexRows: { url: string; relPath: string }[] = [];
+
+  // Build the list of {fetchUrl, originalUrl, transform} entries, then
+  // hand them to crawlee for rate-limited concurrent fetching.
+  const work = allowed.map((origUrl) => {
+    const t = makeTransform(cfg.transform, origUrl, cfg);
+    return { origUrl, fetchUrl: t.fetchUrl, transform: t };
+  });
+
+  const config = new Configuration({ persistStorage: false, persistStateIntervalMillis: 0, storageClientOptions: { storageDir: STORAGE_DIR } });
+  const crawler = new CheerioCrawler(
+    {
+      maxRequestsPerCrawl: cfg.page_cap,
+      maxRequestsPerMinute: 60,
+      maxConcurrency: 4,
+      requestHandlerTimeoutSecs: 30,
+      maxRequestRetries: 2,
+      additionalMimeTypes: ["text/markdown", "text/plain"],
+      requestHandler: async (ctx) => {
+        const meta = ctx.request.userData as { origUrl: string; transformName: TransformName };
+        const item = work.find((w) => w.origUrl === meta.origUrl);
+        if (!item) return;
+        const ct = ctx.response?.headers["content-type"];
+        const ctStr = Array.isArray(ct) ? ct[0] : ct ?? null;
+        const body = (ctx.body as Buffer | string).toString();
+        if (!item.transform.validateBody(ctStr ?? null, body)) {
+          failures.push({ url: meta.origUrl, reason: `validateBody rejected (ct=${ctStr ?? "?"})` });
+          return;
+        }
+        const finalBody = item.transform.postProcess ? item.transform.postProcess(body) : body;
+        const { segments, relPath } = urlToPath(meta.origUrl, { vendor });
+        const target = resolve(VENDOR_ROOT, vendor, ...segments);
+        const result = writeIfChanged(target, finalBody);
+        if (result === "wrote") fetched += 1;
+        else skipped += 1;
+        indexRows.push({ url: meta.origUrl, relPath });
+      },
+      failedRequestHandler: ({ request, error }) => {
+        failures.push({ url: (request.userData as { origUrl: string }).origUrl, reason: (error as Error).message });
+      },
+    },
+    config
+  );
+
+  await crawler.addRequests(
+    work.map((w) => ({
+      url: w.fetchUrl,
+      headers: w.transform.headers,
+      userData: { origUrl: w.origUrl, transformName: cfg.transform },
+    }))
+  );
+  await crawler.run();
+
+  // Emit urls.md index.
+  const front = [
+    `---`,
+    `vendor: ${vendor}`,
+    `llms_txt: ${llms.url}`,
+    `last_crawled: ${new Date().toISOString()}`,
+    `count: ${indexRows.length}`,
+    `transform: ${cfg.transform}`,
+    `---`,
+    "",
+    `# ${vendor} URL index`,
+    "",
+    `| URL | Local |`,
+    `|---|---|`,
+    ...indexRows
+      .sort((a, b) => a.url.localeCompare(b.url))
+      .map((r) => `| ${r.url} | \`vendor/${vendor}/${r.relPath}\` |`),
+    "",
+  ].join("\n");
+  writeIfChanged(resolve(VENDOR_ROOT, vendor, "urls.md"), front);
+
+  console.log(`[${vendor}] fetched=${fetched} unchanged=${skipped} failed=${failures.length}`);
+  return { vendor, llms_txt_url: llms.url, pagesFetched: fetched, pagesSkipped: skipped, failures };
+}
+
+// ──────────────────────────────────────────────────────────────────────
+// CLI
+
+function parseArgs(argv: string[]): { vendor?: string; all: boolean; dryRun: boolean } {
+  const out = { vendor: undefined as string | undefined, all: true, dryRun: false };
+  for (let i = 0; i < argv.length; i += 1) {
+    const a = argv[i];
+    if (a === "--vendor" || a === "-v") {
+      out.vendor = argv[i + 1];
+      out.all = false;
+      i += 1;
+    } else if (a === "--dry-run") {
+      out.dryRun = true;
+    } else if (a === "--help" || a === "-h") {
+      console.log("usage: crawl-vendors [--vendor <name>] [--dry-run]");
+      process.exit(0);
+    } else if (!out.vendor && !a.startsWith("-")) {
+      // Allow positional vendor arg via `crawl:vendor -- stripe`.
+      out.vendor = a;
+      out.all = false;
+    }
+  }
+  return out;
+}
+
+async function main(): Promise<void> {
+  const { vendor, all, dryRun } = parseArgs(process.argv.slice(2));
+  const targets = all ? listVendorConfigs() : [vendor!];
+  if (targets.length === 0) {
+    console.error("no vendor configs found under vendor/*/crawl.json");
+    process.exit(1);
+  }
+  const results: CrawlResult[] = [];
+  for (const v of targets) {
+    try {
+      results.push(await crawlVendor(v, dryRun));
+    } catch (err) {
+      console.error(`[${v}] FAILED:`, err);
+      results.push({ vendor: v, llms_txt_url: "", pagesFetched: 0, pagesSkipped: 0, failures: [{ url: "<crawl>", reason: (err as Error).message }] });
+    }
+  }
+  console.log("\n=== summary ===");
+  for (const r of results) {
+    const status = r.failures.length === 0 ? "ok" : "FAIL";
+    console.log(`  ${r.vendor.padEnd(20)} ${status.padEnd(5)} fetched=${r.pagesFetched} unchanged=${r.pagesSkipped} failed=${r.failures.length}`);
+  }
+  const anyFail = results.some((r) => r.failures.length > 0);
+  process.exit(anyFail ? 1 : 0);
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

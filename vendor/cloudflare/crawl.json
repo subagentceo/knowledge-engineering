@@ -1,0 +1,15 @@
+{
+  "name": "cloudflare",
+  "homepage": "https://developers.cloudflare.com",
+  "llms_txt_candidates": [
+    "https://developers.cloudflare.com/llms.txt"
+  ],
+  "transform": "cloudflare-index-md",
+  "allow_prefixes": [
+    "https://developers.cloudflare.com/"
+  ],
+  "deny_prefixes": [
+    "https://developers.cloudflare.com/changelog/"
+  ],
+  "page_cap": 200
+}

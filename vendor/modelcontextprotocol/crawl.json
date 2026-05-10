@@ -1,0 +1,14 @@
+{
+  "name": "modelcontextprotocol",
+  "homepage": "https://modelcontextprotocol.io",
+  "llms_txt_candidates": [
+    "https://modelcontextprotocol.io/llms.txt",
+    "https://modelcontextprotocol.io/docs/llms.txt"
+  ],
+  "transform": "append-md",
+  "allow_prefixes": [
+    "https://modelcontextprotocol.io/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 200
+}

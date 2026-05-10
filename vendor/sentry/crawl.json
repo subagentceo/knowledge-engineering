@@ -1,0 +1,16 @@
+{
+  "name": "sentry",
+  "homepage": "https://docs.sentry.io",
+  "llms_txt_candidates": [
+    "https://docs.sentry.io/llms.txt",
+    "https://sentry.io/llms.txt"
+  ],
+  "transform": "append-md-and-accept",
+  "allow_prefixes": [
+    "https://docs.sentry.io/"
+  ],
+  "deny_prefixes": [
+    "https://docs.sentry.io/changelog/"
+  ],
+  "page_cap": 200
+}

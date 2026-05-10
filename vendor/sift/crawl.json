@@ -1,0 +1,15 @@
+{
+  "name": "sift",
+  "homepage": "https://sift.com",
+  "llms_txt_candidates": [
+    "https://sift.com/llms.txt",
+    "https://sift.com/developers/llms.txt"
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://sift.com/developers/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 50,
+  "html_extract": { "selector": "main" }
+}

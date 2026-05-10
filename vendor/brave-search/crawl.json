@@ -1,0 +1,16 @@
+{
+  "name": "brave-search",
+  "homepage": "https://api-dashboard.search.brave.com",
+  "llms_txt_candidates": [
+    "https://api-dashboard.search.brave.com/llms.txt",
+    "https://brave.com/search/api/llms.txt"
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://api-dashboard.search.brave.com/app/documentation/",
+    "https://brave.com/search/api/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 50,
+  "html_extract": { "selector": "main" }
+}
