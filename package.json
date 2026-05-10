@@ -1,0 +1,49 @@
+{
+  "name": "@subagentceo/knowledge-engineering",
+  "version": "0.1.0",
+  "description": "Four-lane knowledge bridge (anthropic.com/engineering, claude.com/blog, support.claude.com, llms.txt namespaces) over MCP SDK v2 to a Claude Agent SDK orchestrator with mode-aware Planner and OAuth-only billing.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "ke-bridge-mcp": "dist/mcp/bridge-server.js",
+    "ke-npm-registry-mcp": "dist/mcp/npm-registry/server.js",
+    "ke-agent": "dist/agent/run.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/agent/run.ts",
+    "mcp:bridge": "tsx src/mcp/bridge-server.ts",
+    "mcp:npm-registry": "tsx src/mcp/npm-registry/server.ts",
+    "example:prompt-caching": "tsx src/examples/prompt-caching.ts",
+    "example:tool-caching": "tsx src/examples/tool-caching.ts",
+    "example:citations": "tsx src/examples/citations.ts",
+    "example:programmatic-tool-loop": "tsx src/examples/programmatic-tool-loop.ts",
+    "example:deep-links": "tsx src/examples/deep-links.ts",
+    "verify:planner": "tsx scripts/verify-planner.ts",
+    "verify:mcp": "tsx scripts/verify.ts && npm run verify:planner",
+    "verify:tf": "terraform -chdir=infra/terraform validate && terraform -chdir=infra/terraform plan -lock=false -input=false",
+    "verify": "npm run verify:mcp && npm run verify:tf",
+    "docs:dev": "mintlify dev",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.2.0",
+    "@anthropic-ai/sdk": "^0.95.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/inspector": "^0.21.0",
+    "@types/node": "^22.7.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/subagentceo/knowledge-engineering.git"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "name": "Knowledge Engineering",
+  "theme": "mint",
+  "colors": { "primary": "#cc785c" },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Guides",
+        "groups": [
+          { "group": "Getting started", "pages": ["index", "quickstart"] },
+          {
+            "group": "Architecture",
+            "pages": ["architecture", "mintlify-strategy", "session-artifact"]
+          }
+        ]
+      },
+      {
+        "tab": "Bridges",
+        "groups": [
+          {
+            "group": "Four-lane bridge",
+            "pages": [
+              "lanes/engineering/index",
+              "lanes/blog/index",
+              "lanes/support/index",
+              "lanes/llms/index"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Reference",
+        "groups": [
+          { "group": "MCP", "pages": ["reference/bridge-mcp"] },
+          { "group": "Agent", "pages": ["reference/orchestrator"] },
+          { "group": "Auth", "pages": ["reference/auth"] }
+        ]
+      }
+    ]
+  }
+}
