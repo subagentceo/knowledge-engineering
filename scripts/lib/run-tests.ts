@@ -20,7 +20,11 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, "..", "..");
 
-const TEST_DIRS = [resolve(REPO_ROOT, "scripts", "lib"), resolve(REPO_ROOT, "infra", "cloudflare", "src")];
+const TEST_DIRS = [
+  resolve(REPO_ROOT, "scripts", "lib"),
+  resolve(REPO_ROOT, "src", "lib"),
+  resolve(REPO_ROOT, "infra", "cloudflare", "src"),
+];
 
 function listTests(dir: string): string[] {
   let entries: ReturnType<typeof readdirSync>;

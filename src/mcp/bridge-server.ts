@@ -18,6 +18,7 @@ import { registerAnthropicEngineering } from "./lanes/anthropic-engineering.js";
 import { registerClaudeBlog } from "./lanes/claude-blog.js";
 import { registerSupportClaude } from "./lanes/support-claude.js";
 import { registerLlmsTxt } from "./lanes/llms-txt.js";
+import { registerVendor } from "./lanes/vendor.js";
 
 const server = new McpServer({
   name: "knowledge-bridge",
@@ -28,5 +29,6 @@ registerAnthropicEngineering(server);
 registerClaudeBlog(server);
 registerSupportClaude(server);
 registerLlmsTxt(server);
+registerVendor(server);
 
 await server.connect(new StdioServerTransport());
