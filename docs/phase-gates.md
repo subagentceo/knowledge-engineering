@@ -201,3 +201,9 @@ When the branch ruleset is in place AND `setup:project` has run, the
 no-HITL loop is operational: the heartbeat opens a PR per phase issue,
 required checks gate the merge, auto-merge fires on green, the
 heartbeat handles failure events.
+
+## Session summary
+
+For the full session-of-2026-05-10 scoreboard (17 PRs, Phases 0-11
+shipped, 4 operator-pending actions remaining), see
+[`docs/session-2026-05-10.md`](./session-2026-05-10.md).

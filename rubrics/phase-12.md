@@ -1,7 +1,10 @@
 ---
 phase: 12
 title: Bridge as a Connector (long-arc)
-status: deferred
+status: deferred-pending-operator-decision
+issue: 16
+prs:
+  - 31  # this PR (closeout/scaffold)
 ---
 
 # Phase 12 — Bridge as a Connector
