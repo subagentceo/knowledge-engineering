@@ -1,0 +1,160 @@
+# Pages
+
+Build full-stack, serverless applications globally with minimal configuration
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/pages/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Pages llms-full.txt](https://developers.cloudflare.com/pages/llms-full.txt) for the complete Pages documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Pages](https://developers.cloudflare.com/pages/index.md): Deploy full-stack applications instantly to the Cloudflare global network with Pages.
+
+## Functions
+
+- [Functions](https://developers.cloudflare.com/pages/functions/index.md): Build full-stack applications on Cloudflare Pages using Pages Functions.
+- [Advanced mode](https://developers.cloudflare.com/pages/functions/advanced-mode/index.md): Use a _worker.js file to develop Pages Functions instead of the /functions directory.
+- [API reference](https://developers.cloudflare.com/pages/functions/api-reference/index.md): Learn about the APIs used within Pages Functions.
+- [Bindings](https://developers.cloudflare.com/pages/functions/bindings/index.md): Connect Pages Functions to Cloudflare resources like KV, R2, D1, and Durable Objects.
+- [Debugging and logging](https://developers.cloudflare.com/pages/functions/debugging-and-logging/index.md): Access logs for Pages Functions using the Cloudflare dashboard or Wrangler CLI.
+- [A/B testing with middleware](https://developers.cloudflare.com/pages/functions/examples/ab-testing/index.md): Set up an A/B test by controlling what page is served based on cookies. This version supports passing the request through to test and control on the origin.
+- [Adding CORS headers](https://developers.cloudflare.com/pages/functions/examples/cors-headers/index.md): A Pages Functions for appending CORS headers.
+- [Get started](https://developers.cloudflare.com/pages/functions/get-started/index.md): Create and deploy your first Pages Function on Cloudflare Pages.
+- [Local development](https://developers.cloudflare.com/pages/functions/local-development/index.md): Run and test your Pages application locally using Wrangler.
+- [Metrics](https://developers.cloudflare.com/pages/functions/metrics/index.md): View request and performance metrics for your Pages Functions.
+- [Middleware](https://developers.cloudflare.com/pages/functions/middleware/index.md): Add reusable logic like error handling and authentication to Pages Functions with middleware.
+- [Module support](https://developers.cloudflare.com/pages/functions/module-support/index.md): Import ES Modules, WebAssembly, text, and binary files in Pages Functions.
+- [Pages Plugins](https://developers.cloudflare.com/pages/functions/plugins/index.md): Extend Pages Functions with distributable Plugins that include built-in routing and functionality.
+- [Cloudflare Access](https://developers.cloudflare.com/pages/functions/plugins/cloudflare-access/index.md): Validate Cloudflare Access JWT assertions in Pages Functions using this Plugin.
+- [Community Plugins](https://developers.cloudflare.com/pages/functions/plugins/community-plugins/index.md): Browse community-maintained Pages Plugins for asset negotiation, reverse proxying, and more.
+- [Google Chat](https://developers.cloudflare.com/pages/functions/plugins/google-chat/index.md): Create a Google Chat bot with the Pages Plugin for responding to messages and sending alerts.
+- [GraphQL](https://developers.cloudflare.com/pages/functions/plugins/graphql/index.md): Set up a GraphQL server on Cloudflare Pages using the GraphQL Pages Plugin.
+- [hCaptcha](https://developers.cloudflare.com/pages/functions/plugins/hcaptcha/index.md): Validate hCaptcha tokens in Pages Functions using the hCaptcha Pages Plugin.
+- [Honeycomb](https://developers.cloudflare.com/pages/functions/plugins/honeycomb/index.md): Send traces from Pages Functions to Honeycomb for observability using this Plugin.
+- [Sentry](https://developers.cloudflare.com/pages/functions/plugins/sentry/index.md): Capture and log exceptions in Pages Functions using the Sentry Pages Plugin.
+- [Static Forms](https://developers.cloudflare.com/pages/functions/plugins/static-forms/index.md): Intercept and process HTML form submissions in Pages Functions with the Static Forms Plugin.
+- [Stytch](https://developers.cloudflare.com/pages/functions/plugins/stytch/index.md): Validate Stytch session tokens in Pages Functions using the Stytch Pages Plugin.
+- [Turnstile](https://developers.cloudflare.com/pages/functions/plugins/turnstile/index.md): Validate Cloudflare Turnstile tokens in Pages Functions using the Turnstile Plugin.
+- [vercel/og](https://developers.cloudflare.com/pages/functions/plugins/vercel-og/index.md): Generate social images in Pages Functions using the @vercel/og Pages Plugin.
+- [Pricing](https://developers.cloudflare.com/pages/functions/pricing/index.md): Pages Functions requests are billed as Cloudflare Workers requests across free and paid plans.
+- [Routing](https://developers.cloudflare.com/pages/functions/routing/index.md): Learn how Pages Functions uses file-based routing to map URL patterns to function files.
+- [Smart Placement](https://developers.cloudflare.com/pages/functions/smart-placement/index.md): Automatically run Pages Functions closer to your back-end infrastructure to reduce latency.
+- [Source maps and stack traces](https://developers.cloudflare.com/pages/functions/source-maps/index.md): Adding source maps and generating stack traces for Pages.
+- [TypeScript](https://developers.cloudflare.com/pages/functions/typescript/index.md): Author Pages Functions in TypeScript and configure type generation with Wrangler.
+- [Configuration](https://developers.cloudflare.com/pages/functions/wrangler-configuration/index.md): Configure Pages Functions settings using a Wrangler configuration file or the Cloudflare dashboard.
+
+## Tutorials
+
+- [Tutorials](https://developers.cloudflare.com/pages/tutorials/index.md): Guided tutorials to help you build and deploy projects on Cloudflare Pages.
+- [Add a React form with Formspree](https://developers.cloudflare.com/pages/tutorials/add-a-react-form-with-formspree/index.md): Learn how to add a React form with Formspree, a back-end service that handles form processing and storage.
+- [Add an HTML form with Formspree](https://developers.cloudflare.com/pages/tutorials/add-an-html-form-with-formspree/index.md): Learn how to add an HTML form with Formspree, a back-end service that handles form processing and storage.
+- [Build a blog using Nuxt.js and Sanity.io on Cloudflare Pages](https://developers.cloudflare.com/pages/tutorials/build-a-blog-using-nuxt-and-sanity/index.md): Build a blog application using Nuxt.js and Sanity.io and deploy it on Cloudflare Pages.
+- [Build an API for your front end using Pages Functions](https://developers.cloudflare.com/pages/tutorials/build-an-api-with-pages-functions/index.md): This tutorial builds a full-stack Pages application using the React framework.
+- [Create a HTML form](https://developers.cloudflare.com/pages/tutorials/forms/index.md): This tutorial will briefly touch upon the basics of HTML forms. This tutorial will make heavy use of Cloudflare Pages and its Workers integration.
+- [Localize a website with HTMLRewriter](https://developers.cloudflare.com/pages/tutorials/localize-a-website/index.md): This tutorial uses the HTMLRewriter functionality in the Cloudflare Workers platform to overlay an i18n layer, automatically translating the site based on the user's language.
+- [Use R2 as static asset storage with Cloudflare Pages](https://developers.cloudflare.com/pages/tutorials/use-r2-as-static-asset-storage-for-pages/index.md): This tutorial will teach you how to use R2 as a static asset storage bucket for your Pages app.
+
+## Demos and architectures
+
+- [Demos and architectures](https://developers.cloudflare.com/pages/demos/index.md): Explore demo applications and reference architectures for Cloudflare Pages.
+
+## configuration
+
+- [REST API](https://developers.cloudflare.com/pages/configuration/api/index.md): Manage Cloudflare Pages projects, deployments, and builds programmatically using the REST API.
+- [Branch deployment controls](https://developers.cloudflare.com/pages/configuration/branch-build-controls/index.md): Control which branches trigger automatic deployments in your Cloudflare Pages project.
+- [Build caching](https://developers.cloudflare.com/pages/configuration/build-caching/index.md): Speed up Cloudflare Pages builds by caching dependencies and build output between deployments.
+- [Build configuration](https://developers.cloudflare.com/pages/configuration/build-configuration/index.md): Set build commands, output directories, and framework presets for Cloudflare Pages projects.
+- [Build image](https://developers.cloudflare.com/pages/configuration/build-image/index.md): Review supported languages, tools, and environment variables in the Cloudflare Pages build image.
+- [Build watch paths](https://developers.cloudflare.com/pages/configuration/build-watch-paths/index.md): Configure which file paths trigger or skip a Cloudflare Pages build when changes are pushed.
+- [Custom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/index.md): Add custom domains and subdomains to your Cloudflare Pages project.
+- [Debugging Pages](https://developers.cloudflare.com/pages/configuration/debugging-pages/index.md): Troubleshoot common Cloudflare Pages build errors and deployment failures.
+- [Deploy Hooks](https://developers.cloudflare.com/pages/configuration/deploy-hooks/index.md): Trigger Cloudflare Pages deployments from external event sources using unique webhook URLs.
+- [Early Hints](https://developers.cloudflare.com/pages/configuration/early-hints/index.md): Improve page load performance on Cloudflare Pages with Early Hints for preloading assets.
+- [Git integration](https://developers.cloudflare.com/pages/configuration/git-integration/index.md): Connect a GitHub or GitLab repository to Cloudflare Pages for automatic build and deploy on push.
+- [GitHub integration](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/index.md): Connect a GitHub repository to Cloudflare Pages for automatic deployments, preview URLs, and check runs.
+- [GitLab integration](https://developers.cloudflare.com/pages/configuration/git-integration/gitlab-integration/index.md): Connect a GitLab repository to Cloudflare Pages for automatic deployments and commit status checks.
+- [Troubleshooting builds](https://developers.cloudflare.com/pages/configuration/git-integration/troubleshooting/index.md): Resolve common Cloudflare Pages git integration errors related to deployments and installations.
+- [Headers](https://developers.cloudflare.com/pages/configuration/headers/index.md): Set custom HTTP response headers for your Cloudflare Pages site using a _headers file.
+- [Monorepos](https://developers.cloudflare.com/pages/configuration/monorepos/index.md): Deploy multiple Cloudflare Pages projects from a single monorepo repository.
+- [Preview deployments](https://developers.cloudflare.com/pages/configuration/preview-deployments/index.md): Preview new versions of your Cloudflare Pages project with unique URLs before deploying to production.
+- [Redirects](https://developers.cloudflare.com/pages/configuration/redirects/index.md): Define URL redirects for your Cloudflare Pages site using a _redirects file.
+- [Rollbacks](https://developers.cloudflare.com/pages/configuration/rollbacks/index.md): Instantly revert your Cloudflare Pages project to a previous production deployment.
+- [Serving Pages](https://developers.cloudflare.com/pages/configuration/serving-pages/index.md): Learn how Cloudflare Pages handles route matching, 404 behavior, SPA rendering, and caching.
+
+## framework-guides
+
+- [Blazor](https://developers.cloudflare.com/pages/framework-guides/deploy-a-blazor-site/index.md): Deploy a Blazor WebAssembly application to Cloudflare Pages.
+- [Brunch](https://developers.cloudflare.com/pages/framework-guides/deploy-a-brunch-site/index.md): Deploy a Brunch site to Cloudflare Pages.
+- [Docusaurus](https://developers.cloudflare.com/pages/framework-guides/deploy-a-docusaurus-site/index.md): Deploy a Docusaurus documentation site to Cloudflare Pages.
+- [Gatsby](https://developers.cloudflare.com/pages/framework-guides/deploy-a-gatsby-site/index.md): Deploy a Gatsby site to Cloudflare Pages.
+- [Gridsome](https://developers.cloudflare.com/pages/framework-guides/deploy-a-gridsome-site/index.md): Deploy a Gridsome site to Cloudflare Pages.
+- [Hexo](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hexo-site/index.md): Deploy a Hexo static site to Cloudflare Pages.
+- [Hono](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hono-site/index.md): Deploy a Hono web application to Cloudflare Pages.
+- [Hugo](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hugo-site/index.md): Deploy a Hugo static site to Cloudflare Pages.
+- [Jekyll](https://developers.cloudflare.com/pages/framework-guides/deploy-a-jekyll-site/index.md): Deploy a Jekyll site to Cloudflare Pages.
+- [Nuxt](https://developers.cloudflare.com/pages/framework-guides/deploy-a-nuxt-site/index.md): Web framework making Vue.js-based development simple and powerful.
+- [Pelican](https://developers.cloudflare.com/pages/framework-guides/deploy-a-pelican-site/index.md): Deploy a Pelican static site to Cloudflare Pages.
+- [Preact](https://developers.cloudflare.com/pages/framework-guides/deploy-a-preact-site/index.md): Deploy a Preact application to Cloudflare Pages.
+- [Qwik](https://developers.cloudflare.com/pages/framework-guides/deploy-a-qwik-site/index.md): Deploy a Qwik City application to Cloudflare Pages.
+- [React](https://developers.cloudflare.com/pages/framework-guides/deploy-a-react-site/index.md): Deploy a React application to Cloudflare Pages.
+- [Remix](https://developers.cloudflare.com/pages/framework-guides/deploy-a-remix-site/index.md): Deploy a Remix application to Cloudflare Pages, or migrate to React Router.
+- [SolidStart](https://developers.cloudflare.com/pages/framework-guides/deploy-a-solid-start-site/index.md): Deploy a SolidStart application to Cloudflare Pages.
+- [Sphinx](https://developers.cloudflare.com/pages/framework-guides/deploy-a-sphinx-site/index.md): Deploy a Sphinx documentation site to Cloudflare Pages.
+- [SvelteKit](https://developers.cloudflare.com/pages/framework-guides/deploy-a-svelte-kit-site/index.md): Learn how to create and deploy a SvelteKit application to Cloudflare Pages using the create-cloudflare CLI
+- [Vite 3](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vite3-project/index.md): Deploy a Vite 3 front-end project to Cloudflare Pages.
+- [VitePress](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vitepress-site/index.md): Deploy a VitePress static site to Cloudflare Pages.
+- [Vue](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vue-site/index.md): Deploy a Vue application to Cloudflare Pages.
+- [Zola](https://developers.cloudflare.com/pages/framework-guides/deploy-a-zola-site/index.md): Deploy a Zola static site to Cloudflare Pages.
+- [Analog](https://developers.cloudflare.com/pages/framework-guides/deploy-an-analog-site/index.md): Fullstack meta-framework for Angular, powered by Vite and Nitro.
+- [Angular](https://developers.cloudflare.com/pages/framework-guides/deploy-an-angular-site/index.md): Deploy an Angular application to Cloudflare Pages.
+- [Astro](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/index.md): Deploy an Astro site to Cloudflare Pages.
+- [Elder.js](https://developers.cloudflare.com/pages/framework-guides/deploy-an-elderjs-site/index.md): Deploy an Elder.js static site to Cloudflare Pages.
+- [Eleventy](https://developers.cloudflare.com/pages/framework-guides/deploy-an-eleventy-site/index.md): Deploy an Eleventy static site to Cloudflare Pages.
+- [Ember](https://developers.cloudflare.com/pages/framework-guides/deploy-an-emberjs-site/index.md): Deploy an Ember.js application to Cloudflare Pages.
+- [MkDocs](https://developers.cloudflare.com/pages/framework-guides/deploy-an-mkdocs-site/index.md): Deploy an MkDocs documentation site to Cloudflare Pages.
+- [Static HTML](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/index.md): Deploy any static HTML website to Cloudflare Pages without a framework.
+- [Next.js](https://developers.cloudflare.com/pages/framework-guides/nextjs/index.md): React framework for building full-stack web applications.
+- [Static site](https://developers.cloudflare.com/pages/framework-guides/nextjs/deploy-a-static-nextjs-site/index.md): Deploy a static site built using Next.js to Cloudflare Pages
+
+## get-started
+
+- [C3 CLI](https://developers.cloudflare.com/pages/get-started/c3/index.md): Use C3 (`create-cloudflare` CLI) to set up and deploy new applications using framework-specific setup guides to ensure each new application follows Cloudflare and any third-party best practices for deployment.
+- [Direct Upload](https://developers.cloudflare.com/pages/get-started/direct-upload/index.md): Upload your prebuilt assets to Pages and deploy them via the Wrangler CLI or the Cloudflare dashboard.
+- [Git integration](https://developers.cloudflare.com/pages/get-started/git-integration/index.md): Connect your Git provider to Pages.
+
+## how-to
+
+- [Add custom HTTP headers](https://developers.cloudflare.com/pages/how-to/add-custom-http-headers/index.md): Customize HTTP headers on Cloudflare Pages using a Workers function.
+- [Set build commands per branch](https://developers.cloudflare.com/pages/how-to/build-commands-branches/index.md): Run different build commands on specific branches in your Cloudflare Pages project.
+- [Add a custom domain to a branch](https://developers.cloudflare.com/pages/how-to/custom-branch-aliases/index.md): Point a custom domain to a specific branch deployment of your Cloudflare Pages project.
+- [Deploy a static WordPress site](https://developers.cloudflare.com/pages/how-to/deploy-a-wordpress-site/index.md): Learn how to deploy a static WordPress site using Cloudflare Pages.
+- [Enable Zaraz](https://developers.cloudflare.com/pages/how-to/enable-zaraz/index.md): Set up Zaraz on your Cloudflare Pages project using a custom domain.
+- [Install private packages](https://developers.cloudflare.com/pages/how-to/npm-private-registry/index.md): Use custom npm registries and private dependencies in your Cloudflare Pages builds.
+- [Preview Local Projects with Cloudflare Tunnel](https://developers.cloudflare.com/pages/how-to/preview-with-cloudflare-tunnel/index.md): Use Cloudflare Tunnel to share locally running Pages projects over a public URL.
+- [Redirecting *.pages.dev to a Custom Domain](https://developers.cloudflare.com/pages/how-to/redirect-to-custom-domain/index.md): Use Bulk Redirects to redirect your pages.dev subdomain to a custom domain.
+- [Refactor a Worker to a Pages Function](https://developers.cloudflare.com/pages/how-to/refactor-a-worker-to-pages-functions/index.md): Migrate an existing Cloudflare Worker into a Pages Function for your Pages project.
+- [Use Direct Upload with continuous integration](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/index.md): Deploy prebuilt assets to Cloudflare Pages using Wrangler in your CI/CD pipeline.
+- [Use Pages Functions for A/B testing](https://developers.cloudflare.com/pages/how-to/use-worker-for-ab-testing-in-pages/index.md): Implement A/B testing in Cloudflare Pages using Pages Functions and cookies.
+- [Enable Web Analytics](https://developers.cloudflare.com/pages/how-to/web-analytics/index.md): Set up Cloudflare Web Analytics on your Pages project with one-click configuration.
+- [Redirecting www to domain apex](https://developers.cloudflare.com/pages/how-to/www-redirect/index.md): Redirect a www subdomain to your apex domain on Cloudflare Pages using Bulk Redirects.
+
+## Migrate to Workers
+
+- [Migrate to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/index.md): Migrate your Cloudflare Pages project to Cloudflare Workers with static assets.
+
+## migrations
+
+- [Migrating from Firebase](https://developers.cloudflare.com/pages/migrations/migrating-from-firebase/index.md): This tutorial explains how to migrate an existing Firebase application to Cloudflare Pages.
+- [Migrating from Netlify to Pages](https://developers.cloudflare.com/pages/migrations/migrating-from-netlify/index.md): Learn how to migrate from Netlify to Cloudflare. This guide includes instructions for migrating redirects and headers.
+- [Migrating from Vercel to Pages](https://developers.cloudflare.com/pages/migrations/migrating-from-vercel/index.md): In this tutorial, you will learn how to deploy your Vercel application to Cloudflare Pages.
+- [Migrating from Workers Sites to Pages](https://developers.cloudflare.com/pages/migrations/migrating-from-workers/index.md): Learn how to migrate from Workers Sites to Cloudflare Pages.
+- [Migrating a Jekyll-based site from GitHub Pages](https://developers.cloudflare.com/pages/migrations/migrating-jekyll-from-github-pages/index.md): Learn how to migrate a Jekyll-based site from GitHub Pages to Cloudflare Pages.
+
+## platform
+
+- [Changelog](https://developers.cloudflare.com/pages/platform/changelog/index.md): Recent changes and updates to Cloudflare Pages.
+- [Known issues](https://developers.cloudflare.com/pages/platform/known-issues/index.md): Current bugs and limitations for Cloudflare Pages builds, deployments, and configuration.
+- [Limits](https://developers.cloudflare.com/pages/platform/limits/index.md): Build, deployment, and custom domain limits for Cloudflare Pages by plan type.
+- [Choose a data or storage product](https://developers.cloudflare.com/workers/platform/storage-options/index.md): Compare data and storage products available for Cloudflare Pages applications.

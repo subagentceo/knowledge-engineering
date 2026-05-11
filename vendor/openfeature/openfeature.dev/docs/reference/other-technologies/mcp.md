@@ -1,0 +1,343 @@
+-   [](/)
+-   [Other Technologies](/docs/category/other-technologies)
+-   MCP
+
+On this page
+
+# OpenFeature MCP Server
+
+The **OpenFeature Model Context Protocol (MCP) Server** enables AI coding assistants to interact with OpenFeature through a standardized protocol. It provides SDK installation guidance and feature flag evaluation capabilities directly within your AI-powered development environment.
+
+The OpenFeature MCP Server is a local tool that connects AI coding assistants (like **Cursor**, **Claude Code**, **VS Code**, and **Windsurf**) to OpenFeature functionality. It acts as a bridge between your AI assistant and OpenFeature capabilities, enabling intelligent code generation and migration, SDK installation guidance, and feature flag evaluation.
+
+This server is published to the [MCP Registry](https://registry.modelcontextprotocol.io) under `dev.openfeature/mcp`.
+
+> **⚠️ AI Agent Behavior**: AI agents are non-deterministic and may not complete tasks correctly. Always manually review their changes before committing. If you encounter issues, please [open an issue](https://github.com/open-feature/mcp/issues) with details about your AI agent (e.g., Claude Code + Sonnet 4.5, Cursor + gpt-5-codex) with the commands you used and the behavior you saw.
+
+## Quick Start[​](#quick-start "Direct link to Quick Start")
+
+### NPX Install[​](#npx-install "Direct link to NPX Install")
+
+The easiest way to use the OpenFeature MCP Server is through NPX, which requires no installation:
+
+```
+{  "mcpServers": {    "OpenFeature": {      "command": "npx",      "args": ["-y", "@openfeature/mcp"]    }  }}
+```
+
+### NPM Global Install[​](#npm-global-install "Direct link to NPM Global Install")
+
+You can install the MCP server globally:
+
+```
+npm install -g @openfeature/mcp
+```
+
+Then configure your AI assistant to use the global installation:
+
+```
+{  "mcpServers": {    "OpenFeature": {      "command": "openfeature-mcp"    }  }}
+```
+
+## AI Assistant Configuration[​](#ai-assistant-configuration "Direct link to AI Assistant Configuration")
+
+### Cursor[​](#cursor "Direct link to Cursor")
+
+[📦 Install in Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=OpenFeature&config=eyJjb21tYW5kIjogIm5weCIsICJhcmdzIjogWyIteSIsICJAb3BlbmZlYXR1cmUvbWNwIl19Cg==)
+
+To open Cursor and automatically add the OpenFeature MCP, click the install button above.
+
+Alternatively, navigate to `Cursor Settings` -> `Tools & MCP` -> `New MCP Server` and add to `~/.cursor/mcp_settings.json`:
+
+```
+{  "mcpServers": {    "OpenFeature": {      "command": "npx",      "args": ["-y", "@openfeature/mcp"]    }  }}
+```
+
+### VS Code[​](#vs-code "Direct link to VS Code")
+
+[📦 Install in VS Code](https://vscode.dev/redirect/mcp/install?name=OpenFeature&config=%7B%22command%22%3A%20%22npx%22%2C%20%22args%22%3A%20%5B%22-y%22%2C%20%22%40openfeature%2Fmcp%22%5D%7D)
+
+To open VS Code and automatically add the OpenFeature MCP, click the install button above. For more details, see the [VS Code MCP documentation](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
+
+Alternatively, add to `.vscode/mcp.json` in your project:
+
+```
+{  "mcpServers": {    "OpenFeature": {      "command": "npx",      "args": ["-y", "@openfeature/mcp"],      "env": { // Optional environment variables        "OPENFEATURE_OFREP_BASE_URL": "<your-base-url>",        "OPENFEATURE_OFREP_API_KEY": "<your-api-key>"      }    }  }}
+```
+
+### Claude Code[​](#claude-code "Direct link to Claude Code")
+
+Add the server via the Claude Code CLI:
+
+```
+claude mcp add --transport stdio openfeature npx -y @openfeature/mcp
+```
+
+Then manage the connection with `/mcp` in the CLI.
+
+### Windsurf[​](#windsurf "Direct link to Windsurf")
+
+In the `Manage MCP servers` raw config, add:
+
+```
+{  "mcpServers": {    "OpenFeature": {      "command": "npx",      "args": ["-y", "@openfeature/mcp"]    }  }}
+```
+
+### Codex CLI[​](#codex-cli "Direct link to Codex CLI")
+
+Edit `~/.codex/config.toml`:
+
+```
+[mcp_servers.openfeature]command = "npx"args = ["-y", "@openfeature/mcp"]
+```
+
+Restart Codex CLI after saving.
+
+### Gemini CLI[​](#gemini-cli "Direct link to Gemini CLI")
+
+Edit `~/.gemini/settings.json`:
+
+```
+{  "mcpServers": {    "OpenFeature": {      "command": "npx",      "args": ["-y", "@openfeature/mcp"]    }  }}
+```
+
+Restart Gemini CLI after saving.
+
+### Claude Desktop[​](#claude-desktop "Direct link to Claude Desktop")
+
+Edit your Claude Desktop config at:
+
+-   **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+-   **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+Add the following configuration:
+
+```
+{  "mcpServers": {    "openfeature": {      "command": "npx",      "args": ["-y", "@openfeature/mcp"]    }  }}
+```
+
+Restart Claude Desktop after saving.
+
+## Available Tools[​](#available-tools "Direct link to Available Tools")
+
+The OpenFeature MCP Server provides two main tools accessible to AI assistants:
+
+### SDK Installation Guide: `install_openfeature_sdk`[​](#sdk-installation-guide-install_openfeature_sdk "Direct link to sdk-installation-guide-install_openfeature_sdk")
+
+Fetches installation instructions for OpenFeature SDKs in various languages and frameworks. Optionally includes provider-specific setup documentation.
+
+#### SDK Tool Parameters[​](#sdk-tool-parameters "Direct link to SDK Tool Parameters")
+
+Parameter
+
+Type
+
+Required
+
+Description
+
+`technology`
+
+string
+
+Yes
+
+Target language/framework (see supported list below)
+
+`providers`
+
+string\[\]
+
+No
+
+Provider identifiers to include installation instructions
+
+#### Supported Technologies[​](#supported-technologies "Direct link to Supported Technologies")
+
+The technologies list is built from the available `prompts/*.md`, updated automatically using `scripts/build-prompts.js`
+
+Technology
+
+SDK
+
+`android`
+
+Android Kotlin SDK
+
+`dotnet`
+
+.NET SDK
+
+`go`
+
+Go SDK
+
+`ios`
+
+iOS Swift SDK
+
+`java`
+
+Java SDK
+
+`javascript`
+
+JavaScript Web SDK
+
+`nestjs`
+
+NestJS SDK
+
+`nodejs`
+
+Node.js SDK
+
+`php`
+
+PHP SDK
+
+`python`
+
+Python SDK
+
+`react`
+
+React SDK
+
+`ruby`
+
+Ruby SDK
+
+#### Supported Providers[​](#supported-providers "Direct link to Supported Providers")
+
+The provider list is automatically sourced from the OpenFeature ecosystem (`open-feature/openfeature.dev` repo).
+
+See `scripts/build-providers.js` for details on how the provider list is maintained.
+
+### OFREP Flag Evaluation: `ofrep_flag_eval`[​](#ofrep-flag-evaluation-ofrep_flag_eval "Direct link to ofrep-flag-evaluation-ofrep_flag_eval")
+
+Evaluate feature flags using the OpenFeature Remote Evaluation Protocol (OFREP). Supports both single flag and bulk evaluation.
+
+#### OFREP Tool Parameters[​](#ofrep-tool-parameters "Direct link to OFREP Tool Parameters")
+
+Parameter
+
+Type
+
+Required
+
+Description
+
+`base_url`
+
+string
+
+No
+
+Base URL of your OFREP-compatible flag service
+
+`flag_key`
+
+string
+
+No
+
+Flag key for single evaluation (omit for bulk)
+
+`context`
+
+object
+
+No
+
+Evaluation context (e.g., `{ targetingKey: "user-123" }`)
+
+`etag`
+
+string
+
+No
+
+ETag for bulk evaluation caching
+
+`auth`
+
+object
+
+No
+
+Authentication configuration
+
+`auth.bearer_token`
+
+string
+
+No
+
+Bearer token for authorization
+
+`auth.api_key`
+
+string
+
+No
+
+API key for authorization
+
+#### OFREP Configuration[​](#ofrep-configuration "Direct link to OFREP Configuration")
+
+To use OFREP flag evaluation features, configure authentication and endpoint details. The server checks configuration in this priority order:
+
+1.  **Tool Arguments**
+    
+    -   `base_url`
+    -   `auth.bearer_token` / `auth.api_key`
+2.  **Environment Variables**
+    
+    -   `OFREP_ENDPOINT` (preferred) or `OPENFEATURE_OFREP_BASE_URL` / `OFREP_BASE_URL`
+    -   `OFREP_HEADERS` (comma-separated `key=value` pairs, URL-decoded before parsing)
+    -   `OFREP_TIMEOUT_MS` (positive integer milliseconds)
+    -   `OPENFEATURE_OFREP_BEARER_TOKEN` or `OFREP_BEARER_TOKEN`
+    -   `OPENFEATURE_OFREP_API_KEY` or `OFREP_API_KEY`
+3.  **Configuration File**: `~/.openfeature-mcp.json`
+    
+
+`OFREP_HEADERS` parsing follows the OFREP protocol convention:
+
+-   URL-decode the full value first
+-   Split by comma into header pairs
+-   Split each pair by the first equals sign (`=`)
+-   Trim whitespace around keys/values
+-   Skip malformed entries
+
+Examples:
+
+-   `OFREP_HEADERS=Authorization=Bearer%20token,X-Custom=value`
+-   `OFREP_TIMEOUT_MS=5000`
+
+Example `~/.openfeature-mcp.json`:
+
+```
+{  "OFREP": {    "baseUrl": "https://flags.example.com",    "bearerToken": "<your-token>",    "apiKey": "<your-api-key>",    "headers": {      "X-Custom-Header": "value"    },    "timeoutMs": 5000  }}
+```
+
+You can override the config file path using the `OPENFEATURE_MCP_CONFIG_PATH` environment variable.
+
+> **Note**: All logs are written to stderr. The MCP protocol messages use stdout.
+
+## MCP Usage Examples[​](#mcp-usage-examples "Direct link to MCP Usage Examples")
+
+### SDK Installation Example[​](#sdk-installation-example "Direct link to SDK Installation Example")
+
+> "install the OpenFeature SDK for Node.js with the flagd provider"
+
+The AI will use the MCP to fetch relevant installation instructions and attempt to install the OpenFeature SDK with the correct provider.
+
+### Flag Evaluation Example[​](#flag-evaluation-example "Direct link to Flag Evaluation Example")
+
+When interacting with your AI assistant:
+
+> "Can you check the value of the 'new-checkout-flow' feature flag for 'user-123'?"
+
+The AI will use the MCP to evaluate the flag using OFREP and provide you with the result, along with additional metadata like variant and reason.
+
+[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/other-technologies/mcp.mdx)

@@ -87,8 +87,6 @@ Cited from:
   URL, regex-extracts capture-group links, resolves them against the
   index URL, and merges them into the URL pool ahead of allowlist
   filtering.
-- Generalized from `src/mcp/lanes/anthropic-engineering.ts`
-  `parseIndex()` (lines 24-41).
 
 ### 9. `vendor/anthropic-engineering/` mirror committed — ✅ 13.B (O1)
 
@@ -97,3 +95,29 @@ Cited from:
 - `npm run crawl:vendor -- anthropic-engineering` produces ≥10
   `vendor/anthropic-engineering/www.anthropic.com/engineering/<slug>.md`
   files; the urls.md index lists every fetched post.
+
+### 10. Crawler supports `sitemap_xml_sources` discovery — ✅ 13.B (O2)
+
+- `scripts/crawl-vendors.ts` `CrawlConfig` includes
+  `sitemap_xml_sources?: string[]`.
+- `scripts/lib/sitemap-xml.ts` parses sitemaps.org-compliant
+  `<urlset>` and `<sitemapindex>` bodies (one-level recursion).
+- For vendors lacking an llms.txt, the sitemap-discovered URLs merge
+  into the URL pool ahead of allowlist filtering.
+
+### 11. `vendor/openfeature/` mirror committed — ✅ 13.B (O3)
+
+- `vendor/openfeature/crawl.json` declares the sitemap discovery +
+  `html-extract` transform; allowlist scopes to `/docs/` +
+  `/specification/`.
+- `npm run crawl:vendor -- openfeature` produces 64
+  `vendor/openfeature/openfeature.dev/...` pages.
+
+### 12. `vendor/cloudflare/` extended with Flagship — ✅ 13.B (O4)
+
+- `vendor/cloudflare/crawl.json` `llms_txt_sources` includes
+  `https://developers.cloudflare.com/flagship/llms.txt`.
+- `page_cap` raised to 200 to absorb the 15 Flagship pages alongside
+  the existing per-product index entries.
+- All 16 Flagship docs (15 pages + llms.txt) mirrored under
+  `vendor/cloudflare/developers.cloudflare.com/flagship/`.

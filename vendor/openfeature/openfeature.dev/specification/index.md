@@ -1,0 +1,80 @@
+-   [](/)
+-   Introduction
+
+On this page
+
+# OpenFeature Specification
+
+## Contents[​](#contents "Direct link to Contents")
+
+-   [Glossary](/specification/glossary)
+-   [Types](/specification/types)
+-   [Evaluation API](/specification/sections/flag-evaluation)
+-   [Providers](/specification/sections/providers)
+-   [Evaluation Context](/specification/sections/evaluation-context)
+-   [Hooks](/specification/sections/hooks)
+-   [Events](/specification/sections/events)
+-   [Tracking](/specification/sections/tracking)
+-   [Appendix A: Included Utilities](/specification/appendix-a)
+-   [Appendix B: Gherkin Suites](/specification/appendix-b)
+-   [Appendix C: OFREP](/specification/appendix-c/)
+-   [Appendix D: Observability](/specification/appendix-d)
+
+## Conformance[​](#conformance "Direct link to Conformance")
+
+### Normative Sections[​](#normative-sections "Direct link to Normative Sections")
+
+The following parts of this document are normative:
+
+-   Statements under markdown H5 headings, appearing in markdown block quotes, and containing an uppercase keyword from RFC 2119.
+-   This conformance clause.
+
+### Conformance Requirements and Test Assertions[​](#conformance-requirements-and-test-assertions "Direct link to Conformance Requirements and Test Assertions")
+
+Each [normative section](#normative-sections) defines a single requirement. By enumerating these normative sections, a list of test assertions can be derived.
+
+### Compliance[​](#compliance "Direct link to Compliance")
+
+An implementation is not compliant if it fails to satisfy one or more of the "MUST", "MUST NOT", "REQUIRED", "SHALL", or "SHALL NOT" requirements defined in the [normative sections](#normative-sections) of the specification. Conversely, an implementation of the specification is compliant if it satisfies all the "MUST", "MUST NOT", "REQUIRED", "SHALL", and "SHALL NOT" requirements defined in the [normative sections](#normative-sections) of the specification.
+
+## Document Statuses[​](#document-statuses "Direct link to Document Statuses")
+
+Sections and subsections within the specification are marked with statuses indicating their stability level. Functionality described in the specification graduates through these statuses with increasing stability. Stability levels apply only to normative sections within the specification; editorial changes to examples and explanations are exempt from these constraints. It is the responsibility of the [Technical Steering Committee](https://github.com/open-feature/community/blob/main/governance-charter.md#tsc-members) to consider and approve the graduation of documents.
+
+Possible statuses are described below:
+
+### Experimental[​](#experimental "Direct link to Experimental")
+
+[![experimental](https://img.shields.io/static/v1?label=Status&message=experimental&color=orange)](https://github.com/open-feature/spec/tree/main/specification#experimental)
+
+Specification sections that are marked as `Experimental` contain functionality under active development. Breaking changes are allowed and may be made without deprecation notices or warnings with minor version updates. We recommend you use these features in experimental environments and not in production.
+
+Put simply:
+
+> We're testing these features out. Things could change anytime.
+
+### Hardening[​](#hardening "Direct link to Hardening")
+
+[![hardening](https://img.shields.io/static/v1?label=Status&message=hardening&color=yellow)](https://github.com/open-feature/spec/tree/main/specification#hardening)
+
+Sections marked as `Hardening` describe functionality with an emphasis on stabilizing existing requirements. Breaking changes require consensus by the [Technical Steering Committee](https://github.com/open-feature/community/blob/main/governance-charter.md#tsc-members) but may still be made with minor version updates. These features are suitable for use in production environments. Feedback is encouraged.
+
+Put simply:
+
+> We believe these features are ready for production use, and hope for feedback.
+
+### Stable[​](#stable "Direct link to Stable")
+
+[![stable](https://img.shields.io/static/v1?label=Status&message=stable&color=green)](https://github.com/open-feature/spec/tree/main/specification#stable)
+
+Sections marked as `Stable` do not allow breaking changes without a major version update. They can be used in production with a high degree of confidence.
+
+Put simply:
+
+> These features are stable and battle-hardened.
+
+Note
+
+No explicit status = `Experimental`
+
+[Edit this page](https://github.com/open-feature/spec/edit/main/specification/README.md)

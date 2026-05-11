@@ -1,0 +1,435 @@
+-   [](/)
+-   [SDKs](/docs/reference/sdks/)
+-   [Client](/docs/reference/sdks/client/)
+-   Kotlin
+
+On this page
+
+# OpenFeature Kotlin SDK
+
+[![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Release](https://img.shields.io/static/v1?label=release&message=v0.8.0&color=blue&style=for-the-badge)](https://github.com/open-feature/kotlin-sdk/releases/tag/v0.8.0)  
+![Status](https://img.shields.io/badge/lifecycle-alpha-a0c3d2.svg)[![MavenCentral](https://img.shields.io/maven-central/v/dev.openfeature/android-sdk)](https://mvnrepository.com/artifact/dev.openfeature/android-sdk)
+
+## Quick start[​](#quick-start "Direct link to Quick start")
+
+**MCP Install**📋 Copy Prompt
+
+Follow the [MCP Getting Started](/docs/reference/other-technologies/mcp) guide to quickly set up the OpenFeature MCP server and connect your AI tool.
+
+-   Run this prompt: `"Install OpenFeature into this app"`
+
+**Quick Install:**
+
+[📦 Install in Cursor](cursor://anysphere.cursor-deeplink/mcp/install?name=OpenFeature&config=eyJjb21tYW5kIjogIm5weCIsICJhcmdzIjogWyIteSIsICJAb3BlbmZlYXR1cmUvbWNwIl19Cg==)[📦 Install in VS Code](https://vscode.dev/redirect/mcp/install?name=OpenFeature&config=%7B%22command%22%3A%20%22npx%22%2C%20%22args%22%3A%20%5B%22-y%22%2C%20%22%40openfeature%2Fmcp%22%5D%7D)
+
+```
+claude mcp add --transport stdio openfeature npx -y @openfeature/mcp
+```
+
+### Requirements[​](#requirements "Direct link to Requirements")
+
+The following [Kotlin Multiplatform Targets](https://www.jetbrains.com/help/kotlin-multiplatform-dev/multiplatform-dsl-reference.html#targets) are supported:
+
+Supported
+
+Platform
+
+Supported versions
+
+✅
+
+Android
+
+SDK 21+
+
+✅
+
+JVM
+
+JDK 11+
+
+✅
+
+Native
+
+Linux x64, iosSimulatorArm64, iosArm64
+
+❌
+
+Native
+
+[Other native targets](https://kotlinlang.org/docs/native-target-support.html)
+
+✅
+
+Javascript (Node.js)
+
+✅
+
+Javascript (Browser)
+
+❌
+
+Wasm
+
+Note that this library adheres to the [Static Context Paradigm](/docs/reference/concepts/sdk-paradigms), so it is intended to be used on the **client side** (i.e. mobile apps, web apps and desktop apps), and has not been evaluated for use in other types of applications (e.g. server applications).
+
+### Installation[​](#installation "Direct link to Installation")
+
+Installation is preferred via Maven Central.
+
+#### In Android projects[​](#in-android-projects "Direct link to In Android projects")
+
+Important
+
+Before version 0.6.0 the Maven artifact's id was `android-sdk`. When upgrading to 0.6.0 or higher please do make sure to use the new artifact id, which is `kotlin-sdk`.
+
+```
+dependencies {    api("dev.openfeature:kotlin-sdk:0.8.0")}
+```
+
+#### In multiplatform projects[​](#in-multiplatform-projects "Direct link to In multiplatform projects")
+
+```
+kotlin {    sourceSets {        commonMain.dependencies {            api("dev.openfeature:kotlin-sdk:0.8.0")        }    }}
+```
+
+### Usage[​](#usage "Direct link to Usage")
+
+Note
+
+In version 0.6.0 the base package name has changed from `dev.openfeature.sdk` to `dev.openfeature.kotlin.sdk`. When upgrading to 0.6.0 or higher please update your imports accordingly.
+
+**Example:** `import dev.openfeature.sdk.EvaluationContext` -> `import dev.openfeature.kotlin.sdk.EvaluationContext`.
+
+```
+coroutineScope.launch(Dispatchers.Default) {  // configure a provider, wait for it to complete its initialization tasks  OpenFeatureAPI.setProviderAndWait(customProvider)  val client = OpenFeatureAPI.getClient()  // get a bool flag value  client.getBooleanValue("boolFlag", defaultValue = false)}
+```
+
+## Features[​](#features "Direct link to Features")
+
+Status
+
+Features
+
+Description
+
+✅
+
+[Providers](#providers)
+
+Integrate with a commercial, open source, or in-house feature management tool.
+
+✅
+
+[Targeting](#targeting)
+
+Contextually-aware flag evaluation using [evaluation context](/docs/reference/concepts/evaluation-context).
+
+✅
+
+[Hooks](#hooks)
+
+Add functionality to various stages of the flag evaluation life-cycle.
+
+✅
+
+[Tracking](#tracking)
+
+Associate user actions with feature flag evaluations.
+
+✅
+
+[Logging](#logging)
+
+Integrate with popular logging packages.
+
+⚠️
+
+[Domains](#domains)
+
+Logically bind clients with providers.
+
+✅
+
+[Eventing](#eventing)
+
+React to state changes in the provider or flag management system.
+
+✅
+
+[Shutdown](#shutdown)
+
+Gracefully clean up a provider during application shutdown.
+
+✅
+
+[Extending](#extending)
+
+Extend OpenFeature with custom providers and hooks.
+
+✅
+
+[Multi-Provider](#multi-provider)
+
+Combine multiple providers with configurable evaluation strategies.
+
+Implemented: ✅ | In-progress: ⚠️ | Not implemented yet: ❌
+
+### Providers[​](#providers "Direct link to Providers")
+
+[Providers](/docs/reference/concepts/provider) are an abstraction between a flag management system and the OpenFeature SDK. Look [here](/ecosystem?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=Provider&instant_search%5BrefinementList%5D%5Btechnology%5D%5B0%5D=kotlin) for a complete list of available providers. If the provider you're looking for hasn't been created yet, see the [develop a provider](#develop-a-provider) section to learn how to build it yourself.
+
+Once you've added a provider as a dependency, it can be registered with OpenFeature like this:
+
+```
+coroutineScope.launch(Dispatchers.Default) {    OpenFeatureAPI.setProviderAndWait(MyProvider())}
+```
+
+Asynchronous API that doesn't wait is also available. It's useful when you want to set a provider and continue with other tasks.
+
+However, flag evaluations are only possible after the provider is Ready.
+
+```
+OpenFeatureAPI.setProvider(MyProvider()) // can pass a dispatcher here// The provider initialization happens on a coroutine launched on the IO dispatcher. val status = OpenFeatureAPI.getStatus()// When status is Ready, flag evaluations can be made
+```
+
+### Targeting[​](#targeting "Direct link to Targeting")
+
+Sometimes, the value of a flag must consider some dynamic criteria about the application or user, such as the user's location, IP, email address, or the server's location. In OpenFeature, we refer to this as [targeting](/specification/glossary#targeting). If the flag management system you're using supports targeting, you can provide the input data using the [evaluation context](/docs/reference/concepts/evaluation-context).
+
+```
+// set a value to the global contextval evaluationContext = ImmutableContext(    targetingKey = session.getId,    attributes = mutableMapOf("region" to Value.String("us-east-1")))OpenFeatureAPI.setEvaluationContext(evaluationContext)
+```
+
+### Hooks[​](#hooks "Direct link to Hooks")
+
+[Hooks](/docs/reference/concepts/hooks) allow for custom logic to be added at well-defined points of the flag evaluation life-cycle. Look [here](/ecosystem/?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=Hook&instant_search%5BrefinementList%5D%5Btechnology%5D%5B0%5D=kotlin) for a complete list of available hooks. If the hook you're looking for hasn't been created yet, see the [develop a hook](#develop-a-hook) section to learn how to build it yourself.
+
+Once you've added a hook as a dependency, it can be registered at the global, client, or flag invocation level.
+
+```
+// add a hook globally, to run on all evaluationsOpenFeatureAPI.addHooks(listOf(ExampleHook()))// add a hook on this client, to run on all evaluations made by this clientval client = OpenFeatureAPI.getClient()client.addHooks(listOf(ExampleHook()))// add a hook for this evaluation onlyval retval = client.getBooleanValue(flagKey, false,    FlagEvaluationOptions(listOf(ExampleHook())))
+```
+
+### Tracking[​](#tracking "Direct link to Tracking")
+
+The [tracking API](/specification/sections/tracking/) allows you to use OpenFeature abstractions to associate user actions with feature flag evaluations. This is essential for robust experimentation powered by feature flags. Note that, unlike methods that handle feature flag evaluations, calling `track(...)` may throw an `IllegalArgumentException` if an empty string is passed as the `trackingEventName`.
+
+Below is an example of how we can track a "Checkout" event with some `TrackingDetails`.
+
+```
+OpenFeatureAPI.getClient().track(  "Checkout",  TrackingEventDetails(    499.99,    ImmutableStructure(      "numberOfItems" to Value.Integer(4),      "timeInCheckout" to Value.String("PT3M20S")    )  ))
+```
+
+Tracking is optionally implemented by Providers.
+
+### Logging[​](#logging "Direct link to Logging")
+
+The SDK ships a `Logger` interface and a built-in `LoggingHook` that emits structured log records at each stage of the flag evaluation life-cycle.
+
+#### Logger interface[​](#logger-interface "Direct link to Logger interface")
+
+```
+interface Logger {    fun debug(message: () -> String, attributes: () -> Map<String, Any?> = { emptyMap() }, throwable: Throwable? = null)    fun info(message: () -> String, attributes: () -> Map<String, Any?> = { emptyMap() }, throwable: Throwable? = null)    fun warn(message: () -> String, attributes: () -> Map<String, Any?> = { emptyMap() }, throwable: Throwable? = null)    fun error(message: () -> String, attributes: () -> Map<String, Any?> = { emptyMap() }, throwable: Throwable? = null)}
+```
+
+Both `message` and `attributes` are lambdas — they are evaluated lazily and only invoked if the logger decides to emit the record. This means inactive log levels incur no allocation overhead.
+
+Platform-specific loggers are created via `LoggerFactory.getLogger(tag)`:
+
+Platform
+
+Backend
+
+Format
+
+Android
+
+`android.util.Log`
+
+Logcat with tag; attributes appended as `key=value` pairs
+
+JVM
+
+`System.out` (DEBUG/INFO) / `System.err` (WARN/ERROR)
+
+`<timestamp> [LEVEL] <tag> - <message> key=value …`
+
+iOS
+
+`NSLog`
+
+`[LEVEL] <tag> - <message> key=value …` (NSLog adds its own timestamp)
+
+JavaScript
+
+`console` API
+
+`[<tag>] <message>` with attributes as an expandable JS object (browser devtools / Node.js); note: `debug` uses `console.log`, not `console.debug` — browser "Verbose" filter will not capture it
+
+Linux/Native
+
+`stdout` (DEBUG/INFO) / `stderr` (WARN/ERROR)
+
+`[LEVEL] <tag> - <message> key=value …` (no timestamp; systemd/journald provides its own)
+
+#### Custom Logger[​](#custom-logger "Direct link to Custom Logger")
+
+To route SDK logs into your own logging framework, implement `Logger` and pass it wherever a `Logger` is accepted:
+
+```
+// SLF4J's {} placeholder calls toString() on the map, producing {key=value, ...}.// Use entries.joinToString(" ") { "${it.key}=${it.value}" } to get key=value output instead.class MyLogger(private val underlying: org.slf4j.Logger) : Logger {    override fun debug(message: () -> String, attributes: () -> Map<String, Any?>, throwable: Throwable?) {        if (!underlying.isDebugEnabled) return        underlying.debug("{} {}", message(), attributes(), throwable)    }    override fun info(message: () -> String, attributes: () -> Map<String, Any?>, throwable: Throwable?) {        if (!underlying.isInfoEnabled) return        underlying.info("{} {}", message(), attributes(), throwable)    }    override fun warn(message: () -> String, attributes: () -> Map<String, Any?>, throwable: Throwable?) {        if (!underlying.isWarnEnabled) return        underlying.warn("{} {}", message(), attributes(), throwable)    }    override fun error(message: () -> String, attributes: () -> Map<String, Any?>, throwable: Throwable?) {        if (!underlying.isErrorEnabled) return        underlying.error("{} {}", message(), attributes(), throwable)    }}
+```
+
+#### LoggingHook[​](#logginghook "Direct link to LoggingHook")
+
+`LoggingHook` logs at each stage of flag evaluation. Register it like any other hook:
+
+```
+// dev.openfeature.kotlin.sdk.logging.LoggerFactory — the SDK's platform-specific factoryval logger = LoggerFactory.getLogger("FeatureFlags")val hook = LoggingHook(    logger = logger,    logEvaluationContext = false,   // set true to include context attributes in logs    beforeLogLevel = LogLevel.DEBUG,    afterLogLevel = LogLevel.DEBUG,    errorLogLevel = LogLevel.ERROR,    finallyLogLevel = LogLevel.DEBUG,)// register globallyOpenFeatureAPI.addHooks(listOf(hook))
+```
+
+#### PII filtering[​](#pii-filtering "Direct link to PII filtering")
+
+When `logEvaluationContext = true`, context attributes are included in log records. By default, attributes matching common PII field names (see `LoggingHook.DEFAULT_SENSITIVE_KEYS`) are excluded. Two optional parameters let you customize this behaviour:
+
+Parameter
+
+Type
+
+Default
+
+Description
+
+`logTargetingKey`
+
+`Boolean`
+
+`true`
+
+Include the targeting key in context logs. Set to `false` if targeting keys contain PII such as user IDs or email addresses.
+
+`includeAttributes`
+
+`Set<String>?`
+
+`null`
+
+Allowlist: only attributes with these names are logged. An empty set logs no attributes. Takes precedence over `excludeAttributes`. Attribute name matching is case-sensitive.
+
+`excludeAttributes`
+
+`Set<String>`
+
+`DEFAULT_SENSITIVE_KEYS`
+
+Denylist: attributes with these names are omitted. Attribute name matching is case-sensitive.
+
+`LoggingHook.DEFAULT_SENSITIVE_KEYS` contains: `email`, `phone`, `phoneNumber`, `ssn`, `socialSecurityNumber`, `creditCard`, `creditCardNumber`, `password`, `address`, `streetAddress`, `zipCode`, `postalCode`, `ipAddress`, `firstName`, `lastName`, `fullName`, `dateOfBirth`.
+
+```
+// Log only a specific set of safe attributesval hook = LoggingHook(    logger = logger,    logEvaluationContext = true,    logTargetingKey = false,                              // targeting key contains a user ID    includeAttributes = setOf("region", "plan", "tier"), // allowlist — only these are logged)// Or extend the default denylistval hook = LoggingHook(    logger = logger,    logEvaluationContext = true,    excludeAttributes = LoggingHook.DEFAULT_SENSITIVE_KEYS + setOf("internalId", "accountNumber"),)
+```
+
+The hook logs the following at each lifecycle stage:
+
+Stage
+
+Message
+
+Attributes
+
+`before`
+
+`Flag evaluation starting`
+
+`flag`, `type`, `defaultValue`, `provider`, `client` (if set), `context.*` (if enabled)
+
+`after`
+
+`Flag evaluation completed`
+
+`flag`, `value`, `variant` (if set), `reason` (if set), `provider`, `context.*` (if enabled)
+
+`error`
+
+`Flag evaluation error`
+
+`flag`, `type`, `defaultValue`, `provider`, `error` (if set), `context.*` (if enabled)
+
+`finallyAfter`
+
+`Flag evaluation finalized`
+
+`flag`, `errorCode` (if set), `errorMessage` (if set)
+
+Example JVM output for a successful evaluation:
+
+```
+2026-04-15T10:00:00.123Z [DEBUG] FeatureFlags - Flag evaluation starting flag=my-flag type=BOOLEAN defaultValue=false provider=MyProvider2026-04-15T10:00:00.124Z [DEBUG] FeatureFlags - Flag evaluation completed flag=my-flag value=true variant=on reason=TARGETING_MATCH provider=MyProvider2026-04-15T10:00:00.124Z [DEBUG] FeatureFlags - Flag evaluation finalized flag=my-flag
+```
+
+To include evaluation context in logs for a single call, pass a hook hint:
+
+```
+client.getBooleanValue(    "my-flag",    false,    FlagEvaluationOptions(        hooks = listOf(hook),        hookHints = mapOf(LoggingHook.HINT_LOG_EVALUATION_CONTEXT to true)    ))
+```
+
+### Domains[​](#domains "Direct link to Domains")
+
+[Domains](/specification/glossary#domain) allow you to logically bind clients with providers, enabling multiple provider configurations within the same application. Support for domains is currently in development.
+
+### Eventing[​](#eventing "Direct link to Eventing")
+
+Events from the Provider allow the SDK to react to state changes in the provider or underlying flag management system, such as flag definition changes, provider readiness, or error conditions. Events are optional which mean that not all Providers will emit them and it is not a must have. Some providers support additional events, such as `PROVIDER_CONFIGURATION_CHANGED`.
+
+Please refer to the documentation of the provider you're using to see what events are supported.
+
+Example usage:
+
+```
+viewModelScope.launch {  OpenFeatureAPI.observe<OpenFeatureProviderEvents>().collect {    println(">> Provider event received")  }}viewModelScope.launch {  OpenFeatureAPI.setProviderAndWait(    MyFeatureProvider(),    myEvaluationContext,    Dispatchers.Default  )}
+```
+
+### Multi-Provider[​](#multi-provider "Direct link to Multi-Provider")
+
+The Multi-Provider allows you to use multiple underlying providers as sources of flag data for the OpenFeature Kotlin SDK. When a flag is being evaluated, the Multi-Provider will use each underlying provider in order to determine the final result. Different evaluation strategies can be defined to control which providers get evaluated and which result is used.
+
+The Multi-Provider is a useful tool for performing migrations between flag providers, or combining multiple providers into a single feature flagging interface.
+
+See the [Multi-Provider documentation](https://github.com/open-feature/kotlin-sdk/blob/main/docs/multiprovider/README.md) for more details.
+
+### Shutdown[​](#shutdown "Direct link to Shutdown")
+
+The OpenFeature API provides a close function to perform a cleanup of the registered provider. This should only be called when your application is in the process of shutting down.
+
+```
+coroutineScope.launch {    OpenFeatureAPI.shutdown()}
+```
+
+## Sample app[​](#sample-app "Direct link to Sample app")
+
+In the repo there is also a sample app currently under development. The sample app can be used to try out development of a [Provider](#develop-a-provider), a [Hook](#develop-a-hook) or to validate changes to the SDK itself.
+
+The sample app should not be used as a reference implementation of how to use the OpenFeature SDK in an Android app.
+
+## Extending[​](#extending "Direct link to Extending")
+
+### Develop a provider[​](#develop-a-provider "Direct link to Develop a provider")
+
+To develop a provider, you need to create a new project and include the OpenFeature SDK as a dependency. You’ll then need to write the provider by implementing the `FeatureProvider` interface exported by the OpenFeature SDK.
+
+```
+class NewProvider(override val hooks: List<Hook<*>>, override val metadata: ProviderMetadata) : FeatureProvider {    override fun getBooleanEvaluation(        key: String,        defaultValue: Boolean,        context: EvaluationContext?    ): ProviderEvaluation<Boolean> {        // resolve a boolean flag value    }    override fun getDoubleEvaluation(        key: String,        defaultValue: Double,        context: EvaluationContext?    ): ProviderEvaluation<Double> {        // resolve a double flag value    }    override fun getIntegerEvaluation(        key: String,        defaultValue: Int,        context: EvaluationContext?    ): ProviderEvaluation<Int> {        // resolve an integer flag value    }    override fun getLongEvaluation(        key: String,        defaultValue: Long,        context: EvaluationContext?    ): ProviderEvaluation<Long> {        // resolve a long (64-bit integer) flag value    }    override fun getObjectEvaluation(        key: String,        defaultValue: Value,        context: EvaluationContext?    ): ProviderEvaluation<Value> {        // resolve an object flag value    }    override fun getStringEvaluation(        key: String,        defaultValue: String,        context: EvaluationContext?    ): ProviderEvaluation<String> {        // resolve a string flag value    }    override suspend fun initialize(initialContext: EvaluationContext?) {        // add context-aware provider initialization    }    override suspend fun onContextSet(oldContext: EvaluationContext?, newContext: EvaluationContext) {        // add necessary changes on context change    }      override fun track(      trackingEventName: String,      context: EvaluationContext?,      details: TrackingEventDetails?    ) {      // Optionally track an event    }      override fun observe(): Flow<OpenFeatureProviderEvents> {        // Optionally return a `Flow` of OpenFeatureProviderEvents    }}
+```
+
+> Built a new provider? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=provider&projects=&template=document-provider.yaml&title=%5BProvider%5D%3A+) so we can add it to the docs!
+
+### Develop a hook[​](#develop-a-hook "Direct link to Develop a hook")
+
+To develop a hook, you need to create a new project and include the OpenFeature SDK as a dependency. Implement your own hook by conforming to the `Hook` interface exported by the OpenFeature SDK.
+
+> Built a new hook? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=hook&projects=&template=document-hook.yaml&title=%5BHook%5D%3A+) so we can add it to the docs!
+
+[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/client/kotlin.mdx)

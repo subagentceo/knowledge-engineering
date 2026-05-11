@@ -1,0 +1,20 @@
+# Agent setup
+
+Install an agent of your choice, connect skills and MCP servers, and start deploying to Cloudflare — all from your editor or terminal.
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/agent-setup/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Agent setup llms-full.txt](https://developers.cloudflare.com/agent-setup/llms-full.txt) for the complete Agent setup documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Agent setup documentation pages
+
+- [Agent setup](https://developers.cloudflare.com/agent-setup/index.md)
+
+- [Claude Code + Cloudflare](https://developers.cloudflare.com/agent-setup/claude-code/index.md): Terminal-based coding agent that understands your codebase, runs commands, edits files, and manages git. Made by Anthropic.
+- [Codex + Cloudflare](https://developers.cloudflare.com/agent-setup/codex/index.md): Lightweight open-source terminal agent that reads and writes files, runs commands, and browses the web in a sandbox. Made by OpenAI.
+- [Cursor + Cloudflare](https://developers.cloudflare.com/agent-setup/cursor/index.md): AI-first IDE built on VS Code with multi-file Composer edits and background agents. Made by Cursor.
+- [GitHub Copilot + Cloudflare](https://developers.cloudflare.com/agent-setup/github-copilot/index.md): Editor extension and CLI with agent mode, workspace context, and native PR integration. Made by GitHub.
+- [OpenCode + Cloudflare](https://developers.cloudflare.com/agent-setup/opencode/index.md): Open-source terminal agent with a rich TUI that works with 75+ LLMs. Made by Anomaly.
+- [Windsurf + Cloudflare](https://developers.cloudflare.com/agent-setup/windsurf/index.md): Agentic IDE with Cascade context and Flows for multi-step tasks. Made by Cognition.

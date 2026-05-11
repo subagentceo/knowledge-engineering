@@ -1,0 +1,104 @@
+# Magic Transit
+
+Network functions at Cloudflare scale for on-premise, cloud-hosted, and hybrid networks
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/magic-transit/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Magic Transit llms-full.txt](https://developers.cloudflare.com/magic-transit/llms-full.txt) for the complete Magic Transit documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Magic Transit](https://developers.cloudflare.com/magic-transit/index.md): Protect your network infrastructure from DDoS attacks with Magic Transit.
+
+## About
+
+- [About](https://developers.cloudflare.com/magic-transit/about/index.md): How Magic Transit protects your network with BGP and GRE/IPsec tunnels.
+
+## DDoS protection
+
+- [DDoS protection](https://developers.cloudflare.com/magic-transit/ddos/index.md): DDoS mitigation layers available to Magic Transit customers.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/magic-transit/get-started/index.md): Set up Magic Transit to protect your network infrastructure.
+
+## Network health
+
+- [Network health](https://developers.cloudflare.com/magic-transit/network-health/index.md): Monitor Magic Transit tunnel and endpoint health.
+- [Check tunnel health in the dashboard](https://developers.cloudflare.com/magic-transit/network-health/check-tunnel-health-dashboard/index.md): Check tunnel health in the Magic Transit dashboard.
+- [Configure tunnel health alerts](https://developers.cloudflare.com/magic-transit/network-health/configure-tunnel-health-alerts/index.md): Set up and configure tunnel health alerts
+- [How Cloudflare calculates tunnel health alerts](https://developers.cloudflare.com/magic-transit/reference/how-cloudflare-calculates-tunnel-health-alerts/index.md): How tunnel health alert thresholds are calculated.
+- [Run endpoint health checks (beta)](https://developers.cloudflare.com/magic-transit/network-health/run-endpoint-health-checks/index.md): Run endpoint health checks for Magic Transit origins.
+- [Update tunnel health checks frequency](https://developers.cloudflare.com/magic-transit/network-health/update-tunnel-health-checks-frequency/index.md): Update tunnel health check frequency.
+
+## Analytics
+
+- [Analytics](https://developers.cloudflare.com/magic-transit/analytics/index.md): Use Magic Transit analytics to monitor network performance and troubleshoot potential issues.
+- [Network Analytics](https://developers.cloudflare.com/magic-transit/analytics/network-analytics/index.md): Analyze Magic Transit traffic with Network Analytics.
+- [Packet captures](https://developers.cloudflare.com/cloudflare-network-firewall/packet-captures/index.md): Capture and inspect Magic Transit packets.
+- [Query Magic Transit tunnel bandwidth analytics with GraphQL](https://developers.cloudflare.com/magic-transit/analytics/query-bandwidth/index.md): Query tunnel bandwidth analytics with the GraphQL API.
+- [Query Magic Transit tunnel health check results with GraphQL](https://developers.cloudflare.com/magic-transit/analytics/query-tunnel-health/index.md): Query tunnel health check results with the GraphQL API.
+- [Traceroutes](https://developers.cloudflare.com/magic-transit/analytics/traceroutes/index.md): Run traceroutes across your Magic Transit network.
+
+## Network Flow
+
+- [Network Flow](https://developers.cloudflare.com/magic-transit/network-flow/index.md): Monitor Magic Transit traffic with Network Flow.
+
+## Cloudflare IPs
+
+- [Cloudflare IPs](https://developers.cloudflare.com/magic-transit/cloudflare-ips/index.md): Cloudflare IP addresses used by Magic Transit.
+
+## Magic Transit on-demand
+
+- [Magic Transit on-demand](https://developers.cloudflare.com/magic-transit/on-demand/index.md): Activate Magic Transit protection on demand during attacks.
+
+## Network Interconnect (CNI)
+
+- [Network Interconnect (CNI)](https://developers.cloudflare.com/magic-transit/network-interconnect/index.md): Connect to Magic Transit with Network Interconnect.
+
+## Alerts
+
+- [Alerts](https://developers.cloudflare.com/magic-transit/alerts/index.md): Configure alerts for Magic Transit events.
+
+## Changelog
+
+- [Changelog](https://developers.cloudflare.com/magic-transit/changelog/index.md): Review recent changes to Magic Transit.
+
+## Glossary
+
+- [Glossary](https://developers.cloudflare.com/magic-transit/glossary/index.md): Definitions for terms used across Magic Transit documentation.
+
+## how-to
+
+- [Advertise prefixes](https://developers.cloudflare.com/magic-transit/how-to/advertise-prefixes/index.md): Advertise and withdraw IP prefixes with Magic Transit.
+- [Configure routes](https://developers.cloudflare.com/magic-transit/how-to/configure-routes/index.md): Magic Transit uses a static configuration to route your traffic through anycast tunnels from Cloudflare's global network to your locations. If you are connected through CNI with Dataplane v2, you also have access to BGP peering (beta).
+- [Configure tunnel endpoints](https://developers.cloudflare.com/magic-transit/how-to/configure-tunnel-endpoints/index.md): Cloudflare recommends two tunnels for each ISP and network location router combination, one per Cloudflare endpoint. Learn how to configure IPsec or GRE tunnels.
+- [Enable Magic user roles](https://developers.cloudflare.com/magic-transit/how-to/enable-magic-roles/index.md): You can determine which users have, or do not have, configuration edit access for Magic products.
+- [Configure IPv6 (beta)](https://developers.cloudflare.com/magic-transit/how-to/ipv6/index.md): Configure IPv6 support for Magic Transit.
+- [Safely withdraw a BYOIP prefix](https://developers.cloudflare.com/magic-transit/how-to/safely-withdraw-byoip-prefix/index.md): Safely withdraw a BYOIP prefix from Magic Transit.
+- [Verify DDoS protection](https://developers.cloudflare.com/magic-transit/how-to/verify-ddos-protection/index.md): Confirm Magic Transit DDoS protection layers are active and configured.
+
+## partners
+
+- [Kentik](https://developers.cloudflare.com/magic-transit/partners/kentik/index.md): Kentik is a network observability company that helps detect attacks on your network and triggers Cloudflare's Magic Transit to begin advertisement. The example scenario includes two mitigations, one which pulls the advertisement from the router and a second mitigation that makes an API call to Cloudflare.
+
+## reference
+
+- [Anti-replay protection](https://developers.cloudflare.com/magic-transit/reference/anti-replay-protection/index.md): If you use Magic Transit and anycast IPsec tunnels, disable anti-replay protection. Review the information to learn more.
+- [Bandwidth measurement](https://developers.cloudflare.com/magic-transit/reference/bandwidth-measurement/index.md): How Cloudflare measures Magic Transit tunnel bandwidth.
+- [Egress traffic](https://developers.cloudflare.com/magic-transit/reference/egress/index.md): How Magic Transit handles egress traffic.
+- [GRE and IPsec tunnels](https://developers.cloudflare.com/magic-transit/reference/gre-ipsec-tunnels/index.md): Magic Transit uses Generic Routing Encapsulation (GRE) and IPsec tunnels to transmit packets from Cloudflare's global network to your origin network.
+- [How Cloudflare calculates tunnel health alerts](https://developers.cloudflare.com/magic-transit/reference/how-cloudflare-calculates-tunnel-health-alerts/index.md): How tunnel health alert thresholds are calculated.
+- [Maximum transmission unit and maximum segment size](https://developers.cloudflare.com/magic-transit/reference/mtu-mss/index.md): MTU and MSS values for Magic Transit tunnels.
+- [Reference architecture](https://developers.cloudflare.com/reference-architecture/architectures/magic-transit/index.md): Magic Transit reference architecture.
+- [Traffic steering](https://developers.cloudflare.com/magic-transit/reference/traffic-steering/index.md): Magic Transit uses a static configuration to route traffic through anycast tunnels using the Generic Routing Encapsulation (GRE) and Internet Protocol Security (IPsec) protocols from Cloudflare's global network to your network.
+- [Tunnel health checks](https://developers.cloudflare.com/magic-transit/reference/tunnel-health-checks/index.md): Magic Transit uses probes to check for tunnel health. Review information on this page to learn more.
+
+## troubleshooting
+
+- [Troubleshoot connectivity](https://developers.cloudflare.com/magic-transit/troubleshooting/connectivity/index.md): Troubleshoot Magic Transit connectivity issues.
+- [Troubleshoot IPsec tunnels](https://developers.cloudflare.com/magic-transit/troubleshooting/ipsec-troubleshoot/index.md): Troubleshoot Magic Transit IPsec tunnel issues.
+- [Troubleshoot routing and BGP](https://developers.cloudflare.com/magic-transit/troubleshooting/routing-and-bgp/index.md): Troubleshoot Magic Transit routing and BGP issues.
+- [Troubleshoot tunnel health](https://developers.cloudflare.com/magic-transit/troubleshooting/tunnel-health/index.md): Troubleshoot Magic Transit tunnel health issues.

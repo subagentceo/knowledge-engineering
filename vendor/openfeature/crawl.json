@@ -1,0 +1,20 @@
+{
+  "name": "openfeature",
+  "homepage": "https://openfeature.dev",
+  "llms_txt_candidates": [],
+  "sitemap_xml_sources": [
+    "https://openfeature.dev/sitemap.xml"
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://openfeature.dev/docs/",
+    "https://openfeature.dev/specification/"
+  ],
+  "deny_prefixes": [
+    "https://openfeature.dev/blog/tags/"
+  ],
+  "page_cap": 200,
+  "html_extract": {
+    "selector": "article"
+  }
+}

@@ -43,6 +43,7 @@ import {
 } from "./lib/checksums.js";
 import { extractIndexUrls } from "./lib/html-index.js";
 import { parseLlmsTxt, type LlmsTxt } from "./lib/llms-txt.js";
+import { isSitemapIndex, parseSitemapXml } from "./lib/sitemap-xml.js";
 import {
   TRANSFORMS,
   htmlExtract,
@@ -70,13 +71,16 @@ interface CrawlConfig {
    * www.anthropic.com/engineering) discover their URL pool by fetching
    * a live HTML index page and extracting links via a configured
    * regex. Each entry's regex MUST contain exactly one capture group
-   * yielding a path or absolute URL. The capture is resolved against
-   * the entry's `url` (used as the base) and merged into the
-   * URL pool ahead of allowlist filtering.
-   *
-   * @cite src/mcp/lanes/anthropic-engineering.ts (the regex pattern this generalizes)
+   * yielding a path or absolute URL.
    */
   html_index_sources?: { url: string; link_regex: string }[];
+  /**
+   * Phase 13.B (O2). For vendors lacking an llms.txt, fetch each
+   * sitemap.xml URL and merge the discovered `<loc>` entries into
+   * the URL pool ahead of allowlist filtering. Sitemap-index entries
+   * are recursed one level. Used by `vendor/openfeature/`.
+   */
+  sitemap_xml_sources?: string[];
   /** Resolved to a real URL after the discovery probe; persisted back. */
   llms_txt?: string;
   transform: TransformName;
@@ -243,11 +247,13 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
 
   // Discover llms.txt (primary). If llms_txt_sources is set, also fetch each
   // source body and merge its links into the URL pool.
-  // For vendors with html_index_sources but no llms.txt (e.g.
-  // anthropic-engineering), llms.txt discovery is allowed to no-op.
+  // For vendors with html_index_sources or sitemap_xml_sources but no
+  // llms.txt (e.g. anthropic-engineering, openfeature), llms.txt
+  // discovery is allowed to no-op.
   const llms = await discoverLlmsTxt(cfg);
   const hasHtmlIndex = (cfg.html_index_sources?.length ?? 0) > 0;
-  if (llms === null && !hasHtmlIndex) {
+  const hasSitemap = (cfg.sitemap_xml_sources?.length ?? 0) > 0;
+  if (llms === null && !hasHtmlIndex && !hasSitemap) {
     console.error(`[${vendor}] no valid llms.txt found in ${cfg.llms_txt_candidates.length} candidate(s)`);
     return {
       vendor,
@@ -270,11 +276,11 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
       }
     }
   } else {
-    console.log(`[${vendor}] no llms.txt; using html_index_sources`);
+    console.log(`[${vendor}] no llms.txt; using html_index_sources/sitemap_xml_sources`);
   }
 
   // Collect URLs from primary llms.txt + each llms_txt_sources entry +
-  // each html_index_sources entry.
+  // each html_index_sources entry + each sitemap_xml_sources entry.
   const collectedUrls = new Set<string>();
   if (llms !== null) {
     const primaryParsed = parseLlmsTxt(llms.body);
@@ -325,6 +331,45 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
       for (const u of found) collectedUrls.add(u);
     } catch (err) {
       console.warn(`[${vendor}] html_index_source error: ${idx.url}: ${(err as Error).message}`);
+    }
+  }
+
+  // Phase 13.B (O2): sitemap_xml_sources discovery. Fetch each
+  // sitemap.xml URL, parse <loc> entries, and merge into the URL pool
+  // ahead of allowlist filtering. Sitemap-index files (which point at
+  // child sitemaps) are recursed exactly one level.
+  for (const sitemapUrl of cfg.sitemap_xml_sources ?? []) {
+    try {
+      const r = await fetch(sitemapUrl, { headers: { Accept: "application/xml, text/xml" } });
+      if (!r.ok) {
+        failures.push({ url: sitemapUrl, reason: `sitemap_xml HTTP ${r.status}` });
+        continue;
+      }
+      const body = await r.text();
+      const locs = parseSitemapXml(body);
+      if (isSitemapIndex(body)) {
+        console.log(`[${vendor}] sitemap-index: ${sitemapUrl} (${locs.length} child sitemap(s))`);
+        for (const childUrl of locs) {
+          try {
+            const r2 = await fetch(childUrl, { headers: { Accept: "application/xml, text/xml" } });
+            if (!r2.ok) {
+              failures.push({ url: childUrl, reason: `sitemap_xml child HTTP ${r2.status}` });
+              continue;
+            }
+            const childBody = await r2.text();
+            const childLocs = parseSitemapXml(childBody);
+            console.log(`[${vendor}] sitemap (child): ${childUrl} (${childLocs.length} URL(s))`);
+            for (const u of childLocs) collectedUrls.add(u);
+          } catch (err) {
+            console.warn(`[${vendor}] sitemap child error: ${childUrl}: ${(err as Error).message}`);
+          }
+        }
+      } else {
+        console.log(`[${vendor}] sitemap: ${sitemapUrl} (${locs.length} URL(s))`);
+        for (const u of locs) collectedUrls.add(u);
+      }
+    } catch (err) {
+      console.warn(`[${vendor}] sitemap_xml error: ${sitemapUrl}: ${(err as Error).message}`);
     }
   }
 

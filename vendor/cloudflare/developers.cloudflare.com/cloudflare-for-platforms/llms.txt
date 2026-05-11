@@ -1,0 +1,105 @@
+# Cloudflare for Platforms
+
+Build your own multi-tenant platform using Cloudflare as infrastructure
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/cloudflare-for-platforms/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Cloudflare for Platforms llms-full.txt](https://developers.cloudflare.com/cloudflare-for-platforms/llms-full.txt) for the complete Cloudflare for Platforms documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/index.md): Build platforms on Cloudflare where your customers can deploy code with their own subdomains or custom domains.
+
+## Workers for Platforms
+
+- [Workers for Platforms](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/index.md): Run untrusted code from your customers or AI in secure, isolated sandboxes on Cloudflare's global network.
+- [Bindings](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/bindings/index.md): Attach KV, R2, D1, and other resource bindings to user Workers deployed through Workers for Platforms.
+- [Custom limits](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/custom-limits/index.md): Set per-customer CPU time and subrequest limits on user Workers in Workers for Platforms.
+- [Dynamic dispatch Worker](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/dynamic-dispatch/index.md): Create a dynamic dispatch Worker to route incoming requests to user Workers in your dispatch namespace.
+- [Hostname routing](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/hostname-routing/index.md): Learn how to route requests to the dispatch worker.
+- [Observability](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/observability/index.md): Collect logs, traces, and analytics across all user Workers in a Workers for Platforms dispatch namespace.
+- [Outbound Workers](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/outbound-workers/index.md): Intercept and control outgoing fetch requests from user Workers using Outbound Workers in Workers for Platforms.
+- [Static assets](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/static-assets/index.md): Host static assets on Cloudflare's global network and deliver faster load times worldwide with Workers for Platforms.
+- [Tags](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/configuration/tags/index.md): Organize, search, and filter user Workers by custom tags like customer ID or plan type in Workers for Platforms.
+- [Get started](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/get-started/index.md): Deploy a Workers for Platforms starter kit and create your first multi-tenant platform on Cloudflare.
+- [How Workers for Platforms works](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/how-workers-for-platforms-works/index.md): Understand the architecture of Workers for Platforms, including dispatch namespaces, dynamic dispatch Workers, user Workers, and outbound Workers.
+- [Limits](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/reference/limits/index.md): Review Workers for Platforms limits for scripts, Durable Objects, cache, tags, and API rate limits.
+- [Local development](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/reference/local-development/index.md): Test your dynamic dispatch Worker locally while connecting to deployed user Workers in a Workers for Platforms namespace.
+- [User Worker metadata](https://developers.cloudflare.com/workers/configuration/multipart-upload-metadata/index.md): Configure metadata for user Worker uploads in Workers for Platforms, including bindings, compatibility settings, and placement.
+- [API examples](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/reference/platform-examples/index.md): REST API and TypeScript SDK examples for deploying Workers programmatically.
+- [Pricing](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/reference/pricing/index.md): Review Workers for Platforms pricing for requests, CPU time, and scripts, including usage allotments and overage costs.
+- [Worker Isolation](https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/reference/worker-isolation/index.md): Choose between untrusted and trusted isolation modes for user Workers in a Workers for Platforms dispatch namespace.
+- [WFP REST API](https://developers.cloudflare.com/api/resources/workers_for_platforms/subresources/dispatch/subresources/namespaces/methods/list/index.md): Access the Workers for Platforms REST API to manage dispatch namespaces and user Workers programmatically.
+
+## Cloudflare for SaaS
+
+- [Cloudflare for SaaS](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/index.md): Extend Cloudflare security and performance to your customers' custom hostnames.
+- [API reference](https://developers.cloudflare.com/api/resources/custom_hostnames/methods/list/index.md): API endpoints for creating and managing custom hostnames.
+- [Design guide](https://developers.cloudflare.com/reference-architecture/design-guides/extending-cloudflares-benefits-to-saas-providers-end-customers/index.md): Reference architecture for extending Cloudflare benefits to SaaS end customers.
+- [Custom hostnames](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/index.md): Add customer vanity domains and subdomains to your SaaS zone as custom hostnames.
+- [Create custom hostnames](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/create-custom-hostnames/index.md): Learn how to create custom hostnames.
+- [Custom metadata](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/custom-metadata/index.md): Configure per-hostname settings such as URL rewriting and custom headers.
+- [Hostname validation](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/hostname-validation/index.md): Verify customer ownership of custom hostnames before proxying traffic.
+- [Backoff schedule](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/hostname-validation/backoff-schedule/index.md): Retry schedule for custom hostname validation over a seven-day period.
+- [Error codes](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/hostname-validation/error-codes/index.md): Error codes you may encounter when validating custom hostnames.
+- [Pre-validation](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/hostname-validation/pre-validation/index.md): Verify domain ownership before customer traffic begins proxying through Cloudflare.
+- [Real-time validation](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/hostname-validation/realtime-validation/index.md): Validate custom hostnames when customers add DNS routing records to their domain.
+- [Validation status](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/hostname-validation/validation-status/index.md): Possible statuses for custom hostname validation and their meanings.
+- [Move hostnames](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/migrating-custom-hostnames/index.md): Learn how to move hostnames between different zones.
+- [Remove custom hostnames](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/domain-support/remove-custom-hostnames/index.md): Learn how to remove custom hostnames for inactive customers.
+- [Analytics](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/hostname-analytics/index.md): View per-hostname analytics for traffic, bots, cache, and security events.
+- [Performance](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/performance/index.md): Reduce latency for custom hostnames with Argo, Early Hints, caching, and anycast.
+- [Argo Smart Routing for SaaS](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/performance/argo-for-saas/index.md): Optimize routing for custom hostname traffic with Argo Smart Routing.
+- [Cache for SaaS](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/performance/cache-for-saas/index.md): Cache static content on custom hostnames to reduce latency for end users.
+- [Early Hints for SaaS](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/performance/early-hints-for-saas/index.md): Enable Early Hints per custom hostname to preload resources and speed up page loads.
+- [Plans](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/plans/index.md): Learn what features and limits are part of various Cloudflare plans.
+- [Certificate authorities](https://developers.cloudflare.com/ssl/reference/certificate-authorities/index.md): Certificate authorities available for custom hostname certificate issuance.
+- [Certificate statuses](https://developers.cloudflare.com/ssl/reference/certificate-statuses/index.md): Certificate lifecycle statuses for custom hostname TLS certificates.
+- [Connection request details](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/reference/connection-details/index.md): How Cloudflare sets Host headers and SNI when forwarding connections to your origin.
+- [Domain control validation backoff schedule](https://developers.cloudflare.com/ssl/edge-certificates/changing-dcv-method/validation-backoff-schedule/index.md): Retry schedule for domain control validation attempts.
+- [Certificate and hostname priority](https://developers.cloudflare.com/ssl/reference/certificate-and-hostname-priority/index.md): How Cloudflare determines certificate and hostname priority for custom hostnames.
+- [Custom CSRs](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/reference/status-codes/custom-csrs/index.md): HTTP status codes for certificate signing request API endpoints.
+- [Custom hostnames](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/reference/status-codes/custom-hostnames/index.md): HTTP status codes for custom hostname API endpoints.
+- [Token validity periods](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/reference/token-validity-periods/index.md): DCV token expiration periods by certificate authority for TXT validation.
+- [Troubleshooting](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/reference/troubleshooting/index.md): Resolve common issues with custom hostnames, certificates, and rate limits.
+- [Deprecation - Version 1](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/reference/versioning/index.md): Deprecation notice and migration guide for SSL for SaaS Version 1.
+- [SaaS customers](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/index.md): Resources for customers whose domains are managed by a SaaS provider using Cloudflare.
+- [How it works](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/how-it-works/index.md): How O2O routes traffic through two Cloudflare zones for SaaS provider configurations.
+- [Product compatibility](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/product-compatibility/index.md): Cloudflare product compatibility guidelines for O2O custom hostname zones.
+- [BigCommerce](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/provider-guides/bigcommerce/index.md): Learn how to configure your Enterprise zone with BigCommerce.
+- [HubSpot](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/provider-guides/hubspot/index.md): Learn how to configure your zone with HubSpot.
+- [Kinsta](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/provider-guides/kinsta/index.md): Learn how to configure your Enterprise zone with Kinsta.
+- [Render](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/provider-guides/render/index.md): Learn how to configure your Enterprise zone with Render.
+- [Salesforce Commerce Cloud](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/provider-guides/salesforce-commerce-cloud/index.md): Learn how to configure your Enterprise zone with Salesforce Commerce Cloud.
+- [Shopify](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/provider-guides/shopify/index.md): Learn how to configure your zone with Shopify.
+- [Webflow](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/provider-guides/webflow/index.md): Learn how to configure your Cloudflare zone with Webflow.
+- [WP Engine](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/provider-guides/wpengine/index.md): Learn how to configure your zone with WP Engine.
+- [Remove domain](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/remove-domain/index.md): Remove your domain from a SaaS provider O2O configuration.
+- [Security](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/index.md): Manage certificates, TLS settings, WAF rules, and access controls for custom hostnames.
+- [Certificate management](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/index.md): Issue, validate, renew, and upload TLS certificates for custom hostnames.
+- [Certificate statuses](https://developers.cloudflare.com/ssl/reference/certificate-statuses/index.md): View certificate status definitions for custom hostname certificates.
+- [Custom certificates](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/custom-certificates/index.md): Upload your own TLS certificates for custom hostnames that require custom key material.
+- [Certificate signing requests (CSRs)](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/custom-certificates/certificate-signing-requests/index.md): Cloudflare for SaaS allows you to generate a Certificate Signing Request (CSR) A CSR contains information about your domain, common name, and Subject Alternative Names.
+- [Manage custom certificates](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/custom-certificates/uploading-certificates/index.md): Learn how to manage custom certificates for your Cloudflare for SaaS custom hostnames.
+- [TLS Management](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/enforce-mtls/index.md): Configure mTLS enforcement and minimum TLS version per custom hostname.
+- [Issue](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/issue-and-validate/issue-certificates/index.md): Cloudflare automatically issues certificates when you create a custom hostname.
+- [Renew](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/issue-and-validate/renew-certificates/index.md): Renew custom hostname certificates before their 90-day expiration.
+- [Validate](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/issue-and-validate/validate-certificates/index.md): Learn which methods you should use to validate Cloudflare for SaaS certificates.
+- [Delegated](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/issue-and-validate/validate-certificates/delegated-dcv/index.md): Delegate domain control validation to Cloudflare for automated certificate issuance.
+- [HTTP](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/issue-and-validate/validate-certificates/http/index.md): Validate domain ownership by placing a DCV token on your customer origin.
+- [Troubleshooting](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/issue-and-validate/validate-certificates/troubleshooting/index.md): Resolve certificate validation issues including high-risk domains and CA errors.
+- [TXT](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/issue-and-validate/validate-certificates/txt/index.md): Validate domain ownership with a TXT DNS record for certificate issuance.
+- [Webhook definitions](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/webhook-definitions/index.md): Webhook event data for certificate issuance, validation, and custom hostname changes.
+- [Secure with Cloudflare Access](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/secure-with-access/index.md): Control access to custom hostnames using Cloudflare Access identity and device policies.
+- [WAF for SaaS](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/waf-for-saas/index.md): Apply custom rules, rate limiting, and managed rulesets per custom hostname.
+- [Managed rulesets](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/waf-for-saas/managed-rulesets/index.md): Deploy WAF managed rulesets per custom hostname using WAF for SaaS.
+- [Apex proxying](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/start/advanced-settings/apex-proxying/index.md): Allow your customers to use apex domains with your SaaS application.
+- [Setup](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/start/advanced-settings/apex-proxying/setup/index.md): Configure Cloudflare for SaaS to support apex domain custom hostnames.
+- [Custom origin server](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/start/advanced-settings/custom-origin/index.md): Route custom hostname traffic to a different origin server per hostname.
+- [Regional Services for SaaS](https://developers.cloudflare.com/data-localization/how-to/cloudflare-for-saas/index.md): Restrict data processing to specific regions for SaaS custom hostnames.
+- [Workers as your fallback origin](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/start/advanced-settings/worker-as-origin/index.md): Learn how to use a Worker as the fallback origin for your SaaS zone.
+- [Common API Calls](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/start/common-api-calls/index.md): API endpoints for managing custom hostnames and fallback origins.
+- [Enable](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/start/enable/index.md): Enable Cloudflare for SaaS on your account to start creating custom hostnames.
+- [Configuring Cloudflare for SaaS](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/start/getting-started/index.md): Get started with Cloudflare for SaaS

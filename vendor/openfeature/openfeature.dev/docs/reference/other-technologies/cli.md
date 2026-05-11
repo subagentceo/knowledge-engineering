@@ -1,0 +1,315 @@
+-   [](/)
+-   [Other Technologies](/docs/category/other-technologies)
+-   CLI
+
+On this page
+
+# OpenFeature CLI
+
+[![work-in-progress](https://img.shields.io/badge/status-WIP-yellow)](https://github.com/orgs/open-feature/projects/17)[![Slack](https://img.shields.io/badge/slack-%40cncf%2Fopenfeature-brightgreen?style=flat&logo=slack)](https://cloud-native.slack.com/archives/C07DY4TUDK6)
+
+The OpenFeature CLI is a command-line tool designed to improve the developer experience when working with feature flags. It helps developers manage feature flags consistently across different environments and programming languages by providing powerful utilities for code generation, flag validation, and more.
+
+The CLI bridges the gap between feature flag management systems and your application code by generating strongly typed flag accessors from a flag manifest. This approach provides:
+
+-   **Type Safety**: Generate strongly-typed flag accessors for your preferred language
+-   **Developer Experience**: Reduce errors and improve IDE autocomplete support
+-   **Language Support**: Generate code for TypeScript, JavaScript, React, Go, C#, and more
+
+## Installation[​](#installation "Direct link to Installation")
+
+### via curl[​](#via-curl "Direct link to via curl")
+
+The OpenFeature CLI can be installed using a shell command. This method is suitable for most Unix-like operating systems.
+
+```
+curl -fsSL https://openfeature.dev/scripts/install_cli.sh | sh
+```
+
+### via Docker[​](#via-docker "Direct link to via Docker")
+
+The OpenFeature CLI is available as a Docker image in the [GitHub Container Registry](https://github.com/open-feature/cli/pkgs/container/cli).
+
+You can run the CLI in a Docker container using the following command:
+
+```
+docker run -it -v $(pwd):/local -w /local ghcr.io/open-feature/cli:latest
+```
+
+### via Go[​](#via-go "Direct link to via Go")
+
+If you have `Go >= 1.25` installed, you can install the CLI using the following command:
+
+```
+go install github.com/open-feature/cli/cmd/openfeature@latest
+```
+
+### via pre-built binaries[​](#via-pre-built-binaries "Direct link to via pre-built binaries")
+
+Download the appropriate pre-built binary from the [releases page](https://github.com/open-feature/cli/releases).
+
+## Quick Start[​](#quick-start "Direct link to Quick Start")
+
+1.  Create a flag manifest file in your project root:
+
+```
+cat > flags.json << EOL{  "$schema": "https://raw.githubusercontent.com/open-feature/cli/refs/heads/main/schema/v0/flag-manifest.json",  "flags": {    "enableMagicButton": {      "flagType": "boolean",      "defaultValue": false,      "description": "Activates a special button that enhances user interaction with magical, intuitive functionalities."    }  }}EOL
+```
+
+Note
+
+This is for demonstration purposes only. In a real-world scenario, you would typically want to fetch this file from a remote flag management service. See [here](https://github.com/open-feature/cli/issues/3), more details.
+
+2.  Generate code for your preferred language:
+
+```
+openfeature generate react
+```
+
+See [here](https://github.com/open-feature/cli/blob/main/docs/commands/openfeature_generate.md) for all available options.
+
+3.  View the generated code:
+
+```
+cat openfeature.ts
+```
+
+**Congratulations!** You have successfully generated your first strongly typed flag accessors. You can now use the generated code in your application to access the feature flags. This is just scratching the surface of what the OpenFeature CLI can do. For more advanced usage, read on!
+
+## Commands[​](#commands "Direct link to Commands")
+
+The OpenFeature CLI provides the following commands:
+
+Command
+
+Description
+
+`init`
+
+Initialize a new flag manifest
+
+`manifest`
+
+Manage flag manifest files (add, list, delete)
+
+`compare`
+
+Compare two flag manifests
+
+`generate`
+
+Generate strongly typed flag accessors
+
+`pull`
+
+Fetch flags from remote sources
+
+`push`
+
+Push flags to remote services
+
+`version`
+
+Display CLI version
+
+### `init`[​](#init "Direct link to init")
+
+Initialize a new flag manifest in your project.
+
+```
+openfeature init
+```
+
+This command creates a `flags.json` file in your current directory with the proper schema reference. You can customize the manifest path using configuration options.
+
+See [here](https://github.com/open-feature/cli/blob/main/docs/commands/openfeature_init.md) for all available options.
+
+### `manifest`[​](#manifest "Direct link to manifest")
+
+Manage flag manifest files with subcommands for adding, listing, and deleting flags.
+
+```
+# Add a new flag interactivelyopenfeature manifest add# Add a boolean flagopenfeature manifest add new-feature --default-value false# Add a string flag with descriptionopenfeature manifest add welcome-message \  --type string \  --default-value "Hello!" \  --description "Welcome message for users"# List all flags in the manifestopenfeature manifest list# Delete a flag from the manifestopenfeature manifest delete old-feature
+```
+
+The manifest command provides:
+
+-   **add**: Add new flags to your manifest file
+-   **list**: Display all flags with their configuration
+-   **delete**: Remove flags from your manifest file
+
+See [here](https://github.com/open-feature/cli/blob/main/docs/commands/openfeature_manifest.md) for all available options.
+
+### `compare`[​](#compare "Direct link to compare")
+
+Compare two feature flag manifests and display the differences.
+
+```
+# Compare your local manifest against anotheropenfeature compare --against production-flags.json# Compare with different output formatsopenfeature compare --against other.json --output jsonopenfeature compare --against other.json --output yamlopenfeature compare --against other.json --output flat
+```
+
+Output formats:
+
+-   **tree**: Hierarchical tree view (default)
+-   **flat**: Simple flat list
+-   **json**: JSON format
+-   **yaml**: YAML format
+
+See [here](https://github.com/open-feature/cli/blob/main/docs/commands/openfeature_compare.md) for all available options.
+
+### `generate`[​](#generate "Direct link to generate")
+
+Generate strongly typed flag accessors for your project.
+
+```
+# List available languagesopenfeature generate# Generate for a specific languageopenfeature generate typescript# With custom output directoryopenfeature generate typescript --output ./src/flags
+```
+
+**Supported Languages:**
+
+Language
+
+Description
+
+`react`
+
+React hooks for feature flags
+
+`go`
+
+Go flag accessors
+
+`csharp`
+
+C# flag accessors
+
+`java`
+
+Java flag accessors
+
+`python`
+
+Python flag accessors
+
+`nestjs`
+
+NestJS flag accessors
+
+`nodejs`
+
+Node.js flag accessors
+
+`angular`
+
+Angular flag accessors
+
+See [here](https://github.com/open-feature/cli/blob/main/docs/commands/openfeature_generate.md) for all available options.
+
+> **_NOTE:_** Angular generated code requires `@openfeature/angular-sdk` version `1.1.0` or newer.
+
+### `pull`[​](#pull "Direct link to pull")
+
+Fetch feature flag configurations from a remote source.
+
+```
+# Pull flags from a remote APIopenfeature pull --flag-source-url https://api.example.com# With authenticationopenfeature pull --flag-source-url https://api.example.com --auth-token secret-token# Pull from a JSON file URLopenfeature pull --flag-source-url https://example.com/flags.json
+```
+
+The pull command supports:
+
+-   HTTP/HTTPS endpoints implementing the OpenFeature Manifest Management API
+-   Direct JSON/YAML file URLs
+-   Authentication via bearer tokens
+
+See [here](https://github.com/open-feature/cli/blob/main/docs/commands/openfeature_pull.md) for all available options.
+
+### `push`[​](#push "Direct link to push")
+
+Push local flag configurations to a remote flag management service.
+
+```
+# Push flags to a remote APIopenfeature push --flag-source-url https://api.example.com --auth-token secret-token# Dry run to preview changesopenfeature push --flag-source-url https://api.example.com --dry-run
+```
+
+The push command intelligently:
+
+-   Fetches existing flags from the remote
+-   Compares local flags with remote flags
+-   Creates new flags that don't exist remotely
+-   Updates existing flags that have changed
+
+See [here](https://github.com/open-feature/cli/blob/main/docs/commands/openfeature_push.md) for all available options.
+
+### `version`[​](#version "Direct link to version")
+
+Print the version number of the OpenFeature CLI.
+
+```
+openfeature version
+```
+
+See [here](https://github.com/open-feature/cli/blob/main/docs/commands/openfeature_version.md) for all available options.
+
+## Flag Manifest[​](#flag-manifest "Direct link to Flag Manifest")
+
+The flag manifest is a JSON file that defines your feature flags and their properties. It serves as the source of truth for your feature flags and is used by the CLI to generate strongly typed accessors. The manifest file should be named `flags.json` and placed in the root of your project.
+
+### Flag Manifest Structure[​](#flag-manifest-structure "Direct link to Flag Manifest Structure")
+
+The flag manifest file should follow the [JSON schema](https://raw.githubusercontent.com/open-feature/cli/refs/heads/main/schema/v0/flag-manifest.json) with the following properties:
+
+-   `$schema` - The URL of the JSON schema for validation
+-   `flags` - An object containing the feature flags
+    -   `flagKey` - A unique key for the flag
+        -   `description` - A description of what the flag does
+        -   `type` - The type of the flag (`boolean`, `string`, `number`, `object`)
+        -   `defaultValue` - The default value of the flag
+
+### Example Flag Manifest[​](#example-flag-manifest "Direct link to Example Flag Manifest")
+
+```
+{  "$schema": "https://raw.githubusercontent.com/open-feature/cli/refs/heads/main/schema/v0/flag-manifest.json",  "flags": {    "uniqueFlagKey": {      "description": "Description of what this flag does",      "type": "boolean|string|number|object",      "defaultValue": "default-value",    }  }}
+```
+
+## Remote Flag Management[​](#remote-flag-management "Direct link to Remote Flag Management")
+
+The OpenFeature CLI supports synchronizing flags with remote flag management services through a standardized OpenAPI-based approach. This enables teams to:
+
+-   **Pull flags** from centralized flag management systems
+-   **Push flags** back to maintain consistency across environments
+-   **Integrate** with any service that implements the Manifest Management API
+
+### OpenAPI Client Pattern[​](#openapi-client-pattern "Direct link to OpenAPI Client Pattern")
+
+The CLI uses an OpenAPI-driven architecture for remote operations:
+
+1.  **Standardized API**: All remote operations conform to the [Manifest Management API](https://github.com/open-feature/cli/blob/main/api/v0/sync.yaml) OpenAPI specification
+2.  **Type-Safe Clients**: Generated clients provide compile-time safety and better IDE support
+3.  **Provider Agnostic**: Any service implementing the API specification can integrate with the CLI
+
+For detailed information about implementing or extending the OpenAPI client pattern, see the [OpenAPI Client Pattern documentation](https://github.com/open-feature/cli/blob/main/docs/openapi-client-pattern.md).
+
+### Implementing the Manifest Management API[​](#implementing-the-manifest-management-api "Direct link to Implementing the Manifest Management API")
+
+If you're building a flag management service that needs to integrate with the OpenFeature CLI, implement the endpoints defined in the [sync.yaml](https://github.com/open-feature/cli/blob/main/api/v0/sync.yaml) specification:
+
+-   `GET /openfeature/v0/manifest` - Retrieve the project manifest
+-   `POST /openfeature/v0/manifest/flags` - Create new flags
+-   `PUT /openfeature/v0/manifest/flags/{key}` - Update existing flags
+-   `DELETE /openfeature/v0/manifest/flags/{key}` - Archive/delete flags
+
+## Configuration[​](#configuration "Direct link to Configuration")
+
+The OpenFeature CLI uses an optional configuration file to override default settings and customize behavior. This file can be in JSON or YAML format and should be named either `.openfeature.json` or `.openfeature.yaml`.
+
+### Configuration File Structure[​](#configuration-file-structure "Direct link to Configuration File Structure")
+
+```
+# Example .openfeature.yamlmanifest: "flags/manifest.json" # Overrides the default manifest pathgenerate:  output: "src/flags" # Overrides the default output directory  # Any language-specific options can be specified here  # For example, for React:  react:    output: "src/flags/react" # Overrides the default React output directory  # For Go:  go:    package: "github.com/myorg/myrepo/flags" # Overrides the default Go package name    output: "src/flags/go" # Overrides the default Go output directory
+```
+
+### Configuration Priority[​](#configuration-priority "Direct link to Configuration Priority")
+
+The CLI uses a layered approach to configuration, allowing you to override settings at different levels. The configuration is applied in the following order:
+
+[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/other-technologies/cli.mdx)
