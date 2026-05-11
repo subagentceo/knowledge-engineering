@@ -199,3 +199,36 @@ Cited from:
 - Auth posture preserved: NO ANTHROPIC_API_KEY introduced; the
   existing `NEON_API_KEY` Secrets Store binding (declared in
   `infra/cloudflare/wrangler.jsonc`) is reused.
+
+### 16. outcomesdk.com pretext frontend — ✅ 13.B+ (O7)
+
+- New `frontend/` workspace at the repo root, separate `wrangler.jsonc`,
+  separate `outcomesdk-frontend` Worker. Architectural separation from
+  `infra/cloudflare/ke-cloud-agent` so the public surface inherits ZERO
+  Claude secrets.
+- `frontend/src/index.html` — half-and-half grid (`100svh`, ASCII top,
+  accordion bottom). Mobile-first (iPhone 16 Pro Chrome baseline).
+- `frontend/src/ascii-art.ts` (~140 LOC) — particle-and-attractor
+  brightness field driving an 11-char monospace luminance ramp.
+  IntersectionObserver pauses when off-screen; respects
+  `prefers-reduced-motion`.
+- `frontend/src/accordion.ts` (~140 LOC) — `@chenglou/pretext`-measured
+  section heights ("finally sane accordion" pattern). One section open
+  at a time, click-to-toggle with Enter/Space keyboard activation.
+- `frontend/src/vendor-loader.ts` — fetches `/vendor/<vendor>/<path>.md`,
+  renders via `marked` + DOMPurify (browser singleton; jsdom-injected
+  in tests via `setPurifierWindow()` so jsdom never ships to browser).
+- `frontend/src/worker.ts` — serves Vite-built bundle + vendor markdown
+  via Workers Static Assets binding.
+- `frontend/scripts/build-vendor-manifest.ts` — build-time: walks
+  `vendor/`, copies `*.md` to `frontend/public/vendor/`, emits
+  `vendor-manifest.json`.
+- `frontend/wrangler.jsonc` — `routes[]` declares `outcomesdk.com` and
+  `www.outcomesdk.com` as `custom_domain: true`. Operator runbook
+  `docs/operator-runbooks/outcomesdk-domain.md` verifies API token
+  permissions for first deploy.
+- 11/11 frontend unit tests pass: `cd frontend && npm test`.
+- `wrangler deploy --dry-run` validates: 2055 files (vendor mirror +
+  bundle), 19 KiB Worker, 4.86 KiB gzipped.
+- Bundle size: 109 KiB (37 KiB gzipped). jsdom kept out of the
+  browser bundle by deferring DOMPurify init.
