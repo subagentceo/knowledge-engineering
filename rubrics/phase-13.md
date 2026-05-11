@@ -28,7 +28,7 @@ Cited from:
 | Sub | Status | What |
 |---|---|---|
 | 13.A | ✅ done | conditional GET + content-hash skip-write — merged via PR #52 |
-| 13.B | 🟢 in-progress | `vendor/anthropic-engineering/` + daily `/schedule` (O1; this PR) |
+| 13.B | ✅ done | `vendor/anthropic-engineering/` + sitemap.xml + openfeature/flagship + SDK + color-code (O1-O6) |
 | 13.C | 🟡 follow-up | `vendor/claude-blog/` (4 categories) daily `/schedule` |
 | 13.D | 🟡 follow-up | 4 marketing surfaces (claude-customers / plugins / connectors / tutorials) |
 
@@ -147,3 +147,22 @@ Cited from:
 - Auth posture preserved: NO ANTHROPIC_API_KEY introduced; NO new
   secrets in Cloudflare Secrets Store (Flagship is a Worker binding,
   not an API key).
+
+### 14. Color-code demo gated by OpenFeature flag — ✅ 13.B+ (O6)
+
+- `src/lib/ansi-color.ts` declares `ALLOWED_COLORS` (8: red, blue,
+  green, yellow, purple, orange, pink, cyan); pure `colorize()` wraps
+  text in 256-color ANSI prefix, returns plain text when `isTty=false`
+  (no escape leakage in CI / log files).
+- `src/agent/todo-tracker.ts` `display()` resolves `color-code` via
+  `getOpenFeatureClient().getStringValue("color-code", "cyan")` once
+  per tracker instance and wraps each task icon in the resolved color.
+- 9/9 unit tests pass: `npx tsx --test src/lib/ansi-color.test.ts`.
+  Each of the 8 colors yields a unique ANSI prefix; invalid values
+  fall back to `cyan` (no throw).
+- End-to-end:
+  - Default: `npm run dev "..."` → cyan icons.
+  - Override: `OPENFEATURE_color_code=red npm run dev "..."` → red icons.
+  - In Worker runtime: Flagship binding pre-evaluates the flag →
+    `OPENFEATURE_color_code` env var passed into Sandbox → in-Sandbox
+    InMemoryProvider picks it up → TodoTracker renders the chosen color.

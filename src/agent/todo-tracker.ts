@@ -9,6 +9,9 @@
 
 import { query } from "@anthropic-ai/claude-agent-sdk";
 
+import { coerceColor, colorize, type Color } from "../lib/ansi-color.js";
+import { getOpenFeatureClient } from "../lib/openfeature.js";
+
 type Status = "pending" | "in_progress" | "completed";
 
 interface Todo {
@@ -27,18 +30,38 @@ const ICON: Record<Status, string> = {
 export class TodoTracker {
   private todos = new Map<string, Todo>();
   private order: string[] = [];
+  private cachedColor: Color | null = null;
 
-  display(): void {
+  /**
+   * Phase 13.B+ (O6). Resolve the `color-code` flag (one of 8) via
+   * OpenFeature. Cached per TodoTracker instance — render() may fire
+   * many times during a single session and we don't want to evaluate
+   * on every redraw. The cached value reflects the flag at first
+   * render; subsequent flag changes require a new TodoTracker.
+   */
+  private async resolveColor(): Promise<Color> {
+    if (this.cachedColor !== null) return this.cachedColor;
+    const client = getOpenFeatureClient();
+    const raw = await client.getStringValue("color-code", "cyan");
+    this.cachedColor = coerceColor(raw);
+    return this.cachedColor;
+  }
+
+  async display(): Promise<void> {
     if (this.todos.size === 0) return;
     const list = this.order.map((k) => this.todos.get(k)!).filter(Boolean);
     const completed = list.filter((t) => t.status === "completed").length;
     const inProgress = list.filter((t) => t.status === "in_progress").length;
 
+    const color = await this.resolveColor();
+    const isTty = process.stdout.isTTY === true;
+
     process.stdout.write(`\nProgress: ${completed}/${list.length} completed\n`);
     process.stdout.write(`Currently working on: ${inProgress} task(s)\n\n`);
     list.forEach((t, i) => {
       const text = t.status === "in_progress" ? t.activeForm : t.content;
-      process.stdout.write(`${i + 1}. ${ICON[t.status]} ${text}\n`);
+      const icon = colorize(color, ICON[t.status], isTty);
+      process.stdout.write(`${i + 1}. ${icon} ${text}\n`);
     });
   }
 
@@ -80,19 +103,19 @@ export class TodoTracker {
           case "TodoWrite": {
             const todos = (block.input as { todos: Todo[] }).todos ?? [];
             this.replaceAll(todos);
-            this.display();
+            await this.display();
             break;
           }
           case "TaskCreate": {
             const t = block.input as Todo & { id: string };
             this.upsert(t.id, t);
-            this.display();
+            await this.display();
             break;
           }
           case "TaskUpdate": {
             const t = block.input as { id: string; status?: Status; content?: string };
             this.upsert(t.id, t);
-            this.display();
+            await this.display();
             break;
           }
           default:
