@@ -43,6 +43,7 @@ import {
 } from "./lib/checksums.js";
 import { extractIndexUrls } from "./lib/html-index.js";
 import { parseLlmsTxt, type LlmsTxt } from "./lib/llms-txt.js";
+import { neonEnabled, upsertVendorPage } from "./lib/neon-client.js";
 import { isSitemapIndex, parseSitemapXml } from "./lib/sitemap-xml.js";
 import {
   TRANSFORMS,
@@ -240,6 +241,20 @@ function dedupeUrls(parsed: LlmsTxt): string[] {
 async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult> {
   const cfg = loadConfig(vendor);
   console.log(`[${vendor}] crawl start (transform=${cfg.transform}, page_cap=${cfg.page_cap})`);
+
+  // Phase 13.B+ (O8): collect successful page writes so we can dual-write
+  // to Neon after the crawl finishes (when NEON_DATABASE_URL is set).
+  // Filesystem writes happen inline; Neon UPSERTs flush at the end so we
+  // batch them and keep the inner loops sync-friendly.
+  interface NeonRow {
+    vendor: string;
+    path: string;
+    content: string;
+    content_hash: string;
+    etag?: string;
+    last_modified?: string;
+  }
+  const neonBatch: NeonRow[] = [];
 
   // Declared up-front so the additional-source loop can record failures
   // without needing to thread them through later.
@@ -480,14 +495,23 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
             const result = writeIfChanged(target, finalBody);
             if (result === "wrote") fetched += 1;
             else skipped += 1;
+            const sha = hashBody(finalBody);
             checksums[w.origUrl] = {
-              sha256: hashBody(finalBody),
+              sha256: sha,
               etag: res.etag ?? undefined,
               lastModified: res.lastModified ?? undefined,
               fetchedAt: nowIso,
               lastStatus: 200,
             };
             indexRows.push({ url: w.origUrl, relPath });
+            neonBatch.push({
+              vendor,
+              path: relPath,
+              content: finalBody,
+              content_hash: sha,
+              etag: res.etag ?? undefined,
+              last_modified: res.lastModified ?? undefined,
+            });
             continue;
           }
           // Non-200/304 status — record failure.
@@ -510,6 +534,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
     if (incremental) saveChecksums(VENDOR_ROOT, vendor, checksums);
     const front = renderUrlsIndex(vendor, llms?.url ?? "", cfg.transform, indexRows);
     writeIfChanged(resolve(VENDOR_ROOT, vendor, "urls.md"), front);
+    await flushNeonBatch(vendor, neonBatch);
     console.log(`[${vendor}] fetched=${fetched} unchanged=${skipped + preflightUnchanged} preflight-304=${preflight304} failed=${failures.length}`);
     return {
       vendor,
@@ -554,15 +579,24 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
         if (result === "wrote") fetched += 1;
         else skipped += 1;
         indexRows.push({ url: meta.origUrl, relPath });
+        const sha = hashBody(finalBody);
         if (incremental) {
           checksums[meta.origUrl] = {
-            sha256: hashBody(finalBody),
+            sha256: sha,
             etag: etagStr ?? undefined,
             lastModified: lmStr ?? undefined,
             fetchedAt: nowIso,
             lastStatus: 200,
           };
         }
+        neonBatch.push({
+          vendor,
+          path: relPath,
+          content: finalBody,
+          content_hash: sha,
+          etag: etagStr ?? undefined,
+          last_modified: lmStr ?? undefined,
+        });
       },
       failedRequestHandler: ({ request, error }) => {
         failures.push({ url: (request.userData as { origUrl: string }).origUrl, reason: (error as Error).message });
@@ -586,10 +620,11 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   const front = renderUrlsIndex(vendor, llms?.url ?? "", cfg.transform, indexRows);
   writeIfChanged(resolve(VENDOR_ROOT, vendor, "urls.md"), front);
 
+  await flushNeonBatch(vendor, neonBatch);
   console.log(`[${vendor}] fetched=${fetched} unchanged=${skipped + preflightUnchanged} preflight-304=${preflight304} failed=${failures.length}`);
   return {
     vendor,
-    llms_txt_url: llms.url,
+    llms_txt_url: llms?.url ?? "",
     pagesFetched: fetched,
     pagesSkipped: skipped,
     pagesUnchanged: preflightUnchanged,
@@ -597,6 +632,33 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
     preflight200,
     failures,
   };
+}
+
+/**
+ * Phase 13.B+ (O8). Optional Neon dual-write. When NEON_DATABASE_URL is
+ * set, UPSERT every successfully-fetched page into vendor_pages. No-op
+ * when not set (local dev path). Failures are logged but never fatal —
+ * the filesystem mirror is the source of truth; Neon is a cache.
+ */
+async function flushNeonBatch(
+  vendor: string,
+  rows: { vendor: string; path: string; content: string; content_hash: string; etag?: string; last_modified?: string }[],
+): Promise<void> {
+  if (!neonEnabled() || rows.length === 0) return;
+  let written = 0;
+  let failed = 0;
+  for (const row of rows) {
+    try {
+      const changed = await upsertVendorPage(row);
+      if (changed) written += 1;
+    } catch (err) {
+      failed += 1;
+      if (failed <= 3) {
+        console.warn(`[${vendor}] neon upsert failed for ${row.path}: ${(err as Error).message}`);
+      }
+    }
+  }
+  console.log(`[${vendor}] neon: upserted=${written} failed=${failed}`);
 }
 
 function renderUrlsIndex(

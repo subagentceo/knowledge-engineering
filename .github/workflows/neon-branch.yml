@@ -96,19 +96,33 @@ jobs:
               ].join('\n')
             });
 
-      # Migrations (commented; enable in Phase 8 once a schema lands):
-      # - name: Run Migrations
-      #   run: npm run db:migrate
-      #   env:
-      #     DATABASE_URL: "${{ steps.create_neon_branch.outputs.db_url_with_pooler }}"
+      # Phase 13.B+ (O8): apply migrations/ to the freshly-created branch.
+      # Idempotent — each migration uses IF NOT EXISTS guards so re-run
+      # against an existing branch is safe.
+      - name: Checkout repo (needed for migrations/ + scripts/)
+        uses: actions/checkout@v4
 
-      # Schema diff (commented; enable in Phase 8 once a schema lands):
-      # - name: Post Schema Diff Comment to PR
-      #   uses: neondatabase/schema-diff-action@v1
-      #   with:
-      #     project_id: ${{ vars.NEON_PROJECT_ID }}
-      #     compare_branch: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
-      #     api_key: ${{ secrets.NEON_API_KEY }}
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install deps
+        run: npm ci --prefer-offline --no-audit
+
+      - name: Run Migrations
+        run: npx tsx scripts/migrate-neon.ts
+        env:
+          NEON_DATABASE_URL: "${{ steps.create_neon_branch.outputs.db_url_with_pooler }}"
+
+      # Schema diff (informational; surfaces drift between PR branch and main).
+      - name: Post Schema Diff Comment to PR
+        uses: neondatabase/schema-diff-action@v1
+        with:
+          project_id: ${{ vars.NEON_PROJECT_ID }}
+          compare_branch: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
+          api_key: ${{ secrets.NEON_API_KEY }}
 
   delete_neon_branch:
     name: Delete Neon Branch

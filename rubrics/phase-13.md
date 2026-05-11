@@ -166,3 +166,36 @@ Cited from:
   - In Worker runtime: Flagship binding pre-evaluates the flag →
     `OPENFEATURE_color_code` env var passed into Sandbox → in-Sandbox
     InMemoryProvider picks it up → TodoTracker renders the chosen color.
+
+### 15. Neon `vendor_pages` + per-PR branching CI — ✅ 13.B+ (O8)
+
+- `migrations/0001_vendor_pages.sql` declares the `vendor_pages` table
+  (vendor, path, content, content_hash, etag, last_modified, updated_at)
+  with composite PK + indexes on `vendor` and `updated_at`. Idempotent
+  via `IF NOT EXISTS` guards.
+- `scripts/migrate-neon.ts` applies migrations in lexical order against
+  the `NEON_DATABASE_URL` target. Used by CI on per-PR branch creation.
+- `scripts/lib/neon-client.ts` thin wrapper over `@neondatabase/serverless`:
+  `neonEnabled()` (gate), `upsertVendorPage()` (UPSERT helper that returns
+  true only when content_hash actually differs), `exec()` (raw SQL).
+  Lazy-imports the package so contexts without it don't break.
+- `scripts/crawl-vendors.ts` accumulates a `neonBatch` per crawl and
+  flushes via `flushNeonBatch()` after the filesystem write completes.
+  When `NEON_DATABASE_URL` is unset (local dev), the flush is a no-op.
+  Failures are logged but never fatal — the filesystem mirror is the
+  source of truth, Neon is a cache.
+- `.github/workflows/neon-branch.yml` was already creating per-PR
+  branches (existing infra). This PR uncomments + activates the
+  migration step + the schema-diff comment step. Every `pull_request`
+  open / sync / reopen now applies the schema to the fresh branch.
+- `package.json` declares `@neondatabase/serverless`.
+- 2/2 unit tests pass: `npx tsx --test scripts/lib/neon-client.test.ts`
+  (covers the `neonEnabled()` env-var gate; live-DB integration is
+  exercised by the per-PR neon-branch.yml workflow).
+- `docs/operator-runbooks/neon-hyperdrive-setup.md` documents the
+  one-time Hyperdrive provisioning (operator-pending; the frontend's
+  Hyperdrive read path lands in a follow-up PR after the operator
+  runs the runbook).
+- Auth posture preserved: NO ANTHROPIC_API_KEY introduced; the
+  existing `NEON_API_KEY` Secrets Store binding (declared in
+  `infra/cloudflare/wrangler.jsonc`) is reused.
