@@ -27,9 +27,10 @@ These are operator actions that an authenticated browser session can drive end-t
 | [#37](https://github.com/subagentceo/knowledge-engineering/issues/37) | [`github-pat.md`](./operator-runbooks/github-pat.md) | Fine-grained PAT + run `setup:project` + `setup:branch-protection` | ~8 min | 🟡 pending |
 | [#38](https://github.com/subagentceo/knowledge-engineering/issues/38) | [`connector-decision.md`](./operator-runbooks/connector-decision.md) | Phase 12: ship as Connector — yes/no/postpone | reading + decision | 🟡 pending |
 | TBD (Phase 13.B+ O5) | [`cf-flagship-setup.md`](./operator-runbooks/cf-flagship-setup.md) | Cloudflare Flagship `outcomesdk-chassis` app + `color-code` flag (8 variations) → app_id pinned in `wrangler.jsonc` | ~5 min | 🟡 pending |
+| TBD (Phase 13.B+ O7) | [`outcomesdk-domain.md`](./operator-runbooks/outcomesdk-domain.md) | Verify `CLOUDFLARE_API_TOKEN` has `Zone:Edit` on outcomesdk.com (extends existing token) | ~3 min | 🟡 pending |
 | TBD (Phase 13.B+ O8) | [`neon-hyperdrive-setup.md`](./operator-runbooks/neon-hyperdrive-setup.md) | Cloudflare Hyperdrive config `outcomes-db` → frontend reads vendor_pages with sub-ms edge latency | ~5 min | 🟡 pending |
 
-**Total operator browser surface: 8 runbooks (7 required + 1 optional). Sum of estimated time: ~38 min of operator attention.**
+**Total operator browser surface: 9 runbooks (8 required + 1 optional). Sum of estimated time: ~41 min of operator attention.**
 
 ## Column 2 — Operator CLI-driven (after column 1)
 

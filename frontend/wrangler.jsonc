@@ -1,0 +1,54 @@
+// frontend/wrangler.jsonc
+//
+// Phase 13.B+ (O7). Public-facing single-page Worker for outcomesdk.com.
+// Separate from infra/cloudflare/ke-cloud-agent (the agent runtime) so
+// the public surface inherits ZERO Claude secrets.
+//
+// Citations:
+//   - vendor/cloudflare/developers.cloudflare.com/workers/static-assets/llms.txt
+//   - vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md
+//     (architectural separation rationale)
+//
+// Deploy:
+//   cd frontend && npm install && npm run build && wrangler deploy
+//
+// Custom domain: outcomesdk.com is bound via the routes[].custom_domain
+// directive. Wrangler handles DNS + cert provisioning on deploy when
+// the API token has Zone:Edit permission for the zone. Until the
+// operator runbook docs/operator-runbooks/outcomesdk-domain.md is
+// completed, deploys will succeed but the route won't bind until a
+// real API token with Zone:Edit is in use.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "outcomesdk-frontend",
+  "compatibility_date": "2026-01-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Workers Static Assets binding. The build pipeline (vite + the
+  // build-vendor-manifest script) emits everything into ./dist; the
+  // Worker serves it at every path that doesn't match the runtime
+  // routes below.
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "single-page-application"
+  },
+
+  "main": "src/worker.ts",
+
+  "routes": [
+    {
+      "pattern": "outcomesdk.com",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.outcomesdk.com",
+      "custom_domain": true
+    }
+  ],
+
+  "vars": {
+    "SITE_NAME": "outcomesdk"
+  }
+}
