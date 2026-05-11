@@ -26,8 +26,9 @@ These are operator actions that an authenticated browser session can drive end-t
 | [#36](https://github.com/subagentceo/knowledge-engineering/issues/36) | [`code-scanning-toggle.md`](./operator-runbooks/code-scanning-toggle.md) | GH Code scanning enabled; flip `upload-sarif: true` | ~2 min | 🟡 pending |
 | [#37](https://github.com/subagentceo/knowledge-engineering/issues/37) | [`github-pat.md`](./operator-runbooks/github-pat.md) | Fine-grained PAT + run `setup:project` + `setup:branch-protection` | ~8 min | 🟡 pending |
 | [#38](https://github.com/subagentceo/knowledge-engineering/issues/38) | [`connector-decision.md`](./operator-runbooks/connector-decision.md) | Phase 12: ship as Connector — yes/no/postpone | reading + decision | 🟡 pending |
+| TBD (Phase 13.B+ O5) | [`cf-flagship-setup.md`](./operator-runbooks/cf-flagship-setup.md) | Cloudflare Flagship `outcomesdk-chassis` app + `color-code` flag (8 variations) → app_id pinned in `wrangler.jsonc` | ~5 min | 🟡 pending |
 
-**Total operator browser surface: 6 runbooks (5 required + 1 optional). Sum of estimated time: ~28 min of operator attention.**
+**Total operator browser surface: 7 runbooks (6 required + 1 optional). Sum of estimated time: ~33 min of operator attention.**
 
 ## Column 2 — Operator CLI-driven (after column 1)
 

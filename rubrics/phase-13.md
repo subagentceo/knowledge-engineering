@@ -121,3 +121,29 @@ Cited from:
   the existing per-product index entries.
 - All 16 Flagship docs (15 pages + llms.txt) mirrored under
   `vendor/cloudflare/developers.cloudflare.com/flagship/`.
+
+### 13. OpenFeature SDK + Flagship provider wired — ✅ 13.B+ (O5)
+
+- `package.json` declares `@openfeature/server-sdk`.
+- `infra/cloudflare/package.json` declares `@openfeature/server-sdk`
+  for symmetry; the Worker uses Cloudflare Flagship's native binding
+  (no SDK install required at the Worker layer).
+- `src/lib/openfeature.ts` exposes a singleton `getOpenFeatureClient()`.
+  Default provider: `InMemoryProvider` seeded from
+  `seeds/openfeature/local-flags.json`. `OPENFEATURE_<flag>` env vars
+  override values per-flag (the Worker uses this to forward
+  Flagship-resolved values into the Sandbox).
+- `src/agent/run.ts` initializes the client after `requireOAuth()`.
+- `infra/cloudflare/wrangler.jsonc` declares the `FLAGSHIP` binding
+  (placeholder app_id; operator runbook
+  `docs/operator-runbooks/cf-flagship-setup.md` provisions the real
+  app_id).
+- `infra/cloudflare/src/worker.ts` `resolveFlagshipString()` returns
+  the Flagship-resolved value when the binding is bound, else the
+  supplied default. The result is forwarded into the Sandbox env as
+  `OPENFEATURE_color_code` so the in-Sandbox InMemoryProvider picks
+  it up via the env-override path.
+- 6/6 unit tests pass: `npx tsx --test src/lib/openfeature.test.ts`.
+- Auth posture preserved: NO ANTHROPIC_API_KEY introduced; NO new
+  secrets in Cloudflare Secrets Store (Flagship is a Worker binding,
+  not an API key).

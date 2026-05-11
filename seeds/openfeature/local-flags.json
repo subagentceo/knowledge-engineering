@@ -1,0 +1,11 @@
+{
+  "$comment": "Local OpenFeature defaults. Loaded by InMemoryProvider when no remote provider (Cloudflare Flagship) is bound. Cloudflare Flagship in Worker runtime overrides these via the FLAGSHIP binding.",
+  "flags": {
+    "color-code": {
+      "kind": "string",
+      "default": "cyan",
+      "allowed": ["red", "blue", "green", "yellow", "purple", "orange", "pink", "cyan"],
+      "description": "TodoTracker icon color (PR D — O6 demo). Maps to a 256-color ANSI prefix in src/agent/todo-tracker.ts."
+    }
+  }
+}
