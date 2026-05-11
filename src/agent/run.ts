@@ -21,6 +21,7 @@ import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { requireOAuth } from "../oauth/token.js";
+import { getOpenFeatureClient } from "../lib/openfeature.js";
 import { Planner, type RunMode, type Plan } from "./planning.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -31,6 +32,11 @@ async function seed(name: string): Promise<string> {
 }
 
 const auth = requireOAuth();
+// Phase 13.B+ (O5): initialize OpenFeature client. In Worker runtime,
+// the Worker calls setProvider(@cloudflare/flagship) before invoking
+// this module. Locally, the InMemoryProvider seeded from
+// seeds/openfeature/local-flags.json is used.
+export const flagClient = getOpenFeatureClient();
 
 // Concatenate the two orchestrator seeds: topology + planning discipline.
 const [topology, planningDiscipline, npmResearch, verifier, crawlCurator] = await Promise.all([

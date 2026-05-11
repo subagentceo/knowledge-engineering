@@ -54,6 +54,16 @@ interface SecretsStoreBinding {
   get(): Promise<string>;
 }
 
+// Cloudflare Flagship binding. Cited from
+// vendor/cloudflare/developers.cloudflare.com/flagship/binding/index.md.
+// The binding is bound via wrangler.jsonc (`flagship` block); Flagship
+// app id provisioned by the operator runbook docs/operator-runbooks/
+// cf-flagship-setup.md. Until the operator runs that runbook, the
+// binding is undefined and resolveFlag() falls back to defaults.
+interface FlagshipBinding {
+  getStringValue(flagKey: string, defaultValue: string, context?: Record<string, unknown>): Promise<string>;
+}
+
 interface Env {
   Sandbox: SandboxBinding;
   // Secrets Store bindings (account-level; bootstrapped by
@@ -64,6 +74,12 @@ interface Env {
   // Worker var (non-secret).
   NEON_PROJECT_ID: string;
   IS_SANDBOX?: string;
+  // Phase 13.B+ (O5). Cloudflare Flagship binding (declared in
+  // wrangler.jsonc but optional until the operator runbook provisions
+  // an app id). Worker pre-evaluates and forwards into Sandbox env so
+  // the in-Sandbox InMemoryProvider can pick up Flagship-resolved
+  // values via OPENFEATURE_<flag> env overrides.
+  FLAGSHIP?: FlagshipBinding;
   // Bindings the operator posture forbids. Layer-2 defense: even if
   // somehow bound, sanitizeEnv() throws when forwarding to the Sandbox.
   ANTHROPIC_API_KEY?: never;
@@ -104,6 +120,26 @@ export function sanitizeEnv(vars: Record<string, string>): Record<string, string
     if (key in vars) throw new ApiKeyForbiddenError(key);
   }
   return vars;
+}
+
+/**
+ * Resolve a string flag via Cloudflare Flagship (when bound), else fall
+ * back to the supplied default. The result is forwarded into the
+ * Sandbox env as OPENFEATURE_<flag> so the agent's in-Sandbox
+ * InMemoryProvider picks it up. Cited from
+ * vendor/cloudflare/developers.cloudflare.com/flagship/binding/index.md.
+ */
+export async function resolveFlagshipString(
+  binding: FlagshipBinding | undefined,
+  flagKey: string,
+  defaultValue: string,
+): Promise<string> {
+  if (binding === undefined) return defaultValue;
+  try {
+    return await binding.getStringValue(flagKey, defaultValue);
+  } catch {
+    return defaultValue;
+  }
 }
 
 async function createNeonBranch(
@@ -197,6 +233,12 @@ export default {
 
     const sandbox = getSandbox(env.Sandbox, agentId);
 
+    // Phase 13.B+ (O5): pre-evaluate the color-code flag via Flagship
+    // and forward as an OPENFEATURE_<flag> env override into the
+    // Sandbox. The agent's in-Sandbox InMemoryProvider uses this to
+    // surface Flagship-resolved values without needing the Worker SDK.
+    const colorCode = await resolveFlagshipString(env.FLAGSHIP, "color-code", "cyan");
+
     // OAuth substitution + env-sanitizer gate. The cited Neon guide places
     // ANTHROPIC_API_KEY here. We forward CLAUDE_CODE_OAUTH_TOKEN.
     await sandbox.setEnvVars(
@@ -205,6 +247,7 @@ export default {
         DATABASE_URL: databaseUrl,
         GITHUB_TOKEN: githubToken,
         IS_SANDBOX: "1",
+        OPENFEATURE_color_code: colorCode,
       })
     );
 

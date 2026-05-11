@@ -86,5 +86,26 @@
     "IS_SANDBOX": "0",
     // Project ID is non-secret and matches the GH var of the same name.
     "NEON_PROJECT_ID": "divine-cloud-27295848"
-  }
+  },
+
+  // Phase 13.B+ (O5). Cloudflare Flagship binding — feature flags
+  // evaluated at the edge. Cited from
+  // vendor/cloudflare/developers.cloudflare.com/flagship/configuration/index.md.
+  //
+  // The Flagship app id is provisioned by the operator runbook
+  // docs/operator-runbooks/cf-flagship-setup.md (one-time browser
+  // action). Until then, this binding is harmless: the Worker's
+  // resolveFlagshipString() returns the supplied default whenever
+  // env.FLAGSHIP is undefined (which it is until the binding becomes
+  // live on first deploy after app id creation).
+  //
+  // The placeholder app_id below allows wrangler deploy --dry-run to
+  // succeed; production deploy fails with a clear error until the
+  // operator pins a real app_id.
+  "flagship": [
+    {
+      "binding": "FLAGSHIP",
+      "app_id": "FLAGSHIP_APP_ID_PLACEHOLDER"
+    }
+  ]
 }
