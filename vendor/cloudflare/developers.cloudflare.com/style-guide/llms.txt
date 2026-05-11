@@ -1,0 +1,204 @@
+# Style Guide
+
+Style guide to follow for contributing to Cloudflare docs.
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/style-guide/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Style Guide llms-full.txt](https://developers.cloudflare.com/style-guide/llms-full.txt) for the complete Style Guide documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Style Guide](https://developers.cloudflare.com/style-guide/index.md): Improve your contributions to Cloudflare's documentation. Ensure consistency, professionalism, and clarity in your content across all products.
+
+## Contributions
+
+- [Contributions](https://developers.cloudflare.com/style-guide/contributions/index.md): Learn how to contribute to the Cloudflare Docs.
+
+## Components
+
+- [Components](https://developers.cloudflare.com/style-guide/components/index.md): Browse available MDX components for Cloudflare docs.
+- [Anchor heading](https://developers.cloudflare.com/style-guide/components/anchor-heading/index.md): Create a heading with a custom anchor ID.
+- [API request](https://developers.cloudflare.com/style-guide/components/api-request/index.md): Generate curl commands from OpenAPI schema.
+- [Available notifications](https://developers.cloudflare.com/style-guide/components/available-notifications/index.md): List available notification types for a product.
+- [Badges](https://developers.cloudflare.com/style-guide/components/badges/index.md): Display sidebar and inline badges.
+- [Buttons](https://developers.cloudflare.com/style-guide/components/buttons/index.md): Add styled link buttons to documentation pages.
+- [Cards](https://developers.cloudflare.com/style-guide/components/cards/index.md): Display content in styled card containers.
+- [CURL](https://developers.cloudflare.com/style-guide/components/curl/index.md): Display formatted curl command examples.
+- [DashButton](https://developers.cloudflare.com/style-guide/components/dash-button/index.md): Add a button linking to the Cloudflare dashboard.
+- [Descriptions](https://developers.cloudflare.com/style-guide/components/description/index.md): Add a description below the page title.
+- [Details](https://developers.cloudflare.com/style-guide/components/details/index.md): Create collapsible content sections.
+- [Directory listing](https://developers.cloudflare.com/style-guide/components/directory-listing/index.md): Auto-generate listings of child pages.
+- [Example](https://developers.cloudflare.com/style-guide/components/example/index.md): Highlight example content in a styled block.
+- [External resources](https://developers.cloudflare.com/style-guide/components/external-resources/index.md): Display links to external learning resources.
+- [Feature](https://developers.cloudflare.com/style-guide/components/feature/index.md): Display a feature card on overview pages.
+- [Feature table](https://developers.cloudflare.com/style-guide/components/feature-table/index.md): Display feature availability by plan in a table.
+- [File tree](https://developers.cloudflare.com/style-guide/components/file-tree/index.md): Display a file and directory tree structure.
+- [GitHubCode](https://developers.cloudflare.com/style-guide/components/github-code/index.md): Fetch and display code from a GitHub repository.
+- [Glossary](https://developers.cloudflare.com/style-guide/components/glossary/index.md): Display a filterable glossary of terms.
+- [Glossary definition](https://developers.cloudflare.com/style-guide/components/glossary-definition/index.md): Show a single glossary term definition inline.
+- [Glossary tooltip](https://developers.cloudflare.com/style-guide/components/glossary-tooltip/index.md): Show glossary term definitions on hover.
+- [Icons](https://developers.cloudflare.com/style-guide/components/icons/index.md): Browse available product and UI icons.
+- [Inline badge](https://developers.cloudflare.com/style-guide/components/inline-badge/index.md): Display inline status badges like Beta or New.
+- [Link cards](https://developers.cloudflare.com/style-guide/components/link-cards/index.md): Display navigation cards with titles and descriptions.
+- [List tutorials](https://developers.cloudflare.com/style-guide/components/list-tutorials/index.md): Auto-generate a table of tutorials.
+- [Markdown](https://developers.cloudflare.com/style-guide/components/markdown/index.md): Render Markdown content inside JSX contexts.
+- [Package Managers](https://developers.cloudflare.com/style-guide/components/package-managers/index.md): Show commands across npm, yarn, and pnpm.
+- [Pages build preset](https://developers.cloudflare.com/style-guide/components/pages-build-preset/index.md): Show Pages framework build preset details.
+- [Plan](https://developers.cloudflare.com/style-guide/components/plan/index.md): Display plan availability information.
+- [Product availability text](https://developers.cloudflare.com/style-guide/components/product-availability-text/index.md): Show product availability by plan type.
+- [Product changelog](https://developers.cloudflare.com/style-guide/components/product-changelog/index.md): Display product changelog entries.
+- [Product features](https://developers.cloudflare.com/style-guide/components/product-features/index.md): Display a product feature comparison table.
+- [Public stats](https://developers.cloudflare.com/style-guide/components/public-stats/index.md): Display public statistics from Cloudflare data.
+- [Related product](https://developers.cloudflare.com/style-guide/components/related-product/index.md): Show related product links on overview pages.
+- [Render](https://developers.cloudflare.com/style-guide/components/render/index.md): Render reusable partial content from other files.
+- [Resources by selector](https://developers.cloudflare.com/style-guide/components/resources-by-selector/index.md): Display resources filtered by selector values.
+- [RSSButton](https://developers.cloudflare.com/style-guide/components/rss-button/index.md): A button component for RSS feed subscriptions.
+- [Rule ID](https://developers.cloudflare.com/style-guide/components/rule-id/index.md): Display a copyable rule ID component.
+- [Steps](https://developers.cloudflare.com/style-guide/components/steps/index.md): Display numbered step-by-step instructions.
+- [Stream](https://developers.cloudflare.com/style-guide/components/stream/index.md): Embed a Cloudflare Stream video.
+- [Subtract IP calculator](https://developers.cloudflare.com/style-guide/components/subtract-ip-calculator/index.md): Interactive IP subtraction calculator component.
+- [Tabs](https://developers.cloudflare.com/style-guide/components/tabs/index.md): Display content in switchable tab panels.
+- [Type highlighting](https://developers.cloudflare.com/style-guide/components/type-highlighting/index.md): Components for styling type information for CLI/function parameters.
+- [TypeScript example](https://developers.cloudflare.com/style-guide/components/typescript-example/index.md): Show TypeScript and auto-transpiled JavaScript tabs.
+- [Usage](https://developers.cloudflare.com/style-guide/components/usage/index.md): Guidelines for using components in documentation.
+- [Width](https://developers.cloudflare.com/style-guide/components/width/index.md): Constrain content width for layout control.
+- [WranglerCLI](https://developers.cloudflare.com/style-guide/components/wrangler-cli/index.md): Display Wrangler CLI command documentation.
+- [WranglerCommand](https://developers.cloudflare.com/style-guide/components/wrangler-command/index.md): Display a single Wrangler command with details.
+- [WranglerConfig](https://developers.cloudflare.com/style-guide/components/wrangler-config/index.md): Display Wrangler config in TOML and JSON tabs.
+- [WranglerNamespace](https://developers.cloudflare.com/style-guide/components/wrangler-namespace/index.md): Display Wrangler command namespace documentation.
+- [YouTube](https://developers.cloudflare.com/style-guide/components/youtube/index.md): Embed a YouTube video by ID.
+- [YouTube Videos](https://developers.cloudflare.com/style-guide/components/youtube-videos/index.md): Embed multiple YouTube videos in a grid.
+
+## Product docs content strategy
+
+- [Product docs content strategy](https://developers.cloudflare.com/style-guide/documentation-content-strategy/index.md): Guidelines for planning and structuring product documentation.
+- [Accessibility guidelines](https://developers.cloudflare.com/style-guide/documentation-content-strategy/accessibility/index.md): Write accessible documentation for all users.
+- [Context](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/context/index.md): Provide context for documentation content.
+- [Diagrams](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/diagrams/index.md): Create and format diagrams in documentation.
+- [Dynamic lists](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/dynamic-lists/index.md): Use dynamic lists in documentation.
+- [Examples](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/examples/index.md): Write effective examples in documentation.
+- [Glossary entry](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/glossary-entry/index.md): Write glossary term definitions.
+- [Intended audience](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/intended-audience/index.md): Define the target audience for documentation.
+- [Introduction](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/introduction/index.md): Write effective introductions for documentation pages.
+- [Last updated](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/last-updated/index.md): Show when content was last reviewed.
+- [Links](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/links/index.md): Write and format links in documentation.
+- [Mathematical operations](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/mathematical-operations/index.md): Format mathematical expressions in documentation.
+- [Next steps](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/next-steps/index.md): Guide readers to logical next actions.
+- [Notes/tips/warnings](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/notes-tips-warnings/index.md): Use admonitions effectively in documentation.
+- [Prerequisites](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/prerequisites/index.md): Document prerequisites clearly for readers.
+- [Product descriptions](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/product-descriptions/index.md): Write concise product description text.
+- [Reference diagram](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/reference-diagram/index.md): Create and format reference diagrams.
+- [Screenshots](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/screenshots/index.md): Capture and use screenshots effectively.
+- [Steps/tasks/procedures](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/steps-tasks-procedures/index.md): Write clear procedural steps.
+- [Tables](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/tables/index.md): Format tables consistently in documentation.
+- [Titles](https://developers.cloudflare.com/style-guide/documentation-content-strategy/component-attributes/titles/index.md): Write clear and consistent page titles.
+- [Content types](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/index.md): Choose the right content type for your page.
+- [3rd-party integration guide](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/3rd-party-integration-guide/index.md): Write third-party integration guide documentation.
+- [Changelog](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/changelog/index.md): Write changelog entries for product updates.
+- [Concept](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/concept/index.md): Write conceptual explanation documentation.
+- [Configuration](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/configuration/index.md): Write configuration reference documentation.
+- [Design guide](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/design-guide/index.md): Write design guide documentation.
+- [FAQ](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/faq/index.md): Write frequently asked questions pages.
+- [Get started](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/get-started/index.md): Write get-started guides for new users.
+- [How to](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/how-to/index.md): Write task-oriented how-to documentation.
+- [Implementation guide](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/implementation-guide/index.md): Write implementation guide documentation.
+- [Navigation](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/navigation/index.md): Create navigation pages with directory listings.
+- [Overview](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/overview/index.md): Write product overview pages.
+- [Reference](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/reference/index.md): Write reference documentation for APIs and configs.
+- [Reference architecture](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/reference-architecture/index.md): Write reference architecture documentation.
+- [Reference architecture diagram](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/reference-architecture-diagram/index.md): Create reference architecture diagram pages.
+- [How to select a content type](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/select-content-type/index.md): Choose the best content type for your page.
+- [Solution guide](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/solution-guide/index.md): Write solution guides for complex use cases.
+- [Troubleshooting](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/troubleshooting/index.md): Write effective troubleshooting documentation.
+- [Tutorial](https://developers.cloudflare.com/style-guide/documentation-content-strategy/content-types/tutorial/index.md): Write step-by-step tutorial documentation.
+- [File conventions](https://developers.cloudflare.com/style-guide/documentation-content-strategy/file-conventions/index.md): Follow file naming and organization conventions.
+- [Information architecture](https://developers.cloudflare.com/style-guide/documentation-content-strategy/information-architecture/index.md): Structure documentation for findability and clarity.
+- [Writing guidelines](https://developers.cloudflare.com/style-guide/documentation-content-strategy/writing-guidelines/index.md): Follow writing best practices for Cloudflare docs.
+
+## Frontmatter
+
+- [Frontmatter](https://developers.cloudflare.com/style-guide/frontmatter/index.md): Required and optional frontmatter fields for Cloudflare docs pages, including title, description, pcx_content_type, sidebar, and tags.
+- [Banner](https://developers.cloudflare.com/style-guide/frontmatter/banner/index.md): How to display a banner at the top of the page and when to use it.
+- [Custom properties](https://developers.cloudflare.com/style-guide/frontmatter/custom-properties/index.md): Configure custom frontmatter properties.
+- [Sidebar](https://developers.cloudflare.com/style-guide/frontmatter/sidebar/index.md): Configuring how folders and pages appear in the sidebar.
+- [Tags](https://developers.cloudflare.com/style-guide/frontmatter/tags/index.md): Use validated tags in documentation frontmatter.
+
+## API docs content strategy
+
+- [API docs content strategy](https://developers.cloudflare.com/style-guide/api-content-strategy/index.md): Guidelines for planning and writing API documentation.
+- [Deprecated APIs](https://developers.cloudflare.com/style-guide/api-content-strategy/api-content-types/deprecated-apis/index.md): Document deprecated API versions.
+- [Endpoints](https://developers.cloudflare.com/style-guide/api-content-strategy/api-content-types/endpoints/index.md): Document API endpoints clearly.
+- [Get started - API](https://developers.cloudflare.com/style-guide/api-content-strategy/api-content-types/get-started-api/index.md): Write API get-started documentation.
+- [Parameters](https://developers.cloudflare.com/style-guide/api-content-strategy/api-content-types/parameters/index.md): Document API parameters effectively.
+- [Resources](https://developers.cloudflare.com/style-guide/api-content-strategy/api-content-types/resources/index.md): Document API resources and endpoints.
+- [Guidelines for cURL commands](https://developers.cloudflare.com/style-guide/api-content-strategy/guidelines-for-curl-commands/index.md): Format cURL commands consistently.
+- [Method types & common verbs](https://developers.cloudflare.com/style-guide/api-content-strategy/method-types-and-command-verbs/index.md): Use correct HTTP method types and verbs.
+
+## How we docs
+
+- [How we docs](https://developers.cloudflare.com/style-guide/how-we-docs/index.md): Internal processes for the documentation team.
+- [AI consumability](https://developers.cloudflare.com/style-guide/how-we-docs/ai-consumability/index.md): Optimize documentation for AI consumption.
+- [How we AI](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-ai/index.md): Guidelines for using AI in documentation work.
+- [Control how AI crawls your docs](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-ai/control-ai-crawls/index.md): Manage AI crawler access to documentation.
+- [Examples](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-ai/examples/index.md): Write effective examples in documentation.
+- [Cloudspeaker](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-ai/examples/cloudspeaker/index.md): Use Cloudspeaker for documentation announcements.
+- [CLUE](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-ai/examples/clue/index.md): Use the CLUE framework for AI-assisted documentation.
+- [Prompt libraries](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-ai/prompt-libraries/index.md): Browse prompt libraries for documentation tasks.
+- [Prompt templates](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-ai/prompt-templates/index.md): Use prompt templates for AI-assisted writing.
+- [When we use AI](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-ai/when-we-use-ai/index.md): Determine when AI aids documentation tasks.
+- [How we video](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-video/index.md): Guidelines for video production in documentation.
+- [Integration in docs](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-video/integration-in-docs/index.md): Integrate videos into documentation pages.
+- [Maintenance](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-video/maintenance/index.md): Maintain video content in documentation.
+- [Video production workflow](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-video/video-production-workflow/index.md): Follow the video production workflow.
+- [Why and when we use videos](https://developers.cloudflare.com/style-guide/how-we-docs/how-we-video/why-and-when-we-use-videos/index.md): Determine when video enhances documentation.
+- [Image maintenance](https://developers.cloudflare.com/style-guide/how-we-docs/image-maintenance/index.md): Maintain and update documentation images.
+- [Links](https://developers.cloudflare.com/style-guide/how-we-docs/links/index.md): Write and format links in documentation.
+- [Metadata](https://developers.cloudflare.com/style-guide/how-we-docs/metadata/index.md): Manage documentation page metadata.
+- [Our site](https://developers.cloudflare.com/style-guide/how-we-docs/our-site/index.md): Understand the documentation site architecture.
+- [Redirects](https://developers.cloudflare.com/style-guide/how-we-docs/redirects/index.md): Manage URL redirects for documentation.
+- [Content reviews](https://developers.cloudflare.com/style-guide/how-we-docs/reviews/index.md): Review and maintain documentation quality.
+
+## formatting
+
+- [Code block guidelines](https://developers.cloudflare.com/style-guide/formatting/code-block-guidelines/index.md): Write and format code blocks correctly.
+- [Code conventions and format](https://developers.cloudflare.com/style-guide/formatting/code-conventions-and-format/index.md): Format code consistently in documentation.
+- [Dates and times](https://developers.cloudflare.com/style-guide/formatting/dates-and-times/index.md): Format dates and times consistently.
+- [Example values](https://developers.cloudflare.com/style-guide/formatting/example-values/index.md): Use consistent example values in documentation.
+- [External references](https://developers.cloudflare.com/style-guide/formatting/external-references/index.md): Format external references and citations.
+- [File types and extensions](https://developers.cloudflare.com/style-guide/formatting/file-types-and-extensions/index.md): Format file types and extensions consistently.
+- [Footnotes](https://developers.cloudflare.com/style-guide/formatting/footnotes/index.md): Use footnotes in documentation.
+- [Keyboard keys](https://developers.cloudflare.com/style-guide/formatting/keyboard-keys/index.md): Format keyboard key references.
+- [Notes and other notation types](https://developers.cloudflare.com/style-guide/formatting/notes-and-other-notation-types/index.md): Use notes and admonitions consistently.
+- [Numbers and units of measurement](https://developers.cloudflare.com/style-guide/formatting/numbers-and-units-of-measurement/index.md): Format numbers and units consistently.
+- [Product name and pluralization](https://developers.cloudflare.com/style-guide/formatting/product-name-and-pluralization/index.md): Use product names and plurals correctly.
+- [Links](https://developers.cloudflare.com/style-guide/formatting/structure/links/index.md): Write and format links in documentation.
+- [Lists](https://developers.cloudflare.com/style-guide/formatting/structure/lists/index.md): Format ordered and unordered lists correctly.
+- [Paragraphs and line breaks](https://developers.cloudflare.com/style-guide/formatting/structure/paragraphs-and-line-breaks/index.md): Format paragraphs and line breaks correctly.
+- [Sentence structure](https://developers.cloudflare.com/style-guide/formatting/structure/sentence-structure/index.md): Write clear and well-structured sentences.
+- [Tables](https://developers.cloudflare.com/style-guide/formatting/structure/tables/index.md): Format tables consistently in documentation.
+- [UI elements](https://developers.cloudflare.com/style-guide/formatting/ui-elements/index.md): Format UI element references correctly.
+- [URLs and domain names](https://developers.cloudflare.com/style-guide/formatting/urls-and-domain-names/index.md): Format URLs and domain names correctly.
+
+## grammar
+
+- [Abbreviations](https://developers.cloudflare.com/style-guide/grammar/parts-of-speech/abbreviations/index.md): Use abbreviations correctly in documentation.
+- [Acronyms](https://developers.cloudflare.com/style-guide/grammar/parts-of-speech/acronyms/index.md): Use acronyms correctly in documentation.
+- [Anthropomorphisms](https://developers.cloudflare.com/style-guide/grammar/parts-of-speech/anthropomorphisms/index.md): Avoid anthropomorphisms in documentation.
+- [Capitalization](https://developers.cloudflare.com/style-guide/grammar/parts-of-speech/capitalization/index.md): Follow capitalization rules in documentation.
+- [Compound words](https://developers.cloudflare.com/style-guide/grammar/parts-of-speech/compound-words/index.md): Handle compound words correctly.
+- [Contractions](https://developers.cloudflare.com/style-guide/grammar/parts-of-speech/contractions/index.md): Avoid contractions in documentation.
+- [Nouns and pronouns](https://developers.cloudflare.com/style-guide/grammar/parts-of-speech/nouns-and-pronouns/index.md): Use nouns and pronouns correctly.
+- [Possessives](https://developers.cloudflare.com/style-guide/grammar/parts-of-speech/possessives/index.md): Form possessives correctly in documentation.
+- [Prepositions](https://developers.cloudflare.com/style-guide/grammar/parts-of-speech/prepositions/index.md): Use prepositions correctly in documentation.
+- [Slang](https://developers.cloudflare.com/style-guide/grammar/parts-of-speech/slang/index.md): Avoid slang in documentation.
+- [Ampersands](https://developers.cloudflare.com/style-guide/grammar/punctuation-marks-and-symbols/ampersands/index.md): Avoid ampersands in documentation text.
+- [Colons](https://developers.cloudflare.com/style-guide/grammar/punctuation-marks-and-symbols/colons/index.md): Use colons correctly in documentation.
+- [Commas](https://developers.cloudflare.com/style-guide/grammar/punctuation-marks-and-symbols/commas/index.md): Use commas correctly in documentation.
+- [Dashes](https://developers.cloudflare.com/style-guide/grammar/punctuation-marks-and-symbols/dashes/index.md): Use dashes correctly in documentation.
+- [Exclamation points](https://developers.cloudflare.com/style-guide/grammar/punctuation-marks-and-symbols/exclamation-points/index.md): Avoid exclamation points in documentation.
+- [Percentages](https://developers.cloudflare.com/style-guide/grammar/punctuation-marks-and-symbols/percentages/index.md): Format percentages consistently.
+- [Periods](https://developers.cloudflare.com/style-guide/grammar/punctuation-marks-and-symbols/periods/index.md): Use periods correctly in documentation.
+- [Quotation marks](https://developers.cloudflare.com/style-guide/grammar/punctuation-marks-and-symbols/quotation-marks/index.md): Use quotation marks correctly in documentation.
+- [Semicolons](https://developers.cloudflare.com/style-guide/grammar/punctuation-marks-and-symbols/semicolons/index.md): Use semicolons correctly in documentation.

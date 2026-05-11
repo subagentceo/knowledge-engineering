@@ -1,0 +1,97 @@
+# Hyperdrive
+
+Accelerate database queries to make databases fast globally
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/hyperdrive/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Hyperdrive llms-full.txt](https://developers.cloudflare.com/hyperdrive/llms-full.txt) for the complete Hyperdrive documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Hyperdrive](https://developers.cloudflare.com/hyperdrive/index.md): Accelerate access to your existing databases from Cloudflare Workers with Hyperdrive's global connection pooling and query caching.
+
+## Getting started
+
+- [Getting started](https://developers.cloudflare.com/hyperdrive/get-started/index.md): Create your first Hyperdrive configuration and connect a Cloudflare Worker to your database.
+
+## Concepts
+
+- [Concepts](https://developers.cloudflare.com/hyperdrive/concepts/index.md): Core concepts and architecture behind Hyperdrive, including connection pooling and query caching.
+- [Connection lifecycle](https://developers.cloudflare.com/hyperdrive/concepts/connection-lifecycle/index.md): Understand how connections are managed between Workers, Hyperdrive, and your origin database.
+- [Connection pooling](https://developers.cloudflare.com/hyperdrive/concepts/connection-pooling/index.md): Hyperdrive maintains a pool of database connections optimally placed to minimize latency for your applications.
+- [How Hyperdrive works](https://developers.cloudflare.com/hyperdrive/concepts/how-hyperdrive-works/index.md): Hyperdrive accelerates database queries through edge connection setup, connection pooling, and query caching.
+- [Query caching](https://developers.cloudflare.com/hyperdrive/concepts/query-caching/index.md): Hyperdrive automatically caches read queries to reduce database load and improve performance.
+
+## Tutorials
+
+- [Tutorials](https://developers.cloudflare.com/hyperdrive/tutorials/index.md): Step-by-step Hyperdrive tutorials for connecting Workers to databases.
+- [Create a serverless, globally distributed time-series API with Timescale](https://developers.cloudflare.com/hyperdrive/tutorials/serverless-timeseries-api-with-timescale/index.md): In this tutorial, you will learn to build an API on Workers which will ingest and query time-series data stored in Timescale.
+
+## Demos and architectures
+
+- [Demos and architectures](https://developers.cloudflare.com/hyperdrive/demos/index.md): Explore demo applications and reference architectures that use Hyperdrive.
+
+## Hyperdrive REST API
+
+- [Hyperdrive REST API](https://developers.cloudflare.com/api/resources/hyperdrive/subresources/configs/methods/list/index.md): Manage Hyperdrive configurations programmatically using the Cloudflare REST API.
+
+## configuration
+
+- [Connect to a private database using Tunnel](https://developers.cloudflare.com/hyperdrive/configuration/connect-to-private-database/index.md): Securely connect Hyperdrive to private databases using Cloudflare Tunnel and Access.
+- [Connect to a private database using Workers VPC (Recommended)](https://developers.cloudflare.com/hyperdrive/configuration/connect-to-private-database-vpc/index.md)
+- [Firewall and networking configuration](https://developers.cloudflare.com/hyperdrive/configuration/firewall-and-networking-configuration/index.md): Configure firewall rules and networking to allow Hyperdrive to connect to your database.
+- [Local development](https://developers.cloudflare.com/hyperdrive/configuration/local-development/index.md): Develop and test Hyperdrive-connected Workers locally using Wrangler.
+- [Rotating database credentials](https://developers.cloudflare.com/hyperdrive/configuration/rotate-credentials/index.md): Update or rotate database credentials for an existing Hyperdrive configuration.
+- [SSL/TLS certificates](https://developers.cloudflare.com/hyperdrive/configuration/tls-ssl-certificates-for-hyperdrive/index.md): Configure SSL/TLS server and client certificates for secure Hyperdrive database connections.
+- [Tune connection pooling](https://developers.cloudflare.com/hyperdrive/configuration/tune-connection-pool/index.md): Configure the maximum number of database connections in your Hyperdrive connection pool.
+
+## examples
+
+- [Connect to MySQL](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/index.md): Use Hyperdrive to connect to MySQL and MySQL-compatible databases from Cloudflare Workers.
+- [AWS RDS and Aurora](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-database-providers/aws-rds-aurora/index.md): Connect Hyperdrive to an AWS RDS database instance.
+- [Azure Database](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-database-providers/azure/index.md): Connect Hyperdrive to a Azure Database for MySQL instance.
+- [Google Cloud SQL](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-database-providers/google-cloud-sql/index.md): Connect Hyperdrive to a Google Cloud SQL database instance.
+- [PlanetScale](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-database-providers/planetscale/index.md): Connect Hyperdrive to a PlanetScale MySQL database.
+- [Drizzle ORM](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-drivers-and-libraries/drizzle-orm/index.md): Use Drizzle ORM with Hyperdrive to query MySQL databases from Cloudflare Workers.
+- [mysql](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-drivers-and-libraries/mysql/index.md): Use the mysql driver with Hyperdrive to query MySQL databases from Cloudflare Workers.
+- [mysql2](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-drivers-and-libraries/mysql2/index.md): Use the mysql2 driver with Hyperdrive to query MySQL databases from Cloudflare Workers.
+- [Connect to PostgreSQL](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/index.md): Use Hyperdrive to connect to PostgreSQL and PostgreSQL-compatible databases from Cloudflare Workers.
+- [AWS RDS and Aurora](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/aws-rds-aurora/index.md): Connect Hyperdrive to an AWS RDS or Aurora Postgres database instance.
+- [Azure Database](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/azure/index.md): Connect Hyperdrive to a Azure Database for PostgreSQL instance.
+- [CockroachDB](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/cockroachdb/index.md): Connect Hyperdrive to a CockroachDB database.
+- [Digital Ocean](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/digital-ocean/index.md): Connect Hyperdrive to a Digital Ocean Postgres database instance.
+- [Fly](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/fly/index.md): Connect Hyperdrive to a Fly Postgres database instance.
+- [Google Cloud SQL](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/google-cloud-sql/index.md): Connect Hyperdrive to a Google Cloud SQL for Postgres database instance.
+- [Materialize](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/materialize/index.md): Connect Hyperdrive to a Materialize streaming database.
+- [Neon](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/neon/index.md): Connect Hyperdrive to a Neon Postgres database.
+- [Nile](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/nile/index.md): Connect Hyperdrive to a Nile Postgres database instance.
+- [pgEdge Cloud](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/pgedge/index.md): Connect Hyperdrive to a pgEdge Postgres database.
+- [PlanetScale](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/planetscale-postgres/index.md): Connect Hyperdrive to a PlanetScale PostgreSQL database.
+- [Prisma Postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/prisma-postgres/index.md): Connect Hyperdrive to a Prisma Postgres database.
+- [Supabase](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/supabase/index.md): Connect Hyperdrive to a Supabase Postgres database.
+- [Timescale](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/timescale/index.md): Connect Hyperdrive to a Timescale time-series database.
+- [Xata](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/xata/index.md): Connect Hyperdrive to a Xata database instance.
+- [Drizzle ORM](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/drizzle-orm/index.md): Use Drizzle ORM with Hyperdrive to query PostgreSQL databases from Cloudflare Workers.
+- [node-postgres (pg)](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/node-postgres/index.md): Use node-postgres (pg) with Hyperdrive to query PostgreSQL databases from Cloudflare Workers.
+- [Postgres.js](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/postgres-js/index.md): Use Postgres.js with Hyperdrive to query PostgreSQL databases from Cloudflare Workers.
+- [Prisma ORM](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/prisma-orm/index.md): Use Prisma ORM with Hyperdrive to query PostgreSQL databases from Cloudflare Workers.
+
+## observability
+
+- [Metrics and analytics](https://developers.cloudflare.com/hyperdrive/observability/metrics/index.md): Inspect query volume, latency, and cache hit ratios for your Hyperdrive configurations.
+- [Troubleshoot and debug](https://developers.cloudflare.com/hyperdrive/observability/troubleshooting/index.md): Resolve common Hyperdrive connection errors and database connectivity issues.
+
+## platform
+
+- [Limits](https://developers.cloudflare.com/hyperdrive/platform/limits/index.md): Configuration, connection, and query limits that apply to Hyperdrive.
+- [Pricing](https://developers.cloudflare.com/hyperdrive/platform/pricing/index.md): Hyperdrive pricing details for Free and Workers Paid plans.
+- [Release notes](https://developers.cloudflare.com/hyperdrive/platform/release-notes/index.md): Recent changes and updates to Hyperdrive.
+- [Choose a data or storage product](https://developers.cloudflare.com/workers/platform/storage-options/index.md): Compare Cloudflare data and storage products including Hyperdrive, KV, R2, and D1.
+
+## reference
+
+- [FAQ](https://developers.cloudflare.com/hyperdrive/reference/faq/index.md): Frequently asked questions about Hyperdrive connectivity, caching, and supported databases.
+- [Supported databases and features](https://developers.cloudflare.com/hyperdrive/reference/supported-databases-and-features/index.md): Database engines, providers, and driver libraries compatible with Hyperdrive.
+- [Wrangler commands](https://developers.cloudflare.com/hyperdrive/reference/wrangler-commands/index.md): Wrangler CLI commands for creating and managing Hyperdrive configurations.

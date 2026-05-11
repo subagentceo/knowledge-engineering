@@ -1,0 +1,44 @@
+# Workers VPC
+
+Connect Cloudflare Worker's Virtual Private Cloud to your private clouds to build cross-cloud apps.
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/workers-vpc/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Workers VPC llms-full.txt](https://developers.cloudflare.com/workers-vpc/llms-full.txt) for the complete Workers VPC documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Workers VPC](https://developers.cloudflare.com/workers-vpc/index.md): Securely connect your private cloud to Cloudflare to build cross-cloud apps.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/workers-vpc/get-started/index.md): Create your first Workers VPC Service and connect a Worker to your private network.
+
+## Workers Binding API
+
+- [Workers Binding API](https://developers.cloudflare.com/workers-vpc/api/index.md): API reference for VPC Service and VPC Network bindings in Workers.
+
+## configuration
+
+- [Cloudflare Tunnel](https://developers.cloudflare.com/workers-vpc/configuration/tunnel/index.md): Set up Cloudflare Tunnel to connect your private network to Workers VPC.
+- [Hardware requirements](https://developers.cloudflare.com/workers-vpc/configuration/tunnel/hardware-requirements/index.md): Recommended CPU, memory, and scaling guidelines for cloudflared tunnel hosts.
+- [VPC Networks](https://developers.cloudflare.com/workers-vpc/configuration/vpc-networks/index.md): Bind Workers to an entire tunnel or Cloudflare Mesh without pre-registering hosts.
+- [VPC Services](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/index.md): Register private network resources as VPC Services that Workers can access through Cloudflare Tunnel.
+- [Configure with Terraform](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/terraform/index.md): Learn how to manage VPC Services using the Cloudflare Terraform provider.
+
+## examples
+
+- [Connect Workers to Cloudflare Mesh](https://developers.cloudflare.com/workers-vpc/examples/connect-to-cloudflare-mesh/index.md): Use a VPC Network binding with Cloudflare Mesh to reach private services from a Worker.
+- [Access a private API or website](https://developers.cloudflare.com/workers-vpc/examples/private-api/index.md): Use Workers VPC to fetch data from a private REST API behind Cloudflare Tunnel.
+- [Connect to a private database](https://developers.cloudflare.com/workers-vpc/examples/private-database/index.md)
+- [Access a private S3 bucket](https://developers.cloudflare.com/workers-vpc/examples/private-s3-bucket/index.md): Use Workers VPC to read objects from a private S3-compatible bucket behind Cloudflare Tunnel.
+- [Route to private services from Workers](https://developers.cloudflare.com/workers-vpc/examples/route-across-private-services/index.md): Build a Worker gateway that routes and load balances across multiple private VPC Services.
+
+## reference
+
+- [Limits](https://developers.cloudflare.com/workers-vpc/reference/limits/index.md): Account-level limits for VPC Services and applicable Workers request limits.
+- [Pricing](https://developers.cloudflare.com/workers-vpc/reference/pricing/index.md): Workers VPC pricing details and free open beta availability.
+- [Troubleshoot and debug](https://developers.cloudflare.com/workers-vpc/reference/troubleshooting/index.md): Debug Workers VPC connection errors, tunnel issues, and common configuration problems.
+- [Wrangler commands](https://developers.cloudflare.com/workers-vpc/reference/wrangler-commands/index.md): Wrangler CLI commands for creating and managing Workers VPC services.

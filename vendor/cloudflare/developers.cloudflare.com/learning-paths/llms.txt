@@ -1,0 +1,342 @@
+# Learning Paths
+
+Guided modules and projects to help you get started with Cloudflare
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/learning-paths/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Learning Paths llms-full.txt](https://developers.cloudflare.com/learning-paths/llms-full.txt) for the complete Learning Paths documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Learning Paths documentation pages
+
+- [Learning Paths](https://developers.cloudflare.com/resources/index.md)
+
+- [Account security](https://developers.cloudflare.com/learning-paths/application-security/account-security/index.md): Protect web applications with Cloudflare security products.
+- [Add and manage other members](https://developers.cloudflare.com/learning-paths/application-security/account-security/add-other-members/index.md): Add, edit, and manage Cloudflare account members.
+- [Audit Logs - version 2 (beta)](https://developers.cloudflare.com/fundamentals/account/account-security/audit-logs/index.md): Use the updated Audit Logs v2 interface.
+- [Review active sessions](https://developers.cloudflare.com/learning-paths/application-security/account-security/review-active-sessions/index.md): View and revoke active account sessions.
+- [Review audit logs - v1](https://developers.cloudflare.com/learning-paths/application-security/account-security/review-audit-logs/index.md): Access and review account audit logs.
+- [Set-up 2FA](https://developers.cloudflare.com/learning-paths/application-security/account-security/set-up-2fa/index.md): Configure two-factor authentication for account security.
+- [Default traffic security](https://developers.cloudflare.com/learning-paths/application-security/default-traffic-security/index.md): Protect web applications with Cloudflare security products.
+- [Browser Integrity](https://developers.cloudflare.com/learning-paths/application-security/default-traffic-security/browser-integrity/index.md): Detect and block requests with invalid headers.
+- [DDoS Protection](https://developers.cloudflare.com/learning-paths/application-security/default-traffic-security/ddos/index.md): Understand automatic DDoS attack mitigation.
+- [DNSSEC](https://developers.cloudflare.com/learning-paths/application-security/default-traffic-security/dnssec/index.md): Sign your zone with DNSSEC for DNS security.
+- [Mutual TLS (mTLS)](https://developers.cloudflare.com/learning-paths/application-security/default-traffic-security/mtls/index.md): Authenticate requests with mutual TLS certificates.
+- [SSL / TLS](https://developers.cloudflare.com/learning-paths/application-security/default-traffic-security/ssl/index.md): Configure SSL/TLS encryption options for domains.
+- [Web Application Firewall](https://developers.cloudflare.com/learning-paths/application-security/firewall/index.md): Protect web applications with Cloudflare security products.
+- [Custom rules](https://developers.cloudflare.com/learning-paths/application-security/firewall/custom-rules/index.md): Create custom rules for load balancer routing.
+- [Managed Rules](https://developers.cloudflare.com/learning-paths/application-security/firewall/managed-rules/index.md): Deploy WAF managed rulesets for threat protection.
+- [Lists](https://developers.cloudflare.com/learning-paths/application-security/lists/index.md): Protect web applications with Cloudflare security products.
+- [Configurations](https://developers.cloudflare.com/learning-paths/application-security/lists/configuration/index.md): Configure rules with advanced settings.
+- [Features](https://developers.cloudflare.com/learning-paths/application-security/lists/features/index.md): Review available features by plan type.
+- [Use cases](https://developers.cloudflare.com/learning-paths/application-security/lists/use-cases/index.md): Explore common use cases and configurations.
+- [Rate Limiting](https://developers.cloudflare.com/learning-paths/application-security/rate-limiting/index.md): Protect web applications with Cloudflare security products.
+- [Configurations](https://developers.cloudflare.com/learning-paths/application-security/rate-limiting/configurations/index.md): Configure rules with advanced settings.
+- [Features](https://developers.cloudflare.com/learning-paths/application-security/rate-limiting/features/index.md): Review available features by plan type.
+- [Use cases](https://developers.cloudflare.com/learning-paths/application-security/rate-limiting/use-cases/index.md): Explore common use cases and configurations.
+- [Security Center](https://developers.cloudflare.com/learning-paths/application-security/security-center/index.md): Protect web applications with Cloudflare security products.
+- [Brand Protection](https://developers.cloudflare.com/learning-paths/application-security/security-center/brand-protection/index.md): Detect domain and logo impersonation attempts.
+- [Security Insights](https://developers.cloudflare.com/learning-paths/application-security/security-center/insights/index.md): Scan and review aggregated security risks.
+- [Overview](https://developers.cloudflare.com/learning-paths/china-network-overview/series/index.md): Accelerate and secure web traffic in mainland China.
+- [How to accelerate dynamic traffic outside of mainland China](https://developers.cloudflare.com/learning-paths/china-network-overview/series/china-express-overview-2/index.md): Accelerate dynamic traffic outside mainland China.
+- [How to speed up your web traffic inside mainland China](https://developers.cloudflare.com/learning-paths/china-network-overview/series/china-network-main-features-1/index.md): Speed up web traffic inside mainland China.
+- [Secure your applications](https://developers.cloudflare.com/learning-paths/clientless-access/access-application/index.md): Secure browser-based access without device clients.
+- [Best practices](https://developers.cloudflare.com/learning-paths/clientless-access/access-application/best-practices/index.md): Follow recommended deployment best practices.
+- [Create an Access application](https://developers.cloudflare.com/learning-paths/clientless-access/access-application/create-access-app/index.md): Add an application to Cloudflare Access.
+- [Advanced workflows](https://developers.cloudflare.com/learning-paths/clientless-access/advanced-workflows/index.md): Secure browser-based access without device clients.
+- [External Evaluation rules](https://developers.cloudflare.com/learning-paths/clientless-access/advanced-workflows/external-evaluation/index.md): Learn about external evaluation rules in this guide.
+- [Isolate Access applications](https://developers.cloudflare.com/learning-paths/clientless-access/advanced-workflows/isolate-application/index.md): Learn about isolate access applications in this guide.
+- [Alternative on-ramps](https://developers.cloudflare.com/learning-paths/clientless-access/alternative-onramps/index.md): Secure browser-based access without device clients.
+- [Clientless Web Isolation](https://developers.cloudflare.com/learning-paths/clientless-access/alternative-onramps/clientless-rbi/index.md): Learn about clientless web isolation in this guide.
+- [Concepts](https://developers.cloudflare.com/learning-paths/clientless-access/concepts/index.md): Secure browser-based access without device clients.
+- [What is clientless access?](https://developers.cloudflare.com/learning-paths/clientless-access/concepts/what-is-clientless-access/index.md): Understand secure browser-based access without software.
+- [Connect your private applications](https://developers.cloudflare.com/learning-paths/clientless-access/connect-private-applications/index.md): Secure browser-based access without device clients.
+- [Best practices](https://developers.cloudflare.com/learning-paths/clientless-access/connect-private-applications/best-practices/index.md): Follow recommended deployment best practices.
+- [Create a Cloudflare Tunnel](https://developers.cloudflare.com/learning-paths/clientless-access/connect-private-applications/create-tunnel/index.md): Create a tunnel to connect private applications.
+- [Customize the end user experience](https://developers.cloudflare.com/learning-paths/clientless-access/customize-ux/index.md): Secure browser-based access without device clients.
+- [App Launcher](https://developers.cloudflare.com/learning-paths/clientless-access/customize-ux/app-launcher/index.md): Configure the Access App Launcher portal.
+- [Block page](https://developers.cloudflare.com/learning-paths/clientless-access/customize-ux/block-page/index.md): Display custom Access block pages.
+- [Bookmarks](https://developers.cloudflare.com/learning-paths/clientless-access/customize-ux/bookmarks/index.md): Add bookmarks to the Access App Launcher.
+- [Login page](https://developers.cloudflare.com/learning-paths/clientless-access/customize-ux/login-page/index.md): Customize the Access login page branding.
+- [Tags](https://developers.cloudflare.com/learning-paths/clientless-access/customize-ux/tags/index.md): Organize applications with Access tags.
+- [Initial setup](https://developers.cloudflare.com/learning-paths/clientless-access/initial-setup/index.md): Secure browser-based access without device clients.
+- [Add a site](https://developers.cloudflare.com/learning-paths/clientless-access/initial-setup/add-site/index.md): Add your domain to Cloudflare DNS.
+- [Configure an identity provider (recommended)](https://developers.cloudflare.com/learning-paths/clientless-access/initial-setup/configure-idp/index.md): Connect your identity provider to Cloudflare.
+- [Create a Cloudflare account](https://developers.cloudflare.com/learning-paths/clientless-access/initial-setup/create-cloudflare-account/index.md): Sign up for a Cloudflare account.
+- [Create a Zero Trust organization](https://developers.cloudflare.com/learning-paths/clientless-access/initial-setup/create-zero-trust-org/index.md): Set up a Zero Trust organization.
+- [Migrate applications](https://developers.cloudflare.com/learning-paths/clientless-access/migrate-applications/index.md): Secure browser-based access without device clients.
+- [Best practices](https://developers.cloudflare.com/learning-paths/clientless-access/migrate-applications/best-practices/index.md): Follow recommended deployment best practices.
+- [Authenticate without integrated SSO](https://developers.cloudflare.com/learning-paths/clientless-access/migrate-applications/consume-jwt/index.md): Use Cloudflare JWT for application authentication.
+- [Applications with integrated SSO](https://developers.cloudflare.com/learning-paths/clientless-access/migrate-applications/integrated-sso/index.md): Manage applications with existing SSO integrations.
+- [Terraform automation](https://developers.cloudflare.com/learning-paths/clientless-access/terraform/index.md): Secure browser-based access without device clients.
+- [Publish applications with Terraform](https://developers.cloudflare.com/learning-paths/clientless-access/terraform/publish-apps-with-terraform/index.md): Learn about publish applications with terraform in this guide.
+- [Account Creation](https://developers.cloudflare.com/learning-paths/cybersafe/account-creation/index.md): Set up DNS filtering and email security.
+- [Create a Cloudflare account](https://developers.cloudflare.com/learning-paths/cybersafe/account-creation/create-cloudflare-account/index.md): Sign up for a Cloudflare account.
+- [Create an Email security account](https://developers.cloudflare.com/learning-paths/cybersafe/account-creation/create-email-security-account/index.md): Set up a Cloudflare Email security account.
+- [Create a Zero Trust organization](https://developers.cloudflare.com/learning-paths/cybersafe/account-creation/create-zero-trust-org/index.md): Set up a Zero Trust organization.
+- [Concepts](https://developers.cloudflare.com/learning-paths/cybersafe/concepts/index.md): Set up DNS filtering and email security.
+- [Project Cybersafe Schools and CIPA](https://developers.cloudflare.com/learning-paths/cybersafe/concepts/cipa-overview/index.md): Learn about project cybersafe schools and cipa in this guide.
+- [What is DNS?](https://developers.cloudflare.com/learning-paths/cybersafe/concepts/what-is-dns/index.md): Understand the Domain Name System fundamentals.
+- [What is DNS filtering?](https://developers.cloudflare.com/learning-paths/cybersafe/concepts/what-is-dns-filtering/index.md): Learn how DNS filtering blocks threats.
+- [What is Email security?](https://developers.cloudflare.com/learning-paths/cybersafe/concepts/what-is-email-security/index.md): Learn about email protocol security gaps.
+- [Onboarding Email security](https://developers.cloudflare.com/learning-paths/cybersafe/email-security-onboarding/index.md): Set up DNS filtering and email security.
+- [Deploy via Microsoft Graph API](https://developers.cloudflare.com/learning-paths/cybersafe/email-security-onboarding/api-deployment/index.md): Learn about deploy via microsoft graph api in this guide.
+- [Next steps](https://developers.cloudflare.com/learning-paths/cybersafe/email-security-onboarding/email-security-next-steps/index.md): Explore advanced load balancing configurations.
+- [Onboarding Cloudflare Gateway](https://developers.cloudflare.com/learning-paths/cybersafe/gateway-onboarding/index.md): Set up DNS filtering and email security.
+- [Block pages](https://developers.cloudflare.com/learning-paths/cybersafe/gateway-onboarding/gateway-block-pages/index.md): Learn about block pages in this guide.
+- [Gateway connection methods](https://developers.cloudflare.com/learning-paths/cybersafe/gateway-onboarding/gateway-connection-methods/index.md): Choose a Gateway DNS connection method.
+- [Create CIPA policy](https://developers.cloudflare.com/learning-paths/cybersafe/gateway-onboarding/gateway-create-cipa-policy/index.md): Learn about create cipa policy in this guide.
+- [Create a test policy](https://developers.cloudflare.com/learning-paths/cybersafe/gateway-onboarding/gateway-create-test-policy/index.md): Learn about create a test policy in this guide.
+- [Gateway locations](https://developers.cloudflare.com/learning-paths/cybersafe/gateway-onboarding/gateway-locations/index.md): Set up Gateway DNS locations.
+- [Update local DNS resolver](https://developers.cloudflare.com/learning-paths/cybersafe/gateway-onboarding/gateway-update-local-resolver/index.md): Learn about update local dns resolver in this guide.
+- [Verify local connectivity](https://developers.cloudflare.com/learning-paths/cybersafe/gateway-onboarding/gateway-verify-local-connectivity/index.md): Learn about verify local connectivity in this guide.
+- [Advertise prefixes](https://developers.cloudflare.com/learning-paths/data-center-protection/advertise-prefixes/index.md): Advertise IP prefixes via Magic Transit.
+- [Concepts](https://developers.cloudflare.com/learning-paths/data-center-protection/concepts/index.md): Learn how you can protect your data center from distributed denial-of-service (DDoS) attacks with Magic Transit.
+- [Benefits of using Magic Transit](https://developers.cloudflare.com/learning-paths/data-center-protection/concepts/benefits-magic-transit/index.md): Learn about benefits of using magic transit in this guide.
+- [What is Magic Transit?](https://developers.cloudflare.com/learning-paths/data-center-protection/concepts/what-is-magic-transit/index.md): Understand Magic Transit DDoS protection for networks.
+- [Configure DDoS protection](https://developers.cloudflare.com/learning-paths/data-center-protection/configure-ddos/index.md): Learn about configure ddos protection in this guide.
+- [Configure tunnels and routes](https://developers.cloudflare.com/learning-paths/data-center-protection/configure-tunnels-routes/index.md): Protect data centers with Magic Transit DDoS mitigation.
+- [Configure routes](https://developers.cloudflare.com/learning-paths/data-center-protection/configure-tunnels-routes/configure-routes/index.md): Set up Magic Transit static routes.
+- [Configure tunnels](https://developers.cloudflare.com/learning-paths/data-center-protection/configure-tunnels-routes/configure-tunnels/index.md): Create GRE or IPsec tunnels for Magic Transit.
+- [Enable Cloudflare Network Firewall](https://developers.cloudflare.com/learning-paths/data-center-protection/enable-network-firewall/index.md): Learn about enable cloudflare network firewall in this guide.
+- [Enable Notifications](https://developers.cloudflare.com/learning-paths/data-center-protection/enable-notifications/index.md): Learn about enable notifications in this guide.
+- [Get started](https://developers.cloudflare.com/learning-paths/data-center-protection/get-started/index.md): Begin onboarding with Magic Transit.
+- [Post prefix advertisement monitoring and fine tuning](https://developers.cloudflare.com/learning-paths/data-center-protection/post-prefix-fine-tuning/index.md): Learn about post prefix advertisement monitoring and fine tuning in this guide.
+- [Run pre-flight checks](https://developers.cloudflare.com/learning-paths/data-center-protection/run-pre-flight-checks/index.md): Verify readiness before Magic Transit activation.
+- [Troubleshooting connectivity issues after prefix advertisement](https://developers.cloudflare.com/learning-paths/data-center-protection/troubleshooting/index.md): Learn about troubleshooting connectivity issues after prefix advertisement in this guide.
+- [Concepts](https://developers.cloudflare.com/learning-paths/dns-best-practices/concepts/index.md): Migrate and manage DNS on Cloudflare.
+- [Phase 1: Planning & Inventory](https://developers.cloudflare.com/learning-paths/dns-best-practices/concepts/phase-1/index.md): Plan and inventory your DNS migration.
+- [Phase 2: Preparation](https://developers.cloudflare.com/learning-paths/dns-best-practices/concepts/phase-2/index.md): Prepare for DNS migration with minimal downtime.
+- [Phase 3: Execution (Migration window)](https://developers.cloudflare.com/learning-paths/dns-best-practices/concepts/phase-3/index.md): Execute the DNS nameserver cutover.
+- [Phase 4: Post-migration and DNSSEC Re-activation](https://developers.cloudflare.com/learning-paths/dns-best-practices/concepts/phase-4/index.md): Verify and stabilize after DNS migration.
+- [Key considerations and best practices summary](https://developers.cloudflare.com/learning-paths/dns-best-practices/concepts/summary-considerations/index.md): Review DNS migration best practices summary.
+- [Overview](https://developers.cloudflare.com/learning-paths/durable-objects-course/series/index.md): Build real-time apps with Durable Objects.
+- [Build the app frontend and UI](https://developers.cloudflare.com/learning-paths/durable-objects-course/series/build-the-app-frontend-5/index.md): Set up the video call frontend interface.
+- [Deploy your video call app](https://developers.cloudflare.com/learning-paths/durable-objects-course/series/deploy-your-video-call-app-7/index.md): Deploy the completed video call application.
+- [Introduction to the series](https://developers.cloudflare.com/learning-paths/durable-objects-course/series/introduction-to-series-1/index.md): Overview of the Durable Objects video series.
+- [Make and answer WebRTC calls](https://developers.cloudflare.com/learning-paths/durable-objects-course/series/make-answer-webrtc-calls-6/index.md): Implement peer-to-peer WebRTC video calls.
+- [Real-time messaging with WebSockets](https://developers.cloudflare.com/learning-paths/durable-objects-course/series/real-time-messaging-with-websockets-4/index.md): Broadcast real-time messages via WebSockets.
+- [Create a serverless websocket 'backend'](https://developers.cloudflare.com/learning-paths/durable-objects-course/series/serverless-websocket-backend-3/index.md): Learn about create a serverless websocket backend in this guide.
+- [What are Durable Objects?](https://developers.cloudflare.com/learning-paths/durable-objects-course/series/what-are-durable-objects-2/index.md): Learn how Durable Objects provide stateful serverless.
+- [Appendix](https://developers.cloudflare.com/learning-paths/holistic-ai-security/appendix/index.md): Monitor and secure generative AI usage.
+- [Use Cloudflare Workers to create custom user coaching pages](https://developers.cloudflare.com/learning-paths/holistic-ai-security/appendix/workers-create-custom-coaching-pages/index.md): Build custom user coaching pages with Workers.
+- [Build security policies for general AI use](https://developers.cloudflare.com/learning-paths/holistic-ai-security/build-security-policies/index.md): Monitor and secure generative AI usage.
+- [Set policy based on approval status](https://developers.cloudflare.com/learning-paths/holistic-ai-security/build-security-policies/set-policy-approval/index.md): Create Gateway policies for AI tool governance.
+- [Concepts](https://developers.cloudflare.com/learning-paths/holistic-ai-security/concepts/index.md): Monitor and secure generative AI usage.
+- [What is Model Context Protocol (MCP)?](https://developers.cloudflare.com/learning-paths/holistic-ai-security/concepts/mcp/index.md): Learn how MCP connects AI agents to data.
+- [What is Shadow AI?](https://developers.cloudflare.com/learning-paths/holistic-ai-security/concepts/shadow-ai/index.md): Understand unauthorized AI tool usage risks.
+- [What is Shadow IT?](https://developers.cloudflare.com/learning-paths/holistic-ai-security/concepts/shadow-it/index.md): Understand unauthorized IT usage risks.
+- [Get started](https://developers.cloudflare.com/learning-paths/holistic-ai-security/get-started/index.md): Monitor and secure generative AI usage.
+- [Additional setup for AI security solutions in Zero Trust](https://developers.cloudflare.com/learning-paths/holistic-ai-security/get-started/additional-setup/index.md): Complete additional Zero Trust setup for AI security.
+- [Define your company's AI risk tolerance and strategy](https://developers.cloudflare.com/learning-paths/holistic-ai-security/get-started/define-ai-risk-tolerance/index.md): Learn about define your companys ai risk tolerance and strategy in this guide.
+- [Monitor AI usage at your organization](https://developers.cloudflare.com/learning-paths/holistic-ai-security/monitor-ai-use/index.md): Monitor and secure generative AI usage.
+- [Monitor prompts and responses](https://developers.cloudflare.com/learning-paths/holistic-ai-security/monitor-ai-use/monitor-prompts-responses/index.md): Inspect AI prompts using TLS decryption.
+- [Review inline AI use](https://developers.cloudflare.com/learning-paths/holistic-ai-security/monitor-ai-use/review-inline-ai-use/index.md): Monitor AI application usage via Shadow IT.
+- [Review out-of-band AI use](https://developers.cloudflare.com/learning-paths/holistic-ai-security/monitor-ai-use/review-out-of-band-ai/index.md): Detect AI usage with CASB integrations.
+- [Secure approved AI models and tools](https://developers.cloudflare.com/learning-paths/holistic-ai-security/secure-approved-ai-models-tools/index.md): Monitor and secure generative AI usage.
+- [Concepts](https://developers.cloudflare.com/learning-paths/load-balancing/concepts/index.md): Distribute traffic across servers with load balancing.
+- [Monitors and health checks](https://developers.cloudflare.com/learning-paths/load-balancing/concepts/health-checks/index.md): Monitor server health with periodic health checks.
+- [Components of a load balancer](https://developers.cloudflare.com/learning-paths/load-balancing/concepts/load-balancer-components/index.md): Understand pools, endpoints, and load balancers.
+- [What is load balancing?](https://developers.cloudflare.com/learning-paths/load-balancing/concepts/load-balancing/index.md): Distribute traffic across multiple servers efficiently.
+- [Routing traffic](https://developers.cloudflare.com/learning-paths/load-balancing/concepts/routing/index.md): Control how traffic routes to pools and servers.
+- [Planning your load balancer](https://developers.cloudflare.com/learning-paths/load-balancing/planning/index.md): Distribute traffic across servers with load balancing.
+- [Custom load balancing rules](https://developers.cloudflare.com/learning-paths/load-balancing/planning/custom-rules/index.md): Learn about custom load balancing rules in this guide.
+- [Account-level load balancing](https://developers.cloudflare.com/learning-paths/load-balancing/planning/multiple-zones/index.md): Learn about account-level load balancing in this guide.
+- [Endpoint steering policies](https://developers.cloudflare.com/learning-paths/load-balancing/planning/origin-steering-policies/index.md): Configure how pools distribute requests to servers.
+- [Server and pool health](https://developers.cloudflare.com/learning-paths/load-balancing/planning/server-pool-health/index.md): Customize server and pool health thresholds.
+- [Session affinity](https://developers.cloudflare.com/learning-paths/load-balancing/planning/session-affinity/index.md): Maintain user sessions on the same server.
+- [Types of load balancers](https://developers.cloudflare.com/learning-paths/load-balancing/planning/types-load-balancers/index.md): Compare Layer 7, DNS-only, and Layer 4 balancing.
+- [Setup](https://developers.cloudflare.com/learning-paths/load-balancing/setup/index.md): Distribute traffic across servers with load balancing.
+- [Check pool health](https://developers.cloudflare.com/learning-paths/load-balancing/setup/check-pool-health/index.md): Verify pool and server health status.
+- [Create monitor](https://developers.cloudflare.com/learning-paths/load-balancing/setup/create-monitor/index.md): Learn about create monitor in this guide.
+- [Create pools](https://developers.cloudflare.com/learning-paths/load-balancing/setup/create-pools/index.md): Create server pools for load balancing.
+- [Hostname preparation](https://developers.cloudflare.com/learning-paths/load-balancing/setup/hostname-preparation/index.md): Prepare hostnames for load balancer setup.
+- [Next steps](https://developers.cloudflare.com/learning-paths/load-balancing/setup/next-steps/index.md): Explore advanced load balancing configurations.
+- [Route production traffic](https://developers.cloudflare.com/learning-paths/load-balancing/setup/production-traffic/index.md): Learn about route production traffic in this guide.
+- [Create load balancer on test domain](https://developers.cloudflare.com/learning-paths/load-balancing/setup/test-load-balancer/index.md): Learn about create load balancer on test domain in this guide.
+- [Send traffic and review analytics](https://developers.cloudflare.com/learning-paths/load-balancing/setup/traffic-analytics/index.md): Learn about send traffic and review analytics in this guide.
+- [Introducing mTLS](https://developers.cloudflare.com/learning-paths/mtls/concepts/index.md): Implement mutual TLS authentication with Cloudflare.
+- [Benefits of mTLS](https://developers.cloudflare.com/learning-paths/mtls/concepts/benefits/index.md): Learn about benefits of mtls in this guide.
+- [Use mTLS with Cloudflare protected resources](https://developers.cloudflare.com/learning-paths/mtls/concepts/mtls-cloudflare/index.md): Learn about use mtls with cloudflare protected resources in this guide.
+- [mTLS with Application Security](https://developers.cloudflare.com/learning-paths/mtls/mtls-app-security/index.md): Implement mutual TLS authentication with Cloudflare.
+- [mTLS related features](https://developers.cloudflare.com/learning-paths/mtls/mtls-app-security/related-features/index.md): Learn about mtls related features in this guide.
+- [mTLS with Cloudflare Access](https://developers.cloudflare.com/learning-paths/mtls/mtls-cloudflare-access/index.md): Implement mutual TLS authentication with Cloudflare.
+- [Types of mTLS implementation](https://developers.cloudflare.com/learning-paths/mtls/mtls-implementation/index.md): Implement mutual TLS authentication with Cloudflare.
+- [mTLS with Workers](https://developers.cloudflare.com/learning-paths/mtls/mtls-workers/index.md): Implement mutual TLS authentication with Cloudflare.
+- [Advanced DDoS protection](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/advanced/index.md): Prevent and mitigate DDoS attacks on applications.
+- [Customize Cloudflare security](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/advanced/customize-security/index.md): Learn about customize cloudflare security in this guide.
+- [Augment default analytics](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/advanced/improve-analytics/index.md): Learn about augment default analytics in this guide.
+- [Optimize caching](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/advanced/optimize-caching/index.md): Optimize caching to reduce origin load.
+- [Restrict external connections](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/advanced/prevent-external-connections/index.md): Learn about restrict external connections in this guide.
+- [Protect origin IP address](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/advanced/protect-origin-ip/index.md): Learn about protect origin ip address in this guide.
+- [Baseline DDoS protection](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/baseline/index.md): Prevent and mitigate DDoS attacks on applications.
+- [Enable WAF](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/baseline/enable-waf/index.md): Enable the Web Application Firewall.
+- [Proxy DNS records](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/baseline/proxy-dns-records/index.md): Proxy DNS records through Cloudflare.
+- [Set up alerts](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/baseline/set-up-alerts/index.md): Configure DDoS attack alert notifications.
+- [Update TLS versions](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/baseline/tls-versions/index.md): Learn about update tls versions in this guide.
+- [Concepts](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/concepts/index.md): Prevent and mitigate DDoS attacks on applications.
+- [What is a DDoS attack?](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/concepts/ddos-attacks/index.md): Learn about what is a ddos attack? in this guide.
+- [How to prevent DDoS attacks](https://developers.cloudflare.com/learning-paths/prevent-ddos-attacks/concepts/ddos-prevention/index.md): Learn about how to prevent ddos attacks in this guide.
+- [Overview](https://developers.cloudflare.com/learning-paths/r2-intro/series/index.md): Store and manage data with Cloudflare R2.
+- [Getting started with R2](https://developers.cloudflare.com/learning-paths/r2-intro/series/r2-1/index.md): Cloudflare R2 is an object storage solution designed to handle your data and files efficiently. It is ideal for various use cases, such as storing large media files, creating data lakes, or delivering web assets. R2 offers a flexible architecture to suit your needs, all with zero egress fees, meaning you don't have to worry about unexpected costs when moving your data.
+
+- [Public buckets](https://developers.cloudflare.com/learning-paths/r2-intro/series/r2-2/index.md): This video outlines how to configure public buckets in R2, which are private by default, to enable public Internet access. It presents two methods for setting up public access: using a custom domain for greater control over content management and security, or using a Cloudflare-managed subdomain for a simpler configuration.
+
+- [S3 API compatibility](https://developers.cloudflare.com/learning-paths/r2-intro/series/r2-3/index.md): In this video, you'll learn how to use S3 API commands and tools with R2, set up and configure R2 for S3 API compatibility, and integrate R2 into your existing workflows with minimal changes.
+
+- [Migrating your bucket data](https://developers.cloudflare.com/learning-paths/r2-intro/series/r2-4/index.md): In this video, you will learn how to use Cloudflare R2's data migration tools to transfer data from other cloud providers such as Amazon S3 and Google Cloud Storage to R2. The video will demonstrate the step-by-step process of setting up and executing a data migration.
+
+- [Accessing your bucket from Cloudflare Workers](https://developers.cloudflare.com/learning-paths/r2-intro/series/r2-5/index.md): In this video, you will set up a Cloudflare Workers project and connect it to an existing or new R2 bucket. You will secure file uploads using authentication tokens, configure the Wrangler settings, and enable Smart Tiered Cache for optimal performance. Finally, you will deploy and test your serverless API to upload and retrieve files such as podcast episodes.
+
+- [Build secure access policies](https://developers.cloudflare.com/learning-paths/replace-vpn/build-policies/index.md): Replace your VPN with Cloudflare Zero Trust.
+- [Gateway block page](https://developers.cloudflare.com/learning-paths/replace-vpn/build-policies/block-page/index.md): Set up custom Gateway block pages.
+- [Create a list of IPs or domains](https://developers.cloudflare.com/learning-paths/replace-vpn/build-policies/create-list/index.md): Build reusable IP and domain lists.
+- [Secure your first application](https://developers.cloudflare.com/learning-paths/replace-vpn/build-policies/create-policy/index.md): Create policies for your first application.
+- [Policy design](https://developers.cloudflare.com/learning-paths/replace-vpn/build-policies/policy-design/index.md): Design Zero Trust access policies.
+- [Session timeouts](https://developers.cloudflare.com/learning-paths/replace-vpn/build-policies/session-timeouts/index.md): Configure WARP session timeout settings.
+- [Shadow IT discovery](https://developers.cloudflare.com/learning-paths/replace-vpn/build-policies/shadow-it/index.md): Discover unapproved applications with Shadow IT.
+- [Test your first application](https://developers.cloudflare.com/learning-paths/replace-vpn/build-policies/test-your-first-application/index.md): Test Zero Trust policies on an application.
+- [Concepts](https://developers.cloudflare.com/learning-paths/replace-vpn/concepts/index.md): Replace your VPN with Cloudflare Zero Trust.
+- [What is a VPN?](https://developers.cloudflare.com/learning-paths/replace-vpn/concepts/vpn-overview/index.md): Understand how VPNs create encrypted tunnels.
+- [What is Cloudflare?](https://developers.cloudflare.com/learning-paths/replace-vpn/concepts/what-is-cloudflare/index.md): Learn about Cloudflare's global network.
+- [Why should you replace your VPN?](https://developers.cloudflare.com/learning-paths/replace-vpn/concepts/why-vpn/index.md): Learn benefits of Zero Trust over VPNs.
+- [Configure the device agent](https://developers.cloudflare.com/learning-paths/replace-vpn/configure-device-agent/index.md): Replace your VPN with Cloudflare Zero Trust.
+- [Define device enrollment permissions](https://developers.cloudflare.com/learning-paths/replace-vpn/configure-device-agent/device-enrollment-permissions/index.md): Control which devices can enroll.
+- [Customize device profiles](https://developers.cloudflare.com/learning-paths/replace-vpn/configure-device-agent/device-profiles/index.md): Configure WARP client device profiles.
+- [Proxy traffic through Gateway](https://developers.cloudflare.com/learning-paths/replace-vpn/configure-device-agent/enable-proxy/index.md): Route device traffic through Cloudflare Gateway.
+- [Enable TLS decryption (optional)](https://developers.cloudflare.com/learning-paths/replace-vpn/configure-device-agent/enable-tls-decryption/index.md): Inspect encrypted traffic with TLS decryption.
+- [Resolve private DNS](https://developers.cloudflare.com/learning-paths/replace-vpn/configure-device-agent/private-dns/index.md): Set up private DNS resolution.
+- [Define Split Tunnel settings](https://developers.cloudflare.com/learning-paths/replace-vpn/configure-device-agent/split-tunnel-settings/index.md): Configure split tunnel routing rules.
+- [Connect user devices](https://developers.cloudflare.com/learning-paths/replace-vpn/connect-devices/index.md): Replace your VPN with Cloudflare Zero Trust.
+- [Download and install the Cloudflare One Client](https://developers.cloudflare.com/learning-paths/replace-vpn/connect-devices/install-agent/index.md): Install the Cloudflare One device client.
+- [MDM deployment](https://developers.cloudflare.com/learning-paths/replace-vpn/connect-devices/mdm/index.md): Deploy the device client via MDM.
+- [Verify device connectivity](https://developers.cloudflare.com/learning-paths/replace-vpn/connect-devices/validate-traffic-in-gateway/index.md): Verify devices connect through Cloudflare.
+- [Connect your private network](https://developers.cloudflare.com/learning-paths/replace-vpn/connect-private-network/index.md): Replace your VPN with Cloudflare Zero Trust.
+- [Connect with Cloudflare Mesh](https://developers.cloudflare.com/learning-paths/replace-vpn/connect-private-network/cloudflare-mesh/index.md): Connect your network using Cloudflare Mesh.
+- [Connect with Cloudflare Tunnel](https://developers.cloudflare.com/learning-paths/replace-vpn/connect-private-network/cloudflared/index.md): Create a tunnel to your private network.
+- [Choose a connection method](https://developers.cloudflare.com/learning-paths/replace-vpn/connect-private-network/connection-methods/index.md): Compare Cloudflare Mesh and Tunnel options.
+- [Manage overlapping IPs](https://developers.cloudflare.com/learning-paths/replace-vpn/connect-private-network/overlapping-ips/index.md): Handle overlapping IP addresses with virtual networks.
+- [Tunnel capacity for cloudflared](https://developers.cloudflare.com/learning-paths/replace-vpn/connect-private-network/tunnel-capacity/index.md): Size and scale cloudflared tunnel capacity.
+- [Get started with Zero Trust](https://developers.cloudflare.com/learning-paths/replace-vpn/get-started/index.md): Replace your VPN with Cloudflare Zero Trust.
+- [Configure an identity provider](https://developers.cloudflare.com/learning-paths/replace-vpn/get-started/configure-idp/index.md): Set up identity provider integration.
+- [Create a Cloudflare account](https://developers.cloudflare.com/learning-paths/replace-vpn/get-started/create-cloudflare-account/index.md): Sign up for a Cloudflare account.
+- [Create a Zero Trust organization](https://developers.cloudflare.com/learning-paths/replace-vpn/get-started/create-zero-trust-org/index.md): Set up a Zero Trust organization.
+- [Prerequisites](https://developers.cloudflare.com/learning-paths/replace-vpn/get-started/prerequisites/index.md): Review requirements before getting started.
+- [Troubleshooting](https://developers.cloudflare.com/learning-paths/replace-vpn/troubleshooting/index.md): Replace your VPN with Cloudflare Zero Trust.
+- [Troubleshoot private networks](https://developers.cloudflare.com/learning-paths/replace-vpn/troubleshooting/troubleshoot-private-networks/index.md): Debug private network connectivity issues.
+- [Overview](https://developers.cloudflare.com/learning-paths/sase-overview-course/series/index.md): Learn SASE architecture and Cloudflare One fundamentals.
+- [Connect and secure from any network to anywhere](https://developers.cloudflare.com/learning-paths/sase-overview-course/series/connect-secure-from-any-network-to-anywhere-4/index.md): Connect networks securely with Cloudflare SASE.
+- [The evolution of corporate networks](https://developers.cloudflare.com/learning-paths/sase-overview-course/series/evolution-corporate-networks-1/index.md): Explore how corporate networks have evolved.
+- [Protect your users from Internet risks](https://developers.cloudflare.com/learning-paths/sase-overview-course/series/protect-users-from-internet-risks-5/index.md): Filter Internet traffic to protect users.
+- [Secure remote access to your critical infrastructure](https://developers.cloudflare.com/learning-paths/sase-overview-course/series/secure-remote-access-to-critical-infrastructure-3/index.md): Secure remote access to critical infrastructure.
+- [Stop hosting your own VPN service](https://developers.cloudflare.com/learning-paths/sase-overview-course/series/stop-hosting-own-vpn-service-2/index.md): Replace self-hosted VPNs with ZTNA.
+- [Build DNS security policies](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-dns-policies/index.md): Secure Internet traffic and SaaS apps.
+- [Create an allowlist or blocklist](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-dns-policies/create-list/index.md): Create DNS allow and block lists.
+- [Create your first DNS policy](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-dns-policies/create-policy/index.md): Build your first Gateway DNS policy.
+- [Onboard DNS for a network](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-dns-policies/onboard-dns/index.md): Configure DNS filtering for a network.
+- [Recommended DNS policies](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-dns-policies/recommended-dns-policies/index.md): Deploy recommended DNS filtering policies.
+- [Test a policy](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-dns-policies/test-policy/index.md): Test Gateway DNS policy enforcement.
+- [Control traffic egress with source IP anchoring and allowlisting](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-egress-policies/index.md): Secure Internet traffic and SaaS apps.
+- [Egress IP best practices](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-egress-policies/deploy-egress-ips/index.md): Deploy dedicated egress IPs effectively.
+- [Use egress policies to deliver consistent egress IPs](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-egress-policies/egress-policies/index.md): Create egress policies for IP consistency.
+- [Source IP anchoring](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-egress-policies/source-ip-anchoring/index.md): Anchor traffic to consistent source IPs.
+- [Build HTTP security policies](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-http-policies/index.md): Secure Internet traffic and SaaS apps.
+- [Configure Browser Isolation](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-http-policies/browser-isolation/index.md): Set up Remote Browser Isolation.
+- [Create your first HTTP policy](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-http-policies/create-policy/index.md): Build your first Gateway HTTP policy.
+- [Build Data Loss Prevention (DLP) policies](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-http-policies/data-loss-prevention/index.md): Configure DLP profiles and policies.
+- [Recommended HTTP policies](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-http-policies/recommended-http-policies/index.md): Deploy recommended HTTP security policies.
+- [Use TLS inspection](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-http-policies/tls-inspection/index.md): Enable and configure TLS decryption.
+- [Build network security policies](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-network-policies/index.md): Secure Internet traffic and SaaS apps.
+- [Create your first network policy](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-network-policies/create-policy/index.md): Build your first Gateway network policy.
+- [Recommended network policies](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/build-network-policies/recommended-network-policies/index.md): Deploy recommended network security policies.
+- [Concepts](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/concepts/index.md): Secure Internet traffic and SaaS apps.
+- [What security features does Cloudflare provide?](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/concepts/security-concepts/index.md): Explore Cloudflare Zero Trust security features.
+- [Configure the device agent](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/configure-device-agent/index.md): Secure Internet traffic and SaaS apps.
+- [Define device enrollment permissions](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/configure-device-agent/device-enrollment-permissions/index.md): Control which devices can enroll.
+- [Customize device profiles](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/configure-device-agent/device-profiles/index.md): Configure WARP client device profiles.
+- [Proxy traffic through Gateway](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/configure-device-agent/enable-proxy/index.md): Route device traffic through Cloudflare Gateway.
+- [Determine when to use PAC files](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/configure-device-agent/pac-files/index.md): Evaluate PAC files for proxy configuration.
+- [Resolve private DNS](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/configure-device-agent/private-dns/index.md): Set up private DNS resolution.
+- [Define Split Tunnel settings](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/configure-device-agent/split-tunnel-settings/index.md): Configure split tunnel routing rules.
+- [Connect devices and networks to Cloudflare](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/connect-devices-networks/index.md): Secure Internet traffic and SaaS apps.
+- [Choose an on-ramp](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/connect-devices-networks/choose-on-ramp/index.md): Select a device or network on-ramp.
+- [Download and install the Cloudflare One Client](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/connect-devices-networks/install-agent/index.md): Install the Cloudflare One device client.
+- [MDM deployment](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/connect-devices-networks/mdm/index.md): Deploy the device client via MDM.
+- [Verify device connectivity](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/connect-devices-networks/validate-traffic-in-gateway/index.md): Verify devices connect through Cloudflare.
+- [Get started with Zero Trust](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/initial-setup/index.md): Secure Internet traffic and SaaS apps.
+- [Configure an identity provider](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/initial-setup/configure-idp/index.md): Set up identity provider integration.
+- [Create a Cloudflare account](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/initial-setup/create-cloudflare-account/index.md): Sign up for a Cloudflare account.
+- [Create a Zero Trust organization](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/initial-setup/create-zero-trust-org/index.md): Set up a Zero Trust organization.
+- [Prerequisites](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/initial-setup/prerequisites/index.md): Review requirements before getting started.
+- [Secure SaaS applications](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/secure-saas-applications/index.md): Secure Internet traffic and SaaS apps.
+- [Scan SaaS applications with Cloudflare CASB](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/secure-saas-applications/configure-casb/index.md): Detect SaaS misconfigurations with CASB scans.
+- [Layer security methods](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/secure-saas-applications/layer-security/index.md): Combine device posture and browser isolation.
+- [SaaS security overview](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/secure-saas-applications/saas-security-overview/index.md): Understand SaaS application security layers.
+- [Single sign-on front door controls](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/secure-saas-applications/sso-front-door/index.md): Protect SaaS apps with Access for SaaS.
+- [Understand and streamline policy creation](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/understand-policies/index.md): Secure Internet traffic and SaaS apps.
+- [Create a list of IPs or domains](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/understand-policies/create-list/index.md): Build reusable IP and domain lists.
+- [Use indicator feeds to improve security policies](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/understand-policies/indicator-feeds/index.md): Enhance policies with threat indicator feeds.
+- [Order of enforcement](https://developers.cloudflare.com/learning-paths/secure-internet-traffic/understand-policies/order-of-enforcement/index.md): Understand Gateway policy enforcement order.
+- [Concepts](https://developers.cloudflare.com/learning-paths/secure-your-email/concepts/index.md): Protect your organization from email phishing attacks.
+- [How Cloudflare prevents email-based phishing attacks](https://developers.cloudflare.com/learning-paths/secure-your-email/concepts/prevent-phishing-attack/index.md): Detect phishing with AI and ML models.
+- [Protect your organization from phishing attacks](https://developers.cloudflare.com/learning-paths/secure-your-email/concepts/protect-from-phishing-attacks/index.md): Deploy modern email security beyond SEGs.
+- [What is Cloudflare?](https://developers.cloudflare.com/learning-paths/secure-your-email/concepts/what-is-cloudflare/index.md): Learn about Cloudflare's global network.
+- [What is Email security?](https://developers.cloudflare.com/learning-paths/secure-your-email/concepts/what-is-email-security/index.md): Learn about email protocol security gaps.
+- [What is a phishing attack?](https://developers.cloudflare.com/learning-paths/secure-your-email/concepts/what-is-phishing-attack/index.md): Understand email phishing attack methods.
+- [Configure Email security](https://developers.cloudflare.com/learning-paths/secure-your-email/configure-email-security/index.md): Protect your organization from email phishing attacks.
+- [Manage your active directory](https://developers.cloudflare.com/learning-paths/secure-your-email/configure-email-security/active-directory-sync/index.md): Sync and manage email directory users.
+- [Enable audit logs](https://developers.cloudflare.com/learning-paths/secure-your-email/configure-email-security/audit-logs/index.md): Enable email security audit logs via Logpush.
+- [Create allow policies](https://developers.cloudflare.com/learning-paths/secure-your-email/configure-email-security/create-allow-policies/index.md): Configure trusted sender allow policies.
+- [Add user to the impersonation registry](https://developers.cloudflare.com/learning-paths/secure-your-email/configure-email-security/impersonation-registry/index.md): Protect executives from BEC impersonation attacks.
+- [Report phish](https://developers.cloudflare.com/learning-paths/secure-your-email/configure-email-security/report-phish/index.md): Set up PhishNet for user phish reporting.
+- [Set additional detections](https://developers.cloudflare.com/learning-paths/secure-your-email/configure-email-security/set-additional-detections/index.md): Enable extra email threat detection rules.
+- [Enable auto-moves](https://developers.cloudflare.com/learning-paths/secure-your-email/enable-auto-moves/index.md): Protect your organization from email phishing attacks.
+- [Configure auto-moves](https://developers.cloudflare.com/learning-paths/secure-your-email/enable-auto-moves/configure-auto-moves/index.md): Automate moving suspicious emails to folders.
+- [Email dispositions](https://developers.cloudflare.com/learning-paths/secure-your-email/enable-auto-moves/email-dispositions/index.md): Understand email threat disposition categories.
+- [Get started with Email security](https://developers.cloudflare.com/learning-paths/secure-your-email/get-started/index.md): Protect your organization from email phishing attacks.
+- [Create an Email security account](https://developers.cloudflare.com/learning-paths/secure-your-email/get-started/create-email-security-account/index.md): Set up a Cloudflare Email security account.
+- [Deployment models](https://developers.cloudflare.com/learning-paths/secure-your-email/get-started/deployment-models/index.md): Compare API, BCC, and inline email deployments.
+- [Prerequisites](https://developers.cloudflare.com/learning-paths/secure-your-email/get-started/prerequisites/index.md): Review requirements before getting started.
+- [Recommended deployment model](https://developers.cloudflare.com/learning-paths/secure-your-email/get-started/recommended-deployment-model/index.md): Use API deployment for easiest email setup.
+- [Set up Google Workspace](https://developers.cloudflare.com/learning-paths/secure-your-email/get-started/setup-google-workspace/index.md): Integrate Email security with Google Workspace.
+- [Set up Microsoft Graph API](https://developers.cloudflare.com/learning-paths/secure-your-email/get-started/setup-ms-graph-api/index.md): Integrate Email security with Microsoft 365.
+- [Monitor your email activity](https://developers.cloudflare.com/learning-paths/secure-your-email/monitor-your-inbox/index.md): Protect your organization from email phishing attacks.
+- [Monitor detections](https://developers.cloudflare.com/learning-paths/secure-your-email/monitor-your-inbox/monitor-detections/index.md): Review email threat detection results.
+- [Phish submissions](https://developers.cloudflare.com/learning-paths/secure-your-email/monitor-your-inbox/phish-submissions/index.md): Review user and admin phish submissions.
+- [PhishGuard](https://developers.cloudflare.com/learning-paths/secure-your-email/monitor-your-inbox/phishguard/index.md): Use managed PhishGuard threat monitoring.
+- [Prerequisites](https://developers.cloudflare.com/learning-paths/surge-readiness/concepts/index.md): Prepare your site for traffic surges.
+- [Custom pages](https://developers.cloudflare.com/learning-paths/surge-readiness/concepts/custom-pages/index.md): Configure custom error and block pages.
+- [Performance](https://developers.cloudflare.com/learning-paths/surge-readiness/performance/index.md): Prepare your site for traffic surges.
+- [Analytics](https://developers.cloudflare.com/learning-paths/surge-readiness/performance/analytics/index.md): Monitor traffic with Cloudflare analytics.
+- [Caching](https://developers.cloudflare.com/learning-paths/surge-readiness/performance/caching/index.md): Optimize caching for surge readiness.
+- [Logs](https://developers.cloudflare.com/learning-paths/surge-readiness/performance/logs/index.md): Set up logging for traffic monitoring.
+- [Security](https://developers.cloudflare.com/learning-paths/surge-readiness/security/index.md): Prepare your site for traffic surges.
+- [Block user agents and lock zones](https://developers.cloudflare.com/learning-paths/surge-readiness/security/block-agents-lock-zones/index.md): Block user agents and restrict zone access.
+- [Control domain access](https://developers.cloudflare.com/learning-paths/surge-readiness/security/control-domain-access/index.md): Manage domain access with IP rules.
+- [Control incoming requests](https://developers.cloudflare.com/learning-paths/surge-readiness/security/control-incoming-requests/index.md): Filter incoming requests with WAF rules.
+- [Defend content with Scrape Shield](https://developers.cloudflare.com/learning-paths/surge-readiness/security/defend-content/index.md): Protect content from scraping and hotlinking.
+- [What to do when under attack](https://developers.cloudflare.com/learning-paths/surge-readiness/security/enable-iaum/index.md): Respond to active DDoS attacks.
+- [Prepare for surges and mitigate DDoS attacks](https://developers.cloudflare.com/learning-paths/surge-readiness/security/prepare-for-surges/index.md): Reduce server strain during traffic surges.
+- [Secure against attacks](https://developers.cloudflare.com/learning-paths/surge-readiness/security/secure-against-attacks/index.md): Proxy all subdomains through Cloudflare.
+- [Support](https://developers.cloudflare.com/learning-paths/surge-readiness/support/index.md): Prepare your site for traffic surges.
+- [Support resources](https://developers.cloudflare.com/learning-paths/surge-readiness/support/resources/index.md): Access Cloudflare support and resources.
+- [Overview](https://developers.cloudflare.com/learning-paths/warp-overview-course/series/index.md): Learn Cloudflare WARP client basics and diagnostics.
+- [Understand Cloudflare WARP basics](https://developers.cloudflare.com/learning-paths/warp-overview-course/series/warp-basics-1/index.md): Learn WARP client modes and configuration.
+- [WARP diagnostic logs](https://developers.cloudflare.com/learning-paths/warp-overview-course/series/warp-basics-2/index.md): Analyze WARP diagnostic log files.
+- [Concepts](https://developers.cloudflare.com/learning-paths/workers/concepts/index.md): Build and deploy serverless applications with Workers.
+- [Introduction to Cloudflare](https://developers.cloudflare.com/learning-paths/workers/concepts/cloudflare-intro/index.md): Learn about Cloudflare's network and products.
+- [Serverless computing](https://developers.cloudflare.com/learning-paths/workers/concepts/serverless-computing/index.md): Understand serverless versus cloud computing.
+- [Cloudflare Workers](https://developers.cloudflare.com/learning-paths/workers/concepts/workers-concepts/index.md): Learn Workers runtime and execution model.
+- [Learn about Cloudflare's Developer Platform](https://developers.cloudflare.com/learning-paths/workers/devplat/index.md): Build and deploy serverless applications with Workers.
+- [Cloudflare Developer Platform](https://developers.cloudflare.com/learning-paths/workers/devplat/intro-to-devplat/index.md): Explore Cloudflare's developer platform products.
+- [Deploy your first Worker](https://developers.cloudflare.com/learning-paths/workers/get-started/index.md): Build and deploy serverless applications with Workers.
+- [C3 & Wrangler](https://developers.cloudflare.com/learning-paths/workers/get-started/c3-and-wrangler/index.md): Use C3 and Wrangler CLI for Workers.
+- [First application](https://developers.cloudflare.com/learning-paths/workers/get-started/first-application/index.md): Build an AI application with Hono.
+- [First Worker](https://developers.cloudflare.com/learning-paths/workers/get-started/first-worker/index.md): Build and deploy your first Worker.
+- [Overview](https://developers.cloudflare.com/learning-paths/workflows-course/series/index.md): Create durable, reliable background workflows.
+- [Introduction to Workflows](https://developers.cloudflare.com/learning-paths/workflows-course/series/workflows-1/index.md): Cloudflare Workflows provides durable execution capabilities, allowing developers to create reliable, repeatable workflows that run in the background. Workflows are designed to resume execution even if the underlying compute fails, ensuring that tasks complete eventually. They are built on top of Cloudflare Workers and handle scaling and provisioning automatically.
+
+- [Monitor and batch your website data](https://developers.cloudflare.com/learning-paths/workflows-course/series/workflows-2/index.md): Workflows can be used to process batches of data, ensuring each item in the batch goes through a defined process with reliable execution. This section demonstrates processing a batch of puns using the Punderful application as an example.
+
+- [Use cron triggers to develop time-aware applications](https://developers.cloudflare.com/learning-paths/workflows-course/series/workflows-3/index.md): Cloudflare Workflows provide a powerful way to manage asynchronous, durable processes. The ability to explicitly schedule tasks using cron triggers and pause execution with `step.sleep` allows developers to build sophisticated, time-aware applications.

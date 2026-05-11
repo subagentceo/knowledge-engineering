@@ -1,0 +1,62 @@
+# Email Routing
+
+Create and manage email addresses and route to your preferred inbox
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/email-routing/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Email Routing llms-full.txt](https://developers.cloudflare.com/email-routing/llms-full.txt) for the complete Email Routing documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Email Routing](https://developers.cloudflare.com/email-routing/index.md): Create custom email addresses for your domain and route incoming emails to your preferred mailbox.
+
+## Get started
+
+- [Get started](https://developers.cloudflare.com/email-routing/get-started/index.md): Set up Email Routing to create custom email addresses and forward incoming emails to your preferred mailbox.
+- [Audit logs](https://developers.cloudflare.com/email-routing/get-started/audit-logs/index.md): Track Email Routing configuration changes such as rule edits and address additions in Cloudflare audit logs.
+- [Analytics](https://developers.cloudflare.com/email-routing/get-started/email-routing-analytics/index.md): Review Email Routing metrics for received, forwarded, dropped, and rejected emails, and inspect activity logs.
+- [Enable Email Routing](https://developers.cloudflare.com/email-routing/get-started/enable-email-routing/index.md): Add the required DNS records and create your first email routing rule to start forwarding emails.
+- [Test Email Routing](https://developers.cloudflare.com/email-routing/get-started/test-email-routing/index.md): Verify that your Email Routing configuration is working by sending a test email to your custom address.
+
+## Email Workers
+
+- [Email Workers](https://developers.cloudflare.com/email-routing/email-workers/index.md): Process incoming emails programmatically with Cloudflare Workers to build custom filtering, forwarding, and notification logic.
+- [Demos](https://developers.cloudflare.com/email-routing/email-workers/demos/index.md): Explore demo applications that show how to use Email Workers within your architecture.
+- [Edit Email Workers](https://developers.cloudflare.com/email-routing/email-workers/edit-email-workers/index.md): Add, rename, delete, or modify Email Workers and manage their associated email routes.
+- [Enable Email Workers](https://developers.cloudflare.com/email-routing/email-workers/enable-email-workers/index.md): Set up your first Email Worker to process incoming emails with custom logic on Cloudflare Workers.
+- [Local Development](https://developers.cloudflare.com/email-routing/email-workers/local-development/index.md): Test Email Workers locally using Wrangler dev or the Cloudflare Vite plugin to simulate receiving, replying, and sending emails.
+- [Reply to emails from Workers](https://developers.cloudflare.com/email-routing/email-workers/reply-email-workers/index.md): Build smart auto-responders by replying to incoming emails programmatically with Email Workers.
+- [Runtime API](https://developers.cloudflare.com/email-routing/email-workers/runtime-api/index.md): Email Workers Runtime API reference for handling, forwarding, rejecting, and replying to incoming emails.
+- [Send emails from Workers](https://developers.cloudflare.com/email-routing/email-workers/send-email-workers/index.md): Use the send_email binding to send outbound emails from Cloudflare Workers through Email Routing.
+
+## Troubleshooting
+
+- [Troubleshooting](https://developers.cloudflare.com/email-routing/troubleshooting/index.md): Diagnose and fix common Email Routing issues including misconfigured DNS records and SPF conflicts.
+- [DNS records](https://developers.cloudflare.com/email-routing/troubleshooting/email-routing-dns-records/index.md): Fix missing or misconfigured DNS records that prevent Email Routing from working on your domain.
+- [SPF records](https://developers.cloudflare.com/email-routing/troubleshooting/email-routing-spf-records/index.md): Resolve duplicate SPF record conflicts that prevent Email Routing from forwarding emails correctly.
+
+## Limits
+
+- [Limits](https://developers.cloudflare.com/email-routing/limits/index.md): Email Routing limits for message size, rules, addresses, and Email Workers CPU and memory usage.
+
+## Postmaster
+
+- [Postmaster](https://developers.cloudflare.com/email-routing/postmaster/index.md): Reference page with postmaster information for professionals, as well as a known limitations section.
+
+## API reference
+
+- [API reference](https://developers.cloudflare.com/api/resources/email_routing/subresources/addresses/methods/list/index.md): Access the Email Routing API to manage custom addresses, destination addresses, and routing rules programmatically.
+
+## GraphQL examples
+
+- [GraphQL examples](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-email-routing/index.md): Query Email Routing analytics data using the Cloudflare GraphQL API.
+
+## setup
+
+- [Disable Email Routing](https://developers.cloudflare.com/email-routing/setup/disable-email-routing/index.md): Delete and disable Email Routing or unlock DNS records to migrate to another email provider.
+- [Configure rules and addresses](https://developers.cloudflare.com/email-routing/setup/email-routing-addresses/index.md): Create, edit, and manage Email Routing custom addresses, destination addresses, and catch-all rules.
+- [DNS records](https://developers.cloudflare.com/email-routing/setup/email-routing-dns-records/index.md): Check and manage the MX and SPF DNS records required for Email Routing to function correctly.
+- [Configure MTA-STS](https://developers.cloudflare.com/email-routing/setup/mta-sts/index.md): Enable MTA Strict Transport Security for Email Routing to protect against downgrade and man-in-the-middle attacks.
+- [Subdomains](https://developers.cloudflare.com/email-routing/setup/subdomains/index.md): Add Email Routing to subdomains within your zone and create custom addresses for each subdomain.

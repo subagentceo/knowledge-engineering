@@ -1,0 +1,70 @@
+# Email Service
+
+Send transactional emails at scale with Cloudflare Email Service
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/email-service/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Email Service llms-full.txt](https://developers.cloudflare.com/email-service/llms-full.txt) for the complete Email Service documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Email Service](https://developers.cloudflare.com/email-service/index.md): Send transactional emails and route incoming emails to Workers or email addresses with Cloudflare Email Service.
+
+## Getting started
+
+- [Getting started](https://developers.cloudflare.com/email-service/get-started/index.md): Set up Cloudflare Email Service to send transactional emails and route incoming messages.
+- [Route emails](https://developers.cloudflare.com/email-service/get-started/route-emails/index.md): Forward incoming emails to existing mailboxes or process them with Workers using Email Service.
+- [Send emails](https://developers.cloudflare.com/email-service/get-started/send-emails/index.md): Send your first email using the Cloudflare Email Service REST API or Workers binding.
+
+## api
+
+- [Workers API](https://developers.cloudflare.com/email-service/api/route-emails/email-handler/index.md): Process incoming emails with the email() handler in Cloudflare Workers to forward, reply, or reject messages.
+- [REST API](https://developers.cloudflare.com/email-service/api/send-emails/rest-api/index.md): Send emails from any application using the Email Service REST API with standard HTTP requests.
+- [Workers API](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/index.md): Send emails directly from Cloudflare Workers using the Email Service binding and send() method.
+
+## concepts
+
+- [Email deliverability](https://developers.cloudflare.com/email-service/concepts/deliverability/index.md): Understand bounce handling and reputation management for optimal email delivery with Email Service.
+- [Email authentication](https://developers.cloudflare.com/email-service/concepts/email-authentication/index.md): SPF, DKIM, and DMARC authentication for secure and deliverable email sending with Email Service.
+- [Email lifecycle](https://developers.cloudflare.com/email-service/concepts/email-lifecycle/index.md): The complete email processing flow from send request to final delivery status in Email Service.
+- [Suppressions lists](https://developers.cloudflare.com/email-service/concepts/suppressions/index.md): Manage Email Service suppression lists to prevent sending to invalid or complaining addresses.
+
+## configuration
+
+- [Domain configuration](https://developers.cloudflare.com/email-service/configuration/domains/index.md): Configure and verify DNS records for Email Service sending and routing on your domain.
+- [Email routing rules and addresses](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/index.md): Create and manage custom email addresses, forwarding rules, and catch-all routing in Email Service.
+- [Configure MTA-STS](https://developers.cloudflare.com/email-service/configuration/mta-sts/index.md): Enable MTA Strict Transport Security for your Email Service domain to protect against downgrade attacks.
+
+## examples
+
+- [Email storage and processing](https://developers.cloudflare.com/email-service/examples/email-routing/email-storage/index.md): Store incoming emails in KV and process them with Queues for support tickets and workflow automation in Email Service.
+- [Handle hard bounce emails](https://developers.cloudflare.com/email-service/examples/email-routing/hard-bounce-handling/index.md): Detect and process hard bounce notifications in Email Service to maintain sender reputation.
+- [Spam filtering](https://developers.cloudflare.com/email-service/examples/email-routing/spam-filtering/index.md): Build spam detection for Email Service with keyword analysis, domain reputation checks, and AI-based filtering.
+- [Email sending](https://developers.cloudflare.com/email-service/examples/email-sending/index.md): Advanced patterns and examples for sending transactional emails with Email Service.
+- [Email attachments](https://developers.cloudflare.com/email-service/examples/email-sending/email-attachments/index.md): Handle different types of email attachments including PDFs, inline images, and file uploads with validation and encoding.
+- [Magic link authentication](https://developers.cloudflare.com/email-service/examples/email-sending/magic-link/index.md): Passwordless login system using magic links sent via email with JWT tokens and session management.
+- [User signup flow](https://developers.cloudflare.com/email-service/examples/email-sending/signup-flow/index.md): Handle user registration with automated welcome emails and email verification using secure tokens.
+
+## local-development
+
+- [Email routing](https://developers.cloudflare.com/email-service/local-development/routing/index.md): Test Email Service routing Workers locally using wrangler dev with simulated incoming emails.
+- [Email sending](https://developers.cloudflare.com/email-service/local-development/sending/index.md): Test Email Service sending Workers locally using wrangler dev with simulated email delivery.
+
+## observability
+
+- [Email Logs](https://developers.cloudflare.com/email-service/observability/logs/index.md): View and analyze Email Service sending and routing activity logs with authentication and delivery details.
+- [Metrics and analytics](https://developers.cloudflare.com/email-service/observability/metrics-analytics/index.md): Query Email Service sending metrics and delivery rates via the dashboard or GraphQL Analytics API.
+
+## platform
+
+- [Limits](https://developers.cloudflare.com/email-service/platform/limits/index.md): Email Service sending quotas, rate limits, message size limits, and compliance requirements.
+- [Pricing](https://developers.cloudflare.com/email-service/platform/pricing/index.md): Email Service pricing for outbound sending and inbound routing across Workers Free and Paid plans.
+
+## reference
+
+- [FAQ](https://developers.cloudflare.com/email-service/reference/faq/index.md): Common questions about Email Service limits, sender reputation, marketing email support, and abuse reporting.
+- [Email headers](https://developers.cloudflare.com/email-service/reference/headers/index.md): Allowed, platform-controlled, and custom email headers for Email Service with validation rules.
+- [Postmaster](https://developers.cloudflare.com/email-service/reference/postmaster/index.md): Reference page with postmaster information for professionals, as well as configuration details for Email Service.
+- [Troubleshoot SPF, DKIM and DMARC](https://developers.cloudflare.com/email-service/reference/troubleshooting/index.md): Diagnose and fix SPF, DKIM, and DMARC authentication issues for Email Service delivery.

@@ -1,0 +1,13 @@
+# Migration Guides
+
+Content designed to help you migrate from another provider to Cloudflare.
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/migration-guides/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Migration Guides llms-full.txt](https://developers.cloudflare.com/migration-guides/llms-full.txt) for the complete Migration Guides documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Migration Guides documentation pages
+
+- [Migration guides](https://developers.cloudflare.com/migration-guides/index.md): Migrate from another provider to Cloudflare.

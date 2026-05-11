@@ -1,0 +1,101 @@
+# Use cases
+
+Discover what's possible with Cloudflare.
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/use-cases/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Use cases llms-full.txt](https://developers.cloudflare.com/use-cases/llms-full.txt) for the complete Use cases documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Use cases](https://developers.cloudflare.com/use-cases/index.md): Find which Cloudflare solutions solve your use case, from building new web apps to protecting and accelerating your existing apps and systems.
+
+## Solution guides
+
+- [Solution guides](https://developers.cloudflare.com/use-cases/solutions/index.md): Cross-product guides that walk you through configuring Cloudflare products together to achieve a specific goal.
+- [Discover and secure your API endpoints (Free, Pro, and Business)](https://developers.cloudflare.com/use-cases/solutions/discover-secure-api-endpoints/index.md): Block API abuse, restrict unauthorized access, and monitor endpoint traffic using layered Cloudflare security features.
+- [Enforce HTTPS and encrypt all traffic (Free, Pro, and Business)](https://developers.cloudflare.com/use-cases/solutions/encrypt-all-keep-site-secure/index.md): Configure SSL/TLS encryption from edge to origin, redirect HTTP to HTTPS, and harden your HTTPS setup with HSTS and minimum TLS versions.
+- [Protect your forms from spam and abuse (Free, Pro, and Business)](https://developers.cloudflare.com/use-cases/solutions/protect-sensitive-forms-fraud-abuse/index.md): Block spam submissions, fake account creation, and card testing on your web forms using a layered defense.
+- [Stop account takeover attacks (Free, Pro, and Business)](https://developers.cloudflare.com/use-cases/solutions/stop-account-takeover-attacks/index.md): Block credential stuffing and brute force attacks on login endpoints using a layered defense.
+- [Stop malicious bots while allowing legitimate traffic (Free, Pro, and Business)](https://developers.cloudflare.com/use-cases/solutions/stop-malicious-bots/index.md): Block malicious bots while allowing legitimate traffic using Bot Fight Mode, Turnstile, custom rules, and rate limiting on Free, Pro, and Business plans.
+
+## Application security
+
+- [Application security](https://developers.cloudflare.com/use-cases/application-security/index.md): Protect web applications and APIs with Cloudflare Application security (WAF), DDoS protection, bot security, API Shield, and client-side security.
+- [Secure API endpoints](https://developers.cloudflare.com/use-cases/application-security/api-endpoints/index.md): Protect APIs with schema validation, rate limiting, and authentication.
+- [Block application attacks](https://developers.cloudflare.com/use-cases/application-security/block-attacks/index.md): Protect against SQL injection, XSS, and other OWASP Top 10 vulnerabilities.
+- [Stop malicious bots](https://developers.cloudflare.com/use-cases/application-security/bots/index.md): Detect and block automated threats while allowing legitimate traffic.
+- [Protect against client-side threats](https://developers.cloudflare.com/use-cases/application-security/client-side/index.md): Monitor and control third-party scripts running on your site.
+- [Mitigate DDoS attacks](https://developers.cloudflare.com/use-cases/application-security/ddos/index.md): Mitigate DDoS attacks automatically with no caps on attack size, no manual intervention, and no extra cost.
+
+## Performance
+
+- [Performance](https://developers.cloudflare.com/use-cases/performance/index.md): Accelerate websites and applications with Cloudflare CDN caching, image optimization, smart routing, load balancing, and web analytics.
+- [Cache content globally](https://developers.cloudflare.com/use-cases/performance/caching/index.md): Reduce origin load and latency by caching static and dynamic content at 300+ Cloudflare edge locations.
+- [Accelerate connections](https://developers.cloudflare.com/use-cases/performance/connections/index.md): Reduce latency with Argo Smart Routing, HTTP/3, and Early Hints asset preloading.
+- [Optimize images](https://developers.cloudflare.com/use-cases/performance/image-optimization/index.md): Reduce page load times by compressing, resizing, and converting images to WebP and AVIF automatically.
+- [Balance traffic across origins](https://developers.cloudflare.com/use-cases/performance/load-balancing/index.md): Distribute traffic across multiple servers for reliability and performance.
+- [Monitor performance](https://developers.cloudflare.com/use-cases/performance/monitoring/index.md): Track real user metrics and identify performance issues.
+- [Optimize web assets](https://developers.cloudflare.com/use-cases/performance/web-assets/index.md): Speed up page rendering by minifying HTML, CSS, and JavaScript and loading third-party scripts server-side.
+
+## Company security
+
+- [Company security](https://developers.cloudflare.com/use-cases/company-security/index.md): Secure employees, devices, and data with Cloudflare Zero Trust access, secure web gateway, email security, and data loss prevention.
+- [Prevent data loss](https://developers.cloudflare.com/use-cases/company-security/data-loss-prevention/index.md): Protect sensitive data from exfiltration with DLP and CASB.
+- [Ensure device endpoint security](https://developers.cloudflare.com/use-cases/company-security/device-security/index.md): Verify device posture before granting access.
+- [Stop email phishing attacks](https://developers.cloudflare.com/use-cases/company-security/email-security/index.md): Protect your organization from email-based threats with advanced email security.
+- [Access internal applications securely](https://developers.cloudflare.com/use-cases/company-security/employee-access/index.md): Implement Zero Trust access to internal applications without the complexity of VPNs.
+- [Secure your company's Internet access](https://developers.cloudflare.com/use-cases/company-security/internet-access/index.md): Protect users from threats on the Internet with Gateway DNS and HTTP filtering.
+
+## Web sites and web apps
+
+- [Web sites and web apps](https://developers.cloudflare.com/use-cases/web-apps/index.md): Build and deploy full-stack web applications on Cloudflare with Workers, D1, KV, R2, Durable Objects, and Queues.
+- [Deploy frontend applications](https://developers.cloudflare.com/use-cases/web-apps/deploy-frontend/index.md): Deploy React, Vue, Astro, and other frontend frameworks globally with Git-triggered builds and preview URLs.
+- [Optimize performance](https://developers.cloudflare.com/use-cases/web-apps/performance/index.md): Accelerate your application with caching, smart routing, and edge optimization.
+- [Add real-time features](https://developers.cloudflare.com/use-cases/web-apps/real-time/index.md): Build interactive applications with WebSockets, real-time collaboration, and live updates.
+- [Secure your application](https://developers.cloudflare.com/use-cases/web-apps/security/index.md): Protect your web application from attacks, bots, and abuse.
+- [Build serverless backends](https://developers.cloudflare.com/use-cases/web-apps/serverless-backends/index.md): Deploy backend code globally with automatic scaling, fast startup times, and scheduled tasks.
+- [Store application data](https://developers.cloudflare.com/use-cases/web-apps/store-data/index.md): Persist data with serverless databases, key-value storage, and object storage.
+
+## APIs and microservices
+
+- [APIs and microservices](https://developers.cloudflare.com/use-cases/apis/index.md): Build, protect, and monitor APIs with Cloudflare Workers, API Shield, rate limiting, mTLS, and Logpush.
+- [Deploy APIs at the edge](https://developers.cloudflare.com/use-cases/apis/deploy-apis/index.md): Deploy globally distributed APIs that scale automatically with no servers to manage.
+- [Connect your internal network services](https://developers.cloudflare.com/use-cases/apis/internal-services/index.md): Expose internal APIs and microservices securely without opening inbound firewall ports.
+- [Monitor your APIs](https://developers.cloudflare.com/use-cases/apis/monitor-apis/index.md): Monitor API traffic, discover undocumented endpoints, and track custom business metrics.
+- [Protect your APIs](https://developers.cloudflare.com/use-cases/apis/protect-apis/index.md): Secure APIs against abuse and injection attacks with schema validation, rate limiting, mTLS, and WAF rules.
+
+## SaaS platforms
+
+- [SaaS platforms](https://developers.cloudflare.com/use-cases/saas/index.md): Build multi-tenant SaaS platforms with Cloudflare SSL for SaaS, Workers for Platforms, and per-tenant storage.
+- [Enable customer code deployment](https://developers.cloudflare.com/use-cases/saas/code-deployment/index.md): Let your customers deploy their own code on your platform with isolated execution environments.
+- [Customer domains with SSL for SaaS](https://developers.cloudflare.com/use-cases/saas/custom-domains/index.md): Allow your customers to use their own domains with your platform, complete with automatic SSL certificates.
+- [Store and isolate customer data](https://developers.cloudflare.com/use-cases/saas/data-isolation/index.md): Isolate customer data in a multi-tenant SaaS platform using per-tenant databases, object storage, and key-value stores.
+- [Protect your platform](https://developers.cloudflare.com/use-cases/saas/protect-platform/index.md): Secure your SaaS platform and your customers' data.
+- [Observe customer usage and billing](https://developers.cloudflare.com/use-cases/saas/usage-analytics/index.md): Track usage across tenants for billing, optimization, and insights.
+
+## AI applications
+
+- [AI applications](https://developers.cloudflare.com/use-cases/ai/index.md): Build AI applications on Cloudflare with Workers AI inference, AI Gateway, Vectorize, and serverless storage.
+- [Build and run AI applications](https://developers.cloudflare.com/use-cases/ai/build-and-run/index.md): Build AI applications with serverless compute, edge inference, multi-provider gateways, and stateful coordination.
+- [Control costs and improve quality](https://developers.cloudflare.com/use-cases/ai/control-costs/index.md): Reduce AI inference costs and improve reliability with response caching, rate limiting, and unified provider analytics.
+- [Store and retrieve context](https://developers.cloudflare.com/use-cases/ai/store-and-retrieve-context/index.md): Store vector embeddings, conversation history, and application state for AI applications using serverless databases and object storage.
+
+## Media and streaming
+
+- [Media and streaming](https://developers.cloudflare.com/use-cases/media-streaming/index.md): Deliver video, images, and media at scale with Cloudflare Stream, Images, R2, and global caching.
+- [Cache and accelerate media delivery](https://developers.cloudflare.com/use-cases/media-streaming/cache-delivery/index.md): Deliver media content from edge locations worldwide.
+- [Optimize and transform images for the web](https://developers.cloudflare.com/use-cases/media-streaming/image-optimization/index.md): Resize, crop, and convert images to WebP and AVIF on-the-fly with Cloudflare Images and Polish.
+- [Secure your content](https://developers.cloudflare.com/use-cases/media-streaming/secure-content/index.md): Protect media from unauthorized access and hotlinking.
+- [Store media at scale](https://developers.cloudflare.com/use-cases/media-streaming/store-media/index.md): Store media files with zero egress fees using R2.
+- [Upload, encode, and deliver videos](https://developers.cloudflare.com/use-cases/media-streaming/video-delivery/index.md): Build a complete video hosting and delivery solution with Cloudflare Stream.
+
+## E-commerce
+
+- [E-commerce](https://developers.cloudflare.com/use-cases/e-commerce/index.md): Protect and accelerate online stores with Cloudflare WAF, DDoS protection, caching, image optimization, and Waiting Room.
+- [Observe traffic patterns and analytics](https://developers.cloudflare.com/use-cases/e-commerce/analytics/index.md): Understand your traffic, identify issues, and optimize your store with Cloudflare analytics.
+- [Accelerate your store's performance](https://developers.cloudflare.com/use-cases/e-commerce/performance/index.md): Speed up an e-commerce store with edge caching, image optimization, asset minification, and server-side tag loading.
+- [Protect your store](https://developers.cloudflare.com/use-cases/e-commerce/protect/index.md): Before driving traffic to your store, establish security controls to protect against attacks and fraud.
+- [Handle traffic at scale](https://developers.cloudflare.com/use-cases/e-commerce/traffic-at-scale/index.md): Handle flash sales and traffic spikes for e-commerce stores with load balancing, visitor queuing, and smart routing.

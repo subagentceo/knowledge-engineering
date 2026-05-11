@@ -1,0 +1,67 @@
+# Pipelines
+
+Ingest real time data streams and load into R2
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/pipelines/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Pipelines llms-full.txt](https://developers.cloudflare.com/pipelines/llms-full.txt) for the complete Pipelines documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Pipelines](https://developers.cloudflare.com/pipelines/index.md): Ingest, transform, and deliver streaming data to R2 as Apache Iceberg tables or Parquet and JSON files.
+
+## Getting started
+
+- [Getting started](https://developers.cloudflare.com/pipelines/getting-started/index.md): Create your first pipeline to ingest streaming data and write to R2 Data Catalog as an Apache Iceberg table.
+
+## Streams
+
+- [Streams](https://developers.cloudflare.com/pipelines/streams/index.md): Durable, buffered queues that receive and store events for processing in Cloudflare Pipelines.
+- [Logpush as a source](https://developers.cloudflare.com/pipelines/streams/logpush/index.md): Use Cloudflare Logpush to send logs from Cloudflare products to a Pipelines stream.
+- [Manage streams](https://developers.cloudflare.com/pipelines/streams/manage-streams/index.md): Create, configure, and manage streams for data ingestion
+- [Writing to streams](https://developers.cloudflare.com/pipelines/streams/writing-to-streams/index.md): Send data to streams via Worker bindings or HTTP endpoints
+
+## Sinks
+
+- [Sinks](https://developers.cloudflare.com/pipelines/sinks/index.md): Configure data destinations in Cloudflare Pipelines to write to R2 or R2 Data Catalog.
+- [R2](https://developers.cloudflare.com/pipelines/sinks/available-sinks/r2/index.md): Write data as JSON or Parquet files to R2 object storage
+- [R2 Data Catalog](https://developers.cloudflare.com/pipelines/sinks/available-sinks/r2-data-catalog/index.md): Write data as Apache Iceberg tables to R2 Data Catalog
+- [Manage sinks](https://developers.cloudflare.com/pipelines/sinks/manage-sinks/index.md): Create, configure, and manage sinks for data storage
+
+## Pipelines
+
+- [Pipelines](https://developers.cloudflare.com/pipelines/pipelines/index.md): Connect streams to sinks with SQL transformations to filter, enrich, and restructure events.
+- [Manage pipelines](https://developers.cloudflare.com/pipelines/pipelines/manage-pipelines/index.md): Create, configure, and manage SQL transformations between streams and sinks
+
+## observability
+
+- [Metrics and analytics](https://developers.cloudflare.com/pipelines/observability/metrics/index.md): Query Pipelines metrics for data ingested, processed, and delivered via the dashboard or GraphQL API.
+
+## platform
+
+- [Limits](https://developers.cloudflare.com/pipelines/platform/limits/index.md): Account-level limits for Cloudflare Pipelines streams, sinks, and pipelines during open beta.
+- [Pricing](https://developers.cloudflare.com/pipelines/platform/pricing/index.md): Cloudflare Pipelines pricing details and billing information during open beta.
+
+## reference
+
+- [Legacy pipelines](https://developers.cloudflare.com/pipelines/reference/legacy-pipelines/index.md): Migration guide for pipelines created before September 2025 to the new Pipelines architecture.
+- [Terraform](https://developers.cloudflare.com/pipelines/reference/terraform/index.md): Configure Pipelines and R2 Data Catalog with Terraform using the Cloudflare provider.
+- [Wrangler commands](https://developers.cloudflare.com/pipelines/reference/wrangler-commands/index.md): Wrangler CLI commands for managing Pipelines streams, sinks, and pipelines.
+
+## sql-reference
+
+- [Array functions](https://developers.cloudflare.com/pipelines/sql-reference/scalar-functions/array/index.md): Scalar functions for manipulating arrays
+- [Binary string functions](https://developers.cloudflare.com/pipelines/sql-reference/scalar-functions/binary-string/index.md): Scalar functions for manipulating binary strings
+- [Conditional functions](https://developers.cloudflare.com/pipelines/sql-reference/scalar-functions/conditional/index.md): Scalar functions to implement conditional logic
+- [Hashing functions](https://developers.cloudflare.com/pipelines/sql-reference/scalar-functions/hashing/index.md): Scalar functions for hashing values
+- [JSON functions](https://developers.cloudflare.com/pipelines/sql-reference/scalar-functions/json/index.md): Scalar functions for manipulating JSON
+- [Math functions](https://developers.cloudflare.com/pipelines/sql-reference/scalar-functions/math/index.md): Scalar functions for mathematical operations
+- [Other functions](https://developers.cloudflare.com/pipelines/sql-reference/scalar-functions/other/index.md): Miscellaneous scalar functions
+- [Regex functions](https://developers.cloudflare.com/pipelines/sql-reference/scalar-functions/regex/index.md): Scalar functions for regular expressions
+- [String functions](https://developers.cloudflare.com/pipelines/sql-reference/scalar-functions/string/index.md): Scalar functions for manipulating strings
+- [Struct functions](https://developers.cloudflare.com/pipelines/sql-reference/scalar-functions/struct/index.md): Scalar functions for manipulating structs
+- [Time and date functions](https://developers.cloudflare.com/pipelines/sql-reference/scalar-functions/time-and-date/index.md): Scalar functions for handling times and dates
+- [SELECT statements](https://developers.cloudflare.com/pipelines/sql-reference/select-statements/index.md): Query syntax for data transformation in Cloudflare Pipelines SQL
+- [SQL data types](https://developers.cloudflare.com/pipelines/sql-reference/sql-data-types/index.md): Supported data types in Cloudflare Pipelines SQL

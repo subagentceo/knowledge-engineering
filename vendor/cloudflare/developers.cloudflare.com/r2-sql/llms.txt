@@ -1,0 +1,48 @@
+# R2 SQL
+
+Cloudflare's serverless, distributed query engine for data stored in R2 Data Catalog
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/r2-sql/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [R2 SQL llms-full.txt](https://developers.cloudflare.com/r2-sql/llms-full.txt) for the complete R2 SQL documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [R2 SQL](https://developers.cloudflare.com/r2-sql/index.md): A distributed SQL engine for R2 Data Catalog
+
+## Getting started
+
+- [Getting started](https://developers.cloudflare.com/r2-sql/get-started/index.md): Create your first pipeline to ingest streaming data and write to R2 Data Catalog as an Apache Iceberg table.
+
+## Query data
+
+- [Query data](https://developers.cloudflare.com/r2-sql/query-data/index.md): Understand how to query data with R2 SQL
+
+## SQL reference
+
+- [SQL reference](https://developers.cloudflare.com/r2-sql/sql-reference/index.md): Comprehensive reference for SQL syntax, functions, and data types supported in R2 SQL.
+- [Aggregate functions](https://developers.cloudflare.com/r2-sql/sql-reference/aggregate-functions/index.md): Reference for all 33 aggregate functions supported in R2 SQL, organized by category.
+- [Complex types](https://developers.cloudflare.com/r2-sql/sql-reference/complex-types/index.md): Reference for querying struct, array, and map column types in R2 SQL.
+- [Scalar functions](https://developers.cloudflare.com/r2-sql/sql-reference/scalar-functions/index.md): Reference for all 173 scalar functions supported in R2 SQL, organized by category.
+
+## Troubleshooting guide
+
+- [Troubleshooting guide](https://developers.cloudflare.com/r2-sql/troubleshooting/index.md): Troubleshoot common R2 SQL errors including query structure, type, and timeout issues.
+
+## Tutorials
+
+- [Tutorials](https://developers.cloudflare.com/r2-sql/tutorials/index.md): Step-by-step R2 SQL tutorials for querying data stored in R2.
+- [Build an end to end data pipeline](https://developers.cloudflare.com/r2-sql/tutorials/end-to-end-pipeline/index.md): This tutorial demonstrates how to build a complete data pipeline using Cloudflare Pipelines, R2 Data Catalog, and R2 SQL.
+
+## Platform
+
+- [Platform](https://developers.cloudflare.com/r2-sql/platform/index.md): R2 SQL platform details including pricing and configuration.
+- [Pricing](https://developers.cloudflare.com/r2-sql/platform/pricing/index.md): R2 SQL pricing details and billing information during open beta.
+
+## Reference
+
+- [Reference](https://developers.cloudflare.com/r2-sql/reference/index.md): R2 SQL reference documentation for limitations, best practices, and Wrangler commands.
+- [Limitations and best practices](https://developers.cloudflare.com/r2-sql/reference/limitations-best-practices/index.md): Supported features, known limitations, and best practices for R2 SQL queries.
+- [Wrangler commands](https://developers.cloudflare.com/r2-sql/reference/wrangler-commands/index.md): Wrangler CLI commands for querying data with R2 SQL.

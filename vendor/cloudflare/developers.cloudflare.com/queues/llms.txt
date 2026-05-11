@@ -1,0 +1,83 @@
+# Queues
+
+Reliably send and receive messages without the egress fees
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/queues/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Queues llms-full.txt](https://developers.cloudflare.com/queues/llms-full.txt) for the complete Queues documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Overview
+
+- [Cloudflare Queues](https://developers.cloudflare.com/queues/index.md): Send and receive messages with guaranteed delivery using Cloudflare Queues integrated with Workers.
+
+## Getting started
+
+- [Getting started](https://developers.cloudflare.com/queues/get-started/index.md): Create your first Cloudflare Queue, a producer Worker, and a consumer Worker.
+
+## Event subscriptions
+
+- [Event subscriptions](https://developers.cloudflare.com/queues/event-subscriptions/index.md): Subscribe to events from Cloudflare services to build custom workflows, integrations, and logic with Workers.
+- [Events & schemas](https://developers.cloudflare.com/queues/event-subscriptions/events-schemas/index.md): Reference of available event sources and their schemas for Queues event subscriptions.
+- [Manage event subscriptions](https://developers.cloudflare.com/queues/event-subscriptions/manage-event-subscriptions/index.md): Learn how to create, view, and delete event subscriptions for your queues.
+
+## Examples
+
+- [Examples](https://developers.cloudflare.com/queues/examples/index.md): Browse code examples for producing and consuming messages with Cloudflare Queues.
+- [List and acknowledge messages from the dashboard](https://developers.cloudflare.com/queues/examples/list-messages-from-dash/index.md): Use the dashboard to fetch and acknowledge the messages currently in a queue.
+- [Publish to a Queue via HTTP](https://developers.cloudflare.com/queues/examples/publish-to-a-queue-via-http/index.md): Publish to a Queue directly via HTTP and Workers.
+- [Publish to a Queue via Workers](https://developers.cloudflare.com/queues/examples/publish-to-a-queue-via-workers/index.md): Publish to a Queue directly from your Worker.
+- [Use Queues to store data in R2](https://developers.cloudflare.com/queues/examples/send-errors-to-r2/index.md): Example of how to use Queues to batch data and store it in an R2 bucket.
+- [Send messages from the dashboard](https://developers.cloudflare.com/queues/examples/send-messages-from-dash/index.md): Use the dashboard to send messages to a queue.
+- [Serverless ETL pipelines](https://developers.cloudflare.com/reference-architecture/diagrams/serverless/serverless-etl/index.md): Build serverless ETL pipelines using Cloudflare Queues and Workers.
+- [Use Queues from Durable Objects](https://developers.cloudflare.com/queues/examples/use-queues-with-durable-objects/index.md): Publish to a queue from within a Durable Object.
+
+## Tutorials
+
+- [Tutorials](https://developers.cloudflare.com/queues/tutorials/index.md): Step-by-step Cloudflare Queues tutorials for common messaging patterns.
+- [Handle rate limits of external APIs](https://developers.cloudflare.com/queues/tutorials/handle-rate-limits/index.md): Example of how to use Queues to handle rate limits of external APIs.
+- [Build a web crawler with Queues and Browser Run](https://developers.cloudflare.com/queues/tutorials/web-crawler-with-browser-run/index.md): Example of how to use Queues and Browser Run to power a web crawler.
+
+## Demos and architectures
+
+- [Demos and architectures](https://developers.cloudflare.com/queues/demos/index.md): Explore demos and reference architectures that use Cloudflare Queues.
+
+## Glossary
+
+- [Glossary](https://developers.cloudflare.com/queues/glossary/index.md): Review definitions for terms used across Cloudflare Queues documentation.
+
+## Queues REST API
+
+- [Queues REST API](https://developers.cloudflare.com/api/resources/queues/methods/create/index.md): Manage Cloudflare Queues programmatically using the REST API.
+
+## configuration
+
+- [Batching, Retries and Delays](https://developers.cloudflare.com/queues/configuration/batching-retries/index.md): Configure message batching, retry behavior, and delivery delays for Cloudflare Queues.
+- [Configure Queues](https://developers.cloudflare.com/queues/configuration/configure-queues/index.md): Set up Cloudflare Queues bindings, producers, and consumers using Wrangler.
+- [Consumer concurrency](https://developers.cloudflare.com/queues/configuration/consumer-concurrency/index.md): Automatically scale out Queues consumer Workers horizontally to process messages faster.
+- [Dead Letter Queues](https://developers.cloudflare.com/queues/configuration/dead-letter-queues/index.md): Route failed messages to a Dead Letter Queue after exceeding the retry limit.
+- [R2 Event Notifications](https://developers.cloudflare.com/r2/buckets/event-notifications/index.md): Receive R2 bucket event notifications via Cloudflare Queues.
+- [JavaScript APIs](https://developers.cloudflare.com/queues/configuration/javascript-apis/index.md): Produce and consume Cloudflare Queues messages using the Workers JavaScript API.
+- [Local Development](https://developers.cloudflare.com/queues/configuration/local-development/index.md): Develop and test Cloudflare Queues locally using Wrangler.
+- [Pause and Purge](https://developers.cloudflare.com/queues/configuration/pause-purge/index.md): Pause message delivery or purge all messages from a Cloudflare Queue.
+- [Pull consumers](https://developers.cloudflare.com/queues/configuration/pull-consumers/index.md): Pull messages from a Cloudflare Queue over HTTP from any environment or language.
+
+## observability
+
+- [Metrics](https://developers.cloudflare.com/queues/observability/metrics/index.md): Query Cloudflare Queues backlog, concurrency, and message operation metrics via GraphQL.
+
+## platform
+
+- [Audit Logs](https://developers.cloudflare.com/queues/platform/audit-logs/index.md): Review audit log events for configuration changes made to Cloudflare Queues.
+- [Changelog](https://developers.cloudflare.com/queues/platform/changelog/index.md): Track recent changes, new features, and fixes for Cloudflare Queues.
+- [Limits](https://developers.cloudflare.com/queues/platform/limits/index.md): Cloudflare Queues account limits for message size, throughput, retention, and concurrency.
+- [Pricing](https://developers.cloudflare.com/queues/platform/pricing/index.md): Cloudflare Queues pricing for standard operations with included free usage.
+- [Choose a data or storage product](https://developers.cloudflare.com/workers/platform/storage-options/index.md): Compare Cloudflare storage and data products to find the right fit for your use case.
+
+## reference
+
+- [Delivery guarantees](https://developers.cloudflare.com/queues/reference/delivery-guarantees/index.md): Cloudflare Queues provides at-least-once message delivery by default.
+- [Error codes](https://developers.cloudflare.com/queues/reference/error-codes/index.md): Error codes returned by the Cloudflare Queues JavaScript and REST APIs.
+- [How Queues Works](https://developers.cloudflare.com/queues/reference/how-queues-works/index.md): Learn about Queues architecture including producers, consumers, and message lifecycle.
+- [Wrangler commands](https://developers.cloudflare.com/queues/reference/wrangler-commands/index.md): Wrangler CLI commands for creating, managing, and interacting with Cloudflare Queues.

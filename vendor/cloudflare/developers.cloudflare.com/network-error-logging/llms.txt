@@ -1,0 +1,17 @@
+# Network Error Logging
+
+Review connectivity issues to learn when and where an incident is happening and its impact
+
+> Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/network-error-logging/`).
+>
+> For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
+>
+> Use [Network Error Logging llms-full.txt](https://developers.cloudflare.com/network-error-logging/llms-full.txt) for the complete Network Error Logging documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
+
+## Network Error Logging documentation pages
+
+- [Network Error Logging](https://developers.cloudflare.com/network-error-logging/index.md): Collect reports about network errors affecting your visitors.
+
+- [Get started](https://developers.cloudflare.com/network-error-logging/get-started/index.md): Enable Network Error Logging for your zone.
+- [How to](https://developers.cloudflare.com/network-error-logging/how-to/index.md): NEL reports show you why a request failed, the country a request failed from, and last mile network a request failed from, and the likely intended Cloudflare data center.
+- [Reference](https://developers.cloudflare.com/network-error-logging/reference/index.md): Reference information for Network Error Logging.
