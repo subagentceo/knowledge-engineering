@@ -32,10 +32,34 @@ Invoke this skill when:
 3. Surface the routine ID back to the user; record it in `seeds/memory/heartbeat/decisions.md` so the heartbeat orchestrator knows the schedule exists.
 4. Mark the planner step `completed` only after `/schedule` confirms the routine was created (the existing `.claude/skills/schedule-bridge.md` procedure handles this).
 
-# Canonical SlashCommand template
+# Canonical SlashCommand template — weekly (all vendors)
 
 ```
 /schedule every Monday 09:00 run "npm run crawl:vendors && npm run verify:freshness && (git diff --quiet vendor/ || (git checkout -b chore/vendor-refresh-$(date +%Y%m%d) && git add vendor/ && git commit -m 'chore(vendors): weekly mirror refresh' && git push -u origin HEAD && gh pr create --label automerge --title 'chore(vendors): weekly mirror refresh' --body 'Auto-PR from /schedule routine: refresh-vendors. CI gates the merge per docs/governance.md.'))"
+```
+
+# Daily per-surface SlashCommand templates (Phase 13.B-D)
+
+Daily-cadence surfaces have higher edit volume than the docs vendors —
+engineering blog posts, claude.com/blog categories, marketing pages.
+For each high-velocity content surface we emit a daily `/schedule`
+rather than the weekly umbrella above. The daily routine is identical
+to the weekly except it targets a single vendor, runs at a chosen UTC
+hour, and uses a vendor-specific branch prefix.
+
+## anthropic-engineering (Phase 13.B — O1)
+
+```
+/schedule every day 06:00 run "npm run crawl:vendor -- anthropic-engineering && (git diff --quiet vendor/anthropic-engineering/ || (git checkout -b chore/anthropic-engineering-refresh-$(date +%Y%m%d) && git add vendor/anthropic-engineering/ && git commit -m 'chore(anthropic-engineering): daily mirror refresh' && git push -u origin HEAD && gh pr create --label automerge --title 'chore(anthropic-engineering): daily mirror refresh' --body 'Auto-PR from /schedule routine: refresh-vendors (daily/anthropic-engineering). CI gates the merge per docs/governance.md.'))"
+```
+
+## Template (for future Phase 13.C/D surfaces)
+
+Replace `<vendor>` with the vendor directory name (e.g. `claude-blog`,
+`anthropic-customers`).
+
+```
+/schedule every day HH:MM run "npm run crawl:vendor -- <vendor> && (git diff --quiet vendor/<vendor>/ || (git checkout -b chore/<vendor>-refresh-$(date +%Y%m%d) && git add vendor/<vendor>/ && git commit -m 'chore(<vendor>): daily mirror refresh' && git push -u origin HEAD && gh pr create --label automerge --title 'chore(<vendor>): daily mirror refresh' --body 'Auto-PR from /schedule routine: refresh-vendors (daily/<vendor>). CI gates the merge per docs/governance.md.'))"
 ```
 
 The pipeline:

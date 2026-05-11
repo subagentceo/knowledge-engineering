@@ -41,6 +41,7 @@ import {
   type ChecksumEntry,
   type ChecksumMap,
 } from "./lib/checksums.js";
+import { extractIndexUrls } from "./lib/html-index.js";
 import { parseLlmsTxt, type LlmsTxt } from "./lib/llms-txt.js";
 import {
   TRANSFORMS,
@@ -64,6 +65,18 @@ interface CrawlConfig {
    * code.claude.com + platform.claude.com + claude.com/docs).
    */
   llms_txt_sources?: string[];
+  /**
+   * Phase 13.B (O1). Vendors without an llms.txt (e.g.
+   * www.anthropic.com/engineering) discover their URL pool by fetching
+   * a live HTML index page and extracting links via a configured
+   * regex. Each entry's regex MUST contain exactly one capture group
+   * yielding a path or absolute URL. The capture is resolved against
+   * the entry's `url` (used as the base) and merged into the
+   * URL pool ahead of allowlist filtering.
+   *
+   * @cite src/mcp/lanes/anthropic-engineering.ts (the regex pattern this generalizes)
+   */
+  html_index_sources?: { url: string; link_regex: string }[];
   /** Resolved to a real URL after the discovery probe; persisted back. */
   llms_txt?: string;
   transform: TransformName;
@@ -230,8 +243,11 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
 
   // Discover llms.txt (primary). If llms_txt_sources is set, also fetch each
   // source body and merge its links into the URL pool.
+  // For vendors with html_index_sources but no llms.txt (e.g.
+  // anthropic-engineering), llms.txt discovery is allowed to no-op.
   const llms = await discoverLlmsTxt(cfg);
-  if (llms === null) {
+  const hasHtmlIndex = (cfg.html_index_sources?.length ?? 0) > 0;
+  if (llms === null && !hasHtmlIndex) {
     console.error(`[${vendor}] no valid llms.txt found in ${cfg.llms_txt_candidates.length} candidate(s)`);
     return {
       vendor,
@@ -244,25 +260,30 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
       failures: [{ url: "<llms.txt discovery>", reason: "no valid candidate" }],
     };
   }
-  console.log(`[${vendor}] llms.txt (primary): ${llms.url}`);
+  if (llms !== null) {
+    console.log(`[${vendor}] llms.txt (primary): ${llms.url}`);
+    if (!dryRun) {
+      writeIfChanged(resolve(VENDOR_ROOT, vendor, "llms.txt"), llms.body);
+      if (cfg.llms_txt !== llms.url) {
+        cfg.llms_txt = llms.url;
+        persistConfig(cfg);
+      }
+    }
+  } else {
+    console.log(`[${vendor}] no llms.txt; using html_index_sources`);
+  }
 
-  // Persist primary llms.txt + record discovered URL in crawl.json.
-  if (!dryRun) {
-    writeIfChanged(resolve(VENDOR_ROOT, vendor, "llms.txt"), llms.body);
-    if (cfg.llms_txt !== llms.url) {
-      cfg.llms_txt = llms.url;
-      persistConfig(cfg);
+  // Collect URLs from primary llms.txt + each llms_txt_sources entry +
+  // each html_index_sources entry.
+  const collectedUrls = new Set<string>();
+  if (llms !== null) {
+    const primaryParsed = parseLlmsTxt(llms.body);
+    if (primaryParsed) {
+      for (const u of dedupeUrls(primaryParsed)) collectedUrls.add(u);
     }
   }
-
-  // Collect URLs from primary + each llms_txt_sources entry.
-  const collectedUrls = new Set<string>();
-  const primaryParsed = parseLlmsTxt(llms.body);
-  if (primaryParsed) {
-    for (const u of dedupeUrls(primaryParsed)) collectedUrls.add(u);
-  }
   for (const sourceUrl of cfg.llms_txt_sources ?? []) {
-    if (sourceUrl === llms.url) continue; // already captured above
+    if (llms !== null && sourceUrl === llms.url) continue; // already captured above
     try {
       const r = await fetch(sourceUrl, { headers: { Accept: "text/plain, text/markdown" } });
       if (!r.ok) {
@@ -288,6 +309,25 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
     }
   }
 
+  // Phase 13.B (O1): html_index_sources discovery. Fetch each index
+  // page, regex-extract anchor hrefs, resolve to absolute URLs, merge
+  // into the URL pool ahead of allowlist filtering.
+  for (const idx of cfg.html_index_sources ?? []) {
+    try {
+      const r = await fetch(idx.url, { headers: { Accept: "text/html" } });
+      if (!r.ok) {
+        failures.push({ url: idx.url, reason: `html_index_source HTTP ${r.status}` });
+        continue;
+      }
+      const body = await r.text();
+      const found = extractIndexUrls(body, new RegExp(idx.link_regex, "gi"), idx.url);
+      console.log(`[${vendor}] html_index_source: ${idx.url} (${found.length} link(s))`);
+      for (const u of found) collectedUrls.add(u);
+    } catch (err) {
+      console.warn(`[${vendor}] html_index_source error: ${idx.url}: ${(err as Error).message}`);
+    }
+  }
+
   const urls = Array.from(collectedUrls);
   const allowed = urls.filter((u) => inAllowlist(u, cfg)).slice(0, cfg.page_cap);
   console.log(`[${vendor}] ${urls.length} link(s) across all sources; ${allowed.length} after allowlist + page_cap`);
@@ -295,20 +335,20 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   if (allowed.length === 0) {
     return {
       vendor,
-      llms_txt_url: llms.url,
+      llms_txt_url: llms?.url ?? "",
       pagesFetched: 0,
       pagesSkipped: urls.length,
       pagesUnchanged: 0,
       preflight304: 0,
       preflight200: 0,
-      failures: [],
+      failures,
     };
   }
 
   if (dryRun) {
     return {
       vendor,
-      llms_txt_url: llms.url,
+      llms_txt_url: llms?.url ?? "",
       pagesFetched: 0,
       pagesSkipped: allowed.length,
       pagesUnchanged: 0,
@@ -423,12 +463,12 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   // If pre-flight covered everything, skip crawlee entirely.
   if (work2.length === 0) {
     if (incremental) saveChecksums(VENDOR_ROOT, vendor, checksums);
-    const front = renderUrlsIndex(vendor, llms.url, cfg.transform, indexRows);
+    const front = renderUrlsIndex(vendor, llms?.url ?? "", cfg.transform, indexRows);
     writeIfChanged(resolve(VENDOR_ROOT, vendor, "urls.md"), front);
     console.log(`[${vendor}] fetched=${fetched} unchanged=${skipped + preflightUnchanged} preflight-304=${preflight304} failed=${failures.length}`);
     return {
       vendor,
-      llms_txt_url: llms.url,
+      llms_txt_url: llms?.url ?? "",
       pagesFetched: fetched,
       pagesSkipped: skipped,
       pagesUnchanged: preflightUnchanged,
@@ -498,7 +538,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   if (incremental) saveChecksums(VENDOR_ROOT, vendor, checksums);
 
   // Emit urls.md index.
-  const front = renderUrlsIndex(vendor, llms.url, cfg.transform, indexRows);
+  const front = renderUrlsIndex(vendor, llms?.url ?? "", cfg.transform, indexRows);
   writeIfChanged(resolve(VENDOR_ROOT, vendor, "urls.md"), front);
 
   console.log(`[${vendor}] fetched=${fetched} unchanged=${skipped + preflightUnchanged} preflight-304=${preflight304} failed=${failures.length}`);

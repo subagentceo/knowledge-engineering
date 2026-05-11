@@ -27,8 +27,8 @@ Cited from:
 
 | Sub | Status | What |
 |---|---|---|
-| 13.A | 🟢 in-progress | conditional GET + content-hash skip-write (anchors 13.B-D daily routines) |
-| 13.B | 🟡 follow-up | `vendor/anthropic-engineering/` daily `/schedule` |
+| 13.A | ✅ done | conditional GET + content-hash skip-write — merged via PR #52 |
+| 13.B | 🟢 in-progress | `vendor/anthropic-engineering/` + daily `/schedule` (O1; this PR) |
 | 13.C | 🟡 follow-up | `vendor/claude-blog/` (4 categories) daily `/schedule` |
 | 13.D | 🟡 follow-up | 4 marketing surfaces (claude-customers / plugins / connectors / tutorials) |
 
@@ -65,13 +65,35 @@ Cited from:
 - Bench is recorded in the PR description; a stricter version is wired
   into `verify:freshness` in a follow-up.
 
-### 6. Daily refresh routines wired — 🟡 13.B / 13.C / 13.D
+### 6. Daily refresh routines wired — 🟢 13.B (O1) / 🟡 13.C / 13.D
 
-- `.claude/skills/refresh-vendors.md` already emits a `/schedule`; 13.B-D
-  add per-surface variants.
+- `.claude/skills/refresh-vendors.md` already emits a weekly `/schedule`;
+  13.B (this PR) adds the per-surface daily template for
+  `anthropic-engineering`. 13.C/13.D add `claude-blog` and the
+  marketing surfaces using the same template shape.
 
 ### 7. Citations resolve — ✅ 13.A
 
 - New test file carries an `@cite` to this rubric and to
   `vendor/turbopuffer/turbopuffer.com/docs/warm-cache.md`.
 - `verify:citations` passes.
+
+### 8. Crawler supports `html_index_sources` discovery — ✅ 13.B (O1)
+
+- `scripts/crawl-vendors.ts` `CrawlConfig` includes
+  `html_index_sources?: { url: string; link_regex: string }[]`.
+- For vendors without an llms.txt (e.g.
+  `www.anthropic.com/engineering`), the crawler fetches each index
+  URL, regex-extracts capture-group links, resolves them against the
+  index URL, and merges them into the URL pool ahead of allowlist
+  filtering.
+- Generalized from `src/mcp/lanes/anthropic-engineering.ts`
+  `parseIndex()` (lines 24-41).
+
+### 9. `vendor/anthropic-engineering/` mirror committed — ✅ 13.B (O1)
+
+- `vendor/anthropic-engineering/crawl.json` declares the live HTML
+  index discovery + html-extract transform.
+- `npm run crawl:vendor -- anthropic-engineering` produces ≥10
+  `vendor/anthropic-engineering/www.anthropic.com/engineering/<slug>.md`
+  files; the urls.md index lists every fetched post.

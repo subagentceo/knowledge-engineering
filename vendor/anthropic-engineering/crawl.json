@@ -1,0 +1,20 @@
+{
+  "name": "anthropic-engineering",
+  "homepage": "https://www.anthropic.com/engineering",
+  "llms_txt_candidates": [],
+  "html_index_sources": [
+    {
+      "url": "https://www.anthropic.com/engineering",
+      "link_regex": "<a[^>]+href=\"(/engineering/[a-z0-9-]+)\"[^>]*>"
+    }
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://www.anthropic.com/engineering/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 200,
+  "html_extract": {
+    "selector": "article|main"
+  }
+}
