@@ -1,0 +1,2048 @@
+{
+  "https://support.claude.com/en/articles/10015870-what-certifications-has-anthropic-obtained": {
+    "sha256": "555d0d6aaac9336fc0a26667c95c76eeea2c53feef5b0a36e8a08e5ed298dcfc",
+    "etag": "W/\"555d0d6aaac9336fc0a26667c95c76ee\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10023638-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error": {
+    "sha256": "37c3fae03b19dea7ced5e8bd5c93564f62a675d43bbabd63c21b6e646e684c5e",
+    "etag": "W/\"37c3fae03b19dea7ced5e8bd5c93564f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10023646-i-think-a-user-is-infringing-my-copyright-or-other-intellectual-property-how-do-i-report-it": {
+    "sha256": "1501f592ccf05f1db2bd2847be0fb5026dd2992d98ac745093e554cbb7a685b9",
+    "etag": "W/\"1501f592ccf05f1db2bd2847be0fb502\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10035659-where-can-i-learn-more-about-anthropic-s-privacy-practices": {
+    "sha256": "90b7481f14b818fb615d8b226c3d4c246894f1937135860438ecb542a3cdeff8",
+    "etag": "W/\"90b7481f14b818fb615d8b226c3d4c24\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10065433-install-claude-desktop": {
+    "sha256": "d7842fdbb7fb29a8844a10626b08c26b45dd55c86fad5d639ed56adf1d641578",
+    "etag": "W/\"d7842fdbb7fb29a8844a10626b08c26b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10065434-using-dictation-on-claude-mobile": {
+    "sha256": "cb9d0bc044b5ebeac17ea8eab3677d481170066c807adf1e754426649e5f2a76",
+    "etag": "W/\"cb9d0bc044b5ebeac17ea8eab3677d48\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10166901-use-google-workspace-connectors": {
+    "sha256": "d73fa3a36b8b465345adb1320104b276f7d3487c8a2743ac2fa725466cce891e",
+    "etag": "W/\"d73fa3a36b8b465345adb1320104b276\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10167454-using-the-github-integration": {
+    "sha256": "f1aff7f0e5d3aeca831220492ed84515a5e2f3fedb03aa29a1f6f4df05e8fda1",
+    "etag": "W/\"f1aff7f0e5d3aeca831220492ed84515\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10181068-configure-and-use-styles": {
+    "sha256": "52c94f0642276c0c048cbbfb90b8873b2f976f667c02e931b253fda0e1404b2d",
+    "etag": "W/\"52c94f0642276c0c048cbbfb90b8873b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features": {
+    "sha256": "cfc001c26ce1244d9cc6b65ff3aae98364be783c7980494b940ecf285d6ee7c0",
+    "etag": "W/\"cfc001c26ce1244d9cc6b65ff3aae983\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10185996-how-to-change-your-pro-plan-from-monthly-to-annual-billing": {
+    "sha256": "8654de7a8bde8fe08d247bf3713525657d668bd4fc3fdcc6653ef13ebe107c19",
+    "etag": "W/\"8654de7a8bde8fe08d247bf371352565\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10186004-claude-console-roles-and-permissions": {
+    "sha256": "8540b6f5fab44ff063b8f46dfa018d70ea163c4930a9a4b3d241e8164b7e1e00",
+    "etag": "W/\"8540b6f5fab44ff063b8f46dfa018d70\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10263469-using-claude-app-intents-shortcuts-and-widgets-on-ios": {
+    "sha256": "8acc330f84c6c88682f082ca6480729dc7207d8b66be691646a1b5ea29b11506",
+    "etag": "W/\"8acc330f84c6c88682f082ca6480729d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10276682-important-considerations-before-enabling-single-sign-on-sso-and-jit-scim-provisioning": {
+    "sha256": "d30fcc533b65a65c755012562d68942c5fbb246e7739a28a110ad37592be7a99",
+    "etag": "W/\"d30fcc533b65a65c755012562d68942c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10280779-how-do-i-learn-more-about-amazon-and-anthropic-s-strategic-collaboration": {
+    "sha256": "7ce3d9e4607f3eb7dbc6070c4e3f56ed3357191869aeb1c97bf84e8f1d3b7c70",
+    "etag": "W/\"7ce3d9e4607f3eb7dbc6070c4e3f56ed\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10280783-where-do-i-find-claude-in-amazon-bedrock-documentation": {
+    "sha256": "4340062b7ae1aec29278f818d8acd2b50c23e54d87358535c94a7952b87a6019",
+    "etag": "W/\"4340062b7ae1aec29278f818d8acd2b5\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10280791-what-aws-regions-are-claude-models-available-in-amazon-bedrock": {
+    "sha256": "3c7905fd6f496c4f3c4ce120e3031ce8e4f5aceba490acb3af373e51cb6028b0",
+    "etag": "W/\"3c7905fd6f496c4f3c4ce120e3031ce8\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10302511-accessing-claude-app-on-ios-lock-screen-control-center-and-action-button": {
+    "sha256": "ceeb856762c5ede6c4af840be5adb8cd7653890bf3fbbb050922cb517173f5d5",
+    "etag": "W/\"ceeb856762c5ede6c4af840be5adb8cd\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10310342-how-do-i-log-out-of-all-active-sessions": {
+    "sha256": "af60e631fdb79a89066154223bfb774f631800f1f10562ce3ff93abfe9855c5e",
+    "etag": "W/\"af60e631fdb79a89066154223bfb774f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10366376-how-can-i-delete-my-claude-console-account": {
+    "sha256": "70f2cfb14f9a6945fc6d2104d3dea971524ba228bf4e4e665ce1ce11de36cee9",
+    "etag": "W/\"70f2cfb14f9a6945fc6d2104d3dea971\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10366389-how-can-i-advance-my-claude-api-usage-to-tier-2": {
+    "sha256": "6889ef51ce52ada557e022e04763b1e60104d8c0ea220d7abd6786512e2d9609",
+    "etag": "W/\"6889ef51ce52ada557e022e04763b1e6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10366421-how-does-claude-handle-mathematical-equations-and-calculations": {
+    "sha256": "57d62eb9930ff753b34692bfc4a8a0c07ec01fed09ed2fbc12cf41f54a192e61",
+    "etag": "W/\"57d62eb9930ff753b34692bfc4a8a0c0\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10366432-i-m-getting-an-api-connection-error-how-can-i-fix-it": {
+    "sha256": "5216816e846b04fcda00088969a5489caa33f7260a358c933d25ef3b5446fe30",
+    "etag": "W/\"5216816e846b04fcda00088969a5489c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10366473-where-can-i-find-full-receipts-and-invoices-for-my-claude-api-and-console-payments": {
+    "sha256": "b5821bd96ca5b19f690c8036c1535439d3b8b88e7cef7fde589c8c2482bdfff3",
+    "etag": "W/\"b5821bd96ca5b19f690c8036c1535439\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10416553-official-anthropic-marketing-email-addresses": {
+    "sha256": "57f32f1539f0e5b1f096fd0ac7833f47b4508ed362f91e72c0e779b8d70794c6",
+    "etag": "W/\"57f32f1539f0e5b1f096fd0ac7833f47\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10440198-configure-custom-data-retention-controls-for-enterprise-plans": {
+    "sha256": "f62363de6d53ec8d7896e8671c0c4a360e9c2dfc3c486f0b90a7c271c2916334",
+    "etag": "W/\"f62363de6d53ec8d7896e8671c0c4a36\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10504844-manage-user-feedback-settings-on-team-and-enterprise-plans": {
+    "sha256": "1c28db3bc16fc5f0dd44a0a781dc042d7610b78c7fa089a167d9d6d4969d45fb",
+    "etag": "W/\"1c28db3bc16fc5f0dd44a0a781dc042d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10504853-manage-user-feedback-settings-on-claude-console": {
+    "sha256": "5ae93733166abef9c2291f41f32cce1c8e1a48dfcef7f81b5558c0eac07c5793",
+    "etag": "W/\"5ae93733166abef9c2291f41f32cce1c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10534883-using-the-claude-widget-on-android": {
+    "sha256": "b9bb57bfa606c00fe3595014736a250299548979fb7fa2b469db68cf92dd6a87",
+    "etag": "W/\"b9bb57bfa606c00fe3595014736a2502\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10574485-using-extended-thinking": {
+    "sha256": "62901b6f0cbcda438bf1a4483d2f6d530506530628d5bfa76f385bb206941989",
+    "etag": "W/\"62901b6f0cbcda438bf1a4483d2f6d53\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10593882-sharing-and-unsharing-chats": {
+    "sha256": "d193536b2909a6abf3844e39bdcbe2dd3f1ffd1705d9b4f0a17c3c2a86f91445",
+    "etag": "W/\"d193536b2909a6abf3844e39bdcbe2dd\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10684626-enabling-and-using-web-search": {
+    "sha256": "6667b7632fd0db4c1b0727183f4a59f0d1160b38da2fc9aebba7fddfe75cb318",
+    "etag": "W/\"6667b7632fd0db4c1b0727183f4a59f0\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10684638-reporting-blocking-and-removing-content-from-claude": {
+    "sha256": "38a32b06d123154078ab164b13b7052e92f926fbe238cf94fc1f3b686d989aad",
+    "etag": "W/\"38a32b06d123154078ab164b13b7052e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10722177-sharing-prompts-in-the-claude-console": {
+    "sha256": "b20eda7152deff93dc7addc8cc4d7cb61aed837976f3daa3ac45a78fab9577a6",
+    "etag": "W/\"b20eda7152deff93dc7addc8cc4d7cb6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10769299-how-to-use-claude-in-your-preferred-language": {
+    "sha256": "944a17ef35decab11aea5a53b41246c007bb0c6106faa86d84e6e55536abfdec",
+    "etag": "W/\"944a17ef35decab11aea5a53b41246c0\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop": {
+    "sha256": "e113c90bb62c5a52d1f2fbfd5cc6719cbaed5740c07406f74288cf56b7e45f3a",
+    "etag": "W/\"e113c90bb62c5a52d1f2fbfd5cc6719c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11049741-what-is-the-max-plan": {
+    "sha256": "e9072fb189a6549d0564ff27fb3ca0d62096314e00549fd15bda2732703d8f6d",
+    "etag": "W/\"e9072fb189a6549d0564ff27fb3ca0d6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11049752-how-do-i-sign-up-for-the-max-plan": {
+    "sha256": "03cf5f5c31f79bf5aef99c05488c4c5f981c2790f35d2be8f8d1b78ae011ad47",
+    "etag": "W/\"03cf5f5c31f79bf5aef99c05488c4c5f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11049762-choosing-a-claude-plan": {
+    "sha256": "20f69ce3424cdc1332f6ea10de73c8ffda03c6c12d5aab7997c044436ecfe0d8",
+    "etag": "W/\"20f69ce3424cdc1332f6ea10de73c8ff\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11088861-using-research-on-claude": {
+    "sha256": "3e55f0e5c39fe78869c635cc712505d6445cff0d56b0efd236985fa381fa7d7e",
+    "etag": "W/\"3e55f0e5c39fe78869c635cc712505d6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research": {
+    "sha256": "c8a02f412745aa02553e74e311d96828927adea6b89046600c2eeb5b7a768a2b",
+    "etag": "W/\"c8a02f412745aa02553e74e311d96828\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11101966-using-voice-mode": {
+    "sha256": "2e530cc163473ef02663a5eaca58821ab6c992889023bec9bb0f3e85aa1584c8",
+    "etag": "W/\"2e530cc163473ef02663a5eaca58821a\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11107691-why-is-a-coupon-or-promotion-not-available-for-my-account": {
+    "sha256": "efd0faa79ef232b31aa1b588142588c83192fc5502c56741530e13ca2792186c",
+    "etag": "W/\"efd0faa79ef232b31aa1b588142588c8\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11139094-getting-started-with-claude-for-education-at-your-university-for-owners-admins": {
+    "sha256": "5320e7d82badc186dbee28afa94578df88410939d2a72f0139d86c47f612e81d",
+    "etag": "W/\"5320e7d82badc186dbee28afa94578df\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11139144-faqs-on-using-claude-for-education-at-your-university": {
+    "sha256": "b7eb8934ec94360c7998223a3fce4f4015bd69f5e5046d7192dad5fff4e6f2dc",
+    "etag": "W/\"b7eb8934ec94360c7998223a3fce4f40\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11140763-claude-4-invite-sweepstakes-official-rules": {
+    "sha256": "efdaf53f7a5a122c682b4aa772e4c95301a69097e988f8b50f815c452ba502f3",
+    "etag": "W/\"efdaf53f7a5a122c682b4aa772e4c953\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11145838-use-claude-code-with-your-pro-or-max-plan": {
+    "sha256": "91388d71c01887b36bbf3b526f691a415bada5505344dee9bfdcf33160fa9547",
+    "etag": "W/\"91388d71c01887b36bbf3b526f691a41\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11174108-about-the-development-partner-program": {
+    "sha256": "30e042e8e3c25534c8235e45e179405b2492ae648adfc126d45e7fde696aec7e",
+    "etag": "W/\"30e042e8e3c25534c8235e45e179405b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11174660-online-safety-contacts": {
+    "sha256": "fe2da0b6b04106dc30b5c1dedd03717052043c489cc3f4c8d583e8b7a4a6c3b5",
+    "etag": "W/\"fe2da0b6b04106dc30b5c1dedd037170\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp": {
+    "sha256": "8dbb0b3bbe5aaa548b2e978e1d376ab6f928412a38ceb98f7a82446c80b21d48",
+    "etag": "W/\"8dbb0b3bbe5aaa548b2e978e1d376ab6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities": {
+    "sha256": "caba46555297d158a7e87b9613f670fad349bfe7e258e8362e0b3e0c16feebb7",
+    "etag": "W/\"caba46555297d158a7e87b9613f670fa\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11199177-anthropic-s-ai-for-science-program": {
+    "sha256": "5a959911b128818ba1dee6f78d6f6a0f3e7617a64a901045272493e82c908d95",
+    "etag": "W/\"5a959911b128818ba1dee6f78d6f6a0f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11408405-claude-4-invite-contest": {
+    "sha256": "7efafcae331c820dd111d69bff93e157d50adc5d967fc9fa1adc0d226b7f6cad",
+    "etag": "W/\"7efafcae331c820dd111d69bff93e157\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11427875-public-vulnerability-reporting": {
+    "sha256": "8aa5331fea54f1cd787a65af3697868ac6ad0ed10ccf4d9b1a513c01e485be90",
+    "etag": "W/\"8aa5331fea54f1cd787a65af3697868a\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects": {
+    "sha256": "6efd27cae055621db72b7dc293178ed8452b1cedddb4f11929fc82bf7d457c00",
+    "etag": "W/\"6efd27cae055621db72b7dc293178ed8\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11503834-build-custom-connectors-via-remote-mcp-servers": {
+    "sha256": "c5fbaf7ee8a2ef998161087a6541980ab448d5095f477077f85a9b8be95b4f39",
+    "etag": "W/\"c5fbaf7ee8a2ef998161087a6541980a\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11506255-getting-started-with-claude-in-slack": {
+    "sha256": "779629c0b35e5cad267a10266fd46d3fb27a53f4b3a6414ea92343d9ebb5d998",
+    "etag": "W/\"779629c0b35e5cad267a10266fd46d3f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan": {
+    "sha256": "2da108a5377389532f602e2ee0c7c7f01dba53440f170431c2c6be0fbf5898e2",
+    "etag": "W/\"2da108a5377389532f602e2ee0c7c7f0\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11595103-designated-point-of-contact-for-users-in-the-eu": {
+    "sha256": "543bb84f16cba227b9466861a26e3cb6ccc71bf2215d4789650236e79aa77bea",
+    "etag": "W/\"543bb84f16cba227b9466861a26e3cb6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11596036-anthropic-connectors-directory-faq": {
+    "sha256": "45a76603d406b3e10af130aadfa6b874d4dbbddaef81d387081b4d83aab61813",
+    "etag": "W/\"45a76603d406b3e10af130aadfa6b874\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work": {
+    "sha256": "732e629e16294a82165662ff04d4963ac980525d516589ef4b33d6d7f09d2467",
+    "etag": "W/\"732e629e16294a82165662ff04d4963a\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors": {
+    "sha256": "cb58de3db509ef5eac9b31def2587ba30db055cc8ae7ed52a0e7cb7612ae8ad2",
+    "etag": "W/\"cb58de3db509ef5eac9b31def2587ba3\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11725453-set-up-the-claude-lti-in-canvas-by-instructure": {
+    "sha256": "470250eb1c39f86e8965281d4ef56d7d801a54e2aa9ac4c25535ca9a61da7f76",
+    "etag": "W/\"470250eb1c39f86e8965281d4ef56d7d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11732894-who-owns-and-manages-the-data-of-my-claude-for-education-account": {
+    "sha256": "1abe6d74348e1e0e97ded0e238efeae64b637e2f886a316b88a951e1e7a2b46e",
+    "etag": "W/\"1abe6d74348e1e0e97ded0e238efeae6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context": {
+    "sha256": "e70b1ef56a8073b4a902062e50d6da3fb8875b5b9ff546207804da9e39f78f0c",
+    "etag": "W/\"e70b1ef56a8073b4a902062e50d6da3f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11818288-why-am-i-being-asked-to-verify-my-payment-method": {
+    "sha256": "1f705d7ae8accd70ee5ea05cba1c14b1f58fb78469ea079a02e1ea05011e58df",
+    "etag": "W/\"1f705d7ae8accd70ee5ea05cba1c14b1\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11825384-how-to-update-claude-for-ios": {
+    "sha256": "23be567bd5b8dc0f5090340c1281678f13e7b64e7a4422c7a5b5941f30412f12",
+    "etag": "W/\"23be567bd5b8dc0f5090340c1281678f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11825394-how-to-update-claude-for-android": {
+    "sha256": "0100af00c63035ae060555d0dd8658c99759df0a00821974057a128a267c8ec5",
+    "etag": "W/\"0100af00c63035ae060555d0dd8658c9\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11845131-use-claude-code-with-your-team-or-enterprise-plan": {
+    "sha256": "b51bb79831a0842e36e3afc41d807e0c4a865f8873fa290e490815d023f52ca5",
+    "etag": "W/\"b51bb79831a0842e36e3afc41d807e0c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11869619-using-claude-with-ios-apps": {
+    "sha256": "c34bc18d3893386ef756bd9ce36a846386ba42ce93f0715c9df06410cab3ba86",
+    "etag": "W/\"c34bc18d3893386ef756bd9ce36a8463\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11869629-using-claude-with-android-apps": {
+    "sha256": "c834f0ace3c5855d215a800451f92321fed23b59781c6d543a3989989e7866d4",
+    "etag": "W/\"c834f0ace3c5855d215a800451f92321\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11932705-automated-security-reviews-in-claude-code": {
+    "sha256": "7376277a721412527722bebb254a57b8330c5b857d9f07828f060526e5333b8f",
+    "etag": "W/\"7376277a721412527722bebb254a57b8\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/11940350-claude-code-model-configuration": {
+    "sha256": "cfc7954444ee027d8082d03b5a0e1a50bebffbf4bd53478994c8fdb6b05fd17d",
+    "etag": "W/\"cfc7954444ee027d8082d03b5a0e1a50\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12004354-purchase-and-manage-seats-on-team-plans": {
+    "sha256": "33424935a8632184b0ba61894b89e2ba09b9016518cc1240bbc2ffa95364a54e",
+    "etag": "W/\"33424935a8632184b0ba61894b89e2ba\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12005017-using-agents-according-to-our-usage-policy": {
+    "sha256": "b9694684e28a32c88f46a79c3ad21c98d7932bd3766295fe6f7257e2c1dbe2b5",
+    "etag": "W/\"b9694684e28a32c88f46a79c3ad21c98\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12005970-manage-extra-usage-for-team-and-seat-based-enterprise-plans": {
+    "sha256": "0e00c77663cff4f410a4aa3347f73b8325787a0ed9fcdb99e37ce9101ca68a1f",
+    "etag": "W/\"0e00c77663cff4f410a4aa3347f73b83\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome": {
+    "sha256": "42fedd9201ed26ca70c72e7f6bb0e5b5b805ecffd1793087b01a8984c1104bb8",
+    "etag": "W/\"42fedd9201ed26ca70c72e7f6bb0e5b5\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12053672-what-happens-to-a-user-s-data-when-they-are-removed-from-a-team-or-enterprise-organization": {
+    "sha256": "75e5276075bf5538ff2c306c3d00b7075bb45dd3caef6a315ef352ce65466c6c",
+    "etag": "W/\"75e5276075bf5538ff2c306c3d00b707\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12083917-change-your-team-plan-from-monthly-to-annual-billing": {
+    "sha256": "f7a14ec3faef15b39ff53f3294d8005ae541241080966ecda953bb06f82bba49",
+    "etag": "W/\"f7a14ec3faef15b39ff53f3294d8005a\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12109679-creating-a-new-account-after-deletion": {
+    "sha256": "0bfc7670a71c469b1c818a14fe3119990adac1f13941e87846bad0a396f00530",
+    "etag": "W/\"0bfc7670a71c469b1c818a14fe311999\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude": {
+    "sha256": "d9216bee13e4d7631f46c488bb54a60998e398d1e1e6cee883f93e207e1c547f",
+    "etag": "W/\"d9216bee13e4d7631f46c488bb54a609\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12119250-model-safety-bug-bounty-program": {
+    "sha256": "98d007898168005ab66bdf745a4bc785960d385aa72389dca8c812807f443544",
+    "etag": "W/\"98d007898168005ab66bdf745a4bc785\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12123587-import-and-export-your-memory-from-claude": {
+    "sha256": "b0eabc9665f72637c118a19c314dfdb0d82d6e190a2383c4955978b58db2d89c",
+    "etag": "W/\"b0eabc9665f72637c118a19c314dfdb0\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12138966-release-notes": {
+    "sha256": "67bb741879fd07aeae2a142887ba51c70278995128b890ae341b5e89c13d4e52",
+    "etag": "W/\"67bb741879fd07aeae2a142887ba51c7\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12157520-claude-code-usage-analytics": {
+    "sha256": "99a8edb8bc6bdd0bb014b1b9ea1c824c5a5cdbe572fd592705a27046c67d751e",
+    "etag": "W/\"99a8edb8bc6bdd0bb014b1b9ea1c824c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12260368-using-incognito-chats": {
+    "sha256": "a632826dd75ffb6972612c513104428c6b7333f3bf0872ee08347c2c7ee2458a",
+    "etag": "W/\"a632826dd75ffb6972612c513104428c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12293051-using-claude-in-xcode": {
+    "sha256": "8a175776a972133400e0beb295d43a6055760e55c1af0f468478573584191815",
+    "etag": "W/\"8a175776a972133400e0beb295d43a60\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12304248-manage-api-key-environment-variables-in-claude-code": {
+    "sha256": "0361a7c41a02dbbb9252b0064089f5325d33cdc832664dd69ed85095abcab918",
+    "etag": "W/\"0361a7c41a02dbbb9252b0064089f532\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12326764-can-i-use-my-outputs-to-train-an-ai-model": {
+    "sha256": "6a5f60852f3166187e089ea97fbc498ddf906eaa5e4842b11d4c12dc7ab95193",
+    "etag": "W/\"6a5f60852f3166187e089ea97fbc498d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12335811-report-a-concern-australian-dis-standard-compliance": {
+    "sha256": "4bd3229a765fa3b4a60e9c83a4c4bcf20e66fcc09631eb62ba51c45af207b34a",
+    "etag": "W/\"4bd3229a765fa3b4a60e9c83a4c4bcf2\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12386328-requesting-a-refund-for-a-paid-claude-plan": {
+    "sha256": "2fc8dd0f62e95c3389139f6c4c77eb23efc4f775282fe1af7d82b013ab94b996",
+    "etag": "W/\"2fc8dd0f62e95c3389139f6c4c77eb23\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12386420-claude-code-faq": {
+    "sha256": "3ab3dcfd281c1606aa48a79fed6cbd55edc86263aa3aad060a543abbad62b886",
+    "etag": "W/\"3ab3dcfd281c1606aa48a79fed6cbd55\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12429409-manage-extra-usage-for-paid-claude-plans": {
+    "sha256": "94355117259a5ac66ad51722b32aa3824e4d09aa0105cf1678865fa310a6e80a",
+    "etag": "W/\"94355117259a5ac66ad51722b32aa382\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12461605-using-claude-in-slack": {
+    "sha256": "9dc13308e0c506cc63f359d2caf78c7869f62edde9d0d79ba2b1a415f2e32509",
+    "etag": "W/\"9dc13308e0c506cc63f359d2caf78c78\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12466728-troubleshoot-claude-error-messages": {
+    "sha256": "6cf137910b107facd60fa59602bebf59d933c6e5de9f9f8e09e2492c71577b9f",
+    "etag": "W/\"6cf137910b107facd60fa59602bebf59\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12489464-use-enterprise-search": {
+    "sha256": "7d790014e768f388b89cbeb40f4b7d9de811308b60bab9cea56388360b9cb390",
+    "etag": "W/\"7d790014e768f388b89cbeb40f4b7d9d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12512176-what-are-skills": {
+    "sha256": "d21633a9dc5d4d2ba679a7650ef2a2438c5d081af7c1b000f78d7b47c1be06c8",
+    "etag": "W/\"d21633a9dc5d4d2ba679a7650ef2a243\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12512180-use-skills-in-claude": {
+    "sha256": "d2c62b084b4fcd759c60198327cda6e959c145230039120841257d16803fb8c9",
+    "etag": "W/\"d2c62b084b4fcd759c60198327cda6e9\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12512198-how-to-create-custom-skills": {
+    "sha256": "f6a78f9ffcaabb7026f906a57be6693d519d69e1bd61cc906a07919c386aeb31",
+    "etag": "W/\"f6a78f9ffcaabb7026f906a57be6693d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12542951-enable-and-use-the-microsoft-365-connector": {
+    "sha256": "9ac610c873581cdb5f5ded6d0ca0c4dc6b7b8e4b0dd7537b229eede4441b9074",
+    "etag": "W/\"9ac610c873581cdb5f5ded6d0ca0c4dc\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12592343-enabling-and-using-the-desktop-extension-allowlist": {
+    "sha256": "b5b30303289371ee19272a0ab8de0b15f8713d2f0729e1fa643c20fc5907adcc",
+    "etag": "W/\"b5b30303289371ee19272a0ab8de0b15\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12611117-deploy-claude-desktop-for-macos": {
+    "sha256": "45015bf5b05647a564c6a2e68e59bfcd9043b15ee4c9cf751066f6f9397d6ffa",
+    "etag": "W/\"45015bf5b05647a564c6a2e68e59bfcd\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12618689-claude-code-on-the-web": {
+    "sha256": "abb526f35b69fea6464bb0481f748c6cad561915d1c0170b27230bc0e97ef60d",
+    "etag": "W/\"abb526f35b69fea6464bb0481f748c6c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12622667-enterprise-configuration-for-claude-desktop": {
+    "sha256": "58b841872e1a497393855a47fdd74d2cb76feeb1001329bcdecdee9e3df84566",
+    "etag": "W/\"58b841872e1a497393855a47fdd74d2c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12622703-deploy-claude-desktop-for-windows": {
+    "sha256": "bbb0fb57632822890526573c559bf7078c8dbb5ad3e486dcd0125115c2da7427",
+    "etag": "W/\"bbb0fb57632822890526573c559bf707\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12626668-use-quick-entry-with-claude-desktop-on-mac": {
+    "sha256": "dea360d829d65149b76f3a1b939500d121e6772d94ab473e86f840184f616aa3",
+    "etag": "W/\"dea360d829d65149b76f3a1b939500d1\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12650343-use-claude-for-excel": {
+    "sha256": "741ea18a852f7551bf20f61b828fa86a6063923894729074295f52c3bf2865cd",
+    "etag": "W/\"741ea18a852f7551bf20f61b828fa86a\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12684923-microsoft-365-connector-security-guide": {
+    "sha256": "e467594c475fff875dc691bbfbac2c1995316226e94c91981b7383fc300eb4ba",
+    "etag": "W/\"e467594c475fff875dc691bbfbac2c19\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12702546-deploying-enterprise-grade-mcp-servers-with-desktop-extensions": {
+    "sha256": "a3e7210b19dbc5e51b819d02e94fbaefa565756c239e0b2e44db6f33cb4994ad",
+    "etag": "W/\"a3e7210b19dbc5e51b819d02e94fbaef\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12738598-adapting-to-new-model-personas-after-deprecations": {
+    "sha256": "ed0f2d4eafa108b0d00dd8ebf485d9d75740bdac78e6437dca998dfba5bc9c42",
+    "etag": "W/\"ed0f2d4eafa108b0d00dd8ebf485d9d7\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12864745-use-claude-in-microsoft-foundry": {
+    "sha256": "3ff19ac24967392f2f008e5ab0f775a7832c69cd01e585974de5655caab48c20",
+    "etag": "W/\"3ff19ac24967392f2f008e5ab0f775a7\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12883420-view-usage-analytics-for-team-and-enterprise-plans": {
+    "sha256": "e5bf3561e96bc33c6887483ecda857597ac6fd714a9a7801cf8d270d428d95b8",
+    "etag": "W/\"e5bf3561e96bc33c6887483ecda85759\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12893767-getting-started-with-claude-for-nonprofits": {
+    "sha256": "b2f5ed749f8f8a7b8bfc0bbaeb326b1403bed20d9fcee1ce4cbb6ab8945c18a5",
+    "etag": "W/\"b2f5ed749f8f8a7b8bfc0bbaeb326b14\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12902405-claude-in-chrome-troubleshooting": {
+    "sha256": "5f7a89d567a69f07a78d5cb427a58f3260ffc034361faeb8907da0dd3ace6e37",
+    "etag": "W/\"5f7a89d567a69f07a78d5cb427a58f32\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12902428-using-claude-in-chrome-safely": {
+    "sha256": "b46993cce84e530f8c2ab135fbf68b6073be2cc27585b5ceacf852bd3b01e8e7",
+    "etag": "W/\"b46993cce84e530f8c2ab135fbf68b60\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12902446-claude-in-chrome-permissions-guide": {
+    "sha256": "25979daf4d2f8d6ad54c978a6bbe98594f007d6f083934eac901a59a1d4568b5",
+    "etag": "W/\"25979daf4d2f8d6ad54c978a6bbe9859\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12922490-remote-mcp-server-submission-guide": {
+    "sha256": "36da5c7a0a63cff2edbb9c72efd54c1729120cedebb1cabd8a812da31ecd44d9",
+    "etag": "W/\"36da5c7a0a63cff2edbb9c72efd54c17\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12922832-local-mcp-server-submission-guide": {
+    "sha256": "26b76a6020c9a000232279c4afb21afadd1450232c564c66135b1afe1a5b4a6c",
+    "etag": "W/\"26b76a6020c9a000232279c4afb21afa\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12922929-building-desktop-extensions-with-mcpb": {
+    "sha256": "5bf37f31970376e04d6af1961158f9e5966d0e6735b741ca480b5580635ca271",
+    "etag": "W/\"5bf37f31970376e04d6af1961158f9e5\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12923221-using-the-blackbaud-connector-in-claude": {
+    "sha256": "c6dd9861da820e631aca01e28ce2c2b8d293bb12219af6799147eb11d9ee77b9",
+    "etag": "W/\"c6dd9861da820e631aca01e28ce2c2b8\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12923227-using-the-benevity-connector-in-claude": {
+    "sha256": "e020b158567ad27a95f8834b539af2f4ed781abc5647909fc52cf46064fca745",
+    "etag": "W/\"e020b158567ad27a95f8834b539af2f4\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12923235-using-the-candid-connector-in-claude": {
+    "sha256": "3f350460f983816fb0b37047e7811b9273d57eb038fefc15737c9582444e2457",
+    "etag": "W/\"3f350460f983816fb0b37047e7811b92\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12923668-claude-for-nonprofits-partnership-success-guide-for-admins": {
+    "sha256": "4b91c94f5cedac600dde7a0cb78204ff8db68f067daddadb5db02f14ee8b8a84",
+    "etag": "W/\"4b91c94f5cedac600dde7a0cb78204ff\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12923901-claude-for-nonprofits-partnership-guide-for-all-users": {
+    "sha256": "e66107dbbc9d31af0623ef8191ba73db62039951ca95448b6bdc6816aec9ed58",
+    "etag": "W/\"e66107dbbc9d31af0623ef8191ba73db\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12938627-how-to-gift-a-claude-subscription": {
+    "sha256": "8a56158a9e35166c26b3584eb4ef95f419bb74a82741dece8dd3dea2afe8e302",
+    "etag": "W/\"8a56158a9e35166c26b3584eb4ef95f4\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12938695-how-to-redeem-a-claude-gift-subscription": {
+    "sha256": "ae6a21807b11d1e238d81ed6f4d9bd9d4f19c12454e38ed3fc98bdaa84b435ee",
+    "etag": "W/\"ae6a21807b11d1e238d81ed6f4d9bd9d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12997130-understanding-your-billing-address-and-tax-calculation": {
+    "sha256": "b00324dbd20c6ea1c0db427b83f2c39adc9ce30d688502bd28fd77be26b26596",
+    "etag": "W/\"b00324dbd20c6ea1c0db427b83f2c39a\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/12997503-team-plan-billing-faqs": {
+    "sha256": "83ed7458ea3a7c3338b0c19dcbe08e28ff821d66a84777eceeb76c9adfa0a658",
+    "etag": "W/\"83ed7458ea3a7c3338b0c19dcbe08e28\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13015708-access-the-compliance-api": {
+    "sha256": "da2a80bb0ed305efdcec22b7fd50385a859ecdf847b5851034af5424a8462a4a",
+    "etag": "W/\"da2a80bb0ed305efdcec22b7fd50385a\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13047024-how-to-get-support-for-claude-for-government": {
+    "sha256": "862dad712da38ca190b927f0a943fe98e3eb91ca6740ba2ef6adb27a70cf2e1a",
+    "etag": "W/\"862dad712da38ca190b927f0a943fe98\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13065128-claude-in-chrome-admin-controls": {
+    "sha256": "ccc40875516ee3c7c84136886d1ba528bc158fc18ed5f61f4273fd12587d9ce8",
+    "etag": "W/\"ccc40875516ee3c7c84136886d1ba528\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13117299-minimum-age-requirement-access-restriction": {
+    "sha256": "e5d37633f6e0f71fcea5335f5d98ccaf629afa9ef716979e56fb9e62ac63fe9b",
+    "etag": "W/\"e5d37633f6e0f71fcea5335f5d98ccaf\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization": {
+    "sha256": "c13e00611232a8e4d3322da66692e089f454414f41069e37a32dbb1c4a19f1a5",
+    "etag": "W/\"c13e00611232a8e4d3322da66692e089\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13124001-managing-your-active-sessions": {
+    "sha256": "c1bef12647da399e9f07afc262c2eef251ab6855b2e7ea6a397589614c23270a",
+    "etag": "W/\"c1bef12647da399e9f07afc262c2eef2\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13132885-set-up-single-sign-on-sso": {
+    "sha256": "d7b9c32b9d91e6f0db6c1bcf632f615454bf96eeb3a63716099e483472255701",
+    "etag": "W/\"d7b9c32b9d91e6f0db6c1bcf632f6154\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning": {
+    "sha256": "00c603de75141f6d9be4bb1e89e72bbbc918495dc08a7596e995a755ed28cfde",
+    "etag": "W/\"00c603de75141f6d9be4bb1e89e72bbb\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13133750-manage-members-on-team-and-enterprise-plans": {
+    "sha256": "fd91fb88a19f7b66b13f5cf2e3501a493e085702ce5f9bac572601ffb5202a84",
+    "etag": "W/\"fd91fb88a19f7b66b13f5cf2e3501a49\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms": {
+    "sha256": "93b5aaed25010d51214e40d1b36bceec969339f810c401f3724262a284240103",
+    "etag": "W/\"93b5aaed25010d51214e40d1b36bceec\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy": {
+    "sha256": "caa20583b8d23d57ca70acefc01ed57e38a004cc37677c4e26a14efb5063bd78",
+    "etag": "W/\"caa20583b8d23d57ca70acefc01ed57e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13163631-configuring-session-security-settings": {
+    "sha256": "e1d45c2c7671f74fe86d27780a73efd6c9fc8fe706291c3fe7bc4117f80f403b",
+    "etag": "W/\"e1d45c2c7671f74fe86d27780a73efd6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13163666-holiday-2025-usage-promotion": {
+    "sha256": "108ce9940c6a93528004cf1133211d0112a7d1f0c64525e71d30cc097d37af0b",
+    "etag": "W/\"108ce9940c6a93528004cf1133211d01\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13171706-crisis-helpline-support-in-claude": {
+    "sha256": "71ef4cc2828742109976b552b5702c67d8f86981ffaea8f7449d850677c7e900",
+    "etag": "W/\"71ef4cc2828742109976b552b5702c67\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13189465-logging-in-to-your-claude-account": {
+    "sha256": "f995afcad8891782a5b734c6215a6338727548aea72c5597fc98a281e8efcbe6",
+    "etag": "W/\"f995afcad8891782a5b734c6215a6338\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13198485-enforce-network-level-access-control-with-tenant-restrictions": {
+    "sha256": "b91efcc12065ea5a605b56cfb022e168aebf8c0f500d7cf8c6f5e399b4c2218b",
+    "etag": "W/\"b91efcc12065ea5a605b56cfb022e168\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13200993-restrict-access-to-claude-with-ip-allowlisting": {
+    "sha256": "564ac1f807a36778a56f6b1caae783a12d31a3320d2768a711bf02ef80f873b6",
+    "etag": "W/\"564ac1f807a36778a56f6b1caae783a1\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans": {
+    "sha256": "663dbd92a5aa300948f20b6117f0d84ae07ef88b8e9cf3184257a7f12a4c7564",
+    "etag": "W/\"663dbd92a5aa300948f20b6117f0d84a\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13325567-account-management-faqs": {
+    "sha256": "e084c0bd5473520e8722913b1c3704004eb0a5f78fa8741e84a96817e2bdd640",
+    "etag": "W/\"e084c0bd5473520e8722913b1c370400\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork": {
+    "sha256": "081a0f40b82108ba1482ba8565f45c449da3f74b88ad0dea76d2f772e2efea20",
+    "etag": "W/\"081a0f40b82108ba1482ba8565f45c44\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13346458-customizing-your-console-appearance-settings": {
+    "sha256": "b67495c4a16b916b2ceb9b35035fcd1f833fee383de4e410394e1e067fcbdbf8",
+    "etag": "W/\"b67495c4a16b916b2ceb9b35035fcd1f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13346720-export-your-organization-s-data": {
+    "sha256": "d9de82d16aa39c362a8cda1dbfa4ef6999c93158c51025794cb018c42fa6a89e",
+    "etag": "W/\"d9de82d16aa39c362a8cda1dbfa4ef69\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13364135-use-claude-cowork-safely": {
+    "sha256": "cd61f24ee921694d895822f4645143df6f5e53567fa2bd16c9c7a820a74aef63",
+    "etag": "W/\"cd61f24ee921694d895822f4645143df\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13371040-logging-in-to-your-console-account": {
+    "sha256": "ebd2c0e1a7001771db824abb46652331609654a2553783b1b40c3f72c537810e",
+    "etag": "W/\"ebd2c0e1a7001771db824abb46652331\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13393991-purchase-and-manage-seats-on-enterprise-plans": {
+    "sha256": "f3dff7a015bba175df784917618357b7d810f26f6f02a71d9d7e034ac2b5dd84",
+    "etag": "W/\"f3dff7a015bba175df784917618357b7\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13403291-how-can-i-check-connectivity-to-the-claude-api": {
+    "sha256": "e1c5bba213664998553d05d038a86c5d86323447f105aded63393aa6a697eaf3",
+    "etag": "W/\"e1c5bba213664998553d05d038a86c5d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13443687-switching-to-a-different-identity-provider-idp": {
+    "sha256": "fa135f488453140f90287588d4d656a08ff88ac074e9805d5e3b594daea6cd03",
+    "etag": "W/\"fa135f488453140f90287588d4d656a0\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13443764-inviting-members-to-the-claude-console": {
+    "sha256": "90bd249b807bc71e7e27ae2ad4142ac1b323b8e61b911913072dfff491a5926a",
+    "etag": "W/\"90bd249b807bc71e7e27ae2ad4142ac1\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13454812-use-interactive-connectors-in-claude": {
+    "sha256": "61d4e8b7cff6735a913330da7e6153edc002258cad72bd71432f651269374185",
+    "etag": "W/\"61d4e8b7cff6735a913330da7e6153ed\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13455879-use-claude-cowork-on-team-and-enterprise-plans": {
+    "sha256": "d2545a0ab3447b758353c778c4d4271fc7df1630418dca3503c09bfbb4190e2a",
+    "etag": "W/\"d2545a0ab3447b758353c778c4d4271f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint": {
+    "sha256": "6f55693e1ff1bea82f0e12ebd565a47d601aba45f902fb61f2df73efcb4eab1b",
+    "etag": "W/\"6f55693e1ff1bea82f0e12ebd565a47d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13566435-find-and-join-a-team-or-enterprise-organization": {
+    "sha256": "81d87bd5407e6c7178bbc6ff3abcf69e3f65bbe8cd0ca553293425cccb18d869",
+    "etag": "W/\"81d87bd5407e6c7178bbc6ff3abcf69e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13641943-visual-and-interactive-content": {
+    "sha256": "25802ab26d19dc4264dec2a814ad9ddf909f43b609632b817d1ebbcb34d21354",
+    "etag": "W/\"25802ab26d19dc4264dec2a814ad9ddf\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13663666-use-visual-and-interactive-content-on-team-and-enterprise-plans": {
+    "sha256": "004b40367c7347f6e7eff6de9789c163a9f320f569f2914c505e14f62fdf88c9",
+    "etag": "W/\"004b40367c7347f6e7eff6de9789c163\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13694757-get-started-with-the-claude-enterprise-analytics-api": {
+    "sha256": "9c0998889f279c535ab5cdf63a62247ec220867e23e1b3f41d50a025859246a8",
+    "etag": "W/\"9c0998889f279c535ab5cdf63a62247e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13703965-claude-enterprise-analytics-api-reference-guide": {
+    "sha256": "f1534a233a1d37e2f58b48ec2accc282cb23f8e3651481dbeb573e835563e7a8",
+    "etag": "W/\"f1534a233a1d37e2f58b48ec2accc282\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13704655-unauthorized-anthropic-stock-sales-and-investment-scams": {
+    "sha256": "9b958d955aa1fe7f5a77aa9bc49184b156875b0ad3c095353c2bc232f674cef6",
+    "etag": "W/\"9b958d955aa1fe7f5a77aa9bc49184b1\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13730515-manage-claude-s-tool-access": {
+    "sha256": "470d59dc1b2a7a98c0103db18828ac31f7216a5dfe5d8fb81870289fc0d7a004",
+    "etag": "W/\"470d59dc1b2a7a98c0103db18828ac31\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13756069-public-sector-faqs": {
+    "sha256": "d5befffae4d376449b219987f801f9873620df3d9af7d4c9f90788e5546b1457",
+    "etag": "W/\"d5befffae4d376449b219987f801f987\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13776697-join-an-organization-via-invite-link": {
+    "sha256": "c7b819cb432163fbb99e8011338472874f9bc058b0105f636ed2e3a97d6c1be4",
+    "etag": "W/\"c7b819cb432163fbb99e801133847287\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13779868-migrate-your-organization-from-team-to-enterprise": {
+    "sha256": "743d20e22ef08db75f4c7d0a05ea6a47d7929de2511151701a7b69b50b39ecbf",
+    "etag": "W/\"743d20e22ef08db75f4c7d0a05ea6a47\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13799932-manage-groups-and-group-spend-limits-on-enterprise-plans": {
+    "sha256": "d25eb0ae6323457c158e04e34defd5f75ea831c10bcba4423f8b228e429bd620",
+    "etag": "W/\"d25eb0ae6323457c158e04e34defd5f7\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13837433-manage-claude-cowork-plugins-for-your-organization": {
+    "sha256": "58e077942343e7cf4496f74c24c46c3c4e40fb3b92e4d733d4f95ff2c246538c",
+    "etag": "W/\"58e077942343e7cf4496f74c24c46c3c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13837440-use-plugins-in-claude-cowork": {
+    "sha256": "8f5f22c75aeac0a66f9b04a3c0ce3fedc508793f2459d8088efd2afcd72f7e00",
+    "etag": "W/\"8f5f22c75aeac0a66f9b04a3c0ce3fed\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13851150-install-financial-services-plugins-for-cowork": {
+    "sha256": "08003afebf56cf9adec7f229830b250b59f56aba0a5fca6c4cfeecc6f24dfadc",
+    "etag": "W/\"08003afebf56cf9adec7f229830b250b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork": {
+    "sha256": "0a2e9c14c6021f57bac0174b8b1ece4dfeded815a05e57cc446dd0f8136781fa",
+    "etag": "W/\"0a2e9c14c6021f57bac0174b8b1ece4d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13892150-work-across-microsoft-365-apps": {
+    "sha256": "f7e3ee13cdfc4d9e5ae0eb960a3c719701b74f672984a4c0d444ae689e9e3a9c",
+    "etag": "W/\"f7e3ee13cdfc4d9e5ae0eb960a3c7197\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13917817-google-workspace-sso-scim-email-mismatch": {
+    "sha256": "a6c5e809428febbe91bad1dceb25be1d6a9f4aacc9611fad422a048ecf54a94d",
+    "etag": "W/\"a6c5e809428febbe91bad1dceb25be1d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13917829-microsoft-entra-id-sso-scim-email-mismatch": {
+    "sha256": "342711c6ed0551c754358ae349e9caf8668533941aa4a208c0d2aca95623cb5d",
+    "etag": "W/\"342711c6ed0551c754358ae349e9caf8\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13917840-okta-sso-scim-email-mismatch": {
+    "sha256": "f356cf908309595da0402e99976855cdb6f2e61ba8300442652cad014df87d51",
+    "etag": "W/\"f356cf908309595da0402e99976855cd\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13917861-onelogin-sso-scim-email-mismatch": {
+    "sha256": "2996690c6919c19832dc5846bd745c814a19471f618c3c90cf567e563c9970e6",
+    "etag": "W/\"2996690c6919c19832dc5846bd745c81\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13917875-ping-identity-sso-scim-email-mismatch": {
+    "sha256": "cd7620637a43a46c64c880fc066dd564c216f76f2041a90bca8e2ee3b61d689a",
+    "etag": "W/\"cd7620637a43a46c64c880fc066dd564\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13917884-google-workspace-sso-setup": {
+    "sha256": "ef2ce047371861640d66e490c5203854245e6b4edc799d155e787f59bcdd917b",
+    "etag": "W/\"ef2ce047371861640d66e490c5203854\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13917889-microsoft-entra-id-sso-setup": {
+    "sha256": "233923fd992c53bb64475fc71bc5ddf5fe23fdc2186708a4b66bd753e339c68b",
+    "etag": "W/\"233923fd992c53bb64475fc71bc5ddf5\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13917894-okta-sso-setup": {
+    "sha256": "e614490c1614345ccd0ca1d8945ea26006d14c7add516764147071ab7134fe51",
+    "etag": "W/\"e614490c1614345ccd0ca1d8945ea260\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13917899-onelogin-sso-setup": {
+    "sha256": "0f0d14e14efc65fabe1d4f303c61999b14a619786520d37df1deda96849cfe81",
+    "etag": "W/\"0f0d14e14efc65fabe1d4f303c61999b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13917902-ping-identity-sso-setup": {
+    "sha256": "dc7b0c7295213b05045544370850dc01285f1a342cb741c66dfd59485be9164c",
+    "etag": "W/\"dc7b0c7295213b05045544370850dc01\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans": {
+    "sha256": "c6e4517a5c08c162a44e9079dc79c43f313e8174f880412d6b73ddb1cdb9f7cc",
+    "etag": "W/\"c6e4517a5c08c162a44e9079dc79c43f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13930458-set-up-role-based-permissions-on-enterprise-plans": {
+    "sha256": "eddfe3ca418026cdc20c3084a88980a6b7a2a5eebb8f71ff82fb1fa00c52a7fb",
+    "etag": "W/\"eddfe3ca418026cdc20c3084a88980a6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13945233-use-claude-for-microsoft-365-with-third-party-platforms": {
+    "sha256": "55223a4f96558b2d710a3eb878eaaa180e12f3b59135603cee213b9b65d232e5",
+    "etag": "W/\"55223a4f96558b2d710a3eb878eaaa18\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13947068-assign-tasks-from-anywhere-in-claude-cowork": {
+    "sha256": "868b8322c226c493db9b9684a65bb85cb2f83e14ff641c3387adf5600ace83d8",
+    "etag": "W/\"868b8322c226c493db9b9684a65bb85c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/13979539-custom-visuals-in-chat-and-cowork": {
+    "sha256": "12e3845a537514fec289f85c957db38c4a7833877f094802a7d35e3d3095f643",
+    "etag": "W/\"12e3845a537514fec289f85c957db38c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14051822-notice-regarding-consumption-tax-jct-for-japanese-customers": {
+    "sha256": "9c860e9f55ddfdfc3e32175cafe43fa4a5599f69b0789359796704934c5272be",
+    "etag": "W/\"9c860e9f55ddfdfc3e32175cafe43fa4\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14063676-claude-march-2026-usage-promotion": {
+    "sha256": "4772a9ade64e387e62e2edac393ee6015eca6f6f2466548e7beabe9493a06918",
+    "etag": "W/\"4772a9ade64e387e62e2edac393ee601\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork": {
+    "sha256": "4324dcccb6aa49a7320bc9d3f6ba5da70d51b9a052d88b35755eb3d4080d2029",
+    "etag": "W/\"4324dcccb6aa49a7320bc9d3f6ba5da7\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork": {
+    "sha256": "70a1d29b230a29214fcba5bf0cfefd6b58eb9f73da1b658b34a52e1d7f12b313",
+    "etag": "W/\"70a1d29b230a29214fcba5bf0cfefd6b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14233555-set-up-code-review-for-claude-code": {
+    "sha256": "e7de5017b5b0e7098e23ff816a0f521ea4baf49dda5fc3f1584cb3f7e6617cb3",
+    "etag": "W/\"e7de5017b5b0e7098e23ff816a0f521e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14246112-buy-usage-bundles": {
+    "sha256": "1d9f78e17ed9d0dad192ba93cba093ba2d7006f939eb007868ad0c4ca24e2ec6",
+    "etag": "W/\"1d9f78e17ed9d0dad192ba93cba093ba\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory": {
+    "sha256": "e1ac47fdfe8621bebe8eb493d273e7de63dab500788392e77252f648374610ad",
+    "etag": "W/\"e1ac47fdfe8621bebe8eb493d273e7de\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14328960-identity-verification-on-claude": {
+    "sha256": "e2a6a2ce185415078a7b3832476cb1df24c1732674273a725c56ef73327f852a",
+    "etag": "W/\"e2a6a2ce185415078a7b3832476cb1df\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14447276-configure-a-custom-opentelemetry-collector-for-office-agents": {
+    "sha256": "7b93bc8f502aa4eeb0f54125a28fc5dad1c1ff871a1b90e9aa989b67a9800be9",
+    "etag": "W/\"7b93bc8f502aa4eeb0f54125a28fc5da\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14465370-use-claude-for-word": {
+    "sha256": "40c3892cff01ddbf7dea29970b4847fa7439806e51b2116788c56f034903b2de",
+    "etag": "W/\"40c3892cff01ddbf7dea29970b4847fa\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14477985-monitor-claude-cowork-activity-with-opentelemetry": {
+    "sha256": "8acfb8768ada28860413bbf76da9351a8669ed716fdb395921a76fde34e6dc4c",
+    "etag": "W/\"8acfb8768ada28860413bbf76da9351a\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14479288-claude-cowork-desktop-architecture-overview": {
+    "sha256": "b4899c6345ae7f2f9db99239e54b55a16300e301d517f2a9cc6df8ebeab44600",
+    "etag": "W/\"b4899c6345ae7f2f9db99239e54b55a1\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14479591-use-dictation-in-office-agents": {
+    "sha256": "829680ccf55ca937aa6e177adefdc826b941bc9bfb88adce17726aa1e55a0aef",
+    "etag": "W/\"829680ccf55ca937aa6e177adefdc826\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14499648-how-scim-sync-works-for-enterprise-organizations": {
+    "sha256": "a1af15846ba4405cbf4ecd38b7289ecf5046e034cf8685594ed55b0a53f9452f",
+    "etag": "W/\"a1af15846ba4405cbf4ecd38b7289ecf\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14503520-available-beta-and-research-preview-features": {
+    "sha256": "66761253ac01b7da536663b49c3e7908a512761f130c3c31f83bf78780072982",
+    "etag": "W/\"66761253ac01b7da536663b49c3e7908\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14503590-get-started-with-claude-for-government": {
+    "sha256": "d1a722b913a326b3889c166d7ceee2881abc9f29aefe60f1600dfb5c5afef907",
+    "etag": "W/\"d1a722b913a326b3889c166d7ceee288\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14503613-sso-login": {
+    "sha256": "acf453663faeba4a543181f881fb4ce6badf5f415c22118e3ebc7d414517b78e",
+    "etag": "W/\"acf453663faeba4a543181f881fb4ce6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14503643-set-up-scim-in-claude-for-government": {
+    "sha256": "eb7a4d8f7b97af6f90aa056f877f8177366671925676fad2d14e271d9275ad5b",
+    "etag": "W/\"eb7a4d8f7b97af6f90aa056f877f8177\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14503675-organization-instructions-in-claude-for-government": {
+    "sha256": "0273bf07d9ec099453fdf80caba96a62cd12bbccf7f999521b902be246a6d91e",
+    "etag": "W/\"0273bf07d9ec099453fdf80caba96a62\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14503689-mcp-connectors": {
+    "sha256": "6c80fa534b43ae2f037c0550e38526c73fa45dd33caebbb1feaf95182e34e0d8",
+    "etag": "W/\"6c80fa534b43ae2f037c0550e38526c7\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14503703-mcp-individual-connectors": {
+    "sha256": "d8536702902add51cb36591cd1a1a82090969005002dc7c40d9576ac266d8334",
+    "etag": "W/\"d8536702902add51cb36591cd1a1a820\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14503775-mcp-web-search": {
+    "sha256": "adc7a4635d659ec4871e6ff95a86818b1f3b6ec795498cab6153b9abd739ed34",
+    "etag": "W/\"adc7a4635d659ec4871e6ff95a86818b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14503794-model-availability-in-claude-for-government": {
+    "sha256": "acc9c78d11bcd5252b28f06291a58483cb2f974a38ddb66867d318b57f158d2b",
+    "etag": "W/\"acc9c78d11bcd5252b28f06291a58483\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14503804-classification-banner-in-claude-for-government": {
+    "sha256": "601cf33a10489b6eda4bc2a8843a0a05985f0319c212e3e430ad1066cbba29e0",
+    "etag": "W/\"601cf33a10489b6eda4bc2a8843a0a05\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14546867-set-organization-instructions": {
+    "sha256": "55d2ff1fc16f29a7c38cc4f3585c76b5f9c020326b4e69db61e469b15a4868ce",
+    "etag": "W/\"55d2ff1fc16f29a7c38cc4f3585c76b5\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14552382-your-first-day-in-claude-code": {
+    "sha256": "648aa5748c51f3045384994591bbaca26aa2f38874c48b09c5f96e09488e4bf0",
+    "etag": "W/\"648aa5748c51f3045384994591bbaca2\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14552646-troubleshoot-claude-code-installation-and-authentication": {
+    "sha256": "1ab943e2a1d21bdb3ca57d2d845c427f9e73ad7660d2f59e3dd55d9214b8867c",
+    "etag": "W/\"1ab943e2a1d21bdb3ca57d2d845c427f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14552983-models-usage-and-limits-in-claude-code": {
+    "sha256": "7ae46b8148cbc019cb14c97e74cdcc44d93955a4e01ee5306e1f216acbd11e59",
+    "etag": "W/\"7ae46b8148cbc019cb14c97e74cdcc44\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14553240-give-claude-context-claude-md-and-better-prompts": {
+    "sha256": "68a62794656c39cac87a940a85b94c097f2acad52c8bbfd435e08b701542571a",
+    "etag": "W/\"68a62794656c39cac87a940a85b94c09\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14553413-claude-code-cheatsheet": {
+    "sha256": "4b36095ff402a0d58885a67f8fdda3da35c5bef14012f14edbb5e5eb3d6e2e93",
+    "etag": "W/\"4b36095ff402a0d58885a67f8fdda3da\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14553517-claude-code-common-developer-use-cases": {
+    "sha256": "19786864800676fdf0d857afee920e2595bd72ab7bca5c0f2bcd637d0b2ec15e",
+    "etag": "W/\"19786864800676fdf0d857afee920e25\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14554000-claude-code-power-user-tips": {
+    "sha256": "e2fc03ff4c1d5562e9c14a4ed3edd3965a63862470095db3e2cfa3f02d0a2ce4",
+    "etag": "W/\"e2fc03ff4c1d5562e9c14a4ed3edd396\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14554922-claude-code-user-faq": {
+    "sha256": "445f19f72d366448b7b0800a01c5e6011458a6000df5edc30dc3eebb25900871",
+    "etag": "W/\"445f19f72d366448b7b0800a01c5e601\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14555399-claude-code-champion-kit": {
+    "sha256": "e60e293bd77b74143d3b54b42fce5728276a35d877f184f08744f3ad5f11339a",
+    "etag": "W/\"e60e293bd77b74143d3b54b42fce5728\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14555877-claude-code-communications-kit": {
+    "sha256": "9a9ecf35864ae148a8d220054c46fd9efc6b2436bc4dffc5774000afdbe3ad59",
+    "etag": "W/\"9a9ecf35864ae148a8d220054c46fd9e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design": {
+    "sha256": "58283ea3e3483cac47ef134f5482c7da25abc8f5f2eebe9c1ac480fae44694c9",
+    "etag": "W/\"58283ea3e3483cac47ef134f5482c7da\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans": {
+    "sha256": "6f225da2f6fb595ca56cc1e4d9818298a30d82bfe04cd7535264d5c294727ebe",
+    "etag": "W/\"6f225da2f6fb595ca56cc1e4d9818298\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14604416-get-started-with-claude-design": {
+    "sha256": "2055a5f275b4aa654c2e74acfbf90506cbc2e1826931222280a7c7d3b95713e8",
+    "etag": "W/\"2055a5f275b4aa654c2e74acfbf90506\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14604842-real-time-cyber-safeguards-on-claude": {
+    "sha256": "2badd1eea231a5dbc2cee071041001c0f27d27329698070ea6e81e148af989d6",
+    "etag": "W/\"2badd1eea231a5dbc2cee071041001c0\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14625619-claim-and-migrate-accounts-on-your-domain": {
+    "sha256": "e3176ea10a172514e662eac84d0973be612e943443f91dc134e94380bf2a3c31",
+    "etag": "W/\"e3176ea10a172514e662eac84d0973be\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14625626-respond-to-an-enterprise-domain-claim-on-your-claude-account": {
+    "sha256": "d285c9ece30fef076f93aa97d679e6c11e1477d9da731cfede74edd5821a1606",
+    "etag": "W/\"d285c9ece30fef076f93aa97d679e6c1\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14661296-use-claude-security": {
+    "sha256": "278e0a85b5371d9a118a61c7029bdb955c0d413adb0c6220f7d864d9eb816a1b",
+    "etag": "W/\"278e0a85b5371d9a118a61c7029bdb95\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14667344-claude-design-subscription-usage-and-pricing": {
+    "sha256": "bb33a37cafcb954831eb2b80f4632c9c75ff704276939621a1bd236a5ac46e38",
+    "etag": "W/\"bb33a37cafcb954831eb2b80f4632c9c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14729249-use-live-artifacts-in-claude-cowork": {
+    "sha256": "4917ea8f81cfdfb7b65b1eae7519ddae4f6d2c1a592c63f79a89c862f315484d",
+    "etag": "W/\"4917ea8f81cfdfb7b65b1eae7519ddae\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link": {
+    "sha256": "2ebc7f68f181a933460f8a15b19e7b3bb8eafee7417a6b6b5dc4c50ce02ceb34",
+    "etag": "W/\"2ebc7f68f181a933460f8a15b19e7b3b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14729354-use-analytics-chat-to-ask-claude-about-usage": {
+    "sha256": "2307b1c972e42d9f1014c6cac410ed8f5aa07ed6cdc6cc1d922ddfd521d3c990",
+    "etag": "W/\"2307b1c972e42d9f1014c6cac410ed8f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14730684-how-claude-suggests-connected-apps": {
+    "sha256": "39c4677d2163b0d37b829fd2abd7697c58d484ef189f137c819be9576955d624",
+    "etag": "W/\"39c4677d2163b0d37b829fd2abd7697c\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14793921-find-and-join-a-console-organization": {
+    "sha256": "5c1ed00c38d5885ecf1cd688008e163ef80f134748269b7bfac9e1c3f94df102",
+    "etag": "W/\"5c1ed00c38d5885ecf1cd688008e163e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14855664-use-claude-for-outlook": {
+    "sha256": "296b0f773aea3cb6c563e0a9c8b6bb8dbb813b6fb9105e72f48350423bc4040e",
+    "etag": "W/\"296b0f773aea3cb6c563e0a9c8b6bb8d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/14898120-open-the-claude-mobile-app-with-a-link": {
+    "sha256": "aefc5d080b2854b9a2e771775f0b35196bdab9ec8fdf3a6a1f180128ad5b0da7",
+    "etag": "W/\"aefc5d080b2854b9a2e771775f0b3519\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/15036540-use-the-claude-agent-sdk-with-your-claude-plan": {
+    "sha256": "bcac0e6a0fa64de486f4d0f9db3daa60a53dd1f24fa6b381877c54e040ab1e72",
+    "etag": "W/\"bcac0e6a0fa64de486f4d0f9db3daa60\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/7996845-what-are-some-things-i-can-use-claude-for": {
+    "sha256": "0806faf7e5c18a2550d61da72f4e2c9d3d52403645e754cf9f2eee8a7f827659",
+    "etag": "W/\"0806faf7e5c18a2550d61da72f4e2c9d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/7996853-introduction-to-prompt-design": {
+    "sha256": "eb563b598dedb077c9d9aa0efa4438d10ba9a62fbe76a820be1e9ccfe6ae9942",
+    "etag": "W/\"eb563b598dedb077c9d9aa0efa4438d1\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/7996857-my-prompt-isn-t-giving-me-a-helpful-answer": {
+    "sha256": "12f9938995d562daac757fc806822283ff1ac77d5757617b71cdd72f0c0dfba7",
+    "etag": "W/\"12f9938995d562daac757fc806822283\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/7996862-how-do-i-view-and-sign-your-data-processing-addendum-dpa": {
+    "sha256": "fd923d804f1aaa8d960a730226ec58325fbce6406684c7baaf035f3814712fac",
+    "etag": "W/\"fd923d804f1aaa8d960a730226ec5832\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/7996906-reporting-blocking-and-removing-content-from-claude": {
+    "sha256": "38a32b06d123154078ab164b13b7052e92f926fbe238cf94fc1f3b686d989aad",
+    "etag": "W/\"38a32b06d123154078ab164b13b7052e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/7996918-what-is-amazon-bedrock": {
+    "sha256": "e84c43858940959348aa0d2308b45b6d45ca50df9478a407865f537722583165",
+    "etag": "W/\"e84c43858940959348aa0d2308b45b6d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/7996920-how-do-i-get-access-to-claude-in-amazon-bedrock": {
+    "sha256": "2c0e364946b1a34a97e008565a9aea7ffd9be68e65282cf8fbd7bef02ca3dac8",
+    "etag": "W/\"2c0e364946b1a34a97e008565a9aea7f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/7996921-i-use-claude-in-amazon-bedrock-who-do-i-contact-for-customer-support-inquiries": {
+    "sha256": "b43d00230b25d469b759383c5e84ae60375e7deca9bf5284b342d6dcb40c4dff",
+    "etag": "W/\"b43d00230b25d469b759383c5e84ae60\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8106465-our-approach-to-user-safety": {
+    "sha256": "8f819e27777892b7e8653bf9f24d6113ef746a96f1571d5b15344a9a0048eaa2",
+    "etag": "W/\"8f819e27777892b7e8653bf9f24d6113\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114487-what-interfaces-can-i-use-to-access-claude": {
+    "sha256": "f92e41d03d9f53525d6898abc0e07914afa1c72b5ab1686fd550199fd6728116",
+    "etag": "W/\"f92e41d03d9f53525d6898abc0e07914\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114490-where-can-i-find-your-api-documentation": {
+    "sha256": "931bb63665ce90f4072e20bf6c72c04758149e0c6931e056bb3c66e77ff1348c",
+    "etag": "W/\"931bb63665ce90f4072e20bf6c72c047\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114491-get-started-with-claude": {
+    "sha256": "e309a776febed3a6f2e595251035402b3709a67dfa947d04108f63a4b721ec48",
+    "etag": "W/\"e309a776febed3a6f2e595251035402b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114494-how-up-to-date-is-claude-s-training-data": {
+    "sha256": "f863a5e6c335d44f9cb1464e24f1d3fd30207f3f92b716d712e254c4117b478e",
+    "etag": "W/\"f863a5e6c335d44f9cb1464e24f1d3fd\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114513-business-associate-agreements-baa-for-commercial-customers": {
+    "sha256": "47d57a95ef2c9915e408735c80bb4b97c6140ef26285bb2f6f26d889ccfbfa3e",
+    "etag": "W/\"47d57a95ef2c9915e408735c80bb4b97\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114518-claude-s-response-to-my-prompt-is-too-brief": {
+    "sha256": "b20f6d93646d6b7e5046b6e32f66ccc4dbe22c6b8662d074682f3211e0fa6c16",
+    "etag": "W/\"b20f6d93646d6b7e5046b6e32f66ccc4\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api": {
+    "sha256": "51bc4727270bc64c49d6d35d77c82e45464c0fd7f6e6b7cf22196a09bdb81077",
+    "etag": "W/\"51bc4727270bc64c49d6d35d77c82e45\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114523-how-can-i-learn-more-about-claude-api-pricing": {
+    "sha256": "d02acc23a6896ed8606789031349975b5c8fd28a5551b64866d6835f21043825",
+    "etag": "W/\"d02acc23a6896ed8606789031349975b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114526-how-will-i-be-billed-for-claude-api-use": {
+    "sha256": "68c868da39f35184e94de7b551b0e8d3f83cc1d68098392ec5cc67668ce8e8e0",
+    "etag": "W/\"68c868da39f35184e94de7b551b0e8d3\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114527-i-m-encountering-429-errors-and-i-m-worried-my-rate-limit-is-too-low-what-should-i-do": {
+    "sha256": "65f6642ac9669110d70ad033dd0bc71195410383a08414896b245a4607df23bf",
+    "etag": "W/\"65f6642ac9669110d70ad033dd0bc711\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114531-i-created-a-claude-console-organization-how-do-i-start-using-the-claude-api": {
+    "sha256": "857828eaedae74a1489e6d029c234abb4334134c07b1ef29922e88093e8ac820",
+    "etag": "W/\"857828eaedae74a1489e6d029c234abb\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114533-i-ve-been-using-other-large-language-models-llms-to-power-my-product-how-should-i-alter-my-prompts-when-switching-to-claude": {
+    "sha256": "2c0741a5804ebddb3da99cc7712120dd909f4544fb908aa9e24f1d17ac24faa6",
+    "etag": "W/\"2c0741a5804ebddb3da99cc7712120dd\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8114535-where-can-i-go-for-claude-api-support-and-assistance": {
+    "sha256": "70320cdac1ec71d2d4e1631d8352a1148ecd25bf48cafecfe95a0625154f2a4b",
+    "etag": "W/\"70320cdac1ec71d2d4e1631d8352a114\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8116515-where-is-the-claude-api-supported": {
+    "sha256": "72ab7e0a5ffd00a5561788270f18d1eff92be054df282eb85754bbf003cd90e1",
+    "etag": "W/\"72ab7e0a5ffd00a5561788270f18d1ef\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8230524-how-can-i-delete-or-rename-a-conversation": {
+    "sha256": "edafc2fa0972723c95d7cf97e16a52f38702af9d734bac5482c701ade79fee87",
+    "etag": "W/\"edafc2fa0972723c95d7cf97e16a52f3\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8241126-upload-files-to-claude": {
+    "sha256": "19e21a30a9e1d62e857ae4ee08a6404484b321abc12de7542900c0c2aa3880d1",
+    "etag": "W/\"19e21a30a9e1d62e857ae4ee08a64044\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8241188-claude-is-producing-links-that-don-t-work-and-falsely-claiming-that-it-has-sent-emails-or-produced-external-documents-what-s-going-on": {
+    "sha256": "5c3aef19dafd6b50282f0060f6d3fb13430363eedbf8c153a3197c9cdf96dd4b",
+    "etag": "W/\"5c3aef19dafd6b50282f0060f6d3fb13\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8241216-i-m-planning-to-launch-a-product-using-the-claude-api-what-steps-should-i-take-to-ensure-i-m-not-violating-anthropic-s-usage-policy": {
+    "sha256": "8048d7eefbd567f477659a0e6aee3f03d14bcc10b64edda40992033b9cca3325",
+    "etag": "W/\"8048d7eefbd567f477659a0e6aee3f03\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8241253-safeguards-warnings-and-appeals": {
+    "sha256": "0c7889e4c4c2063c179de57994a3bf20921ebb43c4c177ed2fbebeb8b12a9c7f",
+    "etag": "W/\"0c7889e4c4c2063c179de57994a3bf20\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8243635-our-approach-to-rate-limits-for-the-claude-api": {
+    "sha256": "5e79b40408913d15b98bc9cc50270db8727b77fccccbb8f897f81697d862d25e",
+    "etag": "W/\"5e79b40408913d15b98bc9cc50270db8\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8287232-verifying-your-phone-number": {
+    "sha256": "0abfe28a159c4f94cf25f57dde38fc59d92a785e6da77e1fe6af73b83c01cce0",
+    "etag": "W/\"0abfe28a159c4f94cf25f57dde38fc59\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8325606-what-is-the-pro-plan": {
+    "sha256": "4d4dc615f1873239edf68fd32ba839506e6a2f7b9adf1211f44eb89b0fc70d85",
+    "etag": "W/\"4d4dc615f1873239edf68fd32ba83950\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8325609-how-do-i-sign-up-for-the-pro-plan": {
+    "sha256": "51338d68c19d6fe4162f0cc0541c8580653799d1b8fce1f428414129237ad525",
+    "etag": "W/\"51338d68c19d6fe4162f0cc0541c8580\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription": {
+    "sha256": "a8a756e4c1d5605856b61b1ace9d3cf67821d19bd98c9eeca61a9fdb2fe3ce05",
+    "etag": "W/\"a8a756e4c1d5605856b61b1ace9d3cf6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8325618-paid-plan-billing-faqs": {
+    "sha256": "777d29d28f9590a0218d68d7605512268276fcc4e0f2d05e8c7ad57857be56af",
+    "etag": "W/\"777d29d28f9590a0218d68d760551226\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8325621-i-would-like-to-input-sensitive-data-into-my-chats-with-claude-who-can-view-my-conversations": {
+    "sha256": "676aee1241e5182b907959789b35a324fd86bcf06b0efe506fb19a19404304e7",
+    "etag": "W/\"676aee1241e5182b907959789b35a324\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8384961-what-should-i-do-if-i-suspect-my-api-key-has-been-compromised": {
+    "sha256": "6db640b68eab928a78b01c0d1ca676679dba5bd210dec4dd03740e60f6cd1de8",
+    "etag": "W/\"6db640b68eab928a78b01c0d1ca67667\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8452276-how-do-i-change-the-email-address-associated-with-my-account": {
+    "sha256": "e377c78ab84e32aa24c710ce7d25c777b5e497b5c6cfd6d9f3870fb222797877",
+    "etag": "W/\"e377c78ab84e32aa24c710ce7d25c777\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8461763-where-can-i-access-claude": {
+    "sha256": "6b41ac459e90c97b502b1d5008fb54a27a791d2f1b29b105b68c9c6530d3d070",
+    "etag": "W/\"6b41ac459e90c97b502b1d5008fb54a2\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8525154-claude-is-providing-incorrect-or-misleading-responses-what-s-going-on": {
+    "sha256": "85603a76194e2fd7eacd582cb27869447881250be46ede92a872c9c2d10bc344",
+    "etag": "W/\"85603a76194e2fd7eacd582cb2786944\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8606378-how-do-i-use-the-workbench": {
+    "sha256": "99df61db570d6d133c8535eb8e4603c73aaaf86ef857624e41b7d0a6dd4b443b",
+    "etag": "W/\"99df61db570d6d133c8535eb8e4603c7\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans": {
+    "sha256": "50e4b812f0ddeeafe01262712f0e09b4c4c0b8d7891289e7e93080da88ca593d",
+    "etag": "W/\"50e4b812f0ddeeafe01262712f0e09b4\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8606395-how-large-is-the-claude-api-s-context-window": {
+    "sha256": "3b0f7945d09b7291f330fa3517d0d965e807365e58c5b78684576667c85049fc",
+    "etag": "W/\"3b0f7945d09b7291f330fa3517d0d965\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8664678-how-can-i-change-the-model-version-that-i-m-chatting-with": {
+    "sha256": "2a252cc052f2e3ec3a2d054e508cea6f7dea9f77678bc1095e73cd1ba8c07861",
+    "etag": "W/\"2a252cc052f2e3ec3a2d054e508cea6f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8887527-customizing-your-appearance-settings": {
+    "sha256": "13892918db816e7d96709dad090048098d5393536fe4950e20449679691d150a",
+    "etag": "W/\"13892918db816e7d96709dad09004809\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler": {
+    "sha256": "757db0d8cc564a9c36c4adcb70ab20881008a2b33b5f33f70833baa5ba4afdca",
+    "etag": "W/\"757db0d8cc564a9c36c4adcb70ab2088\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8977456-how-do-i-pay-for-my-claude-api-usage": {
+    "sha256": "eaec0c79178d46770a10b893f3d0d1e6751ffe9dc07c5f1f85f824cc29547c6b",
+    "etag": "W/\"eaec0c79178d46770a10b893f3d0d1e6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8987200-can-i-use-the-claude-api-for-individual-use": {
+    "sha256": "db3910b8e7e92c8253950b46ac5ae83449918a4fb7981957121f1c0676756411",
+    "etag": "W/\"db3910b8e7e92c8253950b46ac5ae834\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/8987223-can-i-have-a-claude-account-and-a-console-account": {
+    "sha256": "1e2baf0cb419e061446661526194dde8bad2043cfcfcd60755b50d8882f22445",
+    "etag": "W/\"1e2baf0cb419e061446661526194dde8\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9002504-can-claude-produce-images": {
+    "sha256": "36a4e8dc5e92b467997e892b3d9c60028c2f8bbdbd07529bd7b0b808943a2666",
+    "etag": "W/\"36a4e8dc5e92b467997e892b3d9c6002\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9015913-how-to-get-support": {
+    "sha256": "692ce063b32bfd70c836f4c3823c06f30691aa358002fa6287482984d9a274a7",
+    "etag": "W/\"692ce063b32bfd70c836f4c3823c06f3\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9020328-csam-detection-and-reporting": {
+    "sha256": "71643e3471dffa3a4c6999019d282569acd7d91361fb2d63b2d086fa1e137bd2",
+    "etag": "W/\"71643e3471dffa3a4c6999019d282569\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9028421-how-can-i-delete-my-claude-account": {
+    "sha256": "d76e3e552e429212daf22a03e4213a214a06b080f0e34970bf842bb2c26e7b0b",
+    "etag": "W/\"d76e3e552e429212daf22a03e4213a21\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9035075-law-enforcement-requests": {
+    "sha256": "fd7554263cf08f01e24090fb22297846cbaffc11b0e1d7855303263670b78fd3",
+    "etag": "W/\"fd7554263cf08f01e24090fb22297846\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9125743-what-is-the-external-researcher-access-program": {
+    "sha256": "a0c83f307d2e96a2c3b9b1a578c8cbc5e72e2ee1d0ca3bd01636ec5ee29e5463",
+    "etag": "W/\"a0c83f307d2e96a2c3b9b1a578c8cbc5\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9190861-terms-of-service-updates": {
+    "sha256": "90faa18669da3aad3a85a2b73ca1f5b32c784bc46ccba2e7ad849dab61ca7777",
+    "etag": "W/\"90faa18669da3aad3a85a2b73ca1f5b3\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9199617-api-safeguards-tools": {
+    "sha256": "81200b06256dd542d0282bb73fd0010e4b62bfe474314035e4d019a7f5adc563",
+    "etag": "W/\"81200b06256dd542d0282bb73fd0010e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9205721-why-am-i-receiving-an-output-blocked-by-content-filtering-policy-error": {
+    "sha256": "37c3fae03b19dea7ced5e8bd5c93564f62a675d43bbabd63c21b6e646e684c5e",
+    "etag": "W/\"37c3fae03b19dea7ced5e8bd5c93564f\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9264804-how-can-i-cancel-my-claude-pro-subscription-on-the-claude-app-for-ios": {
+    "sha256": "8d18987423c784693c6c1213e97d3cb6d1856c9de13fa0c3565fce7c65763955",
+    "etag": "W/\"8d18987423c784693c6c1213e97d3cb6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9264813-consumer-terms-of-service-updates": {
+    "sha256": "4edbabb24e29a82fa63dc745f187615b4c491d6de79e88312288066bcf05adaf",
+    "etag": "W/\"4edbabb24e29a82fa63dc745f187615b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9265372-who-owns-and-manages-the-data-of-my-team": {
+    "sha256": "479085bbf78786dd151908c6075f9669fca24b2c46f5e54d90bc5cd2400eeec6",
+    "etag": "W/\"479085bbf78786dd151908c6075f9669\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9266462-installing-claude-for-ios": {
+    "sha256": "9a59d971c688c5522ec364471b0d146b19c3f639e77ef849a12bb7485f03a95f",
+    "etag": "W/\"9a59d971c688c5522ec364471b0d146b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9266495-how-do-i-sign-up-for-claude-pro-on-the-claude-app-for-ios": {
+    "sha256": "e50aae419e85f42f8839d65a3ad9eb413a6f1466b787bef5b11e06e71304a114",
+    "etag": "W/\"e50aae419e85f42f8839d65a3ad9eb41\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9266767-what-is-the-team-plan": {
+    "sha256": "bf72bc197e3daf853bfea07147aea5e2c0f47bee67dda5e24078e291547f08c9",
+    "etag": "W/\"bf72bc197e3daf853bfea07147aea5e2\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9267247-get-started-with-the-team-plan": {
+    "sha256": "2130bca4ef13584d0d1d58b3900b22d8f35b30481c474bf3ec3511867edba710",
+    "etag": "W/\"2130bca4ef13584d0d1d58b3900b22d8\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9267276-roles-and-permissions": {
+    "sha256": "1b69b80b7b3643aedc1639276c7587a6b32d0f05d35c653e8e23d7b48ed7d432",
+    "etag": "W/\"1b69b80b7b3643aedc1639276c7587a6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated": {
+    "sha256": "8b60cadb693ac98b262eed5f1e2ef19746d6a05c42d090ef4a21c453c4fb11cc",
+    "etag": "W/\"8b60cadb693ac98b262eed5f1e2ef197\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9267323-cancel-your-organization-s-team-plan-subscription": {
+    "sha256": "86eaa17e92cb16911c530c0656897666e39b9e012b9cbfef381976a6a66aff7d",
+    "etag": "W/\"86eaa17e92cb16911c530c0656897666\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9267385-does-anthropic-act-as-a-data-processor-or-controller": {
+    "sha256": "1950b33a8b2cd7fb14c9f4a6cbc55e0d1f34c60a19404b6675f47ced471cbb64",
+    "etag": "W/\"1950b33a8b2cd7fb14c9f4a6cbc55e0d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9267387-how-can-i-access-the-personal-information-that-anthropic-has-on-my-account": {
+    "sha256": "f8720cb41b14c9c866bd52361cbafdeb59f5603f2efcfe7ff6b80b989e8f4e6c",
+    "etag": "W/\"f8720cb41b14c9c866bd52361cbafdeb\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9267400-move-your-personal-claude-account-to-a-team-or-enterprise-organization": {
+    "sha256": "23037aba5cbb334afc8b5880c9c54d8525faca1a11faf931631e817c2ff43a3f",
+    "etag": "W/\"23037aba5cbb334afc8b5880c9c54d85\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9301722-updates-to-our-acceptable-use-policy-now-usage-policy-consumer-terms-of-service-and-privacy-policy": {
+    "sha256": "66e10adf004b27f7607d2a27870044795d16221f1cf66ccecb8f289422e4597c",
+    "etag": "W/\"66e10adf004b27f7607d2a2787004479\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors": {
+    "sha256": "48d78d12c4b90dd3c29c9c283ff6c69712b43bb21844d0309e73223e76ada467",
+    "etag": "W/\"48d78d12c4b90dd3c29c9c283ff6c697\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9402418-why-was-my-card-declined": {
+    "sha256": "026cc2cfe0e6d354b98e8807892b3c66ab08607fe20b62df7117abec373bf0b3",
+    "etag": "W/\"026cc2cfe0e6d354b98e8807892b3c66\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9450526-how-can-i-export-my-claude-data": {
+    "sha256": "d18a03fae534bd8a2793c0e7668f1cd7e32fabf940f8bb88b54b2e8a21a1ca5b",
+    "etag": "W/\"d18a03fae534bd8a2793c0e7668f1cd7\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them": {
+    "sha256": "1d93136c7e5992fb119dcdc5ef595b30a817537abac38d2d36726254e8974a44",
+    "etag": "W/\"1d93136c7e5992fb119dcdc5ef595b30\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9517075-what-are-projects": {
+    "sha256": "4b8f4e8f71a5a62ebccc1a4fdb477bc6d365645237809e47b7fd6ebc631f6cad",
+    "etag": "W/\"4b8f4e8f71a5a62ebccc1a4fdb477bc6\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects": {
+    "sha256": "f13116d8857ed0d373f38a813240cddaf2f90d270a72a3a8f1293e3bb70f8ee5",
+    "etag": "W/\"f13116d8857ed0d373f38a813240cdda\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9519189-manage-project-visibility-and-sharing": {
+    "sha256": "067b408bdd65798d2f9c1913face8ad81103e48f773b1f6d5d9445e95fc3055f",
+    "etag": "W/\"067b408bdd65798d2f9c1913face8ad8\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9519291-what-is-anthropic-s-policy-for-handling-governmental-requests-for-user-information": {
+    "sha256": "da8a50fc37b02787c3f89b0690472d39f70c5b11cef1ec60bf394e18daedd420",
+    "etag": "W/\"da8a50fc37b02787c3f89b0690472d39\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9528712-exceptions-to-our-usage-policy": {
+    "sha256": "2591e2fc07e465eb6d41aa505a3cc7979b0a4ec7b04b5a5aa34363c81c4bfa46",
+    "etag": "W/\"2591e2fc07e465eb6d41aa505a3cc797\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9529781-examples-of-projects-you-can-create": {
+    "sha256": "502e6e347ffb45dfe894c07003d5af7839e2a2c40b402c05027c9035895306cc",
+    "etag": "W/\"502e6e347ffb45dfe894c07003d5af78\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9534590-cost-and-usage-reporting-in-the-claude-console": {
+    "sha256": "5879663b63483d0cecbe00eb5cf772e23c78945ac24499a2c02bd65a761c503d",
+    "etag": "W/\"5879663b63483d0cecbe00eb5cf772e2\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9547008-publishing-and-sharing-artifacts": {
+    "sha256": "fd2372b92c1a08d18b3333874f58cf33bbd48baa22d70778c90f14f531086005",
+    "etag": "W/\"fd2372b92c1a08d18b3333874f58cf33\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9612887-how-do-i-install-claude-for-android": {
+    "sha256": "10d60c942a0d1ec2ce6ef7aefebe2bb7a2efb865d934a353bdb9eb50896eba41",
+    "etag": "W/\"10d60c942a0d1ec2ce6ef7aefebe2bb7\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9612889-how-can-i-uninstall-claude-for-android": {
+    "sha256": "3c3c1176e07248da942cca7d165a9aa01aeaf33a50e3e16da21b6fb5d55e0f37",
+    "etag": "W/\"3c3c1176e07248da942cca7d165a9aa0\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9612892-how-do-i-sign-up-for-claude-pro-on-claude-for-android": {
+    "sha256": "9b3878b8547f0a2db474f8f59f194a47debf80f1eab9c53e24a93c20bafa470f",
+    "etag": "W/\"9b3878b8547f0a2db474f8f59f194a47\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9612898-how-can-i-cancel-my-claude-pro-subscription-on-claude-for-android": {
+    "sha256": "5637e348f1c9a79e15520fc05e3839f1db7627ba7ec928cd9e49660ea3d7c555",
+    "etag": "W/\"5637e348f1c9a79e15520fc05e3839f1\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9612901-why-can-t-i-find-claude-for-android-in-the-play-store": {
+    "sha256": "b541cda95a1d236774967dd2249499e1dd2dafc5d760615b56d309cc5dc1891c",
+    "etag": "W/\"b541cda95a1d236774967dd2249499e1\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9612904-what-versions-of-android-are-supported": {
+    "sha256": "263df9802fac6d85cca6cad67fc2c1a249b0573ecf9ec10fbf5b04c72283b65a",
+    "etag": "W/\"263df9802fac6d85cca6cad67fc2c1a2\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9767949-api-key-best-practices-keeping-your-keys-safe-and-secure": {
+    "sha256": "b7e995fa87ab3e1886566a8572aa45c19939260dd6ec4f2814ad7d51aaf9728d",
+    "etag": "W/\"b7e995fa87ab3e1886566a8572aa45c1\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9796617-can-you-delete-data-that-i-sent-via-team-and-enterprise-plans": {
+    "sha256": "3f52a98df9f0cc12bca272e2502ff32dc61e1db78ebdf623d944e81aa8183499",
+    "etag": "W/\"3f52a98df9f0cc12bca272e2502ff32d\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9796807-creating-and-managing-workspaces-in-the-claude-console": {
+    "sha256": "649ea05f8ff3e3a608eec34294e2bf7eece0b872e7fddd7a18cfed2003472ec4",
+    "etag": "W/\"649ea05f8ff3e3a608eec34294e2bf7e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9797531-what-is-the-enterprise-plan": {
+    "sha256": "10d0cc0dccb804b3913b5b08a6de15168eebc9ccf6e2bb5793399656f28fb27f",
+    "etag": "W/\"10d0cc0dccb804b3913b5b08a6de1516\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9797557-usage-limit-best-practices": {
+    "sha256": "88ba78e7084628dda850fec0049654c841eff168e0abc8f3f6b5c8ccf2e6c867",
+    "etag": "W/\"88ba78e7084628dda850fec0049654c8\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9876003-i-have-a-paid-claude-subscription-pro-max-team-or-enterprise-plans-why-do-i-have-to-pay-separately-to-use-the-claude-api-and-console": {
+    "sha256": "293f251a5cdaeee47cf9395dd59184162b39905122644b042a04b0606b9c7449",
+    "etag": "W/\"293f251a5cdaeee47cf9395dd5918416\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9889408-add-or-update-your-paid-claude-account-s-tax-or-vat-id": {
+    "sha256": "6dd0f9d35a7acbe00fd1fbf3e50f313b3366c904a04762c7488afd2794ce8f8c",
+    "etag": "W/\"6dd0f9d35a7acbe00fd1fbf3e50f313b\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9889428-add-or-update-your-claude-console-organization-s-tax-or-vat-id": {
+    "sha256": "5dda68b471acd9053bb70289aa59e7f55a0fcca9118c91b801655b5839e77fbb",
+    "etag": "W/\"5dda68b471acd9053bb70289aa59e7f5\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9927533-disable-public-projects-for-your-organization": {
+    "sha256": "669b6d37d270a600352f17e37bbb6ad9a6a0e510d4134b52b169a1d4c862b193",
+    "etag": "W/\"669b6d37d270a600352f17e37bbb6ad9\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9927624-add-or-update-your-team-plan-s-tax-or-vat-id": {
+    "sha256": "0ee2f66632d9b75075e9dd6d24dd090e023ef08e7851e8425b2d25e9fd562449",
+    "etag": "W/\"0ee2f66632d9b75075e9dd6d24dd090e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  },
+  "https://support.claude.com/en/articles/9970975-access-audit-logs": {
+    "sha256": "95ec3ebf5909bda6db550274dba9251e649e034759802c7c772d22e32beed248",
+    "etag": "W/\"95ec3ebf5909bda6db550274dba9251e\"",
+    "fetchedAt": "2026-05-15T14:47:44.563Z",
+    "lastStatus": 200
+  }
+}

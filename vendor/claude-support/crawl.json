@@ -1,0 +1,22 @@
+{
+  "name": "claude-support",
+  "homepage": "https://support.claude.com",
+  "llms_txt_candidates": [],
+  "sitemap_xml_sources": [
+    "https://support.claude.com/sitemap.xml"
+  ],
+  "transform": "support-mdfirst",
+  "allow_prefixes": [
+    "https://support.claude.com/en/articles/"
+  ],
+  "deny_prefixes": [
+    "https://support.claude.com/fr/",
+    "https://support.claude.com/de/",
+    "https://support.claude.com/es/",
+    "https://support.claude.com/ja/",
+    "https://support.claude.com/ko/",
+    "https://support.claude.com/pt-BR/"
+  ],
+  "page_cap": 400,
+  "note": "Intercom help-center. 341 EN articles across 16 collections (Claude Code, Connectors, Claude Desktop, Team and Enterprise, consumer Claude, Privacy and legal, Safeguards, etc). Sitemap-driven discovery; .md suffix is supported on every /en/articles/ URL and returns text/markdown — live-probed at session-start."
+}

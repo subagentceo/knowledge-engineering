@@ -21,6 +21,7 @@ export type TransformName =
   | "append-md-and-accept"
   | "cloudflare-index-md"
   | "anthropic-mdfirst"
+  | "support-mdfirst"
   | "accept-only"
   | "html-extract";
 
@@ -151,6 +152,31 @@ export function anthropicMdFirst(url: string): TransformOutput {
 }
 
 /**
+ * support-mdfirst — for Intercom-style support.claude.com articles.
+ * Appends `.md` to `/en/articles/<id>-<slug>` URLs and sends
+ * `Accept: text/markdown`. Validates the response is actually
+ * markdown (the live probe confirmed `Content-Type: text/markdown`
+ * when the suffix is present). Reject HTML responses — those
+ * indicate the help-center fell back to the Intercom widget shell.
+ */
+export function supportMdFirst(url: string): TransformOutput {
+  const u = new URL(url);
+  if (!KNOWN_EXT_RE.test(u.pathname) && !u.pathname.endsWith("/")) {
+    u.pathname = `${u.pathname}.md`;
+  } else if (u.pathname.endsWith("/")) {
+    u.pathname = `${u.pathname}index.md`;
+  }
+  return {
+    fetchUrl: u.toString(),
+    headers: { ...acceptMarkdown },
+    validateBody: (ct, body) => {
+      if (ct && /text\/html/i.test(ct)) return false;
+      return !looksLikeHtml(body);
+    },
+  };
+}
+
+/**
  * accept-only — URL unchanged; send Accept: text/markdown. Reserved
  * for hosts that negotiate format without path rewriting.
  */
@@ -186,5 +212,6 @@ export const TRANSFORMS = {
   "append-md-and-accept": appendMdAndAccept,
   "cloudflare-index-md": cloudflareIndexMd,
   "anthropic-mdfirst": anthropicMdFirst,
+  "support-mdfirst": supportMdFirst,
   "accept-only": acceptOnly,
 } satisfies Partial<Record<TransformName, (url: string) => TransformOutput>>;
