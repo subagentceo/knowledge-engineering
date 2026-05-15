@@ -10,6 +10,7 @@ export { blogSearch } from "./blog_search.js";
 export { supportCollections } from "./support_collections.js";
 export { supportCollection } from "./support_collection.js";
 export { supportArticle } from "./support_article.js";
+export { supportSearch } from "./support_search.js";
 export { llmsNamespaces } from "./llms_namespaces.js";
 export { llmsFetch } from "./llms_fetch.js";
 export { llmsGrep } from "./llms_grep.js";

@@ -1,0 +1,1 @@
+You can use the prompt improver in the Claude Console to automatically adapt prompts that were originally written for other AI models.
