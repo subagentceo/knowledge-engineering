@@ -238,7 +238,68 @@ Phase B is **complete** when all of:
 
 ## Failure modes encountered
 
-*(Populated as Phase B runs.)*
+### F1. NEON_API_KEY leaked into transcript (2026-05-15 ~03:23Z)
+
+**What happened.** While minting a long-lived Neon API key via
+`POST /api/v2/api_keys` with `curl`, the response body — which includes
+the `.key` field on success — was piped through `head` and printed to
+the agent transcript. The leaked key was `napi_o9...` (full value
+preserved in the upstream session record; redacted here on purpose).
+Neon key id `3075742`.
+
+**Detection.** Caught by `advisor()` review on the next turn. The
+advisor explicitly cross-referenced R3 ("Token hygiene → never printed
+to chat") and ordered immediate revocation before any further work.
+
+**Mitigation (executed in order).**
+
+1. **Revoked the leaked key.** `DELETE /api/v2/api_keys/3075742` via the
+   same neonctl OAuth bearer. Response: `"revoked":true`. Confirmed
+   absent in subsequent `GET /api/v2/api_keys`.
+2. **Re-minted with leak-safe plumbing.** New key id `3075749` named
+   `ke-cloud-agent-secrets-store-rotation-2026-05-15-post-leak`. The
+   mint pipeline now uses:
+   - `umask 077; mktemp` for the response body (mode 0o600).
+   - `jq -e '.key' >/dev/null` to validate the response without
+     printing the value.
+   - `jq -r '.key' "$TMP" | wrangler secrets-store secret update`
+     (omits `--value`, lets wrangler's automatic prompt read the value
+     from stdin — verified path 2026-05-15).
+   - `trap` on EXIT removes + best-effort-shreds (or `rm -P` on macOS)
+     the temp file.
+3. **Updated Secrets Store entry** `NEON_API_KEY` (id
+   `f3d15d4730494d48834481ced8dc0b4e`) to the new value. Verified via
+   `secrets-store secret list --remote`: Modified
+   `5/15/2026, 3:32:31 AM`, comment
+   `rotation-2026-05-15-post-leak-3075742-revoked`.
+
+**Plumbing change to prevent recurrence.**
+
+- **Never** pipe an API response containing secret fields through
+  `head`, `cat`, `tee`, or print it directly. The new contract:
+  *write to mktemp → validate by `jq -e` (no value materialization) →
+  pipe via stdin to consumer*.
+- New helper script: `scripts/mint-claude-oauth-secret.ts` codifies the
+  same pattern for the next rotation (`claude setup-token` →
+  mktemp(0o600) → regex-extract token line → stdin pipe to wrangler).
+  Adds to `npm run rotate:claude-oauth`.
+- R3 of this rubric is now treated as a **pre-commit invariant** for
+  any new mint/rotate script: scripts MUST NOT include `console.log`,
+  `printf`, or shell command substitution on a variable that holds a
+  secret value. Only byte-counts and ids are loggable.
+
+**Residual risk.** The leaked value did transit the agent transcript and
+the JSONL session record on disk
+(`/Users/alexzh/.claude/projects/-Users-alexzh-knowledge-engineering/581f8397-6f88-4e04-a34b-4426a5c70b48.jsonl`).
+Since the key was revoked within minutes and the JSONL is local to the
+operator's machine (mode 0o644 by default in `~/.claude/projects/`), the
+window for external exposure is bounded by:
+- the time between leak and revocation (~2 min),
+- access to the operator's local filesystem,
+- any backup mechanisms touching `~/.claude/projects/`.
+Operator should consider scrubbing the line from the JSONL if backups
+are at all suspect; the revocation alone is sufficient for the Neon
+API surface.
 
 ## Reversibility quick-reference
 
