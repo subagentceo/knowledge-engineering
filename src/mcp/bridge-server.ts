@@ -19,6 +19,7 @@ import { registerClaudeBlog } from "./lanes/claude-blog.js";
 import { registerSupportClaude } from "./lanes/support-claude.js";
 import { registerLlmsTxt } from "./lanes/llms-txt.js";
 import { registerVendor } from "./lanes/vendor.js";
+import { registerProject } from "./lanes/project.js";
 import { registerSearchTools } from "./lanes/search-tools.js";
 
 const server = new McpServer({
@@ -31,6 +32,7 @@ registerClaudeBlog(server);
 registerSupportClaude(server);
 registerLlmsTxt(server);
 registerVendor(server);
+registerProject(server);
 registerSearchTools(server);
 
 await server.connect(new StdioServerTransport());
