@@ -1,0 +1,128 @@
+{
+  "https://www.claude.com/customers/airops": {
+    "sha256": "8a94245f171cf68123dfddbe1533fd4244e986035dd18b2ff68bca4e2e00ae39",
+    "lastModified": "Fri, 15 May 2026 00:06:50 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/artemis": {
+    "sha256": "fe91728ee7aff16e746a963169ee4296d769e99b344d2e208f34c73156dc471d",
+    "lastModified": "Fri, 15 May 2026 00:19:24 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/bolt": {
+    "sha256": "14c44d749c7b9750f34898662e0bcf078953b24a72a0d1b04181f9591a3300ba",
+    "lastModified": "Fri, 15 May 2026 06:15:36 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/bubble": {
+    "sha256": "91ad0728b7cf21c28b3209b9324a3143298bb86bbec2f3e9cc240ce650faf088",
+    "lastModified": "Fri, 15 May 2026 00:06:54 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/delivery-hero": {
+    "sha256": "eba99a218a3e7da3981e3e963faee898c7f23ee66833afb43de0667f77f7d00a",
+    "lastModified": "Fri, 15 May 2026 00:06:50 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/duvo": {
+    "sha256": "f6054530b6bd020263875b0da7e4393a5f783325e799e716471d713738c67266",
+    "lastModified": "Thu, 14 May 2026 23:22:17 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/gc-ai": {
+    "sha256": "b764bcccb0ccc1ee6226ec099f1ce07dfa08ed64394d0e2b2ec62e5d1290af16",
+    "lastModified": "Thu, 14 May 2026 23:22:15 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/gradial": {
+    "sha256": "7e89f0cb0b6565c24a82dd29b95a3fc341c6d4d866110e614e321812b3b5a396",
+    "lastModified": "Fri, 15 May 2026 04:29:55 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/kindora": {
+    "sha256": "97451cb71c19130179badf4a681166126a485d2e46642fff04bfb18269dc0a9d",
+    "lastModified": "Fri, 15 May 2026 06:15:37 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/mutiny": {
+    "sha256": "341fb143bd2bafaa04c30f6a1ef21e8b2c370aee5f1fb6178f6f313483de4fa1",
+    "lastModified": "Fri, 15 May 2026 04:29:55 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/notion-qa": {
+    "sha256": "6465da4a6b2baf6424d90db9135c2a883e79a74b223d6a28a594ed5650632e26",
+    "lastModified": "Fri, 15 May 2026 06:15:37 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/offdeal": {
+    "sha256": "ee5987ea696a1b7aeea72ea4dad75f0e2909758c5d159a8b69ad8a1342b6c1c4",
+    "lastModified": "Fri, 15 May 2026 03:58:46 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/opusclip": {
+    "sha256": "ef3a4b105c0241f93151bc6caae04001755e5cd2f9d5882d4bad18726cff48c3",
+    "lastModified": "Fri, 15 May 2026 06:15:36 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/pendo-qa": {
+    "sha256": "7ac2e0e9243188fc23c8ff4d6526afb0e0d5370d1b69422149679de6cf01fd0f",
+    "lastModified": "Thu, 14 May 2026 22:40:25 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/rakuten-qa": {
+    "sha256": "ed6c2aa1ed45725682e665cf71e5ae3773b055d34c1527969910fba52de53248",
+    "lastModified": "Fri, 15 May 2026 04:29:55 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/reversia": {
+    "sha256": "50648f85e52ed9f7b7943902d5a9122431c1a1db2c6a6183a31b8a694bd7f4a0",
+    "lastModified": "Fri, 15 May 2026 06:15:36 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/rogo": {
+    "sha256": "6db68427c02572a775e25fbe186c74e751899efb1b07d81d268a15606ed7793f",
+    "lastModified": "Fri, 15 May 2026 06:15:36 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/smartsheet": {
+    "sha256": "dfffbbbdb2aff4e1b8718ce9cdb29ee79137bf3a0ca7b4b1aa0fcf1a3e1383c1",
+    "lastModified": "Fri, 15 May 2026 04:30:43 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/syracuse": {
+    "sha256": "7f2ac750160ae3d91e14e665f4021da13aab0bcee5183945113a0696d81ebb16",
+    "lastModified": "Fri, 15 May 2026 04:08:56 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/vapi": {
+    "sha256": "57f5286fd2326c9c61ff02876855c078463bf7ee6744fba9fd0822061b1d09b8",
+    "lastModified": "Fri, 15 May 2026 06:15:36 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/customers/ymca-south-australia": {
+    "sha256": "453b927ff277d3733a91f6870d76e702a599d113cd1ea74efd27ddc205197fc0",
+    "lastModified": "Fri, 15 May 2026 06:15:36 GMT",
+    "fetchedAt": "2026-05-15T06:15:36.275Z",
+    "lastStatus": 200
+  }
+}

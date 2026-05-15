@@ -1,0 +1,24 @@
+{
+  "name": "claude-customers",
+  "homepage": "https://www.claude.com/customers",
+  "llms_txt_candidates": [],
+  "html_index_sources": [
+    {
+      "url": "https://www.claude.com/customers",
+      "link_regex": "href=\"(/customers/[a-z0-9-]+)\""
+    }
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://www.claude.com/customers/"
+  ],
+  "deny_prefixes": [
+    "https://www.claude.com/customers/feed",
+    "https://www.claude.com/customers/rss"
+  ],
+  "page_cap": 30,
+  "html_extract": {
+    "selector": "main"
+  },
+  "llms_txt": "https://www.claude.com/llms.txt"
+}
