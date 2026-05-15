@@ -84,7 +84,13 @@ function rulesetBody() {
           require_code_owner_review: false,
           require_last_push_approval: false,
           required_review_thread_resolution: false,
-          automatic_copilot_code_review_enabled: false,
+          // Note: `automatic_copilot_code_review_enabled` is rejected
+          // by the rulesets PUT endpoint with HTTP 422:
+          //   "Invalid rule 'pull_request': Unexpected parameter
+          //    `automatic_copilot_code_review_enabled`"
+          // Verified 2026-05-15 against the live API; omitting it
+          // keeps the call idempotent.
+          allowed_merge_methods: ["squash"],
         },
       },
       {
