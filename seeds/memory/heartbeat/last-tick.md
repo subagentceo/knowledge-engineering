@@ -1,129 +1,104 @@
 ---
-tick: 7
-iso: 2026-05-15T04:35:00Z
+tick: 9
+iso: 2026-05-15T04:45:00Z
 git_sha: pending (this PR)
 session: claude.ai/code/session_9d8f8432-101f-466f-9c31-b1021ea934e7
-trigger: operator-direct (audit auto-merge gap + update open PR branches)
-prev_tick: 6 (PR #71 — content) and tick 5 (PR #72 — ws fix; merged as 3855a1d)
+trigger: operator-direct ("find all API_KEY like NEON_API_KEY you need to be provided")
+prev_tick: 8 (PR #74 — Phase 16.B final content)
 ---
 
-# Tick 7 — auto-merge gap audit + 4 PR updates + Neon end-to-end win
+# Tick 9 — Neon secrets/vars audit + matrix runbook
 
-The operator's most recent directive bundled three asks:
-
-1. **Update open PR branches to origin/main** — PRs #59, #62, #64, #68.
-2. **Investigate merged PRs starting with #60** — auto-merge fired without full green CI.
-3. **Decompose + fix** the resulting CI/CD gap.
+The operator asked: "find all API_KEY like NEON_API_KEY you need be
+provided to get unblocked." Plus: review issues #12 and #39 and
+get Neon working.
 
 ## Outcome
 
-All three completed in this tick. The full per-PR Neon flow now works
-end-to-end for the first time since PR #58 wired it in (2026-05-10).
+Neon is **already working** end-to-end as of PR #72:
 
-## Audit findings (Task B)
+- Per-PR Neon branches ✅ (39 preview branches exist in the Console)
+- Per-PR migrations ✅ (vendor_pages table created on every PR)
+- Per-PR schema diff comments ✅ (posted on #59, #62, #64, #74)
 
-`mcp__github__pull_request_read get_check_runs` on each merged PR
-today confirmed the operator's claim:
+The remaining gap is **local-machine / heartbeat-agent dual-write**
+to the production Neon branch. That needs `NEON_DATABASE_URL` to be
+provisioned outside CI. Two options surface (and one would close
+the gap autonomously).
 
-| PR | `Create Neon Branch` at merge | `npm run verify` | `claude-review` | Merged? |
-| :---: | :---: | :---: | :---: | :---: |
-| #60 | ❌ failure | ✅ | ✅ | yes (auto-merge) |
-| #63 | ❌ failure | ✅ | ✅ | yes |
-| #65 | ❌ failure (assumed) | ✅ | ✅ | yes |
-| #66 | ❌ failure (assumed) | ✅ | ✅ | yes |
-| #67 | ❌ failure (assumed) | ✅ | ✅ | yes |
-| #69 | ❌ failure | ✅ | ✅ | yes |
-| #70 | ❌ failure | ✅ | ✅ | yes |
+## Audit findings (Task 1)
 
-`Create Neon Branch` was red on every merged PR. Auto-merge fired
-anyway because branch protection isn't in place (operator action #37
-— `setup:branch-protection`, gated on PAT runbook).
-
-## Root causes — two distinct layers
-
-### Layer 1 — agent-fixable (DONE in PR #72)
-
-**`Create Neon Branch` consistently failed** because Node 20 doesn't
-expose a global `WebSocket` constructor, and `@neondatabase/serverless`
-`Pool` needs one to open its protocol WebSocket on first query.
-
-PR #69's retry layer just retried the same broken connect 5 times
-and exhausted with `TypeError: fetch failed` / `All attempts to open
-a WebSocket to connect to the database failed`.
-
-**Fix:** PR #72 — install `ws` + `@types/ws`, wire
-`neonConfig.webSocketConstructor = ws` once per process.
-
-**Verification:** PR #64's first run post-merge produced a **Neon
-Schema Diff comment** for the first time — the full chain works:
+Inventoried every NEON_* reference in the codebase:
 
 ```
-Create Neon Branch        ✅ neondatabase/create-branch-action@v5
-Run Migrations            ✅ scripts/migrate-neon.ts (vendor_pages)
-Post Schema Diff Comment  ✅ neondatabase/schema-diff-action@v1
+.github/workflows/neon-branch.yml       — secrets.NEON_API_KEY + vars.NEON_PROJECT_ID + per-job NEON_DATABASE_URL
+.github/workflows/cloudflare-preview.yml — secrets.NEON_API_KEY (for CF Secrets Store bootstrap)
+scripts/lib/neon-client.ts              — process.env.NEON_DATABASE_URL
+scripts/crawl-vendors.ts                — NEON_DATABASE_URL gates dual-write
+scripts/migrate-neon.ts                 — NEON_DATABASE_URL gates migration
+infra/cloudflare/src/worker.ts          — Secret Store binding for NEON_API_KEY
 ```
 
-The schema diff posted to PR #64 showed `vendor_pages` (with PK +
-2 indexes) cleanly added vs production.
+Per-surface matrix (full table in `docs/operator-runbooks/neon-secrets-matrix.md`):
 
-### Layer 2 — operator-fixable (PENDING)
+| Surface | What's needed | Status |
+| :--- | :--- | :---: |
+| CI (`neon-branch.yml`) | `secrets.NEON_API_KEY` + `vars.NEON_PROJECT_ID` + per-job `NEON_DATABASE_URL` | ✅ all provisioned, works post PR #72 |
+| Cloudflare Worker | `NEON_API_KEY` in CF Secrets Store | ⚠ gated on CF token (operator action #33) |
+| Local crawler | `NEON_DATABASE_URL` env | ❌ not provisioned anywhere; not documented |
+| Agent heartbeat session | `NEON_DATABASE_URL` env | ❌ inherently unavailable (VM swap loses env) |
 
-**Branch protection ruleset not in place** → no required checks →
-auto-merge fires immediately on label, without waiting. Operator
-action #37 (`GITHUB_TOKEN=<pat> npm run setup:branch-protection`)
-is the remedy. Gated on PAT runbook (`docs/operator-runbooks/github-pat.md`).
+## Issues #12 / #39 review (Task 2)
 
-Even with PR #72 making `Create Neon Branch` green, the auto-merge
-gap remains until branch protection is enabled.
+**Issue #12 (Phase 8 deploy):**
 
-## Task A — PR branch updates (DONE)
+- Neon portion: ✅ DONE — integration installed, secrets provisioned.
+- Remaining: CF-side bootstrap secrets (operator action #33-#37).
 
-| PR | Title | Method | State |
-| :---: | :--- | :--- | :---: |
-| #59 | snapshot draft | API `update_pull_request_branch` (×2) | ✅ updated |
-| #62 | Phase 14 decomposition | API `update_pull_request_branch` (×2) | ✅ updated |
-| #64 | vendor re-sync (workos+elevenlabs) | local merge — sentry `page_cap` conflict resolved (took main's 150) | ✅ updated |
-| #68 | content tick 3 (twilio+sentry) | local merge — `last-tick.md` conflict resolved (took main's tick 5) | ✅ updated |
+**Issue #39 (Phase 2.B — 4 deferred vendors):**
 
-#59 + #62 were updated twice because my first call ran BEFORE PR #72
-merged. The second call picked up #72's ws fix.
+- twilio: 200 pages ✅ (was in PR #68, closed; configs on main; re-runnable)
+- sentry: 117 pages ✅ (same path)
+- brave-search: 4 pages ✅ (PR #74 — this tick's content)
+- sift: ❌ allowlist mismatch (distinct bug, not API-key-related; tracked as next-actions queue item)
+
+Net: 3 of 4 deferred vendors are closed via Phase 16.B work. Sift
+remains its own follow-up.
+
+## Get Neon working (Task 3)
+
+It is working — confirmed end-to-end on 4 PRs today. The remaining
+"local crawler dual-write" gap doesn't block any current workflow;
+it's an enhancement. Two paths:
+
+### Option A — operator sets NEON_DATABASE_URL manually
+
+Operator copies the production-branch pooled connection URI from
+Neon Console and exports it as a shell env var.
+
+### Option B — agent auto-derives via Neon API (recommended; proposed)
+
+A small `scripts/get-neon-db-url.ts` that uses `NEON_API_KEY` (already
+provisioned) + `NEON_PROJECT_ID` to fetch the production branch's
+connection URI dynamically. Removes the manual step entirely.
+
+Proposed but **not built in this tick** — the matrix runbook documents
+the option and tracks it as a follow-up.
 
 ## What this PR ships
 
-- This `last-tick.md` (tick 7 record).
+- `docs/operator-runbooks/neon-secrets-matrix.md` — the complete
+  inventory matrix + impact map + auto-derivation proposal.
+- `docs/operator-runbooks/README.md` — links the new runbook.
+- This `last-tick.md` (tick 9 record).
 
-That's it — a single-file commit recording the audit + outcomes. The
-actual fixes shipped in PR #72 + the 4 PR branch updates.
+3 files; pure docs. No code paths touched. The matrix is the
+operator-readable artifact answering the audit question.
 
-## Spotify-confidence partial crawl note
+## Next tick
 
-Tick 6 (PR #71, open) committed `spotify-confidence`'s 22 successful
-pages. The 38 failed URLs need investigation in a future tick — likely
-the marketing site serves HTML differently than the docs subdomain.
-
-## Pending work — for the next tick or operator turn
-
-- **PR #71 merge** (tick 6 content) — operator-driven; depends on
-  operator green-lighting the 370-file content commit.
-- **gcp / iterable / brave-search crawls** — gcp still mid-crawl from
-  earlier (16+ min); iterable + brave-search not yet started.
-- **Operator action #37** — setup:branch-protection to close
-  layer 2 of the auto-merge gap.
-- **PR #59, #62, #64, #68** — now updated; pending operator merge.
-
-## Spec compliance check
-
-Per the operator's directive: "decompose tasks, subtasks, in-session
-todos to safely refactor and update code to fix github action
-workflows if needed or fix issue resulting in complete ci/cd."
-
-Decomposition delivered:
-- **Task A**: 4 PR branch updates → 4 atomic operations.
-- **Task B**: audit → table above + decisions D8/D9 in `decisions.md`.
-- **Task C.1** (agent-fixable): PR #72 ws fix → 1 commit.
-- **Task C.2** (operator-fixable): documented in this file + the
-  pending.md action #37 row.
-
-All without "introducing new code if not needed" — reused existing
-`scripts/lib/neon-client.ts` lazy-import structure; added only the
-6-line WebSocket constructor wiring.
+`next-actions.md` queue:
+1. `scripts/get-neon-db-url.ts` — implement Option B
+2. sift allowlist investigation (existing queue item)
+3. gcp allowlist broadening (added after this tick's crawl)
+4. spotify-confidence 38-failure investigation
