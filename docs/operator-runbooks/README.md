@@ -78,6 +78,8 @@ distinct steps and benefit from Opus 4.7's planning depth.
 
 | [`nimbleway-api-key.md`](./nimbleway-api-key.md) | `secrets.NIMBLEWAY_API_KEY` provisioned | ~5 min | confirm 2FA on nimbleway; confirm 2FA on GH |
 
+| [`cloud-env-vars-contract.md`](./cloud-env-vars-contract.md) | Canonical CI/CD env-var inventory | ~5 min read | none (reference doc) |
+
 ## Boris Cherny tie-in
 
 These runbooks operationalize the publicly-documented Anthropic pattern of
