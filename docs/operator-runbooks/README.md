@@ -80,6 +80,8 @@ distinct steps and benefit from Opus 4.7's planning depth.
 
 | [`ollama-cloud-api-key.md`](./ollama-cloud-api-key.md) | `secrets.OLLAMA_API_KEY` provisioned | ~5 min | confirm 2FA on ollama.com; confirm 2FA on GH |
 
+| [`cloud-env-vars-contract.md`](./cloud-env-vars-contract.md) | Canonical inventory of every env var, GH secret, GH var, CF Secrets Store entry, and Worker binding the cloud-agent deploy path consumes | n/a (audit doc) | none — single-source-of-truth reference |
+
 ## Boris Cherny tie-in
 
 These runbooks operationalize the publicly-documented Anthropic pattern of
