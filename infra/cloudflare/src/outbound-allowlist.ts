@@ -74,6 +74,10 @@ const BASE_ALLOWLIST: ReadonlyArray<string> = [
   "api-dashboard.search.brave.com",
   "elevenlabs.io",
   "turbopuffer.com",
+  // Regional API hosts: gcp-us-central1.turbopuffer.com, aws-us-east-1.*, etc.
+  // Cited from vendor/turbopuffer/turbopuffer.com/docs/regions.md and
+  // verified empirically 2026-05-15 via POST gcp-us-central1.turbopuffer.com/v2/...
+  "*.turbopuffer.com",
   "opentelemetry.io",
   "openfeature.dev",
   "confidence.spotify.com",
