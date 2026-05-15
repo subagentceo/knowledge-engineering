@@ -96,6 +96,13 @@ const BASE_ALLOWLIST: ReadonlyArray<string> = [
   "www.anthropic.com",
   "support.claude.com",
   "anthropic.com",
+
+  // Ollama Cloud. Auth: `Authorization: Bearer YOUR_API_KEY`.
+  // Operator has $20 paid tier on alex@jadecli.com. Citation gap in vendor/:
+  // ollama.com has no vendor/ mirror yet — to be filled by adding an `ollama`
+  // entry to scripts/crawl-vendors.ts in a follow-up PR (#131 stub).
+  "ollama.com",
+  "api.ollama.com",
 ];
 
 /**
