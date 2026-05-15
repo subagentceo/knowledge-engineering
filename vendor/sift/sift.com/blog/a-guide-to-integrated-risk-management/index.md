@@ -1,0 +1,197 @@
+[Home](https://sift.com)/[Blog](https://sift.com/blog/)
+
+Table of Contents
+
+Explore AI Summary
+
+![chat-gpt-summary](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+![chat-gpt-summary-pink](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+![google-ai-summary](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+![google-ai-summary-pink](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+![perplexity-summary](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+![perplexity-summary-pink](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+![grok-summary](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+![grok-summary-pink](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+![claude-summary](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+![claude-summary-pink](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+Share post on:
+
+-   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F&title=A%20Guide%20to%20Integrated%20Risk%20Management)
+-   [](https://twitter.com/intent/tweet?text=A%20Guide%20to%20Integrated%20Risk%20Management&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F)
+-   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F06%2FSEO-Images_A-Guide-to-Integrated-Risk-Management_1445x1044.jpg&title=A%20Guide%20to%20Integrated%20Risk%20Management)
+-   [](/cdn-cgi/l/email-protection#1c236f697e76797f68215d392e2c5b69757879392e2c6873392e2c557268797b6e7d687978392e2c4e756f77392e2c517d727d7b79717972683a3f2c2f24277e737865217468686c6f392f5d392e5a392e5a6f757a68327f7371392e5a7e70737b392e5a7d317b6975787931687331757268797b6e7d687978316e756f7731717d727d7b7971797268392e5a)
+
+-   [Fraud](https://sift.com/blog/category/fraud/)
+
+# A Guide to Integrated Risk Management
+
+Digital risk poses a threat to entire organizations. Traditional, siloed approaches to risk management are inadequate for addressing these complex challenges. 
+
+Discover how integrated risk…
+
+[![Sift Author Logo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20504%20504'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
+
+[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
+
+Jun 13, 2024
+
+![black-dot](https://sift.com/wp-content/uploads/2024/12/black-dot.svg)
+
+![Press-Release-Tile-Image-Color-Pills\_Blue](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)
+
+Digital risk poses a threat to entire organizations. Traditional, siloed approaches to risk management are inadequate for addressing these complex challenges. 
+
+Discover how integrated risk management (IRM) can help you dismantle organizational silos and promote a culture of shared responsibility for risk identification, assessment, and mitigation.
+
+## **What is Integrated Risk Management?**
+
+Integrated risk management (IRM) is a strategic approach that involves consolidating and coordinating an organization’s risk management efforts to achieve a holistic view of risk. IRM takes the basic principles of risk management further by aligning the process with business objectives, ensuring that the assets most critical to an organization’s functioning are protected first.
+
+## **Why is Integrated Risk Management Important?**
+
+Integrated risk management gives you a game plan for dealing with worst-case scenarios. It ensures that decision-making processes are informed by a thorough understanding of risks and potential rewards, allowing you to make more balanced and informed decisions. 
+
+Here’s how integrated risk management can help your business prepare for unforeseen problems: 
+
+-   **Be prepared for the worst:** While the worst-case scenario is not the most likely outcome, knowing a plan is in place to mitigate the impact allows you to make critical decisions with confidence. 
+-   **Lower costs**: IRM allows for full visibility into a company’s functioning, which improves efficiency and reduces costs.
+-   **Improve data:** IRM reduces data silos and makes for easier decision-making.
+-   **Prioritize help:** IRM makes sure [resources are allocated to the right places based on priority](https://sift.com/blog/what-is-risk-prioritization/).
+
+## **How to Implement IRM in Your Business: The Six Components of Integrated Risk Management**
+
+Implementing a fundamentally different approach to risk doesn’t happen overnight. Follow these key steps to effectively integrate risk management into your business: 
+
+1.  **Establish a risk culture:** IRM requires a culture shift to make potential risk more visible. Secure support from leadership and enable risk to be prioritized from the top down. Ensure that every employee receives awareness training so they’re equipped with the knowledge they need to report and mitigate risk across your organization. 
+2.  **Risk identification:** With every change in policy, strategy, or technology, your organization should identify associated risks and [factor them into your management strategies](https://sift.com/blog/what-is-digital-risk-management). This involves breaking down risk sources, events, categories, and drivers. Track historical data and trends to identify patterns and help recognize risks before they impact your business. 
+3.  **Risk assessment:** Once risks are identified, they must then be assessed and analyzed to evaluate their potential impact and likelihood of occurrence. Understanding the impact of risk requires consideration of both financial and non-financial consequences, as well as the importance of the assets involved. You can then prioritize risks based on their projected impact and use [risk scoring](https://sift.com/blog/sift-scores) to assign a value to each in order of priority. 
+4.  **Risk mitigation:** Develop and implement response strategies and mitigation plans to address identified risks effectively. It’s in the risk mitigation stage that your organization will implement controls and and decide what risks you’ll accept. The objective is to provide a response plan so you and your employees know what to do in the event of an incident. 
+5.  **Risk monitoring:** The digital world is constantly evolving, and no risk is static. You need to implement continuous real-time monitoring and reporting of risks to track changes and keep your policies and processes up-to-date. 
+6.  **Technology integration**: IRM encourages the use of technological solutions to enable your teams to focus on high priority risks. For example, manual transaction review is a time-consuming risk mitigation task that can be automated with Sift’s AI-powered fraud detection platform. Sift can also facilitate data integration, streamline risk processes, and enhance decision support capabilities.
+
+## **What are the Benefits of IRM?**
+
+Integrating risk management (IRM) into your business offers a range of significant advantages that can help your organization better navigate the complex risk landscape and achieve your strategic objectives. An integrated approach to risk management allows:
+
+-   **A holistic view of risk:** A holistic view allows organizations to understand how different risks interconnect and impact each other, providing a comprehensive understanding of the overall risk landscape. This helps in developing more effective risk management strategies that address risks in a coordinated way. 
+-   **Better goal alignment**: Instead of dealing with risks individually, IRM supports goal alignment by ensuring that risks are identified and managed in a way that aligns with your organization’s strategic objectives. 
+-   **Improved decision-making:** Corporate leadership cannot make effective decisions without comprehensive and reliable data, and a siloed approach to risk management increases the odds of certain threats being overlooked. IRM enhances decision-making by bringing all types of risk under a single umbrella, ensuring that leaders have everything they need to make the right decisions. 
+-   **Save money**: By identifying and mitigating a broad range of risks, organizations can turn risk into revenue. You can reduce the likelihood of costly disruptions, legal issues, and other negative impacts that result from badly managed risks. 
+
+## **IRM Use Cases**
+
+IRM already helps companies in a variety of sectors and can be applied to virtually every industry. 
+
+### **iGaming**
+
+iGaming is an industry with a complex risk environment, including multi-account abuse and regulatory hurdles. Abuse of your [iGaming platform](https://sift.com/solutions/igaming) can give fraudsters an unfair advantage, causing players to lose trust in your business. IRM looks at all these risks and implements solutions to mitigate them. 
+
+### **Travel + Transportation**
+
+Online solutions for [travel and transportation](https://sift.com/solutions/travel-transportation) brands are driving extraordinary growth, but the risks are never far behind. In order to mitigate these threats across your organization, you must implement an integrated risk management framework, using the power of technology to stop fraud and protect the account creation process. 
+
+### **Food + Delivery**
+
+The [food and delivery industry](https://sift.com/solutions/food-delivery) is increasingly moving to mobile ordering, self-service solutions, and online promotions. These new services are all prone to a variety of risks from payment fraud to account takeovers. Organizations in these industries must leverage integrated risk management to ensure that all types of risk are mitigated across the user journey. 
+
+### **E-commerce**
+
+The [e-commerce](https://sift.com/solutions/ecommerce) space is constantly evolving. From alternative payment methods to online shopping ecosystems, companies are growing in diverse ways. Online shopping is also threatened by a variety of risks, from payment fraud to chargebacks. Using IRM, companies can effectively mitigate these risks and use technology to streamline their management processes. 
+
+## **How Sift Can Help with Integrated Risk Management**
+
+All too often, companies approach risk in an isolated manner. For instance, one company might have robust financial risk management processes in place but overlook account creation and takeover risks, while another may view risk management as exclusively a compliance activity, focusing on meeting regulatory requirements without considering broader strategic objectives. IRM contrasts with these siloed risk management practices and builds a strategy that considers all types of risks across the entire organization and user journey. This holistic approach is what sets IRM apart from conventional approaches to risk management. 
+
+By leveraging Sift’s digital risk decisioning platform, organizations can enhance their integrated risk management capabilities to identify and mitigate risks. With more than a decade of experience in AI and machine learning and over 40 patents, the automation features of Sift’s solutions streamline risk identification and mitigation, reducing the time needed for manual reviews and freeing up your team to focus their time and energy on fostering growth. 
+
+[Learn more about why Sift is the common denominator across best-of-breed digital businesses](https://sift.com/why-sift).
+
+Share post on:
+
+-   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F&title=A%20Guide%20to%20Integrated%20Risk%20Management)
+-   [](https://twitter.com/intent/tweet?text=A%20Guide%20to%20Integrated%20Risk%20Management&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F)
+-   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F06%2FSEO-Images_A-Guide-to-Integrated-Risk-Management_1445x1044.jpg&title=A%20Guide%20to%20Integrated%20Risk%20Management)
+-   [](/cdn-cgi/l/email-protection#3c034f495e56595f48017d190e0c7b49555859190e0c4853190e0c755248595b4e5d485958190e0c6e554f57190e0c715d525d5b59515952481a1f0c0f04075e535845015448484c4f190f7d190e7a190e7a4f555a48125f5351190e7a5e50535b190e7a5d115b4955585911485311555248595b4e5d485958114e554f5711515d525d5b5951595248190e7a)
+
+## You may also like
+
+[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+
+-   [Fraud](https://sift.com/blog/category/fraud/)
+
+### [Get the Fraud Out: How Sift Helps Businesses Stop Fraud Before It Hits Revenue](https://sift.com/blog/how-sift-helps-businesses-get-the-fraud-out/)
+
+[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/kathryn-schneider/)
+
+[Kathryn Schneider](https://sift.com/blog/author/kathryn-schneider/)
+
+May 14, 2026
+
+![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+6 min read
+
+[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+
+-   [Data & Insights](https://sift.com/blog/category/data-insights/)
+
+### [Are You Benchmarking Against the Right Threats? Q1 2026 Insights from Sift’s FIBR](https://sift.com/blog/are-you-benchmarking-against-the-right-threats-q1-2026-insights-from-sifts-fibr/)
+
+[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/mbenjamin/)
+
+[Maria Benjamin](https://sift.com/blog/author/mbenjamin/)
+
+Apr 20, 2026
+
+![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+7 min read
+
+[![blog image](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20683'%3E%3C/svg%3E)](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
+
+-   [Data & Insights](https://sift.com/blog/category/data-insights/)
+
+### [The Fraud Landscape Has Shifted—But Not Where You’d Expect](https://sift.com/blog/the-fraud-landscape-has-shifted-but-not-where-youd-expect/)
+
+[![dummy user](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20400%20434'%3E%3C/svg%3E)](https://sift.com/blog/author/sift-trust-and-safety-team/)
+
+[Sift Trust and Safety Team](https://sift.com/blog/author/sift-trust-and-safety-team/)
+
+Mar 31, 2026
+
+![black-dot](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+
+4 min read
+
+## Dare to grow differently.
+
+Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
+
+[see sift in action](/demo/)
+
+-   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+    
+-   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+    
+-   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+-   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+    
+
+-   ![remitly](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)
+    
+-   ![swan](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20560%20160'%3E%3C/svg%3E)
+    
+-   ![yelp-white](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
+    
+-   ![taptap](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20162%20100'%3E%3C/svg%3E)

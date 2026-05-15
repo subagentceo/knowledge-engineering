@@ -7,12 +7,16 @@
   ],
   "transform": "html-extract",
   "allow_prefixes": [
-    "https://sift.com/developers/"
+    "https://sift.com/"
   ],
   "deny_prefixes": [
-    "__DEFER_TO_PHASE_2B__"
+    "https://sift.com/careers/",
+    "https://sift.com/jobs/",
+    "https://sift.com/legal/",
+    "https://sift.com/cookie-policy",
+    "https://sift.com/privacy-policy"
   ],
-  "page_cap": 150,
+  "page_cap": 100,
   "html_extract": {
     "selector": "main"
   },
