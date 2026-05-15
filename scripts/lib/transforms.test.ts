@@ -15,6 +15,7 @@ import {
   appendMdAndAccept,
   cloudflareIndexMd,
   anthropicMdFirst,
+  supportMdFirst,
   acceptOnly,
   htmlExtract,
 } from "./transforms.js";
@@ -102,6 +103,32 @@ check("anthropic-mdfirst: neon.com/guides path gets .md", () => {
 check("anthropic-mdfirst: rejects text/html responses", () => {
   const t = anthropicMdFirst("https://platform.claude.com/docs/en/x");
   if (t.validateBody("text/html", "<html>") !== false) throw new Error("html accepted");
+});
+
+check("support-mdfirst: /en/articles/<id-slug> gets .md appended + Accept header", () => {
+  const t = supportMdFirst("https://support.claude.com/en/articles/14445694-claude-code");
+  if (!t.fetchUrl.endsWith("/14445694-claude-code.md")) throw new Error(`url: ${t.fetchUrl}`);
+  if (t.headers["Accept"] !== "text/markdown") throw new Error("accept missing");
+});
+
+check("support-mdfirst: trailing slash → /index.md", () => {
+  const t = supportMdFirst("https://support.claude.com/en/collections/");
+  if (!t.fetchUrl.endsWith("/en/collections/index.md")) throw new Error(`url: ${t.fetchUrl}`);
+});
+
+check("support-mdfirst: hard-rejects text/html Content-Type", () => {
+  const t = supportMdFirst("https://support.claude.com/en/articles/14445694-claude-code");
+  if (t.validateBody("text/html; charset=utf-8", "anything") !== false) {
+    throw new Error("text/html was accepted");
+  }
+  if (t.validateBody("text/markdown", "# Claude Code\nhello") !== true) {
+    throw new Error("text/markdown was rejected");
+  }
+});
+
+check("support-mdfirst: hard-rejects body that starts with <!doctype", () => {
+  const t = supportMdFirst("https://support.claude.com/en/articles/14445694-claude-code");
+  if (t.validateBody(null, "<!doctype html>...") !== false) throw new Error("html accepted");
 });
 
 check("accept-only: URL unchanged; sends Accept", () => {

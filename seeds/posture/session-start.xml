@@ -280,6 +280,37 @@
       failures (flakey vs real); ci-healer routine reruns flakies and
       escalates real failures to the operator's mobile.
     </silent-failure-policy>
+    <package-lock-resolution>
+      <!--
+        Primitive directive (2026-05-15): the canonical resolution for a
+        package-lock.json merge conflict is to TREAT THE LOCK AS GENERATED
+        and regenerate it from the (resolved) package.json, not merge the
+        nested JSON dep tree by hand.
+
+        Recipe (codified in docs/decisions/2026-05-15-package-lock-primitive.md):
+          1. Resolve package.json conflicts manually (intent-bearing).
+          2. git checkout origin/main -- package-lock.json   # discard the PR's lock
+          3. npm install                                     # regenerate against merged package.json
+          4. git add package-lock.json
+          5. commit + push
+
+        Rationale:
+          - package-lock is deterministic given (package.json, npm registry state, node version).
+          - 3-way JSON merge of deeply nested dep trees is error-prone and untestable.
+          - npm install always produces a self-consistent lock; manual merge can leave a lock
+            that fails `npm ci` even when no merge marker is present.
+
+        When NOT to use this primitive:
+          - If the PR deliberately pins a transitive (lock-only) for a CVE workaround that
+            isn't reflected in package.json — preserve those `overrides` and re-derive.
+          - If the merge is between two release branches and you need byte-identical
+            reproduction across machines — use `npm ci --package-lock-only` from the
+            target package.json + registry snapshot instead of `npm install`.
+
+        Enforcement: PR babysitter routine should detect package-lock conflicts and
+        propose this recipe as the first remediation step.
+      -->
+    </package-lock-resolution>
   </discipline>
 
   <code-standards>

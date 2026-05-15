@@ -1,0 +1,21 @@
+While we're constantly updating Claude's data, each model has a knowledge cutoff:
+
+- Claude Opus 4.7 was trained on data up until January 2026.
+
+- Claude Sonnet 4.6 was trained on data up until August 2025.
+
+- Claude Opus 4.6 was trained on data up until August 2025.
+
+- Claude Opus 4.5 was trained on data up until August 2025.
+
+- Claude Haiku 4.5 was trained on data up until July 2025.
+
+- Claude Sonnet 4.5 was trained on data up until July 2025.
+
+- Claude Opus 3 was trained on data up until August 2023.
+
+**Note:** Sonnet 4.5 will be retired and removed from the model selector on May 15, 2026. For more information, see **[Adapting to new model personas after deprecations](https://support.claude.com/en/articles/12738598-adapting-to-new-model-personas-after-deprecations)**.
+
+These models may not be aware of events or information that occurred after their respective cutoff dates. If you ask about more recent events, the model may not have accurate information.
+
+You can refer to **[Models overview](https://docs.claude.com/en/docs/about-claude/models/overview)** in our Claude Docs for more detailed information about our models.
