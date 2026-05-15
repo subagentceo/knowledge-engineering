@@ -16,7 +16,7 @@
  * TaskCreate/TaskUpdate (interactive). The TodoTracker (src/agent/todo-tracker.ts)
  * is a thin display layer for either surface.
  */
-import { query } from "@anthropic-ai/claude-agent-sdk";
+import { query, SYSTEM_PROMPT_DYNAMIC_BOUNDARY } from "@anthropic-ai/claude-agent-sdk";
 import { readFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
@@ -47,7 +47,18 @@ const [topology, planningDiscipline, npmResearch, verifier, crawlCurator] = awai
   seed("subagent-crawl-curator"),
 ]);
 
-const systemPrompt = `${topology}\n\n---\n\n${planningDiscipline}`;
+// Cacheable static prefix (topology + planning discipline) followed by the
+// SDK's dynamic-boundary marker. Everything before the marker is a stable
+// system-prompt prefix that the Anthropic prompt cache can reuse across
+// turns; per-session dynamic context (cwd, memory paths, git status) lands
+// after the marker. See:
+//   vendor/anthropics/platform.claude.com/docs/en/build-with-claude/prompt-caching.md
+//   node_modules/@anthropic-ai/claude-agent-sdk/sdk.d.ts SYSTEM_PROMPT_DYNAMIC_BOUNDARY
+const systemPrompt: string[] = [
+  topology,
+  planningDiscipline,
+  SYSTEM_PROMPT_DYNAMIC_BOUNDARY,
+];
 
 // Mode is headless when invoked from the Agent SDK; interactive when
 // launched from a Claude Code slash command. Allow override via env.
