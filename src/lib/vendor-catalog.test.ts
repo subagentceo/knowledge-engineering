@@ -201,7 +201,11 @@ const vendorDirs = readdirSync(VENDOR_ROOT, { withFileTypes: true })
 
 const allCatalogDirs = new Set<string>(entities.map((e) => vendorDirFor(e.id)));
 // Don't fail on legacy dirs like anthropic-engineering that are pre-catalog.
-const LEGACY_ALLOW = new Set(["anthropic-engineering", "anthropics"]);
+const LEGACY_ALLOW = new Set([
+  "anthropic-engineering", // pre-catalog Anthropic blog mirror
+  "anthropics",            // multi-source Anthropic first-party docs
+  "claude-blog",           // Phase 13.C — claude.com/blog mirror (first-party content)
+]);
 
 check("every vendor/<dir>/crawl.json maps to a catalog entity (modulo legacy allow-list)", () => {
   for (const dir of vendorDirs) {
