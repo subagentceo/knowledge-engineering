@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > auth
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the `auth` command in the Neon CLI for user authentication, detailing the process of authorizing access to a Neon account and managing credentials.
+
 # Neon CLI command: auth
 
 Authenticate to Neon via browser or API key and manage credentials

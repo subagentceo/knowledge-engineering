@@ -1,0 +1,45 @@
+> This is a page from the ElevenLabs documentation. For a complete page index, fetch https://elevenlabs.io/docs/llms.txt. For the full documentation in a single file, fetch https://elevenlabs.io/docs/llms-full.txt.
+
+# Voice changer
+
+<YoutubeEmbed id="d3B3BiCmczc" />
+
+## Overview
+
+ElevenLabs [voice changer](/docs/api-reference/speech-to-speech/convert) API lets you transform any source audio (recorded or uploaded) into a different, fully cloned voice without losing the performance nuances of the original. It’s capable of capturing whispers, laughs, cries, accents, and subtle emotional cues to achieve a highly realistic, human feel and can be used to:
+
+* Change any voice while preserving emotional delivery and nuance
+* Create consistent character voices across multiple languages and recording sessions
+* Fix or replace specific words and phrases in existing recordings
+
+Explore our [voice library](https://elevenlabs.io/voice-library) to find the perfect voice for your project.
+
+<CardGroup cols={2}>
+  <Card title="Products" icon="duotone book-user" href="/docs/eleven-creative/playground/voice-changer">
+    Step-by-step guide for using voice changer in ElevenLabs.
+  </Card>
+
+  <Card title="Developers" icon="duotone code" href="/docs/eleven-api/guides/cookbooks/voice-changer">
+    Learn how to integrate voice changer into your application.
+  </Card>
+
+  <Card title="API reference" icon="duotone brackets-curly" href="/docs/api-reference/speech-to-speech/convert">
+    Full API reference for the Voice Changer endpoint.
+  </Card>
+</CardGroup>
+
+## Supported languages
+
+Our multilingual v2 models support 29 languages:
+
+*English (USA, UK, Australia, Canada), Japanese, Chinese, German, Hindi, French (France, Canada), Korean, Portuguese (Brazil, Portugal), Italian, Spanish (Spain, Mexico), Indonesian, Dutch, Turkish, Filipino, Polish, Swedish, Bulgarian, Romanian, Arabic (Saudi Arabia, UAE), Czech, Greek, Finnish, Croatian, Malay, Slovak, Danish, Tamil, Ukrainian & Russian.*
+
+The `eleven_english_sts_v2` model only supports English.
+
+## Key facts
+
+* **Maximum segment length**: 5 minutes — split longer recordings into chunks
+* **Billing**: 1,000 characters per minute of processed audio
+* **Background noise**: Use `remove_background_noise=true` to minimize environmental sounds in the output
+* **Model recommendation**: `eleven_multilingual_sts_v2` often outperforms `eleven_english_sts_v2` even for English content
+* **Custom voices**: Any cloned or designed voice in your library can be used as the output voice; provide its `voice_id`

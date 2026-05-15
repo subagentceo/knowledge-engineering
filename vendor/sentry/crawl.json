@@ -12,5 +12,6 @@
   "deny_prefixes": [
     "__DEFER_TO_PHASE_2B__"
   ],
-  "page_cap": 0
+  "page_cap": 0,
+  "llms_txt": "https://docs.sentry.io/llms.txt"
 }

@@ -54,7 +54,7 @@ You must authenticate user support requests by sending them from the Dashboard a
 
 ### Access restriction and auditing 
 
-From the Dashboard, you can assign different detailed [roles](https://docs.stripe.com/get-started/account/teams.md) to enable least-privilege access for your employees, and create [restricted API keys](https://docs.stripe.com/keys.md#create-restricted-api-secret-key) to reduce the security and reliability risk of API key exposure. You can also [limit API keys to specific IP addresses](https://docs.stripe.com/keys.md#limit-api-secret-keys-ip-address) to prevent use from unauthorized locations.
+From the Dashboard, you can assign different detailed [roles](https://docs.stripe.com/get-started/account/teams.md) to enable least-privilege access for your employees, and create [restricted API keys](https://docs.stripe.com/keys.md#create-restricted-api-key) to reduce the security and reliability risk of API key exposure. You can also [limit API keys to specific IP addresses](https://docs.stripe.com/keys.md#limit-api-secret-keys-ip-address) to prevent use from unauthorized locations.
 
 You can also view audit logs of important account changes and activity in your [security history](https://dashboard.stripe.com/security_history). These audit logs contain records of sensitive account activity, such as logging in or changing bank account information. We monitor logins and note:
 

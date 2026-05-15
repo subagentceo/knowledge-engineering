@@ -378,9 +378,9 @@ import (
 	cohereclient "github.com/cohere-ai/cohere-go/v2/client"
 	cohereoption "github.com/cohere-ai/cohere-go/v2/option"
 	"github.com/openai/openai-go"
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
-	"github.com/turbopuffer/turbopuffer-go/packages/respjson"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
+	"github.com/turbopuffer/turbopuffer-go/v2/packages/respjson"
 )
 
 // Create an embedding with OpenAI, could be {Cohere, Voyage, Mixed Bread, ...}
@@ -474,7 +474,7 @@ func main() {
 		turbopuffer.NamespaceMultiQueryParams{
 			Queries: []turbopuffer.QueryParam{
 				{
-					RankBy: turbopuffer.NewRankByVector("vector", openaiOrRandVector(ctx, query)),
+					RankBy: turbopuffer.NewRankByAnn("vector", openaiOrRandVector(ctx, query)),
 					Limit: turbopuffer.LimitParam{
 						Total: 10,
 					},
@@ -728,7 +728,7 @@ public class Hybrid {
         NamespaceMultiQueryParams.builder()
           .addQuery(
             Query.builder()
-              .rankBy(RankBy.vector("vector", openAiOrRandVector(query)))
+              .rankBy(RankBy.ann("vector", openAiOrRandVector(query)))
               .limit(10)
               .includeAttributes(IncludeAttributes.select("content"))
               .build()

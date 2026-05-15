@@ -1,6 +1,8 @@
 > This page location: Connect to Neon > Neon SQL Editor
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the use of Neon's SQL Editor for executing queries on databases within the Neon Console, including features like query history, saving queries, and utilizing Explain and Analyze functions.
+
 # Query with Neon's SQL Editor
 
 Query your database from the Neon Console using the Neon SQL Editor
@@ -63,7 +65,7 @@ Understanding the information provided by the **Explain** and **Analyze** featur
 
 ## Time Travel
 
-You can toggle Time Travel in the SQL Editor to switch from querying your current data to querying against a selected point within your [restore window](https://neon.com/docs/introduction/restore-window).
+You can toggle Time Travel in the SQL Editor to switch from querying your current data to querying against a selected point within your [history window](https://neon.com/docs/introduction/history-window).
 
 ![time travel in SQL Editor](https://neon.com/docs/get-started/time_travel_sql_editor.png)
 

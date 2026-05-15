@@ -1,0 +1,65 @@
+> This is a page from the ElevenLabs documentation. For a complete page index, fetch https://elevenlabs.io/docs/llms.txt. For the full documentation in a single file, fetch https://elevenlabs.io/docs/llms-full.txt.
+
+# Sharing resources
+
+<img src="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/1d1fe7f982282bb04bf6f27a363e384a83f7cf25725bef4a47a536d7e8f5f70e/assets/images/product-guides/workspaces/share-project.png" alt="Sharing a project" />
+
+## Overview
+
+If your subscription plan includes multiple seats, you can share resources with your members. Resources you
+can share include: voices, ElevenLabs agents, studio projects and more. Check the
+[Workspaces API](/docs/api-reference/workspace/resources/share) for an up-to-date list of resources you can share.
+
+## Shareable resource types
+
+The following resources types can currently be shared:
+
+* Voices
+* Pronunciation Dictionaries
+* Dubbings
+* Projects
+* Auth Connections
+* Files and Folders
+* Agents
+  * Knowledge Base Documents
+  * Tools
+  * Settings
+  * Secrets
+  * Phone Numbers
+  * MCP Servers
+  * Batch Calls
+  * Response Tests
+  * Test Suite Invocations
+  * WhatsApp accounts
+
+## Sharing
+
+You can share a **resource** with a **principal**. A principal is one of the following:
+
+* A user
+* A user group
+* A service account
+
+A resource can be shared with at most 100 principals.
+
+Service Accounts behave like individual users. They don't have access to anything in the Workspace when they are created, but they can be added to resources by resource admins.
+
+#### Default Sharing
+
+If you would like to share with specific principals for each new resource by default, this can be enabled in your personal settings page under **Default Sharing Preferences**.
+Every new resource created after this is enabled will be automatically shared with the principals that you add here.
+
+## Roles
+
+When you share a resource with a principal, you can assign them a **role**. We support the following roles:
+
+* **Viewer**: Viewers can discover the resource and its contents. They can also "use" the resource, e.g., generate TTS with a voice or listen to the audio of a studio instance.
+* **Editor**: Everything a viewer can do, plus they can also edit the contents of the resource.
+* **Admin**: Everything an editor can do, plus they can also delete the resource and manage sharing permissions.
+
+When you create a resource, you have admin permissions on it. Other resource admins cannot remove your admin permissions on the resources you created.
+
+<Warning>
+  Workspace admins have admin permissions on all resources in the workspace. This can be removed
+  from them only by removing their Workspace admin role.
+</Warning>

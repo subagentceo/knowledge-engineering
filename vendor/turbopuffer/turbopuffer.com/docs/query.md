@@ -415,8 +415,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -433,7 +433,7 @@ func main() {
 	result, err := ns.Query(
 		ctx,
 		turbopuffer.NamespaceQueryParams{
-			RankBy: turbopuffer.NewRankByVector("vector", []float32{0.1, 0.1}),
+			RankBy: turbopuffer.NewRankByAnn("vector", []float32{0.1, 0.1}),
 			Limit: turbopuffer.LimitParam{
 				Total: 10,
 			},
@@ -473,7 +473,7 @@ public class QueryVector {
 
     var result = ns.query(
       NamespaceQueryParams.builder()
-        .rankBy(RankBy.vector("vector", List.of(0.1f, 0.1f)))
+        .rankBy(RankBy.ann("vector", List.of(0.1f, 0.1f)))
         .limit(10)
         .build()
     );
@@ -597,8 +597,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -619,7 +619,7 @@ func main() {
 				turbopuffer.NewFilterEq("public", true),
 			}),
 			// Optional: include vector to combine with filters
-			RankBy: turbopuffer.NewRankByVector("vector", []float32{0.1, 0.2, 0.3}),
+			RankBy: turbopuffer.NewRankByAnn("vector", []float32{0.1, 0.2, 0.3}),
 			Limit: turbopuffer.LimitParam{
 				Total: 10,
 			},
@@ -667,7 +667,7 @@ public class QueryFilters {
             Filter.eq("public", true)
           )
         )
-        .rankBy(RankBy.vector("vector", List.of(0.1f, 0.2f, 0.3f))) // Optional: include vector to combine with filters
+        .rankBy(RankBy.ann("vector", List.of(0.1f, 0.2f, 0.3f))) // Optional: include vector to combine with filters
         .limit(10)
         .includeAttributes("title", "timestamp")
         .build()
@@ -722,6 +722,135 @@ curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-sparse-vector-e
    "rank_by": ["sparse_vector", "SparseKNN", {"dim0": 0.2, "dim3": 0.1}],
    "limit": 10
  }'
+```
+```python
+# $ pip install turbopuffer
+import turbopuffer
+import os
+
+tpuf = turbopuffer.Turbopuffer(
+    # API tokens are created in the dashboard: https://turbopuffer.com/dashboard
+    api_key=os.getenv("TURBOPUFFER_API_KEY"),
+    # Pick the right region: https://turbopuffer.com/docs/regions
+    region="gcp-us-central1",
+)
+
+ns = tpuf.namespace(f'query-sparse-vector-example-py')
+
+# If an error occurs, this call raises a turbopuffer.APIError if a retry was not successful.
+result = ns.query(
+    rank_by=("sparse_vector", "SparseKNN", {"dim0": 0.2, "dim3": 0.1}),
+    limit=10,
+)
+print(result.rows)
+```
+```typescript
+// $ npm install @turbopuffer/turbopuffer
+import { Turbopuffer } from "@turbopuffer/turbopuffer";
+
+const tpuf = new Turbopuffer({
+  // API tokens are created in the dashboard: https://turbopuffer.com/dashboard
+  apiKey: process.env.TURBOPUFFER_API_KEY,
+  // Pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1",
+});
+
+const ns = tpuf.namespace(`query-sparse-vector-example-ts`);
+
+const result = await ns.query({
+  rank_by: ["sparse_vector", "SparseKNN", { dim0: 0.2, dim3: 0.1 }],
+  limit: 10,
+});
+console.log(result.rows);
+```
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
+)
+
+func main() {
+	ctx := context.Background()
+	tpuf := turbopuffer.NewClient(
+		// API tokens are created in the dashboard: https://turbopuffer.com/dashboard
+		option.WithAPIKey(os.Getenv("TURBOPUFFER_API_KEY")),
+		// Pick the right region: https://turbopuffer.com/docs/regions
+		option.WithRegion("gcp-us-central1"),
+	)
+
+	ns := tpuf.Namespace("query-sparse-vector-example-go")
+
+	// If an error occurs, this call raises an error if a retry was not successful.
+	result, err := ns.Query(
+		ctx,
+		turbopuffer.NamespaceQueryParams{
+			RankBy: turbopuffer.NewRankBySparseKnn("sparse_vector", map[string]float64{"dim0": 0.2, "dim3": 0.1}),
+			Limit: turbopuffer.LimitParam{
+				Total: 10,
+			},
+		},
+	)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Print(turbopuffer.PrettyPrint(result.Rows))
+}
+```
+```java
+package com.turbopuffer.docs;
+
+import com.turbopuffer.client.okhttp.*;
+import com.turbopuffer.models.namespaces.*;
+import java.util.*;
+
+public class QuerySparseVector {
+
+  public static void main(String[] args) {
+    var tpuf = TurbopufferOkHttpClient.builder()
+      .fromEnv()
+      // API tokens are created in the dashboard: https://turbopuffer.com/dashboard
+      .apiKey(System.getenv("TURBOPUFFER_API_KEY"))
+      // Pick the right region: https://turbopuffer.com/docs/regions
+      .region("gcp-us-central1")
+      .build();
+
+    var ns = tpuf.namespace("query-sparse-vector-example-java");
+
+    var result = ns.query(
+      NamespaceQueryParams.builder()
+        .rankBy(RankBy.sparseKnn("sparse_vector", Map.of("dim0", 0.2, "dim3", 0.1)))
+        .limit(10)
+        .build()
+    );
+    System.out.println(result.rows().get());
+  }
+}
+```
+```ruby
+# $ gem install turbopuffer
+require "turbopuffer"
+
+tpuf = Turbopuffer::Client.new(
+  # API tokens are created in the dashboard: https://turbopuffer.com/dashboard
+  api_key: ENV["TURBOPUFFER_API_KEY"],
+  # Pick the right region: https://turbopuffer.com/docs/regions
+  region: "gcp-us-central1",
+)
+
+ns = tpuf.namespace("query-sparse-vector-example-rb")
+
+# If an error occurs, this call raises a Turbopuffer::Errors::APIError if a retry was not successful.
+result = ns.query(
+  rank_by: ["sparse_vector", "SparseKNN", { dim0: 0.2, dim3: 0.1 }],
+  limit: 10,
+)
+puts result.rows
 ```
 <!-- /multilang -->
 
@@ -800,8 +929,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -977,8 +1106,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -1105,8 +1234,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -1252,8 +1381,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -1270,7 +1399,10 @@ func main() {
 			AggregateBy: map[string]turbopuffer.AggregateBy{
 				"count_by_color_and_size": turbopuffer.NewAggregateByCount(),
 			},
-			GroupBy: []string{"color", "size"},
+			GroupBy: []turbopuffer.GroupBy{
+				turbopuffer.NewGroupByAttr("color"),
+				turbopuffer.NewGroupByAttr("size"),
+			},
 		},
 	)
 	if err != nil {
@@ -1304,7 +1436,7 @@ public class QueryGroupBy {
     var queryResult = ns.query(
       NamespaceQueryParams.builder()
         .aggregateBy(Map.of("count_by_color_and_size", AggregateBy.count("id")))
-        .groupBy(List.of("color", "size"))
+        .groupBy(List.of(GroupBy.attr("color"), GroupBy.attr("size")))
         .build()
     );
 
@@ -1343,22 +1475,158 @@ For example, if documents have a `tags` array attribute with values like
 `["electronics", "mobile"]`, using the `ForEachUnique` operator will create
 separate groups for `electronics` and `mobile`:
 
-```jsonc
-{
-  "aggregate_by": {"count_by_tag": ["Count"]},
-  "group_by": [
-    {"tag": ["ForEachUnique", ["tags"]]}
-  ]
-}
-
-// Response
-// {
-//   "aggregation_groups": [
-//     { "tag": "electronics", "count_by_tag": 2 },
-//     { "tag": "mobile", "count_by_tag": 1 }
-//   ]
-// }
+<!-- multilang -->
+```bash
+curl https://gcp-us-central1.turbopuffer.com/v2/namespaces/query-group-by-for-each-unique-example-curl/query \
+  -X POST --fail-with-body \
+  -H "Authorization: Bearer $TURBOPUFFER_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "aggregate_by": {
+      "count_by_tag": ["Count"]
+    },
+    "group_by": [
+      {"tag": ["ForEachUnique", "tags"]}
+    ]
+  }'
+# [
+#   {"tag": "electronics", "count_by_tag": 2},
+#   {"tag": "mobile", "count_by_tag": 1}
+# ]
 ```
+```python
+import turbopuffer
+
+tpuf = turbopuffer.Turbopuffer(
+    region="gcp-us-central1",  # pick the right region: https://turbopuffer.com/docs/regions
+)
+
+ns = tpuf.namespace(f'query-group-by-for-each-unique-example-py')
+
+result = ns.query(
+    aggregate_by={"count_by_tag": ("Count",)},
+    group_by=[{"tag": ("ForEachUnique", "tags")}],
+)
+print(result.aggregation_groups)
+# [
+#   Row(tag='electronics', count_by_tag=2),
+#   Row(tag='mobile', count_by_tag=1),
+# ]
+```
+```typescript
+import { Turbopuffer } from "@turbopuffer/turbopuffer";
+
+const tpuf = new Turbopuffer({
+  region: "gcp-us-central1", // pick the right region: https://turbopuffer.com/docs/regions
+});
+
+const ns = tpuf.namespace(`query-group-by-for-each-unique-example-ts`);
+
+const result = await ns.query({
+  aggregate_by: { count_by_tag: ["Count"] },
+  group_by: [{ tag: ["ForEachUnique", "tags"] }],
+});
+console.log(result.aggregation_groups);
+// [
+//   { tag: "electronics", count_by_tag: 2 },
+//   { tag: "mobile", count_by_tag: 1 },
+// ]
+```
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
+)
+
+func main() {
+	ctx := context.Background()
+	tpuf := turbopuffer.NewClient(
+		// Pick the right region: https://turbopuffer.com/docs/regions
+		option.WithRegion("gcp-us-central1"),
+	)
+
+	ns := tpuf.Namespace("query-group-by-for-each-unique-example-go")
+	result, err := ns.Query(
+		ctx,
+		turbopuffer.NamespaceQueryParams{
+			AggregateBy: map[string]turbopuffer.AggregateBy{
+				"count_by_tag": turbopuffer.NewAggregateByCount(),
+			},
+			GroupBy: []turbopuffer.GroupBy{
+				turbopuffer.NewGroupByExpr("tag", turbopuffer.NewGroupByFunctionForEachUnique("tags")),
+			},
+		},
+	)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(turbopuffer.PrettyPrint(result.AggregationGroups))
+	// [
+	//   { tag: "electronics", count_by_tag: 2 },
+	//   { tag: "mobile", count_by_tag: 1 },
+	// ]
+}
+```
+```java
+package com.turbopuffer.docs;
+
+import com.turbopuffer.client.okhttp.*;
+import com.turbopuffer.models.namespaces.*;
+import java.util.*;
+
+public class QueryGroupByForEachUnique {
+
+  public static void main(String[] args) {
+    var tpuf = TurbopufferOkHttpClient.builder()
+      .fromEnv()
+      // Pick the right region: https://turbopuffer.com/docs/regions
+      .region("gcp-us-central1")
+      .build();
+
+    var ns = tpuf.namespace(
+      "query-group-by-for-each-unique-example-java"
+    );
+
+    var queryResult = ns.query(
+      NamespaceQueryParams.builder()
+        .aggregateBy(Map.of("count_by_tag", AggregateBy.count()))
+        .groupBy(List.of(GroupBy.expr("tag", GroupByFunction.forEachUnique("tags"))))
+        .build()
+    );
+
+    var aggregationGroups = queryResult.aggregationGroups().get();
+    System.out.println(aggregationGroups);
+    // [
+    //   {count_by_tag=2, tag=electronics},
+    //   {count_by_tag=1, tag=mobile}
+    // ]
+  }
+}
+```
+```ruby
+require "turbopuffer"
+
+tpuf = Turbopuffer::Client.new(
+  region: "gcp-us-central1", # pick the right region: https://turbopuffer.com/docs/regions
+)
+
+ns = tpuf.namespace("query-group-by-for-each-unique-example-rb")
+
+result = ns.query(
+  aggregate_by: { count_by_tag: ["Count"] },
+  group_by: [{ tag: ["ForEachUnique", "tags"] }],
+)
+puts result.aggregation_groups
+# {tag: "electronics", count_by_tag: 2}
+# {tag: "mobile", count_by_tag: 1}
+```
+<!-- /multilang -->
 
 You can also combine `ForEachUnique` with regular grouping attributes:
 
@@ -1366,7 +1634,7 @@ You can also combine `ForEachUnique` with regular grouping attributes:
 {
   "aggregate_by": {"count_by_tag_and_status": ["Count"]},
   "group_by": [
-    {"tag": ["ForEachUnique", ["tags"]]},
+    {"tag": ["ForEachUnique", "tags"]},
     "status"
   ]
 }
@@ -1462,8 +1730,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -1480,7 +1748,7 @@ func main() {
 		turbopuffer.NamespaceMultiQueryParams{
 			Queries: []turbopuffer.QueryParam{
 				{
-					RankBy: turbopuffer.NewRankByVector("vector", []float32{1.0, 0.0}),
+					RankBy: turbopuffer.NewRankByAnn("vector", []float32{1.0, 0.0}),
 					Limit: turbopuffer.LimitParam{
 						Total: 1,
 					},
@@ -1522,7 +1790,7 @@ public class QueryMulti {
     var response = ns.multiQuery(
       NamespaceMultiQueryParams.builder()
         .addQuery(
-          Query.builder().rankBy(RankBy.vector("vector", List.of(1.0f, 0.0f))).limit(1).build()
+          Query.builder().rankBy(RankBy.ann("vector", List.of(1.0f, 0.0f))).limit(1).build()
         )
         .addQuery(Query.builder().rankBy(RankByText.bm25("attr1", "quick fox")).limit(1).build())
         .build()
@@ -1621,8 +1889,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -1784,8 +2052,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -2343,8 +2611,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -2360,7 +2628,7 @@ func main() {
 	result, err := ns.Query(
 		ctx,
 		turbopuffer.NamespaceQueryParams{
-			RankBy: turbopuffer.NewRankByVector("vector", []float32{0.1, 0.1}),
+			RankBy: turbopuffer.NewRankByAnn("vector", []float32{0.1, 0.1}),
 			Limit: turbopuffer.LimitParam{
 				Total: 10,
 			},
@@ -2404,7 +2672,7 @@ public class QueryComplexFilter {
     // retry was not successful.
     var queryResult = ns.query(
       NamespaceQueryParams.builder()
-        .rankBy(RankBy.vector("vector", List.of(0.1f, 0.1f)))
+        .rankBy(RankBy.ann("vector", List.of(0.1f, 0.1f)))
         .limit(10)
         .excludeAttributes(List.of("vector", "filename"))
         .filters(
@@ -2522,8 +2790,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -2714,8 +2982,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {
@@ -2933,8 +3201,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 func main() {

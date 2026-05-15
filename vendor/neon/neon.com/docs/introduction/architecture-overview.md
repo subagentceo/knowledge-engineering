@@ -1,6 +1,8 @@
 > This page location: Architecture > Architecture overview
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the architecture of Neon, a serverless Postgres database that separates compute and storage layers, enabling independent scaling and optimized performance while ensuring data durability and history management.
+
 # Neon's lakebase architecture
 
 Serverless Postgres with decoupled compute and durable storage

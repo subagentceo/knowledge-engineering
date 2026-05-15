@@ -1,6 +1,8 @@
 > This page location: Clients & tools > pgcli
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: How to connect to Neon using the `pgcli` client, including obtaining a connection string from the Project Dashboard and executing queries with enhanced features like autocompletion and query history.
+
 # Connect with pgcli
 
 Learn how to connect to Neon using the interactive pgcli client

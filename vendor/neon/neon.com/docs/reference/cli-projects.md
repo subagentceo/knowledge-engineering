@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > projects
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the Neon CLI `projects` command for managing Neon projects, including listing, creating, updating, deleting, and retrieving project information directly from the terminal.
+
 # Neon CLI command: projects
 
 List, create, update, delete, and get Neon projects

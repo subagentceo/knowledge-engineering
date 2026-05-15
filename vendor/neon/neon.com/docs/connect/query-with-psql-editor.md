@@ -1,6 +1,8 @@
 > This page location: Clients & tools > psql
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: How to connect to Neon using the `psql` command-line client, including installation instructions and connection string retrieval for seamless interaction with Neon's Postgres environment.
+
 # Connect with psql
 
 Learn how to connect to Neon using psql

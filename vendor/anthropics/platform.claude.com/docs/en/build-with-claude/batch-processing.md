@@ -76,15 +76,12 @@ The Batches API offers significant cost savings. All usage is charged at 50% of 
 | Claude Opus 4.6       | $2.50 / MTok     | $12.50 / MTok   |
 | Claude Opus 4.5     | $2.50 / MTok     | $12.50 / MTok   |
 | Claude Opus 4.1     | $7.50 / MTok     | $37.50 / MTok   |
-| Claude Opus 4     | $7.50 / MTok     | $37.50 / MTok   |
+| Claude Opus 4 ([deprecated](/docs/en/about-claude/model-deprecations)) | $7.50 / MTok     | $37.50 / MTok   |
 | Claude Sonnet 4.6   | $1.50 / MTok     | $7.50 / MTok    |
 | Claude Sonnet 4.5   | $1.50 / MTok     | $7.50 / MTok    |
-| Claude Sonnet 4   | $1.50 / MTok     | $7.50 / MTok    |
-| Claude Sonnet 3.7 ([deprecated](/docs/en/about-claude/model-deprecations)) | $1.50 / MTok     | $7.50 / MTok    |
+| Claude Sonnet 4 ([deprecated](/docs/en/about-claude/model-deprecations)) | $1.50 / MTok     | $7.50 / MTok    |
 | Claude Haiku 4.5  | $0.50 / MTok     | $2.50 / MTok    |
-| Claude Haiku 3.5  | $0.40 / MTok     | $2 / MTok       |
-| Claude Opus 3 ([deprecated](/docs/en/about-claude/model-deprecations))  | $7.50 / MTok     | $37.50 / MTok   |
-| Claude Haiku 3    | $0.125 / MTok    | $0.625 / MTok   |
+| Claude Haiku 3.5 ([retired, except on Bedrock and Vertex AI](/docs/en/about-claude/model-deprecations)) | $0.40 / MTok     | $2 / MTok       |
 
 ---
 ## How to use the Message Batches API
@@ -500,7 +497,7 @@ echo "Batch $MESSAGE_BATCH_ID has finished processing"
 ```bash CLI hidelines={2..14,19}
 #!/bin/bash
 MESSAGE_BATCH_ID=$(ant messages:batches create \
-  --transform id --format yaml <<'YAML'
+  --transform id --raw-output <<'YAML'
 requests:
   - custom_id: test-1
     params:
@@ -514,7 +511,7 @@ YAML
 
 until [[ $(ant messages:batches retrieve \
           --message-batch-id "$MESSAGE_BATCH_ID" \
-          --transform processing_status --format yaml) == "ended" ]]; do
+          --transform processing_status --raw-output) == "ended" ]]; do
     echo "Batch $MESSAGE_BATCH_ID is still processing..."
     break
     sleep 60
@@ -1195,7 +1192,7 @@ curl --request POST https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH
 ```bash CLI hidelines={2..13}
 #!/bin/bash
 MESSAGE_BATCH_ID=$(ant messages:batches create \
-  --transform id --format yaml <<'YAML'
+  --transform id --raw-output <<'YAML'
 requests:
   - custom_id: test-1
     params:
@@ -1871,7 +1868,7 @@ In this example, both requests in the batch include identical system messages an
 The `output-300k-2026-03-24` beta header raises the `max_tokens` cap to 300,000 for batch requests using Claude Opus 4.7, Claude Opus 4.6, or Claude Sonnet 4.6. Include the header to generate outputs far longer than the standard limit (64k to 128k depending on model) in a single turn.
 
 <Note>
-Extended output is available on the Message Batches API only, not the synchronous Messages API. It is supported on the Claude API and is not available on Amazon Bedrock, Vertex AI, or Microsoft Foundry.
+Extended output is available on the Message Batches API only, not the synchronous Messages API. It is supported on the Claude API and Claude Platform on AWS, and is not available on Amazon Bedrock, Vertex AI, or Microsoft Foundry.
 </Note>
 
 Use extended output for long-form generation such as book-length drafts and technical documentation, exhaustive structured data extraction, large code-generation scaffolds, and long reasoning chains.

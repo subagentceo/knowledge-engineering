@@ -29,8 +29,8 @@ In this example, you will create a boolean flag called `new-checkout` that contr
 
 Add the Flagship binding in your Wrangler configuration file so your Worker can evaluate flags through a binding.
 
-* [  wrangler.jsonc ](#tab-panel-6254)
-* [  wrangler.toml ](#tab-panel-6255)
+* [  wrangler.jsonc ](#tab-panel-6398)
+* [  wrangler.toml ](#tab-panel-6399)
 
 JSONC
 
@@ -76,8 +76,8 @@ After updating the Wrangler configuration, run `npx wrangler types` to generate 
 
 Use the `env.FLAGS` binding to evaluate the flag. The binding provides type-safe methods that return the flag value and fall back to the default you provide if evaluation fails.
 
-* [  JavaScript ](#tab-panel-6256)
-* [  TypeScript ](#tab-panel-6257)
+* [  JavaScript ](#tab-panel-6400)
+* [  TypeScript ](#tab-panel-6401)
 
 JavaScript
 
@@ -213,13 +213,13 @@ bun add @cloudflare/flagship @openfeature/server-sdk
 
 Evaluate flags using the OpenFeature client:
 
-* [ With binding ](#tab-panel-6262)
-* [ With app ID ](#tab-panel-6263)
+* [ With binding ](#tab-panel-6406)
+* [ With app ID ](#tab-panel-6407)
 
 Pass the Flagship binding directly to the provider. This avoids additional HTTP requests and is the recommended approach inside a Worker. Authentication is handled automatically through the binding.
 
-* [  JavaScript ](#tab-panel-6260)
-* [  TypeScript ](#tab-panel-6261)
+* [  JavaScript ](#tab-panel-6404)
+* [  TypeScript ](#tab-panel-6405)
 
 JavaScript
 
@@ -317,8 +317,8 @@ export default {
 
 Use an app ID, account ID, and an API token when running outside of a Worker (for example, in Node.js). The provider makes HTTP requests to the Flagship evaluation endpoint. Generate an [API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) from your Cloudflare account with Flagship Evaluate permission.
 
-* [  JavaScript ](#tab-panel-6258)
-* [  TypeScript ](#tab-panel-6259)
+* [  JavaScript ](#tab-panel-6402)
+* [  TypeScript ](#tab-panel-6403)
 
 JavaScript
 

@@ -754,7 +754,7 @@ Where you add a hook determines its scope:
 | [Plugin](/en/plugins) `hooks/hooks.json`                   | When plugin is enabled             | Yes, bundled with the plugin       |
 | [Skill](/en/skills) or [agent](/en/sub-agents) frontmatter | While the skill or agent is active | Yes, defined in the component file |
 
-Run [`/hooks`](/en/hooks#the-hooks-menu) in Claude Code to browse all configured hooks grouped by event. To disable all hooks at once, set `"disableAllHooks": true` in your settings file.
+Run [`/hooks`](/en/hooks#the-hooks-menu) in Claude Code to browse all configured hooks grouped by event. To disable hooks, set `"disableAllHooks": true` in your settings file. Hooks configured in managed settings still run unless `disableAllHooks` is also set there.
 
 If you edit settings files directly while Claude Code is running, the file watcher normally picks up hook changes automatically.
 
@@ -865,7 +865,10 @@ For full configuration options and response handling, see [HTTP hooks](/en/hooks
 ### Limitations
 
 * Command hooks communicate through stdout, stderr, and exit codes only. They cannot trigger `/` commands or tool calls. Text returned via `additionalContext` is injected as a system reminder that Claude reads as plain text. HTTP hooks communicate through the response body instead.
-* Hook timeout is 10 minutes by default, configurable per hook with the `timeout` field (in seconds).
+* Hook timeouts vary by type. Override per hook with the `timeout` field in seconds.
+  * `command`, `http`, `mcp_tool`: 10 minutes. `UserPromptSubmit` lowers these to 30 seconds.
+  * `prompt`: 30 seconds.
+  * `agent`: 60 seconds.
 * `PostToolUse` hooks cannot undo actions since the tool has already executed.
 * `PermissionRequest` hooks do not fire in [non-interactive mode](/en/headless) (`-p`). Use `PreToolUse` hooks for automated permission decisions.
 * `Stop` hooks fire whenever Claude finishes responding, not only at task completion. They do not fire on user interrupts. API errors fire [StopFailure](/en/hooks#stopfailure) instead.
@@ -895,7 +898,7 @@ You see a message like "PreToolUse hook error: ..." in the transcript.
   echo '{"tool_name":"Bash","tool_input":{"command":"ls"}}' | ./my-hook.sh
   echo $?  # Check the exit code
   ```
-* If you see "command not found", use absolute paths or `$CLAUDE_PROJECT_DIR` to reference scripts
+* If you see "command not found", use absolute paths or `${CLAUDE_PROJECT_DIR}` to reference scripts. To avoid shell quoting entirely, add `"args": []` to switch to [exec form](/en/hooks#exec-form-and-shell-form), which spawns the script directly without a shell
 * If you see "jq: command not found", install `jq` or use Python/Node.js for JSON parsing
 * If the script isn't running at all, make it executable: `chmod +x ./my-hook.sh`
 
@@ -926,7 +929,7 @@ fi
 
 Claude Code shows a JSON parsing error even though your hook script outputs valid JSON.
 
-When Claude Code runs a hook, it spawns a shell that sources your profile (`~/.zshrc` or `~/.bashrc`). If your profile contains unconditional `echo` statements, that output gets prepended to your hook's JSON:
+When Claude Code runs a shell-form command hook (one without `args`), it spawns `sh -c` on macOS and Linux or Git Bash on Windows by default. This shell is non-interactive, but Git Bash and some configurations (such as `BASH_ENV` pointing at `~/.bashrc`) still source your profile. If that profile contains unconditional `echo` statements, the output gets prepended to your hook's JSON:
 
 ```text theme={null}
 Shell ready on arm64

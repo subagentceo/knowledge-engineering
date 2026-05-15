@@ -1,6 +1,8 @@
 > This page location: AI > AI for Agents
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the integration of AI tools with Neon for database management, including setup instructions, Model Context Protocol (MCP) usage, and plugins for Cursor, Claude Code, and GitHub Copilot.
+
 # AI tools for Agents
 
 AI-powered tools for development and database management

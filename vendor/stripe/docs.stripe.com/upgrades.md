@@ -1,6 +1,6 @@
 # API upgrades
 
-Keep track of changes and upgrades to the Stripe API.
+Learn how to manage API versions and handle breaking changes in major releases.
 
 Check the [Developer Changelog](https://docs.stripe.com/changelog.md) for the complete record of changes to Stripe’s API.
 

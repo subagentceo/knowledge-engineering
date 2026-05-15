@@ -339,8 +339,8 @@ import (
 	"os"
 
 	"github.com/openai/openai-go"
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 // Create an embedding with OpenAI, could be {Cohere, Voyage, Mixed Bread, ...}
@@ -416,7 +416,7 @@ func main() {
 	res, err := ns.Query(
 		ctx,
 		turbopuffer.NamespaceQueryParams{
-			RankBy: turbopuffer.NewRankByVector("vector", openaiOrRandVector(ctx, "arctic sea mammal")),
+			RankBy: turbopuffer.NewRankByAnn("vector", openaiOrRandVector(ctx, "arctic sea mammal")),
 			Limit: turbopuffer.LimitParam{
 				Total: 10,
 			},
@@ -559,7 +559,7 @@ public class QuickStart {
     // Query nearest neighbors with filter
     var queryResult = ns.query(
       NamespaceQueryParams.builder()
-        .rankBy(RankBy.vector("vector", openAiOrRandVector("arctic sea mammal")))
+        .rankBy(RankBy.ann("vector", openAiOrRandVector("arctic sea mammal")))
         .limit(10)
         .filters(Filter.and(Filter.eq("category", "mammal"), Filter.eq("public", 1)))
         .includeAttributes("category")

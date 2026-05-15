@@ -1,6 +1,8 @@
 > This page location: Start with Neon > 2 - Connect
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup of connecting Neon to applications using standard Postgres connection strings, including examples for various programming languages and frameworks, and details on pooled versus direct connections.
+
 # Connecting Neon to your stack
 
 Learn how to integrate Neon into your application

@@ -1,6 +1,8 @@
 > This page location: Frontend & Frameworks > Frameworks
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup of various frameworks, including Node.js, Django, and Laravel, to connect applications to Neon, providing detailed instructions for each integration.
+
 # Neon framework guides
 
 Find detailed instructions for connecting to Neon from various frameworks

@@ -33,11 +33,9 @@ The code execution tool is available on the following models:
 | Claude Opus 4.1 (`claude-opus-4-1-20250805`) | `code_execution_20250825` |
 | Claude Opus 4 (`claude-opus-4-20250514`) ([deprecated](/docs/en/about-claude/model-deprecations)) | `code_execution_20250825` |
 | Claude Sonnet 4 (`claude-sonnet-4-20250514`) ([deprecated](/docs/en/about-claude/model-deprecations)) | `code_execution_20250825` |
-| Claude Sonnet 3.7 (`claude-3-7-sonnet-20250219`) ([deprecated](/docs/en/about-claude/model-deprecations)) | `code_execution_20250825` |
-| Claude Haiku 3.5 (`claude-3-5-haiku-latest`) ([deprecated](/docs/en/about-claude/model-deprecations)) | `code_execution_20250825` |
 
 <Note>
-`code_execution_20250825` supports Bash commands and file operations and is available on every model listed above. `code_execution_20260120` adds REPL state persistence and [programmatic tool calling](/docs/en/agents-and-tools/tool-use/programmatic-tool-calling) from within the sandbox, and is available on Opus 4.5+ and Sonnet 4.5+ only. A legacy version `code_execution_20250522` (Python only) is also available on the same models as `code_execution_20250825`; see [Upgrade to latest tool version](#upgrade-to-latest-tool-version) to migrate from it.
+`code_execution_20250825` supports Bash commands and file operations and is available on every model listed above. `code_execution_20260120` adds REPL state persistence and [programmatic tool calling](/docs/en/agents-and-tools/tool-use/programmatic-tool-calling) from within the sandbox, and is available on Opus 4.5+ and Sonnet 4.5+ only. If you're still using the legacy `code_execution_20250522` (Python only), see [Upgrade to latest tool version](#upgrade-to-latest-tool-version) to migrate from it.
 </Note>
 
 <Warning>
@@ -48,12 +46,13 @@ Older tool versions are not guaranteed to be backwards-compatible with newer mod
 
 Code execution is available on:
 - **Claude API** (Anthropic)
-- **Microsoft Azure AI Foundry**
+- **[Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws)**
+- **[Microsoft Foundry](/docs/en/build-with-claude/claude-in-microsoft-foundry)**
 
-Code execution is not currently available on Amazon Bedrock or Google Vertex AI.
+Code execution is not currently available on Amazon Bedrock or Vertex AI.
 
 <Note>
-For [Claude Mythos Preview](https://anthropic.com/glasswing), code execution is supported on the Claude API and Microsoft Foundry only. It is not available for Mythos Preview on Amazon Bedrock or Google Vertex AI.
+For [Claude Mythos Preview](https://anthropic.com/glasswing), code execution is supported on the Claude API and Microsoft Foundry only. It is not available for Mythos Preview on Amazon Bedrock, Vertex AI, or Claude Platform on AWS.
 </Note>
 
 ## Quick start
@@ -312,20 +311,20 @@ This is especially important when combining code execution with [web search](/do
 
 ### Upload and analyze your own files
 
-To analyze your own data files (CSV, Excel, images, etc.), upload them via the Files API and reference them in your request:
+To analyze your own data files (such as CSV, Excel, or images), upload them through the Files API and reference them in your request:
 
 <Note>
 Using the Files API with Code Execution requires the Files API beta header: `"anthropic-beta": "files-api-2025-04-14"`
 </Note>
 
-The Python environment can process various file types uploaded via the Files API, including:
+The Python environment can process various file types uploaded through the Files API, including:
 
 - CSV
 - Excel (.xlsx, .xls)
 - JSON
 - XML
 - Images (JPEG, PNG, GIF, WebP)
-- Text files (.txt, .md, .py, etc)
+- Text files (.txt, .md, .py, and others)
 
 #### Upload and analyze files
 
@@ -342,7 +341,7 @@ curl https://api.anthropic.com/v1/files \
     --header "x-api-key: $ANTHROPIC_API_KEY" \
     --header "anthropic-version: 2023-06-01" \
     --header "anthropic-beta: files-api-2025-04-14" \
-    --form 'file=@"data.csv"' \
+    --form 'file=@"data.csv"'
 
 # Then use the file_id with code execution
 curl https://api.anthropic.com/v1/messages \
@@ -372,7 +371,7 @@ printf 'name,value\nfoo,1\nbar,2\n' > data.csv
 # Upload a file
 FILE_ID=$(ant beta:files upload \
   --file ./data.csv \
-  --transform id --format yaml)
+  --transform id --raw-output)
 
 # Use the file_id with code execution
 ant beta:messages create \
@@ -679,7 +678,7 @@ puts response
 ```
 </CodeGroup>
 
-#### Retrieve generated files
+### Retrieve generated files
 
 When Claude creates files during code execution, you can retrieve these files using the Files API:
 
@@ -704,7 +703,7 @@ while IFS= read -r LINE; do
   FILE_ID="${LINE#- }"
   FILENAME=$(ant beta:files retrieve-metadata \
     --file-id "$FILE_ID" \
-    --transform filename --format yaml)
+    --transform filename --raw-output)
   ant beta:files download \
     --file-id "$FILE_ID" \
     --output "$FILENAME" > /dev/null
@@ -764,7 +763,7 @@ async function main() {
   // Request code execution that creates files
   const response = await client.beta.messages.create({
     model: "claude-opus-4-7",
-    betas: ["code-execution-2025-08-25", "files-api-2025-04-14"],
+    betas: ["files-api-2025-04-14"],
     max_tokens: 4096,
     messages: [
       {
@@ -1372,7 +1371,7 @@ curl https://api.anthropic.com/v1/messages \
 ```bash CLI
 # First request: Create a file with a random number
 CONTAINER_ID=$(ant messages create \
-  --transform container.id --format yaml \
+  --transform container.id --raw-output \
     --model claude-opus-4-7 \
     --max-tokens 4096 \
     --message '{role: user, content: Write a file with a random number and save it to "/tmp/number.txt"}' \
@@ -1770,4 +1769,4 @@ For ZDR eligibility across all features, see [API and data retention](/docs/en/m
 
 The code execution tool enables Claude to use [Agent Skills](/docs/en/agents-and-tools/agent-skills/overview). Skills are modular capabilities consisting of instructions, scripts, and resources that extend Claude's functionality.
 
-Learn more in the [Agent Skills documentation](/docs/en/agents-and-tools/agent-skills/overview) and [Agent Skills API guide](/docs/en/build-with-claude/skills-guide).
+Learn more in [Agent Skills](/docs/en/agents-and-tools/agent-skills/overview) and [Using Agent Skills with the API](/docs/en/build-with-claude/skills-guide).

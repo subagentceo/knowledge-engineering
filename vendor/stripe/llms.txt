@@ -13,7 +13,7 @@ version first.
 - [Receive payouts](https://docs.stripe.com/payouts.md): Set up your bank account to receive payouts.
 - [Platforms and marketplaces with Stripe Connect](https://docs.stripe.com/connect.md): Build a SaaS platform or marketplace with Connect.
 - [Supported currencies](https://docs.stripe.com/currencies.md): Learn which currencies Stripe supports for payments and bank payouts.
-- [API upgrades](https://docs.stripe.com/upgrades.md): Keep track of changes and upgrades to the Stripe API.
+- [API upgrades](https://docs.stripe.com/upgrades.md): Learn how to manage API versions and handle breaking changes in major releases.
 - [Stripe Projects CLI](https://docs.stripe.com/projects.md): Stripe Projects is a CLI for provisioning software stacks.
 - [Stripe SDKs](https://docs.stripe.com/sdks.md): Libraries and tools for interacting with your Stripe integration.
 - [Receive Stripe events in your webhook endpoint](https://docs.stripe.com/webhooks.md): Listen for events from Stripe on your webhook endpoint so your integration can automatically trigger reactions.
@@ -52,7 +52,7 @@ Acquire more customers and improve conversion by offering the most popular payme
 - [Real-time payments](https://docs.stripe.com/payments/real-time.md): Learn about real-time payments with Stripe.
 - [Vouchers](https://docs.stripe.com/payments/vouchers.md): Learn about voucher payment methods with Stripe.
 - [Wallets](https://docs.stripe.com/payments/wallets.md): Learn about wallet payments with Stripe.
-- [Enable local payment methods by country](https://docs.stripe.com/payments/local-markets.md): Use South Korean and Nigerian payment methods.
+- [Regions with special payment method requirements](https://docs.stripe.com/payments/local-markets.md): Accept South Korean or Nigerian payment methods.
 - [Custom payment methods](https://docs.stripe.com/payments/payment-methods/custom-payment-methods.md): Extend your integrations with additional payment methods processed outside of Stripe.
 - [Orchestration](https://docs.stripe.com/payments/orchestration.md): Create rules to route payments across your payment processors.
 

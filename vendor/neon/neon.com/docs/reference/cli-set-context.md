@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > set-context
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the `set-context` command in the Neon CLI to establish a background context for CLI sessions, enabling project-specific actions without repeatedly specifying project IDs.
+
 # Neon CLI command: set-context
 
 Set default project context for CLI sessions to avoid repeating project ID

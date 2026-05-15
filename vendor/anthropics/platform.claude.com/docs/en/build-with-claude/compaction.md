@@ -860,7 +860,9 @@ if response.stop_reason == "compaction":
 import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic();
-const messages: Anthropic.Beta.Messages.BetaMessageParam[] = [];
+const messages: Anthropic.Beta.Messages.BetaMessageParam[] = [
+  { role: "user", content: "Hello, Claude" }
+];
 
 let response = await client.beta.messages.create({
   betas: ["compact-2026-01-12"],
@@ -911,7 +913,10 @@ class Program
     static async Task Main(string[] args)
     {
         var client = new AnthropicClient();
-        var messages = new List<BetaMessageParam>();
+        var messages = new List<BetaMessageParam>
+        {
+            new() { Role = Role.User, Content = "Hello, Claude" }
+        };
 
         var parameters = new MessageCreateParams
         {
@@ -1065,13 +1070,14 @@ public class CompactionPauseExample {
 }
 ```
 
-```php PHP hidelines={1..4}
+```php PHP nocheck hidelines={1..4}
 <?php
 
 use Anthropic\Client;
 
+// The PHP SDK does not yet expose a typed constant for the `compaction` stop reason; compare the string value directly.
 $client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
-$messages = [];
+$messages = [['role' => 'user', 'content' => 'Hello, Claude']];
 
 $response = $client->beta->messages->create(
     maxTokens: 4096,
@@ -1082,7 +1088,7 @@ $response = $client->beta->messages->create(
         'edits' => [
             [
                 'type' => 'compact_20260112',
-                'pauseAfterCompaction' => true
+                'pause_after_compaction' => true
             ]
         ]
     ]
@@ -1114,7 +1120,7 @@ echo $response;
 require "anthropic"
 
 client = Anthropic::Client.new
-messages = []
+messages = [{ role: "user", content: "Hello, Claude" }]
 
 response = client.beta.messages.create(
   betas: ["compact-2026-01-12"],
@@ -2186,12 +2192,12 @@ YAML
 
 CURRENT=$(ant beta:messages count-tokens \
   --beta compact-2026-01-12 \
-  --transform input_tokens --format yaml < request.yaml)
+  --transform input_tokens --raw-output < request.yaml)
 
 ORIGINAL=$(ant beta:messages count-tokens \
   --beta compact-2026-01-12 \
   --transform context_management.original_input_tokens \
-  --format yaml < request.yaml)
+  --raw-output < request.yaml)
 
 printf 'Current tokens: %s\n' "$CURRENT"
 printf 'Original tokens: %s\n' "$ORIGINAL"
@@ -2380,7 +2386,7 @@ Here's a complete example of a long-running conversation with compaction:
 # calling script. See the SDK tabs for the full chat() loop. Single-turn
 # request shape:
 ant beta:messages create --beta compact-2026-01-12 \
-  --transform 'content.#(type=="text").text' --format yaml <<'YAML'
+  --transform 'content.#(type=="text").text' --raw-output <<'YAML'
 model: claude-opus-4-7
 max_tokens: 4096
 messages:
@@ -2722,7 +2728,7 @@ Here's an example that uses `pause_after_compaction` to preserve the prior excha
 # calling script. See the SDK tabs for the full chat() loop with
 # pause-and-preserve handling. Single-turn request shape:
 ant beta:messages create --beta compact-2026-01-12 \
-  --transform 'content.#(type=="text").text' --format yaml <<'YAML'
+  --transform 'content.#(type=="text").text' --raw-output <<'YAML'
 model: claude-opus-4-7
 max_tokens: 4096
 messages:
@@ -3145,11 +3151,12 @@ public class CompactionExample {
 }
 ```
 
-```php PHP hidelines={1..4}
+```php PHP nocheck hidelines={1..4}
 <?php
 
 use Anthropic\Client;
 
+// The PHP SDK does not yet expose a typed constant for the `compaction` stop reason; compare the string value directly.
 $client = new Client(apiKey: getenv("ANTHROPIC_API_KEY"));
 $messages = [];
 
@@ -3166,7 +3173,7 @@ function chat($client, &$messages, $userMessage) {
                 [
                     'type' => 'compact_20260112',
                     'trigger' => ['type' => 'input_tokens', 'value' => 100000],
-                    'pauseAfterCompaction' => true
+                    'pause_after_compaction' => true
                 ]
             ]
         ]

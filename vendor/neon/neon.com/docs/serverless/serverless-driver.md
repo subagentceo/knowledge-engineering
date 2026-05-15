@@ -1,6 +1,8 @@
 > This page location: Connect to Neon > Neon serverless driver
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup of the Neon serverless driver for JavaScript and TypeScript, enabling low-latency Postgres queries over HTTP or WebSockets in serverless environments.
+
 # Neon serverless driver
 
 Connect to Neon from serverless environments over HTTP or WebSockets
