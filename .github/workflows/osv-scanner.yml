@@ -44,10 +44,12 @@ jobs:
       scan-args: |-
         -r
         ./
-      # SARIF upload requires GitHub code-scanning to be enabled on the
-      # repo. Disabled here until the operator turns it on
-      # (Settings → Security → Code scanning). Scan still runs and
-      # fail-on-vuln still gates merges.
+      # SARIF upload requires GitHub Advanced Security / Code Scanning,
+      # which is a paid feature. We deliberately leave it off: OSV-Scanner
+      # still runs on every PR and weekly cron, and fail-on-vuln still
+      # gates merges via the action's exit code. The only thing we give
+      # up by skipping SARIF is the Security-tab UI; the gate itself is
+      # unchanged. Decision recorded in issue #36 (2026-05-15).
       upload-sarif: false
 
   scan-main:
