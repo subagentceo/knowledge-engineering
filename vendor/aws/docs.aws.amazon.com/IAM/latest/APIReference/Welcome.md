@@ -1,0 +1,25 @@
+
+
+# Welcome
+<a name="Welcome"></a>
+
+ AWS Identity and Access Management (IAM) is a web service for securely controlling access to AWS services. With IAM, you can centrally manage users, security credentials such as access keys, and permissions that control which AWS resources users and applications can access. For more information about IAM, see [AWS Identity and Access Management (IAM)](http://aws.amazon.com/iam/) and the [AWS Identity and Access Management User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/).
+
+ **Programmatic access to IAM** 
+
+We recommend that you use the AWS SDKs to make programmatic API calls to IAM. The AWS SDKs consist of libraries and sample code for various programming languages and platforms (for example, Java, Ruby, .NET, iOS, and Android). The SDKs provide a convenient way to create programmatic access to IAM and AWS. For example, the SDKs take care of tasks such as cryptographically signing requests, managing errors, and retrying requests automatically. For more information, see [Tools to build on AWS](http://aws.amazon.com/tools/).
+
+Alternatively, you can also use the IAM Query API to make direct calls to the IAM service. For more information about calling the IAM Query API, see [Making query requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html) in the * AWS Identity and Access Management User Guide*. IAM supports GET and POST requests for all actions. That is, the API does not require you to use GET for some actions and POST for others. However, GET requests are subject to the limitation size of a URL. Therefore, for operations that require larger sizes, use a POST request.
+
+ **Signing requests** 
+
+Requests must be signed using an access key ID and a secret access key. We strongly recommend that you do not use your AWS account access key ID and secret access key for everyday work with IAM. You can use the access key ID and secret access key for an IAM user or you can use the AWS Security Token Service to generate temporary security credentials and use those to sign requests.
+
+To sign requests, we recommend that you use [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html). If you have an existing application that uses Signature Version 2, you do not have to update it to use Signature Version 4. However, some operations now require Signature Version 4. The documentation for operations that require version 4 indicate this requirement.
+
+ **Additional resources** 
++  [AWS security credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html). This topic provides general information about the types of credentials used for accessing AWS.
++  [IAM best practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html). This topic presents a list of suggestions for using the IAM service to help secure your AWS resources.
++  [Signing AWS API requests](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html). This set of topics walk you through the process of signing a request using an access key ID and secret access key.
+
+This document was last published on May 14, 2026. 

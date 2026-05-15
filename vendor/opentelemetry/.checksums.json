@@ -1,0 +1,80 @@
+{
+  "https://opentelemetry.io/docs/collector/index.md": {
+    "sha256": "6a0a40d46b018b95c928c4423b8b44fe4db86ad01c70fd8e91866d7665acf0bd",
+    "etag": "W/\"abe8e34c02b5507d56dc4aad465cc841-ssl-df\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/compatibility/index.md": {
+    "sha256": "7e3fa7338b8473c6345efd445f236b64844ba200f2f40c387b2126af50049376",
+    "etag": "W/\"7378b7053c63642afa5169f013a918f5-ssl\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/concepts/index.md": {
+    "sha256": "4233171b81b1a9653350286d7e36ccd1fde154109a36230a6661db3e18a5d6a7",
+    "etag": "W/\"8805ea939a3212941a0c4332b8b5dfc7-ssl-df\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/contributing/index.md": {
+    "sha256": "54102d0d97edadc5c8b65ecafa3aa6dfb4f116e0490e349471d070d95d8f5814",
+    "etag": "W/\"60e220968915026e0ade9941500f4980-ssl-df\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/demo/index.md": {
+    "sha256": "c737c30955755d837c9f6acb4dbe1343e8549003b415dff2603a7d06c4612776",
+    "etag": "W/\"c4a471d8fa70a0031b2a5672bfad2edb-ssl-df\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/getting-started/index.md": {
+    "sha256": "716210c9cd90578c83c9184d52687d72f56a983b072744039ed2e3beffb2a023",
+    "etag": "W/\"485de4068fa6fa0ae6d27aacb10b3e37-ssl-df\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/guidance/index.md": {
+    "sha256": "9a982360b779941baf2ba0b7624b59ed18467a9cf09501ad818269b1a1179c7c",
+    "etag": "W/\"3ebd0ed8a2460273132e55f67f4b3695-ssl-df\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/index.md": {
+    "sha256": "7fbf192841d5d53559b4a8d8d1949a9f6bcce84ebdca846d85be5fe411402e82",
+    "etag": "W/\"af01f7592e08b8ceaeca59219963a999-ssl-df\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/languages/index.md": {
+    "sha256": "80854500142552007d17d993c01ff52616d7860339f6b4a9eaa9d5deadf08b3a",
+    "etag": "W/\"c4b130e3616af01c117cd88ef5969008-ssl-df\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/platforms/index.md": {
+    "sha256": "77cdb17f18ba01b7e7cbc848bd2a9ad86fff111bf6d34d737cc45423145cf31e",
+    "etag": "W/\"b5aa0f38ad25c89bef75e014c65f3890-ssl\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/security/index.md": {
+    "sha256": "7eaf771639b84c68ae002f509d2d4c57024cbc6afbe4246464c60ebabb5252d1",
+    "etag": "W/\"d5d11e8625a4107c9d7447463fd70d0b-ssl-df\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/specs/index.md": {
+    "sha256": "790e22efad84daa88f9ed2a5357a01e0cfe1bac70486fea1c503020b49aebb28",
+    "etag": "W/\"34dc9ba058cdaa41a7d305fa2d8969cc-ssl\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  },
+  "https://opentelemetry.io/docs/zero-code/index.md": {
+    "sha256": "032361264bc3f2e121ea9d09b4af4c9b475890ac8c6d1d801cb9ce70f75da88f",
+    "etag": "W/\"8793050e9c39761dd3da9b8ff581b7b3-ssl-df\"",
+    "fetchedAt": "2026-05-15T04:14:49.945Z",
+    "lastStatus": 200
+  }
+}

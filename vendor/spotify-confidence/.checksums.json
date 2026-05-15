@@ -1,0 +1,112 @@
+{
+  "https://confidence.spotify.com/docs": {
+    "sha256": "ce93461cd9bffea30465dc30761e5b1edc7d292c30a2632d826deff97c811e54",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/api/api-basics": {
+    "sha256": "b479c6cce1c4632dbcdc5674f19b9ae490690c8d9798306595c7db20f127b113",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/api/experiments": {
+    "sha256": "2e0f85385a735a1a278e619d0a337541c84efc8c85211f8df726854d9bbc88a4",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/api/flags": {
+    "sha256": "92ac9258a417f1a4d773d62a612170f23de1ef06f715f268cf73073a5b79b352",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/api/iam": {
+    "sha256": "198f06a9d7af6d820cae6f5a8edd989874e0a1f15442bd437a8b348119306862",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/api/metrics": {
+    "sha256": "8ec61ba7c984092d38bad29c2235f941885aa93d939fd4ab33c1712afe822cf9",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/api/quickstart": {
+    "sha256": "75122eea0786e5ab417ad3b3b1b67b89f496803d3aebf10a7438e4902ff2739d",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/api/stats": {
+    "sha256": "01f1087e9a93ffca26127228759083fc7637c60673da531d326250c520433a88",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/confidence-as-a-platform": {
+    "sha256": "f6a61dafda0315d31f3b2f4e37e0a64711b579ec072f889eabf653a9fff3819f",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/data-warehouse-native": {
+    "sha256": "bb395f95ae181efb3d1d9a87964a3927bb183cc6978c1dfcbd954e0360dfa5a3",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/experiments/introduction": {
+    "sha256": "4e025920099dd5f731b0f6f8062461b53f484077bc25bb202e2255f2bc6311f9",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/flags/audience": {
+    "sha256": "db65b41d41bc648c9555c1e30040b899e5a1a704dcf3c17c563d00c85b99b991",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/flags/context-schema": {
+    "sha256": "c4504689c65f209b2152387e6013d34e6bf6c25d24b198397a7a40252f5e584e",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/flags/introduction": {
+    "sha256": "86f8670e5dd5af0948c3db3056943945b1e0bab509c2d8935f427dd4e2625c7b",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/flags/resolve-tester": {
+    "sha256": "d0a62331d52ef2236dc7dd3275d86a6ebd8ab071fc3ea23732c827df34775454",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/iam/groups": {
+    "sha256": "67ee2373edbd5f0188520a5b34691e623d710cd2b9a81ed114ea2fb83196f395",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/iam/introduction": {
+    "sha256": "e371577136c9f43bc1e9d552bfe9a5a8ecbf3f04b94bd6fb7390b1d785ea210e",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/iam/roles": {
+    "sha256": "d47a8719697ddf793fe1897c735622095323965a7bce5a4ed0ca3b587bc73318",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/iam/users": {
+    "sha256": "e7fc8df9f8e7ef9f2aa5cf5051228420a293591ebcc20fb678600e386a66aa9b",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/metrics": {
+    "sha256": "9b451fa6d603f67d36c7aa8c20f97bcf97a7eda7fab297238ae9b5e1e60c7c2e",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/metrics/introduction": {
+    "sha256": "9b451fa6d603f67d36c7aa8c20f97bcf97a7eda7fab297238ae9b5e1e60c7c2e",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  },
+  "https://confidence.spotify.com/docs/onboarding-guide": {
+    "sha256": "005bb3ecfcfc4c8284020f93b65596c18645658f8a88090ed627ec68f88d98c7",
+    "fetchedAt": "2026-05-15T04:14:52.589Z",
+    "lastStatus": 200
+  }
+}
