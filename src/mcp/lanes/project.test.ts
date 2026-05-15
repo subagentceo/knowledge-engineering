@@ -11,7 +11,7 @@
 import { strict as assert } from "node:assert";
 import { test } from "node:test";
 
-import { parsePorcelain } from "./project.js";
+import { parseLogOutput, parsePorcelain } from "./project.js";
 
 test("parsePorcelain returns has_drift=false for empty output", () => {
   const r = parsePorcelain("");
@@ -60,4 +60,52 @@ test("parsePorcelain handles staged-and-then-modified (MM)", () => {
 test("parsePorcelain ignores malformed short lines", () => {
   const r = parsePorcelain("ab\nx\n\n M valid.ts\n");
   assert.deepEqual(r.modified, ["valid.ts"]);
+});
+
+test("parseLogOutput returns empty array for empty output", () => {
+  assert.deepEqual(parseLogOutput(""), []);
+});
+
+test("parseLogOutput parses a single commit line", () => {
+  const r = parseLogOutput("abc1234|feat: add thing (O1)|alex|2026-05-15T10:00:00Z");
+  assert.equal(r.length, 1);
+  assert.deepEqual(r[0], {
+    sha: "abc1234",
+    subject: "feat: add thing (O1)",
+    author: "alex",
+    timestamp: "2026-05-15T10:00:00Z",
+  });
+});
+
+test("parseLogOutput preserves pipes embedded in subject", () => {
+  const r = parseLogOutput("def5678|feat: support a|b|c separator (O2)|admin|2026-05-15T11:00:00Z");
+  assert.equal(r.length, 1);
+  assert.equal(r[0]!.sha, "def5678");
+  assert.equal(r[0]!.subject, "feat: support a|b|c separator (O2)");
+  assert.equal(r[0]!.author, "admin");
+  assert.equal(r[0]!.timestamp, "2026-05-15T11:00:00Z");
+});
+
+test("parseLogOutput handles multiple commits", () => {
+  const stdout =
+    "aaa|first|alex|2026-05-15T10:00:00Z\n" +
+    "bbb|second|admin|2026-05-15T11:00:00Z\n" +
+    "ccc|third|alex|2026-05-15T12:00:00Z";
+  const r = parseLogOutput(stdout);
+  assert.equal(r.length, 3);
+  assert.deepEqual(
+    r.map((c) => c.sha),
+    ["aaa", "bbb", "ccc"]
+  );
+});
+
+test("parseLogOutput skips malformed lines (missing pipes)", () => {
+  const stdout =
+    "valid|subject|alex|2026-05-15T10:00:00Z\n" +
+    "no-pipes-at-all\n" +
+    "one|pipe\n" +
+    "two|pipes|only\n";
+  const r = parseLogOutput(stdout);
+  assert.equal(r.length, 1);
+  assert.equal(r[0]!.sha, "valid");
 });
