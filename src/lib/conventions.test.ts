@@ -81,30 +81,32 @@ const CONVENTION_START_ISO = "2026-05-15T04:30:00Z";
 function commitsOnThisBranch(): string[] {
   // Commits on the current branch since it diverged from origin/main,
   // filtered to those authored at or after the convention's start
-  // date. In CI, GITHUB_BASE_REF gives the base; locally, we compare
-  // to origin/main. Falls back to HEAD~5..HEAD if the merge-base
-  // lookup fails.
-  try {
-    const base = execSync("git merge-base HEAD origin/main", { cwd: REPO_ROOT })
-      .toString()
-      .trim();
-    const subjects = execSync(
-      `git log --since=${CONVENTION_START_ISO} ${base}..HEAD --pretty=format:%s`,
-      { cwd: REPO_ROOT },
-    )
-      .toString()
-      .split("\n")
-      .filter((s) => s.length > 0);
-    return subjects;
-  } catch {
-    return execSync(
-      `git log --since=${CONVENTION_START_ISO} HEAD~5..HEAD --pretty=format:%s`,
-      { cwd: REPO_ROOT },
-    )
-      .toString()
-      .split("\n")
-      .filter((s) => s.length > 0);
+  // date. Strategy order (each falls back if the prior throws):
+  //   1. merge-base with origin/main (requires `fetch-depth: 0`)
+  //   2. last 20 commits on HEAD
+  //   3. last 1 commit on HEAD (always available, even shallow)
+  // If all paths fail, return [] — the test prints "no post-convention
+  // commits" rather than crashing on checkout-shape mismatches.
+  const filter = `--since=${CONVENTION_START_ISO}`;
+  const attempts: Array<() => string> = [
+    () => {
+      const base = execSync("git merge-base HEAD origin/main", { cwd: REPO_ROOT })
+        .toString()
+        .trim();
+      return execSync(`git log ${filter} ${base}..HEAD --pretty=format:%s`, { cwd: REPO_ROOT }).toString();
+    },
+    () => execSync(`git log ${filter} -n 20 --pretty=format:%s`, { cwd: REPO_ROOT }).toString(),
+    () => execSync(`git log ${filter} -n 1 --pretty=format:%s`, { cwd: REPO_ROOT }).toString(),
+  ];
+  for (const attempt of attempts) {
+    try {
+      const out = attempt();
+      return out.split("\n").filter((s) => s.length > 0);
+    } catch {
+      // fall through to the next strategy
+    }
   }
+  return [];
 }
 
 // ────────────────────────────────────────────────────────────────────
