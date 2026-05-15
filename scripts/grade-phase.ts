@@ -233,11 +233,134 @@ async function main(): Promise<void> {
   const dryRun = args.includes("--dry-run");
   const all = args.includes("--all");
   const batchPrepare = args.includes("--batch-prepare");
+  const batchSubmit = args.includes("--batch-submit");
+  const batchCollectIdx = args.indexOf("--batch-collect");
+  const batchCollect = batchCollectIdx !== -1;
+  // Optional positional argument after --batch-collect
+  const batchCollectId =
+    batchCollect && batchCollectIdx + 1 < args.length && !args[batchCollectIdx + 1].startsWith("--")
+      ? args[batchCollectIdx + 1]
+      : null;
 
-  if (!phaseArg && !all) {
+  if (!phaseArg && !all && !batchSubmit && !batchCollect) {
     console.error("usage: grade-phase phase-N [--dry-run] [--batch-prepare]");
     console.error("       grade-phase --all [--dry-run] [--batch-prepare]");
+    console.error("       grade-phase --batch-submit         (Phase 11.B)");
+    console.error("       grade-phase --batch-collect [id]   (Phase 11.B)");
     process.exit(2);
+  }
+
+  // ────── Phase 11.B: --batch-submit ─────────────────────────────────
+  //
+  // Reads /tmp/grade-batch.jsonl (produced by --batch-prepare) and
+  // submits via the Anthropic Batches API. Saves the batch ID to
+  // /tmp/grade-batch.id for subsequent --batch-collect.
+  //
+  // Cited from vendor/anthropics/platform.claude.com/docs/en/build-with-claude/batch-processing.md
+  if (batchSubmit) {
+    const jsonlPath = "/tmp/grade-batch.jsonl";
+    if (!existsSync(jsonlPath)) {
+      console.error(`--batch-submit: ${jsonlPath} not found. Run --batch-prepare first.`);
+      process.exit(2);
+    }
+    const lines = readFileSync(jsonlPath, "utf8").split("\n").filter((l) => l.trim().length > 0);
+    const requests = lines.map((l) => JSON.parse(l) as BatchRequest);
+    console.log(`grade-phase --batch-submit: ${requests.length} request(s) loaded from ${jsonlPath}`);
+    if (dryRun) {
+      console.log("(dry run) would submit; first request:");
+      console.log(JSON.stringify(requests[0], null, 2));
+      return;
+    }
+    requireOAuth();
+    const client = new Anthropic({ authToken: process.env.CLAUDE_CODE_OAUTH_TOKEN });
+    const batch = await client.messages.batches.create({ requests });
+    const idPath = resolve(REPO_ROOT, "/tmp/grade-batch.id");
+    const fs = await import("node:fs/promises");
+    await fs.writeFile(idPath, `${batch.id}\n`);
+    console.log(`batch submitted: ${batch.id} (status: ${batch.processing_status})`);
+    console.log(`batch id saved to ${idPath}`);
+    console.log(`poll via: npm run grade -- --batch-collect ${batch.id}`);
+    return;
+  }
+
+  // ────── Phase 11.B: --batch-collect ────────────────────────────────
+  //
+  // Polls batches.retrieve(id) until ended, then streams results and
+  // emits per-criterion verdicts. The id can be supplied on the CLI or
+  // resolved from /tmp/grade-batch.id.
+  if (batchCollect) {
+    let id = batchCollectId;
+    if (!id) {
+      const idPath = resolve(REPO_ROOT, "/tmp/grade-batch.id");
+      if (!existsSync(idPath)) {
+        console.error("--batch-collect: no id provided and /tmp/grade-batch.id not found.");
+        process.exit(2);
+      }
+      id = readFileSync(idPath, "utf8").trim();
+    }
+    console.log(`grade-phase --batch-collect: polling batch ${id}`);
+    if (dryRun) {
+      console.log("(dry run) would poll; skipping API calls");
+      return;
+    }
+    requireOAuth();
+    const client = new Anthropic({ authToken: process.env.CLAUDE_CODE_OAUTH_TOKEN });
+
+    // Poll loop — bounded retries to keep the script from looping forever
+    // if a batch wedges. Per the cited doc, batches typically resolve in
+    // minutes for our small payload; 30 polls × 10s = 5 min ceiling.
+    const POLL_INTERVAL_MS = 10_000;
+    const POLL_MAX_ATTEMPTS = 30;
+    let batch = await client.messages.batches.retrieve(id);
+    let attempts = 0;
+    while (batch.processing_status !== "ended" && attempts < POLL_MAX_ATTEMPTS) {
+      console.log(`  status=${batch.processing_status} (${batch.request_counts?.processing ?? 0} processing)`);
+      await new Promise((r) => setTimeout(r, POLL_INTERVAL_MS));
+      batch = await client.messages.batches.retrieve(id);
+      attempts += 1;
+    }
+    if (batch.processing_status !== "ended") {
+      console.error(`batch ${id} did not end within ${POLL_MAX_ATTEMPTS * POLL_INTERVAL_MS}ms`);
+      process.exit(1);
+    }
+    console.log(`batch ended: succeeded=${batch.request_counts?.succeeded ?? 0}, errored=${batch.request_counts?.errored ?? 0}`);
+
+    // Stream + parse results
+    let pass = 0;
+    let fail = 0;
+    let other = 0;
+    for await (const entry of await client.messages.batches.results(id)) {
+      const customId = entry.custom_id;
+      if (entry.result.type !== "succeeded") {
+        console.log(`  ? ${customId}: ${entry.result.type}`);
+        other += 1;
+        continue;
+      }
+      const text = entry.result.message.content
+        .filter((b): b is Extract<typeof b, { type: "text" }> => b.type === "text")
+        .map((b) => b.text)
+        .join("\n");
+      const jsonMatch = text.match(/\{[\s\S]*?\}/);
+      if (!jsonMatch) {
+        console.log(`  ? ${customId}: no JSON in response`);
+        other += 1;
+        continue;
+      }
+      try {
+        const parsed = JSON.parse(jsonMatch[0]) as { verdict: string; rationale: string };
+        const tag = parsed.verdict === "pass" ? "✓" : parsed.verdict === "fail" ? "✗" : "?";
+        console.log(`  ${tag} ${customId}: ${parsed.verdict}`);
+        if (parsed.verdict === "pass") pass += 1;
+        else if (parsed.verdict === "fail") fail += 1;
+        else other += 1;
+      } catch (err) {
+        console.log(`  ? ${customId}: parse error — ${(err as Error).message}`);
+        other += 1;
+      }
+    }
+    console.log(`\nbatch summary: ${pass} pass, ${fail} fail, ${other} other`);
+    if (fail > 0) process.exit(1);
+    return;
   }
 
   // --batch-prepare: build the Anthropic Batches API payload across all
