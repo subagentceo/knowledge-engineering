@@ -1,0 +1,16 @@
+{
+  "_comment": "State file for the hourly feedback-digest routine. Stores the last digest ts/url so the next run can dedupe.",
+  "last_run_iso": "2026-05-15T20:00:00Z",
+  "last_digest_url": "https://github.com/subagentceo/knowledge-engineering/issues/151",
+  "last_digest_gh_issue": 151,
+  "slack_channel_id": null,
+  "slack_message_ts": null,
+  "signal_ids_seen": [
+    "issue:134", "issue:122", "issue:121", "issue:120", "issue:119",
+    "issue:118", "issue:117", "issue:116", "issue:115", "issue:114",
+    "issue:110", "issue:103", "issue:102",
+    "pr:132", "pr:131", "pr:123", "pr:109",
+    "pr:155", "pr:152"
+  ],
+  "week_iso": "2026-W20"
+}
