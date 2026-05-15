@@ -1,7 +1,11 @@
 /**
  * Citations:
  *   @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/embeddings.md
- *   @cite docs/operator-runbooks/cli-only-unblock-path.md
+ *
+ * Note: docs/operator-runbooks/cli-only-unblock-path.md (in-repo runbook)
+ * documents the CLI-only secrets flow used when the embeddings model is
+ * loaded inside the Worker — it's a cross-reference, not a citation
+ * target (citation-guard requires vendor/, seeds/, or rubrics/).
  *
  * Shape tests only — does not load the actual @xenova/transformers model
  * (that's a 25MB ONNX download on first run; defer to integration tests
