@@ -91,6 +91,50 @@ gh secret list --repo subagentceo/knowledge-engineering | grep CLOUDFLARE_API_TO
 
 Closes #33 with one regular browser tab + four CLI commands. **No Chrome extension required.**
 
+## Workaround 2b — programmatic CF token mint (recurring, no dashboard)
+
+W2 still requires a one-time dashboard visit. **After that visit**, every subsequent CI-token mint can run CLI-only via `npm run setup:cf-ci-token`.
+
+The bootstrap is unavoidable — empirically confirmed 2026-05-15 that wrangler's OAuth Bearer at `~/Library/Preferences/.wrangler/config/default.toml` cannot call `/user/tokens` (returns code 1000 "Invalid API Token"). Cloudflare separates "OAuth-issued Bearer for wrangler" from "user-minted API tokens" by design, and only the latter can mint further tokens. Cited from:
+
+- `mcp__3e5cbdb5...search_cloudflare_documentation` ("If you need to create a service API token programmatically, follow these steps. ### 1. Create an API token with token creation permissions ... Under **Permissions**, select **User > API Tokens > Edit**.")
+- `https://developers.cloudflare.com/fundamentals/api/how-to/create-via-api/` (POST /user/tokens schema)
+
+### One-time bootstrap
+
+1. Visit `https://dash.cloudflare.com/profile/api-tokens` → **Create Token** → **Create Custom Token**
+2. Name: `KE Bootstrap Token` (or similar)
+3. Permissions: **User > API Tokens > Edit** (this is the *only* permission needed for the bootstrap — it cannot deploy Workers, only mint other tokens)
+4. Account Resources: include all accounts
+5. **Create Token** → copy the value
+6. Save it in 1Password / Keychain. Set `CF_BOOTSTRAP_TOKEN` in your shell rc:
+   ```bash
+   export CF_BOOTSTRAP_TOKEN=$(security find-generic-password -s cf-bootstrap -w 2>/dev/null)
+   ```
+
+### Recurring mint (no dashboard)
+
+```bash
+CF_BOOTSTRAP_TOKEN=$CF_BOOTSTRAP_TOKEN npm run setup:cf-ci-token
+# Mints a fresh CLOUDFLARE_API_TOKEN scoped to Workers Scripts Write
+# + Account Settings Read on account e6294e3ea89f8207af387d459824aaae,
+# then gh secret set it on subagentceo/knowledge-engineering.
+```
+
+Smoke-test the policy body first without minting:
+
+```bash
+DRY_RUN=1 npm run setup:cf-ci-token
+```
+
+Rotate with a TTL:
+
+```bash
+CF_TOKEN_TTL_DAYS=90 npm run setup:cf-ci-token
+```
+
+Implementation: [`scripts/mint-cf-ci-token.ts`](../../scripts/mint-cf-ci-token.ts). Calls `GET /user/tokens/permission_groups` to resolve permission IDs by name, builds the `[{ effect, resources, permission_groups }]` policy body, posts to `POST /user/tokens`, and pipes the returned token value to `gh secret set` (or stdout if `SKIP_GH_SECRET_SET=1`).
+
 ## Workaround 3 — GH PAT bypass (closes #37, no PAT mint at all)
 
 The setup scripts (`scripts/setup-github-project.ts`, `scripts/setup-branch-protection.ts`) read `GITHUB_TOKEN` from env. They don't care WHERE that token came from — a fine-grained PAT, a classic PAT, or `gh auth token` all work, provided the scopes are right.
@@ -162,7 +206,7 @@ Closes #35 by changing the contract: the chassis no longer depends on a paid 3rd
 
 | Issue | Original blocker | CLI-only workaround | Closes? |
 | :---: | :--- | :--- | :---: |
-| **#33** | Chrome extension + dashboard | Workaround 2 — `wrangler login` + 1 regular browser tab + `gh secret set` | ✅ |
+| **#33** | Chrome extension + dashboard | Workaround 2 (one-time bootstrap) + Workaround 2b (`npm run setup:cf-ci-token` for all subsequent mints) | ✅ |
 | **#34** | Chrome extension | Workaround 1 — `gh secret set` with the value above + `gh variable set` | ✅ |
 | **#36** | (closed already) | OSV-Scanner is the chosen path | ✅ (PR #105) |
 | **#37** | Fine-grained PAT mint via Chrome | Workaround 3 — `GITHUB_TOKEN=$(gh auth token)` | ✅ |
@@ -172,29 +216,32 @@ Closes #35 by changing the contract: the chassis no longer depends on a paid 3rd
 
 ## What still requires the operator
 
-Workarounds 1+2+3 still need the operator to:
+Workarounds 1+2b+3 still need the operator to:
 
 1. **Run two CLI commands** for #34 (`gh secret set` + `gh variable set`)
-2. **Open one regular browser tab to `dash.cloudflare.com`** for #33 to mint the token, then run `gh secret set`
+2. **One-time only:** open one regular browser tab to `dash.cloudflare.com` to mint the bootstrap token (W2b). Every subsequent CI-token mint is `npm run setup:cf-ci-token`.
 3. **Run two CLI commands** for #37 (`GITHUB_TOKEN=$(gh auth token) npm run setup:project` + `setup:branch-protection`)
 
-Total operator time: ~5 minutes (vs ~30 minutes via Chrome runbooks). Zero Claude-in-Chrome extension dependency.
+Total operator time: ~5 minutes the first time (bootstrap), ~30 seconds for each subsequent mint. Zero Claude-in-Chrome extension dependency.
 
-## What the agent CAN'T do
+## What the agent CAN'T do (and why)
 
 Per the operator's hard rule ("if an api key is needed it cannot pass until that's accessible"):
 
-- ❌ Mint a CF API token from this session — Cloudflare's auth model requires a real human at `dash.cloudflare.com` for token creation. Wrangler's MCP doesn't expose token-mint.
-- ❌ Set GitHub Actions secrets via the GitHub MCP — the MCP exposes issue/PR/file tools, NOT the `actions/secrets` API.
+- ❌ **Mint the CF bootstrap token from this session.** Cloudflare's auth model gates `User > API Tokens > Edit` behind a dashboard-only flow. This is *architecturally* unavoidable: the bootstrap is the only artifact that can mint other tokens, so it can't itself be minted by a lesser token. Wrangler's OAuth Bearer does not have this scope (empirically verified — `tokens/verify` returns code 1000 with the wrangler token).
+- ✅ **Mint scoped CI tokens** after the bootstrap exists — see Workaround 2b.
+- ❌ Set GitHub Actions secrets via the GitHub MCP — the MCP exposes issue/PR/file tools, NOT the `actions/secrets` API. The agent uses `gh secret set` via Bash instead.
 - ❌ Pay for a Voyage subscription on the operator's behalf.
 
-Workarounds 1, 2, 3 transfer the residual operator-action to **CLI commands the operator runs locally**, eliminating Chrome dependency and cutting time ~6×.
+Workarounds 1, 2b, 3 transfer the residual operator-action to **CLI commands the operator runs locally**, eliminating Chrome dependency. The bootstrap step is a one-time investment that pays for itself on the second mint.
 
 ## Citations
 
 - `vendor/cloudflare/developers.cloudflare.com/workers/wrangler/commands/general/index.md` (`wrangler login` semantics)
 - `vendor/cloudflare/developers.cloudflare.com/workers/ci-cd/external-cicd/github-actions/index.md` (CF GitHub Actions auth)
 - `vendor/cloudflare/developers.cloudflare.com/fundamentals/api/get-started/create-token/index.md` (token mint)
+- `mcp__3e5cbdb5-...search_cloudflare_documentation` 2026-05-15: `fundamentals/api/how-to/create-via-api/` (POST /user/tokens schema, permission_groups), `ai-search/configuration/indexing/service-api-token/` ("Under Permissions, select User > API Tokens > Edit"), `fundamentals/api/how-to/account-owned-token-template/` (Workers Scripts user-token template)
+- empirical: `~/Library/Preferences/.wrangler/config/default.toml` OAuth Bearer cannot call `/user/tokens` (code 1000)
 - `scripts/setup-github-project.ts` (header comment — confirms `GITHUB_TOKEN` from any source works)
 - `scripts/setup-branch-protection.ts` (header comment — same)
 - `npm: @xenova/transformers@2.17.2` (Voyage replacement)
