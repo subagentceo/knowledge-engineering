@@ -1,21 +1,23 @@
 {
   "name": "claude-tutorials",
-  "homepage": "https://www.claude.com/tutorials",
+  "homepage": "https://claude.com/resources/tutorials",
   "llms_txt_candidates": [],
-  "html_index_sources": [
-    {
-      "url": "https://www.claude.com/tutorials",
-      "link_regex": "href=\"(/tutorials/[a-z0-9-]+)\""
-    }
+  "sitemap_xml_sources": [
+    "https://www.claude.com/sitemap.xml"
   ],
   "transform": "html-extract",
   "allow_prefixes": [
-    "https://www.claude.com/tutorials/"
+    "https://claude.com/resources/tutorials/"
   ],
-  "deny_prefixes": [],
-  "page_cap": 30,
+  "deny_prefixes": [
+    "https://claude.com/de/",
+    "https://claude.com/fr/",
+    "https://claude.com/ja/",
+    "https://claude.com/ko/"
+  ],
+  "page_cap": 150,
   "html_extract": {
     "selector": "main"
   },
-  "llms_txt": "https://www.claude.com/llms.txt"
+  "llms_txt": "https://claude.com/llms.txt"
 }
