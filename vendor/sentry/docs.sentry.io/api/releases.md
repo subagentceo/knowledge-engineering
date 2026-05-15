@@ -1,0 +1,54 @@
+---
+title: "Releases"
+url: https://docs.sentry.io/api/releases/
+---
+
+# Releases
+
+* #### [Create a Deploy](https://docs.sentry.io/api/releases/create-a-deploy.md)
+* #### [Create a New Release for an Organization](https://docs.sentry.io/api/releases/create-a-new-release-for-an-organization.md)
+* #### [Delete a Project Release's File](https://docs.sentry.io/api/releases/delete-a-project-releases-file.md)
+* #### [Delete an Organization Release's File](https://docs.sentry.io/api/releases/delete-an-organization-releases-file.md)
+* #### [Delete an Organization's Release](https://docs.sentry.io/api/releases/delete-an-organizations-release.md)
+* #### [List a Project Release's Commits](https://docs.sentry.io/api/releases/list-a-project-releases-commits.md)
+* #### [List a Project's Release Files](https://docs.sentry.io/api/releases/list-a-projects-release-files.md)
+* #### [List a Release's Deploys](https://docs.sentry.io/api/releases/list-a-releases-deploys.md)
+* #### [List an Organization Release's Commits](https://docs.sentry.io/api/releases/list-an-organization-releases-commits.md)
+* #### [List an Organization's Release Files](https://docs.sentry.io/api/releases/list-an-organizations-release-files.md)
+* #### [List an Organization's Releases](https://docs.sentry.io/api/releases/list-an-organizations-releases.md)
+* #### [Retrieve a Project Release's File](https://docs.sentry.io/api/releases/retrieve-a-project-releases-file.md)
+* #### [Retrieve an Organization Release's File](https://docs.sentry.io/api/releases/retrieve-an-organization-releases-file.md)
+* #### [Retrieve an Organization's Release](https://docs.sentry.io/api/releases/retrieve-an-organizations-release.md)
+* #### [Retrieve Files Changed in a Release's Commits](https://docs.sentry.io/api/releases/retrieve-files-changed-in-a-releases-commits.md)
+* #### [Retrieve Release Health Session Statistics](https://docs.sentry.io/api/releases/retrieve-release-health-session-statistics.md)
+* #### [Retrieve Statuses of Release Thresholds (Alpha)](https://docs.sentry.io/api/releases/retrieve-statuses-of-release-thresholds-alpha.md)
+* #### [Update a Project Release File](https://docs.sentry.io/api/releases/update-a-project-release-file.md)
+* #### [Update an Organization Release File](https://docs.sentry.io/api/releases/update-an-organization-release-file.md)
+* #### [Update an Organization's Release](https://docs.sentry.io/api/releases/update-an-organizations-release.md)
+* #### [Upload a New Organization Release File](https://docs.sentry.io/api/releases/upload-a-new-organization-release-file.md)
+* #### [Upload a New Project Release File](https://docs.sentry.io/api/releases/upload-a-new-project-release-file.md)
+
+## Pages in this section
+
+- [Create a Deploy](https://docs.sentry.io/api/releases/create-a-deploy.md)
+- [Create a New Release for an Organization](https://docs.sentry.io/api/releases/create-a-new-release-for-an-organization.md)
+- [Delete a Project Release's File](https://docs.sentry.io/api/releases/delete-a-project-releases-file.md)
+- [Delete an Organization Release's File](https://docs.sentry.io/api/releases/delete-an-organization-releases-file.md)
+- [Delete an Organization's Release](https://docs.sentry.io/api/releases/delete-an-organizations-release.md)
+- [List a Project Release's Commits](https://docs.sentry.io/api/releases/list-a-project-releases-commits.md)
+- [List a Project's Release Files](https://docs.sentry.io/api/releases/list-a-projects-release-files.md)
+- [List a Release's Deploys](https://docs.sentry.io/api/releases/list-a-releases-deploys.md)
+- [List an Organization Release's Commits](https://docs.sentry.io/api/releases/list-an-organization-releases-commits.md)
+- [List an Organization's Release Files](https://docs.sentry.io/api/releases/list-an-organizations-release-files.md)
+- [List an Organization's Releases](https://docs.sentry.io/api/releases/list-an-organizations-releases.md)
+- [Retrieve a Project Release's File](https://docs.sentry.io/api/releases/retrieve-a-project-releases-file.md)
+- [Retrieve an Organization Release's File](https://docs.sentry.io/api/releases/retrieve-an-organization-releases-file.md)
+- [Retrieve an Organization's Release](https://docs.sentry.io/api/releases/retrieve-an-organizations-release.md)
+- [Retrieve Files Changed in a Release's Commits](https://docs.sentry.io/api/releases/retrieve-files-changed-in-a-releases-commits.md)
+- [Retrieve Release Health Session Statistics](https://docs.sentry.io/api/releases/retrieve-release-health-session-statistics.md)
+- [Retrieve Statuses of Release Thresholds (Alpha)](https://docs.sentry.io/api/releases/retrieve-statuses-of-release-thresholds-alpha.md)
+- [Update a Project Release File](https://docs.sentry.io/api/releases/update-a-project-release-file.md)
+- [Update an Organization Release File](https://docs.sentry.io/api/releases/update-an-organization-release-file.md)
+- [Update an Organization's Release](https://docs.sentry.io/api/releases/update-an-organizations-release.md)
+- [Upload a New Organization Release File](https://docs.sentry.io/api/releases/upload-a-new-organization-release-file.md)
+- [Upload a New Project Release File](https://docs.sentry.io/api/releases/upload-a-new-project-release-file.md)
