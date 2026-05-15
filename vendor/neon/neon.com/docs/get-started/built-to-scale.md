@@ -1,6 +1,8 @@
 > This page location: Why Neon? > Built to scale
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the stages of growth for using Neon, from free plans for side projects to scalable solutions for startups, emphasizing ease of use, performance, and reliability throughout the development lifecycle.
+
 # Built to scale
 
 Neon supports you from prototype to scale-up

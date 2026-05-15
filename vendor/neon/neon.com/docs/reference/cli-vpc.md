@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > vpc
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the Neon CLI `vpc` command for managing Private Networking configurations, including VPC endpoints and project-level restrictions.
+
 # Neon CLI command: vpc
 
 Manage Private Networking VPC endpoints and project-level restrictions

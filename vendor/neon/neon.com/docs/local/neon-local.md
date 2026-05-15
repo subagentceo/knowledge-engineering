@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > Local development > Neon Local
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup of Neon Local, a proxy service that enables connection to existing or ephemeral Neon database branches using Docker, simplifying branch management and eliminating the need for manual connection string updates.
+
 # Neon Local
 
 Use Docker environments to connect to Neon and manage branches automatically

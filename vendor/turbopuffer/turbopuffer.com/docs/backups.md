@@ -81,13 +81,11 @@ for ns in namespaces:
     print(f"  Backing up: {ns.id}")
     backup_ns = backup_client.namespace(backup_name)
 
-    backup_ns.write(
-        copy_from_namespace={
-            "source_namespace": ns.id,
-            "source_region": SOURCE_REGION,
-            # if backing up to a different organization, include source_api_key:
-            # "source_api_key": "<source-org-api-key>",
-        }
+    backup_ns.copy_from(
+        source_namespace=ns.id,
+        source_region=SOURCE_REGION,
+        # if backing up to a different organization, include source_api_key:
+        # source_api_key="<source-org-api-key>",
     )
 
 # Step 2: Delete old backups beyond the retention period (after successful backup)
@@ -145,13 +143,11 @@ for await (const ns of sourceClient.namespaces({ prefix: SOURCE_PREFIX })) {
   console.log(`  Backing up: ${ns.id}`);
 
   const backupNs = backupClient.namespace(backupName);
-  await backupNs.write({
-    copy_from_namespace: {
-      source_namespace: ns.id,
-      source_region: SOURCE_REGION,
-      // if backing up to a different organization, include source_api_key:
-      // source_api_key: "<source-org-api-key>",
-    },
+  await backupNs.copyFrom({
+    source_namespace: ns.id,
+    source_region: SOURCE_REGION,
+    // if backing up to a different organization, include source_api_key:
+    // source_api_key: "<source-org-api-key>",
   });
 }
 
@@ -193,8 +189,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 // Configuration
@@ -229,13 +225,11 @@ func main() {
 		fmt.Printf("  Backing up: %s\n", ns.ID)
 
 		backupNs := backupClient.Namespace(backupName)
-		_, err := (&backupNs).Write(ctx, turbopuffer.NamespaceWriteParams{
-			CopyFromNamespace: turbopuffer.CopyFromNamespaceParams{
-				SourceNamespace: ns.ID,
-				SourceRegion:    turbopuffer.String(SourceRegion),
-				// if backing up to a different organization, include source_api_key:
-				// SourceAPIKey: turbopuffer.String("<source-org-api-key>"),
-			},
+		_, err := (&backupNs).CopyFrom(ctx, turbopuffer.NamespaceCopyFromParams{
+			SourceNamespace: ns.ID,
+			SourceRegion:    turbopuffer.String(SourceRegion),
+			// if backing up to a different organization, include source_api_key:
+			// SourceAPIKey: turbopuffer.String("<source-org-api-key>"),
 		})
 		if err != nil {
 			panic(err)
@@ -325,16 +319,12 @@ public class BackupNamespaces {
       System.out.println("  Backing up: " + ns.id());
 
       var backupNs = backupClient.namespace(backupName);
-      backupNs.write(
-        NamespaceWriteParams.builder()
-          .copyFromNamespace(
-            CopyFromNamespaceParams.CopyFromNamespaceConfig.builder()
-              .sourceNamespace(ns.id())
-              .sourceRegion(SOURCE_REGION)
-              // if backing up to a different organization, include source_api_key:
-              // .sourceApiKey("<source-org-api-key>")
-              .build()
-          )
+      backupNs.copyFrom(
+        NamespaceCopyFromParams.builder()
+          .sourceNamespace(ns.id())
+          .sourceRegion(SOURCE_REGION)
+          // if backing up to a different organization, include source_api_key:
+          // .sourceApiKey("<source-org-api-key>")
           .build()
       );
     }
@@ -409,13 +399,11 @@ source_client.namespaces(prefix: SOURCE_PREFIX).auto_paging_each do |ns|
   puts "  Backing up: #{ns.id}"
 
   backup_ns = backup_client.namespace(backup_name)
-  backup_ns.write(
-    copy_from_namespace: {
-      source_namespace: ns.id,
-      source_region: SOURCE_REGION,
+  backup_ns.copy_from(
+    source_namespace: ns.id,
+    source_region: SOURCE_REGION,
     # if backing up to a different organization, include source_api_key:
     # source_api_key: "<source-org-api-key>",
-    },
   )
 end
 
@@ -502,8 +490,8 @@ for ns in backups:
     original_name = ns.id[len(BACKUP_PREFIX) : -11]  # -11 for "-" + 10 digits
     recovered_name = f"recovered-py-{original_name}"
     print(f"  {ns.id} -> {recovered_name}")
-    source_client.namespace(recovered_name).write(
-        copy_from_namespace={"source_namespace": ns.id, "source_region": BACKUP_REGION}
+    source_client.namespace(recovered_name).copy_from(
+        source_namespace=ns.id, source_region=BACKUP_REGION
     )
     recovered += 1
 
@@ -538,8 +526,9 @@ for (const ns of backups) {
   const originalName = ns.id.slice(BACKUP_PREFIX.length, -11); // -11 for "-" + 10 digits
   const recoveredName = `recovered-mts-${originalName}`;
   console.log(`  ${ns.id} -> ${recoveredName}`);
-  await sourceClient.namespace(recoveredName).write({
-    copy_from_namespace: { source_namespace: ns.id, source_region: BACKUP_REGION },
+  await sourceClient.namespace(recoveredName).copyFrom({
+    source_namespace: ns.id,
+    source_region: BACKUP_REGION,
   });
   recovered++;
 }
@@ -557,8 +546,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 const (
@@ -604,11 +593,9 @@ func main() {
 		recoveredName := "recovered-go-" + originalName + ""
 		fmt.Printf("  %s -> %s\n", nsID, recoveredName)
 		targetNs := sourceClient.Namespace(recoveredName)
-		if _, err := (&targetNs).Write(ctx, turbopuffer.NamespaceWriteParams{
-			CopyFromNamespace: turbopuffer.CopyFromNamespaceParams{
-				SourceNamespace: nsID,
-				SourceRegion:    turbopuffer.String(BackupRegion),
-			},
+		if _, err := (&targetNs).CopyFrom(ctx, turbopuffer.NamespaceCopyFromParams{
+			SourceNamespace: nsID,
+			SourceRegion:    turbopuffer.String(BackupRegion),
 		}); err != nil {
 			panic(err)
 		}
@@ -670,14 +657,10 @@ public class RecoverNamespace {
       System.out.println("  " + ns.id() + " -> " + recoveredName);
       sourceClient
         .namespace(recoveredName)
-        .write(
-          NamespaceWriteParams.builder()
-            .copyFromNamespace(
-              CopyFromNamespaceParams.CopyFromNamespaceConfig.builder()
-                .sourceNamespace(ns.id())
-                .sourceRegion(BACKUP_REGION)
-                .build()
-            )
+        .copyFrom(
+          NamespaceCopyFromParams.builder()
+            .sourceNamespace(ns.id())
+            .sourceRegion(BACKUP_REGION)
             .build()
         );
       recovered++;
@@ -723,8 +706,9 @@ backup_client.namespaces(prefix: BACKUP_PREFIX).auto_paging_each do |ns|
   original_name = ns.id[BACKUP_PREFIX.length..-12] # -12 for "-" + 10 digits + 1 (ruby range is inclusive)
   recovered_name = "recovered-rb-#{original_name}"
   puts "  #{ns.id} -> #{recovered_name}"
-  source_client.namespace(recovered_name).write(
-    copy_from_namespace: { source_namespace: ns.id, source_region: BACKUP_REGION },
+  source_client.namespace(recovered_name).copy_from(
+    source_namespace: ns.id,
+    source_region: BACKUP_REGION,
   )
   recovered += 1
 end

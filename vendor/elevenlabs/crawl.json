@@ -1,0 +1,15 @@
+{
+  "name": "elevenlabs",
+  "homepage": "https://elevenlabs.io",
+  "llms_txt_candidates": [
+    "https://elevenlabs.io/docs/llms.txt",
+    "https://elevenlabs.io/llms.txt"
+  ],
+  "transform": "append-md-and-accept",
+  "allow_prefixes": [
+    "https://elevenlabs.io/docs/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 60,
+  "llms_txt": "https://elevenlabs.io/docs/llms.txt"
+}

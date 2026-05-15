@@ -1,6 +1,8 @@
 > This page location: Clients & tools > GUI applications
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: How to connect a GUI application or IDE to a Neon database by gathering necessary connection details and entering them into the application for successful database access.
+
 # Connect a GUI application
 
 Learn how to connect a GUI application to Neon

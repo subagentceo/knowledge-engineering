@@ -1,0 +1,140 @@
+> This is a page from the ElevenLabs documentation. For a complete page index, fetch https://elevenlabs.io/docs/llms.txt. For the full documentation in a single file, fetch https://elevenlabs.io/docs/llms-full.txt.
+
+# SCIM
+
+## Overview
+
+<Info>
+  SCIM is available for **Enterprise** workspaces. Only **Workspace Admins** can configure these
+  settings.
+</Info>
+
+## Set up SCIM
+
+Follow these steps to connect your Identity Provider (IdP) to ElevenLabs.
+
+<Steps>
+  <Step title="Open SCIM settings">
+    Go to **Workspace settings** > **Security & SSO** > **SCIM**.
+  </Step>
+
+  <Step title="Generate a token">
+    Click **Generate Token**. Copy the **Base URL** and **Bearer token** immediately.
+
+    <Warning>
+      The token is only shown once. If you lose it, you must generate a new one, which will
+      invalidate the previous token.
+    </Warning>
+  </Step>
+
+  <Step title="Configure your identity provider">
+    In your IdP SCIM/Provisioning configuration:
+
+    * Set the **SCIM Endpoint/Connector URL** to the Base URL.
+    * Set the authentication mode to bearer token and paste your token.
+
+    For provider-specific instructions, see [Setup by Identity Provider](#setup-by-identity-provider).
+  </Step>
+</Steps>
+
+<Note>
+  **Revoking access:** If a user is removed or deactivated via SCIM, their workspace access is
+  revoked, but their historical activity remains associated with the workspace.
+</Note>
+
+## Capabilities
+
+ElevenLabs supports the SCIM 2.0 protocol with the following capabilities:
+
+| Feature                                     | Supported? | Details                                                    |
+| :------------------------------------------ | :--------- | :--------------------------------------------------------- |
+| **Discovery Endpoints**                     | ✅ Yes      | `/ServiceProviderConfig`, `/Schemas`, `/ResourceTypes`     |
+| **Users**                                   | ✅ Yes      | `GET`, `POST`, `PUT`, `PATCH`, `DELETE`                    |
+| **Updating a user's primary email address** | ❌ No       |                                                            |
+| **Groups**                                  | ✅ Yes      | `GET`, `POST`, `PUT`, `PATCH`, `DELETE`                    |
+| **Search**                                  | ✅ Yes      | `GET` with `?filter` or `POST` to `/.search`               |
+| **Pagination**                              | ✅ Yes      | Supports `startIndex` and `count`                          |
+| **Bulk Operations**                         | ✅ Yes      | `Max operations per request: 100`, `Max payload size: 1MB` |
+| **Attribute filtering**                     | ✅ Yes      | Supports `attributes` and `excludedAttributes`             |
+| **Sorting**                                 | ❌ No       | `sortBy` and `sortOrder` are ignored when querying         |
+
+## Supported attributes
+
+* **Users**: `userName`, `name`, `emails`, `active`, `externalId`
+* **Groups**: `displayName`, `members`, `externalId`
+
+<Warning>
+  Email address changes are not supported through SCIM. Updating a user's primary email in your IdP
+  can cause SCIM sync failures for that user.
+</Warning>
+
+## Setup by Identity Provider
+
+<AccordionGroup>
+  <Accordion title="Microsoft Entra ID setup">
+    <Steps>
+      <Step title="Open provisioning settings">
+        In the Microsoft Entra admin center, select your
+        ElevenLabs app, then open **Provisioning**.
+      </Step>
+
+      <Step title="Set provisioning mode">
+        Set **Provisioning Mode** to **Automatic**.
+      </Step>
+
+      <Step title="Add SCIM credentials">
+        In **Admin Credentials**:
+
+        * Set **Tenant URL** to your ElevenLabs SCIM Base URL.
+        * Set **Secret Token** to your ElevenLabs Bearer token.
+      </Step>
+
+      <Step title="Test and enable provisioning">
+        Click **Test Connection**, save the configuration, then set **Provisioning Status** to
+        **On** when ready.
+      </Step>
+    </Steps>
+  </Accordion>
+
+  <Accordion title="Okta setup">
+    <Steps>
+      <Step title="Create or open a custom app integration">
+        Open the ElevenLabs app that is used for SSO sign-in and go to **General**.
+      </Step>
+
+      <Step title="Enable SCIM on the app">
+        Click **Edit** in **App Settings**, then set **Provisioning** to **SCIM**.
+      </Step>
+
+      <Step title="Configure SCIM connection">
+        In **Provisioning** > **Settings** > **Integration**:
+
+        * Set the **SCIM connector base URL** to your ElevenLabs SCIM Base URL.
+        * Choose the provisioning actions your workspace needs (for example, push new users, push
+          profile updates, and push groups), then run **Test Connector Configuration** and save.
+        * Set **Authentication Mode** to **HTTP Header**.
+        * Paste your ElevenLabs Bearer token in the **Authorization** field.
+        * Click **Save**
+      </Step>
+    </Steps>
+  </Accordion>
+
+  <Accordion title="OneLogin setup">
+    <Steps>
+      <Step title="Open your app settings">
+        In OneLogin Admin, open your ElevenLabs app.
+      </Step>
+
+      <Step title="Add SCIM credentials in Configuration">
+        In the **Configuration** tab:
+
+        * Set **SCIM Base URL** to your ElevenLabs SCIM Base URL.
+        * Set **SCIM Bearer token** to your ElevenLabs Bearer token.
+      </Step>
+
+      <Step title="Enable API connection">
+        Go to **Provisioning** and check "Enable provisioning" for the app.
+      </Step>
+    </Steps>
+  </Accordion>
+</AccordionGroup>

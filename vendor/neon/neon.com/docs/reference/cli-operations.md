@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > operations
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the Neon CLI `operations` command to list operations for a Neon project, including subcommands and options for effective management from the terminal.
+
 # Neon CLI command: operations
 
 List and manage long-running operations for a Neon project

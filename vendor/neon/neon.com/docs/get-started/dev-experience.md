@@ -1,6 +1,8 @@
 > This page location: Why Neon? > Developer experience
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the core principles of Neon's developer experience, focusing on invisible infrastructure, instant deployments, modern workflows, and a composable stack to enhance database management and adaptability.
+
 # Our DX Principles
 
 Neon adapts to your workflow, not the other way around.
@@ -82,7 +84,7 @@ Neon's [Instant Restore](https://neon.com/docs/introduction/branch-restore#how-i
 
 **Snapshots as checkpoints**
 
-In addition to continuous history, Neon exposes [snapshots](https://neon.com/docs/guides/backup-restore), explicit checkpoints that capture your database state at a moment in time. Snapshots are useful when you want long-lived restore points independent of the [restore window](https://neon.com/docs/introduction/restore-window), a known rollback point before a risky change, or versioned checkpoints for environments or [agent workflows](https://neon.com/docs/ai/ai-database-versioning).
+In addition to continuous history, Neon exposes [snapshots](https://neon.com/docs/guides/backup-restore), explicit checkpoints that capture your database state at a moment in time. Snapshots are useful when you want long-lived restore points independent of the [history window](https://neon.com/docs/introduction/history-window), a known rollback point before a risky change, or versioned checkpoints for environments or [agent workflows](https://neon.com/docs/ai/ai-database-versioning).
 
 **What this means for DX**
 

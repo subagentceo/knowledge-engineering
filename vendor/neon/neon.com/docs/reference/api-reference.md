@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: How to manage Neon projects programmatically using the Neon API, including creating and managing projects, branches, databases, and roles, along with guidance on obtaining an API key and using SDKs.
+
 # Neon API
 
 Copy this prompt into your AI coding assistant (Cursor, Copilot, etc.) to get help creating your first API key and making your first successful API call (using curl, the TypeScript SDK, or the Python SDK). [View prompt](https://neon.com/prompts/neon-api-prompt.md)

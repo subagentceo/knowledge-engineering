@@ -1,6 +1,8 @@
 > This page location: Connect to Neon > Connect from any app
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the process of connecting to a Neon database from any application, including how to obtain connection strings and use the Neon VS Code extension for enhanced development.
+
 # Connect from any application
 
 Learn how to connect to Neon from any application

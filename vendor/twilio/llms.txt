@@ -64,10 +64,10 @@
 * [How we release Flex](/docs/flex/how-we-release-flex.md): Explore Twilio Flex platform changes, release strategies, and feature deployment. Understand version release frequency and feature updates.
 * [Get Started with Flex Conversations](/docs/flex/conversations.md): Get started with Flex Conversations, which uses next-generation architecture for async channel capabilities in Flex.
 * [Checklist for setting up Twilio Flex](/docs/flex/building-checklist.md): Plan and set up Flex efficiently by following this checklist.
-* [Twilio Flex Quickstart: Getting Started with Flex Plugin Development](/docs/flex/quickstart/getting-started-plugin.md): We enhance a Twilio Flex hosted contact center with a basic React plugin. See step-by-step process and code, and how to upload assets to Twilio.
 * [Flex Webchat release notes](/docs/flex/release-notes/webchat-ui-release-notes.md): Explore the latest release notes for Flex Webchat, including updates to dependencies.
 * [Flex UI 2.x.x release notes](/docs/flex/release-notes/flex-ui-release-notes-for-v2xx.md): Find out what's been added, changed, and fixed in the latest version of Flex UI version 2.x.x, as well as past 2.x.x releases.
 * [Flex Plugins CLI release notes](/docs/flex/release-notes/flex-plugins-cli-release-notes.md): Find out what's been added, changed, and fixed in the latest version of the Flex Plugins CLI.
+* [Twilio Flex Quickstart: Getting Started with Flex Plugin Development](/docs/flex/quickstart/getting-started-plugin.md): We enhance a Twilio Flex hosted contact center with a basic React plugin. See step-by-step process and code, and how to upload assets to Twilio.
 * [Flex Mobile (public beta)](/docs/flex/flex-mobile.md): Flex Mobile is a pre-built app available for iOS and Android devices that brings the Flex experience to your phone or tablet.
 * [Warm transfer](/docs/flex/end-user-guide/warm-transfer.md): This guide for call center operators explains how warm transfer works using a Flex call center.
 * [User Guide to Troubleshooting the Flex UI](/docs/flex/end-user-guide/troubleshooting.md): Troubleshoot Flex UI errors using the Status Report for detailed logs, understand error types and where they appear, and learn about the Flex UI degraded mode.
@@ -109,15 +109,15 @@
 * [Best Practices and Performance Limits for Flex Insights](/docs/flex/end-user-guide/insights/best-practices-and-performance-limits.md): Read our recommended settings for fine-tuning your reports and dashboards in Flex Insights.
 * [Flex Insights Assessment Reporting](/docs/flex/end-user-guide/insights/assessment-reporting.md): Learn about the metrics and attributes used to build robust reports and dashboards on top of customer feedback with Twilio Flex Insights.
 * [Track Abandoned Conversations in Flex Insights](/docs/flex/end-user-guide/insights/abandoned-conversations.md): Manage and analyze abandoned conversations with Flex Insights.
-* [Use auto-generated notes with Agent Copilot (Public Beta)](/docs/flex/end-user-guide/copilot/wrapupnotes.md): This guide describes the Agent Copilot agent experience
-* [Use Agent Copilot for suggested responses and answers (public beta)](/docs/flex/end-user-guide/copilot/real-time-assist-features.md): Learn how to use Agent Copilot for suggested responses and answers to enhance productivity and customer interactions.
-* [Agent Copilot and Unified Profiles overview for agents (public beta)](/docs/flex/end-user-guide/copilot.md): Agent Copilot and Unified Profiles provide information and automations that enable you to assist customers more effectively.
-* [View customer profiles with Unified Profiles (Public Beta)](/docs/flex/end-user-guide/copilot/customerprofiles.md): View details about a customer that help you tailor your conversation to their needs.
 * [View an email](/docs/flex/end-user-guide/email/view-email.md): When a customer sends an email in HTML format, you'll see the content of the email as you would expect in the Flex UI. An HTML email can contain links, images, tables, and symbols, such as emojis.
 * [Handle an email task](/docs/flex/end-user-guide/email/task.md): Accept, read and reply to an inbound email: Inbound email tasks come in like any other task for any other Task Channel. When an email arrives, the task appears at the top of the Task list.
 * [Initiate an email conversation](/docs/flex/end-user-guide/email/initiate-email.md): You can initiate an email thread from an inbound task or initiate an email task from the Flex Agent UI.
 * [Email-specific reporting from Flex Insights](/docs/flex/end-user-guide/email/flex-insights-reporting.md): As a supervisor, you may want to see email-related metrics and include data for email-specific reports. You can do this through Flex Insights.
 * [Compose an email](/docs/flex/end-user-guide/email/compose-email.md): When handling an email task, you can use the HTML editor to apply formatting to your message for the customer.
+* [Use auto-generated notes with Agent Copilot (Public Beta)](/docs/flex/end-user-guide/copilot/wrapupnotes.md): This guide describes the Agent Copilot agent experience
+* [Use Agent Copilot for suggested responses and answers (public beta)](/docs/flex/end-user-guide/copilot/real-time-assist-features.md): Learn how to use Agent Copilot for suggested responses and answers to enhance productivity and customer interactions.
+* [Agent Copilot and Unified Profiles overview for agents (public beta)](/docs/flex/end-user-guide/copilot.md): Agent Copilot and Unified Profiles provide information and automations that enable you to assist customers more effectively.
+* [View customer profiles with Unified Profiles (Public Beta)](/docs/flex/end-user-guide/copilot/customerprofiles.md): View details about a customer that help you tailor your conversation to their needs.
 * [Work with messaging transfers](/docs/flex/end-user-guide/conversations/work-with-messaging-transfers.md): Learn how to transfer a message from a Conversations channel to another agent or to a queue.
 * [Use Chat and Messaging](/docs/flex/end-user-guide/conversations/use-chat-and-messaging.md): Learn about using chat and messaging in Flex UI 2.x.x for agents and supervisors.
 * [Send an attachment](/docs/flex/end-user-guide/conversations/messaging-attachments.md): Learn how to send and receive files as a Flex agent.
@@ -138,27 +138,6 @@
 * [Debugging a Flex Plugin with VS Code](/docs/flex/developer/plugins/debugging-with-vscode.md): Set up Visual Studio (VS) Code for local Flex Plugin debugging. Learn to configure plugins and efficiently manage breakpoints.
 * [Custom Plugins Dashboard](/docs/flex/developer/plugins/dashboard.md): Manage custom plugins, view the history of custom plugin releases, and roll back to prior deployments with the Custom Plugins dashboard.
 * [How to call Twilio Functions from a Flex plugin](/docs/flex/developer/plugins/call-functions.md): Learn how to use Twilio's serverless Functions to make secure requests from custom Plugins in your Flex contact center.
-* [TaskRouter Data in Flex Insights](/docs/flex/developer/insights/taskrouter-data.md): Understand what data is available from TaskRouter in Flex Insights.
-* [Workforce Management Real-Time Adherence](/docs/flex/developer/insights/real-time-adherence.md): Monitor real-time activity and status of Flex contact center agents using Workforce Management Real-Time Adherence Feed. Get JSON-formatted agent updates via HTTPS.
-* [Secure Playback of Recordings from Custom Storage](/docs/flex/developer/insights/playback-recordings-custom-storage.md): Manage user access to call recordings with Flex Insights. Create custom authorization of users, log access to individual recordings, and decrypt recordings.
-* [Label Data for Flex Insights](/docs/flex/developer/insights/labels.md): Enhance efficiency in Historical Reporting with Labels. Manage attributes and labels to maximize data value without reaching the limit for unique attribute labels.
-* [Dashboards Programmability](/docs/flex/developer/insights/insights-dashboards-programmability.md): Learn to customize project and analytical dashboards filters to control how they appear.
-* [Embedding Dashboards](/docs/flex/developer/insights/insights-dashboards-embedding.md): Learn how to enable and work with Insights - Programmable Dashboards on your Flex application.
-* [Building with Flex Insights](/docs/flex/developer/insights.md): Enhance your Flex Insights integration and export data via custom code development.
-* [HIPAA for Flex Insights Historical Reporting](/docs/flex/developer/insights/hipaa-flex-insights-historical-reporting.md): Flex Insights adheres to HIPAA guidelines, safeguarding personal health data by removing identifiable information from Historical Reporting.
-* [Add additional TaskRouter data](/docs/flex/developer/insights/enhance-integration.md): Learn how to add additional data to TaskRouter to enhance your Flex Insights reports and link multiple communications to a single customer.
-* [Turn on dual-channel recording](/docs/flex/developer/insights/enable-dual-channel-recordings.md): Unlock advanced call analysis with dual-channel recording. Enhance transcription, keyword analysis, and playback using Flex Insights, the Twilio Console, and Voice API.
-* [Custom Media attached to Conversations](/docs/flex/developer/insights/custom-media-attached-conversations.md): Learn how to attach custom media to a Flex Insights Conversation.
-* [Run Flex Insights on a Custom Domain](/docs/flex/developer/insights/custom-domain.md): Learn how to run Flex Insights on a custom domains in self-hosted Flex environments.
-* [Flex SDK methods](/docs/flex/developer/flex-sdk/sdk-methods.md): Learn more about the Flex SDK methods that are included with the Flex SDK.
-* [Flex SDK overview](/docs/flex/developer/flex-sdk.md): Learn about the Flex SDK and what's included.
-* [Flex SDK glossary](/docs/flex/developer/flex-sdk/glossary.md): Learn about key terms that will help you use the Flex SDK.
-* [Getting started](/docs/flex/developer/flex-sdk/getting-started.md): Learn how to get started with the Flex SDK.
-* [Flex SDK authentication](/docs/flex/developer/flex-sdk/authentication.md): Learn how to access the Flex SDK using secure authentication options.
-* [Customize the Email in Flex UI](/docs/flex/developer/email/ui-customization.md): Email in Flex uses the same programmable model as other parts of the Flex UI. This means that you can add, replace, and remove the new email editor components or invoke various actions related to email in the Flex UI.
-* [Email in Flex limitations](/docs/flex/developer/email/limitations.md): This page describes limitations of Email in Flex.
-* [Manage email conversations](/docs/flex/developer/email/conversations.md): Email in Flex uses the Conversations API as a basis for message orchestration.
-* [Agent Copilot: Upload your knowledge sources using the API (public beta)](/docs/flex/developer/copilot/upload-source-api.md): Step-by-step guide on how to use the Knowledge API to upload your sources for Agent Copilot.
 * [Work with Notifications](/docs/flex/developer/ui/work-with-notifications.md): Manage and customize notifications through Flex UI's client-side API. Use NotificationBar for icons and actions, and enable browser notifications.
 * [Work with Components and Props](/docs/flex/developer/ui/work-with-components-and-props.md): Work with programmable Flex UI 2.0 components and props.
 * [Web Accessibility](/docs/flex/developer/ui/web-accessibility.md): Flex UI 2.x.x includes enhanced support for WCAG 2.1 AA compliance. This page explains accessibility features that Flex UI supports and the accessibility tools that Flex UI provides.&#x20;
@@ -181,6 +160,27 @@
 * [Use Apollo Client with Flex UI](/docs/flex/developer/ui/apollo-client.md): Learn how to adjust your Apollo Client configuration to work with Flex UI and your custom GraphQL APIs.
 * [Add Components to Flex UI](/docs/flex/developer/ui/add-components-flex-ui.md): Learn how to add a custom component to your Flex application using a plugin.
 * [Add Task and Theme Context to Components](/docs/flex/developer/ui/add-component-context.md): Learn how to add context such as Task and Theme data into your Flex custom component.
+* [TaskRouter Data in Flex Insights](/docs/flex/developer/insights/taskrouter-data.md): Understand what data is available from TaskRouter in Flex Insights.
+* [Workforce Management Real-Time Adherence](/docs/flex/developer/insights/real-time-adherence.md): Monitor real-time activity and status of Flex contact center agents using Workforce Management Real-Time Adherence Feed. Get JSON-formatted agent updates via HTTPS.
+* [Secure Playback of Recordings from Custom Storage](/docs/flex/developer/insights/playback-recordings-custom-storage.md): Manage user access to call recordings with Flex Insights. Create custom authorization of users, log access to individual recordings, and decrypt recordings.
+* [Label Data for Flex Insights](/docs/flex/developer/insights/labels.md): Enhance efficiency in Historical Reporting with Labels. Manage attributes and labels to maximize data value without reaching the limit for unique attribute labels.
+* [Dashboards Programmability](/docs/flex/developer/insights/insights-dashboards-programmability.md): Learn to customize project and analytical dashboards filters to control how they appear.
+* [Embedding Dashboards](/docs/flex/developer/insights/insights-dashboards-embedding.md): Learn how to enable and work with Insights - Programmable Dashboards on your Flex application.
+* [Building with Flex Insights](/docs/flex/developer/insights.md): Enhance your Flex Insights integration and export data via custom code development.
+* [HIPAA for Flex Insights Historical Reporting](/docs/flex/developer/insights/hipaa-flex-insights-historical-reporting.md): Flex Insights adheres to HIPAA guidelines, safeguarding personal health data by removing identifiable information from Historical Reporting.
+* [Add additional TaskRouter data](/docs/flex/developer/insights/enhance-integration.md): Learn how to add additional data to TaskRouter to enhance your Flex Insights reports and link multiple communications to a single customer.
+* [Turn on dual-channel recording](/docs/flex/developer/insights/enable-dual-channel-recordings.md): Unlock advanced call analysis with dual-channel recording. Enhance transcription, keyword analysis, and playback using Flex Insights, the Twilio Console, and Voice API.
+* [Custom Media attached to Conversations](/docs/flex/developer/insights/custom-media-attached-conversations.md): Learn how to attach custom media to a Flex Insights Conversation.
+* [Run Flex Insights on a Custom Domain](/docs/flex/developer/insights/custom-domain.md): Learn how to run Flex Insights on a custom domains in self-hosted Flex environments.
+* [Flex SDK methods](/docs/flex/developer/flex-sdk/sdk-methods.md): Learn more about the Flex SDK methods that are included with the Flex SDK.
+* [Flex SDK overview](/docs/flex/developer/flex-sdk.md): Learn about the Flex SDK and what's included.
+* [Flex SDK glossary](/docs/flex/developer/flex-sdk/glossary.md): Learn about key terms that will help you use the Flex SDK.
+* [Getting started](/docs/flex/developer/flex-sdk/getting-started.md): Learn how to get started with the Flex SDK.
+* [Flex SDK authentication](/docs/flex/developer/flex-sdk/authentication.md): Learn how to access the Flex SDK using secure authentication options.
+* [Customize the Email in Flex UI](/docs/flex/developer/email/ui-customization.md): Email in Flex uses the same programmable model as other parts of the Flex UI. This means that you can add, replace, and remove the new email editor components or invoke various actions related to email in the Flex UI.
+* [Email in Flex limitations](/docs/flex/developer/email/limitations.md): This page describes limitations of Email in Flex.
+* [Manage email conversations](/docs/flex/developer/email/conversations.md): Email in Flex uses the Conversations API as a basis for message orchestration.
+* [Agent Copilot: Upload your knowledge sources using the API (public beta)](/docs/flex/developer/copilot/upload-source-api.md): Step-by-step guide on how to use the Knowledge API to upload your sources for Agent Copilot.
 * [WebChats Resource](/docs/flex/developer/conversations/webchats-resource.md): Simplify creating a web channel for starting a Flex Conversations chat in Flex UI 2.x.x.
 * [Send Outbound Messages with Flex Conversations Channels](/docs/flex/developer/conversations/send-outbound-messages-via-sms-and-whatsapp.md): Send an outbound message using Flex Conversations channels, such as SMS, WhatsApp, or chat, in Flex UI 2.x.x.
 * [Register a webhook to receive Interactions events](/docs/flex/developer/conversations/register-interactions-webhooks.md): Create an Interactions API webhook and subscribe to events to get details when those events occur during Flex Conversations.
@@ -203,13 +203,6 @@
 * [Routing Part 1: Assign skills to your Flex agents](/docs/flex/admin-guide/tutorials/skills-assignment.md): As part of your Twilio Flex contact center setup, you can assign skills to your agents using the Flex Admin UI. We build on our Twilio Flex contact center with a more powerful IVR, extra agents, skills tagging, and automatic skill-based routing.
 * [Routing Part 2: Set Up Queues and Skills-based Routing](/docs/flex/admin-guide/tutorials/queues-and-skills-based-routing.md): Set up task queues for your Twilio Flex contact center and enable skills-based routing by creating your TaskRouter Workflows and Studio Flows for Flex.
 * [Build an IVR for Flex with Twilio Studio](/docs/flex/admin-guide/tutorials/ivr.md): Learn to route calls with an IVR menu in Twilio Studio as part of the Flex system, reducing agent calls and enhancing efficiency.
-* [System checkup](/docs/flex/admin-guide/setup/system-checkup.md): System checkup detects common issues with your Flex configuration.
-* [Securely embed Flex as an iframe](/docs/flex/admin-guide/setup/secure-iframe.md): Register and update your Allowed URLs list in the Twilio Console if you are embedding flex.twilio.com as an iframe.
-* [Manage Flex logout settings](/docs/flex/admin-guide/setup/logout-settings.md): Specify when and how Flex UI users are automatically logged out when they become unavailable.
-* [Turn on language selection for agents (Public Beta)](/docs/flex/admin-guide/setup/enable-language-selection.md): Turn on language selection to give agents the option to set their display language.
-* [Turn on a ringtone for inbound tasks](/docs/flex/admin-guide/setup/default-ringtone.md): Learn how to turn on a ringtone to play for inbound tasks in Twilio Flex.
-* [Manage Twilio Console users](/docs/flex/admin-guide/setup/console-users.md): Add and modify Flex users with administrator, developer, billing manager, or support roles in the Twilio Console.
-* [Set up your Twilio Flex instance](/docs/flex/admin-guide/setup/account-creation.md): Sign up for Twilio and set up your Flex instance.
 * [Integrate Flex with Veridas Voice Biometrics](/docs/flex/admin-guide/integrations/veridas-voice-biometrics.md): Explore Veridas Voice Biometrics for a digital authentication solution. Validate the identity of your customers with just 3 seconds of their voice, in any language, and without the need of making them repeat any given sentence.
 * [Integrate Flex with Spoke Phone (UCaaS)](/docs/flex/admin-guide/integrations/spoke-phone-ucaas.md): Explore Spoke Phone, a Unified Communications solution integrated with Twilio and Flex. Spoke Phone can serve as a full PBX replacement, enhancing connectivity.
 * [Set up Salesforce Service Cloud Voice (SCV) with Twilio](/docs/flex/admin-guide/integrations/salesforce-service-cloud-voice.md): Learn how to integrate Salesforce Service Cloud Voice to use Twilio as the Partner Telephony Provider.
@@ -220,6 +213,13 @@
 * [Google Dialogflow CX integration in Flex for virtual agents](/docs/flex/admin-guide/integrations/google-dialogflow-cx-native-integration.md): You can use Google Dialogflow CX Virtual Agent in Flex to handle incoming calls and conversations and route them to a live agent.
 * [Integrate Flex with Glance Cobrowse](/docs/flex/admin-guide/integrations/glance.md): Learn how to integrate Twilio Flex with Glance Cobrowse. This integration enables agents to launch a Cobrowse session to instantly join customers in viewing your app or website.
 * [Integrate Flex with Alvaria WFM](/docs/flex/admin-guide/integrations/alvaria.md): Learn how to integrate Alvaria Workforce Management with Twilio Flex for efficient contact center operations. Alvaria WFM enables you to efficiently forecast staff scheduling, schedule individual agents, and monitor schedule adherence.
+* [System checkup](/docs/flex/admin-guide/setup/system-checkup.md): System checkup detects common issues with your Flex configuration.
+* [Securely embed Flex as an iframe](/docs/flex/admin-guide/setup/secure-iframe.md): Register and update your Allowed URLs list in the Twilio Console if you are embedding flex.twilio.com as an iframe.
+* [Manage Flex logout settings](/docs/flex/admin-guide/setup/logout-settings.md): Specify when and how Flex UI users are automatically logged out when they become unavailable.
+* [Turn on language selection for agents (Public Beta)](/docs/flex/admin-guide/setup/enable-language-selection.md): Turn on language selection to give agents the option to set their display language.
+* [Turn on a ringtone for inbound tasks](/docs/flex/admin-guide/setup/default-ringtone.md): Learn how to turn on a ringtone to play for inbound tasks in Twilio Flex.
+* [Manage Twilio Console users](/docs/flex/admin-guide/setup/console-users.md): Add and modify Flex users with administrator, developer, billing manager, or support roles in the Twilio Console.
+* [Set up your Twilio Flex instance](/docs/flex/admin-guide/setup/account-creation.md): Sign up for Twilio and set up your Flex instance.
 * [Core concepts: Voice](/docs/flex/admin-guide/core-concepts/voice.md): Learn about Flex voice features, including conferencing, secure payment options, and access to real-time audio streams.
 * [Core concepts: Studio Flows, Functions, Assets, TwiML](/docs/flex/admin-guide/core-concepts/studio-flows-functions-assets-twiml.md): Learn about the relationship of Studio Flows, REST API v2, Functions & Assets, and TwiML for Voice and SMS with Twilio Flex.
 * [Core concepts: Routing](/docs/flex/admin-guide/core-concepts/routing.md): Learn how Flex uses Taskrouter to route tasks to workers in your contact center workspace.
@@ -253,12 +253,12 @@
 * [Plugin Version Resource](/docs/flex/developer/plugins/api/plugin-version.md): Create, fetch, or read all or a specific Flex plugin version using the Flex API.
 * [Plugin Configuration Resource](/docs/flex/developer/plugins/api/plugin-configuration.md): Create and manage custom contact center plugin configurations using the Flex API.
 * [The Plugins API](/docs/flex/developer/plugins/api.md): Learn about the Plugins API, which defines which plugins the Flex UI loads during initialization. The Plugins API is used by the Flex Plugin CLI and the Custom Plugins Dashboard to simplify common workflows.
-* [Mapping Global Identifiers to Workspace Identifiers](/docs/flex/developer/insights/api/mapping-identifiers.md): Flex Insights can identify reports, metrics, dashboards, and other objects using multiple identifiers. Learn why these identifiers are useful, and how to map global identifiers to workspace identifiers.
-* [Flex Insights API General Usage](/docs/flex/developer/insights/api/general-usage.md): Learn how to authenticate and use the Flex Insights API.
-* [Export Data from Flex Insights via API](/docs/flex/developer/insights/api/export-data.md): Learn how to export reports from within Flex Insights to store the data in a warehouse of your own.
 * [Update plugins for Flex UI 2.x.x](/docs/flex/developer/ui/migration-guide/migration-guide-update-plugins.md): This page explains how to update your plugins when migrating to Flex UI 2.x.x
 * [Flex UI 2.x.x updates that can affect your customizations](/docs/flex/developer/ui/migration-guide/migration-guide-2x-updates.md): This page describes Flex UI updates that you should be aware of when migrating to Flex UI 2.x.x.
 * [Migrate from Flex UI 1.x.x to 2.x.x](/docs/flex/developer/ui/migration-guide.md): Migrate smoothly from Flex UI 1.x.x to 2.x.x. This guide outlines UI and SDK changes that can affect your customizations.
+* [Mapping Global Identifiers to Workspace Identifiers](/docs/flex/developer/insights/api/mapping-identifiers.md): Flex Insights can identify reports, metrics, dashboards, and other objects using multiple identifiers. Learn why these identifiers are useful, and how to map global identifiers to workspace identifiers.
+* [Flex Insights API General Usage](/docs/flex/developer/insights/api/general-usage.md): Learn how to authenticate and use the Flex Insights API.
+* [Export Data from Flex Insights via API](/docs/flex/developer/insights/api/export-data.md): Learn how to export reports from within Flex Insights to store the data in a warehouse of your own.
 * [Use custom styling for Webchat components in Webchat 3.x.x](/docs/flex/developer/conversations/webchat/styling-customizations.md): Learn how to customize the style of Webchat 3.x.x components by overriding CSS classes.
 * [Set up and use Webchat 3.x.x](/docs/flex/developer/conversations/webchat/setup.md): Get started with Webchat for Twilio Flex. Learn how to add this chat widget to your web applications and understand the chat widget's default behavior.
 * [Webchat 3.x.x security](/docs/flex/developer/conversations/webchat/security.md): Webchat 3.x.x includes enhanced security measures, including a randomly generated deployment key, fingerprinting, and the ability to add allowed origins.
@@ -271,10 +271,25 @@
 * [Interaction Channel Participants](/docs/flex/developer/conversations/interactions-api/interaction-channel-participants.md): Manage participants in a Flex Interaction. Examples include how to use the API to wrap up and complete a Flex Conversations task for an agent and how to change an agent's reservation status to Completed.
 * [Interactions API](/docs/flex/developer/conversations/interactions-api.md): Review the list of Interactions API subresources and attributes that are consumed by the Flex UI and Insights.
 * [Channels Subresource](/docs/flex/developer/conversations/interactions-api/channels-subresource.md): Fetch and update interaction channels using this Flex Interaction endpoint.
+* [Upgrade Guide for Flex-Zendesk](/docs/flex/admin-guide/integrations/zendesk/upgrade-guide.md): Upgrade your Flex-Zendesk integration to use Native Outbound Dialing.
+* [Flex-Zendesk integration release notes](/docs/flex/admin-guide/integrations/zendesk/release-notes.md): Release notes for the Flex-Zendesk integration
+* [Integrate Flex with Zendesk](/docs/flex/admin-guide/integrations/zendesk.md): Use Twilio Flex and Zendesk together to offer an omnichannel and personalised experience to your Customers
+* [Customize your Flex-Zendesk Integration](/docs/flex/admin-guide/integrations/zendesk/customize.md): Learn how to customize your Flex-Zendesk integration experience and call flows.
+* [Manage Flex-Zendesk Call Flows](/docs/flex/admin-guide/integrations/zendesk/call-flows.md): Learn how to power up your Customer Engagements using Twilio Flex with Zendesk
+* [Integrate Flex with Calabrio ONE WFM](/docs/flex/admin-guide/integrations/calabrio.md): Learn how Twilio Flex integrates with Calabrio ONE and how the workforce optimization solution can enhance contact center planning and operations.
+* [Upgrade Guide for Flex-Salesforce](/docs/flex/admin-guide/integrations/salesforce/upgrade-guide.md): Migrate your Flex-Salesforce Integration to use Native Outbound Dialing. Native Outbound Dialing enables you to take advantage of the increased stability and scale of the Flex platform and to gain access to additional features as they become available.
+* [Integrate Flex with Salesforce](/docs/flex/admin-guide/integrations/salesforce.md): Use the Flex and Salesforce consoles to integrate your call center with Salesforce.
+* [Customize your Flex-Salesforce Integration](/docs/flex/admin-guide/integrations/salesforce/customize.md): Learn how to customize your Flex-Salesforce integration experience and call flows.
+* [Manage Flex-Salesforce call flows](/docs/flex/admin-guide/integrations/salesforce/call-flows.md): Learn how to accept incoming calls from new and existing contacts and make outgoing calls from your Flex-Salesforce integration.
 * [Test Voice](/docs/flex/admin-guide/setup/voice/test.md): Test the voice experience in Flex UI 1.x.x by answering a test voice call.&#x20;
 * [Flex on Citrix VDI](/docs/flex/admin-guide/setup/voice/flex-citrix-vdi.md): Overview and setup for Flex Citrix VDI.
 * [Flex on Azure Virtual Desktop or Windows 365 Cloud PC](/docs/flex/admin-guide/setup/voice/flex-azure-vdi.md): Overview and setup for Flex on Azure Virtual Desktop or Windows 365 Cloud PC
 * [Configure the Flex Dialpad](/docs/flex/admin-guide/setup/voice/dialpad-configure.md): Enable and configure outbound dialing in Flex using Flex Dialpad.
+* [Teams in Flex (Public Beta)](/docs/flex/admin-guide/setup/teams.md): Group Flex users together for easier user management, reporting, and oversight.
+* [Test legacy SMS and chat](/docs/flex/admin-guide/setup/messaging/test-channels.md): Test sample experiences for legacy Voice, SMS, and Chat in Twilio Flex.
+* [Read-only Admin role](/docs/flex/admin-guide/setup/flex-ui-users/read-only-admin-role.md): As a Read-only Admin, you can enter Flex to view and troubleshoot issues.
+* [Manage Flex UI users](/docs/flex/admin-guide/setup/flex-ui-users.md): Learn about Flex UI users (TaskRouter Workers), including available user roles, and how to view, create, and delete users.
+* [Topics, subtopics, and disposition codes (Public Beta)](/docs/flex/admin-guide/setup/topics.md): Use topics to automatically categorize customer conversations.
 * [Set up and configure Unified Profiles in Flex (Public Beta)](/docs/flex/admin-guide/setup/unified-profiles/setup.md): Learn how to set up and configure Unified Profiles in Flex.
 * [Connect your Segment space (Public Beta)](/docs/flex/admin-guide/setup/unified-profiles/segment-space.md): Learn how to connect your Segment space to work with Unified Profiles.
 * [Known issues and limitations in Unified Profiles in Flex (Public Beta)](/docs/flex/admin-guide/setup/unified-profiles/limitations.md): Known issues and limitations in Unified Profiles in Flex
@@ -282,7 +297,12 @@
 * [Confirm or update your customer identifier settings (Public Beta)](/docs/flex/admin-guide/setup/unified-profiles/identifiers.md): Unified Profiles uses customer identifiers to search for customer profiles. You can configure these identifiers.
 * [Enrich profiles with Flex interaction data](/docs/flex/admin-guide/setup/unified-profiles/enrichment.md): Learn how to enrich Segment profiles with Flex customer interaction data.
 * [Add Flex customer history (Public Beta)](/docs/flex/admin-guide/setup/unified-profiles/customer-history-and-interaction.md): Learn how to configure Flex customer history and interaction data in Unified Profiles.
-* [Topics, subtopics, and disposition codes (Public Beta)](/docs/flex/admin-guide/setup/topics.md): Use topics to automatically categorize customer conversations.
+* [Warm up an IP address for Email in Flex](/docs/flex/admin-guide/setup/email/warm-up-an-ip-address-for-email-in-flex.md): Warming up your IP allows you to gradually send more emails over your new IP to establish a good sender reputation.
+* [Set up outbound email](/docs/flex/admin-guide/setup/email/outbound.md): Set up the email address that is used in the Flex UI when an agent starts a new outbound conversation.
+* [Email in Flex for administrators](/docs/flex/admin-guide/setup/email.md): Learn to set up email in Twilio Flex.
+* [Prepare your Flex account for email](/docs/flex/admin-guide/setup/email/flex-account-preparation.md): Before you can use email in Flex, you must prepare your Flex account.
+* [Enable Email in Flex](/docs/flex/admin-guide/setup/email/enable-email-in-flex.md): Learn to enable email as a channel in Twilio Flex.
+* [Add and authenticate email domains](/docs/flex/admin-guide/setup/email/domains.md): To prove that you own the domains you will use for Flex, you must add and authenticate your email domains in Twilio.
 * [Self-hosted Flex: additional SSO configuration](/docs/flex/admin-guide/setup/sso-configuration/self-hosted-sso.md): Learn about the additional SSO configuration needed for self-hosted Flex deployments.
 * [Configure Salesforce SSO with Flex](/docs/flex/admin-guide/setup/sso-configuration/salesforce.md): Step by Step instructions for setting up Salesforce SSO with Twilio Flex.
 * [Configure Okta IdP with Flex](/docs/flex/admin-guide/setup/sso-configuration/okta.md): Have your agents log in to Twilio Flex using the Okta. Learn how to integrate Okta with Twilio Flex with this step-by-step guide.
@@ -291,16 +311,6 @@
 * [Configuring SSO and IdP in Flex](/docs/flex/admin-guide/setup/sso-configuration.md): Learn how to configure single sign-on (SSO) and identity provider (IdP) in Twilio Flex for popular identity providers.
 * [Configure Google Single Sign-On (SSO) with Twilio Flex](/docs/flex/admin-guide/setup/sso-configuration/google.md): Google Single Sign-On helps your users safely sign into Twilio Flex via Google sign-in. Learn how to configure Google SSO with Twilio Flex here.
 * [Configure Auth0 IdP with Twilio Flex](/docs/flex/admin-guide/setup/sso-configuration/auth0.md): Auth0 single sign-on helps your users safely sign into Twilio Flex through the Auth0 sign-in. Learn how to configure Auth0 SSO with Flex.
-* [Teams in Flex (Public Beta)](/docs/flex/admin-guide/setup/teams.md): Group Flex users together for easier user management, reporting, and oversight.
-* [Test legacy SMS and chat](/docs/flex/admin-guide/setup/messaging/test-channels.md): Test sample experiences for legacy Voice, SMS, and Chat in Twilio Flex.
-* [Read-only Admin role](/docs/flex/admin-guide/setup/flex-ui-users/read-only-admin-role.md): As a Read-only Admin, you can enter Flex to view and troubleshoot issues.
-* [Manage Flex UI users](/docs/flex/admin-guide/setup/flex-ui-users.md): Learn about Flex UI users (TaskRouter Workers), including available user roles, and how to view, create, and delete users.
-* [Warm up an IP address for Email in Flex](/docs/flex/admin-guide/setup/email/warm-up-an-ip-address-for-email-in-flex.md): Warming up your IP allows you to gradually send more emails over your new IP to establish a good sender reputation.
-* [Set up outbound email](/docs/flex/admin-guide/setup/email/outbound.md): Set up the email address that is used in the Flex UI when an agent starts a new outbound conversation.
-* [Email in Flex for administrators](/docs/flex/admin-guide/setup/email.md): Learn to set up email in Twilio Flex.
-* [Prepare your Flex account for email](/docs/flex/admin-guide/setup/email/flex-account-preparation.md): Before you can use email in Flex, you must prepare your Flex account.
-* [Enable Email in Flex](/docs/flex/admin-guide/setup/email/enable-email-in-flex.md): Learn to enable email as a channel in Twilio Flex.
-* [Add and authenticate email domains](/docs/flex/admin-guide/setup/email/domains.md): To prove that you own the domains you will use for Flex, you must add and authenticate your email domains in Twilio.
 * [Agent Copilot: Configure wrap-up notes (public beta)](/docs/flex/admin-guide/setup/copilot/setup.md): This guide describes how to configure wrap-up notes for Agent Copilot.
 * [Configure real time-assist features for Agent Copilot (public beta)](/docs/flex/admin-guide/setup/copilot/real-time-assist.md): Learn how to configure real time-assist features for Agent Copilot to enhance agent productivity and customer interactions.
 * [AI Nutrition Facts for Agent Copilot (public beta)](/docs/flex/admin-guide/setup/copilot/nutritionfacts.md): Agent Copilot's AI qualities are outlined in the following Nutrition Facts label.
@@ -321,16 +331,6 @@
 * [Subscribe to Interactions events](/docs/flex/admin-guide/setup/conversations/configure-interactions-webhook.md): Create an Interactions API webhook and subscribe to events to get details when those events occur during Flex Conversations.
 * [Send Application-to-Person SMS in the US](/docs/flex/admin-guide/setup/conversations/a2p-10dlc.md): Register for an A2P use case, create a messaging service, and associate your A2P phone numbers with Flex Conversations.
 * [Alerts for contact center metrics in Flex (public beta)](/docs/flex/admin-guide/setup/alerts/alerts-contact-center-metrics.md): Configure alerts for your contact center metrics.
-* [Upgrade Guide for Flex-Zendesk](/docs/flex/admin-guide/integrations/zendesk/upgrade-guide.md): Upgrade your Flex-Zendesk integration to use Native Outbound Dialing.
-* [Flex-Zendesk integration release notes](/docs/flex/admin-guide/integrations/zendesk/release-notes.md): Release notes for the Flex-Zendesk integration
-* [Integrate Flex with Zendesk](/docs/flex/admin-guide/integrations/zendesk.md): Use Twilio Flex and Zendesk together to offer an omnichannel and personalised experience to your Customers
-* [Customize your Flex-Zendesk Integration](/docs/flex/admin-guide/integrations/zendesk/customize.md): Learn how to customize your Flex-Zendesk integration experience and call flows.
-* [Manage Flex-Zendesk Call Flows](/docs/flex/admin-guide/integrations/zendesk/call-flows.md): Learn how to power up your Customer Engagements using Twilio Flex with Zendesk
-* [Upgrade Guide for Flex-Salesforce](/docs/flex/admin-guide/integrations/salesforce/upgrade-guide.md): Migrate your Flex-Salesforce Integration to use Native Outbound Dialing. Native Outbound Dialing enables you to take advantage of the increased stability and scale of the Flex platform and to gain access to additional features as they become available.
-* [Integrate Flex with Salesforce](/docs/flex/admin-guide/integrations/salesforce.md): Use the Flex and Salesforce consoles to integrate your call center with Salesforce.
-* [Customize your Flex-Salesforce Integration](/docs/flex/admin-guide/integrations/salesforce/customize.md): Learn how to customize your Flex-Salesforce integration experience and call flows.
-* [Manage Flex-Salesforce call flows](/docs/flex/admin-guide/integrations/salesforce/call-flows.md): Learn how to accept incoming calls from new and existing contacts and make outgoing calls from your Flex-Salesforce integration.
-* [Integrate Flex with Calabrio ONE WFM](/docs/flex/admin-guide/integrations/calabrio.md): Learn how Twilio Flex integrates with Calabrio ONE and how the workforce optimization solution can enhance contact center planning and operations.
 * [Core concepts: Conversations](/docs/flex/admin-guide/core-concepts/conversations.md): Explore Flex Conversations, a feature supporting various asynchronous channels for both inbound and outbound communications using Flex UI 2.x.x and the Interactions API.
 * [Flex Dialpad Overview](/docs/flex/admin-guide/setup/voice/dialpad.md): Get started with the Flex Dialpad and review the resources available for developers and administrators.
 * [Enable the Flex Dialpad](/docs/flex/admin-guide/setup/voice/dialpad/enable.md): Flex Dialpad allows agents to place outbound calls within the Flex UI. This page explains how to enable Flex Dialpad.
@@ -357,17 +357,6 @@
 * [General Usage](/docs/usage.md): Learn how to use Twilio's REST API, manage accounts, set up your dev environment, and protect your accounts, applications, and users against fraud.
 * [Global Safe List](/docs/usage/global-safe-list.md): Full API reference for Twilio's Global Safe List API. Sample code shows how to add and check a phone number on the Safe List.
 * [Anti-Fraud Developer's Guide](/docs/usage/anti-fraud-developer-guide.md): Learn how to build applications that prevent bad actors from compromising your app, including best practices, fraud scenarios, and anti-fraud practices.
-* [Webhooks security](/docs/usage/webhooks/webhooks-security.md): Learn how to secure your web application that uses Twilio webhooks by verifying the sender of the webhook. This guide also covers other common security practices for Twilio webhooks, such as HTTPS and authentication.
-* [Webhooks Overview](/docs/usage/webhooks/webhooks-overview.md): Overview of the various webhooks that Twilio can send to web applications, including what webhooks are, and how you can respond to them.
-* [Webhooks FAQ](/docs/usage/webhooks/webhooks-faq.md): Commonly asked questions about Twilio webhooks and status callbacks, including what webhooks are, how to validate webhooks, and how to respond to webhooks.
-* [Webhooks (HTTP callbacks): Connection Overrides](/docs/usage/webhooks/webhooks-connection-overrides.md): Webhook URL Connection Overrides
-* [Voice Webhooks](/docs/usage/webhooks/voice-webhooks.md): Learn how to work with webhooks from Twilio Programmable Voice to process events in your web application. Set your project up to receive HTTPS callbacks from Twilio when important events occur, such as an inbound voice call to your Twilio phone number.
-* [Messaging Webhooks](/docs/usage/webhooks/messaging-webhooks.md): Learn how to use webhooks to process events in your Twilio Programmable Messaging application. You can use Twilio webhooks to handle incoming messages as well as tracking delivery status on outbound messages.
-* [Webhooks: an Introduction](/docs/usage/webhooks.md): Launching point for information about Twilio webhooks, including product-specific guides, tutorials, and getting started information.
-* [Getting Started with Twilio Webhooks](/docs/usage/webhooks/getting-started-twilio-webhooks.md): Get started using Twilio webhooks with this step-by-step guide that tells you what you need to do to process incoming callbacks from Twilio servers.
-* [Twilio Debugger](/docs/usage/troubleshooting/debugging-your-application.md): Troubleshoot issues with Twilio APIs, webhooks, and more with the Twilio Debugger.
-* [Debugging Events Webhook](/docs/usage/troubleshooting/debugging-event-webhooks.md): Learn about how you can use the Console Debugger webhook to solve errors, what its callback parameters are, and what its payload contains.
-* [Alarms](/docs/usage/troubleshooting/alarms.md): Learn how to configure and manage Error Log Alarms in the Twilio Console.
 * [How to use ngrok with Windows and Visual Studio to test webhooks](/docs/usage/tutorials/how-use-ngrok-windows-and-visual-studio-test-webhooks.md): This guide shows you ngrok, a tool to prototype websites locally, working harmoniously with Visual Studio and IIS Express on Windows.  Follow along!
 * [Get started with your Twilio free trial account](/docs/usage/tutorials/how-to-use-your-free-trial-account.md): Start building with a Twilio trial account. Verify phone numbers, get a Twilio phone number, and learn about trial account restrictions and limitations.
 * [Set up your Python and Flask development environment](/docs/usage/tutorials/how-to-set-up-your-python-and-flask-development-environment.md): Guide to setting up Python for web development with the Flask web framework. Use pip   to manage packages, virtual environments for isolation, and ngrok to publish. &#x20;
@@ -386,8 +375,9 @@
 * [Try out Twilio SMS Messaging](/docs/usage/trials/try-out-sms.md): Start building with a Twilio trial account. Send and receive your first SMS messages within a few minutes.
 * [Try out Twilio Email](/docs/usage/trials/try-out-email.md): Start building with a Twilio email trial account. Send and receive your first emails within a few minutes.
 * [Twilio trial account](/docs/usage/trials.md): Explore the Twilio trial experience. Learn about product-specific free units, trial restrictions, 30-day expiration, and post-upgrade free units (PUFU).
-* [ISO/IEC Certification](/docs/usage/security/iso-iec-certification.md): Learn how Twilio's certified compliance with ISO/IEC 27001 standards assures your protection.
-* [Security](/docs/usage/security.md): Twilio protects communications between Twilio and your web application with encryption. Learn how to authenticate, report vulnerabilities, and detect fraud
+* [Twilio Debugger](/docs/usage/troubleshooting/debugging-your-application.md): Troubleshoot issues with Twilio APIs, webhooks, and more with the Twilio Debugger.
+* [Debugging Events Webhook](/docs/usage/troubleshooting/debugging-event-webhooks.md): Learn about how you can use the Console Debugger webhook to solve errors, what its callback parameters are, and what its payload contains.
+* [Alarms](/docs/usage/troubleshooting/alarms.md): Learn how to configure and manage Error Log Alarms in the Twilio Console.
 * [Validate: Is this actually fraud?](/docs/usage/fraud-response-guide/validate.md): Learn how to identify and distinguish between different types of fraud activity on your Twilio account, including SMS pumping, toll fraud, account takeover, vishing, and smishing.
 * [Fraud & Abuse Response Guide](/docs/usage/fraud-response-guide.md): Learn how to quickly identify, contain, and remediate fraud or abuse on your Twilio account with this practical phase-based incident response guide.
 * [Example: RCA Summary Request Form](/docs/usage/fraud-response-guide/example-rca-summary-request-form.md): See an example of a completed Root Cause Analysis (RCA) summary request form for reporting and resolving fraud incidents on your Twilio account.
@@ -408,6 +398,16 @@
 * [REST API: Applications](/docs/usage/api/applications.md): Full API reference for the Application Resource (also called a "TwiML App") in Twilio's Voice REST API.
 * [REST API: Addresses](/docs/usage/api/address.md): An Address instance resource represents your or your customer's physical
   location within a country.
+* [ISO/IEC Certification](/docs/usage/security/iso-iec-certification.md): Learn how Twilio's certified compliance with ISO/IEC 27001 standards assures your protection.
+* [Security](/docs/usage/security.md): Twilio protects communications between Twilio and your web application with encryption. Learn how to authenticate, report vulnerabilities, and detect fraud
+* [Webhooks security](/docs/usage/webhooks/webhooks-security.md): Learn how to secure your web application that uses Twilio webhooks by verifying the sender of the webhook. This guide also covers other common security practices for Twilio webhooks, such as HTTPS and authentication.
+* [Webhooks Overview](/docs/usage/webhooks/webhooks-overview.md): Overview of the various webhooks that Twilio can send to web applications, including what webhooks are, and how you can respond to them.
+* [Webhooks FAQ](/docs/usage/webhooks/webhooks-faq.md): Commonly asked questions about Twilio webhooks and status callbacks, including what webhooks are, how to validate webhooks, and how to respond to webhooks.
+* [Webhooks (HTTP callbacks): Connection Overrides](/docs/usage/webhooks/webhooks-connection-overrides.md): Webhook URL Connection Overrides
+* [Voice Webhooks](/docs/usage/webhooks/voice-webhooks.md): Learn how to work with webhooks from Twilio Programmable Voice to process events in your web application. Set your project up to receive HTTPS callbacks from Twilio when important events occur, such as an inbound voice call to your Twilio phone number.
+* [Messaging Webhooks](/docs/usage/webhooks/messaging-webhooks.md): Learn how to use webhooks to process events in your Twilio Programmable Messaging application. You can use Twilio webhooks to handle incoming messages as well as tracking delivery status on outbound messages.
+* [Webhooks: an Introduction](/docs/usage/webhooks.md): Launching point for information about Twilio webhooks, including product-specific guides, tutorials, and getting started information.
+* [Getting Started with Twilio Webhooks](/docs/usage/webhooks/getting-started-twilio-webhooks.md): Get started using Twilio webhooks with this step-by-step guide that tells you what you need to do to process incoming callbacks from Twilio servers.
 
 ## Global Infrastructure
 
@@ -433,10 +433,10 @@
 * [Twilio Programmable Voice SIP Domains Regional Migration Best Practices](/docs/global-infrastructure/localized-uris/sip-domains-regional-migration-best-practices.md): Learn best practices for migrating your Programmable Voice SIP Domains to a new Twilio Region.
 * [General Twilio Voice Regional Migration Best Practices](/docs/global-infrastructure/localized-uris/regional-migration-best-practices.md): Learn best practices for migrating your Voice solutions to a new Twilio Region.
 * [Twilio Elastic SIP Truking Regional Migration Best Practices](/docs/global-infrastructure/localized-uris/elastic-sip-trunk-regional-migration-best-practices.md): Learn best practices for migrating your Elastic SIP Trunks to a new Twilio Region.
-* [Media Streams Configuration](/docs/global-infrastructure/firewall-configurations/media-streams-configuration.md): Firewall configuration information for Voice Media Streams traffic
-* [Firewall Configurations](/docs/global-infrastructure/firewall-configurations.md): Find firewall configuration information for Twilio Voice traffic
 * [Legacy Edge Location IDs](/docs/global-infrastructure/edge-locations/legacy-regions.md): Mapping of deprecated Twilio edge location IDs (au1, ie1, us2, etc.) to current Edge Location names (sydney, dublin, umatilla, etc.)
 * [Edge Locations](/docs/global-infrastructure/edge-locations.md): Reference list of all Twilio Edge Location IDs for public internet and private Interconnect connections.
+* [Media Streams Configuration](/docs/global-infrastructure/firewall-configurations/media-streams-configuration.md): Firewall configuration information for Voice Media Streams traffic
+* [Firewall Configurations](/docs/global-infrastructure/firewall-configurations.md): Find firewall configuration information for Twilio Voice traffic
 
 ## Glossary
 
@@ -628,34 +628,34 @@
 * [Static Proxy for Webhooks](/docs/iam/twilio-editions/twilio-static-proxy.md): Learn about Twilio Static Proxy for Event Streams, Functions, and Webhooks, including static IP addresses and ranges for allowlisting.
 * [Twilio Editions](/docs/iam/twilio-editions.md): Learn about Twilio Editions, which offers advanced security, administration, and compliance features designed to protect your customer communications.
 * [HIPAA Accounts](/docs/iam/twilio-editions/hippa.md): Learn how to set up HIPAA-compliant communication workflows with Twilio, including eligible services, Business Associate Agreements, and architecture guidelines.
-* [Single Sign On](/docs/iam/single-sign-on.md): This document describes the SSO (single sign-on) capabilities supported by Twilio and necessary steps for integrating with your Identity Provider (IdP).
-* [Configuring SSO with any other SAML2.0 Identity Provider](/docs/iam/single-sign-on/configuring-sso-with-other-saml2-idp.md): This guide covers configuring your SAML 2.0 Identity Provider with Twilio for SSO login to Twilio Console.
-* [Configuring Okta with Twilio SSO](/docs/iam/single-sign-on/configuring-okta-with-twilio-sso.md): Learn how to configure Okta to work with Twilio in this step-by-step guide.
-* [Configuring Azure Active Directory with Twilio SSO](/docs/iam/single-sign-on/configuring-azure-active-directory-with-twilio-sso.md): Learn how to configure Azure Active Directory to work with Twilio SSO in this step-by-step guide.
 * [Okta SCIM integration](/docs/iam/scim/okta-integration.md): Learn how to configure user synchronization from Okta to Twilio using SCIM provisioning.
 * [SCIM API reference](/docs/iam/scim/api-reference.md): Complete API reference for the Twilio SCIM API, including endpoints for creating, retrieving, updating, and deactivating users.
 * [Managed users](/docs/iam/organizations/managed-users.md): Learn about managed users, how they can help your organization, and how to create, view, and delete them.
 * [Managed accounts](/docs/iam/organizations/managed-accounts.md): Learn about Managed Accounts, how they can help your organization, and how to create, add, and configure them.
 * [Organizations](/docs/iam/organizations.md): An organization is a resource that helps you manage all of your company's Twilio accounts. Learn how to centrally manage all of your accounts, users, and configure your organization-wide policies.
 * [Domains](/docs/iam/organizations/domains.md): Learn how to associate your organization with one or more internet domains that you own. Follow instructions to add a domain or import users that signed up with your domain.
-* [REST API: Credentials](/docs/iam/credentials/api.md): Learn the basics of the Credentials REST API, which allows you to upload Public Keys to Twilio and manage them.
+* [Single Sign On](/docs/iam/single-sign-on.md): This document describes the SSO (single sign-on) capabilities supported by Twilio and necessary steps for integrating with your Identity Provider (IdP).
+* [Configuring SSO with any other SAML2.0 Identity Provider](/docs/iam/single-sign-on/configuring-sso-with-other-saml2-idp.md): This guide covers configuring your SAML 2.0 Identity Provider with Twilio for SSO login to Twilio Console.
+* [Configuring Okta with Twilio SSO](/docs/iam/single-sign-on/configuring-okta-with-twilio-sso.md): Learn how to configure Okta to work with Twilio in this step-by-step guide.
+* [Configuring Azure Active Directory with Twilio SSO](/docs/iam/single-sign-on/configuring-azure-active-directory-with-twilio-sso.md): Learn how to configure Azure Active Directory to work with Twilio SSO in this step-by-step guide.
+* [Public Key Client Validation Quickstart](/docs/iam/pkcv/quickstart.md): Learn how to implement Public Key Client Validation with Twilio. Includes sample cURL commands, HTTP requests, and a Java example.
+* [Get Started with Public Key Client Validation](/docs/iam/pkcv.md): Public Key Client Validation helps organizations in compliance-heavy industries meet strict security requirements. Learn how to get started in this overview.
 * [OAuth apps](/docs/iam/oauth-apps/overview.md): This document describes how to create an OAuth app and use its credentials to access Twilio APIs. OAuth apps enable OAuth 2.0 authorization for Twilio APIs using the client credentials grant type.
 * [OAuth Token API](/docs/iam/oauth-apps/oauth-access-token.md): This document describes how to use Token API endpoint to generate Access Tokens. It also covers example of how to call Messaging API using the access token.
 * [OAuth apps FAQs](/docs/iam/oauth-apps/faqs.md): This document describes the Frequently Asked Questions (FAQs) related to OAuth apps.
+* [REST API: Credentials](/docs/iam/credentials/api.md): Learn the basics of the Credentials REST API, which allows you to upload Public Keys to Twilio and manage them.
 * [REST API: Connect Apps](/docs/iam/connect-apps/api.md): API reference for the ConnectApps list resource.
-* [REST API: Authorized Connect Apps](/docs/iam/authorized-connect-apps/api.md): API reference for the AuthorizedConnectApps list resource which shows all of the Connect Apps that you have authorized for your account.
 * [Twilio Connect](/docs/iam/connect.md): Let your users authorize access to their accounts with Twilio Connect so your application can buy phone numbers, make calls, send SMS, and access log data.
+* [REST API: Authorized Connect Apps](/docs/iam/authorized-connect-apps/api.md): API reference for the AuthorizedConnectApps list resource which shows all of the Connect Apps that you have authorized for your account.
+* [REST API: Secondary Auth Token](/docs/iam/api/secondary_authtoken.md): Full API reference for the Account resource in the Twilio API. Learn how to create, fetch (get), read (list), and update Accounts and Subaccounts.
+* [Our API: the basics](/docs/iam/api.md): Twilio's REST API allows you to query metadata about your account, make phone calls, send text messages, and monitor usage.
+* [REST API: Auth Token](/docs/iam/api/authtoken.md): Learn about the REST API Auth Token, its properties, and how to promote the secondary Auth Token to primary.
+* [REST API: Accounts](/docs/iam/api/account.md): Full API reference for the Account resource in the Twilio API. Learn how to create, fetch (get), read (list), and update Accounts and Subaccounts.
 * [Restricted API keys](/docs/iam/api-keys/restricted-api-keys.md): Leverage role-based access control (RBAC) with Twilio's Restricted API keys. Grant granular API permissions for Twilio APIs.
 * [Create API keys in Twilio Console](/docs/iam/api-keys/keys-in-console.md): Authenticate your requests to Twilio's APIs with API keys. Create and manage API keys in Twilio Console.
 * [REST API: Key Resource v2010](/docs/iam/api-keys/key-resource-v2010.md): Full API reference for the API Key resource in the Twilio API. Learn how to create, fetch (get), read (list), and update API keys to authenticate to the REST API and create and revoke access tokens.
 * [REST API: Key Resource v1](/docs/iam/api-keys/key-resource-v1.md): Full API reference for the Key resource in the Twilio API. Learn how to create, fetch, list, update, and delete API keys.
 * [API keys overview](/docs/iam/api-keys.md): Authenticate your requests to Twilio's APIs with API keys. Keep your Twilio Account credentials safe and take control of the lifecycle of your API keys.
-* [Public Key Client Validation Quickstart](/docs/iam/pkcv/quickstart.md): Learn how to implement Public Key Client Validation with Twilio. Includes sample cURL commands, HTTP requests, and a Java example.
-* [Get Started with Public Key Client Validation](/docs/iam/pkcv.md): Public Key Client Validation helps organizations in compliance-heavy industries meet strict security requirements. Learn how to get started in this overview.
-* [REST API: Secondary Auth Token](/docs/iam/api/secondary_authtoken.md): Full API reference for the Account resource in the Twilio API. Learn how to create, fetch (get), read (list), and update Accounts and Subaccounts.
-* [Our API: the basics](/docs/iam/api.md): Twilio's REST API allows you to query metadata about your account, make phone calls, send text messages, and monitor usage.
-* [REST API: Auth Token](/docs/iam/api/authtoken.md): Learn about the REST API Auth Token, its properties, and how to promote the secondary Auth Token to primary.
-* [REST API: Accounts](/docs/iam/api/account.md): Full API reference for the Account resource in the Twilio API. Learn how to create, fetch (get), read (list), and update Accounts and Subaccounts.
 * [Types of Roles](/docs/iam/access-control/types-of-roles.md): This document describes the different types of roles which are available for user assignment. It has the details of the New RBAC roles, general roles and organization roles.&#x20;
 * [Access Control](/docs/iam/access-control/overview.md): This document describes the new Enhanced RBAC capabilities supported by Twilio and the introduction of new granular roles.
 * [Twilio Connect Python Quickstart](/docs/iam/connect/quickstart/python.md): Learn how to connect your application to Twilio's APIs on behalf of other account holders in this step-by-step quickstart using Python and Flask.
@@ -672,6 +672,10 @@
 * [Lookup v2 Quickstart](/docs/lookup/quickstart.md): Learn how to query phone number and carrier information with Twilio's Lookup v2 API in this Quickstart.
 * [Lookup SIM Swap Overview](/docs/lookup/lookup-sim-swap.md): Learn how to use Twilio's Lookup API SIM Swap feature to get data on if a SIM linked to a phone number has recently changed in this overview.
 * [Lookup](/docs/lookup.md): Improve your message deliverability with Twilio Lookup. Validate numbers, identify carriers, and ensure compliance for accurate and secure messaging.
+* [Lookup v1 Tutorial: Validation and Formatting](/docs/lookup/v1-api/validation-and-formatting.md): Instructions and sample code for using the Lookup API to check the format of an international phone number and validate any phone number in ISO format.
+* [Lookup v1 Quickstart](/docs/lookup/v1-api/quickstart.md): Learn how to query phone number information with Twilio's Lookup API. Identify local-friendly number formats and reduce the likelihood of undelivered messages.
+* [Lookup v1 API](/docs/lookup/v1-api.md): Identify local-friendly number formats, reduce undelivered messages, and protect from scams and spam with Lookup by Twilio.
+* [Lookup v1 Tutorial: Carrier and Caller Name](/docs/lookup/v1-api/carrier-and-caller-name.md): Learn how to use Lookup to identify a phone number's carrier and what type of phone it is in your programming language of choice.
 * [SMS Pumping Risk Score](/docs/lookup/v2-api/sms-pumping-risk.md): Get real-time SMS fraud risk assessments with Twilio's SMS Pumping Risk Score.
 * [SIM Swap](/docs/lookup/v2-api/sim-swap.md): Detect SIM swap fraud with Twilio's Lookup API. Get real-time updates on SIM changes to prevent account takeovers.
 * [Reassigned Number](/docs/lookup/v2-api/reassigned-number.md): Verify phone number ownership with Twilio Lookup's Reassigned Number to prevent TCPA violations and ensure compliance.
@@ -682,10 +686,6 @@
 * [Formatting and Validation](/docs/lookup/v2-api/formatting-validation.md): Learn how to use Twilio Lookup API's Line Type Intelligence package with this reference.
 * [Caller Name](/docs/lookup/v2-api/caller-name.md): Retrieve caller names and types for US mobile numbers using Twilio Lookup's Caller Name.
 * [Call Forwarding](/docs/lookup/v2-api/call-forwarding.md): Check if a mobile phone number is unconditionally forwarding calls using Twilio Lookup's Call Forwarding.
-* [Lookup v1 Tutorial: Validation and Formatting](/docs/lookup/v1-api/validation-and-formatting.md): Instructions and sample code for using the Lookup API to check the format of an international phone number and validate any phone number in ISO format.
-* [Lookup v1 Quickstart](/docs/lookup/v1-api/quickstart.md): Learn how to query phone number information with Twilio's Lookup API. Identify local-friendly number formats and reduce the likelihood of undelivered messages.
-* [Lookup v1 API](/docs/lookup/v1-api.md): Identify local-friendly number formats, reduce undelivered messages, and protect from scams and spam with Lookup by Twilio.
-* [Lookup v1 Tutorial: Carrier and Caller Name](/docs/lookup/v1-api/carrier-and-caller-name.md): Learn how to use Lookup to identify a phone number's carrier and what type of phone it is in your programming language of choice.
 
 ## Marketplace
 
@@ -722,10 +722,10 @@
 * [AvailablePhoneNumber TollFree resource](/docs/phone-numbers/api/availablephonenumber-tollfree-resource.md): A full API reference for the AvailablePhoneNumber TollFree resource, including code samples.
 * [AvailablePhoneNumber resource](/docs/phone-numbers/api/availablephonenumber-resource.md): Full reference for the AvailablePhoneNumber resource in the Phone Numbers API, with properties and sample code showing how to find supported countries.
 * [AvailablePhoneNumber Mobile resource](/docs/phone-numbers/api/availablephonenumber-mobile-resource.md): A full reference for the AvailablePhoneNumber Mobile resource with code samples to find mobile numbers by region.
-* [How to Find a BU SID or an AD SID](/docs/phone-numbers/regulatory/getting-started/how-find-bu-sid-or-ad-sid.md): Follow this guide to find an ID for an identity document bundle (BU) or address (AD) in your account.
-* [Console: Getting Started with Phone Number Regulatory Compliance](/docs/phone-numbers/regulatory/getting-started/console-create-new-bundle.md): Learn how to make sure your phone numbers are compliant with local regulators' requirements by following this step-by-step guide and the Twilio Console.
 * [Regulatory Compliance REST APIs](/docs/phone-numbers/regulatory/api.md): View the resources available to be leveraged with the new v2 Regulatory Compliance platform.
 * [Bundles Resource](/docs/phone-numbers/regulatory/api/bundles.md): Full API reference for the Twilio API Regulatory Compliance Bundle resource: create, fetch, read, and update your Bundle.
+* [How to Find a BU SID or an AD SID](/docs/phone-numbers/regulatory/getting-started/how-find-bu-sid-or-ad-sid.md): Follow this guide to find an ID for an identity document bundle (BU) or address (AD) in your account.
+* [Console: Getting Started with Phone Number Regulatory Compliance](/docs/phone-numbers/regulatory/getting-started/console-create-new-bundle.md): Learn how to make sure your phone numbers are compliant with local regulators' requirements by following this step-by-step guide and the Twilio Console.
 * [Hosted Number Order Resource](/docs/phone-numbers/hosted-numbers/hosted-numbers-api/hosted-number-order-resource.md): Full API reference for the Hosted Number Order resource in the Twilio Hosted Numbers API. Sample code shows how to create, read fetch, update, and delete.
 * [REST API: Available Numbers](/docs/phone-numbers/global-catalog/api/available-numbers.md): Learn more about the Available Numbers endpoint that provides a rich view into Twilio's inventory of phone numbers available for purchase.
 
@@ -738,11 +738,11 @@
 * [Programmable Messaging](/docs/messaging.md): Everything you need to get started sending SMS and WhatsApp messages with Programmable Messaging. Quickstarts, sample code, & tutorials for many use cases. SDKs in popular web languages and examples and API Reference documentation.
 * [TwiML™ Message: \<Message>](/docs/messaging/twiml/message.md): Follow sample code to learn how to programmatically send a message to a phone number with the \<Message> verb for Programmable Messaging.
 * [TwiML™ for Programmable Messaging](/docs/messaging/twiml.md): Learn how Twilio uses the TwiML markup language to talk to your Programmable SMS applications.
-* [Messaging Services](/docs/messaging/services.md): Use the Twilio Messaging Services API and Programmable Messaging to send high volumes of messages in the US and globally.
-* [Alphanumeric Sender IDs in Messaging Services](/docs/messaging/services/alphanumeric-sender-ids-in-messaging-services.md): Learn how to add Alphanumeric Sender IDs to your Twilio Messaging Service Sender Pool for branded one-way SMS messaging.
 * [Get started with Messaging Services](/docs/messaging/tutorials/send-messages-with-messaging-services.md): Enhance your Messaging application with Messaging Services. Send bulk messages with short codes by using multiple numbers and improve message delivery.
 * [Test your SMS Application](/docs/messaging/tutorials/automate-testing.md): Learn how to send test SMS using Twilio's Programmable SMS API and test credentials
 * [Customize users' opt-in and opt-out experience with Advanced Opt-Out](/docs/messaging/tutorials/advanced-opt-out.md): Customize Opt-in/Opt-out options for Twilio Programmable SMS. Localize with country-specific keywords in different languages with Twilio Advanced Opt-Out.
+* [Messaging Services](/docs/messaging/services.md): Use the Twilio Messaging Services API and Programmable Messaging to send high volumes of messages in the US and globally.
+* [Alphanumeric Sender IDs in Messaging Services](/docs/messaging/services/alphanumeric-sender-ids-in-messaging-services.md): Learn how to add Alphanumeric Sender IDs to your Twilio Messaging Service Sender Pool for branded one-way SMS messaging.
 * [No-code SMS quickstart with Twilio Studio](/docs/messaging/quickstart/no-code-sms-studio-quickstart.md): Learn how to use Twilio Studio to send SMS text messages without using code.
 * [SMS developer quickstart](/docs/messaging/quickstart.md): This developer quickstart teaches you how to send and receive text messages with Twilio programmatically. Choose the language of your preference and start building with Twilio Programmable SMS.
 * [Programmable Messaging Onboarding](/docs/messaging/onboarding.md): Learn how to plan and build your Programmable Messaging application
@@ -771,6 +771,10 @@
 * [Media subresource](/docs/messaging/api/media-resource.md): Full API Reference for the Media subresource of the Programmable Messaging API. Get and manage Media related to Messages originating with MMS (SMS), WhatsApp and other Messaging Channels.
 * [Messaging API Overview](/docs/messaging/api.md): Use the Programmable Messaging REST API to send and receive SMS, MMS, and WhatsApp messages, track delivery status, and manage message media and history.
 * [Send SMS and MMS messages](/docs/messaging/tutorials/how-to-send-sms-messages.md): A guide to send SMS text messages and MMS messages programmatically from your application or the cURL command line utility using Twilio Programmable Messaging.
+* [Receive and Reply to Incoming Messages - Python](/docs/messaging/tutorials/how-to-receive-and-reply/python.md): Learn how to respond to an incoming message using Twilio's Programmable Messaging API and Python.
+* [Receive and Reply to Incoming Messages - Node.js](/docs/messaging/tutorials/how-to-receive-and-reply/node-js.md): Learn how to respond to an incoming message using Twilio's Programmable Messaging API and Node.js.
+* [Receive and Reply to Incoming Messages](/docs/messaging/tutorials/how-to-receive-and-reply.md): Learn how to respond to an incoming message using Twilio's Programmable Messaging API
+* [Receive and Reply to Incoming Messages - C#](/docs/messaging/tutorials/how-to-receive-and-reply/csharp.md): Learn how to respond to an incoming message using Twilio's Programmable Messaging API and C# / ASP.NET.
 * [Media subresource](/docs/messaging/tutorials/how-to-receive-and-download-images-incoming-mms/ruby-sinatra.md): Full API Reference for the Media subresource of the Programmable Messaging API. Get and manage Media related to Messages originating with MMS (SMS), WhatsApp and other Messaging Channels.
 * [Receive and Download Images on Incoming Media Messages with Python and Django](/docs/messaging/tutorials/how-to-receive-and-download-images-incoming-mms/python-django.md): Use Python, Django, and Twilio to receive and download images and other media on incoming MMS messages.
 * [Receive and Download Images on Incoming Media Messages with PHP and Laravel](/docs/messaging/tutorials/how-to-receive-and-download-images-incoming-mms/php-laravel.md): Use PHP, Laravel, and Twilio to receive and download images and other media on incoming MMS messages.
@@ -778,10 +782,6 @@
 * [Receive and Download Images on Incoming Media Messages with Java](/docs/messaging/tutorials/how-to-receive-and-download-images-incoming-mms/java.md): Use Java and Twilio to receive and download images and other media on incoming MMS messages.
 * [Receive and Download Images on Incoming Media Messages](/docs/messaging/tutorials/how-to-receive-and-download-images-incoming-mms.md): Learn how to use Twilio Programmable Messaging to receive and download images and other media on incoming MMS and media messages.
 * [Receive and Download Images on Incoming Media Messages with C#](/docs/messaging/tutorials/how-to-receive-and-download-images-incoming-mms/csharp.md): Use C#, ASP.NET, and Twilio to receive and download images and other media on incoming MMS messages.
-* [Receive and Reply to Incoming Messages - Python](/docs/messaging/tutorials/how-to-receive-and-reply/python.md): Learn how to respond to an incoming message using Twilio's Programmable Messaging API and Python.
-* [Receive and Reply to Incoming Messages - Node.js](/docs/messaging/tutorials/how-to-receive-and-reply/node-js.md): Learn how to respond to an incoming message using Twilio's Programmable Messaging API and Node.js.
-* [Receive and Reply to Incoming Messages](/docs/messaging/tutorials/how-to-receive-and-reply.md): Learn how to respond to an incoming message using Twilio's Programmable Messaging API
-* [Receive and Reply to Incoming Messages - C#](/docs/messaging/tutorials/how-to-receive-and-reply/csharp.md): Learn how to respond to an incoming message using Twilio's Programmable Messaging API and C# / ASP.NET.
 * [Toll-free verification console onboarding guide](/docs/messaging/compliance/toll-free/console-onboarding.md): Guide on verifying Toll-Free numbers in the Twilio Console, covering steps for submission, status review, and deleting verification for U.S. messaging compliance.
 * [Get started with toll-free verification using the API](/docs/messaging/compliance/toll-free/api-onboarding.md): Guide to verify Toll-Free numbers via Twilio API, covering submission, record management, and status updates for compliant messaging in North America.
 * [Transition from a Sole Proprietor to a Standard Brand](/docs/messaging/compliance/a2p-10dlc/transition-sole-proprietor-to-standard-brand.md): A comprehensive guide on transitioning from Twilio Sole Proprietor to Standard Brand for A2P 10DLC, covering new registrations and Messaging Service options.
@@ -817,10 +817,10 @@
 * [Brand your calls using CNAM](/docs/voice/brand-your-calls-using-cnam.md): Learn how to brand your Programmable Voice calls with Caller ID Name (CNAM) to associate your business with your Twilio-powered phone number.
 * [Answering Machine Detection](/docs/voice/answering-machine-detection.md): Detect whether a human, answering machine, or fax machine has picked up your outbound voice API calls with Twilio's REST API Answering Machine Detection
 * [Answering Machine Detection FAQ & Best Practices](/docs/voice/answering-machine-detection-faq-best-practices.md): Twilio Answering Machine Detection frequently asked questions and best practices.
-* [Virtual Agent](/docs/voice/virtual-agent.md): Connect your Twilio Voice calls to Google Dialogflow ES or CX agents for rich conversational AI experiences. Learn how to get started with the integration in this overview page and find additional resources for building your Virtual Agent applications.
-* [Dialogflow CX Onboarding Guide](/docs/voice/virtual-agent/dialogflow-cx-onboarding.md): Follow this onboarding guide to integrate your voice calls with a Google Dialogflow CX agent.
 * [Voice Insights](/docs/voice/voice-insights.md): Learn how to gather call and conference metrics, quality events, and metadata. Use Voice Insights dashboards, APIs and event streams to analyze trends and issues.
 * [Voice Insights Advanced Features](/docs/voice/voice-insights/advanced-features.md): Learn to activate and use Voice Insights Advanced Features for event and metric time-series, and programmatic access through Event Streams or API.
+* [Virtual Agent](/docs/voice/virtual-agent.md): Connect your Twilio Voice calls to Google Dialogflow ES or CX agents for rich conversational AI experiences. Learn how to get started with the integration in this overview page and find additional resources for building your Virtual Agent applications.
+* [Dialogflow CX Onboarding Guide](/docs/voice/virtual-agent/dialogflow-cx-onboarding.md): Follow this onboarding guide to integrate your voice calls with a Google Dialogflow CX agent.
 * [TwiML™ Voice: \<Transcription>](/docs/voice/twiml/transcription.md): Real-Time Transcription allows you to receive and use voice call transcriptions in real time. Integrate Real-Time Transcription into your call center quality assurance applications or lead generation applications for real-time, actionable insights.&#x20;
 * [TwiML™ Voice: \<Sip>](/docs/voice/twiml/sip.md): Learn how to programmatically set up VoIP sessions and send a call to any SIP endpoint by using the \<Sip> noun for TwiML Voice.
 * [TwiML™ Voice: \<Refer>](/docs/voice/twiml/refer.md): The TwiML™ Voice \<Refer> verb instructs Twilio to initiate a Session Initiation Protocol (SIP) transfer towards a SIP infrastructure. It can be invoked on both inbound and outbound SIP calls.
@@ -842,10 +842,10 @@
 * [Make outbound phone calls](/docs/voice/tutorials/how-to-make-outbound-phone-calls.md): Learn how to make outbound phone calls with Twilio Programmable Voice.
 * [How to capture your first payment using \<Pay>](/docs/voice/tutorials/how-capture-your-first-payment-using-pay.md): Boost your revenue by capturing payments using Twilio's  Programmable Voice Pay feature. Learn how to capture your first payment with Stripe.
 * [Consume a real-time Media Stream using WebSockets, Python, and Flask](/docs/voice/tutorials/consume-real-time-media-stream-using-websockets-python-and-flask.md): Step-by-step instructions for accessing voice data in real-time with Media Streams, Python, and Flask using WebSockets.
+* [Trusted Calling with SHAKEN/STIR](/docs/voice/trusted-calling-with-shakenstir.md): Find general information on SHAKEN/STIR verification for Programmable Voice and some implementation details, including the effects on Twilio calls.
 * [Increase Call Answer Rates with Voice Integrity](/docs/voice/spam-monitoring-with-voiceintegrity.md): Find information on  Increasing Call Answer Rates through Spam Remediation with Voice Integrity
 * [SIP Quickstart](/docs/voice/sip/quickstart.md): Learn how to register a SIP (Session Initiation Protocol) Domain with Twilio's Programmable Voice SIP API, that will allow multiple SIP clients to register, and connect with each other, as well as route out to the traditional public switched telephone network (PSTN).
 * [SIP](/docs/voice/sip.md): Connect your existing Session Initiation Protocol (SIP) communications infrastructure to us, and get access to Twilio's global reach, powerful automation and scripting functions.
-* [Trusted Calling with SHAKEN/STIR](/docs/voice/trusted-calling-with-shakenstir.md): Find general information on SHAKEN/STIR verification for Programmable Voice and some implementation details, including the effects on Twilio calls.
 * [Voice SDKs Network Connectivity Requirements](/docs/voice/sdks/network-connectivity-requirements.md): A Programmable Voice SDK connectivity checklist and overview, a list of our servers' ports and IP addresses, and the bandwidth required for quality audio.
 * [Voice SDKs](/docs/voice/sdks.md): The Twilio Programmable Voice SDKs make it easy for you to add voice-over-IP (VoIP) calling into your web and native mobile applications quickly.
 * [Voice SDK Error Codes](/docs/voice/sdks/error-codes.md): Explore Voice SDK error codes and find solutions for Twilio Voice issues with our comprehensive guide, covering common errors, causes, and fixes.
@@ -870,35 +870,35 @@
 * [Call resource](/docs/voice/api/call-resource.md): Full detailed REST API reference for the Call resource in Twilio's Programmable Voice REST API.
 * [Events subresource](/docs/voice/api/call-event-resource.md): Full API reference for the Event subresource in the Voice API. Sample code shows how to read (list) resources in Node, Python, PHP, Ruby, C#, and more.
 * [TwiML™️ Voice: \<Stream>](/docs/voice/twiml/stream.md): Learn how to receive raw audio streams from a live phone call over WebSockets in near real-time with the \<Stream> instruction for TwiML Voice.
-* [Text-to-Speech (TTS)](/docs/voice/twiml/say/text-speech.md): Text-to-Speech (TTS) is a process where text is converted into a human-sounding voice. Learn more about Twilio TTS technology.
-* [TwiML™ Voice: \<Say>](/docs/voice/twiml/say.md): Learn how to build text-to-speech into your applications with TwiML Voice's \<Say> verb, with options for voices and  supported languages.
 * [Pay Connectors](/docs/voice/twiml/pay/pay-connectors.md): Learn about Pay Connectors, what products support it, and how to install and configure one.
 * [TwiML™ Voice: \<Pay>](/docs/voice/twiml/pay.md): Take credit card details during voice calls with PCI-compliant Twilio \<Pay>. Sample code, examples, and guides to take payments during calls.
 * [TwiML™ Voice: \<Dial>](/docs/voice/twiml/dial.md): Use Twilio's \<Dial> TwiML to connect a caller to another party. Connect two phone calls, reach a conference room or SIP endpoint, record a call, and more.
 * [TwiML™ Voice: \<Connect>](/docs/voice/twiml/connect.md): The \<Connect> verb in TwiML instructs Twilio to connect an incoming request, such as a phone call originating over PSTN or SIP, to another system.
+* [Text-to-Speech (TTS)](/docs/voice/twiml/say/text-speech.md): Text-to-Speech (TTS) is a process where text is converted into a human-sounding voice. Learn more about Twilio TTS technology.
+* [TwiML™ Voice: \<Say>](/docs/voice/twiml/say.md): Learn how to build text-to-speech into your applications with TwiML Voice's \<Say> verb, with options for voices and  supported languages.
 * [Retrieve Call Logs](/docs/voice/tutorials/how-to-retrieve-call-logs.md): Find links to step-by-step tutorials that show how to use the Programmable Voice API to manipulate live phone calls and retrieve call information.
 * [Respond to Incoming Phone Calls in Python](/docs/voice/tutorials/how-to-respond-to-incoming-phone-calls/python.md): Learn how to respond to incoming phone calls in your Python web application in this guide. This example uses the Flask web framework and ngrok to respond to incoming phone calls to your Twilio phone number.
 * [Respond to Incoming Phone Calls in Node.js](/docs/voice/tutorials/how-to-respond-to-incoming-phone-calls/node.md): Learn how to respond to incoming phone calls in your Node.js web application in this guide. This example uses the Express web framework and ngrok to respond to incoming phone calls to your Twilio phone number.
 * [Respond to Incoming Phone Calls](/docs/voice/tutorials/how-to-respond-to-incoming-phone-calls.md): Links to step-by-step tutorials with sample code and learn how to use the Programmable Voice API to respond to incoming phone calls in your applications.
-* [Modify Calls In Progress](/docs/voice/tutorials/how-to-modify-calls-in-progress.md): Find links to step-by-step tutorials complete with sample code to learn how to use the Programmable Voice API to manipulate live phone calls.
 * [How to Record Phone Calls in Python](/docs/voice/tutorials/how-to-record-phone-calls/python.md): Learn how to record incoming and outgoing Twilio Voice phone calls using Python.
 * [Record Phone Calls in Node.js](/docs/voice/tutorials/how-to-record-phone-calls/node.md): Learn how to record incoming and outgoing Twilio Voice phone calls using Node.js.
 * [Record Phone Calls](/docs/voice/tutorials/how-to-record-phone-calls.md): Find links to step-by-step tutorials complete with sample code to learn how to use the Programmable Voice API to record phone calls in your programming language of choice.
+* [Modify Calls In Progress](/docs/voice/tutorials/how-to-modify-calls-in-progress.md): Find links to step-by-step tutorials complete with sample code to learn how to use the Programmable Voice API to manipulate live phone calls.
 * [Gather User Input via Keypad (DTMF Tones)](/docs/voice/tutorials/how-to-gather-user-input-via-keypad.md): Links to step-by-step tutorials complete with sample code that show how to gather user input through a phone's keypad during a call.
+* [Create Conference Calls](/docs/voice/tutorials/how-to-create-conference-calls.md): Find links to step-by-step tutorials in your programming language to learn how to use Programmable Voice to create and manage conference calls.
 * [Emergency Calling for Programmable Voice](/docs/voice/tutorials/emergency-calling-for-programmable-voice.md): Configure Twilio's Emergency Calling, enabling emergency call routing to Public Safety Answering Points using Programmable Voice
 * [IVR: Phone Tree with Python and Flask](/docs/voice/tutorials/build-interactive-voice-response-ivr-phone-tree/python.md): Learn how to create a seamless customer service experience by building an IVR Phone Tree for your company with Python, Flask and Twilio.
 * [Build an Interactive Voice Response (IVR) Phone Tree](/docs/voice/tutorials/build-interactive-voice-response-ivr-phone-tree.md): Find links to step-by-step tutorials complete with sample code to learn how to build an Interactive Voice Response (IVR) phone tree in your programming language of choice.
-* [Create Conference Calls](/docs/voice/tutorials/how-to-create-conference-calls.md): Find links to step-by-step tutorials in your programming language to learn how to use Programmable Voice to create and manage conference calls.
 * [Voice React Native SDK](/docs/voice/sdks/react-native.md): Learn the basics of working with the Programmable Voice SDK for React Native.
+* [Voice Android SDK](/docs/voice/sdks/android.md): Learn how to add voice-over-IP (VoIP) calling into your native Android applications with the Programmable Voice SDK.
+* [Getting Started with the Voice Android SDK](/docs/voice/sdks/android/get-started.md): Learn how to add voice communications to your mobile applications with Twilio's Programmable Voice API in this Twilio Voice Quickstart for Android.
+* [Voice iOS SDK](/docs/voice/sdks/ios.md): Learn the basics of working with the Programmable Voice SDK for iOS, including installation, versioning, and authentication.
+* [Getting Started with the Voice iOS SDK](/docs/voice/sdks/ios/get-started.md): Learn how to get started Programmable Voice for iOS and add Voice over IP (VoIP) to your iOS application.
 * [Voice JavaScript SDK: Twilio.Call](/docs/voice/sdks/javascript/twiliocall.md): Reference documentation for Call, an API object that represents a call to or from Twilio's network, with methods, events, accessors, and sample code.
 * [Voice JavaScript SDK: Twilio in the browser](/docs/voice/sdks/javascript.md): Use the Voice JavaScript SDK to make and receive voice calls in web browsers. Supports Chrome, Firefox, Safari, and Edge.
 * [Voice JavaScript SDK quickstart](/docs/voice/sdks/javascript/get-started.md): Learn how to add voice communications to your front-end applications with Twilio's Programmable Voice API in this Voice JavaScript SDK Quickstart.
 * [Voice JavaScript SDK: Changelog](/docs/voice/sdks/javascript/changelog.md): Changelog for the Voice JavaScript SDK including new features, bug fixes and updates.
 * [Voice JavaScript SDK: Best Practices](/docs/voice/sdks/javascript/best-practices.md): Get the most out of the Twilio Voice JavaScript SDK by following these best practices, and ensure your users have a seamless calling experience. They will also make it easier to troubleshoot connection and call quality issues.
-* [Voice iOS SDK](/docs/voice/sdks/ios.md): Learn the basics of working with the Programmable Voice SDK for iOS, including installation, versioning, and authentication.
-* [Getting Started with the Voice iOS SDK](/docs/voice/sdks/ios/get-started.md): Learn how to get started Programmable Voice for iOS and add Voice over IP (VoIP) to your iOS application.
-* [Voice Android SDK](/docs/voice/sdks/android.md): Learn how to add voice-over-IP (VoIP) calling into your native Android applications with the Programmable Voice SDK.
-* [Getting Started with the Voice Android SDK](/docs/voice/sdks/android/get-started.md): Learn how to add voice communications to your mobile applications with Twilio's Programmable Voice API in this Twilio Voice Quickstart for Android.
 * [Transcriptions resource](/docs/voice/api/recording-transcription.md): Use the Twilio Voice REST API Transcriptions resource to fetch or delete transcriptions of recorded calls.
 * [Details: Voice Insights SDK Events](/docs/voice/voice-insights/api/call/details-sdk-call-quality-events.md): Supplementary details and explanations of Voice SDK events underlying Voice Insights for programmatic use with REST API, Events Streams or application code.
 * [Details: Conversation Relay Insights Events](/docs/voice/voice-insights/api/call/details-conversation-relay-events.md): Supplementary details and explanations of Conversation Relay events in Voice Insights. Reference for event types, latency signals, and interaction markers available via the Call Insights Events API for calls using Conversation Relay.
@@ -1018,16 +1018,17 @@
 * [How TaskRouter Works](/docs/taskrouter/how-taskrouter-works.md): Learn the basics of how TaskRouter, our system for distributing tasks in your contact center, works. Includes an example application flow and useful links.
 * [Assigning Tasks to Workers: Handling Assignment Callbacks](/docs/taskrouter/handle-assignment-callbacks.md): Learn how to handle Assignment Callbacks in TaskRouter, including parameters included in the HTTP POST request and ways to respond in your code.
 * [Using TaskRouter Expressions](/docs/taskrouter/expression-syntax.md): TaskRouter uses a SQL-like expression syntax for binding Workers to TaskQueues and filtering Tasks into TaskQueues in a Workflow configuration. Learn how to compose expressions from  constants, JSON keys, as well as logical and comparison operators.
-* [Known Agent Routing](/docs/taskrouter/workflow-configuration/known-agent-routing.md): Are your customers trying to talk to the same agent that helped them previously? Optimize and personalize your customer service by leveraging preferred (known) agent routing for tasks.
-* [Workflows Overview](/docs/taskrouter/workflow-configuration.md): This page provides an overview of the basic concepts of Workflows, rules that define how tasks are distributed TaskRouter.
 * [Dynamic Call Center with Ruby and Rails](/docs/taskrouter/tutorials/dynamic-call-center-ruby-rails.md): Build a dynamic, multi-agent customer service call center with Twilio, TaskRouter, and Ruby on Rails.
 * [Dynamic call center with Python and Django](/docs/taskrouter/tutorials/dynamic-call-center-python-django.md): Build a dynamic, multi-agent customer service call center with Twilio, TaskRouter, Python, and Django.
 * [Dynamic Call Center with PHP and Laravel](/docs/taskrouter/tutorials/dynamic-call-center-php-laravel.md): Build a dynamic, multi-agent customer service call center with Twilio, TaskRouter, PHP, and Laravel.
 * [Dynamic Call Center with Node.js and Express](/docs/taskrouter/tutorials/dynamic-call-center-node-express.md): Build a dynamic, multi-agent customer service call center with Twilio, TaskRouter, Node.js, and Express.
 * [Dynamic Call Center with Java and Servlets](/docs/taskrouter/tutorials/dynamic-call-center-java-servlets.md): Build a dynamic, multi-agent customer service call center with Twilio, TaskRouter, Java, and Servlets.
 * [Dynamic Call Center with C# and ASP.NET MVC](/docs/taskrouter/tutorials/dynamic-call-center-csharp-mvc.md): Build a dynamic, multi-agent customer service call center with Twilio, TaskRouter, C#, and ASP.NET.
+* [Known Agent Routing](/docs/taskrouter/workflow-configuration/known-agent-routing.md): Are your customers trying to talk to the same agent that helped them previously? Optimize and personalize your customer service by leveraging preferred (known) agent routing for tasks.
+* [Workflows Overview](/docs/taskrouter/workflow-configuration.md): This page provides an overview of the basic concepts of Workflows, rules that define how tasks are distributed TaskRouter.
 * [TaskRouter resource limits](/docs/taskrouter/limits.md): Twilio TaskRouter has default limits on certain resources, configuration parameters, and endpoints. If you are running into these limits, please reach out to our support team. We're happy to help work with you to increase some of these limits or help optimize how you use TaskRouter.
 * [TaskRouter.js v2: Reconnect Logic](/docs/taskrouter/js-sdk-v2/reconnect.md): Documentation about how TaskRouter SDK v2 is reconnecting the WebSocket after disconnection.
+* [TaskRouter.js v1: Integrating TaskRouter to your browser-based applications](/docs/taskrouter/js-sdk-v1.md): Learn about integrating TaskRouter into your browser-based applications using the Javascript SDK.
 * [Reporting](/docs/taskrouter/contact-center-blueprint/reporting.md): Common reporting requirements for a contact center, including real-time dashboards and historical reports to ensure you have all the data you need.
 * [Contact Center Blueprint](/docs/taskrouter/contact-center-blueprint.md): Learn how to build a contact center on Twilio. Reference code samples, architecture guidance, and design philosophies as you build out your contact center.
 * [Using Email and TaskRouter Together](/docs/taskrouter/contact-center-blueprint/email-taskrouter.md): Learn how to add Email as a channel to your contact center, by combining a REST based third party email service with TaskRouter.
@@ -1046,22 +1047,21 @@
 * [Task Reservation Resource](/docs/taskrouter/api/reservations.md): Full API reference for the Task Reservations resource in the TaskRouter API. Find sample code that shows how to fetch (get) and update reservations.
 * [TaskRouter: REST API Reference](/docs/taskrouter/api.md): An overview of the TaskRouter API including the base URL for all TaskRouter resources and links to guides for best practices when building with this API.
 * [Activity Resource](/docs/taskrouter/api/activity.md): Learn about the Activity resource, which describes the current state of your Workers, including Activity properties, and how to create, read, update, and delete Activities.
-* [TaskRouter.js v1: Integrating TaskRouter to your browser-based applications](/docs/taskrouter/js-sdk-v1.md): Learn about integrating TaskRouter into your browser-based applications using the Javascript SDK.
 * [TaskRouter Python Quickstart](/docs/taskrouter/quickstart/python.md): In this Quickstart, build a simplified version of a multi-channel sales and technical support system using Twilio TaskRouter and Python.
-* [TaskRouter Java Quickstart](/docs/taskrouter/quickstart/java.md): In this Quickstart, build a simplified version of a multichannel sales and technical support system using Twilio TaskRouter and Java.
 * [Setting up a TaskRouter Workspace: Add and Configure Workers](/docs/taskrouter/quickstart/php/setup-add-workers.md): Learn how to add and configure Workers in this part of the Setting up a TaskRouter Workspace guide.
 * [Creating Tasks and Accepting Reservations: Create a Task using the REST API](/docs/taskrouter/quickstart/php/reservations-create-task-rest.md): Learn how to create a Task using the REST API.
 * [TaskRouter: PHP quickstart](/docs/taskrouter/quickstart/php.md): In this Quickstart, build a simplified version of a multichannel sales and technical support system using Twilio TaskRouter and PHP.
+* [TaskRouter Java Quickstart](/docs/taskrouter/quickstart/java.md): In this Quickstart, build a simplified version of a multichannel sales and technical support system using Twilio TaskRouter and Java.
 * [TaskRouter .Net Quickstart](/docs/taskrouter/quickstart/csharp.md): In this Quickstart, build a simplified version of a multi-channel sales and technical support system using Twilio TaskRouter and .Net.
-* [Worker Statistics Resource](/docs/taskrouter/api/worker/statistics.md): Full API reference for the TaskRouter Worker Statistics resource. Code samples show how to fetch a resource and retrieve worker statistics.
-* [Worker Resource](/docs/taskrouter/api/worker.md): Twilio TaskRouter allows you to create, update, delete, and retrieve Workers, which are entities that can perform tasks. A Worker might be an agent working in a call center, or a salesperson handling leads.
-* [TaskRouter Events reference](/docs/taskrouter/api/event/reference.md): Learn about TaskRouter Events and find descriptions of all Event Callbacks.
-* [Event Resource](/docs/taskrouter/api/event.md): TaskRouter logs Events for each state change in the Workspace, allowing you to build historical reporting and auditing for your routing use case.
-* [REST API: TaskQueue Statistics](/docs/taskrouter/api/taskqueue-statistics.md): Full API reference for the TaskQueue Statistics resource in the TaskRouter API. Sample code shows how to retrieve real-time, cumulative, and instance TaskQueue Statistics.
 * [TaskRouter.js v1 Worker: Managing workers in the browser](/docs/taskrouter/js-sdk-v1/workspace/worker.md): Comprehensive documentation about TaskRouter's JavaScript workers, used to route tasks in your web-based applications.
 * [TaskRouter.js v1 TaskQueue: Managing a TaskQueue resource in the browser](/docs/taskrouter/js-sdk-v1/workspace/taskqueue.md): Learn how to manage a TaskQueue resource in the browser using the TaskRouter Javascript SDK.
 * [TaskRouter.js v1 Workspace: Managing resources in the browser](/docs/taskrouter/js-sdk-v1/workspace.md): The TaskRouter Javascript SDK allows developers to interact with the entire TaskRouter REST API by a simple JS API.
 * [TaskRouter.js v1: Constructing JWTs: Managing access policies for client side requests](/docs/taskrouter/js-sdk-v1/workspace/constructing-jwts.md): Learn about generating JWTs from your server code as a means of authorizing which resources the client side application can access.
+* [Worker Statistics Resource](/docs/taskrouter/api/worker/statistics.md): Full API reference for the TaskRouter Worker Statistics resource. Code samples show how to fetch a resource and retrieve worker statistics.
+* [Worker Resource](/docs/taskrouter/api/worker.md): Twilio TaskRouter allows you to create, update, delete, and retrieve Workers, which are entities that can perform tasks. A Worker might be an agent working in a call center, or a salesperson handling leads.
+* [REST API: TaskQueue Statistics](/docs/taskrouter/api/taskqueue-statistics.md): Full API reference for the TaskQueue Statistics resource in the TaskRouter API. Sample code shows how to retrieve real-time, cumulative, and instance TaskQueue Statistics.
+* [TaskRouter Events reference](/docs/taskrouter/api/event/reference.md): Learn about TaskRouter Events and find descriptions of all Event Callbacks.
+* [Event Resource](/docs/taskrouter/api/event.md): TaskRouter logs Events for each state change in the Workspace, allowing you to build historical reporting and auditing for your routing use case.
 
 ## Trust Hub
 
@@ -1082,10 +1082,6 @@
 * [Command-Line Interface (CLI) Quickstart](/docs/twilio-cli/quickstart.md): Learn how to quickly get started with the Twilio CLI to unleash the power of Twilio from your command line.
 * [CLI Plugins](/docs/twilio-cli/plugins.md): Learn how to extend the Twilio CLI by authoring (and optionally publishing) your own plugins.
 * [Twilio CLI](/docs/twilio-cli.md): Learn about the Twilio Command Line Interface
-* [Update](/docs/twilio-cli/getting-started/update.md): Learn how to update Twilio CLI to the latest version on your machine
-* [Install past versions of the Twilio CLI](/docs/twilio-cli/getting-started/past-versions.md): Learn how to install specific past versions of the twilio-cli for rare use cases
-* [Install the Twilio CLI](/docs/twilio-cli/getting-started/install.md): Learn how to install the latest version of twilio-cli on any operating system.
-* [Use the Twilio CLI Docker image](/docs/twilio-cli/getting-started/docker.md): Learn how to use and configure twilio-cli using the official Docker image.
 * [Work with webhooks](/docs/twilio-cli/general-usage/work-with-webhooks.md): Learn how to quickly connect Twilio phone numbers to webhooks or your local development environment with the Twilio CLI
 * [Subaccounts](/docs/twilio-cli/general-usage/subaccounts.md): Learn how to use Twilio subaccounts with the Twilio CLI
 * [Regional](/docs/twilio-cli/general-usage/regional.md): Learn how to make use of Twilio's regional capabilities while issuing CLI commands
@@ -1096,6 +1092,10 @@
 * [CLI General Usage](/docs/twilio-cli/general-usage.md): Understand the basics of using the CLI. Learn how to use multiple accounts, environment variables, API core commands, webhooks, and more.
 * [Configuration](/docs/twilio-cli/general-usage/configuration.md): Learn how to configure settings for the Twilio CLI
 * [Autocomplete](/docs/twilio-cli/general-usage/autocomplete.md): Learn how to enable command autocompletion for the Twilio CLI
+* [Update](/docs/twilio-cli/getting-started/update.md): Learn how to update Twilio CLI to the latest version on your machine
+* [Install past versions of the Twilio CLI](/docs/twilio-cli/getting-started/past-versions.md): Learn how to install specific past versions of the twilio-cli for rare use cases
+* [Install the Twilio CLI](/docs/twilio-cli/getting-started/install.md): Learn how to install the latest version of twilio-cli on any operating system.
+* [Use the Twilio CLI Docker image](/docs/twilio-cli/getting-started/docker.md): Learn how to use and configure twilio-cli using the official Docker image.
 * [CLI Examples](/docs/twilio-cli/examples.md): A collection of examples that show you how to do various things with Twilio's CLI.
 * [Get a phone number and send your first SMS](/docs/twilio-cli/examples/explore-sms.md): Learn how to get a Twilio phone number and send your first text message using only the command line.
 
@@ -1171,39 +1171,48 @@
 * [Unify Onboarding Guide](/docs/segment/unify/quickstart.md): Learn how to configure and use a Unify space.
 * [Profile API](/docs/segment/unify/profile-api.md): Use the Segment Profile API for real-time, personalized customer insights. Empower your apps with user-level data for enhanced engagement and sales.
 * [Unify Overview](/docs/segment/unify.md): Use Unify to track and merge customer interactions into unified profiles. Enhance marketing with real-time insights and personalized experiences.
+* [User Deletion and Suppression](/docs/segment/privacy/user-deletion-and-suppression.md): Ensure privacy compliance with Segment's data deletion and suppression tools.
+* [Data Retention and Deletion Policy](/docs/segment/privacy/data-retention-policy.md): Discover how Segment's flexible billing and data retention model optimizes costs and ensures data security with clear retention policies for all customer tiers.
+* [Segment for Developers](/docs/segment/guides/intro-impl.md): Get started with Segment implementation to efficiently manage data flows and integrations.
+* [An introduction to Segment](/docs/segment/guides.md): Discover how Segment simplifies customer data collection and integration. Unlock insights with seamless data management, unification, and personalized user experiences.
+* [Filtering your Segment Data](/docs/segment/guides/filtering-data.md): Discover how to use Segment's data filtering options for precise control over event destinations.
+* [Using Engage Data](/docs/segment/engage/using-engage-data.md): Personalize messages and optimize ad spend by sending Computed Traits and Audiences to Segment Destinations. Discover how to activate Engage data.
 * [What is Segment?](/docs/segment/getting-started.md): Learn more about tracking first-party customer data with Segment.
 * [Getting Started Guide](/docs/segment/getting-started/implementation-guide.md): Discover Segment's in-product guide, designed to streamline your data integration process, expand data reach, and optimize workspace efficiency.
 * [Testing and Debugging](/docs/segment/getting-started/06-testing-debugging.md): Discover how to confirm Segment's functionality with tools like Source Debugger and Event Delivery. Monitor data flow and ensure successful event tracking.
 * [A Full Segment Implementation](/docs/segment/getting-started/04-full-install.md): Discover Segment's six key tracking methods to streamline data collection and enhance consistency. Learn when and how to effectively apply each one.
 * [A Basic Segment Installation](/docs/segment/getting-started/02-simple-install.md): Learn how to install Segment to implement JavaScript, PHP, or iOS libraries and optimize your analytics.
 * [How Segment works](/docs/segment/getting-started/01-what-is-segment.md): Learn more about how Segment works.
-* [Segment for Developers](/docs/segment/guides/intro-impl.md): Get started with Segment implementation to efficiently manage data flows and integrations.
-* [An introduction to Segment](/docs/segment/guides.md): Discover how Segment simplifies customer data collection and integration. Unlock insights with seamless data management, unification, and personalized user experiences.
-* [Filtering your Segment Data](/docs/segment/guides/filtering-data.md): Discover how to use Segment's data filtering options for precise control over event destinations.
-* [Using Engage Data](/docs/segment/engage/using-engage-data.md): Personalize messages and optimize ad spend by sending Computed Traits and Audiences to Segment Destinations. Discover how to activate Engage data.
 * [Testing connections](/docs/segment/connections/test-connections.md): Validate Segment connections with Event and Mappings Testers.
 * [Connections Overview](/docs/segment/connections.md): Collect and unify your customer data with Connections, which integrates with mobile apps, CRMs, and more for a holistic view.
 * [Delivery Overview](/docs/segment/connections/delivery-overview.md): Diagnose and resolve event delivery issues with Segment's Delivery Overview. Gain insights into your data pipeline using detailed visualizations to optimize performance.
-* [User Deletion and Suppression](/docs/segment/privacy/user-deletion-and-suppression.md): Ensure privacy compliance with Segment's data deletion and suppression tools.
-* [Data Retention and Deletion Policy](/docs/segment/privacy/data-retention-policy.md): Discover how Segment's flexible billing and data retention model optimizes costs and ensures data security with clear retention policies for all customer tiers.
-* [Profiles Sync Tables and Materialized Views](/docs/segment/unify/profiles-sync/tables.md): Discover how Segment's Profiles Sync enhances customer data integration with raw tables and materialized views, optimizing profile and event data management.
-* [Profiles Sync overview](/docs/segment/unify/profiles-sync/overview.md): Connect identity-resolved profiles to your data warehouse with Profiles Sync. Enrich data, analyze attribution, create models, and more.
 * [SQL Traits](/docs/segment/unify/traits/sql-traits.md): Import and manage SQL Traits in Segment for enhanced personalization. Leverage data from cloud sources to build audiences and meet your business goals.
 * [Custom Traits](/docs/segment/unify/traits/custom-traits.md): Discover how to use Segment custom traits from Identify calls to enrich user profiles with demographics and account info without trait limits.
 * [Computed Traits](/docs/segment/unify/traits/computed-traits.md): Learn more about how computed traits help you to create user or account-level computations based on events and event properties.
-* [Identity Resolution Overview](/docs/segment/unify/identity-resolution.md): Learn more about how Identity Resolution merges customer histories into single profiles for real-time insights across all interactions.
+* [Profiles Sync Tables and Materialized Views](/docs/segment/unify/profiles-sync/tables.md): Discover how Segment's Profiles Sync enhances customer data integration with raw tables and materialized views, optimizing profile and event data management.
+* [Profiles Sync overview](/docs/segment/unify/profiles-sync/overview.md): Connect identity-resolved profiles to your data warehouse with Profiles Sync. Enrich data, analyze attribution, create models, and more.
 * [Linked Events Overview](/docs/segment/unify/data-graph/linked-events.md): Enrich event streams with Linked Events, seamlessly integrating Snowflake, BigQuery, Redshift, or Databricks for richer data and optimized insights.
 * [Data Graph](/docs/segment/unify/data-graph.md): Discover insights with the Data Graph's semantic layer. Access relational datasets for personalized marketing without constant data team support.
+* [Identity Resolution Overview](/docs/segment/unify/identity-resolution.md): Learn more about how Identity Resolution merges customer histories into single profiles for real-time insights across all interactions.
+* [Consent Management Overview](/docs/segment/privacy/consent-management.md): Streamline data consent with Segment's Consent Management feature. Enforce end-user consent preferences, ensuring compliance and optimized data flow.
+* [Configure Consent Management](/docs/segment/privacy/consent-management/configure-consent-management.md): Configure consent in Segment to enforce data preferences, ensuring user-approved event routing. Improve privacy compliance with precise category mapping.
 * [Protocols Tracking Plan](/docs/segment/protocols/tracking-plan/create.md): Learn how to create a detailed Segment Tracking Plan to improve data accuracy across your sources.
 * [Data Collection Best Practices](/docs/segment/protocols/tracking-plan/best-practices.md): Maximize your app's success with our data tracking resources. Define objectives, standardize events, and improve insights for marketing and analytics teams.
 * [Typewriter](/docs/segment/protocols/apis-and-extensions/typewriter.md): Boost your analytics with Typewriter. Generate type-safe Segment libraries from your Tracking Plan to improve accuracy and performance.
 * [MTUs, Throughput and Billing](/docs/segment/guides/usage-and-billing/mtus-and-throughput.md): Discover Segment's billing model with API calls, MTUs, and throughput. Understand usage insights, deduplication, and optimize third-party data integration.
 * [Linked Audiences](/docs/segment/engage/audiences/linked-audiences.md): Create targeted audiences with Linked Audiences to use behavioral and entity data in a no-code interface for precise marketing.
 * [Engage Audiences Overview](/docs/segment/engage/audiences.md): Use Engage Audiences to leverage events, traits, and APIs to sync across destinations, refine targeting, elevate engagement.
-* [Config API Overview](/docs/segment/api/config-api.md): Use the Config API to programmatically manage Segment workspaces, sources, destinations, and more.
-* [Public API](/docs/segment/api/public-api.md): Use the Segment Public API to manage your Segment workspaces and their resources.
 * [Sources Overview](/docs/segment/connections/sources.md): Create sources with Segment to efficiently track customer data from websites, apps, or servers. Enhance insights and control with targeted data collection.
 * [Segment-Managed Custom Domain](/docs/segment/connections/sources/custom-domain.md): Enhance your data tracking with Custom Domain. Securely gather first-party data over HTTPS to boost user insights and maximize marketing ROI.
+* [Set up Reverse ETL](/docs/segment/connections/reverse-etl/setup.md): Learn how to set up Reverse ETL.
+* [Reverse ETL](/docs/segment/connections/reverse-etl.md): Reverse ETL syncs warehouse data to tools like Salesforce and Google Ads, empowering personalized marketing and enriched customer insights.
+* [Source Functions](/docs/segment/connections/functions/source-functions.md): Collect data from third-party apps with Source Functions, without managing infrastructure.
+* [Destination Insert Functions](/docs/segment/connections/functions/insert-functions.md): Use Destination Insert Functions to transform and enrich your data before it reaches its destination. Customize logic, enhance compliance, and optimize data flow.
+* [Functions Overview](/docs/segment/connections/functions.md): Streamline data flows by creating custom sources and destinations with Segment Functions. Transform, send, and enrich data using minimal code.
+* [Destination Functions](/docs/segment/connections/functions/destination-functions.md): Use destination functions to transform and annotate Segment events and send them to external tools or APIs.
+* [Destinations Overview](/docs/segment/connections/destinations.md): Act on real-time data with Segment Destinations. Explore compatible tools with our catalog, streamline analytics, and unlock customer insights instantly.
+* [Destination Filters](/docs/segment/connections/destinations/destination-filters.md): Use Segment's destination filters to prevent certain data from flowing into a destination.
+* [Destination Actions](/docs/segment/connections/destinations/actions.md): Control data flow with Segment's Destination Actions, enabling transparent setup and customization for efficient event data management in destinations.
 * [Spec: Track](/docs/segment/connections/spec/track.md): Use Segment's Track API to seamlessly capture and describe user actions with customizable events and properties, enhancing your analytics capabilities.
 * [Spec: Screen](/docs/segment/connections/spec/screen.md): Record user interactions on mobile screens with Segment's Screen call. Send screen details and properties for seamless app tracking and insights.
 * [What is the native mobile spec?](/docs/segment/connections/spec/native-mobile-spec.md): Discover how the Native Mobile Spec automates event tracking for mobile apps, reducing engineering time and enhancing campaign analysis.
@@ -1214,17 +1223,8 @@
 * [Spec: Common fields](/docs/segment/connections/spec/common.md): Discover how API calls in Segment vary by destination and structure with specific fields. Learn to customize integrations and optimize data flow.
 * [Best Practices for Identifying Users](/docs/segment/connections/spec/best-practices-identify.md): Maximize user insights with Segment's Identify and Track calls. Link actions to users, reduce costs, and enhance data accuracy.
 * [Spec: Alias](/docs/segment/connections/spec/alias.md): Merge unassociated user identities seamlessly using the Alias method, enhancing data connectivity and compatibility with downstream applications.
-* [Set up Reverse ETL](/docs/segment/connections/reverse-etl/setup.md): Learn how to set up Reverse ETL.
-* [Reverse ETL](/docs/segment/connections/reverse-etl.md): Reverse ETL syncs warehouse data to tools like Salesforce and Google Ads, empowering personalized marketing and enriched customer insights.
-* [Source Functions](/docs/segment/connections/functions/source-functions.md): Collect data from third-party apps with Source Functions, without managing infrastructure.
-* [Destination Insert Functions](/docs/segment/connections/functions/insert-functions.md): Use Destination Insert Functions to transform and enrich your data before it reaches its destination. Customize logic, enhance compliance, and optimize data flow.
-* [Functions Overview](/docs/segment/connections/functions.md): Streamline data flows by creating custom sources and destinations with Segment Functions. Transform, send, and enrich data using minimal code.
-* [Destination Functions](/docs/segment/connections/functions/destination-functions.md): Use destination functions to transform and annotate Segment events and send them to external tools or APIs.
-* [Destinations Overview](/docs/segment/connections/destinations.md): Act on real-time data with Segment Destinations. Explore compatible tools with our catalog, streamline analytics, and unlock customer insights instantly.
-* [Destination Filters](/docs/segment/connections/destinations/destination-filters.md): Use Segment's destination filters to prevent certain data from flowing into a destination.
-* [Destination Actions](/docs/segment/connections/destinations/actions.md): Control data flow with Segment's Destination Actions, enabling transparent setup and customization for efficient event data management in destinations.
-* [Consent Management Overview](/docs/segment/privacy/consent-management.md): Streamline data consent with Segment's Consent Management feature. Enforce end-user consent preferences, ensuring compliance and optimized data flow.
-* [Configure Consent Management](/docs/segment/privacy/consent-management/configure-consent-management.md): Configure consent in Segment to enforce data preferences, ensuring user-approved event routing. Improve privacy compliance with precise category mapping.
+* [Public API](/docs/segment/api/public-api.md): Use the Segment Public API to manage your Segment workspaces and their resources.
+* [Config API Overview](/docs/segment/api/config-api.md): Use the Config API to programmatically manage Segment workspaces, sources, destinations, and more.
 * [Set up Profiles Sync](/docs/segment/unify/profiles-sync/profiles-sync-setup.md): Learn to set up Profiles Sync for connected data warehouses like Snowflake, Redshift, or BigQuery, enabling seamless historical backfill and sync control.
 * [Event-Triggered Journeys](/docs/segment/engage/journeys/v2.md): Build responsive, real-time marketing workflows with Event-Triggered Journeys. Automate customer experiences upon specific actions for personalized engagement.
 * [Warehouse Schemas](/docs/segment/connections/storage/warehouses/schema.md): Discover how Segment organizes and transforms your data into relational schemas for efficient querying in warehouses. Explore methods to optimize event data.
@@ -1237,17 +1237,18 @@
 * [Managing identity in Analytics.js](/docs/segment/connections/sources/catalog/libraries/website/javascript/identity.md): Learn how Analytics.js manages user data by identifying, overriding, and refreshing \`userID\` and \`anonymousID\`, using settings in cookies and local storage.
 * [Self-Managed Custom Proxy](/docs/segment/connections/sources/catalog/libraries/website/javascript/custom-proxy.md): Set up a custom proxy for Analytics.js to track events through your own domain.
 * [Client-side persistence in Analytics.js](/docs/segment/connections/sources/catalog/libraries/website/javascript/cookie-validity-update.md): Learn about what data Analytics.js stores on the client and how to modify or override that storage behavior.
+* [Analytics-Swift for iOS and Apple](/docs/segment/connections/sources/catalog/libraries/mobile/apple.md): Transform your app's data tracking with Analytics-Swift.
 * [Analytics for Python](/docs/segment/connections/sources/catalog/libraries/server/python.md): Use Segment's Python library to record analytics data from your Python code.
 * [Analytics for Node.js](/docs/segment/connections/sources/catalog/libraries/server/node.md): Use Segment's Analytics Node.js library to record analytics data from your node code.
 * [HTTP API Source](/docs/segment/connections/sources/catalog/libraries/server/http-api.md): Use Segment HTTP API for seamless data collection from any site or app. Ensure efficient data routing with flexible, high performance and integration options.
-* [Analytics-Swift for iOS and Apple](/docs/segment/connections/sources/catalog/libraries/mobile/apple.md): Transform your app's data tracking with Analytics-Swift.
 
 ## Twilio SendGrid
 
 * [Twilio SendGrid](/docs/sendgrid.md): Learn to send transactional and marketing emails at scale with the platform that offers a 99% deliverability rate. From quickstarts and onboarding guides to full API reference, the Twilio SendGrid docs have everything you need to send email at scale.
 * [Twilio SendGrid user interface documentation](/docs/sendgrid/ui.md): SendGrid's user interface documentation provides information on how to navigate the SendGrid web-based interface, also known as the UI, App, and Console.
 * [Twilio SendGrid developer documentation](/docs/sendgrid/for-developers.md): SendGrid's for-developers documentation provides information on how to use and configure SendGrid's APIs and developer-focused tools, including how to send email and configure your necessary DNS changes.
-* [SendGrid v3 API reference](/docs/sendgrid/api-reference.md): The SendGrid API reference provides detailed descriptions and code samples for every Twilio SendGrid API.
+* [Email concepts](/docs/sendgrid/concepts.md): Concepts cover the basics of bulk email messaging.
+* [Email Flow](/docs/sendgrid/concepts/email-flow.md): A basic diagram and description of how each email message flows in general and through SendGrid
 * [X-Message-ID](/docs/sendgrid/glossary/x-message-id.md): \*Analytics\*. An SMTP email header that Twilio SendGrid includes in email messages it sends as event webhook metadata.
 * [Webhook](/docs/sendgrid/glossary/webhook.md): \*Analytics\*. An event-driven communication that sends data between apps using custom HTTP POST request to a URL.
 * [Web API](/docs/sendgrid/glossary/web-api.md): \*API\*. A programming interface that allows web servers and web browsers to connect and enable account and data collection for services like email.
@@ -1368,14 +1369,45 @@
 * [Ad unit](/docs/sendgrid/glossary/ad-unit.md): \*Advertising\*. The container that holds the advertising copy and graphics for a digital advertisement on a screen.
 * [Ad impression](/docs/sendgrid/glossary/ad-impression.md): \*Advertising\*. One occurence of an advertisement displaying on a screen.
 * [Ad exchange](/docs/sendgrid/glossary/ad-exchange.md): \*Advertising\*. A digital marketplace where advertisers and publishers can buy and sell display, video, and mobile advertising.
-* [Email concepts](/docs/sendgrid/concepts.md): Concepts cover the basics of bulk email messaging.
-* [Email Flow](/docs/sendgrid/concepts/email-flow.md): A basic diagram and description of how each email message flows in general and through SendGrid
+* [SendGrid v3 API reference](/docs/sendgrid/api-reference.md): The SendGrid API reference provides detailed descriptions and code samples for every Twilio SendGrid API.
 * [Segmenting your Contacts](/docs/sendgrid/ui/managing-contacts/segmenting-your-contacts.md): Utilize the latest Marketing Campaigns for dynamic email segmentation based on various conditions. Efficient creation, refresh, and management of up to 200 segments.
 * [Formatting a CSV](/docs/sendgrid/ui/managing-contacts/formatting-a-csv.md): Directions on how to format a CSV for upload using SendGrid Marketing Campaigns
 * [Personalize and segment messages with custom fields](/docs/sendgrid/ui/managing-contacts/custom-fields.md): Custom fields help you segment your lists dynamically based on your user information.
 * [Manage contacts](/docs/sendgrid/ui/managing-contacts/create-and-manage-contacts.md): Leverage the latest Twilio SendGrid's Marketing Campaigns version. Easily manage contacts through CSV files, Signup forms, or Contact Management APIs.
 * [Building your Contact list](/docs/sendgrid/ui/managing-contacts/building-your-contact-list.md): Directions on how to effectively build your Marketing Campaigns Contact list.
 * [Integrations](/docs/sendgrid/ui/integrations.md): Integrate 3rd party tools with SendGrid Marketing Campaigns.
+* [Create an email design](/docs/sendgrid/ui/sending-email/working-with-marketing-campaigns-email-designs.md): Twilio SendGrid creates messages based on templates called Designs. To create a template for your Single Send messages, start with the Design Library.
+* [The Weblink Substitution Tag](/docs/sendgrid/ui/sending-email/weblink.md): The Webklink tag is replaced with a link that will open the email in a Twilio SendGrid-hosted webpage. This feature makes it possible to view an email when an email client fails to open or properly render the message.
+* [Verify sending email servers with SPF](/docs/sendgrid/ui/sending-email/verify-sender-with-spf.md): Identify servers can send email from their domain with the Sender Policy Framework (SPF).
+* [Universal Links](/docs/sendgrid/ui/sending-email/universal-links.md): Learn how to set up universal links with click tracking in your emails.
+* [Substitution and Section Tags](/docs/sendgrid/ui/sending-email/substitution-and-section-tags.md): Substitution and Section Tags
+* [Unsubscribe via Subscription Tracking](/docs/sendgrid/ui/sending-email/subscription-tracking.md): Unsubscribe via Subscription Tracking
+* [Single Sends](/docs/sendgrid/ui/sending-email/single-sends.md): An overview and reference page for customers working with Twilio SendGrid Marketing Campaigns Single Sends.
+* [Senders](/docs/sendgrid/ui/sending-email/senders.md): Understand email sender identification and how to manage the sender of your email campaign with Twilio SendGrid.
+* [Authenticate a single sender](/docs/sendgrid/ui/sending-email/sender-verification.md): Understand the difference between domain authentication and verifying a single sender.
+* [List-Unsubscribe](/docs/sendgrid/ui/sending-email/list-unsubscribe.md): Include the List-Unsubscribe header to provide your recipients with an unsbuscribe link next to the From address used to deliver mail.
+* [Invalid email addresses](/docs/sendgrid/ui/sending-email/invalid-emails.md): Twilio SendGrid keeps reports of invalid email addresses for 30 days.
+* [Suppressions](/docs/sendgrid/ui/sending-email/index-suppressions.md): Twilio SendGrid suppresses emails that your recipients unsubscribe from or that recipient email servers reject.
+* [Prepare your email Marketing Campaign](/docs/sendgrid/ui/sending-email/how-to-send-email-with-marketing-campaigns.md): Use Twilio SendGrid for email marketing.
+* [Send an email with dynamic templates](/docs/sendgrid/ui/sending-email/how-to-send-an-email-with-dynamic-templates.md): Activate and customize dynamic email templates with our comprehensive guide. Master template ID retrieval and implement dynamic data with ease.
+* [Group Unsubscribes](/docs/sendgrid/ui/sending-email/group-unsubscribes.md): Allow recipients to unsubscribe from specific types of email you send, rather than everything you send, and stay out of the spam folder.
+* [Global Unsubscribes](/docs/sendgrid/ui/sending-email/global-unsubscribes.md): Recipients can unsubscribe from everything you send, rather than just a single group.
+* [Get started with Automation](/docs/sendgrid/ui/sending-email/getting-started-with-automation.md): Create an automated email series or drip campaign targeted towards a specific audience with Automation.
+* [HTML Formatting Issues](/docs/sendgrid/ui/sending-email/formatting-html.md): HTML Formatting Issues
+* [Email Testing](/docs/sendgrid/ui/sending-email/email-testing.md): Email Testing for Software Developers: Enhance your emails with features such as spam testing, inbox rendering previews, and link validation.
+* [Choose an email editor](/docs/sendgrid/ui/sending-email/editor.md): Twilio SendGrid Marketing Campaigns' editing gives you complete control over your emails. Use a flexible drag-and-drop Design editor or a robust HTML code editor.
+* [Enforce authentication with a DMARC policy](/docs/sendgrid/ui/sending-email/dmarc.md): Learn how Domain-based Message Authentication, Reporting and Conformance enforces email message authentication results.
+* [Use the Design Editor](/docs/sendgrid/ui/sending-email/design-editor.md): Twilio SendGrid Design Editor lets you design your email messages with a visual editor.
+* [Improve deliverability](/docs/sendgrid/ui/sending-email/deliverability.md): Improve Email Deliverability
+* [Cross-Platform Email Design](/docs/sendgrid/ui/sending-email/cross-platform-html-design.md): HTML Rendering - The Do's and Dont's of Cross-Platform Email Design
+* [Manage recipients who unsubscribe](/docs/sendgrid/ui/sending-email/create-and-manage-unsubscribe-groups.md): Recipients can choose to unsubscribe from your email messages. How you handle these requests factors heavily into your overall deliverability and sender reputation.
+* [Create and Edit Legacy Transactional Templates](/docs/sendgrid/ui/sending-email/create-and-edit-legacy-transactional-templates.md): Transactional email templates are pre-coded email layouts that anyone can use to easily create and send transactional emails.
+* [Use the Code Editor](/docs/sendgrid/ui/sending-email/code-editor.md): Twilio SendGrid Code Editor lets you design your email messages with HTML.
+* [Manage bounced messages](/docs/sendgrid/ui/sending-email/bounces.md): Twilio SendGrid helps prevent you from resending to a recipient whose email server rejects the messages.
+* [Manage blocked messages](/docs/sendgrid/ui/sending-email/blocks.md): How to find out if an ISP or inbox provider blocks your email.
+* [Sending Attachments with Digioh](/docs/sendgrid/ui/sending-email/attachments-with-digioh.md): Manage file size during email attachment with SendGrid's Marketing Email solution. Learn to use SMTP Relay or Web API v3 effectively.
+* [Adding Dynamic Content with Handlebars in Marketing Campaigns](/docs/sendgrid/ui/sending-email/adding-dynamic-content-with-handlebars-in-marketing-campaigns.md): The use cases on this page will help you utilize Handlebars helpers to deliver dynamic content targeted to your customers.
+* [A/B Testing Your Single Send](/docs/sendgrid/ui/sending-email/a-b-testing.md): Optimize engagement of your campaigns with A/B testing, by sending different versions of your emails to a small subset of your contacts and measuring the engagement results.
 * [Verifying your Account](/docs/sendgrid/ui/account-and-settings/verifying-your-account.md): Signed up with SendGrid? Learn more about the steps to complete first...
 * [Upgrade your plan](/docs/sendgrid/ui/account-and-settings/upgrading-your-plan.md): Upgrade your SendGrid plan to enhance email sending capabilities. Explore flexible options to meet your business needs.
 * [Two-factor authentication](/docs/sendgrid/ui/account-and-settings/two-factor-authentication.md): Two-Factor Authentication gives you an extra layer of security to protect your Twilio SendGrid account.
@@ -1415,48 +1447,16 @@
 * [Set up secure click tracking](/docs/sendgrid/ui/analytics-and-reporting/click-tracking-ssl.md): Set up and manage SSL-enabled click and open tracking with Twilio SendGrid. Understand sender authentication setup, SSL operation, and data access via UI or API.
 * [Click Tracking & HTML Best Practices](/docs/sendgrid/ui/analytics-and-reporting/click-tracking-html-best-practices.md): Click Tracking & HTML Best Practices
 * [Bounce and Block Classifications](/docs/sendgrid/ui/analytics-and-reporting/bounce-and-block-classifications.md): Understand Twilio SendGrid's SMTP bounce and block response classification. Use the Email Activity API or Event Webhook for insights on message failures.
-* [Create an email design](/docs/sendgrid/ui/sending-email/working-with-marketing-campaigns-email-designs.md): Twilio SendGrid creates messages based on templates called Designs. To create a template for your Single Send messages, start with the Design Library.
-* [The Weblink Substitution Tag](/docs/sendgrid/ui/sending-email/weblink.md): The Webklink tag is replaced with a link that will open the email in a Twilio SendGrid-hosted webpage. This feature makes it possible to view an email when an email client fails to open or properly render the message.
-* [Verify sending email servers with SPF](/docs/sendgrid/ui/sending-email/verify-sender-with-spf.md): Identify servers can send email from their domain with the Sender Policy Framework (SPF).
-* [Universal Links](/docs/sendgrid/ui/sending-email/universal-links.md): Learn how to set up universal links with click tracking in your emails.
-* [Substitution and Section Tags](/docs/sendgrid/ui/sending-email/substitution-and-section-tags.md): Substitution and Section Tags
-* [Unsubscribe via Subscription Tracking](/docs/sendgrid/ui/sending-email/subscription-tracking.md): Unsubscribe via Subscription Tracking
-* [Single Sends](/docs/sendgrid/ui/sending-email/single-sends.md): An overview and reference page for customers working with Twilio SendGrid Marketing Campaigns Single Sends.
-* [Senders](/docs/sendgrid/ui/sending-email/senders.md): Understand email sender identification and how to manage the sender of your email campaign with Twilio SendGrid.
-* [Authenticate a single sender](/docs/sendgrid/ui/sending-email/sender-verification.md): Understand the difference between domain authentication and verifying a single sender.
-* [List-Unsubscribe](/docs/sendgrid/ui/sending-email/list-unsubscribe.md): Include the List-Unsubscribe header to provide your recipients with an unsbuscribe link next to the From address used to deliver mail.
-* [Invalid email addresses](/docs/sendgrid/ui/sending-email/invalid-emails.md): Twilio SendGrid keeps reports of invalid email addresses for 30 days.
-* [Suppressions](/docs/sendgrid/ui/sending-email/index-suppressions.md): Twilio SendGrid suppresses emails that your recipients unsubscribe from or that recipient email servers reject.
-* [Prepare your email Marketing Campaign](/docs/sendgrid/ui/sending-email/how-to-send-email-with-marketing-campaigns.md): Use Twilio SendGrid for email marketing.
-* [Send an email with dynamic templates](/docs/sendgrid/ui/sending-email/how-to-send-an-email-with-dynamic-templates.md): Activate and customize dynamic email templates with our comprehensive guide. Master template ID retrieval and implement dynamic data with ease.
-* [Group Unsubscribes](/docs/sendgrid/ui/sending-email/group-unsubscribes.md): Allow recipients to unsubscribe from specific types of email you send, rather than everything you send, and stay out of the spam folder.
-* [Global Unsubscribes](/docs/sendgrid/ui/sending-email/global-unsubscribes.md): Recipients can unsubscribe from everything you send, rather than just a single group.
-* [Get started with Automation](/docs/sendgrid/ui/sending-email/getting-started-with-automation.md): Create an automated email series or drip campaign targeted towards a specific audience with Automation.
-* [HTML Formatting Issues](/docs/sendgrid/ui/sending-email/formatting-html.md): HTML Formatting Issues
-* [Email Testing](/docs/sendgrid/ui/sending-email/email-testing.md): Email Testing for Software Developers: Enhance your emails with features such as spam testing, inbox rendering previews, and link validation.
-* [Choose an email editor](/docs/sendgrid/ui/sending-email/editor.md): Twilio SendGrid Marketing Campaigns' editing gives you complete control over your emails. Use a flexible drag-and-drop Design editor or a robust HTML code editor.
-* [Enforce authentication with a DMARC policy](/docs/sendgrid/ui/sending-email/dmarc.md): Learn how Domain-based Message Authentication, Reporting and Conformance enforces email message authentication results.
-* [Use the Design Editor](/docs/sendgrid/ui/sending-email/design-editor.md): Twilio SendGrid Design Editor lets you design your email messages with a visual editor.
-* [Improve deliverability](/docs/sendgrid/ui/sending-email/deliverability.md): Improve Email Deliverability
-* [Cross-Platform Email Design](/docs/sendgrid/ui/sending-email/cross-platform-html-design.md): HTML Rendering - The Do's and Dont's of Cross-Platform Email Design
-* [Manage recipients who unsubscribe](/docs/sendgrid/ui/sending-email/create-and-manage-unsubscribe-groups.md): Recipients can choose to unsubscribe from your email messages. How you handle these requests factors heavily into your overall deliverability and sender reputation.
-* [Create and Edit Legacy Transactional Templates](/docs/sendgrid/ui/sending-email/create-and-edit-legacy-transactional-templates.md): Transactional email templates are pre-coded email layouts that anyone can use to easily create and send transactional emails.
-* [Use the Code Editor](/docs/sendgrid/ui/sending-email/code-editor.md): Twilio SendGrid Code Editor lets you design your email messages with HTML.
-* [Manage bounced messages](/docs/sendgrid/ui/sending-email/bounces.md): Twilio SendGrid helps prevent you from resending to a recipient whose email server rejects the messages.
-* [Manage blocked messages](/docs/sendgrid/ui/sending-email/blocks.md): How to find out if an ISP or inbox provider blocks your email.
-* [Sending Attachments with Digioh](/docs/sendgrid/ui/sending-email/attachments-with-digioh.md): Manage file size during email attachment with SendGrid's Marketing Email solution. Learn to use SMTP Relay or Web API v3 effectively.
-* [Adding Dynamic Content with Handlebars in Marketing Campaigns](/docs/sendgrid/ui/sending-email/adding-dynamic-content-with-handlebars-in-marketing-campaigns.md): The use cases on this page will help you utilize Handlebars helpers to deliver dynamic content targeted to your customers.
-* [A/B Testing Your Single Send](/docs/sendgrid/ui/sending-email/a-b-testing.md): Optimize engagement of your campaigns with A/B testing, by sending different versions of your emails to a small subset of your contacts and measuring the engagement results.
 * [Twilio SendGrid Event Webhook Overview](/docs/sendgrid/for-developers/tracking-events/twilio-sendgrid-event-webhook-overview.md): Understand the SendGrid Event Webhook and how to integrate it to better manage your email program with event data.
 * [Event Webhook Node.js Code Example](/docs/sendgrid/for-developers/tracking-events/nodejs-code-example.md): Explore how to parse emails using Node and Express, and post via Event Webhook. The sendgrid.biz/parse guide simplifies the process.
 * [Getting started with the Event Webhook](/docs/sendgrid/for-developers/tracking-events/getting-started-event-webhook.md): Use RequestBin to get started or to troubleshoot your Event Webhook.
 * [Getting Started with the Event Webhook Security Features](/docs/sendgrid/for-developers/tracking-events/getting-started-event-webhook-security-features.md): Secure the Event Webhook using the Signed Webhook, OAuth 2.0, or both.
 * [Event Webhook Reference](/docs/sendgrid/for-developers/tracking-events/event.md): Full Event Webhook event list and descriptions, event examples, and the objects each event contains.
 * [Event Webhook C# Code Example](/docs/sendgrid/for-developers/tracking-events/csharp-code-example.md): Implement email parsing from the SendGrid domain and post to a specific URL using our proven methods in ApiController.
-* [Configure the inbound parse webhook](/docs/sendgrid/for-developers/parsing-email/setting-up-the-inbound-parse-webhook.md): How to set up the inbound parse webhook to process and parse incoming email
-* [Inbound Email Parse Webhook](/docs/sendgrid/for-developers/parsing-email/inbound-email.md): Utilize SendGrid's Parse API to parse incoming emails and attachments efficiently. Mitigate data loss and ensure email delivery success.
 * [Sending Email with Microsoft Azure](/docs/sendgrid/for-developers/partners/microsoft-azure-2021.md): Learn how to send email with Twilio SendGrid's newest Azure integration
 * [Migrating from a partner account](/docs/sendgrid/for-developers/partners/account-migration.md): Sometimes if a SendGrid partner no longer supports SendGrid core functionality, you may want to migrate your account to a regular SendGrid account.
+* [Configure the inbound parse webhook](/docs/sendgrid/for-developers/parsing-email/setting-up-the-inbound-parse-webhook.md): How to set up the inbound parse webhook to process and parse incoming email
+* [Inbound Email Parse Webhook](/docs/sendgrid/for-developers/parsing-email/inbound-email.md): Utilize SendGrid's Parse API to parse incoming emails and attachments efficiently. Mitigate data loss and ensure email delivery success.
 * [Migrate from Twilio SendGrid API v2 to v3](/docs/sendgrid/for-developers/migration-guides/v2-to-v3-api.md): Follow our guide to successfully migrate from SendGrid API v2 to v3. Improve performance and access updated features.
 * [v3 API Python Code Example](/docs/sendgrid/for-developers/sending-email/v3-python-code-example.md): Integrate Twilio SendGrid using the Python client library with complete documentation. Detailed example with API integration tips and resources.
 * [v3 Mail Send FAQ](/docs/sendgrid/for-developers/sending-email/v3-mail-send-faq.md): Leverage SendGrid's v3 Mail Send, the improved Web API endpoint, for effective email management. Enhanced JSON schema, better validation, and easy migration.
@@ -1500,50 +1500,6 @@
 * [Automate Adding Subusers with the SendGrid API](/docs/sendgrid/for-developers/sending-email/automating-subusers.md): Use the SendGrid API to add Subusers to your account.
 * [Authentication](/docs/sendgrid/for-developers/sending-email/authentication.md): Authenticating with the Twilio SendGrid API.
 * [Getting started with the SendGrid API](/docs/sendgrid/for-developers/sending-email/api-getting-started.md): Sending your first email using the SendGrid REST API.
-* [Test Event Notification Settings](/docs/sendgrid/api-reference/webhooks/test-event-notification-settings.md): Test Event Webhook on SendGrid using specialized endpoint. Facilitate POST requests, verify OAuth properties, and make API calls for subusers.
-* [Get an Event Webhook](/docs/sendgrid/api-reference/webhooks/get-an-event-webhook.md): Retrieve a single Event Webhook by its ID using the API endpoint at https://api.sendgrid.com. Detailed event data and settings returned efficiently.
-* [Retrieve paged transactional templates.](/docs/sendgrid/api-reference/transactional-templates/retrieve-paged-transactional-templates.md): Discover how to create, retrieve and manage up to 300 unique transactional email templates with the easy-to-use API provided.
-* [Retrieve a single transactional template.](/docs/sendgrid/api-reference/transactional-templates/retrieve-a-single-transactional-template.md): Leverage an HTML template for creating transactional emails. Manage multiple transactional templates and efficiently fetch details using an endpoint.
-* [Create a transactional template.](/docs/sendgrid/api-reference/transactional-templates/create-a-transactional-template.md): Create HTML templates for transactional emails on SendGrid. Manage up to 300 unique templates per account, with dynamic content replacement.
-* [Retrieve global email statistics](/docs/sendgrid/api-reference/stats/retrieve-global-email-statistics.md): "Track email activity efficiently using SendGrid's API. Access detailed stats like click and open rates, avoiding spam complaints, and more."
-* [Create Single Send](/docs/sendgrid/api-reference/single-sends/create-single-send.md): Leverage your audience lists with Single Send API. Manage email messages for marketing campaigns, newsletters, legal notices, and more. No templates required.
-* [Create a parse setting](/docs/sendgrid/api-reference/settings-inbound-parse/create-a-parse-setting.md): Set up Twilio SendGrid's Inbound Parse Webhook to receive emails at your desired URL. Configure domain, DNS, and API calls efficiently.
-* [Mail Send](/docs/sendgrid/api-reference/mail-send/mail-send.md): Optimize emailing with SendGrid's Mail Send endpoint. Create dynamic templates, schedule emails, track click rates, and manage subscriptions efficiently.
-* [Mail Send API Overview](/docs/sendgrid/api-reference/mail-send.md): A high-level overview of the Mail Send endpoint in the SendGrid v3 Web API.
-* [Errors](/docs/sendgrid/api-reference/mail-send/errors.md): Troubleshoot error code 400 during SendGrid API use. Explore solutions independently or engage Twilio SendGrid Support Team resources.
-* [Responses](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/responses.md): Explore the responses that the Twilio SendGrid Web API v3 returns.
-* [Requests](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/requests.md): Leverage the power of SendGrid's Web API v3 for a multi-featured, RESTful API experience. Enable batch retrieval and search by field features.
-* [Rate Limits](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/rate-limits.md): Explore SendGrid's Web API v3 features with this comprehensive guide. Understand rate limits, status codes, and more for efficient API calls.
-* [On Behalf Of](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/on-behalf-of.md): Utilize SendGrid's Web API v3, a user-friendly RESTful API; perform bulk actions and sub-account admin with the 'On Behalf Of' header.
-* [Errors](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/errors.md): Explore SendGrid's Web API v3: a fully featured, easily integratable RESTful API supporting 7 languages. Handles errors with detailed status codes.
-* [Authorization](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authorization.md): Explore SendGrid's Web API v3, a RESTful API supporting seven languages, and learn to authenticate using API keys with specific scopes.
-* [Authentication](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication.md): Explore the Twilio SendGrid Web API v3, a REST API with SDK support in seven languages. Ensure secure, controllable account access with API keys.
-* [Email Logs](/docs/sendgrid/api-reference/email-logs.md): Search and retrieve detailed email delivery and engagement data with the Email Logs API. Gain event-level visibility to troubleshoot and validate message outcomes in near real time.
-* [Filter messages by ID](/docs/sendgrid/api-reference/email-logs/filter-messages-by-id.md): Retrieve detailed event-level data for a specific message using the Email Logs API, including its delivery timeline and status updates.
-* [Filter all messages](/docs/sendgrid/api-reference/email-logs/filter-all-messages.md): Search stored email messages using the Email Logs API and return message-level results with key delivery attributes.
-* [Real Time Email Address Validation - API Reference](/docs/sendgrid/api-reference/email-address-validation/validate-an-email.md): Integrate real-time Email Address Validation to your Twilio SendGrid App. Ensures validity, assesses bounce likelihood, identifies role/group accounts.
-* [Request a Bulk Email Address Validation Upload URL](/docs/sendgrid/api-reference/email-address-validation/request-bulk-email-address-validation-upload-url.md): Ensures validity, assesses bounce likelihood, identifies role/group accounts. This endpoint allows you to request a presigned URL and headers to upload a CSV file for bulk email address validation.
-* [Email Address Validation](/docs/sendgrid/api-reference/email-address-validation.md): Reduce bounce rate and improve your sender reputation by validating email addresses with the Email Address Validation API.
-* [Request a CSV](/docs/sendgrid/api-reference/email-activity/request-a-csv.md): Harness the power of the Email Activity Feed API to analyze stored messages. Use the Twilio SendGrid App for email activity tracking.
-* [Filter messages by message ID](/docs/sendgrid/api-reference/email-activity/filter-messages-by-message-id.md): Use the Email Activity Feed API for efficient querying, downloading, and inspecting emails in Twilio SendGrid. Access bounced messages, sender/recipient details, event info, and more.
-* [Filter all messages](/docs/sendgrid/api-reference/email-activity/filter-all-messages.md): Access and analyze your stored email messages using the Email Activity Feed API. Purchase additional history for enhanced data retrieval.
-* [Download CSV](/docs/sendgrid/api-reference/email-activity/download-csv.md): Access Email Activity Feed API purchase extra email activity history for comprehensive message data analysis.
-* [Create Design](/docs/sendgrid/api-reference/designs-api/create-design.md): Manage your email layouts with Twilio SendGrid's Designs API. Create, alter, or delete designs using a RESTful interface without UI dependency.
-* [Validate a domain authentication.](/docs/sendgrid/api-reference/domain-authentication/validate-a-domain-authentication.md): Authenticate your domain with SendGrid for email, eliminate 'via' or 'sent on behalf of' messages, and utilize your personal sending domain.
-* [Authenticate a domain](/docs/sendgrid/api-reference/domain-authentication/authenticate-a-domain.md): Authenticating domains with SendGrid simplifies email sending. Enjoy personalized sender domains, managed SPF records, and automated or custom security options.
-* [Contacts](/docs/sendgrid/api-reference/contacts.md): The Twilio SendGrid Marketing Campaigns Contacts API allows you to add, update, and delete contacts in your Marketing Campaigns account.
-* [Import Contacts](/docs/sendgrid/api-reference/contacts/import-contacts.md): Use our API endpoint to import up to 1 million contacts via a CSV. Asynchronous process allows gzip compression and custom field mappings.
-* [Delete Contacts](/docs/sendgrid/api-reference/contacts/delete-contacts.md): Leverage the SendGrid API for bulk deleting of contacts. Ensure efficient contact management and avoid data loss with regular backups.
-* [Add or update a contact](/docs/sendgrid/api-reference/contacts/add-or-update-a-contact.md): Insert or update up to 30,000 contacts.
-* [Retrieve all bounces](/docs/sendgrid/api-reference/bounces-api/retrieve-all-bounces.md): Manage bounced emails and retrieve up to 500 instances per query with SendGrid's suppression settings in Twilio app, honing API parameters.
-* [Delete API keys](/docs/sendgrid/api-reference/api-keys/delete-api-keys.md): Utilize API keys to validate access to SendGrid services without changing credentials. Manage actions with specific scopes via the Twilio SendGrid App.
-* [Create API keys](/docs/sendgrid/api-reference/api-keys/create-api-keys.md): Manage and refine API keys using Twilio SendGrid App. Efficiently access SendGrid services with full control and scope for limited actions.
-* [API Key Permissions](/docs/sendgrid/api-reference/api-key-permissions.md): Utilize Twilio SendGrid API keys for secure and efficient access to v3 API endpoints. Manage different permissions for seamless integration.
-* [Delete Account](/docs/sendgrid/api-reference/account-provisioning-api-account-operations/delete-account.md): Delete an account under your organization with the Account Provisioning API
-* [Account Provisioning API Overview](/docs/sendgrid/api-reference/account-provisioning-api.md): The Twilio SendGrid Account Provisioning API provides a platform for Twilio SendGrid resellers to manage their customer accounts. This API is for companies that have a formal reseller partnership with Twilio SendGrid.
-* [Remove IPs](/docs/sendgrid/api-reference/account-ip-provisioning-api-ip-operations/remove-ips.md): Remove IP addresses from a customer account with the IP Provisioning API
-* [List IPs](/docs/sendgrid/api-reference/account-ip-provisioning-api-ip-operations/list-ips.md): Retrieve a list of IP addresses associated with a customer account
-* [Add IPs](/docs/sendgrid/api-reference/account-ip-provisioning-api-ip-operations/add-ips.md): Add IP addresses to a customer account with the IP Provisioning API
 * [Encrypt with TLS](/docs/sendgrid/concepts/security/tls.md): Twilio uses Transport Layer Security when delivering email.
 * [Secure your Twilio account](/docs/sendgrid/concepts/security/secure-account.md): Follow good security&#x20;
 * [Abuse awareness](/docs/sendgrid/concepts/security/abuse-awareness.md): Identify how email can be attacked.
@@ -1559,6 +1515,50 @@
 * [Deferrals](/docs/sendgrid/concepts/deliverability/deferrals.md): Learn about email deferrals, why messages are temporarily delayed by receiving servers, and how to address common causes.
 * [Blocklists](/docs/sendgrid/concepts/deliverability/blocklists.md): Learn how blocklists work, how you get on them, and how you get off them.
 * [Blocklist provider insights](/docs/sendgrid/concepts/deliverability/blocklist-provider-insights.md): Discover how blocklist providers monitor and act on issues with IP addresses.
+* [Retrieve paged transactional templates.](/docs/sendgrid/api-reference/transactional-templates/retrieve-paged-transactional-templates.md): Discover how to create, retrieve and manage up to 300 unique transactional email templates with the easy-to-use API provided.
+* [Retrieve a single transactional template.](/docs/sendgrid/api-reference/transactional-templates/retrieve-a-single-transactional-template.md): Leverage an HTML template for creating transactional emails. Manage multiple transactional templates and efficiently fetch details using an endpoint.
+* [Create a transactional template.](/docs/sendgrid/api-reference/transactional-templates/create-a-transactional-template.md): Create HTML templates for transactional emails on SendGrid. Manage up to 300 unique templates per account, with dynamic content replacement.
+* [Test Event Notification Settings](/docs/sendgrid/api-reference/webhooks/test-event-notification-settings.md): Test Event Webhook on SendGrid using specialized endpoint. Facilitate POST requests, verify OAuth properties, and make API calls for subusers.
+* [Get an Event Webhook](/docs/sendgrid/api-reference/webhooks/get-an-event-webhook.md): Retrieve a single Event Webhook by its ID using the API endpoint at https://api.sendgrid.com. Detailed event data and settings returned efficiently.
+* [Retrieve global email statistics](/docs/sendgrid/api-reference/stats/retrieve-global-email-statistics.md): "Track email activity efficiently using SendGrid's API. Access detailed stats like click and open rates, avoiding spam complaints, and more."
+* [Create Single Send](/docs/sendgrid/api-reference/single-sends/create-single-send.md): Leverage your audience lists with Single Send API. Manage email messages for marketing campaigns, newsletters, legal notices, and more. No templates required.
+* [Create a parse setting](/docs/sendgrid/api-reference/settings-inbound-parse/create-a-parse-setting.md): Set up Twilio SendGrid's Inbound Parse Webhook to receive emails at your desired URL. Configure domain, DNS, and API calls efficiently.
+* [Mail Send](/docs/sendgrid/api-reference/mail-send/mail-send.md): Optimize emailing with SendGrid's Mail Send endpoint. Create dynamic templates, schedule emails, track click rates, and manage subscriptions efficiently.
+* [Mail Send API Overview](/docs/sendgrid/api-reference/mail-send.md): A high-level overview of the Mail Send endpoint in the SendGrid v3 Web API.
+* [Errors](/docs/sendgrid/api-reference/mail-send/errors.md): Troubleshoot error code 400 during SendGrid API use. Explore solutions independently or engage Twilio SendGrid Support Team resources.
+* [Email Logs](/docs/sendgrid/api-reference/email-logs.md): Search and retrieve detailed email delivery and engagement data with the Email Logs API. Gain event-level visibility to troubleshoot and validate message outcomes in near real time.
+* [Filter messages by ID](/docs/sendgrid/api-reference/email-logs/filter-messages-by-id.md): Retrieve detailed event-level data for a specific message using the Email Logs API, including its delivery timeline and status updates.
+* [Filter all messages](/docs/sendgrid/api-reference/email-logs/filter-all-messages.md): Search stored email messages using the Email Logs API and return message-level results with key delivery attributes.
+* [Responses](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/responses.md): Explore the responses that the Twilio SendGrid Web API v3 returns.
+* [Requests](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/requests.md): Leverage the power of SendGrid's Web API v3 for a multi-featured, RESTful API experience. Enable batch retrieval and search by field features.
+* [Rate Limits](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/rate-limits.md): Explore SendGrid's Web API v3 features with this comprehensive guide. Understand rate limits, status codes, and more for efficient API calls.
+* [On Behalf Of](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/on-behalf-of.md): Utilize SendGrid's Web API v3, a user-friendly RESTful API; perform bulk actions and sub-account admin with the 'On Behalf Of' header.
+* [Errors](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/errors.md): Explore SendGrid's Web API v3: a fully featured, easily integratable RESTful API supporting 7 languages. Handles errors with detailed status codes.
+* [Authorization](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authorization.md): Explore SendGrid's Web API v3, a RESTful API supporting seven languages, and learn to authenticate using API keys with specific scopes.
+* [Authentication](/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication.md): Explore the Twilio SendGrid Web API v3, a REST API with SDK support in seven languages. Ensure secure, controllable account access with API keys.
+* [Real Time Email Address Validation - API Reference](/docs/sendgrid/api-reference/email-address-validation/validate-an-email.md): Integrate real-time Email Address Validation to your Twilio SendGrid App. Ensures validity, assesses bounce likelihood, identifies role/group accounts.
+* [Request a Bulk Email Address Validation Upload URL](/docs/sendgrid/api-reference/email-address-validation/request-bulk-email-address-validation-upload-url.md): Ensures validity, assesses bounce likelihood, identifies role/group accounts. This endpoint allows you to request a presigned URL and headers to upload a CSV file for bulk email address validation.
+* [Email Address Validation](/docs/sendgrid/api-reference/email-address-validation.md): Reduce bounce rate and improve your sender reputation by validating email addresses with the Email Address Validation API.
+* [Request a CSV](/docs/sendgrid/api-reference/email-activity/request-a-csv.md): Harness the power of the Email Activity Feed API to analyze stored messages. Use the Twilio SendGrid App for email activity tracking.
+* [Filter messages by message ID](/docs/sendgrid/api-reference/email-activity/filter-messages-by-message-id.md): Use the Email Activity Feed API for efficient querying, downloading, and inspecting emails in Twilio SendGrid. Access bounced messages, sender/recipient details, event info, and more.
+* [Filter all messages](/docs/sendgrid/api-reference/email-activity/filter-all-messages.md): Access and analyze your stored email messages using the Email Activity Feed API. Purchase additional history for enhanced data retrieval.
+* [Download CSV](/docs/sendgrid/api-reference/email-activity/download-csv.md): Access Email Activity Feed API purchase extra email activity history for comprehensive message data analysis.
+* [Validate a domain authentication.](/docs/sendgrid/api-reference/domain-authentication/validate-a-domain-authentication.md): Authenticate your domain with SendGrid for email, eliminate 'via' or 'sent on behalf of' messages, and utilize your personal sending domain.
+* [Authenticate a domain](/docs/sendgrid/api-reference/domain-authentication/authenticate-a-domain.md): Authenticating domains with SendGrid simplifies email sending. Enjoy personalized sender domains, managed SPF records, and automated or custom security options.
+* [Create Design](/docs/sendgrid/api-reference/designs-api/create-design.md): Manage your email layouts with Twilio SendGrid's Designs API. Create, alter, or delete designs using a RESTful interface without UI dependency.
+* [Retrieve all bounces](/docs/sendgrid/api-reference/bounces-api/retrieve-all-bounces.md): Manage bounced emails and retrieve up to 500 instances per query with SendGrid's suppression settings in Twilio app, honing API parameters.
+* [Contacts](/docs/sendgrid/api-reference/contacts.md): The Twilio SendGrid Marketing Campaigns Contacts API allows you to add, update, and delete contacts in your Marketing Campaigns account.
+* [Import Contacts](/docs/sendgrid/api-reference/contacts/import-contacts.md): Use our API endpoint to import up to 1 million contacts via a CSV. Asynchronous process allows gzip compression and custom field mappings.
+* [Delete Contacts](/docs/sendgrid/api-reference/contacts/delete-contacts.md): Leverage the SendGrid API for bulk deleting of contacts. Ensure efficient contact management and avoid data loss with regular backups.
+* [Add or update a contact](/docs/sendgrid/api-reference/contacts/add-or-update-a-contact.md): Insert or update up to 30,000 contacts.
+* [API Key Permissions](/docs/sendgrid/api-reference/api-key-permissions.md): Utilize Twilio SendGrid API keys for secure and efficient access to v3 API endpoints. Manage different permissions for seamless integration.
+* [Delete API keys](/docs/sendgrid/api-reference/api-keys/delete-api-keys.md): Utilize API keys to validate access to SendGrid services without changing credentials. Manage actions with specific scopes via the Twilio SendGrid App.
+* [Create API keys](/docs/sendgrid/api-reference/api-keys/create-api-keys.md): Manage and refine API keys using Twilio SendGrid App. Efficiently access SendGrid services with full control and scope for limited actions.
+* [Delete Account](/docs/sendgrid/api-reference/account-provisioning-api-account-operations/delete-account.md): Delete an account under your organization with the Account Provisioning API
+* [Account Provisioning API Overview](/docs/sendgrid/api-reference/account-provisioning-api.md): The Twilio SendGrid Account Provisioning API provides a platform for Twilio SendGrid resellers to manage their customer accounts. This API is for companies that have a formal reseller partnership with Twilio SendGrid.
+* [Remove IPs](/docs/sendgrid/api-reference/account-ip-provisioning-api-ip-operations/remove-ips.md): Remove IP addresses from a customer account with the IP Provisioning API
+* [List IPs](/docs/sendgrid/api-reference/account-ip-provisioning-api-ip-operations/list-ips.md): Retrieve a list of IP addresses associated with a customer account
+* [Add IPs](/docs/sendgrid/api-reference/account-ip-provisioning-api-ip-operations/add-ips.md): Add IP addresses to a customer account with the IP Provisioning API
 * [Email Address Validation Overview](/docs/sendgrid/ui/managing-contacts/email-address-validation.md): Remove invalid email addresses from your lists, decrease your bounce rate, and improve your sender reputation with the Email Address Validation API.
 * [Using CloudFlare as your Content Delivery Network (CDN)](/docs/sendgrid/ui/sending-email/content-delivery-networks/using-cloudflare-as-your-content-delivery-network-cdn.md): Setup your Content Delivery Network with CloudFlare for effective click tracking. Follow our step-by-step guide and enhance your SSL setup process.
 * [Content Delivery Networks](/docs/sendgrid/ui/sending-email/content-delivery-networks.md): Integrate Twilio SendGrid with CDNs such as CloudFront, CloudFlare, Fastly, KeyCDN for efficient content delivery and security management.
@@ -1596,6 +1596,12 @@
 * [Android Video Application Recommendations and Best Practices](/docs/video/android-recommendations-best-practices.md): Recommendations and best practices for building with the Programmable Video Android SDK, including managing audio focus, handling local media, and error handling.
 * [Twilio Video Quickstart for Android](/docs/video/android-getting-started.md): Learn how to build a video application with Twilio's Video API and the Twilio Android SDK in this Twilio Video Quickstart.
 * [Add Programmable Voice Participants to Video Rooms](/docs/video/adding-programmable-voice-participants-video-rooms.md): Learn how to add Programmable Voice callers as participants in video rooms using the TwiML \<Room> noun within the \<Connect> verb. You can connect inbound calls to your Twilio phone number as well as outgoing calls from your Twilio phone number to video rooms.
+* [Video Log Analyzer API](/docs/video/troubleshooting/video-log-analyzer-api.md): Full reference for the Programmable Video Log Analyzer API. Sample code shows how to get a list of rooms and participants and a room's video log data.
+* [Preflight API](/docs/video/troubleshooting/preflight-api.md): How to access and use the Preflight API for testing connectivity to the Twilio Cloud.
+* [Pre-call Testing and Diagnostics](/docs/video/troubleshooting/pre-call-testing-and-diagnostics.md): Learn about tools for understanding clients' connections and diagnosing any potential problems before, during, or after a Twilio Video call.
+* [JavaScript Room Monitor](/docs/video/troubleshooting/javascript-room-monitor.md): In this overview, learn about the JavaScript Room Monitor. See what browsers are supported, how to add the monitor to your application, and how to use the monitor.
+* [JavaScript Logger](/docs/video/troubleshooting/javascript-logger.md): Learn how to install the JavaScript Logger via npm or Twilio's CDN, then learn how to set the logging level and intercept logs.
+* [Video Insights](/docs/video/troubleshooting/insights.md): Use Video Insights to observe your video application, discover trends, and troubleshoot room and participant issues. View an overview dashboard of all your video rooms, dig into detected issues, and see quality metric graphs for all participants.
 * [Video Regions and Global Low Latency](/docs/video/tutorials/video-regions-and-global-low-latency.md): Learn about how geolocation of media and signaling servers impacts call quality. Selecting the right geolocation setting improves the video call experience and reduces call latency. See how to set the signaling and media region for your Twilio Video Rooms depending on your users' locations.
 * [Using the Network Bandwidth Profile API](/docs/video/tutorials/using-bandwidth-profile-api.md): Learn how to use the Programmable Video Network Bandwidth Profile API to assign a higher bandwidth to tracks, protect audio quality and manage resources.
 * [User Identity & Access Tokens for Programmable Video](/docs/video/tutorials/user-identity-access-tokens.md): Learn how to control user identity and room permissions in your Programmable Video applications, including access tokens, room access, and time-to-live.
@@ -1609,12 +1615,6 @@
 * [Get Started with Twilio Video Part 2: Creating the Frontend](/docs/video/tutorials/get-started-with-twilio-video-node-express-frontend.md): Learn how to create a browser-based video application using JavaScript. This is the second part of a tutorial for building a Twilio Video app using Node/Express for the server and JavaScript for the frontend.
 * [Encrypting your Stored Media](/docs/video/tutorials/encrypting-your-stored-media.md): Learn how to encrypt Twilio Video Recordings and Compositions. Use this feature when you need to ensure your recorded media is encrypted end-to-end.
 * [Developing High Quality Video Applications](/docs/video/tutorials/developing-high-quality-video-applications.md): This guide provides advice for building higher-quality video applications, covering terminology and concepts, requirements, and room quality.
-* [Video Log Analyzer API](/docs/video/troubleshooting/video-log-analyzer-api.md): Full reference for the Programmable Video Log Analyzer API. Sample code shows how to get a list of rooms and participants and a room's video log data.
-* [Preflight API](/docs/video/troubleshooting/preflight-api.md): How to access and use the Preflight API for testing connectivity to the Twilio Cloud.
-* [Pre-call Testing and Diagnostics](/docs/video/troubleshooting/pre-call-testing-and-diagnostics.md): Learn about tools for understanding clients' connections and diagnosing any potential problems before, during, or after a Twilio Video call.
-* [JavaScript Room Monitor](/docs/video/troubleshooting/javascript-room-monitor.md): In this overview, learn about the JavaScript Room Monitor. See what browsers are supported, how to add the monitor to your application, and how to use the monitor.
-* [JavaScript Logger](/docs/video/troubleshooting/javascript-logger.md): Learn how to install the JavaScript Logger via npm or Twilio's CDN, then learn how to set the logging level and intercept logs.
-* [Video Insights](/docs/video/troubleshooting/insights.md): Use Video Insights to observe your video application, discover trends, and troubleshoot room and participant issues. View an overview dashboard of all your video rooms, dig into detected issues, and see quality metric graphs for all participants.
 * [Firewall and Network Configuration](/docs/video/ip-addresses.md): Configure your firewall for Twilio Programmable Video. Includes IP address ranges, ports, protocols, proxy bypass guidance, and troubleshooting for enterprise network environments.
 * [Real-time Transcriptions for Video](/docs/video/api/transcriptions.md): Enable real-time video transcriptions using this AI-powered tool from Twilio. Convert speech to text, choose your speech model, and customize your app's UI.
 * [Track Subscriptions](/docs/video/api/track-subscriptions.md): Full API reference for all things Track Subscription in the Programmable Video API. Learn how to use these resources, complete with sample code.

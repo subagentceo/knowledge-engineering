@@ -20,9 +20,8 @@ The search results feature is available on the following models:
 - Claude Opus 4.1 (`claude-opus-4-1-20250805`)
 - Claude Opus 4 ([deprecated](/docs/en/about-claude/model-deprecations)) (`claude-opus-4-20250514`)
 - Claude Sonnet 4 ([deprecated](/docs/en/about-claude/model-deprecations)) (`claude-sonnet-4-20250514`)
-- Claude Sonnet 3.7 ([deprecated](/docs/en/about-claude/model-deprecations)) (`claude-3-7-sonnet-20250219`)
 - Claude Haiku 4.5 (`claude-haiku-4-5-20251001`)
-- Claude Haiku 3.5 ([deprecated](/docs/en/about-claude/model-deprecations)) (`claude-3-5-haiku-20241022`)
+- Claude Haiku 3.5 ([retired, except on Bedrock and Vertex AI](/docs/en/about-claude/model-deprecations)) (`claude-3-5-haiku-20241022`)
 
 ## Key benefits
 
@@ -546,7 +545,6 @@ public class SearchKnowledgeBaseExample {
             MessageCreateParams finalParams = MessageCreateParams.builder()
                 .model(Model.CLAUDE_OPUS_4_7)
                 .maxTokens(1024L)
-                .addTool(knowledgeBaseTool)
                 .addUserMessage("How do I configure the timeout settings?")
                 .addAssistantMessageOfBlockParams(List.of(
                     ContentBlockParam.ofToolUse(ToolUseBlockParam.builder()

@@ -5,8 +5,6 @@ Replace legacy WAN and securely connect any traffic source to Cloudflare's netwo
 > Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/cloudflare-wan/`).
 >
 > For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
->
-> Use [Cloudflare WAN llms-full.txt](https://developers.cloudflare.com/cloudflare-wan/llms-full.txt) for the complete Cloudflare WAN documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
 
 ## Overview
 
@@ -89,6 +87,7 @@ Replace legacy WAN and securely connect any traffic source to Cloudflare's netwo
 - [Application-aware policies](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/application-based-policies/index.md): Configure application-aware policies on the Appliance.
 - [Breakout traffic](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/application-based-policies/breakout-traffic/index.md): Breakout traffic allows you to define which applications should bypass Cloudflare's security filtering.
 - [Prioritized traffic](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/application-based-policies/prioritized-traffic/index.md): Prioritized traffic allows you to define which applications are processed first by Cloudflare One Appliance.
+- [DHCP server options](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/dhcp/dhcp-options/index.md): Configure custom DHCP options on the Cloudflare One Appliance DHCP server, including options for PXE / iPXE boot.
 - [DHCP relay](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/dhcp/dhcp-relay/index.md): Configure DHCP relay on the Appliance.
 - [DHCP server](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/dhcp/dhcp-server/index.md): Configure the Appliance DHCP server.
 - [DHCP static address reservation](https://developers.cloudflare.com/cloudflare-wan/configuration/appliance/network-options/dhcp/dhcp-static-address-reservation/index.md): Reserve static DHCP addresses on the Appliance.

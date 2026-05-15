@@ -5,8 +5,6 @@ Access detailed logs with metadata from Cloudflare products
 > Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/logs/`).
 >
 > For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
->
-> Use [Logs llms-full.txt](https://developers.cloudflare.com/logs/llms-full.txt) for the complete Logs documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
 
 ## Overview
 
@@ -34,12 +32,14 @@ Access detailed logs with metadata from Cloudflare products
 - [DLP Forensic Copies](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/dlp_forensic_copies/index.md)
 - [DNS Firewall Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/dns_firewall_logs/index.md)
 - [Email Security Alerts](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/email_security_alerts/index.md)
+- [Email Security Post-Delivery Events](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/email_security_post_delivery_events/index.md)
 - [Gateway DNS](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/gateway_dns/index.md)
 - [Gateway HTTP](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/gateway_http/index.md)
 - [Gateway Network](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/gateway_network/index.md)
 - [IPSec Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/ipsec_logs/index.md)
 - [Magic IDS Detections](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/magic_ids_detections/index.md)
 - [MCP Portal Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/mcp_portal_logs/index.md)
+- [Magic Network Monitoring Flow Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/mnm_flow_logs/index.md)
 - [Network Analytics Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/network_analytics_logs/index.md)
 - [Sinkhole HTTP Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/sinkhole_http_logs/index.md)
 - [SSH Logs](https://developers.cloudflare.com/logs/logpush/logpush-job/datasets/account/ssh_logs/index.md)

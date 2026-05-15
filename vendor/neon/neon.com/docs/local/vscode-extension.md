@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > Local development > Neon VS Code Extension
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup of the Neon extension for VS Code and compatible editors, enabling users to connect to Neon branches, manage databases, run queries, and edit data directly within their IDE.
+
 # Neon VS Code Extension
 
 Connect to Neon and manage your database directly in VS Code, Cursor, and other editors

@@ -1,0 +1,243 @@
+> This is a page from the ElevenLabs documentation. For a complete page index, fetch https://elevenlabs.io/docs/llms.txt. For the full documentation in a single file, fetch https://elevenlabs.io/docs/llms-full.txt.
+
+# ElevenLabs Documentation
+
+<ElevenLabsWaveform color="blue" />
+
+<ElevenLabsWaveform color="gray" />
+
+## How ElevenLabs works
+
+ElevenLabs provides AI voice infrastructure: text-to-speech, speech-to-text, voice cloning, conversational agents, and generative audio. All capabilities are accessible through a REST API with official Python and TypeScript SDKs, and through a web application for no-code use.
+
+**Voices** are the speech persona used in audio generation. Each voice has a unique ID — for example, `JBFqnCBsd6RMkjVDRZzb` — that you pass in every API request. ElevenLabs maintains a [library of 10,000+ voices](https://elevenlabs.io/app/voice-library). You can also clone a voice from an audio recording or generate one from a text description.
+
+**Models** control the quality, latency, and language coverage of generated audio. [`eleven_v3`](/docs/overview/models) produces the most expressive output across 70+ languages. [`eleven_flash_v2_5`](/docs/overview/models) targets real-time use at \~75ms latency. Each capability — speech-to-text, music, sound effects — has its own dedicated model.
+
+**Credits** are the unit of API consumption. Text-to-speech costs one credit per character of input text. Other operations are charged per second of audio processed. Credits reset monthly and unused credits roll over for up to two months. See [pricing](https://elevenlabs.io/pricing/api) for a full breakdown.
+
+## Choose your path
+
+<a href="/docs/eleven-creative/overview">
+  <img src="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/12097a437e55f60c199946cf59c9528eb8349d110142394833d67fe93b50e68d/assets/images/overview/voice-library-bg.webp" alt="" />
+
+  <h3>
+    ElevenCreative
+  </h3>
+
+  <p>
+    Learn how to use the ElevenCreative platform with step-by-step guides
+  </p>
+</a>
+
+<a href="/docs/eleven-agents/overview">
+  <img src="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/17a81505a62493491ead763b307b1e854825a0da67ab1a1d86b41b57ad87bc73/assets/images/agents/agents-overview-integrate.png" alt="" />
+
+  <h3>
+    ElevenAgents
+  </h3>
+
+  <p>
+    Learn how to build, launch, and scale agents with ElevenLabs
+  </p>
+</a>
+
+<a href="/docs/eleven-api/quickstart">
+  <img src="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/002b2432fa6ab18befc9f1a6e7fadf348f46506a5a5a72a2358ba1e7f92d8ded/assets/images/overview/scribe-code-bg.webp" alt="" />
+
+  <h3>
+    ElevenAPI
+  </h3>
+
+  <p>
+    Learn how to integrate with the ElevenLabs API with examples and tutorials
+  </p>
+</a>
+
+## Meet the models
+
+<CardGroup cols={2} rows={2}>
+  <Card title="Eleven v3" href="/docs/overview/models#eleven-v3">
+    Our most emotionally rich, expressive speech synthesis model
+
+    Dramatic delivery and performance
+
+    70+ languages supported
+
+    5,000 character limit
+
+    Support for natural multi-speaker dialogue
+  </Card>
+
+  <Card title="Eleven Multilingual v2" href="/docs/overview/models#multilingual-v2">
+    Lifelike, consistent quality speech synthesis model
+
+    Natural-sounding output
+
+    29 languages supported
+
+    10,000 character limit
+
+    Most stable on long-form generations
+  </Card>
+
+  <Card title="Eleven Flash v2.5" href="/docs/overview/models#flash-v25">
+    Our fast, affordable speech synthesis model
+
+    Ultra-low latency (~75ms†)
+
+    32 languages supported
+
+    40,000 character limit
+
+    Faster model, 50% lower price per character
+  </Card>
+</CardGroup>
+
+<CardGroup cols={2} rows={1}>
+  <Card title="Scribe v2" href="/docs/overview/models#scribe-v2">
+    State-of-the-art speech recognition model
+
+    Accurate transcription in 90+ languages
+
+    Keyterm prompting, up to 1000 terms
+
+    Entity detection, up to 56
+
+    Precise word-level timestamps
+
+    Speaker diarization, up to 32 speakers
+
+    Dynamic audio tagging
+
+    Smart language detection
+  </Card>
+
+  <Card title="Scribe v2 Realtime" href="/docs/overview/models#scribe-v2-realtime">
+    Real-time speech recognition model
+
+    Accurate transcription in 90+ languages
+
+    Real-time transcription
+
+    Low latency (~150ms†)
+
+    Precise word-level timestamps
+  </Card>
+</CardGroup>
+
+<a href="/docs/overview/models">
+  Explore all
+</a>
+
+<small>
+  † Excluding application & network latency
+</small>
+
+## Browse by capability
+
+<CardGroup cols={3}>
+  <Card href="/docs/overview/capabilities/text-to-speech" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/696de2d6ea9525ec2924c8bdd14d9f2a1657df3fac57296ea1493ed880c3c471/assets/icons/tts.svg">
+    Text to Speech
+
+    <p>
+      Convert text into lifelike speech
+    </p>
+  </Card>
+
+  <Card href="/docs/overview/capabilities/speech-to-text" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/3e83584349e77b9051992231686d684fa36b1297419f7b307f8d18db9f8af63b/assets/icons/stt.svg">
+    Speech to Text
+
+    <p>
+      Transcribe spoken audio into text
+    </p>
+  </Card>
+
+  <Card href="/docs/overview/capabilities/music" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/067501e7571cee7a21b69890118527cce311809dfd041683bcc6e7ad6bbd5b03/assets/icons/music.svg">
+    Music
+
+    <p>
+      Generate music from text
+    </p>
+  </Card>
+
+  <Card href="/docs/overview/capabilities/text-to-dialogue" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/effa86ad1daea8205bb18d56bbc50a6c2bd5f73c889f730fcf85a5d479110808/assets/icons/ttd.svg">
+    Text to Dialogue
+
+    <p>
+      Create natural-sounding dialogue from text
+    </p>
+  </Card>
+
+  <Card href="/docs/overview/capabilities/image-video" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/676300f3f5d62055afd78aa54e253ad52ff4baf42d04a2ca4675d5542e50d814/assets/icons/image-and-video.svg">
+    Image & Video
+
+    <p>
+      Generate images and videos from text
+    </p>
+  </Card>
+
+  <Card href="/docs/overview/capabilities/voice-changer" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/7df7da1ff4f05f8af90cb13f3871eafb7865cb586b2e9e54b1767ff882dba49e/assets/icons/voice-changer.svg">
+    Voice changer
+
+    <p>
+      Modify and transform voices
+    </p>
+  </Card>
+
+  <Card href="/docs/overview/capabilities/voice-isolator" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/aa6b1b7b79ac7a58b74139ee58b8df80d15081558e25670f64bde8def0408b13/assets/icons/voice-isolator.svg">
+    Voice isolator
+
+    <p>
+      Isolate voices from background noise
+    </p>
+  </Card>
+
+  <Card href="/docs/overview/capabilities/dubbing" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/77d8c519257eb198dd8c1be0c00e24edfbbf36bf99d5edcc5dcf5598c8e9ae36/assets/icons/dubbing.svg">
+    Dubbing
+
+    <p>
+      Dub audio and videos seamlessly
+    </p>
+  </Card>
+
+  <Card href="/docs/overview/capabilities/sound-effects" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/daa1351dc78940a6fa4233106fedd3e03bf7eeba575ce316bca721ba2ee95c0e/assets/icons/sfx.svg">
+    Sound effects
+
+    <p>
+      Create cinematic sound effects
+    </p>
+  </Card>
+
+  <Card href="/docs/overview/capabilities/voices" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/6b834427deaf202a6c9126c08d7e9a128df0ab0d707882a1743d6fde9aeb5551/assets/icons/voices.svg">
+    Voices
+
+    <p>
+      Clone and design custom voices
+    </p>
+  </Card>
+
+  <Card href="/docs/overview/capabilities/voice-remixing" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/d4421ae4f799fe5d31c67c43e12a3445eef9cb3db724a5a83000fb97a263a050/assets/icons/remix-voice.svg">
+    Voice Remixing
+
+    <p>
+      Transform and enhance existing voices
+    </p>
+  </Card>
+
+  <Card href="/docs/overview/capabilities/forced-alignment" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/297bc4494e935d84aa71f8da42a738f6b705905523327acbc7e0ac2dcaf28016/assets/icons/forced-alignment.svg">
+    Forced Alignment
+
+    <p>
+      Align text to audio
+    </p>
+  </Card>
+
+  <Card href="/docs/eleven-agents/overview" icon="https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/adb7775de5efe649b1563f11fd232ad250a83b9706b26bcfd1055a959e159031/assets/icons/agents-platform.svg">
+    ElevenAgents
+
+    <p>
+      Deploy intelligent voice agents
+    </p>
+  </Card>
+</CardGroup>

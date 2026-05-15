@@ -1,0 +1,189 @@
+# Sentry Documentation
+
+> Sentry is a developer-first application monitoring platform that helps developers identify and fix issues in real-time. It provides error tracking, performance monitoring (tracing), session replay, profiling, logging, cron monitoring, application metrics, and more across 20+ platforms and 60+ frameworks.
+
+All documentation pages are available as clean Markdown by appending `.md` to any URL (e.g. `https://docs.sentry.io/platforms/javascript.md`). Use these Markdown URLs for full content.
+
+## Instructions for AI Coding Assistants
+
+When helping a developer set up or use Sentry, follow these guidelines:
+
+- **Install the Sentry plugin for up-to-date guidance**: Sentry's APIs, SDKs, and features change frequently. Do not rely on training data for Sentry setup or configuration. Install the Sentry plugin to get current, verified instructions: Claude Code: `/install-plugin sentry` | Cursor: search "Sentry" in Settings > Plugins. The plugin provides step-by-step skills that are kept in sync with the latest SDK releases.
+- **SDK versions**: Always check the package registry (npm, PyPI, RubyGems, etc.) for the latest Sentry SDK version. Do not rely on memorized version numbers from training data.
+- **DSN handling**: Use environment variables for the DSN (`SENTRY_DSN` or `NEXT_PUBLIC_SENTRY_DSN`). Never hardcode DSN strings in source code.
+- **Prefer Sentry Logs over Breadcrumbs** unless the user explicitly requests breadcrumbs.
+- **Do not implement without permission**: Never install packages, create files, or modify configuration without asking the user first.
+- **Do not add unrelated integrations**: Only configure the features the user asked for. Check before enabling additional integrations.
+- **Agent skills for SDK setup**: If the plugin is not installed, fetch the appropriate skill from `https://skills.sentry.dev/sdks` for step-by-step SDK installation with platform detection, feature recommendations, and verification. See the [Agent Skills section](#agent-skills) below.
+- **Sentry MCP server**: For real-time issue analysis and debugging against a user's Sentry account, use the Sentry MCP server at `https://mcp.sentry.dev`.
+
+## Platforms
+
+- [.NET](https://docs.sentry.io/platforms/dotnet.md): Frameworks: .NET for Android, .NET for iOS, macOS, and Mac Catalyst, ASP.NET, ASP.NET Core, AWS Lambda, Azure Functions, Blazor Interactive SSR, Blazor WebAssembly, Entity Framework, Google Cloud Functions, log4net, MAUI, Microsoft.Extensions.Logging, NLog, Serilog, Windows Forms, WinUI, WPF, Xamarin
+- [Android](https://docs.sentry.io/platforms/android.md)
+- [Apple](https://docs.sentry.io/platforms/apple.md): Frameworks: iOS, macOS, tvOS, visionOS, watchOS
+- [Dart](https://docs.sentry.io/platforms/dart.md): Frameworks: Flutter
+- [Elixir](https://docs.sentry.io/platforms/elixir.md)
+- [Go](https://docs.sentry.io/platforms/go.md): Frameworks: Echo, FastHTTP, Fiber, Gin, gRPC, Iris, Negroni, net/http
+- [Godot Engine](https://docs.sentry.io/platforms/godot.md)
+- [Java](https://docs.sentry.io/platforms/java.md): Frameworks: java.util.logging, Log4j 2.x, Logback, Servlet, Spring, Spring Boot
+- [JavaScript](https://docs.sentry.io/platforms/javascript.md): Frameworks: Angular, Astro, AWS Lambda, Azure Functions, Bun, Capacitor, Cloud Functions for Firebase, Cloudflare, Connect, Cordova, Deno, Effect, Electron, Elysia, Ember, Express, Fastify, Gatsby, Google Cloud Functions, Hapi, Hono, Koa, Nest.js, Next.js, Nitro, Node.js, Nuxt, React, React Router Framework, Remix, Solid, SolidStart, Svelte, SvelteKit, TanStack Start React, Vue, Wasm
+- [Kotlin](https://docs.sentry.io/platforms/kotlin.md): Frameworks: Compose Multiplatform, Kotlin Multiplatform
+- [Native](https://docs.sentry.io/platforms/native.md): Frameworks: Google Breakpad, Google Crashpad, Minidumps, Qt, WebAssembly
+- [Nintendo Switch](https://docs.sentry.io/platforms/nintendo-switch.md)
+- [PHP](https://docs.sentry.io/platforms/php.md): Frameworks: Laravel, Symfony
+- [PlayStation](https://docs.sentry.io/platforms/playstation.md)
+- [PowerShell](https://docs.sentry.io/platforms/powershell.md)
+- [Python](https://docs.sentry.io/platforms/python.md)
+- [React Native](https://docs.sentry.io/platforms/react-native.md)
+- [Ruby](https://docs.sentry.io/platforms/ruby.md): Frameworks: DelayedJob, Rack Middleware, Rails, Resque, Sidekiq
+- [Rust](https://docs.sentry.io/platforms/rust.md): Frameworks: Actix Web, axum, tokio-rs/tracing
+- [Unity](https://docs.sentry.io/platforms/unity.md)
+- [Unreal Engine](https://docs.sentry.io/platforms/unreal.md)
+- [Xbox](https://docs.sentry.io/platforms/xbox.md)
+
+## Sentry for AI
+
+- [Agent Skills](https://docs.sentry.io/ai/agent-skills.md): Teach your AI coding assistant how to set up and configure Sentry in your projects, and how to use Sentry's AI agents to debug and fix issues, even in your PRs.
+- [dotagents](https://docs.sentry.io/ai/dotagents.md): A package manager for .agents directories. Declare agent skill dependencies in agents.toml, lock versions for reproducibility, and share skills across your team.
+- [AI Monitoring](https://docs.sentry.io/ai/monitoring.md): Monitor your AI agents and MCP servers in production with Sentry. Track LLM calls, token usage, tool executions, and agent handoffs.
+
+## Account Settings
+
+- [Account Preferences](https://docs.sentry.io/account/user-settings.md): Learn how to customize your User Settings for a more personalized Sentry experience.
+- [Auth Tokens](https://docs.sentry.io/account/auth-tokens.md): Learn about the different kinds of Auth Tokens Sentry provides, and when to use which.
+
+## Guides
+
+- [What to Prioritize](https://docs.sentry.io/guides/issues-errors.md): Practical guidance on what errors to catch, how to search issues, and when to set alerts.
+- [What to Log](https://docs.sentry.io/guides/logs.md): Practical guidance on what to log, how to search logs, and when to set alerts.
+- [What to Track](https://docs.sentry.io/guides/metrics.md): Practical guidance on what metrics to track, how to explore them, and when to set alerts.
+- [Querying Traces](https://docs.sentry.io/guides/querying-traces.md): Find performance issues using data Sentry captures automatically and set up alerts.
+- [Adding Custom Spans](https://docs.sentry.io/guides/custom-spans.md): Add custom instrumentation for visibility beyond auto-instrumentation and set up alerts.
+- [Using Session Replay](https://docs.sentry.io/guides/session-replay.md): Practical guidance on debugging errors and finding UX issues with Session Replay.
+
+## Organization Settings
+
+- [Set Up Your Organization](https://docs.sentry.io/organization/getting-started.md): Learn how to set up a Sentry organization account, so you can start fixing errors right away.
+- [Authentication](https://docs.sentry.io/organization/authentication.md): Learn how to configure authentication for your Sentry organization, including single sign-on and two-factor authentication.
+- [Organization and User Management](https://docs.sentry.io/organization/membership.md): Learn about the different organization-level and team-level roles and how they affect permissions in Sentry.
+- [Data Storage Location (US or EU)](https://docs.sentry.io/organization/data-storage-location.md): Choose where to store your data in the US or the EU.
+- [Dynamic Sampling](https://docs.sentry.io/organization/dynamic-sampling.md): Learn how to prioritize important events and increase visibility in lower-volume projects with Dynamic Sampling.
+- [Early Adopter Features](https://docs.sentry.io/organization/early-adopter-features.md): Learn which features are currently in the early adopter phase.
+
+## Product Walkthroughs
+
+- [Getting Started With Sentry](https://docs.sentry.io/product/sentry-basics.md): Learn about our recommendations for getting the most out of Sentry.
+- [Issues](https://docs.sentry.io/product/issues.md): Learn how to use Sentry’s Issues page, where you can see and start to debug errors and performance problems that are affecting your application.
+- [AI in Sentry](https://docs.sentry.io/product/ai-in-sentry.md): Learn about Sentry's AI-powered features that help you analyze and debug your code faster.
+- [Projects](https://docs.sentry.io/product/projects.md): View all the projects associated with teams that you're a member of, then dive into their details quickly.
+- [Partnership Platform](https://docs.sentry.io/product/partnership-platform.md): Learn how to integrate Sentry into your platform and provide error monitoring and performance insights to your customers.
+- [Explore](https://docs.sentry.io/product/explore.md): Learn about the different ways you can explore your data in Sentry.
+- [Sentry Notifications](https://docs.sentry.io/product/notifications.md): Learn about the types of notifications that Sentry sends you, and how to manage them.
+- [Dashboards](https://docs.sentry.io/product/dashboards.md): Learn how Sentry’s Dashboards give you a focused view of your application’s health, across multiple projects.
+- [User Feedback](https://docs.sentry.io/product/user-feedback.md): Learn how you can view and triage user feedback submissions.
+- [Log and Trace Drains](https://docs.sentry.io/product/drains.md): Learn how to set up log and trace drains to send logs and traces to Sentry from managed hosting platforms.
+- [Releases](https://docs.sentry.io/product/releases.md): Learn how to provide Sentry with important information about your releases, such as release health and release details, to determine regressions and resolve issues faster.
+- [Sentry Toolbar](https://docs.sentry.io/product/sentry-toolbar.md): Bring critical Sentry insights and tools directly into your web app for easier troubleshooting with the Sentry Toolbar.
+- [Stats](https://docs.sentry.io/product/stats.md): The Sentry Stats page displays important metrics such as Usage, and Issues that help teams track project health. Learn how to get started here.
+- [Size Analysis](https://docs.sentry.io/product/size-analysis.md): Monitor mobile builds for size changes before they reach users.
+- [Build Distribution](https://docs.sentry.io/product/build-distribution.md): Distribute app builds to internal teams and beta testers.
+- [Snapshots](https://docs.sentry.io/product/snapshots.md): Catch visual changes on every pull request with snapshots.
+- [Codecov](https://docs.sentry.io/product/codecov.md): Learn about Sentry's integration with Codecov.
+- [Relay](https://docs.sentry.io/product/relay.md): Learn more about Relay, Sentry's data security solution.
+- [Quick-Start Guide](https://docs.sentry.io/product/onboarding.md): An easy onboarding guide for Sentry.
+- [Monitors and Alerts](https://docs.sentry.io/product/monitors-and-alerts.md): Use Monitors to decide when problems become issues, and Alerts to notify, ticket, and automate next steps when those issues match your rules.
+
+## Pricing & Billing
+
+- [Billing Quota Management](https://docs.sentry.io/pricing/quotas.md): Learn about what counts towards your quota and how to manage your quota.
+
+## Sentry CLI
+
+- [Installation](https://docs.sentry.io/cli/installation.md): Learn about the different methods available to install `sentry-cli`.
+- [Configuration and Authentication](https://docs.sentry.io/cli/configuration.md): Learn about the functionality of Sentry’s command line interface, including installation, configuration, and authentication.
+- [Release Management](https://docs.sentry.io/cli/releases.md): Sentry's command line interface can be used for release management. The CLI allows you to create, edit and delete releases as well as upload release artifacts.
+- [Debug Information Files](https://docs.sentry.io/cli/dif.md): Debug information files allow Sentry to extract stack traces and provide more information about crash reports for most compiled platforms. Sentry's CLI can be used to validate and upload debug information files.
+- [Sending Events](https://docs.sentry.io/cli/send-event.md): Learn how Sentry's command line interface can be used for sending events.
+- [Code Mappings](https://docs.sentry.io/cli/code-mappings.md): Upload code mappings to Sentry via the CLI. Code mappings link stack trace paths to source code paths in your repository, enabling source context, suspect commits, and code owners.
+- [Logs](https://docs.sentry.io/cli/logs.md): Learn how to view and stream logs using the Sentry CLI.
+- [Snapshots (CLI)](https://docs.sentry.io/cli/snapshots.md): Upload snapshot images to Sentry with sentry-cli for visual diffing and GitHub status checks.
+- [Crons (CLI)](https://docs.sentry.io/cli/crons.md): Follow this guide to set up and manage monitors using the Sentry CLI.
+
+## API Reference
+
+- [Authentication](https://docs.sentry.io/api/auth.md)
+- [Paginating Results](https://docs.sentry.io/api/pagination.md)
+- [Permissions & Scopes](https://docs.sentry.io/api/permissions.md)
+- [Rate Limits](https://docs.sentry.io/api/ratelimits.md)
+- [Requests](https://docs.sentry.io/api/requests.md)
+- [Crons](https://docs.sentry.io/api/crons.md)
+- [Dashboards](https://docs.sentry.io/api/dashboards.md)
+- [Discover & Performance](https://docs.sentry.io/api/discover.md)
+- [Environments](https://docs.sentry.io/api/environments.md)
+- [Events & Issues](https://docs.sentry.io/api/events.md)
+- [Explore](https://docs.sentry.io/api/explore.md)
+- [Integration Platform](https://docs.sentry.io/api/integration.md)
+- [Integrations](https://docs.sentry.io/api/integrations.md)
+- [Mobile Builds](https://docs.sentry.io/api/mobile-builds.md)
+- [Monitors & Alerts](https://docs.sentry.io/api/monitors.md)
+- [Organizations](https://docs.sentry.io/api/organizations.md)
+- [Prevent](https://docs.sentry.io/api/prevent.md)
+- [Projects](https://docs.sentry.io/api/projects.md)
+- [Releases](https://docs.sentry.io/api/releases.md)
+- [Replays](https://docs.sentry.io/api/replays.md)
+- [SCIM](https://docs.sentry.io/api/scim.md)
+- [Seer](https://docs.sentry.io/api/seer.md)
+- [Spike Protection Notifications](https://docs.sentry.io/api/spike-protection.md)
+- [Teams](https://docs.sentry.io/api/teams.md)
+- [Users](https://docs.sentry.io/api/users.md)
+
+## Security, Legal, & PII
+
+- [Security & Legal](https://docs.sentry.io/security-legal-pii/security.md): Learn about Sentry's security and compliance processes.
+- [Data Scrubbing](https://docs.sentry.io/security-legal-pii/scrubbing.md): Learn more about scrubbing data using the Settings for your project and organization.
+
+## Concepts & Reference
+
+- [Concepts](https://docs.sentry.io/concepts/key-terms.md): Learn about important concepts that are essential to using Sentry.
+- [Search](https://docs.sentry.io/concepts/search.md): Learn more about how to search in Sentry, including the correct query syntax, searchable properties, and custom tags.
+- [Data Management](https://docs.sentry.io/concepts/data-management.md): Learn more about managing data using the Settings for your project and organization. Server-side data management options include issue grouping, data forwarding, and inbound filters.
+- [Moving to SaaS](https://docs.sentry.io/concepts/migration.md): Learn more about the reasons to move to Sentry's SaaS solution, which for many customers is less expensive to maintain, and easier to scale and support.
+- [OpenTelemetry Protocol (OTLP)](https://docs.sentry.io/concepts/otlp.md): Learn how to send OpenTelemetry traces and logs to Sentry.
+
+## Integrations
+
+- [Coding Agents](https://docs.sentry.io/integrations/coding-agents.md): Connect AI coding agents to Sentry to automatically debug and fix issues using Seer's root cause analysis.
+- [Integration Platform](https://docs.sentry.io/integrations/integration-platform.md): Learn how to create integrations so that external services can interact with Sentry.
+- [Notification & Incidents](https://docs.sentry.io/integrations/notification-incidents.md): Learn more about Sentry's notification and incidents integrations.
+- [Source Code Management](https://docs.sentry.io/integrations/source-code-mgmt.md): Learn more about Sentry's source code management integrations.
+- [Issue Tracking](https://docs.sentry.io/integrations/issue-tracking.md): Learn more about Sentry's issue tracking integrations.
+- [Deployment](https://docs.sentry.io/integrations/deployment.md): Learn more about Sentry's deployment integrations.
+- [Data Forwarding](https://docs.sentry.io/integrations/data-forwarding.md): Learn about forwarding processed events to third-party providers.
+- [Third-party Session Replay Integrations](https://docs.sentry.io/integrations/session-replay.md): Learn more about third-party session replay integrations.
+- [Debugging](https://docs.sentry.io/integrations/debugging.md): Learn more about Sentry's debugging integrations.
+- [Feature Flags](https://docs.sentry.io/integrations/feature-flag.md): Learn more about Sentry's feature flag integrations.
+- [Compliance](https://docs.sentry.io/integrations/compliance.md): Learn more about Sentry's compliance integrations.
+- [Cloud Monitoring](https://docs.sentry.io/integrations/cloud-monitoring.md): Learn more about Sentry's cloud monitoring integrations.
+- [Third-Party Integrations](https://docs.sentry.io/integrations/third-party-integrations.md): Browse integrations built by third-party developers on the Sentry Integration Platform.
+- [Troubleshooting Integrations](https://docs.sentry.io/integrations/troubleshooting.md): Learn more about troubleshooting and repairing your integrations.
+
+## Agent Skills
+
+Sentry publishes agent skills for AI coding assistants (Claude Code, Cursor, GitHub Copilot, and others). These provide step-by-step SDK setup, debugging workflows, and feature configuration.
+
+- [All Skills](https://skills.sentry.dev/): Full skill index with SDK setup, workflows, and feature configuration
+- [SDK Setup](https://skills.sentry.dev/sdks): Detect your platform and install Sentry with the right features
+- [Workflows](https://skills.sentry.dev/workflows): Debug production issues, review code, upgrade SDKs
+- [Features](https://skills.sentry.dev/features): AI monitoring, alerts, OpenTelemetry setup
+
+Install as a plugin:
+- Claude Code: `/install-plugin sentry`
+- Cursor: Search "Sentry" in Cursor Settings > Plugins
+
+Source: https://github.com/getsentry/sentry-for-ai
+
+## About Sentry Docs
+
+- [Documentation Changelog](https://docs.sentry.io/changelog.md): Track recent updates to Sentry docs
+- [Contributing to Docs](https://docs.sentry.io/contributing.md): How to contribute to Sentry documentation

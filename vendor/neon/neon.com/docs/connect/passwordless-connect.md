@@ -1,6 +1,8 @@
 > This page location: Connect to Neon > Passwordless auth
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup of Neon's passwordless authentication feature for connecting to the database using `psql`, detailing the command to initiate the connection and the steps to authenticate via a web link.
+
 # Passwordless auth
 
 Learn how to connect to Neon without a password

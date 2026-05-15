@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > Install and connect
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: How to install the Neon CLI on macOS, Windows, and Linux, and connect using web authentication or API key for terminal management of Neon.
+
 # Neon CLI: Install and connect
 
 Install the Neon CLI and connect with web auth or API key

@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > completion
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the `completion` command in the Neon CLI to generate a script that enhances command-line efficiency by providing auto-completion for `neonctl` commands and options.
+
 # Neon CLI command: completion
 
 Generate shell completion scripts for neonctl commands and options

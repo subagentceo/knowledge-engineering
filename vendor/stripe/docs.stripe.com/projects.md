@@ -41,7 +41,14 @@ If your current Stripe CLI version doesn’t support the Projects plugin, [upgra
 
 ### Use a coding agent 
 
-You can ask a coding agent to install the Stripe CLI, and Projects plugin:
+You can install the Stripe Projects agent skill and ask the coding agent to provision services directly without an existing project. From an empty directory, describe the services you want and the agent installs the required CLIs, initializes the project, and configures everything automatically.
+
+```bash
+npx skills add https://docs.stripe.com 
+provision a database, hosting, and analytics
+```
+
+You can also ask a coding agent to install the Stripe CLI, and Projects plugin:
 
 ```bash
 Install the Stripe CLI, install the `projects` plugin, verify `stripe projects --help` works.
@@ -62,7 +69,7 @@ This example attaches hosting, a database, authentication, and analytics to a pr
 
 ```bash
 # Create a project
-stripe projects init my-app
+stripe projects init
 
 # Associate a provider account or add a service
 stripe projects link vercel
@@ -162,6 +169,12 @@ Use `catalog` to list all available providers, their service categories, plan ti
 stripe projects catalog
 stripe projects catalog <provider>
 stripe projects catalog <category>
+```
+
+Use `search` to explore all available provider services related to a keyword:
+
+```bash
+stripe projects search <keyword>
 ```
 
 ## Manage a service 
@@ -317,40 +330,41 @@ stripe projects llm-context
 
 These providers co-designed the integration protocol with Stripe. The protocol standardizes provisioning, plan selection, upgrades, and credential handoff.
 
-| Provider     | Primary categories                |
-| ------------ | --------------------------------- |
-| AgentMail    | Email                             |
-| Algolia      | Search                            |
-| Amplitude    | Analytics, feature flags          |
-| Auth0/Okta   | Auth                              |
-| Browserbase  | AI                                |
-| Chroma       | Vector database                   |
-| Clerk        | Authentication                    |
-| Cloudflare   | Hosting, domains                  |
-| Daytona      | Sandboxes                         |
-| Elevenlabs   | AI                                |
-| Firecrawl    | Search                            |
-| Fly.io       | Hosting, database                 |
-| GitLab       | CI/CD                             |
-| Hugging Face | AI                                |
-| Inngest      | AI                                |
-| Mixpanel     | Analytics                         |
-| Neon         | Database, authentication          |
-| Netlify      | Hosting                           |
-| OpenRouter   | AI models                         |
-| PlanetScale  | Database                          |
-| PostHog      | Analytics, feature flags          |
-| Privy        | Payments                          |
-| Railway      | Hosting, database, storage        |
-| Render       | Hosting                           |
-| Runloop      | Sandboxes, hosting                |
-| Sentry       | Observability                     |
-| Supabase     | Database, authentication, storage |
-| Turso        | Database                          |
-| Twilio       | Communications                    |
-| Upstash      | Cache                             |
-| Vercel       | Hosting                           |
-| WorkOS       | Auth                              |
+| Provider     | Primary categories                                          |
+| ------------ | ----------------------------------------------------------- |
+| AgentMail    | Email                                                       |
+| Algolia      | Search                                                      |
+| Amplitude    | Analytics, feature flags                                    |
+| Auth0        | Auth                                                        |
+| Browserbase  | Browser, AI                                                 |
+| Chroma       | Database, AI                                                |
+| Clerk        | Authentication                                              |
+| Cloudflare   | Hosting, database, storage, domains, cache, queues, browser |
+| Daytona      | Sandboxes, hosting                                          |
+| Elevenlabs   | AI                                                          |
+| Firecrawl    | Search                                                      |
+| Fly.io       | Hosting, database                                           |
+| GitLab       | CI/CD, observability, storage                               |
+| Hugging Face | AI, hosting, storage                                        |
+| Inngest      | Queue                                                       |
+| Mixpanel     | Analytics                                                   |
+| Neon         | Database, authentication                                    |
+| Netlify      | Hosting                                                     |
+| OpenRouter   | AI                                                          |
+| PlanetScale  | Database                                                    |
+| PostHog      | Analytics, feature flags                                    |
+| Privy        | Payments, authentication                                    |
+| Railway      | Hosting, database, storage, cache                           |
+| Render       | Hosting, database                                           |
+| Runloop      | Sandboxes, AI                                               |
+| Sentry       | Observability                                               |
+| Squarespace  | Domains                                                     |
+| Supabase     | Database, authentication, storage                           |
+| Turso        | Database                                                    |
+| Twilio       | Communications                                              |
+| Upstash      | Cache, search, database                                     |
+| Vercel       | Hosting                                                     |
+| WorkOS       | Auth                                                        |
 
 Run `stripe projects catalog` at any time to view the most current list of providers and available service tiers. Or view the directory at [projects.dev/providers](https://projects.dev/providers).
 
@@ -391,6 +405,7 @@ Every command supports flags for non-interactive environments such as CI/CD pipe
 | `open <provider>`                         | Open a provider’s dashboard in the browser.                      |
 | `remove <service_reference>`              | Remove a service from your project.                              |
 | `rotate <service_reference>`              | Rotate credentials for a service.                                |
+| `search`                                  | List available provider services based on a keyword.             |
 | `services list`                           | Shows all services in a project.                                 |
 | `status`                                  | View project name, services, tiers, and health.                  |
 | `switch-account`                          | Switch to a different Stripe account.                            |

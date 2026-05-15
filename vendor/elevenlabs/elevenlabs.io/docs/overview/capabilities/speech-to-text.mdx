@@ -1,0 +1,533 @@
+> This is a page from the ElevenLabs documentation. For a complete page index, fetch https://elevenlabs.io/docs/llms.txt. For the full documentation in a single file, fetch https://elevenlabs.io/docs/llms-full.txt.
+
+# Transcription
+
+## OverviewThe ElevenLabs [Speech to Text (STT) API](/docs/eleven-api/guides/cookbooks/speech-to-text) turns spoken audio into text with state of the art accuracy. Our [Scribe v2 model](/docs/overview/models) adapts to textual cues across 90+ languages and multiple voice styles. To try a live demo please visit our [Speech to Text](https://elevenlabs.io/speech-to-text) showcase page.<CardGroup cols={3}>
+  <Card title="Products" icon="duotone book-user" href="/docs/eleven-creative/playground/speech-to-text">
+    Step-by-step guide for using speech to text in ElevenLabs.
+  </Card>
+
+  <Card title="Developers" icon="duotone code" href="/docs/eleven-api/guides/cookbooks/speech-to-text">
+    Learn how to integrate the speech to text API into your application.
+  </Card>
+
+  <Card title="Realtime speech to text" icon="duotone code" href="/docs/eleven-api/guides/how-to/speech-to-text/realtime/client-side-streaming">
+    Learn how to transcribe audio with ElevenLabs in realtime with WebSockets.
+  </Card>
+
+  <Card title="API reference" icon="duotone brackets-curly" href="/docs/api-reference/speech-to-text/convert">
+    Full API reference for the Speech to Text endpoint.
+  </Card>
+</CardGroup><Info>
+  Companies requiring HIPAA compliance must contact [ElevenLabs
+  Sales](https://elevenlabs.io/contact-sales) to sign a Business Associate Agreement (BAA)
+  agreement. Please ensure this step is completed before proceeding with any HIPAA-related
+  integrations or deployments.
+</Info>## Models<CardGroup cols={2} rows={1}>
+  <Card title="Scribe v2" href="/docs/overview/models#scribe-v2">
+    State-of-the-art speech recognition model
+
+    Accurate transcription in 90+ languages
+
+    Keyterm prompting, up to 1000 terms
+
+    Entity detection, up to 56
+
+    Precise word-level timestamps
+
+    Speaker diarization, up to 32 speakers
+
+    Dynamic audio tagging
+
+    Smart language detection
+  </Card>
+
+  <Card title="Scribe v2 Realtime" href="/docs/overview/models#scribe-v2-realtime">
+    Real-time speech recognition model
+
+    Accurate transcription in 90+ languages
+
+    Real-time transcription
+
+    Low latency (~150ms†)
+
+    Precise word-level timestamps
+  </Card>
+</CardGroup>[Explore all](/docs/overview/models)## Example API responseThe following example shows the output of the Speech to Text API using the Scribe v2 model for a sample audio file.<elevenlabs-audio-player audio-title="Nicole" audio-src="https://storage.googleapis.com/eleven-public-cdn/audio/marketing/nicole.mp3" /><Accordion title="View full JSON response">
+  ```javascript
+  {
+    "language_code": "en",
+    "language_probability": 1,
+    "text": "With a soft and whispery American accent, I'm the ideal choice for creating ASMR content, meditative guides, or adding an intimate feel to your narrative projects.",
+    "words": [
+      {
+        "text": "With",
+        "start": 0.119,
+        "end": 0.259,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 0.239,
+        "end": 0.299,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "a",
+        "start": 0.279,
+        "end": 0.359,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 0.339,
+        "end": 0.499,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "soft",
+        "start": 0.479,
+        "end": 1.039,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 1.019,
+        "end": 1.2,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "and",
+        "start": 1.18,
+        "end": 1.359,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 1.339,
+        "end": 1.44,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "whispery",
+        "start": 1.419,
+        "end": 1.979,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 1.959,
+        "end": 2.179,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "American",
+        "start": 2.159,
+        "end": 2.719,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 2.699,
+        "end": 2.779,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "accent,",
+        "start": 2.759,
+        "end": 3.389,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 4.119,
+        "end": 4.179,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "I'm",
+        "start": 4.159,
+        "end": 4.459,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 4.44,
+        "end": 4.52,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "the",
+        "start": 4.5,
+        "end": 4.599,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 4.579,
+        "end": 4.699,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "ideal",
+        "start": 4.679,
+        "end": 5.099,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 5.079,
+        "end": 5.219,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "choice",
+        "start": 5.199,
+        "end": 5.719,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 5.699,
+        "end": 6.099,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "for",
+        "start": 6.099,
+        "end": 6.199,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 6.179,
+        "end": 6.279,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "creating",
+        "start": 6.259,
+        "end": 6.799,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 6.779,
+        "end": 6.979,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "ASMR",
+        "start": 6.959,
+        "end": 7.739,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 7.719,
+        "end": 7.859,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "content,",
+        "start": 7.839,
+        "end": 8.45,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 9,
+        "end": 9.06,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "meditative",
+        "start": 9.04,
+        "end": 9.64,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 9.619,
+        "end": 9.699,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "guides,",
+        "start": 9.679,
+        "end": 10.359,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 10.359,
+        "end": 10.409,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "or",
+        "start": 11.319,
+        "end": 11.439,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 11.42,
+        "end": 11.52,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "adding",
+        "start": 11.5,
+        "end": 11.879,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 11.859,
+        "end": 12,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "an",
+        "start": 11.979,
+        "end": 12.079,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 12.059,
+        "end": 12.179,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "intimate",
+        "start": 12.179,
+        "end": 12.579,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 12.559,
+        "end": 12.699,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "feel",
+        "start": 12.679,
+        "end": 13.159,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 13.139,
+        "end": 13.179,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "to",
+        "start": 13.159,
+        "end": 13.26,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 13.239,
+        "end": 13.3,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "your",
+        "start": 13.299,
+        "end": 13.399,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 13.379,
+        "end": 13.479,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "narrative",
+        "start": 13.479,
+        "end": 13.889,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": " ",
+        "start": 13.919,
+        "end": 13.939,
+        "type": "spacing",
+        "speaker_id": "speaker_0"
+      },
+      {
+        "text": "projects.",
+        "start": 13.919,
+        "end": 14.779,
+        "type": "word",
+        "speaker_id": "speaker_0"
+      }
+    ]
+  }
+  ```
+</Accordion>The output is classified in three category types:- `word` - A word in the language of the audio
+- `spacing` - The space between words, not applicable for languages that don't use spaces like Japanese, Mandarin, Thai, Lao, Burmese and Cantonese
+- `audio_event` - Non-speech sounds like laughter or applause## Concurrency and priorityConcurrency is the concept of how many requests can be processed at the same time.For Speech to Text, files that are over 8 minutes long are transcribed in parallel internally in order to speed up processing. The audio is chunked into four segments to be transcribed concurrently.You can calculate the concurrency limit with the following calculation:$$
+Concurrency = \min(4, \text{round\_up}(\frac{\text{audio\_duration\_secs}}{480}))
+$$For example, a 15 minute audio file will be transcribed with a concurrency of 2, while a 120 minute audio file will be transcribed with a concurrency of 4.<Info>
+  The above calculation is only applicable to Scribe v1 and v2. For Scribe v2 Realtime, see the
+  [concurrency limit chart](/docs/overview/models#concurrency-and-priority).
+</Info>## Advanced features<Warning>
+  Keyterm prompting and entity detection come at an additional cost. See the [API pricing
+  page](https://elevenlabs.io/pricing?price.section=speech_to_text\&price.sections=speech_to_text,speech_to_text#pricing-table)
+  for detailed pricing information.
+</Warning>### Keyterm prompting<Info>
+  Keyterm prompting is available with Scribe v2 (batch) and Scribe v2 Realtime.
+</Info>Highlight words or phrases to bias the model towards transcribing them. This is useful for transcribing specific words or sentences that are not common in the audio, such as product names, names, or other specific terms. Keyterms are more powerful than biased keywords or customer vocabularies offered by other models, because it relies on the context to decide whether to transcribe that term or not. Batch supports up to 1000 keyterms (50 characters each), while realtime supports up to 50 keyterms (20 characters each).To learn more about how to use keyterm prompting, see the [keyterm prompting documentation](/docs/eleven-api/guides/how-to/speech-to-text/batch/keyterm-prompting).### No verbatim mode<Info>
+  No verbatim mode is available with Scribe v2 (batch) and Scribe v2 Realtime.
+</Info>When `no_verbatim` is enabled, the model removes filler words, false starts and disfluencies from the transcript. This produces a cleaner output suitable for subtitles, summaries, or any use case where readability is more important than capturing every spoken word.### Entity detectionScribe v2 can detect several categories of entities in the transcript, providing their exact timestamps. This is useful to highlight credit card numbers, names, medical conditions or SSNs.For a full list of supported entities, see the [entity detection documentation](/docs/eleven-api/guides/how-to/speech-to-text/batch/entity-detection).## Supported languagesThe Scribe v1 and v2 models support 90+ languages, including:*Afrikaans (afr), Amharic (amh), Arabic (ara), Armenian (hye), Assamese (asm), Asturian (ast), Azerbaijani (aze), Belarusian (bel), Bengali (ben), Bosnian (bos), Bulgarian (bul), Burmese (mya), Cantonese (yue), Catalan (cat), Cebuano (ceb), Chichewa (nya), Croatian (hrv), Czech (ces), Danish (dan), Dutch (nld), English (eng), Estonian (est), Filipino (fil), Finnish (fin), French (fra), Fulah (ful), Galician (glg), Ganda (lug), Georgian (kat), German (deu), Greek (ell), Gujarati (guj), Hausa (hau), Hebrew (heb), Hindi (hin), Hungarian (hun), Icelandic (isl), Igbo (ibo), Indonesian (ind), Irish (gle), Italian (ita), Japanese (jpn), Javanese (jav), Kabuverdianu (kea), Kannada (kan), Kazakh (kaz), Khmer (khm), Korean (kor), Kurdish (kur), Kyrgyz (kir), Lao (lao), Latvian (lav), Lingala (lin), Lithuanian (lit), Luo (luo), Luxembourgish (ltz), Macedonian (mkd), Malay (msa), Malayalam (mal), Maltese (mlt), Mandarin Chinese (zho), Māori (mri), Marathi (mar), Mongolian (mon), Nepali (nep), Northern Sotho (nso), Norwegian (nor), Occitan (oci), Odia (ori), Pashto (pus), Persian (fas), Polish (pol), Portuguese (por), Punjabi (pan), Romanian (ron), Russian (rus), Serbian (srp), Shona (sna), Sindhi (snd), Slovak (slk), Slovenian (slv), Somali (som), Spanish (spa), Swahili (swa), Swedish (swe), Tamil (tam), Tajik (tgk), Telugu (tel), Thai (tha), Turkish (tur), Ukrainian (ukr), Umbundu (umb), Urdu (urd), Uzbek (uzb), Vietnamese (vie), Welsh (cym), Wolof (wol), Xhosa (xho) and Zulu (zul).*### Breakdown of language supportWord Error Rate (WER) is a key metric used to evaluate the accuracy of transcription systems. It measures how many errors are present in a transcript compared to a reference transcript. Below is a breakdown of the WER for each language that Scribe v1 and v2 support.<AccordionGroup>
+  <Accordion title="Excellent (≤ 5% WER)">
+    Belarusian (bel), Bosnian (bos), Bulgarian (bul), Catalan (cat), Croatian (hrv), Czech (ces),
+    Danish (dan), Dutch (nld), English (eng), Estonian (est), Finnish (fin), French (fra), Galician
+    (glg), German (deu), Greek (ell), Hungarian (hun), Icelandic (isl), Indonesian (ind), Italian
+    (ita), Japanese (jpn), Kannada (kan), Latvian (lav), Macedonian (mkd), Malay (msa), Malayalam
+    (mal), Norwegian (nor), Polish (pol), Portuguese (por), Romanian (ron), Russian (rus), Slovak
+    (slk), Spanish (spa), Swedish (swe), Turkish (tur), Ukrainian (ukr) and Vietnamese (vie).
+  </Accordion>
+
+  <Accordion title="High Accuracy (>5% to ≤10% WER)">
+    Armenian (hye), Azerbaijani (aze), Bengali (ben), Cantonese (yue), Filipino (fil), Georgian
+    (kat), Gujarati (guj), Hindi (hin), Kazakh (kaz), Lithuanian (lit), Maltese (mlt), Mandarin
+    (cmn), Marathi (mar), Nepali (nep), Odia (ori), Persian (fas), Serbian (srp), Slovenian (slv),
+    Swahili (swa), Tamil (tam) and Telugu (tel)
+  </Accordion>
+
+  <Accordion title="Good (>10% to ≤20% WER)">
+    Afrikaans (afr), Arabic (ara), Assamese (asm), Asturian (ast), Burmese (mya), Hausa (hau),
+    Hebrew (heb), Javanese (jav), Korean (kor), Kyrgyz (kir), Luxembourgish (ltz), Māori (mri),
+    Occitan (oci), Punjabi (pan), Tajik (tgk), Thai (tha), Uzbek (uzb) and Welsh (cym).
+  </Accordion>
+
+  <Accordion title="Moderate (>25% to ≤50% WER)">
+    Amharic (amh), Ganda (lug), Igbo (ibo), Irish (gle), Khmer (khm), Kurdish (kur), Lao (lao),
+    Mongolian (mon), Northern Sotho (nso), Pashto (pus), Shona (sna), Sindhi (snd), Somali (som),
+    Urdu (urd), Wolof (wol), Xhosa (xho), Yoruba (yor) and Zulu (zul).
+  </Accordion>
+</AccordionGroup>## FAQ<AccordionGroup>
+  <Accordion title="Can I use speech to text API with video files?">
+    Yes, the API supports uploading both audio and video files for transcription.
+  </Accordion>
+
+  <Accordion title="What are the file size and duration limits for the Speech to Text API?">
+    Files up to 3 GB in size are supported. Duration limits depend on the transcription mode:
+
+    * **Standard mode** (`use_multi_channel=false`): Up to 10 hours
+    * **Multi-channel mode** (`use_multi_channel=true`): The combined duration of all channels must be less than 10 hours
+  </Accordion>
+
+  <Accordion title="Which audio and video formats are supported in the API?">
+    The API supports the following audio and video formats:
+
+    * audio/aac
+    * audio/x-aac
+    * audio/x-aiff
+    * audio/ogg
+    * audio/mpeg
+    * audio/mp3
+    * audio/mpeg3
+    * audio/x-mpeg-3
+    * audio/opus
+    * audio/wav
+    * audio/x-wav
+    * audio/webm
+    * audio/flac
+    * audio/x-flac
+    * audio/mp4
+    * audio/aiff
+    * audio/x-m4a
+
+    Supported video formats include:
+
+    * video/mp4
+    * video/x-msvideo
+    * video/x-matroska
+    * video/quicktime
+    * video/x-ms-wmv
+    * video/x-flv
+    * video/webm
+    * video/mpeg
+    * video/3gpp
+  </Accordion>
+
+  <Accordion title="When will you support more languages?">
+    ElevenLabs is constantly expanding the number of languages supported by our models. Please check back frequently for updates.
+  </Accordion>
+
+  <Accordion title="Does speech to text API support webhooks?">
+    Yes, asynchronous transcription results can be sent to webhooks configured in webhook settings in the UI. Learn more in the [webhooks cookbook](/docs/eleven-api/guides/how-to/speech-to-text/batch/webhooks).
+  </Accordion>
+
+  <Accordion title="Is a multichannel transcription mode supported in the API?">
+    Yes, the multichannel [STT](https://elevenlabs.io/speech-to-text) feature allows you to transcribe audio where each channel is processed independently and assigned a speaker ID based on its channel number. This feature supports up to 5 channels. Learn more in the [multichannel transcription cookbook](/docs/eleven-api/guides/how-to/speech-to-text/batch/multichannel-transcription).
+  </Accordion>
+
+  <Accordion title="How does billing work for the speech to text API?">
+    ElevenLabs charges for speech to text based on the duration of the audio sent for transcription. Billing is calculated per hour of audio, with rates varying by tier and model. See the [API pricing page](https://elevenlabs.io/pricing/api?price.section=speech_to_text#pricing-table) for detailed pricing information.
+  </Accordion>
+</AccordionGroup>## Key facts- **Supported input**: Both audio and video files are accepted
+- **Maximum file size**: 3 GB
+- **Maximum duration**: 10 hours (standard mode), 1 hour (multichannel mode)
+- **Multichannel mode**: Up to 5 channels; each processed independently with a speaker ID assigned by channel number
+- **Webhooks**: Asynchronous transcription results can be delivered to a webhook — configure in workspace settings
+- **Supported audio formats**: AAC, AIFF, OGG, MP3, OPUS, WAV, FLAC, M4A, WebM
+- **Supported video formats**: MP4, AVI, MKV, MOV, WMV, FLV, WebM, MPEG, 3GPP

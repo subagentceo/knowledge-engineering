@@ -326,12 +326,12 @@ function resolveSettings(
 
 `resolveSettings()` accepts a single options object. All fields are optional.
 
-| Parameter                       | Type                                  | Default         | Description                                                                                                                               |
-| :------------------------------ | :------------------------------------ | :-------------- | :---------------------------------------------------------------------------------------------------------------------------------------- |
-| `options.cwd`                   | `string`                              | `process.cwd()` | Directory to resolve project and local settings relative to                                                                               |
-| `options.settingSources`        | [`SettingSource`](#settingsource)`[]` | All sources     | Which filesystem sources to load. Pass `[]` to skip user, project, and local settings. Managed policy settings load in all cases          |
-| `options.managedSettings`       | `Settings`                            | `undefined`     | Restrictive policy-tier settings merged at the managed-policy precedence level. Non-restrictive keys such as `model` are silently dropped |
-| `options.serverManagedSettings` | `Settings`                            | `undefined`     | Server-managed settings payload from `/api/claude_code/settings`. Non-restrictive keys pass through unfiltered                            |
+| Parameter                       | Type                                  | Default         | Description                                                                                                                                                                                                                                                                                                                                                     |
+| :------------------------------ | :------------------------------------ | :-------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `options.cwd`                   | `string`                              | `process.cwd()` | Directory to resolve project and local settings relative to                                                                                                                                                                                                                                                                                                     |
+| `options.settingSources`        | [`SettingSource`](#settingsource)`[]` | All sources     | Which filesystem sources to load. Pass `[]` to skip user, project, and local settings. Managed policy settings load in all cases                                                                                                                                                                                                                                |
+| `options.managedSettings`       | `Settings`                            | `undefined`     | Restrictive policy-tier settings supplied by the embedding host. Dropped by default when an admin-deployed managed tier is present; merged under that tier when [`parentSettingsBehavior`](/en/settings#available-settings) is `"merge"`. Non-restrictive keys such as `model` are silently dropped so this option can tighten managed policy but not loosen it |
+| `options.serverManagedSettings` | `Settings`                            | `undefined`     | Server-managed settings payload from `/api/claude_code/settings`. Non-restrictive keys pass through unfiltered                                                                                                                                                                                                                                                  |
 
 #### Return type: `ResolvedSettings`
 
@@ -389,6 +389,7 @@ Configuration object for the `query()` function.
 | `fallbackModel`                   | `string`                                                                                                 | `undefined`                                 | Model to use if primary fails                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `forkSession`                     | `boolean`                                                                                                | `false`                                     | When resuming with `resume`, fork to a new session ID instead of continuing the original session                                                                                                                                                                                                                                                                                                                                                                                    |
 | `hooks`                           | `Partial<Record<`[`HookEvent`](#hookevent)`, `[`HookCallbackMatcher`](#hookcallbackmatcher)`[]>>`        | `{}`                                        | Hook callbacks for events                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `includeHookEvents`               | `boolean`                                                                                                | `false`                                     | Include hook lifecycle events in the message stream as [`SDKHookStartedMessage`](#sdkhookstartedmessage), [`SDKHookProgressMessage`](#sdkhookprogressmessage), and [`SDKHookResponseMessage`](#sdkhookresponsemessage)                                                                                                                                                                                                                                                              |
 | `includePartialMessages`          | `boolean`                                                                                                | `false`                                     | Include partial message events                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `maxBudgetUsd`                    | `number`                                                                                                 | `undefined`                                 | Stop the query when the client-side cost estimate reaches this USD value. Compared against the same estimate as `total_cost_usd`; see [Track cost and usage](/en/agent-sdk/cost-tracking) for accuracy caveats                                                                                                                                                                                                                                                                      |
 | `maxThinkingTokens`               | `number`                                                                                                 | `undefined`                                 | *Deprecated:* Use `thinking` instead. Maximum tokens for thinking process                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -396,6 +397,7 @@ Configuration object for the `query()` function.
 | `mcpServers`                      | `Record<string, [`McpServerConfig`](#mcpserverconfig)>`                                                  | `{}`                                        | MCP server configurations                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `model`                           | `string`                                                                                                 | Default from CLI                            | Claude model to use                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | `outputFormat`                    | `{ type: 'json_schema', schema: JSONSchema }`                                                            | `undefined`                                 | Define output format for agent results. See [Structured outputs](/en/agent-sdk/structured-outputs) for details                                                                                                                                                                                                                                                                                                                                                                      |
+| `outputStyle`                     | `string`                                                                                                 | `undefined`                                 | Name of an [output style](/en/output-styles) to activate for the session. The style must exist in a loaded `settingSources` location, such as `.claude/output-styles/`. See [Activate an output style](/en/agent-sdk/modifying-system-prompts#activate-an-output-style)                                                                                                                                                                                                             |
 | `pathToClaudeCodeExecutable`      | `string`                                                                                                 | Auto-resolved from bundled native binary    | Path to Claude Code executable. Only needed if optional dependencies were skipped during install or your platform isn't in the supported set                                                                                                                                                                                                                                                                                                                                        |
 | `permissionMode`                  | [`PermissionMode`](#permissionmode)                                                                      | `'default'`                                 | Permission mode for the session                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | `permissionPromptToolName`        | `string`                                                                                                 | `undefined`                                 | MCP tool name for permission prompts                                                                                                                                                                                                                                                                                                                                                                                                                                                |
@@ -1595,7 +1597,11 @@ type ToolInputSchemas =
   | ReadMcpResourceInput
   | SubscribeMcpResourceInput
   | SubscribePollingInput
+  | TaskCreateInput
+  | TaskGetInput
+  | TaskListInput
   | TaskStopInput
+  | TaskUpdateInput
   | TodoWriteInput
   | UnsubscribeMcpResourceInput
   | UnsubscribePollingInput
@@ -1840,6 +1846,67 @@ type TodoWriteInput = {
 
 Creates and manages a structured task list for tracking progress.
 
+<Note>
+  `TodoWrite` is deprecated and will be removed in a future release. Use `TaskCreate`, `TaskGet`, `TaskUpdate`, and `TaskList` instead. Set `CLAUDE_CODE_ENABLE_TASKS=1` to opt in. See [Migrate to Task tools](/en/agent-sdk/todo-tracking#migrate-to-task-tools) for how monitoring code changes.
+</Note>
+
+### TaskCreate
+
+**Tool name:** `TaskCreate`
+
+```typescript theme={null}
+type TaskCreateInput = {
+  subject: string;
+  description: string;
+  activeForm?: string;
+  metadata?: Record<string, unknown>;
+};
+```
+
+Creates a single task and returns its assigned ID.
+
+### TaskUpdate
+
+**Tool name:** `TaskUpdate`
+
+```typescript theme={null}
+type TaskUpdateInput = {
+  taskId: string;
+  status?: "pending" | "in_progress" | "completed" | "deleted";
+  subject?: string;
+  description?: string;
+  activeForm?: string;
+  addBlocks?: string[];
+  addBlockedBy?: string[];
+  owner?: string;
+  metadata?: Record<string, unknown>;
+};
+```
+
+Patches one task by ID. Set `status` to `"deleted"` to remove it.
+
+### TaskGet
+
+**Tool name:** `TaskGet`
+
+```typescript theme={null}
+type TaskGetInput = {
+  taskId: string;
+};
+```
+
+Returns full details for one task, or `null` when the ID is not found.
+
+### TaskList
+
+**Tool name:** `TaskList`
+
+```typescript theme={null}
+type TaskListInput = {};
+```
+
+Returns a snapshot of all tasks in the current list.
+
 ### ExitPlanMode
 
 **Tool name:** `ExitPlanMode`
@@ -1917,7 +1984,11 @@ type ToolOutputSchemas =
   | MonitorOutput
   | NotebookEditOutput
   | ReadMcpResourceOutput
+  | TaskCreateOutput
+  | TaskGetOutput
+  | TaskListOutput
   | TaskStopOutput
+  | TaskUpdateOutput
   | TodoWriteOutput
   | WebFetchOutput
   | WebSearchOutput;
@@ -2271,6 +2342,81 @@ type TodoWriteOutput = {
 ```
 
 Returns the previous and updated task lists.
+
+<Note>
+  `TodoWrite` is deprecated and will be removed in a future release. Use `TaskCreate`, `TaskGet`, `TaskUpdate`, and `TaskList` instead. Set `CLAUDE_CODE_ENABLE_TASKS=1` to opt in. See [Migrate to Task tools](/en/agent-sdk/todo-tracking#migrate-to-task-tools) for how monitoring code changes.
+</Note>
+
+### TaskCreate
+
+**Tool name:** `TaskCreate`
+
+```typescript theme={null}
+type TaskCreateOutput = {
+  task: {
+    id: string;
+    subject: string;
+  };
+};
+```
+
+Returns the created task with its assigned ID.
+
+### TaskUpdate
+
+**Tool name:** `TaskUpdate`
+
+```typescript theme={null}
+type TaskUpdateOutput = {
+  success: boolean;
+  taskId: string;
+  updatedFields: string[];
+  error?: string;
+  statusChange?: {
+    from: string;
+    to: string;
+  };
+};
+```
+
+Returns the update result, including which fields changed.
+
+### TaskGet
+
+**Tool name:** `TaskGet`
+
+```typescript theme={null}
+type TaskGetOutput = {
+  task: {
+    id: string;
+    subject: string;
+    description: string;
+    status: "pending" | "in_progress" | "completed";
+    blocks: string[];
+    blockedBy: string[];
+  } | null;
+};
+```
+
+Returns the full task record, or `null` when the ID is not found.
+
+### TaskList
+
+**Tool name:** `TaskList`
+
+```typescript theme={null}
+type TaskListOutput = {
+  tasks: Array<{
+    id: string;
+    subject: string;
+    status: "pending" | "in_progress" | "completed";
+    owner?: string;
+    blockedBy: string[];
+  }>;
+};
+```
+
+Returns a snapshot of all tasks in the current list.
 
 ### ExitPlanMode
 

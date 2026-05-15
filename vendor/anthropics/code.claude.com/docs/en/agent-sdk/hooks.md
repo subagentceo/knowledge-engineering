@@ -235,8 +235,8 @@ Every hook callback receives three arguments:
 
 Your callback returns an object with two categories of fields:
 
-* **Top-level fields** control the conversation: `systemMessage` injects a message into the conversation visible to the model, and `continue` (`continue_` in Python) determines whether the agent keeps running after this hook.
-* **`hookSpecificOutput`** controls the current operation. The fields inside depend on the hook event type. For `PreToolUse` hooks, this is where you set `permissionDecision` (`"allow"`, `"deny"`, or `"ask"`), `permissionDecisionReason`, and `updatedInput`. In the TypeScript SDK, `permissionDecision` also accepts `"defer"` to end the query and [resume later](/en/hooks#defer-a-tool-call-for-later); this value is not available in the Python SDK. For `PostToolUse` hooks, you can set `additionalContext` to append information to the tool result, or `updatedToolOutput` to replace the tool's output entirely before Claude sees it.
+* **Top-level fields** work the same on every event: `systemMessage` shows a message to the user, and `continue` (`continue_` in Python) determines whether the agent keeps running after this hook.
+* **`hookSpecificOutput`** controls the current operation. The fields inside depend on the hook event type. For `PreToolUse` hooks, this is where you set `permissionDecision` (`"allow"`, `"deny"`, `"ask"`, or `"defer"`), `permissionDecisionReason`, and `updatedInput`. Returning `"defer"` ends the query so you can [resume it later](/en/hooks#defer-a-tool-call-for-later). For `PostToolUse` hooks, you can set `additionalContext` to append information to the tool result, or `updatedToolOutput` to replace the tool's output entirely before Claude sees it.
 
 Return `{}` to allow the operation without changes. SDK callback hooks use the same JSON output format as [Claude Code shell command hooks](/en/hooks#json-output), which documents every field and event-specific option. For the SDK type definitions, see the [TypeScript](/en/agent-sdk/typescript#synchookjsonoutput) and [Python](/en/agent-sdk/python#synchookjsonoutput) SDK references.
 
@@ -326,12 +326,16 @@ This example intercepts Write tool calls and rewrites the `file_path` argument t
 </CodeGroup>
 
 <Note>
-  When using `updatedInput`, you must also include `permissionDecision: 'allow'`. Always return a new object rather than mutating the original `tool_input`.
+  When using `updatedInput`, you must also include `permissionDecision: 'allow'` to auto-approve the modified input or `permissionDecision: 'ask'` to show it to the user. With `'defer'`, `updatedInput` is ignored. Always return a new object rather than mutating the original `tool_input`.
 </Note>
 
 ### Add context and block a tool
 
-This example blocks any attempt to write to the `/etc` directory and uses two output fields together: `permissionDecision: 'deny'` stops the tool call, while `systemMessage` injects a reminder into the conversation so the agent receives context about why the operation was blocked and avoids retrying it:
+This example blocks writes to the `/etc` directory and explains why to both the model and the user:
+
+* `permissionDecision: 'deny'` stops the tool call.
+* `permissionDecisionReason` tells the model why, so it avoids retrying.
+* `systemMessage` shows the user what happened.
 
 <CodeGroup>
   ```python Python theme={null}
@@ -340,7 +344,7 @@ This example blocks any attempt to write to the `/etc` directory and uses two ou
 
       if file_path.startswith("/etc"):
           return {
-              # Top-level field: inject guidance into the conversation
+              # Top-level field: message shown to the user
               "systemMessage": "Remember: system directories like /etc are protected.",
               # hookSpecificOutput: block the operation
               "hookSpecificOutput": {
@@ -360,7 +364,7 @@ This example blocks any attempt to write to the `/etc` directory and uses two ou
 
     if (filePath?.startsWith("/etc")) {
       return {
-        // Top-level field: inject guidance into the conversation
+        // Top-level field: message shown to the user
         systemMessage: "Remember: system directories like /etc are protected.",
         // hookSpecificOutput: block the operation
         hookSpecificOutput: {
@@ -621,7 +625,7 @@ This example sends a webhook after each tool completes, logging which tool ran a
 
 ### Forward notifications to Slack
 
-Use `Notification` hooks to receive system notifications from the agent and forward them to external services. Notifications fire for specific event types: `permission_prompt` (Claude needs permission), `idle_prompt` (Claude is waiting for input), `auth_success` (authentication completed), and `elicitation_dialog` (Claude is prompting the user). Each notification includes a `message` field with a human-readable description and optionally a `title`.
+Use `Notification` hooks to receive system notifications from the agent and forward them to external services. Notifications fire for specific event types: `permission_prompt` (Claude needs permission), `idle_prompt` (Claude is waiting for input), `auth_success` (authentication completed), `elicitation_dialog` (Claude is prompting the user), `elicitation_response` (the user answered an elicitation), and `elicitation_complete` (an elicitation closed). Each notification includes a `message` field with a human-readable description and optionally a `title`.
 
 This example forwards every notification to a Slack channel. It requires a [Slack incoming webhook URL](https://api.slack.com/messaging/webhooks), which you create by adding an app to your Slack workspace and enabling incoming webhooks:
 
@@ -769,7 +773,7 @@ const myHook: HookCallback = async (input, toolUseID, { signal }) => {
   };
   ```
 
-* You must also return `permissionDecision: 'allow'` for the input modification to take effect
+* You must also return `permissionDecision: 'allow'` or `'ask'` for the input modification to take effect
 
 * Include `hookEventName` in `hookSpecificOutput` to identify which hook type the output is for
 
@@ -807,7 +811,9 @@ A `UserPromptSubmit` hook that spawns subagents can create infinite loops if tho
 
 ### systemMessage not appearing in output
 
-The `systemMessage` field adds context to the conversation that the model sees, but it may not appear in all SDK output modes. If you need to surface hook decisions to your application, log them separately or use a dedicated output channel.
+The `systemMessage` field shows a message to the user, not the model. By default the SDK does not surface hook output in the message stream, so the message may not appear unless you set `includeHookEvents` (`include_hook_events` in Python). To pass context to the model instead, return [`additionalContext`](/en/hooks#add-context-for-claude).
+
+If you need to surface hook decisions to your application reliably, log them separately or use a dedicated output channel.
 
 ## Related resources
 

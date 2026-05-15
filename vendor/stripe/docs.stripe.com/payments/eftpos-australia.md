@@ -129,6 +129,41 @@ To identify which network a payment was processed on, inspect the [network](http
 }
 ```
 
+## Apple Pay support 
+
+Stripe supports processing eftpos cards through Apple Pay. When a customer with a co-branded card chooses eftpos, Stripe routes the transaction over the eftpos network.
+
+### Requirements 
+
+To accept eftpos cards through Apple Pay:
+
+- Your Stripe account must be based in Australia
+- The presentment currency must be AUD
+- Your business must not be in any of the [restricted categories](https://docs.stripe.com/payments/eftpos-australia.md#availability) for eftpos
+- Apple Pay must be enabled in your [Payment methods settings](https://dashboard.stripe.com/settings/payment_methods)
+
+### How it works 
+
+When a customer pays with Apple Pay using an eftpos Australia card:
+
+- Stripe detects when a customer pays with Apple Pay using a co-branded eftpos card.
+- The customer selects the card brand at checkout on their Apple device.
+- If the customer chooses eftpos, Stripe routes the transaction over the eftpos network.
+
+To identify Apple Pay transactions processed over the eftpos network, inspect the [network](https://docs.stripe.com/api/charges/object.md#charge_object-payment_method_details-card-network) field on the [Charge](https://docs.stripe.com/api/charges/object.md) object, which shows `eftpos_au`, along with the [wallet.type](https://docs.stripe.com/api/charges/object.md#charge_object-payment_method_details-card-wallet-type) field  showing `apple_pay`.
+
+### Integrate on iOS 
+
+If you have an existing [Apple Pay integration](https://docs.stripe.com/apple-pay.md?platform=ios), add eftpos as an enabled network by configuring the SDK when your app starts.
+
+#### Swift
+
+```swift
+StripeAPI.additionalEnabledApplePayNetworks = [.eftpos]
+```
+
+> Only add eftpos to your list of enabled networks if the transaction currency is AUD.
+
 ## See also
 
 - [Migrating from Charges API to the Payment Intents API](https://docs.stripe.com/payments/payment-intents/migration.md)

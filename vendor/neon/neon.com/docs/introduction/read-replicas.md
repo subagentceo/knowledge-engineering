@@ -1,6 +1,8 @@
 > This page location: Read replicas > Overview
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Step-by-step guide for creating and managing Neon read replicas, which provide read-only access to the same data as the primary compute without duplicating data, allowing for efficient scaling and resource management.
+
 # Neon Read Replicas
 
 Scale your app, run ad-hoc queries, and provide read-only access without duplicating data

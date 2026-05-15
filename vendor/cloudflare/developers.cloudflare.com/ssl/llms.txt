@@ -5,8 +5,6 @@ Encrypt your web traffic to prevent data theft and other tampering
 > Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/ssl/`).
 >
 > For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
->
-> Use [SSL/TLS llms-full.txt](https://developers.cloudflare.com/ssl/llms-full.txt) for the complete SSL/TLS documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
 
 ## Overview
 
@@ -110,6 +108,7 @@ Encrypt your web traffic to prevent data theft and other tampering
 - [SoftHSMv2](https://developers.cloudflare.com/ssl/keyless-ssl/hardware-security-modules/softhsmv2/index.md): Learn how to use Keyless SSL with SoftHSMv2.
 - [High availability](https://developers.cloudflare.com/ssl/keyless-ssl/reference/high-availability/index.md): Deploy Keyless SSL key servers with high availability.
 - [Keyless delegation](https://developers.cloudflare.com/ssl/keyless-ssl/reference/keyless-delegation/index.md): Delegate certificate signing to downstream key servers.
+- [Key server metrics](https://developers.cloudflare.com/ssl/keyless-ssl/reference/metrics/index.md): Prometheus metrics exposed by the gokeyless key server.
 - [Scaling and benchmarking](https://developers.cloudflare.com/ssl/keyless-ssl/reference/scaling-and-benchmarking/index.md): Scale and benchmark Keyless SSL key servers.
 - [Troubleshooting](https://developers.cloudflare.com/ssl/keyless-ssl/troubleshooting/index.md): Review how to troubleshoot issues when using Cloudflare Keyless SSL.
 - [Upgrade your key server](https://developers.cloudflare.com/ssl/keyless-ssl/upgrading-your-key-server/index.md): Upgrade your Keyless SSL key server to the latest version.
@@ -167,6 +166,7 @@ Encrypt your web traffic to prevent data theft and other tampering
 - [Certificate and hostname priority](https://developers.cloudflare.com/ssl/reference/certificate-and-hostname-priority/index.md): Learn about how Cloudflare decides which certificate and associated SSL/TLS settings to apply to individual hostnames.
 - [Certificate authorities](https://developers.cloudflare.com/ssl/reference/certificate-authorities/index.md): For publicly trusted certificates, Cloudflare partners with different certificate authorities (CAs). Refer to this page to check what CAs are used for each Cloudflare offering and for more details about the CAs features, limitations, and browser compatibility.
 - [Certificate pinning](https://developers.cloudflare.com/ssl/reference/certificate-pinning/index.md): Learn why Cloudflare does not support HTTP public key pinning (HPKP) and consider an alternative solution to prevent certificate misissuance.
+- [Rotate ACM certificate packs](https://developers.cloudflare.com/ssl/reference/certificate-rotation/index.md): Replace an Advanced Certificate Manager certificate pack with zero downtime by creating the new pack, waiting for it to go Active, then deleting the old one.
 - [Certificate statuses](https://developers.cloudflare.com/ssl/reference/certificate-statuses/index.md): Understand certificate statuses in Cloudflare SSL/TLS, including stages like Initializing, Pending Validation, and Active. Monitor via dashboard or command line.
 - [Validity periods and renewal](https://developers.cloudflare.com/ssl/reference/certificate-validity-periods/index.md): Learn about Cloudflare SSL certificate validity periods, auto renewal processes, and the benefits of shorter validity periods for enhanced security.
 - [Cloudflare and CVE-2019-1559](https://developers.cloudflare.com/ssl/reference/cloudflare-and-cve-2019-1559/index.md): How Cloudflare addressed the CVE-2019-1559 TLS vulnerability.
