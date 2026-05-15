@@ -35,6 +35,7 @@
     "install:plugins": "tsx scripts/install-plugins.ts",
     "setup:project": "tsx scripts/setup-github-project.ts",
     "setup:branch-protection": "tsx scripts/setup-branch-protection.ts",
+    "rotate:neon": "tsx scripts/mint-neon-api-secret.ts",
     "crawl:vendors": "tsx scripts/crawl-vendors.ts",
     "crawl:vendor": "tsx scripts/crawl-vendors.ts --vendor",
     "gen:servers": "tsx scripts/generate-server-tree.ts",
