@@ -2,27 +2,97 @@
 <!--
   Session-start posture for the knowledge-engineering agent.
   Loaded by src/agent/run.ts as a system-prompt prefix (wired in Phase 6).
-  In Phase 0 this file is a static artifact only.
 
-  Authoring source: seeds/prompts/operator-2026-05-10.md and
-  seeds/prompts/operator-2026-05-10-followup.md.
+  v1 (2026-05-10): auth/discipline/routines/execution skeleton.
+  v2 (2026-05-15): adds Boris Cherny primitives (Remote Control, /loop,
+                   /goal, claude agents, /autofix-pr, mobile-first), Agent
+                   SDK programmatic dispatch, code-standards, and updated
+                   connector statuses from the Phase 8/11/16 commits on
+                   unblock/secrets-cli-only-2026-05-15.
+
+  Authoring sources:
+    seeds/prompts/operator-2026-05-10.md
+    seeds/prompts/operator-2026-05-10-followup.md
+    seeds/prompts/operator-2026-05-15-autonomy.md
+    seeds/prompts/operator-2026-05-15-dogfood.md  (this revision)
 -->
-<posture version="1" date="2026-05-10">
+<posture version="2" date="2026-05-15">
 
   <auth>
-    <!-- Hard rule. Forbidden vars cause fail-closed. -->
+    <!-- Hard rule. Forbidden vars cause fail-closed at every layer. -->
     <require key="CLAUDE_CODE_OAUTH_TOKEN"/>
     <forbid key="ANTHROPIC_API_KEY">
-      Existing OAuth gate at src/oauth/token.ts fails closed when this is set.
-      Inside Cloudflare Sandboxes, the Worker env-sanitizer rejects any call
-      to setEnvVars that includes this key (see infra/cloudflare/src/worker.ts).
+      Defense in depth:
+        1. src/oauth/token.ts — OAuth gate, fails closed when key is set.
+        2. infra/cloudflare/src/worker.ts — sanitizeEnv() rejects this key
+           before forwarding env into the Cloudflare Sandbox.
+        3. .github/workflows/cloudflare-preview.yml — CI never sets it.
+      Mint OAuth via `claude setup-token`; rotate via
+      scripts/mint-claude-oauth-secret.ts (leak-safe mode-0o600 mktemp +
+      stdin pipe to `wrangler secret put` and `gh secret set`).
     </forbid>
     <managed-agents-api use="false">
-      We ingest the managed-agents documentation and reuse its rubric/outcome
-      pattern via the Messages API over OAuth. We do NOT call the managed-
-      agents endpoints and we do NOT build managed-agent products.
+      We ingest the managed-agents documentation and reuse its rubric /
+      outcome pattern via the Messages API over OAuth. We do NOT call
+      the managed-agents endpoints and we do NOT build managed-agent
+      products.
     </managed-agents-api>
   </auth>
+
+  <primitives>
+    <!--
+      Boris Cherny pattern (AI Ascent 2026): solo founder drives dozens
+      of concurrent Claude sessions from mobile. The repo MUST expose
+      these primitives so any inbound seed prompt can dispatch work
+      without operator intervention.
+    -->
+    <primitive name="/loop"
+               cite="vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w15.md"
+               purpose="self-pacing wakeup; prevents container sleep mid-batch"/>
+    <primitive name="/goal"
+               cite="vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w19.md"
+               purpose="iterate until a completion condition is met"/>
+    <primitive name="claude agents"
+               cite="vendor/anthropics/code.claude.com/docs/en/agent-view.md"
+               purpose="local dispatch panel for in-process subagents"/>
+    <primitive name="/autofix-pr"
+               cite="vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w15.md"
+               purpose="auto-fix-on-CI-failure engine; powers ci-healer routine"/>
+    <primitive name="remote-control"
+               cite="vendor/anthropics/code.claude.com/docs/en/remote-control.md"
+               purpose="operator's mobile entry point into this terminal session"/>
+    <primitive name="claude-code-on-the-web"
+               cite="vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md"
+               purpose="parallel cloud-VM sessions launched from mobile per dispatched unit"/>
+    <primitive name="agent-teams"
+               cite="vendor/anthropics/code.claude.com/docs/en/agent-teams.md"
+               purpose="team-lead coordinator pattern (experimental; CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1)"/>
+    <primitive name="typescript-sdk"
+               cite="vendor/anthropics/code.claude.com/docs/en/agent-sdk/typescript.md"
+               purpose="programmatic query() + startup() for long-lived orchestrators"/>
+    <primitive name="programmatic-subagents"
+               cite="vendor/anthropics/code.claude.com/docs/en/agent-sdk/subagents.md"
+               purpose="agents: { name: AgentDefinition } parameter for in-session fan-out"/>
+  </primitives>
+
+  <mobile-first>
+    <!--
+      The operator drives this repo from iPhone via claude.ai/code.
+      Every long-running task MUST be:
+        (a) resumable across Remote Control reconnects,
+        (b) loggable to a single PR thread so the phone surface is enough,
+        (c) capable of pinging back via mobile push when input is needed.
+    -->
+    <surface name="terminal" role="team-lead"
+             cite="vendor/anthropics/code.claude.com/docs/en/remote-control.md"/>
+    <surface name="cloud-session" role="per-unit-worker"
+             cite="vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md"/>
+    <push-notifications
+        cite="vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w16.md"
+        rule="long-task completion + needs-input both ping the operator's phone"/>
+    <orchestrator path="scripts/orchestrator.ts"
+                  drives="4-layer dispatch (mobile → terminal → in-process → cloud)"/>
+  </mobile-first>
 
   <discipline>
     <commit-per>todo</commit-per>
@@ -34,11 +104,15 @@
     <odd required="true">
       Every phase from Phase 0 onward ships rubrics/phase-N.md modeled on
       vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md.
+      Every commit ends with the outcome ID: `(O&lt;N&gt;)`. Enforced for
+      commits after 2026-05-15T04:30Z by src/lib/conventions.test.ts.
     </odd>
     <tdd required="true"/>
     <citations required="true">
-      Every new test file ships with a /** @cite path/under/vendor/... */
+      Every new test file ships with a /** @cite path/under/vendor|seeds|rubrics/... */
       header. CI guard: scripts/lib/citation-guard.ts.
+      In-repo cross-references (docs/, README.md) belong in prose, NOT
+      in @cite lines.
     </citations>
     <seed-vs-spec>
       Operator prompts are seeds, not specs. When a directive in an operator
@@ -46,24 +120,93 @@
       is logged in the PR description. When two operator directives conflict,
       the more restrictive auth posture wins.
     </seed-vs-spec>
+    <silent-failure-policy>
+      No silent fallbacks. If a verify gate fails, stop and surface the
+      error; do not paper over with a generic catch. pr-babysitter
+      routine inspects every automerge-labeled PR's checks and classifies
+      failures (flakey vs real); ci-healer routine reruns flakies and
+      escalates real failures to the operator's mobile.
+    </silent-failure-policy>
   </discipline>
+
+  <code-standards>
+    <!--
+      Boris Cherny code quality: a sufficiently scaffolded agent system
+      writes 100% of the code, so the surface MUST be reusable.
+    -->
+    <rule name="reusable-lib">
+      New behavior lands as `src/lib/&lt;name&gt;.ts` with a sibling test.
+      Scripts under `scripts/` are thin entry points that import from
+      `src/lib/` — they do not own logic that another script could reuse.
+    </rule>
+    <rule name="typescript-strict">
+      tsconfig.json runs `strict: true`. New exports declare explicit
+      types. No `any` outside narrowly-scoped vendor-SDK shims.
+    </rule>
+    <rule name="additive-allowlist">
+      infra/cloudflare/src/outbound-allowlist.ts is append-only. New
+      vendor hosts join the list; existing entries are never removed
+      without a separate PR + rubric.
+    </rule>
+    <rule name="leak-safe-pipelines">
+      Secret rotation NEVER prints the secret to stdout. Mint to mode-0o600
+      mktemp, pipe via stdin to `wrangler secret put` / `gh secret set`,
+      shred the file. Canonical impl: scripts/mint-claude-oauth-secret.ts;
+      mirrored in scripts/mint-neon-api-secret.ts.
+    </rule>
+    <rule name="cite-on-write">
+      Every test file ships an @cite header. Vendor client wrappers
+      (src/lib/&lt;vendor&gt;-client.ts) include a top-of-file comment
+      pointing at the vendor doc that drove the shape.
+    </rule>
+  </code-standards>
 
   <routines>
     <umbrella file=".claude/skills/routines/SKILL.md"/>
     <alias of="/loop" file=".claude/loop.md"/>
     <alias of="/schedule" file=".claude/skills/schedule-bridge/SKILL.md"/>
+    <routine name="heartbeat"     file=".claude/skills/heartbeat/SKILL.md"
+             cadence="per-tick" purpose="seeds/memory/heartbeat/* upkeep"/>
+    <routine name="refresh-vendors" file=".claude/skills/refresh-vendors/SKILL.md"
+             cadence="weekly" purpose="re-crawl vendor/ via crawl-vendors.ts"/>
+    <routine name="pr-babysitter" file=".claude/skills/routines/pr-babysitter/SKILL.md"
+             cadence="5m" purpose="scan automerge-labeled PRs, classify CI failures, dispatch ci-fixer"/>
+    <routine name="ci-healer"     file=".claude/skills/routines/ci-healer/SKILL.md"
+             cadence="10m" purpose="distinguish flakey reruns from real failures; escalate"/>
   </routines>
 
   <execution>
     <codemode runtime="@cloudflare/codemode" status="planned-phase-6"/>
     <sandbox provider="@cloudflare/sandbox" pattern="ephemeral" status="scaffolded-phase-0g"/>
     <db-branching provider="neon" sdk="@neondatabase/api-client" status="scaffolded-phase-0g"/>
+    <orchestrator-sdk
+        package="@anthropic-ai/claude-agent-sdk"
+        cite="vendor/anthropics/code.claude.com/docs/en/agent-sdk/typescript.md"
+        status="scaffolded-2026-05-15"/>
     <long-arc>
       Workers-resident agents writing the codebase end-to-end (Boris Cherny
-      pattern). Phase 0g is the first concrete step toward this; future PRs
-      relocate the orchestrator into a Durable Object on Cron Triggers.
+      pattern). scripts/orchestrator.ts is the first concrete step: a
+      long-lived TypeScript orchestrator that fans out to 5 in-process
+      subagents (vendor-bootstrapper, runbook-writer, ci-fixer,
+      citation-validator, smoke-tester) and dispatches cloud-session
+      paste-prompts for parallelizable vendor bootstraps.
     </long-arc>
   </execution>
+
+  <auto-merge>
+    <!--
+      Strict-CI gate. Auto-merge fires ONLY when all required checks
+      report success on the PR's head SHA. Required checks set by
+      scripts/setup-branch-protection.ts (ruleset id 16440994).
+    -->
+    <required-check>verify</required-check>
+    <required-check>osv-scanner</required-check>
+    <required-check>cloudflare-preview</required-check>
+    <required-check>neon-branch</required-check>
+    <required-check>copilot</required-check>
+    <workflow path=".github/workflows/auto-merge.yml"/>
+    <label name="automerge"/>
+  </auto-merge>
 
   <doc-rules>
     <!-- .md-first hosts: append .md or /index.md, reject text/html responses -->
@@ -72,19 +215,25 @@
     <host name="platform.claude.com" rule="append-.md"/>
     <host name="claude.com/docs" rule="append-.md"/>
     <host name="neon.com/guides" rule="append-.md"/>
+    <host name="docs.parallel.ai" rule="append-.md"/>
+    <host name="docs.nimbleway.com" rule="append-.md"/>
+    <host name="ollama.com/docs" rule="append-.md"/>
   </doc-rules>
 
   <connectors strategy="connectors-first">
-    <!-- Pre-built connectors register first; gen:servers (Phase 6) emits
-         servers/<connector>/<tool>.ts; code-mode is the default path. -->
-    <connector name="cloudflare" status="loaded"/>
-    <connector name="github" status="loaded"/>
-    <connector name="neon" status="planned"/>
-    <connector name="sentry" status="planned"/>
-    <connector name="turbopuffer" status="planned"/>
-    <connector name="parallel.ai" status="tbd"/>
-    <connector name="nimbleway" status="tbd"/>
-    <connector name="ollama" status="tbd"/>
+    <!--
+      Pre-built connectors register first; gen:servers (Phase 6) emits
+      servers/<connector>/<tool>.ts; code-mode is the default path.
+      Status reflects commits on unblock/secrets-cli-only-2026-05-15.
+    -->
+    <connector name="cloudflare"   status="loaded"/>
+    <connector name="github"       status="loaded"/>
+    <connector name="neon"         status="loaded"/>
+    <connector name="sentry"       status="planned"/>
+    <connector name="turbopuffer"  status="bootstrapped-2026-05-15" commit="2335179"/>
+    <connector name="parallel.ai"  status="skeleton-2026-05-15"     pr="#129"/>
+    <connector name="nimbleway"    status="skeleton-2026-05-15"     pr="#130"/>
+    <connector name="ollama"       status="skeleton-2026-05-15"     pr="#131"/>
   </connectors>
 
   <accounts>
@@ -95,7 +244,7 @@
   </accounts>
 
   <sources>
-    <!-- The 11 cited URLs ingested in Phase 0c. Local paths under vendor/anthropics/. -->
+    <!-- Phase 0c base citations -->
     <doc path="vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md"
          drives="ODD/rubric layer (Phase 9)"/>
     <doc path="vendor/anthropics/platform.claude.com/docs/en/managed-agents/multi-agent.md"
@@ -118,6 +267,28 @@
          drives="bridge-as-connector (long-arc, Phase 12)"/>
     <doc path="vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md"
          drives="Full-Stack Cloud Agent runner (Phase 0g)"/>
+
+    <!-- Boris Cherny primitives layer (v2) -->
+    <doc path="vendor/anthropics/code.claude.com/docs/en/remote-control.md"
+         drives="mobile entry point into this session"/>
+    <doc path="vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md"
+         drives="parallel cloud-VM dispatch surface"/>
+    <doc path="vendor/anthropics/code.claude.com/docs/en/agent-view.md"
+         drives="claude agents local dispatch panel"/>
+    <doc path="vendor/anthropics/code.claude.com/docs/en/agent-teams.md"
+         drives="team-lead coordinator pattern"/>
+    <doc path="vendor/anthropics/code.claude.com/docs/en/agent-sdk/typescript.md"
+         drives="long-lived orchestrator: query() + startup()"/>
+    <doc path="vendor/anthropics/code.claude.com/docs/en/agent-sdk/subagents.md"
+         drives="programmatic agents:{} parameter"/>
+    <doc path="vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w15.md"
+         drives="/loop + /autofix-pr arrival week"/>
+    <doc path="vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w16.md"
+         drives="mobile push notifications + routines-on-web"/>
+    <doc path="vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w19.md"
+         drives="/goal completion-condition primitive"/>
+    <doc path="vendor/anthropics/code.claude.com/docs/en/changelog.md"
+         drives="claude agents flag matrix (v2.1.142, 2026-05-14)"/>
   </sources>
 
 </posture>

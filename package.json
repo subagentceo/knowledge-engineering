@@ -60,7 +60,8 @@
   },
   "overrides": {
     "@anthropic-ai/sdk": "^0.95.0",
-    "file-type": "^21.3.1"
+    "file-type": "^21.3.1",
+    "protobufjs": "^7.5.6"
   },
   "devDependencies": {
     "@modelcontextprotocol/inspector": "^0.21.0",
