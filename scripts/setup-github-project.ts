@@ -18,15 +18,25 @@
 // links and is a no-op.
 //
 // Required env:
-//   GITHUB_TOKEN  — fine-grained PAT with repo + project scopes on
-//                   subagentceo/knowledge-engineering
+//   GITHUB_TOKEN  — token with repo scope on subagentceo/knowledge-engineering.
+//                   Projects V2 ops require `project` (or `read:project` +
+//                   write) scope ALSO. When the token has `repo` but not
+//                   `project`, the script degrades to milestones-only and
+//                   exits 0 — Project V2 setup becomes a separate follow-up.
+//                   Cited: https://docs.github.com/en/rest/issues/milestones
+//                   (REST, `repo` scope) and
+//                   https://docs.github.com/en/graphql/reference/mutations#createprojectv2
+//                   (GraphQL, `project` scope).
 //
 // Optional env:
 //   GH_OWNER       (default: subagentceo)
 //   GH_REPO        (default: knowledge-engineering)
 //   GH_PROJECT     (default: "Knowledge Engineering")
+//   SKIP_PROJECT_V2  set to "1" to force milestones-only mode even if
+//                    the token has `project` scope (useful for separating
+//                    project creation into its own audit step).
 
-import { readFileSync, readdirSync, existsSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -166,47 +176,103 @@ async function linkIssueToProject(projectId: string, issueNodeId: string): Promi
   );
 }
 
+/**
+ * Probe whether the configured GITHUB_TOKEN has Projects V2 (`project`) scope.
+ * Returns true if a benign GraphQL projectV2 query succeeds, false if the
+ * server rejects it with a scope error. Other errors propagate.
+ *
+ * NOTE: `viewer.projectsV2` does NOT require `read:project` and returns
+ * data even without it. The probe must use the field the script will
+ * actually call (`repository.projectsV2`), which DOES require the scope.
+ * Verified empirically 2026-05-15 against admin-jadecli's token (which
+ * has admin:enterprise + admin:org but not read:project).
+ */
+async function tokenHasProjectScope(): Promise<boolean> {
+  try {
+    await ghGraphQL<{ repository: { projectsV2: { nodes: unknown[] } } }>(
+      `query($owner:String!,$repo:String!){
+        repository(owner:$owner,name:$repo){ projectsV2(first:1){ nodes{ id } } }
+      }`,
+      { owner: GH_OWNER, repo: GH_REPO }
+    );
+    return true;
+  } catch (err) {
+    const msg = (err as Error).message;
+    if (/scope|insufficient|forbidden|read:project|`project`/i.test(msg)) {
+      return false;
+    }
+    throw err;
+  }
+}
+
 async function run(): Promise<void> {
   if (!GH_TOKEN) {
-    console.error("GITHUB_TOKEN required. Provision a fine-grained PAT with:");
-    console.error("  Repository: subagentceo/knowledge-engineering (read/write issues, pull-requests, contents)");
-    console.error("  Organization: subagentceo (read/write projects)");
+    console.error("GITHUB_TOKEN required. Provision a token with:");
+    console.error("  Repository scope: repo (read/write issues, milestones)");
+    console.error("  Optional: project (or read:project + write) for Projects V2 setup");
     console.error("");
-    console.error("Then run: GITHUB_TOKEN=<pat> npm run setup:project");
+    console.error("Then run: GITHUB_TOKEN=<token> npm run setup:project");
+    console.error("");
+    console.error("Skip Projects V2 explicitly: SKIP_PROJECT_V2=1 GITHUB_TOKEN=<token> npm run setup:project");
     process.exit(1);
   }
 
   const specs = loadRubrics();
   console.log(`loaded ${specs.length} rubrics from rubrics/phase-{1..12}.md`);
 
-  const projectId = await ensureProject();
-  console.log(`project ready: ${GH_PROJECT} (${projectId})`);
+  const skipRequested = process.env.SKIP_PROJECT_V2 === "1";
+  const projectScopeAvailable = !skipRequested && (await tokenHasProjectScope());
+  let projectId: string | null = null;
+
+  if (projectScopeAvailable) {
+    projectId = await ensureProject();
+    console.log(`project ready: ${GH_PROJECT} (${projectId})`);
+  } else if (skipRequested) {
+    console.log("Projects V2 skipped via SKIP_PROJECT_V2=1 (milestones only).");
+  } else {
+    console.log(
+      "Projects V2 skipped: GITHUB_TOKEN lacks `project` scope. " +
+        "Milestones will be created via REST `repo` scope. " +
+        "To add Projects V2 later: `gh auth refresh -s project,read:project` " +
+        "and re-run `npm run setup:project`."
+    );
+  }
 
   for (const spec of specs) {
     const ms = await ensureMilestone(spec);
     const label = `phase:${spec.phase}`;
     const linked = await linkIssuesToMilestone(label, ms.number);
-    console.log(`  phase ${spec.phase.toString().padStart(2)} | milestone #${ms.number.toString().padStart(3)} "${ms.title}" | linked ${linked} issue(s)`);
-
-    // Link those issues to the project too.
-    const issues = await ghREST<{ node_id: string }[]>(
-      "GET",
-      `/repos/${GH_OWNER}/${GH_REPO}/issues?labels=${encodeURIComponent(label)}&state=open&per_page=100`
+    console.log(
+      `  phase ${spec.phase.toString().padStart(2)} | milestone #${ms.number
+        .toString()
+        .padStart(3)} "${ms.title}" | linked ${linked} issue(s)`
     );
-    for (const i of issues) {
-      try {
-        await linkIssueToProject(projectId, i.node_id);
-      } catch (err) {
-        // Already on the project — addProjectV2ItemById is idempotent on the
-        // server side via PROJECT_ITEM_ALREADY_EXISTS, but other GraphQL
-        // errors should surface.
-        const msg = (err as Error).message;
-        if (!msg.includes("PROJECT_ITEM_ALREADY_EXISTS")) throw err;
+
+    if (projectId !== null) {
+      // Link those issues to the project too.
+      const issues = await ghREST<{ node_id: string }[]>(
+        "GET",
+        `/repos/${GH_OWNER}/${GH_REPO}/issues?labels=${encodeURIComponent(label)}&state=open&per_page=100`
+      );
+      for (const i of issues) {
+        try {
+          await linkIssueToProject(projectId, i.node_id);
+        } catch (err) {
+          // Already on the project — addProjectV2ItemById is idempotent on the
+          // server side via PROJECT_ITEM_ALREADY_EXISTS, but other GraphQL
+          // errors should surface.
+          const msg = (err as Error).message;
+          if (!msg.includes("PROJECT_ITEM_ALREADY_EXISTS")) throw err;
+        }
       }
     }
   }
 
-  console.log("\nsetup-github-project: complete");
+  console.log(
+    projectId !== null
+      ? "\nsetup-github-project: complete (milestones + project)"
+      : "\nsetup-github-project: complete (milestones only; Project V2 pending scope)"
+  );
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

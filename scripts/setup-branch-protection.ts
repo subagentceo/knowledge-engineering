@@ -84,7 +84,11 @@ function rulesetBody() {
           require_code_owner_review: false,
           require_last_push_approval: false,
           required_review_thread_resolution: false,
-          automatic_copilot_code_review_enabled: false,
+          // Removed `automatic_copilot_code_review_enabled` 2026-05-15:
+          // GitHub Rulesets API responds 422 "Unexpected parameter" for
+          // this key on POST /repos/{owner}/{repo}/rulesets. It is a UI
+          // affordance, not part of the documented rule schema. See
+          // https://docs.github.com/rest/repos/rules#create-a-repository-ruleset.
         },
       },
       {
