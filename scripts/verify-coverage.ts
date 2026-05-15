@@ -37,8 +37,9 @@ const DEFAULT_THRESHOLD = 70;
 const PRE_EXISTING_BELOW_THRESHOLD = new Set<string>([
   "scripts/lib/citation-guard.ts", // O-G8 — CLI script, needs invocation harness test
   "scripts/lib/neon-client.ts",    // O-G8 — has partial test (42%), backfill the rest
-  "src/lib/cache-control.ts",       // O-G8 — listed in plan as missing sibling test
-  "src/lib/docs-fetch.ts",          // O-G8 — listed in plan as missing sibling test
+  // 2026-05-15: src/lib/cache-control.ts + src/lib/docs-fetch.ts removed
+  // from this list by Phase G item O-G8 (this PR). Sibling tests
+  // landed in src/lib/cache-control.test.ts + src/lib/docs-fetch.test.ts.
 ]);
 
 function readThreshold(): number {
