@@ -136,6 +136,51 @@ Re-generate with `npm run validate:gates`.
 
 **Status: DEFERRED.** Scaffold only; merge gated by operator decision.
 
+### Phase 14 — Neon MCP + multi-platform Claude rollout
+
+| Gate | Required | Owner | Status |
+|---|---|---|---|
+| Phase 13.B+ complete (Neon dual-write + per-PR branches + schema-diff) | yes | agent | ✅ done (PRs #57/#58/#61) |
+| Chassis snapshot stable | yes | agent | ✅ done (PR #59 draft) |
+| Neon MCP runbook shipped (T1) | yes | agent | ✅ done (this PR) |
+| 6 per-platform smoke tests (T2.1–T2.6) | yes | **operator** | **pending** |
+| Open questions Q1–Q6 answered | yes | **operator** | **pending** |
+
+**Status: ⚠️ Phase 14.T1 DONE 2026-05-15** — Decomposition seed at `seeds/prompts/operator-2026-05-15-mcp-multiplatform.md` + setup runbook at `docs/operator-runbooks/neon-mcp-server.md`. T2 (smoke tests) is operator-action; T3–T8 unblock per-task once T1+T2 green.
+
+**Per-platform smoke-test scoreboard (T2):**
+
+| Surface | Neon MCP installed? | `list my Neon projects` works? | Note |
+|---|---|---|---|
+| CLI | tbd | tbd | T1.1 Quick Setup recommended |
+| Claude Desktop | tbd | tbd | T1.4 Custom Connector recommended |
+| VS Code | tbd | tbd | inherits CLI config (T1.6) |
+| JetBrains | tbd | tbd | inherits CLI config (T1.6) |
+| Web (`claude.ai/code`) | tbd | tbd | resolves Q1 |
+| Mobile (iOS/Android) | n/a | tbd | via Remote Control or Dispatch (T8) |
+
+**Open questions (operator-decision items, blocks downstream tasks):**
+
+| # | Question | Blocks |
+|---|---|---|
+| Q1 | Does Web (`claude.ai/code`) attach Remote-MCP per-org or per-session? | T1.7, T2.5, T4 |
+| Q2 | Should `complete_database_migration` write back to `migrations/000N_*.sql`? | T3.3 |
+| Q3 | Does Slack cloud session inherit operator's Neon OAuth, or re-auth per-session? | T4 |
+| Q4 | Scheduled-task runner: cloud Routines vs Desktop vs CLI? | T5.1 |
+| Q5 | Channels plugin: Telegram vs Discord? | T6.1 |
+| Q6 | Chrome integration: macOS-only initial scope, or also Linux? | T7.1 |
+
+**Downstream tasks (each becomes its own PR once T2 greens that surface):**
+
+- **T3** — MCP-driven migration loop (replaces hand-running `scripts/migrate-neon.ts`)
+- **T4** — Slack integration (`@Claude` mention → cloud session → draft PR)
+- **T5** — Scheduled tasks (recurring vendor crawl + diff post)
+- **T6** — Channels integration (CI failure → Telegram/Discord alert)
+- **T7** — Chrome integration (visual regression smoke for `outcomesdk.com`)
+- **T8** — Remote Control + Dispatch (mobile-driven sessions)
+
+Decomposition + dependency map: `seeds/prompts/operator-2026-05-15-mcp-multiplatform.md`.
+
 ## Summary
 
 | Phase | Status | Blocking owner |
@@ -152,6 +197,7 @@ Re-generate with `npm run validate:gates`.
 | 10 | blocked | Phase 9 (chained) |
 | 11 | blocked | Phase 10 (chained) + 2 operator actions for embeddings flag (Turbopuffer, Voyage) |
 | 12 | deferred | operator decision |
+| 14 | **T1 ready** | T2 — operator runs 6 per-platform smoke tests; resolves Q1–Q6 |
 
 **Phase 1 can start now — no operator action required.** The
 heartbeat orchestrator should pick up Phase 1 as its next action after
