@@ -1,0 +1,30 @@
+{
+  "https://brave.com/search/api/guides/": {
+    "sha256": "b0d17fff8c4dd133bd07c8f89c4091d7c90846a0d3c95484ef7730ad514a0f8b",
+    "etag": "W/\"6b6d77d03bc5daf5207385dea4936583\"",
+    "lastModified": "Fri, 08 May 2026 17:54:00 GMT",
+    "fetchedAt": "2026-05-15T04:38:01.017Z",
+    "lastStatus": 200
+  },
+  "https://brave.com/search/api/styles.min.fd51ef8255dcfe8c85e4c4e651ce33090b0ff321e0d8f5f63e70c7765cee6619.css": {
+    "sha256": "6d4764f43ae522a49a9e267846cdaf957f502a3a15f096a5a1a870f6d7a40475",
+    "etag": "\"0b53a679ec765da0e47c0ad777a3ff6f\"",
+    "lastModified": "Thu, 19 Feb 2026 19:30:25 GMT",
+    "fetchedAt": "2026-05-15T04:38:01.017Z",
+    "lastStatus": 200
+  },
+  "https://brave.com/search/api/tools/": {
+    "sha256": "fe2c46a949c38de649e55e8b20c28ccc5006aaed3d35ecef3b4129e0fd833f6f",
+    "etag": "W/\"3b19f7c85451f366ebf81800d740d370\"",
+    "lastModified": "Thu, 14 May 2026 23:25:43 GMT",
+    "fetchedAt": "2026-05-15T04:38:01.017Z",
+    "lastStatus": 200
+  },
+  "https://brave.com/search/api/use-cases/": {
+    "sha256": "52e5f3bf4dd8a891dcbf41a69ad022dbbb25b0fef359084d3ddf525da5315cf6",
+    "etag": "W/\"3b86d9c718dfea8962a468d4191886a9\"",
+    "lastModified": "Thu, 14 May 2026 17:27:07 GMT",
+    "fetchedAt": "2026-05-15T04:38:01.017Z",
+    "lastStatus": 200
+  }
+}
