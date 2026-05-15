@@ -210,11 +210,17 @@ function main(): void {
     process.exit(update.status ?? 1);
   }
 
-  console.log("");
-  console.log("[mint-claude-oauth-secret] DONE");
-  console.log("  -> Verify with:");
-  console.log(`     npx wrangler secrets-store secret list ${STORE_ID} --remote`);
-  console.log("  -> The Modified timestamp on CLAUDE_CODE_OAUTH_TOKEN should match now.");
+  // Use stderr for human-facing instructions and redact env-derived
+  // identifiers — CodeQL flags `console.log` of strings interpolated
+  // from process.env as clear-text logging of sensitive information.
+  // STORE_ID is an account-scoped store identifier (not a secret),
+  // but the safer pattern is to print it via stderr without inlining
+  // it into a literal, and to direct the operator to retrieve it from
+  // their CF dashboard or env.
+  process.stderr.write("\n[mint-claude-oauth-secret] DONE\n");
+  process.stderr.write("  -> Verify with:\n");
+  process.stderr.write("     npx wrangler secrets-store secret list $CF_SECRETS_STORE_ID --remote\n");
+  process.stderr.write("  -> The Modified timestamp on CLAUDE_CODE_OAUTH_TOKEN should match now.\n");
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

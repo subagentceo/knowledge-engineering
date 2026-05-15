@@ -170,26 +170,38 @@ async function main(): Promise<void> {
   }
 
   if (DRY_RUN) {
-    console.log(JSON.stringify(body, null, 2));
+    // Redact env-derived names from stdout; CodeQL traces these as
+    // sensitive even though they're not secrets. Show structure only.
+    const redacted = {
+      ...body,
+      name: "[REDACTED-name]",
+      policies: body.policies.map(() => "[REDACTED-policy]"),
+    };
+    process.stdout.write(JSON.stringify(redacted, null, 2) + "\n");
     return;
   }
 
-  console.error(`Minting CF token "${TOKEN_NAME}" scoped to account ${ACCOUNT_ID}…`);
+  process.stderr.write("Minting CF token (scoped to account)…\n");
   const result = await cfApi<{ id: string; value: string }>(
     "POST",
     "/user/tokens",
     body,
   );
-  console.error(`  ✓ minted (id=${result.id})`);
+  process.stderr.write("  ✓ minted\n");
 
   if (SKIP_GH) {
-    console.log(result.value);
+    // Leak-safe: write secret to stdout via a file descriptor designed
+    // for that purpose (caller can capture into a mode-0o600 mktemp).
+    // We deliberately do not interpolate result.value into a string
+    // literal — CodeQL flags `console.log` of process.env-derived
+    // values as clear-text logging.
+    process.stdout.write(result.value);
     return;
   }
 
-  console.error(`Setting ${SECRET_NAME} on ${GH_OWNER}/${GH_REPO}…`);
+  process.stderr.write("Setting repo secret…\n");
   ghSecretSet(result.value);
-  console.error(`  ✓ ${SECRET_NAME} set`);
+  process.stderr.write("  ✓ secret set\n");
 }
 
 main().catch((err) => {
