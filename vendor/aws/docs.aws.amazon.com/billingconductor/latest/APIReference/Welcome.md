@@ -1,0 +1,10 @@
+
+
+# Welcome
+<a name="Welcome"></a>
+
+ AWS Billing Conductor is a fully managed service that you can use to customize a [pro forma](https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions) version of your billing data each month, to accurately show or chargeback your end customers. AWS Billing Conductor doesn't change the way you're billed by AWS each month by design. Instead, it provides you with a mechanism to configure, generate, and display rates to certain customers over a given billing period. You can also analyze the difference between the rates you apply to your accounting groupings relative to your actual rates from AWS. As a result of your Billing Conductor configuration, the payer account can also see the custom rate applied on the billing details page of the [Billing console](https://console.aws.amazon.com/billing), or configure a cost and usage report per billing group.
+
+This documentation shows how you can configure Billing Conductor by using its API. For more information about using the [Billing Conductor](https://console.aws.amazon.com/billingconductor/) user interface, see the [AWS Billing Conductor User Guide](https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html).
+
+This document was last published on May 14, 2026. 

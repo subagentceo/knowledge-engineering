@@ -1,0 +1,125 @@
+# Nimble Docs
+
+## Docs
+
+- [Agent Async](https://docs.nimbleway.com/api-reference/agents/agent-async.md): Execute Search Agent Async Endpoint
+- [Agent Batch](https://docs.nimbleway.com/api-reference/agents/agent-batch.md)
+- [Agent Run](https://docs.nimbleway.com/api-reference/agents/agent-run.md): Execute Search Agent Realtime Endpoint
+- [Generate Agent](https://docs.nimbleway.com/api-reference/agents/generate-agent.md)
+- [Get Agent Details](https://docs.nimbleway.com/api-reference/agents/get-agent-details.md)
+- [Get Generation](https://docs.nimbleway.com/api-reference/agents/get-generation.md)
+- [List Agents](https://docs.nimbleway.com/api-reference/agents/list-agents.md)
+- [Cancel Crawl](https://docs.nimbleway.com/api-reference/crawl/cancel-crawl.md)
+- [Crawl by ID](https://docs.nimbleway.com/api-reference/crawl/crawl-by-id.md)
+- [Create Crawl](https://docs.nimbleway.com/api-reference/crawl/create-crawl.md)
+- [List Crawls](https://docs.nimbleway.com/api-reference/crawl/list-crawls.md)
+- [Get Driver](https://docs.nimbleway.com/api-reference/domain-knowledge/get-driver.md): Resolves the suggested driver for a given URL or agent name. Exactly one of `url` or `agent` must be provided.
+- [Extract](https://docs.nimbleway.com/api-reference/extract/extract.md)
+- [Extract Async](https://docs.nimbleway.com/api-reference/extract/extract-async.md)
+- [Extract Batch](https://docs.nimbleway.com/api-reference/extract/extract-batch.md)
+- [Introduction](https://docs.nimbleway.com/api-reference/introduction.md): Get started with Nimble's API
+- [Map](https://docs.nimbleway.com/api-reference/map/map.md)
+- [Media Download](https://docs.nimbleway.com/api-reference/media/media-download.md)
+- [Media Download Async](https://docs.nimbleway.com/api-reference/media/media-download-async.md)
+- [Search](https://docs.nimbleway.com/api-reference/search/search.md)
+- [SERP](https://docs.nimbleway.com/api-reference/serp/serp.md)
+- [SERP Async](https://docs.nimbleway.com/api-reference/serp/serp-async.md): Execute SERP Async Endpoint
+- [SERP Batch](https://docs.nimbleway.com/api-reference/serp/serp-batch.md): Execute SERP Batch Endpoint
+- [Get batch details](https://docs.nimbleway.com/api-reference/tasks/get-batch-details.md): Retrieve the details of a batch including all its tasks and completion status.
+- [Get batch progress](https://docs.nimbleway.com/api-reference/tasks/get-batch-progress.md): Retrieve lightweight progress information for a batch without fetching all task details.
+- [List batches](https://docs.nimbleway.com/api-reference/tasks/list-batches.md): Retrieve a paginated list of batches for the authenticated account.
+- [List tasks](https://docs.nimbleway.com/api-reference/tasks/list-tasks.md): Retrieve a paginated list of tasks for the authenticated account.
+- [Task Result](https://docs.nimbleway.com/api-reference/tasks/task-result.md): Retrieve the status and results of an async task by ID. Works for all async task types (extract, search, map, agent, crawl).
+- [Task Status](https://docs.nimbleway.com/api-reference/tasks/task-status.md): Retrieve the status and results of an async task by ID. Works for all async task types (extract, search, map, agent, crawl).
+- [Changelog](https://docs.nimbleway.com/changelog/release-notes.md): Stay up to date with the latest Nimble SDK updates and improvements
+- [Build Your First Agent](https://docs.nimbleway.com/guides/build-first-agent-tutorial.md): Give Claude one prompt and let the Nimble Agents skill handle agent discovery, custom agent generation, and script writing — end to end
+- [Nimble Documentation](https://docs.nimbleway.com/home.md): Create Web Search Agents for any website. Extract structured, real-time knowledge for AI applications, data pipelines, and analytics — no scraping expertise required.
+- [Plugin Installation](https://docs.nimbleway.com/integrations/agent-skills/plugin-installation.md): Install the Nimble plugin and turn your AI coding assistant into a web data expert
+- [Business Research](https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/business-research.md): 360° company research, competitor monitoring, and market discovery
+- [Marketing](https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/marketing.md): Track competitor positioning, messaging shifts, pricing changes, and content gaps
+- [Overview](https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/overview.md): One-command web intelligence workflows for any AI agent
+- [Productivity](https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/productivity.md): Meeting prep with attendee research, and local business discovery
+- [SEO](https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/seo.md): Live SEO intelligence from keyword research to AI search visibility
+- [Nimble Agent Builder](https://docs.nimbleway.com/integrations/agent-skills/web-tools-skills/nimble-agent-builder.md): Turn your AI coding assistant into a web data agent factory
+- [Nimble Web Expert](https://docs.nimbleway.com/integrations/agent-skills/web-tools-skills/nimble-web-expert.md): Turn your AI coding assistant into a web scraping expert
+- [Claude AI Connectors](https://docs.nimbleway.com/integrations/connectors/anthropic/claude-connectors.md): Add Nimble to Claude.ai as a custom connector for real-time web search, extraction, and crawling.
+- [Anthropic SDK](https://docs.nimbleway.com/integrations/connectors/anthropic/sdk.md): Use the Nimble SDK as a tool inside Claude's tool-use API.
+- [Google ADK](https://docs.nimbleway.com/integrations/connectors/google-adk.md): Connect Google ADK agents to the Nimble web data platform via the MCP server.
+- [LangChain](https://docs.nimbleway.com/integrations/connectors/langchain.md): LangChain tools and retrievers for web search, content extraction, crawling, mapping, and structured data agents.
+- [OpenAI](https://docs.nimbleway.com/integrations/connectors/openai.md): Use the Nimble SDK as a tool inside OpenAI function calling and the Agents SDK.
+- [Smithery](https://docs.nimbleway.com/integrations/connectors/smithery.md): Connect any AI agent to Nimble web tools via the Smithery MCP registry
+- [Nimble MCP Docs ](https://docs.nimbleway.com/integrations/mcp-server/mcp-docs.md): Connect your AI tools to the Nimble documentation knowledge base via MCP
+- [Nimble MCP Server](https://docs.nimbleway.com/integrations/mcp-server/mcp-server.md): Connect AI agents to Nimble's web data platform via the Model Context Protocol
+- [Databricks](https://docs.nimbleway.com/integrations/partnerships/databricks.md): Install Nimble MCP Server from the Databricks Marketplace and use it in agents, AI Playground, and notebooks
+- [Azure MCP Center](https://docs.nimbleway.com/integrations/partnerships/microsoft/azure-mcp-center.md): Install Nimble MCP from Azure MCP Center and use it in VS Code with GitHub Copilot Agent Mode
+- [AdsPower](https://docs.nimbleway.com/integrations/proxy/integration-guides/ads-power.md): Connect Nimble Proxy with AdsPower
+- [Android](https://docs.nimbleway.com/integrations/proxy/integration-guides/android.md): Connect Nimble Proxy with Android
+- [FoxyProxy](https://docs.nimbleway.com/integrations/proxy/integration-guides/foxy-proxy.md): Connect Nimble Proxy with FoxyProxy
+- [Incogniton](https://docs.nimbleway.com/integrations/proxy/integration-guides/incogniton.md): Connect Nimble Proxy with Incogniton
+- [iOS](https://docs.nimbleway.com/integrations/proxy/integration-guides/ios.md): Connect Nimble Proxy with iPhone and iPad
+- [Kameleo](https://docs.nimbleway.com/integrations/proxy/integration-guides/kameleo.md): Connect Nimble Proxy with Kameleo
+- [macOS](https://docs.nimbleway.com/integrations/proxy/integration-guides/macos.md): Connect Nimble Proxy with macOS System Preferences
+- [MuLogin](https://docs.nimbleway.com/integrations/proxy/integration-guides/mulogin.md): Connect Nimble Proxy with MuLogin
+- [Multilogin](https://docs.nimbleway.com/integrations/proxy/integration-guides/multilogin.md): Connect Nimble Proxy with Multilogin
+- [Proxifier](https://docs.nimbleway.com/integrations/proxy/integration-guides/proxifier.md): Connect Nimble Proxy with Proxifier
+- [Puppeteer](https://docs.nimbleway.com/integrations/proxy/integration-guides/puppeteer.md): Connect Nimble Proxy with Puppeteer
+- [Scrapy](https://docs.nimbleway.com/integrations/proxy/integration-guides/scrapy.md): Connect Nimble Proxy with Scrapy
+- [Selenium](https://docs.nimbleway.com/integrations/proxy/integration-guides/selenium.md): Connect Nimble Proxy with Selenium
+- [SwitchyOmega](https://docs.nimbleway.com/integrations/proxy/integration-guides/switchyomega.md): Connect Nimble Proxy with SwitchyOmega browser extension
+- [VMLogin](https://docs.nimbleway.com/integrations/proxy/integration-guides/vm-login.md): Connect Nimble Proxy with VMLogin
+- [Windows](https://docs.nimbleway.com/integrations/proxy/integration-guides/windows.md): Connect Nimble Proxy with Windows System Settings
+- [Overview](https://docs.nimbleway.com/integrations/proxy/overview.md): Step-by-step guides for integrating Nimble IP with popular third-party software
+- [Account Management](https://docs.nimbleway.com/nimble-sdk/admin/account-management.md): Manage API keys and collaborate with your team
+- [Blogs](https://docs.nimbleway.com/nimble-sdk/admin/blogs.md)
+- [Callbacks & Delivery](https://docs.nimbleway.com/nimble-sdk/admin/callbacks-and-delivery.md): Configure how you receive results from async operations
+- [Compliance](https://docs.nimbleway.com/nimble-sdk/admin/compliance.md)
+- [Legacy Docs](https://docs.nimbleway.com/nimble-sdk/admin/legacy-docs.md)
+- [Pricing](https://docs.nimbleway.com/nimble-sdk/admin/pricing.md): Flexible usage-based pricing for Nimble SDK
+- [Rate Limits](https://docs.nimbleway.com/nimble-sdk/admin/rate-limits.md): Technical specifications, rate limits, and API constraints
+- [Via Code](https://docs.nimbleway.com/nimble-sdk/agentic/agent-creation.md): Create custom extraction agents programmatically via API, CLI, SDK, or your AI coding assistant
+- [Agents Gallery](https://docs.nimbleway.com/nimble-sdk/agentic/agent-gallery.md): Browse pre-built Web Search Agents — or create one for any website
+- [Web Search Agents](https://docs.nimbleway.com/nimble-sdk/agentic/agents.md): Intelligent agents that search, extract, and structure knowledge from any website at scale
+- [Jobs](https://docs.nimbleway.com/nimble-sdk/agentic/jobs.md): Run any Web Search Agent on a schedule or on demand — at scale, hands-off.
+- [Nimble Studio](https://docs.nimbleway.com/nimble-sdk/agentic/studio.md): Turn any website into a structured data API. Describe what you need in plain English
+- [Installation](https://docs.nimbleway.com/nimble-sdk/getting-started/installation.md): Get started with Nimble by installing our SDK or CLI and setting up your environment
+- [Welcome to Nimble](https://docs.nimbleway.com/nimble-sdk/getting-started/overview.md): Web Search Agents that turn any website into structured knowledge for AI
+- [Quickstart Guide](https://docs.nimbleway.com/nimble-sdk/getting-started/quickstart.md): Get structured data from any website in minutes — with code or without.
+- [SDK Code Examples](https://docs.nimbleway.com/nimble-sdk/getting-started/sdk-examples.md): Quick code examples for every Nimble API — Extract, Agents, Search, Map, and Crawl
+- [CLI](https://docs.nimbleway.com/nimble-sdk/sdks/cli.md): Official Nimble CLI — interact with the Nimble API directly from your terminal
+- [Go](https://docs.nimbleway.com/nimble-sdk/sdks/go.md): Official Nimble SDK for Go — type-safe client for web extraction, search, crawl, map, and agents
+- [Node](https://docs.nimbleway.com/nimble-sdk/sdks/node.md): Official Nimble SDK for Node.js and TypeScript — async client for web extraction, search, crawl, map, and agents
+- [Python](https://docs.nimbleway.com/nimble-sdk/sdks/python.md): Official Nimble Python SDK — sync and async client for web extraction, search, crawl, map, and agents
+- [Agent Skills](https://docs.nimbleway.com/nimble-sdk/sdks/skills.md): Turn your AI coding assistant into a web data expert — extract structured knowledge from any website
+- [Crawl](https://docs.nimbleway.com/nimble-sdk/web-tools/crawl.md): Extract structured data from entire websites automatically
+- [Domain Knowledge](https://docs.nimbleway.com/nimble-sdk/web-tools/domain-knowledge.md): Resolve the optimal driver and detect antibots for any URL or agent
+- [Advanced Options](https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/advanced-options.md): Fine-tune extract requests with referrer policies, session control, device emulation, and more
+- [Async & Batch](https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/async.md): Run extraction tasks asynchronously or submit multiple URLs in a single batch request
+- [Browser Actions](https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/browser-actions.md): Full control over browser actions with predefined steps
+- [Formats](https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/formats.md): Control response format and included data types
+- [Geo Targeting](https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/geo-targeting.md): Built-in residential proxy allowing Geo-targeting options
+- [Custom Headers & Cookies](https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/headers-and-cookies.md): Send custom headers and cookies to access personalized or authenticated content
+- [JavaScript Rendering](https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/js-rendering.md): Control browser rendering for dynamic content and JavaScript execution
+- [Network Capture](https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/network-capture.md): Capture internal API calls and dynamic data without parsing HTML
+- [Parsing Schema](https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/parsing-schema.md): Precise data extraction with powerful parser syntax
+- [Stealth Mode](https://docs.nimbleway.com/nimble-sdk/web-tools/extract/features/stealth-mode.md): Advanced anti-bot evasion for highly protected websites
+- [Extract](https://docs.nimbleway.com/nimble-sdk/web-tools/extract/quickstart.md): Get clean, structured data from any webpage with full control
+- [Fast SERP](https://docs.nimbleway.com/nimble-sdk/web-tools/fast-serp.md): Realtime Google SERP APIs, sub-second structured results at high success rates
+- [Map](https://docs.nimbleway.com/nimble-sdk/web-tools/map.md): Fast URL discovery and site structure mapping
+- [Media](https://docs.nimbleway.com/nimble-sdk/web-tools/media.md): Download images, videos, and other media files directly via URL
+- [Authentication](https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/authentication.md): Learn about authentication methods for Nimble's residential proxy
+- [Geotargeting](https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/geotargeting.md): Target specific geographic locations with Nimble's residential proxy
+- [Proxy Quickstart](https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/quickstart.md): Access premium residential IPs through a single BackConnect gateway
+- [Response Codes](https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/response-codes.md): Understand response codes and troubleshoot common issues
+- [Session Control](https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/session-control.md): Control IP rotation behavior with sticky sessions and rotation settings
+- [Unlocker Proxy](https://docs.nimbleway.com/nimble-sdk/web-tools/proxy/unlocker-proxy.md)
+- [Search](https://docs.nimbleway.com/nimble-sdk/web-tools/search.md): Real-time web search with AI-powered agents that understand intent and return structured data
+- [Search Depth](https://docs.nimbleway.com/nimble-sdk/web-tools/search-depth.md): Choose the right search depth mode for your use case — optimize for speed, cost, or content richness
+- [SERP](https://docs.nimbleway.com/nimble-sdk/web-tools/serp.md): Google SERP API returning live search results as structured data with high success rates
+
+## OpenAPI Specs
+
+- [openapi](https://docs.nimbleway.com/openapi.json)
+
+## Optional
+
+- [Nimble Studio](https://online.nimbleway.com/workflow-builder)

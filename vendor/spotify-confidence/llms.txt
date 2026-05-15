@@ -1,0 +1,108 @@
+# Confidence
+
+> Confidence is Spotify's warehouse-native experimentation and feature management platform. It provides feature flags, A/B testing, rollouts, metrics, and statistical analysis to help organizations run experiments and make data-informed product decisions — all on top of your own data warehouse.
+
+Confidence is built on years of research and experience running large experimentation programs at Spotify. A/B tests help evaluate new ideas, with data informing decisions about what and how to build. Rollouts enable safe releases of features and backend changes. In both cases, the focus is on learning from users and controlling risks.
+
+Confidence is warehouse-native: it runs experiments directly in your existing data warehouse (BigQuery, Snowflake, Redshift, or Databricks), giving you full data transparency and keeping data in an environment you control.
+
+The platform uses OpenFeature-compliant SDKs from the Cloud Native Computing Foundation (CNCF), reducing vendor lock-in.
+
+You can [sign up for a free trial](https://confidence.spotify.com/start-trial) to get started — no credit card needed.
+
+## Docs
+
+For a comprehensive LLM-optimized version of the documentation, see: [Confidence Docs llms.txt](https://confidence.spotify.com/docs/llms.txt)
+
+- [Introduction to Confidence](https://confidence.spotify.com/docs): Overview of the platform and its capabilities
+- [Warehouse-Native Confidence](https://confidence.spotify.com/docs/data-warehouse-native): Run experiments on top of your own data warehouse
+- [Confidence as a Platform](https://confidence.spotify.com/docs/confidence-as-a-platform): Platform architecture overview
+
+## Getting started
+
+- [Onboarding Guide](https://confidence.spotify.com/docs/onboarding-guide): Step-by-step guide to get started
+- [BigQuery Setup](https://confidence.spotify.com/docs/data-warehouse-native/quickstart/bigquery): Connect BigQuery as your data warehouse
+- [Snowflake Setup](https://confidence.spotify.com/docs/data-warehouse-native/quickstart/snowflake): Connect Snowflake as your data warehouse
+- [Redshift Setup](https://confidence.spotify.com/docs/data-warehouse-native/quickstart/redshift): Connect Redshift as your data warehouse
+- [Databricks Setup](https://confidence.spotify.com/docs/data-warehouse-native/quickstart/databricks): Connect Databricks as your data warehouse
+
+## Quickstarts
+
+- [Configure a Flag](https://confidence.spotify.com/docs/flags/quickstart): Create and configure your first feature flag
+- [Configure a Metric](https://confidence.spotify.com/docs/metrics/quickstart): Define metrics to measure experiment impact
+- [Launch a Rollout](https://confidence.spotify.com/docs/rollouts/quickstart): Safely release changes with a rollout
+- [Launch an A/B Test](https://confidence.spotify.com/docs/abtests/quickstart): Set up and run an A/B test
+- [Analyze a Past Experiment](https://confidence.spotify.com/docs/analysis-workflows/quickstart): Analyze experiments conducted elsewhere
+
+## Feature flags
+
+- [Flags Introduction](https://confidence.spotify.com/docs/flags/introduction): Overview of feature flags in Confidence
+- [Clients](https://confidence.spotify.com/docs/clients): SDK clients for resolving flags
+- [Context Schemas](https://confidence.spotify.com/docs/flags/context-schema): Define context used for flag evaluation
+- [Audiences](https://confidence.spotify.com/docs/flags/audience): Target specific user groups
+- [Segments](https://confidence.spotify.com/docs/segments): Reusable targeting criteria
+- [Rules](https://confidence.spotify.com/docs/define-rules): Configure flag evaluation rules
+- [Resolve Tester](https://confidence.spotify.com/docs/flags/resolve-tester): Test flag resolution behavior
+- [Local Resolver](https://confidence.spotify.com/docs/local-resolver): Resolve flags locally for development
+
+## Metrics
+
+- [Metrics Introduction](https://confidence.spotify.com/docs/metrics/introduction): Overview of the metrics system
+- [Entities](https://confidence.spotify.com/docs/entities): Define the units of analysis
+- [Assignment Tables](https://confidence.spotify.com/docs/assignment-tables): Map entities to experiment treatments
+- [Exposure](https://confidence.spotify.com/docs/exposure): Track who is exposed to an experiment
+- [Fact Tables](https://confidence.spotify.com/docs/fact-tables): Define data sources for metrics
+- [Dimension Tables](https://confidence.spotify.com/docs/dimension-tables): Add dimensions for metric breakdowns
+- [Metrics](https://confidence.spotify.com/docs/metrics): Define and manage metrics
+
+## Experiments
+
+- [Experiments Introduction](https://confidence.spotify.com/docs/experiments/introduction): Overview of experimentation in Confidence
+- [A/B Tests](https://confidence.spotify.com/docs/abtests): Compare variants to measure impact
+- [Rollouts](https://confidence.spotify.com/docs/rollouts): Gradually release changes with monitoring
+- [Analysis Workflows](https://confidence.spotify.com/docs/analysis-workflows): Analyze experiments from external systems
+- [Treatments](https://confidence.spotify.com/docs/treatments): Configure experiment variants
+- [Audience](https://confidence.spotify.com/docs/audience): Define who participates in an experiment
+- [Exclusive Experiments](https://confidence.spotify.com/docs/exclusive-experiments): Prevent experiment interactions
+- [Statistical Settings](https://confidence.spotify.com/docs/results-settings): Configure significance levels and test parameters
+- [Sample Size Calculator](https://confidence.spotify.com/docs/sample-size-calculator): Estimate required sample size
+- [Monitoring](https://confidence.spotify.com/docs/monitoring): Track experiment health in real time
+- [Analyze Results](https://confidence.spotify.com/docs/analyze-an-experiment): Interpret experiment outcomes
+
+## Statistics
+
+- [Hypothesis Testing](https://confidence.spotify.com/docs/design/hypothesis): Formulate experiment hypotheses
+- [Alpha and Power](https://confidence.spotify.com/docs/design/power): Configure type I and type II error rates
+- [Effect Sizes](https://confidence.spotify.com/docs/design/effect-sizes): Define minimum detectable effects
+- [Metrics and Tests](https://confidence.spotify.com/docs/stats/stat-tests): Statistical tests for different metric types
+- [Multiple Comparisons](https://confidence.spotify.com/docs/stats/adjustment-multiple-comparisons): Adjust for testing multiple metrics
+- [Sequential Tests](https://confidence.spotify.com/docs/stats/sequential-tests): Monitor experiments with valid early stopping
+- [Variance Reduction (CUPED)](https://confidence.spotify.com/docs/stats/variance-reduction): Reduce variance using pre-experiment data
+
+## APIs
+
+- [API Quickstart](https://confidence.spotify.com/docs/api/quickstart): Get started with the Confidence API
+- [API Basics](https://confidence.spotify.com/docs/api/api-basics): Authentication, pagination, and common patterns
+- [Flags API](https://confidence.spotify.com/docs/api/flags): Manage and resolve feature flags programmatically
+- [Metrics API](https://confidence.spotify.com/docs/api/metrics): Define entities, tables, and metrics via API
+- [Stats API](https://confidence.spotify.com/docs/api/stats): Run statistical analyses and power analyses
+- [Experiments API](https://confidence.spotify.com/docs/api/experiments): Manage A/B tests and rollouts via API
+- [IAM API](https://confidence.spotify.com/docs/api/iam): Manage users, API clients, and access control
+
+## SDKs
+
+- [SDK Introduction](https://confidence.spotify.com/docs/integrations): Overview of available SDKs and integrations
+- [Context](https://confidence.spotify.com/docs/integrations/context): Set evaluation context for flag resolution
+- [Apply Event](https://confidence.spotify.com/docs/integrations/apply-event): Track when a flag value is applied
+
+## Identity and access management
+
+- [IAM Introduction](https://confidence.spotify.com/docs/iam/introduction): Overview of identity and access management
+- [Users](https://confidence.spotify.com/docs/iam/users): Manage user accounts
+- [Groups](https://confidence.spotify.com/docs/iam/groups): Organize users into groups
+- [Roles](https://confidence.spotify.com/docs/iam/roles): Define roles with specific permissions
+- [Policies](https://confidence.spotify.com/docs/iam/policies): Configure access policies
+
+## MCP servers
+
+- [MCP Servers](https://confidence.spotify.com/docs/mcp-servers): Use Confidence with AI assistants via Model Context Protocol

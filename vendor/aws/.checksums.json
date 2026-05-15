@@ -1,0 +1,1402 @@
+{
+  "https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.md": {
+    "sha256": "7a5d15e9939dd961f8ea29f745ba38e54a34f9096813da64b5964c8add101a3c",
+    "etag": "\"GKvCNrCtwPlBhPmt/HKJjK/Rizc=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:16 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/ARG/latest/APIReference/Welcome.md": {
+    "sha256": "36c458467bd79b6ac67a8fd381e7958e211233c2e4648f32c47f76bf8b6f0deb",
+    "etag": "\"Xj+DQAVhe80lhXLLLce1VU8ZVjE=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:13 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/ARG/latest/userguide/resource-groups.md": {
+    "sha256": "091bb11c310a687218100b47f2d42d14453f7a20994417a266873a9dd137e25a",
+    "etag": "\"lx/YlTydl+Tfg7x4icVQvpAdlZ0=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:14 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.md": {
+    "sha256": "80cce6ae243fcbfdd63d7d112f8ee4991ffc543fcdcbd71b38b2664bce166ce9",
+    "etag": "\"DFYwKBEWkZ7rcsMJqdkND9G7BeI=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:17 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/introduction.md": {
+    "sha256": "5debb062b755aacfe097629d9c69e585d48ecf2eaf7a1ea4fab0d5881d46f1b4",
+    "etag": "\"+9obFB+Ki5HL3Ti4ixIS2+dkCFo=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:27 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.md": {
+    "sha256": "37138b86a86a6a43dc7fd621774178ad474226c256091b8fa171bd6afce5ac9c",
+    "etag": "\"8P1w5UaYFrhLb56/9w65quVFMX4=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:36 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.md": {
+    "sha256": "00cec17c89ba6db6ca1dd553dca0bfd27ca8b5073df2cce0cbeac1bf9602ca26",
+    "etag": "\"YOE6v07MENH2JAgwrB3eN0B2kcY=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:23 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.md": {
+    "sha256": "11cc98ddb694a84c516d6aa42a76532874229eb65995c5320a62190baaba9d2e",
+    "etag": "\"CV6MT41Tg7Pyfky4gyNQJsHSpEc=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:06 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkGettingStartedGuide/Welcome.md": {
+    "sha256": "0e4df08faece1a290883a47830f538356a02068e5e7a740e14f4a455ac7d991d",
+    "etag": "\"N/b5mYjAXKvzE3TsKAdX5kb03tc=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:31 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkRequester/WhatIs.md": {
+    "sha256": "cbaad3404ef57c000ff0d3f5250896e5e46543ae344609e9e28bda2d85eebe4b",
+    "etag": "\"KabteNznUKYFvjsvCA8yRv6jCa0=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:40 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI-legacy/Welcome.md": {
+    "sha256": "ddebbcb3bc8677fd32dd1ac42882ed157dd433b09473bcc4dd992df89328e248",
+    "etag": "\"KQGkPBKXcBHoFoej7I/SlSDzMAM=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:30 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkAPI/Welcome.md": {
+    "sha256": "43b78d3d8e5f01b6a22dd75d25d5da75c068da52ba732d96fc6067d6482f98ba",
+    "etag": "\"/ynKkPqSQKfyWcUaKv2ynIFqbCg=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:30 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMturkCLT/Welcome.md": {
+    "sha256": "6d68d90e7d3b1b81c37e9f5233d4173ca10568f2e2373b6ee4351720d759af17",
+    "etag": "\"QOFwCsn8QsETVW8M5G99uJGAkB0=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:41 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSMechTurk/latest/RequesterUI/Introduction.md": {
+    "sha256": "ecd98ec251cabeedb739f6444719057b76f77ecf7019c4f64986123ae2365832",
+    "etag": "\"vVCNa1uck8ZY4ehj5x4OWpGMurY=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:49 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.md": {
+    "sha256": "2cdc007b7b0b4c4d46f703bc611faf54be8b4b0b6195ed840c04c8166abfdd8c",
+    "etag": "\"EqmYvgGV5u4PcOLMC2I9Jc9k7SM=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:05 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.md": {
+    "sha256": "00869e0866f04711249fa1669879b8ecbacea009a10b28d410efcb566e901b77",
+    "etag": "\"NsnSST1aXWP2LqEGKa6+yFb+4L8=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:15 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.md": {
+    "sha256": "6d0703a62b5f7933e92d738a3fc0e43129775dae58728db63e752a554628c174",
+    "etag": "\"guJzWWsbWJef8TtH+dz1tj6lpXI=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:56 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.md": {
+    "sha256": "09de6d154570b4dd647e7a19b86cbd2c9ef79ec2df2354de24feaef033807bf6",
+    "etag": "\"Ctp6TVZs2GHG4tF/FfTvh6AFuNY=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:31 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonCloudWatch/latest/cli/Welcome.md": {
+    "sha256": "7e7d8888ba6178ab200d2a49c669b1c4439dfd5fdb558d3e58a6ae1cbd74727e",
+    "etag": "\"ReGEKCALsQ71YKquKI1jiKADSak=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:07 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md": {
+    "sha256": "5849154df5a1e03eaf007ed8366bf30292d500f39b1eb63dad7f5eef3b2c040b",
+    "etag": "\"zmAxgUdcteEHZ7XzoXlxuhQMn9o=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:10 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.md": {
+    "sha256": "31a095a06eb53efafba970f0c0df00c1153a4d316374286bbb7ea05e4ad395c2",
+    "etag": "\"49dfCtpgg2EeYVUQf6ci+xk93qw=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:19 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.md": {
+    "sha256": "62b5254c26c8823339b4873e856a5f25ee305045dde88220a8c28b004069c7b2",
+    "etag": "\"q4YttLhEygC0TVWbS9JKBcX7awQ=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:09 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonECR/latest/APIReference/Welcome.md": {
+    "sha256": "770dc291757464f54162306f3ea76f01888416c774b964d1d19065b193c71f09",
+    "etag": "\"UV1Xd5ZN/mqguYo7oPu59PXVXTU=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:19 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonECR/latest/public/what-is-ecr.md": {
+    "sha256": "9aaf1216de86c5f50da617d73cc5715cd8af9be654c6bd00e9bda2ac5ed44069",
+    "etag": "\"DjjUWmQ7fyMOVi1Cw/Pbicp/oco=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:17 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.md": {
+    "sha256": "11394e0d7ed3d0106029ba663138242dd5cf7a4fe7b99026d42a8db30d4b7c25",
+    "etag": "\"t7eOY9J4LeZ9bCrTRjNnT1TYous=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:34 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonECRPublic/latest/APIReference/Welcome.md": {
+    "sha256": "08a73216dbade467766e959dceb81d465b03f486120b5971f0168062f108444b",
+    "etag": "\"kWoNVLY/XN9ZM3HS8yQ6/2Sz6r0=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:56 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonECS/latest/APIReference/Welcome.md": {
+    "sha256": "ec82733b662d9e7e909ad714609b647bec963abc28f7eaa22d95ea589a07a8a2",
+    "etag": "\"lI8FlEw4zTwx7W7Q7WVQXtUKrTA=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:48 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonECS/latest/bestpracticesguide/intro.md": {
+    "sha256": "4141ecb906b6af17842808caea5d3ed07fe7b66895ca870c1f7c1d9a2ef777f8",
+    "etag": "\"5mYdsiVo0ufuTMnlAyvbPiu3Ivs=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:25 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.md": {
+    "sha256": "d7ada062d4e89c906bf35bc65388e8e94577a0a67e3f30ce28346ec711d90f52",
+    "etag": "\"saq6cRkOLA3a8akkl+m3ZNcMqqw=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:32 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.md": {
+    "sha256": "f7fc6fa40ed859b74035740acf6110583597a975bc1bad8edbe2612d2e6fc515",
+    "etag": "\"ijGiqH3mSctLv4B1ti2tL42t6PU=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:49 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/WhatIs.md": {
+    "sha256": "84e8408828961e7b08888d6a57e3033548dcf5c712c6599ae1c6b58738d5784a",
+    "etag": "\"1BWqIqrGI7kCUY2lxPdC/w/Uw/k=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:29 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraMySQLReleaseNotes/Welcome.md": {
+    "sha256": "10abf0a168b32a2b5f2971f94d162b84aa29a07747d0b0b67e9a933b2cf5241f",
+    "etag": "\"Svg0YxM+3GvM7mrPxuSsUCCXC8I=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:39 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/Welcome.md": {
+    "sha256": "da56cbb9dff8451d4352453f6e66948d696557b6187c494ea9b1a96221b223ec",
+    "etag": "\"NmAH+Yq6/6wbMInmu0uKPpEN8KE=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:44 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.md": {
+    "sha256": "9e2f4d4c4239fa26823c7dc191d8d68c0959680dceacd03fb4cdc84305febd4e",
+    "etag": "\"DbwOl8oBfdN8/YnNiO1vroH7Uiw=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:35 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonRDS/latest/OracleReleaseNotes/Welcome.md": {
+    "sha256": "013e979a08a68a7815cbabf676cd79f4fe4d92ba219935f14a42d35c9c2d0579",
+    "etag": "\"Zg11i+qrx3hVA+Ow58vntYiHlxY=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:14 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonRDS/latest/PostgreSQLReleaseNotes/Welcome.md": {
+    "sha256": "7ded82b78385f45b4d1dbba8fc2e5bf1eb8e4203f37087c88e09a67ed1329b8b",
+    "etag": "\"XWwNKlPsLka+lEaQoGOhdxUcwCE=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 18:22:06 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.md": {
+    "sha256": "2f7b4512931d83dbd6c3a5b81ba0b0fa5ba36bbee210b270980278862464fe74",
+    "etag": "\"ZZ1SZqyQj+w/Eg4oDjLmNSwmB2M=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:38 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonRDS/latest/gettingstartedguide/what-is-rds.md": {
+    "sha256": "6db9c1cd8c56112be3e9c603832f5c494705bdf7f22c52d6f06992ce471ac6a5",
+    "etag": "\"meAfHKiF5x+Wgh0e3D+GmcHeqMU=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:47 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.md": {
+    "sha256": "698c5d083f838ce9fb7d792e4aefc27608d1863824a2dedb88fd9a1ff61042d1",
+    "etag": "\"WUc3U8Zkzb+PYkXwDXcuGCo9jjs=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:00 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/S3onOutposts.md": {
+    "sha256": "65b2cbbd2a233be14003ed897a958c3f834ac20e3140cb3db1b68ee44b0ac24a",
+    "etag": "\"P+eRiUqOGs0tysL7dHsTgZ6H39A=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:40 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.md": {
+    "sha256": "2950b21859440fcb698aa037665252ba602c5dd8207f285f1536672d18cca4ea",
+    "etag": "\"iKVgbWawa5c7Lf+j4da7WCcLr5w=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:38 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/Welcome.md": {
+    "sha256": "fd0f26c29e2cac4eeb3440c2c7526fabcbeba1038f8ab3d3b660b57b0e54a98f",
+    "etag": "\"pPO5R+yckhWsLqHpWMi5oQuJsBU=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:34 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/Welcome.md": {
+    "sha256": "9200dc3312158b38c3d5f75a8145c0002b7a6d3eeb3ba93b85ec4d0dcb4e8250",
+    "etag": "\"qarxJHj7SbqTxSiFNe3heyXQBIc=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:33 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/CDI-SDK/latest/ug/what-is.md": {
+    "sha256": "3a8d4c3a2eab6499f4d68388fb64da0ad8ac0c9fd79df7eb50f9244564388375",
+    "etag": "\"GwMYwFl5Yr/wf9Esn99ETUXMG4Q=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:05:59 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/EDI/latest/eco-support-guide/what-is-eco.md": {
+    "sha256": "d9757b9e8e837bf010142aa922dc09839d4679ff85e67a88594ada49a2bf7f4e",
+    "etag": "\"TrI0gczTbynN1toQXbySI/TEBrM=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:45 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.md": {
+    "sha256": "6b3155bf56943e3bdc974bc0294cd085529379a5b77f8b35fbf2b81e0716c460",
+    "etag": "\"AlBsGScoDyuEAIOU1L3TSANuwcI=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:57 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.md": {
+    "sha256": "6471ab7bffeb2b78ee398c6ed0ac294503dac6c9fa3483101b65164755ccb062",
+    "etag": "\"rvPi7mBanObSeRPAzTMaAsEKYSA=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:33 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/IDR/latest/userguide/what-is-idr.md": {
+    "sha256": "52096f5e3246af7ebb0251a9aa483dc396efb32f987f12270ea40a143a2746a7",
+    "etag": "\"P04fB/tdMfYMK6gSihLUuJFx/nI=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:41 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/MSK/2.0/APIReference/welcome.md": {
+    "sha256": "1b0310665cfdf7139e9a942e0ad4dd824f6e786fe45074be8a65392e8991de69",
+    "etag": "\"pbjI43WHBeHuXVn9XjpPLFX56lU=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:06:13 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/Monitron/latest/getting-started-guide/gsg-getting-started.md": {
+    "sha256": "ca4e336c62f7b4ff31b5b9887403a167adc47834fbac99caeb28f8b3c43b516f",
+    "etag": "\"g6ZV0RVoHI+/7Y3yXufoisD5jjs=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:23 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/Monitron/latest/user-guide/what-is-monitron.md": {
+    "sha256": "b28a70dfc7e1576ddda50e9b951440e473bdd7d9ea23455759a2e357a88801c4",
+    "etag": "\"OZcRwyiwidfaMnnRNKXnuNN3QRU=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:36 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/OAM/latest/APIReference/Welcome.md": {
+    "sha256": "df08e1727ff249c35454676c6b4f1099b78d28a3edceed5326a6eb8c3fff2c11",
+    "etag": "\"PYGME6kyl30+MNwYp9OmbAySuj8=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:07:34 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/PRM/latest/aws-prm-onboarding-guide/what-is-service.md": {
+    "sha256": "4ec621773d9456e3f92d40481e0f16d25bb099ed5af8d3eaafad440e16930811",
+    "etag": "\"ziCsKMQdvZWYnt4vdgZsaON3uDk=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:11 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/PricingPlanManager/latest/UserGuide/overview.md": {
+    "sha256": "d6344465e701fb995bb3744b6aa8cd5115b5e166dd6703f0dc124f27268842b1",
+    "etag": "\"D8jfMi9M38LPpdquGMOyWtMUULc=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:07:35 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.md": {
+    "sha256": "93865b64d46c1a48fc5456cd246bfbbef12f413b0d1a0baae04162e742cb48a1",
+    "etag": "\"OOMKfTKuIfIVxI35Nl293VzSXmE=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:11 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.md": {
+    "sha256": "c0bc09eeeabffa356433892f2cb3163f64089d66bae0424509310bff7116777f",
+    "etag": "\"CVTzOCdHpjwiw6dBBySXbivtc1M=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:40 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.md": {
+    "sha256": "165972055ae1e3f35e2e8bba29ccfdc3fafc5f414ce1def5c83dbe0e27365378",
+    "etag": "\"xIugPy6JaZtBx197+MhXwNSIUXM=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:49 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.md": {
+    "sha256": "79584cf189b219ab43a72c6932073a4f8b57eeaecb0d72e641ab080e74d2437b",
+    "etag": "\"kcvt9d0Mbp+jmbWhr1Qta1XtRRE=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:15 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/access-analyzer/latest/APIReference/Welcome.md": {
+    "sha256": "f9ed073d7d407f0d434f7af2ce329c2ab19e3dc846c29d7098416d294ed1ca00",
+    "etag": "\"NKIYzSTny7VZjnx0UqslnDcDg7E=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:19 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/accounts/latest/reference/accounts-welcome.md": {
+    "sha256": "707097ed0804d80985f3ab2b7c78d9626343b52ae7094f42c6851d5b5902428b",
+    "etag": "\"GgR3RUVYFNy1CFffrjZmStRzb8Y=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:10 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/acm/latest/APIReference/Welcome.md": {
+    "sha256": "46e445f9398a33d1c6f69f9c6bbe9bf6c867e8672386ce7b3dccd8c79df73e74",
+    "etag": "\"QeZHWfu5v75glTxliLn9xOAlSPI=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:12 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.md": {
+    "sha256": "9e5c90718da7b3e5a78a41dd3a6ca788470644231c8d1d3b7528b77d97bd603e",
+    "etag": "\"uuNavrT9sg0JhwBpPDiA8y1C4wI=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:59 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/agent-toolkit/latest/userguide/what-is-agent-toolkit.md": {
+    "sha256": "b2747e6e7a62459ef07ad888a190a70d0fc83fccf2ac1c2beb3f14292fe533e6",
+    "etag": "\"YS3IcZXYdfg2HBXmYO9Ci5h8D34=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:06 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/agentworkspace/latest/devguide/what-is-service.md": {
+    "sha256": "c9b454e20f917fec220e51a411b57987b75eb468d76ae9facf3b75183987870a",
+    "etag": "\"5NIuJvPevD+ZxTE6lgzKTSVvwj0=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:38 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazon-mq/latest/api-reference/welcome.md": {
+    "sha256": "b9d573ae5c7f768b865448af7b0553309976b93ba76f919040efbf4cf3af5d9a",
+    "etag": "\"RE+8gPBOwLrtZLw9T6yWrXDzCNk=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:37 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.md": {
+    "sha256": "d9641d3f3d1cda4fd6c748d1cbb35061bc3558ec16a8a588e1d9253d648793a0",
+    "etag": "\"SROpaMqpwunchlVdWCHGOdtv3ys=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:03 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazon-mq/latest/migration-guide/concept-chapter-about.md": {
+    "sha256": "5b921d3eef03a686a0b0df811f52be4382c90e9b6f85f2d015b168fee4f2ccfc",
+    "etag": "\"AtP4uufNOQ7tUj2dAKktf85pQYs=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:02 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazon-s3-encryption-client/latest/developerguide/what-is-s3-encryption-client.md": {
+    "sha256": "dd3b530a0e93d11d5cf634b2790520ead2a47f07184c6b06206cd20d0fcd3390",
+    "etag": "\"XEK212iu1xPn309I+PJrnJ17PkA=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:59 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.md": {
+    "sha256": "7c11db8a147332320a8c1616b85252fdf9b8f4ad34486b5a983153263cf90196",
+    "etag": "\"yDZTwWRvD2ref6bnIHyj5Wf4pMc=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:33 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.md": {
+    "sha256": "2647aafaa4df2b10b488cdcd341c70d0cbea98987b492499b91fc8c090c458a6",
+    "etag": "\"ZbHsNNEBkqbDj0VoyZIQ7ZjBfBc=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:42 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.md": {
+    "sha256": "2de685b9b414d316fd27dfd99392bb973589138118eca35ef34bd9862d2e12fc",
+    "etag": "\"DC6C/F2wvdg8UQaOktZrsk3GYNc=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:35 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/what-is.md": {
+    "sha256": "aa4a21c06b8a9a2bbd3d40f95448f7576c4a0a261aedf2766d9c2ffb585dd6f7",
+    "etag": "\"x0ADeP0mr+DZ0+zwcoZkYCgZgL4=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:08 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/what-is.md": {
+    "sha256": "54c5c0b568e21c4f5d762ca64f5886bad9a0e8eb6b28e16aa938548025b0a822",
+    "etag": "\"kJOpGyHU1WMWrY47YNh9zpL1i0k=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:33 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.md": {
+    "sha256": "1f8754cbe389c12d3d48d7ab7ea0de9ca3c4533a241dc7de9d38431334cbeb65",
+    "etag": "\"W7g1OiVHuL3O3BiGse/jWMFJrfw=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:05 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazonswf/latest/awsflowguide/welcome.md": {
+    "sha256": "f2cf13ede4d2715e512cf746b60eac6b51f7b915856fe9c5697ca57a05467b26",
+    "etag": "\"84LOzthhTIkPdf4lAUrXrGiJ/Ow=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:19 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amazonswf/latest/developerguide/welcome.md": {
+    "sha256": "f7f3fdbfb9813eedfedc276169a5567ecc01c304f6adff98db25ab66432af066",
+    "etag": "\"dThYfI6Vodp2YleAMmSGibQXlC4=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:20 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amplify-admin-ui/latest/APIReference/what-is-admin-ui.md": {
+    "sha256": "2535d150f97c81cf8b10a5b618ed4b957077fd9d6b5638cb7a619a5ac57605b8",
+    "etag": "\"NZnn9d37HaNfVCjG1rN/EG3W2mM=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:05:25 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amplify/latest/APIReference/Welcome.md": {
+    "sha256": "715368e9e6611938817bf436c7025866bdd9dbcea45c93716a03445d4978d78a",
+    "etag": "\"6MZsOLFJoAjASkEr/EeiKa6/OI0=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:06:03 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amplify/latest/userguide/welcome.md": {
+    "sha256": "98c7dee651bd61f516e92bc3779943f1e5eb48baccc3f26cdf97f659e58b6177",
+    "etag": "\"znrESfpF7AJ1xYJyCVFV5VsT3Uc=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:40 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/amplifyuibuilder/latest/APIReference/Welcome.md": {
+    "sha256": "7e8aa78557e2320da623033a0363e8b160184d1e1bd8d178c038c853be4dbce6",
+    "etag": "\"gTdIF19banPv6zPTW8MrCjv7MuM=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:22 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/apigateway/latest/api/Welcome.md": {
+    "sha256": "84b7ef7a13b53e53c05a6a8df4f36c0c12ccd72977c40a5cc94ff73e8fc0969a",
+    "etag": "\"RvPWfeMbTZhBoaHkly4/yZPAAjA=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:17 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.md": {
+    "sha256": "db3abbf580240f6305b171feead65df72bf7b884e82f62cf10d82e9a0fd9a59b",
+    "etag": "\"kVH2bVTRDNTGEH2Vf/5MC3RaV3I=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:38 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/api-reference.md": {
+    "sha256": "4f9958a96957a21fe3b2f0bcc3f6455dfa9354411531e2694e603eb695aaa175",
+    "etag": "\"wkimgHFv4Lxt/AVpksuwlToJZek=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:04 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/app-mesh/latest/APIReference/Welcome.md": {
+    "sha256": "912d36ef327f4973ddab68a673450186937a127340a84ed56bc121ab89cc8dc9",
+    "etag": "\"cIWfl3+HjtVD3IjLHT93qyldTqs=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:59 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/app-mesh/latest/userguide/what-is-app-mesh.md": {
+    "sha256": "d56916fd8b68eff64202f5c589fbdbad060949fe5821b3d854fbf593e65d6c62",
+    "etag": "\"vIb3qTAl0b270+rD9O3jz+wwMwI=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:30:00 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/app2container/latest/UserGuide/what-is-a2c.md": {
+    "sha256": "98592fe3fe8945ba6377d148110c628c0b40b83df164372e3d934d957b901ec8",
+    "etag": "\"GuzDPhJss93xU/ySkVHJLtFDgpo=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:45 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.md": {
+    "sha256": "b89d516416c4e8afe733ccdefcb29db02b0d0b49648bd203d608180668d970b4",
+    "etag": "\"iMUpWa2PdHxP2FcXnqfiJFxscvY=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:48 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/appfabric/latest/adminguide/what-is-appfabric.md": {
+    "sha256": "4408be8d259ab8a3b200a375547e3f3e1179f05d2efdc7d0d65ea0db79f17b55",
+    "etag": "\"AF18m1BV2JL2IFP5sCpzmvWWsuo=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:46 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/appfabric/latest/api/Welcome.md": {
+    "sha256": "8d2cb81dd05968b8031d18af50217d7977d690e321d644d471e3534c303475fe",
+    "etag": "\"yMyPyVoQhjDlipLCTw9e/SSQvfg=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:59 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.md": {
+    "sha256": "d250eba15331eb428cdb6281170d18a87cb8267310047593e8adff6392951fc1",
+    "etag": "\"/DGg7SxKFWrFk3E1NMScD5jmQX8=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:45 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.md": {
+    "sha256": "6b38c5c052397af71d1f4505b0948d44e13cc2f0295053c01c327becaf2f2fb8",
+    "etag": "\"6JhKPRTyOiFo/p4Z5Pg7Rc9RTXI=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:49 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/application-discovery/latest/APIReference/Welcome.md": {
+    "sha256": "0dccbd7536ae7eda24d9bdfc3c373de3abba4b6054a7da8cb5e110e034e19c72",
+    "etag": "\"sQUqLNM85wvsK607uUutTDdotKY=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:24 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/application-discovery/latest/userguide/what-is-appdiscovery.md": {
+    "sha256": "0e256482d12685786227f81672e9ce7d4f75d8f5f17cd199026cf60c44012819",
+    "etag": "\"DodgsnRHCQeWRl8nwDsR+GPpRl4=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:14 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/applicationsignals/latest/APIReference/Welcome.md": {
+    "sha256": "b8418b2ef82e1a802a36f8a0f57423aa82680d2622625b9172f15c3afe4a9008",
+    "etag": "\"ANiqteFjw9RKeRqQdUxL/HWvgTE=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:40 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/apprunner/latest/api/Welcome.md": {
+    "sha256": "a410d5c0b98e8035c497c5ea043ba760463b4c8c4e6624e706aa0460e657b004",
+    "etag": "\"qJdS2yZca/cczAjuEEHw+6EwzLc=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:07:49 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/apprunner/latest/dg/what-is-apprunner.md": {
+    "sha256": "b39ad0cbedb48400993f319b9358695b599190491fd47efbcd3e9c71e6315c39",
+    "etag": "\"qDhM77af92QwwmGHpdIVG2w/jBU=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:50 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/apprunner/latest/relnotes/welcome.md": {
+    "sha256": "4f2176ea554eeb1d854fdafcca56061c71f869d60fee00e6a000e30889655415",
+    "etag": "\"6FyV+ehsS1kuFmmni+4kLcEFhiA=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:00 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/appstream2/latest/APIReference/Welcome.md": {
+    "sha256": "1d19c5465aa49bfce20380b5da90f81d83e4e6c61ccaf71edcdddad5588278b8",
+    "etag": "\"Lqx8ohVwn6aFPMM0Qke6O/m55Gk=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:52 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/appstream2/latest/developerguide/what-is-appstream.md": {
+    "sha256": "111268fa4facffe68b3f6149e983c8e7c78e2635dbc271f00680477e4531b110",
+    "etag": "\"pVR89/Kv4AV4UA7NBb8fpY1iICM=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:44 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/appstudio/latest/userguide/welcome.md": {
+    "sha256": "610de992d577eae375747630b95e33fe40b41549c18fd88dfe687d77546ce7a4",
+    "etag": "\"Y1oEXW6XgGu0Pf5XVx0unVX30BA=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:46 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/appsync/latest/APIReference/Welcome.md": {
+    "sha256": "815b47d913baee42676f00c8cbf1ad882067cc25af0231b8f15d08c78c311bdb",
+    "etag": "\"nDSEtIKH6HbZ8IABPwZ36iH9734=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:18 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/appsync/latest/devguide/what-is-appsync.md": {
+    "sha256": "dd593ec5334c7b2f3030fa1e4dfc336d86a1dbad2be29569feb0f036432c8b2e",
+    "etag": "\"4EIpUvvjBr2ynk5wjefzxBLyEuQ=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:36 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-welcome.md": {
+    "sha256": "fbfbf1cd663dcf0caf6a6fe75dfa0d31b8d390cc8786615ab8be8163b150aa66",
+    "etag": "\"pZ5wNOQ+kmfuL/IoH0hMVqB0ksw=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:22 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/arc-region-switch/latest/api/Welcome.md": {
+    "sha256": "efbf09990532b6a419c7c643412c1a5b8d231c79576800cdf3633a99a5319b45",
+    "etag": "\"hm6okrQ4MThEa2/hwTIXYjtep9k=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:08 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/arc-zonal-shift/latest/api/Welcome.md": {
+    "sha256": "e45cce0d93119874b5d59e573517ad69b5c742fad219166a05776b1e0ca84074",
+    "etag": "\"3tDA9LxeNNt0vgE34alJ6EMDshc=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:55 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/artifact/latest/APIReference/Welcome.md": {
+    "sha256": "2c403fff82429e7ed35aedcc3c96ea191285e394499a0bd001e0dcac7010e270",
+    "etag": "\"N6o27QhzAWUyfDetn/zkJoZ4IWY=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:27 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/artifact/latest/ug/what-is-aws-artifact.md": {
+    "sha256": "2d099a4841849043644f60b738655f3157fe1aad6e05b43423e7d86ec82ad104",
+    "etag": "\"FI51ThlYGJ8e31ICJGYrq+TXXpM=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:30:00 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/athena/latest/APIReference/Welcome.md": {
+    "sha256": "b458bb0bebd98d3176048f70a5724c4d32c091200853959b2b7fb4556565a79b",
+    "etag": "\"40v59ljVYDn2FYLt+i8L9pSQHvU=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:08 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/athena/latest/ug/what-is.md": {
+    "sha256": "edde4e7a9564cf80d55837885dc5878d94ebe88621fd062bdb5fa8dbcbb92536",
+    "etag": "\"PbsJKYF1/8ak/6FNU1H17+NVDxg=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:37 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/audit-manager/latest/APIReference/Welcome.md": {
+    "sha256": "ddb31b402abeb2a56b421178960e1aff74fc8bb16ca98da0b640f7fb9086e0b8",
+    "etag": "\"l538b57nUu+ZIu2+VyP5HmKEQ+c=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:52 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/audit-manager/latest/userguide/what-is.md": {
+    "sha256": "8bb7bd532a4a27edeb971804137c2316c96917a028a4f8f8f24161dde75425c8",
+    "etag": "\"xTW779IQJwoFOTr5KGRhCQD/EmM=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:20 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.md": {
+    "sha256": "c92525ce1dfcb09e367314d6899c124e3e83be005b1ffd504db10888e5666b28",
+    "etag": "\"PpOoUBXOY2fbL5OaPW+v8kddpjQ=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:07:29 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/Welcome.md": {
+    "sha256": "a8a3ab1edbcdbc996d9a604e554d5e79d246aa236cc2ede9bf9743884be1c223",
+    "etag": "\"zL88fcV1JLJKROmBD1oU+6ezKOg=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:56 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aurora-dsql/latest/userguide/what-is-aurora-dsql.md": {
+    "sha256": "30e47b0c4e7ff31ee6466aabe1869f841834579449f9cce778b7b87ff956df74",
+    "etag": "\"/RGAvrPVElFec582YPH5iOKLDY0=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:42 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/autoscaling/application/APIReference/Welcome.md": {
+    "sha256": "28556be69722f4087a16d0b1ac975f89134970436b2a55916f50d4115f177540",
+    "etag": "\"TGI2vg/X6w37FDwAlpteK7cJUz4=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:50 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.md": {
+    "sha256": "c1ac0079f8314f8f604cd2f73304b8c24b8ac4b2c674bd63d9c7103940b796e8",
+    "etag": "\"EZ/3ZsSHmYNwCtyBJsYIRWjnx4g=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:41 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.md": {
+    "sha256": "c9b1df5703f3fab070919adc8513a8a1ef187586427887522a960fe826a4ebe1",
+    "etag": "\"rc21u+wanGpFhykXzuXB6jb1HtA=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:25 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md": {
+    "sha256": "aced53df6d30ab22aaab27b076f9b919f1650f2df66b75d024b5384495dc7588",
+    "etag": "\"l1duTNTBVWmEZzKSiwbl01yAkD0=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:01 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/autoscaling/plans/APIReference/Welcome.md": {
+    "sha256": "e06a45cc38b7873094ed40cdfc094bf02109f2a2f199b9c8f47776d2d1419daf",
+    "etag": "\"2h/0DW3DUA8X+gPIZ2gGvX9QG34=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:43 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-a-scaling-plan.md": {
+    "sha256": "7935cf449394174354759928cd2573c9c15e3303ee853f3b39f7db5a9e828a96",
+    "etag": "\"0YfEYzDjkkdftmHLgiWmGjvC2Hk=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:41 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.md": {
+    "sha256": "92b523a0724a11a6a2d5b7a88a209ce67fab079dcbd80cff75ea606e0969aee5",
+    "etag": "\"TrXYNRloEsEzT2lXvEDu47V25bU=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:32:09 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/advanced-networking-specialty-01/advanced-networking-specialty-01.md": {
+    "sha256": "bd76d934948b6b3d52448ff66bda065e17e5c4d59a1c4f8e29aad49cefc198c7",
+    "etag": "\"vaEYj/O1tJQhQSPQFYehctSnHCk=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:25 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.md": {
+    "sha256": "563b3e8d0efbe214f4c1479bb6607f55167642f2fb8c495913b047be659075ef",
+    "etag": "\"WNi8jl3xo6BiTXB3nTMBdaGgTik=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:22 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.md": {
+    "sha256": "91d96789f5edb8754c692ff093bf4c6126ac55ea4ac7c6508d0017f41717f6b9",
+    "etag": "\"wIAU4t2d3Kwn3gMQ/3N74b7aATI=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:17 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/arabic-exams/arabic-exams.md": {
+    "sha256": "2754a15d0c72b04e50ab9a0e60a185b0eba48148bb8441885cf4f11b35d83858",
+    "etag": "\"iRahCDDV0JbvtfEdZcedgXOA+1s=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:24 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/cloud-practitioner-02/cloud-practitioner-02.md": {
+    "sha256": "f8ef1d56852110f04820cd370ec4e084315cc04f1aaa230152155d2eb2f027b0",
+    "etag": "\"w8Sbc+mJqJdpFtlC4lT5M1N0deY=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:19 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/data-engineer-associate-01/data-engineer-associate-01.md": {
+    "sha256": "2479003821b5d9ba564ceed03add72a5d53fa465a80728317faac543d00b8744",
+    "etag": "\"yf2va74ykd6Mt6nPHKmZkM5cb/A=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:22 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/developer-associate-02/developer-associate-02.md": {
+    "sha256": "d8373476762a41c0fa4cd65827fe828838a24ee4b46e33374f5d20e0ccfae01e",
+    "etag": "\"LJzvGvgcKEinn68y/fej1JZHckk=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:22 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/devops-engineer-professional-02/devops-engineer-professional-02.md": {
+    "sha256": "67b5d4387f504cf75ea4b166bba55c7f7f16dbc9066d4f040260049d769509ec",
+    "etag": "\"Ul5SXaJ7hwUA8xIv++EFwiPVcDE=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:23 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/examguides/aws-certification-exam-guides.md": {
+    "sha256": "91f4790fff15d18f749e8c322f60a0d23bdfba5e72ae6191a1ba72c7a2ee0a4f",
+    "etag": "\"dnFtKsdsagsvbsHaEHDRZzSj58A=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:18 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-01/machine-learning-engineer-associate-01.md": {
+    "sha256": "95404f6ae2759b8fc9ad4643fab5c723d93e10ad8f6f2065344e4dfb8195d68b",
+    "etag": "\"ytJ5l/+97M52dkDlkzKr0gCE2lU=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:23 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/machine-learning-specialty-01/machine-learning-specialty-01.md": {
+    "sha256": "a7bcb68a726b803107aa9e70cd5825092ade349a79cd6d0c07f9b1177d22360f",
+    "etag": "\"r5bHDweuGN9OjoR9FgY7hC+qNJc=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:20 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/security-specialty-03/security-specialty-03.md": {
+    "sha256": "1d9de46d998edd924abfe7e87f5bfe5ed40e8472d240d9eb99c9cc860191e592",
+    "etag": "\"T4HTUdvECfPopqIcDgFuTTNHn6g=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:20 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-associate-03/solutions-architect-associate-03.md": {
+    "sha256": "97592eecb114957899a519e3232350f044f7252f2c33ae5ddc67d0162c8bc5b9",
+    "etag": "\"Bcx1kqof3wRii/oOqgFdNBKfVqQ=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:17 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/solutions-architect-professional-02/solutions-architect-professional-02.md": {
+    "sha256": "543d9ba5a36b9e02e04b5fb407032d7e096ae7df2238a3e361bc61e79e616dec",
+    "etag": "\"Q4lnzntdANzpqch+RJEhJn6UcjQ=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:24 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-certification/latest/sysops-administrator-associate-03/sysops-administrator-associate-03.md": {
+    "sha256": "5c07cb3a8d6d2391444fdf8684c2852058844257a33aa1ddd20330ecce5ee244",
+    "etag": "\"VxOa/AhsZ+XV5KG031pAUvq1of8=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:17 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-iq/latest/experts-user-guide/what-is-aws-iq-for-experts.md": {
+    "sha256": "a93e43caaa7ac5fb3b4b98f5cc6435c707808bf7e1315e0986eec0cbb10e9766",
+    "etag": "\"pgtkx6owCH5mNd5n3kHIRvX5tFg=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:33 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-iq/latest/user-guide/what-is-aws-iq.md": {
+    "sha256": "4f65d540efad85d8243e67a1c6201acfc5ad6a37543bdf19e8e1a9ede7eee9cb",
+    "etag": "\"6374lOB/PaUlzZ+4ceGiHdEmGic=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:33 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/about-managed-policy-reference.md": {
+    "sha256": "4e86a4d7c062f4e55c6bb17a1b9e30d8964fa2cf48778314fcd4c39f8732967f",
+    "etag": "\"12guTrhDkyrcAFKlR+DNnnYuT1U=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:38 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/aws-supply-chain/latest/APIReference/Welcome.md": {
+    "sha256": "4d23c7885e142e886697197beb46dfdf9b021e0e30dd893557d65d820f1be591",
+    "etag": "\"hWjoIk4YRXYeqT1+SJseefghcVA=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:06:58 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.md": {
+    "sha256": "42df7c6d7e339a803b4a8fec42925f6ec49b1a09b1a25b40cbc625ac4f2796bb",
+    "etag": "\"fjaarl1TTcKRJU3JpEIaj0FeCeg=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:27 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.md": {
+    "sha256": "07f44682f268582c00d8800d53ad558779a050505d57bf9e0bf67b142a786ca2",
+    "etag": "\"m12wHBh7BoUMoFUVcQrM9g3zslM=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:06:34 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/awscloudtrail/latest/partner-onboarding/cloudtrail-lake-partner-onboarding.md": {
+    "sha256": "34ba403abb08ccf3d4173efe3d27c03de80e97cc9a603bfd84f660476f42d5ea",
+    "etag": "\"doKqBjYlc1yU3mKqGwwq0f9uHNM=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:14 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.md": {
+    "sha256": "7bcdcf0fd0d024016459bf8adc77139aaa9c5cdbce5f2edd2043eec21ccc77a3",
+    "etag": "\"z3ESvGAofiblGaz9YtjUaquCg6g=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:06 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/awscloudtraildata/latest/APIReference/Welcome.md": {
+    "sha256": "fa60991e7a84114cbb9586c6fa7c722b3859590d7e0565ba9efa7be5633de25c",
+    "etag": "\"kQClkvZXakxTX/l0n9940uW4hus=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:33 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/Welcome.md": {
+    "sha256": "bb6ac61bd86c4c370dcb74ef14addccf642ab7a302d6c42388a87ed1db27a6f3",
+    "etag": "\"7JXA+ViSro1JBoOgjFuKjbzMhrE=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:08 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/what-is.md": {
+    "sha256": "ad22c1b412575dcf5b98b0ba52c16ae931e015c33516adfb66fb66d690e27982",
+    "etag": "\"SOIDPZnAweI0dzPdiHKI31p2o3g=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:38 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.md": {
+    "sha256": "c9031848682054286f105ff383e3df0d488391fb504194e1bb37029c6320238c",
+    "etag": "\"c41FGBwT4tWbmJ7MHnmQWPqQ0nk=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:46 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/awssupport/latest/user/getting-started.md": {
+    "sha256": "861352015bfe2c6b6097fad11975fc66e3d38aa291af902991deed52d603246a",
+    "etag": "\"OsFGfDZK8faBXBfjTYxtW2Qh9ZM=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:32 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/b2bi/latest/APIReference/api-welcome.md": {
+    "sha256": "67d59e85b83c37773fcfb905dc4fa2bd3eac6a8dff34f8294eb85d6c3995d329",
+    "etag": "\"OdMCOYQDTZrcDrn7j53YRNbPLhs=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:45 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/b2bi/latest/userguide/what-is-b2bi.md": {
+    "sha256": "c69f4ad8303136c5f90c65ce5b2f080384815040df63129d59bb0bcba6364a71",
+    "etag": "\"t+ChZvuMWsQBehUheOWA1g/MriU=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:30:56 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/batch/latest/APIReference/Welcome.md": {
+    "sha256": "354ab25b8db4781d8d81bcb5d5166f4bd6046d6c5bc6d1b102b2deeb38f402c1",
+    "etag": "\"6Hg6VuwuexBEhbvS6RmTMthUamg=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:55 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.md": {
+    "sha256": "db7329f4f151925483a8daff4e8559bf6074cba7c23d92481d61445d0c8d5238",
+    "etag": "\"l1ETXI/nPF3qEqiM5bvhMbJMHGg=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:30 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/Welcome.md": {
+    "sha256": "faaba9c6c31b99007ac89c0a3a5fb00afca89261e247592f4125d34912b5fe73",
+    "etag": "\"QuWRgxJfk0VI/ziKgxeWS9af+gE=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:01 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/bedrock-agentcore/latest/APIReference/Welcome.md": {
+    "sha256": "d6ca63c2816f231e2d67fe2e91effeede29ae85373f03fedac0a95675cd25601",
+    "etag": "\"DgjB5qbyttmN0nBszpIzTWEPe60=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:51 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/APIReference/welcome.md": {
+    "sha256": "27a5de1ba9c0030e7e76e8be3c790690e9f4a538bfcd6502f5f5922f4c62b507",
+    "etag": "\"yCoOi9DvrVVC8SEjbV7HWVW3PBU=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:51 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.md": {
+    "sha256": "840fab6a1006ad50bb9a9878db20b4272181d7adf162b9968b6758c9aafb8de2",
+    "etag": "\"K+G+RlPHofWvyyTc4vjNfU2n7lc=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:34 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/bgw/v20210101/APIReference/Welcome.md": {
+    "sha256": "59fb57c673b922fe8523f89bee2c75713292a8679d607e1f12ccfd1ef6286a44",
+    "etag": "\"9mJdMAmEPS3bNv2L/B+29DGouIc=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:54 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/billingconductor/latest/APIReference/Welcome.md": {
+    "sha256": "2bc4dd12274f105dab00fbf1e9a23ef01ff0f1b1fca1f0ce7bd48cb6f75d68b1",
+    "etag": "\"e341+NfQFy+4R5F1Tq7Z7Qt23ZM=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:58 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.md": {
+    "sha256": "9c3b6cb0614c45de7cbed13b03f7afde050b6f3a1a0a341738936c7294bff2cd",
+    "etag": "\"10gVdQoEhzJ4yGvwugRA3vNh4VA=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:31 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/blockchain-templates/latest/developerguide/what-are-blockchain-templates.md": {
+    "sha256": "64325412771ea2f6bb1df64d2dd3c5ab8273641a491858a0b349189cf30277b9",
+    "etag": "\"DAzyUPFyoRrxCS0gP0Jre+0PKoU=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:56 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/braket/latest/APIReference/Welcome.md": {
+    "sha256": "83707d63e68c925166fe9f3794e4e92ed2dc336d0ffc8fe473cc6ea6778f36c4",
+    "etag": "\"XIi3eKdMdtcF9fVVMmno3C4Ysuw=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:08 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/braket/latest/developerguide/what-is-braket.md": {
+    "sha256": "0683ba64176e107f5898e1d1c17f6cff828318fa68413977cbabde16b131048f",
+    "etag": "\"4tqWK3bd/YAmcEvYtKla6YxVPvc=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:56 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/ccft/latest/releasenotes/what-is-ccftrn.md": {
+    "sha256": "7fc14aa142bf7b80c4b9e7df8db4e2b1100d7856c9a7a39490f0180fcfcfec78",
+    "etag": "\"mW0zkDtDB9eZ6gz7CL/6UhEYDWA=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:41 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cdk/v1/guide/home.md": {
+    "sha256": "101bf62e7c46ac3aa55e4aee85ffc1c36c20f2b2a96b67bb755dc36791a51a0e",
+    "etag": "\"h75oPYBNqTLM5WAiROOFzYAbPY4=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:28 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cdk/v2/guide/home.md": {
+    "sha256": "c73aff26490eb524992dfa5203dab3dd9bdec0ad6bc6a3c3ccfc856c5f1cd8a5",
+    "etag": "\"z0ygNdj8mpnlKfWpy9tZ7afZqUI=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:46 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cfn-guard/latest/ug/what-is-guard.md": {
+    "sha256": "13874f116bbfa1ba1a6ac81e74991dc8c5bc55add08a401a6c5389a075db0a47",
+    "etag": "\"+oOVczu/Yj2rDknpC/KVqgOAdNU=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:06:34 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/chatbot/latest/adminguide/what-is.md": {
+    "sha256": "7d954359c97fc34eb5657ebe3ef913af22c1d37607812900dfae403880c53712",
+    "etag": "\"QJl/JvXTkK24bsFinfFV+HoaUIY=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:47 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/chime-sdk/latest/APIReference/welcome.md": {
+    "sha256": "f38f8551fe1d6f8e5793b26356a8866166d79d65c1a63c01d0534bf453d520e9",
+    "etag": "\"yJdN5k0J28mFcBdJr5W00jumu9I=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:47 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/chime-sdk/latest/ag/what-is-chime-sdk.md": {
+    "sha256": "c4c63f70aec8864992043b0213baf4831df25dc415d12569cbab319cdd77c221",
+    "etag": "\"NqmFXdCbH7+oHQoLdEweKomUjoE=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:25 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/chime-sdk/latest/dg/what-is-chime-sdk.md": {
+    "sha256": "57e93b4e1172d010070a620a1265e4b79b25af1df2c625ff93a6998e9d27d459",
+    "etag": "\"d2t8wcA9b5UMaoNBWJMd+rOEjD0=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:55 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/chime/latest/APIReference/welcome.md": {
+    "sha256": "0221c20e2de1a69387450f29e5a43ef98ca043d6986ca663186698f159dd1269",
+    "etag": "\"iZu/a9RrOv5R4QpQQo1/Lpue92A=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:39 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/chime/latest/ag/what-is-chime.md": {
+    "sha256": "abb6ed0133ed07749852f7db99f2b63899ad67fc1c88c3128434f035f0a0aec6",
+    "etag": "\"YQWYWWVJ2aaUmnfGrmZ7hNSWOuM=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:31:25 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/chime/latest/ug/what-is-chime.md": {
+    "sha256": "a1e2a8fbe99350508b2f3677a22cbc9de1547758003e6abddeaebc3aee5bb60f",
+    "etag": "\"8HcY85oLGHsOS4Kf/FvmYuV6wCA=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:30 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/claude-platform/latest/userguide/welcome.md": {
+    "sha256": "ae2c653525051a6cce7d050588de4f631ff72352f51b0d79965477c91118dbf3",
+    "etag": "\"Eu7nUGE0GCAbpnY2StDqiL8S9BE=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:53 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/clean-rooms/latest/apireference/Welcome.md": {
+    "sha256": "c4256f18265b2dfed14666ced91d3f836aac05e97b544ee9a291a73810f6650d",
+    "etag": "\"lbglaF/jAoP/6NsKFP5wP4ziSh4=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:46 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.md": {
+    "sha256": "2940b643b2f7c4bfb282c92dab41d99090aba82a7553eaa9af7b456c6d87e16c",
+    "etag": "\"NvTcVMvKwkkZiaiwNb42/coSeH8=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:31 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.md": {
+    "sha256": "732ccfe053abb4ce226616822dbe632016dc4ed7fba1a64aa248ce20edc2ac8c",
+    "etag": "\"61hD4Q2SDJv9U8vYuLECET6Sm0M=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:41 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cleanrooms-ml/latest/APIReference/Welcome.md": {
+    "sha256": "159cd1e2cc202d340e9b774eafbdd15e377bde3aacbc831cc6fd19fe901feea9",
+    "etag": "\"OIDG3mGlvahkla526l55raRU4M0=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:37 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.md": {
+    "sha256": "bf152d9ed95b7cc87d82b958dae4281df13761c00e2546aefc2cb774b8b7945c",
+    "etag": "\"wRtjliLn+W0tA8RVIlVznbU9qZk=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:34 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.md": {
+    "sha256": "309286fc1dc002089daa1368c6c5a98854720dd976084a7bf4d9d90b6f8ae861",
+    "etag": "\"D+Ho/cLaarKA6Dl1c9io3UfPbcs=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:27 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloud-map/latest/api/Welcome.md": {
+    "sha256": "42957772d756a02bb9bd8d98feef94eae09aeb015cfa739432bcd88bdebdf848",
+    "etag": "\"0iXWA1gG34m25gZGqH4Q6dW98rA=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:29 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.md": {
+    "sha256": "d7afdfb5078c7fd952e6db00280d98a1408bcad982a1e3216846595dc18c2dfe",
+    "etag": "\"cBbfZ8g2imJJGgJXHBU7wa/6N2w=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:45 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloud9/latest/APIReference/Welcome.md": {
+    "sha256": "e93e92b63601c71d2f62b32064c22998eb7d3ba4cdce69bf5d5a5d1d69b2af1a",
+    "etag": "\"HwJvKwKWAgqGznlqneaYoJIWnpQ=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:05 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloud9/latest/user-guide/welcome.md": {
+    "sha256": "8bfca0da410e70f3c199df5d07ad24b80d3977494d945095a942c55284acb362",
+    "etag": "\"deJpXYiZsnbvAtqUxl0ppJ1ghlk=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:16 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/Welcome.md": {
+    "sha256": "ce9f35b23904939acdd86042d26874abf4be65caae9524f4187772d35322834f",
+    "etag": "\"vNzbN97TGvTEL+fRgepSG0KrLAk=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:02:47 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.md": {
+    "sha256": "cc435db7d11d1af7034942dc2bdaf1e12f10ecfbdc0e92b1d60f368842648c1a",
+    "etag": "\"+brrUY2UFWM8eR7TfG1hVE0lnsY=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:20 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/clouddirectory/latest/APIReference/welcome.md": {
+    "sha256": "a447472cf72a30a9467d24b9f6dfb871fc088aad491113bde005b29aab388221",
+    "etag": "\"ofKWk0JWXjy9GOo8tAZT6kj/fXg=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:04 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/clouddirectory/latest/developerguide/what_is_cloud_directory.md": {
+    "sha256": "4a1c0c25f6110456f29a5fe76b13eb400bbd51add919ad0e291a4bf0da033fc2",
+    "etag": "\"VjgcbF4XrROmF49WsrfBZiqHLJ0=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:28 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.md": {
+    "sha256": "bbd42572085788c3f1664a8c5ad18c259ad825b0522b92b39d80e2ed620036f4",
+    "etag": "\"FiOBHD11IThCQr7dyeV+uIhgTrg=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:31:37 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.md": {
+    "sha256": "77be076676d50143eef12f8f5362cdbc0c878158903345317dbe6029aa94877a",
+    "etag": "\"Z2N6I4tv37HwT2NGmkiV1uFBiV0=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:31:37 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/Welcome.md": {
+    "sha256": "5a072dc2710aa953a9fcfd1d767789a817d9a734e7e34fbe8599700c4c9ba937",
+    "etag": "\"bN5CxFCxbm+AlZcfBPXSbHj/63s=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:08:08 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.md": {
+    "sha256": "92bcd4bf1334e2057c7b67eb9b8da029b59c7ff63996575efce3b8150c6a645f",
+    "etag": "\"ZCyiAqFhbWV1Zs2KkejbxnHLqsY=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:58 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.md": {
+    "sha256": "58a7a9f55bd9bbea51e2f25b6a5986430c78c068ab16824a71a7e559fabd9d6d",
+    "etag": "\"xWHA42AbFrKfppqMWnZLRDhj4ZE=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:28:38 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.md": {
+    "sha256": "fdc1c2d2712c2a3d7800cf07f799159b1de5eb6de2bfc1a25ef7e3122e097341",
+    "etag": "\"Kalb6cu0yOYldSxaCWDmpm1LFAk=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:32:38 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudwatch/latest/APIReference/Welcome.md": {
+    "sha256": "5f330f7c318f8b61cb3d16cd67b4d658325fdd5eebf4e97956573bb6cee9f38a",
+    "etag": "\"OTwKAZYZ4jWaUB7gkTTId2a817w=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:11 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudwatch/latest/observabilityadmin/Welcome.md": {
+    "sha256": "855c36e69028cf251172ca5fe819a8f18bdd26653a9becea886e991e5d09c974",
+    "etag": "\"DjSHttRZLDskHV9uQqSLOs6yPyM=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:03:48 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudwatchinvestigations/latest/APIReference/Welcome.md": {
+    "sha256": "55000dd7de19d6b74947a8b8eda4c0f16acbad9b45497c725c37d68806628677",
+    "etag": "\"g7Q8jF3kfVT8/r2u+u+F8CSluc8=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:01 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/Welcome.md": {
+    "sha256": "bce55f40dc7de1f7da4d8e94d5a03a1fd1690685f430e236f8cca07aaab0926c",
+    "etag": "\"IlhQCTukQkpHeL9TPep1Gu8Dee0=-gzip\"",
+    "lastModified": "Thu, 14 May 2026 08:04:26 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  },
+  "https://docs.aws.amazon.com/code-library/latest/ug/what-is-code-library.md": {
+    "sha256": "e56689fdb575426784fd5a37a14ddccd5e7b9ae7d5a6dbc232458ece3922b0e9",
+    "etag": "\"m0VqOSZZwo0nGIw+pRXxlq+UIbo=-gzip\"",
+    "lastModified": "Fri, 15 May 2026 02:29:44 GMT",
+    "fetchedAt": "2026-05-15T04:14:43.872Z",
+    "lastStatus": 200
+  }
+}

@@ -1,0 +1,362 @@
+{
+  "https://docs.nimbleway.com/api-reference/agents/agent-async.md": {
+    "sha256": "b07d4741c28bf4008239bf972789d247ac75a2e6402ace21d954ede77d48252f",
+    "lastModified": "Fri, 15 May 2026 04:15:05 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/agents/agent-batch.md": {
+    "sha256": "8b49d625a19ef7298a370df627400104e0da10ca1a0c6694ab9a1dacf907ea53",
+    "lastModified": "Fri, 15 May 2026 04:15:05 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/agents/agent-run.md": {
+    "sha256": "20941e029105684d20f91e519ad00b0ccc039ce16e6a048de2736fc0107b5d93",
+    "lastModified": "Fri, 15 May 2026 04:15:05 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/agents/generate-agent.md": {
+    "sha256": "7cd279a981eb07948c68a13115d5a958fb8f7db784444309db88fca9328054f6",
+    "lastModified": "Fri, 15 May 2026 04:15:05 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/agents/get-agent-details.md": {
+    "sha256": "752d569f48ad872b4afb476ccb5ad1ad6637887198c7bc7b9630ac71c1ac6752",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/agents/get-generation.md": {
+    "sha256": "f0006d1a6a8fc8352f8030c749c2fdc65c2910bf0c64c620ab9786d0d84956df",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/agents/list-agents.md": {
+    "sha256": "d10ebdef4770a5bad333945a01595f5d768578d4aa1b4cd4cd669fd50511736b",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/crawl/cancel-crawl.md": {
+    "sha256": "e67a8ee581f86fd7985cc6a056beb3cdaa36720a810684b4c75902a1794afeba",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/crawl/crawl-by-id.md": {
+    "sha256": "e384279b4ca21a6a472007e8566037982847b1c1016dea3e05565b7958f8c78c",
+    "lastModified": "Fri, 15 May 2026 04:15:05 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/crawl/create-crawl.md": {
+    "sha256": "aec68a6616c627d317b656bb772c2ed89e72d31866bad1193e7173c7785e195d",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/crawl/list-crawls.md": {
+    "sha256": "3be595ce40157049cc713e388a963bb9711c521d62621b390e384f8af7758b75",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/domain-knowledge/get-driver.md": {
+    "sha256": "801771fc8deafd4b49086feebd2f6e6be58024530eadd75e67737e09e99c9151",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/extract/extract-async.md": {
+    "sha256": "8c0e38cd3df4fbfc4c8b2c833f538e7e44907ae9b5e69da42d8002eeed1361cd",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/extract/extract-batch.md": {
+    "sha256": "54be052740a9f8ee0b4990f371efc732c9930750cecc5db568a07fe34d7b9e28",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/extract/extract.md": {
+    "sha256": "d670b396023804988a798733f6d0773fd62df239c30ce69b9c410eb60d38379a",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/introduction.md": {
+    "sha256": "67a12c92dbc157aef540b1b379a73363d326b4d44b4055034a2117ed5370f277",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/map/map.md": {
+    "sha256": "7b409c8d58f5bf47ad32fdec8c1a77fea3db2dfa0aa451c2f1b872ce6297f9e4",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/media/media-download-async.md": {
+    "sha256": "ad277c2b372884d4c0a278efd7980433891f3130fd4c9d8ec95e1266ac070fd1",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/media/media-download.md": {
+    "sha256": "f63f3d52dfa3aa3ffa64baf6a4def695015be4095d0cdf90a998af8ab1b07b49",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/search/search.md": {
+    "sha256": "c38c9dd47966b4f50047d37f70419df43268ad6b767ac873d8ee75abb273fce4",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/serp/serp-async.md": {
+    "sha256": "d7b7f26dd0634a1989cfdd2950ef68f742bc6560ceedeeeb886bb3fa0b7f49b5",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/serp/serp-batch.md": {
+    "sha256": "a4e79b31a9071a1a2cfe7321609ca5917c75037f5cde91d01dcbee09f27cdf9d",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/serp/serp.md": {
+    "sha256": "895fb253139797b0aefc6d0aaa7af2bed659419ca5496f460c9f6eb75d97ac04",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/tasks/get-batch-details.md": {
+    "sha256": "a37e8654fde4396a452c14a1c09f79d2f4854a27b6a9b81f31531657afd26c56",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/tasks/get-batch-progress.md": {
+    "sha256": "481509e33936472c9869f0cabf7dd9d1aa5850a4851ed4a57ae89aefe39055c3",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/tasks/list-batches.md": {
+    "sha256": "53d98b7c4c44e94dc28611b0ce33f30916eb104d922ba071d146afe27bb33e05",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/tasks/list-tasks.md": {
+    "sha256": "0619f0ca65b93c314f0ac9aa75a1f669b227d4797a25d8982756c8c4c40ee4b9",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/tasks/task-result.md": {
+    "sha256": "8afb0725a601ca28348c2b3bbee3ea842599d3104c91729fd7c807797c50a8f8",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/api-reference/tasks/task-status.md": {
+    "sha256": "4109f761de2959c4a0110f9a5f2cccdaed55d02714410c6edf15d6b9fe5bb95e",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/changelog/release-notes.md": {
+    "sha256": "adc2215f22bdcb1962d890be9120c1f28bcbd29bf2e1653e1f52c314d5a3743e",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/guides/build-first-agent-tutorial.md": {
+    "sha256": "1d1a9e2898c0fddf09aa94736c2a3e44062ff5965b319ea1d87f37aa2e0e92cb",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/home.md": {
+    "sha256": "05b32707bff7ac0d50b5512354c68e7c3f3c6fe64b0c88ae5628047d4ffc95ba",
+    "lastModified": "Fri, 15 May 2026 04:15:06 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/agent-skills/plugin-installation.md": {
+    "sha256": "7ba5e6c5d4058044d2474fd1af941da88b029106c071aaef10827dfb0dda43bd",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/business-research.md": {
+    "sha256": "c451523ad751147e2b0ff54421a52b9b761e0f55bd44979650437472bdce63d8",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/marketing.md": {
+    "sha256": "ab8bee14d6b62a1d568fb38c96d8f6e823e27e5bc9e5d16d9a502c4986e5fe75",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/overview.md": {
+    "sha256": "bb60288eacfda2271ba0ec0628024550605c378fe5ec381e17f74cb542c3d466",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/productivity.md": {
+    "sha256": "91990f9b4dba34c195f53b429c6816474a419761eae7a7a7c08511b30e932e84",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/agent-skills/web-search-skills/seo.md": {
+    "sha256": "b6e3c38ab1eabe78f93fa2782073f49d78529ad13b88310dc543fb9a2ad4362c",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/agent-skills/web-tools-skills/nimble-agent-builder.md": {
+    "sha256": "3f3e2fc2b922a389349cf88e7851a9fb9f99a955048060e6f0e884f52f066b38",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/agent-skills/web-tools-skills/nimble-web-expert.md": {
+    "sha256": "4f1fe58d2804060a851e64bdc83dbbfe3fc26781d9baab947b6e15007bdbeaa7",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/connectors/anthropic/claude-connectors.md": {
+    "sha256": "f27bb2f529e80f5cd7c254de5b5708cc4c687dda555d6d5eb91d0c9b2b90d9fb",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/connectors/anthropic/sdk.md": {
+    "sha256": "a9340d572789226d0f23626b81c1c39bbd2730adf5d1b0286a19457d353b2ae1",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/connectors/google-adk.md": {
+    "sha256": "b39ae138070b1cce9495ffe92a5a4375ca77ef76592c7ae22aac681ad4ed81b4",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/connectors/langchain.md": {
+    "sha256": "83801e5f491c21c3aaee804449f94a9472c7d1b8a8ea96ca4251622d001d4ac9",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/connectors/openai.md": {
+    "sha256": "d6dc03fe486bb335e65a6a81d1e51acb902de8d8d8e26b97c8c49ef3e6d6f82c",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/connectors/smithery.md": {
+    "sha256": "b048de1b39036810baa2cd86d395136a651fc504abadc01c16f1a8d914353f81",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/mcp-server/mcp-docs.md": {
+    "sha256": "46097934140cd43136f29ce58363773cae634ac25c1efb7b2cd0c0d91fc8a167",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/mcp-server/mcp-server.md": {
+    "sha256": "3a8eb879f93a813f30250f346af69af3406829d3059ae434d0d2102029cf7908",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/partnerships/databricks.md": {
+    "sha256": "79802a362f1d17fca36c28a111823dc26917dc90fd621a57f5db505265a0d92c",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/partnerships/microsoft/azure-mcp-center.md": {
+    "sha256": "1a725fd711195ec3070a1d684ff9f066d9169008eee331b9c0bda6899959c8c0",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/ads-power.md": {
+    "sha256": "10dba55dcc181a93f8d45c2df4a3c7415a519120a5d3d8e1c91eae2c720bc22b",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/android.md": {
+    "sha256": "1676dc0f208ee6af4f7d62710920801b1bbbab6cb2a37f34c874ab57a1331e12",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/foxy-proxy.md": {
+    "sha256": "3541a2e74443646c3fc6a81682a66243c21b2824358d4e16d7a5bfc9b9b098da",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/incogniton.md": {
+    "sha256": "1beaac50cfb8f0963163137b8b90196324dbc55e15f38bd5f820ad4aabd10b76",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/ios.md": {
+    "sha256": "4043d0be6d98298a774ebe6d3cf7492cbf6da210d61c8b0df9a06668c373b90a",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/kameleo.md": {
+    "sha256": "50c343a7609620df70de421511e11f5f3545e7c9c67fae78f9cb0ec5bc43df9d",
+    "lastModified": "Fri, 15 May 2026 04:15:08 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/macos.md": {
+    "sha256": "509c98239b8bcb86895c01a263e5c77c2a388614495d1583110d3d014e408b2c",
+    "lastModified": "Fri, 15 May 2026 04:15:08 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/mulogin.md": {
+    "sha256": "6fbfc691d575cbc0bc9c4a0e3eeebe8535bd70a6f921f40d5a0a14a27f3fbfd2",
+    "lastModified": "Fri, 15 May 2026 04:15:07 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/multilogin.md": {
+    "sha256": "543a191a18cc1536bb1bec4887bd4ff19c82a38b6ea9902a08c2adfd93664da3",
+    "lastModified": "Fri, 15 May 2026 04:15:08 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  },
+  "https://docs.nimbleway.com/integrations/proxy/integration-guides/proxifier.md": {
+    "sha256": "0d7b8387ed40534121ae6ec112a2a500aa53e2d9f50f9917e71c25cf6eaf5c78",
+    "lastModified": "Fri, 15 May 2026 04:15:08 GMT",
+    "fetchedAt": "2026-05-15T04:15:05.256Z",
+    "lastStatus": 200
+  }
+}
