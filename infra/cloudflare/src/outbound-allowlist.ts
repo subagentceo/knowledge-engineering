@@ -81,6 +81,10 @@ const BASE_ALLOWLIST: ReadonlyArray<string> = [
   "neon.com",
   "docs.parallel.ai",
   "parallel.ai",
+  // parallel.ai API host. Auth shape: `Authorization: Bearer YOUR_API_KEY`.
+  // Cited from vendor/parallel-web/docs.parallel.ai/getting-started/overview.md
+  // Operator has $70 premium tier on alex@jadecli.com.
+  "api.parallel.ai",
   "docs.nimbleway.com",
   "www.anthropic.com",
   "support.claude.com",

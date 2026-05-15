@@ -74,6 +74,8 @@ distinct steps and benefit from Opus 4.7's planning depth.
 | [`neon-secrets-matrix.md`](./neon-secrets-matrix.md) | Complete inventory of NEON_* secrets/vars/env vars per surface (CI, local, Worker) | ~5 min read | none (audit + decision doc) |
 | [`ci-cd-unblock.md`](./ci-cd-unblock.md) | **The** one-shot runbook for unblocking CI/CD end-to-end (mints CLOUDFLARE_API_TOKEN, rotates stale secrets, triggers + verifies cloudflare-preview.yml). Closes #114/#115/#116/#119. | ~10 min | confirm 2FA on CF; confirm 2FA on GH; one terminal command for rotations |
 
+| [`parallel-api-key.md`](./parallel-api-key.md) | `secrets.PARALLEL_API_KEY` provisioned | ~5 min | confirm 2FA on parallel.ai; confirm 2FA on GH |
+
 ## Boris Cherny tie-in
 
 These runbooks operationalize the publicly-documented Anthropic pattern of
