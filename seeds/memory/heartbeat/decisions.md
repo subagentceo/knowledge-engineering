@@ -5,6 +5,26 @@ description: Append-only log of decisions the orchestrator made, with date + tic
 
 # Decisions log
 
+## 2026-05-15 — tick 7 (audit + close the Neon CI gap)
+
+### D8. Auto-merge gap has two layers; PR #72 closes layer 1; layer 2 is operator-pending
+
+**Decision:** Treat the operator's "PRs merged without full green CI" complaint as having two distinct root causes; fix the agent-actionable layer (Layer 1 — Create Neon Branch genuinely fails); document the operator-actionable layer (Layer 2 — branch protection not in place).
+
+**Reasoning:** Audit of 7 merged PRs today (#60, #63, #65, #66, #67, #69, #70) showed Create Neon Branch was `failure` on every one. Two causes acted together: the check was actually broken (Layer 1 — fixed by PR #72) AND it wasn't required (Layer 2 — needs `setup:branch-protection` to run, which is gated on operator PAT runbook #37).
+
+**Reversible:** Yes. Layer 1 = code; Layer 2 = config that can be added later.
+
+### D9. PR #72 ws-constructor fix is the actual root cause; PR #69's retry stays as a complementary layer
+
+**Decision:** Keep PR #69's `warmConnection()` retry in place even after PR #72 lands. The two are complementary: PR #72 makes the WebSocket connect possible; PR #69 absorbs any genuine cold-start race that may remain.
+
+**Reasoning:** PR #69 alone wasn't sufficient — retrying a missing-constructor call 5 times still fails. But after PR #72 wires the constructor, the connect actually works, and any post-connect cold-start delay (Neon compute warming up) is then absorbed by the retry. Defense in depth.
+
+**Reversible:** Yes. The retry costs 1 extra `SELECT 1` on the warm path.
+
+**Verification (post-merge of PR #72):** PRs #64, #62, #59 all posted Neon Schema Diff comments showing `vendor_pages` cleanly added vs production — the first successful end-to-end Phase 13.B+ O8 runs since PR #58 wired the design in.
+
 ## 2026-05-15 — tick 2 (execute next-actions #1)
 
 ### D5. Two-bug fix in `scripts/crawl-vendors.ts`; vendor markdown re-sync deferred
