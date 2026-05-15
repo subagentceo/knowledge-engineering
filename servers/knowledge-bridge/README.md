@@ -21,6 +21,7 @@ AUTO-GENERATED catalog. Re-run `npm run gen:servers` after any tool surface chan
 | `vendor_fetch` | Fetch a vendor doc by URL. Returns local mirror body when available (source:'mirror'); otherwise falls back to live HTTP |
 | `vendor_grep` | Case-insensitive line-grep across the local vendor mirror. Optionally restrict to one vendor. Returns each hit with the  |
 | `project_git_status` | Report git working-tree status as structured JSON. Replaces Bash(`git status --porcelain`) at roughly half the token cos |
+| `project_find_files` | Walk the project tree (skipping node_modules, .git, dist, .terraform, coverage, .cache, .next) and return files matching |
 | `project_git_log` | List recent commits as structured JSON (sha, subject, author, timestamp). Replaces Bash(`git log --pretty=...`) at rough |
 | `search_tools` | Progressive-disclosure tool discovery for the codemode runtime. Searches across servers/<name>/README.md catalogs and re |
 

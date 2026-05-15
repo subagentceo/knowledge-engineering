@@ -12,6 +12,8 @@
  *                         deleted, staged, has_drift booleans.
  *   project_git_log     - structured commit list (sha, subject, author, ts,
  *                         optional files_changed). Replaces execSync git log.
+ *   project_find_files  - pure Node walk; substring pattern + size + limit
+ *                         filters. Replaces `find` shell-outs.
  *
  * Citations (in test files):
  *   @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/mcp.md
@@ -19,13 +21,26 @@
  *
  * Outcomes:
  *   O-PROJ1 - project lane bootstrap + project_git_status
- *   O-PROJ2 - project_git_log (this commit)
+ *   O-PROJ2 - project_git_log
+ *   O-PROJ3 - project_find_files (this commit)
  */
 import { execFileSync } from "node:child_process";
+import { readdirSync, statSync } from "node:fs";
+import { join, resolve } from "node:path";
 import { z } from "zod";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 import { jsonResult } from "../bridge-utils.js";
+
+const SKIP_DIRS = new Set([
+  "node_modules",
+  ".git",
+  "dist",
+  ".terraform",
+  "coverage",
+  ".next",
+  ".cache",
+]);
 
 export interface GitStatusReport {
   modified: string[];
@@ -79,6 +94,67 @@ export function parsePorcelain(output: string): GitStatusReport {
   };
 }
 
+export interface FoundFile {
+  path: string;
+  size: number;
+  mtime: string;
+}
+
+export interface FindFilesOptions {
+  pattern?: string;
+  min_size?: number;
+  max_size?: number;
+  limit?: number;
+}
+
+/**
+ * Walk a directory tree (excluding common vendored/build dirs) and yield
+ * files matching the substring pattern + size constraints. Returns
+ * relative paths from the walk root. Bounded by `limit` to avoid
+ * runaway scans on large monorepos.
+ */
+export function findFiles(rootDir: string, opts: FindFilesOptions = {}): FoundFile[] {
+  const { pattern, min_size, max_size, limit = 200 } = opts;
+  const needle = pattern !== undefined ? pattern.toLowerCase() : undefined;
+  const root = resolve(rootDir);
+  const out: FoundFile[] = [];
+
+  function walk(dir: string): void {
+    if (out.length >= limit) return;
+    let entries: import("node:fs").Dirent[];
+    try {
+      entries = readdirSync(dir, { withFileTypes: true, encoding: "utf8" });
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      if (out.length >= limit) return;
+      const name = entry.name;
+      if (SKIP_DIRS.has(name)) continue;
+      const full = join(dir, name);
+      if (entry.isDirectory()) {
+        walk(full);
+        continue;
+      }
+      if (!entry.isFile()) continue;
+      let st: ReturnType<typeof statSync>;
+      try {
+        st = statSync(full);
+      } catch {
+        continue;
+      }
+      if (min_size !== undefined && st.size < min_size) continue;
+      if (max_size !== undefined && st.size > max_size) continue;
+      const rel = full.startsWith(root + "/") ? full.slice(root.length + 1) : full;
+      if (needle !== undefined && !rel.toLowerCase().includes(needle)) continue;
+      out.push({ path: rel, size: st.size, mtime: st.mtime.toISOString() });
+    }
+  }
+
+  walk(root);
+  return out;
+}
+
 export interface GitLogEntry {
   sha: string;
   subject: string;
@@ -124,6 +200,26 @@ export function registerProject(server: McpServer): void {
       const status = parsePorcelain(output);
       if (!include_untracked) status.untracked = [];
       return jsonResult(status);
+    }
+  );
+
+  server.tool(
+    "project_find_files",
+    "Walk the project tree (skipping node_modules, .git, dist, .terraform, coverage, .cache, .next) and return files matching an optional substring pattern + optional size constraints. Replaces Bash(`find ...`) + `stat` chains at no shell-spawn cost.",
+    {
+      root: z.string().default("."),
+      pattern: z.string().optional(),
+      min_size: z.number().int().nonnegative().optional(),
+      max_size: z.number().int().positive().optional(),
+      limit: z.number().int().positive().max(1000).default(200),
+    },
+    async ({ root, pattern, min_size, max_size, limit }) => {
+      const opts: FindFilesOptions = { limit };
+      if (pattern !== undefined) opts.pattern = pattern;
+      if (min_size !== undefined) opts.min_size = min_size;
+      if (max_size !== undefined) opts.max_size = max_size;
+      const files = findFiles(root, opts);
+      return jsonResult({ files, count: files.length, capped: files.length >= limit });
     }
   );
 
