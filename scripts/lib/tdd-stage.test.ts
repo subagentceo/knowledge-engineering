@@ -29,7 +29,8 @@ test("parses @tdd refactor from docblock", () => {
 });
 
 test("returns null when tag is absent", () => {
-  const src = "/**\n * @cite vendor/x/y.md\n */";
+  // Fixture intentionally does NOT contain "@tdd" — parser should return null.
+  const src = "/**\n * some unrelated docblock content\n */";
   assert.equal(parseTddStage(src), null);
 });
 

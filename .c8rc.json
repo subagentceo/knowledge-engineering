@@ -1,0 +1,17 @@
+{
+  "all": true,
+  "include": [
+    "src/lib/**/*.ts",
+    "scripts/lib/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.test.ts",
+    "**/*.d.ts",
+    "**/node_modules/**",
+    "src/lib/posture-shape.test.ts"
+  ],
+  "reporter": ["text-summary", "lcov"],
+  "report-dir": "coverage",
+  "temp-directory": "coverage/.tmp",
+  "check-coverage": false
+}
