@@ -46,20 +46,25 @@ function parseUrlsMd(name: string, body: string): VendorManifest {
   const llmsTxtMatch = body.match(/^llms_txt:\s*(.+?)\s*$/m);
   const lastMatch = body.match(/^last_crawled:\s*(.+?)\s*$/m);
   const llms_txt = llmsTxtMatch?.[1];
-  const lastCrawled = lastMatch ? new Date(lastMatch[1]) : undefined;
+  const lastRaw = lastMatch?.[1];
+  const lastCrawled = lastRaw ? new Date(lastRaw) : undefined;
 
   const urlSet = new Set<string>();
   const byUrl = new Map<string, string>();
   // Each row: "| <url> | `vendor/<name>/<relpath>` |"
   const ROW_RE = /^\|\s*([^|\s]\S*)\s*\|\s*`vendor\/[^/]+\/(.+?)`\s*\|/gm;
   for (const m of body.matchAll(ROW_RE)) {
-    const [, url, relPath] = m;
-    if (!url.startsWith("http")) continue;
+    const url = m[1];
+    const relPath = m[2];
+    if (!url || !relPath || !url.startsWith("http")) continue;
     urlSet.add(url);
     byUrl.set(url, relPath);
   }
 
-  return { name, llms_txt, lastCrawled, urlSet, byUrl };
+  const out: VendorManifest = { name, urlSet, byUrl };
+  if (llms_txt !== undefined) out.llms_txt = llms_txt;
+  if (lastCrawled !== undefined) out.lastCrawled = lastCrawled;
+  return out;
 }
 
 export function loadVendorManifests(): ReadonlyMap<string, VendorManifest> {

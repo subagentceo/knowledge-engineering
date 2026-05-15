@@ -49,7 +49,10 @@ function loadCatalog(): ReadonlyArray<ToolEntry> {
     // Each tool row: "| `<name>` | <description> |"
     const ROW_RE = /^\|\s*`([^`]+)`\s*\|\s*([^|]+?)\s*\|\s*$/gm;
     for (const m of body.matchAll(ROW_RE)) {
-      out.push({ server: entry.name, name: m[1], description: m[2].trim() });
+      const name = m[1];
+      const desc = m[2];
+      if (!name || !desc) continue;
+      out.push({ server: entry.name, name, description: desc.trim() });
     }
   }
   CACHE = out;

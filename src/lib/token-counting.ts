@@ -34,11 +34,12 @@ export async function countTokens(input: CountTokensInput): Promise<TokenCount> 
   }
   const anthropic = new Anthropic({ authToken: auth.token });
   const model = input.model ?? DEFAULT_MODEL;
-  const result = await anthropic.messages.countTokens({
+  const params: Anthropic.Messages.MessageCountTokensParams = {
     model,
-    system: input.system as Anthropic.Messages.MessageCountTokensParams["system"],
     messages: input.messages,
+    system: input.system as NonNullable<Anthropic.Messages.MessageCountTokensParams["system"]>,
     ...(input.tools ? { tools: input.tools } : {}),
-  });
+  };
+  const result = await anthropic.messages.countTokens(params);
   return { input_tokens: result.input_tokens, model };
 }
