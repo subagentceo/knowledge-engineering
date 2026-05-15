@@ -13,3 +13,4 @@ infra/cloudflare/node_modules/
 
 # Crawlee persistent storage (we set storageDir explicitly into node_modules/.crawlee-storage)
 node_modules/.crawlee-storage/
+coverage/
