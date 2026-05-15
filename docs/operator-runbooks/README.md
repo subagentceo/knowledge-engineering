@@ -72,6 +72,7 @@ distinct steps and benefit from Opus 4.7's planning depth.
 | [`connector-decision.md`](./connector-decision.md) | Phase 12 ship-as-Connector decision recorded | varies | reading + decision only |
 | [`neon-mcp-server.md`](./neon-mcp-server.md) | Neon MCP server installed across CLI, Desktop, VS Code, JetBrains, Web, Mobile (Phase 14 T1) | ~15 min CLI+Desktop; +5 per surface | OAuth flow per surface; smoke-test prompts |
 | [`neon-secrets-matrix.md`](./neon-secrets-matrix.md) | Complete inventory of NEON_* secrets/vars/env vars per surface (CI, local, Worker) | ~5 min read | none (audit + decision doc) |
+| [`ci-cd-unblock.md`](./ci-cd-unblock.md) | **The** one-shot runbook for unblocking CI/CD end-to-end (mints CLOUDFLARE_API_TOKEN, rotates stale secrets, triggers + verifies cloudflare-preview.yml). Closes #114/#115/#116/#119. | ~10 min | confirm 2FA on CF; confirm 2FA on GH; one terminal command for rotations |
 
 ## Boris Cherny tie-in
 
