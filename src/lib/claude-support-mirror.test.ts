@@ -13,7 +13,6 @@
  * @tdd green
  * @cite vendor/claude-support/crawl.json
  * @cite seeds/citations/vendor-graph-v2.xml
- * @cite docs/plans/founder-refactor-2026-05-15.md
  * @cite rubrics/phase-E.md
  */
 import { existsSync, readFileSync } from "node:fs";
