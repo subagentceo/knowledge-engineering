@@ -84,11 +84,13 @@ function rulesetBody() {
           require_code_owner_review: false,
           require_last_push_approval: false,
           required_review_thread_resolution: false,
-          // Removed `automatic_copilot_code_review_enabled` 2026-05-15:
-          // GitHub Rulesets API responds 422 "Unexpected parameter" for
-          // this key on POST /repos/{owner}/{repo}/rulesets. It is a UI
-          // affordance, not part of the documented rule schema. See
-          // https://docs.github.com/rest/repos/rules#create-a-repository-ruleset.
+          // Note: `automatic_copilot_code_review_enabled` is rejected
+          // by the rulesets PUT endpoint with HTTP 422:
+          //   "Invalid rule 'pull_request': Unexpected parameter
+          //    `automatic_copilot_code_review_enabled`"
+          // Verified 2026-05-15 against the live API; omitting it
+          // keeps the call idempotent.
+          allowed_merge_methods: ["squash"],
         },
       },
       {

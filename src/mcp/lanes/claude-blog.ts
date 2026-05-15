@@ -24,10 +24,13 @@ function parseIndex(html: string): IndexEntry[] {
   const anchorRe = /<a[^>]+href="(\/blog\/[a-z0-9-]+)"[^>]*>([\s\S]*?)<\/a>/gi;
   let match: RegExpExecArray | null;
   while ((match = anchorRe.exec(html)) !== null) {
-    const url = `${BASE}${match[1]}`;
+    const slug = match[1] ?? "";
+    const rawInner = match[2] ?? "";
+    if (!slug) continue;
+    const url = `${BASE}${slug}`;
     if (seen.has(url)) continue;
     seen.add(url);
-    const inner = match[2].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    const inner = rawInner.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
     if (!inner) continue;
     out.push({ url, title: inner });
   }

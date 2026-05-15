@@ -23,11 +23,13 @@
     "verify:citations": "tsx scripts/lib/citation-guard.ts",
     "verify:gates": "tsx scripts/validate-phase-gates.ts",
     "verify:libs": "tsx scripts/lib/run-tests.ts",
+    "verify:coverage": "c8 tsx scripts/lib/run-tests.ts && tsx scripts/verify-coverage.ts",
+    "verify:tdd": "tsx scripts/verify-tdd-stage.ts",
     "verify:freshness": "tsx scripts/verify-freshness.ts",
     "verify:mcp": "tsx scripts/verify.ts && npm run verify:planner",
     "verify:tf": "terraform -chdir=infra/terraform validate && terraform -chdir=infra/terraform plan -lock=false -input=false",
     "verify:project": "tsx scripts/verify-project.ts",
-    "verify": "npm run verify:mcp && npm run verify:tf && npm run verify:citations && npm run verify:gates && npm run verify:libs && npm run verify:freshness && npm run verify:project",
+    "verify": "npm run verify:mcp && npm run verify:tf && npm run verify:citations && npm run verify:gates && npm run verify:libs && npm run verify:coverage && npm run verify:tdd && npm run verify:freshness && npm run verify:project",
     "deploy:agent": "cd infra/cloudflare && npm run deploy",
     "deploy:frontend": "cd frontend && npm run deploy",
     "deploy:all": "npm run deploy:agent && npm run deploy:frontend",
@@ -47,18 +49,18 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@anthropic-ai/claude-agent-sdk": "^0.3.142",
+    "@anthropic-ai/claude-agent-sdk": "^0.2.0",
     "@anthropic-ai/sdk": "^0.95.0",
     "@crawlee/cheerio": "^3.0.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
     "@neondatabase/serverless": "^1.1.0",
     "@openfeature/server-sdk": "^1.21.0",
-    "@turbopuffer/turbopuffer": "^2.0.0",
     "@types/ws": "^8.18.1",
     "@xenova/transformers": "^2.17.2",
     "turndown": "^7.0.0",
     "ws": "^8.20.1",
-    "zod": "^4.0.0"
+    "zod": "^4.0.0",
+    "@turbopuffer/turbopuffer": "^2.0.0"
   },
   "overrides": {
     "@anthropic-ai/sdk": "^0.95.0",
@@ -69,6 +71,7 @@
     "@modelcontextprotocol/inspector": "^0.21.0",
     "@types/node": "^22.7.0",
     "@types/turndown": "^5.0.0",
+    "c8": "^11.0.0",
     "tsx": "^4.21.0",
     "typescript": "^5.6.0"
   },

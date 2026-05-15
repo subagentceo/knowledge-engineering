@@ -59,7 +59,7 @@ export async function embed(text: string): Promise<Float32Array> {
 export function cosineSimilarity(a: Float32Array, b: Float32Array): number {
   if (a.length !== b.length) return NaN;
   let s = 0;
-  for (let i = 0; i < a.length; i += 1) s += a[i] * b[i];
+  for (let i = 0; i < a.length; i += 1) s += (a[i] ?? 0) * (b[i] ?? 0);
   return s;
 }
 
