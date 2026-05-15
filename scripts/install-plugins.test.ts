@@ -64,7 +64,7 @@ check("materializePlugin returns null for non-marketplace entries", () => {
   const entry: InstallEntry = {
     kind: "skill",
     name: "heartbeat",
-    implementation: ".claude/skills/heartbeat.md",
+    implementation: ".claude/skills/heartbeat/SKILL.md",
   };
   const result = materializePlugin(MOCK_MANIFEST, entry);
   if (result !== null) {

@@ -22,6 +22,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { requireOAuth } from "../oauth/token.js";
 import { getOpenFeatureClient } from "../lib/openfeature.js";
+import { auditBashPreToolUse } from "../lib/safety-hooks.js";
 import { Planner, type RunMode, type Plan } from "./planning.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -90,6 +91,23 @@ const result = query({
   prompt: userPrompt,
   options: {
     systemPrompt,
+    // Explicit settingSources: load project-level CLAUDE.md + .claude/skills/
+    // + .claude/settings.json hooks, but skip user (~/.claude/) and local
+    // (CLAUDE.local.md / settings.local.json). The orchestrator chassis is
+    // the source of truth; host-level config should not leak in.
+    // @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/claude-code-features.md
+    settingSources: ["project"],
+    // Enable all project-level skills (heartbeat, routines, refresh-vendors,
+    // schedule-bridge). The Skill tool is auto-registered when this is set.
+    skills: "all",
+    // Programmatic PreToolUse hook: blocks ANTHROPIC_API_KEY exports +
+    // destructive Bash patterns at runtime. Supplements the startup-time
+    // gate in src/oauth/token.ts.
+    hooks: {
+      PreToolUse: [
+        { matcher: "Bash", hooks: [async (input) => auditBashPreToolUse(input)] },
+      ],
+    },
     mcpServers: {
       "npm-registry": {
         type: "stdio",

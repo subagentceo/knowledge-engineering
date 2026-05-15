@@ -27,7 +27,7 @@ If you (Claude) are starting a session in this repo, do this first:
 | Heartbeat memory | `seeds/memory/heartbeat/` (last-tick, next-actions, decisions, open-questions) |
 | Rubrics | `rubrics/phase-{0..16}.md` |
 | Citation extracts | `seeds/citations/*.md` (15+ extracts of cited vendor docs) |
-| Skills | `.claude/skills/{heartbeat,routines,refresh-vendors,schedule-bridge,loop}.md` |
+| Skills | `.claude/skills/{heartbeat,routines,refresh-vendors,schedule-bridge}/SKILL.md` (SDK-discoverable directory form per `agent-sdk/claude-code-features.md`) |
 | Plugin manifest | `.claude/plugins.json` (3 marketplaces) |
 
 ## Run commands
