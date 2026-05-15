@@ -27,7 +27,7 @@ const SERVERS: ServerSpec[] = [
   {
     name: "knowledge-bridge",
     entry: resolve(root, "dist/mcp/bridge-server.js"),
-    expected: 17,
+    expected: 18,
   },
   {
     name: "npm-registry",

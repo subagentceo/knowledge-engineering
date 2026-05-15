@@ -17,4 +17,5 @@ export { llmsGrep } from "./llms_grep.js";
 export { vendorList } from "./vendor_list.js";
 export { vendorFetch } from "./vendor_fetch.js";
 export { vendorGrep } from "./vendor_grep.js";
+export { projectGitStatus } from "./project_git_status.js";
 export { searchTools } from "./search_tools.js";

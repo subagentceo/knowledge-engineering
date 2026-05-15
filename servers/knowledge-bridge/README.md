@@ -20,6 +20,7 @@ AUTO-GENERATED catalog. Re-run `npm run gen:servers` after any tool surface chan
 | `vendor_list` | List the vendors mirrored under vendor/. Each entry includes the discovered llms.txt URL, last crawl timestamp, and the  |
 | `vendor_fetch` | Fetch a vendor doc by URL. Returns local mirror body when available (source:'mirror'); otherwise falls back to live HTTP |
 | `vendor_grep` | Case-insensitive line-grep across the local vendor mirror. Optionally restrict to one vendor. Returns each hit with the  |
+| `project_git_status` | Report git working-tree status as structured JSON. Replaces Bash(`git status --porcelain`) at roughly half the token cos |
 | `search_tools` | Progressive-disclosure tool discovery for the codemode runtime. Searches across servers/<name>/README.md catalogs and re |
 
 Each entry is a thin wrapper around `callMCPTool("knowledge-bridge__<tool>", input)`. The actual MCP server lives at the corresponding `src/mcp/` path; this tree is the **filesystem-tree tool API** the codemode runtime imports from.
