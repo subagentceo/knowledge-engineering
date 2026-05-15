@@ -70,6 +70,7 @@ distinct steps and benefit from Opus 4.7's planning depth.
 | [`code-scanning-toggle.md`](./code-scanning-toggle.md) | Code scanning enabled; `upload-sarif: true` | ~2 min | confirm 2FA on GH |
 | [`github-pat.md`](./github-pat.md) | Fine-grained GitHub PAT created + setup:project/setup:branch-protection run | ~8 min | confirm 2FA on GH; run two CLI scripts |
 | [`connector-decision.md`](./connector-decision.md) | Phase 12 ship-as-Connector decision recorded | varies | reading + decision only |
+| [`neon-mcp-server.md`](./neon-mcp-server.md) | Neon MCP server installed across CLI, Desktop, VS Code, JetBrains, Web, Mobile (Phase 14 T1) | ~15 min CLI+Desktop; +5 per surface | OAuth flow per surface; smoke-test prompts |
 
 ## Boris Cherny tie-in
 
