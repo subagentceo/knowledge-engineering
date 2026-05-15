@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@cloudflare/sandbox": "^0.5.0",
+    "@cloudflare/sandbox": "^0.10.1",
     "@neondatabase/api-client": "^2.1.0",
     "@openfeature/server-sdk": "^1.21.0"
   },

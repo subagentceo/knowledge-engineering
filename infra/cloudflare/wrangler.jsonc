@@ -67,17 +67,17 @@
   "secrets_store_secrets": [
     {
       "binding": "CLAUDE_CODE_OAUTH_TOKEN",
-      "store_id": "BOOTSTRAP_PLACEHOLDER",
+      "store_id": "565244614fc34be7aa8488ce46112f60",
       "secret_name": "CLAUDE_CODE_OAUTH_TOKEN"
     },
     {
       "binding": "NEON_API_KEY",
-      "store_id": "BOOTSTRAP_PLACEHOLDER",
+      "store_id": "565244614fc34be7aa8488ce46112f60",
       "secret_name": "NEON_API_KEY"
     },
     {
       "binding": "GITHUB_TOKEN",
-      "store_id": "BOOTSTRAP_PLACEHOLDER",
+      "store_id": "565244614fc34be7aa8488ce46112f60",
       "secret_name": "GITHUB_TOKEN"
     }
   ],
@@ -88,24 +88,30 @@
     "NEON_PROJECT_ID": "divine-cloud-27295848"
   },
 
-  // Phase 13.B+ (O5). Cloudflare Flagship binding — feature flags
-  // evaluated at the edge. Cited from
-  // vendor/cloudflare/developers.cloudflare.com/flagship/configuration/index.md.
+  // Phase 13.B+ (O5). Cloudflare Flagship binding — DEFERRED until the
+  // operator (or an agent with `flagship:write` OAuth scope) creates the
+  // Flagship app and pins its real app_id.
   //
-  // The Flagship app id is provisioned by the operator runbook
-  // docs/operator-runbooks/cf-flagship-setup.md (one-time browser
-  // action). Until then, this binding is harmless: the Worker's
-  // resolveFlagshipString() returns the supplied default whenever
-  // env.FLAGSHIP is undefined (which it is until the binding becomes
-  // live on first deploy after app id creation).
+  // History:
+  //   - Phase 0g: binding declared with FLAGSHIP_APP_ID_PLACEHOLDER. The
+  //     wrangler.jsonc comment noted production deploy would fail until
+  //     the operator pinned a real id — empirically confirmed 2026-05-15:
+  //     `wrangler deploy` returned code 10364 "Flagship app
+  //     'FLAGSHIP_APP_ID_PLACEHOLDER' not found".
+  //   - Phase 8 (2026-05-15): block commented out so Phase 8 C4 deploy
+  //     can land without the operator-side Flagship runbook. The Worker's
+  //     `resolveFlagshipString()` returns the supplied defaults whenever
+  //     `env.FLAGSHIP` is undefined, which it now is.
   //
-  // The placeholder app_id below allows wrangler deploy --dry-run to
-  // succeed; production deploy fails with a clear error until the
-  // operator pins a real app_id.
-  "flagship": [
-    {
-      "binding": "FLAGSHIP",
-      "app_id": "FLAGSHIP_APP_ID_PLACEHOLDER"
-    }
-  ]
+  // To re-enable Flagship: provision app at dash.cloudflare.com/flagship,
+  // uncomment the block below, paste the real app_id, redeploy. The
+  // operator's local wrangler OAuth token lacks `flagship:write` scope
+  // (refresh with `wrangler login --scopes flagship:write,...`).
+  //
+  // "flagship": [
+  //   {
+  //     "binding": "FLAGSHIP",
+  //     "app_id": "<real-app-id-from-dash>"
+  //   }
+  // ]
 }

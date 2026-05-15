@@ -7,7 +7,12 @@
 # CLAUDE_CODE_OAUTH_TOKEN forwarded by the Worker (see src/worker.ts
 # sanitizeEnv). ANTHROPIC_API_KEY is never forwarded.
 
-FROM docker.io/cloudflare/sandbox:latest
+# Per https://developers.cloudflare.com/sandbox/configuration/dockerfile/:
+# "Always match the Docker image version to your npm package version."
+# 2026-05-15: pinned to 0.10.1 to match @cloudflare/sandbox@^0.10.1 in
+# package.json. `latest` is not published for cloudflare/sandbox; verified
+# 2026-05-15 against https://hub.docker.com/v2/repositories/cloudflare/sandbox/tags.
+FROM docker.io/cloudflare/sandbox:0.10.1
 
 # gh CLI for PR creation; git is already in the base image.
 USER root
