@@ -67,21 +67,40 @@ const CONVENTIONAL_RE = /^(feat|fix|perf|refactor|chore|docs|test|build|ci|rever
  */
 const MERGE_RE = /^(Merge |merge:)/;
 
+/**
+ * The convention (docs/CONVENTIONS.md + this test) landed in PR #76,
+ * merged to main as commit 304e231 at 2026-05-15T04:30:00Z. Commits
+ * authored BEFORE that date are grandfathered — the convention only
+ * binds going forward.
+ *
+ * Without this gate, every PR opened before #76 merged would fail
+ * because its existing commits predate the rule.
+ */
+const CONVENTION_START_ISO = "2026-05-15T04:30:00Z";
+
 function commitsOnThisBranch(): string[] {
-  // Commits on the current branch since it diverged from origin/main.
-  // In CI, GITHUB_BASE_REF gives the base; locally, we compare to origin/main.
-  // Falls back to HEAD~5..HEAD if the merge-base lookup fails.
+  // Commits on the current branch since it diverged from origin/main,
+  // filtered to those authored at or after the convention's start
+  // date. In CI, GITHUB_BASE_REF gives the base; locally, we compare
+  // to origin/main. Falls back to HEAD~5..HEAD if the merge-base
+  // lookup fails.
   try {
     const base = execSync("git merge-base HEAD origin/main", { cwd: REPO_ROOT })
       .toString()
       .trim();
-    const subjects = execSync(`git log ${base}..HEAD --pretty=format:%s`, { cwd: REPO_ROOT })
+    const subjects = execSync(
+      `git log --since=${CONVENTION_START_ISO} ${base}..HEAD --pretty=format:%s`,
+      { cwd: REPO_ROOT },
+    )
       .toString()
       .split("\n")
       .filter((s) => s.length > 0);
     return subjects;
   } catch {
-    return execSync("git log HEAD~5..HEAD --pretty=format:%s", { cwd: REPO_ROOT })
+    return execSync(
+      `git log --since=${CONVENTION_START_ISO} HEAD~5..HEAD --pretty=format:%s`,
+      { cwd: REPO_ROOT },
+    )
       .toString()
       .split("\n")
       .filter((s) => s.length > 0);
@@ -135,11 +154,13 @@ check(".github/pull_request_template.md exists and requires Closes/Refs", () => 
 const subjects = commitsOnThisBranch();
 const nonMerge = subjects.filter((s) => !MERGE_RE.test(s));
 
-check(`detected ≥1 commit on the current branch (got ${nonMerge.length})`, () => {
-  if (nonMerge.length === 0) {
-    throw new Error("no commits found between HEAD and origin/main — nothing to assert");
-  }
-});
+// If zero post-convention commits exist on this branch (pre-convention
+// PRs being merged forward), there's nothing to assert — the
+// convention only binds commits authored after CONVENTION_START_ISO.
+// Print a status line so the run isn't silent, but don't fail.
+if (nonMerge.length === 0) {
+  console.log(`  • no post-convention commits to check (all grandfathered before ${CONVENTION_START_ISO})`);
+}
 
 for (const subject of nonMerge) {
   check(`commit subject conforms to convention: ${subject.slice(0, 60)}${subject.length > 60 ? "..." : ""}`, () => {
