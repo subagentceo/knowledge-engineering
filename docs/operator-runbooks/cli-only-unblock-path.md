@@ -4,6 +4,29 @@
 >
 > **Why this exists:** the original runbooks (`docs/operator-runbooks/cf-api-token.md`, `cf-account-id.md`, `github-pat.md`, `voyage-api-key.md`) all assume `claude --chrome`. That works but adds an extension dependency. The operator may not always want Chrome; CLI-only is faster when the operator already has `wrangler`, `gh`, and `npm` locally.
 
+## Surface matters: pick the right playbook
+
+Before running anything below, identify which Claude surface you're operating from. The capabilities differ in load-bearing ways:
+
+| Capability | Claude Code on the web | Claude Code Desktop | Claude Code CLI |
+| :--- | :---: | :---: | :---: |
+| `~/.claude/CLAUDE.md` available | ❌ ([web doc:70](../../vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md)) | ✅ | ✅ |
+| Local `gh auth` + `wrangler` OAuth state | ❌ ([web doc:73](../../vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md)) | ✅ | ✅ |
+| macOS Keychain / `security` CLI | ❌ | ✅ | ✅ |
+| Interactive auth (SSO, dashboard logins) | ❌ ([web doc:74](../../vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md)) | ✅ | ✅ |
+| `claude-in-chrome` MCP (agent drives a real browser) | ❌ | ✅ ([desktop doc:230](../../vendor/anthropics/code.claude.com/docs/en/desktop.md)) | ✅ when `--chrome` flag passed |
+| Computer use (full screen + click) | ❌ | ✅ ([desktop doc:210](../../vendor/anthropics/code.claude.com/docs/en/desktop.md)) | ❌ |
+| Bypass-permissions mode | (sandboxed VM, not needed) | ✅ ([desktop doc:75](../../vendor/anthropics/code.claude.com/docs/en/desktop.md)) | ✅ via `--dangerously-skip-permissions` |
+| Sandboxed VM, ephemeral filesystem | ✅ | ❌ | ❌ |
+
+**Implication for these runbooks:**
+
+- The original Chrome runbooks under `docs/operator-runbooks/` were written from a **web session** ([session_01TryfgvS5AM9FZe3kJet56s](https://claude.ai/code/session_01TryfgvS5AM9FZe3kJet56s)). Their "operator must run `claude --chrome` and confirm 2FA" framing is correct for that surface — the cloud session genuinely cannot reach the operator's local browser.
+- On **Desktop**, the agent itself drives the browser via `claude-in-chrome` MCP. The "operator clicks" framing collapses to "agent clicks, operator approves once."
+- On **CLI without `--chrome`**, the Workarounds below (W1, W2 via local browser, W2b via bootstrap token, W3, W4) are the right path.
+
+This file is the **CLI/web playbook**. For Desktop-native equivalents, see issues [#110](https://github.com/subagentceo/knowledge-engineering/issues/110), [#111](https://github.com/subagentceo/knowledge-engineering/issues/111), [#112](https://github.com/subagentceo/knowledge-engineering/issues/112), [#113](https://github.com/subagentceo/knowledge-engineering/issues/113) — which describe the same outcomes but with the agent doing the browser work directly.
+
 ## Pre-flight checks (run once)
 
 ```bash
