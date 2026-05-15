@@ -33,10 +33,13 @@ function parseArticles(html: string, collectionSlug: string): Array<{ url: strin
   const articleRe = /<a[^>]+href="(\/en\/articles\/[0-9]+-[a-z0-9-]+)"[^>]*>([\s\S]*?)<\/a>/gi;
   let match: RegExpExecArray | null;
   while ((match = articleRe.exec(html)) !== null) {
-    const url = `${BASE}${match[1]}`;
+    const slug = match[1] ?? "";
+    const rawTitle = match[2] ?? "";
+    if (!slug) continue;
+    const url = `${BASE}${slug}`;
     if (seen.has(url)) continue;
     seen.add(url);
-    const title = match[2].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+    const title = rawTitle.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
     if (!title) continue;
     out.push({ url, title });
   }

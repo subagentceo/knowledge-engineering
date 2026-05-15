@@ -58,12 +58,10 @@ export function registerVendor(server: McpServer): void {
     async () => {
       const out: VendorListEntry[] = [];
       for (const [name, m] of loadVendorManifests()) {
-        out.push({
-          name,
-          llms_txt: m.llms_txt,
-          last_crawled: m.lastCrawled?.toISOString(),
-          url_count: m.urlSet.size,
-        });
+        const entry: VendorListEntry = { name, url_count: m.urlSet.size };
+        if (m.llms_txt !== undefined) entry.llms_txt = m.llms_txt;
+        if (m.lastCrawled !== undefined) entry.last_crawled = m.lastCrawled.toISOString();
+        out.push(entry);
       }
       return jsonResult({ vendors: out });
     }
@@ -135,10 +133,13 @@ export function registerVendor(server: McpServer): void {
           const lines = body.split(/\r?\n/);
           for (let i = 0; i < lines.length; i += 1) {
             const line = lines[i];
+            if (line === undefined) continue;
             if (line.toLowerCase().includes(needle)) {
+              const url = urlFor(v, relPath);
+              if (!url) continue;
               out.push({
                 vendor: v,
-                url: urlFor(v, relPath),
+                url,
                 relPath,
                 line_no: i + 1,
                 line: line.length > 240 ? line.slice(0, 240) + "…" : line,
