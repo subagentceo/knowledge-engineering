@@ -50,10 +50,21 @@ async function ghREST<T>(method: string, path: string, body?: unknown): Promise<
 }
 
 function rulesetBody() {
-  // Required status check contexts. Optional CI workflows
-  // (neon-branch, cloudflare-preview, copilot) are NOT required so the
-  // repo can land changes whether or not those secrets are provisioned.
-  const requiredChecks = ["verify", "osv-scanner"];
+  // Required status check contexts.
+  //
+  // IMPORTANT: GitHub records the **job name** as the check context,
+  // not the workflow name. Get these strings from
+  //   gh pr view <N> --json statusCheckRollup --jq '.statusCheckRollup[].name'
+  // on a real PR. Setting the workflow name (e.g. "verify") makes the
+  // ruleset block every PR because no check ever resolves it.
+  //
+  // Optional CI workflows (neon-branch, cloudflare-preview, copilot)
+  // are NOT required so the repo can land changes whether or not those
+  // secrets are provisioned.
+  const requiredChecks = [
+    "npm run verify",            // job in .github/workflows/verify.yml
+    "OSV-Scanner (PR) / osv-scan", // job in .github/workflows/osv-scanner.yml
+  ];
   return {
     name: RULESET_NAME,
     target: "branch",
