@@ -5,8 +5,6 @@ Documentation for the Security dashboard with an updated user interface.
 > Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/security/`).
 >
 > For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
->
-> Use [Security dashboard llms-full.txt](https://developers.cloudflare.com/security/llms-full.txt) for the complete Security dashboard documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
 
 ## Overview
 

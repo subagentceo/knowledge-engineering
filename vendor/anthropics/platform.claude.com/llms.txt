@@ -12,7 +12,7 @@ https://platform.claude.com
 
 The full documentation is available in the following languages on https://platform.claude.com/docs:
 
-- English (en) - 1413 pages - /docs - Content included below
+- English (en) - 1414 pages - /docs - Content included below
 - German (Deutsch) (de) - 132 pages - /docs/de - Visit website for content
 - Spanish (Español) (es) - 132 pages - /docs/es - Visit website for content
 - French (Français) (fr) - 132 pages - /docs/fr - Visit website for content
@@ -47,6 +47,7 @@ The full documentation is available in the following languages on https://platfo
 - [Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry.md) - Claude in Microsoft Foundry
 - [Amazon Bedrock (legacy)](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy.md) - Claude on Amazon Bedrock (legacy)
 - [Vertex AI](https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai.md) - Claude on Vertex AI
+- [Claude Platform on AWS](https://platform.claude.com/docs/en/build-with-claude/claude-platform-on-aws.md)
 - [Code execution tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool.md)
 - [Compaction](https://platform.claude.com/docs/en/build-with-claude/compaction.md)
 - [Computer use tool](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool.md)

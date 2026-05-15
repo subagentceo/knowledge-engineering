@@ -1,6 +1,8 @@
 > This page location: AI > AI App Starter Kit > Core concepts > Introduction
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers resources for building AI applications with Neon Postgres, including core concepts, framework integrations, and starter applications for developing tools like chatbots and semantic search engines.
+
 # AI Starter Kit
 
 Resources for building AI applications with Neon Postgres

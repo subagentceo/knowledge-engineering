@@ -1,5 +1,7 @@
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the scalability of Neon from initial side projects to large production databases, highlighting features like a free plan, autoscaling, and Postgres compatibility to support various stages of development.
+
 # Built to scale
 
 Neon supports you from prototype to scale-up

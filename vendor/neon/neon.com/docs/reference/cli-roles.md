@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > roles
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the `roles` command in the Neon CLI for managing roles within a Neon project, including listing, creating, and deleting roles.
+
 # Neon CLI command: roles
 
 List, create, and delete database roles in a Neon project

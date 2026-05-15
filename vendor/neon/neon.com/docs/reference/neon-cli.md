@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > Overview
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: How to manage Neon using the command-line interface (CLI), including installation instructions for macOS, Windows, and Linux, along with available commands and options.
+
 # Neon CLI overview
 
 Overview of the Neon CLI: installation, commands, and options

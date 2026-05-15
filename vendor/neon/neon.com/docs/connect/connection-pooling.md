@@ -1,6 +1,8 @@
 > This page location: Connect to Neon > Connection pooling
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup and functionality of connection pooling in Neon using PgBouncer, detailing how to manage concurrent connections effectively and avoid common pitfalls related to connection limits based on compute size.
+
 # Connection pooling
 
 Learn how connection pooling works in Neon

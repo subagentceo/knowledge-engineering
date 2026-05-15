@@ -1,6 +1,8 @@
 > This page location: Start with Neon > 3 - Branching
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup of Neon's database branching feature, enabling developers to create isolated data branches quickly for integration into their workflows using the Neon CLI or GitHub actions.
+
 # Database branching workflow primer
 
 An introduction to integrating Postgres branching into your development workflow

@@ -5,8 +5,6 @@ Gateways to networks to help you develop applications without worrying about run
 > Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/web3/`).
 >
 > For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
->
-> Use [Web3 llms-full.txt](https://developers.cloudflare.com/web3/llms-full.txt) for the complete Web3 documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
 
 ## Overview
 

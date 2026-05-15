@@ -117,9 +117,9 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
-	"github.com/turbopuffer/turbopuffer-go/packages/respjson"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
+	"github.com/turbopuffer/turbopuffer-go/v2/packages/respjson"
 )
 
 // Helper function that invokes a test function f with a turbopuffer namespace
@@ -165,7 +165,7 @@ func TestQuery(t *testing.T) {
 			t.Fatal(err)
 		}
 		res, err := ns.Query(ctx, turbopuffer.NamespaceQueryParams{
-			RankBy: turbopuffer.NewRankByVector("vector", []float32{1.1, 1.1}),
+			RankBy: turbopuffer.NewRankByAnn("vector", []float32{1.1, 1.1}),
 			Limit: turbopuffer.LimitParam{
 				Total: 10,
 			},
@@ -230,7 +230,7 @@ public class TpufTest {
 
     var result = ns.query(
       NamespaceQueryParams.builder()
-        .rankBy(RankBy.vector("vector", List.of(1.0f, 1.0f)))
+        .rankBy(RankBy.ann("vector", List.of(1.0f, 1.0f)))
         .limit(10)
         .build()
     );

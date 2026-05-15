@@ -80,6 +80,7 @@
 - [SEP-2260: Require Server requests to be associated with a Client request.](https://modelcontextprotocol.io/seps/2260-Require-Server-requests-to-be-associated-with-Client-requests.md): Require Server requests to be associated with a Client request.
 - [SEP-2322: Multi Round-Trip Requests](https://modelcontextprotocol.io/seps/2322-MRTR.md): Multi Round-Trip Requests
 - [SEP-2567: Sessionless MCP via Explicit State Handles](https://modelcontextprotocol.io/seps/2567-sessionless-mcp.md): Sessionless MCP via Explicit State Handles
+- [SEP-2575: Make MCP Stateless](https://modelcontextprotocol.io/seps/2575-stateless-mcp.md): Make MCP Stateless
 - [SEP-414: Document OpenTelemetry Trace Context Propagation Conventions](https://modelcontextprotocol.io/seps/414-request-meta.md): Document OpenTelemetry Trace Context Propagation Conventions
 - [SEP-932: Model Context Protocol Governance](https://modelcontextprotocol.io/seps/932-model-context-protocol-governance.md): Model Context Protocol Governance
 - [SEP-973: Expose additional metadata for Implementations, Resources, Tools and Prompts](https://modelcontextprotocol.io/seps/973-expose-additional-metadata-for-implementations-res.md): Expose additional metadata for Implementations, Resources, Tools and Prompts

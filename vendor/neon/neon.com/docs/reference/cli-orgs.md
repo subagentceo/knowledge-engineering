@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > orgs
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: How to manage organizations within the Neon CLI using the `orgs` command, including listing all associated organizations and utilizing various output formats.
+
 # Neon CLI command: orgs
 
 List and manage Neon organizations

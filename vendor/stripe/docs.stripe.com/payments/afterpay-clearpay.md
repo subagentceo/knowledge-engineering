@@ -127,7 +127,6 @@ For more information about Afterpay eligibility for your account, go to your [Pa
 In addition to the categories of [businesses restricted from using Stripe overall](https://stripe.com/restricted-businesses), the following categories are prohibited from using Afterpay.
 
 - Alcohol
-- Bars, Cocktail Lounges, Drinking Places
 - Donations
 - Pre-orders
 - NFTs

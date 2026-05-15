@@ -1,6 +1,8 @@
 > This page location: Connect to Neon
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the various methods to connect to a Neon database, including standard Postgres connections, specialized drivers, and tools for different environments and applications.
+
 # Connect to Neon
 
 Everything you need to know about connecting to Neon

@@ -1,6 +1,8 @@
 > This page location: Autoscaling > Overview
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup of Neon's autoscaling feature, which automatically adjusts compute resources based on demand, optimizing performance and cost without manual intervention.
+
 # Autoscaling
 
 An introduction to Neon's autoscaling

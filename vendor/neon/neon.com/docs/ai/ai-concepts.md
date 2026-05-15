@@ -1,6 +1,8 @@
 > This page location: AI > AI App Starter Kit > Core concepts > Embeddings
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the use, generation, and storage of embeddings in Postgres for AI applications, detailing how to transform unstructured data into structured formats and measure text similarity through vector distance calculations.
+
 # AI Concepts
 
 Learn how embeddings are used to build AI applications

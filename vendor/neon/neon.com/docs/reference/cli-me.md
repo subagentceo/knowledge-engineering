@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > me
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the `me` command in the Neon CLI to display information about the current user, including login details and project limits.
+
 # Neon CLI command: me
 
 View current user info, login details, and project limits

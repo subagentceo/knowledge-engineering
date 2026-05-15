@@ -1,0 +1,362 @@
+{
+  "https://modelcontextprotocol.io/clients.md": {
+    "sha256": "57ee614e084c53ed8fbce887a4d09bc2d167f114508998e5caeb964528e5107f",
+    "lastModified": "Thu, 14 May 2026 18:07:58 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/antitrust.md": {
+    "sha256": "efc7d5ce2696e4bc5a1f43b0ee7f61060087e16f7cb41491cde335c2886c0a60",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/charter-template.md": {
+    "sha256": "941fc64af0e8a1fc4d75ff008c3ef3f18935706c0cdfa8b33c21f760dcc019dd",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/communication.md": {
+    "sha256": "91a59ce9354448efc72af20126dddad0fa06c8a5dc8b8d2c52e75e1a58856ed1",
+    "lastModified": "Thu, 14 May 2026 18:08:13 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/contributing.md": {
+    "sha256": "6ee11e6fc2e5655803029aa6f9d597e8220d972738e6d44ec61f8d468dd2327b",
+    "lastModified": "Thu, 14 May 2026 22:45:16 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/contributor-ladder.md": {
+    "sha256": "6303bfa3972cbe38c8c19c8e6145b0bf5f8bc0c657a359903166717d5eb6a83f",
+    "lastModified": "Fri, 15 May 2026 03:29:03 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/design-principles.md": {
+    "sha256": "fd88f54d8ac8159393d3a90a36b7400c2d3b35b78dff0e9ccb64f5a027021876",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/file-uploads/charter.md": {
+    "sha256": "51601612ab4cead8e45309a11e52fb7eb2c719ff0b8f7cadf474f7354eceeebd",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/governance.md": {
+    "sha256": "45789e2cac7a32c0b8725523c61e3b3cd020f1a055669f727507a6b42e7b8ae8",
+    "lastModified": "Fri, 15 May 2026 03:29:03 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/inspector-v2/charter.md": {
+    "sha256": "98660fea7303e4de7225d1bb5bd64e7f79ec5d66807832b4fa4362f61c2a7e73",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/interceptors/charter.md": {
+    "sha256": "696bdf7eb5fbf1911a0247740a53e6435da474737cfd3fed5f8988d9a8e25215",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/sdk-tiers.md": {
+    "sha256": "8108d2bf24f372e57dc2b124d0460f97a48b60994183d7a3d5e21620dac2ca9b",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/sdk/charter.md": {
+    "sha256": "029857a3ce4129bc3b888f9a011c3e8cd05e781d6ee875bf2d4f6509a5d63183",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/sep-guidelines.md": {
+    "sha256": "f62cc8ae21a4159b004e5411563c70158849544d251de7c3c54d7f149149fad0",
+    "lastModified": "Fri, 15 May 2026 03:04:03 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/server-card/charter.md": {
+    "sha256": "f05e497601b6fb5875d6dd5733ed8fd53ec31fdf89abcabe634abd0fc321c348",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/skills-over-mcp/charter.md": {
+    "sha256": "00fde1021d3555aef407a042dfc341f28db8c6dcd25ecefd66e46ef495d17d97",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/triggers-events/charter.md": {
+    "sha256": "5c8ac4de0888e93dfd745910ef0d12996816103ae56fff767d7891b4838dbb29",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/community/working-interest-groups.md": {
+    "sha256": "ff4bfd0ff2f6c2bd9cff201908f1ff205ccef307fce042c633db2d88e0349f4d",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/development/roadmap.md": {
+    "sha256": "61d08aaa113b333fc32ce41e19545da839501a99c0a894cee1c469ade4977f25",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/develop/build-client.md": {
+    "sha256": "434f517fcad26fa490da3edc70ac061ae21367ccbdec8340dc66f33eaadd9207",
+    "lastModified": "Thu, 14 May 2026 20:45:06 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/develop/build-server.md": {
+    "sha256": "cc0e231a1f1d81bcfb21d2ac6f381f22dd48481e2b495265d043674bfbf98090",
+    "lastModified": "Thu, 14 May 2026 19:21:58 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/develop/build-with-agent-skills.md": {
+    "sha256": "52d4f54f7afd53805da9990a86ccf5ad6e6e0cbcbb1507b8f2ffaaaf353f18d1",
+    "lastModified": "Thu, 14 May 2026 21:40:15 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/develop/clients/client-best-practices.md": {
+    "sha256": "1881a84b19de1f4f10a1f087d5f593272628a5a9721643d942b2c7e88a0da84c",
+    "lastModified": "Thu, 14 May 2026 18:33:52 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/develop/connect-local-servers.md": {
+    "sha256": "28b981324d8b5ba5f5ede8ebf0713dc694675663f06bf3f097053d4c9b72f65e",
+    "lastModified": "Thu, 14 May 2026 21:06:24 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/develop/connect-remote-servers.md": {
+    "sha256": "bbe816aebdd62889cb870942710c7fbbe8fa2db034b67f9d741976f76553b24a",
+    "lastModified": "Thu, 14 May 2026 18:08:39 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/getting-started/intro.md": {
+    "sha256": "344c4cfc8dae52a095b8b31e7da048e683ed8849749ae7b3b479f828d0ad8203",
+    "lastModified": "Thu, 14 May 2026 18:10:02 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/learn/architecture.md": {
+    "sha256": "e0479803a8de8962c89f779b4ca221e5c08f19ed78831c3ab48f54cd2fc7022c",
+    "lastModified": "Thu, 14 May 2026 19:51:53 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/learn/client-concepts.md": {
+    "sha256": "82525f1c3c817ae623a42ee486c95b3d9396c69782df4579e4140b0e53a927b3",
+    "lastModified": "Thu, 14 May 2026 20:45:06 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/learn/server-concepts.md": {
+    "sha256": "b92012b6296794870047b463fb815b8966d0d8329bdfee90fb1203fe7164bcbb",
+    "lastModified": "Fri, 15 May 2026 02:48:27 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/learn/versioning.md": {
+    "sha256": "54d4d2131e760bd0988b3a3e05a048dc7733a5be771cee59af1d42b4a53c7f70",
+    "lastModified": "Thu, 14 May 2026 18:08:48 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/sdk.md": {
+    "sha256": "40e1aadc7991efde9705b836bcebbca276078e0db4d7f9fb6b78cd17d05dd849",
+    "lastModified": "Thu, 14 May 2026 20:45:05 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/tools/debugging.md": {
+    "sha256": "e3d13f6d60714b141a98e8589fd303fb1da3015a63f3f86e7df82675f3c8f74b",
+    "lastModified": "Thu, 14 May 2026 18:31:45 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/tools/inspector.md": {
+    "sha256": "1a94fd07ff9f422b6bc94fcbe1ef0d81f5c0c8e1085d241274a5790e821ee40c",
+    "lastModified": "Thu, 14 May 2026 18:31:35 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/tutorials/security/authorization.md": {
+    "sha256": "ee724fab4d6d26bb3675917153701c9680e166ccd723e19bcbc7e39218123336",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/docs/tutorials/security/security_best_practices.md": {
+    "sha256": "dc9da5e4171385ca2671f1bf7e24bff7ad135f2d4bbab072ac32ac6651f5d8bf",
+    "lastModified": "Thu, 14 May 2026 18:08:51 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/examples.md": {
+    "sha256": "502a0b110bc1c553a56b787b9bd15a69b64ff19306afe95a6408af698a599241",
+    "lastModified": "Thu, 14 May 2026 19:54:42 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/extensions/apps/build.md": {
+    "sha256": "33a0bbdc1c7e175c69a3171cef37888a961794c907684f9032adbed646a7be38",
+    "lastModified": "Thu, 14 May 2026 20:15:09 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/extensions/apps/overview.md": {
+    "sha256": "e7683f19ffc5f2d43f8afe538b10be6a5f203463ad7448bce70d4236f9c2c63b",
+    "lastModified": "Thu, 14 May 2026 18:08:51 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization.md": {
+    "sha256": "a00451781bcc0ec1f7c74c10b5c21ac1c5b8b68fffd8b50b670bad1d1c89d9e9",
+    "lastModified": "Thu, 14 May 2026 18:09:02 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/extensions/auth/oauth-client-credentials.md": {
+    "sha256": "fc817679af33ce94f567fc278f36c25c6b016163a5e04be100d2113f273979a5",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/extensions/auth/overview.md": {
+    "sha256": "8876a56f3079115f63de54e9e83c6ec7bcdaa084b98e2cf8880249ff63c84378",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/extensions/client-matrix.md": {
+    "sha256": "bf6393ae12d809459d22c0c7ea732deb2a9dfcae895a2eebb0aa7bf76cf98a9d",
+    "lastModified": "Thu, 14 May 2026 23:24:39 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/extensions/overview.md": {
+    "sha256": "bf16b16b56bc5cffe0eb2e8ab1c1537d21df960465a47515891588df5f49742c",
+    "lastModified": "Fri, 15 May 2026 00:46:07 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/registry/about.md": {
+    "sha256": "99acf6511a5a8c8e7a6a4926ead632497ce1747684521842afde4b384d119cb8",
+    "lastModified": "Thu, 14 May 2026 18:48:31 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/registry/authentication.md": {
+    "sha256": "53f5371fcba4059100203fbdb38d9eb4b2a62283a6af909f8b7cdd59646ae1b4",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/registry/faq.md": {
+    "sha256": "b2626e628221c2d6d83dc0c88fd4961e098e4787317c5d5bc9077ba326af679f",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/registry/github-actions.md": {
+    "sha256": "1be2796dc084b36d0ffeacf26fabd59d91e823df67f17b7d286f2b0102c2bfe9",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/registry/moderation-policy.md": {
+    "sha256": "5910f0b03e6cacfb6e2f587995288d9939e73ad49472090e9a6de55729855c63",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/registry/package-types.md": {
+    "sha256": "a57f08e32bfc27d05d277ac2c078fd80c1fc51d014ebfca9dd34e3e2a5352f2c",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/registry/quickstart.md": {
+    "sha256": "8ede597156efe4d894a1596616f27637822ac9cd76f46016990237d5760868d9",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/registry/registry-aggregators.md": {
+    "sha256": "d6a7b6c85417d85b823582f8408d7f43c8a3d1781c86add2dac8b7db88ab1432",
+    "lastModified": "Thu, 14 May 2026 18:34:11 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/registry/remote-servers.md": {
+    "sha256": "ed83c6eff942a2e96a354bda43d534923b8e85c741e81e4c0353f640366f9e92",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/registry/terms-of-service.md": {
+    "sha256": "642afe9282b674bcaa646b8e98ad470bc01cc0a48e57c70a97bfcacead11d16f",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/registry/versioning.md": {
+    "sha256": "b9d2223df15076b5e5ee5ff5498d0d89a0e5c32a54cdb11ddf444fd6f69894ca",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/seps/1024-mcp-client-security-requirements-for-local-server-.md": {
+    "sha256": "cdda8e48abb3696536bb700e85f256cdd6822832748b05bcbda9a62b8dc6d16b",
+    "lastModified": "Thu, 14 May 2026 18:40:36 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/seps/1034--support-default-values-for-all-primitive-types-in.md": {
+    "sha256": "f9d97d8264f960fd51f9ed793aff6e0e1023c795e6524ceeff5f6652de30e254",
+    "lastModified": "Fri, 15 May 2026 03:29:04 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/seps/1036-url-mode-elicitation-for-secure-out-of-band-intera.md": {
+    "sha256": "8a24d3832e0464eb0b1863b56073ac6b4d7737a96eb86c2253cfd0d76ae7fdf3",
+    "lastModified": "Fri, 15 May 2026 03:29:05 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/seps/1046-support-oauth-client-credentials-flow-in-authoriza.md": {
+    "sha256": "f11fdf8a06340d8fb35221760685ed1fb6dbcb9ac0a36b0a3386e904cf4dbecd",
+    "lastModified": "Thu, 14 May 2026 18:43:48 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/seps/1302-formalize-working-groups-and-interest-groups-in-mc.md": {
+    "sha256": "61db525091b5e5a7d12f4dc8d9fc9e2f5d328220215b6715e3b9bcafe86a2378",
+    "lastModified": "Thu, 14 May 2026 18:09:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  },
+  "https://modelcontextprotocol.io/seps/1303-input-validation-errors-as-tool-execution-errors.md": {
+    "sha256": "e31f897068403409427c0d0461719261c87c45ca588a0bf98c3ecea6bcca248a",
+    "lastModified": "Fri, 15 May 2026 03:29:05 GMT",
+    "fetchedAt": "2026-05-15T03:29:03.642Z",
+    "lastStatus": 200
+  }
+}

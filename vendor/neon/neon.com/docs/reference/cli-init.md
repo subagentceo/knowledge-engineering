@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > init
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Step-by-step guide for initializing an app project with Neon using the CLI, including authentication, configuring the Neon MCP Server, and installing necessary extensions and agent skills for supported editors.
+
 # Neon CLI command: init
 
 Initialize an app project with Neon, including auth, MCP server, extensions, and agent skills

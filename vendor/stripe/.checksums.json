@@ -1,0 +1,302 @@
+{
+  "https://docs.stripe.com/api.md": {
+    "sha256": "ade82f857f8dcde45dcccdeab9702c0060dc00772c58c13e9fef3d658a8cf008",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/errors.md": {
+    "sha256": "0bd5a19b8c5cc41a9e10ba52b14ed92515f345efa39bcb8a49fac77c671e3b3a",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/events/types.md": {
+    "sha256": "9cfd5afb513f50851b9e7d31c7288fa2a0922926b52baa28f21f8ad805e04b47",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/api/versioning.md": {
+    "sha256": "a63c3c97b44bdc35e6cb138e948c1557a43a144cd787078649362e5fe1092c7b",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/billing/quickstart.md": {
+    "sha256": "1459f074b9aaa43ea506c639a9964ad43ddc01beb1b08d8e44bbd8d6c634d617",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/checkout/embedded/quickstart.md": {
+    "sha256": "59f6b47f4c15d67eee07756c3a7bbb42f832f4f54dc9365498297c207e57dea1",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/checkout/fulfillment.md": {
+    "sha256": "36d8e0f7691570f6462dd77aeb9d4febe24f46dc5d1d9d6e2a72b4ed8c1e9562",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/checkout/quickstart.md": {
+    "sha256": "26356c7c1d631360f01be02a3d7fe7a2bd0e293566e1cf3ed66f6190998f3160",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/connect.md": {
+    "sha256": "320a1d5872a6cc5e64835353e4b9821e5d9b755f8c8cb7f7a3f32bc323660862",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/currencies.md": {
+    "sha256": "a396861355a2fdc5d98437583cdfc71b24fd2aa65ae80bae26aa579522c62718",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/declines.md": {
+    "sha256": "42a2d44a427b2fc629aa3389b9e5e4cb40eba5f713559b5921a7897947addd43",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/event-destinations.md": {
+    "sha256": "e2702db1cca36e837eb90121ff82ef10dc5afbbfeb07a77ff001952b2d2bb753",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/get-started/account/linked-external-accounts.md": {
+    "sha256": "88c82edbafbaf494470ce308c689235705afa5b629bf3c7c1b72c8280532191a",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/get-started/account/teams.md": {
+    "sha256": "7183d4392d11d580766f45ac412595a3b4dc92ce7412f030eb81d0c686cbb098",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/affirm.md": {
+    "sha256": "b3ede84ce58d35f89ae5919ccb2492d992c350e811eeb96131754b95a0a379a8",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/afterpay-clearpay.md": {
+    "sha256": "39950462c42be0c8dd955758a0896fefd4ff1155295b21e43bcdb1ab805f207d",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/analytics.md": {
+    "sha256": "e4ac726b290d1181180386872ab655545a1c5242a08fb6c6bcd3fea7fd440452",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/bank-debits.md": {
+    "sha256": "2b91d27d41732b1d9e79d96c9517d9cbcea64caf765513abb2c3f4d27d806de3",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/bank-redirects.md": {
+    "sha256": "5415d4896f8d202b774ba4144aa89f11c4d50ab2166ee29ff1d87d90bcda30aa",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/bank-transfers.md": {
+    "sha256": "65ac59311a8d72372deba9200859a894e53f065caf8a63c2b03e8dee5a85d342",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/buy-now-pay-later.md": {
+    "sha256": "8e0cfc2db8b9c497b0fd304dd085bcdd69ea8dba0d2cb5426cf371c00323126b",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/cards/overview.md": {
+    "sha256": "480caf69f47732717f924442ac196a1ccb5dcc5326473bc97fcca51e85c36b14",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/cartes-bancaires.md": {
+    "sha256": "5b3e7dcd731b9e4ca087b379b41cb274fdaabf48b30a49f0c13d9b1d1d7751f0",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout.md": {
+    "sha256": "fd873c696988a8c074cd0909f12e7094a55f76912bae15809422d51b99a25668",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/cross-sells.md": {
+    "sha256": "47b489826d91049c2c18f672fe5388ac8a280ddd72363fb5ec71b678a728d45a",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/custom-components.md": {
+    "sha256": "0cd1019eaa85a4de3c7c4ef56822aba28ffbe5ef604e49ef2e326a9a150783c7",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/custom-domains.md": {
+    "sha256": "865b1da34f153b2a61a010ea035d615bb38215cafbf302d68199fd48f0597d4a",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/custom-success-page.md": {
+    "sha256": "ac52fc5df7586c5b7dee07d16ed03ed36b5d013288d612d961b8160b24a4f608",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/customization.md": {
+    "sha256": "a3f2f3a0a2041908df79da66589e966c4fa2dbdb3e8dd300ee943069133f4a1e",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/discounts.md": {
+    "sha256": "d97b0f8052edcfa2c885bff716db753fe03e7c85e371e2c59cbc7f004ff67992",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/how-checkout-works.md": {
+    "sha256": "a4af6ae9b1026a5c872088475d711889ac0dadca3dc5c2c799b9143fe3e6c48e",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/limit-subscriptions.md": {
+    "sha256": "ba6bc06d502c807103578835655182cecfb0b25d238d096931ef6ed78b3134a7",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/payment-methods.md": {
+    "sha256": "7e1c6a367e2a76f6187a2180bcf2a0ed3f94bcc1269fb9d310bb2b2966cc9831",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/checkout/taxes.md": {
+    "sha256": "38c448710fcc26c85faba9bcdb11383e19b04c2d6353810d9bc612bf3375e5f6",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/during-payment/charge-shipping.md": {
+    "sha256": "d293295af7729da9274f5c7f7904209f995f249bb5e7320f2cd683d12a383904",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/eftpos-australia.md": {
+    "sha256": "6813f713b6cbe8684d31273645e541b42aa245255d36b3b496309bf39b83d042",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/klarna.md": {
+    "sha256": "f818f2b04f7b0d3ddbc7361228e0df0966e1e142c5298d639a71a3de612bc74e",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/local-markets.md": {
+    "sha256": "152f4cf34888950c7a6a6742ca798776db48b7b774210a14f1c90ccdfb763d77",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/orchestration.md": {
+    "sha256": "9dd91de60b7198ac885d0d11beb408e552b2f1e302655ff3fc599eff47bdbad9",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/payment-methods.md": {
+    "sha256": "e5d3934ec5c6888ea6d157ecb2730d1dd5072d4ed23b46a3199aaa0183c48a71",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/payment-methods/custom-payment-methods.md": {
+    "sha256": "1fdc0bdfbe89c5cf45a6b6f54139d260bddc284c5f39a2b5000ea85e0a321791",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/quickstart.md": {
+    "sha256": "94d4e34c55192e8e6ec2b039a1bbc5fcedaf3f867d3691bd4f3355aa5f45822e",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/real-time.md": {
+    "sha256": "0db741e5d8cfce9b190762c17602068ca8151c2a8375d8ce798835ffafcddbda",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/setup-intents.md": {
+    "sha256": "768c2be4ed52a6463e406a94bc66cb09ed30682b9a223d4d98e41787cbd950ed",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/stablecoin-payments.md": {
+    "sha256": "77a5d3cda461c189ee96e6b8244302439bc75bff04bfc549813b04e5974589c3",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/subscriptions.md": {
+    "sha256": "a710baca0396ac6e1664ba3304bff8e07b9292a2c3208299d1b038dbbb443598",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/vouchers.md": {
+    "sha256": "1b7033f1aa8513c5b99245cbf4f874c3d62eeb234d2fe106478cd630c66a409f",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payments/wallets.md": {
+    "sha256": "660790c5f62ea7d9a46c1738a8968460bd301799fae557b0cdbb53ddd4cc61ee",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/payouts.md": {
+    "sha256": "72e21ad21b0c83f424cd2c940a135c21f767838ad1b16dbd7795af636742945b",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/products-prices/overview.md": {
+    "sha256": "0b4c973e4c6edfd2c817470c4a4789a4e725977fe8dae48cf55b2fb78d573b05",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/projects.md": {
+    "sha256": "193bb1f89ae3587bc363c0667cc132f6af2cd9c2bea5c9504bc50335556a3a12",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/refunds.md": {
+    "sha256": "81485f021f568edca5934687cbdb9ae2072edd62320bdaf2fad5838c0db4156d",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/sdks.md": {
+    "sha256": "7b0008fde1b901ffee2b37f27ed9bdd8c5b03fec59b6169b0cadbf24906e3233",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/security.md": {
+    "sha256": "4f17f68c80a9bfcf3e828e3b6dbbb679ae53bb12ac41bef7e97ab79e6f812516",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/security/guide.md": {
+    "sha256": "5bf5cea439dcc5573ea5226ca9c5ce4b91336a670376a0112722c4a6794d458e",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/testing.md": {
+    "sha256": "f4d0406b45a607b2bcf0ccd5d41026aa15156467f8a3d556ef871f8454420526",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/upgrades.md": {
+    "sha256": "f7f927d9bbe168e73eeb97d1dec361bd72ded21bea4c2cf65246965da2977610",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/webhooks.md": {
+    "sha256": "8fdba4f06aba43c7074fe5389d9f737059c276e3c7ce39d2535f6024a75284ab",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/webhooks/quickstart.md": {
+    "sha256": "bd3bce07b57665754921ba5e4a19ee1fdcc9fdc9f1a55036004f328b9100d03e",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  },
+  "https://docs.stripe.com/webhooks/signature.md": {
+    "sha256": "1f7cb2d30f985daa2e4fb37efa1554fd24386f998f8eccf888403db3b344d06b",
+    "fetchedAt": "2026-05-15T03:29:19.829Z",
+    "lastStatus": 200
+  }
+}

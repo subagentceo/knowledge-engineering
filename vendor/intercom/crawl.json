@@ -14,5 +14,6 @@
   "page_cap": 30,
   "html_extract": {
     "selector": "article"
-  }
+  },
+  "llms_txt": "https://www.intercom.com/llms.txt"
 }

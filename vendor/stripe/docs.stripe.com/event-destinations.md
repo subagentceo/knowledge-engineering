@@ -199,7 +199,7 @@ Thin events and their notifications are fully typed in the SDKs.
 
 ## Event permissions
 
-To view an event in the Dashboard, assign the [Admin or Developer role](https://docs.stripe.com/get-started/account/teams/roles.md) to your user account. To retrieve an event using the API, use either a [secret API key](https://docs.stripe.com/keys.md#create-api-secret-key), which allows you to view all event types by default, or a [restricted API key](https://docs.stripe.com/keys.md#create-restricted-api-secret-key) with `Read` access enabled for the specific event type’s resource. For example, you can grant `Read` access to `payment_intent` resources on your restricted API key to programmatically retrieve `payment_intent.succeeded events`.
+To view an event in the Dashboard, assign the [Admin or Developer role](https://docs.stripe.com/get-started/account/teams/roles.md) to your user account. To retrieve an event using the API, use either a [secret API key](https://docs.stripe.com/keys.md#create-api-secret-key), which allows you to view all event types by default, or a [restricted API key](https://docs.stripe.com/keys.md#create-restricted-api-key) with `Read` access enabled for the specific event type’s resource. For example, you can grant `Read` access to `payment_intent` resources on your restricted API key to programmatically retrieve `payment_intent.succeeded events`.
 
 ## Event retention
 

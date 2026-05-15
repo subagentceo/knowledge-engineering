@@ -1,6 +1,8 @@
 > This page location: Troubleshooting > Connection errors
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers how to resolve various connection errors encountered when using Neon, including issues related to endpoint IDs, authentication failures, and database server accessibility.
+
 # Connection errors
 
 Learn how to resolve connection errors

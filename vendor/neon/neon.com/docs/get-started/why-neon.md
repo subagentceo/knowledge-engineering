@@ -1,6 +1,8 @@
 > This page location: Why Neon? > Our mission
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the features and architecture of Neon, a fully managed, serverless Postgres solution designed for scalable application development, emphasizing its unique separation of storage and compute for enhanced performance and reliability.
+
 # Why Neon?
 
 Serverless Postgres, by Databricks

@@ -5,8 +5,6 @@ Guides and diagrams explain Cloudflare products and how to integrate with IT arc
 > Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/reference-architecture/`).
 >
 > For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
->
-> Use [Reference Architecture llms-full.txt](https://developers.cloudflare.com/reference-architecture/llms-full.txt) for the complete Reference Architecture documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
 
 ## Overview
 

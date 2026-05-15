@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > ip-allow
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the `ip-allow` command in the Neon CLI to manage the IP allowlist for a Neon project, including actions to list, add, remove, and reset IP addresses.
+
 # Neon CLI command: ip-allow
 
 Manage the IP allowlist: list, add, remove, and reset allowed IPs

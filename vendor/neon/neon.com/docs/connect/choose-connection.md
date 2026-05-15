@@ -1,6 +1,8 @@
 > This page location: Connect to Neon > Choosing your connection method
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Guides you to the right Postgres driver, connection type, and pooling strategy based on your language, deployment platform, and runtime environment.
+
 # Choosing your connection method
 
 Find the right driver and connection type for your deployment platform
