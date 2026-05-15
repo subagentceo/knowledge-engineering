@@ -39,6 +39,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Full history required for src/lib/conventions.test.ts:
+          # the test runs `git merge-base HEAD origin/main` to find
+          # post-convention commits to validate. Shallow checkout
+          # (depth=1) breaks this.
+          fetch-depth: 0
 
       - name: Setup Node 20
         uses: actions/setup-node@v4
