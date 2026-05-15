@@ -1,0 +1,1 @@
+We currently support Android 8.0 Oreo and above.
