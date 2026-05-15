@@ -1,107 +1,129 @@
 # knowledge-engineering
 
-A **four-lane knowledge bridge** for the Claude Agent SDK.
+> **Solo-founder chassis for shipping a Claude-powered product.** Multi-agent research orchestrator + 28 vendor doc mirrors + 16+ MCP tools across 5 lanes + Cloudflare Sandbox runner + Neon-branched per-PR previews. OAuth-only.
 
-A single orchestrator delegates primary research to a `npm-research`
-sub-agent (npm public registry, four MCP tools) and grading to a `verifier`
-sub-agent (anthropic.com/engineering, claude.com/blog, support.claude.com,
-llms.txt namespaces — twelve MCP tools, three per lane). Both sub-agents
-talk to stdio MCP servers built on the high-level `McpServer.tool()` API
-("v2 idioms") from `@modelcontextprotocol/sdk@^1.29`. Auth is OAuth-only.
+This repo is a **fork-and-ship chassis**, not a one-off project. The intent (per [`PRODUCTRD.md`](PRODUCTRD.md)) is that another founder clones the repo, swaps the seed prompts and vendor list, and inherits everything else: the verify chain, the heartbeat memory layer, the auto-merge loop, the citation discipline, the operator runbooks, and the OAuth-only posture.
 
-> The published `@modelcontextprotocol/sdk` package is on the 1.x major
-> (1.29 at time of writing). When this repo and the upstream task description
-> say "MCP SDK v2", we mean the high-level `McpServer.tool(name, description,
-> inputShape, handler)` API surface — not a 2.x major release.
+## What you get
 
-## Outcome
-
-- One TypeScript codebase, ESM, runnable with `tsx`.
-- Two MCP servers (high-level `McpServer.tool()` API), both stdio, both Zod-typed:
-  - `src/mcp/npm-registry/` — `npm_org_packages`, `npm_package_metadata`, `npm_downloads`, `npm_search`.
-  - `src/mcp/bridge-server.ts` (+ `lanes/*`) — twelve `engineering_*`, `blog_*`, `support_*`, `llms_*` tools.
-- Three sub-agents, each with a separate context: `orchestrator`,
-  `npm-research`, `verifier`. Verifier runs **after** npm-research and
-  grades it against a rubric, per
-  [`built-multi-agent-research-system`](https://www.anthropic.com/engineering/built-multi-agent-research-system).
-- OAuth-only billing. The runtime fails closed if `ANTHROPIC_API_KEY` is
-  set — see `src/oauth/token.ts`. No fallback path.
-
-## The four lanes
-
-| Lane | Source | Docs |
-|---|---|---|
-| `engineering` | <https://www.anthropic.com/engineering> | [`docs/lanes/engineering/`](docs/lanes/engineering/index.md) |
-| `blog` | <https://www.claude.com/blog> | [`docs/lanes/blog/`](docs/lanes/blog/index.md) |
-| `support` | <https://support.claude.com> | [`docs/lanes/support/`](docs/lanes/support/index.md) |
-| `llms` | namespaces under `*.claude.com/llms.txt`, `anthropic.com/llms.txt` | [`docs/lanes/llms/`](docs/lanes/llms/index.md) |
-
-The full tool-family-to-lane map is in [`docs/architecture.md`](docs/architecture.md).
+| Surface | What | Where |
+| :--- | :--- | :--- |
+| **Orchestrator** | Opus 4.7 (1M context) — 4 sub-agents over `@anthropic-ai/claude-agent-sdk` | `src/agent/run.ts` |
+| **MCP tools** | 16+ tools across 5 lanes: `engineering_*`, `blog_*`, `support_*`, `llms_*`, `vendor_*` + `search_tools` | `src/mcp/` |
+| **Vendor mirror** | 28 vendor doc surfaces (anthropics, cloudflare, neon, stripe, twilio, workos, elevenlabs, aws, openfeature, gcp, ...) — 1,369 anthropics docs alone | `vendor/` |
+| **Crawler** | `crawlee` + llms.txt / html-index / sitemap.xml discovery; preflight-304 idempotency | `scripts/crawl-vendors.ts` |
+| **Worker runner** | Cloudflare Sandbox + Durable Objects for per-task ephemeral execution (scaffolded) | `infra/cloudflare/` |
+| **Neon branching** | Per-PR Neon DB branches via `cloudflare-preview.yml` | `migrations/`, `scripts/migrate-neon.ts` |
+| **Frontend** | `outcomesdk.com` Cloudflare Worker — pretext-driven SPA over `vendor/` markdown | `frontend/` |
+| **Heartbeat memory** | Cross-session orchestration state | `seeds/memory/heartbeat/` |
+| **Feature flags** | OpenFeature + Cloudflare Flagship provider | `src/lib/openfeature.ts` |
+| **Plugin manifest** | 3 Anthropic marketplaces (official, knowledge-work, community) | `.claude/plugins.json` |
 
 ## Quickstart
 
 ```bash
-unset ANTHROPIC_API_KEY                # OAuth-only — having it set fails closed
-export CLAUDE_CODE_OAUTH_TOKEN=...     # mint via `claude setup-token`
+unset ANTHROPIC_API_KEY                       # OAuth-only — fails closed if this is set
+export CLAUDE_CODE_OAUTH_TOKEN=...            # mint via `claude setup-token`
 npm install
-npm run build
-npm run dev "What's the latest @modelcontextprotocol/sdk version, and where has anthropic.com/engineering covered MCP recently?"
+npm run verify                                # mcp + tf + citations + gates + libs + freshness + project
+npm run dev "trivial test query"              # local orchestrator turn
 ```
 
-## Scripts
+See [`DEVELOPER.md`](DEVELOPER.md) for the full first-time setup + day-to-day workflows.
 
-| Script | What it does |
-|---|---|
-| `npm run dev` | Run the orchestrator end-to-end (OAuth-only). |
-| `npm run mcp:bridge` | Start the four-lane bridge MCP server on stdio. |
-| `npm run mcp:npm-registry` | Start the npm-registry MCP server on stdio. |
-| `npm run example:prompt-caching` | Demo prompt caching via `cache_control: ephemeral`. |
-| `npm run example:tool-caching` | Demo caching the `tools` array as one prefix. |
-| `npm run example:citations` | Demo grounded citations from a `document` block. |
-| `npm run example:programmatic-tool-loop` | Drive a Messages API tool-use loop. |
-| `npm run example:deep-links` | Build `claude://` and `claude.ai/new?q=` deep links. |
-| `npm run verify:mcp` | Smoke-test both MCP servers via `@modelcontextprotocol/inspector`. |
-| `npm run verify:tf` | `terraform validate` + `terraform plan` against `infra/terraform/`. |
-| `npm run verify` | Run every `verify:*` in sequence. |
+## Where to start reading
 
-## OAuth-only billing
+| Doc | When to read |
+| :--- | :--- |
+| [`CLAUDE.md`](CLAUDE.md) | A Claude session starting in this repo — load-bearing context auto-loaded by `claude` |
+| [`DEVELOPER.md`](DEVELOPER.md) | First-time setup; adding a vendor / lane / skill / test |
+| [`RUNBOOK.md`](RUNBOOK.md) | Using Claude Opus 4.7 1M context as the web orchestrator |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Forking-founder onboarding + PR discipline |
+| [`docs/architecture.md`](docs/architecture.md) | Runtime topology |
+| [`docs/governance.md`](docs/governance.md) | Branch ruleset + auto-merge state machine |
+| [`docs/context-management.md`](docs/context-management.md) | Token counting, cache boundary, settingSources, safety hooks |
+| [`docs/CONVENTIONS.md`](docs/CONVENTIONS.md) | Outcome-driven Conventional Commits |
+| [`docs/PROJECT.md`](docs/PROJECT.md) | Cowork-style project manifest |
+| [`docs/pending.md`](docs/pending.md) | Live action dashboard — operator + agent queue |
+| [`docs/operator-runbooks/README.md`](docs/operator-runbooks/README.md) | Claude-in-Chrome operator runbooks (CF API token, GH PAT, etc.) |
+| [`PRODUCTRD.md`](PRODUCTRD.md) | Chassis intent + functional requirements |
+| [`SUBPROCESSORS.md`](SUBPROCESSORS.md) | Vendor inventory for fork-time re-evaluation |
 
-This stack never reads `ANTHROPIC_API_KEY`. Every entry point starts by
-calling `requireOAuth()`; if `ANTHROPIC_API_KEY` is set the process exits
-non-zero before any model call. Billing therefore stays on the Max-plan
-OAuth identity (or the `CLAUDE_CODE_OAUTH_TOKEN` you mint with
-`claude setup-token`). See `src/oauth/token.ts` for the gate.
+## The 5 lanes
 
-## Cloudflare-IaC (opt-in, off by default)
+| Lane | Source | Tools |
+| :--- | :--- | :--- |
+| `engineering` | anthropic.com/engineering | `engineering_{index,fetch,search}` |
+| `blog` | claude.com/blog | `blog_{index,fetch,search}` |
+| `support` | support.claude.com | `support_{collections,collection,article}` |
+| `llms` | namespaces under `*.claude.com/llms.txt`, `anthropic.com/llms.txt`, vendor llms.txts | `llms_{namespaces,fetch,grep}` |
+| `vendor` | the local `vendor/` mirror (28 surfaces) | `vendor_{list,fetch,grep}` |
 
-`infra/terraform/` is a skeleton. It pins the Cloudflare provider from the
-`CLOUDFLARE_TERRAFORM_PROVIDER_VERSION` env var and reads the zone from
-`CLOUDFLARE_ZONE`. The shared plugin cache lives at `TF_PLUGIN_CACHE_DIR`.
+Plus `search_tools` for progressive disclosure across the surfaces.
 
-`verify:tf` runs **`terraform validate` and `terraform plan` only** — no
-`apply`. To take the IaC further, layer on the Cloudflare MCP server at
-`${CLOUDFLARE_MCP_URL}` (default: <https://mcp.cloudflare.com/mcp>) for
-runtime control; that path is opt-in and the orchestrator does not connect
-to it without a separate `claude mcp add`.
+The full lane-to-tool map is in [`docs/architecture.md`](docs/architecture.md). Per-lane docs at `docs/lanes/{engineering,blog,support,llms,vendor}/index.md`.
+
+## Sub-agents
+
+| Sub-agent | Tools | Purpose |
+| :--- | :--- | :--- |
+| `npm-research` | 4 npm-registry MCP tools | Primary npm data; cites registry URLs |
+| `verifier` | 12 knowledge-bridge tools (excl. vendor_*) | Independent grader vs `docs/rubric.md` |
+| `crawl-curator` | 3 `vendor_*` tools | Per-vendor `crawl.json` audits + drift detection |
+
+The orchestrator pattern follows [`anthropic.com/engineering/built-multi-agent-research-system`](https://www.anthropic.com/engineering/built-multi-agent-research-system) — verifier runs **after** npm-research and grades its output before the orchestrator marks a docs-lane todo `completed`.
+
+## OAuth-only billing — hard invariant
+
+This stack never reads `ANTHROPIC_API_KEY`. Every entry point starts by calling `requireOAuth()`; if `ANTHROPIC_API_KEY` is set the process exits non-zero before any model call. Billing stays on the Max-plan OAuth identity. The Cloudflare Worker env-sanitizer rejects the key before passing env into the Sandbox container, and the `PreToolUse(Bash)` hook in `src/lib/safety-hooks.ts` blocks `export ANTHROPIC_API_KEY=` at runtime.
+
+See `src/oauth/token.ts` (gate), `infra/cloudflare/src/env-sanitize.ts` (Worker boundary), `src/lib/safety-hooks.ts` (runtime hook).
+
+## Discipline
+
+- **Outcome-driven Conventional Commits.** Every commit subject ends with `(O<N>)`. The convention test (`src/lib/conventions.test.ts`) enforces this for commits authored after `2026-05-15T04:30Z`. See [`docs/CONVENTIONS.md`](docs/CONVENTIONS.md).
+- **Citation-required tests.** Every `*.test.ts` under `scripts/lib/`, `src/lib/`, `infra/cloudflare/src/` must have an `@cite` header pointing at `vendor/`, `seeds/`, or `rubrics/`. Enforced by `scripts/lib/citation-guard.ts`.
+- **Skills as SDK-discoverable artifacts.** `.claude/skills/<name>/SKILL.md` (directory form) per [`code.claude.com/docs/en/agent-sdk/claude-code-features.md`](vendor/anthropics/code.claude.com/docs/en/agent-sdk/claude-code-features.md).
+- **Auto-merge on green.** Apply `automerge` label; CI gates merge.
+- **Heartbeat memory.** Cross-session state lives in `seeds/memory/heartbeat/{last-tick,next-actions,decisions,open-questions}.md`. Cited by the heartbeat skill at `.claude/skills/heartbeat/SKILL.md`.
+
+## Verify chain
+
+```bash
+npm run verify       # full chain: ~30-60s on a clean repo
+```
+
+| Step | What | Cost |
+| :--- | :--- | :--- |
+| `verify:mcp` | Builds + asserts tool count on each MCP server | seconds |
+| `verify:tf` | `terraform validate` + `terraform plan` | seconds |
+| `verify:citations` | Lints test files for `@cite` headers | seconds |
+| `verify:gates` | Asserts `docs/phase-gates.md` matches `rubrics/phase-N.md` | seconds |
+| `verify:libs` | Auto-runs every `*.test.ts` under `scripts/lib/`, `src/lib/`, `infra/cloudflare/src/` | seconds |
+| `verify:freshness` | Warns on stale vendor mirrors (>14d) | seconds |
+| `verify:project` | Asserts `docs/PROJECT.md` sections + `docs/pending.md` freshness | seconds |
 
 ## Repo layout
 
 ```
-seeds/prompts/                  system-orchestrator | subagent-npm-research | subagent-verifier | citation-research
-src/lib/cache-control.ts        cachedText / withCacheBreakpoint helpers
-src/oauth/token.ts              ANTHROPIC_API_KEY-rejecting OAuth gate
-src/mcp/npm-registry/           server.ts + tools/*.ts + schemas.ts (Zod)
-src/mcp/bridge-server.ts        four-lane bridge composition
-src/mcp/lanes/*.ts              engineering | blog | support | llms.txt lanes
-src/mcp/bridge-utils.ts         fetchText/fetchHtml/jsonResult/normalizeSlug
-src/agent/run.ts                orchestrator + npm-research + verifier
-src/examples/*.ts               prompt-caching | tool-caching | citations | programmatic-tool-loop | deep-links
-scripts/verify.ts               MCP inspector smoke + terraform validate
-infra/terraform/                Cloudflare zone skeleton (validate/plan only)
-docs/                           Mintlify site: architecture, lanes/{engineering,blog,support,llms}/, reference/
-release-please-config.json      conventional commits → CHANGELOG.md
+src/                — orchestrator + MCP servers + lib helpers
+vendor/             — mirrored vendor docs (28 surfaces; first-class git content)
+scripts/            — crawler, verify chain, grader, install-plugins, context-budget, ...
+infra/cloudflare/   — Cloudflare Worker (Sandbox + Neon branching) — scaffolded
+frontend/           — outcomesdk.com (pretext-driven SPA)
+docs/               — architecture, governance, conventions, PROJECT, pending, plans, runbooks
+seeds/              — operator prompts, posture XML, citation extracts, heartbeat memory
+rubrics/            — per-phase outcome rubrics (0..18)
+.claude/            — skills (directory form), plugins, agents, settings
+.github/            — workflows (verify, OSV, neon-branch, auto-merge, claude-review, ...)
+migrations/         — Neon SQL migrations
+servers/            — auto-generated MCP-tool wrapper tree (Phase 6.A; codemode wiring pending)
 ```
 
-## Session
+## See also
 
-Generated by [Claude Code](https://claude.ai/code/session_016FaBnqQMe9CDzASE8qbhoj).
+- [`PRODUCTRD.md`](PRODUCTRD.md) — chassis intent + functional requirements
+- [`SUBPROCESSORS.md`](SUBPROCESSORS.md) — vendor + service inventory
+- [`docs/PROJECT.md`](docs/PROJECT.md) — Cowork-style manifest
+- [`seeds/posture/session-start.xml`](seeds/posture/session-start.xml) — XML primitive loaded by every session
+- [`seeds/prompts/`](seeds/prompts/) — operator seeds (5+ files)
