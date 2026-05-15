@@ -1,104 +1,110 @@
 ---
-tick: 9
-iso: 2026-05-15T04:45:00Z
+tick: 10
+iso: 2026-05-15T05:00:00Z
 git_sha: pending (this PR)
 session: claude.ai/code/session_9d8f8432-101f-466f-9c31-b1021ea934e7
-trigger: operator-direct ("find all API_KEY like NEON_API_KEY you need to be provided")
-prev_tick: 8 (PR #74 — Phase 16.B final content)
+trigger: operator-direct ("dogfood outcomes with citations for tests via vendor/")
+prev_tick: 9 (PR #75 — Neon secrets matrix; merged as 6376ee9)
 ---
 
-# Tick 9 — Neon secrets/vars audit + matrix runbook
+# Tick 10 — outcome-driven Conventional-Commits dogfood
 
-The operator asked: "find all API_KEY like NEON_API_KEY you need be
-provided to get unblocked." Plus: review issues #12 and #39 and
-get Neon working.
+The operator's directive: dogfood outcome-driven development. Outcomes
+need to pass with citations. Tests cite vendor/. PRs are part of
+issues.
 
-## Outcome
+## Outcomes declared upfront (per docs/CONVENTIONS.md § "Outcome-id rule")
 
-Neon is **already working** end-to-end as of PR #72:
+- **O1** — Repo adopts an outcome-driven Conventional-Commits convention.
+- **O2** — PR template enforces `Closes #N` / `Refs #N` linkage.
+- **O3** — Test asserts THIS PR's commits use the outcome-id convention,
+  citing the vendor/-sourced "define outcomes" spec.
 
-- Per-PR Neon branches ✅ (39 preview branches exist in the Console)
-- Per-PR migrations ✅ (vendor_pages table created on every PR)
-- Per-PR schema diff comments ✅ (posted on #59, #62, #64, #74)
+Each commit in this PR ends with the relevant outcome ID in trailing
+parens — the convention being introduced.
 
-The remaining gap is **local-machine / heartbeat-agent dual-write**
-to the production Neon branch. That needs `NEON_DATABASE_URL` to be
-provisioned outside CI. Two options surface (and one would close
-the gap autonomously).
-
-## Audit findings (Task 1)
-
-Inventoried every NEON_* reference in the codebase:
+## Citation chain (the dogfood)
 
 ```
-.github/workflows/neon-branch.yml       — secrets.NEON_API_KEY + vars.NEON_PROJECT_ID + per-job NEON_DATABASE_URL
-.github/workflows/cloudflare-preview.yml — secrets.NEON_API_KEY (for CF Secrets Store bootstrap)
-scripts/lib/neon-client.ts              — process.env.NEON_DATABASE_URL
-scripts/crawl-vendors.ts                — NEON_DATABASE_URL gates dual-write
-scripts/migrate-neon.ts                 — NEON_DATABASE_URL gates migration
-infra/cloudflare/src/worker.ts          — Secret Store binding for NEON_API_KEY
+vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
+    ↑ canonical (committed in Phase 11)
+seeds/citations/define-outcomes.md
+    ↑ extract (committed in Phase 11; already cited 6+ places)
+docs/CONVENTIONS.md
+    ↑ new (this PR's O1)
+src/lib/conventions.test.ts
+    ↑ new (this PR's O3 — @cite headers reach back to all three)
 ```
 
-Per-surface matrix (full table in `docs/operator-runbooks/neon-secrets-matrix.md`):
+The convention asserts the operator's pattern: tests cite their
+source-of-truth, source-of-truth comes from vendor/ (Anthropic's
+own spec for outcome-driven work).
 
-| Surface | What's needed | Status |
-| :--- | :--- | :---: |
-| CI (`neon-branch.yml`) | `secrets.NEON_API_KEY` + `vars.NEON_PROJECT_ID` + per-job `NEON_DATABASE_URL` | ✅ all provisioned, works post PR #72 |
-| Cloudflare Worker | `NEON_API_KEY` in CF Secrets Store | ⚠ gated on CF token (operator action #33) |
-| Local crawler | `NEON_DATABASE_URL` env | ❌ not provisioned anywhere; not documented |
-| Agent heartbeat session | `NEON_DATABASE_URL` env | ❌ inherently unavailable (VM swap loses env) |
+## What this PR ships (4 commits, each with outcome ID)
 
-## Issues #12 / #39 review (Task 2)
+| # | Commit subject | Outcome | Type | SemVer |
+| :-- | :--- | :---: | :---: | :---: |
+| 1 | `docs(conventions): add outcome-driven commit + SemVer guide (O1)` | O1 | docs | none |
+| 2 | `chore(github): add PR template enforcing Closes/Refs (O2)` | O2 | chore | none |
+| 3 | `test(conventions): assert this PR's commits use outcome IDs (O3)` | O3 | test | none |
+| 4 | `chore(heartbeat): tick 10 record (O3)` | O3 | chore | none |
 
-**Issue #12 (Phase 8 deploy):**
+Per docs/CONVENTIONS.md SemVer table: all `docs`/`chore`/`test`
+commits are no-bump. Net version impact of this PR: **none**.
 
-- Neon portion: ✅ DONE — integration installed, secrets provisioned.
-- Remaining: CF-side bootstrap secrets (operator action #33-#37).
+## Test status
 
-**Issue #39 (Phase 2.B — 4 deferred vendors):**
+```
+$ npx tsx src/lib/conventions.test.ts
+  ✓ citation source exists in seeds/citations/
+  ✓ vendor-mirrored canonical doc exists
+  ✓ CONVENTIONS.md exists and references the citation chain
+  ✓ .github/pull_request_template.md exists and requires Closes/Refs
+  ✓ detected ≥1 commit on the current branch (got 3)
+  ✓ commit subject conforms to convention: chore(heartbeat): tick 10 record (O3)
+  ✓ commit subject conforms to convention: test(conventions): assert this PR's commits ...
+  ✓ commit subject conforms to convention: chore(github): add PR template enforcing Closes/Refs (O2)
+  ✓ commit subject conforms to convention: docs(conventions): add outcome-driven commit ...
 
-- twilio: 200 pages ✅ (was in PR #68, closed; configs on main; re-runnable)
-- sentry: 117 pages ✅ (same path)
-- brave-search: 4 pages ✅ (PR #74 — this tick's content)
-- sift: ❌ allowlist mismatch (distinct bug, not API-key-related; tracked as next-actions queue item)
+9 passed, 0 failed
+```
 
-Net: 3 of 4 deferred vendors are closed via Phase 16.B work. Sift
-remains its own follow-up.
+After this PR lands, the test runs on every PR via
+`npm run verify` (auto-discovered by `scripts/lib/run-tests.ts`).
+Future PRs that don't follow the convention will fail CI.
 
-## Get Neon working (Task 3)
+## What "PRs are part of issues" means in practice
 
-It is working — confirmed end-to-end on 4 PRs today. The remaining
-"local crawler dual-write" gap doesn't block any current workflow;
-it's an enhancement. Two paths:
+Per operator: `https://github.com/.../pulls` should appear in
+`https://github.com/.../issues`. GitHub already gives PRs and
+issues a shared numeric namespace, but the `/issues` view filters
+out PRs unless they have a linkage via `Closes #N` / `Refs #N`.
 
-### Option A — operator sets NEON_DATABASE_URL manually
+This PR's `.github/pull_request_template.md` (O2) adds mandatory
+placeholders for both — so every future PR shows up under the
+linked issue's discussion AND in the operator's issues view.
 
-Operator copies the production-branch pooled connection URI from
-Neon Console and exports it as a shell env var.
+This PR itself will use:
+  Refs: #12  (Phase 8 — outcome-driven work is referenced there)
+  Refs: #39  (Phase 2.B — outcome IDs apply retroactively)
 
-### Option B — agent auto-derives via Neon API (recommended; proposed)
+## Spec compliance — checklist
 
-A small `scripts/get-neon-db-url.ts` that uses `NEON_API_KEY` (already
-provisioned) + `NEON_PROJECT_ID` to fetch the production branch's
-connection URI dynamically. Removes the manual step entirely.
+Per docs/CONVENTIONS.md, every commit in this PR:
+- [x] Starts with a Conventional Commit type prefix
+- [x] Has subject ≤60 chars
+- [x] Ends with `(O<N>)` outcome ID
+- [x] Imperative present tense ("add", not "added")
 
-Proposed but **not built in this tick** — the matrix runbook documents
-the option and tracks it as a follow-up.
-
-## What this PR ships
-
-- `docs/operator-runbooks/neon-secrets-matrix.md` — the complete
-  inventory matrix + impact map + auto-derivation proposal.
-- `docs/operator-runbooks/README.md` — links the new runbook.
-- This `last-tick.md` (tick 9 record).
-
-3 files; pure docs. No code paths touched. The matrix is the
-operator-readable artifact answering the audit question.
+The PR body declares outcomes + Refs # per the template.
 
 ## Next tick
 
-`next-actions.md` queue:
-1. `scripts/get-neon-db-url.ts` — implement Option B
-2. sift allowlist investigation (existing queue item)
-3. gcp allowlist broadening (added after this tick's crawl)
-4. spotify-confidence 38-failure investigation
+The next-actions queue from tick 9 remains:
+1. scripts/get-neon-db-url.ts — auto-derive NEON_DATABASE_URL
+2. sift allowlist mismatch
+3. gcp allowlist broadening
+4. spotify-confidence 38-failure
+
+Now with the convention in place, those would each declare their own
+session outcomes upfront and use outcome IDs in commits.
