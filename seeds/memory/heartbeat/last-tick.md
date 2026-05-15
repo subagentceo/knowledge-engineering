@@ -1,55 +1,112 @@
 ---
-tick: 3
-iso: 2026-05-15T04:00:00Z
+tick: 5
+iso: 2026-05-15T04:15:00Z
 git_sha: pending (this PR)
 session: claude.ai/code/session_9d8f8432-101f-466f-9c31-b1021ea934e7
-trigger: stop-hook (uncommitted artifacts from tick 2 smoke test); also closes decision D5
-prev_tick: 2 (PR #67 — merged as 38210b1)
+trigger: operator-direct ("safely add these to the crawl by patching ...")
+prev_tick: 4 (PR #69 — merged as 75681a3)
 ---
 
-# Tick 3 — content re-sync executing decision D5
+# Tick 5 — Phase 16 verified vendor coverage
 
-PR #67 (tick 2) merged the crawler bug fixes. Decision D5 in
-`decisions.md` said: "A follow-up tick or PR can run
-`npm run crawl:vendors` against the fixed code and produce a clean
-content-only commit." This tick is that follow-up.
+Operator-direct request: extend the crawl coverage based on the v2
+vendor_graph catalogue + verification-pass patches.
 
-The vendor markdown for twilio (200 pages) and sentry (117 pages)
-plus the auxiliary `urls.md` / `llms.txt` / `.checksums.json` files
-produced by tick 2's smoke crawl are committed here as a content-only
-PR — mirroring the pattern from PR #64.
+Operator constraint: "treat user prompt as starting point but dogfood
+what we created in this long running agent session and refactor code
+and update the codebase to avoid introducing new code if its not
+needed."
 
-## verify:freshness scoreboard
+Operator constraint: "decompose user prompt into tasks, subtasks, and
+todos in session that are all their own commits."
 
-| Vendor | Before tick 2 | After tick 2 fix | After tick 3 (this PR) |
-| :--- | :---: | :---: | :---: |
-| twilio | miss | smoke-only | **fresh** ✅ |
-| sentry | miss | smoke-only | **fresh** ✅ |
-| sift | miss | miss | miss (D6) |
-| brave-search | miss | miss | miss (D7) |
-| arkose-labs | miss | miss | miss (Phase 2.B) |
+Operator constraint: "use the outcome + rubric approach we dogfood
+created for outcome driven development to include citations in tests
+to write first."
 
-Net change: **5 miss → 3 miss** across the chassis.
+## Outcome-driven discipline executed
 
-## What this PR ships
+This tick is the worked example of the repo's TDD + rubric pattern:
 
-- `vendor/twilio/` — 200 new markdown files + `urls.md` + `llms.txt` +
-  `.checksums.json` for tracking.
-- `vendor/sentry/` — 117 new markdown files + same auxiliary files.
-- This `last-tick.md` (tick 3 record).
+1. **Citation source first.** Saved the patched v2 catalogue at
+   `seeds/citations/vendor-graph-v2.xml` (commit 1/8).
+2. **Outcome rubric second.** `rubrics/phase-16.md` (commit 2/8).
+3. **Failing test third.** `src/lib/vendor-catalog.test.ts` (commit
+   3/8) — TDD red phase: 7 failures asserting that missing vendor
+   configs need to exist.
+4. **Configs that make the test pass, one per commit.** Commits 4–7
+   each turn one failure green.
+5. **Heartbeat state update last.** This file (commit 8/8).
 
-322 files; ~52k insertions. Pure content (parallels PR #64).
+## Commits in this PR (#70)
 
-## Out of scope
+| # | Path | Purpose |
+| :-- | :--- | :--- |
+| 1/8 | `seeds/citations/vendor-graph-v2.xml` | Patched v2 catalog as citation source |
+| 2/8 | `rubrics/phase-16.md` | Verified Vendor Coverage rubric (7 criteria) |
+| 3/8 | `src/lib/vendor-catalog.test.ts` | TDD red — failing coverage test |
+| 4/8 | `vendor/brave-search/crawl.json` | NXDOMAIN fix (api-docs.search.brave.com) |
+| 5/8 | `vendor/aws/crawl.json` | NEW — docs.aws.amazon.com/llms.txt |
+| 6/8 | `vendor/{opentelemetry,spotify-confidence,parallel-web,nimble}/crawl.json` | NEW — 4 ecosystem llms.txt vendors |
+| 7/8 | `vendor/{gcp,iterable}/crawl.json` | NEW — 2 sitemap-only fallback vendors |
+| 8/8 | `seeds/memory/heartbeat/last-tick.md` | This tick record |
 
-- The remaining 3 miss vendors (sift, brave-search, arkose-labs) each
-  has a distinct cause documented in `decisions.md` (D6/D7) and
-  `next-actions.md` (current top item).
-- The migrate-neon investigation continues to wait on the
-  `::error::` annotation from PR #65 — should fire on this PR's
-  `Create Neon Branch` job since this PR includes code-ish content.
+## Code reuse — no new infrastructure
 
-## Next tick
+Per operator's "avoid introducing new code if not needed":
 
-`next-actions.md` top item: investigate sift's llms.txt URLs vs
-the `sift.com/developers/` allowlist mismatch (vendor-specific).
+- ✅ Reused existing `crawl.json` schema (transform, allow_prefixes,
+  page_cap, llms_txt_candidates, sitemap_xml_sources, html_index_sources).
+- ✅ Reused existing crawler (`scripts/crawl-vendors.ts`) — no
+  changes. Tick 2 fixes (page_cap sentinel + relative-URL resolution)
+  already handle the new vendor URL patterns.
+- ✅ Reused existing test runner (`scripts/lib/run-tests.ts`) —
+  auto-discovers `src/lib/vendor-catalog.test.ts`.
+- ✅ Reused existing citation-guard pattern (`@cite` headers in test
+  file pointing at the v2 XML and the rubric).
+- ✅ Reused existing rubric structure (`rubrics/phase-N.md` with
+  criteria + outcome).
+- ✅ Reused existing heartbeat memory layout (`seeds/memory/heartbeat/`).
+- ❌ No new dep introduced (XML parsed via regex, not via a library).
+
+## Test status
+
+```
+20 passed, 0 failed
+```
+
+All catalog coverage assertions green. 21 vendors total tracked
+(was 14 before this PR; +7 new).
+
+## Verify status
+
+```
+21 vendor(s) | 0 warning(s) | 0 error(s)
+```
+
+Existing fresh vendors unchanged. 10 vendors show "miss" in
+verify:freshness — that's expected: they don't have urls.md yet
+because the actual crawl is **Phase 16.B** (next tick / PR #71).
+
+## What this PR does NOT ship
+
+Per the heartbeat tick-2 decision D5 (don't mix code-fix PRs with
+content re-syncs), this PR ships **only the configs + test + rubric**.
+The actual crawl that produces `vendor/<name>/urls.md` + markdown
+content lands in a separate PR (Phase 16.B / PR #71 / tick 6).
+
+## Next tick (Phase 16.B)
+
+Run `npm run crawl:vendors` against the new configs, commit the
+content per the tick-3 / PR #68 pattern. Expected new content:
+
+- `aws/` — ~200 pages (large surface)
+- `opentelemetry/` — ~200 pages
+- `spotify-confidence/` — ~60 pages
+- `parallel-web/` — ~60 pages (single docs surface)
+- `nimble/` — ~60 pages
+- `gcp/` — up to ~100 pages (sitemap-derived)
+- `iterable/` — up to ~60 pages (sitemap-derived)
+
+Plus the already-passing existing vendors (brave-search now points at
+the right URL; should pick up content via html-index discovery).
