@@ -1,0 +1,14 @@
+{
+  "name": "spotify-confidence",
+  "homepage": "https://confidence.spotify.com/",
+  "llms_txt_candidates": [
+    "https://confidence.spotify.com/llms.txt"
+  ],
+  "transform": "append-md-and-accept",
+  "allow_prefixes": [
+    "https://confidence.spotify.com/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 60,
+  "llms_txt": "https://confidence.spotify.com/llms.txt"
+}

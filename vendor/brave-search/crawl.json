@@ -1,20 +1,20 @@
 {
   "name": "brave-search",
-  "homepage": "https://api-dashboard.search.brave.com",
-  "llms_txt_candidates": [
-    "https://api-dashboard.search.brave.com/llms.txt",
-    "https://brave.com/search/api/llms.txt"
-  ],
+  "homepage": "https://brave.com/search/api/",
+  "llms_txt_candidates": [],
   "transform": "html-extract",
   "allow_prefixes": [
-    "https://api-dashboard.search.brave.com/app/documentation/",
     "https://brave.com/search/api/"
   ],
-  "deny_prefixes": [
-    "__DEFER_TO_PHASE_2B__"
-  ],
-  "page_cap": 0,
+  "deny_prefixes": [],
+  "page_cap": 50,
   "html_extract": {
     "selector": "main"
-  }
+  },
+  "html_index_sources": [
+    {
+      "url": "https://brave.com/search/api/",
+      "link_regex": "href=\"(/search/api/[^\"#]+)\""
+    }
+  ]
 }

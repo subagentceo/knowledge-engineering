@@ -1,0 +1,14 @@
+{
+  "name": "opentelemetry",
+  "homepage": "https://opentelemetry.io/",
+  "llms_txt_candidates": [
+    "https://opentelemetry.io/llms.txt"
+  ],
+  "transform": "append-md-and-accept",
+  "allow_prefixes": [
+    "https://opentelemetry.io/docs/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 200,
+  "llms_txt": "https://opentelemetry.io/llms.txt"
+}
