@@ -1,89 +1,112 @@
 ---
-tick: 4
-iso: 2026-05-15T04:05:00Z
+tick: 5
+iso: 2026-05-15T04:15:00Z
 git_sha: pending (this PR)
 session: claude.ai/code/session_9d8f8432-101f-466f-9c31-b1021ea934e7
-trigger: webhook (PR #68 Create Neon Branch failure) — surfaced annotation
-prev_tick: 2 (PR #67 — merged as 38210b1)
-note: |
-  Tick 3 (PR #68) is open but not merged; this tick branches off main
-  (post-tick-2) and is independent. The tick-3 last-tick.md is on
-  PR #68's branch.
+trigger: operator-direct ("safely add these to the crawl by patching ...")
+prev_tick: 4 (PR #69 — merged as 75681a3)
 ---
 
-# Tick 4 — fix migrate-neon cold-start WebSocket race
+# Tick 5 — Phase 16 verified vendor coverage
 
-PR #68's `Create Neon Branch` job failed. The diagnostic chain from PRs
-#63/#65 finally surfaced the actual error in a workflow annotation
-("Run Migrations" step):
+Operator-direct request: extend the crawl coverage based on the v2
+vendor_graph catalogue + verification-pass patches.
 
-> "All attempts to open a WebSocket to connect to the database failed"
-> "Error applying 0001_vendor_pages.sql"
+Operator constraint: "treat user prompt as starting point but dogfood
+what we created in this long running agent session and refactor code
+and update the codebase to avoid introducing new code if its not
+needed."
 
-## Root cause
+Operator constraint: "decompose user prompt into tasks, subtasks, and
+todos in session that are all their own commits."
 
-`@neondatabase/serverless` `Pool.query()` opens a WebSocket to the
-Neon compute endpoint on first use. The `create-branch-action` returns
-once the Neon API confirms the branch metadata exists, but the
-branch's compute takes a few seconds to be reachable. The migration
-step ran immediately, hit the cold compute, and got the WebSocket
-failure.
+Operator constraint: "use the outcome + rubric approach we dogfood
+created for outcome driven development to include citations in tests
+to write first."
 
-## Fix
+## Outcome-driven discipline executed
 
-New `warmConnection()` export in `scripts/lib/neon-client.ts`:
+This tick is the worked example of the repo's TDD + rubric pattern:
 
-- Calls `pool.query("SELECT 1")`.
-- On error, drops the cached pool, logs the attempt count, sleeps
-  with exponential backoff (2s, 4s, 8s, 16s), and retries.
-- Max 5 attempts (covers up to ~30s of branch warm-up).
-- Surfaces the underlying error if all attempts fail.
+1. **Citation source first.** Saved the patched v2 catalogue at
+   `seeds/citations/vendor-graph-v2.xml` (commit 1/8).
+2. **Outcome rubric second.** `rubrics/phase-16.md` (commit 2/8).
+3. **Failing test third.** `src/lib/vendor-catalog.test.ts` (commit
+   3/8) — TDD red phase: 7 failures asserting that missing vendor
+   configs need to exist.
+4. **Configs that make the test pass, one per commit.** Commits 4–7
+   each turn one failure green.
+5. **Heartbeat state update last.** This file (commit 8/8).
 
-Wired into `migrate-neon.ts` right before the migration loop. The
-existing per-migration try/catch + `::error::` annotation surface
-remains intact.
+## Commits in this PR (#70)
 
-## Why this fix (vs alternatives)
+| # | Path | Purpose |
+| :-- | :--- | :--- |
+| 1/8 | `seeds/citations/vendor-graph-v2.xml` | Patched v2 catalog as citation source |
+| 2/8 | `rubrics/phase-16.md` | Verified Vendor Coverage rubric (7 criteria) |
+| 3/8 | `src/lib/vendor-catalog.test.ts` | TDD red — failing coverage test |
+| 4/8 | `vendor/brave-search/crawl.json` | NXDOMAIN fix (api-docs.search.brave.com) |
+| 5/8 | `vendor/aws/crawl.json` | NEW — docs.aws.amazon.com/llms.txt |
+| 6/8 | `vendor/{opentelemetry,spotify-confidence,parallel-web,nimble}/crawl.json` | NEW — 4 ecosystem llms.txt vendors |
+| 7/8 | `vendor/{gcp,iterable}/crawl.json` | NEW — 2 sitemap-only fallback vendors |
+| 8/8 | `seeds/memory/heartbeat/last-tick.md` | This tick record |
 
-- ❌ **Fixed sleep before connect.** Brittle — depends on Neon's
-  exact compute-ready time, which varies by region/load. Retry is
-  load-adaptive.
-- ❌ **Switch to HTTP `neon()` SQL.** Would require splitting our
-  multi-statement migration files; introduces new failure modes.
-- ❌ **Add settle delay in the workflow.** Adds dead time even when
-  the compute is already warm.
-- ✅ **Retry the warm-up call.** Fast path (compute already warm) is
-  one extra `SELECT 1`. Cold path waits exactly as long as needed.
+## Code reuse — no new infrastructure
 
-## Diagnostic chain closed
+Per operator's "avoid introducing new code if not needed":
+
+- ✅ Reused existing `crawl.json` schema (transform, allow_prefixes,
+  page_cap, llms_txt_candidates, sitemap_xml_sources, html_index_sources).
+- ✅ Reused existing crawler (`scripts/crawl-vendors.ts`) — no
+  changes. Tick 2 fixes (page_cap sentinel + relative-URL resolution)
+  already handle the new vendor URL patterns.
+- ✅ Reused existing test runner (`scripts/lib/run-tests.ts`) —
+  auto-discovers `src/lib/vendor-catalog.test.ts`.
+- ✅ Reused existing citation-guard pattern (`@cite` headers in test
+  file pointing at the v2 XML and the rubric).
+- ✅ Reused existing rubric structure (`rubrics/phase-N.md` with
+  criteria + outcome).
+- ✅ Reused existing heartbeat memory layout (`seeds/memory/heartbeat/`).
+- ❌ No new dep introduced (XML parsed via regex, not via a library).
+
+## Test status
 
 ```
-PR #58 → wired Run Migrations → silent exit-1
-PR #59 → first failure observed
-PR #60 → wrong fix (db_url_pooled) — reverted
-PR #61 → correct fix (db_url_with_pooler @v5) — still failed
-PR #63 → diagnostic step: confirmed env-var threading OK
-PR #65 → ::error:: annotation surface
-PR #68 → annotation revealed WebSocket failure
-PR #69 (this) → cold-start race retry
+20 passed, 0 failed
 ```
 
-5 PRs of diagnostic + targeted fix. The annotation approach worked
-exactly as designed in tick 1's decision D5.
+All catalog coverage assertions green. 21 vendors total tracked
+(was 14 before this PR; +7 new).
 
-## What this PR ships
+## Verify status
 
-- `scripts/lib/neon-client.ts` — `warmConnection()` helper with
-  exponential-backoff retry.
-- `scripts/migrate-neon.ts` — calls `warmConnection()` before the
-  migration loop.
-- This `last-tick.md` (tick 4 record).
+```
+21 vendor(s) | 0 warning(s) | 0 error(s)
+```
 
-## Next tick
+Existing fresh vendors unchanged. 10 vendors show "miss" in
+verify:freshness — that's expected: they don't have urls.md yet
+because the actual crawl is **Phase 16.B** (next tick / PR #71).
 
-If this PR's own `Create Neon Branch` job succeeds → close the issue.
-If it still fails → the annotation reveals a different cause; fix
-that.
+## What this PR does NOT ship
 
-After this lands, `neon-branch.yml` is fully operational per the
-Phase 13.B+ O8 design.
+Per the heartbeat tick-2 decision D5 (don't mix code-fix PRs with
+content re-syncs), this PR ships **only the configs + test + rubric**.
+The actual crawl that produces `vendor/<name>/urls.md` + markdown
+content lands in a separate PR (Phase 16.B / PR #71 / tick 6).
+
+## Next tick (Phase 16.B)
+
+Run `npm run crawl:vendors` against the new configs, commit the
+content per the tick-3 / PR #68 pattern. Expected new content:
+
+- `aws/` — ~200 pages (large surface)
+- `opentelemetry/` — ~200 pages
+- `spotify-confidence/` — ~60 pages
+- `parallel-web/` — ~60 pages (single docs surface)
+- `nimble/` — ~60 pages
+- `gcp/` — up to ~100 pages (sitemap-derived)
+- `iterable/` — up to ~60 pages (sitemap-derived)
+
+Plus the already-passing existing vendors (brave-search now points at
+the right URL; should pick up content via html-index discovery).
