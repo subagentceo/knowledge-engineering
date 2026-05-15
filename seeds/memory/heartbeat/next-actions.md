@@ -6,33 +6,25 @@ last-updated: 2026-05-15T03:45:00Z
 
 # Next actions
 
-## 1. Fix `scripts/lib/llms-txt.ts` parser to unblock twilio + sentry + sift
+## 1. ✅ DONE in tick 2 — page_cap sentinel + relative-URL resolution (PR #67)
 
-**Rubric:** Phase 2.B (`rubrics/phase-2.md`) — vendor crawl coverage.
-**Source of evidence:** PR #64 root-cause table.
-**Gate status:** READY — no operator action required.
-**Estimated scope:** small (~30-line parser change + tests).
+Twilio and sentry now fetch cleanly (200 and 117 pages respectively).
+The root cause turned out to be two bugs in the crawler — not the
+parser. See `last-tick.md` § "Root causes" and `decisions.md` D5.
 
-The current parser only matches absolute URLs and captures trailing
-punctuation (backticks) into the URL string. Three vendors have rich
-llms.txt content that we currently throw away:
+Sift remains "miss" for a vendor-specific reason — captured below
+as new action.
 
-- `twilio` — 1587 links, all relative (`/docs/authy.md` etc.)
-- `sentry` — 121 links, prefixed with backtick from markdown code spans
-- `sift` — 674 links, same backtick issue likely
+## NEW. Investigate sift llms.txt → sift.com/developers/ allowlist mismatch
 
-Fix:
-
-1. Strip trailing `\``, `)`, `]`, and `"` from extracted URLs before
-   they reach the allow-prefix filter.
-2. Resolve relative URLs against the base URL of the llms.txt source
-   (e.g. `/docs/authy.md` + `https://www.twilio.com/docs/llms.txt`
-   → `https://www.twilio.com/docs/authy.md`).
-3. Add unit tests for both cases in `scripts/lib/llms-txt.test.ts`.
-4. Re-run `npm run crawl:vendor -- twilio` (and sentry, sift); confirm
-   each now produces a `urls.md`.
-5. Commit + PR. The vendor content itself will be a separate large
-   commit in the same PR (similar to #64 pattern).
+**Rubric:** Phase 2.B.
+**Source of evidence:** Tick 2 smoke test — sift's llms.txt has 674
+links that pass relative-URL resolution but none match
+`allow_prefixes: ["https://sift.com/developers/"]`.
+**Gate status:** READY.
+**Estimated scope:** small — inspect the actual link URLs in
+sift's llms.txt; either broaden allow_prefixes or replace
+the llms.txt source with one whose URLs match `/developers/`.
 
 ## 2. Investigate `migrate-neon.ts` real failure
 
