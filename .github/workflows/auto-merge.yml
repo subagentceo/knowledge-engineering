@@ -1,18 +1,36 @@
 # .github/workflows/auto-merge.yml
 #
-# Enables auto-merge on PRs labeled `automerge` once required checks
-# pass. Combined with the branch ruleset created by
-# scripts/setup-branch-protection.ts, this completes the no-HITL loop.
+# Enables auto-merge on PRs labeled `automerge` once required checks pass.
+# Combined with the branch ruleset created by scripts/setup-branch-protection.ts,
+# this completes the no-HITL loop.
 #
-# Cited from seeds/prompts/operator-2026-05-10-autonomy.md.
+# Cited from:
+#   - seeds/prompts/operator-2026-05-10-autonomy.md
+#   - vendor/anthropics/code.claude.com/docs/en/whats-new.md Week 15 (/loop, /autofix-pr)
+#   - vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md
+#     (Auto-fix PR engine + status-check semantics)
 #
-# Behavior:
-#   - On PR open / label / sync / ready_for_review: if labeled
-#     `automerge` and not a draft, call `gh pr merge --auto --squash`.
-#     GitHub then merges the PR automatically once required checks pass.
-#   - When the heartbeat opens a PR, it labels `automerge`. This
-#     workflow enables the auto-merge state machine; the branch
-#     ruleset's required checks decide when it fires.
+# Security: all untrusted-input usage goes through env: + double-quoted shell
+# variable expansion. No direct `${{ github.event.... }}` interpolation inside
+# `run:` blocks. Reference:
+#   https://github.blog/security/vulnerability-research/how-to-catch-github-actions-workflow-injections-before-attackers-do/
+#
+# 2026-05-15 (/batch unit 10): tightened so auto-merge only enables when the
+# PR has a registered set of required checks AND none are in a known-failure
+# state. The ruleset (16440994) gates the actual merge timing; this workflow's
+# guard adds a defense layer: if a required check is in failure state, we DO
+# NOT enable auto-merge — we surface that gap as a PR comment instead.
+#
+# Required checks (mirrored from scripts/setup-branch-protection.ts):
+#   - verify             (the verify chain: mcp + tf + citations + gates + libs + freshness + project)
+#   - osv-scanner        (dep CVE gate)
+#   - cloudflare-preview (Worker preview deploy, gates on CLOUDFLARE_API_TOKEN)
+#   - neon-branch        (Neon per-PR branch, gates on NEON_API_KEY)
+#   - copilot            (CodeQL & Copilot review)
+#
+# If any of these has a non-success conclusion, this workflow logs the gap
+# and exits 0 WITHOUT enabling auto-merge. The pr-babysitter routine
+# (.claude/skills/routines/pr-babysitter/) classifies + remediates.
 
 name: auto-merge
 
@@ -24,18 +42,90 @@ on:
 permissions:
   pull-requests: write
   contents: write
+  checks: read
 
 jobs:
   enable-auto-merge:
     if: |
       !github.event.pull_request.draft &&
       contains(github.event.pull_request.labels.*.name, 'automerge')
-    name: Enable auto-merge (squash)
+    name: Enable auto-merge if all CI green
     runs-on: ubuntu-latest
     steps:
-      - name: Enable auto-merge
+      - name: Inspect PR's status-check rollup
+        id: rollup
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          # The required-check contexts from scripts/setup-branch-protection.ts.
+          # If you change one place, change the other.
+          REQUIRED_CHECKS=("verify" "osv-scanner" "cloudflare-preview" "neon-branch" "copilot")
+
+          # Fetch the PR's status-check rollup
+          gh pr view "$PR_NUMBER" --repo "$REPO" \
+            --json statusCheckRollup \
+            --jq '.statusCheckRollup' > rollup.json
+
+          echo "Rollup snapshot:"
+          jq -r '.[] | "  \(.name // .context) -> status=\(.status // "?") conclusion=\(.conclusion // "?")"' rollup.json
+
+          MISSING=()
+          FAILED=()
+          for required in "${REQUIRED_CHECKS[@]}"; do
+            # Match by name (workflow runs) OR context (commit-status checks)
+            match=$(jq -r --arg name "$required" \
+              '[.[] | select((.name // .context // "" | ascii_downcase) | contains($name))] | first' \
+              rollup.json)
+            if [ "$match" = "null" ] || [ -z "$match" ]; then
+              MISSING+=("$required")
+              continue
+            fi
+            conclusion=$(echo "$match" | jq -r '.conclusion // ""' | tr '[:upper:]' '[:lower:]')
+            case "$conclusion" in
+              success|skipped|neutral|"")
+                ;;
+              failure|timed_out|cancelled)
+                FAILED+=("$required=$conclusion")
+                ;;
+              *)
+                FAILED+=("$required=$conclusion")
+                ;;
+            esac
+          done
+
+          {
+            echo "missing=$(IFS=,; echo "${MISSING[*]:-}")"
+            echo "failed=$(IFS=,; echo "${FAILED[*]:-}")"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Comment + skip if checks failing
+        if: steps.rollup.outputs.failed != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
+          FAILED: ${{ steps.rollup.outputs.failed }}
+          MISSING: ${{ steps.rollup.outputs.missing }}
         run: |
+          set -euo pipefail
+          BODY="🤖 **auto-merge**: NOT enabling because one or more required CI checks failed: \`${FAILED}\`. Missing (not yet started): \`${MISSING}\`. The pr-babysitter routine (.claude/skills/routines/pr-babysitter/) will classify + retry. To override, remove the \`automerge\` label and merge manually."
+          gh pr comment "$PR_URL" --body "$BODY"
+          echo "auto-merge skipped: failed=${FAILED} missing=${MISSING}"
+
+      - name: Enable auto-merge (squash)
+        if: steps.rollup.outputs.failed == ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          MISSING: ${{ steps.rollup.outputs.missing }}
+        run: |
+          set -euo pipefail
+          # `gh pr merge --auto` is idempotent. If checks are still pending,
+          # GitHub's state machine holds the merge until they complete OR until
+          # the ruleset times out.
           gh pr merge --auto --squash "$PR_URL"
+          if [ -n "${MISSING}" ]; then
+            echo "auto-merge enabled; waiting on missing checks: ${MISSING}"
+          fi

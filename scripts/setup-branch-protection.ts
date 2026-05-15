@@ -50,10 +50,35 @@ async function ghREST<T>(method: string, path: string, body?: unknown): Promise<
 }
 
 function rulesetBody() {
-  // Required status check contexts. Optional CI workflows
-  // (neon-branch, cloudflare-preview, copilot) are NOT required so the
-  // repo can land changes whether or not those secrets are provisioned.
-  const requiredChecks = ["verify", "osv-scanner"];
+  // Required status check contexts.
+  //
+  // 2026-05-15: extended from {verify, osv-scanner} → 5 checks per the /batch
+  // unit 10 directive ("only automerge if all ci/cd is green"). All CI workflows
+  // now gate the merge; if any required workflow's secrets are not provisioned
+  // (e.g., CLOUDFLARE_API_TOKEN missing → cloudflare-preview can't run),
+  // automerge will WAIT rather than land a PR with unknown CI state.
+  //
+  // The pr-babysitter routine (.claude/skills/routines/pr-babysitter/) detects
+  // this state and surfaces the remediation runbook (docs/operator-runbooks/ci-cd-unblock.md
+  // for missing CF secrets; rotate:neon for stale Neon; rotate:claude-oauth
+  // for stale OAuth) to the operator.
+  //
+  // Citations:
+  //   - vendor/anthropics/code.claude.com/docs/en/whats-new.md Week 15 (/loop, /autofix-pr)
+  //   - vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md
+  //     (Auto-fix PR engine handles review-comment remediation per check)
+  //   - docs/operator-runbooks/cloud-env-vars-contract.md (canonical env-var inventory)
+  const requiredChecks = [
+    "verify",
+    "osv-scanner",
+    // Cloudflare Worker preview deploy (gates on CLOUDFLARE_API_TOKEN +
+    // CLOUDFLARE_ACCOUNT_ID + CLOUDFLARE_WORKER_NAME being set)
+    "cloudflare-preview",
+    // Neon per-PR branch creation (gates on NEON_API_KEY + NEON_PROJECT_ID)
+    "neon-branch",
+    // GitHub Copilot review (CodeQL & advanced security review)
+    "copilot",
+  ];
   return {
     name: RULESET_NAME,
     target: "branch",

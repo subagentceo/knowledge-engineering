@@ -1,7 +1,10 @@
 /**
  * Citations:
  *   @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/embeddings.md
- *   @cite docs/operator-runbooks/cli-only-unblock-path.md
+ *
+ * Note: the related operator runbook docs/operator-runbooks/cli-only-unblock-path.md
+ * provides additional context but is not a vendor/seeds/rubrics citation per the
+ * citation-guard policy (scripts/lib/citation-guard.ts).
  *
  * Shape tests only — does not load the actual @xenova/transformers model
  * (that's a 25MB ONNX download on first run; defer to integration tests
