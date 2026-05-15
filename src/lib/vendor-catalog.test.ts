@@ -205,6 +205,10 @@ const LEGACY_ALLOW = new Set([
   "anthropic-engineering", // pre-catalog Anthropic blog mirror
   "anthropics",            // multi-source Anthropic first-party docs
   "claude-blog",           // Phase 13.C — claude.com/blog mirror (first-party content)
+  "claude-customers",      // Phase 13.D — claude.com/customers case studies
+  "claude-plugins",        // Phase 13.D — claude.com/plugins directory
+  "claude-connectors",     // Phase 13.D — claude.com/connectors directory
+  "claude-tutorials",      // Phase 13.D — claude.com/tutorials (JS-rendered; 0-page first crawl)
 ]);
 
 check("every vendor/<dir>/crawl.json maps to a catalog entity (modulo legacy allow-list)", () => {

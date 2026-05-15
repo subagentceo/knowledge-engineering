@@ -1,0 +1,21 @@
+{
+  "name": "claude-plugins",
+  "homepage": "https://www.claude.com/plugins",
+  "llms_txt_candidates": [],
+  "html_index_sources": [
+    {
+      "url": "https://www.claude.com/plugins",
+      "link_regex": "href=\"(/plugins/[a-z0-9-]+)\""
+    }
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://www.claude.com/plugins/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 30,
+  "html_extract": {
+    "selector": "main"
+  },
+  "llms_txt": "https://www.claude.com/llms.txt"
+}

@@ -1,0 +1,146 @@
+{
+  "https://www.claude.com/connectors/10x-genomics-cloud": {
+    "sha256": "527e5f3ba09d87743096b0957b938cec18c32b6880f1d76ece3074bacfb299fe",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/activecampaign": {
+    "sha256": "2a4dbb42c3084987b751b3dfcd6d11a7bce849350c9ebfb13c9eee67ae5a9894",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/adisinsight": {
+    "sha256": "9613c8d852f0310a976e903f76a812818765935e0ca6b478ccb677b9aade370b",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/adobe-creativity": {
+    "sha256": "cd97337323d659b3a4d7c87cf969551502c4656934f207662f1ebd18b7c16aa8",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/adobe-experience-manager": {
+    "sha256": "7f6293b8b93d4efa032788371e8e7a85862200d9ef2ee6bceb026a12acc7b3d5",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/adobe-journey-optimizer": {
+    "sha256": "89ceef1e1717b2255d51dd1fad44164a338f61fe5c6acca2b867d36f82d174c2",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/adobe-marketing-agent": {
+    "sha256": "3a645893521c5dde4c02425db79de25f6fc0ee4640b8469720acb96671dc578c",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/ahrefs": {
+    "sha256": "ab8bef58b0e6a701586a2adbcac5b53e21fcb1bb9a4d4fa91345bf6329466a02",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/aiera": {
+    "sha256": "a89e44aaf5daefb429fb3ed865129e2aecb821ac8cf263379796b385cd3cea54",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/airops": {
+    "sha256": "e04dde138df22aa0c139f993cf828291842f7f37761552806177d0f775aded79",
+    "lastModified": "Thu, 14 May 2026 22:35:10 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/airtable": {
+    "sha256": "6e4ec5fea1a39070066ea230f7d18c5529a689a21fb4a50a3c09b8f69853797e",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/airwallex": {
+    "sha256": "f707bc2ff6781f383965ce69e5d8bfc43dc68c3cbf0a2c3d29cc6b41156245eb",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/aiwyn-tax": {
+    "sha256": "90a9f9dd76b39333335c838af7a38af174d1eaef70fb4c906a136ec8a3f9d449",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/alltrails": {
+    "sha256": "caed15300698308044b543d17ccadb9561f31504e803142edef043437da45779",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/amplitude": {
+    "sha256": "8c56b46fab4e2d2fa1bb54fe7a0a573e681ecd6c6a241955d795ddae2a9ac4a2",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/apollo": {
+    "sha256": "0c5e1122e59047d0d4e780f46ff84a4e0812073f4735b0c634f5b2ebcca3f727",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/asana": {
+    "sha256": "5d2928a24a2ee3709ff3f33013b65c3c0832f4d69dd972890c2c99fa7cb42eee",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/atlassian": {
+    "sha256": "b1cc557ece90368bef6588dfad39b611f2d3ba01a504b9cda97ac5af4e4d668a",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/attio": {
+    "sha256": "36a4d238e521393386e0ee6e9b89fcaef1ad0ea3f178dd622cb5302f78c1ca75",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/audible": {
+    "sha256": "e088dd46c3667fbf76280587d4c603c4dda9386026bdc3f1b46cec27d3c7e16d",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/aura": {
+    "sha256": "f597db34c4003568a584f3aeea09c5c3d63a68b86b1815c8b1a43500f797b691",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/aurora": {
+    "sha256": "beb2a743f89d4f1e4967cca26f592a61c01320cbafa8a646d043aa26abaf5f43",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/autodesk-product-help": {
+    "sha256": "8daab2a4840f68579dc7ba0b5aa34f5d887eba9e73ce77d5a82b5f75d64b0450",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/connectors/aws-marketplace": {
+    "sha256": "5e4fadebb3bc010ce758a7b338332bb7d0acc628c62faf8f0dd16b01797b8604",
+    "lastModified": "Thu, 14 May 2026 22:38:28 GMT",
+    "fetchedAt": "2026-05-15T06:15:42.309Z",
+    "lastStatus": 200
+  }
+}
