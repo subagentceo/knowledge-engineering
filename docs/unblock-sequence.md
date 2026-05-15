@@ -4,6 +4,14 @@
 > pre-conditions, operator steps, verification commands, and the agent-side
 > follow-up that auto-fires once each blocker clears.
 >
+> **2026-05-15 update — CLI-only path now available.** The original
+> playbook below assumes `claude --chrome` for credential provisioning.
+> A faster CLI-only alternative lives at
+> [`docs/operator-runbooks/cli-only-unblock-path.md`](operator-runbooks/cli-only-unblock-path.md)
+> — uses `wrangler login` + `gh auth token` + `gh secret set` instead of
+> the Chrome extension. Total operator time drops from ~30 min to ~5 min.
+> Recommended path unless the operator specifically wants the Chrome flow.
+>
 > **Posture grounding:** harness-as-priors per Boris Cherny's AI Ascent 2026
 > "inject priors at the harness layer" — this doc IS the prior. As the model
 > improves, this playbook can be thinned because the agent will do more of the
