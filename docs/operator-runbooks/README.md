@@ -76,6 +76,8 @@ distinct steps and benefit from Opus 4.7's planning depth.
 
 | [`parallel-api-key.md`](./parallel-api-key.md) | `secrets.PARALLEL_API_KEY` provisioned | ~5 min | confirm 2FA on parallel.ai; confirm 2FA on GH |
 
+| [`nimbleway-api-key.md`](./nimbleway-api-key.md) | `secrets.NIMBLEWAY_API_KEY` provisioned | ~5 min | confirm 2FA on nimbleway; confirm 2FA on GH |
+
 ## Boris Cherny tie-in
 
 These runbooks operationalize the publicly-documented Anthropic pattern of

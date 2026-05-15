@@ -86,6 +86,13 @@ const BASE_ALLOWLIST: ReadonlyArray<string> = [
   // Operator has $70 premium tier on alex@jadecli.com.
   "api.parallel.ai",
   "docs.nimbleway.com",
+  // nimbleway API + hosted MCP server. Auth: `Authorization: Bearer YOUR_API_KEY`.
+  // Cited from vendor/nimble/docs.nimbleway.com/api-reference/introduction.md
+  // (base URL https://sdk.nimbleway.com/v1) and
+  // vendor/nimble/docs.nimbleway.com/integrations/mcp-server/mcp-server.md
+  // (hosted MCP at https://mcp.nimbleway.com/mcp).
+  "sdk.nimbleway.com",
+  "mcp.nimbleway.com",
   "www.anthropic.com",
   "support.claude.com",
   "anthropic.com",
