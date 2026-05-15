@@ -1,112 +1,104 @@
 ---
-tick: 5
-iso: 2026-05-15T04:15:00Z
+tick: 9
+iso: 2026-05-15T04:45:00Z
 git_sha: pending (this PR)
 session: claude.ai/code/session_9d8f8432-101f-466f-9c31-b1021ea934e7
-trigger: operator-direct ("safely add these to the crawl by patching ...")
-prev_tick: 4 (PR #69 — merged as 75681a3)
+trigger: operator-direct ("find all API_KEY like NEON_API_KEY you need to be provided")
+prev_tick: 8 (PR #74 — Phase 16.B final content)
 ---
 
-# Tick 5 — Phase 16 verified vendor coverage
+# Tick 9 — Neon secrets/vars audit + matrix runbook
 
-Operator-direct request: extend the crawl coverage based on the v2
-vendor_graph catalogue + verification-pass patches.
+The operator asked: "find all API_KEY like NEON_API_KEY you need be
+provided to get unblocked." Plus: review issues #12 and #39 and
+get Neon working.
 
-Operator constraint: "treat user prompt as starting point but dogfood
-what we created in this long running agent session and refactor code
-and update the codebase to avoid introducing new code if its not
-needed."
+## Outcome
 
-Operator constraint: "decompose user prompt into tasks, subtasks, and
-todos in session that are all their own commits."
+Neon is **already working** end-to-end as of PR #72:
 
-Operator constraint: "use the outcome + rubric approach we dogfood
-created for outcome driven development to include citations in tests
-to write first."
+- Per-PR Neon branches ✅ (39 preview branches exist in the Console)
+- Per-PR migrations ✅ (vendor_pages table created on every PR)
+- Per-PR schema diff comments ✅ (posted on #59, #62, #64, #74)
 
-## Outcome-driven discipline executed
+The remaining gap is **local-machine / heartbeat-agent dual-write**
+to the production Neon branch. That needs `NEON_DATABASE_URL` to be
+provisioned outside CI. Two options surface (and one would close
+the gap autonomously).
 
-This tick is the worked example of the repo's TDD + rubric pattern:
+## Audit findings (Task 1)
 
-1. **Citation source first.** Saved the patched v2 catalogue at
-   `seeds/citations/vendor-graph-v2.xml` (commit 1/8).
-2. **Outcome rubric second.** `rubrics/phase-16.md` (commit 2/8).
-3. **Failing test third.** `src/lib/vendor-catalog.test.ts` (commit
-   3/8) — TDD red phase: 7 failures asserting that missing vendor
-   configs need to exist.
-4. **Configs that make the test pass, one per commit.** Commits 4–7
-   each turn one failure green.
-5. **Heartbeat state update last.** This file (commit 8/8).
-
-## Commits in this PR (#70)
-
-| # | Path | Purpose |
-| :-- | :--- | :--- |
-| 1/8 | `seeds/citations/vendor-graph-v2.xml` | Patched v2 catalog as citation source |
-| 2/8 | `rubrics/phase-16.md` | Verified Vendor Coverage rubric (7 criteria) |
-| 3/8 | `src/lib/vendor-catalog.test.ts` | TDD red — failing coverage test |
-| 4/8 | `vendor/brave-search/crawl.json` | NXDOMAIN fix (api-docs.search.brave.com) |
-| 5/8 | `vendor/aws/crawl.json` | NEW — docs.aws.amazon.com/llms.txt |
-| 6/8 | `vendor/{opentelemetry,spotify-confidence,parallel-web,nimble}/crawl.json` | NEW — 4 ecosystem llms.txt vendors |
-| 7/8 | `vendor/{gcp,iterable}/crawl.json` | NEW — 2 sitemap-only fallback vendors |
-| 8/8 | `seeds/memory/heartbeat/last-tick.md` | This tick record |
-
-## Code reuse — no new infrastructure
-
-Per operator's "avoid introducing new code if not needed":
-
-- ✅ Reused existing `crawl.json` schema (transform, allow_prefixes,
-  page_cap, llms_txt_candidates, sitemap_xml_sources, html_index_sources).
-- ✅ Reused existing crawler (`scripts/crawl-vendors.ts`) — no
-  changes. Tick 2 fixes (page_cap sentinel + relative-URL resolution)
-  already handle the new vendor URL patterns.
-- ✅ Reused existing test runner (`scripts/lib/run-tests.ts`) —
-  auto-discovers `src/lib/vendor-catalog.test.ts`.
-- ✅ Reused existing citation-guard pattern (`@cite` headers in test
-  file pointing at the v2 XML and the rubric).
-- ✅ Reused existing rubric structure (`rubrics/phase-N.md` with
-  criteria + outcome).
-- ✅ Reused existing heartbeat memory layout (`seeds/memory/heartbeat/`).
-- ❌ No new dep introduced (XML parsed via regex, not via a library).
-
-## Test status
+Inventoried every NEON_* reference in the codebase:
 
 ```
-20 passed, 0 failed
+.github/workflows/neon-branch.yml       — secrets.NEON_API_KEY + vars.NEON_PROJECT_ID + per-job NEON_DATABASE_URL
+.github/workflows/cloudflare-preview.yml — secrets.NEON_API_KEY (for CF Secrets Store bootstrap)
+scripts/lib/neon-client.ts              — process.env.NEON_DATABASE_URL
+scripts/crawl-vendors.ts                — NEON_DATABASE_URL gates dual-write
+scripts/migrate-neon.ts                 — NEON_DATABASE_URL gates migration
+infra/cloudflare/src/worker.ts          — Secret Store binding for NEON_API_KEY
 ```
 
-All catalog coverage assertions green. 21 vendors total tracked
-(was 14 before this PR; +7 new).
+Per-surface matrix (full table in `docs/operator-runbooks/neon-secrets-matrix.md`):
 
-## Verify status
+| Surface | What's needed | Status |
+| :--- | :--- | :---: |
+| CI (`neon-branch.yml`) | `secrets.NEON_API_KEY` + `vars.NEON_PROJECT_ID` + per-job `NEON_DATABASE_URL` | ✅ all provisioned, works post PR #72 |
+| Cloudflare Worker | `NEON_API_KEY` in CF Secrets Store | ⚠ gated on CF token (operator action #33) |
+| Local crawler | `NEON_DATABASE_URL` env | ❌ not provisioned anywhere; not documented |
+| Agent heartbeat session | `NEON_DATABASE_URL` env | ❌ inherently unavailable (VM swap loses env) |
 
-```
-21 vendor(s) | 0 warning(s) | 0 error(s)
-```
+## Issues #12 / #39 review (Task 2)
 
-Existing fresh vendors unchanged. 10 vendors show "miss" in
-verify:freshness — that's expected: they don't have urls.md yet
-because the actual crawl is **Phase 16.B** (next tick / PR #71).
+**Issue #12 (Phase 8 deploy):**
 
-## What this PR does NOT ship
+- Neon portion: ✅ DONE — integration installed, secrets provisioned.
+- Remaining: CF-side bootstrap secrets (operator action #33-#37).
 
-Per the heartbeat tick-2 decision D5 (don't mix code-fix PRs with
-content re-syncs), this PR ships **only the configs + test + rubric**.
-The actual crawl that produces `vendor/<name>/urls.md` + markdown
-content lands in a separate PR (Phase 16.B / PR #71 / tick 6).
+**Issue #39 (Phase 2.B — 4 deferred vendors):**
 
-## Next tick (Phase 16.B)
+- twilio: 200 pages ✅ (was in PR #68, closed; configs on main; re-runnable)
+- sentry: 117 pages ✅ (same path)
+- brave-search: 4 pages ✅ (PR #74 — this tick's content)
+- sift: ❌ allowlist mismatch (distinct bug, not API-key-related; tracked as next-actions queue item)
 
-Run `npm run crawl:vendors` against the new configs, commit the
-content per the tick-3 / PR #68 pattern. Expected new content:
+Net: 3 of 4 deferred vendors are closed via Phase 16.B work. Sift
+remains its own follow-up.
 
-- `aws/` — ~200 pages (large surface)
-- `opentelemetry/` — ~200 pages
-- `spotify-confidence/` — ~60 pages
-- `parallel-web/` — ~60 pages (single docs surface)
-- `nimble/` — ~60 pages
-- `gcp/` — up to ~100 pages (sitemap-derived)
-- `iterable/` — up to ~60 pages (sitemap-derived)
+## Get Neon working (Task 3)
 
-Plus the already-passing existing vendors (brave-search now points at
-the right URL; should pick up content via html-index discovery).
+It is working — confirmed end-to-end on 4 PRs today. The remaining
+"local crawler dual-write" gap doesn't block any current workflow;
+it's an enhancement. Two paths:
+
+### Option A — operator sets NEON_DATABASE_URL manually
+
+Operator copies the production-branch pooled connection URI from
+Neon Console and exports it as a shell env var.
+
+### Option B — agent auto-derives via Neon API (recommended; proposed)
+
+A small `scripts/get-neon-db-url.ts` that uses `NEON_API_KEY` (already
+provisioned) + `NEON_PROJECT_ID` to fetch the production branch's
+connection URI dynamically. Removes the manual step entirely.
+
+Proposed but **not built in this tick** — the matrix runbook documents
+the option and tracks it as a follow-up.
+
+## What this PR ships
+
+- `docs/operator-runbooks/neon-secrets-matrix.md` — the complete
+  inventory matrix + impact map + auto-derivation proposal.
+- `docs/operator-runbooks/README.md` — links the new runbook.
+- This `last-tick.md` (tick 9 record).
+
+3 files; pure docs. No code paths touched. The matrix is the
+operator-readable artifact answering the audit question.
+
+## Next tick
+
+`next-actions.md` queue:
+1. `scripts/get-neon-db-url.ts` — implement Option B
+2. sift allowlist investigation (existing queue item)
+3. gcp allowlist broadening (added after this tick's crawl)
+4. spotify-confidence 38-failure investigation

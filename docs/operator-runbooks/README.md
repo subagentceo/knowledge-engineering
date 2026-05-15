@@ -70,6 +70,7 @@ distinct steps and benefit from Opus 4.7's planning depth.
 | [`code-scanning-toggle.md`](./code-scanning-toggle.md) | Code scanning enabled; `upload-sarif: true` | ~2 min | confirm 2FA on GH |
 | [`github-pat.md`](./github-pat.md) | Fine-grained GitHub PAT created + setup:project/setup:branch-protection run | ~8 min | confirm 2FA on GH; run two CLI scripts |
 | [`connector-decision.md`](./connector-decision.md) | Phase 12 ship-as-Connector decision recorded | varies | reading + decision only |
+| [`neon-secrets-matrix.md`](./neon-secrets-matrix.md) | Complete inventory of NEON_* secrets/vars/env vars per surface (CI, local, Worker) | ~5 min read | none (audit + decision doc) |
 
 ## Boris Cherny tie-in
 
