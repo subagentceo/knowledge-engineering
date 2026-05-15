@@ -1,6 +1,8 @@
 > This page location: Frontend & Frameworks > Languages
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup of connections to Neon for various programming languages, including .NET, Elixir, Go, Java, JavaScript, Python, and Rust.
+
 # Neon language guides
 
 Find detailed instructions for connecting to Neon from various languages

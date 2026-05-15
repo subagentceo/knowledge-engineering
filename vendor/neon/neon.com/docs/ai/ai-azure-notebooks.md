@@ -1,5 +1,7 @@
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup of Azure Data Studio Notebooks with Neon, detailing how to create a Python notebook, connect to a Neon database, install the `pgvector` extension, and execute vector search queries.
+
 # Azure Data Studio Notebooks
 
 Use Azure Data Studio Notebooks with Neon for vector similarity search

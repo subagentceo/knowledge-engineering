@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > Quickstart
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: How to quickly set up and authenticate the Neon CLI, including installation instructions for various platforms and methods for managing authentication through web or API key options.
+
 # Neon CLI quickstart
 
 Get set up with the Neon CLI in just a few steps

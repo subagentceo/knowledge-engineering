@@ -6,10 +6,10 @@ are limited by present performance, [contact us](/contact).
 
 | Metric | Observed in production | Production limits (current) |
 | --- | --- | --- |
-| Max documents (global) | 3.5T+ @ 13PB+ | Unlimited[^limits-note-1] |
+| Max documents (global) | 4T+ @ 15PB+ | Unlimited[^limits-note-1] |
 | Max documents (queried simultaneously) | [100B+ @ 10TB](/blog/ann-v3) | Unlimited[^limits-note-2] |
 | Max documents (per namespace) | 500M+ @ 2TB | 500M @ 2TB[^limits-note-3] |
-| Max number of namespaces | 100M+ | Unlimited[^limits-note-4] |
+| Max number of namespaces | 250M+ | Unlimited[^limits-note-4] |
 | Max number of [pinned namespaces](/docs/pinning) | 256 | Contact us for custom |
 | Max vector columns per namespace[^limits-note-5] |  | 2 |
 | Max dimensions for dense vectors |  | 10,752 |

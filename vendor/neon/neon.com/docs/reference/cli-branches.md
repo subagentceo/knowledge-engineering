@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > branches
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the `branches` command in the Neon CLI for managing branches in a Neon project, including listing, creating, renaming, and deleting branches, as well as setting defaults and performing schema comparisons.
+
 # Neon CLI command: branches
 
 List, create, rename, and delete branches; set default; run schema diff

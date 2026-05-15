@@ -140,10 +140,12 @@ Managed authentication built on Better Auth that branches with your database.
 - [Email OTP](https://neon.com/docs/auth/guides/plugins/email-otp.md): Sign in and verify email addresses with one-time passwords
 - [Email verification](https://neon.com/docs/auth/guides/email-verification.md): Verify user email addresses during sign-up or account creation
 - [JWT](https://neon.com/docs/auth/guides/plugins/jwt.md): Authenticate using JSON Web Tokens (JWT) for external services
+- [Magic Link](https://neon.com/docs/auth/guides/plugins/magic-link.md): Passwordless sign-in via email magic links
 - [Manage Neon Auth via the API](https://neon.com/docs/auth/guides/manage-auth-api.md): Enable, configure, and disable Neon Auth using the Neon API
 - [Open API](https://neon.com/docs/auth/guides/plugins/openapi.md): Interactive API documentation and client generation
 - [Organization](https://neon.com/docs/auth/guides/plugins/organization.md): Manage multi-tenant organizations, members, and invitations
 - [Password reset](https://neon.com/docs/auth/guides/password-reset.md): Allow users to reset forgotten passwords
+- [Phone Number](https://neon.com/docs/auth/guides/plugins/phone-number.md): Sign in existing users with phone OTP codes delivered via your SMS provider
 - [Plugins](https://neon.com/docs/auth/guides/plugins.md): Supported Better Auth plugins in Neon Auth
 - [Set up OAuth](https://neon.com/docs/auth/guides/setup-oauth.md): Add Google or GitHub sign-in to your application
 - [User management](https://neon.com/docs/auth/guides/user-management.md): Update profiles, change passwords, and manage account settings
@@ -215,7 +217,7 @@ Step-by-step integration guides for frameworks, ORMs, auth providers, and deploy
 
 Migration guides by source, size, and downtime tolerance. Covers pg_dump, pgcopydb, logical replication, and provider-specific guides.
 
-- [All 21 Import pages](https://neon.com/docs/import/llms.txt) — key pages below
+- [All 24 Import pages](https://neon.com/docs/import/llms.txt) — key pages below
 
 - [Import Data Assistant](https://neon.com/docs/import/import-data-assistant.md): Import a database under 10 GB to Neon using our automated import tool
 - [Import data from CSV](https://neon.com/docs/import/import-from-csv.md)

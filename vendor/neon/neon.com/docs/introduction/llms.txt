@@ -11,6 +11,7 @@ Architecture, features, autoscaling, branching concepts, billing, and plans.
 - [Compute lifecycle](https://neon.com/docs/introduction/compute-lifecycle.md)
 - [Cost optimization](https://neon.com/docs/introduction/cost-optimization.md): Strategies to manage and reduce your Neon costs
 - [High Availability (HA) in Neon](https://neon.com/docs/introduction/high-availability.md): Understanding Neon's approach to High Availability
+- [History window](https://neon.com/docs/introduction/history-window.md): Control how long Neon keeps change history for instant restore, Time Travel, and branching from past states
 - [Instant restore](https://neon.com/docs/introduction/branch-restore.md): Learn how to revert changes or recover lost data using Neon's instant restore with Time Travel Assist
 - [IP Allow](https://neon.com/docs/introduction/ip-allow.md): Limit database access to trusted IP addresses
 - [Join the Early Access Program](https://neon.com/docs/introduction/early-access.md): Help shape the future of Neon
@@ -32,7 +33,6 @@ Architecture, features, autoscaling, branching concepts, billing, and plans.
 - [Plans and billing](https://neon.com/docs/introduction/about-billing.md): Learn about Neon's pricing plans and how to manage billing
 - [Reduce network transfer costs](https://neon.com/docs/introduction/network-transfer.md): Monitor and reduce data egress costs
 - [Regions](https://neon.com/docs/introduction/regions.md)
-- [Restore window](https://neon.com/docs/introduction/restore-window.md): Configure how far back you can restore your data and run Time Travel queries
 - [Roadmap](https://neon.com/docs/introduction/roadmap.md)
 - [Scale to Zero](https://neon.com/docs/introduction/scale-to-zero.md): Minimize costs by automatically scaling inactive databases to zero
 - [Serverless](https://neon.com/docs/introduction/serverless.md): Postgres with instant provisioning, no server management, and pay-per-usage billing

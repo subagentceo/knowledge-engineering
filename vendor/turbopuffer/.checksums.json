@@ -1,0 +1,254 @@
+{
+  "https://turbopuffer.com/docs/architecture.md": {
+    "sha256": "a7fd838d33f81f7c53cbaeee43c50a2304113a666d1a09aa9f99907cf3d2917b",
+    "etag": "W/\"817261b5a70618a8001c1f79c6fb381d\"",
+    "lastModified": "Fri, 15 May 2026 03:29:22 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/audit-logs.md": {
+    "sha256": "106f1c249cc8f2fbb00424e40bb130b2b69757816bb3420b7e957a9f55386eec",
+    "etag": "W/\"1af0d91aed0f8f7192a9332428fcab30\"",
+    "lastModified": "Fri, 15 May 2026 03:29:22 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/auth.md": {
+    "sha256": "979f5c4a0a7145c4a5c537b742ff95a2a32372ca3f6becf83d43650f528d9fb9",
+    "etag": "W/\"a642cb2426a8c5c421a4e987b55f1073\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/backups.md": {
+    "sha256": "65af571fd7fb75bd6c2e3f83f84a5b7c8499afe9c06ac30ad9108cba4b42383f",
+    "etag": "W/\"e4fa273ffdad66392b2fd4b2a7011c87\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/byoc.md": {
+    "sha256": "efbc75f64b7cc87e7af51f4a7a8891381416f1eecd8bee7fa8c0798c589916a4",
+    "etag": "W/\"bbadfe94acdaac26cf669dab0dc13e46\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/byoc/configuration.md": {
+    "sha256": "24db14b81a4949a8bcb457ca308db0e6c7fbfb31a1bd7bdfd7a0b7d05ba46cbf",
+    "etag": "W/\"61a36694a042971a3eb683c544612d92\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/byoc/control-plane.md": {
+    "sha256": "f452db0467a656b67f9b82500117c58bbcd35049429256e8ea769e1c97e9f4c4",
+    "etag": "W/\"49ace555c3b3807c06e13b76061f736c\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/byoc/deployment.md": {
+    "sha256": "c3689dd4e5e8f7b3d5015dc34a2e6a940cbf0446c8c6bc989a7718bfe06d5324",
+    "etag": "W/\"f96ab6cb8fc79bb1e807d7885d5c3add\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/byoc/operations.md": {
+    "sha256": "a9d9afbdd1282c365cfff6ae998ecce84982a03d08b59553f645c014d6fb16bf",
+    "etag": "W/\"0001d0887f5c6e946e8b658ed902eafd\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/byoc/requirements.md": {
+    "sha256": "e6b876cc848d15b5211d3504e0b4d688a17e069e43fd0317490cf32f860b32c6",
+    "etag": "W/\"19c6eed603bc6995c643828355f28795\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/cmek.md": {
+    "sha256": "4b023dcce32721b6a92e6ea8dc442154a0f5debf6b84f2871f3ae77c59f1465f",
+    "etag": "W/\"291b10b3210192e01330706c8ab5c360\"",
+    "lastModified": "Fri, 15 May 2026 03:29:22 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/concepts.md": {
+    "sha256": "2baacfef33ffe32805b1a50b203512d53bde92fcdc3e5ceac2df47e4cd8dd08a",
+    "etag": "W/\"15e0f8c67123a78bc715a6b138fd75e0\"",
+    "lastModified": "Fri, 15 May 2026 03:29:22 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/delete-namespace.md": {
+    "sha256": "1f339eb0293a1abb26f42e32589ab7ac943fb1b55171ec32d0ca9440043f00fd",
+    "etag": "W/\"54e53717dfd85a1f6f5504088e19a236\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/export.md": {
+    "sha256": "9a3059271f0ba79666fd39f7122f313a8cb008826c8fcd9dc1b3d9f045043c45",
+    "etag": "W/\"19f9c8304929c6dd1a8c2771e1d98de2\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/fts.md": {
+    "sha256": "497491fb64082205850b32f6a622525b0e66456975bb18d149aeafdf52d391b9",
+    "etag": "W/\"77b358df0a04e3da569453de6d0f7846\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/guarantees.md": {
+    "sha256": "5f93ae6fbb89032fb419fa58d524048fcf0fdea11b2c81fc26a7897f1795770f",
+    "etag": "W/\"c49f6ed33da8e9ec0742a76e4d7333b3\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/hybrid.md": {
+    "sha256": "4745ceea464ab4ea2a504f462a4a0df83f1c9cf764d694dc86f90066888ca479",
+    "etag": "W/\"1596980823bae4ec7d19f8e5f3d934f3\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/index.md": {
+    "sha256": "073920694a040440e38fbd6bc4000f94c878967c7154eae9f0417db4bb1306a4",
+    "etag": "W/\"ada8a11ad60c164c2170270acc494006\"",
+    "lastModified": "Fri, 15 May 2026 03:29:22 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/limits.md": {
+    "sha256": "db4695a22385e5a8c9eeadfc61947cb4cd56519dc64a15b48bc69751b74ef948",
+    "etag": "W/\"80f9a1d9c2b62f0c9d3224c2eca91100\"",
+    "lastModified": "Thu, 14 May 2026 22:53:00 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/metadata.md": {
+    "sha256": "6d4293e6680f1c4440a0a1b77462c4f04ec00d0d4b9864e89072f11b5bde3bb8",
+    "etag": "W/\"a2c1d76ddc5acf417138e9fc0ad4e813\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/namespaces.md": {
+    "sha256": "67fabeaf16ea3096c0f4ff58cdb77bb369948cfca1e422eb6ff7bf124996ddf4",
+    "etag": "W/\"4b618a9db13ce497646538efe3e3a66a\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/performance.md": {
+    "sha256": "20df5a10278e3cecd7e5a2789ab59d6b1a98320371d1e50818ea5d37fbeccdbc",
+    "etag": "W/\"c50b2d550c7f4b9481649847ba3842db\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/permissions.md": {
+    "sha256": "c1daae363b289f99e2dca3769171142dd080ece1edf34c0b0ad4eb30444cd20f",
+    "etag": "W/\"d12fd62521400ee24d84871ed9410448\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/pinning.md": {
+    "sha256": "674227ac1e7350d914981e642e70469c9ad67aaf4929d365d3e1ffb82540416b",
+    "etag": "W/\"0d26a188b573205513d4c9cba3315a99\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/private-networking.md": {
+    "sha256": "0eecbb14af8fb39cbba68d27a4aabf64ccf80806ce1447d8cbd8e663c6ae2c4f",
+    "etag": "W/\"5cbb35744abfbd1d1a4b25075b959742\"",
+    "lastModified": "Fri, 15 May 2026 03:29:22 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/query.md": {
+    "sha256": "4d25cb49d75cc220b5acf7e67224bc8e069e8eaf1400183aae9abbcb90d96de8",
+    "etag": "W/\"cbfb1e0f8d039c73a75fe659b9e665e7\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/quickstart.md": {
+    "sha256": "a47141671982a00752edf59a71589f85dc55f24fbea9fb54d0dbe83ad87ffea2",
+    "etag": "W/\"9501f18577187ccec0de2420050bd852\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/recall.md": {
+    "sha256": "122f6533507914babf8fb44fbc088477f13b5cf6b7d7db338320d22f0c2e8584",
+    "etag": "W/\"9ee10060d04621dad47ec268786741dc\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/regions.md": {
+    "sha256": "6b89e39c6de47b0800830aba801f0d6f69a6aea9585f2e7a4142cea8f9893ce3",
+    "etag": "W/\"e6676f6b1f6668914035c4bde2ea7fff\"",
+    "lastModified": "Thu, 14 May 2026 22:55:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/roadmap.md": {
+    "sha256": "0e7338f92579b8c640f70c12cdeb67bad650746bf9dd2e5d53b804c9eefadb09",
+    "etag": "W/\"d07b5464e80ebb86f97b33ab974e9459\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/security.md": {
+    "sha256": "47220b1d52adf0c48445e107984b259dfec4734fa461ee470b79c8aa1cccb58d",
+    "etag": "W/\"0ed794a80d480913fb9e00bbce09c4f2\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/testing.md": {
+    "sha256": "d4155945819eff647cc5c12e91e2d78690e9022598104eb746e3520b0e04b034",
+    "etag": "W/\"99a6154687f3dbd897a5df20df4a6ee5\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/tradeoffs.md": {
+    "sha256": "f03a738b8ce448f82f0ea118f94107227f8ef75ff650a1433d8273a83461b289",
+    "etag": "W/\"5693a1f81e55cda8c3ed5450e656ba8e\"",
+    "lastModified": "Fri, 15 May 2026 03:29:22 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/vector.md": {
+    "sha256": "a478d772cfa130e341a10ad40f59626ea684db542be7b839864f6aebe5d31322",
+    "etag": "W/\"5af1a55e508d94bfdb0f191f83f09276\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/warm-cache.md": {
+    "sha256": "526e2f1bde4aa7e206600bce3464e1ad8ed0b3f170a73dddc6b26d6e72e268a5",
+    "etag": "W/\"2b84cab600338a4c703387ea914566cf\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  },
+  "https://turbopuffer.com/docs/write.md": {
+    "sha256": "356ac1aefbeddc6599e069ed351ef1cda08d44582c5a70a6a9d46f048384716e",
+    "etag": "W/\"a56c3b812d4bf99de112d8e90000badc\"",
+    "lastModified": "Fri, 15 May 2026 03:29:23 GMT",
+    "fetchedAt": "2026-05-15T03:29:22.475Z",
+    "lastStatus": 200
+  }
+}

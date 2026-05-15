@@ -5,8 +5,6 @@ Store large amounts of unstructured data without egress fees
 > Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/r2/`).
 >
 > For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
->
-> Use [R2 llms-full.txt](https://developers.cloudflare.com/r2/llms-full.txt) for the complete R2 documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
 
 ## Overview
 
@@ -63,6 +61,7 @@ Store large amounts of unstructured data without egress fees
 - [Deleting data](https://developers.cloudflare.com/r2/data-catalog/deleting-data/index.md): How to properly delete data from R2 Data Catalog
 - [Getting started](https://developers.cloudflare.com/r2/data-catalog/get-started/index.md): Learn how to enable the R2 Data Catalog on your bucket, load sample data, and run your first query.
 - [Manage catalogs](https://developers.cloudflare.com/r2/data-catalog/manage-catalogs/index.md): Understand how to manage Iceberg REST catalogs associated with R2 buckets
+- [Metrics and analytics](https://developers.cloudflare.com/r2/data-catalog/observability/metrics/index.md): Query R2 Data Catalog metrics for Iceberg REST API operations and table maintenance jobs via the GraphQL Analytics API.
 - [Table maintenance](https://developers.cloudflare.com/r2/data-catalog/table-maintenance/index.md): Learn how R2 Data Catalog automates table maintenance
 
 ## R2 SQL

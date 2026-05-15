@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > databases
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the Neon CLI `databases` command for managing databases, including listing, creating, and deleting databases within a Neon project.
+
 # Neon CLI command: databases
 
 List, create, and delete databases in a Neon project

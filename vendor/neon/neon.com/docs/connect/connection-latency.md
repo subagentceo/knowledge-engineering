@@ -1,6 +1,8 @@
 > This page location: Troubleshooting > Latency and timeouts
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers strategies for managing connection latencies and timeouts in Neon, including the impact of the _Scale to zero_ feature and how to check the status of a compute resource.
+
 # Connection latency and timeouts
 
 Learn about strategies to manage connection latencies and timeouts

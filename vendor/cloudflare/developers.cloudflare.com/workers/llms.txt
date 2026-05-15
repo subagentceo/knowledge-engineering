@@ -5,8 +5,6 @@ Build, deploy, and scale serverless applications globally with low latency and m
 > Links below point directly to Markdown versions of each page. Any page can also be retrieved as Markdown by sending an `Accept: text/markdown` header to the page's URL without the `index.md` suffix (for example, `curl -H "Accept: text/markdown" https://developers.cloudflare.com/workers/`).
 >
 > For other Cloudflare products, see the [Cloudflare documentation directory](https://developers.cloudflare.com/llms.txt).
->
-> Use [Workers llms-full.txt](https://developers.cloudflare.com/workers/llms-full.txt) for the complete Workers documentation in a single file, intended for offline indexing, bulk vectorization, or large-context models.
 
 ## Overview
 
@@ -134,6 +132,7 @@ Build, deploy, and scale serverless applications globally with low latency and m
 - [Versions & Deployments](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/index.md): Upload versions of Workers and create deployments to release new versions.
 - [Gradual deployments](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/gradual-deployments/index.md): Incrementally deploy code changes to your Workers with gradual deployments.
 - [Rollbacks](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/rollbacks/index.md): Revert to an older version of your Worker.
+- [Version overrides](https://developers.cloudflare.com/workers/configuration/versions-and-deployments/version-overrides/index.md): Send requests to a specific version of your Worker in a gradual deployment using version overrides.
 - [Page Rules](https://developers.cloudflare.com/workers/configuration/workers-with-page-rules/index.md): Review the interaction between various Page Rules and Workers.
 
 ## CI/CD

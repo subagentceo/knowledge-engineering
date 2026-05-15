@@ -306,8 +306,8 @@ import (
 	"os"
 
 	"github.com/openai/openai-go"
-	"github.com/turbopuffer/turbopuffer-go"
-	"github.com/turbopuffer/turbopuffer-go/option"
+	"github.com/turbopuffer/turbopuffer-go/v2"
+	"github.com/turbopuffer/turbopuffer-go/v2/option"
 )
 
 // Create an embedding with OpenAI, could be {Cohere, Voyage, Mixed Bread, ...}
@@ -379,7 +379,7 @@ func main() {
 	result, err := ns.Query(
 		ctx,
 		turbopuffer.NamespaceQueryParams{
-			RankBy: turbopuffer.NewRankByVector("vector", openaiOrRandVector(ctx, "feline")),
+			RankBy: turbopuffer.NewRankByAnn("vector", openaiOrRandVector(ctx, "feline")),
 			Limit: turbopuffer.LimitParam{
 				Total: 2,
 			},
@@ -441,7 +441,7 @@ func main() {
 	result, err = ns2.Query(
 		ctx,
 		turbopuffer.NamespaceQueryParams{
-			RankBy: turbopuffer.NewRankByVector("vector", openaiOrRandVector(ctx, "car")), // Embedding similar to "car"
+			RankBy: turbopuffer.NewRankByAnn("vector", openaiOrRandVector(ctx, "car")), // Embedding similar to "car"
 			Limit: turbopuffer.LimitParam{
 				Total: 10,
 			},
@@ -522,7 +522,7 @@ public class Vector {
 
     var result = ns.query(
       NamespaceQueryParams.builder()
-        .rankBy(RankBy.vector("vector", openAiOrRandVector("feline")))
+        .rankBy(RankBy.ann("vector", openAiOrRandVector("feline")))
         .limit(2)
         .includeAttributes("text")
         .build()
@@ -580,7 +580,7 @@ public class Vector {
 
     result = ns2.query(
       NamespaceQueryParams.builder()
-        .rankBy(RankBy.vector("vector", openAiOrRandVector("car")))
+        .rankBy(RankBy.ann("vector", openAiOrRandVector("car")))
         .limit(10)
         // Complex filter combining multiple conditions, see https://turbopuffer.com/docs/query for all options
         .filters(Filter.and(Filter.lt("price", 60000), Filter.eq("color", "blue")))

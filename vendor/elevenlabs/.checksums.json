@@ -1,0 +1,302 @@
+{
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native.mdx": {
+    "sha256": "4474eb1e33b932028f085e87583941995503d5a432da689a53ea0e215b352793",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/ghost.mdx": {
+    "sha256": "ca5c5affbc4d38c0f4ad3374f9a8e5b75f4656d9af774664ad331979493c7972",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/react.mdx": {
+    "sha256": "210d6738549d8b45caaf33cc2940f14ef2534ab2497eda264f9d672850992970",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-native/squarespace.mdx": {
+    "sha256": "201036346900c87bfc6f1fa53eb8ef35dd91ef153d60ed81815a0c184e26023c",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/overview.mdx": {
+    "sha256": "422173bffbdf8902e1ac1174e8a84e63ae83bf26b48fa3cfdee9c040ffd60b6a",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/playground/image-video.mdx": {
+    "sha256": "dc3e8cc88eaf5e6dfa539a91525fd0db582448dab5c71f9561da18a88eb9a27a",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/playground/sound-effects.mdx": {
+    "sha256": "f6b8949794b22bff9a341c5fcf590cb2decb9bc663073591da75eaeada1659fa",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/playground/speech-to-text.mdx": {
+    "sha256": "ac27ec79bc31f0564a7de5c03a8f5e6d8292d42cd7bf719fd0b6cf297087fcd9",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech.mdx": {
+    "sha256": "2c520f9d85728197e7f8de18e920227c302d555426d357f6637d36f0a297384c",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/playground/voice-changer.mdx": {
+    "sha256": "7b029a880ba621c89625307a5783eacc24ff8ccf489010e2823f74ffe8ac5c5e",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/products/audiobooks.mdx": {
+    "sha256": "e95b3915760b4137f94a945d0680ec1516e98362bc6975111898d66897aa714b",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/products/dubbing.mdx": {
+    "sha256": "dbc1a3c01dca89e757a404903aab5486f8e22c5aee05a4bd009cbf1daddef785",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/products/dubbing/dubbing-studio.mdx": {
+    "sha256": "fa5cd1aa159f5e750cf4639547b5e9bf3e9a021938390ad70cacaf4b7eda05a8",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/products/flows.mdx": {
+    "sha256": "5093b312c06c5767f915efdf677b9ab5399f27d62caa8f755fddd4e1edb462a2",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/products/music.mdx": {
+    "sha256": "b18e43d6e983fecfe97ebbe8f95178cf47a129c6c5f53800b1af893abc9c5e98",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/products/music/finetunes.mdx": {
+    "sha256": "049295212b1804e88b20f4087078ff1873bbea3f2948e1d3affa971d39b8a74e",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/products/studio.mdx": {
+    "sha256": "7be1840f90f235f7a734495cd9067706c6c2f00fd108adcd2c6dd61812afa036",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/products/subtitles.mdx": {
+    "sha256": "2a4ff65116fe1a57b219dc3a875b6d351991f9f73ab3f8beb93f6863af7e9a00",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/products/templates.mdx": {
+    "sha256": "6176a724a85ac037a75f7d35740e513f13089f7d483b53e36bf317d342eb6882",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/products/transcripts.mdx": {
+    "sha256": "f9f9ca0ec8b84cf4c01e04bc3c475a1678e42e1dcc99b9fa13681ab947c5ec8f",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/quickstart.mdx": {
+    "sha256": "3ed718eb533aa04e6cb73afdb4dd396e2878f62788e87b9afa2bd18bde41e989",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/voices/payouts.mdx": {
+    "sha256": "820df96edbcd6d656aa327e7edce6bcabd3f607ab92163d6f460a6756ee9aa7b",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning.mdx": {
+    "sha256": "a2bc5a8f15e468069542fd9f205f15f1d0c68ac6dec821103f02e2c681156d46",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/instant-voice-cloning.mdx": {
+    "sha256": "81b27855f74288d0d9af6495b96b290e0e22c41de7bf9dbda00c6e8c7adf99ee",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning/professional-voice-cloning.mdx": {
+    "sha256": "a9ae52abaee7d779adabfcd4a115dbe08d3ba921ffd8c53c9c90d9d675497f54",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/voices/voice-design.mdx": {
+    "sha256": "9ca1180a3ccad09703e8c5a7b74f684eb3b50049fd5d1fede9151713e70ab6e3",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/eleven-creative/voices/voice-library.mdx": {
+    "sha256": "2e588d6821d39b2b8858f212dd654523120d3a0f1ab84efd0f2bad2be4c26a2d",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/account.mdx": {
+    "sha256": "b65adba8dc5b54f616b9560545f7eaba5f35a6b4a7b4e397752dd9836dfb5333",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/billing.mdx": {
+    "sha256": "6a88c767ae12ad23ae20bade9c42a83017227fa564b2487744fa674c896189eb",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/consolidated-billing.mdx": {
+    "sha256": "f93b4763d9efde8efbad291d6e8c7f5cd7522190b78ac88cd546a62f69b51c35",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/data-residency.mdx": {
+    "sha256": "433d26caf8da5f077581499232d5ac2522d129e38a5e4357cd2c966858a9df36",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/files.mdx": {
+    "sha256": "bdcf75eab34fbeee30d464784ea7efc110827d3fc847be3c8cdbf823dad6c195",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/pay-as-you-go.mdx": {
+    "sha256": "a952abda43f217535e006b2532691fabd002be3b217aa69bd4c8c8aca7dda47a",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/usage-analytics.mdx": {
+    "sha256": "4cfd2d4cac0f4483eea41ea045970392643df79a5ba2f6434e9c4385ba003df6",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/workspaces/billing-groups.mdx": {
+    "sha256": "2d273332ca10c647974d7a7839ad8f9e0ddce107d44968ddeb6f3b2336bea44d",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/workspaces/members.mdx": {
+    "sha256": "7f1817339133b77ceb6e70efdf292d675b8b36563e5a430271ab2fa5e147d14c",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/workspaces/overview.mdx": {
+    "sha256": "ab69ff9554349c85aa4a17a90156aaa4ee9ba958f1150614fb8337b544a4e039",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/workspaces/service-accounts.mdx": {
+    "sha256": "28d009fd71cbb6332db88016d9961c3156a23b3e79275d2c80ce08da43fba6f7",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/workspaces/sharing-resources.mdx": {
+    "sha256": "084a004c8ce2adfb6b58defed0caa0d1d55e2b7c27112c608e89aa45b956f633",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/workspaces/sso.mdx": {
+    "sha256": "323ff4349b3310e5233d547e7bf111931f6fad575b8ff60ce229a735672f0106",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/workspaces/sso/okta-saml.mdx": {
+    "sha256": "ccc6e49fa4ca9508e1d3b19644771160b9853d7e9b00078f72b5b097d2554747",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/workspaces/sso/scim.mdx": {
+    "sha256": "e03e2e1c40a40de229abf1af06245724135ef7784019bab645773f41d070db4f",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/administration/workspaces/user-groups.mdx": {
+    "sha256": "2db3e6f1365da4aed9656c5829d781ca60c63493c640f8f50156788dca875712",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/dubbing.mdx": {
+    "sha256": "b8e1a8e32d01c100d0d40ffa086182e75f7275c5baf8b51bfba722d6cd47c75b",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/forced-alignment.mdx": {
+    "sha256": "51eabf2183009771efe876596d68715aedf6fa6ed45c971b55c1554155f918eb",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/image-video.mdx": {
+    "sha256": "3e8782d8c97542d7347d6ad0d411f7895fa28d3edcd3122cc41f1eb3842a1cef",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/music.mdx": {
+    "sha256": "e05d65ace19b9588799aa3a71f1037e323d7a906edb5e3643f66db9b99b88e08",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/music/best-practices.mdx": {
+    "sha256": "5fda5c9f49e81f44d83ffd0510f0dc1e4eb5b16b3d410b807ae6169addb3af84",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/music/marketplace.mdx": {
+    "sha256": "9807846fbb5feb1c7f80e4a02a48d00605d8b6ab97bce91b3a7a6a0cf20dda02",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/sound-effects.mdx": {
+    "sha256": "7eab2426be721bf27346a6ec8b84a6fb6f96003b5b7bfd177f01c08277b907e6",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/speech-to-text.mdx": {
+    "sha256": "4e59dbf111e4cc57e2c1db771db52fbc17ca1b827ccac644f8fbcabe961f5ac6",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/text-to-dialogue.mdx": {
+    "sha256": "941396a39daffb700302f12f10e5c37d95f98eb57aca92c883e34414ba342ca3",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/text-to-speech.mdx": {
+    "sha256": "0d56fac9be63d638853938ca4f362e8c4f94fd32d1d20c07c6b674e400f49f0a",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/text-to-speech/best-practices.mdx": {
+    "sha256": "3e1b724b08a910ef1037f82e8f580064f533e40988535ef61113ed28fc1e13d6",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/voice-changer.mdx": {
+    "sha256": "49f489907c6e65ddff8a01e84a23d485e4cf7765a8c2202fa2a9266ef850e789",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/voice-isolator.mdx": {
+    "sha256": "7a45219ff937266cf64995c3be111e9879b754d6aaf459b7ede5587a4057374e",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/voice-remixing.mdx": {
+    "sha256": "0fa2f61b407ce62d81dc446b7c1fba7236283b5f46d5ebadd973de702fd17f42",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/capabilities/voices.mdx": {
+    "sha256": "3c8277db61139bad0115c914fb35477f11f5907ed17eaa5eeab83721237bdd35",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/intro.mdx": {
+    "sha256": "de3573a4b93eddf9976e309a492394197f3b63d57c9967dc83bcdf6f806df2f1",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  },
+  "https://elevenlabs.io/docs/overview/models.mdx": {
+    "sha256": "282ed1e9ad66dc63ad6f7e1d74c4dde6bd8321ac4ecf1cacf673e21c6ce43739",
+    "fetchedAt": "2026-05-15T03:28:51.198Z",
+    "lastStatus": 200
+  }
+}

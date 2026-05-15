@@ -1,6 +1,8 @@
 > This page location: AI > AI for Agents > Agent Skills > Claude Code plugin
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the setup of the Neon Claude Code plugin, which integrates Neon-specific Skills and API access into Claude Code, enabling tasks like managing databases and configuring serverless connections.
+
 # Claude Code plugin for Neon
 
 The **Neon Claude Code plugin** is available on the official Claude plugins marketplace. It adds Neon-specific Skills and API access to Claude Code, Anthropic's AI development environment, bundling guided Skills plus an MCP (Model Context Protocol) server integration.

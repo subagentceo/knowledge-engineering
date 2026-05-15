@@ -1,6 +1,8 @@
 > This page location: Tools & Workflows > API, CLI & SDKs > CLI > connection-string
 > Full Neon documentation index: https://neon.com/docs/llms.txt
 
+> Summary: Covers the usage of the Neon CLI `connection-string` command to retrieve a Postgres connection string for databases in Neon projects, including options for specifying branches and historical states.
+
 # Neon CLI command: connection-string
 
 Get Postgres connection strings for branches and databases
@@ -63,7 +65,7 @@ In addition to the Neon CLI [global options](https://neon.com/docs/reference/neo
   postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname?sslmode=require&channel_binding=require&connect_timeout=30
   ```
 
-- Get a connection string to a specific point in a branch's history by appending `@timestamp` or `@lsn`. Availability depends on your configured [restore window](https://neon.com/docs/introduction/restore-window).
+- Get a connection string to a specific point in a branch's history by appending `@timestamp` or `@lsn`. Availability depends on your configured [history window](https://neon.com/docs/introduction/history-window).
 
   ```bash
   neon connection-string @2024-04-21T00:00:00Z
