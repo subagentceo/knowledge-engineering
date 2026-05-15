@@ -30,6 +30,7 @@
     "deploy:agent": "cd infra/cloudflare && npm run deploy",
     "deploy:frontend": "cd frontend && npm run deploy",
     "deploy:all": "npm run deploy:agent && npm run deploy:frontend",
+    "sandbox:dev": "cd infra/cloudflare && npm run dev",
     "install:plugins": "tsx scripts/install-plugins.ts",
     "setup:project": "tsx scripts/setup-github-project.ts",
     "setup:branch-protection": "tsx scripts/setup-branch-protection.ts",
