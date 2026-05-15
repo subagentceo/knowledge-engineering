@@ -92,10 +92,44 @@ Adding a new seed? Run `npm run context:budget` before and after to see the delt
 
 Adding a new sub-agent? Add its seed name to the list in `scripts/context-budget.ts` `ORCHESTRATOR_SEEDS` so the report stays in sync with the runtime.
 
+## Filesystem-loaded context (Phase 19)
+
+Beyond the system prompt assembled at module-load, `src/agent/run.ts` opts in to project-level filesystem inputs via:
+
+```ts
+settingSources: ["project"],   // CLAUDE.md + .claude/skills + .claude/settings.json
+skills: "all",                 // heartbeat, routines, refresh-vendors, schedule-bridge
+hooks: { PreToolUse: [...] },  // programmatic safety hook (see below)
+```
+
+Per `vendor/anthropics/code.claude.com/docs/en/agent-sdk/claude-code-features.md`:
+
+- `"project"` loads `<cwd>/CLAUDE.md`, `.claude/rules/*.md`, `.claude/skills/<name>/SKILL.md`, and `.claude/settings.json` hooks. Parent-directory CLAUDE.md files load additively.
+- User (`~/.claude/`) and local (`CLAUDE.local.md`, `.claude/settings.local.json`) sources are **not** loaded — the orchestrator chassis is the single source of truth.
+- `skills: "all"` enables all discovered project skills; the Skill tool is auto-registered.
+- `~/.claude.json` global config and managed policy settings are read regardless of `settingSources` (per the SDK doc's "What settingSources does not control" table).
+
+Skills must live as `.claude/skills/<name>/SKILL.md` (directory form). Phase 19 migrated 4 flat-form skills to directory form; see PR #97 / issue #96.
+
+## Runtime safety hook
+
+`src/lib/safety-hooks.ts` exports `auditBashPreToolUse()`, wired into `run.ts` as a `PreToolUse(Bash)` hook. It blocks four patterns at runtime — supplementing the startup-time OAuth gate in `src/oauth/token.ts`:
+
+| Pattern | Reason |
+| :--- | :--- |
+| `ANTHROPIC_API_KEY=` / `export ANTHROPIC_API_KEY` | OAuth-only posture |
+| `rm -rf /` | filesystem root |
+| `git push --force` to `main` or `master` | branch protection by convention |
+| `--no-verify` on git commit/push/rebase/merge | preserves pre-commit hooks |
+
+Tests at `src/lib/safety-hooks.test.ts` cover allow + block paths for each pattern.
+
 ## See also
 
 - `src/lib/token-counting.ts` — the wrapper
 - `src/lib/context-budget.ts` — the report builder
 - `scripts/context-budget.ts` — the CLI
 - `src/lib/cache-control.ts` — the `cachedText()` / `withCacheBreakpoint()` helpers used by `src/examples/*caching.ts`
+- `src/lib/safety-hooks.ts` — the PreToolUse audit
 - `vendor/anthropics/platform.claude.com/docs/en/build-with-claude/` — the five source docs
+- `vendor/anthropics/code.claude.com/docs/en/agent-sdk/claude-code-features.md` — filesystem feature loader contract
