@@ -42,6 +42,19 @@ async function getPool(): Promise<PoolType> {
   // Lazy import so the crawler stays usable in environments without
   // the package installed.
   const mod = await import("@neondatabase/serverless");
+
+  // Node 20 does not expose a global WebSocket constructor.
+  // @neondatabase/serverless Pool opens a WebSocket on first query,
+  // so without this we get "TypeError: fetch failed" / "All attempts
+  // to open a WebSocket to connect to the database failed". Wire `ws`
+  // exactly once per process — neonConfig is module-level state.
+  // PR #69's retry layer remained powerless against this since every
+  // retry hit the same missing-constructor failure.
+  if ((mod.neonConfig as { webSocketConstructor?: unknown }).webSocketConstructor === undefined) {
+    const wsMod = await import("ws");
+    (mod.neonConfig as { webSocketConstructor: unknown }).webSocketConstructor = wsMod.default;
+  }
+
   cachedPool = new mod.Pool({ connectionString: process.env.NEON_DATABASE_URL });
   return cachedPool;
 }
