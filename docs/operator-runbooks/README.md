@@ -78,6 +78,8 @@ distinct steps and benefit from Opus 4.7's planning depth.
 
 | [`nimbleway-api-key.md`](./nimbleway-api-key.md) | `secrets.NIMBLEWAY_API_KEY` provisioned | ~5 min | confirm 2FA on nimbleway; confirm 2FA on GH |
 
+| [`ollama-cloud-api-key.md`](./ollama-cloud-api-key.md) | `secrets.OLLAMA_API_KEY` provisioned | ~5 min | confirm 2FA on ollama.com; confirm 2FA on GH |
+
 ## Boris Cherny tie-in
 
 These runbooks operationalize the publicly-documented Anthropic pattern of
