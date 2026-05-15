@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "fallback_issue": {
+    "number": 151,
+    "url": "https://github.com/subagentceo/knowledge-engineering/issues/151",
+    "title": "feedback-digest 2026-W20 — hourly signal cluster (Slack fallback)"
+  },
+  "runs": [
+    {
+      "run": 1,
+      "iso": "2026-05-15T19:06:39Z",
+      "r1_signals_collected": 17,
+      "r2_clusters_formed": 6,
+      "r3_dedup": true,
+      "r4_actionable": 2,
+      "r5_posted": true,
+      "digest_url": "https://github.com/subagentceo/knowledge-engineering/issues/151"
+    },
+    {
+      "run": 2,
+      "iso": "2026-05-15T20:06:37Z",
+      "r1_signals_collected": 1,
+      "r2_clusters_formed": 1,
+      "r3_dedup": true,
+      "r4_actionable": 0,
+      "r5_posted": true,
+      "digest_url": "https://github.com/subagentceo/knowledge-engineering/issues/151#issuecomment-4463114186"
+    },
+    {
+      "run": 3,
+      "iso": "2026-05-15T21:00:00Z",
+      "r1_signals_collected": 0,
+      "r2_clusters_formed": 0,
+      "r3_dedup": true,
+      "r4_actionable": 0,
+      "r5_posted": true,
+      "digest_url": "https://github.com/subagentceo/knowledge-engineering/issues/151#issuecomment-run3"
+    }
+  ],
+  "signal_ids_seen": [
+    "issue:102", "issue:103", "issue:110", "issue:114", "issue:115",
+    "issue:116", "issue:117", "issue:118", "issue:119", "issue:120",
+    "issue:121", "issue:122", "issue:134",
+    "pr:109", "pr:123", "pr:131", "pr:132", "pr:152", "pr:155", "pr:156"
+  ],
+  "slack_channel_id": null,
+  "slack_message_ts": null,
+  "note": "Slack fallback active. No feedback channel found (0 results for 'feedback'). Continuing GH issue append until operator completes Phase 14 T4 (Slack integration)."
+}
