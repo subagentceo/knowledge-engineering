@@ -1,104 +1,89 @@
 ---
-tick: 9
-iso: 2026-05-15T04:45:00Z
+tick: 11
+iso: 2026-05-15T05:15:00Z
 git_sha: pending (this PR)
 session: claude.ai/code/session_9d8f8432-101f-466f-9c31-b1021ea934e7
-trigger: operator-direct ("find all API_KEY like NEON_API_KEY you need to be provided")
-prev_tick: 8 (PR #74 — Phase 16.B final content)
+trigger: operator-direct (spotify-confidence npm + GitHub inventory pasted)
+prev_tick: 10 (PR #76 — outcome-driven conventions; merged as 304e231)
 ---
 
-# Tick 9 — Neon secrets/vars audit + matrix runbook
+# Tick 11 — spotify-confidence ecosystem citation (O1) + O2 deferral
 
-The operator asked: "find all API_KEY like NEON_API_KEY you need be
-provided to get unblocked." Plus: review issues #12 and #39 and
-get Neon working.
+The operator pasted the complete Spotify Confidence developer-surface
+inventory: 7 npm packages + 13 GitHub repos covering 9 languages.
+This tick captures that data as a citation source. The companion
+investigation of the 38-fail crawl (queued O2) revealed the source is
+a moving target and is deferred.
 
-## Outcome
+## Outcomes declared upfront
 
-Neon is **already working** end-to-end as of PR #72:
+- **O1** — Capture Spotify Confidence's SDK ecosystem as a citation
+  source for the v2 vendor_graph's `spotify_confidence` entity. ✅
+- **O2** — Investigate the 38-fail crawl. ⚠ deferred — see below.
 
-- Per-PR Neon branches ✅ (39 preview branches exist in the Console)
-- Per-PR migrations ✅ (vendor_pages table created on every PR)
-- Per-PR schema diff comments ✅ (posted on #59, #62, #64, #74)
+## O1 — ✅ DONE
 
-The remaining gap is **local-machine / heartbeat-agent dual-write**
-to the production Neon branch. That needs `NEON_DATABASE_URL` to be
-provisioned outside CI. Two options surface (and one would close
-the gap autonomously).
+`seeds/citations/spotify-confidence.md` records:
+- 7 npm packages under `@spotify-confidence/*` (5 active, 1 stale, 1 deprecated)
+- 13 GitHub repos under `spotify/confidence-*` (9-language SDK coverage)
+- The OpenFeature provider trio (cross_refs edge: `implements_provider_for`)
+- Distinction between the SDK family and the separate
+  `spotify/confidence` Python AB-test-analysis library (289 stars)
 
-## Audit findings (Task 1)
+Cited from operator's authenticated browser session.
 
-Inventoried every NEON_* reference in the codebase:
+## O2 — ⚠ deferred (moving target)
+
+Re-running `npm run crawl:vendor -- spotify-confidence` from `main`
+now reports:
 
 ```
-.github/workflows/neon-branch.yml       — secrets.NEON_API_KEY + vars.NEON_PROJECT_ID + per-job NEON_DATABASE_URL
-.github/workflows/cloudflare-preview.yml — secrets.NEON_API_KEY (for CF Secrets Store bootstrap)
-scripts/lib/neon-client.ts              — process.env.NEON_DATABASE_URL
-scripts/crawl-vendors.ts                — NEON_DATABASE_URL gates dual-write
-scripts/migrate-neon.ts                 — NEON_DATABASE_URL gates migration
-infra/cloudflare/src/worker.ts          — Secret Store binding for NEON_API_KEY
+[spotify-confidence] no valid llms.txt found in 1 candidate(s)
+[spotify-confidence] FAIL fetched=0 unchanged=0 preflight-304=0 failed=1
 ```
 
-Per-surface matrix (full table in `docs/operator-runbooks/neon-secrets-matrix.md`):
+But the tick-6 run (~hour earlier; PR #71) successfully fetched
+22 pages from the same URL (38 failed). The discovery probe is now
+failing where it succeeded an hour ago. Two possibilities:
 
-| Surface | What's needed | Status |
-| :--- | :--- | :---: |
-| CI (`neon-branch.yml`) | `secrets.NEON_API_KEY` + `vars.NEON_PROJECT_ID` + per-job `NEON_DATABASE_URL` | ✅ all provisioned, works post PR #72 |
-| Cloudflare Worker | `NEON_API_KEY` in CF Secrets Store | ⚠ gated on CF token (operator action #33) |
-| Local crawler | `NEON_DATABASE_URL` env | ❌ not provisioned anywhere; not documented |
-| Agent heartbeat session | `NEON_DATABASE_URL` env | ❌ inherently unavailable (VM swap loses env) |
+1. **Spotify changed their llms.txt** during this session. The .md
+   appendage convention is custom; they may have reorganized.
+2. **Transient network or rate-limit issue** at the time of this
+   re-run.
 
-## Issues #12 / #39 review (Task 2)
+Either way, **a code fix can't safely land without a stable failure
+mode to fix.** Defer until either:
+- A future tick reproduces the failure pattern consistently, OR
+- The operator confirms the canonical llms.txt URL (or its absence).
 
-**Issue #12 (Phase 8 deploy):**
+Per the new docs/CONVENTIONS.md discipline, an unstable failure mode
+is "out of scope" until a stable outcome can be declared.
 
-- Neon portion: ✅ DONE — integration installed, secrets provisioned.
-- Remaining: CF-side bootstrap secrets (operator action #33-#37).
+## What this PR ships (single commit)
 
-**Issue #39 (Phase 2.B — 4 deferred vendors):**
+| # | Commit | Outcome | Type | SemVer |
+| :-- | :--- | :---: | :---: | :---: |
+| 1 | `docs(citations): add spotify-confidence SDK ecosystem inventory (O1)` | O1 | docs | none |
+| 2 | `chore(heartbeat): tick 11 record (O1)` | O1 | chore | none |
 
-- twilio: 200 pages ✅ (was in PR #68, closed; configs on main; re-runnable)
-- sentry: 117 pages ✅ (same path)
-- brave-search: 4 pages ✅ (PR #74 — this tick's content)
-- sift: ❌ allowlist mismatch (distinct bug, not API-key-related; tracked as next-actions queue item)
+## Verify
 
-Net: 3 of 4 deferred vendors are closed via Phase 16.B work. Sift
-remains its own follow-up.
+```
+$ npm run verify
+21 vendor(s) | 0 warning(s) | 0 error(s)
+```
 
-## Get Neon working (Task 3)
+## Cross-references
 
-It is working — confirmed end-to-end on 4 PRs today. The remaining
-"local crawler dual-write" gap doesn't block any current workflow;
-it's an enhancement. Two paths:
-
-### Option A — operator sets NEON_DATABASE_URL manually
-
-Operator copies the production-branch pooled connection URI from
-Neon Console and exports it as a shell env var.
-
-### Option B — agent auto-derives via Neon API (recommended; proposed)
-
-A small `scripts/get-neon-db-url.ts` that uses `NEON_API_KEY` (already
-provisioned) + `NEON_PROJECT_ID` to fetch the production branch's
-connection URI dynamically. Removes the manual step entirely.
-
-Proposed but **not built in this tick** — the matrix runbook documents
-the option and tracks it as a follow-up.
-
-## What this PR ships
-
-- `docs/operator-runbooks/neon-secrets-matrix.md` — the complete
-  inventory matrix + impact map + auto-derivation proposal.
-- `docs/operator-runbooks/README.md` — links the new runbook.
-- This `last-tick.md` (tick 9 record).
-
-3 files; pure docs. No code paths touched. The matrix is the
-operator-readable artifact answering the audit question.
+- v2 catalog entity: `seeds/citations/vendor-graph-v2.xml` entity id=`spotify_confidence`
+- vendor mirror: `vendor/spotify-confidence/` (configs in main; content in PR #71)
+- Cross-vendor link: `openfeature` entity (Confidence implements provider for it)
+- Next-actions queue: O2 remains item 4 ("spotify-confidence 38-failure"); status now "deferred — moving target"
 
 ## Next tick
 
 `next-actions.md` queue:
-1. `scripts/get-neon-db-url.ts` — implement Option B
-2. sift allowlist investigation (existing queue item)
-3. gcp allowlist broadening (added after this tick's crawl)
-4. spotify-confidence 38-failure investigation
+1. `scripts/get-neon-db-url.ts` — auto-derive `NEON_DATABASE_URL`
+2. sift allowlist mismatch
+3. gcp allowlist broadening
+4. spotify-confidence 38-failure (DEFERRED — moving target)
