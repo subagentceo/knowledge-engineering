@@ -1,6 +1,6 @@
 /**
  * @cite seeds/posture/session-start.xml
- * @cite seeds/citations/boris-cherny-ai-ascent-2026.md
+ * @cite seeds/citations/founder-talk-2026.md
  * @tdd green
  *
  * Phase A / O-A3 — schema validator for posture XML v3.
@@ -10,7 +10,7 @@
  *      discipline from the cross-cutting standards table).
  *   2. cite-target resolution: every <cite ch="N" ts="A:BB-A:CC"/> in the
  *      posture XML must point at a real chapter+ts range in
- *      seeds/citations/boris-cherny-ai-ascent-2026.md.
+ *      seeds/citations/founder-talk-2026.md.
  *
  * The validator is the first line of defense for posture drift — any
  * primitive added in a future rev without a backing transcript citation
@@ -36,7 +36,7 @@ const CiteRefSchema = z.object({
   ts: z.string().regex(/^\d+:\d{2}-\d+:\d{2}$/),
 });
 
-const BorisPrimitiveSchema = z.object({
+const FounderPrimitiveSchema = z.object({
   kind: z.literal("primitive"),
   id: z.string().regex(/^P\d+$/),
   name: z.string().min(1),
@@ -44,7 +44,7 @@ const BorisPrimitiveSchema = z.object({
   cites: z.array(CiteRefSchema).min(1),
 });
 
-const BorisDirectiveSchema = z.object({
+const FounderDirectiveSchema = z.object({
   kind: z.literal("directive"),
   id: z.string().regex(/^D\d+$/),
   name: z.string().min(1),
@@ -56,8 +56,8 @@ const BorisDirectiveSchema = z.object({
 const PostureSchema = z.object({
   version: z.string().regex(/^\d+$/),
   date: z.string().min(1),
-  borisPrimitives: z.array(BorisPrimitiveSchema).length(11),
-  borisDirectives: z.array(BorisDirectiveSchema).length(11),
+  founderPrimitives: z.array(FounderPrimitiveSchema).length(11),
+  founderDirectives: z.array(FounderDirectiveSchema).length(11),
 });
 
 test("posture parses through the zod schema", () => {
@@ -87,7 +87,7 @@ function parseTs(ts: string): { start: number; end: number } {
 }
 
 function loadTranscriptChapters(): TranscriptChapter[] {
-  const path = resolve(REPO_ROOT, "seeds/citations/boris-cherny-ai-ascent-2026.md");
+  const path = resolve(REPO_ROOT, "seeds/citations/founder-talk-2026.md");
   const body = readFileSync(path, "utf8");
   const out: TranscriptChapter[] = [];
   // Table row shape: | <ch> | <title> | A:BB–A:CC |
@@ -117,11 +117,11 @@ test("transcript citation file has all 10 chapters", () => {
   assert.deepEqual(ids, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 });
 
-test("every Boris primitive cite resolves to a real chapter+ts in transcript", () => {
+test("every founder primitive cite resolves to a real chapter+ts in transcript", () => {
   const posture = loadPosture();
   const chapters = loadTranscriptChapters();
   const misses: string[] = [];
-  for (const prim of posture.borisPrimitives) {
+  for (const prim of posture.founderPrimitives) {
     for (const cite of prim.cites) {
       if (!resolvesToChapter(cite, chapters)) {
         misses.push(`${prim.id}: ch=${cite.chapter} ts=${cite.ts}`);
@@ -131,11 +131,11 @@ test("every Boris primitive cite resolves to a real chapter+ts in transcript", (
   assert.deepEqual(misses, [], `primitive cites failed to resolve:\n  ${misses.join("\n  ")}`);
 });
 
-test("every Boris directive cite resolves to a real chapter+ts in transcript", () => {
+test("every founder directive cite resolves to a real chapter+ts in transcript", () => {
   const posture = loadPosture();
   const chapters = loadTranscriptChapters();
   const misses: string[] = [];
-  for (const d of posture.borisDirectives) {
+  for (const d of posture.founderDirectives) {
     for (const cite of d.cites) {
       if (!resolvesToChapter(cite, chapters)) {
         misses.push(`${d.id}: ch=${cite.chapter} ts=${cite.ts}`);
@@ -147,9 +147,9 @@ test("every Boris directive cite resolves to a real chapter+ts in transcript", (
 
 test("every directive's applies-ref maps to a real primitive id", () => {
   const posture = loadPosture();
-  const primIds = new Set(posture.borisPrimitives.map((p) => p.id));
+  const primIds = new Set(posture.founderPrimitives.map((p) => p.id));
   const misses: string[] = [];
-  for (const d of posture.borisDirectives) {
+  for (const d of posture.founderDirectives) {
     for (const ref of d.applies) {
       if (!primIds.has(ref)) misses.push(`${d.id} applies ${ref}`);
     }

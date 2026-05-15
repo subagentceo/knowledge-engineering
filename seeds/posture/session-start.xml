@@ -3,14 +3,14 @@
   Session-start posture for the knowledge-engineering agent.
   Loaded by src/agent/run.ts as a system-prompt prefix (wired in Phase 6).
 
-  v3 (2026-05-15+): adds Boris Cherny AI Ascent 2026 primitives (P1-P11)
+  v3 (2026-05-15+): adds founder AI Ascent 2026 primitives (P1-P11)
                     + directives (D1-D11) as load-bearing axioms. Each
                     primitive cites a chapter+ts range in
-                    seeds/citations/boris-cherny-ai-ascent-2026.md.
+                    seeds/citations/founder-talk-2026.md.
                     Schema validator at src/lib/posture-shape.test.ts
                     enforces cite-target resolution.
 
-  v2 (2026-05-15): adds Boris Cherny primitives (Remote Control, /loop,
+  v2 (2026-05-15): adds founder primitives (Remote Control, /loop,
                    /goal, claude agents, /autofix-pr, mobile-first), Agent
                    SDK programmatic dispatch, code-standards, and updated
                    connector statuses from the Phase 8/11/16 commits on
@@ -49,7 +49,7 @@
 
   <primitives>
     <!--
-      Boris Cherny pattern (AI Ascent 2026): solo founder drives dozens
+      Founder pattern (AI Ascent 2026): the solo founder drives dozens
       of concurrent Claude sessions from mobile. The repo MUST expose
       these primitives so any inbound seed prompt can dispatch work
       without operator intervention.
@@ -83,11 +83,11 @@
                purpose="agents: { name: AgentDefinition } parameter for in-session fan-out"/>
   </primitives>
 
-  <boris-primitives source="seeds/citations/boris-cherny-ai-ascent-2026.md">
+  <founder-primitives source="seeds/citations/founder-talk-2026.md">
     <!--
-      Boris Cherny axioms distilled from the AI Ascent 2026 talk.
+      Founder axioms distilled from the AI Ascent 2026 talk (codenamed "founder").
       Each <cite ch="N" ts="A:BB-A:CC"/> MUST resolve to a chapter+ts
-      range present in seeds/citations/boris-cherny-ai-ascent-2026.md.
+      range present in seeds/citations/founder-talk-2026.md.
       Enforced by src/lib/posture-shape.test.ts.
     -->
     <p id="P1" name="product-overhang">
@@ -149,13 +149,13 @@
       scale, and cornered resources still hold. Bet on the latter.
       <cite ch="8" ts="11:20-12:11"/>
     </p>
-  </boris-primitives>
+  </founder-primitives>
 
-  <boris-directives>
+  <founder-directives>
     <!--
-      Each directive maps 1:N Boris primitives via applies="P*,P*".
+      Each directive maps 1:N founder primitives via applies="P*,P*".
       The agent applies them in order. Carries the same cite-target
-      resolution rule as <boris-primitives>.
+      resolution rule as <founder-primitives>.
     -->
     <d id="D1" applies="P1,P10" name="predicate-first">
       For every task, first restate the goal as a measurable target plus a
@@ -226,7 +226,7 @@
       <cite ch="9" ts="18:14-18:55"/>
       <cite ch="9" ts="22:40-23:34"/>
     </d>
-  </boris-directives>
+  </founder-directives>
 
   <mobile-first>
     <!--
@@ -284,7 +284,7 @@
 
   <code-standards>
     <!--
-      Boris Cherny code quality: a sufficiently scaffolded agent system
+      Founder code quality: a sufficiently scaffolded agent system
       writes 100% of the code, so the surface MUST be reusable.
     -->
     <rule name="reusable-lib">
@@ -337,7 +337,7 @@
         cite="vendor/anthropics/code.claude.com/docs/en/agent-sdk/typescript.md"
         status="scaffolded-2026-05-15"/>
     <long-arc>
-      Workers-resident agents writing the codebase end-to-end (Boris Cherny
+      Workers-resident agents writing the codebase end-to-end (founder pattern
       pattern). scripts/orchestrator.ts is the first concrete step: a
       long-lived TypeScript orchestrator that fans out to 5 in-process
       subagents (vendor-bootstrapper, runbook-writer, ci-fixer,
@@ -421,7 +421,7 @@
     <doc path="vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md"
          drives="Full-Stack Cloud Agent runner (Phase 0g)"/>
 
-    <!-- Boris Cherny primitives layer (v2) -->
+    <!-- founder primitives layer (v2) -->
     <doc path="vendor/anthropics/code.claude.com/docs/en/remote-control.md"
          drives="mobile entry point into this session"/>
     <doc path="vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md"

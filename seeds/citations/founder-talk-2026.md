@@ -1,10 +1,10 @@
 ---
 kind: citation-extract
 date: 2026-05-15
-source: youtube.com/watch?v=SlGRN8jh2RI
-title: "Boris Cherny on Claude Code at AI Ascent 2026"
+source: youtube.com/watch?v=[redacted-video-id]
+title: "the founder on Claude Code at AI Ascent 2026"
 speakers:
-  - Boris Cherny (Anthropic, creator of Claude Code)
+  - the founder (creator of Claude Code; codenamed "founder")
   - Lauren Reeder (Sequoia)
 verbatim: false
 note: |
@@ -14,10 +14,10 @@ note: |
 status: load-bearing
 ---
 
-# Boris Cherny — AI Ascent 2026 (transcript anchor map)
+# Founder — AI Ascent 2026 (transcript anchor map)
 
 > Authoritative cite-target for `seeds/posture/session-start.xml` v3.
-> Every Boris primitive (P1–P11) and directive (D1–D11) carries a
+> Every founder primitive (P1–P11) and directive (D1–D11) carries a
 > `<cite ch="N" ts="A:BB-A:CC"/>` attribute that MUST resolve to a
 > real chapter + ts range in this file. The validator at
 > `src/lib/posture-shape.test.ts` enforces this.
@@ -31,7 +31,7 @@ status: load-bearing
 | 3 | Origin Story of Claude Code | 2:39–3:35 |
 | 4 | From Typeahead to Agents | 3:35–5:07 |
 | 5 | Is Coding Solved | 5:07–6:50 |
-| 6 | Boris Personal Workflow | 6:50–8:51 |
+| 6 | Founder Personal Workflow | 6:50–8:51 |
 | 7 | Future Teams and Generalists | 8:51–10:26 |
 | 8 | SaaS Apocalypse Predictions | 10:26–12:57 |
 | 9 | Audience Q&A Deep Dive | 12:57–23:35 |
@@ -79,7 +79,7 @@ status: load-bearing
 ### P8 plan-one-week
 "We plan on like we plan one week out."
 
-- ch 9 ts 13:37-13:40 (Boris explicitly states the one-week horizon)
+- ch 9 ts 13:37-13:40 (the founder explicitly states the one-week horizon)
 
 ### P9 loved-product
 "The thing that they drill into … is build something people love."
@@ -115,37 +115,37 @@ status: load-bearing
 ## Pull quotes (verbatim)
 
 > "I joined this team back in late 2024. It was sort of this incubator within Anthropic called Anthropic Labs."
-> — Boris, ch 3 ts 2:43-2:50
+> — the founder, ch 3 ts 2:43-2:50
 
 > "There's this idea that the model can do all this stuff that no product has yet captured."
-> — Boris, ch 3 ts 3:30-3:34
+> — the founder, ch 3 ts 3:30-3:34
 
 > "We were building for the next model and that was the idea pretty much the whole time."
-> — Boris, ch 4 ts 4:43-4:46
+> — the founder, ch 4 ts 4:43-4:46
 
 > "The reason we picked TypeScript and React is it's very on distribution for the model."
-> — Boris, ch 5 ts 5:48-5:55
+> — the founder, ch 5 ts 5:48-5:55
 
 > "I sort of feel like loops are the future at this point. If you haven't experimented with it, highly highly recommend it."
-> — Boris, ch 6 ts 8:36-8:41
+> — the founder, ch 6 ts 8:36-8:41
 
 > "I think the way that things are going is generally there's going to be a lot more generalists than there are today."
-> — Boris, ch 7 ts 9:13-9:17
+> — the founder, ch 7 ts 9:13-9:17
 
 > "We plan one week out."
-> — Boris, ch 9 ts 13:38
+> — the founder, ch 9 ts 13:38
 
 > "If you give it a target and you tell it to iterate until it's done, it will just do it. I think this is the first model like that."
-> — Boris, ch 8 ts 11:55-12:00
+> — the founder, ch 8 ts 11:55-12:00
 
 > "We have no more manually written code anywhere at the company. All of the SQL is written by uh by models."
-> — Boris, ch 9 ts 18:31-18:35
+> — the founder, ch 9 ts 18:31-18:35
 
 > "It could be MCP, CLIs, APIs, just some sort of programmatic access because the model doesn't care … to the model is just tokens."
-> — Boris, ch 9 ts 23:26-23:34
+> — the founder, ch 9 ts 23:26-23:34
 
 ## Notes
 
 - "verbatim: false" — chapter timestamps and pull quotes are reconstructions from the operator's transcripted pastes during this session; the live YouTube captions are the upstream source of truth.
-- This file is the only allowed cite-target for posture XML Boris primitives — any new primitive added in a future posture rev MUST add its anchor here first.
+- This file is the only allowed cite-target for posture XML founder primitives — any new primitive added in a future posture rev MUST add its anchor here first.
 - Cross-verified against the public weekly digests at `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w{15,16,17,18,19}.md` for the SDK-feature primitive mapping in posture XML v2.

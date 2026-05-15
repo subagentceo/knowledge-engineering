@@ -1,12 +1,12 @@
 ---
 phase: A
-title: Boris primitive lens onto posture XML v3
+title: founder primitive lens onto posture XML v3
 status: done
-issue: docs/plans/boris-cherny-refactor-2026-05-15.md
+issue: docs/plans/founder-refactor-2026-05-15.md
 pr: pending (this PR)
 ---
 
-# Phase A — Boris primitive lens onto posture XML v3 (rubric)
+# Phase A — founder primitive lens onto posture XML v3 (rubric)
 
 Cited from `vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md`.
 Every criterion is mechanically verifiable; the validator at
@@ -16,8 +16,8 @@ Every criterion is mechanically verifiable; the validator at
 
 | Outcome | What |
 | :---: | :--- |
-| **O-A1** | Posture XML v3 ships with 11 Boris primitives (P1–P11) + 11 directives (D1–D11) alongside the existing v2 SDK-feature primitives. Each cites a chapter+ts anchor in `seeds/citations/boris-cherny-ai-ascent-2026.md`. |
-| **O-A2** | `src/lib/posture.ts` — typed XML loader returning `{ version, date, borisPrimitives, borisDirectives }`. Pure-TS, no `xml2js`. Discriminated union via `kind: "primitive" \| "directive"`. |
+| **O-A1** | Posture XML v3 ships with 11 founder primitives (P1–P11) + 11 directives (D1–D11) alongside the existing v2 SDK-feature primitives. Each cites a chapter+ts anchor in `seeds/citations/founder-talk-2026.md`. |
+| **O-A2** | `src/lib/posture.ts` — typed XML loader returning `{ version, date, founderPrimitives, founderDirectives }`. Pure-TS, no `xml2js`. Discriminated union via `kind: "primitive" \| "directive"`. |
 | **O-A3** | `src/lib/posture-shape.test.ts` — zod schema validator + cite-target resolution check. Kicks off the zod-at-boundaries cross-cutting standard. |
 
 ## Criteria
@@ -33,13 +33,13 @@ Expected: no errors.
 Additionally `<posture version="3" date="2026-05-15">` appears at the
 root element.
 
-### C2. 11 Boris primitives + 11 Boris directives present
+### C2. 11 founder primitives + 11 founder directives present
 
 ```bash
 npx tsx -e 'import("./src/lib/posture.ts").then(m => {
   const p = m.loadPosture();
-  if (p.borisPrimitives.length !== 11) process.exit(1);
-  if (p.borisDirectives.length !== 11) process.exit(1);
+  if (p.founderPrimitives.length !== 11) process.exit(1);
+  if (p.founderDirectives.length !== 11) process.exit(1);
 })'
 ```
 
@@ -49,7 +49,7 @@ Expected: exit 0.
 
 `src/lib/posture-shape.test.ts` enforces this. Cite-targets must
 fall within a chapter+ts range listed in
-`seeds/citations/boris-cherny-ai-ascent-2026.md`'s 10-chapter table.
+`seeds/citations/founder-talk-2026.md`'s 10-chapter table.
 
 ```bash
 npx tsx src/lib/posture-shape.test.ts
@@ -89,7 +89,7 @@ criteria; the grader does not need to call the Messages API.
 
 ## Citations
 
-- `seeds/citations/boris-cherny-ai-ascent-2026.md` (the transcript anchor map)
+- `seeds/citations/founder-talk-2026.md` (the transcript anchor map)
 - `seeds/posture/session-start.xml` (the artifact under validation)
 - `vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md` (rubric pattern)
-- `docs/plans/boris-cherny-refactor-2026-05-15.md` (phase scoping)
+- `docs/plans/founder-refactor-2026-05-15.md` (phase scoping)

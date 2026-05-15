@@ -1,7 +1,7 @@
 /**
  * Typed loader for `seeds/posture/session-start.xml` v3.
  *
- * Per Boris primitive P4 (harness-thins) + D4 (≤300 LOC orchestration):
+ * Per founder primitive P4 (harness-thins) + D4 (≤300 LOC orchestration):
  * pure-TS XML reader, no `xml2js` dep. The file is hand-edited and
  * well-formed by contract; tight regexes over the structured XML are
  * sufficient.
@@ -9,7 +9,7 @@
  * Phase A / O-A2 — paired with src/lib/posture.test.ts (TDD red+green).
  *
  * @cite seeds/posture/session-start.xml
- * @cite seeds/citations/boris-cherny-ai-ascent-2026.md
+ * @cite seeds/citations/founder-talk-2026.md
  */
 import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
@@ -30,22 +30,22 @@ interface PostureNodeBase {
   readonly cites: ReadonlyArray<CiteRef>;
 }
 
-export interface BorisPrimitive extends PostureNodeBase {
+export interface FounderPrimitive extends PostureNodeBase {
   readonly kind: "primitive";
 }
 
-export interface BorisDirective extends PostureNodeBase {
+export interface FounderDirective extends PostureNodeBase {
   readonly kind: "directive";
   readonly applies: ReadonlyArray<string>;
 }
 
-export type PostureNode = BorisPrimitive | BorisDirective;
+export type PostureNode = FounderPrimitive | FounderDirective;
 
 export interface Posture {
   readonly version: string;
   readonly date: string;
-  readonly borisPrimitives: ReadonlyArray<BorisPrimitive>;
-  readonly borisDirectives: ReadonlyArray<BorisDirective>;
+  readonly founderPrimitives: ReadonlyArray<FounderPrimitive>;
+  readonly founderDirectives: ReadonlyArray<FounderDirective>;
 }
 
 // ────────────────────────────────────────────────────────────────────
@@ -78,11 +78,11 @@ function readDescription(block: string): string {
   return inner.replace(/\s+/g, " ").trim();
 }
 
-function parseBorisPrimitives(xml: string): BorisPrimitive[] {
-  const sectionMatch = xml.match(/<boris-primitives[\s\S]*?<\/boris-primitives>/);
+function parseFounderPrimitives(xml: string): FounderPrimitive[] {
+  const sectionMatch = xml.match(/<founder-primitives[\s\S]*?<\/founder-primitives>/);
   if (!sectionMatch) return [];
   const section = sectionMatch[0];
-  const out: BorisPrimitive[] = [];
+  const out: FounderPrimitive[] = [];
   const re = /<p\s+id="(P\d+)"\s+name="([^"]+)"\s*>([\s\S]*?)<\/p>/g;
   for (const m of section.matchAll(re)) {
     const [, id, name, body] = m;
@@ -97,11 +97,11 @@ function parseBorisPrimitives(xml: string): BorisPrimitive[] {
   return out;
 }
 
-function parseBorisDirectives(xml: string): BorisDirective[] {
-  const sectionMatch = xml.match(/<boris-directives[\s\S]*?<\/boris-directives>/);
+function parseFounderDirectives(xml: string): FounderDirective[] {
+  const sectionMatch = xml.match(/<founder-directives[\s\S]*?<\/founder-directives>/);
   if (!sectionMatch) return [];
   const section = sectionMatch[0];
-  const out: BorisDirective[] = [];
+  const out: FounderDirective[] = [];
   const re = /<d\s+id="(D\d+)"\s+applies="([^"]+)"\s+name="([^"]+)"\s*>([\s\S]*?)<\/d>/g;
   for (const m of section.matchAll(re)) {
     const [, id, applies, name, body] = m;
@@ -124,7 +124,7 @@ export function loadPosture(path: string = DEFAULT_POSTURE_PATH): Posture {
   return {
     version: readAttr(attrs, "version") || "0",
     date: readAttr(attrs, "date") || "",
-    borisPrimitives: parseBorisPrimitives(xml),
-    borisDirectives: parseBorisDirectives(xml),
+    founderPrimitives: parseFounderPrimitives(xml),
+    founderDirectives: parseFounderDirectives(xml),
   };
 }

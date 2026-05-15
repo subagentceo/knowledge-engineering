@@ -1,4 +1,4 @@
-# Plan — Boris Cherny posture refactor (2026-05-15+ session)
+# Plan — Founder posture refactor (2026-05-15+ session)
 
 ## Context
 
@@ -6,11 +6,11 @@ The operator is removing themselves from the PR-review loop and handing the lead
 
 The work is a **lens-and-discipline refactor** of the existing `knowledge-engineering` repo (130+ merged PRs, 30+ vendor mirrors, real Sandbox+Neon stack, OpenFeature, heartbeat memory). Two reference inputs:
 
-1. **Boris Cherny AI Ascent 2026 transcript** — 11 primitives (P1 product-overhang … P11 moats-shift) + 10 directives (D1 predicate-first … D10 seven-powers).
+1. **Founder talk (AI Ascent 2026) transcript** — 11 primitives (P1 product-overhang … P11 moats-shift) + 10 directives (D1 predicate-first … D10 seven-powers).
 2. **Operator addendum** — `support.claude.com` is not currently mirrored; 341 `/en/articles/*` URLs in `https://support.claude.com/sitemap.xml`; appending `.md` returns `text/markdown` (verified live this turn).
 
 The operator wants:
-- Refactor 2026-05-14/15 code to fit Boris primitives + directives, dogfooded against `vendor/` documentation.
+- Refactor 2026-05-14/15 code to fit founder primitives + directives, dogfooded against `vendor/` documentation.
 - TDD red/green/refactor cycle, ≥90% coverage, test citations.
 - Outcome-IDs (`O<N>`) on every commit; rubrics for every phase.
 - Plugins from `claude-official-plugins` re-written in our TS code standard rather than vendored verbatim.
@@ -37,7 +37,7 @@ Per operator directive, this orchestrator (me, Opus 4.7 1M) dispatches work to m
 | **Opus 4.7 fast mode** | Toggled via `/fast` in interactive sessions; in dispatch via the regular Opus model | Quick docstring/README polish; rubric drafts; commit-message authoring where a regular Opus turn is overkill |
 | **Haiku 4.5** (`model: haiku`) | `subagent_type: Explore` for filesystem searches; `general-purpose` for narrow lookups | Fan-out exploration: "find every file that imports `support-claude.ts`," "list test files missing a `@tdd` tag," "grep `vendor/` for the 16 collection slugs and report counts." 5-10 Haiku probes in parallel beat one Opus probe sequentially. |
 
-**Routine wiring.** The existing routines (`pr-babysitter`, `ci-healer`) stay on whatever model their `SKILL.md` already declares (default Opus). New routine added in Phase F: `coverage-sweeper` — runs nightly, dispatches Haiku fan-out to identify the lowest-coverage file under `src/lib/` and opens a draft PR with a TDD-red commit naming it. Cited from Boris's "loops are the future" (transcript 8:36-8:42) + `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w15.md` (`/loop` primitive).
+**Routine wiring.** The existing routines (`pr-babysitter`, `ci-healer`) stay on whatever model their `SKILL.md` already declares (default Opus). New routine added in Phase F: `coverage-sweeper` — runs nightly, dispatches Haiku fan-out to identify the lowest-coverage file under `src/lib/` and opens a draft PR with a TDD-red commit naming it. Cited from founder's "loops are the future" (transcript 8:36-8:42) + `vendor/anthropics/code.claude.com/docs/en/whats-new/2026-w15.md` (`/loop` primitive).
 
 **Context management.** Per the OAuth-only posture + `src/lib/token-counting.ts` (already shipped in PR #95): every Opus codegen call carries explicit `cache_control` on the posture XML system-prompt prefix via `SYSTEM_PROMPT_DYNAMIC_BOUNDARY`. Haiku fan-out probes do NOT cache (probes are diverse; cache would be a tax). `npm run context:budget` is the pre-flight check before every Opus dispatch.
 
@@ -57,13 +57,13 @@ Per operator directive, this orchestrator (me, Opus 4.7 1M) dispatches work to m
 Every PR in phases A–F decomposes as: **TASK → SUBTASK → TODO**, where each todo is a single atomic commit. Example for Phase A (A1):
 
 ```
-TASK O-A1: posture XML v3 lands with Boris primitives
+TASK O-A1: posture XML v3 lands with founder primitives
   SUBTASK: extend XML schema
-    TODO 1: add <primitives boris="true"> block with 11 P entries
-    TODO 2: add <directives boris="true"> block with 11 D entries
+    TODO 1: add <founder-primitives> block with 11 P entries
+    TODO 2: add <founder-directives> block with 11 D entries
     TODO 3: add <cite> sub-elements with chapter+ts ranges
   SUBTASK: backfill transcript citation
-    TODO 4: write seeds/citations/boris-cherny-ai-ascent-2026.md (chapters 1–10 with ts anchors)
+    TODO 4: write seeds/citations/founder-talk-2026.md (chapters 1–10 with ts anchors)
     TODO 5: cross-reference each P/D's <cite> against the citation file (verify:posture-cites)
   SUBTASK: rubric stub
     TODO 6: rubrics/phase-A.md — 5 criteria, all measurable
@@ -96,15 +96,15 @@ The operator's transcripted changelogs validate **all 9 SDK-feature primitives i
 - **G.12 (new)** — adopt **auto mode hard deny rules** (`settings.autoMode.hard_deny`, shipped 2.1.136) for the OAuth-only posture. The repo's existing `src/lib/safety-hooks.ts` `PreToolUse(Bash)` hook becomes belt-and-suspenders alongside the harness-level hard deny — both layers stay, since hard_deny runs before the hook and reduces noise.
 - **G.13 (new)** — `--plugin-url <url>` and `.zip` plugin archives (shipped week 19 / 2.1.129) replace some of the shallow-clone work in `scripts/install-plugins.ts`. Refactor in G9.c to prefer the built-in primitive over our custom Git sparse-checkout path when source is a `.zip` URL.
 
-### Phase A — Boris primitive lens onto posture XML (foundation)
+### Phase A — founder primitive lens onto posture XML (foundation)
 
-**Outcome:** every Boris primitive has a named `<primitive id="P*">` block in `seeds/posture/session-start.xml` v3 with cite-to-transcript-timestamp; every directive lands with `applies="P*,P*"`.
+**Outcome:** every founder primitive has a named `<primitive id="P*">` block in `seeds/posture/session-start.xml` v3 with cite-to-transcript-timestamp; every directive lands with `applies="P*,P*"`.
 
 | ID | What | Critical file |
 | :--: | :-- | :-- |
-| O-A1 | Posture XML v3: add 11 Boris primitives (P1–P11) + 11 directives (D1–D11) alongside existing 9 SDK-feature primitives. Cite transcript ts ranges as `<cite ch="<N>" ts="..."/>`. | `seeds/posture/session-start.xml` |
+| O-A1 | Posture XML v3: add 11 founder primitives (P1–P11) + 11 directives (D1–D11) alongside existing 9 SDK-feature primitives. Cite transcript ts ranges as `<cite ch="<N>" ts="..."/>`. | `seeds/posture/session-start.xml` |
 | O-A2 | `src/lib/posture.ts` — typed XML loader: `loadPosture()` → `{ primitives, directives, invariants, routines, sources }`. Pure-TS reader, no `xml2js` (file is hand-edited, well-formed by contract). | `src/lib/posture.ts` + `.test.ts` |
-| O-A3 | `src/lib/posture-shape.test.ts` — schema validator. Asserts: every `<p>` has id + name + ≥1 cite; every `<d>` has id + applies; cite-targets resolve to a real chapter+ts range in `seeds/citations/boris-cherny-ai-ascent-2026.md` (new). | `seeds/citations/boris-cherny-ai-ascent-2026.md` |
+| O-A3 | `src/lib/posture-shape.test.ts` — schema validator. Asserts: every `<p>` has id + name + ≥1 cite; every `<d>` has id + applies; cite-targets resolve to a real chapter+ts range in `seeds/citations/founder-talk-2026.md` (new). | `seeds/citations/founder-talk-2026.md` |
 
 **Rubric (`rubrics/phase-A.md`):** count(primitives) ≥ 20; count(directives) ≥ 11; every primitive cites the transcript; loader test 100% coverage.
 
@@ -168,12 +168,12 @@ The operator's transcripted changelogs validate **all 9 SDK-feature primitives i
 | O-G1 | **Turbopuffer admin invite runbook.** `docs/operator-runbooks/parallel-api-key.md` and `nimbleway-api-key.md` already reference a sister `turbopuffer-api-key.md` that doesn't exist. Create it with the alex@jadecli.com → admin@jadecli.com admin-invite flow per operator instruction. Operator-action issue surfaces in `docs/pending.md` Column 1. | `docs/operator-runbooks/turbopuffer-api-key.md` (new) |
 | O-G2 | **Inconsistent vendors.** `vendor/arkose-labs/`, `vendor/sentry/`, `vendor/twilio/` each have `crawl.json` but ZERO `.md` files and no `urls.md`. Per the Phase 2.B "deferred fallback strategies" history in `rubrics/phase-2.md`. Diagnose each and either re-crawl (preferred — vendor docs may now publish llms.txt) or document the explicit blocker in the crawl.json `note` field. | `vendor/{arkose-labs,sentry,twilio}/crawl.json` |
 | O-G3 | **Missing `rubrics/phase-14.md`.** Phase numbering jumps 13 → 15. Either ship the rubric (with `status: archived` if the phase was rolled into others) or document the renumbering in `rubrics/README.md`. | `rubrics/phase-14.md` (new) |
-| O-G4 | **Boris primitive ↔ skill mapping.** Posture XML v2 cites `/autofix-pr` and `/goal` as primitives but neither has a `.claude/skills/<name>/SKILL.md`. Either ship the skill scaffolds (operator-runbook style) or downgrade the cite to "tracked-but-not-implemented." Surface the gap in `rubrics/phase-A.md` so Phase A can fix it as part of the same XML rewrite. | `.claude/skills/{autofix-pr,goal}/SKILL.md` OR posture-XML edits |
+| O-G4 | **founder primitive ↔ skill mapping.** Posture XML v2 cites `/autofix-pr` and `/goal` as primitives but neither has a `.claude/skills/<name>/SKILL.md`. Either ship the skill scaffolds (operator-runbook style) or downgrade the cite to "tracked-but-not-implemented." Surface the gap in `rubrics/phase-A.md` so Phase A can fix it as part of the same XML rewrite. | `.claude/skills/{autofix-pr,goal}/SKILL.md` OR posture-XML edits |
 | O-G5 | **Delete deactivated `copilot.yml`.** Operator-confirmed via this session that GH Copilot PR feedback is OFF (PR #136). The workflow file is now load-bearing-noise. Remove it. The `vars.COPILOT_ENABLED` gate becomes unreachable; that's the point. | `.github/workflows/copilot.yml` (delete) |
 | O-G6 | **Archive stale session artifacts.** `docs/session-artifact.md` and `docs/session-2026-05-10.md` are from session-start and have not been touched in 5 days. Move to `docs/archive/` with a date prefix, OR delete if `git log -p` is sufficient history. | `docs/archive/` |
 | O-G7 | **Reconcile `seeds/citations/vendor-graph-v2.xml` with `vendor/`.** Catalogue has 30 entities; `vendor/` has 28 dirs (3 inconsistent per G2). Decide: does the catalogue list what *should* exist (in which case G2 must re-crawl), or what *does* exist (in which case the 3 entries get removed)? My read: catalogue is the target state; G2 closes the gap. | `seeds/citations/vendor-graph-v2.xml` |
 | O-G8 | **Coverage backfill for `src/lib/cache-control.ts` + `src/lib/docs-fetch.ts`.** These two `src/lib/` modules ship without test siblings. Surface as Phase B-final commits with TDD-red-first commits. | `src/lib/cache-control.test.ts`, `src/lib/docs-fetch.test.ts` (new) |
-| O-G9 | **Harness-thins refactor: 6 large scripts.** `scripts/crawl-vendors.ts` (772 LOC), `scripts/grade-phase.ts` (481 LOC), `scripts/mint-neon-api-secret.ts` (297 LOC), `scripts/setup-github-project.ts` (217 LOC), `scripts/install-plugins.ts` (213 LOC), `scripts/audit-neon-extensions.ts` (201 LOC) all violate Boris primitive P4 (harness-thins) + directive D4 (≤300 LOC orchestration modules). Extract logic into `scripts/lib/<topic>.ts`; CLIs become thin entry points. Phased over G9.a (crawl-vendors split), G9.b (grade-phase + mint-neon), G9.c (setup-github-project + install-plugins + audit-neon-extensions). | `scripts/lib/{crawler-runner,grader-runner,neon-rotation,gh-setup,plugin-installer,neon-audit}.ts` (new) |
+| O-G9 | **Harness-thins refactor: 6 large scripts.** `scripts/crawl-vendors.ts` (772 LOC), `scripts/grade-phase.ts` (481 LOC), `scripts/mint-neon-api-secret.ts` (297 LOC), `scripts/setup-github-project.ts` (217 LOC), `scripts/install-plugins.ts` (213 LOC), `scripts/audit-neon-extensions.ts` (201 LOC) all violate founder primitive P4 (harness-thins) + directive D4 (≤300 LOC orchestration modules). Extract logic into `scripts/lib/<topic>.ts`; CLIs become thin entry points. Phased over G9.a (crawl-vendors split), G9.b (grade-phase + mint-neon), G9.c (setup-github-project + install-plugins + audit-neon-extensions). | `scripts/lib/{crawler-runner,grader-runner,neon-rotation,gh-setup,plugin-installer,neon-audit}.ts` (new) |
 | O-G10 | **zod schemas at boundaries.** Only one zod schema in the codebase today (`src/lib/docs-fetch.ts`). Add schemas to: posture loader (Phase A), catalogue loader, vendor crawl-config, plugin manifest, goals.md parser, openfeature local-flags. Each adds 30–60 LOC + tests. | `src/lib/schemas/{posture,catalogue,crawl-config,plugins,goals,openfeature}.ts` (new) |
 
 **Rubric (`rubrics/phase-G.md`):** every flagged mismatch from the survey closes with either a fix or a documented decision; no `crawl.json`-without-content vendor remains; `find scripts -name "*.ts" -size +30k` returns empty; zod schema count ≥ 7.
@@ -195,14 +195,14 @@ The operator's transcripted changelogs validate **all 9 SDK-feature primitives i
 
 PRs A → B → C → D → E → F sequentially is safe but slow. Better: **A first (foundation), then B+C+E+G in parallel (no overlap in critical files), then D + F serially (D touches `.claude/plugins.json`; F touches branch protection — both want a clean main).**
 
-Phase G's items are independently parallelizable too — G1 (Turbopuffer runbook), G2 (3 inconsistent vendors), G3 (phase-14 rubric), G4 (Boris-skill mapping), G5 (delete copilot.yml), G6 (archive sessions), G7 (catalogue reconcile), G9.a/b/c (script splits) all touch disjoint files and can ship as small PRs in any order. G8 (coverage backfill) and G10 (zod schemas) overlap with Phase B and should follow B's coverage gate.
+Phase G's items are independently parallelizable too — G1 (Turbopuffer runbook), G2 (3 inconsistent vendors), G3 (phase-14 rubric), G4 (founder-skill mapping), G5 (delete copilot.yml), G6 (archive sessions), G7 (catalogue reconcile), G9.a/b/c (script splits) all touch disjoint files and can ship as small PRs in any order. G8 (coverage backfill) and G10 (zod schemas) overlap with Phase B and should follow B's coverage gate.
 
 Operator-side note: phase E (341 markdown files) bloats the repo `du -sh` by ~3-5 MB; this is in line with existing vendor mirrors (compare `vendor/claude-tutorials` at 118 pages).
 
 ## Critical files (master inventory)
 
 **Create:**
-- `seeds/citations/boris-cherny-ai-ascent-2026.md` (Phase A — transcript with chapter/ts anchors)
+- `seeds/citations/founder-talk-2026.md` (Phase A — transcript with chapter/ts anchors)
 - `src/lib/posture.ts` + `.test.ts`, `src/lib/posture-shape.test.ts` (Phase A)
 - `scripts/lib/tdd-stage.ts` + `.test.ts`, `scripts/verify-coverage.ts` (Phase B)
 - `src/agent/tool-registry.ts` + `.test.ts` (Phase C)
@@ -267,4 +267,4 @@ End-to-end proof: after Phase F merges, the operator should be able to comment `
 - `vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md` (rubric pattern, ODD)
 - `vendor/osv-scanner/google.github.io/osv-scanner/` (Phase F required-check rationale)
 - `https://support.claude.com/sitemap.xml` (Phase E — verified live this turn, 341 EN articles, `.md` returns `text/markdown`)
-- Boris Cherny — AI Ascent 2026 transcript (will land at `seeds/citations/boris-cherny-ai-ascent-2026.md` in Phase A)
+- the founder — AI Ascent 2026 transcript (will land at `seeds/citations/founder-talk-2026.md` in Phase A)
