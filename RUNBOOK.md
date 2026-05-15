@@ -96,7 +96,7 @@ Read these first (link via Chrome, no shell):
      Four operator-seed files (operator-2026-05-10.md + followup +
      heartbeat + autonomy + the 2026-05-15-mcp-multiplatform decomp).
 
-  6. https://github.com/subagentceo/knowledge-engineering/blob/main/.claude/skills/heartbeat.md
+  6. https://github.com/subagentceo/knowledge-engineering/blob/main/.claude/skills/heartbeat/SKILL.md
      The skill that defines per-tick procedure: read state → pick action
      → verify rubric gates → execute → open PR with auto-merge → record
      decision → yield. Used cross-session.
@@ -186,8 +186,8 @@ The hard constraint: **the web surface never modifies code directly**. It plans,
 - `docs/PROJECT.md` — Cowork-style project manifest
 - `docs/pending.md` — live action dashboard
 - `seeds/memory/heartbeat/README.md` — heartbeat memory store layout
-- `.claude/skills/heartbeat.md` — the heartbeat skill (per-tick procedure)
-- `.claude/skills/routines.md` — `/loop` + `/schedule` umbrella
+- `.claude/skills/heartbeat/SKILL.md` — the heartbeat skill (per-tick procedure)
+- `.claude/skills/routines/SKILL.md` — `/loop` + `/schedule` umbrella
 - `docs/operator-runbooks/README.md` — Claude-in-Chrome paste-prompts
 - `vendor/anthropics/code.claude.com/docs/en/platforms.md` — surface comparison
 

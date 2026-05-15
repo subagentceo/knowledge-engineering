@@ -49,9 +49,9 @@
   </discipline>
 
   <routines>
-    <umbrella file=".claude/skills/routines.md"/>
+    <umbrella file=".claude/skills/routines/SKILL.md"/>
     <alias of="/loop" file=".claude/loop.md"/>
-    <alias of="/schedule" file=".claude/skills/schedule-bridge.md"/>
+    <alias of="/schedule" file=".claude/skills/schedule-bridge/SKILL.md"/>
   </routines>
 
   <execution>

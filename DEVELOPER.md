@@ -80,7 +80,7 @@ disable-model-invocation: false
 ...
 ```
 
-See `.claude/skills/heartbeat.md` for the canonical example.
+See `.claude/skills/heartbeat/SKILL.md` for the canonical example. Skills live in directory form (`<name>/SKILL.md`) so the Agent SDK can discover them; see `vendor/anthropics/code.claude.com/docs/en/agent-sdk/claude-code-features.md`.
 
 ### Write a test (with `@cite` header)
 
@@ -107,7 +107,7 @@ Apply `automerge` label. The PR auto-merges when CI greens (Layer 1 enforcement)
 
 ### Run a heartbeat tick
 
-The heartbeat skill at `.claude/skills/heartbeat.md` is the cross-session orchestration loop. Each tick:
+The heartbeat skill at `.claude/skills/heartbeat/SKILL.md` is the cross-session orchestration loop. Each tick:
 
 1. Reads `seeds/memory/heartbeat/last-tick.md` + `next-actions.md`
 2. Picks the top action
