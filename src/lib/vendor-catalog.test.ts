@@ -87,7 +87,10 @@ const EXCLUDED_IDS = new Map<string, string>([
   ["anthropic-code", "covered by vendor/anthropics/ (multi-source)"],
   ["anthropic-claude-com", "covered by vendor/anthropics/ (multi-source)"],
   ["anthropic-claude-ai", "consumer artifact gallery; out of dev-docs chassis scope"],
-  ["anthropic-support", "Intercom-hosted end-user support; out of dev-docs chassis scope"],
+  // anthropic-support REMOVED from exclusions — Phase E mirrored 341 EN
+  // articles to vendor/claude-support/ via sitemap discovery + the new
+  // support-mdfirst transform. The dir alias below maps the catalog id
+  // to our chosen vendor-dir name.
   ["anthropic-marketing", "corporate marketing; covered by vendor/anthropic-engineering/ subset"],
   // mcp also has a special-cased dir name:
   ["mcp", "vendor dir is named modelcontextprotocol (covered)"],
@@ -103,6 +106,10 @@ const EXCLUDED_IDS = new Map<string, string>([
 const DIR_ALIASES = new Map<string, string>([
   ["arkose", "arkose-labs"],
   ["mcp", "modelcontextprotocol"],
+  // Phase E (O-E5): the v2 catalog entity id is anthropic_support; the
+  // vendor dir is named after the actual host (support.claude.com) for
+  // mirror-path readability.
+  ["anthropic_support", "claude-support"],
 ]);
 
 function vendorDirFor(entityId: string): string {
