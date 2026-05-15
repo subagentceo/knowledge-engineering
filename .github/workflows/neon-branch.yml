@@ -62,20 +62,15 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - name: Get branch expiration date as an env variable (2 weeks from now)
-        id: get_expiration_date
-        run: echo "EXPIRES_AT=$(date -u --date '+14 days' +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_ENV"
-
       - name: Create Neon Branch
         id: create_neon_branch
-        uses: neondatabase/create-branch-action@v6
+        uses: neondatabase/create-branch-action@v5
         with:
           project_id: ${{ vars.NEON_PROJECT_ID }}
           branch_name: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
           api_key: ${{ secrets.NEON_API_KEY }}
-          expires_at: ${{ env.EXPIRES_AT }}
 
-      # Surface the branch name + expiry in a PR comment so the heartbeat
+      # Surface the branch name in a PR comment so the heartbeat
       # orchestrator (and humans) can see what was provisioned. Important:
       # never log db_url / db_url_with_pooler — they contain credentials.
       - name: Comment branch info on PR
@@ -83,14 +78,12 @@ jobs:
         with:
           script: |
             const branchName = `preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}`;
-            const expires = '${{ env.EXPIRES_AT }}';
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: [
                 `Neon branch ready: \`${branchName}\``,
-                `Expires: \`${expires}\` (14d).`,
                 ``,
                 `Connection strings (pooled + unpooled) are emitted as job outputs for downstream steps. They are NOT printed in the workflow log — see Neon Console (project: divine-cloud-27295848) if you need to inspect them.`
               ].join('\n')
@@ -110,6 +103,19 @@ jobs:
 
       - name: Install deps
         run: npm ci --prefer-offline --no-audit
+
+      # Diagnostic: confirm the create-branch action populated db_url_with_pooler.
+      # Logs only length + presence — never the value (it's a credential).
+      # If this step fails, the env-var threading is broken regardless of v5/v6.
+      - name: Verify NEON_DATABASE_URL is populated
+        run: |
+          if [ -z "$NEON_DATABASE_URL" ]; then
+            echo "::error::NEON_DATABASE_URL is empty — db_url_with_pooler did not thread from create_neon_branch step. Action version may be writing outputs via the deprecated ::set-output protocol, or the output name differs from what v5/v6 docs claim."
+            exit 1
+          fi
+          echo "NEON_DATABASE_URL is set (length=${#NEON_DATABASE_URL})"
+        env:
+          NEON_DATABASE_URL: "${{ steps.create_neon_branch.outputs.db_url_with_pooler }}"
 
       - name: Run Migrations
         run: npx tsx scripts/migrate-neon.ts

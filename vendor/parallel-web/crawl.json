@@ -1,0 +1,14 @@
+{
+  "name": "parallel-web",
+  "homepage": "https://docs.parallel.ai/",
+  "llms_txt_candidates": [
+    "https://docs.parallel.ai/llms.txt"
+  ],
+  "transform": "append-md-and-accept",
+  "allow_prefixes": [
+    "https://docs.parallel.ai/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 60,
+  "llms_txt": "https://docs.parallel.ai/llms.txt"
+}

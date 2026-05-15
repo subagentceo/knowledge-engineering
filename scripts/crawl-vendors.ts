@@ -87,6 +87,12 @@ interface CrawlConfig {
   transform: TransformName;
   allow_prefixes: string[];
   deny_prefixes?: string[];
+  /**
+   * Maximum number of URLs from the source's allowlist-filtered set to
+   * crawl in one pass. `0` means **no cap** (sentinel; uncapped).
+   * Note: respect `maxRequestsPerMinute` (60) — even uncapped crawls
+   * remain polite.
+   */
   page_cap: number;
   /** Optional turndown options for `html-extract`. */
   html_extract?: { selector?: string };
@@ -225,14 +231,25 @@ function inAllowlist(url: string, cfg: CrawlConfig): boolean {
   return true;
 }
 
-function dedupeUrls(parsed: LlmsTxt): string[] {
+function dedupeUrls(parsed: LlmsTxt, baseUrl: string): string[] {
+  // Resolve relative URLs (e.g. twilio's llms.txt uses paths like
+  // `/docs/authy.md`) against the source's base URL so allow-prefix
+  // filtering sees absolute hrefs.
   const seen = new Set<string>();
   const out: string[] = [];
   for (const section of parsed.sections) {
     for (const link of section.links) {
-      if (seen.has(link.url)) continue;
-      seen.add(link.url);
-      out.push(link.url);
+      let resolved: string;
+      try {
+        resolved = new URL(link.url, baseUrl).toString();
+      } catch {
+        // Skip malformed URLs (e.g. `mailto:`, `javascript:`, or pure
+        // text that the parser regex matched).
+        continue;
+      }
+      if (seen.has(resolved)) continue;
+      seen.add(resolved);
+      out.push(resolved);
     }
   }
   return out;
@@ -300,7 +317,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   if (llms !== null) {
     const primaryParsed = parseLlmsTxt(llms.body);
     if (primaryParsed) {
-      for (const u of dedupeUrls(primaryParsed)) collectedUrls.add(u);
+      for (const u of dedupeUrls(primaryParsed, llms.url)) collectedUrls.add(u);
     }
   }
   for (const sourceUrl of cfg.llms_txt_sources ?? []) {
@@ -324,7 +341,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
         const target = resolve(VENDOR_ROOT, vendor, u.host, ...u.pathname.replace(/^\//, "").split("/"));
         writeIfChanged(target, body);
       }
-      for (const u of dedupeUrls(parsed)) collectedUrls.add(u);
+      for (const u of dedupeUrls(parsed, sourceUrl)) collectedUrls.add(u);
     } catch (err) {
       console.warn(`[${vendor}] additional source error: ${sourceUrl}: ${(err as Error).message}`);
     }
@@ -389,7 +406,8 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   }
 
   const urls = Array.from(collectedUrls);
-  const allowed = urls.filter((u) => inAllowlist(u, cfg)).slice(0, cfg.page_cap);
+  const effectiveCap = cfg.page_cap > 0 ? cfg.page_cap : Infinity;
+  const allowed = urls.filter((u) => inAllowlist(u, cfg)).slice(0, effectiveCap);
   console.log(`[${vendor}] ${urls.length} link(s) across all sources; ${allowed.length} after allowlist + page_cap`);
 
   if (allowed.length === 0) {
@@ -551,7 +569,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   const config = new Configuration({ persistStorage: false, persistStateIntervalMillis: 0, storageClientOptions: { storageDir: STORAGE_DIR } });
   const crawler = new CheerioCrawler(
     {
-      maxRequestsPerCrawl: cfg.page_cap,
+      maxRequestsPerCrawl: cfg.page_cap > 0 ? cfg.page_cap : undefined,
       maxRequestsPerMinute: 60,
       maxConcurrency: 4,
       requestHandlerTimeoutSecs: 30,

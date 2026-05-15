@@ -1,0 +1,14 @@
+{
+  "name": "gcp",
+  "homepage": "https://cloud.google.com/docs",
+  "llms_txt_candidates": [],
+  "transform": "append-md-and-accept",
+  "allow_prefixes": [
+    "https://cloud.google.com/docs/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 100,
+  "sitemap_xml_sources": [
+    "https://cloud.google.com/sitemap.xml"
+  ]
+}
