@@ -19,33 +19,15 @@
 // NOT DEPLOYED in this PR. Phase 8 brings the runner to a deployed state
 // after the operator-side Neon Console + Cloudflare secret-sync workflow.
 
-// NOTE: The package.json declares @cloudflare/sandbox and
-// @neondatabase/api-client but `npm install` is not run as part of this
-// Phase 0g scaffold. The imports below typecheck once those deps are
-// installed (Phase 8). Until then, `wrangler deploy --dry-run` validates
-// the manifest and the file shape.
-//
-// eslint-disable @typescript-eslint/no-unused-vars
+// Phase 8 (2026-05-15): replaced the Phase-0g type stubs with real imports.
+// @cloudflare/sandbox exports the Sandbox Durable Object class wrangler
+// looks for via the `Sandbox` DO binding declared in wrangler.jsonc.
+// Re-exporting it at the bottom of this file makes the export discoverable
+// from src/worker.ts (wrangler's entrypoint).
+import { Sandbox, getSandbox } from "@cloudflare/sandbox";
+import { createApiClient } from "@neondatabase/api-client";
 
-// Type-only imports keep the file shape complete without forcing the
-// dependencies to be installed for Phase 0 verification.
-type SandboxBinding = unknown;
-type Sandbox = {
-  exec: (cmd: string) => Promise<{ stdout: string; stderr: string; exitCode: number }>;
-  setEnvVars: (vars: Record<string, string>) => Promise<void>;
-};
-type GetSandbox = (binding: SandboxBinding, sessionId: string) => Sandbox;
-
-declare function getSandbox(binding: SandboxBinding, sessionId: string): Sandbox;
-declare class NeonApiClient {
-  constructor(config: { apiKey: string });
-  createProjectBranch(projectId: string, body: { branch: { name: string } }): Promise<{
-    data: {
-      branch: { id: string };
-      connection_uris: { connection_uri: string }[];
-    };
-  }>;
-}
+type SandboxBinding = DurableObjectNamespace<Sandbox<unknown>>;
 
 // Secrets Store binding shape per
 // https://developers.cloudflare.com/secrets-store/integrations/workers/
@@ -147,12 +129,12 @@ async function createNeonBranch(
   projectId: string,
   agentId: string
 ): Promise<{ databaseUrl: string; branchId: string }> {
-  const client = new NeonApiClient({ apiKey });
+  const client = createApiClient({ apiKey });
   const response = await client.createProjectBranch(projectId, {
     branch: { name: `agent-${agentId}` },
   });
   const branchId = response.data.branch.id;
-  const databaseUrl = response.data.connection_uris[0]?.connection_uri;
+  const databaseUrl = response.data.connection_uris?.[0]?.connection_uri;
   if (!databaseUrl) throw new Error("Neon branch created but no connection URI returned");
   return { databaseUrl, branchId };
 }
@@ -261,3 +243,9 @@ export default {
     return Response.json(response);
   },
 };
+
+// Phase 8: re-export the Sandbox Durable Object class so wrangler can
+// register it for the `Sandbox` DO binding declared in wrangler.jsonc.
+// The DO is implemented inside the @cloudflare/sandbox package; we just
+// surface it on this Worker's entrypoint so the binding resolves.
+export { Sandbox };
