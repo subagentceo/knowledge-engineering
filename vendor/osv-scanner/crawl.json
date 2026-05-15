@@ -1,0 +1,22 @@
+{
+  "name": "osv-scanner",
+  "homepage": "https://google.github.io/osv-scanner/",
+  "llms_txt_candidates": [],
+  "html_index_sources": [
+    {
+      "url": "https://google.github.io/osv-scanner/",
+      "link_regex": "href=\"(/osv-scanner/[a-z0-9][a-z0-9-/.]*)\""
+    }
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://google.github.io/osv-scanner/"
+  ],
+  "deny_prefixes": [
+    "https://google.github.io/osv-scanner/assets/"
+  ],
+  "page_cap": 50,
+  "html_extract": {
+    "selector": "main"
+  }
+}

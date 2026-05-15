@@ -1,0 +1,9 @@
+# [](#contribute)Contribute
+
+## [](#report-problems)Report Problems
+
+If you have what looks like a bug, please use the [GitHub issue tracking system](https://github.com/google/osv-scanner/issues). Before you file an issue, please search existing issues to see if your issue is already covered.
+
+## [](#contributing-to-osv-scanner)Contributing to `osv-scanner`
+
+See [CONTRIBUTING.md](https://github.com/google/osv-scanner/blob/main/CONTRIBUTING.md) for general contribution information and for details on how to contribute [code](https://github.com/google/osv-scanner/blob/main/CONTRIBUTING.md/#contributing-code) and [documentation](https://github.com/google/osv-scanner/blob/main/CONTRIBUTING.md/#contributing-documentation).
