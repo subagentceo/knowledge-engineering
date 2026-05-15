@@ -17,7 +17,7 @@
 | :-: | :--- | :--- | :--- |
 | #38 | Phase 12 Connector decision | operator-decision | **Phase 0.1** |
 | #16 | Phase 12 Connector (long-arc) | operator-decision (paired with #38) | **Phase 0.1** |
-| #36 | Code scanning toggle | operator-runbook (browser) | **Phase 0.2** |
+| #36 | Code scanning toggle | DELIBERATELY SKIPPED (OSV-Scanner is the chosen path) | **Phase 0.2** (closed won't-fix) |
 | #33 | CF API token | operator-runbook (Chrome) | **Phase 1.1** |
 | #34 | CF account ID + worker name | operator-runbook (Chrome) | **Phase 1.2** |
 | #12 | Phase 8 C4 (CF Sandbox deploy) | depends on #33 + #34 | **Phase 1.3** |
@@ -55,23 +55,22 @@ decision: ship public — proceed
 
 ---
 
-### Step 0.2 — Enable code scanning (closes #36)
+### Step 0.2 — Code scanning toggle (deliberately SKIPPED; closes #36 as won't-fix)
 
-**Pre-condition:** none beyond admin on `subagentceo/knowledge-engineering`.
+**Operator decision (2026-05-15):** GitHub Advanced Security / Code Scanning is a paid feature; the repo deliberately uses **`.github/workflows/osv-scanner.yml`** (Google OSV-Scanner) as the dependency-vuln gate instead. OSV-Scanner runs on every PR + weekly cron and fail-on-vuln gates merges via exit code. The only thing skipped is the SARIF Security-tab UI; the gate is unchanged.
 
-**Citation:** `docs/operator-runbooks/code-scanning-toggle.md`.
+The workflow's `upload-sarif: false` is now intentional and documented in the YAML comment.
 
-**Operator action — Claude-in-Chrome (Opus 4.7, ~2 min):**
+**Verification:**
 
+```bash
+# Confirm OSV-Scanner is the chosen path
+gh workflow view osv-scanner.yml
+# Confirm it ran on the most recent PR
+gh run list --workflow osv-scanner.yml --limit 5
 ```
-claude --chrome
-```
 
-Paste the runbook's prompt block. The agent flips Settings → Security → Code scanning to enabled. Confirm 2FA on github.com when paused.
-
-**Verification:** comment on #36 with `code scanning enabled`. The heartbeat will open a follow-up PR flipping `upload-sarif: false` → `true` in `.github/workflows/osv-scanner.yml` (both jobs).
-
-**Agent follow-up:** once the operator's comment lands, the agent opens the YAML flip PR. After that merges, SARIF results appear in the repo Security tab.
+**Agent follow-up:** #36 closed as won't-fix (alt path chosen). No further action.
 
 ---
 
@@ -270,7 +269,7 @@ The operator can clear the entire queue in ~30 active minutes of browser work, f
 
 ```
 Phase 0.1  (1 min)  →  #38 / #16 closed
-Phase 0.2  (2 min)  →  #36 unblocked, follow-up YAML PR fires
+Phase 0.2  (0 min)  →  #36 closed as won't-fix (OSV-Scanner is the chosen path)
 ─────── ~5 min mark
 Phase 1.1  (5 min)  →  #33 closed, CF API token in place
 Phase 1.2  (3 min)  →  #34 closed, account ID + worker name in place
