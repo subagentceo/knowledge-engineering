@@ -1,0 +1,1 @@
+If you’re unable to locate the Claude app in your Play Store, you may be located in an [unsupported region](https://support.anthropic.com/en/articles/8461763-where-can-i-access-claude-ai), using an unsupported device, or using an unsupported version of Android.
