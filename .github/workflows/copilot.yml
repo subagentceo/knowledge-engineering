@@ -1,27 +1,28 @@
 # .github/workflows/copilot.yml
 #
-# GitHub Copilot Autofix support. Conditional on the repo variable
-# vars.COPILOT_ENABLED == 'true'. Inert when Copilot is not enabled,
-# so committing this file is safe whether or not the operator has
-# Copilot turned on.
+# GitHub Copilot Autofix support — DEACTIVATED 2026-05-15 per operator
+# directive: "turn off the github copilot pull request feedback. it's
+# low quality and causing errors."
+#
+# Two layers of defense so this stays off:
+#   1. vars.COPILOT_ENABLED gate (preserved from v1) — every job checks
+#      this var, so leaving it unset is the kill switch.
+#   2. Triggers narrowed to workflow_dispatch only (this change) — the
+#      workflow no longer runs on pull_request_target or issues, so even
+#      if the var ever flips to 'true' nothing fires automatically.
+#
+# To re-enable later:
+#   1. Restore the pull_request_target / issues triggers in this file.
+#   2. Set vars.COPILOT_ENABLED=true via `gh variable set`.
 #
 # Cited from seeds/prompts/operator-2026-05-10-autonomy.md ("GitHub
-# Copilot workflow actions if copilot is enabled").
-#
-# Two surfaces:
-#   1. Autofix on code-scanning alerts (suggest fixes for CodeQL +
-#      OSV-Scanner findings from osv-scanner.yml).
-#   2. Issue → branch + draft PR (when the heartbeat assigns Copilot as
-#      an alternate fixer for tractable, non-architectural issues).
+# Copilot workflow actions if copilot is enabled"). The "if enabled"
+# clause is now resolved: not enabled.
 
 name: copilot
 
 on:
-  pull_request_target:
-    types: [opened, reopened, synchronize]
-    branches: [main]
-  issues:
-    types: [labeled]
+  # Auto-triggers removed 2026-05-15. Manual fire only.
   workflow_dispatch:
 
 permissions:
