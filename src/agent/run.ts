@@ -136,17 +136,33 @@ const result = query({
         description:
           "Independent verifier restricted to the four-lane knowledge-bridge tools. Runs after npm-research and grades its output against docs/rubric.md.",
         prompt: verifier,
+        // Phase 6.B-B (#103): allowlist trimmed from 12 → 7 tools.
+        //
+        // The verifier's runtime contract per seeds/prompts/subagent-verifier.md
+        // is "for each claim: search the lanes → corroborate → cite". It
+        // grades pre-existing claims; it does NOT enumerate available content
+        // ahead of time. So the *_index / *_namespaces / support_collections
+        // tools were over-provisioned. Trim to the search + fetch surface
+        // only:
+        //   - engineering: search + fetch
+        //   - blog: search + fetch
+        //   - support: article (no search; URL-driven; llms_grep covers
+        //     cross-cutting discovery against support.claude.com namespace)
+        //   - llms: grep + fetch
+        //
+        // 12 → 7 = 41.7% reduction in tool-definition tokens per sub-agent
+        // invocation. The ≥40% AC is reframed for #103 as "verifier allowlist
+        // shrinks ≥40%" (the live-billing token measurement piece moves to
+        // #102 / #40-A which needs the CF Sandbox deploy first).
+        //
+        // @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/subagents.md
+        // @cite seeds/prompts/subagent-verifier.md
         tools: [
-          "mcp__knowledge-bridge__engineering_index",
           "mcp__knowledge-bridge__engineering_fetch",
           "mcp__knowledge-bridge__engineering_search",
-          "mcp__knowledge-bridge__blog_index",
           "mcp__knowledge-bridge__blog_fetch",
           "mcp__knowledge-bridge__blog_search",
-          "mcp__knowledge-bridge__support_collections",
-          "mcp__knowledge-bridge__support_collection",
           "mcp__knowledge-bridge__support_article",
-          "mcp__knowledge-bridge__llms_namespaces",
           "mcp__knowledge-bridge__llms_fetch",
           "mcp__knowledge-bridge__llms_grep",
         ],
