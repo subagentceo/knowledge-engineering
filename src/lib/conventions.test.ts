@@ -15,8 +15,12 @@
  *
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
- * @cite docs/CONVENTIONS.md
- * @cite https://www.conventionalcommits.org/
+ *
+ * Cross-references (not part of the citation-guard scope: must point at
+ * vendor/, seeds/, or rubrics/):
+ *
+ *   - docs/CONVENTIONS.md — the convention this test enforces
+ *   - https://www.conventionalcommits.org/ — upstream spec
  */
 
 import { execSync } from "node:child_process";
