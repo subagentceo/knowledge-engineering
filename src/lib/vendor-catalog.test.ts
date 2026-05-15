@@ -208,7 +208,8 @@ const LEGACY_ALLOW = new Set([
   "claude-customers",      // Phase 13.D — claude.com/customers case studies
   "claude-plugins",        // Phase 13.D — claude.com/plugins directory
   "claude-connectors",     // Phase 13.D — claude.com/connectors directory
-  "claude-tutorials",      // Phase 13.D — claude.com/tutorials (JS-rendered; 0-page first crawl)
+  "claude-tutorials",      // Phase 13.D — claude.com/tutorials (sitemap fix → 118 pages)
+  "osv-scanner",           // 2026-05-15 — chassis vuln-gate dependency; not in v2 catalog
 ]);
 
 check("every vendor/<dir>/crawl.json maps to a catalog entity (modulo legacy allow-list)", () => {

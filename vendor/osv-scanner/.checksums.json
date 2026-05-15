@@ -1,0 +1,128 @@
+{
+  "https://google.github.io/osv-scanner/configuration/": {
+    "sha256": "2623f91b8853cae20e66d3f166b0fbb10557959ac78a478dd01a67072d26b7b3",
+    "etag": "W/\"69fd7527-58b1\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/contribute/": {
+    "sha256": "0c07e286d3fb8c035be6a9c6e8c98c7c0f69dc87633d4a24319c39a7b210b341",
+    "etag": "W/\"69fd7527-33dc\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/experimental/": {
+    "sha256": "37dda4176e1bf1851fe834368fe9d314440f93cac7485afc7dd5ddebf0936208",
+    "etag": "W/\"69fd7527-32a1\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/experimental/flag-deprecated-packages/": {
+    "sha256": "1e1da1025255a7865fa09bad738f623c7d13188f7d94a192e52d83b61902229c",
+    "etag": "W/\"69fd7527-4c99\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/experimental/guided-remediation/": {
+    "sha256": "c93a62cd2738119374d6be68285f79826beb64f357bd02cc0cb3da3d61b48390",
+    "etag": "W/\"69fd7527-171a8\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/experimental/manual-plugin-selection/": {
+    "sha256": "e3727c39335d178b1952d196965dbcff2112a3ba2dee6d8080914e5ea83ecce7",
+    "etag": "W/\"69fd7527-753c\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/experimental/osv-reporter/": {
+    "sha256": "0616757f376428882b161713d96ef1ece01221d78095349e1766b2173350362a",
+    "etag": "W/\"69fd7527-3907\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/github-action/": {
+    "sha256": "643999ae9a0e777083878615dedf50eb650e7439a0ace86a37cf4c1363d4ad7e",
+    "etag": "W/\"69fd7527-94bd\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/installation/": {
+    "sha256": "393aae0a00cb911a84c464e43500ce45b8efbf1a7a576b1faf52e7a7011a2187",
+    "etag": "W/\"69fd7527-49f8\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/migrating-from-scalibr.html": {
+    "sha256": "711a29ecf7cbf9ff4b518d4d011683d5a3477582e3833e68d7ce2e2daedc0fa3",
+    "etag": "W/\"69fd7527-63e0\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/migration-guide.html": {
+    "sha256": "fbee0a04bbdb688fc5caec65db6db36b1ad556cf9ea4033b4aae00c3f3c4fdd2",
+    "etag": "W/\"69fd7527-444a\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/output/": {
+    "sha256": "2361cd80a3136e7fcf1bb6ed0ea5243846b0bbd776f89423ae92228e84b8e3f9",
+    "etag": "W/\"69fd7527-173c6\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/supported-languages-and-lockfiles/": {
+    "sha256": "a416d18229df8e8ffa3610ea54cbd552e0b79734a0088deaf349782af7d9fd8e",
+    "etag": "W/\"69fd7527-73b1\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/usage/": {
+    "sha256": "396a25a6951e7349fd00c130daf63775d0aec236286a6eee76383545497d43b8",
+    "etag": "W/\"69fd7527-7986\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/usage/license-scanning/": {
+    "sha256": "e61217a689a075b7b1ff402eac2f196a2f36b0cf1c1b212aa168833b06634533",
+    "etag": "W/\"69fd7527-3f1c\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/usage/offline-mode/": {
+    "sha256": "16ff0877065d66e27dc70343feed6a6e6d34bad50070bfa916f83988bacd65e1",
+    "etag": "W/\"69fd7528-4c1b\"",
+    "lastModified": "Fri, 08 May 2026 05:31:20 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/usage/scan-image": {
+    "sha256": "fbc6d640bfc64d8665c0d37524cafc891e2923e3f3f76f2ef7e3cf081ca00863",
+    "etag": "W/\"69fd7527-69f1\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  },
+  "https://google.github.io/osv-scanner/usage/scan-source": {
+    "sha256": "ba275b42b4d6e11f514097383a8fe45cb0abd9ccd4ba2724ef1e2e63e82d668d",
+    "etag": "W/\"69fd7527-6f52\"",
+    "lastModified": "Fri, 08 May 2026 05:31:19 GMT",
+    "fetchedAt": "2026-05-15T07:19:16.708Z",
+    "lastStatus": 200
+  }
+}

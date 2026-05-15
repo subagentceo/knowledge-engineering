@@ -41,6 +41,7 @@ See [`DEVELOPER.md`](DEVELOPER.md) for the full first-time setup + day-to-day wo
 | [`CONTRIBUTING.md`](CONTRIBUTING.md) | Forking-founder onboarding + PR discipline |
 | [`docs/architecture.md`](docs/architecture.md) | Runtime topology |
 | [`docs/governance.md`](docs/governance.md) | Branch ruleset + auto-merge state machine |
+| [`docs/security.md`](docs/security.md) | OSV-Scanner dependency-vuln gate posture |
 | [`docs/context-management.md`](docs/context-management.md) | Token counting, cache boundary, settingSources, safety hooks |
 | [`docs/CONVENTIONS.md`](docs/CONVENTIONS.md) | Outcome-driven Conventional Commits |
 | [`docs/PROJECT.md`](docs/PROJECT.md) | Cowork-style project manifest |

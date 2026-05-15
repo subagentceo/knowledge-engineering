@@ -1,13 +1,21 @@
 # .github/workflows/osv-scanner.yml
 #
-# OSV-Scanner (Google) auto-discovers lockfiles under the repo root.
-# Cited from:
+# OSV-Scanner (Google) — open-source dependency vuln gate.
+# Checks lockfiles against the OSV.dev database, which aggregates
+# advisories from GHSA, npm, PyPI, RustSec, Go vulndb, OSS-Fuzz, etc.
+#
+# Cited from (local mirror):
+#   vendor/osv-scanner/google.github.io/osv-scanner/github-action/index.md
+#   vendor/osv-scanner/google.github.io/osv-scanner/configuration/index.md
+#   vendor/osv-scanner/google.github.io/osv-scanner/usage/index.md
+# Upstream:
 #   https://osv.dev/
 #   https://google.github.io/osv-scanner/
 #   https://github.com/google/osv-scanner
+#   https://github.com/google/osv-scanner-action/releases (track here)
 #
-# Runs on every PR + weekly cron. On main pushes, uploads SARIF to the
-# GitHub Security tab.
+# Runs on every PR + weekly cron. Fail-on-vuln gates merges via exit code.
+# SARIF upload is deliberately disabled (see comment near upload-sarif).
 #
 # Note: infra/cloudflare/package.json has no lockfile yet (npm install
 # is run only at deploy time per docs/governance.md). We let OSV-Scanner
@@ -39,7 +47,7 @@ jobs:
   scan-pr:
     if: github.event_name == 'pull_request'
     name: OSV-Scanner (PR)
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.5
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.8
     with:
       scan-args: |-
         -r
@@ -55,7 +63,7 @@ jobs:
   scan-main:
     if: github.event_name != 'pull_request'
     name: OSV-Scanner (push / schedule)
-    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.5
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.8
     with:
       scan-args: |-
         -r
