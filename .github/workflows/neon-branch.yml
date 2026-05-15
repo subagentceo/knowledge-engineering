@@ -104,6 +104,19 @@ jobs:
       - name: Install deps
         run: npm ci --prefer-offline --no-audit
 
+      # Diagnostic: confirm the create-branch action populated db_url_with_pooler.
+      # Logs only length + presence — never the value (it's a credential).
+      # If this step fails, the env-var threading is broken regardless of v5/v6.
+      - name: Verify NEON_DATABASE_URL is populated
+        run: |
+          if [ -z "$NEON_DATABASE_URL" ]; then
+            echo "::error::NEON_DATABASE_URL is empty — db_url_with_pooler did not thread from create_neon_branch step. Action version may be writing outputs via the deprecated ::set-output protocol, or the output name differs from what v5/v6 docs claim."
+            exit 1
+          fi
+          echo "NEON_DATABASE_URL is set (length=${#NEON_DATABASE_URL})"
+        env:
+          NEON_DATABASE_URL: "${{ steps.create_neon_branch.outputs.db_url_with_pooler }}"
+
       - name: Run Migrations
         run: npx tsx scripts/migrate-neon.ts
         env:
