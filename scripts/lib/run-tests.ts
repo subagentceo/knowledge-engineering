@@ -35,8 +35,16 @@ function listTests(dir: string): string[] {
   }
   const out: string[] = [];
   for (const entry of entries) {
+    const path = resolve(dir, entry.name);
+    if (entry.isDirectory()) {
+      // Phase G (O-G10): recurse into subdirectories so tests beside
+      // schemas/, routines/, etc. are auto-discovered.
+      if (entry.name === "node_modules") continue;
+      out.push(...listTests(path));
+      continue;
+    }
     if (entry.isFile() && /\.test\.[mc]?[jt]sx?$/.test(entry.name)) {
-      out.push(resolve(dir, entry.name));
+      out.push(path);
     }
   }
   return out.sort();
