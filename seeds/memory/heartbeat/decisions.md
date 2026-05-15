@@ -5,6 +5,31 @@ description: Append-only log of decisions the orchestrator made, with date + tic
 
 # Decisions log
 
+## 2026-05-15 — tick 2 (execute next-actions #1)
+
+### D5. Two-bug fix in `scripts/crawl-vendors.ts`; vendor markdown re-sync deferred
+
+**Decision:** Ship the code fix (`page_cap` sentinel + relative-URL resolution) and the four config updates in this PR. Do NOT include the resulting vendor markdown re-sync content in the same PR.
+
+**Reasoning:**
+- The smoke test locally produced ~317 new vendor files (twilio +200, sentry +117). Mixing them with the code fix would expand the PR from a clean 5-file code review to a 300+-file content review.
+- PR #64 (the vendor re-sync from earlier this session) is still open and operator-driven. Adding more vendor content here would conflict.
+- A follow-up tick or PR can run `npm run crawl:vendors` against the fixed code and produce a clean content-only commit.
+
+**Reversible:** Yes; the markdown is reproducible from the source.
+
+### D6. Sift remains "miss" — distinct vendor-specific bug
+
+**Observation:** After the two fixes, twilio and sentry both unblocked cleanly. Sift's llms.txt parses to 674 links, all pass relative-URL resolution to absolute, but 0 pass the `allow_prefixes: ["https://sift.com/developers/"]` filter. This means sift's llms.txt actually points to URLs on different paths (likely `sift.com/api/...` or similar).
+
+**Decision:** Don't fix sift in this tick — it requires inspecting the actual link URLs and either broadening the allowlist or pointing at a different llms.txt source. Logged as a new entry on the queue.
+
+### D7. brave-search needs sitemap fallback — Phase 13.B O2 anchor
+
+**Observation:** `brave-search` returned `no valid llms.txt found in 2 candidate(s)`. Their site doesn't publish llms.txt at the configured URLs. The repo already has `sitemap_xml_sources` and `html_index_sources` mechanisms (used by openfeature and anthropic-engineering respectively).
+
+**Decision:** Add a sitemap source to brave-search's crawl.json — separate tick (it's in the queue as action #3).
+
 ## 2026-05-15 — tick 1 (bootstrap)
 
 ### D1. No GHA cron for heartbeat — webhook-only trigger surface

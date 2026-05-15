@@ -13,7 +13,7 @@
   "deny_prefixes": [
     "__DEFER_TO_PHASE_2B__"
   ],
-  "page_cap": 0,
+  "page_cap": 50,
   "html_extract": {
     "selector": "main"
   }
