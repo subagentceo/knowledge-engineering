@@ -1,112 +1,129 @@
 ---
-tick: 5
-iso: 2026-05-15T04:15:00Z
+tick: 7
+iso: 2026-05-15T04:35:00Z
 git_sha: pending (this PR)
 session: claude.ai/code/session_9d8f8432-101f-466f-9c31-b1021ea934e7
-trigger: operator-direct ("safely add these to the crawl by patching ...")
-prev_tick: 4 (PR #69 — merged as 75681a3)
+trigger: operator-direct (audit auto-merge gap + update open PR branches)
+prev_tick: 6 (PR #71 — content) and tick 5 (PR #72 — ws fix; merged as 3855a1d)
 ---
 
-# Tick 5 — Phase 16 verified vendor coverage
+# Tick 7 — auto-merge gap audit + 4 PR updates + Neon end-to-end win
 
-Operator-direct request: extend the crawl coverage based on the v2
-vendor_graph catalogue + verification-pass patches.
+The operator's most recent directive bundled three asks:
 
-Operator constraint: "treat user prompt as starting point but dogfood
-what we created in this long running agent session and refactor code
-and update the codebase to avoid introducing new code if its not
-needed."
+1. **Update open PR branches to origin/main** — PRs #59, #62, #64, #68.
+2. **Investigate merged PRs starting with #60** — auto-merge fired without full green CI.
+3. **Decompose + fix** the resulting CI/CD gap.
 
-Operator constraint: "decompose user prompt into tasks, subtasks, and
-todos in session that are all their own commits."
+## Outcome
 
-Operator constraint: "use the outcome + rubric approach we dogfood
-created for outcome driven development to include citations in tests
-to write first."
+All three completed in this tick. The full per-PR Neon flow now works
+end-to-end for the first time since PR #58 wired it in (2026-05-10).
 
-## Outcome-driven discipline executed
+## Audit findings (Task B)
 
-This tick is the worked example of the repo's TDD + rubric pattern:
+`mcp__github__pull_request_read get_check_runs` on each merged PR
+today confirmed the operator's claim:
 
-1. **Citation source first.** Saved the patched v2 catalogue at
-   `seeds/citations/vendor-graph-v2.xml` (commit 1/8).
-2. **Outcome rubric second.** `rubrics/phase-16.md` (commit 2/8).
-3. **Failing test third.** `src/lib/vendor-catalog.test.ts` (commit
-   3/8) — TDD red phase: 7 failures asserting that missing vendor
-   configs need to exist.
-4. **Configs that make the test pass, one per commit.** Commits 4–7
-   each turn one failure green.
-5. **Heartbeat state update last.** This file (commit 8/8).
+| PR | `Create Neon Branch` at merge | `npm run verify` | `claude-review` | Merged? |
+| :---: | :---: | :---: | :---: | :---: |
+| #60 | ❌ failure | ✅ | ✅ | yes (auto-merge) |
+| #63 | ❌ failure | ✅ | ✅ | yes |
+| #65 | ❌ failure (assumed) | ✅ | ✅ | yes |
+| #66 | ❌ failure (assumed) | ✅ | ✅ | yes |
+| #67 | ❌ failure (assumed) | ✅ | ✅ | yes |
+| #69 | ❌ failure | ✅ | ✅ | yes |
+| #70 | ❌ failure | ✅ | ✅ | yes |
 
-## Commits in this PR (#70)
+`Create Neon Branch` was red on every merged PR. Auto-merge fired
+anyway because branch protection isn't in place (operator action #37
+— `setup:branch-protection`, gated on PAT runbook).
 
-| # | Path | Purpose |
-| :-- | :--- | :--- |
-| 1/8 | `seeds/citations/vendor-graph-v2.xml` | Patched v2 catalog as citation source |
-| 2/8 | `rubrics/phase-16.md` | Verified Vendor Coverage rubric (7 criteria) |
-| 3/8 | `src/lib/vendor-catalog.test.ts` | TDD red — failing coverage test |
-| 4/8 | `vendor/brave-search/crawl.json` | NXDOMAIN fix (api-docs.search.brave.com) |
-| 5/8 | `vendor/aws/crawl.json` | NEW — docs.aws.amazon.com/llms.txt |
-| 6/8 | `vendor/{opentelemetry,spotify-confidence,parallel-web,nimble}/crawl.json` | NEW — 4 ecosystem llms.txt vendors |
-| 7/8 | `vendor/{gcp,iterable}/crawl.json` | NEW — 2 sitemap-only fallback vendors |
-| 8/8 | `seeds/memory/heartbeat/last-tick.md` | This tick record |
+## Root causes — two distinct layers
 
-## Code reuse — no new infrastructure
+### Layer 1 — agent-fixable (DONE in PR #72)
 
-Per operator's "avoid introducing new code if not needed":
+**`Create Neon Branch` consistently failed** because Node 20 doesn't
+expose a global `WebSocket` constructor, and `@neondatabase/serverless`
+`Pool` needs one to open its protocol WebSocket on first query.
 
-- ✅ Reused existing `crawl.json` schema (transform, allow_prefixes,
-  page_cap, llms_txt_candidates, sitemap_xml_sources, html_index_sources).
-- ✅ Reused existing crawler (`scripts/crawl-vendors.ts`) — no
-  changes. Tick 2 fixes (page_cap sentinel + relative-URL resolution)
-  already handle the new vendor URL patterns.
-- ✅ Reused existing test runner (`scripts/lib/run-tests.ts`) —
-  auto-discovers `src/lib/vendor-catalog.test.ts`.
-- ✅ Reused existing citation-guard pattern (`@cite` headers in test
-  file pointing at the v2 XML and the rubric).
-- ✅ Reused existing rubric structure (`rubrics/phase-N.md` with
-  criteria + outcome).
-- ✅ Reused existing heartbeat memory layout (`seeds/memory/heartbeat/`).
-- ❌ No new dep introduced (XML parsed via regex, not via a library).
+PR #69's retry layer just retried the same broken connect 5 times
+and exhausted with `TypeError: fetch failed` / `All attempts to open
+a WebSocket to connect to the database failed`.
 
-## Test status
+**Fix:** PR #72 — install `ws` + `@types/ws`, wire
+`neonConfig.webSocketConstructor = ws` once per process.
+
+**Verification:** PR #64's first run post-merge produced a **Neon
+Schema Diff comment** for the first time — the full chain works:
 
 ```
-20 passed, 0 failed
+Create Neon Branch        ✅ neondatabase/create-branch-action@v5
+Run Migrations            ✅ scripts/migrate-neon.ts (vendor_pages)
+Post Schema Diff Comment  ✅ neondatabase/schema-diff-action@v1
 ```
 
-All catalog coverage assertions green. 21 vendors total tracked
-(was 14 before this PR; +7 new).
+The schema diff posted to PR #64 showed `vendor_pages` (with PK +
+2 indexes) cleanly added vs production.
 
-## Verify status
+### Layer 2 — operator-fixable (PENDING)
 
-```
-21 vendor(s) | 0 warning(s) | 0 error(s)
-```
+**Branch protection ruleset not in place** → no required checks →
+auto-merge fires immediately on label, without waiting. Operator
+action #37 (`GITHUB_TOKEN=<pat> npm run setup:branch-protection`)
+is the remedy. Gated on PAT runbook (`docs/operator-runbooks/github-pat.md`).
 
-Existing fresh vendors unchanged. 10 vendors show "miss" in
-verify:freshness — that's expected: they don't have urls.md yet
-because the actual crawl is **Phase 16.B** (next tick / PR #71).
+Even with PR #72 making `Create Neon Branch` green, the auto-merge
+gap remains until branch protection is enabled.
 
-## What this PR does NOT ship
+## Task A — PR branch updates (DONE)
 
-Per the heartbeat tick-2 decision D5 (don't mix code-fix PRs with
-content re-syncs), this PR ships **only the configs + test + rubric**.
-The actual crawl that produces `vendor/<name>/urls.md` + markdown
-content lands in a separate PR (Phase 16.B / PR #71 / tick 6).
+| PR | Title | Method | State |
+| :---: | :--- | :--- | :---: |
+| #59 | snapshot draft | API `update_pull_request_branch` (×2) | ✅ updated |
+| #62 | Phase 14 decomposition | API `update_pull_request_branch` (×2) | ✅ updated |
+| #64 | vendor re-sync (workos+elevenlabs) | local merge — sentry `page_cap` conflict resolved (took main's 150) | ✅ updated |
+| #68 | content tick 3 (twilio+sentry) | local merge — `last-tick.md` conflict resolved (took main's tick 5) | ✅ updated |
 
-## Next tick (Phase 16.B)
+#59 + #62 were updated twice because my first call ran BEFORE PR #72
+merged. The second call picked up #72's ws fix.
 
-Run `npm run crawl:vendors` against the new configs, commit the
-content per the tick-3 / PR #68 pattern. Expected new content:
+## What this PR ships
 
-- `aws/` — ~200 pages (large surface)
-- `opentelemetry/` — ~200 pages
-- `spotify-confidence/` — ~60 pages
-- `parallel-web/` — ~60 pages (single docs surface)
-- `nimble/` — ~60 pages
-- `gcp/` — up to ~100 pages (sitemap-derived)
-- `iterable/` — up to ~60 pages (sitemap-derived)
+- This `last-tick.md` (tick 7 record).
 
-Plus the already-passing existing vendors (brave-search now points at
-the right URL; should pick up content via html-index discovery).
+That's it — a single-file commit recording the audit + outcomes. The
+actual fixes shipped in PR #72 + the 4 PR branch updates.
+
+## Spotify-confidence partial crawl note
+
+Tick 6 (PR #71, open) committed `spotify-confidence`'s 22 successful
+pages. The 38 failed URLs need investigation in a future tick — likely
+the marketing site serves HTML differently than the docs subdomain.
+
+## Pending work — for the next tick or operator turn
+
+- **PR #71 merge** (tick 6 content) — operator-driven; depends on
+  operator green-lighting the 370-file content commit.
+- **gcp / iterable / brave-search crawls** — gcp still mid-crawl from
+  earlier (16+ min); iterable + brave-search not yet started.
+- **Operator action #37** — setup:branch-protection to close
+  layer 2 of the auto-merge gap.
+- **PR #59, #62, #64, #68** — now updated; pending operator merge.
+
+## Spec compliance check
+
+Per the operator's directive: "decompose tasks, subtasks, in-session
+todos to safely refactor and update code to fix github action
+workflows if needed or fix issue resulting in complete ci/cd."
+
+Decomposition delivered:
+- **Task A**: 4 PR branch updates → 4 atomic operations.
+- **Task B**: audit → table above + decisions D8/D9 in `decisions.md`.
+- **Task C.1** (agent-fixable): PR #72 ws fix → 1 commit.
+- **Task C.2** (operator-fixable): documented in this file + the
+  pending.md action #37 row.
+
+All without "introducing new code if not needed" — reused existing
+`scripts/lib/neon-client.ts` lazy-import structure; added only the
+6-line WebSocket constructor wiring.
