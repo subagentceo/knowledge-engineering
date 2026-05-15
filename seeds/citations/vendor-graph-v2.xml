@@ -1,0 +1,546 @@
+<!--
+  vendor_graph v2 — Catalogue format for AI agents reasoning over
+  Anthropic's subprocessor list and adjacent developer ecosystem.
+
+  Provenance:
+    - v2 base catalogue (operator-supplied, session 2026-05-15).
+    - Patches applied (verified URLs from a follow-up validation pass):
+      * aws.llms_txt:        n/a → https://docs.aws.amazon.com/llms.txt (confirmed)
+      * azure.sitemap_xml:   unverified → n/a (no single root sitemap)
+      * intercom.llms_txt:   unverified → https://developers.intercom.com/llms.txt
+      * intercom.sitemap:    unverified → https://developers.intercom.com/sitemap.xml
+      * nutun.github_org:    n/a → user:nutun
+      * nutun.primary_docs:  https://nutun.com/ → https://www.nutun.com/
+      * nutun.sitemap:       unverified → https://www.nutun.com/sitemap.xml
+      * boldr.github_org:    n/a → user:boldrimpact (NOT "boldr" which is unrelated React CMS)
+      * boldr.sitemap:       unverified → https://boldrimpact.com/sitemap.xml
+      * iterable.sitemap:    unverified → https://iterable.com/sitemap_index.xml (301 from /sitemap.xml)
+      * iterable.llms_txt:   unverified → n/a (support.iterable.com has no llms.txt)
+      * sentry.github_org:   missing → getsentry
+      * sift.github_org:     SiftScience confirmed (sift-python, sift-ruby, etc.)
+      * arkose.primary_docs: developer.arkoselabs.com confirmed
+      * brave_search.primary_docs: api-docs.search.brave.com → brave.com/search/api/
+        (NXDOMAIN correction; the api-docs subdomain does not exist)
+      * brave_search.llms_txt: unverified → n/a
+      * anthropic_marketing.llms_txt: unverified → n/a (404 with haiku-themed page)
+      * openfeature: confirmed sitemap, no llms.txt (n/a)
+    - Two new ecosystem entities added: parallel-web, nimble.
+
+  Used as @cite source for:
+    - src/lib/vendor-catalog.test.ts (Phase 16 coverage assertion)
+    - rubrics/phase-16.md (verified vendor coverage)
+-->
+
+<vendor_graph version="2.0-patched" model_target="claude-opus-4-7" context_window="1M">
+
+  <spec>
+    <purpose>
+      A flat catalogue of organizations relevant to Anthropic's
+      developer surface — its subprocessors, its first-party
+      properties, and the open ecosystems its SDKs participate in.
+    </purpose>
+
+    <link_slots>
+      <slot id="npmjs_org_name">Bare npm org slug, "n/a", or "unverified".</slot>
+      <slot id="github_org_name">Bare GitHub org slug, "user:&lt;slug&gt;" for user accounts, "n/a", or "unverified".</slot>
+      <slot id="primary_docs">Fully-qualified URL to canonical docs.</slot>
+      <slot id="llms_txt">Fully-qualified URL, "n/a", or "unverified".</slot>
+      <slot id="sitemap_xml">Fully-qualified URL, "n/a", or "unverified".</slot>
+    </link_slots>
+
+    <interpretation_directives>
+      <directive id="1M-streaming-read">Read every entity once; build an in-memory index.</directive>
+      <directive id="citation-discipline">Emit one citation per atomic link.</directive>
+      <directive id="null-handling">"n/a" = confirmed absent. "unverified" = not checked, MUST NOT guess.</directive>
+      <directive id="no-fabrication">Answer "not in catalogue" rather than infer.</directive>
+      <directive id="palantir-exclusion">Palantir Federal Cloud Service intentionally absent per upstream.</directive>
+    </interpretation_directives>
+  </spec>
+
+  <!-- ============================================================ -->
+  <!-- CLASS 1: Anthropic subprocessors (trust.anthropic.com)        -->
+  <!-- ============================================================ -->
+
+  <entity id="gcp" class="subprocessor">
+    <name>Google Cloud Platform</name>
+    <category>Cloud infrastructure</category>
+    <region>Worldwide</region>
+    <products>All Products</products>
+    <links>
+      <npmjs_org_name>google-cloud</npmjs_org_name>
+      <github_org_name>googleapis</github_org_name>
+      <primary_docs>https://cloud.google.com/docs</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>https://cloud.google.com/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="aws" class="subprocessor">
+    <name>Amazon Web Services</name>
+    <category>Cloud infrastructure</category>
+    <region>Worldwide</region>
+    <products>All Products</products>
+    <links>
+      <npmjs_org_name>aws-sdk</npmjs_org_name>
+      <github_org_name>aws</github_org_name>
+      <primary_docs>https://docs.aws.amazon.com/</primary_docs>
+      <llms_txt>https://docs.aws.amazon.com/llms.txt</llms_txt>
+      <sitemap_xml>https://docs.aws.amazon.com/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="azure" class="subprocessor">
+    <name>Microsoft Azure</name>
+    <category>Cloud infrastructure</category>
+    <region>Worldwide</region>
+    <products>All Products</products>
+    <links>
+      <npmjs_org_name>azure</npmjs_org_name>
+      <github_org_name>Azure</github_org_name>
+      <primary_docs>https://learn.microsoft.com/azure</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>n/a</sitemap_xml>
+    </links>
+    <notes>Microsoft Learn does not expose a single root sitemap; sitemaps are per-product.</notes>
+  </entity>
+
+  <entity id="cloudflare" class="subprocessor">
+    <name>Cloudflare</name>
+    <category>Traffic routing (CDN)</category>
+    <region>Worldwide</region>
+    <products>All Products</products>
+    <links>
+      <npmjs_org_name>cloudflare</npmjs_org_name>
+      <github_org_name>cloudflare</github_org_name>
+      <primary_docs>https://developers.cloudflare.com/</primary_docs>
+      <llms_txt>https://developers.cloudflare.com/llms.txt</llms_txt>
+      <sitemap_xml>https://developers.cloudflare.com/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="stripe" class="subprocessor">
+    <name>Stripe</name>
+    <category>Billing</category>
+    <region>United States</region>
+    <products>Claude Pro/Max, Claude Developer Platform, Claude for Work</products>
+    <links>
+      <npmjs_org_name>stripe</npmjs_org_name>
+      <github_org_name>stripe</github_org_name>
+      <primary_docs>https://docs.stripe.com/</primary_docs>
+      <llms_txt>https://docs.stripe.com/llms.txt</llms_txt>
+      <sitemap_xml>https://docs.stripe.com/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="workos" class="subprocessor">
+    <name>WorkOS</name>
+    <category>Security, single sign-on</category>
+    <region>United States</region>
+    <products>Claude for Work, Claude Developer Platform</products>
+    <links>
+      <npmjs_org_name>workos</npmjs_org_name>
+      <github_org_name>workos</github_org_name>
+      <primary_docs>https://workos.com/docs</primary_docs>
+      <llms_txt>https://workos.com/docs/llms.txt</llms_txt>
+      <sitemap_xml>https://workos.com/sitemap.xml</sitemap_xml>
+    </links>
+    <notes>Production Node SDK is @workos-inc/node. The @workos npm org hosts AuthKit framework adapters.</notes>
+  </entity>
+
+  <entity id="intercom" class="subprocessor">
+    <name>Intercom</name>
+    <category>User support</category>
+    <region>United States</region>
+    <products>All Products except Claude for Government</products>
+    <links>
+      <npmjs_org_name>intercom</npmjs_org_name>
+      <github_org_name>intercom</github_org_name>
+      <primary_docs>https://developers.intercom.com/</primary_docs>
+      <llms_txt>https://developers.intercom.com/llms.txt</llms_txt>
+      <sitemap_xml>https://developers.intercom.com/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="nutun" class="subprocessor">
+    <name>Nutun</name>
+    <category>User support (BPO)</category>
+    <region>South Africa</region>
+    <products>All Products except Claude for Government</products>
+    <links>
+      <npmjs_org_name>n/a</npmjs_org_name>
+      <github_org_name>user:nutun</github_org_name>
+      <primary_docs>https://www.nutun.com/</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>https://www.nutun.com/sitemap.xml</sitemap_xml>
+    </links>
+    <notes>github.com/nutun is a user account with zero public repos; not a developer org.</notes>
+  </entity>
+
+  <entity id="boldr" class="subprocessor">
+    <name>Boldr</name>
+    <category>User support (BPO)</category>
+    <region>Canada</region>
+    <products>All Products except Claude for Government</products>
+    <links>
+      <npmjs_org_name>n/a</npmjs_org_name>
+      <github_org_name>user:boldrimpact</github_org_name>
+      <primary_docs>https://boldrimpact.com/</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>https://boldrimpact.com/sitemap.xml</sitemap_xml>
+    </links>
+    <notes>
+      github.com/boldrimpact is a user account with zero public repos.
+      Do NOT use github.com/boldr or npmjs.com/org/boldr — those belong
+      to an unrelated 9-year-old React CMS project.
+    </notes>
+  </entity>
+
+  <entity id="twilio" class="subprocessor">
+    <name>Twilio</name>
+    <category>Analytics, email/SMS communications</category>
+    <region>United States</region>
+    <products>All Products except Claude for Government</products>
+    <links>
+      <npmjs_org_name>twilio</npmjs_org_name>
+      <github_org_name>twilio</github_org_name>
+      <primary_docs>https://www.twilio.com/docs</primary_docs>
+      <llms_txt>https://www.twilio.com/docs/llms.txt</llms_txt>
+      <sitemap_xml>https://www.twilio.com/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="iterable" class="subprocessor">
+    <name>Iterable</name>
+    <category>Email communications</category>
+    <region>United States</region>
+    <products>All Products except Claude for Government</products>
+    <links>
+      <npmjs_org_name>iterable</npmjs_org_name>
+      <github_org_name>Iterable</github_org_name>
+      <primary_docs>https://support.iterable.com/</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>https://iterable.com/sitemap_index.xml</sitemap_xml>
+    </links>
+    <notes>support.iterable.com has no llms.txt or sitemap; iterable.com/sitemap.xml 301s to sitemap_index.xml.</notes>
+  </entity>
+
+  <entity id="sentry" class="subprocessor">
+    <name>Functional Software, dba Sentry</name>
+    <category>Error handling, user support</category>
+    <region>United States</region>
+    <products>All Products except Claude for Government</products>
+    <links>
+      <npmjs_org_name>sentry</npmjs_org_name>
+      <github_org_name>getsentry</github_org_name>
+      <primary_docs>https://docs.sentry.io/</primary_docs>
+      <llms_txt>https://docs.sentry.io/llms.txt</llms_txt>
+      <sitemap_xml>https://docs.sentry.io/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="sift" class="subprocessor">
+    <name>Sift</name>
+    <category>Fraud and abuse detection</category>
+    <region>United States</region>
+    <products>All Products except Claude for Government</products>
+    <links>
+      <npmjs_org_name>n/a</npmjs_org_name>
+      <github_org_name>SiftScience</github_org_name>
+      <primary_docs>https://developers.sift.com/</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>unverified</sitemap_xml>
+    </links>
+    <notes>
+      Verified GitHub org with sift-python, sift-ruby, sift-ios, sift-android,
+      sift-java, sift-php, sift-dotnet, sift-react-native client libraries.
+      No single npm org; the @sift handle on npm is a user profile only.
+    </notes>
+  </entity>
+
+  <entity id="arkose" class="subprocessor">
+    <name>Arkose Labs</name>
+    <category>Fraud and abuse detection</category>
+    <region>United States</region>
+    <products>All Products except Claude for Government</products>
+    <links>
+      <npmjs_org_name>n/a</npmjs_org_name>
+      <github_org_name>arkoselabs</github_org_name>
+      <primary_docs>https://developer.arkoselabs.com/</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>unverified</sitemap_xml>
+    </links>
+    <notes>
+      GitHub org hosts arkose-examples and integration repos.
+      Client SDK loaded via script tag from client-api.arkoselabs.com, not npm.
+    </notes>
+  </entity>
+
+  <entity id="brave_search" class="subprocessor">
+    <name>Brave Search</name>
+    <category>Web search</category>
+    <region>United States</region>
+    <products>All Products</products>
+    <links>
+      <npmjs_org_name>brave</npmjs_org_name>
+      <github_org_name>brave</github_org_name>
+      <primary_docs>https://brave.com/search/api/</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>unverified</sitemap_xml>
+    </links>
+    <notes>
+      api-docs.search.brave.com is NXDOMAIN (correction from v2).
+      The Brave Search API docs live under brave.com/search/api/.
+    </notes>
+  </entity>
+
+  <entity id="elevenlabs" class="subprocessor">
+    <name>ElevenLabs</name>
+    <category>Text to speech</category>
+    <region>United States</region>
+    <products>Claude for Work</products>
+    <links>
+      <npmjs_org_name>elevenlabs</npmjs_org_name>
+      <github_org_name>elevenlabs</github_org_name>
+      <primary_docs>https://elevenlabs.io/docs</primary_docs>
+      <llms_txt>https://elevenlabs.io/docs/llms.txt</llms_txt>
+      <sitemap_xml>https://elevenlabs.io/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="turbopuffer" class="subprocessor">
+    <name>TurboPuffer</name>
+    <category>Web search / vector store</category>
+    <region>United States</region>
+    <products>All Products except Claude for Government</products>
+    <links>
+      <npmjs_org_name>turbopuffer</npmjs_org_name>
+      <github_org_name>turbopuffer</github_org_name>
+      <primary_docs>https://turbopuffer.com/docs</primary_docs>
+      <llms_txt>https://turbopuffer.com/llms.txt</llms_txt>
+      <sitemap_xml>unverified</sitemap_xml>
+    </links>
+    <notes>llms.txt is served at the site root, not at /docs/llms.txt.</notes>
+  </entity>
+
+  <!-- ============================================================ -->
+  <!-- CLASS 2: Ecosystem orgs Anthropic SDKs interoperate with      -->
+  <!-- ============================================================ -->
+
+  <entity id="opentelemetry" class="ecosystem">
+    <name>OpenTelemetry</name>
+    <category>Observability standard (CNCF)</category>
+    <region>Worldwide</region>
+    <products>Used by Claude Code via @anthropic-ai/claude-trace</products>
+    <links>
+      <npmjs_org_name>opentelemetry</npmjs_org_name>
+      <github_org_name>open-telemetry</github_org_name>
+      <primary_docs>https://opentelemetry.io/docs/</primary_docs>
+      <llms_txt>https://opentelemetry.io/llms.txt</llms_txt>
+      <sitemap_xml>https://opentelemetry.io/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="openfeature" class="ecosystem">
+    <name>OpenFeature</name>
+    <category>Feature flag standard (CNCF)</category>
+    <region>Worldwide</region>
+    <products>n/a — adjacent open standard</products>
+    <links>
+      <npmjs_org_name>openfeature</npmjs_org_name>
+      <github_org_name>open-feature</github_org_name>
+      <primary_docs>https://openfeature.dev/</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>https://openfeature.dev/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="spotify_confidence" class="ecosystem">
+    <name>Spotify Confidence</name>
+    <category>Feature flag / experimentation platform</category>
+    <region>Worldwide</region>
+    <products>n/a — adjacent vendor (OpenFeature provider)</products>
+    <links>
+      <npmjs_org_name>spotify-confidence</npmjs_org_name>
+      <github_org_name>spotify</github_org_name>
+      <primary_docs>https://confidence.spotify.com/</primary_docs>
+      <llms_txt>https://confidence.spotify.com/llms.txt</llms_txt>
+      <sitemap_xml>unverified</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="mcp" class="ecosystem">
+    <name>Model Context Protocol</name>
+    <category>Open standard authored by Anthropic</category>
+    <region>Worldwide</region>
+    <products>Native to Claude Desktop, Claude Code, Claude API tool-use</products>
+    <links>
+      <npmjs_org_name>modelcontextprotocol</npmjs_org_name>
+      <github_org_name>modelcontextprotocol</github_org_name>
+      <primary_docs>https://modelcontextprotocol.io/</primary_docs>
+      <llms_txt>https://modelcontextprotocol.io/llms.txt</llms_txt>
+      <sitemap_xml>https://modelcontextprotocol.io/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="neon" class="ecosystem">
+    <name>Neon</name>
+    <category>Serverless Postgres</category>
+    <region>United States / Worldwide</region>
+    <products>n/a — adjacent vendor</products>
+    <links>
+      <npmjs_org_name>neondatabase</npmjs_org_name>
+      <github_org_name>neondatabase</github_org_name>
+      <primary_docs>https://neon.com/docs</primary_docs>
+      <llms_txt>https://neon.com/llms.txt</llms_txt>
+      <sitemap_xml>https://neon.com/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="parallel_web" class="ecosystem">
+    <name>Parallel Web Systems</name>
+    <category>Web search / agent infrastructure</category>
+    <region>United States</region>
+    <products>n/a — adjacent vendor (parallel.ai web search and fetch APIs)</products>
+    <links>
+      <npmjs_org_name>parallel-web</npmjs_org_name>
+      <github_org_name>parallel-web</github_org_name>
+      <primary_docs>https://docs.parallel.ai/</primary_docs>
+      <llms_txt>https://docs.parallel.ai/llms.txt</llms_txt>
+      <sitemap_xml>https://parallel.ai/sitemap.xml</sitemap_xml>
+    </links>
+    <notes>
+      Trades as "Parallel" but legally Parallel Web Systems. GitHub org
+      publishes parallel-sdk-python, parallel-sdk-typescript, parallel-cookbook,
+      parallel-web-tools (CLI), task-mcp, langchain-parallel, and
+      parallel-llms-txt (an agent-friendly mirror).
+    </notes>
+  </entity>
+
+  <entity id="nimble" class="ecosystem">
+    <name>Nimble (Nimbleway)</name>
+    <category>Web search / web data extraction</category>
+    <region>Worldwide (Israel HQ; .com served from US edge)</region>
+    <products>n/a — adjacent vendor (Nimble Web API, Search Agents)</products>
+    <links>
+      <npmjs_org_name>nimbleway</npmjs_org_name>
+      <github_org_name>Nimbleway</github_org_name>
+      <primary_docs>https://docs.nimbleway.com/</primary_docs>
+      <llms_txt>https://docs.nimbleway.com/llms.txt</llms_txt>
+      <sitemap_xml>https://docs.nimbleway.com/sitemap.xml</sitemap_xml>
+    </links>
+    <notes>
+      Brand "Nimble," company "Nimbleway." npmjs.com/org/nimbleway has 0
+      packages — SDKs are nimble-python (PyPI), nimble-go, nimble-typescript,
+      nimble-cli via Nimbleway GitHub. langchain-nimble + agent-skills repos
+      ship LangChain + Claude integrations.
+    </notes>
+  </entity>
+
+  <!-- ============================================================ -->
+  <!-- CLASS 3: Anthropic first-party surface                        -->
+  <!-- ============================================================ -->
+
+  <entity id="anthropic_platform" class="first_party">
+    <name>Anthropic Developer Platform (platform.claude.com)</name>
+    <category>API + developer docs (formerly docs.anthropic.com)</category>
+    <region>Global</region>
+    <products>Claude Developer Platform</products>
+    <links>
+      <npmjs_org_name>anthropic-ai</npmjs_org_name>
+      <github_org_name>anthropics</github_org_name>
+      <primary_docs>https://platform.claude.com/docs</primary_docs>
+      <llms_txt>https://platform.claude.com/llms.txt</llms_txt>
+      <sitemap_xml>https://platform.claude.com/sitemap.xml</sitemap_xml>
+    </links>
+    <notes>docs.anthropic.com 301-redirects to platform.claude.com. Already mirrored in vendor/anthropics/.</notes>
+  </entity>
+
+  <entity id="anthropic_code" class="first_party">
+    <name>Claude Code Docs (code.claude.com)</name>
+    <category>Claude Code product documentation</category>
+    <region>Global</region>
+    <products>Claude Code, Claude Agent SDK</products>
+    <links>
+      <npmjs_org_name>anthropic-ai</npmjs_org_name>
+      <github_org_name>anthropics</github_org_name>
+      <primary_docs>https://code.claude.com/docs</primary_docs>
+      <llms_txt>https://code.claude.com/docs/llms.txt</llms_txt>
+      <sitemap_xml>https://code.claude.com/sitemap.xml</sitemap_xml>
+    </links>
+    <notes>Already mirrored in vendor/anthropics/ as a multi-source.</notes>
+  </entity>
+
+  <entity id="anthropic_claude_com" class="first_party">
+    <name>claude.com</name>
+    <category>Top-level Claude product site (multi-locale)</category>
+    <region>Global</region>
+    <products>Claude (consumer), redirect hub</products>
+    <links>
+      <npmjs_org_name>anthropic-ai</npmjs_org_name>
+      <github_org_name>anthropics</github_org_name>
+      <primary_docs>https://claude.com/docs</primary_docs>
+      <llms_txt>https://claude.com/docs/llms.txt</llms_txt>
+      <sitemap_xml>https://claude.com/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="anthropic_claude_ai" class="first_party">
+    <name>claude.ai</name>
+    <category>Claude consumer web app + artifact gallery</category>
+    <region>Global</region>
+    <products>Claude.ai, Claude Projects (chat), Artifacts</products>
+    <links>
+      <npmjs_org_name>anthropic-ai</npmjs_org_name>
+      <github_org_name>anthropics</github_org_name>
+      <primary_docs>https://claude.ai/</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>https://claude.ai/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="anthropic_support" class="first_party">
+    <name>Claude Help Center (support.claude.com)</name>
+    <category>End-user support (Intercom-hosted)</category>
+    <region>Global, multi-locale</region>
+    <products>All consumer-facing Claude products</products>
+    <links>
+      <npmjs_org_name>anthropic-ai</npmjs_org_name>
+      <github_org_name>anthropics</github_org_name>
+      <primary_docs>https://support.claude.com/</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>https://support.claude.com/sitemap.xml</sitemap_xml>
+    </links>
+  </entity>
+
+  <entity id="anthropic_marketing" class="first_party">
+    <name>anthropic.com</name>
+    <category>Corporate marketing, research, engineering blog</category>
+    <region>Global</region>
+    <products>Company-level surface (careers, model cards, research)</products>
+    <links>
+      <npmjs_org_name>anthropic-ai</npmjs_org_name>
+      <github_org_name>anthropics</github_org_name>
+      <primary_docs>https://www.anthropic.com/</primary_docs>
+      <llms_txt>n/a</llms_txt>
+      <sitemap_xml>https://www.anthropic.com/sitemap.xml</sitemap_xml>
+    </links>
+    <notes>anthropic.com/llms.txt returns a 404 with a haiku page. Canonical lives at platform.claude.com/llms.txt.</notes>
+  </entity>
+
+  <cross_refs>
+    <edge from="anthropic_platform" rel="alias_of_legacy_host" to="docs.anthropic.com" />
+    <edge from="anthropic_claude_com" rel="docs_redirect_target" to="anthropic_platform" />
+    <edge from="anthropic_support" rel="hosted_on" to="intercom" />
+    <edge from="spotify_confidence" rel="implements_provider_for" to="openfeature" />
+    <edge from="mcp" rel="authored_by" to="anthropic_platform" />
+    <edge from="anthropic_code" rel="publishes_npm_under" to="anthropic_platform" />
+  </cross_refs>
+
+  <quality_checks>
+    <check>Entity count: 16 subprocessors + 7 ecosystem + 6 first-party = 29.</check>
+    <check>Palantir is NOT present.</check>
+    <check>Every entity contains exactly 5 children inside &lt;links&gt;.</check>
+    <check>Every link slot is one of: a URL, "n/a", "unverified", or "user:&lt;slug&gt;".</check>
+  </quality_checks>
+
+</vendor_graph>

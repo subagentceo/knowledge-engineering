@@ -1,0 +1,14 @@
+{
+  "name": "nimble",
+  "homepage": "https://docs.nimbleway.com/",
+  "llms_txt_candidates": [
+    "https://docs.nimbleway.com/llms.txt"
+  ],
+  "transform": "append-md-and-accept",
+  "allow_prefixes": [
+    "https://docs.nimbleway.com/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 60,
+  "llms_txt": "https://docs.nimbleway.com/llms.txt"
+}
