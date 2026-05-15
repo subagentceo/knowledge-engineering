@@ -1,0 +1,18 @@
+{
+  "name": "iterable",
+  "homepage": "https://support.iterable.com/",
+  "llms_txt_candidates": [],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://support.iterable.com/",
+    "https://iterable.com/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 60,
+  "html_extract": {
+    "selector": "main"
+  },
+  "sitemap_xml_sources": [
+    "https://iterable.com/sitemap_index.xml"
+  ]
+}
