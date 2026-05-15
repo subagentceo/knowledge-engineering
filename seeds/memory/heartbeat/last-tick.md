@@ -1,87 +1,89 @@
 ---
-tick: 2
-iso: 2026-05-15T03:55:00Z
+tick: 4
+iso: 2026-05-15T04:05:00Z
 git_sha: pending (this PR)
 session: claude.ai/code/session_9d8f8432-101f-466f-9c31-b1021ea934e7
-trigger: webhook (PR #66 merged) — auto-popped next-actions queue
-prev_tick: 1 (bootstrap, PR #66, merged as 7dcfa8f)
+trigger: webhook (PR #68 Create Neon Branch failure) — surfaced annotation
+prev_tick: 2 (PR #67 — merged as 38210b1)
+note: |
+  Tick 3 (PR #68) is open but not merged; this tick branches off main
+  (post-tick-2) and is independent. The tick-3 last-tick.md is on
+  PR #68's branch.
 ---
 
-# Tick 2 — page_cap sentinel + relative-URL resolution
+# Tick 4 — fix migrate-neon cold-start WebSocket race
 
-Popped `next-actions.md` action #1 ("Fix `scripts/lib/llms-txt.ts` parser
-to unblock twilio + sentry + sift"). After investigation, the bug
-turned out to be **not** in the parser but in two distinct places in
-`scripts/crawl-vendors.ts`:
+PR #68's `Create Neon Branch` job failed. The diagnostic chain from PRs
+#63/#65 finally surfaced the actual error in a workflow annotation
+("Run Migrations" step):
 
-## Root causes (both fixed in this tick)
+> "All attempts to open a WebSocket to connect to the database failed"
+> "Error applying 0001_vendor_pages.sql"
 
-### Bug A — `page_cap: 0` interpreted literally
+## Root cause
 
-Line 392 of `scripts/crawl-vendors.ts`:
+`@neondatabase/serverless` `Pool.query()` opens a WebSocket to the
+Neon compute endpoint on first use. The `create-branch-action` returns
+once the Neon API confirms the branch metadata exists, but the
+branch's compute takes a few seconds to be reachable. The migration
+step ran immediately, hit the cold compute, and got the WebSocket
+failure.
 
-```ts
-const allowed = urls.filter((u) => inAllowlist(u, cfg)).slice(0, cfg.page_cap);
+## Fix
+
+New `warmConnection()` export in `scripts/lib/neon-client.ts`:
+
+- Calls `pool.query("SELECT 1")`.
+- On error, drops the cached pool, logs the attempt count, sleeps
+  with exponential backoff (2s, 4s, 8s, 16s), and retries.
+- Max 5 attempts (covers up to ~30s of branch warm-up).
+- Surfaces the underlying error if all attempts fail.
+
+Wired into `migrate-neon.ts` right before the migration loop. The
+existing per-migration try/catch + `::error::` annotation surface
+remains intact.
+
+## Why this fix (vs alternatives)
+
+- ❌ **Fixed sleep before connect.** Brittle — depends on Neon's
+  exact compute-ready time, which varies by region/load. Retry is
+  load-adaptive.
+- ❌ **Switch to HTTP `neon()` SQL.** Would require splitting our
+  multi-statement migration files; introduces new failure modes.
+- ❌ **Add settle delay in the workflow.** Adds dead time even when
+  the compute is already warm.
+- ✅ **Retry the warm-up call.** Fast path (compute already warm) is
+  one extra `SELECT 1`. Cold path waits exactly as long as needed.
+
+## Diagnostic chain closed
+
+```
+PR #58 → wired Run Migrations → silent exit-1
+PR #59 → first failure observed
+PR #60 → wrong fix (db_url_pooled) — reverted
+PR #61 → correct fix (db_url_with_pooler @v5) — still failed
+PR #63 → diagnostic step: confirmed env-var threading OK
+PR #65 → ::error:: annotation surface
+PR #68 → annotation revealed WebSocket failure
+PR #69 (this) → cold-start race retry
 ```
 
-`.slice(0, 0)` returns the empty array. Four vendor configs
-(brave-search, sentry, sift, twilio) had `page_cap: 0` written as a
-"no cap" sentinel. The crawler treated it as a literal zero.
-
-**Fix:** treat `page_cap > 0 ? page_cap : Infinity` for the slice;
-treat `> 0 ? page_cap : undefined` for crawlee's `maxRequestsPerCrawl`.
-Updated the four configs to explicit numeric caps (twilio 200, sentry
-150, sift 150, brave-search 50) to avoid runaway crawls in CI even
-when the sentinel is left at 0.
-
-### Bug B — relative URLs in llms.txt never matched the allowlist
-
-`dedupeUrls(parsed)` returned link URLs verbatim from the parser.
-twilio's llms.txt (at `https://docs.twilio.com/llms.txt`) uses
-relative paths like `/docs/authy.md`. These can't match
-allow_prefixes that are absolute URLs (`https://docs.twilio.com/`).
-
-**Fix:** `dedupeUrls(parsed, baseUrl)` now resolves each link via
-`new URL(link.url, baseUrl).toString()`. Both call sites pass the
-source's URL (`llms.url` for the primary; `sourceUrl` for additional
-`llms_txt_sources`).
-
-## Smoke-test results (local)
-
-| Vendor | Before | After |
-| :--- | ---: | ---: |
-| twilio | 1587 → 0 → 0 fetched | 1587 → 200 → **200 fetched** ✅ |
-| sentry | 121 → 0 → 0 fetched | 121 → 117 → **117 fetched** ✅ |
-| sift | 674 → 0 → 0 fetched | 674 → 0 → still 0 (different bug; see open-questions M2) |
-| brave-search | llms.txt 404 | still 404 (Phase 13.B O2 sitemap fallback needed) |
-
-Two of four still-miss vendors fully unblocked. Sift remains in
-"miss" — its llms.txt links use a path scheme that doesn't match
-the configured `allow_prefixes: ["https://sift.com/developers/"]`.
-Needs vendor-specific allowlist correction; out of scope for this
-tick.
-
-## Out of scope (deliberate)
-
-- The vendor-specific allowlist fix for sift (separate tick)
-- The brave-search sitemap fallback (Phase 13.B O2 anchor; separate PR)
-- Re-syncing the actual vendor markdown content. This PR ships the
-  code fix; a separate re-sync PR (operator-driven, like PR #64) will
-  produce the new twilio + sentry mirror commits. Mixing them would
-  conflict with the still-open PR #64.
+5 PRs of diagnostic + targeted fix. The annotation approach worked
+exactly as designed in tick 1's decision D5.
 
 ## What this PR ships
 
-- `scripts/crawl-vendors.ts` — 2 changes: page_cap sentinel + relative-URL resolution in `dedupeUrls`.
-- `vendor/{twilio,sentry,sift,brave-search}/crawl.json` — `page_cap: 0` → explicit numeric caps.
-- This `last-tick.md` (tick 2 record) + an entry in `decisions.md` + queue update in `next-actions.md`.
+- `scripts/lib/neon-client.ts` — `warmConnection()` helper with
+  exponential-backoff retry.
+- `scripts/migrate-neon.ts` — calls `warmConnection()` before the
+  migration loop.
+- This `last-tick.md` (tick 4 record).
 
 ## Next tick
 
-Per the new top of `next-actions.md`:
+If this PR's own `Create Neon Branch` job succeeds → close the issue.
+If it still fails → the annotation reveals a different cause; fix
+that.
 
-**Action #2** — Investigate `migrate-neon.ts` real failure (still
-WAITING on a future PR triggering `neon-branch.yml` to surface the
-`::error::` annotation via PR #65's mechanism). This very PR may be
-the trigger — if it fails, the annotation will tell us exactly which
-SQL/connection issue is involved.
+After this lands, `neon-branch.yml` is fully operational per the
+Phase 13.B+ O8 design.

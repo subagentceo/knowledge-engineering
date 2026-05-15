@@ -87,6 +87,40 @@ export async function exec(sql: string): Promise<void> {
   await pool.query(sql);
 }
 
+/**
+ * Open a WebSocket to the database and run `SELECT 1`, retrying on
+ * connection errors. Designed to absorb the cold-start race between
+ * Neon's create-branch API returning and the new branch's compute
+ * accepting WebSocket connections.
+ *
+ * Connection errors typically surface as "All attempts to open a
+ * WebSocket to connect to the database failed" from
+ * @neondatabase/serverless. We retry up to `maxAttempts` times with
+ * exponential backoff.
+ */
+export async function warmConnection(opts?: { maxAttempts?: number; initialDelayMs?: number }): Promise<void> {
+  const maxAttempts = opts?.maxAttempts ?? 5;
+  const initialDelayMs = opts?.initialDelayMs ?? 2000;
+  let lastErr: unknown;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const pool = await getPool();
+      await pool.query("SELECT 1");
+      return;
+    } catch (err) {
+      lastErr = err;
+      const msg = (err as { message?: string }).message ?? String(err);
+      // Drop the cached pool so the next attempt re-creates it cleanly.
+      cachedPool = null;
+      if (attempt === maxAttempts) break;
+      const delay = initialDelayMs * Math.pow(2, attempt - 1);
+      console.error(`[neon-client] connection attempt ${attempt}/${maxAttempts} failed: ${msg.split("\n")[0]}; retrying in ${delay}ms`);
+      await new Promise((r) => setTimeout(r, delay));
+    }
+  }
+  throw lastErr;
+}
+
 /** For tests + clean shutdown in CI. */
 export async function close(): Promise<void> {
   if (cachedPool !== null) {

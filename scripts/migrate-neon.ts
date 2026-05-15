@@ -19,7 +19,7 @@ import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { close, exec, neonEnabled } from "./lib/neon-client.js";
+import { close, exec, neonEnabled, warmConnection } from "./lib/neon-client.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const MIGRATIONS_DIR = resolve(__dirname, "..", "migrations");
@@ -37,6 +37,14 @@ async function main(): Promise<void> {
     .filter((f) => f.endsWith(".sql"))
     .sort();
   console.log(`[migrate-neon] applying ${files.length} migration(s)`);
+
+  // Absorb the create-branch → compute-ready race. The Neon API can
+  // return before the per-PR branch's WebSocket endpoint is accepting
+  // connections, surfacing as "All attempts to open a WebSocket to
+  // connect to the database failed" on the first query.
+  console.log(`[migrate-neon] warming connection (retry up to 5x with exponential backoff)`);
+  await warmConnection();
+  console.log(`[migrate-neon] connection live`);
   for (const f of files) {
     const path = resolve(MIGRATIONS_DIR, f);
     const sql = readFileSync(path, "utf8");
