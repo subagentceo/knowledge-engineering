@@ -1,112 +1,89 @@
 ---
-tick: 5
-iso: 2026-05-15T04:15:00Z
+tick: 11
+iso: 2026-05-15T05:15:00Z
 git_sha: pending (this PR)
 session: claude.ai/code/session_9d8f8432-101f-466f-9c31-b1021ea934e7
-trigger: operator-direct ("safely add these to the crawl by patching ...")
-prev_tick: 4 (PR #69 — merged as 75681a3)
+trigger: operator-direct (spotify-confidence npm + GitHub inventory pasted)
+prev_tick: 10 (PR #76 — outcome-driven conventions; merged as 304e231)
 ---
 
-# Tick 5 — Phase 16 verified vendor coverage
+# Tick 11 — spotify-confidence ecosystem citation (O1) + O2 deferral
 
-Operator-direct request: extend the crawl coverage based on the v2
-vendor_graph catalogue + verification-pass patches.
+The operator pasted the complete Spotify Confidence developer-surface
+inventory: 7 npm packages + 13 GitHub repos covering 9 languages.
+This tick captures that data as a citation source. The companion
+investigation of the 38-fail crawl (queued O2) revealed the source is
+a moving target and is deferred.
 
-Operator constraint: "treat user prompt as starting point but dogfood
-what we created in this long running agent session and refactor code
-and update the codebase to avoid introducing new code if its not
-needed."
+## Outcomes declared upfront
 
-Operator constraint: "decompose user prompt into tasks, subtasks, and
-todos in session that are all their own commits."
+- **O1** — Capture Spotify Confidence's SDK ecosystem as a citation
+  source for the v2 vendor_graph's `spotify_confidence` entity. ✅
+- **O2** — Investigate the 38-fail crawl. ⚠ deferred — see below.
 
-Operator constraint: "use the outcome + rubric approach we dogfood
-created for outcome driven development to include citations in tests
-to write first."
+## O1 — ✅ DONE
 
-## Outcome-driven discipline executed
+`seeds/citations/spotify-confidence.md` records:
+- 7 npm packages under `@spotify-confidence/*` (5 active, 1 stale, 1 deprecated)
+- 13 GitHub repos under `spotify/confidence-*` (9-language SDK coverage)
+- The OpenFeature provider trio (cross_refs edge: `implements_provider_for`)
+- Distinction between the SDK family and the separate
+  `spotify/confidence` Python AB-test-analysis library (289 stars)
 
-This tick is the worked example of the repo's TDD + rubric pattern:
+Cited from operator's authenticated browser session.
 
-1. **Citation source first.** Saved the patched v2 catalogue at
-   `seeds/citations/vendor-graph-v2.xml` (commit 1/8).
-2. **Outcome rubric second.** `rubrics/phase-16.md` (commit 2/8).
-3. **Failing test third.** `src/lib/vendor-catalog.test.ts` (commit
-   3/8) — TDD red phase: 7 failures asserting that missing vendor
-   configs need to exist.
-4. **Configs that make the test pass, one per commit.** Commits 4–7
-   each turn one failure green.
-5. **Heartbeat state update last.** This file (commit 8/8).
+## O2 — ⚠ deferred (moving target)
 
-## Commits in this PR (#70)
-
-| # | Path | Purpose |
-| :-- | :--- | :--- |
-| 1/8 | `seeds/citations/vendor-graph-v2.xml` | Patched v2 catalog as citation source |
-| 2/8 | `rubrics/phase-16.md` | Verified Vendor Coverage rubric (7 criteria) |
-| 3/8 | `src/lib/vendor-catalog.test.ts` | TDD red — failing coverage test |
-| 4/8 | `vendor/brave-search/crawl.json` | NXDOMAIN fix (api-docs.search.brave.com) |
-| 5/8 | `vendor/aws/crawl.json` | NEW — docs.aws.amazon.com/llms.txt |
-| 6/8 | `vendor/{opentelemetry,spotify-confidence,parallel-web,nimble}/crawl.json` | NEW — 4 ecosystem llms.txt vendors |
-| 7/8 | `vendor/{gcp,iterable}/crawl.json` | NEW — 2 sitemap-only fallback vendors |
-| 8/8 | `seeds/memory/heartbeat/last-tick.md` | This tick record |
-
-## Code reuse — no new infrastructure
-
-Per operator's "avoid introducing new code if not needed":
-
-- ✅ Reused existing `crawl.json` schema (transform, allow_prefixes,
-  page_cap, llms_txt_candidates, sitemap_xml_sources, html_index_sources).
-- ✅ Reused existing crawler (`scripts/crawl-vendors.ts`) — no
-  changes. Tick 2 fixes (page_cap sentinel + relative-URL resolution)
-  already handle the new vendor URL patterns.
-- ✅ Reused existing test runner (`scripts/lib/run-tests.ts`) —
-  auto-discovers `src/lib/vendor-catalog.test.ts`.
-- ✅ Reused existing citation-guard pattern (`@cite` headers in test
-  file pointing at the v2 XML and the rubric).
-- ✅ Reused existing rubric structure (`rubrics/phase-N.md` with
-  criteria + outcome).
-- ✅ Reused existing heartbeat memory layout (`seeds/memory/heartbeat/`).
-- ❌ No new dep introduced (XML parsed via regex, not via a library).
-
-## Test status
+Re-running `npm run crawl:vendor -- spotify-confidence` from `main`
+now reports:
 
 ```
-20 passed, 0 failed
+[spotify-confidence] no valid llms.txt found in 1 candidate(s)
+[spotify-confidence] FAIL fetched=0 unchanged=0 preflight-304=0 failed=1
 ```
 
-All catalog coverage assertions green. 21 vendors total tracked
-(was 14 before this PR; +7 new).
+But the tick-6 run (~hour earlier; PR #71) successfully fetched
+22 pages from the same URL (38 failed). The discovery probe is now
+failing where it succeeded an hour ago. Two possibilities:
 
-## Verify status
+1. **Spotify changed their llms.txt** during this session. The .md
+   appendage convention is custom; they may have reorganized.
+2. **Transient network or rate-limit issue** at the time of this
+   re-run.
+
+Either way, **a code fix can't safely land without a stable failure
+mode to fix.** Defer until either:
+- A future tick reproduces the failure pattern consistently, OR
+- The operator confirms the canonical llms.txt URL (or its absence).
+
+Per the new docs/CONVENTIONS.md discipline, an unstable failure mode
+is "out of scope" until a stable outcome can be declared.
+
+## What this PR ships (single commit)
+
+| # | Commit | Outcome | Type | SemVer |
+| :-- | :--- | :---: | :---: | :---: |
+| 1 | `docs(citations): add spotify-confidence SDK ecosystem inventory (O1)` | O1 | docs | none |
+| 2 | `chore(heartbeat): tick 11 record (O1)` | O1 | chore | none |
+
+## Verify
 
 ```
+$ npm run verify
 21 vendor(s) | 0 warning(s) | 0 error(s)
 ```
 
-Existing fresh vendors unchanged. 10 vendors show "miss" in
-verify:freshness — that's expected: they don't have urls.md yet
-because the actual crawl is **Phase 16.B** (next tick / PR #71).
+## Cross-references
 
-## What this PR does NOT ship
+- v2 catalog entity: `seeds/citations/vendor-graph-v2.xml` entity id=`spotify_confidence`
+- vendor mirror: `vendor/spotify-confidence/` (configs in main; content in PR #71)
+- Cross-vendor link: `openfeature` entity (Confidence implements provider for it)
+- Next-actions queue: O2 remains item 4 ("spotify-confidence 38-failure"); status now "deferred — moving target"
 
-Per the heartbeat tick-2 decision D5 (don't mix code-fix PRs with
-content re-syncs), this PR ships **only the configs + test + rubric**.
-The actual crawl that produces `vendor/<name>/urls.md` + markdown
-content lands in a separate PR (Phase 16.B / PR #71 / tick 6).
+## Next tick
 
-## Next tick (Phase 16.B)
-
-Run `npm run crawl:vendors` against the new configs, commit the
-content per the tick-3 / PR #68 pattern. Expected new content:
-
-- `aws/` — ~200 pages (large surface)
-- `opentelemetry/` — ~200 pages
-- `spotify-confidence/` — ~60 pages
-- `parallel-web/` — ~60 pages (single docs surface)
-- `nimble/` — ~60 pages
-- `gcp/` — up to ~100 pages (sitemap-derived)
-- `iterable/` — up to ~60 pages (sitemap-derived)
-
-Plus the already-passing existing vendors (brave-search now points at
-the right URL; should pick up content via html-index discovery).
+`next-actions.md` queue:
+1. `scripts/get-neon-db-url.ts` — auto-derive `NEON_DATABASE_URL`
+2. sift allowlist mismatch
+3. gcp allowlist broadening
+4. spotify-confidence 38-failure (DEFERRED — moving target)
