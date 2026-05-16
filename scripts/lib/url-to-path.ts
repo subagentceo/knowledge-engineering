@@ -14,6 +14,16 @@
 
 export interface UrlToPathOptions {
   vendor: string;
+  /**
+   * Path layout:
+   *   "host"     (default) — `<host>/<path>.md` (legacy; one host per vendor or grouped by host).
+   *   "topology" — drop the host segment entirely; the path becomes the
+   *                topology root (e.g. `blog/<slug>.md`, `connectors/<slug>.md`).
+   *                Used by consolidated mirrors like vendor/claude-sitemap/
+   *                that fold multiple URL prefixes from one or more hosts
+   *                into one tree organized by URL first-segment.
+   */
+  layout?: "host" | "topology";
 }
 
 export interface UrlToPathResult {
@@ -62,7 +72,20 @@ export function urlToPath(url: string, opts: UrlToPathOptions): UrlToPathResult 
     }
   }
 
-  const segments = [host, ...pathSegments];
+  let segments: string[];
+  if (opts.layout === "topology") {
+    // For consolidated mirrors, paths normally drop the host entirely
+    // and key off URL first-segment. Exception: when the host is a
+    // subdomain of the primary domain (e.g. `support.claude.com` for a
+    // claude.com mirror), prefix the subdomain so the support tree
+    // doesn't get mixed into the `/en/articles/...` path namespace.
+    const labels = host.split(".");
+    const leftmost = labels[0];
+    const isSubdomain = labels.length > 2 && leftmost !== "www";
+    segments = isSubdomain ? [leftmost, ...pathSegments] : pathSegments;
+  } else {
+    segments = [host, ...pathSegments];
+  }
   return { segments, relPath: segments.join("/") };
 }
 

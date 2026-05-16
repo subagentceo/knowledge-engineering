@@ -27,6 +27,7 @@
 // html-extract transform.
 
 import { CheerioCrawler, Configuration } from "@crawlee/cheerio";
+import * as cheerio from "cheerio";
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -44,6 +45,7 @@ import {
 import { extractIndexUrls } from "./lib/html-index.js";
 import { parseLlmsTxt, type LlmsTxt } from "./lib/llms-txt.js";
 import { neonEnabled, upsertVendorPage } from "./lib/neon-client.js";
+import { mirrorPdfs } from "./lib/pdf-mirror.js";
 import { isSitemapIndex, parseSitemapXml } from "./lib/sitemap-xml.js";
 import {
   TRANSFORMS,
@@ -96,6 +98,21 @@ interface CrawlConfig {
   page_cap: number;
   /** Optional turndown options for `html-extract`. */
   html_extract?: { selector?: string };
+  /**
+   * PDF lane. When set, after each html-extract markdown is produced
+   * the body is scanned for `.pdf` hrefs matching one of these prefixes;
+   * matches are fetched, run through pdf-parse, and written as markdown
+   * sidecars at `vendor/<name>/_pdfs/<slug>.md`. Missing/empty disables
+   * the lane entirely (default).
+   */
+  pdf_allow_prefixes?: string[];
+  /**
+   * Path layout for `urlToPath`. Default "host" preserves legacy
+   * `<vendor>/<host>/<path>.md`. Set to "topology" for consolidated
+   * mirrors (e.g. vendor/claude-sitemap/) that organize by URL
+   * first-path-segment instead of by host.
+   */
+  layout?: "host" | "topology";
   /**
    * Phase 13.A. When true (default), the crawler does an RFC 7232
    * conditional-GET pre-flight per URL using the stored ETag /
@@ -205,15 +222,45 @@ const turndown = new TurndownService({
 });
 
 function makeTransform(name: TransformName, url: string, cfg: CrawlConfig): TransformOutput {
+  // Per-host transform override. support.claude.com exposes a true .md
+  // endpoint when you append `.md` + send `Accept: text/markdown` (the
+  // existing `support-mdfirst` transform does exactly this). Route those
+  // URLs through it even when the vendor's primary transform is
+  // `html-extract`. Keeps the consolidated claude-sitemap mirror able to
+  // do html-extract for marketing/blog pages while preserving the
+  // higher-quality .md path for the Intercom-backed help center.
+  if (new URL(url).host === "support.claude.com" && /\/en\/articles\//.test(new URL(url).pathname)) {
+    return TRANSFORMS["support-mdfirst"](url);
+  }
   if (name === "html-extract") {
     return htmlExtract(url, (body) => {
-      let html = body;
-      // Optional CSS selector to focus on the main content container.
-      // Trim everything outside if specified.
-      if (cfg.html_extract?.selector) {
-        const m = html.match(new RegExp(`<${cfg.html_extract.selector}[\\s\\S]*?</${cfg.html_extract.selector}>`, "i"));
-        if (m) html = m[0];
+      const $ = cheerio.load(body);
+      // Drop non-content nodes anywhere in the doc before serialization.
+      // Webflow ships <script>/<style> blocks (anti-flicker, GSAP init,
+      // JSON-LD schema) inside the same containers as prose — without
+      // this, turndown serializes their source as paragraph text.
+      $("script, style, noscript, svg, link, meta, template, iframe").remove();
+      // Selector may be a comma-separated priority list. Try each in
+      // order; the first selector that yields a non-trivial fragment
+      // wins. Falls back to <body>. This lets one vendor config cover
+      // multiple page templates (blog posts use `.u-rich-text-blog`;
+      // marketing pages have no such container and need `main`).
+      const selector = cfg.html_extract?.selector;
+      let html = "";
+      if (selector) {
+        for (const candidate of selector.split(",").map((s) => s.trim()).filter(Boolean)) {
+          const nodes = $(candidate);
+          for (let i = 0; i < nodes.length; i += 1) {
+            const inner = nodes.eq(i).html();
+            if (inner && inner.length > 200) {
+              html = inner;
+              break;
+            }
+          }
+          if (html) break;
+        }
       }
+      if (!html) html = $("body").html() ?? "";
       return turndown.turndown(html);
     });
   }
@@ -276,6 +323,13 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   // Declared up-front so the additional-source loop can record failures
   // without needing to thread them through later.
   const failures: CrawlResult["failures"] = [];
+
+  // PDF lane bookkeeping. When pdf_allow_prefixes is set, collect the
+  // markdown bodies + source URLs as they're written, then run the
+  // mirror pass once at the end so we don't block per-page crawlee
+  // concurrency on PDF fetches.
+  const pdfQueue: { markdown: string; sourceUrl: string }[] = [];
+  const pdfLaneEnabled = (cfg.pdf_allow_prefixes?.length ?? 0) > 0;
 
   // Discover llms.txt (primary). If llms_txt_sources is set, also fetch each
   // source body and merge its links into the URL pool.
@@ -479,7 +533,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
               checksums[w.origUrl] = { ...prior, fetchedAt: nowIso, lastStatus: 304 };
             }
             // Restore the index row so urls.md still lists this URL.
-            const { relPath } = urlToPath(w.origUrl, { vendor });
+            const { relPath } = urlToPath(w.origUrl, { vendor, layout: cfg.layout });
             indexRows.push({ url: w.origUrl, relPath });
             continue;
           }
@@ -504,15 +558,16 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
                 fetchedAt: nowIso,
                 lastStatus: 200,
               };
-              const { relPath } = urlToPath(w.origUrl, { vendor });
+              const { relPath } = urlToPath(w.origUrl, { vendor, layout: cfg.layout });
               indexRows.push({ url: w.origUrl, relPath });
               continue;
             }
-            const { segments, relPath } = urlToPath(w.origUrl, { vendor });
+            const { segments, relPath } = urlToPath(w.origUrl, { vendor, layout: cfg.layout });
             const target = resolve(VENDOR_ROOT, vendor, ...segments);
             const result = writeIfChanged(target, finalBody);
             if (result === "wrote") fetched += 1;
             else skipped += 1;
+            if (pdfLaneEnabled) pdfQueue.push({ markdown: finalBody, sourceUrl: w.origUrl });
             const sha = hashBody(finalBody);
             checksums[w.origUrl] = {
               sha256: sha,
@@ -553,6 +608,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
     const front = renderUrlsIndex(vendor, llms?.url ?? "", cfg.transform, indexRows);
     writeIfChanged(resolve(VENDOR_ROOT, vendor, "urls.md"), front);
     await flushNeonBatch(vendor, neonBatch);
+    await flushPdfBatch(vendor, cfg, pdfQueue, failures);
     console.log(`[${vendor}] fetched=${fetched} unchanged=${skipped + preflightUnchanged} preflight-304=${preflight304} failed=${failures.length}`);
     return {
       vendor,
@@ -591,11 +647,12 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
           return;
         }
         const finalBody = item.transform.postProcess ? item.transform.postProcess(body) : body;
-        const { segments, relPath } = urlToPath(meta.origUrl, { vendor });
+        const { segments, relPath } = urlToPath(meta.origUrl, { vendor, layout: cfg.layout });
         const target = resolve(VENDOR_ROOT, vendor, ...segments);
         const result = writeIfChanged(target, finalBody);
         if (result === "wrote") fetched += 1;
         else skipped += 1;
+        if (pdfLaneEnabled) pdfQueue.push({ markdown: finalBody, sourceUrl: meta.origUrl });
         indexRows.push({ url: meta.origUrl, relPath });
         const sha = hashBody(finalBody);
         if (incremental) {
@@ -658,6 +715,30 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
  * when not set (local dev path). Failures are logged but never fatal —
  * the filesystem mirror is the source of truth; Neon is a cache.
  */
+async function flushPdfBatch(
+  vendor: string,
+  cfg: CrawlConfig,
+  queue: { markdown: string; sourceUrl: string }[],
+  failures: CrawlResult["failures"],
+): Promise<void> {
+  if ((cfg.pdf_allow_prefixes?.length ?? 0) === 0 || queue.length === 0) return;
+  let fetched = 0;
+  let skipped = 0;
+  for (const item of queue) {
+    const res = await mirrorPdfs({
+      vendorRoot: VENDOR_ROOT,
+      vendor,
+      markdown: item.markdown,
+      sourceUrl: item.sourceUrl,
+      pdfAllowPrefixes: cfg.pdf_allow_prefixes,
+    });
+    fetched += res.fetched.length;
+    skipped += res.skipped.length;
+    for (const f of res.failed) failures.push({ url: f.url, reason: `pdf-mirror: ${f.reason}` });
+  }
+  console.log(`[${vendor}] pdf-mirror: fetched=${fetched} skipped=${skipped}`);
+}
+
 async function flushNeonBatch(
   vendor: string,
   rows: { vendor: string; path: string; content: string; content_hash: string; etag?: string; last_modified?: string }[],

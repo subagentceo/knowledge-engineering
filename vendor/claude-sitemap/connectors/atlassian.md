@@ -1,0 +1,251 @@
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abde7cfa24b799acf7fc9_Atlassian.jpg)
+
+# Atlassian Rovo
+
+Access Jira & Confluence from Claude
+
+-   Category
+    
+    Productivity
+    
+-   Used in
+    
+    [
+    
+    Claude  
+    
+    ](http://claude.ai/directory/11ba10d9-477b-4988-bd1c-90a7fa680dc1)[
+    
+    Claude desktop app  
+    
+    ](#)[
+    
+    Claude mobile app  
+    
+    ](#)[
+    
+    Claude Code
+    
+    ](#)[
+    
+    Claude Code
+    
+    ](#)[
+    
+    Claude API
+    
+    ](#)[
+    
+    Claude API  
+    
+    ](#)
+    
+-   Made by
+    
+    [
+    
+    Atlassian
+    
+    ](https://www.atlassian.com/)
+    
+
+[Play video](#)Play video
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+-   Capabilities
+    
+    Read & write
+    
+    [](/connectors-capabilities/ready-write)
+    
+-   More
+    
+    [Documentation](https://www.atlassian.com/platform/remote-mcp-server)[Privacy Policy](https://www.atlassian.com/legal/privacy-policy)[Support](https://customerfeedback.atlassian.net/servicedesk/customer/portal/1701/group/1762/create/11360)
+    
+
+Connect to Jira, Confluence, and other Atlassian apps to manage issues, access documentation, track sprints, create tickets, update project status, and coordinate development workflows. Streamline project management and knowledge sharing across your development and collaboration tools through conversational interactions.
+
+You can use the Atlassian Rovo connector to:
+
+‍
+
+Summarize Jira issues:
+
+"Summarize all Jira issues assigned to me in the 'Q3 Planning' project that are still marked as 'In Progress'"
+
+‍
+
+Create Confluence pages:
+
+"Create a new Confluence page titled 'Post-Mortem: Sprint 24' in the 'Engineering/Incidents' space. Include a summary of key takeaways and assign action items to team members"
+
+‍
+
+Perform bulk Jira actions:
+
+"Create five Jira issues in the 'Mobile App' project for the following tasks: fix login bug, update onboarding flow, test Android push notifications, redesign settings page, and review user analytics dashboard"
+
+‍
+
+Users must have a Confluence account to use the server if 'User Installed Apps' setting is blocked.
+
+Skills
+
+Capture Tasks from Meeting Notes
+
+[Play video](#)Play video
+
+Analyze meeting notes to find action items and create Jira tasks for assigned work.
+
+Learn more
+
+[Learn more](https://github.com/atlassian/atlassian-mcp-server)Learn more
+
+[Next](#)Next
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Skills
+
+Generate Status Reports
+
+Generate project status reports from Jira issues and publish to Confluence.
+
+Learn more
+
+[Learn more](https://github.com/atlassian/atlassian-mcp-server)Learn more
+
+[Next](#)Next
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Skills
+
+Search Company Knowledge
+
+Search company knowledge bases (Confluence, Jira, internal docs) to find and explain internal concepts, processes, and technical details.
+
+Learn more
+
+[Learn more](https://github.com/atlassian/atlassian-mcp-server)Learn more
+
+[Next](#)Next
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Skills
+
+Spec to Backlog
+
+Automatically convert Confluence specification documents into structured Jira backlogs with Epics and implementation tickets.
+
+Learn more
+
+[Learn more](https://github.com/atlassian/atlassian-mcp-server)Learn more
+
+[Next](#)Next
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+Skills
+
+Triage Issue
+
+Triage bug reports and error messages by searching for duplicates in Jira and offering to create new issues or add comments to existing ones.
+
+Learn more
+
+[Learn more](https://github.com/atlassian/atlassian-mcp-server)Learn more
+
+[Next](#)Next
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+[Prev](#)Prev
+
+[Next](#)Next
+
+## Related connectors
+
+Productivity
+
+Claude
+
+Claude Code
+
+April 29, 2026
+
+[
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20\(3\)%20-%20Sarah%20Xu.svg)
+
+### Adobe Experience Manager
+
+Manage your Adobe Experience Manager content
+
+
+
+](/connectors/adobe-experience-manager)
+
+Productivity
+
+Communication
+
+Claude
+
+Claude Code
+
+February 11, 2026
+
+[
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdda280622da0e174da2_Asana.jpg)
+
+### Asana
+
+Connect to Asana to coordinate tasks, projects, and goals
+
+
+
+](/connectors/asana)
+
+Productivity
+
+Claude
+
+May 1, 2026
+
+[
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517b944431173c96c6735_audible%20-%20Audible%20\(1\).svg)
+
+### Audible
+
+Ask for audiobook recommendations
+
+
+
+](/connectors/audible)
+
+Productivity
+
+Claude
+
+Claude Code
+
+May 12, 2026
+
+[
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6a02b70a38d8e2b6e8fa1f71_consilio%20\(1\).svg)
+
+### Aurora
+
+Search your Consilio matters, docs, and more.
+
+
+
+](/connectors/aurora)

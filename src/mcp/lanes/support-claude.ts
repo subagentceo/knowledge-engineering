@@ -4,7 +4,7 @@
  * The support site is an Intercom help center. Articles are organized into
  * collections such as `14445694-claude-code`, `15399129-connectors`, etc.
  *
- * Phase E (O-E4): the 341 EN articles live at vendor/claude-support/ via
+ * Phase E (O-E4): the 341 EN articles live at vendor/claude-sitemap/support/ via
  * the support-mdfirst transform (O-E1) + sitemap-driven crawl (O-E2/E3).
  * support_article routes through mirrorOrFetch so the mirror serves by
  * default; live HTTP is fallback only. A new support_search tool exposes
@@ -102,17 +102,21 @@ export function registerSupportClaude(server: McpServer): void {
 
   server.tool(
     "support_search",
-    "Text-match support.claude.com article titles against the local mirror manifest. Returns URL + slug-derived title for each hit, no HTTP required. Sourced from vendor/claude-support/urls.md (341 EN articles).",
+    "Text-match support.claude.com article titles against the local mirror manifest. Returns URL + slug-derived title for each hit, no HTTP required. Sourced from vendor/claude-sitemap/urls.md (341 EN articles under support/en/articles/).",
     {
       text: z.string().min(1).describe("Substring to match against the article slug (case-insensitive)."),
       limit: z.number().int().positive().max(50).default(10),
     },
     async ({ text, limit }) => {
-      const manifest = getVendor("claude-support");
+      const manifest = getVendor("claude-sitemap");
       const needle = text.toLowerCase();
       const hits: Array<{ url: string; title: string }> = [];
+      let supportCount = 0;
       if (manifest) {
         for (const url of manifest.urlSet) {
+          // Filter to support.claude.com articles within the consolidated mirror.
+          if (!url.startsWith("https://support.claude.com/en/articles/")) continue;
+          supportCount += 1;
           // /en/articles/<id>-<title-slug> → title derived from slug
           const m = url.match(/\/en\/articles\/[0-9]+-(.+)$/);
           if (!m) continue;
@@ -124,9 +128,9 @@ export function registerSupportClaude(server: McpServer): void {
         }
       }
       return jsonResult({
-        source: "vendor/claude-support/urls.md",
+        source: "vendor/claude-sitemap/urls.md",
         query: text,
-        total_in_mirror: manifest?.urlSet.size ?? 0,
+        total_in_mirror: supportCount,
         hits,
       });
     }

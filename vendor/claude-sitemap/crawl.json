@@ -1,0 +1,44 @@
+{
+  "name": "claude-sitemap",
+  "homepage": "https://claude.com",
+  "llms_txt_candidates": [
+    "https://www.claude.com/llms.txt"
+  ],
+  "layout": "topology",
+  "sitemap_xml_sources": [
+    "https://claude.com/sitemap.xml",
+    "https://support.claude.com/sitemap.xml"
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://claude.com/blog/",
+    "https://www.claude.com/blog/",
+    "https://claude.com/connectors/",
+    "https://claude.com/customers/",
+    "https://claude.com/plugins/",
+    "https://claude.com/resources/",
+    "https://claude.com/code-with-claude/",
+    "https://claude.com/solutions/",
+    "https://support.claude.com/en/articles/"
+  ],
+  "deny_prefixes": [
+    "https://claude.com/blog/feed",
+    "https://claude.com/blog/rss",
+    "https://claude.com/ja/",
+    "https://claude.com/de/",
+    "https://claude.com/fr/",
+    "https://claude.com/ko/",
+    "https://www.claude.com/ja/",
+    "https://www.claude.com/de/",
+    "https://www.claude.com/fr/",
+    "https://www.claude.com/ko/"
+  ],
+  "page_cap": 2000,
+  "html_extract": {
+    "selector": ".u-rich-text-blog:not(.w-condition-invisible), .blog_post_contain, main"
+  },
+  "pdf_allow_prefixes": [
+    "https://cdn.prod.website-files.com/"
+  ],
+  "llms_txt": "https://www.claude.com/llms.txt"
+}
