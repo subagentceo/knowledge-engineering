@@ -90,6 +90,12 @@ interface CrawlConfig {
   allow_prefixes: string[];
   deny_prefixes?: string[];
   /**
+   * Exact-URL deny list. Excludes only the listed URLs verbatim; does
+   * not affect URLs that *start with* one of them. Use when a topology
+   * root must stay crawled but a specific listing/index page must not.
+   */
+  deny_urls?: string[];
+  /**
    * Maximum number of URLs from the source's allowlist-filtered set to
    * crawl in one pass. `0` means **no cap** (sentinel; uncapped).
    * Note: respect `maxRequestsPerMinute` (60) — even uncapped crawls
@@ -275,6 +281,10 @@ function makeTransform(name: TransformName, url: string, cfg: CrawlConfig): Tran
 function inAllowlist(url: string, cfg: CrawlConfig): boolean {
   if (!cfg.allow_prefixes.some((p) => url.startsWith(p))) return false;
   if (cfg.deny_prefixes?.some((p) => url.startsWith(p))) return false;
+  // Exact-URL denies — used when a parent path must stay allowed but
+  // one specific URL (typically a listing/index page that has no
+  // useful content container) must not be crawled.
+  if (cfg.deny_urls?.some((u) => url === u)) return false;
   return true;
 }
 

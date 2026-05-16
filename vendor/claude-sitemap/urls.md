@@ -1,8 +1,8 @@
 ---
 vendor: claude-sitemap
 llms_txt: https://www.claude.com/llms.txt
-last_crawled: 2026-05-16T06:14:02.477Z
-count: 1579
+last_crawled: 2026-05-16T06:31:30.583Z
+count: 1576
 transform: html-extract
 ---
 
@@ -991,8 +991,6 @@ transform: html-extract
 | https://claude.com/plugins/zoom-plugin | `vendor/claude-sitemap/plugins/zoom-plugin.md` |
 | https://claude.com/plugins/zoominfo | `vendor/claude-sitemap/plugins/zoominfo.md` |
 | https://claude.com/plugins/zscaler | `vendor/claude-sitemap/plugins/zscaler.md` |
-| https://claude.com/resources/courses | `vendor/claude-sitemap/resources/courses.md` |
-| https://claude.com/resources/tutorials | `vendor/claude-sitemap/resources/tutorials.md` |
 | https://claude.com/resources/tutorials-category/ai-fluency | `vendor/claude-sitemap/resources/tutorials-category/ai-fluency.md` |
 | https://claude.com/resources/tutorials-category/education | `vendor/claude-sitemap/resources/tutorials-category/education.md` |
 | https://claude.com/resources/tutorials-category/engineering | `vendor/claude-sitemap/resources/tutorials-category/engineering.md` |
@@ -1123,7 +1121,6 @@ transform: html-extract
 | https://claude.com/resources/tutorials/working-smarter-with-claude-in-powerpoint | `vendor/claude-sitemap/resources/tutorials/working-smarter-with-claude-in-powerpoint.md` |
 | https://claude.com/resources/tutorials/working-with-claude-opus-4-7 | `vendor/claude-sitemap/resources/tutorials/working-with-claude-opus-4-7.md` |
 | https://claude.com/resources/tutorials/writing-an-ai-diligence-statement | `vendor/claude-sitemap/resources/tutorials/writing-an-ai-diligence-statement.md` |
-| https://claude.com/resources/use-cases | `vendor/claude-sitemap/resources/use-cases.md` |
 | https://claude.com/resources/use-cases-category/claude-in-chrome | `vendor/claude-sitemap/resources/use-cases-category/claude-in-chrome.md` |
 | https://claude.com/resources/use-cases-category/cowork | `vendor/claude-sitemap/resources/use-cases-category/cowork.md` |
 | https://claude.com/resources/use-cases-category/custom-visuals | `vendor/claude-sitemap/resources/use-cases-category/custom-visuals.md` |

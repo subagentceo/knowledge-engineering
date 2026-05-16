@@ -56,6 +56,12 @@ export const CrawlConfigSchema = z.object({
   transform: TransformNameSchema,
   allow_prefixes: z.array(z.string().min(1)),
   deny_prefixes: z.array(z.string().min(1)).optional(),
+  /**
+   * Exact-URL deny list. Use when allow_prefix covers a topology root
+   * but a specific listing/index page (e.g. /resources/use-cases) must
+   * not be crawled while its children (/resources/use-cases/<slug>) must.
+   */
+  deny_urls: z.array(z.string().url()).optional(),
   page_cap: z.number().int().min(0),
   html_extract: HtmlExtractSchema.optional(),
   incremental: z.boolean().optional(),

@@ -111,4 +111,4 @@ Try searching by EIN, alternate names or acronyms, or broadening your search ter
 -   No personal user data is shared with Candid
 -   Search queries are used only to retrieve relevant results
 
-For Candid-specific questions, email [\[email protected\]](/cdn-cgi/l/email-protection#31415043455f544342595841427152505f5558551f5e4356).
+For Candid-specific questions, email [\[email protected\]](/cdn-cgi/l/email-protection#b7c7d6c5c3d9d2c5c4dfdec7c4f7d4d6d9d3ded399d8c5d0).

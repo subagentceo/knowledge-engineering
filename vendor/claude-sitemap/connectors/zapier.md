@@ -9,4 +9,4 @@ Turn conversations into actionable tasks:
 "Take the insights from this conversation, add them to my database, and turn them into tickets"
 
 Manage email communications:  
-"Help me answer and reply to the latest email from [\[email protected\]](/cdn-cgi/l/email-protection#c8a4ada788adb0a9a5b8a4ade6aba7a5)"
+"Help me answer and reply to the latest email from [\[email protected\]](/cdn-cgi/l/email-protection#e68a8389a6839e878b968a83c885898b)"
