@@ -8,8 +8,8 @@
 // @tdd green
 //
 // Citations:
-//   @cite scripts/lib/pdf-mirror.ts            (system under test)
 //   @cite vendor/claude-sitemap/crawl.json     (pdf_allow_prefixes consumer)
+//   @cite seeds/posture/session-start.xml      (.md-first hard rule)
 
 import { strict as assert } from "node:assert";
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, rmSync } from "node:fs";
