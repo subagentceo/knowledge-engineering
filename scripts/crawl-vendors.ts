@@ -45,6 +45,7 @@ import {
 import { extractIndexUrls } from "./lib/html-index.js";
 import { parseLlmsTxt, type LlmsTxt } from "./lib/llms-txt.js";
 import { neonEnabled, upsertVendorPage } from "./lib/neon-client.js";
+import { mirrorPdfs } from "./lib/pdf-mirror.js";
 import { isSitemapIndex, parseSitemapXml } from "./lib/sitemap-xml.js";
 import {
   TRANSFORMS,
@@ -97,6 +98,14 @@ interface CrawlConfig {
   page_cap: number;
   /** Optional turndown options for `html-extract`. */
   html_extract?: { selector?: string };
+  /**
+   * PDF lane. When set, after each html-extract markdown is produced
+   * the body is scanned for `.pdf` hrefs matching one of these prefixes;
+   * matches are fetched, run through pdf-parse, and written as markdown
+   * sidecars at `vendor/<name>/_pdfs/<slug>.md`. Missing/empty disables
+   * the lane entirely (default).
+   */
+  pdf_allow_prefixes?: string[];
   /**
    * Phase 13.A. When true (default), the crawler does an RFC 7232
    * conditional-GET pre-flight per URL using the stored ETag /
@@ -280,6 +289,13 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   // Declared up-front so the additional-source loop can record failures
   // without needing to thread them through later.
   const failures: CrawlResult["failures"] = [];
+
+  // PDF lane bookkeeping. When pdf_allow_prefixes is set, collect the
+  // markdown bodies + source URLs as they're written, then run the
+  // mirror pass once at the end so we don't block per-page crawlee
+  // concurrency on PDF fetches.
+  const pdfQueue: { markdown: string; sourceUrl: string }[] = [];
+  const pdfLaneEnabled = (cfg.pdf_allow_prefixes?.length ?? 0) > 0;
 
   // Discover llms.txt (primary). If llms_txt_sources is set, also fetch each
   // source body and merge its links into the URL pool.
@@ -517,6 +533,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
             const result = writeIfChanged(target, finalBody);
             if (result === "wrote") fetched += 1;
             else skipped += 1;
+            if (pdfLaneEnabled) pdfQueue.push({ markdown: finalBody, sourceUrl: w.origUrl });
             const sha = hashBody(finalBody);
             checksums[w.origUrl] = {
               sha256: sha,
@@ -557,6 +574,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
     const front = renderUrlsIndex(vendor, llms?.url ?? "", cfg.transform, indexRows);
     writeIfChanged(resolve(VENDOR_ROOT, vendor, "urls.md"), front);
     await flushNeonBatch(vendor, neonBatch);
+    await flushPdfBatch(vendor, cfg, pdfQueue, failures);
     console.log(`[${vendor}] fetched=${fetched} unchanged=${skipped + preflightUnchanged} preflight-304=${preflight304} failed=${failures.length}`);
     return {
       vendor,
@@ -600,6 +618,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
         const result = writeIfChanged(target, finalBody);
         if (result === "wrote") fetched += 1;
         else skipped += 1;
+        if (pdfLaneEnabled) pdfQueue.push({ markdown: finalBody, sourceUrl: meta.origUrl });
         indexRows.push({ url: meta.origUrl, relPath });
         const sha = hashBody(finalBody);
         if (incremental) {
@@ -662,6 +681,30 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
  * when not set (local dev path). Failures are logged but never fatal —
  * the filesystem mirror is the source of truth; Neon is a cache.
  */
+async function flushPdfBatch(
+  vendor: string,
+  cfg: CrawlConfig,
+  queue: { markdown: string; sourceUrl: string }[],
+  failures: CrawlResult["failures"],
+): Promise<void> {
+  if ((cfg.pdf_allow_prefixes?.length ?? 0) === 0 || queue.length === 0) return;
+  let fetched = 0;
+  let skipped = 0;
+  for (const item of queue) {
+    const res = await mirrorPdfs({
+      vendorRoot: VENDOR_ROOT,
+      vendor,
+      markdown: item.markdown,
+      sourceUrl: item.sourceUrl,
+      pdfAllowPrefixes: cfg.pdf_allow_prefixes,
+    });
+    fetched += res.fetched.length;
+    skipped += res.skipped.length;
+    for (const f of res.failed) failures.push({ url: f.url, reason: `pdf-mirror: ${f.reason}` });
+  }
+  console.log(`[${vendor}] pdf-mirror: fetched=${fetched} skipped=${skipped}`);
+}
+
 async function flushNeonBatch(
   vendor: string,
   rows: { vendor: string; path: string; content: string; content_hash: string; etag?: string; last_modified?: string }[],

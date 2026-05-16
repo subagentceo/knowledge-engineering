@@ -17,7 +17,11 @@ import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const BLOG_DIR = resolve(__dirname, "..", "..", "vendor", "claude-blog", "www.claude.com", "blog");
+const VENDOR_DIR = resolve(__dirname, "..", "..", "vendor", "claude-blog");
+const BLOG_DIRS = [
+  resolve(VENDOR_DIR, "www.claude.com", "blog"),
+  resolve(VENDOR_DIR, "claude.com", "blog"),
+];
 
 const FORBIDDEN_SIGNATURES: { needle: string; reason: string }[] = [
   { needle: "<script", reason: "raw <script> leaked through turndown" },
@@ -29,10 +33,14 @@ const FORBIDDEN_SIGNATURES: { needle: string; reason: string }[] = [
 ];
 
 function listPosts(): string[] {
-  if (!existsSync(BLOG_DIR)) return [];
-  return readdirSync(BLOG_DIR)
-    .filter((f) => f.endsWith(".md"))
-    .map((f) => resolve(BLOG_DIR, f));
+  const out: string[] = [];
+  for (const dir of BLOG_DIRS) {
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir)) {
+      if (f.endsWith(".md")) out.push(resolve(dir, f));
+    }
+  }
+  return out;
 }
 
 test("vendor/claude-blog mirror is populated", () => {
@@ -40,12 +48,22 @@ test("vendor/claude-blog mirror is populated", () => {
   assert.ok(posts.length >= 5, `expected ≥5 fetched posts, got ${posts.length}`);
 });
 
+/**
+ * Strip fenced code blocks before scanning so legitimate `<style>` /
+ * `<script>` snippets *inside* code examples don't false-positive.
+ * Web-tutorial posts (e.g. build-responsive-web-layouts) teach HTML/CSS
+ * and ship CSS snippets in ```htmlbars fences.
+ */
+function stripCodeBlocks(body: string): string {
+  return body.replace(/```[\s\S]*?```/g, "").replace(/`[^`\n]*`/g, "");
+}
+
 test("every post is free of Webflow script/style/JSON-LD leakage", () => {
   const posts = listPosts();
   if (posts.length === 0) return; // covered by the populated-mirror test above
   const violations: string[] = [];
   for (const path of posts) {
-    const body = readFileSync(path, "utf8");
+    const body = stripCodeBlocks(readFileSync(path, "utf8"));
     for (const { needle, reason } of FORBIDDEN_SIGNATURES) {
       if (body.includes(needle)) {
         violations.push(`${path}: ${reason} (found '${needle}')`);
@@ -68,6 +86,20 @@ test("every post stays under a sane line-count ceiling", () => {
     if (lines > 1500) oversized.push(`${path}: ${lines} lines`);
   }
   assert.deepEqual(oversized, [], `oversized posts (likely script-leakage regression):\n${oversized.join("\n")}`);
+});
+
+test("PDF mirror lane produced at least one extracted document", () => {
+  const pdfDir = resolve(VENDOR_DIR, "_pdfs");
+  if (!existsSync(pdfDir)) return; // PDF lane optional — empty crawls are ok
+  const mirrors = readdirSync(pdfDir).filter((f) => f.endsWith(".md"));
+  for (const f of mirrors) {
+    const path = resolve(pdfDir, f);
+    const body = readFileSync(path, "utf8");
+    assert.ok(body.startsWith("---\n"), `${f}: missing frontmatter`);
+    assert.ok(body.includes("kind: pdf-mirror"), `${f}: missing kind: pdf-mirror`);
+    assert.ok(body.includes("source_url:"), `${f}: missing source_url`);
+    assert.ok(statSync(path).size > 500, `${f}: suspiciously small (${statSync(path).size}B)`);
+  }
 });
 
 test("every post has non-trivial prose content", () => {

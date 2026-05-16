@@ -2,27 +2,9 @@
   "name": "claude-blog",
   "homepage": "https://www.claude.com/blog",
   "llms_txt_candidates": [],
-  "html_index_sources": [
-    {
-      "url": "https://www.claude.com/blog",
-      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
-    },
-    {
-      "url": "https://claude.com/blog/category/agents",
-      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
-    },
-    {
-      "url": "https://claude.com/blog/category/enterprise-ai",
-      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
-    },
-    {
-      "url": "https://claude.com/blog/category/claude-code",
-      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
-    },
-    {
-      "url": "https://claude.com/blog/category/announcements",
-      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
-    }
+  "html_index_sources": [],
+  "sitemap_xml_sources": [
+    "https://claude.com/sitemap.xml"
   ],
   "transform": "html-extract",
   "allow_prefixes": [
@@ -37,5 +19,8 @@
   "html_extract": {
     "selector": ".u-rich-text-blog:not(.w-condition-invisible)"
   },
+  "pdf_allow_prefixes": [
+    "https://cdn.prod.website-files.com/"
+  ],
   "llms_txt": "https://www.claude.com/llms.txt"
 }
