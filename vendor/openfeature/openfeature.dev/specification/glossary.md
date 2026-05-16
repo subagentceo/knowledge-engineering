@@ -1,8 +1,3 @@
--   [](/)
--   Glossary
-
-On this page
-
 # Glossary
 
 This document defines some terms that are used across this specification.
@@ -208,5 +203,3 @@ In contrast to server-side or other service-type applications, client side appli
 -   libraries provide a mechanism to update context (e.g. if a user logs in), meaning cached evaluations are no longer valid and must be re-evaluated, frequently involving a network request or I/O operation
 
 Not all client libraries work this way, but generally, libraries that accept dynamic context per evaluation can build providers which conform to this model with relative ease, while the reverse is not true.
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/glossary.md)

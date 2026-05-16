@@ -1,9 +1,3 @@
--   [](/)
--   [Sections](/specification/category/sections)
--   Flag Evaluation API
-
-On this page
-
 # 1\. Flag Evaluation API
 
 [![stable](https://img.shields.io/static/v1?label=Status&message=stable&color=green)](https://github.com/open-feature/spec/tree/main/specification#stable)
@@ -427,5 +421,3 @@ see: [error codes](/specification/types#error-code)
 > The client's `provider status` accessor **MUST** indicate `NOT_READY` once the `shutdown` function of the associated provider terminates.
 
 Regardless of the success of the provider's `shutdown` function, the `provider status` should convey the provider is no longer ready to use once the shutdown function terminates.
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/sections/01-flag-evaluation.md)

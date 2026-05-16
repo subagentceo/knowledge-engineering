@@ -1,9 +1,3 @@
--   [](/)
--   [OpenFeature Operator](/docs/category/openfeature-operator)
--   In-Process and Client-side Evaluation with flagd and OpenFeature Operator
-
-On this page
-
 # In-Process and Client-side Evaluation with flagd and OpenFeature Operator
 
 This tutorial outlines some of the advanced features and configurations supported by the OpenFeature operator and flagd. The example configurations featured here make use of flagd used in a "standalone" mode; deployed and accessible centrally in your cluster (as opposed to injected into the workload as a sidecar). The model adds some complexity in the configuration, but carries a few benefits:
@@ -251,5 +245,3 @@ kind delete cluster
 ```
 
 If you [disabled Traefik](#rancher-desktop-configuration), you may want to re-enable it.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/tutorials/open-feature-operator/advanced-topics.md)

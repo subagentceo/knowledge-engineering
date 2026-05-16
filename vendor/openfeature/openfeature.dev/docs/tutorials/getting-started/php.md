@@ -1,9 +1,3 @@
--   [](/)
--   [Getting Started](/docs/category/getting-started)
--   PHP SDK and Laravel
-
-On this page
-
 # Getting Started with the OpenFeature PHP SDK on Laravel
 
 ## Introduction[​](#introduction "Direct link to Introduction")
@@ -143,5 +137,3 @@ Save the changes to `flags.flagd.json` and refresh the browser tab.
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
 This walk-through introduced you to the OpenFeature PHP SDK. It covered how a provider can be configured to perform the flag evaluation and introduced basic feature flagging concepts. It also showcased how feature flags can be updated at runtime, without requiring a redeployment.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/tutorials/getting-started/php.mdx)

@@ -1,8 +1,3 @@
--   [](/)
--   Appendix C: OpenFeature Remote Evaluation Protocol
-
-On this page
-
 # Appendix C: OpenFeature Remote Evaluation Protocol
 
 OpenFeature Remote Evaluation Protocol (OFREP) is a unified feature flag evaluation protocol that adheres to the OpenFeature semantics. You can find proposals, discussions and the progress at the dedicated [OpenFeature OFREP](https://github.com/open-feature/protocol) repository.
@@ -18,5 +13,3 @@ If you are interested in this initiative, you can join the [`#openfeature-remote
 ## API Specification[​](#api-specification "Direct link to API Specification")
 
 View the full [OFREP API Specification](https://openfeature.dev/docs/reference/other-technologies/ofrep/openapi) with interactive documentation.
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/appendix-c/index.md)

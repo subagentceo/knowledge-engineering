@@ -15,6 +15,6 @@
   ],
   "page_cap": 200,
   "html_extract": {
-    "selector": "article"
+    "selector": ".theme-doc-markdown, article, main"
   }
 }

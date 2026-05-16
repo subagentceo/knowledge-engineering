@@ -1,9 +1,3 @@
--   [](/)
--   [Sections](/specification/category/sections)
--   Evaluation Context
-
-On this page
-
 # 3\. Evaluation Context
 
 [![hardening](https://img.shields.io/static/v1?label=Status&message=hardening&color=yellow)](https://github.com/open-feature/spec/tree/main/specification#hardening)
@@ -179,5 +173,3 @@ see: [static-context paradigm](/specification/glossary#static-context-paradigm)
 > The API **MUST NOT** have a method for setting a `transaction context propagator`.
 
 In the static-context paradigm, context is global, so there must not be different contexts between transactions.
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/sections/03-evaluation-context.md)

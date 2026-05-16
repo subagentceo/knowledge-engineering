@@ -1,9 +1,3 @@
--   [](/)
--   [Sections](/specification/category/sections)
--   Events
-
-On this page
-
 # 5\. Events
 
 [![hardening](https://img.shields.io/static/v1?label=Status&message=hardening&color=yellow)](https://github.com/open-feature/spec/tree/main/specification#hardening)
@@ -217,5 +211,3 @@ N/A (only emitted by SDK during context reconciliation)
 \* If the `error code` associated with the error indicates `PROVIDER_FATAL`, the state is set to `FATAL`
 
 see: [provider lifecycle management](/specification/sections/flag-evaluation#17-provider-lifecycle-management), [provider status](/specification/types#provider-status) [error codes](/specification/types#error-code)
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/sections/05-events.md)

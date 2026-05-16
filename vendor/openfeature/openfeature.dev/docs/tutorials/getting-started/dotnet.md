@@ -1,9 +1,3 @@
--   [](/)
--   [Getting Started](/docs/category/getting-started)
--   .NET SDK and ASP.NET Core
-
-On this page
-
 # Getting Started with the OpenFeature .NET SDK
 
 ## Introduction[​](#introduction "Direct link to Introduction")
@@ -117,5 +111,3 @@ Revisit the endpoint [http://localhost:5251/hello](http://localhost:5251/hello) 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
 This walk-through introduced you to the OpenFeature .NET SDK. It covered how a provider can be configured to perform the flag evaluation and introduced basic feature flagging concepts. It also showcased how feature flags can be updated at runtime, without requiring a code change and a redeployment.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/tutorials/getting-started/dotnet.mdx)

@@ -1,10 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Server](/docs/reference/sdks/server/)
--   Ruby
-
-On this page
-
 # OpenFeature Ruby SDK
 
 [![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Release](https://img.shields.io/static/v1?label=release&message=v0.6.5&color=blue&style=for-the-badge)](https://github.com/open-feature/ruby-sdk/releases/tag/v0.6.5)[![Build](https://img.shields.io/github/actions/workflow/status/open-feature/ruby-sdk/main.yml?style=for-the-badge)](https://github.com/open-feature/ruby-sdk/actions/workflows/main.yml)[![Gem Version](https://img.shields.io/gem/v/openfeature-sdk?style=for-the-badge&color=red)](https://rubygems.org/gems/openfeature-sdk)[![Code Coverage](https://img.shields.io/codecov/c/github/open-feature/ruby-sdk?style=for-the-badge)](https://codecov.io/gh/open-feature/ruby-sdk)  
@@ -273,5 +266,3 @@ class MyLoggingHook  include OpenFeature::SDK::Hooks::Hook  def before(hook_cont
 ```
 
 > Built a new hook? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=hook&projects=&template=document-hook.yaml&title=%5BHook%5D%3A+) so we can add it to the docs!
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/server/ruby.mdx)

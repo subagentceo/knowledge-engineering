@@ -1,9 +1,3 @@
--   [](/)
--   [Getting Started](/docs/category/getting-started)
--   Go SDK and Go Gin
-
-On this page
-
 # Getting Started with the OpenFeature Go SDK and Go Gin
 
 ## Introduction[​](#introduction "Direct link to Introduction")
@@ -135,5 +129,3 @@ Revisit the endpoint [http://localhost:8080/hello](http://localhost:8080/hello) 
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
 This walk-through introduced you to the OpenFeature Go SDK and how it can be easily integrated into well-known frameworks such as Go Gin. It covered how a provider can be configured to perform the flag evaluation and introduced basic feature flagging concepts. It also showcased how feature flags can be updated at runtime, without requiring a code change and a redeployment.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/tutorials/getting-started/go.mdx)

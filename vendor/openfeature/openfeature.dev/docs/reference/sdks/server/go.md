@@ -1,10 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Server](/docs/reference/sdks/server/)
--   Go
-
-On this page
-
 # OpenFeature Go SDK
 
 [![Specification](https://img.shields.io/static/v1?label=specification&message=v0.7.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.7.0)[![Release](https://img.shields.io/static/v1?label=release&message=v1.17.2&color=blue&style=for-the-badge)](https://github.com/open-feature/go-sdk/releases/tag/v1.17.2)  
@@ -265,5 +258,3 @@ You can pass `*testing.T` directly.
 ### Mocks[​](#mocks "Direct link to Mocks")
 
 Mocks are also available for testing purposes for all interfaces within the OpenFeature SDK. These are primarily intended for internal use for testing the SDK, but have been exported to ease the testing burden for any extensions or custom components (e.g. hooks & providers). These mocks are not include in builds by default. The build tag `testtools` must be used to have the mocks included in builds.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/server/go.mdx)

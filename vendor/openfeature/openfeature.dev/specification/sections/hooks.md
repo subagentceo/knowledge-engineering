@@ -1,9 +1,3 @@
--   [](/)
--   [Sections](/specification/category/sections)
--   Hooks
-
-On this page
-
 # 4\. Hooks
 
 [![hardening](https://img.shields.io/static/v1?label=Status&message=hardening&color=yellow)](https://github.com/open-feature/spec/tree/main/specification#hardening)
@@ -267,5 +261,3 @@ Example TypeScript definition:
 ```
 type HookData = Record<string, unknown>;
 ```
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/sections/04-hooks.md)

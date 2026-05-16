@@ -1,11 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Client](/docs/reference/sdks/client/)
--   [Web](/docs/reference/sdks/client/web/)
--   Angular
-
-On this page
-
 # OpenFeature Angular SDK
 
 [![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Release](https://img.shields.io/static/v1?label=release&message=v1.2.0&color=blue&style=for-the-badge)](https://github.com/open-feature/js-sdk/releases/tag/angular-sdk-v1.2.0)  
@@ -241,5 +233,3 @@ The `@openfeature/angular-sdk` re-exports everything from its peers (`@openfeatu
 ## Resources[​](#resources "Direct link to Resources")
 
 -   [Example repo](https://github.com/open-feature/angular-test-app)
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/client/web/angular.mdx)

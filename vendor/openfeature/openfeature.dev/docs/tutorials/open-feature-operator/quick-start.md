@@ -1,9 +1,3 @@
--   [](/)
--   [OpenFeature Operator](/docs/category/openfeature-operator)
--   Quick Start: Cloud Native Feature-Flagging with the OpenFeature Operator
-
-On this page
-
 # Quick Start: Cloud Native Feature-Flagging with the OpenFeature Operator
 
 In the following tutorial, we'll see how to leverage _flagd_ and the OpenFeature Operator to enable cloud-native, self-hosted feature flags in your Kubernetes cluster. [flagd](https://flagd.dev/) is a "feature flag daemon with a Unix philosophy". Put another way, it's a small, self-contained binary that evaluates feature flags, uses standard interfaces, and runs just about anywhere. It can be deployed in a central location serving multiple clients or embedded into a unit of deployment (such as a pod in Kubernetes). The [OpenFeature Operator](https://github.com/open-feature/open-feature-operator) is a K8s-flavored solution for easily adding flagd to any relevant workloads. The operator parses Kubernetes spec files and adds flagd and associated objects to the workloads based on annotations and custom resource definitions it understands. The injected flagd sidecar then gets its feature flags by querying the Kubernetes API for our flags.
@@ -149,5 +143,3 @@ If you used a kind cluster, you can clean everything up by running:
 ```
 kind delete cluster
 ```
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/tutorials/open-feature-operator/quick-start.md)

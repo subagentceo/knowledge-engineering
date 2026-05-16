@@ -1,8 +1,3 @@
--   [](/)
--   Introduction
-
-On this page
-
 # Welcome to OpenFeature
 
 OpenFeature is an open specification that provides a vendor-agnostic, community-driven API for feature flagging that works with your favorite feature flag management tool.
@@ -30,3 +25,23 @@ OpenFeature provides a shared, standardized feature flagging client - an _SDK_ -
 _OpenFeature integrated with a hypothetical "Flags-R-us" flag management system_
 
 To accomplish this, the OpenFeature SDK defines a number of flexible abstractions.
+
+### Evaluation API[​](#evaluation-api "Direct link to Evaluation API")
+
+The [evaluation API](/docs/reference/concepts/evaluation-api) is the part of the OpenFeature SDK that an _application author_ interacts with. It allows developers to evaluate feature flags, and use the resulting values to impact control flow or application characteristics. The evaluation API provides a framework that allows for customization of behavior and integration with various tools.
+
+### Evaluation Context[​](#evaluation-context "Direct link to Evaluation Context")
+
+The [evaluation context](/docs/reference/concepts/evaluation-context) is a container for arbitrary contextual data that can be used as a basis for dynamic evaluation. Static data such as the host or an identifier for the application can be configured globally. Dynamic evaluation context, such as the IP address of the client in a web application, can be implicitly propagated or explicitly passed to during flag evaluation, and can be merged with static values.
+
+### Providers[​](#providers "Direct link to Providers")
+
+[Providers](/docs/reference/concepts/provider) are the "translation layer" between the evaluation API and the flag management system in use. Providers are responsible for mapping the arguments supplied to the evaluation API to their equivalent representation in the associated flag management system. Providers might wrap a vendor SDK, call a bespoke flag evaluation REST API, or even parse some locally stored file to resolve flag values.
+
+### Hooks[​](#hooks "Direct link to Hooks")
+
+[Hooks](/docs/reference/concepts/hooks) are a mechanism that allow for the addition of arbitrary behavior at various points in the _flag evaluation life-cycle_. Hooks let you extend the OpenFeature SDK, adding functionality such as validating a resolved flag value, modifying or adding data to the evaluation context, logging, telemetry, and tracking.
+
+### Events[​](#events "Direct link to Events")
+
+[Events](/docs/reference/concepts/events) enable the ability to react to state changes in the provider or underlying flag management system. These include changes in provider readiness, error status, or perhaps most interestingly, flag configuration changes.

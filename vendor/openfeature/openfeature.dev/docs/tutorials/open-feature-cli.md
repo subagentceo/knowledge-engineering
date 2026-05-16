@@ -1,8 +1,3 @@
--   [](/)
--   OpenFeature CLI
-
-On this page
-
 # OpenFeature CLI
 
 > **⚠️ The OpenFeature CLI is experimental!** Feel free to give it a shot and provide feedback, but expect breaking changes.
@@ -132,5 +127,3 @@ Want to dive deeper? Here are some great next steps:
 -   Set up provider integration: Connect your generated code to a real feature flag service using [OpenFeature providers](/ecosystem?instant_search%5BrefinementList%5D%5Btype%5D%5B0%5D=Provider)
 -   Contribute: Visit the [GitHub repository](https://github.com/open-feature/cli) to contribute or report issues
 -   Join the community: Drop by the [#openfeature-cli](https://cloud-native.slack.com/archives/C07DY4TUDK6) channel in CNCF Slack
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/tutorials/open-feature-cli.md)

@@ -1,11 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Server](/docs/reference/sdks/server/)
--   [Node.js](/docs/reference/sdks/server/javascript/)
--   NestJS
-
-On this page
-
 # OpenFeature NestJS SDK
 
 [![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Release](https://img.shields.io/static/v1?label=release&message=v0.2.6&color=blue&style=for-the-badge)](https://github.com/open-feature/js-sdk/releases/tag/nestjs-sdk-v0.2.6)  
@@ -106,5 +98,3 @@ For enhanced type safety and autocompletion, you can override flag key types usi
 ### Flag evaluation context injection[​](#flag-evaluation-context-injection "Direct link to Flag evaluation context injection")
 
 Whenever a flag evaluation occurs, context can be provided with information like user e-mail, role, targeting key, etc. in order to trigger specific evaluation rules or logic. The `OpenFeatureModule` provides a way to configure context for each request using the `contextFactory` option. The `contextFactory` is run in a NestJS interceptor scope to configure the evaluation context, and then it is used in every flag evaluation related to this request. By default, the interceptor is configured globally, but it can be changed by setting the `useGlobalInterceptor` to `false`. In this case, it is still possible to configure a `contextFactory` that can be injected into route, module or controller bound interceptors.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/server/javascript/nestjs.mdx)

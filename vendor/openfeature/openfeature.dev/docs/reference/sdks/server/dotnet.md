@@ -1,10 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Server](/docs/reference/sdks/server/)
--   .NET
-
-On this page
-
 # OpenFeature .NET SDK
 
 [![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0) [![Release](https://img.shields.io/static/v1?label=release&message=v2.13.0&color=blue&style=for-the-badge)](https://github.com/open-feature/dotnet-sdk/releases/tag/v2.13.0)
@@ -590,5 +583,3 @@ You can also write your own extraction logic against the Flag metadata by provid
 ```
 var options = MetricsHookOptions.CreateBuilder()    .WithFlagEvaluationMetadata("boolean", s => s.GetBool("boolean"))    .Build();
 ```
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/server/dotnet.mdx)

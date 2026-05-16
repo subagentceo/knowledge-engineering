@@ -1,10 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Server](/docs/reference/sdks/server/)
--   C++
-
-On this page
-
 # OpenFeature C++ SDK
 
 [![Specification](https://img.shields.io/static/v1?label=specification&message=v0.2.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.2.0)[![Release](https://img.shields.io/static/v1?label=release&message=v0.0.1&color=blue&style=for-the-badge)](https://github.com/open-feature/cpp-sdk/releases/tag/v0.0.1)  
@@ -188,5 +181,3 @@ To develop a provider, you need to create a new project and include the OpenFeat
 To develop a hook, you need to create a new project and include the OpenFeature SDK as a dependency. This can be a new repository or included in [the existing contrib repository](https://github.com/open-feature/cpp-sdk-contrib) available under the OpenFeature organization. Implement your own hook by conforming to the `Hook interface`. To satisfy the interface, all methods (`Before`/`After`/`Finally`/`Error`) need to be defined. To avoid defining empty functions, make use of the `UnimplementedHook` struct (which already implements all the empty functions).
 
 > Built a new hook? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=hook&projects=&template=document-hook.yaml&title=%5BHook%5D%3A+) so we can add it to the docs!
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/server/cpp.mdx)
