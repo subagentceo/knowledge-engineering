@@ -1,5 +1,3 @@
-## Code of conduct
-
 San Francisco · London · Tokyo
 
 All attendees, speakers, sponsors, and volunteers at Code with Claude ("Conference") must agree to abide by this Code of Conduct, which Anthropic will enforce throughout the Conference. We expect everyone to work together to help ensure a safe, inclusive, and productive environment for all participants.
@@ -84,7 +82,7 @@ Certain sessions will be designated as confidential or no-recording. These sessi
 
 ### Contact
 
-For questions about this Code of Conduct or to report a concern, contact us at [\[email protected\]](/cdn-cgi/l/email-protection#8deee2e9e8fae4f9e5eee1ecf8e9e8cdffe8eafefbeea3eee2e0).
+For questions about this Code of Conduct or to report a concern, contact us at [\[email protected\]](/cdn-cgi/l/email-protection#b4d7dbd0d1c3ddc0dcd7d8d5c1d0d1f4c6d1d3c7c2d79ad7dbd9).
 
 This Code of Conduct forms part of the Code with Claude Terms & Conditions. Capitalized terms not defined herein have the meanings given to them in the Terms & Conditions.
 

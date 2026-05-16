@@ -35,7 +35,7 @@
   ],
   "page_cap": 2000,
   "html_extract": {
-    "selector": ".u-rich-text-blog:not(.w-condition-invisible), .blog_post_contain, main"
+    "selector": ".u-rich-text-blog:not(.w-condition-invisible), .blog_post_contain, .w-richtext:not(.w-condition-invisible), .hero_connector_details, main"
   },
   "pdf_allow_prefixes": [
     "https://cdn.prod.website-files.com/"

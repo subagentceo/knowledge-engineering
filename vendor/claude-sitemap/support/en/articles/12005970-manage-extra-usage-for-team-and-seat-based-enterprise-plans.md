@@ -68,7 +68,7 @@ After navigating to **[Organization](https://claude.ai/admin-settings/organizati
 
 The **Usage and spend limits** section will show the current limit (if any) or **Unlimited**. Clicking on “Adjust limit” opens a modal where you can either input an amount and click “Set spend limit,” or click “Set to unlimited” to remove the organization-wide monthly spend limit:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149347604/936ac4eb025d3ef1f00c3b8a26b0/image.png?expires=1778907600&amp;signature=b925981a204d3af0ee730ba743334a4dd18d0e3a22203523a3e8b81632b0d2b4&amp;req=diEjH8p6modfXfMW1HO4zQHwjKnelimg6DwhVVpk1mDD8B0RPJk3D83JEBFe%0AbcPw7tsmkuSUo7WgPOQ%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149347604/936ac4eb025d3ef1f00c3b8a26b0/image.png?expires=1778913900&amp;signature=e42fc96fd6d5443419f8ce267373f0475c44c98d6e70e1f5cd29687494c91c81&amp;req=diEjH8p6modfXfMW1HO4zQHwjKnely2v6DwhVVpk1mDVHrACSYftT8oUotZm%0AkvdF9CcRBLAW%2BlOBeds%3D%0A)
 
 Changes to your organization’s overall spend limit go into effect immediately.
 
@@ -76,11 +76,11 @@ Changes to your organization’s overall spend limit go into effect immediately.
 
 Owners and Primary Owners on **seat-based Enterprise plans only** can set spend limits that apply to all users within a specific seat tier.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149351600/c5b979c366ac2738f60ea84e85b3/CleanShot+2026-03-10+at+15_37_41%402x.png?expires=1778907600&amp;signature=cd8ef9d1b76a2b4a32a95a5b56f9dca2655419b01659b4584e1cd407d13ec6ba&amp;req=diEjH8p7nIdfWfMW1HO4zYnqP42dI3eP0wfO62ivdG9Ks9c%2BGVJW%2FJjafmGF%0AHVjkzotX2Pn9oR4zcZ8%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149351600/c5b979c366ac2738f60ea84e85b3/CleanShot+2026-03-10+at+15_37_41%402x.png?expires=1778913900&amp;signature=9d69fc910fba8e00cadaffafb6c51f55bba806ff7b07c7273077fe857ab01efd&amp;req=diEjH8p7nIdfWfMW1HO4zYnqP42dInOA0wfO62ivdG9ueJJqbyCMLLEBdGeT%0Az4dPou7Z9S%2BabcnJEmY%3D%0A)
 
 Select the “By group” tab to see **Standard seats** and **Premium seats** groups. Click the “...” icon next to the current limit, then “Edit limit.” This opens a modal where you can either select “Set dollar amount” and input an amount, or click “Unlimited” to remove the limit for that seat type. Click “Set limit” to save your changes.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149362056/44993661ca2db771fe924d0346f6/image.png?expires=1778907600&amp;signature=fa9840ffb8078b3013c6d253eb65869770a18c95930003156d158d7bee4ff288&amp;req=diEjH8p4n4FaX%2FMW1HO4zRzvs40CcEpAq7nEDCGq9G7tfu9uSAImlhPzUjPw%0Aa3IdE09dBq1CO3zjRsc%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149362056/44993661ca2db771fe924d0346f6/image.png?expires=1778913900&amp;signature=48962663ba9bb780a1d82ecdac134cd8469f7e2085864fbe7ac40c2b69159b52&amp;req=diEjH8p4n4FaX%2FMW1HO4zRzvs40CcU5Pq7nEDCGq9G7r6kXUfyqkJ9AgvU0W%0AzatGLub8GBLvB91JAZo%3D%0A)
 
 ---
 
@@ -88,11 +88,11 @@ Select the “By group” tab to see **Standard seats** and **Premium seats** gr
 
 Owners and Primary Owners can also set individual monthly spend limits for each member by finding **Spend limits by user** and clicking the “...” button next to the user, then “Edit limit”:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149370853/db66f5cd03683b9cc119d0dcd6b8/image.png?expires=1778907600&amp;signature=8550a968d4fd03589f465affd0370c250b50d51f38d5e108ab308e6582f097db&amp;req=diEjH8p5nYlaWvMW1HO4zaPdFg9eVShAe9HwvwG7ubjBlS%2Be0%2BY5nfx%2Bwcen%0ATNqKDJKDwKZGNqhJIjg%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149370853/db66f5cd03683b9cc119d0dcd6b8/image.png?expires=1778913900&amp;signature=b1ca4b65575d2036b3bec27d20e41641bf51022bfcee705e0da7df78b98b3aea&amp;req=diEjH8p5nYlaWvMW1HO4zaPdFg9eVCxPe9HwvwG7ubhg13kba3myLxWbkcMR%0AiTob80ru3Bq%2BY725KcU%3D%0A)
 
 Enter the amount and click “Set limit.” Alternatively, selecting “Set to unlimited” will remove that member’s monthly spend limit (they will still be subject to any organization or seat-level spend limits).
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149374028/97813fe3b515c2e839d8d92abd79/image.png?expires=1778907600&amp;signature=093e65f44fc2077f53b1fbbbf6466be9664f6251a68ea867742547d842749127&amp;req=diEjH8p5mYFdUfMW1HO4zevsDf%2BDM%2ByMw6z2wGSwkbsSm7aJc5sVLFa9v5ep%0AeigWmdyHS1t27CN2Jzs%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2149374028/97813fe3b515c2e839d8d92abd79/image.png?expires=1778913900&amp;signature=2f0d496ef1895dfc34559b3d21b8ec7aa950eacecd097442d3ae57288e4ce3b1&amp;req=diEjH8p5mYFdUfMW1HO4zevsDf%2BDMuiDw6z2wGSwkbsl9NGjJ120V4wKngsH%0AW6IUeEWDq2Qtusq6FdM%3D%0A)
 
 This allows owners fine control over extra usage, so you can set limits for different members based on their roles or individual needs. Once a user reaches their defined spend limit, this will automatically pause their extra usage until the end of the month. They will need to wait for their usage limits to reset before using Claude again.
 
@@ -112,7 +112,7 @@ Price and plans are subject to change at Anthropic's discretion.
 
 Members of seat-based Enterprise plans will see a "Request extra usage" link upon hitting their included usage limit:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1890802390/d7ea7057886f58e9cf4f1429e724/CleanShot%2B2025-12-17%2Bat%2B11_10_45-402x.png?expires=1778907600&amp;signature=3e7f6201234811b8a9c9b93e4db09b53a12a0274bb9c051ed148dcd6f86e9057&amp;req=dSguFsF%2Bn4JWWfMW1HO4zRIqaFWAltQqtd0CAHZGpNiG%2FmkXPB5QGepyxjJt%0Avlz9BnKH2nkGrM%2BGDhE%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1890802390/d7ea7057886f58e9cf4f1429e724/CleanShot%2B2025-12-17%2Bat%2B11_10_45-402x.png?expires=1778913900&amp;signature=32f124eabe5f5e41edc8cd751aa7d7540ec453763bcba1542e7e3485f1514c0c&amp;req=dSguFsF%2Bn4JWWfMW1HO4zRIqaFWAl9Altd0CAHZGpNg2I44MJkKXNXQ84LAS%0AZDg%2F34k6Sahs%2BT%2F%2FGi4%3D%0A)
 
 Click this to send a request to organization Admins to either switch you to a Premium seat (if you're currently assigned to a Standard seat) or enable extra usage for your user account. This will change to **Request sent to admin** after clicking it, indicating that you submitted a request for a seat tier increase or extra usage to an organization Admin.
 
@@ -128,7 +128,7 @@ If you want to prevent users from submitting requests for extra usage, an organi
 
 3. Toggle it off:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2062483151/eaa174f7567934caa10f1d23a459/image.png?expires=1778907600&amp;signature=e8847d1798c9fbeecd54c68e9d31b3eb4c168d0d604b43f8a0057022867c33fe&amp;req=diAhFM12noBaWPMW1HO4zTKanqp8m5kcZHWW%2Bg4lClr0oaq1f2%2FBAEIco%2FQC%0AHghy%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2062483151/eaa174f7567934caa10f1d23a459/image.png?expires=1778913900&amp;signature=81ee5e07df5488e08b4b6de60ce221e0724614187bed41e212efb265601f6c6e&amp;req=diAhFM12noBaWPMW1HO4zTKanqp8mp0TZHWW%2Bg4lClr%2B5y9xZsLUjBj1LWS%2F%0AiLky%0A)
 
 ---
 

@@ -16,7 +16,7 @@ Team admins can block new personal account creation on their verified domain, bu
 
 If your organization is on a Team plan (or hasn't initiated domain claiming), you may have both a personal account and an organization account tied to the same email address. You can switch between them by clicking your initials or name in the lower left corner of the screen.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1778907600&amp;signature=579495714952b1212896514ef0e123d0bf5e37a440394ace3d6bbe23f1b5c5a9&amp;req=diMmFMh3noJbXvMW1HO4zXhPktg%2FyBhnufhmlOXMdYYl8BjvCWKyd5oVrH6z%0AI3GDWNCy7LbeayHXn1c%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312193347/712f763fc290b2488c103849f20c/0c135a6f-3442-4ee1-9ab7-98673f03ef6e?expires=1778913900&amp;signature=ee037f616df80538554b67ac308e559bdb476cfaf8ad975e16ec418977f1cfe3&amp;req=diMmFMh3noJbXvMW1HO4zXhPktg%2FyRxoufhmlOXMdYaNW2kYsKiT%2Fi1MW8Tj%0ATAcYnOGHcjdf116CXPo%3D%0A)
 
 A blue checkmark shows which account you're currently using. Click the other account to switch to it and access its separate conversations and projects.
 

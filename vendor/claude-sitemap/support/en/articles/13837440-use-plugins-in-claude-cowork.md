@@ -34,7 +34,7 @@ For the full collection of Anthropic-built plugins, visit **[GitHub](https://git
 
 Plugins you add yourself are saved locally to your machine.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1778907600&amp;signature=e895c6355aecb0a2bfda56b931dcc32346397df55d4012caf08e79fdd651b95d&amp;req=diEnFs1%2BlINeWPMW1HO4zZF3LR3UM%2FJTxakFVfq5Wwwy4056Vvlcuak%2Bzgi4%0AmkK1sYqbbbP9IM8huNc%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2100409211/fc01614dde1a616fa31ffaa9cb04/47bacf5b-a810-45b5-a468-9769f1a58ef8?expires=1778913900&amp;signature=4843c42edb04988f1f94f9801da2016f5810bb8f390dfee73e16371a208f3e41&amp;req=diEnFs1%2BlINeWPMW1HO4zZF3LR3UMvZcxakFVfq5Wwz33p1ia5gRhtO5y1C2%0AwJfEMLsT4GhN2wifLdw%3D%0A)
 
 ---
 
@@ -42,7 +42,7 @@ Plugins you add yourself are saved locally to your machine.
 
 Each plugin you install adds Skills you can use while working in Cowork. Type "/" or click the "+" button to see available Skills from your installed plugins.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1778907600&amp;signature=496f54d20948ba4fe3e66f352b0ae563ea445b3f74728ee7c804f4cf9133f7b0&amp;req=diEiEcp3m4lbXfMW1HO4zf4NC%2F71g0eSmKUxugP2BQvmoWvg9FzQFw4JIz1X%0ASegN%2FwGtzHL1bhXlDQ0%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2157396844/4a790e10f5b88df770783df1d7e9/image.png?expires=1778913900&amp;signature=247648c77f4d14ceda3fb6cfd3083f9d407529be4edcad0826d6e64b7826ce49&amp;req=diEiEcp3m4lbXfMW1HO4zf4NC%2F71gkOdmKUxugP2BQs%2FSC%2BhBwiWb1nJwC4H%0AUmQnQkrNgwvFmQvWThw%3D%0A)
 
 ---
 

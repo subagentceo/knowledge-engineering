@@ -1,71 +1,3 @@
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6913f573b5cf9a67fff78b2a_logo_trivago.svg)
-
-# Trivago
-
-Find your ideal hotel at the best price.
-
--   Category
-    
-    No items found.
-    
--   Used in
-    
-    [
-    
-    Claude  
-    
-    ](https://claude.ai/directory/81cc5080-a204-4aa1-a694-fa868a3c8718)[
-    
-    Claude desktop app  
-    
-    ](#)[
-    
-    Claude mobile app  
-    
-    ](#)[
-    
-    Claude Code
-    
-    ](#)[
-    
-    Claude Code
-    
-    ](#)[
-    
-    Claude API
-    
-    ](#)[
-    
-    Claude API  
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Trivago
-    
-    ](https://trivago.com)
-    
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
--   Capabilities
-    
-    Read
-    
-    [](/connectors-capabilities/read-only)
-    
--   More
-    
-    [Documentation](https://mcp.trivago.com/docs)[Privacy Policy](https://www.trivago.com/en-US/sp/privacy-policy)[Support](/cdn-cgi/l/email-protection#5b36382b75282e2b2b34292f1b2f29322d3a3c3475383436)
-    
-
 The Trivago connector enables users to search for hotels and accommodations using coordinates or broader geographic areas such as cities and countries. It provides tailored search results based on location and date inputs, helping users find suitable places to stay near specific points of interest or within larger regions.  
   
 You can use the Trivago connector to:   
@@ -86,7 +18,3 @@ Plan family vacations:
 "I am searching for 2 rooms for 2 adults and 2 children aged 6 and 10 in Barcelona for Easter 2026"
 
 ‍
-
-## Related connectors
-
-No items found.
