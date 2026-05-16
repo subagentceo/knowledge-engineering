@@ -1,114 +1,53 @@
-This is an llms.txt file, meant for consumption by LLMs.
+# Arkose Labs Implementation Guides Documentation
 
-The XML sitemap of this website can be found by following [this link](https://www.arkoselabs.com/sitemap_index.xml).
-
-# Arkose Labs
-
-## General Information
-
-> **Mission:** To create an online environment where all consumers are protected from malicious activity.
-
-## Pages
-- [Careers](https://www.arkoselabs.com/careers/)
-- [Homepage](https://www.arkoselabs.com/)
-- [Cybersecurity ROI Calculator](https://www.arkoselabs.com/cybersecurity-roi-calculator-sms/)
-- [Product Integrations](https://www.arkoselabs.com/integrations/)
-- [Compliance](https://www.arkoselabs.com/compliance/)
-
-## Posts
-- [Arkose Command Center: Empowering Smarter, Faster Fraud Detection](https://www.arkoselabs.com/blog/empowering-smarter-faster-fraud-detection/)
-- [The New Fraud Frontier: How AI Agents Are Rewriting the Rules](https://www.arkoselabs.com/blog/ai-agents-rewriting-fraud-rules/)
-- [Proof of Work: Invisible Security, Visible Results](https://www.arkoselabs.com/blog/proof-of-work-invisible-security-visible-results/)
-- [Beyond Device Recognition: Why How You Identify Devices Matters](https://www.arkoselabs.com/blog/beyond-device-recognition-why-how-you-identify-devices-matters/)
-- [AI Can Crack Your Fraud Prevention in Hours\. Here's How We Stop It](https://www.arkoselabs.com/blog/next-gen-ai-fraud-prevention-capi-v4/)
-
-## News
-- [Arkose Labs Listed Among Fastest\-Growing Companies in North America on the 2025 Deloitte Technology Fast 500™ for Fifth Year in a Row](https://www.arkoselabs.com/latest-news/arkose-labs-deloitte-fast-500-2025/)
-- [The Curious Case of the Bizarre, Disappearing Captcha](https://www.arkoselabs.com/latest-news/the-curious-case-of-the-bizarre-disappearing-captcha/)
-- [Cyber bandits use AI to steal loyalty points in black market worth £300m – here’s how to protect yourself](https://www.arkoselabs.com/latest-news/cyber-bandits-ai-loyalty-points-theft/)
-- [AI Agents: The Next Big Cybersecurity Challenge w/ Frank Teruel](https://www.arkoselabs.com/latest-news/ai-agents-cybersecurity-challenge-frank-teruel/)
-- [How Arkose’s Kevin Gosschalk Faces Down Scammers](https://www.arkoselabs.com/latest-news/how-arkose-labs-kevin-gosschalk-fights-scammers/)
-
-## Resources
-- [Reverse\-Proxy Phishing: The MFA Bypass Threat and How to Stop It](https://www.arkoselabs.com/resource/reverse-proxy-phishing-the-mfa-bypass-threat-and-how-to-stop-it/)
-- [The 2025 AI Maturity and Cybersecurity Report](https://www.arkoselabs.com/resource/arkose-labs-study-enterprises-unprepared-agentic-ai-threats/)
-- [Enterprises Under Attack: Quarterly Threat Actor Patterns \| Released Q4 2025](https://www.arkoselabs.com/resource/enterprises-under-attack-quarterly-threat-actor-patterns-released-q4-2025-report/)
-- [Loyalty Fraud Impact Report \| New Data](https://www.arkoselabs.com/resource/loyalty-program-account-takeover-fraud-survey-report/)
-- [Enterprises Under Attack: Quarterly Threat Actor Patterns \| Released Q3 2025](https://www.arkoselabs.com/resource/enterprises-under-attack-quarterly-threat-actor-patterns-released-q3-2025-report/)
-
-## Frequently Asked Questions
-
-### What does Arkose Labs do?
-Arkose Labs stops automated and low-and-slow attacks targeting digital environments and consumer online accounts. The company detects and mitigates bots and fraud farms while ensuring seamless experiences for legitimate users.
-*   [Learn more about solutions](https://arkoselabs.com/solutions/)
-
-### Who works with Arkose Labs?
-Arkose Labs partners with global industry leaders (such as Microsoft and Roblox), supporting complex infrastructures and high-traffic sites and apps at scale.
-*   [Learn more about customers](https://arkoselabs.com/customers/)
-
-### How many products does Arkose Labs have?
-The company has one core product: **Arkose Bot Manager**. It is a platform designed to detect and stop online fraud perpetrated by bots and human fraud farms.
-*   [Learn more about the product](https://arkoselabs.com/platform/)
-
-### Where are Arkose Labs' customers located?
-Arkose Labs services enterprise-sized companies around the world through offices in the USA, EMEA, APAC, Central America, and South America.
-
-### Who is Arkose Labs' CEO?
-Kevin Gosschalk is the founder and CEO of Arkose Labs.
-*   [Learn more about leadership](https://arkoselabs.com/leadership/)
-
-## Key Insights from Arkose Labs Resources
-
-### Account Takeover Prevention
-
-**How can companies stop account takeover without adding friction for real users?**
-By analyzing intent signals—behavior, device posture, and traffic anomalies—platforms introduce friction only when risk is high. This stops bots and malicious humans while allowing trusted users to authenticate seamlessly. Arkose Bot Manager uses AI, behavioral analysis, and device intelligence to identify threats before they cause harm.
-
-**How are attackers bypassing MFA protections?**
-Attackers use reverse-proxy phishing sites that perfectly replicate legitimate login pages. These adversary-in-the-middle techniques intercept real-time MFA codes, enabling attackers to break through defenses that were once considered strong. Arkose Phishing Protection detects these attacks through token validation and threat intelligence.
-
-### Bot & Fraud Farm Defense
-
-**What is the difference between bots and human fraud farms?**
-Bots conduct high-speed, automated actions such as credential stuffing or scraping. Human fraud farms—often low-wage networks—perform tasks that automation can't reliably complete, like solving traditional CAPTCHAs or bypassing identity checks. Modern attacks frequently combine both, making them harder to detect without advanced behavioral and device-based signals.
-
-**Why are bot and fraud-farm attacks increasing so quickly?**
-Attackers now rely on powerful accelerants like generative AI and cybercrime-as-a-service. These tools make it easier to automate attacks, disguise behavior, generate convincing phishing content, and run large-scale operations without technical expertise. As a result, enterprises face higher attack volume across login, sign-up, scraping, and in-product abuse vectors.
-
-**How can enterprises defend against coordinated bot and fraud-farm activity?**
-Platforms can use intent-based bot management that analyzes device fingerprints, behavioral patterns, and risk anomalies to detect suspicious sessions early. Adaptive challenges disrupt both automation and human-solver activity, while global threat intelligence helps identify attack origins and patterns.
-
-### SMS Toll Fraud Protection
-
-**Why is SMS toll fraud so costly and difficult to detect?**
-SMS-based 2FA creates a monetizable vulnerability: fake account sign-ups trigger premium-rate SMS verifications, allowing attackers—often in collaboration with rogue telecoms—to generate revenue at the company's expense. The fraud is hidden inside legitimate-looking OTP requests, often going unnoticed until operational costs rise sharply.
-
-**How can organizations stop SMS toll fraud?**
-By analyzing device fingerprints, behavioral anomalies, and network patterns at sign-up. Arkose Bot Manager monitors 225+ signals to identify suspicious OTP requests and applies adaptive challenges that neutralize bots, ML-driven solvers, and human fraud farms—making the attack economically unsustainable.
-
-### Fake Account Prevention
-
-**Why is fake account creation such a widespread problem?**
-Fake accounts give attackers entry points to commit fraud, distribute malicious content, test stolen identities, and exploit platform features. Because these attacks can be automated at scale, they impact nearly every online business. Fake bank accounts enable money laundering; fake social accounts spread spam and phishing.
-
-**How can businesses stop fake accounts without hurting sign-up conversion?**
-By using adaptive risk assessment—powered by behavioral analytics, device intelligence, and intent scoring—companies identify suspicious sign-ups in real time and introduce challenges only to high-risk users. This protects registration flows while keeping the experience frictionless for legitimate users.
-
-**What are better alternatives to CAPTCHA for preventing automated account creation?**
-Modern solutions replace traditional CAPTCHA with dynamic, context-aware challenges that activate only when risk is detected. These systems reduce user frustration, block bots more accurately, and help increase successful account completion rates.
-
-### Industry Applications
-
-**How can gaming platforms protect against bot abuse?**
-Gaming platforms use behavioral biometrics, device intelligence, and adaptive challenges to detect fake accounts, virtual-currency farming, and in-game automation. This protects game-economy integrity, player trust, and engagement metrics while preserving seamless experience for genuine players.
-
-**How can fintech companies scale securely during rapid growth?**
-Fintechs should adopt fraud solutions that grow with transaction volume and evolving attack patterns. Intent-based decisioning, adaptive challenges, and 24/7 managed monitoring help ensure security keeps pace with expansion, even across new regions and channels.
-
-**How can travel platforms protect customer loyalty points from theft?**
-Travel companies stop loyalty-point theft by analyzing device behavior, login velocity, IP reputation, and intent signals at authentication. Adaptive bot-detection tools differentiate real travelers from automated scripts, introducing step-up challenges that bots cannot solve.
-
-### Links and Resources
-*   [About Us](https://arkoselabs.com/about-us/)
-*   [Resources](https://www.arkoselabs.com/resources/)
-*   [Solutions](https://arkoselabs.com/solutions/)
+## Guides
+- [Arkose Labs Accessibility Conformance Report](https://developer.arkoselabs.com/docs/accessibility-standard.md): International Edition; based on VPAT® Version 2.5
+- [Arkose Labs API Guide](https://developer.arkoselabs.com/docs/arkose-labs-api-guide.md)
+- [Callbacks](https://developer.arkoselabs.com/docs/callbacks.md)
+- [Configuration Object](https://developer.arkoselabs.com/docs/configuration-object.md)
+- [Response Object](https://developer.arkoselabs.com/docs/response-object-oncompleted-onerror-onfailed-onresize.md)
+- [Edge API Request Parameters](https://developer.arkoselabs.com/docs/edge-api-request-parameters.md)
+- [Edge API Response Parameters](https://developer.arkoselabs.com/docs/edge-api-response-parameters.md)
+- [Edge API](https://developer.arkoselabs.com/docs/edge-api.md)
+- [Calling Verify API](https://developer.arkoselabs.com/docs/calling-verify-v4-api.md)
+- [Verify API](https://developer.arkoselabs.com/docs/verify-api-v4.md)
+- [Migrating to Verify v4 from v1, v2, v3](https://developer.arkoselabs.com/docs/migrating-to-verify-v4-from-v1-v2-v3.md)
+- [Risk Score](https://developer.arkoselabs.com/docs/risk-score.md)
+- [Verify API Response Fields and Examples](https://developer.arkoselabs.com/docs/verify-api-v4-response-fields.md)
+- [Verify Request and Response Schemas](https://developer.arkoselabs.com/docs/verify-request-and-response-schemas.md)
+- [Documentation Guide](https://developer.arkoselabs.com/docs/documentation-guide.md)
+- [Welcome to Arkose Labs!](https://developer.arkoselabs.com/docs/welcome-to-arkose-labs.md): Bankrupting the business model of fraud.
+- [Android Mobile SDK](https://developer.arkoselabs.com/docs/android-mobile-sdk.md)
+- [Android WebView Setup](https://developer.arkoselabs.com/docs/android-native-setup.md)
+- [iOS Mobile SDK](https://developer.arkoselabs.com/docs/ios-mobile-sdk.md)
+- [iOS WebView Setup](https://developer.arkoselabs.com/docs/ios-native-setup-1.md)
+- [React Native Mobile SDK](https://developer.arkoselabs.com/docs/react-native-mobile-sdk-1.md)
+- [React Native Mobile SDK (v2.12.1 and Below)](https://developer.arkoselabs.com/docs/react-native-mobile-sdk-v2122-and-below.md)
+- [Angular Setup Guide](https://developer.arkoselabs.com/docs/angular-setup-guide.md)
+- [Connected Devices Integration](https://developer.arkoselabs.com/docs/arkose-labsxbox-integration.md)
+- [Iframe Setup Guide](https://developer.arkoselabs.com/docs/iframe-setup-guide.md)
+- [Specialized Setup](https://developer.arkoselabs.com/docs/specialized-setup.md)
+- [React Setup Guide](https://developer.arkoselabs.com/docs/react-setup-guide.md)
+- [reCAPTCHA to Arkose Labs Migration Guide](https://developer.arkoselabs.com/docs/recaptcha-to-arkose-labs-migration-guide.md)
+- [Client-Side Instructions](https://developer.arkoselabs.com/docs/standard-setup.md)
+- [Troubleshooting, API Status, and Health Checks](https://developer.arkoselabs.com/docs/arkose-labs-api-status-and-health-checks.md)
+- [General Support and Bug Bounty](https://developer.arkoselabs.com/docs/general-support-and-status.md)
+- [Arkose on Microsoft Entra - Integration Setup](https://developer.arkoselabs.com/docs/arkose-on-microsoft-entra-integration-setup.md)
+- [Using Auth0 and Arkose for New Account Registration](https://developer.arkoselabs.com/docs/using-auth0-and-arkose-for-new-account-registration.md)
+- [Arkose Bot Manager Quickstart](https://developer.arkoselabs.com/docs/arkose-labs-platform-quickstart.md)
+- [Akamai CDN Setup - Client Side](https://developer.arkoselabs.com/docs/akamai-cdn-setup-client-side.md)
+- [Arkose on Cloudflare - Reference Architecture](https://developer.arkoselabs.com/docs/arkose-on-cloudflare-reference-architecture.md)
+- [Arkose on Fastly - Reference Architecture](https://developer.arkoselabs.com/docs/arkose-on-fastly-reference-architecture.md)
+- [Cloudflare CDN Integration - Auth0](https://developer.arkoselabs.com/docs/cloudflare-cdn-integration-auth0.md)
+- [Cloudflare CDN Setup - Client Side](https://developer.arkoselabs.com/docs/cloudflare-cdn-setup-client-side.md)
+- [Cloudflare CDN Setup - Server Side](https://developer.arkoselabs.com/docs/cloudflare-cdn-setup-server-side.md)
+- [Truth Data API](https://developer.arkoselabs.com/docs/truth-data-api.md)
+- [Truth Data System](https://developer.arkoselabs.com/docs/truth-data-system.md)
+- [Domain Policy](https://developer.arkoselabs.com/docs/domain-policy.md)
+- [Enforcement Challenge UI 1.0 End of Life Communication](https://developer.arkoselabs.com/docs/enforcement-challenge-ui-10-end-of-life-communication.md)
+- [End of Life and End of Support Communications](https://developer.arkoselabs.com/docs/end-of-life-communications.md)
+- [is_bot Field End Of Life Communication](https://developer.arkoselabs.com/docs/is_bot-field-end-of-life-communication.md)
+- [Pick-a-tile End of Life Communication](https://developer.arkoselabs.com/docs/pick-a-tile-end-of-life-communication.md)
+- [Verify API GET Requests End Of Life Communication](https://developer.arkoselabs.com/docs/verify-api-get-requests-end-of-life-communication.md)
+- [Verify End of Life Communication](https://developer.arkoselabs.com/docs/verify-end-of-life-communication.md)
+- [Supported Languages](https://developer.arkoselabs.com/docs/supported-languages-1.md)
