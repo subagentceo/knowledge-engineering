@@ -40,6 +40,7 @@ Phase 8+ CI/CD runs successfully end-to-end with NO placeholder values in any st
 | `PARALLELAI_API_KEY` | GH secret + CF Secrets Store (planned) | parallel.ai dashboard (operator has $70 credit on alex@jadecli.com) | `src/lib/parallel-ai-client.ts` (planned per #128) | `claude --chrome` paste-block (planned per #128) | ❌ MISSING. Tracked in #128. |
 | `OLLAMA_API_KEY` | GH secret + CF Secrets Store (planned) | ollama.com cloud dashboard (operator has $20 paid tier on alex@jadecli.com) | `src/lib/ollama-client.ts` (planned per #129; depends on #131 vendor crawl) | `claude --chrome` paste-block (planned per #129) | ❌ MISSING. Tracked in #129. |
 | `NIMBLEWAY_API_KEY` | GH secret + CF Secrets Store (planned) | <https://online.nimbleway.com/account-settings/api-keys> | `src/lib/nimbleway-client.ts` (planned per #130) + hosted MCP server at `mcp.nimbleway.com/mcp` | `claude --chrome` paste-block (planned per #130) | ❌ MISSING. Tracked in #130. |
+| `ALLOYDB_OMNI_PASSWORD` | Cloud-env variable (NOT a GH/CF secret) | Operator-generated strong password | `scripts/start_services.sh` SessionStart hook → `docker run -e POSTGRES_PASSWORD` for the `alloydb-omni` container | Operator pastes into the Claude Code cloud env's Environment variables UI; see [`alloydb-omni-cloud-env.md`](./alloydb-omni-cloud-env.md) | ⚠ pending operator paste. Visible to anyone with edit access to the cloud env config. |
 
 ### Variables (non-secret routing/config)
 
