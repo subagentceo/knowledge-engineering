@@ -1,9 +1,3 @@
--   [](/)
--   [Other Technologies](/docs/category/other-technologies)
--   MCP
-
-On this page
-
 # OpenFeature MCP Server
 
 The **OpenFeature Model Context Protocol (MCP) Server** enables AI coding assistants to interact with OpenFeature through a standardized protocol. It provides SDK installation guidance and feature flag evaluation capabilities directly within your AI-powered development environment.
@@ -339,5 +333,3 @@ When interacting with your AI assistant:
 > "Can you check the value of the 'new-checkout-flow' feature flag for 'user-123'?"
 
 The AI will use the MCP to evaluate the flag using OFREP and provide you with the result, along with additional metadata like variant and reason.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/other-technologies/mcp.mdx)

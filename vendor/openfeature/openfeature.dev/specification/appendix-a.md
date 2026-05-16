@@ -1,8 +1,3 @@
--   [](/)
--   Appendix A: Included Utilities
-
-On this page
-
 # Appendix A: Included Utilities
 
 This document contains requirements for auxiliary utilities provided by the SDK, such as testing utilities.
@@ -292,5 +287,3 @@ Consider printing the evaluation context as a stringified JSON object, or using 
 > If the logger abstraction in the SDK supports a log level concept, the appropriate log level **SHOULD** be used for each stage (before/after: debug/info, error: error).
 
 Consider using `debug` or `info` levels for the `before` and `after` stages, and the `error` level for the `error` stage.
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/appendix-a-included-utilities.md)

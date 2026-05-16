@@ -1,10 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Client](/docs/reference/sdks/client/)
--   iOS
-
-On this page
-
 # OpenFeature iOS SDK
 
 [![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Release](https://img.shields.io/static/v1?label=release&message=v0.5.0&color=blue&style=for-the-badge)](https://github.com/open-feature/swift-sdk/releases/tag/0.5.0)  
@@ -328,5 +321,3 @@ class BooleanHook: Hook {    typealias HookValue = Bool    func before<HookValue
 ```
 
 > Built a new hook? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=hook&projects=&template=document-hook.yaml&title=%5BHook%5D%3A+) so we can add it to the docs!
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/client/swift.mdx)

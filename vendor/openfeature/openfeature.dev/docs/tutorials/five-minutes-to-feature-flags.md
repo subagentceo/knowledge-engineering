@@ -1,8 +1,3 @@
--   [](/)
--   Five Minutes to Feature Flags
-
-On this page
-
 # Five Minutes to Feature Flags
 
 We’re going to add feature flagging to a Node service in under five minutes using OpenFeature, the open, vendor-agnostic feature flagging SDK.
@@ -222,5 +217,3 @@ To learn more about OpenFeature, check out the documentation [here](/docs/refere
 More hands-on tutorials are available on the [OpenFeature Killercoda page](https://killercoda.com/open-feature).
 
 We strive to provide a welcoming, open community. If you have any questions - or just want to nerd out about feature flags - the `#OpenFeature` channel in the [CNCF Slack](https://slack.cncf.io/) is the place for you.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/tutorials/five-minutes-to-feature-flags.md)

@@ -1,8 +1,3 @@
--   [](/)
--   Contributing
-
-On this page
-
 # Contributing
 
 ## Providing Feedback[​](#providing-feedback "Direct link to Providing Feedback")
@@ -16,5 +11,3 @@ We welcome code, specification and code contributions. There are `contributing.m
 ## Security disclosure[​](#security-disclosure "Direct link to Security disclosure")
 
 Security vulnerabilities can be privately disclosed to the OpenFeature maintainers using the `Report a security vulnerability` template in GitHub.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/contributing.md)

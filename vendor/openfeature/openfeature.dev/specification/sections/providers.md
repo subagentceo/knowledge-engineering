@@ -1,9 +1,3 @@
--   [](/)
--   [Sections](/specification/category/sections)
--   Provider
-
-On this page
-
 # 2\. Provider
 
 [![stable](https://img.shields.io/static/v1?label=Status&message=stable&color=green)](https://github.com/open-feature/spec/tree/main/specification#stable)
@@ -215,5 +209,3 @@ class MyProvider implements Tracking {  //...  /**   * Record a tracking event. 
 The track function is a void function (function returning nothing). The track function performs side effects required to record the `tracking event` in question, which may include network activity or other I/O; this I/O should not block the function call. Providers should be careful to complete any communication or flush any relevant uncommitted tracking data before they shut down.
 
 See [shutdown](#25-shutdown).
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/sections/02-providers.md)

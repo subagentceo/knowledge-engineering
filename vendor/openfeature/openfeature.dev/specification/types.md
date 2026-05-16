@@ -1,8 +1,3 @@
--   [](/)
--   Types and Data Structures
-
-On this page
-
 # Types and Data Structures
 
 ## Overview[​](#overview "Direct link to Overview")
@@ -269,5 +264,3 @@ A function or method which can be associated with a `provider event`, and runs w
 A structure which supports definition of arbitrary properties, including nested objects, similar to the `evaluation context` and object-typed flag values.
 
 See [tracking event details](/specification/sections/tracking#62-tracking-event-details), [evaluation context](#evaluation-context).
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/types.md)

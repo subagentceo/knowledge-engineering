@@ -1,10 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Client](/docs/reference/sdks/client/)
--   Kotlin
-
-On this page
-
 # OpenFeature Kotlin SDK
 
 [![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Release](https://img.shields.io/static/v1?label=release&message=v0.8.0&color=blue&style=for-the-badge)](https://github.com/open-feature/kotlin-sdk/releases/tag/v0.8.0)  
@@ -431,5 +424,3 @@ class NewProvider(override val hooks: List<Hook<*>>, override val metadata: Prov
 To develop a hook, you need to create a new project and include the OpenFeature SDK as a dependency. Implement your own hook by conforming to the `Hook` interface exported by the OpenFeature SDK.
 
 > Built a new hook? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=hook&projects=&template=document-hook.yaml&title=%5BHook%5D%3A+) so we can add it to the docs!
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/client/kotlin.mdx)

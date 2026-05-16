@@ -1,9 +1,3 @@
--   [](/)
--   [Concepts](/docs/category/concepts)
--   Events
-
-On this page
-
 # Events
 
 Events enable the ability to react to state changes in the provider or underlying flag management system. These include changes in provider readiness, error status, or perhaps most interestingly, flag configuration changes.
@@ -75,5 +69,3 @@ The context associated with the provider has changed, and the provider has not y
 ### PROVIDER\_CONTEXT\_CHANGED (Static-context/Client-side only)[​](#provider_context_changed-static-contextclient-side-only "Direct link to PROVIDER_CONTEXT_CHANGED (Static-context/Client-side only)")
 
 The context associated with the provider has changed, and the provider has [reconciled](/docs/reference/concepts/sdk-paradigms#static-context-paradigms-client-side-sdks) its associated state.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/concepts/05-events.mdx)

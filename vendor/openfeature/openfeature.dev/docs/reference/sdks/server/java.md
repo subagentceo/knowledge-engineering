@@ -1,10 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Server](/docs/reference/sdks/server/)
--   Java
-
-On this page
-
 # OpenFeature Java SDK
 
 [![Specification](https://img.shields.io/static/v1?label=specification&message=v0.7.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.7.0)[![Release](https://img.shields.io/static/v1?label=release&message=v1.20.2&color=blue&style=for-the-badge)](https://github.com/open-feature/java-sdk/releases/tag/v1.20.2)  
@@ -287,5 +280,3 @@ class MyHook implements Hook {    @Override    public Optional before(HookContex
 ```
 
 > Built a new hook? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=hook&projects=&template=document-hook.yaml&title=%5BHook%5D%3A+) so we can add it to the docs!
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/server/java.mdx)

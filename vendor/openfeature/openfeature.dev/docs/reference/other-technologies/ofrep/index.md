@@ -1,9 +1,3 @@
--   [](/)
--   [Other Technologies](/docs/category/other-technologies)
--   OFREP
-
-On this page
-
 # OpenFeature Remote Evaluation Protocol (OFREP)
 
 The **OpenFeature Remote Evaluation Protocol (OFREP)** is an [API specification](/docs/reference/other-technologies/ofrep/openapi) for feature flagging that enables vendor-agnostic communication between applications and flag management systems. It defines a standard API layer between the provider and the flag management system, allowing any open source or commercial system to implement the protocol and be compatible with community-maintained providers.
@@ -67,5 +61,3 @@ To make your flag management system OFREP-compliant:
 1.  Implement the [OFREP OpenAPI specification](/docs/reference/other-technologies/ofrep/openapi)
 2.  Test your implementation with existing OFREP providers
 3.  Register your system in the [OpenFeature ecosystem](https://github.com/open-feature/openfeature.dev/issues)
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/other-technologies/ofrep/index.mdx)

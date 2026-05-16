@@ -1,10 +1,3 @@
--   [](/)
--   [Getting Started](/docs/category/getting-started)
--   [Java SDK](/docs/category/java-sdk)
--   Dropwizard
-
-On this page
-
 # Getting Started with the OpenFeature Java SDK and Dropwizard
 
 ## Introduction[​](#introduction "Direct link to Introduction")
@@ -170,5 +163,3 @@ $ curl -i http://localhost:8080/welcomeHTTP/1.1 200 OKDate: Fri, 13 Jun 2025 10:
 ## Conclusion[​](#conclusion "Direct link to Conclusion")
 
 In this walkthrough we learned how to integrate OpenFeature into a Dropwizard application, using flagd to provide the feature flags at runtime. We saw how changing the flags definition can change the runtime behaviour of our application, without the need to redeploy or restart the application.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/tutorials/getting-started/java/dropwizard.mdx)

@@ -1,10 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Client](/docs/reference/sdks/client/)
--   Web
-
-On this page
-
 # OpenFeature Web SDK
 
 [![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Release](https://img.shields.io/static/v1?label=release&message=v1.8.0&color=blue&style=for-the-badge)](https://github.com/open-feature/js-sdk/releases/tag/web-sdk-v1.8.0)  
@@ -316,5 +309,3 @@ import type { Hook, HookContext, EvaluationDetails, FlagValue } from '@openfeatu
 ### Considerations[​](#considerations "Direct link to Considerations")
 
 When developing a library based on OpenFeature components, it's important to list the `@openfeature/web-sdk` as a `peerDependency` of your package. This is a general best-practice when developing JavaScript libraries that have dependencies in common with their consuming application. Failing to do this can result in multiple copies of the OpenFeature SDK in the consumer, which can lead to type errors, and broken singleton behavior. The `@openfeature/core` package itself follows this pattern: the `@openfeature/web-sdk` has a peer dependency on `@openfeature/core`, and uses whatever copy of that module the consumer has installed (note that NPM installs peers automatically unless `--legacy-peer-deps` is set, while yarn does not, and PNPM does so based on its configuration). When developing such libraries, it's NOT necessary to add a `peerDependency` on `@openfeature/core`, since the `@openfeature/web-sdk` establishes that dependency itself transitively.
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/client/web/index.mdx)

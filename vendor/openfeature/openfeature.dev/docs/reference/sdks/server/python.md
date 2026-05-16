@@ -1,10 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Server](/docs/reference/sdks/server/)
--   Python
-
-On this page
-
 # OpenFeature Python SDK
 
 [![Specification](https://img.shields.io/static/v1?label=Specification&message=v0.8.0&color=red&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Latest version](https://img.shields.io/static/v1?label=release&message=v0.9.0&color=blue&style=for-the-badge)](https://github.com/open-feature/python-sdk/releases/tag/v0.9.0)  
@@ -262,5 +255,3 @@ from openfeature.hook import Hook, HookContext, HookHintsfrom openfeature.flag_e
 ```
 
 > Built a new hook? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=hook&projects=&template=document-hook.yaml&title=%5BHook%5D%3A+) so we can add it to the docs!
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/server/python.mdx)

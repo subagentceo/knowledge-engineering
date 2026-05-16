@@ -1,9 +1,3 @@
--   [](/)
--   [Concepts](/docs/category/concepts)
--   Tracking
-
-On this page
-
 # Tracking
 
 Tracking in OpenFeature is the process of associating metrics or KPIs with feature flag evaluation contexts. This association helps measure the impact of feature changes on both business KPIs and system performance, making it particularly valuable for experimentation.
@@ -50,5 +44,3 @@ Optionally, you can associate additional metadata with each track event if your 
 ```
 client.Track(  context.Background(),  "visited-promo-page",  openfeature.EvaluationContext{},  openfeature.NewTrackingEventDetails(99.77).Add("currencyCode", "USD"),  )
 ```
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/concepts/07-tracking.mdx)

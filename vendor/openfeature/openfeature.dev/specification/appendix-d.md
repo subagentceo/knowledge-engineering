@@ -1,8 +1,3 @@
--   [](/)
--   Appendix D: Observability
-
-On this page
-
 # Appendix D: Observability
 
 This document describes conventions for extracting data from the OpenFeature SDK for use in telemetry signals. It primarily focuses on providing recommendations for mapping well-known fields in OpenFeature to [OpenTelemetry feature-flag event records](https://opentelemetry.io/docs/specs/semconv/feature-flags/feature-flags-logs/) and other semantic conventions.
@@ -312,6 +307,3 @@ Semantic Convention Release
 2.  The `value` field is required when a `variant` is not available, and recommended when it is. Considerations should be made for large and/or sensitive values, which should be redacted or omitted prior to being captured in telemetry signals. [↩](#user-content-fnref-2)
     
 3.  Include `error.type` and `error.message`, if and only if an error occurred during a flag evaluation. [↩](#user-content-fnref-3) [↩2](#user-content-fnref-3-2)
-    
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/appendix-d-observability.md)

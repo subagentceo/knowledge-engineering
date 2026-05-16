@@ -1,9 +1,3 @@
--   [](/)
--   [Sections](/specification/category/sections)
--   Tracking
-
-On this page
-
 # 6\. Tracking
 
 [![experimental](https://img.shields.io/static/v1?label=Status&message=experimental&color=orange)](https://github.com/open-feature/spec/tree/main/specification#experimental)
@@ -81,5 +75,3 @@ See [provider tracking support](/specification/sections/providers#27-tracking-su
 The `tracking event details` supports the addition of arbitrary fields, including nested objects, similar to the `evaluation context` and object-typed flag values.
 
 See [structure](/specification/types#structure), [evaluation context](/specification/sections/evaluation-context).
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/sections/06-tracking.md)

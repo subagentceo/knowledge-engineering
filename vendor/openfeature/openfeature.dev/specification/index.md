@@ -1,8 +1,3 @@
--   [](/)
--   Introduction
-
-On this page
-
 # OpenFeature Specification
 
 ## Contents[​](#contents "Direct link to Contents")
@@ -76,5 +71,3 @@ Put simply:
 Note
 
 No explicit status = `Experimental`
-
-[Edit this page](https://github.com/open-feature/spec/edit/main/specification/README.md)

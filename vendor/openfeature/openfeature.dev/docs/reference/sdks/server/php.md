@@ -1,10 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Server](/docs/reference/sdks/server/)
--   PHP
-
-On this page
-
 # OpenFeature PHP SDK
 
 [![Specification](https://img.shields.io/static/v1?label=specification&message=v0.5.1&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.5.1)[![Release](https://img.shields.io/static/v1?label=release&message=v2.1.2&color=blue&style=for-the-badge)](https://github.com/open-feature/php-sdk/releases/tag/2.1.2)  
@@ -191,5 +184,3 @@ declare(strict_types=1);namespace OpenFeature\Example\Hooks;use OpenFeature\impl
 ```
 
 > Built a new hook? [Let us know](https://github.com/open-feature/openfeature.dev/issues/new?assignees=&labels=hook&projects=&template=document-hook.yaml&title=%5BHook%5D%3A+) so we can add it to the docs!
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/server/php.mdx)

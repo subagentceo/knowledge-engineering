@@ -1,9 +1,3 @@
--   [](/)
--   [Getting Started](/docs/category/getting-started)
--   Rust SDK and Axum
-
-On this page
-
 # Getting Started with the OpenFeature Rust SDK and Axum
 
 ## Introduction[​](#introduction "Direct link to Introduction")
@@ -103,5 +97,3 @@ Save the changes to `flags.flagd.json` and refresh the browser tab. You should n
 This tutorial demonstrated how to integrate the OpenFeature Rust SDK with an Axum web server using a custom AppState containing a FlagdProvider. By leveraging flagd service, you can dynamically update feature flags at runtime without needing to redeploy your application.
 
 For advanced configuration and more details, refer to the [OpenFeature Rust SDK documentation](https://docs.rs/open-feature-flagd/latest/open_feature_flagd/).
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/tutorials/getting-started/rust.mdx)

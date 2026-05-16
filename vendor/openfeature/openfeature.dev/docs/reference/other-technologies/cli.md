@@ -1,9 +1,3 @@
--   [](/)
--   [Other Technologies](/docs/category/other-technologies)
--   CLI
-
-On this page
-
 # OpenFeature CLI
 
 [![work-in-progress](https://img.shields.io/badge/status-WIP-yellow)](https://github.com/orgs/open-feature/projects/17)[![Slack](https://img.shields.io/badge/slack-%40cncf%2Fopenfeature-brightgreen?style=flat&logo=slack)](https://cloud-native.slack.com/archives/C07DY4TUDK6)
@@ -311,5 +305,3 @@ The OpenFeature CLI uses an optional configuration file to override default sett
 ### Configuration Priority[​](#configuration-priority "Direct link to Configuration Priority")
 
 The CLI uses a layered approach to configuration, allowing you to override settings at different levels. The configuration is applied in the following order:
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/other-technologies/cli.mdx)

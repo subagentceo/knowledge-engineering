@@ -1,9 +1,3 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   SDK Compatibility Overview
-
-On this page
-
 # SDK Compatibility Overview
 
 This page provides an overview of the status and supported features of the OpenFeature SDKs.
@@ -76,7 +70,7 @@ The latest published release version.
 
 [0.6.5](https://github.com/open-feature/ruby-sdk/releases/tag/v0.6.5)
 
-[0.0.21](https://github.com/open-feature/dart-server-sdk/releases/tag/v0.0.21)
+[0.0.22](https://github.com/open-feature/dart-server-sdk/releases/tag/v0.0.22)
 
 [0.3.0](https://github.com/open-feature/rust-sdk/releases/tag/open-feature-v0.3.0)
 
@@ -483,5 +477,3 @@ Multi-Provider
 [❓](/docs/reference/sdks/client/swift)
 
 Implemented: ✅ | In-progress: ⚠️ | Not implemented yet: ❌ | Unknown status: ❓
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/sdk-compatibility.mdx)

@@ -1,13 +1,6 @@
--   [](/)
--   [SDKs](/docs/reference/sdks/)
--   [Server](/docs/reference/sdks/server/)
--   Dart
-
-On this page
-
 # OpenFeature Dart SDK
 
-[![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Release](https://img.shields.io/static/v1?label=release&message=v0.0.21&color=blue&style=for-the-badge)](https://github.com/open-feature/dart-server-sdk/releases/tag/v0.0.21)[![Built with Dart](https://img.shields.io/badge/Built%20with-Dart-blue.svg?style=for-the-badge)](https://dart.dev/)  
+[![Specification](https://img.shields.io/static/v1?label=specification&message=v0.8.0&color=yellow&style=for-the-badge)](https://github.com/open-feature/spec/releases/tag/v0.8.0)[![Release](https://img.shields.io/static/v1?label=release&message=v0.0.22&color=blue&style=for-the-badge)](https://github.com/open-feature/dart-server-sdk/releases/tag/v0.0.22)[![Built with Dart](https://img.shields.io/badge/Built%20with-Dart-blue.svg?style=for-the-badge)](https://dart.dev/)  
 [![Pub Version](https://img.shields.io/pub/v/openfeature_dart_server_sdk.svg?style=for-the-badge)](https://pub.dev/packages/openfeature_dart_server_sdk)[![API Reference](https://img.shields.io/badge/API-reference-blue.svg?style=for-the-badge)](https://openfeature.dev/docs/reference/intro)[![Code Coverage](https://codecov.io/gh/open-feature/dart-server-sdk/branch/main/graph/badge.svg?token=FZ17BHNSU5)](https://codecov.io/gh/open-feature/dart-server-sdk)[![GitHub CI Status](https://github.com/open-feature/dart-server-sdk/actions/workflows/validation-workflow.yml/badge.svg?style=for-the-badge)](https://github.com/open-feature/dart-server-sdk/actions/workflows/validation-workflow.yml)
 
 ## Quick start[​](#quick-start "Direct link to Quick start")
@@ -23,7 +16,7 @@ The OpenFeature Dart Server SDK only supports the latest currently maintained Da
 ### Install[​](#install "Direct link to Install")
 
 ```
-dependencies:  openfeature_dart_server_sdk: ^0.0.21
+dependencies:  openfeature_dart_server_sdk: ^0.0.22
 ```
 
 ### Then run[​](#then-run "Direct link to Then run")
@@ -257,5 +250,3 @@ Use the `InMemoryProvider` to set flags for the scope of a test. Use `OpenFeatur
 ```
 import 'package:openfeature_dart_server_sdk/feature_provider.dart';import 'package:openfeature_dart_server_sdk/open_feature_api.dart';import 'package:test/test.dart';void main() {  late OpenFeatureAPI api;  late InMemoryProvider testProvider;  setUp(() async {    api = OpenFeatureAPI();    testProvider = InMemoryProvider({      'test-flag': true,      'string-flag': 'test-value',    });    await api.setProviderAndWait(testProvider);  });  tearDown(() {    OpenFeatureAPI.resetInstance();  });  test('evaluates boolean flag correctly', () async {    final client = api.getClient('test-client');    final result = await client.getBooleanFlag(      'test-flag',      defaultValue: false,    );    expect(result, isTrue);  });  test('evaluates string flag correctly', () async {    final client = api.getClient('test-client');    final result = await client.getStringFlag(      'string-flag',      defaultValue: 'default',    );    expect(result, equals('test-value'));  });}
 ```
-
-[Edit this page](https://github.com/open-feature/openfeature.dev/edit/main/docs/reference/sdks/server/dart.mdx)
