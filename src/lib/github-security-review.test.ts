@@ -7,7 +7,7 @@
  * adapted to use CLAUDE_CODE_OAUTH_TOKEN (OAuth-only) instead of
  * ANTHROPIC_API_KEY.
  *
- * @tdd red
+ * @tdd green
  * @cite vendor/osv-scanner/google.github.io/osv-scanner/usage/index.md
  * @cite vendor/agentskills/agentskills.io/specification.md
  */

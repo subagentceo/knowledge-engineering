@@ -5,7 +5,7 @@
  * Outcome OSL1. Forbidden settings list mirrors
  * docs/decisions/2026-05-16-osv-only-no-secret-scanning.md.
  *
- * @tdd red
+ * @tdd green
  * @cite vendor/osv-scanner/google.github.io/osv-scanner/github-action/index.md
  * @cite seeds/posture/session-start.xml
  */
