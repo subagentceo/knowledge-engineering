@@ -1,0 +1,27 @@
+{
+  "name": "anthropic-sitemap",
+  "homepage": "https://www.anthropic.com",
+  "llms_txt_candidates": [],
+  "layout": "topology",
+  "sitemap_xml_sources": [
+    "https://www.anthropic.com/sitemap.xml"
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://www.anthropic.com/engineering/",
+    "https://www.anthropic.com/news/",
+    "https://www.anthropic.com/research/",
+    "https://www.anthropic.com/learn/",
+    "https://www.anthropic.com/product/",
+    "https://www.anthropic.com/features/",
+    "https://www.anthropic.com/economic-futures/",
+    "https://www.anthropic.com/claude/"
+  ],
+  "deny_prefixes": [
+    "https://www.anthropic.com/engineering/claude-code-best-practices"
+  ],
+  "page_cap": 500,
+  "html_extract": {
+    "selector": "article, main"
+  }
+}

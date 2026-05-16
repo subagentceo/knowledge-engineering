@@ -1,0 +1,33 @@
+Announcements
+
+# Anthropic Partners with Google Cloud
+
+Feb 3, 2023
+
+Anthropic, an AI safety and research company, has [selected](https://www.googlecloudpresscorner.com/2023-02-03-Anthropic-Forges-Partnership-With-Google-Cloud-to-Help-Deliver-Reliable-and-Responsible-AI) Google Cloud as its cloud provider. The partnership is designed so that the companies can co-develop AI computing systems; Anthropic will leverage Google Cloud's cutting-edge GPU and TPU clusters to train, scale, and deploy its AI systems.  
+  
+“We're partnering with Google Cloud to support the next phase of Anthropic, where we're going to deploy our AI systems to a larger set of people,” said Anthropic CEO Dario Amodei. “This partnership gives us the cloud infrastructure performance and scale we need.”  
+  
+Anthropic is focused on developing and deploying Claude, an AI assistant based on the company's research into building safe, steerable AI. Anthropic has created safety techniques like [Constitutional AI](https://arxiv.org/abs/2212.08073) to create AI technologies that are easier to rely on and understand.  
+  
+“We are eager to use the Google Cloud infrastructure to build reliable, interpretable, and steerable AI systems. This partnership with Google Cloud will let us build a more robust AI platform,” said Dario Amodei.
+
+[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-partners-with-google-cloud)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-partners-with-google-cloud)
+
+## Related content
+
+### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+
+PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+
+[Read more](/news/pwc-expanded-partnership)
+
+### Anthropic forms $200 million partnership with the Gates Foundation
+
+[Read more](/news/gates-foundation-partnership)
+
+### Introducing Claude for Small Business
+
+We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+
+[Read more](/news/claude-for-small-business)
