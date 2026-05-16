@@ -10,5 +10,6 @@
   "page_cap": 100,
   "sitemap_xml_sources": [
     "https://cloud.google.com/sitemap.xml"
-  ]
+  ],
+  "note": "DEFERRED 2026-05-16 — produces 0 .md by design. cloud.google.com 301-redirects every path (including .md suffixes) to docs.cloud.google.com, which itself 404s on common product-doc URLs the sitemap lists. No reliable markdown endpoint exists. The sitemap surfaces ~180 child sitemaps covering language-specific reference paths (/java/docs, /cpp/docs, /php/docs, /ruby/docs, /dotnet/docs, /appengine/docs/...) — none rooted at /docs/, so the current allow_prefix matches nothing. Re-investigation needs: either probe whether any GCP product surface has a working .md endpoint, or implement html-extract against Devsite's .devsite-article-body container (also 404s on probed paths as of 2026-05-16)."
 }
