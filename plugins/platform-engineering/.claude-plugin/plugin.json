@@ -1,0 +1,22 @@
+{
+  "$schema": "https://code.claude.com/schemas/plugin.json",
+  "name": "platform-engineering",
+  "version": "0.1.0",
+  "description": "Personalized platform-engineering plugin for the operator: AlloyDB Omni install, Docker MCP profile wiring, Voyage+Turbopuffer+AlloyDB embeddings architecture, and citation/test/outcome discipline. Modeled after subagentceo/knowledge-work-plugins/cowork-plugin-management.",
+  "author": {
+    "name": "alex-jadecli",
+    "url": "https://github.com/alex-jadecli"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subagentceo/knowledge-engineering",
+    "directory": "plugins/platform-engineering"
+  },
+  "skills": [
+    "skills/install-alloydb",
+    "skills/docker-platform-engineering",
+    "skills/turbopuffer-embeddings",
+    "skills/citations-tests-outcomes"
+  ]
+}
