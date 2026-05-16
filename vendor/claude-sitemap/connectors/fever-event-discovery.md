@@ -1,71 +1,3 @@
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69b4bb49b243700a3cd55721_fever.svg)
-
-# Fever Event Discovery
-
-Discover live entertainment events worldwide
-
--   Category
-    
-    No items found.
-    
--   Used in
-    
-    [
-    
-    Claude  
-    
-    ](https://claude.ai/directory/6e1be2c2-7237-4f8e-bf16-486799ec42a1)[
-    
-    Claude desktop app  
-    
-    ](#)[
-    
-    Claude mobile app  
-    
-    ](#)[
-    
-    Claude Code
-    
-    ](#)[
-    
-    Claude Code
-    
-    ](#)[
-    
-    Claude API
-    
-    ](#)[
-    
-    Claude API  
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Fever
-    
-    ](https://feverup.com/)
-    
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
--   Capabilities
-    
-    Read
-    
-    [](/connectors-capabilities/read-only)
-    
--   More
-    
-    [Documentation](https://developer.feverup.com/)[Privacy Policy](https://feverup.com/legal/privacy_en.html)[Support](/cdn-cgi/l/email-protection#4a2e2b3e2b672b230a2c2f3c2f383f3a64292527)
-    
-
 Discover and explore live entertainment experiences worldwide through Fever. Search events by city, date, location, or keyword across concerts, shows, festivals, immersive experiences, and more. Filter by popularity, price, rating, or proximity. Get event details including schedules, venues, ratings, and pricing.
 
 You can use Fever Event Discovery to:
@@ -81,7 +13,3 @@ You can use Fever Event Discovery to:
 
 **Discover a new city:**  
 "I'm traveling to Barcelona next month. What are the must-see experiences?"
-
-## Related connectors
-
-No items found.

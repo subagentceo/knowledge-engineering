@@ -1,71 +1,3 @@
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69bdb1c6cba278b0a2facd83_MakeGov-Icon_512x512.png)
-
-# Tango
-
-Search for US Government Contracting Data
-
--   Category
-    
-    No items found.
-    
--   Used in
-    
-    [
-    
-    Claude  
-    
-    ](https://claude.ai/directory/af83346b-0499-4fcc-ae7c-22235705bdcd)[
-    
-    Claude desktop app  
-    
-    ](#)[
-    
-    Claude mobile app  
-    
-    ](#)[
-    
-    Claude Code
-    
-    ](#)[
-    
-    Claude Code
-    
-    ](#)[
-    
-    Claude API
-    
-    ](#)[
-    
-    Claude API  
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    MakeGov Inc
-    
-    ](https://makegov.com/)
-    
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
--   Capabilities
-    
-    Read
-    
-    [](/connectors-capabilities/read-only)
-    
--   More
-    
-    [Documentation](https://tango.makegov.com/docs/mcp/)[Privacy Policy](https://tango.makegov.com/privacy)[Support](/cdn-cgi/l/email-protection#592a2c2929362b2d193438323c3e362f773a3634)
-    
-
 The Tango server gives AI agents access to reliable, LLM-friendly federal procurement competitive intelligence so that procurement professionals can focus on delivering on mission.
 
 You can use Tango to:
@@ -81,7 +13,3 @@ You can use Tango to:
 
 **Active opportunity search:**  
 "What are live opportunities for NLP in SAM.gov?"
-
-## Related connectors
-
-No items found.

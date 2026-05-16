@@ -23,5 +23,8 @@
   "page_cap": 500,
   "html_extract": {
     "selector": "article, main"
-  }
+  },
+  "pdf_allow_prefixes": [
+    "https://cdn.sanity.io/files/4zrzovbb/"
+  ]
 }

@@ -22,7 +22,7 @@ Some more details that might be helpful:
 
 - As always, *we strongly recommend handling API keys securely*: *never* share these keys publicly - they are secret, and should be shared securely.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053655566/6858d308d21c1d082cf67cdabd3b/19fadcdf-25f5-491d-a060-887da34b1082?expires=1778907600&amp;signature=f5678a74e9d6a4b782031e63d9199e8cd9e5fd11857778b88e79a53a2400cb27&amp;req=diAiFc97mIRZX%2FMW1HO4zXfNQFEJchHdFbDaBcaxqj66d4VFrnbQhawURDQf%0AW83s3p6yScZL8rCECHE%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053655566/6858d308d21c1d082cf67cdabd3b/19fadcdf-25f5-491d-a060-887da34b1082?expires=1778913900&amp;signature=2836b6f8862bf77a287e75e00264be82b7d1069f9ddfa8838196b1ae59a248af&amp;req=diAiFc97mIRZX%2FMW1HO4zXfNQFEJcxXSFbDaBcaxqj7utKWfT4Cpe7Z6XMSl%0AfYDw2amcpdD7yasLahQ%3D%0A)
 
 ## Base URL
 

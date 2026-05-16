@@ -1,71 +1,3 @@
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac015d363c9893d2b3b46_Melon.jpg)
-
-# Melon
-
-Browse music charts & your personalized music picks
-
--   Category
-    
-    No items found.
-    
--   Used in
-    
-    [
-    
-    Claude  
-    
-    ](https://claude.ai/directory/02224ef2-6652-422e-9a70-fa93f699ab8f)[
-    
-    Claude desktop app  
-    
-    ](#)[
-    
-    Claude mobile app  
-    
-    ](#)[
-    
-    Claude Code
-    
-    ](#)[
-    
-    Claude Code
-    
-    ](#)[
-    
-    Claude API
-    
-    ](#)[
-    
-    Claude API  
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Kakao Entertainment
-    
-    ](https://kakaoent.com/)
-    
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
--   Capabilities
-    
-    Read
-    
-    [](/connectors-capabilities/read-only)
-    
--   More
-    
-    [Documentation](https://tech.kakaoent.com/ai/using-melon-mcp-server-en/)[Privacy Policy](https://info.melon.com/terms/web/terms3.html)[Support](/cdn-cgi/l/email-protection#adc0c8c1c2c3f2c4c3cbc2edc6ccc6ccc2c8c3d983cec2c0)
-    
-
 Explore a variety of Melon charts, get personalized music recommendations, and discover your listening habits—all in one place.  
   
 Browse detailed information about artists, albums, and tracks. Search for songs and playlists using Melon charts and trending keywords. Enjoy personalized recommendations based on the songs you love and listen to most. You can even play songs directly in the Melon app.
@@ -82,7 +14,3 @@ Get personalized recommendations:
 "Can you recommend some songs based on what I've been listening to lately?"  
 ‍  
 The service is currently available in Korean only.
-
-## Related connectors
-
-No items found.

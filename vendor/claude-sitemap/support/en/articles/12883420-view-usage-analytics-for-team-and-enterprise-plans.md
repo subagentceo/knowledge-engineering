@@ -24,7 +24,7 @@ This page includes the following analytics:
 
 - Top connectors
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2153394909/693f3ae0ec2ea158a1f1e233c024/CleanShot+2026-03-11+at+14_52_44%402x.png?expires=1778907600&amp;signature=4a064db48c51b2abb50ff76fb769988a13f07562727c95f61f17a0578df77c10&amp;req=diEiFcp3mYhfUPMW1HO4zbQxH8s4DyVkSPAYazQ9kuJRwgYyi3Fp3TgXuF4w%0Al0fF6G0uCD97OWTam44%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2153394909/693f3ae0ec2ea158a1f1e233c024/CleanShot+2026-03-11+at+14_52_44%402x.png?expires=1778913900&amp;signature=af037b35b225d86e7ee79deac3ecd92064edd3254240d275d152561ebfa1331a&amp;req=diEiFcp3mYhfUPMW1HO4zbQxH8s4DiFrSPAYazQ9kuLhppRtVYvy03I8Av8y%0AVauV%2FOzY5hPQmTqk6jo%3D%0A)
 
 ## Spend
 
@@ -38,9 +38,9 @@ This section includes the following analytics:
 
 - Top 10 users by spend leaderboard
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2153417518/03accc4372c7fd4582e6c3978d9d/CleanShot%2B2026-03-11%2Bat%2B15_02_52-402x.png?expires=1778907600&amp;signature=ca47647a452381729155a6d19d7e96048c29190ab143c672a801f612489dc9c6&amp;req=diEiFc1%2FmoReUfMW1HO4zdUtwHQOOCpIuwPrchh43ErMSsUp5gt8WJOm%2FcoH%0AQN9pVMR4hjHI2AV8YHo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2153417518/03accc4372c7fd4582e6c3978d9d/CleanShot%2B2026-03-11%2Bat%2B15_02_52-402x.png?expires=1778913900&amp;signature=9722a1b69707e7a1f185f1596b8500e0a93b795b9e924df28653856f2fcdc406&amp;req=diEiFc1%2FmoReUfMW1HO4zdUtwHQOOS5HuwPrchh43Eo2mgy55Z7Ao9VkDNCE%0Ax4HdWQDJ78VOMhjzKxo%3D%0A)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2153419527/18cba69667e2af1a6f4f2e5ca2c5/CleanShot+2026-03-11+at+15_03_28%402x.png?expires=1778907600&amp;signature=b3d6d7e91187aedc82fdef29262626f0845f11aa47d05299c675bfd49d70ed41&amp;req=diEiFc1%2FlIRdXvMW1HO4zdGt9SyhC%2FhvP9LVpsbj5NdQXg%2F0E2YxXcswEMzW%0AMdOvhn7H7X7j%2BZ%2FIQP4%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2153419527/18cba69667e2af1a6f4f2e5ca2c5/CleanShot+2026-03-11+at+15_03_28%402x.png?expires=1778913900&amp;signature=10646df5de664fea88b80169d9c742ca75041deb14447a502ff50243978afb79&amp;req=diEiFc1%2FlIRdXvMW1HO4zdGt9SyhCvxgP9LVpsbj5NciBzRfptcJIdrkuLuh%0AEf7izTBKNEsuEI0PYsY%3D%0A)
 
 **Note:** The spend leaderboard can be delayed by one to two days. For more current month-to-date spend per user, refer to spend limits by person in **[Organization settings > Usage](https://claude.ai/admin-settings/usage)**.
 
@@ -112,7 +112,7 @@ Navigate to **[Analytics > Claude.ai](https://claude.ai/analytics/usage)** to vi
 
 - Total number of chats (1 week, 1 month, 3 months, 1 year)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916169034/e3e557f223fcd6976fa5b6353095/CleanShot+2026-01-05+at+15_32_41.png?expires=1778907600&amp;signature=bbf760060db2b6c8646dcf5bfca10c18f339c58021a50d4c90a09c572c6d2a41&amp;req=dSkmEMh4lIFcXfMW1HO4zZyh%2BjuX%2Fo59RyyyIe2wZ0W%2FhQUnIfi%2FJxVaeB1u%0AsSQG9XKrPZtFOUcYUDc%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916169034/e3e557f223fcd6976fa5b6353095/CleanShot+2026-01-05+at+15_32_41.png?expires=1778913900&amp;signature=59c60b9b1271bbdbf35e8b7f29509a182bfcd509499062804eff3aae45b66b68&amp;req=dSkmEMh4lIFcXfMW1HO4zZyh%2BjuX%2F4pyRyyyIe2wZ0WOXlhwLqvbShNDgnQS%0AgfbAcuvaHjTV06NZsgs%3D%0A)
 
 ## Projects
 
@@ -122,7 +122,7 @@ Navigate to **[Analytics > Claude.ai](https://claude.ai/analytics/usage)** to vi
 
 - Top 10 users by projects used (month-to-date, quarter-to-date, year-to-date, 1 year)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916170133/666961061f9a044385e0ea1debdd/CleanShot+2026-01-05+at+15_36_27.png?expires=1778907600&amp;signature=27f3b39a5a46289b6ce5db3d1c2bfa064b40aa270d2fac43e8a84dd38c0d53a2&amp;req=dSkmEMh5nYBcWvMW1HO4zed15Szn3R9cqVPXIl8sPeazG3imDp794QJJVjkx%0AnJSs4PB4hSynvbhYY2g%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916170133/666961061f9a044385e0ea1debdd/CleanShot+2026-01-05+at+15_36_27.png?expires=1778913900&amp;signature=6317368b6a981c0dd5c2173ccac3fac673d4faa8321008c55690733492f3a1c3&amp;req=dSkmEMh5nYBcWvMW1HO4zed15Szn3BtTqVPXIl8sPeZx1JEjOS5DpE5E7xoj%0AwJPvbFpdF2nYmPMeMvQ%3D%0A)
 
 ## Artifacts
 
@@ -132,7 +132,7 @@ Navigate to **[Analytics > Claude.ai](https://claude.ai/analytics/usage)** to vi
 
 - Top 10 users by artifacts generated (month-to-date, quarter-to-date, year-to-date, 1 year)
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916171160/cd17d2abba34659b9d8f6231df5a/CleanShot+2026-01-05+at+15_37_20.png?expires=1778907600&amp;signature=7ae25fc21dc19c87e23ebabb61e2362ac0925de8da801a2606d554a2ff1a21f5&amp;req=dSkmEMh5nIBZWfMW1HO4zXYF3lHrvQf%2F4Jgm1Axxim3EFVg14JLUd6DPOZiA%0AXT6kXhV%2BcpDqhtONlZk%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1916171160/cd17d2abba34659b9d8f6231df5a/CleanShot+2026-01-05+at+15_37_20.png?expires=1778913900&amp;signature=5fe1e302d91c5fe32cd0686f6cec09347b272e52c2ff69eda5e46a6351209f0c&amp;req=dSkmEMh5nIBZWfMW1HO4zXYF3lHrvAPw4Jgm1Axxim1sLmR2bVmskqCs4xfH%0AYJ8q3Mb%2FW12xTYct95A%3D%0A)
 
 ---
 
@@ -152,7 +152,7 @@ Navigate to **[Analytics > Cowork](https://claude.ai/analytics/cowork)** to view
 
 - Daily, weekly, and monthly active Cowork users
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2253604219/0d21918d55e10b3e5d2a92e65c90/42a47632-08c2-4557-a087-fc080c4dda80?expires=1778907600&amp;signature=b4582de2d50a35c8f4ffd861e55332bf8064a6dabf49bafa9fb7f5a52d11b210&amp;req=diIiFc9%2BmYNeUPMW1HO4zSCqqKwOFHgY8zs2pRdG0k5QmfDsaGM8YdsXAx5g%0ATViZLDeiRzIj0R6%2FfrI%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2253604219/0d21918d55e10b3e5d2a92e65c90/42a47632-08c2-4557-a087-fc080c4dda80?expires=1778913900&amp;signature=fa0a02c3dc9ec7668ee73bd60db896849a2e89d9cee905f46d96a3725e1c7652&amp;req=diIiFc9%2BmYNeUPMW1HO4zSCqqKwOFXwX8zs2pRdG0k6brniDVjjI8jbaXg6A%0AHNOsuEN0Cci0mLjsu8E%3D%0A)
 
 **Note:** Cowork analytics are available alongside Chat and Claude Code data in the **[Analytics API](https://support.claude.com/en/articles/13694757-access-engagement-and-adoption-data-with-the-analytics-api)**.
 

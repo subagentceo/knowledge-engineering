@@ -1,71 +1,3 @@
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690ac149c2dc363a0c9f35f1_Ticket%20Tailor.jpg)
-
-# Ticket Tailor
-
-Event platform for managing tickets, orders & more
-
--   Category
-    
-    No items found.
-    
--   Used in
-    
-    [
-    
-    Claude  
-    
-    ](https://claude.ai/directory/7a28094f-541d-4ef8-89e2-6abc653d77a2)[
-    
-    Claude desktop app  
-    
-    ](#)[
-    
-    Claude mobile app  
-    
-    ](#)[
-    
-    Claude Code
-    
-    ](#)[
-    
-    Claude Code
-    
-    ](#)[
-    
-    Claude API
-    
-    ](#)[
-    
-    Claude API  
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Ticket Tailor
-    
-    ](https://tickettailor.com)
-    
-
-[Play video](#)Play video
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
-![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
-
--   Capabilities
-    
-    Read & write
-    
-    [](/connectors-capabilities/ready-write)
-    
--   More
-    
-    [Documentation](https://help.tickettailor.com/en/articles/11892797-how-to-connect-ticket-tailor-to-your-favourite-ai-agent)[Privacy Policy](https://www.tickettailor.com/legal/privacy-policy)[Support](https://help.tickettailor.com/)
-    
-
 Provides event organisers with tools to interact with a Ticket Tailor box office account. It covers nearly every aspect of event ticketing: from event creation and ticket issuing, to managing orders, discounts, products, and more.
 
 You can use the Ticket Tailor connector to:  
@@ -78,7 +10,3 @@ Generate sales reports:
 
 Create discount codes:  
 "Create a 20% discount code called 'EARLYBIRD20' that expires in 30 days and can be used on General Admission tickets to my 'Summer Music Festival' event only"
-
-## Related connectors
-
-No items found.
