@@ -24,8 +24,10 @@ can do everything else. Hand the operator step 1; the agent does step 2.
 
 ## Step 1 — operator (one minute, interactive)
 
-In a Max-plan account terminal (alex@, admin@, or zhouk.alex@ —
-**not** the deprecated JADECLI Team org):
+In a Max-plan account terminal as **alex@jadecli.com** (default
+operator identity for this repo — `~/.claude/CLAUDE.md` lists
+admin@ and zhouk.alex@ as fallback rotation only, never the
+deprecated JADECLI Team org):
 
 ```
 claude setup-token
@@ -43,9 +45,25 @@ gh secret set CLAUDE_CODE_OAUTH_TOKEN \
 ```
 
 Sets at the **org level** so every repo in `subagentceo` picks it up
-on the next workflow run. One rotation covers all repos. Requires
-org-admin or the `actions:secrets` fine-grained permission — the
-operator's `admin-jadecli` alias has this; `alex-jadecli` does not.
+on the next workflow run. One rotation covers all repos.
+
+Requires the `admin:org` PAT scope. `alex-jadecli` is an org Owner
+(can grant the scope) but their current PAT carries only
+`gist, read:org, repo, workflow`. To run `gh secret set --org` as
+alex, first rescope:
+
+```
+gh auth refresh -h github.com -u alex-jadecli -s admin:org
+```
+
+If rescoping is blocked, fall back to admin-jadecli for this one
+command only:
+
+```
+gh auth switch -u admin-jadecli
+gh secret set CLAUDE_CODE_OAUTH_TOKEN --org subagentceo --visibility all --body "<token>"
+gh auth switch -u alex-jadecli   # restore default
+```
 
 (Per-repo override only if a repo has its own
 `CLAUDE_CODE_OAUTH_TOKEN` secret, which takes precedence.)
@@ -72,9 +90,9 @@ Tell the agent "token refreshed" when done.
   that does NOT propagate to the agent's Bash tool (different shell)
   and does NOT update the GitHub secret. The `gh secret set --org`
   call is the only thing that matters.
-- **`gh secret set --org` returns 403**: the gh token is authenticated
-  as an alias without org-admin (e.g. `alex-jadecli`). Switch to
-  `admin-jadecli` via `gh auth switch -u admin-jadecli` first.
+- **`gh secret set --org` returns 403**: alex-jadecli's PAT lacks
+  `admin:org`. Run `gh auth refresh -u alex-jadecli -s admin:org`
+  to rescope, or temporarily switch to admin-jadecli (see Step 1).
 - **Secret set but check still fails**: token may be valid but for a
   different identity than the one the org-disabled message expects.
   Try a different rotation account in step 1.
