@@ -2,7 +2,7 @@
 source_url: https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/69fe2a55b93bb0732b1fe33c_The-Founders-Playbook-05062026_v3%20(1).pdf
 referrer: https://claude.com/blog/the-founders-playbook
 pages: 36
-fetched_at: 2026-05-16T06:14:03.507Z
+fetched_at: 2026-05-16T06:31:31.663Z
 kind: pdf-mirror
 ---
 

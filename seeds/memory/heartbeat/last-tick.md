@@ -1,10 +1,81 @@
 ---
-tick: 14
-iso: 2026-05-16T05:00:00Z
-git_sha: cd663ef (PR #161 squash) on main
-session: claude-code/2026-05-16-fix-claude-blog-clean-markdown
-trigger: operator-direct ("fix this broken vendor/claude-blog/")
-prev_tick: 13 (2026-05-15 autonomous queue sweep)
+tick: 15
+iso: 2026-05-16T06:30:00Z
+git_sha: pending (this PR) on main
+session: claude-code/2026-05-16-per-vendor-quality-sweep
+trigger: operator-direct ("decompose by slug ... properly crawl and render content as markdown using the topology relevant to each company")
+prev_tick: 14 (2026-05-16 vendor consolidation, PRs #160-#162)
+---
+
+# Tick 15 — per-vendor quality sweep (PRs #163-#167 + this PR-G merged)
+
+After the consolidation in Tick 14 normalized the two first-party
+Anthropic mirrors, the operator asked for the same rigor applied
+across all 25 vendors. Three parallel Explore passes ranked the mirrors
+into tiers, then 4 PRs landed atomic fixes per failure mode, and a 5th
+PR added a generic regression guard. A spot-check then surfaced two
+more issues (PR #167 + this PR-G).
+
+## Outcomes (OVS = Vendor Sweep)
+
+| PR | OVS | Vendor / module | Fix |
+|---|---|---|---|
+| #163 | OVS1 | sentry | Re-crawled (config fine; `.checksums.json` absent → never ran). 0 → 117 .md. |
+| #163 | OVS2 | twilio | Same as OVS1. 0 → 200 .md. |
+| #163 | OVS3 | elevenlabs | URLs already end `.mdx`; transform `append-md-and-accept` → `verbatim`. 1 → 60. |
+| #163 | OVS4 | gcp | Annotated `note`: no working markdown endpoint exists. Deferred. |
+| #164 | OVS5 | scripts/lib/llms-txt.ts | LINK_RE now CommonMark-conformant for indented list items (unblocks intercom). |
+| #164 | OVS6 | arkose-labs | Point at developer.arkoselabs.com + verbatim. 0 → 50 .md. |
+| #164 | OVS7 | sift | Priority-list selector (forward-compat). 100 → 100. |
+| #164 | OVS8a | osv-scanner | Priority-list selector (tighter content frame). 17 → 18. |
+| #164 | OVS8b | intercom | Point at developers.intercom.com + verbatim. 1 → 100. |
+| #165 | OVS9 | parallel-web | Re-crawl drops stale 404 artifact. 61 → 60. |
+| #165 | OVS10 | openfeature | Selector `article` → `.theme-doc-markdown`. Files now start with proper headlines. 65 → 64. |
+| #166 | OVS11 | scripts/lib/vendor-cleanliness.test.ts | Generic per-vendor quality guardrail. 5 invariants across all 25 vendors. |
+| #167 | OVS12 | claude-sitemap | 219 plugin pages were ~25KB site-nav dumps. Selector chain extended with `.w-richtext` + `.hero_connector_details`. Now ~1-2KB each. |
+| #167 | OVS13 | anthropic-sitemap | Added `pdf_allow_prefixes` for cdn.sanity.io. 7 research PDFs mirrored. |
+| PR-G | OVS14 | crawler + claude-sitemap | New `deny_urls` field for exact-URL denies. Removes the 3 oversized resources index pages while preserving 215 subpages. |
+
+## What works now that didn't before
+
+- All 25 vendors pass the generic cleanliness test
+  (`scripts/lib/vendor-cleanliness.test.ts`).
+- Sentry (117), Twilio (200), ElevenLabs (60), Arkose (50), Intercom (100)
+  newly searchable from the MCP bridge — were entirely or nearly empty.
+- Plugin and connector detail pages on claude.com extract proper prose
+  instead of 25KB site-nav dumps.
+- Anthropic research-paper PDFs are mirrored as text alongside the
+  posts that reference them.
+
+## What's still deferred
+
+- **GCP**: cloud.google.com has no `.md` endpoint and docs.cloud.google.com
+  404s on common URLs. Vendor stays registered, mirror stays at 0 .md.
+  Annotated in `vendor/gcp/crawl.json` `note`.
+- **16 anthropic PDFs not mirrored**: linked from posts whose `<article>`
+  doesn't include the sidebar/footer with the PDF link. Would need a
+  widened selector pass for `/research/` specifically.
+- **1 claude-sitemap PDF dropped** (legal-industry): the OVS12 tighter
+  selector excluded the sidebar where the link lived. Net PDF count is
+  3 (claude-sitemap) + 7 (anthropic-sitemap) = 10.
+
+## Reading order for the next Claude session
+
+1. `scripts/crawl-vendors.ts` — `inAllowlist` now supports
+   `deny_urls` (exact match) alongside `deny_prefixes` (startsWith).
+2. `scripts/lib/vendor-cleanliness.test.ts` — generic regression guard;
+   add per-vendor EXCEPTIONS entries (with `reason`) when upstream
+   shape changes.
+3. `vendor/claude-sitemap/crawl.json` — the most complex config in the
+   repo. 5-selector priority list. Reference pattern for any new
+   sitemap-driven mirror.
+
+## New primitives introduced in this tick
+
+- `scripts/lib/llms-txt.ts` LINK_RE accepts leading whitespace (CommonMark conformance)
+- `scripts/crawl-vendors.ts` `cfg.deny_urls` for exact-URL denies
+- `scripts/lib/vendor-cleanliness.test.ts` with per-vendor EXCEPTIONS escape hatch
+
 ---
 
 # Tick 14 — vendor mirror consolidation (PRs #160, #161 merged)
