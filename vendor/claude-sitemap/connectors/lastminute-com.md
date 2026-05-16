@@ -1,0 +1,165 @@
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69701c118e725e7149be2b2f_logo_lastminute.com_vertical_positive.svg)
+
+# lastminute.com
+
+Search, compare and book flights, dynamic packages (flight + hotel) and hotels across global airlines and hotel suppliers.
+
+-   Category
+    
+    Productivity
+    
+-   Used in
+    
+    [
+    
+    Claude  
+    
+    ](https://claude.ai/directory/3ae97a2c-ee7f-4dba-8e0c-23662d036124)[
+    
+    Claude desktop app  
+    
+    ](#)[
+    
+    Claude mobile app  
+    
+    ](#)[
+    
+    Claude Code
+    
+    ](#)[
+    
+    Claude Code
+    
+    ](#)[
+    
+    Claude API
+    
+    ](#)[
+    
+    Claude API  
+    
+    ](#)
+    
+-   Made by
+    
+    [
+    
+    lastminute.com
+    
+    ](https://www.lastminute.com/)
+    
+
+[Play video](#)Play video
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+![](https://cdn.prod.website-files.com/6889473510b50328dbb70ae6/6889473610b50328dbb70b58_placeholder.svg)
+
+-   Capabilities
+    
+    Read
+    
+    [](/connectors-capabilities/read-only)
+    
+-   More
+    
+    [Documentation](http://mcp.lastminute.com/docs)[Privacy Policy](https://www.lastminute.com/en/info/privacy/bravonext.html)[Support](/cdn-cgi/l/email-protection#442927340428253730292d2a3130216a272b29)
+    
+
+Access real-time flight and hotel data directly through Claude to search, compare, and book flights, dynamic packages (flight + hotel), and hotels across a global network of airlines and hotel suppliers.Benefit from instant price comparisons, flexible filters, and intelligent recommendations that seamlessly integrate Claude's capabilities into your travel planning. Enhance your workflow with comprehensive flight, dynamic package, and hotel search powered by lastminute.com.
+
+You can use lastminute.com to:
+
+**Flight Search:**"Find flights from London to Barcelona next weekend"
+
+**Price Comparison:**"Compare round-trip flights from NYC to Paris in June"
+
+**Flexible Planning:**"Show me the cheapest flights to anywhere in Europe from Berlin in March"
+
+**Multi-city Search:**"Find flights for a trip from San Francisco to Tokyo to Sydney"
+
+**Dynamic Packages:** "Find me flight and hotel packages from Rome to Madrid for 3 nights, checking in on May 20"
+
+## Related connectors
+
+Productivity
+
+Claude
+
+Claude Code
+
+April 29, 2026
+
+[
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f24b64e8d71dfd92fdd8d2_Adobe_icon_RGB_red%20\(3\)%20-%20Sarah%20Xu.svg)
+
+### Adobe Experience Manager
+
+Manage your Adobe Experience Manager content
+
+
+
+](/connectors/adobe-experience-manager)
+
+Productivity
+
+Communication
+
+Claude
+
+Claude Code
+
+February 11, 2026
+
+[
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abdda280622da0e174da2_Asana.jpg)
+
+### Asana
+
+Connect to Asana to coordinate tasks, projects, and goals
+
+
+
+](/connectors/asana)
+
+Productivity
+
+Claude
+
+Claude Code
+
+Skills
+
+February 11, 2026
+
+[
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690abde7cfa24b799acf7fc9_Atlassian.jpg)
+
+### Atlassian Rovo
+
+Access Jira & Confluence from Claude
+
+
+
+](/connectors/atlassian)
+
+Productivity
+
+Claude
+
+May 1, 2026
+
+[
+
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69f517b944431173c96c6735_audible%20-%20Audible%20\(1\).svg)
+
+### Audible
+
+Ask for audiobook recommendations
+
+
+
+](/connectors/audible)

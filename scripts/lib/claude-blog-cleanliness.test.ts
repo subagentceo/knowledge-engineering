@@ -1,13 +1,15 @@
 // scripts/lib/claude-blog-cleanliness.test.ts
 //
-// Regression guard: vendor/claude-blog/ must contain markdown prose, not
-// Webflow boilerplate. Pre-fix, every post had ~1400 lines beginning with
-// `!function(o,c){...}` and embedded JSON-LD/CSS because the `<article>`
+// Regression guard: vendor/claude-sitemap/blog/ must contain markdown prose,
+// not Webflow boilerplate. Pre-fix, every post had ~1400 lines beginning
+// with `!function(o,c){...}` and embedded JSON-LD/CSS because the `<article>`
 // regex selector pulled `<script>` blocks into turndown.
 //
+// @tdd green
+//
 // Citations:
-//   @cite vendor/claude-blog/crawl.json                         (html_extract selector under test)
-//   @cite vendor/claude-blog/llms.txt                            (vendor mirror entry-point)
+//   @cite vendor/claude-sitemap/crawl.json                      (consolidated mirror config under test)
+//   @cite vendor/claude-sitemap/llms.txt                         (vendor mirror entry-point)
 //   @cite seeds/posture/session-start.xml                       (.md-first hard rule)
 
 import { strict as assert } from "node:assert";
@@ -17,11 +19,8 @@ import { test } from "node:test";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const VENDOR_DIR = resolve(__dirname, "..", "..", "vendor", "claude-blog");
-const BLOG_DIRS = [
-  resolve(VENDOR_DIR, "www.claude.com", "blog"),
-  resolve(VENDOR_DIR, "claude.com", "blog"),
-];
+const VENDOR_DIR = resolve(__dirname, "..", "..", "vendor", "claude-sitemap");
+const BLOG_DIRS = [resolve(VENDOR_DIR, "blog")];
 
 const FORBIDDEN_SIGNATURES: { needle: string; reason: string }[] = [
   { needle: "<script", reason: "raw <script> leaked through turndown" },

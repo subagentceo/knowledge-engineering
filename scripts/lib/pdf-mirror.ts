@@ -7,7 +7,7 @@
 // committed — the chassis ships markdown only.
 //
 // Citations:
-//   @cite vendor/claude-blog/crawl.json                  (pdf_allow_prefixes field)
+//   @cite vendor/claude-sitemap/crawl.json               (pdf_allow_prefixes field)
 //   @cite seeds/posture/session-start.xml                (.md-first hard rule)
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -31,7 +31,11 @@ export interface PdfMirrorResult {
   failed: { url: string; reason: string }[];
 }
 
-const PDF_HREF_RE = /\]\((https?:\/\/[^)\s]+?\.pdf(?:\?[^)\s]*)?)\)/gi;
+// Match a markdown link target ending in `.pdf` (with optional query string).
+// Turndown escapes literal parens inside link targets as `\(` and `\)`;
+// allow those escape sequences inside the URL match so URLs like
+// `..._v3%20\(1\).pdf` are captured. The captured URL is unescaped below.
+const PDF_HREF_RE = /\]\((https?:\/\/(?:\\[()]|[^)\s])+?\.pdf(?:\?(?:\\[()]|[^)\s])*)?)\)/gi;
 
 /**
  * Extract distinct PDF URLs from a markdown body that match one of the

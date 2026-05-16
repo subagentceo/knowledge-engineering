@@ -60,6 +60,19 @@ export const CrawlConfigSchema = z.object({
   html_extract: HtmlExtractSchema.optional(),
   incremental: z.boolean().optional(),
   /**
+   * Path layout. Default "host" puts files under <vendor>/<host>/<path>.md.
+   * "topology" drops the host segment and organizes by URL first-path-
+   * segment (with subdomain prefix when applicable). Used by
+   * vendor/claude-sitemap/ which consolidates multiple URL prefixes.
+   */
+  layout: z.enum(["host", "topology"]).optional(),
+  /**
+   * URL prefixes whose .pdf links should be discovered in html-extract
+   * output and mirrored as text under vendor/<name>/_pdfs/<slug>.md.
+   * Missing/empty disables the lane.
+   */
+  pdf_allow_prefixes: z.array(z.string().min(1)).optional(),
+  /**
    * Free-form note surfacing why a vendor is in a given state.
    * Used by inconsistent-vendor diagnostics (Phase G item O-G2).
    */

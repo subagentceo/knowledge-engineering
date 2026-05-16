@@ -1,0 +1,45 @@
+Pelanor, an AI-powered FinOps platform, uses Claude to help enterprises instantly understand their cloud spending through real-time natural language conversations instead of manual analysis.
+
+## With Claude, Pelanor:
+
+-   Achieved 10x customer growth in 6 months (from 5 to 50 customers)
+-   Shipped features that drive 40-50% of new business
+-   Delivers cost insights in seconds that previously took weeks of analysis
+-   Enables cost attribution down to individual customers, features, and code changes
+-   Launched Agent Composer for creating custom cost monitoring in plain English
+
+## When cloud costs become impossible to understand
+
+Enterprise cloud costs have become a black box. Companies spend millions on shared Kubernetes clusters, databases, and AI workloads, but can't figure out which teams, products, or customers are actually driving the costs. Traditional FinOps tools just show billing summaries—they can't connect a $50,000 spike to the specific feature launch or customer surge that caused it.
+
+This leaves finance teams making budget decisions blind, engineers deploying code without understanding cost impact, and executives unable to tie infrastructure spending to business outcomes. As AI reshapes cloud usage and infrastructure becomes more complex, manual cost allocation becomes impossible.
+
+## Why Pelanor chose Claude as their reasoning engine
+
+After evaluating multiple AI models, Pelanor selected Claude as the foundation for their platform. Claude 3 Opus demonstrated superior performance in instruction following, schema comprehension, optimal tool usage, and integration with structured enterprise workflows compared to other leading models. Since then, Pelanor has continued to adopt Anthropic’s most advanced releases, including Claude 4 Opus, to stay ahead as the platform scales.
+
+The team has integrated Claude throughout their operations. Since launch, they have been using [Claude.ai](http://claude.ai) across the organization and seeing universal adoption of Claude Code across their development team within days of release.
+
+## Turning cost data into conversational insights
+
+Pelanor built their platform to make Claude an expert in each customer's specific cloud environment. Instead of just showing billing data, they map the relationships between infrastructure costs and business activities—connecting spending to applications, features, teams, and even individual users.
+
+This enables Claude to answer questions like "why did our database costs spike 40% last Tuesday?" by tracing the increase through specific microservices, identifying the code changes that triggered it, and even finding the engineer responsible. Users can then dive deeper with follow-up questions, turning weeks of manual investigation into an immediate natural conversation.
+
+Beyond answering questions, Claude automatically monitors for cost anomalies and generates detailed explanations without being asked. When costs spike, customers receive clear reports explaining exactly what happened, why, and who to contact, eliminating the need for manual root cause analysis.
+
+The upcoming Agent Composer takes this further. It lets users create custom monitoring by describing what they want in plain English: "alert me if any customer's costs exceed 30% of revenue" or "watch for new service adoption across engineering teams."
+
+## From manual analysis to instant understanding
+
+The transformation for Pelanor's customers has been dramatic. Finance teams can now attribute costs to specific business outcomes, engineers see the real cost impact of their code, and executives make informed decisions about infrastructure investments through conversations with Claude.
+
+This shift from static dashboards to intelligent analysis has fueled Pelanor's rapid growth. In just six months, the company achieved 10x customer expansion, growing from 5 to 50 customers across enterprises, government agencies and public companies.
+
+In fact, Claude-powered features account for nearly half of their new business, based on what prospects prioritize during evaluations.
+
+## Building the future of autonomous cost management
+
+Pelanor envisions a future where cost management happens automatically through intelligent agents. Their Agent Composer, launching in August, will let customers define monitoring goals in plain English and have Claude create the complete automation.
+
+As Pelanor continues to scale, Claude will become even more critical. The Agent Composer will use Claude Opus for complex workflow creation, then faster models like Haiku for real-time execution. This partnership has been foundational to Pelanor's growth and will deepen as they transform how enterprises understand and manage cloud costs.

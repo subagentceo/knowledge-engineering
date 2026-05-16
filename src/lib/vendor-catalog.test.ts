@@ -106,10 +106,13 @@ const EXCLUDED_IDS = new Map<string, string>([
 const DIR_ALIASES = new Map<string, string>([
   ["arkose", "arkose-labs"],
   ["mcp", "modelcontextprotocol"],
-  // Phase E (O-E5): the v2 catalog entity id is anthropic_support; the
-  // vendor dir is named after the actual host (support.claude.com) for
-  // mirror-path readability.
-  ["anthropic_support", "claude-support"],
+  // Phase E (O-E5) + 2026-05-16 consolidation: the v2 catalog entity id
+  // is anthropic_support; the support.claude.com EN articles now live
+  // inside the consolidated vendor/claude-sitemap/ mirror under
+  // support/en/articles/. We point the alias at claude-sitemap so the
+  // coverage check passes — the sitemap source URL is in
+  // vendor/claude-sitemap/crawl.json's sitemap_xml_sources.
+  ["anthropic_support", "claude-sitemap"],
 ]);
 
 function vendorDirFor(entityId: string): string {
@@ -211,11 +214,7 @@ const allCatalogDirs = new Set<string>(entities.map((e) => vendorDirFor(e.id)));
 const LEGACY_ALLOW = new Set([
   "anthropic-engineering", // pre-catalog Anthropic blog mirror
   "anthropics",            // multi-source Anthropic first-party docs
-  "claude-blog",           // Phase 13.C — claude.com/blog mirror (first-party content)
-  "claude-customers",      // Phase 13.D — claude.com/customers case studies
-  "claude-plugins",        // Phase 13.D — claude.com/plugins directory
-  "claude-connectors",     // Phase 13.D — claude.com/connectors directory
-  "claude-tutorials",      // Phase 13.D — claude.com/tutorials (sitemap fix → 118 pages)
+  "claude-sitemap",        // 2026-05-16 — consolidated claude.com + support.claude.com mirror via sitemap.xml (replaces claude-{blog,connectors,customers,plugins,support,tutorials})
   "osv-scanner",           // 2026-05-15 — chassis vuln-gate dependency; not in v2 catalog
 ]);
 

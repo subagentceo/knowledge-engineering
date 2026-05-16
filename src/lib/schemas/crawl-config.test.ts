@@ -6,7 +6,7 @@
  *
  * @tdd green
  * @cite vendor/turbopuffer/crawl.json
- * @cite vendor/claude-tutorials/crawl.json
+ * @cite vendor/claude-sitemap/crawl.json
  * @cite rubrics/phase-1.md
  */
 import { readdirSync, readFileSync, existsSync } from "node:fs";

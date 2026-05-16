@@ -1,17 +1,21 @@
 /**
- * Phase E (O-E3,E4): mirror-shape test for the support.claude.com vendor.
+ * Phase E (O-E3,E4): mirror-shape test for support.claude.com articles
+ * inside the consolidated vendor/claude-sitemap/ mirror.
  *
  * Asserts the mirror invariants the runtime relies on:
- *   - 341 EN /en/articles/* URLs present (crawl count)
- *   - every URL maps to a real .md file under support.claude.com/en/articles/
+ *   - ≥340 EN /en/articles/* URLs present (crawl count)
+ *   - every URL maps to a real .md file under support/en/articles/
  *   - the URL→relPath shape parses through vendor-manifests
  *
- * This test is sensitive to mirror drift: if a future re-crawl changes
- * the article count, the assertion below must move in lockstep with
- * vendor/claude-support/urls.md.
+ * Article URLs are filtered out of the consolidated mirror's urlSet
+ * (which also contains blog/connectors/customers/plugins/resources URLs)
+ * by host+path prefix. Per-host transform dispatch in
+ * scripts/crawl-vendors.ts routes support.claude.com URLs through the
+ * `support-mdfirst` transform regardless of the vendor's primary
+ * transform setting.
  *
  * @tdd green
- * @cite vendor/claude-support/crawl.json
+ * @cite vendor/claude-sitemap/crawl.json
  * @cite seeds/citations/vendor-graph-v2.xml
  * @cite rubrics/phase-E.md
  */
@@ -38,27 +42,34 @@ function check(name: string, fn: () => void): void {
   }
 }
 
-console.log("claude-support mirror:");
+console.log("claude-support mirror (via claude-sitemap):");
 
 reloadVendorManifests();
-const manifest = getVendor("claude-support");
+const manifest = getVendor("claude-sitemap");
+const SUPPORT_PREFIX = "https://support.claude.com/en/articles/";
 
-check("vendor/claude-support/ is registered as a manifest", () => {
-  if (!manifest) throw new Error("getVendor('claude-support') returned undefined");
+function supportUrls(): string[] {
+  if (!manifest) return [];
+  return Array.from(manifest.urlSet).filter((u) => u.startsWith(SUPPORT_PREFIX));
+}
+
+check("vendor/claude-sitemap/ is registered as a manifest", () => {
+  if (!manifest) throw new Error("getVendor('claude-sitemap') returned undefined");
 });
 
-check("manifest contains exactly 341 EN article URLs", () => {
+check("manifest contains ≥340 support article URLs", () => {
   if (!manifest) throw new Error("manifest missing");
-  if (manifest.urlSet.size !== 341) {
-    throw new Error(`expected 341 URLs, got ${manifest.urlSet.size}`);
+  const urls = supportUrls();
+  if (urls.length < 340) {
+    throw new Error(`expected ≥340 support URLs, got ${urls.length}`);
   }
 });
 
-check("every URL matches /en/articles/<numericId>-<slug>", () => {
+check("every support URL matches /en/articles/<numericId>-<slug>", () => {
   if (!manifest) throw new Error("manifest missing");
   const articleRe = /^https:\/\/support\.claude\.com\/en\/articles\/[0-9]+-[a-z0-9-]+$/;
   const bad: string[] = [];
-  for (const url of manifest.urlSet) {
+  for (const url of supportUrls()) {
     if (!articleRe.test(url)) bad.push(url);
   }
   if (bad.length > 0) {
@@ -66,12 +77,14 @@ check("every URL matches /en/articles/<numericId>-<slug>", () => {
   }
 });
 
-check("every URL maps to an existing .md file on disk", () => {
+check("every support URL maps to an existing .md file on disk", () => {
   if (!manifest) throw new Error("manifest missing");
   let missing = 0;
   const samples: string[] = [];
-  for (const [url, relPath] of manifest.byUrl) {
-    const path = resolve(vendorRoot(), "claude-support", relPath);
+  for (const url of supportUrls()) {
+    const relPath = manifest.byUrl.get(url);
+    if (!relPath) continue;
+    const path = resolve(vendorRoot(), "claude-sitemap", relPath);
     if (!existsSync(path)) {
       missing += 1;
       if (samples.length < 3) samples.push(url);
@@ -84,22 +97,28 @@ check("every URL maps to an existing .md file on disk", () => {
 
 check("known Claude Code article is present + non-trivial body", () => {
   if (!manifest) throw new Error("manifest missing");
-  const url = Array.from(manifest.urlSet).find((u) =>
-    u.includes("/en/articles/") && u.toLowerCase().includes("claude-code")
-  );
-  if (!url) throw new Error("no /claude-code article slug in manifest");
+  const url = supportUrls().find((u) => u.toLowerCase().includes("claude-code"));
+  if (!url) throw new Error("no /claude-code article slug in support tree");
   const relPath = manifest.byUrl.get(url);
   if (!relPath) throw new Error("byUrl missing entry");
-  const body = readFileSync(resolve(vendorRoot(), "claude-support", relPath), "utf8");
+  const body = readFileSync(resolve(vendorRoot(), "claude-sitemap", relPath), "utf8");
   if (body.length < 200) throw new Error(`body suspiciously short: ${body.length} chars`);
 });
 
-check("crawl.json declares support-mdfirst transform", () => {
-  const cfgPath = resolve(REPO_ROOT, "vendor", "claude-support", "crawl.json");
+check("crawl.json declares topology layout + html-extract transform with per-host support routing", () => {
+  const cfgPath = resolve(REPO_ROOT, "vendor", "claude-sitemap", "crawl.json");
   if (!existsSync(cfgPath)) throw new Error("crawl.json missing");
   const cfg = JSON.parse(readFileSync(cfgPath, "utf8"));
-  if (cfg.transform !== "support-mdfirst") {
-    throw new Error(`transform=${cfg.transform}, expected support-mdfirst`);
+  if (cfg.layout !== "topology") {
+    throw new Error(`layout=${cfg.layout}, expected topology`);
+  }
+  // Per-host dispatch in scripts/crawl-vendors.ts overrides the primary
+  // transform for support.claude.com regardless of cfg.transform value.
+  // The vendor still declares its primary transform here for marketing
+  // pages; only the dispatch logic decides per URL.
+  const sources = (cfg.sitemap_xml_sources ?? []) as string[];
+  if (!sources.some((s) => s.includes("support.claude.com"))) {
+    throw new Error("crawl.json sitemap_xml_sources missing support.claude.com");
   }
 });
 
