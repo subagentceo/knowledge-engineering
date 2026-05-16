@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F5-trends-redefining-fraud%2F&title=5%20Trends%20Redefining%20Fraud)
 -   [](https://twitter.com/intent/tweet?text=5%20Trends%20Redefining%20Fraud&url=https%3A%2F%2Fsift.com%2Fblog%2F5-trends-redefining-fraud%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F5-trends-redefining-fraud%2F&picture=&title=5%20Trends%20Redefining%20Fraud)
--   [](/cdn-cgi/l/email-protection#3a05494f58505f594e070f1f080a6e485f545e491f080a685f5e5f5c535453545d1f080a7c485b4f5e1c190a09020158555e4307524e4e4a491f097b1f087c1f087c49535c4e145955571f087c5856555d1f087c0f174e485f545e4917485f5e5f5c535453545d175c485b4f5e1f087c)
+-   [](/cdn-cgi/l/email-protection#fdc28e889f97989e89c0c8d8cfcda98f9893998ed8cfcdaf9899989b949394939ad8cfcdbb8f9c8899dbdecdcec5c69f929984c09589898d8ed8cebcd8cfbbd8cfbb8e949b89d39e9290d8cfbb9f91929ad8cfbbc8d0898f9893998ed08f9899989b949394939ad09b8f9c8899d8cfbb)
 
 -   [Fraud](https://sift.com/blog/category/fraud/)
 
@@ -58,7 +58,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F5-trends-redefining-fraud%2F&title=5%20Trends%20Redefining%20Fraud)
 -   [](https://twitter.com/intent/tweet?text=5%20Trends%20Redefining%20Fraud&url=https%3A%2F%2Fsift.com%2Fblog%2F5-trends-redefining-fraud%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F5-trends-redefining-fraud%2F&picture=&title=5%20Trends%20Redefining%20Fraud)
--   [](/cdn-cgi/l/email-protection#053a7670676f60667138302037355177606b617620373557606160636c6b6c6b622037354377647061232635363d3e676a617c386d71717576203644203743203743766c63712b666a6820374367696a6220374330287177606b61762877606160636c6b6c6b62286377647061203743)
+-   [](/cdn-cgi/l/email-protection#fcc38f899e96999f88c1c9d9cecca88e9992988fd9ceccae9998999a959295929bd9ceccba8e9d8998dadfcccfc4c79e939885c19488888c8fd9cfbdd9cebad9ceba8f959a88d29f9391d9ceba9e90939bd9cebac9d1888e9992988fd18e9998999a959295929bd19a8e9d8998d9ceba)
 
 ## You may also like
 

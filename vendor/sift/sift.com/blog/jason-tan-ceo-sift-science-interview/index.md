@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fjason-tan-ceo-sift-science-interview%2F&title=12%20Questions%20for%20Jason%20Tan%2C%20CEO%20of%20Sift%20Science)
 -   [](https://twitter.com/intent/tweet?text=12%20Questions%20for%20Jason%20Tan%2C%20CEO%20of%20Sift%20Science&url=https%3A%2F%2Fsift.com%2Fblog%2Fjason-tan-ceo-sift-science-interview%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fjason-tan-ceo-sift-science-interview%2F&picture=&title=12%20Questions%20for%20Jason%20Tan%2C%20CEO%20of%20Sift%20Science)
--   [](/cdn-cgi/l/email-protection#615e1214030b0402155c50534453513014041215080e0f12445351070e134453512b00120e0f44535135000f44532244535122242e4453510e0744535132080715445351320208040f020447425152595a030e05185c0915151112445220445327445327120807154f020e0c445327030d0e064453270b00120e0f4c15000f4c02040e4c120807154c120208040f02044c080f15041317080416445327)
+-   [](/cdn-cgi/l/email-protection#f5ca8680979f909681c8c4c7d0c7c5a4809086819c9a9b86d0c7c5939a87d0c7c5bf94869a9bd0c7c5a1949bd0c7b6d0c7c5b6b0bad0c7c59a93d0c7c5a69c9381d0c7c5a6969c909b9690d3d6c5c6cdce979a918cc89d81818586d0c6b4d0c7b3d0c7b3869c9381db969a98d0c7b397999a92d0c7b39f94869a9bd881949bd896909ad8869c9381d886969c909b9690d89c9b819087839c9082d0c7b3)
 
 -   [Company](https://sift.com/blog/category/company/)
 -   [Digital Trust](https://sift.com/blog/category/digital-trust/)
@@ -113,7 +113,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fjason-tan-ceo-sift-science-interview%2F&title=12%20Questions%20for%20Jason%20Tan%2C%20CEO%20of%20Sift%20Science)
 -   [](https://twitter.com/intent/tweet?text=12%20Questions%20for%20Jason%20Tan%2C%20CEO%20of%20Sift%20Science&url=https%3A%2F%2Fsift.com%2Fblog%2Fjason-tan-ceo-sift-science-interview%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fjason-tan-ceo-sift-science-interview%2F&picture=&title=12%20Questions%20for%20Jason%20Tan%2C%20CEO%20of%20Sift%20Science)
--   [](/cdn-cgi/l/email-protection#dce3afa9beb6b9bfa8e1edeef9eeec8da9b9afa8b5b3b2aff9eeecbab3aef9eeec96bdafb3b2f9eeec88bdb2f9ee9ff9eeec9f9993f9eeecb3baf9eeec8fb5baa8f9eeec8fbfb5b9b2bfb9faffecefe4e7beb3b8a5e1b4a8a8acaff9ef9df9ee9af9ee9aafb5baa8f2bfb3b1f9ee9abeb0b3bbf9ee9ab6bdafb3b2f1a8bdb2f1bfb9b3f1afb5baa8f1afbfb5b9b2bfb9f1b5b2a8b9aeaab5b9abf9ee9a)
+-   [](/cdn-cgi/l/email-protection#427d313720282721367f737067707213372731362b2d2c31677072242d306770720823312d2c67707216232c67700167707201070d6770722d24677072112b243667707211212b272c2127646172717a79202d263b7f2a36363231677103677004677004312b24366c212d2f677004202e2d256770042823312d2c6f36232c6f21272d6f312b24366f31212b272c21276f2b2c362730342b2735677004)
 
 ## You may also like
 

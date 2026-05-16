@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F&title=A%20Guide%20to%20Integrated%20Risk%20Management)
 -   [](https://twitter.com/intent/tweet?text=A%20Guide%20to%20Integrated%20Risk%20Management&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F06%2FSEO-Images_A-Guide-to-Integrated-Risk-Management_1445x1044.jpg&title=A%20Guide%20to%20Integrated%20Risk%20Management)
--   [](/cdn-cgi/l/email-protection#1c236f697e76797f68215d392e2c5b69757879392e2c6873392e2c557268797b6e7d687978392e2c4e756f77392e2c517d727d7b79717972683a3f2c2f24277e737865217468686c6f392f5d392e5a392e5a6f757a68327f7371392e5a7e70737b392e5a7d317b6975787931687331757268797b6e7d687978316e756f7731717d727d7b7971797268392e5a)
+-   [](/cdn-cgi/l/email-protection#053a7670676f606671384420373542706c6160203735716a2037354c6b7160627764716061203735576c766e20373548646b64626068606b71232635363d3e676a617c386d71717576203644203743203743766c63712b666a6820374367696a62203743642862706c616028716a286c6b716062776471606128776c766e2868646b64626068606b71203743)
 
 -   [Fraud](https://sift.com/blog/category/fraud/)
 
@@ -121,7 +121,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F&title=A%20Guide%20to%20Integrated%20Risk%20Management)
 -   [](https://twitter.com/intent/tweet?text=A%20Guide%20to%20Integrated%20Risk%20Management&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fa-guide-to-integrated-risk-management%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F06%2FSEO-Images_A-Guide-to-Integrated-Risk-Management_1445x1044.jpg&title=A%20Guide%20to%20Integrated%20Risk%20Management)
--   [](/cdn-cgi/l/email-protection#3c034f495e56595f48017d190e0c7b49555859190e0c4853190e0c755248595b4e5d485958190e0c6e554f57190e0c715d525d5b59515952481a1f0c0f04075e535845015448484c4f190f7d190e7a190e7a4f555a48125f5351190e7a5e50535b190e7a5d115b4955585911485311555248595b4e5d485958114e554f5711515d525d5b5951595248190e7a)
+-   [](/cdn-cgi/l/email-protection#d8e7abadbab2bdbbace599fdeae89fadb1bcbdfdeae8acb7fdeae891b6acbdbfaab9acbdbcfdeae88ab1abb3fdeae895b9b6b9bfbdb5bdb6acfefbe8ebe0e3bab7bca1e5b0acaca8abfdeb99fdea9efdea9eabb1beacf6bbb7b5fdea9ebab4b7bffdea9eb9f5bfadb1bcbdf5acb7f5b1b6acbdbfaab9acbdbcf5aab1abb3f5b5b9b6b9bfbdb5bdb6acfdea9e)
 
 ## You may also like
 

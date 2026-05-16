@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F2021-retail-fraud-stats-online-merchants-need-to-know%2F&title=2021%20Retail%20Fraud%20Stats%20Online%20Merchants%20Need%20to%20Know)
 -   [](https://twitter.com/intent/tweet?text=2021%20Retail%20Fraud%20Stats%20Online%20Merchants%20Need%20to%20Know&url=https%3A%2F%2Fsift.com%2Fblog%2F2021-retail-fraud-stats-online-merchants-need-to-know%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F2021-retail-fraud-stats-online-merchants-need-to-know%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2F2021_q3_retail_data_blog_header.jpeg&title=2021%20Retail%20Fraud%20Stats%20Online%20Merchants%20Need%20to%20Know)
--   [](/cdn-cgi/l/email-protection#d8e7abadbab2bdbbace5eae8eae9fdeae88abdacb9b1b4fdeae89eaab9adbcfdeae88bacb9acabfdeae897b6b4b1b6bdfdeae895bdaabbb0b9b6acabfdeae896bdbdbcfdeae8acb7fdeae893b6b7affefbe8ebe0e3bab7bca1e5b0acaca8abfdeb99fdea9efdea9eabb1beacf6bbb7b5fdea9ebab4b7bffdea9eeae8eae9f5aabdacb9b1b4f5beaab9adbcf5abacb9acabf5b7b6b4b1b6bdf5b5bdaabbb0b9b6acabf5b6bdbdbcf5acb7f5b3b6b7affdea9e)
+-   [](/cdn-cgi/l/email-protection#7b44080e19111e180f46494b494a5e494b291e0f1a12175e494b3d091a0e1f5e494b280f1a0f085e494b34151712151e5e494b361e0918131a150f085e494b351e1e1f5e494b0f145e494b3015140c5d584b48434019141f0246130f0f0b085e483a5e493d5e493d08121d0f551814165e493d1917141c5e493d494b494a56091e0f1a1217561d091a0e1f56080f1a0f085614151712151e56161e0918131a150f0856151e1e1f560f14561015140c5e493d)
 
 -   [Account Takeover](https://sift.com/blog/category/ato/)
 -   [Digital Trust](https://sift.com/blog/category/digital-trust/)
@@ -82,7 +82,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F2021-retail-fraud-stats-online-merchants-need-to-know%2F&title=2021%20Retail%20Fraud%20Stats%20Online%20Merchants%20Need%20to%20Know)
 -   [](https://twitter.com/intent/tweet?text=2021%20Retail%20Fraud%20Stats%20Online%20Merchants%20Need%20to%20Know&url=https%3A%2F%2Fsift.com%2Fblog%2F2021-retail-fraud-stats-online-merchants-need-to-know%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F2021-retail-fraud-stats-online-merchants-need-to-know%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2F2021_q3_retail_data_blog_header.jpeg&title=2021%20Retail%20Fraud%20Stats%20Online%20Merchants%20Need%20to%20Know)
--   [](/cdn-cgi/l/email-protection#3f004c4a5d555a5c4b020d0f0d0e1a0d0f6d5a4b5e56531a0d0f794d5e4a5b1a0d0f6c4b5e4b4c1a0d0f70515356515a1a0d0f725a4d5c575e514b4c1a0d0f715a5a5b1a0d0f4b501a0d0f74515048191c0f0c07045d505b4602574b4b4f4c1a0c7e1a0d791a0d794c56594b115c50521a0d795d5350581a0d790d0f0d0e124d5a4b5e565312594d5e4a5b124c4b5e4b4c1250515356515a12525a4d5c575e514b4c12515a5a5b124b5012545150481a0d79)
+-   [](/cdn-cgi/l/email-protection#47783432252d2224337a75777576627577152233262e2b6275770135263223627577143326333462757708292b2e29226275770a2235242f262933346275770922222362757733286275770c292830616477747f7c2528233e7a2f33333734627406627501627501342e21336924282a627501252b2820627501757775766a352233262e2b6a21352632236a34332633346a28292b2e29226a2a2235242f262933346a292222236a33286a2c292830627501)
 
 ## You may also like
 

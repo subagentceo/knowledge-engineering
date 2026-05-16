@@ -27,7 +27,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-consumer-insights-and-emerging-trends-in-2023%2F&title=Account%20takeover%20data%2C%20consumer%20insights%2C%20and%20emerging%20trends%20in%202023)
 -   [](https://twitter.com/intent/tweet?text=Account%20takeover%20data%2C%20consumer%20insights%2C%20and%20emerging%20trends%20in%202023&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-consumer-insights-and-emerging-trends-in-2023%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-consumer-insights-and-emerging-trends-in-2023%2F&picture=&title=Account%20takeover%20data%2C%20consumer%20insights%2C%20and%20emerging%20trends%20in%202023)
--   [](/cdn-cgi/l/email-protection#a29dd1d7c0c8c7c1d69fe3c1c1cdd7ccd6879092d6c3c9c7cdd4c7d0879092c6c3d6c38790e1879092c1cdccd1d7cfc7d0879092cbccd1cbc5cad6d18790e1879092c3ccc6879092c7cfc7d0c5cbccc5879092d6d0c7ccc6d1879092cbcc87909290929091848192919a99c0cdc6db9fcad6d6d2d18791e38790e48790e4d1cbc4d68cc1cdcf8790e4c0cecdc58790e4c3c1c1cdd7ccd68fd6c3c9c7cdd4c7d08fc6c3d6c38fc1cdccd1d7cfc7d08fcbccd1cbc5cad6d18fc3ccc68fc7cfc7d0c5cbccc58fd6d0c7ccc6d18fcbcc8f909290918790e4)
+-   [](/cdn-cgi/l/email-protection#a798d4d2c5cdc2c4d39ae6c4c4c8d2c9d3829597d3c6ccc2c8d1c2d5829597c3c6d3c68295e4829597c4c8c9d4d2cac2d5829597cec9d4cec0cfd3d48295e4829597c6c9c3829597c2cac2d5c0cec9c0829597d3d5c2c9c3d4829597cec982959795979594818497949f9cc5c8c3de9acfd3d3d7d48294e68295e18295e1d4cec1d389c4c8ca8295e1c5cbc8c08295e1c6c4c4c8d2c9d38ad3c6ccc2c8d1c2d58ac3c6d3c68ac4c8c9d4d2cac2d58acec9d4cec0cfd3d48ac6c9c38ac2cac2d5c0cec9c08ad3d5c2c9c3d48acec98a959795948295e1)
 
 -   [Account Defense](https://sift.com/blog/category/account-defense/)
 -   [Account Takeover](https://sift.com/blog/category/ato/)
@@ -55,14 +55,12 @@ Explore the following infographic and [read the full report](https://resources.s
 
 _\*The data highlighted in this report is derived from Sift’s global data network of one trillion (1T) events, and compares findings from Q2 2022 to Q2 2023. This report also includes insights gathered on behalf of Sift by Researchscape, which polled 1,035 U.S. adults (aged 18+) in July of 2023._
 
- 
-
 Share post on:
 
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-consumer-insights-and-emerging-trends-in-2023%2F&title=Account%20takeover%20data%2C%20consumer%20insights%2C%20and%20emerging%20trends%20in%202023)
 -   [](https://twitter.com/intent/tweet?text=Account%20takeover%20data%2C%20consumer%20insights%2C%20and%20emerging%20trends%20in%202023&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-consumer-insights-and-emerging-trends-in-2023%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-consumer-insights-and-emerging-trends-in-2023%2F&picture=&title=Account%20takeover%20data%2C%20consumer%20insights%2C%20and%20emerging%20trends%20in%202023)
--   [](/cdn-cgi/l/email-protection#f0cf8385929a959384cdb193939f859e84d5c2c084919b959f869582d5c2c094918491d5c2b3d5c2c0939f9e83859d9582d5c2c0999e839997988483d5c2b3d5c2c0919e94d5c2c0959d958297999e97d5c2c08482959e9483d5c2c0999ed5c2c0c2c0c2c3d6d3c0c3c8cb929f9489cd9884848083d5c3b1d5c2b6d5c2b683999684de939f9dd5c2b6929c9f97d5c2b69193939f859e84dd84919b959f869582dd94918491dd939f9e83859d9582dd999e839997988483dd919e94dd959d958297999e97dd8482959e9483dd999eddc2c0c2c3d5c2b6)
+-   [](/cdn-cgi/l/email-protection#3c034f495e56595f48017d5f5f53495248190e0c485d5759534a594e190e0c585d485d190e7f190e0c5f53524f4951594e190e0c55524f555b54484f190e7f190e0c5d5258190e0c5951594e5b55525b190e0c484e5952584f190e0c5552190e0c0e0c0e0f1a1f0c0f04075e535845015448484c4f190f7d190e7a190e7a4f555a48125f5351190e7a5e50535b190e7a5d5f5f5349524811485d5759534a594e11585d485d115f53524f4951594e1155524f555b54484f115d5258115951594e5b55525b11484e5952584f115552110e0c0e0f190e7a)
 
 ## You may also like
 

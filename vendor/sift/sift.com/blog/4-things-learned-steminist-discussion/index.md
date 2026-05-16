@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F4-things-learned-steminist-discussion%2F&title=4%20Things%20We%20Learned%20at%20Our%20STEMinist%20Discussion)
 -   [](https://twitter.com/intent/tweet?text=4%20Things%20We%20Learned%20at%20Our%20STEMinist%20Discussion&url=https%3A%2F%2Fsift.com%2Fblog%2F4-things-learned-steminist-discussion%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F4-things-learned-steminist-discussion%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FImage-uploaded-from-iOS-24.jpg&title=4%20Things%20We%20Learned%20at%20Our%20STEMinist%20Discussion)
--   [](/cdn-cgi/l/email-protection#b38cc0c6d1d9d6d0c78e87968183e7dbdaddd4c0968183e4d6968183ffd6d2c1ddd6d7968183d2c7968183fcc6c1968183e0e7f6fedadddac0c7968183f7dac0d0c6c0c0dadcdd959083808b88d1dcd7ca8edbc7c7c3c09680f29681f59681f5c0dad5c79dd0dcde9681f5d1dfdcd49681f5879ec7dbdaddd4c09edfd6d2c1ddd6d79ec0c7d6dedadddac0c79ed7dac0d0c6c0c0dadcdd9681f5)
+-   [](/cdn-cgi/l/email-protection#f4cb8781969e919780c9c0d1c6c4a09c9d9a9387d1c6c4a391d1c6c4b89195869a9190d1c6c49580d1c6c4bb8186d1c6c4a7a0b1b99d9a9d8780d1c6c4b09d87978187879d9b9ad2d7c4c7cccf969b908dc99c80808487d1c7b5d1c6b2d1c6b2879d9280da979b99d1c6b296989b93d1c6b2c0d9809c9d9a9387d9989195869a9190d9878091999d9a9d8780d9909d87978187879d9b9ad1c6b2)
 
 -   [Company](https://sift.com/blog/category/company/)
 
@@ -67,14 +67,14 @@ Helpful tips: There’s no right choice! Depending on where you are in your care
 
 Helpful tips: Avoid politics in the workplace by giving credit where credit is due, being generous with your praise, and not assuming the worst of your colleagues. Don’t put yourself (or your team) before what’s best for the company; do what’s best for all of you. Approach colleagues with curiosity and respect — don’t assume someone’s intentions are necessarily political.
 
-Stay tuned for future events, and if you have ideas of what you would want to discuss and hear more about in the future, reach out to us directly at [\[email protected\]](/cdn-cgi/l/email-protection#c2afa7a7b6b7b282b1aba4b6b1a1aba7aca1a7eca1adaf)!
+Stay tuned for future events, and if you have ideas of what you would want to discuss and hear more about in the future, reach out to us directly at [\[email protected\]](/cdn-cgi/l/email-protection#4c21292938393c0c3f252a383f2f2529222f29622f2321)!
 
 Share post on:
 
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F4-things-learned-steminist-discussion%2F&title=4%20Things%20We%20Learned%20at%20Our%20STEMinist%20Discussion)
 -   [](https://twitter.com/intent/tweet?text=4%20Things%20We%20Learned%20at%20Our%20STEMinist%20Discussion&url=https%3A%2F%2Fsift.com%2Fblog%2F4-things-learned-steminist-discussion%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F4-things-learned-steminist-discussion%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FImage-uploaded-from-iOS-24.jpg&title=4%20Things%20We%20Learned%20at%20Our%20STEMinist%20Discussion)
--   [](/cdn-cgi/l/email-protection#d4eba7a1b6beb1b7a0e9e0f1e6e480bcbdbab3a7f1e6e483b1f1e6e498b1b5a6bab1b0f1e6e4b5a0f1e6e49ba1a6f1e6e487809199bdbabda7a0f1e6e490bda7b7a1a7a7bdbbbaf2f7e4e7ecefb6bbb0ade9bca0a0a4a7f1e795f1e692f1e692a7bdb2a0fab7bbb9f1e692b6b8bbb3f1e692e0f9a0bcbdbab3a7f9b8b1b5a6bab1b0f9a7a0b1b9bdbabda7a0f9b0bda7b7a1a7a7bdbbbaf1e692)
+-   [](/cdn-cgi/l/email-protection#ae91dddbccc4cbcdda939a8b9c9efac6c7c0c9dd8b9c9ef9cb8b9c9ee2cbcfdcc0cbca8b9c9ecfda8b9c9ee1dbdc8b9c9efdfaebe3c7c0c7ddda8b9c9eeac7ddcddbddddc7c1c0888d9e9d9695ccc1cad793c6dadadedd8b9def8b9ce88b9ce8ddc7c8da80cdc1c38b9ce8ccc2c1c98b9ce89a83dac6c7c0c9dd83c2cbcfdcc0cbca83dddacbc3c7c0c7ddda83cac7ddcddbddddc7c1c08b9ce8)
 
 ## You may also like
 

@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F4-top-takeaways-from-the-mrc-data-science-summit%2F&title=4%20top%20takeaways%20from%20the%20MRC%20Data%20Science%20Summit)
 -   [](https://twitter.com/intent/tweet?text=4%20top%20takeaways%20from%20the%20MRC%20Data%20Science%20Summit&url=https%3A%2F%2Fsift.com%2Fblog%2F4-top-takeaways-from-the-mrc-data-science-summit%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F4-top-takeaways-from-the-mrc-data-science-summit%2F&picture=&title=4%20top%20takeaways%20from%20the%20MRC%20Data%20Science%20Summit)
--   [](/cdn-cgi/l/email-protection#447b3731262e2127307970617674302b3461767430252f212533253d3761767422362b29617674302c216176740916076176740025302561767417272d212a2721617674173129292d30626774777c7f262b203d792c30303437617705617602617602372d22306a272b2961760226282b236176027069302b346930252f212533253d376922362b2969302c216929362769202530256937272d212a272169373129292d30617602)
+-   [](/cdn-cgi/l/email-protection#bd82cec8dfd7d8dec98089988f8dc9d2cd988f8dc9dcd6d8dccadcc4ce988f8ddbcfd2d0988f8dc9d5d8988f8df0effe988f8df9dcc9dc988f8deeded4d8d3ded8988f8deec8d0d0d4c99b9e8d8e8586dfd2d9c480d5c9c9cdce988efc988ffb988ffbced4dbc993ded2d0988ffbdfd1d2da988ffb8990c9d2cd90c9dcd6d8dccadcc4ce90dbcfd2d090c9d5d890d0cfde90d9dcc9dc90ceded4d8d3ded890cec8d0d0d4c9988ffb)
 
 -   [Company](https://sift.com/blog/category/company/)
 -   [Digital Trust](https://sift.com/blog/category/digital-trust/)
@@ -87,7 +87,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F4-top-takeaways-from-the-mrc-data-science-summit%2F&title=4%20top%20takeaways%20from%20the%20MRC%20Data%20Science%20Summit)
 -   [](https://twitter.com/intent/tweet?text=4%20top%20takeaways%20from%20the%20MRC%20Data%20Science%20Summit&url=https%3A%2F%2Fsift.com%2Fblog%2F4-top-takeaways-from-the-mrc-data-science-summit%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F4-top-takeaways-from-the-mrc-data-science-summit%2F&picture=&title=4%20top%20takeaways%20from%20the%20MRC%20Data%20Science%20Summit)
--   [](/cdn-cgi/l/email-protection#9fa0eceafdf5fafceba2abbaadafebf0efbaadafebfef4fafee8fee6ecbaadaff9edf0f2baadafebf7fabaadafd2cddcbaadafdbfeebfebaadafccfcf6faf1fcfabaadafcceaf2f2f6ebb9bcafaca7a4fdf0fbe6a2f7ebebefecbaacdebaadd9baadd9ecf6f9ebb1fcf0f2baadd9fdf3f0f8baadd9abb2ebf0efb2ebfef4fafee8fee6ecb2f9edf0f2b2ebf7fab2f2edfcb2fbfeebfeb2ecfcf6faf1fcfab2eceaf2f2f6ebbaadd9)
+-   [](/cdn-cgi/l/email-protection#cef1bdbbaca4abadbaf3faebfcfebaa1beebfcfebaafa5abafb9afb7bdebfcfea8bca1a3ebfcfebaa6abebfcfe839c8debfcfe8aafbaafebfcfe9dada7aba0adabebfcfe9dbba3a3a7bae8edfefdf6f5aca1aab7f3a6bababebdebfd8febfc88ebfc88bda7a8bae0ada1a3ebfc88aca2a1a9ebfc88fae3baa1bee3baafa5abafb9afb7bde3a8bca1a3e3baa6abe3a3bcade3aaafbaafe3bdada7aba0adabe3bdbba3a3a7baebfc88)
 
 ## You may also like
 

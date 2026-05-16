@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F3-common-ato-attacks-and-how-to-stop-them%2F&title=3%20common%20ATO%20attacks%E2%80%94and%20how%20to%20stop%20them)
 -   [](https://twitter.com/intent/tweet?text=3%20common%20ATO%20attacks%E2%80%94and%20how%20to%20stop%20them&url=https%3A%2F%2Fsift.com%2Fblog%2F3-common-ato-attacks-and-how-to-stop-them%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F3-common-ato-attacks-and-how-to-stop-them%2F&picture=&title=3%20common%20ATO%20attacks%E2%80%94and%20how%20to%20stop%20them)
--   [](/cdn-cgi/l/email-protection#a798d4d2c5cdc2c4d39a94829597c4c8cacac8c9829597e6f3e8829597c6d3d3c6c4ccd482e295829f97829e93c6c9c3829597cfc8d0829597d3c8829597d4d3c8d7829597d3cfc2ca818497949f9cc5c8c3de9acfd3d3d7d48294e68295e18295e1d4cec1d389c4c8ca8295e1c5cbc8c08295e1948ac4c8cacac8c98ac6d3c88ac6d3d3c6c4ccd48ac6c9c38acfc8d08ad3c88ad4d3c8d78ad3cfc2ca8295e1)
+-   [](/cdn-cgi/l/email-protection#91aee2e4f3fbf4f2e5aca2b4a3a1f2fefcfcfeffb4a3a1d0c5deb4a3a1f0e5e5f0f2fae2b4d4a3b4a9a1b4a8a5f0fff5b4a3a1f9fee6b4a3a1e5feb4a3a1e2e5fee1b4a3a1e5f9f4fcb7b2a1a2a9aaf3fef5e8acf9e5e5e1e2b4a2d0b4a3d7b4a3d7e2f8f7e5bff2fefcb4a3d7f3fdfef6b4a3d7a2bcf2fefcfcfeffbcf0e5febcf0e5e5f0f2fae2bcf0fff5bcf9fee6bce5febce2e5fee1bce5f9f4fcb4a3d7)
 
 -   [Account Takeover](https://sift.com/blog/category/ato/)
 -   [Digital Trust](https://sift.com/blog/category/digital-trust/)
@@ -87,7 +87,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F3-common-ato-attacks-and-how-to-stop-them%2F&title=3%20common%20ATO%20attacks%E2%80%94and%20how%20to%20stop%20them)
 -   [](https://twitter.com/intent/tweet?text=3%20common%20ATO%20attacks%E2%80%94and%20how%20to%20stop%20them&url=https%3A%2F%2Fsift.com%2Fblog%2F3-common-ato-attacks-and-how-to-stop-them%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F3-common-ato-attacks-and-how-to-stop-them%2F&picture=&title=3%20common%20ATO%20attacks%E2%80%94and%20how%20to%20stop%20them)
--   [](/cdn-cgi/l/email-protection#350a4640575f5056410806100705565a58585a5b10070574617a10070554414154565e46107007100d05100c01545b511007055d5a42100705415a10070546415a45100705415d5058131605060d0e575a514c085d41414546100674100773100773465c53411b565a5810077357595a521007730618565a58585a5b1854415a1854414154565e4618545b51185d5a4218415a1846415a4518415d5058100773)
+-   [](/cdn-cgi/l/email-protection#89b6fafcebe3eceafdb4baacbbb9eae6e4e4e6e7acbbb9c8ddc6acbbb9e8fdfde8eae2faacccbbacb1b9acb0bde8e7edacbbb9e1e6feacbbb9fde6acbbb9fafde6f9acbbb9fde1ece4afaab9bab1b2ebe6edf0b4e1fdfdf9faacbac8acbbcfacbbcffae0effda7eae6e4acbbcfebe5e6eeacbbcfbaa4eae6e4e4e6e7a4e8fde6a4e8fdfde8eae2faa4e8e7eda4e1e6fea4fde6a4fafde6f9a4fde1ece4acbbcf)
 
 ## You may also like
 

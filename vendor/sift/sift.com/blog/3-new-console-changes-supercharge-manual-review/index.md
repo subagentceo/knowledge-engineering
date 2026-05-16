@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F3-new-console-changes-supercharge-manual-review%2F&title=3%20New%20Console%20Changes%20to%20Supercharge%20Manual%20Review)
 -   [](https://twitter.com/intent/tweet?text=3%20New%20Console%20Changes%20to%20Supercharge%20Manual%20Review&url=https%3A%2F%2Fsift.com%2Fblog%2F3-new-console-changes-supercharge-manual-review%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F3-new-console-changes-supercharge-manual-review%2F&picture=&title=3%20New%20Console%20Changes%20to%20Supercharge%20Manual%20Review)
--   [](/cdn-cgi/l/email-protection#c6f9b5b3a4aca3a5b2fbf5e3f4f688a3b1e3f4f685a9a8b5a9aaa3e3f4f685aea7a8a1a3b5e3f4f6b2a9e3f4f695b3b6a3b4a5aea7b4a1a3e3f4f68ba7a8b3a7aae3f4f694a3b0afa3b1e0e5f6f5fefda4a9a2bffbaeb2b2b6b5e3f587e3f480e3f480b5afa0b2e8a5a9abe3f480a4aaa9a1e3f480f5eba8a3b1eba5a9a8b5a9aaa3eba5aea7a8a1a3b5ebb5b3b6a3b4a5aea7b4a1a3ebaba7a8b3a7aaebb4a3b0afa3b1e3f480)
+-   [](/cdn-cgi/l/email-protection#1a25696f78707f796e27293f282a547f6d3f282a5975746975767f3f282a59727b747d7f693f282a6e753f282a496f6a7f6879727b687d7f3f282a577b746f7b763f282a487f6c737f6d3c392a29222178757e6327726e6e6a693f295b3f285c3f285c69737c6e347975773f285c7876757d3f285c2937747f6d377975746975767f3779727b747d7f6937696f6a7f6879727b687d7f37777b746f7b7637687f6c737f6d3f285c)
 
 -   [Digital Trust](https://sift.com/blog/category/digital-trust/)
 -   [Product News](https://sift.com/blog/category/product-news/)
@@ -70,7 +70,7 @@ We’ve made a number of other changes to the Console to help analysts work more
 
 We’ve made searching quicker with Lists that now auto-save as soon as you add or modify any criteria. No need to worry about losing the users you were investigating as you explore fraud patterns.
 
-We are proud to have helped customers significantly reduce manual review and are always investing in new ways to make analysts’ lives easier. If you have questions or feedback, reach out to us at [\[email protected\]](/cdn-cgi/l/email-protection#92e1e7e2e2fde0e6d2e1fbf4e6e1f1fbf7fcf1f7bcf1fdff).
+We are proud to have helped customers significantly reduce manual review and are always investing in new ways to make analysts’ lives easier. If you have questions or feedback, reach out to us at [\[email protected\]](/cdn-cgi/l/email-protection#f685838686998482b6859f908285959f93989593d895999b).
 
 Share post on:
 

@@ -119,8 +119,6 @@ The Fraud Economy is an interconnected web of fraud and abuse vectors that influ
 
 B2B Digital Goods/Services
 
-Fintech → Digital Goods → ← Marketplaces Retail → On-demand → Travel →
-
 ## Crypto Cashout: When Fraudsters Join Forces
 
 Click through the timeline to see how the scam works.

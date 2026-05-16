@@ -36,13 +36,9 @@ Percent of consumers who would abandon a brand due to fraud
 
 68% of consumers would stop using a website completely if they encountered fake or misleading content on it.
 
-.chargeback-fraud-e { fill: #fff; } .f { fill: none; } .chargeback-fraud-f, .chargeback-fraud-g { stroke: #fff; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2.64px; }
-
 62% of consumers would shop less or not at all with a brand after a chargeback caused by fraudulent use of their payment information.
 
 Data represents responses to multiple surveys of U.S. adults conducted by Sift between 2020–2026.
-
-.meter-percent.payment-fraud { color: #2e69ff; } .meter-percent.account-takeover { color: #ff3b84; } .meter-percent.content-abuse { color: #79f7c6; } .meter-percent.chargeback-fraud { color: #ffca36; }
 
 ## Expert Insights
 
