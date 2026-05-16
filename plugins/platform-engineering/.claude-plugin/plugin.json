@@ -17,6 +17,7 @@
     "skills/install-alloydb",
     "skills/docker-platform-engineering",
     "skills/turbopuffer-embeddings",
-    "skills/citations-tests-outcomes"
+    "skills/citations-tests-outcomes",
+    "skills/manage-local-container"
   ]
 }

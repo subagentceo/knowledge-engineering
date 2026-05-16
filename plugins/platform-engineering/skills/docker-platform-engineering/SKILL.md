@@ -5,8 +5,14 @@ description: >
   Toolkit profile `platform_engineering` so GitHub, Atlassian, Neon,
   Redis Cloud, and Filesystem MCP servers come up with one command.
   Credentials stay in the macOS Keychain; OAuth is brokered by
-  Docker Desktop.
-disable-model-invocation: false
+  Docker Desktop. Use when onboarding a new machine, rotating an
+  MCP-server secret, adding a new MCP server, or wiring Claude Desktop
+  alongside Claude Code.
+license: Apache-2.0
+compatibility: Requires Docker Desktop with the MCP Toolkit feature enabled on macOS, and a pulled copy of docker.io/subagentceo/platform_engineering.
+metadata:
+  author: alex-jadecli
+  version: "0.1.0"
 ---
 
 # When to invoke

@@ -3,10 +3,17 @@ name: citations-tests-outcomes
 description: >
   The citation, test, and outcome discipline this repo enforces:
   every test cites a vendor/seed/rubric source via @cite, every commit
-  ends with an outcome ID like (O7), every PR body declares Outcomes +
-  Test plan + Citations sections, and TDD red/green/refactor is
-  surfaced in commit titles.
-disable-model-invocation: false
+  ends with an outcome ID like (O7), every PR body declares Outcomes
+  + Test plan + Citations sections, and TDD red/green/refactor is
+  surfaced in commit titles. Use when bootstrapping a new repo that
+  should adopt the same discipline, when writing a new test and
+  unsure what @cite to point at, when composing a PR body, or when
+  picking a @tdd stage tag.
+license: Apache-2.0
+compatibility: Designed for repos that adopt outcome-driven Conventional Commits + per-test @cite headers. References this repo's verify chain primitives but is portable.
+metadata:
+  author: alex-jadecli
+  version: "0.1.0"
 ---
 
 # When to invoke

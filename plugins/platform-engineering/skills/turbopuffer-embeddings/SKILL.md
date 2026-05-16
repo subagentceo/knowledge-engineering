@@ -1,11 +1,18 @@
 ---
 name: turbopuffer-embeddings
 description: >
-  Embed text via Voyage AI (Anthropic's publicly recommended embeddings
-  provider), upsert vectors to a Turbopuffer namespace, and mirror
-  id+content+metadata to AlloyDB Omni for relational lookups. One
-  bridge, three stores, idempotent upserts.
-disable-model-invocation: false
+  Embed text via Voyage AI (Anthropic's publicly recommended
+  embeddings provider), upsert vectors to a Turbopuffer namespace,
+  and mirror id+content+metadata to AlloyDB Omni for relational
+  lookups. One bridge, three stores, idempotent upserts. Use when
+  indexing a new corpus that needs vector search, backfilling vectors
+  after a content refresh, or adding metadata that needs to JOIN
+  against other Postgres tables.
+license: Apache-2.0
+compatibility: Requires VOYAGE_API_KEY, TURBOPUFFER_API_KEY_WRITE, and a reachable AlloyDB Omni Postgres (cloud or local-dev). Forbids ANTHROPIC_API_KEY in env (OAuth-only posture).
+metadata:
+  author: alex-jadecli
+  version: "0.1.0"
 ---
 
 # When to invoke

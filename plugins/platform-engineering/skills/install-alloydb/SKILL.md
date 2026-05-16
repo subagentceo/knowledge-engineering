@@ -1,11 +1,17 @@
 ---
 name: install-alloydb
 description: >
-  Install AlloyDB Omni 17.7 (Postgres + columnar engine) and Redis 7.0
-  in the Claude Code cloud environment via a Setup script + SessionStart
-  hook split. Pinned image, < 5 min setup budget, image cached after
-  first build.
-disable-model-invocation: false
+  Install AlloyDB Omni 17.7 (PostgreSQL + columnar engine) and Redis
+  7.0 in the Claude Code cloud environment via a Setup script +
+  SessionStart hook split. Pinned image, < 5 min setup budget, image
+  cached after first build. Use when bootstrapping a fresh Claude Code
+  cloud env, when Postgres or Redis is not responding on session
+  start, or when bumping the pinned AlloyDB Omni image version.
+license: Apache-2.0
+compatibility: Designed for the Claude Code cloud environment (Ubuntu 24.04, root). Requires docker; redis-server is pre-installed in the cloud image.
+metadata:
+  author: alex-jadecli
+  version: "0.1.0"
 ---
 
 # When to invoke
