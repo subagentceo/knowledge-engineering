@@ -5,7 +5,7 @@
  * Outcome OPE3 per issue #175: Voyage chosen per Anthropic's public
  * recommendation. Test stubs globalThis.fetch — no network calls.
  *
- * @tdd red
+ * @tdd green
  * @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/embeddings.md
  * @cite vendor/turbopuffer/turbopuffer.com/docs/performance.md
  */

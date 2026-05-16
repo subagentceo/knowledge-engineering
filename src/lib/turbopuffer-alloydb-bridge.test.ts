@@ -8,7 +8,7 @@
  * Tests use injected fakes for the Voyage client, Turbopuffer
  * namespace, and AlloyDB pool — no network, no DB.
  *
- * @tdd red
+ * @tdd green
  * @cite vendor/turbopuffer/turbopuffer.com/docs/namespaces.md
  * @cite vendor/turbopuffer/turbopuffer.com/docs/metadata.md
  * @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/embeddings.md
