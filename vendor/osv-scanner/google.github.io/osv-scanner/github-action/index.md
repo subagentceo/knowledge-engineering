@@ -286,3 +286,7 @@ jobs:
       contents: read
       actions: read
 ```
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

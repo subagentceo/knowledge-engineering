@@ -1,3 +1,6 @@
+1.  [Experimental Features](/osv-scanner/experimental/)
+2.  Manual OSV-Scalibr Plugin Selection
+
 # [](#manual-osv-scalibr-plugin-selection)Manual OSV-Scalibr Plugin Selection
 
 Experimental
@@ -178,3 +181,7 @@ osv-scanner scan image <img> --experimental-plugins=os/apk,weakcredentials/etcsh
   }
 }
 ```
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

@@ -1,3 +1,6 @@
+1.  [Experimental Features](/osv-scanner/experimental/)
+2.  Flag Deprecated Packages
+
 # [](#flag-deprecated-packages)Flag Deprecated Packages
 
 Experimental
@@ -79,3 +82,7 @@ Example JSON Output
   ]
 }
 ```
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

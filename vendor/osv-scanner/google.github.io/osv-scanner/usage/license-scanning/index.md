@@ -1,3 +1,6 @@
+1.  [Usage](/osv-scanner/usage/)
+2.  License Scanning
+
 # [](#license-scanning)License Scanning
 
 Table of contents
@@ -42,3 +45,7 @@ osv-scanner --licenses="BSD-3-Clause,Apache-2.0,MIT" path/to/directory
 Sometimes, the license either cannot be retrieved, or does not apply to your specific use. In those cases, you can override the license of a specific package by setting it in the config file.
 
 See the [configuration docs](/osv-scanner/configuration/) for how to do this.
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

@@ -224,3 +224,7 @@ For automatic scan detection, you can create an `osv-scanner-custom.json` file u
 When scanning a file in the `osv-scanner.json` format, using the `--format=spdx` flag produces incorrect output.
 
 For more details, see issue [#2192](https://github.com/google/osv-scanner/issues/2192).
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.
