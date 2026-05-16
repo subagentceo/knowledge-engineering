@@ -1,140 +1,146 @@
 {
   "https://www.claude.com/blog/agent-view-in-claude-code": {
-    "sha256": "20ce8b5fb7846c3dc8aa53ef96f84dc2a8cd33ed44e554cd667fdd15fe8ba9b3",
-    "lastModified": "Fri, 15 May 2026 03:20:47 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "20cbf97905fa9b41f0c48635615a1a6e1e40bfe41debd0a2e0cfe16b06f6496d",
+    "lastModified": "Fri, 15 May 2026 23:25:34 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/best-practices-for-computer-and-browser-use-with-claude": {
-    "sha256": "8cc9aafd9ba3a2943b7fa36fc459cb2b266b4b2c7835592fe28cf73e568fdb0b",
-    "lastModified": "Fri, 15 May 2026 03:32:02 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "18caafd013a832630dabb51fb1190ef4bc3eeabe5211d62bfcf152dd8de5b20a",
+    "lastModified": "Fri, 15 May 2026 23:26:44 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/building-ai-agents-for-the-enterprise": {
-    "sha256": "dde6c1e0b1d1c6a0567bab7e44c5e839015191f7e856da6bcce6db4ca3efa09d",
-    "lastModified": "Fri, 15 May 2026 03:32:02 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "0eb535a8be6612af06b3f5c54b0bf037803bad4a7b93048e4b678759247f5ea7",
+    "lastModified": "Fri, 15 May 2026 23:24:13 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/claude-builds-visuals": {
-    "sha256": "a4fb3c023745f1894d18e7e8a385a7825918badc00a0455588cf75d07bef9baf",
-    "lastModified": "Fri, 15 May 2026 03:28:45 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "156afe98890337738f3fd541b7139d9304c586e361c94a9d5db8b85798d8c900",
+    "lastModified": "Fri, 15 May 2026 23:28:11 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/blog/claude-code-desktop-redesign": {
+    "sha256": "4a40a8b9695bb2a16b62e9443dd9bd9c0111174659aa344367f9fcc56b46bfd4",
+    "lastModified": "Fri, 15 May 2026 23:24:14 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/claude-for-the-legal-industry": {
-    "sha256": "06e727d4e0dda2492ff5a9625061dcf6f52869a1309f07cd041ef41fd68b1fa4",
-    "lastModified": "Fri, 15 May 2026 03:22:31 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "5c82f0d7145c5638c487bf8f13e060ad67c77d4795fe5ac74bcb292b3708e347",
+    "lastModified": "Fri, 15 May 2026 23:25:32 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/claude-managed-agents": {
-    "sha256": "8e69b9df5231052b445a1d92f9f3cc767437924a0ab7e024b81ea05b7aa33fd0",
-    "lastModified": "Fri, 15 May 2026 03:28:45 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "00e3d1b7b6ef88abc36774a9c76f4f423cd92f38f7c53e092981825cfcbbe45c",
+    "lastModified": "Fri, 15 May 2026 23:28:10 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/claude-managed-agents-memory": {
-    "sha256": "79b50a29e63e54c4acf58f2d18de18d6b5770a3f6e3c67b6109e11595f8d0236",
-    "lastModified": "Fri, 15 May 2026 03:28:44 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "27b0c54d7708582e03fe088addb0b23ee85f069aebb5cc419552f0cd9dfb11de",
+    "lastModified": "Fri, 15 May 2026 23:28:09 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/claude-platform-on-aws": {
-    "sha256": "c885a546eb0a93837ce69fbb389b2221c5e9549c02d46f12fc842e0897c49fe1",
-    "lastModified": "Fri, 15 May 2026 03:22:09 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "e734c04deb5a1306767d65808a101ac88f930d4aaf89d102c7e54894779c721a",
+    "lastModified": "Fri, 15 May 2026 23:28:52 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/claude-security-public-beta": {
-    "sha256": "c19a23f0e0606538912ccf9839620895c2f7de0bca277a2e174cb79d560e0e3f",
-    "lastModified": "Fri, 15 May 2026 03:22:24 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "771eb16d80601bbec1f3206b4130741449334c734fbb9b9965237fbeb7403d53",
+    "lastModified": "Fri, 15 May 2026 23:24:14 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/code-w-claude-sf-2026-sf": {
-    "sha256": "d4f811d642bb371f78a41a08ad5f3422f8fcfc7a2c31a967892f1e81e3eb49a9",
-    "lastModified": "Fri, 15 May 2026 03:32:02 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "d73b2e75a17e6db5347d25c29730cd18f231aa23d90b3b41b456fe4d32c970f2",
+    "lastModified": "Fri, 15 May 2026 23:24:13 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook": {
-    "sha256": "b1da4fcddc868e6a99a1587a547f3207948e6cd1c4578689a5aba40e35609a2e",
-    "lastModified": "Fri, 15 May 2026 03:32:02 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "71ba6bc4079864edb3b90679b324a78f6a6e0ce32efe72f3b7b42cc830633a17",
+    "lastModified": "Fri, 15 May 2026 23:28:52 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/connectors-for-everyday-life": {
-    "sha256": "c59128b30867c304bbfaf32ab2722b6c51cd8bec77e54884c23bd9dbf58aebc4",
-    "lastModified": "Fri, 15 May 2026 03:28:44 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "e3fc3f7439edc003cf6c3317aecefe98d60e9b906a7c1db213b09c41c1a61af1",
+    "lastModified": "Fri, 15 May 2026 23:24:14 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/deploying-claude-across-financial-services": {
-    "sha256": "eee9ce11d818e386462e582ce1a30d5b6dd428d9c069c8a70f335196d9ee56de",
-    "lastModified": "Fri, 15 May 2026 03:32:02 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "fe9db7d08231249c0de18a9a141f85717ebe7ad5fdec397344f4440776e6bb3a",
+    "lastModified": "Fri, 15 May 2026 23:28:52 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
+    "lastStatus": 200
+  },
+  "https://www.claude.com/blog/deploying-claude-across-the-legal-industry": {
+    "sha256": "eff0e26e31e7c6d75e899d9e6961996f355f6fd3c87d1b79940d72115cc1f3a3",
+    "lastModified": "Fri, 15 May 2026 23:26:44 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/harnessing-claudes-intelligence": {
-    "sha256": "c9959537ddb741ca322dc666b95a7dfcf0ebc38c95902c4576e04c29fea1c925",
-    "lastModified": "Fri, 15 May 2026 03:28:45 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "5806fd6b9d3fd7914ae188e8b102aa87f385ab370d16a0897049bede8da6949b",
+    "lastModified": "Fri, 15 May 2026 23:28:10 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/how-a-non-technical-project-manager-built-and-shipped-a-stress-management-app-with-claude-code-in-six-weeks": {
-    "sha256": "e17cf34b260f4f1f0f12a3962643fe94eceeb549e98c810266002a3b0bf4384a",
-    "lastModified": "Fri, 15 May 2026 03:32:02 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "16c21c325045d87685af325f709290de197a44de2ca4b829b5e873b7c865df9b",
+    "lastModified": "Fri, 15 May 2026 23:28:52 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/how-anthropic-uses-claude-cybersecurity": {
-    "sha256": "6ffb48213b4079121beb60decf73fb8485c808b18aa6ec2c5a3b94f22373aedc",
-    "lastModified": "Fri, 15 May 2026 03:32:02 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "9ceee4eba68b0ca3ddb0c882a50d6effc5f4c8b6ad9f90d8560d99e5f5c320dc",
+    "lastModified": "Fri, 15 May 2026 23:24:13 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start": {
-    "sha256": "1337187531027912240e8ab679bab6bacf6ac1706ab24904c2388257c790a8de",
-    "lastModified": "Fri, 15 May 2026 03:25:32 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "106f42e2b26fa115b9caf6e46e8f21cabe01c67731beab23062fe588a0f8f8bd",
+    "lastModified": "Fri, 15 May 2026 23:24:03 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/how-enterprises-are-building-ai-agents-in-2026": {
-    "sha256": "0ca636207eb034e698c00be6c6b08027cacba5515bcca7ffd5b7cbb04cee93fb",
-    "lastModified": "Fri, 15 May 2026 03:28:46 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "cfebaca99f97f6cea164b53a6630af3d0ca4bdce4ed456e07f9e7f23d9db650d",
+    "lastModified": "Fri, 15 May 2026 23:24:14 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/improving-frontend-design-through-skills": {
-    "sha256": "377b4c97e5914372f0e4c371b60cebc8cf10e5a5188154ef5d95d216f3574e73",
-    "lastModified": "Fri, 15 May 2026 03:28:47 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
-    "lastStatus": 200
-  },
-  "https://www.claude.com/blog/lessons-from-building-claude-code-prompt-caching-is-everything": {
-    "sha256": "7f6747dce2035cfdd2a06d5eec7acda84dd237b8c0982dea6d5e97f739de9614",
-    "lastModified": "Fri, 15 May 2026 03:32:02 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "08f135db4adadc2d859947acd83c03c5756525261fed52bcc8da2e8ab6cfb10d",
+    "lastModified": "Fri, 15 May 2026 23:24:14 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/new-in-claude-managed-agents": {
-    "sha256": "cbb948e172a38caec7ad89e5272ec2e1d9e17ff6c56a4cb206973f34a12b553a",
-    "lastModified": "Fri, 15 May 2026 03:30:33 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "a177f9fb11d5b39cb5d05bf054bd099d6c62d72050297e4949200db6be3b4c5e",
+    "lastModified": "Fri, 15 May 2026 23:28:52 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/preparing-your-security-program-for-ai-accelerated-offense": {
-    "sha256": "c399eefbef824a3425ea8df3ca6d231300162586e0e7acc7d65cc3f056e1ae41",
-    "lastModified": "Fri, 15 May 2026 03:28:44 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "2ab019b8a1d6f7c6e1df957fbb2b2b181cef7a84d5a8c9c19cf6bb3bacd18cbf",
+    "lastModified": "Fri, 15 May 2026 23:24:14 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   },
   "https://www.claude.com/blog/the-founders-playbook": {
-    "sha256": "102452bc2a4263eb8f5cb3d03a93f6a7c9ebe0d6ec47674872a53c5b466aeb7f",
-    "lastModified": "Fri, 15 May 2026 03:25:35 GMT",
-    "fetchedAt": "2026-05-15T06:12:49.622Z",
+    "sha256": "ad22e2bd96cba2040191fc721aeb2b4d39a970d484faac416e11c2a4f5ffaa86",
+    "lastModified": "Fri, 15 May 2026 23:25:32 GMT",
+    "fetchedAt": "2026-05-16T04:02:55.745Z",
     "lastStatus": 200
   }
 }

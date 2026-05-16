@@ -27,6 +27,7 @@
 // html-extract transform.
 
 import { CheerioCrawler, Configuration } from "@crawlee/cheerio";
+import * as cheerio from "cheerio";
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -207,13 +208,16 @@ const turndown = new TurndownService({
 function makeTransform(name: TransformName, url: string, cfg: CrawlConfig): TransformOutput {
   if (name === "html-extract") {
     return htmlExtract(url, (body) => {
-      let html = body;
-      // Optional CSS selector to focus on the main content container.
-      // Trim everything outside if specified.
-      if (cfg.html_extract?.selector) {
-        const m = html.match(new RegExp(`<${cfg.html_extract.selector}[\\s\\S]*?</${cfg.html_extract.selector}>`, "i"));
-        if (m) html = m[0];
-      }
+      const $ = cheerio.load(body);
+      // Drop non-content nodes anywhere in the doc before serialization.
+      // Webflow ships <script>/<style> blocks (anti-flicker, GSAP init,
+      // JSON-LD schema) inside the same containers as prose — without
+      // this, turndown serializes their source as paragraph text.
+      $("script, style, noscript, svg, link, meta, template, iframe").remove();
+      const selector = cfg.html_extract?.selector;
+      const html = selector
+        ? $(selector).first().html() ?? ""
+        : $("body").html() ?? "";
       return turndown.turndown(html);
     });
   }

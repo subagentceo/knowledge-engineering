@@ -6,22 +6,6 @@
     {
       "url": "https://www.claude.com/blog",
       "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
-    },
-    {
-      "url": "https://www.claude.com/blog/announcements",
-      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
-    },
-    {
-      "url": "https://www.claude.com/blog/case-studies",
-      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
-    },
-    {
-      "url": "https://www.claude.com/blog/engineering",
-      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
-    },
-    {
-      "url": "https://www.claude.com/blog/policy",
-      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
     }
   ],
   "transform": "html-extract",
@@ -30,15 +14,11 @@
   ],
   "deny_prefixes": [
     "https://www.claude.com/blog/feed",
-    "https://www.claude.com/blog/rss",
-    "https://www.claude.com/blog/announcements",
-    "https://www.claude.com/blog/case-studies",
-    "https://www.claude.com/blog/engineering",
-    "https://www.claude.com/blog/policy"
+    "https://www.claude.com/blog/rss"
   ],
   "page_cap": 60,
   "html_extract": {
-    "selector": "article"
+    "selector": ".u-rich-text-blog:not(.w-condition-invisible)"
   },
   "llms_txt": "https://www.claude.com/llms.txt"
 }
