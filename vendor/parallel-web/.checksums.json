@@ -1,362 +1,362 @@
 {
   "https://docs.parallel.ai/api-reference/chat-api-beta/chat-completions.md": {
     "sha256": "f5a019a8f23b23d33586cfbc01465020bae161e843bffb069f3bfef8772a69c2",
-    "lastModified": "Fri, 15 May 2026 04:15:01 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:40 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/extract/extract.md": {
     "sha256": "ace140a092aa095c74ec02280b48978cdc6436c538a86de9ca21a55f5b276a61",
-    "lastModified": "Fri, 15 May 2026 01:11:34 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Fri, 15 May 2026 20:55:54 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/findall/add-enrichment-to-findall-run.md": {
     "sha256": "a859d06539db90fc0238a72aa8b9eb8a3f991d20ff13231232af31f8e081c2ca",
-    "lastModified": "Fri, 15 May 2026 04:15:01 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:40 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/findall/cancel-findall-run.md": {
     "sha256": "1357309a99f85258848e8fe2261703cebc8217dbb2884969b62262728efbf3f5",
-    "lastModified": "Fri, 15 May 2026 04:15:01 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:40 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/findall/create-findall-run.md": {
     "sha256": "9195d2eb09c8752130043fe478a4baa03fa6153e5a47d894d89e11e500e20fde",
-    "lastModified": "Fri, 15 May 2026 04:15:01 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:40 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/findall/extend-findall-run.md": {
     "sha256": "ffe07c87e46b3d73e990cd6aae90626ca9aca7208987f3407284867866c6966a",
-    "lastModified": "Fri, 15 May 2026 04:15:01 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/findall/findall-run-result.md": {
     "sha256": "a22a17c2786c02c15f655d1f1f70e6ea091ddfde5fe1f8aa222f0dd51d9c7f90",
-    "lastModified": "Fri, 15 May 2026 04:15:01 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:40 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/findall/generate-findall-candidates.md": {
     "sha256": "063b4c9aa8ef2758db936a8e81e49007b35d0dea898b8eca23c6fb4da051b61b",
-    "lastModified": "Fri, 15 May 2026 04:15:01 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/findall/get-findall-run-schema.md": {
     "sha256": "cfa7925be78af96891cd50abf70d2ca4d504440083646ffeb35d8cc9c317171b",
-    "lastModified": "Fri, 15 May 2026 04:15:01 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/findall/ingest-findall-run.md": {
     "sha256": "054c5df573d025736efc1cc6e54a0a06a34e5d116a153db2070bd411f396ac36",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/findall/retrieve-findall-run-status.md": {
     "sha256": "1382b09abf0a56672bf6f1df870976e06ce0a1586edee36e2143810eb2e97395",
-    "lastModified": "Fri, 15 May 2026 04:15:01 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/findall/stream-findall-events.md": {
     "sha256": "4bd0c61a5f76582c503e0a2799d2326c2f36c21032fec81974287946f182d329",
-    "lastModified": "Fri, 15 May 2026 04:15:01 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/monitor/cancel-monitor.md": {
     "sha256": "faf2151e69b79c6a07320067bf57f318c843f923e139ea5446ff32d59fad19b2",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/monitor/create-monitor.md": {
     "sha256": "e57ff78c51e53697fabce285784d3911b32b8daf34d8d5471bcfb519a18a708e",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Fri, 15 May 2026 20:29:58 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/monitor/list-monitor-events.md": {
     "sha256": "8d8d14b8cca35f931e15f52d1de7aa3e86011029503925102eeb981e43bff2be",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Fri, 15 May 2026 20:31:03 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/monitor/list-monitors.md": {
     "sha256": "8da980091afc53855de05fcb28ae1b2327cbea06f92d1af444c1ae2234687223",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/monitor/retrieve-monitor.md": {
     "sha256": "31f043b3e9818a7f3da33b0ed5fe478fe8c217c3872ad06e85660789a9d61ed6",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/monitor/trigger-monitor-run.md": {
     "sha256": "7bf6a85df1169102a62d3db1543635fd5cd5bd241254647d124dc31dcba1a020",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/monitor/update-monitor.md": {
     "sha256": "7be384a5b9b43759fa8008e33b51ab863001b17a8cb015a032d7a7cb30a05ab2",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/search/search.md": {
     "sha256": "89bbbbd52937818575877726ad2151cc370b3875fbaf22efe55ccc90172c753e",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/add-runs-to-task-group.md": {
     "sha256": "f7e0583b2fe1eb37e86b0eb4a342451a3a1a31b3b607eb20e0f3e368500b4f7c",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/create-task-group.md": {
     "sha256": "e4b5de8c90518433ea217d8ae4bf6f25ab8eec2656f3ff35e22eac7cbe4e1ce7",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/create-task-run.md": {
     "sha256": "afc9d61ceaa3049b26e48f4c109c6968323042ae5972ecede6da7ef7128c511b",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/fetch-task-group-runs.md": {
     "sha256": "2466498589e07f2c129d95fa24b2808eef9e2e662285cad1f2aabaee040bc5ec",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/retrieve-task-group-run.md": {
     "sha256": "68c213c379b5c8ee1eec90af8d585814d90e7d996aed768ee27ecd75b126973a",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/retrieve-task-group.md": {
     "sha256": "09526f673f235e639ed8ea15ca69a324869cacfb8622a77b38e0505f3d3483ec",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/retrieve-task-run-input.md": {
     "sha256": "88236884090439ad4900889701b64394f0c7aa70c94043f0735f28768ae82539",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/retrieve-task-run-result.md": {
     "sha256": "98d71292d34d404a70e3fb34c6454bc835c582f856791a10403614ab275481d6",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/retrieve-task-run.md": {
     "sha256": "05b945e598a0fc3c960e620756522b8997db97fd4ce6cd5dd49473c03f931005",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/stream-task-group-events.md": {
     "sha256": "8b74474142e50346b8eeba6c7b497747b8aeff489b095a248ca79ef382262ae3",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/stream-task-run-events-1.md": {
     "sha256": "10017d90143a5bc6b2745bbc3bb822a940c67babd67db8dcdf657943067c8309",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/api-reference/tasks/stream-task-run-events.md": {
     "sha256": "dae751c048bf8bdb907322b7c6f1771acdc69807409500a6658d0ffea7f96a3b",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/chat-api/chat-quickstart.md": {
     "sha256": "1b8a6536fe552bd8cb1f54b82be212c03c9e9e62872aaa20dc6d172b2f52c48e",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/data-integrations/bigquery.md": {
     "sha256": "39537a7cb513a79fadc91d7159b0a1dc57958e30f4b057e02ae177148248b747",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/data-integrations/duckdb.md": {
     "sha256": "0dde3b454f4234d327fcb9ba31ed47f3f440783daba4c0d6a8c586e9e1d871a7",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/data-integrations/overview.md": {
     "sha256": "96cb144c7f1c5f05f6b481255b11e32819240abbf2ea4edf42b54fbdc542a39e",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/data-integrations/polars.md": {
     "sha256": "baa51f27a87ba6a03fbf1bedbf524326c4049ca41bf58a34d4cf1ea5abfbf2e6",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/data-integrations/snowflake.md": {
     "sha256": "faf861877dd5971f3e7ba94080aaff910b529e14f735b2f3e55c28a8fb642bc5",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/data-integrations/spark.md": {
     "sha256": "8d4fd065e915f50a22e5c8ec96f872e058b1cd39b23e442532f192735d7029f3",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/data-integrations/supabase.md": {
     "sha256": "4e02605e3cdf56eddd2ca26ad0057c242b0d1a297502688304abc126d395f530",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/extract/advanced-extract-settings.md": {
     "sha256": "824167205eae02af73f45dfe0df7b86980e0310acb2f598db0851e8b6dbfd81e",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/extract/best-practices.md": {
     "sha256": "f7eac06573d04cd033e7ba628e876886eaf66b7b9979ef49a07e5aa966956f76",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/extract/extract-migration-guide.md": {
     "sha256": "5a260769932a378fba92b85492f66c788a193f9b388f683bd1dc43bd759b8d9a",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/extract/extract-quickstart.md": {
     "sha256": "f68ee1451431e70058b1db5d1510c948e1d8fb572f1b7a98534500e8897e4e11",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/core-concepts/findall-candidates.md": {
     "sha256": "26e38e2227d9dbcfc3fd1fddcc976901ca3c0f3ef46f5e6ead2fce6f06d47f35",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/core-concepts/findall-generator-pricing.md": {
     "sha256": "78e7334897d4325f931c14384c3e256a6de5b48389c91b28f86e6a3ebff22731",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 02:14:52 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/core-concepts/findall-lifecycle.md": {
     "sha256": "10d707c0c471f61e8d209d0121de22b3fd42c45e9e087bb42520fe999de49040",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/features/findall-cancel.md": {
     "sha256": "fad9721be21f01e6ba965e812b661d343443aa3a04ce5b9fd978422f3dd5208d",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:42 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/features/findall-enrich.md": {
     "sha256": "d960f83a79cc3c62052e48fbabb703f379565f25cbaab857fbac6421ac4d44cf",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/features/findall-extend.md": {
     "sha256": "1a6e314b95d7d8b07fa691aa3e4212bbf43895da47ec14860f9399db59f3d718",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/features/findall-preview.md": {
     "sha256": "0d5703004d23142fd6cad0c1edd01c99b4029e27e2ab3619dea7d8f70705e18c",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:42 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/features/findall-refresh.md": {
     "sha256": "849f80dd6380a4dde0d0edba1bb5df65064ec037dc4ecbc2540123ef66986ac9",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/features/findall-sse.md": {
     "sha256": "c0e86fff43b5a3c4bfeafebced5098cbbd98cebd3cedb28cf6adbf71d999a373",
-    "lastModified": "Fri, 15 May 2026 04:15:02 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 01:28:30 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/features/findall-webhook.md": {
     "sha256": "2c031e5e6318d2bf25342fb29907b936a9b2d53814619e9d940c3600dca7c409",
-    "lastModified": "Fri, 15 May 2026 04:15:03 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 02:16:39 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/findall-migration-guide.md": {
     "sha256": "1205e413e74a3088c57247d2f3f26dae6266474ab17203210db62e76384d90c0",
-    "lastModified": "Fri, 15 May 2026 04:15:03 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/findall-api/findall-quickstart.md": {
     "sha256": "f4b9f1934fcbdf48026ae89be7ac3336e412781a63cab0636cbf2ca50a54d2bc",
-    "lastModified": "Fri, 15 May 2026 04:15:03 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/getting-started/glossary.md": {
     "sha256": "f77f27613b9b96f2db38dbc6d175af2818b9411de1f938bb10888eafe111aa22",
-    "lastModified": "Fri, 15 May 2026 04:15:03 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 03:58:34 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/getting-started/overview.md": {
     "sha256": "b660bcb1c546eda9c52c6f7b4e234bec989388769f503e30b114e8275675956c",
-    "lastModified": "Fri, 15 May 2026 02:39:19 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Fri, 15 May 2026 19:05:34 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/getting-started/pricing.md": {
     "sha256": "b4cf188d1e55d9103cb72c614565b65959388726401e06b52528bd10f14e46fa",
-    "lastModified": "Fri, 15 May 2026 04:15:03 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:41 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   },
   "https://docs.parallel.ai/getting-started/rate-limits.md": {
     "sha256": "b82abf9c58f9c9495e9563ada5303b1cba05c86d17812532f29e87a34bb37bd5",
-    "lastModified": "Fri, 15 May 2026 04:15:03 GMT",
-    "fetchedAt": "2026-05-15T04:15:01.277Z",
+    "lastModified": "Sat, 16 May 2026 05:48:42 GMT",
+    "fetchedAt": "2026-05-16T05:48:40.748Z",
     "lastStatus": 200
   }
 }
