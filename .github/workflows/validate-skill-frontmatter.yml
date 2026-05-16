@@ -1,0 +1,78 @@
+# Validates plugins/<plugin>/skills/<skill>/SKILL.md frontmatter
+# against the open Agent Skills spec at
+# vendor/agentskills/agentskills.io/specification.md.
+#
+# Modeled after anthropics/claude-plugins-official/validate-frontmatter.yml,
+# adapted for this repo's single-operator topology. No user-controlled
+# strings are interpolated into shell; only file contents are read.
+#
+# Outcome OGS3.
+name: validate-skill-frontmatter
+
+on:
+  pull_request:
+    paths:
+      - 'plugins/*/skills/*/SKILL.md'
+      - 'plugins/*/.claude-plugin/plugin.json'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Validate frontmatter against agentskills.io spec
+        # Per agentskills.io/specification.md:
+        #   - name 1-64 chars, kebab-case [a-z0-9-], no leading/trailing or
+        #     consecutive hyphens, must equal parent directory name
+        #   - description 1-1024 chars, non-empty
+        #   - compatibility (if present) 1-500 chars
+        run: |
+          set -euo pipefail
+          NAME_RE='^[a-z0-9]+(-[a-z0-9]+)*$'
+
+          fail=0
+          for skill_md in plugins/*/skills/*/SKILL.md; do
+            parent=$(basename "$(dirname "$skill_md")")
+            name=$(awk '/^name:/{print $2; exit}' "$skill_md")
+            desc=$(awk '/^---$/{if(++n==2)exit}/^description:/{found=1;sub(/^description: */,"")}/^description: >/{found=1;next}found&&/^[a-z_-]+:/&&!/^description:/{found=0}found{print}' "$skill_md" | tr '\n' ' ' | sed 's/^ *//; s/ *$//')
+            compat=$(awk '/^---$/{if(++n==2)exit}/^compatibility:/{found=1;sub(/^compatibility: */,"")}/^compatibility: >/{found=1;next}found&&/^[a-z_-]+:/&&!/^compatibility:/{found=0}found{print}' "$skill_md" | tr '\n' ' ' | sed 's/^ *//; s/ *$//')
+
+            errs=""
+            [ -n "$name" ] || errs+="missing name; "
+            [ ${#name} -ge 1 ] && [ ${#name} -le 64 ] || errs+="name length out of [1,64]; "
+            echo "$name" | grep -qE "$NAME_RE" || errs+="name '$name' not kebab-case; "
+            [ "$name" = "$parent" ] || errs+="name '$name' != parent dir '$parent'; "
+            [ ${#desc} -ge 1 ] && [ ${#desc} -le 1024 ] || errs+="description length ${#desc} out of [1,1024]; "
+            [ -z "$compat" ] || [ ${#compat} -le 500 ] || errs+="compatibility length ${#compat} > 500; "
+
+            if [ -n "$errs" ]; then
+              echo "::error file=$skill_md::$errs"
+              fail=1
+            else
+              echo "ok   $skill_md  name=$name (${#name}c) desc=${#desc}c compat=${#compat}c"
+            fi
+          done
+
+          if [ "$fail" -ne 0 ]; then
+            echo "::error::one or more SKILL.md files violate the agentskills.io spec"
+            exit 1
+          fi
+
+      - name: Validate plugin.json shape
+        run: |
+          set -euo pipefail
+          fail=0
+          for plugin_json in plugins/*/.claude-plugin/plugin.json; do
+            if ! node -e "JSON.parse(require('fs').readFileSync('$plugin_json','utf8'))" 2>/dev/null; then
+              echo "::error file=$plugin_json::invalid JSON"
+              fail=1
+            fi
+          done
+          [ "$fail" -eq 0 ] || exit 1
