@@ -21,6 +21,23 @@
 import { z } from "zod";
 
 // ---------------------------------------------------------------------------
+// Shared primitives
+// ---------------------------------------------------------------------------
+
+/**
+ * RFC3339 UTC timestamp ("...Z"), used for `run_once_at` which the API
+ * requires in UTC at create time.
+ */
+const UtcDateTime = z.iso.datetime({ offset: false });
+
+/**
+ * RFC3339 timestamp that may carry a timezone offset. Used for the
+ * server-populated audit fields (`created_at`, `updated_at`, etc.)
+ * which can include offsets.
+ */
+const OffsetDateTime = z.iso.datetime({ offset: true });
+
+// ---------------------------------------------------------------------------
 // Enums
 // ---------------------------------------------------------------------------
 
@@ -210,7 +227,7 @@ export const CronScheduleSchema = z.object({
  * `ended_reason: "run_once_fired"`.
  */
 export const RunOnceScheduleSchema = z.object({
-  run_once_at: z.iso.datetime({ offset: false }),
+  run_once_at: UtcDateTime,
   cron_expression: z.undefined().optional(),
 });
 
@@ -233,7 +250,7 @@ export const RoutineCreateBodySchema = z
   .object({
     name: z.string().min(1),
     cron_expression: z.string().min(1).optional(),
-    run_once_at: z.iso.datetime({ offset: false }).optional(),
+    run_once_at: UtcDateTime.optional(),
     enabled: z.boolean().default(true),
     job_config: JobConfigSchema,
     mcp_connections: z.array(McpConnectionSchema).optional(),
@@ -260,7 +277,7 @@ export type RoutineCreateBody = z.infer<typeof RoutineCreateBodySchema>;
 export const RoutineUpdateBodySchema = z.object({
   name: z.string().min(1).optional(),
   cron_expression: z.string().min(1).optional(),
-  run_once_at: z.iso.datetime({ offset: false }).optional(),
+  run_once_at: UtcDateTime.optional(),
   enabled: z.boolean().optional(),
   job_config: JobConfigSchema.optional(),
   mcp_connections: z.array(McpConnectionSchema).optional(),
@@ -287,10 +304,10 @@ export const RoutineRecordSchema = z.object({
   ended_reason: EndedReasonSchema.optional(),
   job_config: JobConfigSchema,
   mcp_connections: z.array(McpConnectionSchema).optional(),
-  created_at: z.iso.datetime({ offset: true }).optional(),
-  updated_at: z.iso.datetime({ offset: true }).optional(),
-  next_run_at: z.iso.datetime({ offset: true }).optional(),
-  last_run_at: z.iso.datetime({ offset: true }).optional(),
+  created_at: OffsetDateTime.optional(),
+  updated_at: OffsetDateTime.optional(),
+  next_run_at: OffsetDateTime.optional(),
+  last_run_at: OffsetDateTime.optional(),
 });
 export type RoutineRecord = z.infer<typeof RoutineRecordSchema>;
 
