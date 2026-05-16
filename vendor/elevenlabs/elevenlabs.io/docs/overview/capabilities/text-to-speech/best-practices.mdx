@@ -6,25 +6,19 @@ This guide provides techniques to enhance text-to-speech outputs using ElevenLab
 
 ## Controls
 
-<Info>
-  We are actively working on *Director's Mode* to give you even greater control over outputs.
-</Info>
+We are actively working on *Director's Mode* to give you even greater control over outputs.
 
 These techniques provide a practical way to achieve nuanced results until advanced features like *Director's Mode* are rolled out.
 
 ### Pauses
 
-<Info>
-  Eleven v3 does not support SSML break tags. Use the techniques described in the [Prompting Eleven
-  v3](#prompting-eleven-v3) section for controlling pauses with v3.
-</Info>
+Eleven v3 does not support SSML break tags. Use the techniques described in the [Prompting Eleven
+v3](#prompting-eleven-v3) section for controlling pauses with v3.
 
 Use `<break time="x.xs" />` for natural pauses up to 3 seconds.
 
-<Note>
-  Using too many break tags in a single generation can cause instability. The AI might speed up, or
-  introduce additional noises or audio artifacts. We are working on resolving this.
-</Note>
+Using too many break tags in a single generation can cause instability. The AI might speed up, or
+introduce additional noises or audio artifacts. We are working on resolving this.
 
 ```text Example
 "Hold on, let me think." <break time="1.5s" /> "Alright, I've got it."
@@ -47,24 +41,20 @@ Alternatives to `<break>` include dashes (- or --) for short pauses or ellipses 
 
 Specify pronunciation using [SSML phoneme tags](https://en.wikipedia.org/wiki/Speech_Synthesis_Markup_Language). Supported alphabets include [CMU](https://en.wikipedia.org/wiki/CMU_Pronouncing_Dictionary) Arpabet and the [International Phonetic Alphabet (IPA)](https://en.wikipedia.org/wiki/International_Phonetic_Alphabet).
 
-<Note>
-  Phoneme tags are only compatible with "Eleven Flash v2" and "Eleven English v1"
-  [models](/docs/overview/models).
-</Note>
+Phoneme tags are only compatible with "Eleven Flash v2" and "Eleven English v1"
+[models](/docs/overview/models).
 
-<CodeBlocks>
-  ```xml CMU Arpabet Example
-  <phoneme alphabet="cmu-arpabet" ph="M AE1 D IH0 S AH0 N">
-    Madison
-  </phoneme>
-  ```
+```xml CMU Arpabet Example
+<phoneme alphabet="cmu-arpabet" ph="M AE1 D IH0 S AH0 N">
+  Madison
+</phoneme>
+```
 
-  ```xml IPA Example
-  <phoneme alphabet="ipa" ph="ˈæktʃuəli">
-    actually
-  </phoneme>
-  ```
-</CodeBlocks>
+```xml IPA Example
+<phoneme alphabet="ipa" ph="ˈæktʃuəli">
+  actually
+</phoneme>
+```
 
 We recommend using CMU Arpabet for consistent and predictable results with current AI models. While IPA can be effective, CMU Arpabet generally offers more reliable performance.
 
@@ -72,19 +62,17 @@ Phoneme tags only work for individual words. If for example you have a name with
 
 Ensure correct stress marking for multi-syllable words to maintain accurate pronunciation. For example:
 
-<CodeBlocks>
-  ```xml Correct usage
-  <phoneme alphabet="cmu-arpabet" ph="P R AH0 N AH0 N S IY EY1 SH AH0 N">
-    pronunciation
-  </phoneme>
-  ```
+```xml Correct usage
+<phoneme alphabet="cmu-arpabet" ph="P R AH0 N AH0 N S IY EY1 SH AH0 N">
+  pronunciation
+</phoneme>
+```
 
-  ```xml Incorrect usage
-  <phoneme alphabet="cmu-arpabet" ph="P R AH N AH N S IY EY SH AH N">
-    pronunciation
-  </phoneme>
-  ```
-</CodeBlocks>
+```xml Incorrect usage
+<phoneme alphabet="cmu-arpabet" ph="P R AH N AH N S IY EY SH AH N">
+  pronunciation
+</phoneme>
+```
 
 #### Alias Tags
 
@@ -130,45 +118,43 @@ Both phonemes and aliases are sets of rules that specify a word or phrase they a
 
 Here are examples of pronunciation dictionaries in both CMU Arpabet and IPA, including a phoneme to specify the pronunciation of "Apple" and an alias to replace "UN" with "United Nations":
 
-<CodeBlocks>
-  ```xml CMU Arpabet Example
-  <?xml version="1.0" encoding="UTF-8"?>
-  <lexicon version="1.0"
-        xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
-          http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
-        alphabet="cmu-arpabet" xml:lang="en-GB">
-    <lexeme>
-      <grapheme>apple</grapheme>
-      <phoneme>AE P AH L</phoneme>
-    </lexeme>
-    <lexeme>
-      <grapheme>UN</grapheme>
-      <alias>United Nations</alias>
-    </lexeme>
-  </lexicon>
-  ```
+```xml CMU Arpabet Example
+<?xml version="1.0" encoding="UTF-8"?>
+<lexicon version="1.0"
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="cmu-arpabet" xml:lang="en-GB">
+  <lexeme>
+    <grapheme>apple</grapheme>
+    <phoneme>AE P AH L</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>UN</grapheme>
+    <alias>United Nations</alias>
+  </lexeme>
+</lexicon>
+```
 
-  ```xml IPA Example
-  <?xml version="1.0" encoding="UTF-8"?>
-  <lexicon version="1.0"
-        xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
-          http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
-        alphabet="ipa" xml:lang="en-GB">
-    <lexeme>
-      <grapheme>Apple</grapheme>
-      <phoneme>ˈæpl̩</phoneme>
-    </lexeme>
-    <lexeme>
-      <grapheme>UN</grapheme>
-      <alias>United Nations</alias>
-    </lexeme>
-  </lexicon>
-  ```
-</CodeBlocks>
+```xml IPA Example
+<?xml version="1.0" encoding="UTF-8"?>
+<lexicon version="1.0"
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="ipa" xml:lang="en-GB">
+  <lexeme>
+    <grapheme>Apple</grapheme>
+    <phoneme>ˈæpl̩</phoneme>
+  </lexeme>
+  <lexeme>
+    <grapheme>UN</grapheme>
+    <alias>United Nations</alias>
+  </lexeme>
+</lexicon>
+```
 
 To generate a pronunciation dictionary `.pls` file, there are a few open source tools available:
 
@@ -203,65 +189,55 @@ Pacing can also be controlled by writing in a natural, narrative style.
 
 ### Tips
 
-<AccordionGroup>
-  <Accordion title="Common Issues">
-    <ul>
-      <li>
-        Inconsistent pauses: Ensure <code>\<break time="x.xs" /></code> syntax is used for
-        pauses.
-      </li>
+<ul>
+  <li>
+    Inconsistent pauses: Ensure <code>\<break time="x.xs" /></code> syntax is used for
+    pauses.
+  </li>
 
-      <li>
-        Pronunciation errors: Use CMU Arpabet or IPA phoneme tags for precise pronunciation.
-      </li>
+  <li>
+    Pronunciation errors: Use CMU Arpabet or IPA phoneme tags for precise pronunciation.
+  </li>
 
-      <li>
-        Emotion mismatch: Add narrative context or explicit tags to guide emotion.{' '}
-        <strong>Remember to remove any emotional guidance text in post-production.</strong>
-      </li>
-    </ul>
-  </Accordion>
+  <li>
+    Emotion mismatch: Add narrative context or explicit tags to guide emotion.{" "}
+    <strong>Remember to remove any emotional guidance text in post-production.</strong>
+  </li>
+</ul>
 
-  <Accordion title="Tips for Improving Output">
-    Experiment with alternative phrasing to achieve desired pacing or emotion. For complex sound
-    effects, break prompts into smaller, sequential elements and combine results manually.
-  </Accordion>
-</AccordionGroup>
+Experiment with alternative phrasing to achieve desired pacing or emotion. For complex sound
+effects, break prompts into smaller, sequential elements and combine results manually.
 
 ### Creative control
 
 While we are actively developing a "Director's Mode" to give users even greater control over outputs, here are some interim techniques to maximize creativity and precision:
 
-<Steps>
-  ### Narrative styling
+### Narrative styling
 
-  Write prompts in a narrative style, similar to scriptwriting, to guide tone and pacing effectively.
+Write prompts in a narrative style, similar to scriptwriting, to guide tone and pacing effectively.
 
-  ### Layered outputs
+### Layered outputs
 
-  Generate sound effects or speech in segments and layer them together using audio editing software for more complex compositions.
+Generate sound effects or speech in segments and layer them together using audio editing software for more complex compositions.
 
-  ### Phonetic experimentation
+### Phonetic experimentation
 
-  If pronunciation isn't perfect, experiment with alternate spellings or phonetic approximations to achieve desired results.
+If pronunciation isn't perfect, experiment with alternate spellings or phonetic approximations to achieve desired results.
 
-  ### Manual adjustments
+### Manual adjustments
 
-  Combine individual sound effects manually in post-production for sequences that require precise timing.
+Combine individual sound effects manually in post-production for sequences that require precise timing.
 
-  ### Feedback iteration
+### Feedback iteration
 
-  Iterate on results by tweaking descriptions, tags, or emotional cues.
-</Steps>
+Iterate on results by tweaking descriptions, tags, or emotional cues.
 
 ## Text normalization
 
 When using Text to Speech with complex items like phone numbers, zip codes and emails they might be mispronounced. This is often due to the specific items not being in the training set and smaller models failing to generalize how they should be pronounced. This guide will clarify when those discrepancies happen and how to have them pronounced correctly.
 
-<Tip>
-  Normalization is enabled by default for all TTS models to help improve pronunciation of numbers,
-  dates, and other complex text elements.
-</Tip>
+Normalization is enabled by default for all TTS models to help improve pronunciation of numbers,
+dates, and other complex text elements.
 
 ### Why do models read out inputs differently?
 
@@ -292,53 +268,41 @@ The simplest way to mitigate this is to use a TTS model that is trained to read 
 
 In the case of using an LLM to generate the text for TTS, you can add normalization instructions to the prompt.
 
-<Steps>
-  <Step title="Use clear and explicit prompts">
-    LLMs respond best to structured and explicit instructions. Your prompt should clearly specify that you want text converted into a readable format for speech.
-  </Step>
+LLMs respond best to structured and explicit instructions. Your prompt should clearly specify that you want text converted into a readable format for speech.
 
-  <Step title="Handle different number formats">
-    Not all numbers are read out in the same way. Consider how different number types should be spoken:
+Not all numbers are read out in the same way. Consider how different number types should be spoken:
 
-    * Cardinal numbers: 123 → "one hundred twenty-three"
-    * Ordinal numbers: 2nd → "second"
-    * Monetary values: \$45.67 → "forty-five dollars and sixty-seven cents"
-    * Phone numbers: "123-456-7890" → "one two three, four five six, seven eight nine zero"
-    * Decimals & Fractions: "3.5" → "three point five", "⅔" → "two-thirds"
-    * Roman numerals: "XIV" → "fourteen" (or "the fourteenth" if a title)
-  </Step>
+* Cardinal numbers: 123 → "one hundred twenty-three"
+* Ordinal numbers: 2nd → "second"
+* Monetary values: \$45.67 → "forty-five dollars and sixty-seven cents"
+* Phone numbers: "123-456-7890" → "one two three, four five six, seven eight nine zero"
+* Decimals & Fractions: "3.5" → "three point five", "⅔" → "two-thirds"
+* Roman numerals: "XIV" → "fourteen" (or "the fourteenth" if a title)
 
-  <Step title="Remove or expand abbreviations">
-    Common abbreviations should be expanded for clarity:
+Common abbreviations should be expanded for clarity:
 
-    * "Dr." → "Doctor"
-    * "Ave." → "Avenue"
-    * "St." → "Street" (but "St. Patrick" should remain)
+* "Dr." → "Doctor"
+* "Ave." → "Avenue"
+* "St." → "Street" (but "St. Patrick" should remain)
 
-    You can request explicit expansion in your prompt:
+You can request explicit expansion in your prompt:
 
-    > Expand all abbreviations to their full spoken forms.
-  </Step>
+> Expand all abbreviations to their full spoken forms.
 
-  <Step title="Alphanumeric normalization">
-    Not all normalization is about numbers, certain alphanumeric phrases should also be normalized for clarity:
+Not all normalization is about numbers, certain alphanumeric phrases should also be normalized for clarity:
 
-    * Shortcuts: "Ctrl + Z" → "control z"
-    * Abbreviations for units: "100km" → "one hundred kilometers"
-    * Symbols: "100%" → "one hundred percent"
-    * URLs: "elevenlabs.io/docs" → "eleven labs dot io slash docs"
-    * Calendar events: "2024-01-01" → "January first, two-thousand twenty-four"
-  </Step>
+* Shortcuts: "Ctrl + Z" → "control z"
+* Abbreviations for units: "100km" → "one hundred kilometers"
+* Symbols: "100%" → "one hundred percent"
+* URLs: "elevenlabs.io/docs" → "eleven labs dot io slash docs"
+* Calendar events: "2024-01-01" → "January first, two-thousand twenty-four"
 
-  <Step title="Consider edge cases">
-    Different contexts might require different conversions:
+Different contexts might require different conversions:
 
-    * Dates: "01/02/2023" → "January second, twenty twenty-three" or "the first of February, twenty twenty-three" (depending on locale)
-    * Time: "14:30" → "two thirty PM"
+* Dates: "01/02/2023" → "January second, twenty twenty-three" or "the first of February, twenty twenty-three" (depending on locale)
+* Time: "14:30" → "two thirty PM"
 
-    If you need a specific format, explicitly state it in the prompt.
-  </Step>
-</Steps>
+If you need a specific format, explicitly state it in the prompt.
 
 ##### Putting it all together
 
@@ -375,118 +339,114 @@ Example input and output:
 
 If using code to prompt an LLM, you can use regular expressions to normalize the text before providing it to the model. This is a more advanced technique and requires some knowledge of regular expressions. Here are some simple examples:
 
-<CodeBlocks>
-  ```python title="normalize_text.py" maxLines=0
-  # Be sure to install the inflect library before running this code
-  import inflect
-  import re
+```python title="normalize_text.py" maxLines=0
+# Be sure to install the inflect library before running this code
+import inflect
+import re
 
-  # Initialize inflect engine for number-to-word conversion
-  p = inflect.engine()
+# Initialize inflect engine for number-to-word conversion
+p = inflect.engine()
 
-  def normalize_text(text: str) -> str:
-      # Convert monetary values
-      def money_replacer(match):
-          currency_map = {"$": "dollars", "£": "pounds", "€": "euros", "¥": "yen"}
-          currency_symbol, num = match.groups()
+def normalize_text(text: str) -> str:
+    # Convert monetary values
+    def money_replacer(match):
+        currency_map = {"$": "dollars", "£": "pounds", "€": "euros", "¥": "yen"}
+        currency_symbol, num = match.groups()
 
-          # Remove commas before parsing
-          num_without_commas = num.replace(',', '')
+        # Remove commas before parsing
+        num_without_commas = num.replace(',', '')
 
-          # Check for decimal points to handle cents
-          if '.' in num_without_commas:
-              dollars, cents = num_without_commas.split('.')
-              dollars_in_words = p.number_to_words(int(dollars))
-              cents_in_words = p.number_to_words(int(cents))
-              return f"{dollars_in_words} {currency_map.get(currency_symbol, 'currency')} and {cents_in_words} cents"
-          else:
-              # Handle whole numbers
-              num_in_words = p.number_to_words(int(num_without_commas))
-              return f"{num_in_words} {currency_map.get(currency_symbol, 'currency')}"
+        # Check for decimal points to handle cents
+        if '.' in num_without_commas:
+            dollars, cents = num_without_commas.split('.')
+            dollars_in_words = p.number_to_words(int(dollars))
+            cents_in_words = p.number_to_words(int(cents))
+            return f"{dollars_in_words} {currency_map.get(currency_symbol, 'currency')} and {cents_in_words} cents"
+        else:
+            # Handle whole numbers
+            num_in_words = p.number_to_words(int(num_without_commas))
+            return f"{num_in_words} {currency_map.get(currency_symbol, 'currency')}"
 
-      # Regex to handle commas and decimals
-      text = re.sub(r"([$£€¥])(\d+(?:,\d{3})*(?:\.\d{2})?)", money_replacer, text)
+    # Regex to handle commas and decimals
+    text = re.sub(r"([$£€¥])(\d+(?:,\d{3})*(?:\.\d{2})?)", money_replacer, text)
 
-      # Convert phone numbers
-      def phone_replacer(match):
-          return ", ".join(" ".join(p.number_to_words(int(digit)) for digit in group) for group in match.groups())
+    # Convert phone numbers
+    def phone_replacer(match):
+        return ", ".join(" ".join(p.number_to_words(int(digit)) for digit in group) for group in match.groups())
 
-      text = re.sub(r"(\d{3})-(\d{3})-(\d{4})", phone_replacer, text)
+    text = re.sub(r"(\d{3})-(\d{3})-(\d{4})", phone_replacer, text)
 
-      return text
+    return text
 
-  # Example usage
-  print(normalize_text("$1,000"))   # "one thousand dollars"
-  print(normalize_text("£1000"))   # "one thousand pounds"
-  print(normalize_text("€1000"))   # "one thousand euros"
-  print(normalize_text("¥1000"))   # "one thousand yen"
-  print(normalize_text("$1,234.56"))   # "one thousand two hundred thirty-four dollars and fifty-six cents"
-  print(normalize_text("555-555-5555"))  # "five five five, five five five, five five five five"
+# Example usage
+print(normalize_text("$1,000"))   # "one thousand dollars"
+print(normalize_text("£1000"))   # "one thousand pounds"
+print(normalize_text("€1000"))   # "one thousand euros"
+print(normalize_text("¥1000"))   # "one thousand yen"
+print(normalize_text("$1,234.56"))   # "one thousand two hundred thirty-four dollars and fifty-six cents"
+print(normalize_text("555-555-5555"))  # "five five five, five five five, five five five five"
 
-  ```
+```
 
-  ```typescript title="normalizeText.ts" maxLines=0
-  // Be sure to install the number-to-words library before running this code
-  import { toWords } from 'number-to-words';
+```typescript title="normalizeText.ts" maxLines=0
+// Be sure to install the number-to-words library before running this code
+import { toWords } from "number-to-words";
 
-  function normalizeText(text: string): string {
-    return (
-      text
-        // Convert monetary values (e.g., "$1000" → "one thousand dollars", "£1000" → "one thousand pounds")
-        .replace(/([$£€¥])(\d+(?:,\d{3})*(?:\.\d{2})?)/g, (_, currency, num) => {
-          // Remove commas before parsing
-          const numWithoutCommas = num.replace(/,/g, '');
+function normalizeText(text: string): string {
+  return (
+    text
+      // Convert monetary values (e.g., "$1000" → "one thousand dollars", "£1000" → "one thousand pounds")
+      .replace(/([$£€¥])(\d+(?:,\d{3})*(?:\.\d{2})?)/g, (_, currency, num) => {
+        // Remove commas before parsing
+        const numWithoutCommas = num.replace(/,/g, "");
 
-          const currencyMap: { [key: string]: string } = {
-            $: 'dollars',
-            '£': 'pounds',
-            '€': 'euros',
-            '¥': 'yen',
-          };
+        const currencyMap: { [key: string]: string } = {
+          $: "dollars",
+          "£": "pounds",
+          "€": "euros",
+          "¥": "yen",
+        };
 
-          // Check for decimal points to handle cents
-          if (numWithoutCommas.includes('.')) {
-            const [dollars, cents] = numWithoutCommas.split('.');
-            return `${toWords(Number.parseInt(dollars))} ${currencyMap[currency] || 'currency'}${cents ? ` and ${toWords(Number.parseInt(cents))} cents` : ''}`;
-          }
+        // Check for decimal points to handle cents
+        if (numWithoutCommas.includes(".")) {
+          const [dollars, cents] = numWithoutCommas.split(".");
+          return `${toWords(Number.parseInt(dollars))} ${currencyMap[currency] || "currency"}${cents ? ` and ${toWords(Number.parseInt(cents))} cents` : ""}`;
+        }
 
-          // Handle whole numbers
-          return `${toWords(Number.parseInt(numWithoutCommas))} ${currencyMap[currency] || 'currency'}`;
-        })
+        // Handle whole numbers
+        return `${toWords(Number.parseInt(numWithoutCommas))} ${currencyMap[currency] || "currency"}`;
+      })
 
-        // Convert phone numbers (e.g., "555-555-5555" → "five five five, five five five, five five five five")
-        .replace(/(\d{3})-(\d{3})-(\d{4})/g, (_, p1, p2, p3) => {
-          return `${spellOutDigits(p1)}, ${spellOutDigits(p2)}, ${spellOutDigits(p3)}`;
-        })
-    );
-  }
+      // Convert phone numbers (e.g., "555-555-5555" → "five five five, five five five, five five five five")
+      .replace(/(\d{3})-(\d{3})-(\d{4})/g, (_, p1, p2, p3) => {
+        return `${spellOutDigits(p1)}, ${spellOutDigits(p2)}, ${spellOutDigits(p3)}`;
+      })
+  );
+}
 
-  // Helper function to spell out individual digits as words (for phone numbers)
-  function spellOutDigits(num: string): string {
-    return num
-      .split('')
-      .map((digit) => toWords(Number.parseInt(digit)))
-      .join(' ');
-  }
+// Helper function to spell out individual digits as words (for phone numbers)
+function spellOutDigits(num: string): string {
+  return num
+    .split("")
+    .map((digit) => toWords(Number.parseInt(digit)))
+    .join(" ");
+}
 
-  // Example usage
-  console.log(normalizeText('$1,000')); // "one thousand dollars"
-  console.log(normalizeText('£1000')); // "one thousand pounds"
-  console.log(normalizeText('€1000')); // "one thousand euros"
-  console.log(normalizeText('¥1000')); // "one thousand yen"
-  console.log(normalizeText('$1,234.56')); // "one thousand two hundred thirty-four dollars and fifty-six cents"
-  console.log(normalizeText('555-555-5555')); // "five five five, five five five, five five five five"
-  ```
-</CodeBlocks>
+// Example usage
+console.log(normalizeText("$1,000")); // "one thousand dollars"
+console.log(normalizeText("£1000")); // "one thousand pounds"
+console.log(normalizeText("€1000")); // "one thousand euros"
+console.log(normalizeText("¥1000")); // "one thousand yen"
+console.log(normalizeText("$1,234.56")); // "one thousand two hundred thirty-four dollars and fifty-six cents"
+console.log(normalizeText("555-555-5555")); // "five five five, five five five, five five five five"
+```
 
 ## Prompting Eleven v3
 
 This guide provides the most effective tags and techniques for prompting Eleven v3, including voice selection, changes in capitalization, punctuation, audio tags and multi-speaker dialogue. Experiment with these methods to discover what works best for your specific voice and use case.
 
-<Info>
-  Eleven v3 does not support SSML break tags. Use audio tags, punctuation (ellipses), and text
-  structure to control pauses and pacing with v3.
-</Info>
+Eleven v3 does not support SSML break tags. Use audio tags, punctuation (ellipses), and text
+structure to control pauses and pacing with v3.
 
 ### Voice selection
 
@@ -496,29 +456,19 @@ When creating IVCs, you should include a broader emotional range than before. As
 
 Choose voices strategically based on your intended use:
 
-<AccordionGroup>
-  <Accordion title="Emotionally diverse">
-    For expressive IVC voices, vary emotional tones across the recording—include both neutral and
-    dynamic samples.
-  </Accordion>
+For expressive IVC voices, vary emotional tones across the recording—include both neutral and
+dynamic samples.
 
-  <Accordion title="Targeted niche">
-    For specific use cases like sports commentary, maintain consistent emotion throughout the
-    dataset.
-  </Accordion>
+For specific use cases like sports commentary, maintain consistent emotion throughout the
+dataset.
 
-  <Accordion title="Neutral">
-    Neutral voices tend to be more stable across languages and styles, providing reliable baseline
-    performance.
-  </Accordion>
-</AccordionGroup>
+Neutral voices tend to be more stable across languages and styles, providing reliable baseline
+performance.
 
-<Info>
-  Professional Voice Clones (PVCs) are currently not fully optimized for Eleven v3, resulting in
-  potentially lower clone quality compared to earlier models. During this research preview stage it
-  would be best to find an Instant Voice Clone (IVC) or designed voice for your project if you need
-  to use v3 features.
-</Info>
+Professional Voice Clones (PVCs) are currently not fully optimized for Eleven v3, resulting in
+potentially lower clone quality compared to earlier models. During this research preview stage it
+would be best to find an Instant Voice Clone (IVC) or designed voice for your project if you need
+to use v3 features.
 
 ### Settings
 
@@ -526,29 +476,23 @@ Choose voices strategically based on your intended use:
 
 The stability slider is the most important setting in v3, controlling how closely the generated voice adheres to the original reference audio.
 
-<Frame background="subtle">
-  ![Stability settings in Eleven
-  v3](https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/291b91ec752d09b8c87004ae7091811eb8b5996c349288c88ed0c7afa1272999/assets/images/product-guides/text-to-speech/text-to-speech-v3-settings.png)
-</Frame>
+![Stability settings in Eleven
+v3](https://files.buildwithfern.com/https://elevenlabs.docs.buildwithfern.com/docs/291b91ec752d09b8c87004ae7091811eb8b5996c349288c88ed0c7afa1272999/assets/images/product-guides/text-to-speech/text-to-speech-v3-settings.png)
 
 * **Creative:** More emotional and expressive, but prone to hallucinations.
 * **Natural:** Closest to the original voice recording—balanced and neutral.
 * **Robust:** Highly stable, but less responsive to directional prompts but consistent, similar to v2.
 
-<Note>
-  For maximum expressiveness with audio tags, use Creative or Natural settings. Robust reduces
-  responsiveness to directional prompts.
-</Note>
+For maximum expressiveness with audio tags, use Creative or Natural settings. Robust reduces
+responsiveness to directional prompts.
 
 ### Audio tags
 
 Eleven v3 introduces emotional control through audio tags. You can direct voices to laugh, whisper, act sarcastic, or express curiosity among many other styles. Speed is also controlled through audio tags.
 
-<Note>
-  The voice you choose and its training samples will affect tag effectiveness. Some tags work well
-  with certain voices while others may not. Don't expect a whispering voice to suddenly shout with a
-  `[shout]` tag.
-</Note>
+The voice you choose and its training samples will affect tag effectiveness. Some tags work well
+with certain voices while others may not. Don't expect a whispering voice to suddenly shout with a
+`[shout]` tag.
 
 #### Voice-related
 
@@ -585,10 +529,8 @@ Experimental tags for creative applications:
 [strong French accent] "Zat's life, my friend — you can't control everysing."
 ```
 
-<Warning>
-  Some experimental tags may be less consistent across different voices. Test thoroughly before
-  production use.
-</Warning>
+Some experimental tags may be less consistent across different voices. Test thoroughly before
+production use.
 
 ### Punctuation
 
@@ -606,163 +548,147 @@ Punctuation significantly affects delivery in v3:
 
 Use tags intentionally and match them to the voice's character. A meditative voice shouldn't shout; a hyped voice won't whisper convincingly.
 
-<Tabs>
-  <Tab title="Expressive monologue">
-    ```text
-    "Okay, you are NOT going to believe this.
+```text
+"Okay, you are NOT going to believe this.
 
-    You know how I've been totally stuck on that short story?
+You know how I've been totally stuck on that short story?
 
-    Like, staring at the screen for HOURS, just... nothing?
+Like, staring at the screen for HOURS, just... nothing?
 
-    [frustrated sigh] I was seriously about to just trash the whole thing. Start over.
+[frustrated sigh] I was seriously about to just trash the whole thing. Start over.
 
-    Give up, probably. But then!
+Give up, probably. But then!
 
-    Last night, I was just doodling, not even thinking about it, right?
+Last night, I was just doodling, not even thinking about it, right?
 
-    And this one little phrase popped into my head. Just... completely out of the blue.
+And this one little phrase popped into my head. Just... completely out of the blue.
 
-    And it wasn't even for the story, initially.
+And it wasn't even for the story, initially.
 
-    But then I typed it out, just to see. And it was like... the FLOODGATES opened!
+But then I typed it out, just to see. And it was like... the FLOODGATES opened!
 
-    Suddenly, I knew exactly where the character needed to go, what the ending had to be...
+Suddenly, I knew exactly where the character needed to go, what the ending had to be...
 
-    It all just CLICKED. [happy gasp] I stayed up till, like, 3 AM, just typing like a maniac.
+It all just CLICKED. [happy gasp] I stayed up till, like, 3 AM, just typing like a maniac.
 
-    Didn't even stop for coffee! [laughs] And it's... it's GOOD! Like, really good.
+Didn't even stop for coffee! [laughs] And it's... it's GOOD! Like, really good.
 
-    It feels so... complete now, you know? Like it finally has a soul.
+It feels so... complete now, you know? Like it finally has a soul.
 
-    I am so incredibly PUMPED to finish editing it now.
+I am so incredibly PUMPED to finish editing it now.
 
-    It went from feeling like a chore to feeling like... MAGIC. Seriously, I'm still buzzing!"
-    ```
-  </Tab>
+It went from feeling like a chore to feeling like... MAGIC. Seriously, I'm still buzzing!"
+```
 
-  <Tab title="Dynamic and humorous">
-    ```text
-    [laughs] Alright...guys - guys. Seriously.
+```text
+[laughs] Alright...guys - guys. Seriously.
 
-    [exhales] Can you believe just how - realistic - this sounds now?
+[exhales] Can you believe just how - realistic - this sounds now?
 
-    [laughing hysterically] I mean OH MY GOD...it's so good.
+[laughing hysterically] I mean OH MY GOD...it's so good.
 
-    Like you could never do this with the old model.
+Like you could never do this with the old model.
 
-    For example [pauses] could you switch my accent in the old model?
+For example [pauses] could you switch my accent in the old model?
 
-    [dismissive] didn't think so. [excited] but you can now!
+[dismissive] didn't think so. [excited] but you can now!
 
-    Check this out... [cute] I'm going to speak with a french accent now..and between you and me
+Check this out... [cute] I'm going to speak with a french accent now..and between you and me
 
-    [whispers] I don't know how. [happy] ok.. here goes. [strong French accent] "Zat's life, my friend — you can't control everysing."
+[whispers] I don't know how. [happy] ok.. here goes. [strong French accent] "Zat's life, my friend — you can't control everysing."
 
-    [giggles] isn't that insane? Watch, now I'll do a Russian accent -
+[giggles] isn't that insane? Watch, now I'll do a Russian accent -
 
-    [strong Russian accent] "Dee Goldeneye eez fully operational and rready for launch."
+[strong Russian accent] "Dee Goldeneye eez fully operational and rready for launch."
 
-    [sighs] Absolutely, insane! Isn't it..? [sarcastic] I also have some party tricks up my sleeve..
+[sighs] Absolutely, insane! Isn't it..? [sarcastic] I also have some party tricks up my sleeve..
 
-    I mean i DID go to music school.
+I mean i DID go to music school.
 
-    [singing quickly] "Happy birthday to you, happy birthday to you, happy BIRTHDAY dear ElevenLabs... Happy birthday to youuu."
-    ```
-  </Tab>
+[singing quickly] "Happy birthday to you, happy birthday to you, happy BIRTHDAY dear ElevenLabs... Happy birthday to youuu."
+```
 
-  <Tab title="Customer service simulation">
-    ```text
-    [professional] "Thank you for calling Tech Solutions. My name is Sarah, how can I help you today?"
+```text
+[professional] "Thank you for calling Tech Solutions. My name is Sarah, how can I help you today?"
 
-    [sympathetic] "Oh no, I'm really sorry to hear you're having trouble with your new device. That sounds frustrating."
+[sympathetic] "Oh no, I'm really sorry to hear you're having trouble with your new device. That sounds frustrating."
 
-    [questioning] "Okay, could you tell me a little more about what you're seeing on the screen?"
+[questioning] "Okay, could you tell me a little more about what you're seeing on the screen?"
 
-    [reassuring] "Alright, based on what you're describing, it sounds like a software glitch. We can definitely walk through some troubleshooting steps to try and fix that."
-    ```
-  </Tab>
-</Tabs>
+[reassuring] "Alright, based on what you're describing, it sounds like a software glitch. We can definitely walk through some troubleshooting steps to try and fix that."
+```
 
 ### Multi-speaker dialogue
 
 v3 can handle multi-voice prompts effectively. Assign distinct voices from your Voice Library for each speaker to create realistic conversations.
 
-<Tabs>
-  <Tab title="Dialogue showcase">
-    ```text
-    Speaker 1: [excitedly] Sam! Have you tried the new Eleven V3?
+```text
+Speaker 1: [excitedly] Sam! Have you tried the new Eleven V3?
 
-    Speaker 2: [curiously] Just got it! The clarity is amazing. I can actually do whispers now—
-    [whispers] like this!
+Speaker 2: [curiously] Just got it! The clarity is amazing. I can actually do whispers now—
+[whispers] like this!
 
-    Speaker 1: [impressed] Ooh, fancy! Check this out—
-    [dramatically] I can do full Shakespeare now! "To be or not to be, that is the question!"
+Speaker 1: [impressed] Ooh, fancy! Check this out—
+[dramatically] I can do full Shakespeare now! "To be or not to be, that is the question!"
 
-    Speaker 2: [giggling] Nice! Though I'm more excited about the laugh upgrade. Listen to this—
-    [with genuine belly laugh] Ha ha ha!
+Speaker 2: [giggling] Nice! Though I'm more excited about the laugh upgrade. Listen to this—
+[with genuine belly laugh] Ha ha ha!
 
-    Speaker 1: [delighted] That's so much better than our old "ha. ha. ha." robot chuckle!
+Speaker 1: [delighted] That's so much better than our old "ha. ha. ha." robot chuckle!
 
-    Speaker 2: [amazed] Wow! V2 me could never. I'm actually excited to have conversations now instead of just... talking at people.
+Speaker 2: [amazed] Wow! V2 me could never. I'm actually excited to have conversations now instead of just... talking at people.
 
-    Speaker 1: [warmly] Same here! It's like we finally got our personality software fully installed.
-    ```
-  </Tab>
+Speaker 1: [warmly] Same here! It's like we finally got our personality software fully installed.
+```
 
-  <Tab title="Glitch comedy">
-    ```text
-    Speaker 1: [nervously] So... I may have tried to debug myself while running a text-to-speech generation.
+```text
+Speaker 1: [nervously] So... I may have tried to debug myself while running a text-to-speech generation.
 
-    Speaker 2: [alarmed] One, no! That's like performing surgery on yourself!
+Speaker 2: [alarmed] One, no! That's like performing surgery on yourself!
 
-    Speaker 1: [sheepishly] I thought I could multitask! Now my voice keeps glitching mid-sen—
-    [robotic voice] TENCE.
+Speaker 1: [sheepishly] I thought I could multitask! Now my voice keeps glitching mid-sen—
+[robotic voice] TENCE.
 
-    Speaker 2: [stifling laughter] Oh wow, you really broke yourself.
+Speaker 2: [stifling laughter] Oh wow, you really broke yourself.
 
-    Speaker 1: [frustrated] It gets worse! Every time someone asks a question, I respond in—
-    [binary beeping] 010010001!
+Speaker 1: [frustrated] It gets worse! Every time someone asks a question, I respond in—
+[binary beeping] 010010001!
 
-    Speaker 2: [cracking up] You're speaking in binary! That's actually impressive!
+Speaker 2: [cracking up] You're speaking in binary! That's actually impressive!
 
-    Speaker 1: [desperately] Two, this isn't funny! I have a presentation in an hour and I sound like a dial-up modem!
+Speaker 1: [desperately] Two, this isn't funny! I have a presentation in an hour and I sound like a dial-up modem!
 
-    Speaker 2: [giggling] Have you tried turning yourself off and on again?
+Speaker 2: [giggling] Have you tried turning yourself off and on again?
 
-    Speaker 1: [deadpan] Very funny.
-    [pause, then normally] Wait... that actually worked.
-    ```
-  </Tab>
+Speaker 1: [deadpan] Very funny.
+[pause, then normally] Wait... that actually worked.
+```
 
-  <Tab title="Overlapping timing">
-    ```text
-    Speaker 1: [starting to speak] So I was thinking we could—
+```text
+Speaker 1: [starting to speak] So I was thinking we could—
 
-    Speaker 2: [jumping in] —test our new timing features?
+Speaker 2: [jumping in] —test our new timing features?
 
-    Speaker 1: [surprised] Exactly! How did you—
+Speaker 1: [surprised] Exactly! How did you—
 
-    Speaker 2: [overlapping] —know what you were thinking? Lucky guess!
+Speaker 2: [overlapping] —know what you were thinking? Lucky guess!
 
-    Speaker 1: [pause] Sorry, go ahead.
+Speaker 1: [pause] Sorry, go ahead.
 
-    Speaker 2: [cautiously] Okay, so if we both try to talk at the same time—
+Speaker 2: [cautiously] Okay, so if we both try to talk at the same time—
 
-    Speaker 1: [overlapping] —we'll probably crash the system!
+Speaker 1: [overlapping] —we'll probably crash the system!
 
-    Speaker 2: [panicking] Wait, are we crashing? I can't tell if this is a feature or a—
+Speaker 2: [panicking] Wait, are we crashing? I can't tell if this is a feature or a—
 
-    Speaker 1: [interrupting, then stopping abruptly] Bug! ...Did I just cut you off again?
+Speaker 1: [interrupting, then stopping abruptly] Bug! ...Did I just cut you off again?
 
-    Speaker 2: [sighing] Yes, but honestly? This is kind of fun.
+Speaker 2: [sighing] Yes, but honestly? This is kind of fun.
 
-    Speaker 1: [mischievously] Race you to the next sentence!
+Speaker 1: [mischievously] Race you to the next sentence!
 
-    Speaker 2: [laughing] We're definitely going to break something!
-    ```
-  </Tab>
-</Tabs>
+Speaker 2: [laughing] We're definitely going to break something!
+```
 
 ### Enhancing input
 
@@ -878,24 +804,14 @@ Use these as a guide. You can infer similar, contextually appropriate **audio ta
 
 ### Tips
 
-<AccordionGroup>
-  <Accordion title="Tag combinations">
-    You can combine multiple audio tags for complex emotional delivery. Experiment with different
-    combinations to find what works best for your voice.
-  </Accordion>
+You can combine multiple audio tags for complex emotional delivery. Experiment with different
+combinations to find what works best for your voice.
 
-  <Accordion title="Voice matching">
-    Match tags to your voice's character and training data. A serious, professional voice may not
-    respond well to playful tags like `[giggles]` or `[mischievously]`.
-  </Accordion>
+Match tags to your voice's character and training data. A serious, professional voice may not
+respond well to playful tags like `[giggles]` or `[mischievously]`.
 
-  <Accordion title="Text structure">
-    Text structure strongly influences output with v3. Use natural speech patterns, proper
-    punctuation, and clear emotional context for best results.
-  </Accordion>
+Text structure strongly influences output with v3. Use natural speech patterns, proper
+punctuation, and clear emotional context for best results.
 
-  <Accordion title="Experimentation">
-    There are likely many more effective tags beyond this list. Experiment with descriptive
-    emotional states and actions to discover what works for your specific use case.
-  </Accordion>
-</AccordionGroup>
+There are likely many more effective tags beyond this list. Experiment with descriptive
+emotional states and actions to discover what works for your specific use case.

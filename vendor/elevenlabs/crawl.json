@@ -5,7 +5,7 @@
     "https://elevenlabs.io/docs/llms.txt",
     "https://elevenlabs.io/llms.txt"
   ],
-  "transform": "append-md-and-accept",
+  "transform": "verbatim",
   "allow_prefixes": [
     "https://elevenlabs.io/docs/"
   ],

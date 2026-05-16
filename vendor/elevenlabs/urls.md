@@ -1,9 +1,9 @@
 ---
 vendor: elevenlabs
 llms_txt: https://elevenlabs.io/docs/llms.txt
-last_crawled: 2026-05-15T03:28:56.639Z
+last_crawled: 2026-05-16T05:33:49.028Z
 count: 60
-transform: append-md-and-accept
+transform: verbatim
 ---
 
 # elevenlabs URL index
