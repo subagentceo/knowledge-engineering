@@ -1,19 +1,14 @@
 {
   "name": "intercom",
-  "homepage": "https://www.intercom.com",
+  "homepage": "https://developers.intercom.com",
   "llms_txt_candidates": [
-    "https://developers.intercom.com/llms.txt",
-    "https://www.intercom.com/llms.txt"
+    "https://developers.intercom.com/llms.txt"
   ],
-  "transform": "html-extract",
+  "transform": "verbatim",
   "allow_prefixes": [
-    "https://www.intercom.com/help/",
     "https://developers.intercom.com/"
   ],
   "deny_prefixes": [],
-  "page_cap": 30,
-  "html_extract": {
-    "selector": "article"
-  },
-  "llms_txt": "https://www.intercom.com/llms.txt"
+  "page_cap": 100,
+  "llms_txt": "https://developers.intercom.com/llms.txt"
 }
