@@ -212,8 +212,8 @@ const vendorDirs = readdirSync(VENDOR_ROOT, { withFileTypes: true })
 const allCatalogDirs = new Set<string>(entities.map((e) => vendorDirFor(e.id)));
 // Don't fail on legacy dirs like anthropic-engineering that are pre-catalog.
 const LEGACY_ALLOW = new Set([
-  "anthropic-engineering", // pre-catalog Anthropic blog mirror
-  "anthropics",            // multi-source Anthropic first-party docs
+  "anthropic-sitemap",     // 2026-05-16 — consolidated anthropic.com mirror (engineering+news+research+...) via sitemap.xml (replaces anthropic-engineering)
+  "anthropics",            // multi-source Anthropic first-party docs (code.claude.com + platform.claude.com + claude.com/docs)
   "claude-sitemap",        // 2026-05-16 — consolidated claude.com + support.claude.com mirror via sitemap.xml (replaces claude-{blog,connectors,customers,plugins,support,tutorials})
   "osv-scanner",           // 2026-05-15 — chassis vuln-gate dependency; not in v2 catalog
 ]);

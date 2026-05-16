@@ -1,0 +1,37 @@
+Announcements
+
+# Anthropic appoints Irina Ghose as Managing Director of India ahead of Bengaluru office opening
+
+Jan 16, 2026
+
+Irina Ghose is joining Anthropic as Managing Director of India as we prepare to open our first office in the country.
+
+Irina brings more than three decades of experience in scaling technology businesses. She most recently served as Managing Director, Microsoft India, where she led enterprise AI adoption across major Indian industries including banking and financial services, healthcare, manufacturing, and government. She’s led high-impact teams, built ecosystem partnerships, and championed future-ready capabilities across India’s technology landscape, with a consistent focus on using technology to drive meaningful business and societal impact.
+
+“India has a real opportunity to shape how AI is built and deployed at scale,” Irina said. “Indian organizations are moving beyond experimentation toward applied AI, where trust, safety, and long-term impact matter as much as innovation. Anthropic’s mission resonates with my belief that technology should empower people, expand access, and create lasting value across India’s diverse languages and communities.”
+
+"Irina's expertise in scaling technology businesses and driving enterprise transformation makes her the ideal leader as we expand," said Chris Ciauri, Managing Director of International, Anthropic. "As we grow our teams and deepen engagement across India’s public and private sectors, Irina will ensure our approach is grounded in local insight and aligned with our mission."
+
+Our India team will work closely with policymakers and academic institutions, strengthen developer engagement, and build partnerships with enterprises and organizations using AI to address local challenges.
+
+India ranks as the second-largest market globally for Claude.ai. Anthropic's fourth [Economic Index](https://www.anthropic.com/economic-index) showed that Indian users have a striking focus on technical applications, with nearly half of all Claude.ai usage concentrated in computer and mathematical tasks.
+
+[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-appoints-irina-ghose-as-managing-director-of-india)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-appoints-irina-ghose-as-managing-director-of-india)
+
+## Related content
+
+### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+
+PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+
+[Read more](/news/pwc-expanded-partnership)
+
+### Anthropic forms $200 million partnership with the Gates Foundation
+
+[Read more](/news/gates-foundation-partnership)
+
+### Introducing Claude for Small Business
+
+We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+
+[Read more](/news/claude-for-small-business)
