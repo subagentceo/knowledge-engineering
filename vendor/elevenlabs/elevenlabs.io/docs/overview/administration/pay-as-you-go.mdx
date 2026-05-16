@@ -8,11 +8,9 @@ Pay As You Go (PAYG) allows you to prepay for usage without committing to a mont
 
 PAYG is a feature available on self-serve subscription plans, including free. Enterprise contracts remain on overage-based billing and are not affected by this change.
 
-<Note>
-  Existing subscribers who already have usage based billing enabled are not affected. Switching to
-  PAYG from an existing usage based billing subscription is not currently supported, but will be
-  made possible in a future update.
-</Note>
+Existing subscribers who already have usage based billing enabled are not affected. Switching to
+PAYG from an existing usage based billing subscription is not currently supported, but will be
+made possible in a future update.
 
 ## How it works
 
@@ -51,26 +49,22 @@ Your balance is displayed in USD or INR in [Developer settings](https://elevenla
 
 To top up manually:
 
-<Steps>
-  ### Navigate to Top Up settings
+### Navigate to Top Up settings
 
-  Go to [Developer settings](https://elevenlabs.io/app/developers) → Top Up
+Go to [Developer settings](https://elevenlabs.io/app/developers) → Top Up
 
-  ### Enter amount
+### Enter amount
 
-  Enter the amount you'd like to add (minimum \$5 USD / ₹500 INR)
+Enter the amount you'd like to add (minimum \$5 USD / ₹500 INR)
 
-  ### Confirm payment
+### Confirm payment
 
-  Confirm payment with your saved payment method
-</Steps>
+Confirm payment with your saved payment method
 
 If you do not yet have a payment method on file, you will be prompted to add one before completing your first Top Up.
 
-<Warning>
-  If your balance hits \$0 and Auto Top Up is off (or fails), your service will pause immediately.
-  This is by design. PAYG is a prepaid model with no overage charges.
-</Warning>
+If your balance hits \$0 and Auto Top Up is off (or fails), your service will pause immediately.
+This is by design. PAYG is a prepaid model with no overage charges.
 
 ## Auto Top Up
 
@@ -78,33 +72,29 @@ Auto Top Up automatically charges your saved payment method when your credit bal
 
 ### Enabling Auto Top Up
 
-<Steps>
-  ### Navigate to Top Up settings
+### Navigate to Top Up settings
 
-  Go to [Developer settings](https://elevenlabs.io/app/developers) → Top Up
+Go to [Developer settings](https://elevenlabs.io/app/developers) → Top Up
 
-  ### Toggle on Auto Top Up
+### Toggle on Auto Top Up
 
-  Enable the Auto Top Up feature
+Enable the Auto Top Up feature
 
-  ### Set Top Up amount
+### Set Top Up amount
 
-  Set your Top Up amount (the amount to be charged each time). Default is \$20 USD / ₹2,000 INR
+Set your Top Up amount (the amount to be charged each time). Default is \$20 USD / ₹2,000 INR
 
-  ### Set low balance threshold
+### Set low balance threshold
 
-  Set your low balance threshold (the balance level that triggers a Top Up). Default is \$10 USD / ₹1,000 INR
-</Steps>
+Set your low balance threshold (the balance level that triggers a Top Up). Default is \$10 USD / ₹1,000 INR
 
 With Auto Top Up on, a minimum balance of \$5 USD / ₹500 INR is required to ensure service continues in the event of a payment failure. If an Auto Top Up attempt fails, your service will pause until you top up manually.
 
 With Auto Top Up off, your balance can run down to \$0. Once depleted, your usage will be paused until you manually top up.
 
-<Warning>
-  Auto Top Up can occasionally be delayed or fail due to payment processing issues. If you rely on
-  uninterrupted API usage, consider maintaining a healthy balance buffer or contacting Sales about
-  an Enterprise plan.
-</Warning>
+Auto Top Up can occasionally be delayed or fail due to payment processing issues. If you rely on
+uninterrupted API usage, consider maintaining a healthy balance buffer or contacting Sales about
+an Enterprise plan.
 
 ## Credit rollover
 
@@ -112,10 +102,8 @@ If you upgrade to a subscription plan, your remaining PAYG balance carries over 
 
 There is no monthly rollover cap on PAYG funds.
 
-<Warning>
-  PAYG credits expire 12 months after purchase. Any unused credits will be removed from your balance
-  after this period.
-</Warning>
+PAYG credits expire 12 months after purchase. Any unused credits will be removed from your balance
+after this period.
 
 ## Concurrency and rate limits
 
@@ -136,56 +124,34 @@ PAYG replaces the previous usage based billing (overage) model for new self-serv
 
 ## FAQ
 
-<AccordionGroup>
-  <Accordion title="Who can use PAYG?">
-    All self-serve users, including those on the free plan. Enterprise contracts are not eligible.
-    They remain on the overage billing model.
-  </Accordion>
+All self-serve users, including those on the free plan. Enterprise contracts are not eligible.
+They remain on the overage billing model.
 
-  <Accordion title="Is PAYG a separate plan?">
-    Not exactly. Activating PAYG (by adding funds or enabling Auto Top Up) transitions your account
-    display to show "Pay As You Go" rather than "Free," but your underlying plan tier (and its
-    limits) remains the same unless you separately upgrade to a paid subscription.
-  </Accordion>
+Not exactly. Activating PAYG (by adding funds or enabling Auto Top Up) transitions your account
+display to show "Pay As You Go" rather than "Free," but your underlying plan tier (and its
+limits) remains the same unless you separately upgrade to a paid subscription.
 
-  <Accordion title="What happens when my balance hits $0?">
-    Your usage pauses immediately. There is no postpaid billing or debt incurred. Top up manually to
-    resume, or enable Auto Top Up to avoid this.
-  </Accordion>
+Your usage pauses immediately. There is no postpaid billing or debt incurred. Top up manually to
+resume, or enable Auto Top Up to avoid this.
 
-  <Accordion title="Do funds expire?">
-    Yes. PAYG credits expire 12 months after purchase. Any unused credits will be removed from your
-    balance after this period.
-  </Accordion>
+Yes. PAYG credits expire 12 months after purchase. Any unused credits will be removed from your
+balance after this period.
 
-  <Accordion title="Are Top Ups refundable?">
-    No. All Top Up purchases are non-refundable.
-  </Accordion>
+No. All Top Up purchases are non-refundable.
 
-  <Accordion title="Can I use PAYG alongside a subscription?">
-    Yes. If you have both a subscription and a PAYG balance, your subscription credits are consumed
-    first. Once depleted, your PAYG balance is used. This effectively extends your plan beyond your
-    monthly quota.
-  </Accordion>
+Yes. If you have both a subscription and a PAYG balance, your subscription credits are consumed
+first. Once depleted, your PAYG balance is used. This effectively extends your plan beyond your
+monthly quota.
 
-  <Accordion title="Will PAYG give me access to Music, Video, and other APIs?">
-    Yes. PAYG is intended to unlock access to APIs that are otherwise disabled for users on the free
-    plan, including Music, Sound Effects, and more.
-  </Accordion>
+Yes. PAYG is intended to unlock access to APIs that are otherwise disabled for users on the free
+plan, including Music, Sound Effects, and more.
 
-  <Accordion title="Is there a monthly spend cap?">
-    You can optionally set a monthly spend cap in the Top Up settings. This is off by default.
-  </Accordion>
+You can optionally set a monthly spend cap in the Top Up settings. This is off by default.
 
-  <Accordion title="What is the maximum I can purchase in one transaction?">
-    There is no fixed published maximum. Your available Top Up limit depends on your account status
-    and currency. Visit [Developer settings](https://elevenlabs.io/app/developers) → Top Up to see
-    the amounts available to you.
-  </Accordion>
+There is no fixed published maximum. Your available Top Up limit depends on your account status
+and currency. Visit [Developer settings](https://elevenlabs.io/app/developers) → Top Up to see
+the amounts available to you.
 
-  <Accordion title="What was usage based billing, and how is PAYG different?">
-    Usage based billing was a postpaid mechanism that allowed users to spend beyond their plan
-    limits and be charged later. PAYG replaces this with a prepaid model, where you load funds in
-    advance.
-  </Accordion>
-</AccordionGroup>
+Usage based billing was a postpaid mechanism that allowed users to spend beyond their plan
+limits and be charged later. PAYG replaces this with a prepaid model, where you load funds in
+advance.
