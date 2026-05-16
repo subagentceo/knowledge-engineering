@@ -9,7 +9,7 @@
  *
  * @tdd green
  * @cite vendor/anthropics/code.claude.com/docs/en/routines.md
- * @cite src/lib/schemas/crawl-config.test.ts
+ * @cite vendor/anthropics/code.claude.com/docs/en/changelog.md
  */
 import {
   AllowedToolSchema,
