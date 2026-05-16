@@ -55,9 +55,22 @@ export interface Bridge {
   upsert(items: UpsertInput[]): Promise<void>;
 }
 
+/**
+ * AlloyDB schema target. The CREATE TABLE migration ships with the
+ * install-alloydb skill (OPE4); this module only writes rows.
+ *
+ *   CREATE TABLE embeddings_mirror (
+ *     id         text PRIMARY KEY,
+ *     namespace  text NOT NULL,
+ *     content    text NOT NULL,
+ *     metadata   jsonb NOT NULL DEFAULT '{}'::jsonb,
+ *     created_at timestamptz NOT NULL DEFAULT NOW(),
+ *     updated_at timestamptz
+ *   );
+ */
 const ALLOYDB_TABLE = "embeddings_mirror";
 
-const ALLOYDB_INSERT = `
+const ALLOYDB_UPSERT_SQL = `
   INSERT INTO ${ALLOYDB_TABLE} (id, namespace, content, metadata, created_at)
   VALUES ($1, $2, $3, $4, NOW())
   ON CONFLICT (id) DO UPDATE
@@ -67,13 +80,17 @@ const ALLOYDB_INSERT = `
         updated_at = NOW()
 `;
 
-export function createBridge(opts: BridgeOptions): Bridge {
+function assertOAuthOnlyPosture(): void {
   if (process.env.ANTHROPIC_API_KEY) {
     throw new Error(
       "turbopuffer-alloydb-bridge: ANTHROPIC_API_KEY must not be set " +
         "(OAuth-only posture; this bridge uses Voyage + Turbopuffer + AlloyDB only)",
     );
   }
+}
+
+export function createBridge(opts: BridgeOptions): Bridge {
+  assertOAuthOnlyPosture();
 
   return {
     async upsert(items) {
@@ -96,7 +113,7 @@ export function createBridge(opts: BridgeOptions): Bridge {
       await opts.turbopuffer.upsert({ vectors });
 
       for (const item of items) {
-        await opts.alloydb.query(ALLOYDB_INSERT, [
+        await opts.alloydb.query(ALLOYDB_UPSERT_SQL, [
           item.id,
           opts.namespace,
           item.content,
