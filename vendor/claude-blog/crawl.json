@@ -6,17 +6,34 @@
     {
       "url": "https://www.claude.com/blog",
       "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
+    },
+    {
+      "url": "https://claude.com/blog/category/agents",
+      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
+    },
+    {
+      "url": "https://claude.com/blog/category/enterprise-ai",
+      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
+    },
+    {
+      "url": "https://claude.com/blog/category/claude-code",
+      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
+    },
+    {
+      "url": "https://claude.com/blog/category/announcements",
+      "link_regex": "href=\"(/blog/[a-z0-9-]+)\""
     }
   ],
   "transform": "html-extract",
   "allow_prefixes": [
-    "https://www.claude.com/blog/"
+    "https://www.claude.com/blog/",
+    "https://claude.com/blog/"
   ],
   "deny_prefixes": [
     "https://www.claude.com/blog/feed",
     "https://www.claude.com/blog/rss"
   ],
-  "page_cap": 60,
+  "page_cap": 200,
   "html_extract": {
     "selector": ".u-rich-text-blog:not(.w-condition-invisible)"
   },
