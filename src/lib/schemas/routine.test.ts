@@ -7,7 +7,7 @@
  * can construct create/update bodies with compile-time + runtime
  * confidence instead of free-form objects.
  *
- * @tdd red
+ * @tdd green
  * @cite vendor/anthropics/code.claude.com/docs/en/routines.md
  * @cite src/lib/schemas/crawl-config.test.ts
  */
