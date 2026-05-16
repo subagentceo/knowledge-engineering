@@ -65,9 +65,23 @@ google/alloydbomni:latest
 To start a local container with the right schema:
 
 ```bash
-export ALLOYDB_OMNI_PASSWORD="<strong password>"
+# Generate a 48-char alphanumeric password directly into the env
+# without ever displaying or persisting it:
+export ALLOYDB_OMNI_PASSWORD="$(./plugins/platform-engineering/scripts/gen_secret.sh --length 48 --alphanumeric)"
+
+# Optional: override the port if 5432 is taken by another container
+export ALLOYDB_PORT=5435
+
 ./plugins/platform-engineering/scripts/start_alloydb_local.sh
 ```
+
+The
+[`gen_secret.sh`](../../scripts/gen_secret.sh)
+utility produces URL-safe (base64) or alphanumeric values, refuses
+weak lengths (< 16), defaults to stdout (never a file), and chmods
+600 when `--to-file` is used. It is the only path the agent uses to
+unblock itself on secrets — values stay in the operator's env or
+keychain, never in the agent's shell history.
 
 The helper script:
 - Uses `google/alloydbomni:latest` by default (override via `ALLOYDB_IMAGE`)
