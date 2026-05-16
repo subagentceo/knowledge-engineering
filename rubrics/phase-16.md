@@ -89,13 +89,20 @@ docs; explicitly EXCLUDED in the test.
 
 ### 6. Anthropic first-party (6 entities) — already covered
 
-The 6 first-party Anthropic entities are already mirrored by the
-existing multi-source `vendor/anthropics/crawl.json` (covers
-platform.claude.com, code.claude.com, claude.com/docs) and
-`vendor/anthropic-engineering/`. The remaining 3 (claude.ai,
-support.claude.com, www.anthropic.com) are consumer/marketing surfaces
-that are out of scope for the developer-docs chassis — explicitly
-EXCLUDED in the test.
+The 6 first-party Anthropic entities are mirrored by three vendor
+trees:
+
+- `vendor/anthropics/` — multi-source SDK + platform docs (code.claude.com,
+  platform.claude.com, claude.com/docs).
+- `vendor/claude-sitemap/` — claude.com blog/connectors/customers/plugins/
+  resources/solutions/code-with-claude + the 341 EN articles of
+  support.claude.com (folded in via PR #160, 2026-05-16).
+- `vendor/anthropic-sitemap/` — anthropic.com engineering, news, research,
+  learn, product, features, economic-futures, claude (PR #161, 2026-05-16,
+  replaces the prior `vendor/anthropic-engineering/`).
+
+claude.ai (consumer artifact gallery) remains EXCLUDED in the test as
+out of scope for the developer-docs chassis.
 
 ### 7. Heartbeat state updated
 
