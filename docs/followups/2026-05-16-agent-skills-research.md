@@ -2,7 +2,7 @@
 date: 2026-05-16
 status: research
 owner: agent
-outcome_id: OKWP-FUTURE-2
+outcome_id: OKWPF2
 ---
 
 # Research — Agent Skills ecosystem + proposed architecture for knowledge-work-profiles / knowledge-work-routines

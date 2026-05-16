@@ -2,7 +2,7 @@
 date: 2026-05-16
 status: future-followup
 owner: operator
-outcome_id: OKWP-FUTURE-1
+outcome_id: OKWPF1
 ---
 
 # Future follow-up — AlloyDB Omni + Redis cloud-env bootstrap
