@@ -28,9 +28,9 @@ Cited from:
 | Sub | Status | What |
 |---|---|---|
 | 13.A | ✅ done | conditional GET + content-hash skip-write — merged via PR #52 |
-| 13.B | ✅ done | `vendor/anthropic-engineering/` + sitemap.xml + openfeature/flagship + SDK + color-code (O1-O6) |
-| 13.C | 🟡 follow-up | `vendor/claude-blog/` (4 categories) daily `/schedule` |
-| 13.D | 🟡 follow-up | 4 marketing surfaces (claude-customers / plugins / connectors / tutorials) |
+| 13.B | ✅ done | `vendor/anthropic-engineering/` + sitemap.xml + openfeature/flagship + SDK + color-code (O1-O6) — superseded 2026-05-16 by `vendor/anthropic-sitemap/` (PR #161) |
+| 13.C | ✅ done | `vendor/claude-blog/` 4 categories — superseded 2026-05-16 by `vendor/claude-sitemap/blog/` (PR #160) |
+| 13.D | ✅ done | 4 marketing surfaces — superseded 2026-05-16 by `vendor/claude-sitemap/{customers,plugins,connectors,resources}/` (PR #160) |
 
 ## Criteria
 
@@ -88,13 +88,17 @@ Cited from:
   index URL, and merges them into the URL pool ahead of allowlist
   filtering.
 
-### 9. `vendor/anthropic-engineering/` mirror committed — ✅ 13.B (O1)
+### 9. `vendor/anthropic-engineering/` mirror committed — ✅ 13.B (O1) — superseded 2026-05-16 by `vendor/anthropic-sitemap/`
 
-- `vendor/anthropic-engineering/crawl.json` declares the live HTML
-  index discovery + html-extract transform.
-- `npm run crawl:vendor -- anthropic-engineering` produces ≥10
-  `vendor/anthropic-engineering/www.anthropic.com/engineering/<slug>.md`
-  files; the urls.md index lists every fetched post.
+Original: `vendor/anthropic-engineering/crawl.json` used live HTML index
+discovery + html-extract transform, producing
+`vendor/anthropic-engineering/www.anthropic.com/engineering/<slug>.md`.
+
+Replaced by sitemap.xml-driven `vendor/anthropic-sitemap/` (PR #161)
+which mirrors all anthropic.com content topologies (engineering + news +
+research + learn + product + features + economic-futures + claude)
+under `vendor/anthropic-sitemap/<topology>/<slug>.md`. The 24
+engineering posts are now at `vendor/anthropic-sitemap/engineering/`.
 
 ### 10. Crawler supports `sitemap_xml_sources` discovery — ✅ 13.B (O2)
 

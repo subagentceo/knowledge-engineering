@@ -1,10 +1,75 @@
 ---
-tick: 13
-iso: 2026-05-15T07:00:00Z
-git_sha: pending (this PR)
-session: claude.ai/code/session_9d8f8432-101f-466f-9c31-b1021ea934e7
-trigger: operator-direct ("add all open issues to todo list queue and work through them")
-prev_tick: 12 (PR #93 — session-end wrap; 15 PRs, 8 issues closed)
+tick: 14
+iso: 2026-05-16T05:00:00Z
+git_sha: cd663ef (PR #161 squash) on main
+session: claude-code/2026-05-16-fix-claude-blog-clean-markdown
+trigger: operator-direct ("fix this broken vendor/claude-blog/")
+prev_tick: 13 (2026-05-15 autonomous queue sweep)
+---
+
+# Tick 14 — vendor mirror consolidation (PRs #160, #161 merged)
+
+Operator-driven session that started as a bug fix for one vendor mirror
+and ended up restructuring how this chassis organizes first-party
+Anthropic content surfaces.
+
+## What changed
+
+Two PRs landed on `main` within ~3 minutes:
+
+- **PR #160 — `vendor/claude-sitemap/`** (squash `ace3e25`)
+  Replaces 6 mirrors: `claude-{blog,connectors,customers,plugins,support,tutorials}`.
+  One sitemap.xml-driven crawl, topology layout (`<vendor>/<first-path-segment>/<slug>.md`),
+  per-host transform dispatch (support.claude.com still uses `support-mdfirst`).
+  PDF mirror lane lives at `vendor/claude-sitemap/_pdfs/`.
+  Total: 1579 URLs + 4 PDFs.
+
+- **PR #161 — `vendor/anthropic-sitemap/`** (squash `cd663ef`)
+  Replaces `vendor/anthropic-engineering/` (which only had 25 posts via
+  html-index regex discovery and dumped Next.js site nav into every file
+  because the selector `"article|main"` wasn't valid CSS).
+  Now covers all of anthropic.com (engineering 24 + news 211 + research
+  120 + others ~14). Selector `"article, main"` (proper cheerio
+  comma-list).
+  Total: 369 URLs.
+
+## Why it matters
+
+Before: 6 separate `claude-*` mirrors + 1 `anthropic-engineering/`
+mirror duplicated discovery work, missed topologies the sitemap already
+exposed, and the `anthropic-engineering` selector was broken.
+
+After: 2 consolidated mirrors organized by URL topology. One config to
+maintain per first-party site. New mirror primitives in
+`scripts/lib/url-to-path.ts` (`layout: "topology"`) and per-host
+transform dispatch in `scripts/crawl-vendors.ts` (`makeTransform`) are
+reusable for any future site.
+
+## Reading order for the next Claude
+
+If you're picking up after this tick, read:
+1. `vendor/claude-sitemap/crawl.json` — the new pattern, with
+   `layout: "topology"`, `sitemap_xml_sources`, priority-list selector,
+   `pdf_allow_prefixes`.
+2. `scripts/lib/url-to-path.ts` — the `layout` option (host vs topology).
+3. `scripts/crawl-vendors.ts` `makeTransform` — per-host dispatch for
+   support.claude.com.
+4. `scripts/lib/pdf-mirror.ts` + `.test.ts` — PDF lane (gated by
+   `pdf_allow_prefixes`).
+
+## What `support_search` looks like now
+
+The MCP lane in `src/mcp/lanes/support-claude.ts` reads
+`getVendor("claude-sitemap")` and filters the urlSet to
+`support.claude.com/en/articles/`. 341 articles still searchable, just
+inside the consolidated manifest.
+
+## Stale references cleaned by this tick
+
+The doc-sweep PR after these (PR #162) updates `CLAUDE.md`,
+`rubrics/phase-{13,16,E}.md`, `docs/pending.md`, and this heartbeat
+entry to remove references to the 7 deleted vendor directories.
+
 ---
 
 # Tick 13 — autonomous queue sweep (5 PRs, 5 issues closed, queue truly exhausted)

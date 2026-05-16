@@ -12,9 +12,18 @@ Brings the 341 EN articles of `https://support.claude.com` into the
 chassis as a first-class vendor mirror. The Intercom help-center returns
 `Content-Type: text/markdown` when `.md` is appended to any
 `/en/articles/<id>-<slug>` URL — live-probed at the session-start that
-drove this plan. The new `support-mdfirst` transform automates that
-suffix dance and the sitemap-driven crawl materializes the full set
-under `vendor/claude-support/`.
+drove this plan. The `support-mdfirst` transform automates that
+suffix dance and the sitemap-driven crawl materializes the full set.
+
+> **2026-05-16 consolidation note.** `vendor/claude-support/` was folded
+> into the consolidated `vendor/claude-sitemap/` mirror via PR #160. The
+> 341 articles now live at `vendor/claude-sitemap/support/en/articles/`.
+> The `support-mdfirst` transform survives as a per-host dispatch inside
+> `scripts/crawl-vendors.ts` (`makeTransform`) — when the consolidated
+> mirror crawls a `support.claude.com/en/articles/` URL the dispatch
+> routes through `support-mdfirst` regardless of the vendor's primary
+> `transform` setting. Paths below should be read as
+> `vendor/claude-sitemap/support/` going forward.
 
 Cited from:
 - `seeds/posture/session-start.xml` (.md-first hard rule per host)
@@ -26,23 +35,23 @@ Cited from:
 | Outcome | What |
 | :---: | :--- |
 | **O-E1** | New transform mode `support-mdfirst` in `scripts/lib/transforms.ts` — appends `.md`, sends `Accept: text/markdown`, rejects HTML responses. Test coverage in `transforms.test.ts`. |
-| **O-E2** | `vendor/claude-support/crawl.json` — `sitemap_xml_sources: ["https://support.claude.com/sitemap.xml"]`, `transform: "support-mdfirst"`, `allow_prefixes` restricts to `/en/articles/`, `page_cap: 400`. |
-| **O-E3** | First crawl materialized 341 articles → `vendor/claude-support/support.claude.com/en/articles/<id-slug>.md`. 0 failures. |
-| **O-E4** | `src/mcp/lanes/support-claude.ts` — `support_article` already mirror-first via `mirrorOrFetch`; adds new `support_search` tool that text-matches article titles directly from the mirror manifest with no HTTP round-trip. |
-| **O-E5** | `src/lib/vendor-catalog.test.ts` — removes `anthropic-support` from `EXCLUDED_IDS` (now in scope) and adds `DIR_ALIASES["anthropic_support"] → "claude-support"`. The v2 catalog entity already declared the sitemap URL. |
+| **O-E2** | `vendor/claude-sitemap/crawl.json` includes `https://support.claude.com/sitemap.xml` in `sitemap_xml_sources`, with `allow_prefixes` covering `support.claude.com/en/articles/`. Transform dispatch is per-host in `scripts/crawl-vendors.ts` (not vendor-level). (Originally `vendor/claude-support/crawl.json` with `transform: "support-mdfirst"`.) |
+| **O-E3** | First crawl materialized 341 articles → `vendor/claude-sitemap/support/en/articles/<id-slug>.md`. 0 failures. (Originally `vendor/claude-support/support.claude.com/en/articles/`.) |
+| **O-E4** | `src/mcp/lanes/support-claude.ts` — `support_article` already mirror-first via `mirrorOrFetch`; adds `support_search` tool that text-matches article titles against the `claude-sitemap` manifest filtered by `support.claude.com/` host. No HTTP round-trip. |
+| **O-E5** | `src/lib/vendor-catalog.test.ts` — removes `anthropic-support` from `EXCLUDED_IDS` (now in scope) and adds `DIR_ALIASES["anthropic_support"] → "claude-sitemap"`. The v2 catalog entity already declared the sitemap URL. |
 
 ## Criteria
 
 ### C1. Mirror count matches sitemap discovery
 
 ```bash
-find vendor/claude-support -path '*/en/articles/*.md' | wc -l
+find vendor/claude-sitemap/support -path '*/en/articles/*.md' | wc -l
 ```
 
 Expected: `341`.
 
-Additionally `vendor/claude-support/urls.md` declares `count: 341` in
-its frontmatter.
+`vendor/claude-sitemap/urls.md` lists all support URLs alongside other
+topologies; filter with `grep support.claude.com vendor/claude-sitemap/urls.md | wc -l`.
 
 ### C2. `support-mdfirst` transform passes its unit tests
 
@@ -59,9 +68,11 @@ Expected: 4 passing assertions (URL rewrite happy-path, trailing slash
 npx tsx src/lib/claude-support-mirror.test.ts
 ```
 
-Expected: `6 passed, 0 failed`. Asserts manifest registration, exact
+Expected: `6 passed, 0 failed`. Asserts manifest registration (via
+`getVendor("claude-sitemap")` filtered to support URLs), ≥340 article
 URL count, URL shape regex, every URL → on-disk file, sample article
-body sanity, `crawl.json.transform === "support-mdfirst"`.
+body sanity, `crawl.json` declares `layout: "topology"` and
+`sitemap_xml_sources` includes `support.claude.com`.
 
 ### C4. Catalog reconcile (no orphan vendor dir, no orphan catalog entity)
 
@@ -70,14 +81,14 @@ npx tsx src/lib/vendor-catalog.test.ts
 ```
 
 Expected: 21 passing. The two crucial rows:
-- `vendor/claude-support/crawl.json includes sitemap https://support.claude.com/sitemap.xml`
+- `vendor/claude-sitemap/crawl.json includes sitemap https://support.claude.com/sitemap.xml`
 - `every vendor/<dir>/crawl.json maps to a catalog entity (modulo legacy allow-list)`
 
 ### C5. Lane exposes mirror to the model
 
 `support_search` tool registered in `src/mcp/lanes/support-claude.ts`,
 substring-matches against article titles derived from URL slugs, returns
-hits with `source: "vendor/claude-support/urls.md"`. No live HTTP.
+hits with `source: "vendor/claude-sitemap/urls.md"`. No live HTTP.
 
 ### Verify chain
 

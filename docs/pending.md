@@ -60,9 +60,9 @@ These are issues the heartbeat orchestrator picks up in a future session. Each c
 | Issue | Subject | Depends on |
 |---|---|---|
 | [#45](https://github.com/subagentceo/knowledge-engineering/issues/45) | Phase 13.A — conditional GET (RFC 7232) + content-hash skip-write | none (autonomous; ANCHOR for #46-#48) |
-| [#46](https://github.com/subagentceo/knowledge-engineering/issues/46) | Phase 13.B — `vendor/anthropic-engineering/` + daily `/schedule` | #45 |
-| [#47](https://github.com/subagentceo/knowledge-engineering/issues/47) | Phase 13.C — `vendor/claude-blog/` 4 categories + daily `/schedule` | #45 |
-| [#48](https://github.com/subagentceo/knowledge-engineering/issues/48) | Phase 13.D — 4 marketing surfaces (claude-customers/plugins/connectors/tutorials) | #45 |
+| ✅ #46 | Phase 13.B — anthropic.com mirror | shipped via PR #161 as `vendor/anthropic-sitemap/` (sitemap-driven, 369 URLs, replaces narrower `vendor/anthropic-engineering/`) |
+| ✅ #47 | Phase 13.C — claude.com/blog | shipped via PR #160 as `vendor/claude-sitemap/blog/` (129 posts via sitemap; replaces 4-category html-index discovery) |
+| ✅ #48 | Phase 13.D — 4 marketing surfaces | shipped via PR #160 as `vendor/claude-sitemap/{customers,plugins,connectors,resources}/` (folded into consolidated mirror) |
 
 ### Phase 14 (docs refresh + RUNBOOK.md)
 
