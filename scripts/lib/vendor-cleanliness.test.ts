@@ -85,6 +85,11 @@ const EXCEPTIONS: Record<string, VendorException> = {
     reason:
       "AWS docs serve .md endpoints that frequently begin with a warning callout or product-status banner before the H1. Vendor-canonical formatting.",
   },
+  "wellarchitected-github": {
+    skipHeadline: true,
+    reason:
+      "wellarchitected.github.com renders a 'Content Library' breadcrumb link or GitHub-mark image before the H1 inside <article>/<main>. The H1 follows. Vendor-canonical Hugo theme formatting.",
+  },
   "claude-sitemap": {
     skipHeadline: true,
     allowedSubstrings: ["<script"],

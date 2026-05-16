@@ -1,0 +1,17 @@
+{
+  "name": "wellarchitected-github",
+  "homepage": "https://wellarchitected.github.com",
+  "llms_txt_candidates": [],
+  "sitemap_xml_sources": [
+    "https://wellarchitected.github.com/sitemap.xml"
+  ],
+  "transform": "html-extract",
+  "allow_prefixes": [
+    "https://wellarchitected.github.com/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 100,
+  "html_extract": {
+    "selector": "article, main"
+  }
+}
