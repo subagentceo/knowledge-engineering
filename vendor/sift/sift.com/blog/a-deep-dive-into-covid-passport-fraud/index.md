@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-deep-dive-into-covid-passport-fraud%2F&title=A%20Deep%20Dive%20into%20COVID%20Passport%20Fraud)
 -   [](https://twitter.com/intent/tweet?text=A%20Deep%20Dive%20into%20COVID%20Passport%20Fraud&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-deep-dive-into-covid-passport-fraud%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fa-deep-dive-into-covid-passport-fraud%2F&picture=&title=A%20Deep%20Dive%20into%20COVID%20Passport%20Fraud)
--   [](/cdn-cgi/l/email-protection#88b7fbfdeae2edebfcb5c9adbab8ccededf8adbab8cce1feedadbab8e1e6fce7adbab8cbc7dec1ccadbab8d8e9fbfbf8e7fafcadbab8cefae9fdecaeabb8bbb0b3eae7ecf1b5e0fcfcf8fbadbbc9adbaceadbacefbe1eefca6ebe7e5adbaceeae4e7efadbacee9a5ecededf8a5ece1feeda5e1e6fce7a5ebe7fee1eca5f8e9fbfbf8e7fafca5eefae9fdecadbace)
+-   [](/cdn-cgi/l/email-protection#16296563747c7375622b5733242652737366332426527f60733324267f7862793324265559405f5233242646776565667964623324265064776372303526252e2d7479726f2b7e62626665332557332450332450657f70623875797b332450747a7971332450773b727373663b727f60733b7f7862793b7579607f723b66776565667964623b7064776372332450)
 
 -   [Digital Trust](https://sift.com/blog/category/digital-trust/)
 -   [Fraud](https://sift.com/blog/category/fraud/)
@@ -87,7 +87,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-deep-dive-into-covid-passport-fraud%2F&title=A%20Deep%20Dive%20into%20COVID%20Passport%20Fraud)
 -   [](https://twitter.com/intent/tweet?text=A%20Deep%20Dive%20into%20COVID%20Passport%20Fraud&url=https%3A%2F%2Fsift.com%2Fblog%2Fa-deep-dive-into-covid-passport-fraud%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fa-deep-dive-into-covid-passport-fraud%2F&picture=&title=A%20Deep%20Dive%20into%20COVID%20Passport%20Fraud)
--   [](/cdn-cgi/l/email-protection#efd09c9a8d858a8c9bd2aecadddfab8a8a9fcadddfab86998acadddf86819b80cadddfaca0b9a6abcadddfbf8e9c9c9f809d9bcadddfa99d8e9a8bc9ccdfdcd7d48d808b96d2879b9b9f9ccadcaecadda9cadda99c86899bc18c8082cadda98d838088cadda98ec28b8a8a9fc28b86998ac286819b80c28c8099868bc29f8e9c9c9f809d9bc2899d8e9a8bcadda9)
+-   [](/cdn-cgi/l/email-protection#152a6660777f707661285430272551707065302725517c63703027257c7b617a302725565a435c5130272545746666657a67613027255367746071333625262d2e777a716c287d61616566302654302753302753667c73613b767a7830275377797a7230275374387170706538717c6370387c7b617a38767a637c713865746666657a6761387367746071302753)
 
 ## You may also like
 

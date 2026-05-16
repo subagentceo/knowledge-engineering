@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Feu%2F3d-secure-authentication-how-it-protects-online-payments%2F&title=3D%20Secure%20Authentication%3A%20How%20It%20Protects%20Online%20Payments)
 -   [](https://twitter.com/intent/tweet?text=3D%20Secure%20Authentication%3A%20How%20It%20Protects%20Online%20Payments&url=https%3A%2F%2Fsift.com%2Fblog%2Feu%2F3d-secure-authentication-how-it-protects-online-payments%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Feu%2F3d-secure-authentication-how-it-protects-online-payments%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2025%2F02%2FQ4_Blog-_-How-to-Stop-Payment-Fraud.jpg&title=3D%20Secure%20Authentication%3A%20How%20It%20Protects%20Online%20Payments)
--   [](/cdn-cgi/l/email-protection#5f602c2a3d353a3c2b626c1b7a6d6f0c3a3c2a2d3a7a6d6f1e2a2b373a312b363c3e2b3630317a6c1e7a6d6f1730287a6d6f162b7a6d6f0f2d302b3a3c2b2c7a6d6f10313336313a7a6d6f0f3e26323a312b2c797c6f6c67643d303b2662372b2b2f2c7a6c1e7a6d197a6d192c36392b713c30327a6d193d3330387a6d193a2a7a6d196c3b722c3a3c2a2d3a723e2a2b373a312b363c3e2b3630317237302872362b722f2d302b3a3c2b2c7230313336313a722f3e26323a312b2c7a6d19)
+-   [](/cdn-cgi/l/email-protection#5b64282e39313e382f66681f7e696b083e382e293e7e696b1a2e2f333e352f32383a2f3234357e681a7e696b13342c7e696b122f7e696b0b29342f3e382f287e696b14353732353e7e696b0b3a22363e352f287d786b68636039343f2266332f2f2b287e681a7e691d7e691d28323d2f753834367e691d3937343c7e691d3e2e7e691d683f76283e382e293e763a2e2f333e352f32383a2f3234357633342c76322f762b29342f3e382f287634353732353e762b3a22363e352f287e691d)
 
 -   [Payment Fraud](https://sift.com/blog/category/payment-fraud/)
 
@@ -193,7 +193,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Feu%2F3d-secure-authentication-how-it-protects-online-payments%2F&title=3D%20Secure%20Authentication%3A%20How%20It%20Protects%20Online%20Payments)
 -   [](https://twitter.com/intent/tweet?text=3D%20Secure%20Authentication%3A%20How%20It%20Protects%20Online%20Payments&url=https%3A%2F%2Fsift.com%2Fblog%2Feu%2F3d-secure-authentication-how-it-protects-online-payments%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Feu%2F3d-secure-authentication-how-it-protects-online-payments%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2025%2F02%2FQ4_Blog-_-How-to-Stop-Payment-Fraud.jpg&title=3D%20Secure%20Authentication%3A%20How%20It%20Protects%20Online%20Payments)
--   [](/cdn-cgi/l/email-protection#88b7fbfdeae2edebfcb5bbccadbab8dbedebfdfaedadbab8c9fdfce0ede6fce1ebe9fce1e7e6adbbc9adbab8c0e7ffadbab8c1fcadbab8d8fae7fcedebfcfbadbab8c7e6e4e1e6edadbab8d8e9f1e5ede6fcfbaeabb8bbb0b3eae7ecf1b5e0fcfcf8fbadbbc9adbaceadbacefbe1eefca6ebe7e5adbaceeae4e7efadbaceedfdadbacebbeca5fbedebfdfaeda5e9fdfce0ede6fce1ebe9fce1e7e6a5e0e7ffa5e1fca5f8fae7fcedebfcfba5e7e6e4e1e6eda5f8e9f1e5ede6fcfbadbace)
+-   [](/cdn-cgi/l/email-protection#27185452454d4244531a14630215177442445255420215176652534f4249534e4446534e48490214660215176f48500215176e53021517775548534244535402151768494b4e494202151777465e4a42495354010417141f1c4548435e1a4f53535754021466021561021561544e41530944484a021561454b4840021561425202156114430a5442445255420a4652534f4249534e4446534e48490a4f48500a4e530a57554853424453540a48494b4e49420a57465e4a42495354021561)
 
 ## You may also like
 

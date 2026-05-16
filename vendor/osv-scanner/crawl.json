@@ -17,6 +17,6 @@
   ],
   "page_cap": 50,
   "html_extract": {
-    "selector": "main"
+    "selector": "[class*=\"content\"], main, article"
   }
 }

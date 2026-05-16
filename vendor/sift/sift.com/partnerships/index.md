@@ -348,5 +348,3 @@ return to homepage
 ## Want to Learn More About Sift's Partner Program?
 
 [CONNECT WITH US](https://sift.partner-experience.com/partner/registration)
-
-.marketo-form-box div.mktoFormRow:nth-of-type(7) .mktoRadioList { row-gap: 10px; } .marketo-form-box div.mktoFormRow:nth-of-type(7) .mktoRadioList.mktoHasWidth label { margin: 0px 14px !important; }

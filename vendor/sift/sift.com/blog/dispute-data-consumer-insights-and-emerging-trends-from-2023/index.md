@@ -27,7 +27,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fdispute-data-consumer-insights-and-emerging-trends-from-2023%2F&title=2023%20Dispute%20data%2C%20consumer%20insights%2C%20and%20trends)
 -   [](https://twitter.com/intent/tweet?text=2023%20Dispute%20data%2C%20consumer%20insights%2C%20and%20trends&url=https%3A%2F%2Fsift.com%2Fblog%2Fdispute-data-consumer-insights-and-emerging-trends-from-2023%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fdispute-data-consumer-insights-and-emerging-trends-from-2023%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FSift_Q4-Index-Report_OG-Card_1200x630.jpg&title=2023%20Dispute%20data%2C%20consumer%20insights%2C%20and%20trends)
--   [](/cdn-cgi/l/email-protection#5a65292f38303f392e67686a68697f686a1e33292a2f2e3f7f686a3e3b2e3b7f68197f686a393534292f373f287f686a333429333d322e297f68197f686a3b343e7f686a2e283f343e297c796a69626138353e2367322e2e2a297f691b7f681c7f681c29333c2e743935377f681c3836353d7f681c3e33292a2f2e3f773e3b2e3b77393534292f373f2877333429333d322e29773b343e773f373f283d33343d772e283f343e29773c28353777686a68697f681c)
+-   [](/cdn-cgi/l/email-protection#053a7670676f6066713837353736203735416c767570716020373561647164203746203735666a6b76706860772037356c6b766c626d7176203746203735646b612037357177606b6176232635363d3e676a617c386d71717576203644203743203743766c63712b666a6820374367696a62203743616c7675707160286164716428666a6b7670686077286c6b766c626d717628646b612860686077626c6b62287177606b61762863776a682837353736203743)
 
 -   [Chargebacks](https://sift.com/blog/category/chargebacks/)
 -   [Data & Insights](https://sift.com/blog/category/data-insights/)
@@ -75,7 +75,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fdispute-data-consumer-insights-and-emerging-trends-from-2023%2F&title=2023%20Dispute%20data%2C%20consumer%20insights%2C%20and%20trends)
 -   [](https://twitter.com/intent/tweet?text=2023%20Dispute%20data%2C%20consumer%20insights%2C%20and%20trends&url=https%3A%2F%2Fsift.com%2Fblog%2Fdispute-data-consumer-insights-and-emerging-trends-from-2023%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fdispute-data-consumer-insights-and-emerging-trends-from-2023%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FSift_Q4-Index-Report_OG-Card_1200x630.jpg&title=2023%20Dispute%20data%2C%20consumer%20insights%2C%20and%20trends)
--   [](/cdn-cgi/l/email-protection#2b14585e49414e485f16191b19180e191b6f42585b5e5f4e0e191b4f4a5f4a0e19680e191b484445585e464e590e191b424558424c435f580e19680e191b4a454f0e191b5f594e454f580d081b18131049444f5216435f5f5b580e186a0e196d0e196d58424d5f054844460e196d4947444c0e196d4f42585b5e5f4e064f4a5f4a06484445585e464e5906424558424c435f58064a454f064e464e594c42454c065f594e454f58064d59444606191b19180e196d)
+-   [](/cdn-cgi/l/email-protection#29165a5c4b434c4a5d141b191b1a0c1b196d405a595c5d4c0c1b194d485d480c1b6a0c1b194a46475a5c444c5b0c1b1940475a404e415d5a0c1b6a0c1b1948474d0c1b195d5b4c474d5a0f0a191a11124b464d5014415d5d595a0c1a680c1b6f0c1b6f5a404f5d074a46440c1b6f4b45464e0c1b6f4d405a595c5d4c044d485d48044a46475a5c444c5b0440475a404e415d5a0448474d044c444c5b4e40474e045d5b4c474d5a044f5b4644041b191b1a0c1b6f)
 
 ## You may also like
 

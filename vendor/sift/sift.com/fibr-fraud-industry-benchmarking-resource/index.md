@@ -248,8 +248,6 @@ Overall 2FA rate
 
 Industry or geo-specific fraudulent 2FA rate
 
-.ato\_hide { display: none !important; }
-
 \* The data highlighted on this page is derived from Sift’s global data network of one trillion (1T) annual events. The output provided on this webpage and your use of it are subject to the [FIBR Terms of Use](/legal-and-compliance/fibr-terms-of-use).
 
 Access All Insights
@@ -263,5 +261,3 @@ Thank you, we will be in contact soon.
 Stop treating fraud like a cost of doing business. Protect more of your revenue, accept more trusted customers, and scale with confidence using Sift’s fraud prevention platform.
 
 [see sift in action](/demo/)
-
-.fibre-gated-form-box { background: linear-gradient(to bottom, #00000008 20%, #ffffffc4 64%); } .fibre-gated-form-box.brxe-div { width: 100%; position: absolute; top: 0px; height: 100%; z-index: 99; } .fibre-gated-form-box.hidden { display: none; }

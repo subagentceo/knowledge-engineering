@@ -304,5 +304,3 @@ Read the Report
 Flip the switch on fraud-fueled fear. Make risk work for your business and scale securely into new markets with Sift’s AI-powered platform.
 
 [Request a Demo](#demo)
-
-  .customer-reviews-slider .swiper-wrapper { align-items: stretch; } .customer-reviews-slider .swiper-slide { height: auto !important; display: flex; } .customer-reviews-slider-item { height: 100%; } .summit-float-nav\_\_nav-link.is-active:after { opacity: 1; } .mktoForm .mktoButtonWrap.mktoSimple .mktoButton { width: auto !important; }

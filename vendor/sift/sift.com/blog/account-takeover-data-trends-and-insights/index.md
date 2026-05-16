@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F&title=Account%20takeover%20data%2C%20trends%2C%20and%20insights)
 -   [](https://twitter.com/intent/tweet?text=Account%20takeover%20data%2C%20trends%2C%20and%20insights&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FQ3-2022-Digital-Trust-Safety-Index_BLOG_PPThumbnail-cover-Image-1454x1044-1.jpg&title=Account%20takeover%20data%2C%20trends%2C%20and%20insights)
--   [](/cdn-cgi/l/email-protection#66591513040c0305125b2705050913081243545612070d0309100314435456020712074354254354561214030802154354254354560708024354560f08150f010e1215404556555e5d0409021f5b0e12121615435527435420435420150f00124805090b435420040a0901435420070505091308124b12070d03091003144b020712074b1214030802154b0708024b0f08150f010e1215435420)
+-   [](/cdn-cgi/l/email-protection#a39cd0d6c1c9c6c0d79ee2c0c0ccd6cdd7869193d7c2c8c6ccd5c6d1869193c7c2d7c28691e0869193d7d1c6cdc7d08691e0869193c2cdc7869193cacdd0cac4cbd7d0858093909b98c1ccc7da9ecbd7d7d3d08690e28691e58691e5d0cac5d78dc0ccce8691e5c1cfccc48691e5c2c0c0ccd6cdd78ed7c2c8c6ccd5c6d18ec7c2d7c28ed7d1c6cdc7d08ec2cdc78ecacdd0cac4cbd7d08691e5)
 
 -   [Account Takeover](https://sift.com/blog/category/ato/)
 -   [Data & Insights](https://sift.com/blog/category/data-insights/)
@@ -65,7 +65,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F&title=Account%20takeover%20data%2C%20trends%2C%20and%20insights)
 -   [](https://twitter.com/intent/tweet?text=Account%20takeover%20data%2C%20trends%2C%20and%20insights&url=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Faccount-takeover-data-trends-and-insights%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FQ3-2022-Digital-Trust-Safety-Index_BLOG_PPThumbnail-cover-Image-1454x1044-1.jpg&title=Account%20takeover%20data%2C%20trends%2C%20and%20insights)
--   [](/cdn-cgi/l/email-protection#340b4741565e515740097557575b415a4011060440555f515b425146110604505540551106771106044046515a5047110677110604555a501106045d5a475d535c4047121704070c0f565b504d095c40404447110775110672110672475d52401a575b5911067256585b531106725557575b415a401940555f515b4251461950554055194046515a504719555a50195d5a475d535c4047110672)
+-   [](/cdn-cgi/l/email-protection#ab94d8dec9c1cec8df96eac8c8c4dec5df8e999bdfcac0cec4ddced98e999bcfcadfca8e99e88e999bdfd9cec5cfd88e99e88e999bcac5cf8e999bc2c5d8c2ccc3dfd88d889b989390c9c4cfd296c3dfdfdbd88e98ea8e99ed8e99edd8c2cddf85c8c4c68e99edc9c7c4cc8e99edcac8c8c4dec5df86dfcac0cec4ddced986cfcadfca86dfd9cec5cfd886cac5cf86c2c5d8c2ccc3dfd88e99ed)
 
 ## You may also like
 

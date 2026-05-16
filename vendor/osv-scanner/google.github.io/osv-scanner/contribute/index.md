@@ -7,3 +7,7 @@ If you have what looks like a bug, please use the [GitHub issue tracking system]
 ## [](#contributing-to-osv-scanner)Contributing to `osv-scanner`
 
 See [CONTRIBUTING.md](https://github.com/google/osv-scanner/blob/main/CONTRIBUTING.md) for general contribution information and for details on how to contribute [code](https://github.com/google/osv-scanner/blob/main/CONTRIBUTING.md/#contributing-code) and [documentation](https://github.com/google/osv-scanner/blob/main/CONTRIBUTING.md/#contributing-documentation).
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

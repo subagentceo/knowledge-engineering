@@ -97,3 +97,7 @@ slsa-verifier verify-artifact ./osv-scanner_1.2.0_linux_amd64 --provenance-path 
 ## [](#semver-adherence)SemVer Adherence
 
 All releases on the same Major version will be guaranteed to have backward compatible JSON output and CLI arguments. However, features prefixed with `experimental` (e.g. `--experimental-call-analysis`) might be changed or removed with only a Minor version change.
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

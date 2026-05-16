@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Ffraudsters-machine-learning-phishing-brett-johnson%2F&title=3%20Tactics%20Fraudsters%20Have%20Learned%20from%20Fraud%20Fighters)
 -   [](https://twitter.com/intent/tweet?text=3%20Tactics%20Fraudsters%20Have%20Learned%20from%20Fraud%20Fighters&url=https%3A%2F%2Fsift.com%2Fblog%2Ffraudsters-machine-learning-phishing-brett-johnson%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Ffraudsters-machine-learning-phishing-brett-johnson%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FScreen-Shot-2018-07-23-at-2.31.23-PM.png&title=3%20Tactics%20Fraudsters%20Have%20Learned%20from%20Fraud%20Fighters)
--   [](/cdn-cgi/l/email-protection#f2cd81879098979186cfc1d7c0c2a69391869b9181d7c0c2b4809387968186978081d7c0c2ba938497d7c0c2be9793809c9796d7c0c294809d9fd7c0c2b480938796d7c0c2b49b959a86978081d4d1c2c1cac9909d968bcf9a86868281d7c1b3d7c0b4d7c0b4819b9486dc919d9fd7c0b4909e9d95d7c0b494809387968186978081df9f93919a9b9c97df9e9793809c9b9c95df829a9b819a9b9c95df9080978686df989d9a9c819d9cd7c0b4)
+-   [](/cdn-cgi/l/email-protection#a49bd7d1c6cec1c7d09997819694f0c5c7d0cdc7d7819694e2d6c5d1c0d7d0c1d6d7819694ecc5d2c1819694e8c1c5d6cac1c0819694c2d6cbc9819694e2d6c5d1c0819694e2cdc3ccd0c1d6d7828794979c9fc6cbc0dd99ccd0d0d4d78197e58196e28196e2d7cdc2d08ac7cbc98196e2c6c8cbc38196e2c2d6c5d1c0d7d0c1d6d789c9c5c7cccdcac189c8c1c5d6cacdcac389d4cccdd7cccdcac389c6d6c1d0d089cecbcccad7cbca8196e2)
 
 -   [Fraud](https://sift.com/blog/category/fraud/)
 
@@ -86,7 +86,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Ffraudsters-machine-learning-phishing-brett-johnson%2F&title=3%20Tactics%20Fraudsters%20Have%20Learned%20from%20Fraud%20Fighters)
 -   [](https://twitter.com/intent/tweet?text=3%20Tactics%20Fraudsters%20Have%20Learned%20from%20Fraud%20Fighters&url=https%3A%2F%2Fsift.com%2Fblog%2Ffraudsters-machine-learning-phishing-brett-johnson%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Ffraudsters-machine-learning-phishing-brett-johnson%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FScreen-Shot-2018-07-23-at-2.31.23-PM.png&title=3%20Tactics%20Fraudsters%20Have%20Learned%20from%20Fraud%20Fighters)
--   [](/cdn-cgi/l/email-protection#a49bd7d1c6cec1c7d09997819694f0c5c7d0cdc7d7819694e2d6c5d1c0d7d0c1d6d7819694ecc5d2c1819694e8c1c5d6cac1c0819694c2d6cbc9819694e2d6c5d1c0819694e2cdc3ccd0c1d6d7828794979c9fc6cbc0dd99ccd0d0d4d78197e58196e28196e2d7cdc2d08ac7cbc98196e2c6c8cbc38196e2c2d6c5d1c0d7d0c1d6d789c9c5c7cccdcac189c8c1c5d6cacdcac389d4cccdd7cccdcac389c6d6c1d0d089cecbcccad7cbca8196e2)
+-   [](/cdn-cgi/l/email-protection#f0cf8385929a959384cdc3d5c2c0a4919384999383d5c2c0b6829185948384958283d5c2c0b8918695d5c2c0bc9591829e9594d5c2c096829f9dd5c2c0b682918594d5c2c0b699979884958283d6d3c0c3c8cb929f9489cd9884848083d5c3b1d5c2b6d5c2b683999684de939f9dd5c2b6929c9f97d5c2b696829185948384958283dd9d919398999e95dd9c9591829e999e97dd8098998398999e97dd9282958484dd9a9f989e839f9ed5c2b6)
 
 ## You may also like
 

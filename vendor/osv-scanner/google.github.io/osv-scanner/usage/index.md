@@ -248,3 +248,7 @@ docker run -v ${PWD}:/src ghcr.io/google/osv-scanner -L /src/go.mod
 -   [Project Source Scanning](/osv-scanner/usage/scan-source)
 -   [License Scanning](/osv-scanner/usage/license-scanning/)
 -   [Offline Mode](/osv-scanner/usage/offline-mode/)
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

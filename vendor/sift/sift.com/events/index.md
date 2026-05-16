@@ -145,7 +145,17 @@ Clear Selection
 
 [
 
-Webinar.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+Webinar
+
+### How to Benchmark Fraud Performance and Find Hidden Gaps
+
+Watch Webinar
+
+
+
+](https://sift.com/resources/webinars/how-to-benchmark-fraud-performance-and-find-hidden-gaps/)[
+
+Webinar
 
 ### The New Era of Payment Fraud and ATO: Benchmarks, Trends, and Insights
 
@@ -155,7 +165,7 @@ Watch Webinar
 
 ](https://sift.com/resources/webinars/the-new-era-of-payment-fraud-and-ato-benchmarks-trends-and-insights/)[
 
-Webinar.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+Webinar
 
 ### How to Build and Scale a Modern Fraud Organization
 
@@ -163,17 +173,7 @@ Watch Now
 
 
 
-](https://sift.com/resources/webinars/how-to-build-and-scale-a-modern-fraud-organization/)[
-
-Webinar.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
-
-### Responsible Gambling Reinvented: Protect Players and Margins Together
-
-Watch Now
-
-
-
-](https://sift.com/resources/webinars/responsible-gambling-reinvented/)[](#)
+](https://sift.com/resources/webinars/how-to-build-and-scale-a-modern-fraud-organization/)[](#)
 
 ## Dare to grow differently.
 

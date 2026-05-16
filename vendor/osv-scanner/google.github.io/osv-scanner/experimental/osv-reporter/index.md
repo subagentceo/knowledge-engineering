@@ -1,3 +1,6 @@
+1.  [Experimental Features](/osv-scanner/experimental/)
+2.  OSV-Reporter
+
 # [](#osv-reporter)OSV-Reporter
 
 Experimental
@@ -28,3 +31,7 @@ Currently you can install it from source via `go install`:
 $ go install github.com/google/osv-scanner/v2/cmd/osv-reporter@latest
 # Or @main for the latest commit
 ```
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

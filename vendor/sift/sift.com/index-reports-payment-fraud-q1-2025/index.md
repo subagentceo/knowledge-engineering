@@ -122,8 +122,6 @@ Leveraging the [Sift AI-powered platform](/platform/), businesses can enhance co
 
 \*On behalf of Sift, Researchscape International polled 1,075 adults (aged 18+) across the United States via online survey from January-February 2025.
 
-body.cm-body-fixed { overflow: hidden; } .gated-block-blur:after { content: ""; position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 99; background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 26%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.5) 80%); } .gated-block-blur>section img { opacity: 0.2; } .gated-pop\_body { display: none; position: absolute; top: 30px; left: 0; right: 0; bottom: 0; -webkit-transition: 300ms; -moz-transition: 300ms; -o-transition: 300ms; -ms-transition: 300ms; transition: 300ms; z-index: 99999999; } .gated-pop\_body\_show { display: block; -webkit-transition: 300ms; -moz-transition: 300ms; -o-transition: 300ms; -ms-transition: 300ms; transition: 300ms; } .gated-pop\_back { background: rgb(0 0 0 / 60%); position: fixed; left: 0; right: 0; top: 0; bottom: 0; } .gated-pop\_contain { position: relative; max-width: 650px; margin: var(--space-l) auto var(--space-l); min-height: auto; } .gated-pop\_close { align-items: center; background: #fff; border-radius: 100px; color: #fff; display: flex; font-size: 16px; height: 28px; justify-content: center; line-height: 16px; padding: 0; position: absolute; right: -10px; top: -10px; vertical-align: middle; width: 28px; cursor: pointer; } .gated-button { cursor: pointer; }
-
 ## Discover more from Sift
 
 [view all resources](/resources/)

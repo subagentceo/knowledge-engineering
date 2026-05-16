@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F2020-e-commerce-fraud-data-digital-trust-safety-index-recap%2F&title=2020%20E-commerce%20Fraud%20Data%3A%20Digital%20Trust%20%26%20Safety%20Index%20recap)
 -   [](https://twitter.com/intent/tweet?text=2020%20E-commerce%20Fraud%20Data%3A%20Digital%20Trust%20%26%20Safety%20Index%20recap&url=https%3A%2F%2Fsift.com%2Fblog%2F2020-e-commerce-fraud-data-digital-trust-safety-index-recap%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F2020-e-commerce-fraud-data-digital-trust-safety-index-recap%2F&picture=&title=2020%20E-commerce%20Fraud%20Data%3A%20Digital%20Trust%20%26%20Safety%20Index%20recap)
--   [](/cdn-cgi/l/email-protection#9fa0eceafdf5fafceba2adafadafbaadafdab2fcf0f2f2faedfcfabaadafd9edfeeafbbaadafdbfeebfebaacdebaadafdbf6f8f6ebfef3baadafcbedeaecebbaadafbaada9baadafccfef9faebe6baadafd6f1fbfae7baadafedfafcfeefb9bcafaca7a4fdf0fbe6a2f7ebebefecbaacdebaadd9baadd9ecf6f9ebb1fcf0f2baadd9fdf3f0f8baadd9adafadafb2fab2fcf0f2f2faedfcfab2f9edfeeafbb2fbfeebfeb2fbf6f8f6ebfef3b2ebedeaecebb2ecfef9faebe6b2f6f1fbfae7b2edfafcfeefbaadd9)
+-   [](/cdn-cgi/l/email-protection#734c000611191610074e41434143564143365e101c1e1e16011016564143350112061756414337120712564032564143371a141a07121f564143270106000756414356414556414320121516070a5641433a1d17160b5641430116101203555043404b48111c170a4e1b07070300564032564135564135001a15075d101c1e564135111f1c14564135414341435e165e101c1e1e160110165e15011206175e171207125e171a141a07121f5e07010600075e00121516070a5e1a1d17160b5e0116101203564135)
 
 -   [Account Takeover](https://sift.com/blog/category/ato/)
 -   [Content Fraud](https://sift.com/blog/category/content-fraud/)
@@ -107,7 +107,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2F2020-e-commerce-fraud-data-digital-trust-safety-index-recap%2F&title=2020%20E-commerce%20Fraud%20Data%3A%20Digital%20Trust%20%26%20Safety%20Index%20recap)
 -   [](https://twitter.com/intent/tweet?text=2020%20E-commerce%20Fraud%20Data%3A%20Digital%20Trust%20%26%20Safety%20Index%20recap&url=https%3A%2F%2Fsift.com%2Fblog%2F2020-e-commerce-fraud-data-digital-trust-safety-index-recap%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2F2020-e-commerce-fraud-data-digital-trust-safety-index-recap%2F&picture=&title=2020%20E-commerce%20Fraud%20Data%3A%20Digital%20Trust%20%26%20Safety%20Index%20recap)
--   [](/cdn-cgi/l/email-protection#9fa0eceafdf5fafceba2adafadafbaadafdab2fcf0f2f2faedfcfabaadafd9edfeeafbbaadafdbfeebfebaacdebaadafdbf6f8f6ebfef3baadafcbedeaecebbaadafbaada9baadafccfef9faebe6baadafd6f1fbfae7baadafedfafcfeefb9bcafaca7a4fdf0fbe6a2f7ebebefecbaacdebaadd9baadd9ecf6f9ebb1fcf0f2baadd9fdf3f0f8baadd9adafadafb2fab2fcf0f2f2faedfcfab2f9edfeeafbb2fbfeebfeb2fbf6f8f6ebfef3b2ebedeaecebb2ecfef9faebe6b2f6f1fbfae7b2edfafcfeefbaadd9)
+-   [](/cdn-cgi/l/email-protection#4c733f392e26292f38717e7c7e7c697e7c09612f232121293e2f29697e7c0a3e2d3928697e7c082d382d697f0d697e7c08252b25382d20697e7c183e393f38697e7c697e7a697e7c1f2d2a293835697e7c0522282934697e7c3e292f2d3c6a6f7c7f74772e232835712438383c3f697f0d697e0a697e0a3f252a38622f2321697e0a2e20232b697e0a7e7c7e7c6129612f232121293e2f29612a3e2d392861282d382d6128252b25382d2061383e393f38613f2d2a293835612522282934613e292f2d3c697e0a)
 
 ## You may also like
 

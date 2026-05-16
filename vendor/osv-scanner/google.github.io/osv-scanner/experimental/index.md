@@ -12,3 +12,7 @@ Features and flags with the `experimental` prefix might change or be removed wit
 -   [OSV-Reporter](/osv-scanner/experimental/osv-reporter/)
 -   [Flag Deprecated Packages](/osv-scanner/experimental/flag-deprecated-packages/)
 -   [Manual OSV-Scalibr Plugin Selection](/osv-scanner/experimental/manual-plugin-selection/)
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

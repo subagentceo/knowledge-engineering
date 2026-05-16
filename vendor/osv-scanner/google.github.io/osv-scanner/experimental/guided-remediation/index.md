@@ -1,3 +1,6 @@
+1.  [Experimental Features](/osv-scanner/experimental/)
+2.  Guided Remediation
+
 # [](#guided-remediation)Guided Remediation
 
 Experimental
@@ -804,3 +807,7 @@ Remediation in npm `workspaces` is only partially supported:
 -   [#1238](https://github.com/google/osv-scanner/issues/1238) Dependencies that use properties in their `groupId`/`artifactId` may not be updated correctly.
 -   [#1239](https://github.com/google/osv-scanner/issues/1239) Support for profiles is limited.
 -   Encrypted values in `settings.xml` files are not supported.
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

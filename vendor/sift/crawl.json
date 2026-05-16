@@ -18,7 +18,7 @@
   ],
   "page_cap": 100,
   "html_extract": {
-    "selector": "main"
+    "selector": "main, article, [class*=\"content\"]"
   },
   "llms_txt": "https://sift.com/llms.txt"
 }

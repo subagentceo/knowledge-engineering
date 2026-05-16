@@ -1,3 +1,6 @@
+1.  [Usage](/osv-scanner/usage/)
+2.  Project Source Scanning
+
 # [](#project-source-scanning)Project Source Scanning
 
 OSV-Scanner can be used to scan your project source and lockfiles to find vulnerabilities in your dependencies.
@@ -166,3 +169,7 @@ Current implementation has a few limitations:
 ```
 osv-scanner scan source --call-analysis=rust --no-call-analysis=go ./my/project/path
 ```
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

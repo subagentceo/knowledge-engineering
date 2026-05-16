@@ -1,3 +1,6 @@
+1.  [Usage](/osv-scanner/usage/)
+2.  Container Image Scanning
+
 # [](#container-image-scanning)Container Image Scanning
 
 Table of contents
@@ -129,3 +132,7 @@ See the [Output documentation](/osv-scanner/output/) for more information on out
 **Sample HTML Output**:
 
 ![Screenshot of HTML output for container image scanning](/osv-scanner/images/html-container-output.png)
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

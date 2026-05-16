@@ -70,7 +70,17 @@ Clear Selection
 
 [
 
-Webinar.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+Webinar
+
+### How to Benchmark Fraud Performance and Find Hidden Gaps
+
+Watch Webinar
+
+
+
+](https://sift.com/resources/webinars/how-to-benchmark-fraud-performance-and-find-hidden-gaps/)[
+
+Webinar
 
 ### The New Era of Payment Fraud and ATO: Benchmarks, Trends, and Insights
 
@@ -80,7 +90,7 @@ Watch Webinar
 
 ](https://sift.com/resources/webinars/the-new-era-of-payment-fraud-and-ato-benchmarks-trends-and-insights/)[
 
-Index Report.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+Index Report
 
 ### Q1 2026 Digital Trust Index
 
@@ -90,7 +100,7 @@ Read More
 
 ](https://sift.com/resources/index-reports/q1-2026-digital-trust-index/)[
 
-Webinar.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+Webinar
 
 ### How to Build and Scale a Modern Fraud Organization
 
@@ -100,7 +110,7 @@ Watch Now
 
 ](https://sift.com/resources/webinars/how-to-build-and-scale-a-modern-fraud-organization/)[
 
-Onepager.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+Onepager
 
 ### DevCode Identity + Sift for iGaming: Real-Time Player Risk Intelligence
 
@@ -110,7 +120,7 @@ Read More
 
 ](https://sift.com/resources/onepagers/devcode-sift-for-igaming/)[
 
-ebook.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+ebook
 
 ### Sift Ranked #1 in Fraud Detection | G2 Grid® Spring 2026
 
@@ -120,7 +130,7 @@ See Report
 
 ](https://sift.com/resources/ebooks/sift-g2-leader-fraud-detection-2026/)[
 
-Index Report.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+Index Report
 
 ### Q4 2025 Digital Trust Index: The Rising Impact of Chargebacks and Consumer Disputes
 
@@ -130,7 +140,7 @@ See Report
 
 ](https://sift.com/resources/index-reports/q4-2025-digital-trust-index-the-rising-impact-of-chargebacks-and-consumer-disputes/)[
 
-Webinar.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+Webinar
 
 ### Responsible Gambling Reinvented: Protect Players and Margins Together
 
@@ -140,7 +150,7 @@ Watch Now
 
 ](https://sift.com/resources/webinars/responsible-gambling-reinvented/)[
 
-Webinar.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+Webinar
 
 ### Safeguarding Customer Loyalty with Smarter Fraud Prevention
 
@@ -150,7 +160,7 @@ Watch Now
 
 ](https://sift.com/resources/webinars/safeguarding-customer-loyalty-with-smarter-fraud-prevention/)[
 
-ebook.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+ebook
 
 ### QKS Group’s SPARK Matrix™: eCommerce Fraud Prevention Solutions 
 
@@ -160,7 +170,7 @@ Read More
 
 ](https://sift.com/resources/ebooks/report-qks-spark-matrix-ecommerce-fraud-prevention-q4-2025/)[
 
-Webinar.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+Webinar
 
 ### ATOs in 2025: Agentic AI Supercharges Fraud-as-a-Service
 
@@ -170,7 +180,7 @@ Watch Now
 
 ](https://sift.com/resources/webinars/atos-in-2025-agentic-ai-supercharges-fraud-as-a-service/)[
 
-Videos and Podcasts.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
+Videos and Podcasts
 
 ### Episode 3: Our Origin Stories
 
@@ -178,17 +188,7 @@ Tune In
 
 
 
-](https://sift.com/resources/videos/episode-3-our-origin-stories/)[
-
-Videos and Podcasts.post-type-label { text-decoration: none; color: var(--primary); } .dynamic-button:hover { text-decoration: none; color: none; }
-
-### Episode 2: Fall Conference Season
-
-Tune In
-
-
-
-](https://sift.com/resources/videos/episode-2-fall-conference-season/)[](#)
+](https://sift.com/resources/videos/episode-3-our-origin-stories/)[](#)
 
 ## No Result
 

@@ -1,18 +1,14 @@
 {
   "name": "arkose-labs",
-  "homepage": "https://www.arkoselabs.com",
+  "homepage": "https://developer.arkoselabs.com",
   "llms_txt_candidates": [
-    "https://www.arkoselabs.com/llms.txt",
     "https://developer.arkoselabs.com/llms.txt"
   ],
-  "transform": "html-extract",
+  "transform": "verbatim",
   "allow_prefixes": [
     "https://developer.arkoselabs.com/docs/"
   ],
   "deny_prefixes": [],
-  "page_cap": 30,
-  "html_extract": {
-    "selector": "main"
-  },
-  "llms_txt": "https://www.arkoselabs.com/llms.txt"
+  "page_cap": 60,
+  "llms_txt": "https://developer.arkoselabs.com/llms.txt"
 }

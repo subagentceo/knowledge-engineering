@@ -29,7 +29,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-bdr-sift-science%2F&title=A%20Day%20in%20the%20Life%20of%20a%20Business%20Development%20Representative%20at%20Sift%20Science)
 -   [](https://twitter.com/intent/tweet?text=A%20Day%20in%20the%20Life%20of%20a%20Business%20Development%20Representative%20at%20Sift%20Science&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-bdr-sift-science%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-bdr-sift-science%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FImage-from-iOS-1-scaled.jpg&title=A%20Day%20in%20the%20Life%20of%20a%20Business%20Development%20Representative%20at%20Sift%20Science)
--   [](/cdn-cgi/l/email-protection#4c733f392e26292f38710d697e7c082d35697e7c2522697e7c382429697e7c00252a29697e7c232a697e7c2d697e7c0e393f2522293f3f697e7c08293a2920233c21292238697e7c1e293c3e293f2922382d38253a29697e7c2d38697e7c1f252a38697e7c1f2f2529222f296a6f7c7f74772e232835712438383c3f697f0d697e0a697e0a3f252a38622f2321697e0a2e20232b697e0a282d356120252a29612e283e613f252a38613f2f2529222f29697e0a)
+-   [](/cdn-cgi/l/email-protection#aa95d9dfc8c0cfc9de97eb8f989aeecbd38f989ac3c48f989adec2cf8f989ae6c3cccf8f989ac5cc8f989acb8f989ae8dfd9c3c4cfd9d98f989aeecfdccfc6c5dac7cfc4de8f989af8cfdad8cfd9cfc4decbdec3dccf8f989acbde8f989af9c3ccde8f989af9c9c3cfc4c9cf8c899a999291c8c5ced397c2dededad98f99eb8f98ec8f98ecd9c3ccde84c9c5c78f98ecc8c6c5cd8f98eccecbd387c6c3cccf87c8ced887d9c3ccde87d9c9c3cfc4c9cf8f98ec)
 
 -   [Company](https://sift.com/blog/category/company/)
 
@@ -96,7 +96,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-bdr-sift-science%2F&title=A%20Day%20in%20the%20Life%20of%20a%20Business%20Development%20Representative%20at%20Sift%20Science)
 -   [](https://twitter.com/intent/tweet?text=A%20Day%20in%20the%20Life%20of%20a%20Business%20Development%20Representative%20at%20Sift%20Science&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-bdr-sift-science%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-bdr-sift-science%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FImage-from-iOS-1-scaled.jpg&title=A%20Day%20in%20the%20Life%20of%20a%20Business%20Development%20Representative%20at%20Sift%20Science)
--   [](/cdn-cgi/l/email-protection#a699d5d3c4ccc3c5d29be7839496e2c7df839496cfc8839496d2cec3839496eacfc0c3839496c9c0839496c7839496e4d3d5cfc8c3d5d5839496e2c3d0c3cac9d6cbc3c8d2839496f4c3d6d4c3d5c3c8d2c7d2cfd0c3839496c7d2839496f5cfc0d2839496f5c5cfc3c8c5c3808596959e9dc4c9c2df9bced2d2d6d58395e78394e08394e0d5cfc0d288c5c9cb8394e0c4cac9c18394e0c2c7df8bcacfc0c38bc4c2d48bd5cfc0d28bd5c5cfc3c8c5c38394e0)
+-   [](/cdn-cgi/l/email-protection#e1de9294838b848295dca0c4d3d1a58098c4d3d1888fc4d3d1958984c4d3d1ad888784c4d3d18e87c4d3d180c4d3d1a39492888f849292c4d3d1a58497848d8e918c848f95c4d3d1b38491938492848f958095889784c4d3d18095c4d3d1b2888795c4d3d1b28288848f8284c7c2d1d2d9da838e8598dc8995959192c4d2a0c4d3a7c4d3a792888795cf828e8cc4d3a7838d8e86c4d3a7858098cc8d888784cc838593cc92888795cc928288848f8284c4d3a7)
 
 ## You may also like
 

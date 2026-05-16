@@ -39,8 +39,11 @@ export interface LlmsTxt {
 const TITLE_RE = /^#\s+(.+?)\s*$/;
 const SECTION_RE = /^##\s+(.+?)\s*$/;
 const BLURB_RE = /^>\s+(.+?)\s*$/;
-// Markdown link with optional trailing colon-prefixed blurb.
-const LINK_RE = /^[-*]\s+\[([^\]]+?)\]\(([^)]+?)\)(?:\s*[:—\-]\s*(.+?))?\s*$/;
+// Markdown link with optional trailing colon-prefixed blurb. Allows
+// leading whitespace before the list marker — some vendors (e.g.
+// developers.intercom.com) indent their list items by one or more
+// spaces, which CommonMark treats as part of the same list.
+const LINK_RE = /^\s*[-*]\s+\[([^\]]+?)\]\(([^)]+?)\)(?:\s*[:—\-]\s*(.+?))?\s*$/;
 
 /**
  * Parse a string that may be an llms.txt file. Returns the normalized

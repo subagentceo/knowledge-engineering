@@ -166,3 +166,17 @@ Find your tailored insights in your inbox soon.
 ![Insight Sprout Stage 5](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)
 
 [return to start](/risk-assessment/)
+
+[![BgBlueLogo](data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20%20'%3E%3C/svg%3E)](https://sift.com)
+
+-   [](https://www.youtube.com/@getsift)
+-   [](https://www.linkedin.com/company/getsift/)
+-   [](https://www.instagram.com/get_sift/)
+-   [](https://twitter.com/GetSift)
+-   [](https://www.facebook.com/GetSift/)
+
+© Sift Science, Inc. All rights reserved. Sift and the Sift logo are trademarks or registered trademarks of Sift Science, Inc.
+
+-   [Privacy & Terms](/legal-and-compliance/)
+    
+-   [Sitemap](/sitemap/)

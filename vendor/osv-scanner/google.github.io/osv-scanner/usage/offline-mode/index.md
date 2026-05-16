@@ -1,3 +1,6 @@
+1.  [Usage](/osv-scanner/usage/)
+2.  Offline Mode
+
 # [](#offline-mode)Offline Mode
 
 Table of contents
@@ -76,3 +79,7 @@ Set the location of your manually downloaded database by following the instructi
 ## [](#limitations)Limitations
 
 1.  Commit level scanning is not supported.
+
+* * *
+
+This site uses [Just the Docs](https://github.com/just-the-docs/just-the-docs), a documentation theme for Jekyll.

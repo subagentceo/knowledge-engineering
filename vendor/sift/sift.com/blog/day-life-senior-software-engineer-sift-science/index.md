@@ -27,7 +27,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F&title=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science)
 -   [](https://twitter.com/intent/tweet?text=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FImage-uploaded-from-iOS-6.jpg&title=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science)
--   [](/cdn-cgi/l/email-protection#023d717760686761763f4327303246637b2730326b6c273032766a672730324e6b64672730326d642730326327303251676c6b6d70273032516d647675637067273032476c656b6c6767702730326376273032516b647627303251616b676c6167242132313a39606d667b3f6a76767271273143273044273044716b64762c616d6f273044606e6d6527304466637b2f6e6b64672f71676c6b6d702f716d6476756370672f676c656b6c6767702f716b64762f71616b676c6167273044)
+-   [](/cdn-cgi/l/email-protection#cbf4b8bea9a1aea8bff68aeef9fb8faab2eef9fba2a5eef9fbbfa3aeeef9fb87a2adaeeef9fba4adeef9fbaaeef9fb98aea5a2a4b9eef9fb98a4adbfbcaab9aeeef9fb8ea5aca2a5aeaeb9eef9fbaabfeef9fb98a2adbfeef9fb98a8a2aea5a8aeede8fbf8f3f0a9a4afb2f6a3bfbfbbb8eef88aeef98deef98db8a2adbfe5a8a4a6eef98da9a7a4aceef98dafaab2e6a7a2adaee6b8aea5a2a4b9e6b8a4adbfbcaab9aee6aea5aca2a5aeaeb9e6b8a2adbfe6b8a8a2aea5a8aeeef98d)
 
 -   [Company](https://sift.com/blog/category/company/)
 
@@ -90,7 +90,7 @@ Share post on:
 -   [](https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F&title=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science)
 -   [](https://twitter.com/intent/tweet?text=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science&url=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F)
 -   [](https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsift.com%2Fblog%2Fday-life-senior-software-engineer-sift-science%2F&picture=https%3A%2F%2Fsift.com%2Fwp-content%2Fuploads%2F2024%2F02%2FImage-uploaded-from-iOS-6.jpg&title=A%20Day%20in%20the%20Life%20of%20a%20Senior%20Software%20Engineer%20at%20Sift%20Science)
--   [](/cdn-cgi/l/email-protection#eed19d9b8c848b8d9ad3afcbdcdeaa8f97cbdcde8780cbdcde9a868bcbdcdea287888bcbdcde8188cbdcde8fcbdcdebd8b8087819ccbdcdebd81889a998f9c8bcbdcdeab808987808b8b9ccbdcde8f9acbdcdebd87889acbdcdebd8d878b808d8bc8cddeddd6d58c818a97d3869a9a9e9dcbddafcbdca8cbdca89d87889ac08d8183cbdca88c828189cbdca88a8f97c38287888bc39d8b8087819cc39d81889a998f9c8bc38b808987808b8b9cc39d87889ac39d8d878b808d8bcbdca8)
+-   [](/cdn-cgi/l/email-protection#88b7fbfdeae2edebfcb5c9adbab8cce9f1adbab8e1e6adbab8fce0edadbab8c4e1eeedadbab8e7eeadbab8e9adbab8dbede6e1e7faadbab8dbe7eefcffe9faedadbab8cde6efe1e6ededfaadbab8e9fcadbab8dbe1eefcadbab8dbebe1ede6ebedaeabb8bbb0b3eae7ecf1b5e0fcfcf8fbadbbc9adbaceadbacefbe1eefca6ebe7e5adbaceeae4e7efadbaceece9f1a5e4e1eeeda5fbede6e1e7faa5fbe7eefcffe9faeda5ede6efe1e6ededfaa5fbe1eefca5fbebe1ede6ebedadbace)
 
 ## You may also like
 
