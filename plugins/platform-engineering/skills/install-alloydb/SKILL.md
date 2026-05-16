@@ -48,6 +48,43 @@ CREATE INDEX IF NOT EXISTS embeddings_mirror_namespace_idx
   ON embeddings_mirror (namespace);
 ```
 
+# Local-dev path (operator's Mac)
+
+For local development against a real AlloyDB Omni instance (instead
+of the bridge's injected fakes), the operator can use the locally
+installed `google/alloydbomni:latest` image. Verified on the operator's
+machine 2026-05-16:
+
+```
+google/alloydbomni:latest
+  digest: sha256:1054a15cf308b28e8c52113fb788dc1a25dc702544dc8c89c14fd825ca63200c
+  PostgreSQL 17.7
+  size: 7.02 GB
+```
+
+To start a local container with the right schema:
+
+```bash
+export ALLOYDB_OMNI_PASSWORD="<strong password>"
+./plugins/platform-engineering/scripts/start_alloydb_local.sh
+```
+
+The helper script:
+- Uses `google/alloydbomni:latest` by default (override via `ALLOYDB_IMAGE`)
+- Names the container `alloydb-omni-local` (override via `ALLOYDB_NAME`)
+- Persists data to `~/.local/share/alloydb-omni/data` (override via `ALLOYDB_DATA`)
+- Exposes port 5432 (override via `ALLOYDB_PORT`)
+- Creates `embeddings_mirror` table + index for the
+  [`turbopuffer-embeddings`](../turbopuffer-embeddings/SKILL.md) bridge
+- Refuses to pull at start time — operator runs
+  `docker pull google/alloydbomni:latest` explicitly when bumping
+
+**Cloud-env vs local-dev divergence**: the cloud-env Setup script
+([`docs/operator-runbooks/alloydb-omni-cloud-env.md`](../../../../docs/operator-runbooks/alloydb-omni-cloud-env.md))
+pins to `:17.7.0-bookworm` to prevent drift across automated session
+starts. The local-dev script accepts `:latest` because the operator
+controls when to re-pull. Both paths converge on PostgreSQL 17.7.
+
 # Environment variable contract
 
 | Variable | Where | Purpose |
