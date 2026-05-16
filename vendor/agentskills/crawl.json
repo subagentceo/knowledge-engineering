@@ -1,0 +1,17 @@
+{
+  "name": "agentskills",
+  "homepage": "https://agentskills.io",
+  "llms_txt_candidates": [
+    "https://agentskills.io/llms.txt"
+  ],
+  "sitemap_xml_sources": [
+    "https://agentskills.io/sitemap.xml"
+  ],
+  "transform": "append-md-and-accept",
+  "allow_prefixes": [
+    "https://agentskills.io/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 50,
+  "llms_txt": "https://agentskills.io/llms.txt"
+}

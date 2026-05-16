@@ -216,6 +216,7 @@ const LEGACY_ALLOW = new Set([
   "anthropics",            // multi-source Anthropic first-party docs (code.claude.com + platform.claude.com + claude.com/docs)
   "claude-sitemap",        // 2026-05-16 — consolidated claude.com + support.claude.com mirror via sitemap.xml (replaces claude-{blog,connectors,customers,plugins,support,tutorials})
   "osv-scanner",           // 2026-05-15 — chassis vuln-gate dependency; not in v2 catalog
+  "agentskills",           // 2026-05-16 — agentskills.io spec mirror (open Agent Skills format); not in v2 catalog
 ]);
 
 check("every vendor/<dir>/crawl.json maps to a catalog entity (modulo legacy allow-list)", () => {
