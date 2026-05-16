@@ -37,16 +37,28 @@ Then set the secret yourself so the agent never sees the token:
 
 ```
 gh secret set CLAUDE_CODE_OAUTH_TOKEN \
-  -R subagentceo/knowledge-engineering \
+  --org subagentceo \
+  --visibility all \
   --body "<paste-token>"
 ```
+
+Sets at the **org level** so every repo in `subagentceo` picks it up
+on the next workflow run. One rotation covers all repos. Requires
+org-admin or the `actions:secrets` fine-grained permission — the
+operator's `admin-jadecli` alias has this; `alex-jadecli` does not.
+
+(Per-repo override only if a repo has its own
+`CLAUDE_CODE_OAUTH_TOKEN` secret, which takes precedence.)
 
 Tell the agent "token refreshed" when done.
 
 ## Step 2 — agent (automated)
 
 1. Confirm the secret's updated timestamp:
-   `gh secret list -R subagentceo/knowledge-engineering | grep CLAUDE_CODE_OAUTH_TOKEN`
+   `gh secret list --org subagentceo | grep CLAUDE_CODE_OAUTH_TOKEN`
+   (falls back to `gh secret list -R subagentceo/knowledge-engineering`
+   if the agent's gh token lacks org-secrets read scope; absent at the
+   repo level + present at org level is the expected healthy state)
 2. Rerun the most recent failed `Claude Code Review` run:
    `gh run list -R subagentceo/knowledge-engineering --workflow="Claude Code Review" --status failure --limit 1 --json databaseId --jq '.[0].databaseId'`
    then `gh run rerun <id>`.
@@ -58,8 +70,11 @@ Tell the agent "token refreshed" when done.
   error recurs. Re-run `claude setup-token` from a Max account.
 - **Operator runs `export CLAUDE_CODE_OAUTH_TOKEN=...` in their shell**:
   that does NOT propagate to the agent's Bash tool (different shell)
-  and does NOT update the GitHub secret. The `gh secret set` call is
-  the only thing that matters.
+  and does NOT update the GitHub secret. The `gh secret set --org`
+  call is the only thing that matters.
+- **`gh secret set --org` returns 403**: the gh token is authenticated
+  as an alias without org-admin (e.g. `alex-jadecli`). Switch to
+  `admin-jadecli` via `gh auth switch -u admin-jadecli` first.
 - **Secret set but check still fails**: token may be valid but for a
   different identity than the one the org-disabled message expects.
   Try a different rotation account in step 1.
