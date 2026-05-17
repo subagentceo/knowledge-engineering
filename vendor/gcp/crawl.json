@@ -4,12 +4,26 @@
   "llms_txt_candidates": [],
   "transform": "append-md-and-accept",
   "allow_prefixes": [
-    "https://cloud.google.com/docs/"
+    "https://cloud.google.com/compute/docs/",
+    "https://cloud.google.com/storage/docs/",
+    "https://cloud.google.com/bigquery/docs/",
+    "https://cloud.google.com/sql/docs/",
+    "https://cloud.google.com/kubernetes-engine/docs/",
+    "https://cloud.google.com/run/docs/",
+    "https://cloud.google.com/functions/docs/",
+    "https://cloud.google.com/iam/docs/",
+    "https://cloud.google.com/vpc/docs/",
+    "https://cloud.google.com/logging/docs/",
+    "https://cloud.google.com/monitoring/docs/",
+    "https://cloud.google.com/pubsub/docs/",
+    "https://cloud.google.com/spanner/docs/",
+    "https://cloud.google.com/firestore/docs/",
+    "https://cloud.google.com/dataflow/docs/"
   ],
   "deny_prefixes": [],
   "page_cap": 100,
   "sitemap_xml_sources": [
     "https://cloud.google.com/sitemap.xml"
   ],
-  "note": "DEFERRED 2026-05-16 — produces 0 .md by design. cloud.google.com 301-redirects every path (including .md suffixes) to docs.cloud.google.com, which itself 404s on common product-doc URLs the sitemap lists. No reliable markdown endpoint exists. The sitemap surfaces ~180 child sitemaps covering language-specific reference paths (/java/docs, /cpp/docs, /php/docs, /ruby/docs, /dotnet/docs, /appengine/docs/...) — none rooted at /docs/, so the current allow_prefix matches nothing. Re-investigation needs: either probe whether any GCP product surface has a working .md endpoint, or implement html-extract against Devsite's .devsite-article-body container (also 404s on probed paths as of 2026-05-16)."
+  "note": "GCP sitemap emits URLs as cloud.google.com/<topic>/docs/... (e.g. /compute/docs, /storage/docs), not cloud.google.com/docs/. The previous allow_prefixes [\"https://cloud.google.com/docs/\"] matched 0 URLs. Broadened to a curated allowlist of 15 top GCP product doc topics, matching the narrow-allowlist posture used by other vendors. Markdown-endpoint caveat from 2026-05-16 still applies: cloud.google.com may 301 to docs.cloud.google.com and the transform append-md-and-accept may not yield .md for every URL — to be revisited in a follow-up crawl PR."
 }
