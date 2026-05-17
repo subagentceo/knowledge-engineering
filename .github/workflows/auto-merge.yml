@@ -1,18 +1,7 @@
-# .github/workflows/auto-merge.yml
-#
-# Enables auto-merge on PRs labeled `automerge` once required checks
-# pass. Combined with the branch ruleset created by
-# scripts/setup-branch-protection.ts, this completes the no-HITL loop.
-#
-# Cited from seeds/prompts/operator-2026-05-10-autonomy.md.
-#
-# Behavior:
-#   - On PR open / label / sync / ready_for_review: if labeled
-#     `automerge` and not a draft, call `gh pr merge --auto --squash`.
-#     GitHub then merges the PR automatically once required checks pass.
-#   - When the heartbeat opens a PR, it labels `automerge`. This
-#     workflow enables the auto-merge state machine; the branch
-#     ruleset's required checks decide when it fires.
+# .github/workflows/auto-merge.yml — enable auto-merge for labeled PRs.
+# Inspects the status-check rollup first so we don't enable auto-merge
+# on PRs whose required checks have already failed — we surface the
+# failure as a PR comment instead.
 
 name: auto-merge
 
@@ -24,18 +13,74 @@ on:
 permissions:
   pull-requests: write
   contents: write
+  checks: read
 
 jobs:
   enable-auto-merge:
     if: |
       !github.event.pull_request.draft &&
       contains(github.event.pull_request.labels.*.name, 'automerge')
-    name: Enable auto-merge (squash)
+    name: Enable auto-merge if checks not already failing
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PR_NUMBER: ${{ github.event.pull_request.number }}
+      PR_URL: ${{ github.event.pull_request.html_url }}
+      REPO: ${{ github.repository }}
     steps:
-      - name: Enable auto-merge
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
+      - name: Inspect status-check rollup
+        id: rollup
         run: |
+          set -euo pipefail
+          REQUIRED=("npm run verify" "OSV-Scanner (PR) / osv-scan")
+
+          gh pr view "$PR_NUMBER" --repo "$REPO" \
+            --json statusCheckRollup \
+            --jq '.statusCheckRollup' > rollup.json
+
+          echo "Rollup snapshot:"
+          jq -r '.[] | "  \(.name // .context) -> conclusion=\(.conclusion // "?") status=\(.status // "?")"' rollup.json
+
+          FAILED=()
+          for required in "${REQUIRED[@]}"; do
+            match=$(jq -r --arg name "$required" \
+              '[.[] | select((.name // .context // "") == $name)] | first' \
+              rollup.json)
+            if [ "$match" = "null" ] || [ -z "$match" ]; then
+              continue
+            fi
+            conclusion=$(echo "$match" | jq -r '.conclusion // ""' | tr '[:upper:]' '[:lower:]')
+            case "$conclusion" in
+              failure|timed_out|cancelled)
+                FAILED+=("$required=$conclusion")
+                ;;
+            esac
+          done
+
+          {
+            echo "failed<<EOF"
+            printf '%s\n' "${FAILED[@]:-}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Comment + skip if required checks failing
+        if: steps.rollup.outputs.failed != ''
+        env:
+          FAILED: ${{ steps.rollup.outputs.failed }}
+        run: |
+          set -euo pipefail
+          BODY=":robot: **auto-merge**: NOT enabling — required CI checks already failed. Fix and push (or rebase via update-branch) to retry. Remove the \`automerge\` label and merge manually to override.
+
+Failing:
+\`\`\`
+${FAILED}
+\`\`\`"
+          gh pr comment "$PR_URL" --body "$BODY"
+          echo "auto-merge skipped due to failures:"
+          echo "${FAILED}"
+
+      - name: Enable auto-merge (squash)
+        if: steps.rollup.outputs.failed == ''
+        run: |
+          set -euo pipefail
           gh pr merge --auto --squash "$PR_URL"
