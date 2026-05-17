@@ -1,0 +1,12 @@
+# CODEOWNERS — operator-gated paths
+#
+# Per ADR OPR2 (2026-05-17), changes to third_party/** and to the
+# polyrepo-pattern ADRs require explicit operator approval. Claude
+# cannot self-merge these via automerge train.
+
+/third_party/                            @alex-jadecli
+/.gitmodules                             @alex-jadecli
+/docs/decisions/*polyrepo*               @alex-jadecli
+/docs/decisions/*third-party*            @alex-jadecli
+/.github/CODEOWNERS                      @alex-jadecli
+/.github/workflows/third-party-guard.yml @alex-jadecli

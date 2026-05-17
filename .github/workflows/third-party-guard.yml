@@ -1,0 +1,60 @@
+# third-party-guard — reject PRs that modify files INSIDE a submodule.
+#
+# Per ADR OPR2: third_party/** is read-only. Only the submodule pointer
+# in the superproject (.gitmodules + the gitlink entry) may change.
+# Bumping a pin updates the gitlink; editing a file inside the submodule
+# checkout would attempt to write to upstream — forbidden.
+
+name: third-party-guard
+
+on:
+  pull_request:
+    paths:
+      - 'third_party/**'
+      - '.gitmodules'
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    env:
+      BASE_SHA: ${{ github.event.pull_request.base.sha }}
+      HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reject in-submodule edits
+        run: |
+          set -euo pipefail
+          echo "Diffing $BASE_SHA..$HEAD_SHA for third_party/ violations"
+
+          CHANGED=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" -- 'third_party/**' || true)
+          if [ -z "$CHANGED" ]; then
+            echo "No third_party/ changes."
+            exit 0
+          fi
+
+          VIOLATIONS=""
+          while IFS= read -r path; do
+            [ -z "$path" ] && continue
+            rest="${path#third_party/}"
+            case "$rest" in
+              */*) VIOLATIONS="${VIOLATIONS}${path}"$'\n' ;;
+            esac
+          done <<< "$CHANGED"
+
+          if [ -n "$VIOLATIONS" ]; then
+            echo "::error::PRs may not modify files inside a third_party/ submodule."
+            echo "Violations:"
+            echo "$VIOLATIONS"
+            echo ""
+            echo "To bump a pin, use scripts/bump-refs.sh and only modify the"
+            echo "submodule pointer (gitlink) — never files inside the submodule."
+            exit 1
+          fi
+
+          echo "OK — all third_party/ changes are at submodule-pointer level."
