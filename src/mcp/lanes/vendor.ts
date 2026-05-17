@@ -44,7 +44,7 @@ function* walkMd(dir: string): Generator<string> {
     const full = resolve(dir, entry.name);
     if (entry.isDirectory()) {
       yield* walkMd(full);
-    } else if (entry.isFile() && (extname(entry.name) === ".md" || extname(entry.name) === ".txt")) {
+    } else if (entry.isFile() && (extname(entry.name) === ".md" || extname(entry.name) === ".mdx" || extname(entry.name) === ".txt")) {
       yield full;
     }
   }
