@@ -1,0 +1,15 @@
+{
+  "$schema": "https://code.claude.com/schemas/monitors.json",
+  "monitors": [
+    {
+      "id": "gh-pr-opened",
+      "description": "Run the github-repo-security-review skill against every newly opened PR in the org. Trigger is configured separately in claude.ai/code/routines per the operator runbook (docs/operator-runbooks/github-event-routine-setup.md); this declaration only wires the local handler.",
+      "event": "github.pull_request",
+      "filter": { "action": "opened" },
+      "handler": {
+        "type": "skill",
+        "name": "github-repo-security-review"
+      }
+    }
+  ]
+}
