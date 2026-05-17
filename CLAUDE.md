@@ -87,3 +87,9 @@ Refs O1
 - `README.md` — surface overview
 - `docs/architecture.md` — runtime topology
 - `docs/governance.md` — branch ruleset + auto-merge state machine
+- `docs/decisions/` — ADRs. Load-bearing recent ones:
+  - `2026-05-16-osv-only-no-secret-scanning.md` (OSL1) — GoogleOSV-only; secret_scanning_* + dependabot_security_updates must remain disabled
+  - `2026-05-16-platform-engineering-plugin.md` (OPE1) — Voyage→Turbopuffer→AlloyDB bridge + plugin scaffolding
+  - `2026-05-16-enterprise-control-plane.md` (OCP1) — knowledge-engineering as the operator's enterprise/org control plane
+  - `2026-05-16-polyrepo-sibling-pattern.md` (OPR1) — env-var-abstraction for sibling repos (no submodules)
+  - `2026-05-16-org-repo-settings-policy.md` — org/repo settings adopted from Anthropic reference repos (superseded in part by OSL1)
