@@ -1,9 +1,15 @@
 ---
 date: 2026-05-16
-status: accepted
+status: superseded
+superseded_by: 2026-05-17-third-party-submodules-supersede-opr1.md
 deciders: alex-jadecli
 outcome_id: OPR1
 ---
+
+> **SUPERSEDED 2026-05-17 by [OPR2](./2026-05-17-third-party-submodules-supersede-opr1.md).**
+> OPR1 rejected git submodules categorically. OPR2 narrows that rejection to
+> the sibling-working-repo case (writable, parallel-developed) and explicitly
+> accepts submodules for the read-only upstream-pin case (`third_party/`).
 
 # ADR — Polyrepo sibling pattern for knowledge-work-profiles and knowledge-work-routines
 
