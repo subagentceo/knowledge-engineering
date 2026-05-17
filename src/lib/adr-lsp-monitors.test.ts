@@ -5,7 +5,7 @@
  *
  * Outcome OPE9.
  *
- * @tdd red
+ * @tdd refactor
  * @cite vendor/agentskills/agentskills.io/specification.md
  * @cite vendor/anthropics/code.claude.com/docs/en/plugins-reference.md
  * @cite vendor/anthropics/code.claude.com/docs/en/routines.md
