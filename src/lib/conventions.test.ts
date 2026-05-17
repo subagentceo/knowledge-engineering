@@ -59,7 +59,11 @@ function check(name: string, fn: () => void): void {
  * - subject ends with "(O<N>)" — at least one outcome ID
  * - Breaking-change marker "!" after type or scope is allowed
  */
-const CONVENTIONAL_RE = /^(feat|fix|perf|refactor|chore|docs|test|build|ci|revert)(\([^)]+\))?!?:\s+.+\s+\(O[0-9A-Za-z]+(,\s*O[0-9A-Za-z]+)*\)\s*$/;
+// Outcome IDs allow internal hyphens after the leading alphanumeric — so
+// `OVS3`, `OPR4`, and follow-up variants like `OVS3-FU` and `OKWPF1-FU`
+// all parse. The leading char must be alphanumeric so `(O-foo)` is still
+// rejected as malformed.
+const CONVENTIONAL_RE = /^(feat|fix|perf|refactor|chore|docs|test|build|ci|revert)(\([^)]+\))?!?:\s+.+\s+\(O[0-9A-Za-z][0-9A-Za-z-]*(,\s*O[0-9A-Za-z][0-9A-Za-z-]*)*\)\s*$/;
 
 /**
  * Merge-commit subjects start with `Merge ` or `merge:` — we skip these
