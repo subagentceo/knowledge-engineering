@@ -25,7 +25,8 @@
     "skills/code-intelligence-monitors",
     "skills/code-intelligence-plugins-discover",
     "skills/heartbeat-dream",
-    "skills/remote-control-host"
+    "skills/remote-control-host",
+    "skills/pr-reviewer-roving"
   ],
   "docs": [
     "docs/claude-api-bundled-reference.md"
