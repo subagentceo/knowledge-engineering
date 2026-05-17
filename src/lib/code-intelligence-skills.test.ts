@@ -6,7 +6,7 @@
  *
  * Outcome OPE6.
  *
- * @tdd red
+ * @tdd green
  * @cite vendor/agentskills/agentskills.io/specification.md
  * @cite vendor/anthropics/code.claude.com/docs/en/plugins-reference.md
  * @cite vendor/anthropics/code.claude.com/docs/en/plugins.md
