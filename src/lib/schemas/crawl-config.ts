@@ -32,6 +32,7 @@ export const TransformNameSchema = z.enum([
   "support-mdfirst",
   "accept-only",
   "html-extract",
+  "github-article-body",
 ]);
 
 export type TransformName = z.infer<typeof TransformNameSchema>;
