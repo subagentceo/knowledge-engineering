@@ -1,0 +1,24 @@
+[submodule "third_party/redis-agent-skills"]
+	path = third_party/redis-agent-skills
+	url = https://github.com/redis/agent-skills.git
+[submodule "third_party/neon-agent-skills"]
+	path = third_party/neon-agent-skills
+	url = https://github.com/neondatabase/agent-skills.git
+[submodule "third_party/cloudflare-skills"]
+	path = third_party/cloudflare-skills
+	url = https://github.com/cloudflare/skills.git
+[submodule "third_party/agentskills-spec"]
+	path = third_party/agentskills-spec
+	url = https://github.com/agentskills/agentskills.git
+[submodule "third_party/hashicorp-agent-skills"]
+	path = third_party/hashicorp-agent-skills
+	url = https://github.com/hashicorp/agent-skills.git
+[submodule "third_party/atlassian-mcp-server"]
+	path = third_party/atlassian-mcp-server
+	url = https://github.com/atlassian/atlassian-mcp-server.git
+[submodule "third_party/terragrunt"]
+	path = third_party/terragrunt
+	url = https://github.com/gruntwork-io/terragrunt.git
+[submodule "third_party/anthropics-knowledge-work-plugins"]
+	path = third_party/anthropics-knowledge-work-plugins
+	url = https://github.com/anthropics/knowledge-work-plugins.git
