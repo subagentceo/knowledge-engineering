@@ -16,6 +16,7 @@ import {
   cloudflareIndexMd,
   anthropicMdFirst,
   supportMdFirst,
+  githubArticleBody,
   acceptOnly,
   htmlExtract,
 } from "./transforms.js";
@@ -149,6 +150,33 @@ check("html-extract: passes URL through; postProcess invoked", () => {
   if (!touched) throw new Error("postProcess not invoked");
   // html-extract intentionally accepts HTML (postProcess converts).
   if (t.validateBody("text/html", "<html>") !== true) throw new Error("html rejected");
+});
+
+check("github-article-body: rewrites canonical URL to /api/article/body?pathname=…", () => {
+  const t = githubArticleBody("https://docs.github.com/en/rest");
+  if (t.fetchUrl !== "https://docs.github.com/api/article/body?pathname=%2Fen%2Frest")
+    throw new Error(`url: ${t.fetchUrl}`);
+  if (t.headers["Accept"] !== "text/markdown") throw new Error("accept missing");
+});
+
+check("github-article-body: trailing slash is stripped from pathname", () => {
+  const t = githubArticleBody("https://docs.github.com/en/actions/");
+  if (!t.fetchUrl.includes("pathname=%2Fen%2Factions") || t.fetchUrl.endsWith("%2F"))
+    throw new Error(`url: ${t.fetchUrl}`);
+});
+
+check("github-article-body: pass-through when URL is already the API endpoint", () => {
+  const already = "https://docs.github.com/api/article/body?pathname=/en/rest";
+  const t = githubArticleBody(already);
+  if (t.fetchUrl !== already) throw new Error(`changed: ${t.fetchUrl}`);
+});
+
+check("github-article-body: rejects HTML responses (404 shell)", () => {
+  const t = githubArticleBody("https://docs.github.com/en/rest");
+  if (t.validateBody("text/html; charset=utf-8", "anything") !== false)
+    throw new Error("text/html accepted");
+  if (t.validateBody("text/markdown; charset=utf-8", "# REST API\nintro") !== true)
+    throw new Error("text/markdown rejected");
 });
 
 console.log(`\n${passed} passed, ${failed} failed`);

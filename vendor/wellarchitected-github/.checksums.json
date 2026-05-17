@@ -1,0 +1,362 @@
+{
+  "https://wellarchitected.github.com/": {
+    "sha256": "80d202759de8c30d4c508c17a436dfca8d46713befd5cb22ccc5cb02a080921e",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/": {
+    "sha256": "cc98348d253c05550100c65f50bf069cd5c2fcb4e6e9a17a92cc1b816144e8e5",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/application-security/": {
+    "sha256": "084c5ce26e3e9482fd78db9c567e6cf2b71256187f606d506149fe729c159091",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/application-security/checklist/": {
+    "sha256": "b2f3a0cf6f97d5506eec328b9218ccee453792cacf2842da25d73810c056721e",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/application-security/design-principles/": {
+    "sha256": "cfe1cb12d4d8343a5267f7ac2efb38ba5c612fccb31145fa2d21fde88e82f2c8",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/application-security/quick-links/": {
+    "sha256": "bcb8e4edbd7e8735a2c5dd6d204be86b87ff9d59b9c2da677c5b0a2992467df7",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/application-security/recommendations/": {
+    "sha256": "000bcf2dee85383ee17fdd4cd9696d9db42b6839007690980cf3d7791976cffc",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/application-security/recommendations/actions-security/": {
+    "sha256": "ebb6da91b29a81fba66ea15008ffe7feb99bbe0a0854b8ed97286ff12f421b68",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/application-security/recommendations/enforce-ghas-at-scale/": {
+    "sha256": "402f0ce69051b2be61cb2269b09905d3d1bdc8e6de0520b18cb1ea58fcb625bc",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/application-security/recommendations/managing-dependency-threats/": {
+    "sha256": "f3009d081d4da8bde5fc65038328465af9cc2d97db5f6da5118afeb1a2991ced",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/application-security/recommendations/prioritizing-alerts/": {
+    "sha256": "cbc10e11dc2376fe4a61c27b9c5704bbbd81353c965b70b4b55aa71e8a6d003c",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/application-security/recommendations/securing-developer-workspace/": {
+    "sha256": "cabf3135138cb60aa29c4b23b0ca9389a8b0087dea28021989071243cb7789e6",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/application-security/recommendations/threat-model/": {
+    "sha256": "a156075b53eed64486c93c1b0ee9139ede1d866844201e74e77cb2a76fa3b622",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/": {
+    "sha256": "222073348cf2b653b5ba8a53d8df1390e6bac510771c160d5eed10cb863455b7",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/checklist/": {
+    "sha256": "ec04e48f9730f43036b1f2ff969f1a517d74a53a75ea6e2f5fb3efcb2820a28f",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/design-principles/": {
+    "sha256": "e2b04ba0a1021d591641638147f1bbb84f6e0b2d1011692e611166a68b627439",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/quick-links/": {
+    "sha256": "5644b09abf8a46b9bf901466d692caf8359d03bc7c9a1c7a211d30960430879e",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/recommendations/": {
+    "sha256": "7082079ffd4ffe0a54caa982a90586690aaa565713ba287ba73e913641bbaa48",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/recommendations/deploying-actions-runner-controller/": {
+    "sha256": "6ce60356d384047cb67f589e74e94db6dab1cb4b7f5c88b4794355defee159fe",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/recommendations/expanding-enterprise-custom-agents-context/": {
+    "sha256": "9d1fada3fe3e178e6e4a0dc39d508b28e6f2af04d48501c2e759413043c8ea4e",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/recommendations/hosted-runner-private-networking/": {
+    "sha256": "d990b06a2a210540320884b097f711437986c45377cfd80130b6416cdcd328fe",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/recommendations/implementing-polyrepo-engineering/": {
+    "sha256": "e7df351c7277623a81096529a7aa9cb56ffc8d002b17f32f981acf96c692660b",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/recommendations/scaling-git-repositories/": {
+    "sha256": "095d2b006d9cdcd18b0fcc31f6f3922406cef105b9d3403cf1702132a0d85c22",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/recommendations/scaling-git-repositories/large-git-repositories/": {
+    "sha256": "bf36e817d4045ef720eda82f2129bb5c009ed6226a247b330d07e104b9f0362f",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/recommendations/scaling-git-repositories/repository-architecture-strategy/": {
+    "sha256": "ff6254a66d3fd218ec04dd32769575a82e9e69f52ed767e0cb2f88e53ae09a20",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/architecture/recommendations/scaling-git-repositories/when-to-use-git-lfs/": {
+    "sha256": "3d71781c640dbd53c86d2016df26b233b1f95494a354f05727189ebb5cbbf571",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/collaboration/": {
+    "sha256": "6658d81ee0db9a57bdea9c7523ccf6b8b1785bca20b0b83c6e51fa2f53880adf",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/collaboration/checklist/": {
+    "sha256": "a5395f58917609b5083458e2655506d9f5351de80523668c4381e544bc9ce1f1",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/collaboration/design-principles/": {
+    "sha256": "0b1160944c2f50a8ec6657021efda280bf42f476fb75f7cd869f1eddd75cb891",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/collaboration/quick-links/": {
+    "sha256": "41d0683c2e3dbfa98d6959e1e000ce6938158488a2dd6d024a0fb506271bfe45",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/collaboration/recommendations/": {
+    "sha256": "0512300e32e2704165f776128ad05fddbaf189ed67233b56bd654e74b398a85a",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/collaboration/recommendations/applying-devops-methodology/": {
+    "sha256": "4856572098e88331b980d4583fc105d03aa067621e6c961d0a890cd823c21931",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/collaboration/recommendations/champion-program/": {
+    "sha256": "7a46a851ace66e69eacb32e5f109d834837dd83ce9eb24c7a51032a642447643",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/collaboration/recommendations/scaling-actions-reusability/": {
+    "sha256": "4d3cee929390701c4828117d1078c348cd1b3e97044399ab28b7e816661f1757",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/": {
+    "sha256": "ea8d6af67c928d8aab08932e54485b458e7a7a09ab6f8bc6b004a042eb0f5364",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/checklist/": {
+    "sha256": "ca181287802561e8d7fc23a951bc05b994a39b650f9dcc88fb53a78cd56a0a95",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/design-principles/": {
+    "sha256": "88221737174d0e34186e1eab9998b9f4343beae931f2494e01e20698c34aa221",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/quick-links/": {
+    "sha256": "61adbd43b6f9b199f9d1c8e2db77a734ffc8f41e1789fce391f76204049ed28f",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/recommendations/": {
+    "sha256": "e0b54d7712814ca644cabe42654337916607ffa6668eeb39fe80de2b9421e77d",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/recommendations/governance-administration-essentials/": {
+    "sha256": "8c86d2fe598f8e3b98e532ac0c1fd8b593f15aed8dc54198d6ddab99020d24f1",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/recommendations/governance-policies-best-practices/": {
+    "sha256": "9443f0457414a200f78a84fbcfe231efaa0a4d2d57d804fca1483654cb31e9de",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/recommendations/governing-agents/": {
+    "sha256": "d626fe85358dca01e28c03e35f78a7d38973b74d913664f4f3d84c1d6be199c5",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/recommendations/managing-ai-credits/": {
+    "sha256": "be42be0e8cdbae80eb6f39478617f4de9c2433537c72331d46617debdbc97900",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/": {
+    "sha256": "8f7dd9a9dc34ae073e02109de5ec03ffdd5cc1cc7dedbe477a59aae9cfbf004c",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/custom-properties-best-practices/": {
+    "sha256": "534d56b820465f55d93bfbaa388d54c79459bd496cd08db0ca42e85d632f987d",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/governance/recommendations/managing-repositories-at-scale/rulesets-best-practices/": {
+    "sha256": "7ba740dd0af871fafc3aeca3ff084f66d6f4b8f81af21dfc722cdcef2f3062d8",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/overview/": {
+    "sha256": "ed44e592980e1cc2a8da36915202b42de120a2c1f80f0d138cb40169cc9b0899",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/overview/about-the-assessment/": {
+    "sha256": "c790dec4488642fbc45be124f2c96d6d4ef55cb7e86b6dfbaa386d2c3a0227cc",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/overview/getting-started-checklist/": {
+    "sha256": "4b017a800c6794e6c4a2fb81d534354d52b27941e13f9a754c88ec93f690d220",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/overview/layers/": {
+    "sha256": "75d4f3bb858478f5d145f8951eea616968898e8733010567d9095d7b7d84c3a6",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/overview/release-notes/": {
+    "sha256": "0e5b057ce0a11d4452ab7c5c6755adc1a1beaa7c503f6760716665a6111adbcc",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/productivity/": {
+    "sha256": "f959201bb2ab5894341d7ebf45e5fc96bbcae54cf4b3058eb2acf9df5c91a092",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/productivity/checklist/": {
+    "sha256": "b45a5bc91a9d7aa15a78010c341f906f563b8b90996921b8fc09822f275b4a50",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/productivity/design-principles/": {
+    "sha256": "be45588f301f578676ff9d68e11cb28ec8427fdef626287ae29436cf68e66498",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/productivity/quick-links/": {
+    "sha256": "2e3292e7636f71e6738ec451b30305849867542d486e06fff9f79d83eeedac54",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/productivity/recommendations/": {
+    "sha256": "eb332eff58ae4b4566267c0d0c9a6be88cae32f6a1ce126f25d92ccc835a7c29",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/productivity/recommendations/adopting-copilot-at-scale/": {
+    "sha256": "fff93851943481381c975216a7e29aba09b677a3e2dfa03caeaf086c13c12be5",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/productivity/recommendations/engineering-system-metrics/": {
+    "sha256": "ecf34bbc45d5414fddda5cdecff14ea662722709bbb69c36bcb9e641df09afe6",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/": {
+    "sha256": "356423d495953c1e1e87040d0bff85f61a250d8aa96cd73387a517b0452d75bd",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/anti-patterns/": {
+    "sha256": "b5d3fe87233a84cf4f2411a381cc8d7d9a3f2ec8c639c817fb6f8229b239cb23",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/measuring-genai-impact/": {
+    "sha256": "074553afed2097ab2bbccabc096e02bf8c531122c4acca5305a6490ce3e020f3",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/migrations/": {
+    "sha256": "863f98aa9ba4d9757e0df8579a8ea094d8422d2dd72bdbe27913ea9175ccd85f",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/migrations/azure-devops-migration-guide/": {
+    "sha256": "1d356c942ee263e86b63529cbe9405956a72a104e995ca073ae2f675657bd8f1",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/migrations/azure-devops-migration-guide/assess/": {
+    "sha256": "2b328c3f8e6484450a4e95a6b4bd023e1d86212928ec02b9911f8cd02e5ab3d1",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/migrations/azure-devops-migration-guide/migrate/": {
+    "sha256": "ce72bb40cae9e63821f6a48f22cef055fe4ae89b5eb2f0a2018ab3ea282b9985",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/migrations/azure-devops-migration-guide/plan/": {
+    "sha256": "c2d06b873d4223b826f4f805c2adf860bbd8f199ccb01022d8003b7da15a7dfd",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/migrations/azure-devops-migration-guide/post-migration/": {
+    "sha256": "1616194ad7bc302f2f52ee665928d3bd80db5ccceca83261df530d393506d068",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/migrations/azure-devops-migration-guide/setup/": {
+    "sha256": "19f0dd6de7878b57c34e739d77798e2a17e232451047850bb7e1ec1e9209568e",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/migrations/azure-devops-migration-guide/test/": {
+    "sha256": "035efb493b786c2341263a3217695564959abadf53444a9b0225735042d79e23",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/migrations/repository-checklist/": {
+    "sha256": "b1f00c8d6e63e2994bebde696ab78aa25081a729f4371f3597736c273501e2bd",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/monorepos/": {
+    "sha256": "dd6f2e5ea17e032a2be81ba7525007ba7c7c63488b4fa596b2fffa5161d49196",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  },
+  "https://wellarchitected.github.com/library/scenarios/nist-ssdf-implementation/": {
+    "sha256": "6ef31749d830d56be45a9c09b4590da81b4fdc0f675dff9814021ece6282de12",
+    "fetchedAt": "2026-05-16T23:27:42.353Z",
+    "lastStatus": 200
+  }
+}
