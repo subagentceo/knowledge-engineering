@@ -1,0 +1,21 @@
+{
+  "name": "docs-github",
+  "homepage": "https://docs.github.com",
+  "llms_txt_candidates": [
+    "https://docs.github.com/llms.txt"
+  ],
+  "sitemap_xml_sources": [],
+  "transform": "github-article-body",
+  "allow_prefixes": [
+    "https://docs.github.com/en/rest",
+    "https://docs.github.com/en/actions",
+    "https://docs.github.com/en/apps",
+    "https://docs.github.com/en/webhooks",
+    "https://docs.github.com/en/graphql",
+    "https://docs.github.com/en/github-cli",
+    "https://docs.github.com/en/copilot"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 500,
+  "llms_txt": "https://docs.github.com/llms.txt"
+}
