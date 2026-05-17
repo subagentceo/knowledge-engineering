@@ -24,6 +24,7 @@
     "skills/code-intelligence-lsp-setup",
     "skills/code-intelligence-monitors",
     "skills/code-intelligence-plugins-discover",
-    "skills/remote-control-host"
+    "skills/remote-control-host",
+    "skills/pr-healer"
   ]
 }
