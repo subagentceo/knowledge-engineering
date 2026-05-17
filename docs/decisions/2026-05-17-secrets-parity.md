@@ -13,7 +13,7 @@
 
 Three runtime planes can each have a different view of which credentials exist:
 
-1. **Local shell** — operator's `~/.zshrc` / macOS keychain via `security` / `op` (1Password CLI). Used for `npm run dev`, `npm run verify`, `npm run crawl:vendors`.
+1. **Local shell** — operator's `~/.zshrc` or macOS keychain (via `security find-generic-password`). Used for `npm run dev`, `npm run verify`, `npm run crawl:vendors`.
 2. **GitHub Actions** — repo `secrets.*` and org `subagentceo/secrets.*`. Used by every workflow in `.github/workflows/`.
 3. **claude.ai/code cloud environment** — env vars configured per-environment at `claude.ai/code/environments/<env-id>` UI. Used by Remote Control (RC) sessions and Routines that run in `subagent-products`, `agentwarehouses`, etc.
 
@@ -54,13 +54,9 @@ The goal is **loud parity**: every required secret is present on every plane it'
 
 ### Operator-paste fallback
 
-GitHub's API is write-only on secret values (by design — read-after-write is impossible). For the 3 secrets currently at repo scope but not org scope (`CLOUDFLARE_ACCOUNT_ID`, `CLOUDFLARE_API_TOKEN`, `TURBOPUFFER_API_KEY_WRITE`), an autonomous agent cannot promote them — it has no read access to the value. The verifier surfaces the gap; the operator pastes the value once into the org-secrets UI or runs a single one-liner per secret.
+GitHub's API is write-only on secret values (by design — read-after-write is impossible). For secrets at repo scope but not org scope (e.g., `CLOUDFLARE_API_TOKEN`, `TURBOPUFFER_API_KEY_WRITE`), an autonomous agent cannot promote them — it has no read access to the value. The verifier surfaces the gap; the operator either pastes once into the org-secrets UI, or stages the value in a shell variable and pipes it.
 
-Operator one-liner template:
-```bash
-# read the value from 1Password / keychain, pipe to gh
-op read "op://Private/<item>/credential" | gh secret set --org subagentceo --visibility selected --repos knowledge-engineering NAME
-```
+See `docs/decisions/2026-05-17-secret-store-tiers.md` (OSEC2) for the canonical two-tier store model (Cloudflare Secrets Store + GitHub org secrets) and `docs/operator-runbooks/secret-rotation.md` for the dual-write procedure.
 
 ### Anti-silent-failure rules
 
@@ -80,6 +76,6 @@ op read "op://Private/<item>/credential" | gh secret set --org subagentceo --vis
 
 ## Rejected alternatives
 
-- **Single source-of-truth in 1Password + `op` CLI in CI**: introduces a 1Password dependency in every workflow and a long-lived service-account secret. The current model (GH secrets as canonical for CI plane, local plane self-owned, cloud plane audited) avoids that.
+- **External password manager as CI source-of-truth**: would introduce a third store with a long-lived service-account secret. Operator's chosen tiers are GitHub org secrets (CI) + Cloudflare Secrets Store (runtime); see OSEC2.
 - **Auto-promote repo secrets to org via `gh`**: requires reading the value, which GitHub's API forbids by design.
 - **Use Vault / Cloudflare Secrets Store as canonical**: ADR `2026-05-16-cloud-env-vars-contract.md` already defines the chassis posture; this ADR is the parity layer above it, not a replacement.
