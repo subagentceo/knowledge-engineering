@@ -42,6 +42,7 @@
     "crawl:vendors": "tsx scripts/crawl-vendors.ts",
     "crawl:vendor": "tsx scripts/crawl-vendors.ts --vendor",
     "gen:servers": "tsx scripts/generate-server-tree.ts",
+    "gen:pr-queue": "tsx scripts/gen-pr-queue.ts",
     "discover:sources": "tsx scripts/discover-sources.ts",
     "grade": "tsx scripts/grade-phase.ts",
     "context:budget": "tsx scripts/context-budget.ts",
