@@ -559,18 +559,28 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
             // last successful fetch, skip the disk write to preserve
             // mtime and keep `git status` clean.
             if (isUnchanged(prior, finalBody)) {
-              preflightUnchanged += 1;
-              const sha = prior!.sha256;
-              checksums[w.origUrl] = {
-                sha256: sha,
-                etag: res.etag ?? prior!.etag,
-                lastModified: res.lastModified ?? prior!.lastModified,
-                fetchedAt: nowIso,
-                lastStatus: 200,
-              };
-              const { relPath } = urlToPath(w.origUrl, { vendor, layout: cfg.layout });
-              indexRows.push({ url: w.origUrl, relPath });
-              continue;
+              // OAUTO3: also require the destination file to exist on
+              // disk. Without this guard, a missing-file desync (the
+              // elevenlabs incident, PR #186) causes the crawler to
+              // skip writeIfChanged forever — the .checksums.json
+              // entry stays valid but no .md is ever written.
+              const { segments: skipSegments, relPath } = urlToPath(w.origUrl, { vendor, layout: cfg.layout });
+              const skipTarget = resolve(VENDOR_ROOT, vendor, ...skipSegments);
+              if (existsSync(skipTarget)) {
+                preflightUnchanged += 1;
+                const sha = prior!.sha256;
+                checksums[w.origUrl] = {
+                  sha256: sha,
+                  etag: res.etag ?? prior!.etag,
+                  lastModified: res.lastModified ?? prior!.lastModified,
+                  fetchedAt: nowIso,
+                  lastStatus: 200,
+                };
+                indexRows.push({ url: w.origUrl, relPath });
+                continue;
+              }
+              // sha matched but the file is missing on disk — fall
+              // through to writeIfChanged() below to repopulate.
             }
             const { segments, relPath } = urlToPath(w.origUrl, { vendor, layout: cfg.layout });
             const target = resolve(VENDOR_ROOT, vendor, ...segments);
