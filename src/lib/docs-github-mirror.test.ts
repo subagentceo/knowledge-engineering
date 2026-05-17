@@ -9,7 +9,7 @@
  *
  * Outcome OPE5.
  *
- * @tdd red
+ * @tdd green
  * @cite vendor/anthropics/code.claude.com/docs/en/plugins-reference.md
  * @cite seeds/posture/session-start.xml
  */

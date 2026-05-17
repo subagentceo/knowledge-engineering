@@ -1,0 +1,262 @@
+{
+  "https://docs.github.com/en/actions": {
+    "sha256": "e713a9a9cd93b4bba79f58e29195b57a712640d14948ea1a8c0a882d39e2d5ab",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/actions/get-started/quickstart": {
+    "sha256": "0200a6317d8daac85fe0a44e6151ab65c9002ed6f6f1e81d9fdae7d05db7f9aa",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/actions/get-started/understand-github-actions": {
+    "sha256": "2f31437d9d8e59d9e5202554976827a8a4e881ee994b19d5f564a59d59a86f91",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows": {
+    "sha256": "c95f2c6eacbd398bc28d5733c4445483ae70fd71673127ac7a5ad290c78d82f2",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-commands": {
+    "sha256": "75d9b0041621a3689ef4c25d0e552e75888af6a729ccd0cabe510164f5824785",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax": {
+    "sha256": "7d2c5de0fe55f42ff9ce7018384f757d3f6d77729ef70afa7278597cb0122628",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps": {
+    "sha256": "cfba9313c51ba3422d7829f99ad61db1dc4a961a47a57b075c0a85ca1977c49b",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/apps/using-github-apps/authorizing-github-apps": {
+    "sha256": "e8d4f4ce3f5b57b48dec7c5b30a2a6399df60bd7904fe5347c9fb55b175841c6",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot": {
+    "sha256": "2b77c4b6a72f8b5430df6a0f537faa0a87880e2071e158d34b6a9d305e5e324e",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/concepts/agents/about-agent-skills": {
+    "sha256": "8d889b5e46a723911ec7fd3359c7cc9e8a964be98e90f9eef2a108b7bd1ce9f6",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent": {
+    "sha256": "572c0b50466a7c911e57e190b36952fbbe9a85460d9fe648310c87a4b683585c",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli": {
+    "sha256": "2a90738c153863a2edf10daf85238be666a8b06ebfa4e3f11a2fd8429c72291b",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/concepts/billing/copilot-requests": {
+    "sha256": "05da2248137ab6a0d2ddd881c8e04fdf0565de02f5f56d88bdde5ca809c03d09",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/concepts/billing/individual-plans": {
+    "sha256": "b286b22e3aa604935052c6509083803b4ba1f25f4e279805cafd2d47b5030207",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-individuals": {
+    "sha256": "1636cf31ae0de52c46c9d732aa690e8b6aed2ce6b033cff29e2c081b1f7b98f2",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/concepts/billing/usage-based-billing-for-organizations-and-enterprises": {
+    "sha256": "67c198d88a2a503b5ecdf51930d7d3b9a163cf53005a1de34b695da974b0fe4e",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/concepts/usage-limits": {
+    "sha256": "6be14ec3fb9ceff0716cccf9b5596e845719a6e183b9821aca938fef297f5ad1",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/get-started/features": {
+    "sha256": "5a12452de3d13ab646ed8792d0ca3c4511e71597f0709820d293fe9d05bd88b9",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/get-started/plans": {
+    "sha256": "278c8aae30ce013330defe0ab4dca12b21c87cabc855e905af7c4cd3b6bd19da",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/get-started/quickstart": {
+    "sha256": "bfcc96ecec6dcdbb528223df17c393da804a51a92b7b9bfe995ebd964886e862",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/get-started/what-is-github-copilot": {
+    "sha256": "e4e0932218e9ea50ed5bc8a8539657c9a3498b0d419ced95d3641fca501387f4",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/chat-with-copilot/chat-in-ide": {
+    "sha256": "e2f9fa944ee9cade2148089e5ed7aa98caee45f79a8b89ab0e718db13e0ad689",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-best-practices": {
+    "sha256": "060d35ae9c0056ccd06184a04256b59630a36033c079fe6abf3785c627ae861a",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/copilot-cli/cli-getting-started": {
+    "sha256": "4965ee28adb048206d91b9836c990490f6d025b4f0d081a46c10d2d8b3b8cafe",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/copilot-cli/set-up-copilot-cli/install-copilot-cli": {
+    "sha256": "67ae69a894cd3fbaf100c1f6cb9433a1f9c4dedbb578d8fc835e2508d3371ace",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli/overview": {
+    "sha256": "e8d3f8655ed097568f5ec545e93cf252afddbb2c6c92e2dfaf04cfd4b713efde",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions": {
+    "sha256": "bd37d143c15bf492f41c7cdee6ea2501bb07181bc855ae174ea5471feb8c24ee",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/customize-cloud-agent/add-skills": {
+    "sha256": "9179ea92d51099b3ee80626420e79ff88add97d83a61b49f9e387c39c30d8ddc",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/get-code-suggestions/get-ide-code-suggestions": {
+    "sha256": "463a23cb632bd05b94f48897d7d30f4ba2ab0c7bd19d5c55f9655416104f8d6e",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/manage-and-track-spending/monitor-premium-requests": {
+    "sha256": "77475ebcb51a2105c4604ff45a86b0fbc1c2895d1476215ab52252472b2524fe",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/manage-and-track-spending/prepare-for-your-move-to-usage-based-billing": {
+    "sha256": "29a71eb7aabc7c1d9b70aed99a91c9b6566a429698e6f01934b2201e34df743c",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/manage-your-account/manage-policies": {
+    "sha256": "acf66040617d4d9d7074f7842dac4d84627eafbc1d3fc58854a4047c79b935f0",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/extend-copilot-chat-with-mcp": {
+    "sha256": "24aa98df19b181c25802eb36deeca49b31764d3ff6b8e9cb4175eec7ef10448b",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/set-up-the-github-mcp-server": {
+    "sha256": "4cf81cc7c12a3bdfe225793ec7a72a2e7e71109d6b4ffc71b953cb1ccbba6759",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/provide-context/use-mcp-in-your-ide/use-the-github-mcp-server": {
+    "sha256": "91ecc6ec242df9ee529257e1f718a24f27839378a99d63063287ff5dbed8177b",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-extension": {
+    "sha256": "e9604ded6b2aa63e58445f589234ca619e28581390c489bbb85485325e040640",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/troubleshoot-copilot/troubleshoot-common-issues": {
+    "sha256": "fdb840ded8cab458ead421aad3db1bea6a264cd01340cc489433b3edf7b8651a",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents-in-your-ide": {
+    "sha256": "eef31db11719a27db7de0b9d6560e28b19f246e65860e2487495fb7e23853059",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review": {
+    "sha256": "723ecaf9d597bac4873d6239d7487c98cf8c7681cbdf51dafcc1161f3c92c0a7",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/reference/ai-models/model-comparison": {
+    "sha256": "35a2d4226dc2fd80c7c055a05cee8dfe22f5566be8432ddc7d45f3f26f14404f",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/reference/ai-models/model-hosting": {
+    "sha256": "0bf1725db39aaa506d43f143b2fec80c11ca8179fa0d0131fbcb872bee4a70f3",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/reference/ai-models/supported-models": {
+    "sha256": "c3f9ac4a2c346f7470c747ba89f0411a3c8b2c8a213a4a99842112fb57c65c84",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/reference/copilot-billing/model-multipliers-for-annual-plans": {
+    "sha256": "07425dbb250d6bd7b7d60f3640d4ccc74ff90a4ec52df28086785db4ecf62db9",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing": {
+    "sha256": "a2fdbeb10c02787eab03d658d881b06ea4e990894c7820f019672f2749565282",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/responsible-use/copilot-in-github-desktop": {
+    "sha256": "fb62b6cae66d6864bc7b568b39907eb560514d26e957c43818b0ebbe9341a086",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/copilot/tutorials/copilot-chat-cookbook": {
+    "sha256": "e867cc724374ccbe5313169690cfd15df22eb04a50b081b55820f42234a6b125",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/github-cli/github-cli": {
+    "sha256": "caf493ea8e7d0a1d79c7fc7e9e2ee920f3cde0dc31be8acbc274ee40a6859023",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/github-cli/github-cli/quickstart": {
+    "sha256": "2f124a966900af35ab08ebcfe883be3338be34375c86dab9d4e52217691082e5",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/graphql": {
+    "sha256": "0e211b9a2ca6b05b588613e0471651a34b62995d9f3d479f91e8a5dd74353726",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/rest": {
+    "sha256": "d2e999b342aa02f3eacc02292370004339acb78f5fe5108ef97d7c2cb490460c",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api": {
+    "sha256": "a8814d209d04bc409151d17c1176286af98f0a2533c6b8f0f1c1a4a2c63d9296",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  },
+  "https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens": {
+    "sha256": "e2ceec1a56e835f1f7cd3607c2f68ec0e08fdff9ad8a9072cc574ba194a2640d",
+    "fetchedAt": "2026-05-17T00:05:11.959Z",
+    "lastStatus": 200
+  }
+}
