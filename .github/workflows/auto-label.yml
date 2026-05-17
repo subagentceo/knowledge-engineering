@@ -1,0 +1,38 @@
+# .github/workflows/auto-label.yml
+#
+# Default-labels newly-opened (or ready-for-review) PRs with `automerge`
+# so the existing auto-merge.yml and auto-rebase.yml workflows engage
+# without requiring authors to remember the label.
+#
+# Skip conditions:
+#   - PR is a draft
+#   - PR already carries `no-automerge` (operator opt-out)
+#
+# Security: every `github.event.*` value flows through `env:` and is
+# referenced as a shell variable in `run:` blocks. No direct
+# `${{ ... }}` interpolation inside run scripts. Enforced repo-wide
+# by the pre-commit hook.
+
+name: auto-label
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+permissions:
+  pull-requests: write
+
+jobs:
+  default-label-automerge:
+    if: |
+      !github.event.pull_request.draft &&
+      !contains(github.event.pull_request.labels.*.name, 'no-automerge')
+    name: Add automerge label
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add automerge label
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr edit "$PR_URL" --add-label automerge

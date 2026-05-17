@@ -13,6 +13,18 @@
 #   - When the heartbeat opens a PR, it labels `automerge`. This
 #     workflow enables the auto-merge state machine; the branch
 #     ruleset's required checks decide when it fires.
+#
+# What guarantees "no merge with failing CI or conflicts":
+#   - The branch ruleset (scripts/setup-branch-protection.ts) sets
+#     `strict_required_status_checks_policy: true`, which forces the
+#     branch to be up-to-date with main before merge. Behind-main
+#     branches block until rebased -- eliminates conflict-as-merged
+#     and stale-base-passing-checks races.
+#   - Required status check contexts on main: `npm run verify` and
+#     `OSV-Scanner (PR) / osv-scan`. Auto-merge waits for ALL required
+#     contexts to succeed before squashing.
+#   - This workflow only ENABLES auto-merge; the ruleset enforces the
+#     gate at merge time.
 
 name: auto-merge
 

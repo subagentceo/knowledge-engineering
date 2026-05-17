@@ -20,12 +20,14 @@ name: Claude Code Review
 on:
   pull_request:
     types: [opened, synchronize, ready_for_review, reopened]
-    # Optional: Only run on specific file changes
-    # paths:
-    #   - "src/**/*.ts"
-    #   - "src/**/*.tsx"
-    #   - "src/**/*.js"
-    #   - "src/**/*.jsx"
+    # OAUTO1: skip docs/vendor-only PRs — reviewing a 600-page crawled
+    # mirror or pure-prose ADR has no source code to review and wastes
+    # Claude Code SDK quota.
+    paths-ignore:
+      - "vendor/**"
+      - "docs/**"
+      - "**.md"
+      - "**.mdx"
 
 concurrency:
   group: claude-review-${{ github.event.pull_request.number }}
@@ -33,6 +35,12 @@ concurrency:
 
 jobs:
   claude-review:
+    # OAUTO1 (2026-05-17): tolerate Anthropic-org "Claude Code SDK access
+    # disabled" failures (see docs/followups/2026-05-17-merge-velocity-audit.md
+    # finding #1). Operator must enable SDK access at console.anthropic.com
+    # for this check to actually run. Until then, continue-on-error keeps
+    # the PR checks UI honest: a yellow warning, not a red ✗.
+    continue-on-error: true
     # Optional: Filter by PR author
     # if: |
     #   github.event.pull_request.user.login == 'external-contributor' ||
