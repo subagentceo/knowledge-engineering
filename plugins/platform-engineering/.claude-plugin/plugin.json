@@ -20,6 +20,9 @@
     "skills/citations-tests-outcomes",
     "skills/manage-local-container",
     "skills/github-repo-security-review",
-    "skills/github-org-security-review"
+    "skills/github-org-security-review",
+    "skills/code-intelligence-lsp-setup",
+    "skills/code-intelligence-monitors",
+    "skills/code-intelligence-plugins-discover"
   ]
 }

@@ -23,7 +23,8 @@ export type TransformName =
   | "anthropic-mdfirst"
   | "support-mdfirst"
   | "accept-only"
-  | "html-extract";
+  | "html-extract"
+  | "github-article-body";
 
 export interface TransformOutput {
   fetchUrl: string;
@@ -189,6 +190,58 @@ export function acceptOnly(url: string): TransformOutput {
 }
 
 /**
+ * github-article-body — for docs.github.com. GitHub publishes a
+ * markdown-first content API documented at the top of
+ * https://docs.github.com/llms.txt:
+ *
+ *   /api/article/body?pathname=/<lang>/<slug>
+ *     → Content-Type: text/markdown
+ *
+ * This transform rewrites a canonical doc URL like
+ *   https://docs.github.com/en/rest
+ * into
+ *   https://docs.github.com/api/article/body?pathname=/en/rest
+ * and sends Accept: text/markdown. Same shape as supportMdFirst /
+ * anthropicMdFirst — a per-host markdown-first transform that
+ * reuses the existing fetch loop in scripts/crawl-vendors.ts.
+ *
+ * Rejects HTML responses (the Article Body API returns text/markdown
+ * for valid pages and an HTML error shell for 404s).
+ *
+ * @cite https://docs.github.com/llms.txt (Article Body API spec)
+ */
+export function githubArticleBody(url: string): TransformOutput {
+  const u = new URL(url);
+  if (u.host !== "docs.github.com") {
+    // Defensive: should never happen because allow_prefixes gates us;
+    // pass through verbatim so the caller's validator catches it.
+    return { fetchUrl: url, headers: {}, validateBody: () => false };
+  }
+  // If the URL is already the API endpoint, leave it alone.
+  if (u.pathname.startsWith("/api/article/body")) {
+    return {
+      fetchUrl: url,
+      headers: { ...acceptMarkdown },
+      validateBody: (ct, body) => {
+        if (ct && /text\/html/i.test(ct)) return false;
+        return !looksLikeHtml(body);
+      },
+    };
+  }
+  const pathname = u.pathname.replace(/\/$/, "") || "/";
+  const api = new URL("https://docs.github.com/api/article/body");
+  api.searchParams.set("pathname", pathname);
+  return {
+    fetchUrl: api.toString(),
+    headers: { ...acceptMarkdown },
+    validateBody: (ct, body) => {
+      if (ct && /text\/html/i.test(ct)) return false;
+      return !looksLikeHtml(body);
+    },
+  };
+}
+
+/**
  * html-extract — fetch HTML, run turndown to convert to markdown.
  * Used by brave-search, intercom, sift, arkose-labs (vendors with
  * no .md endpoint and no llms.txt-friendly negotiation).
@@ -214,4 +267,5 @@ export const TRANSFORMS = {
   "anthropic-mdfirst": anthropicMdFirst,
   "support-mdfirst": supportMdFirst,
   "accept-only": acceptOnly,
+  "github-article-body": githubArticleBody,
 } satisfies Partial<Record<TransformName, (url: string) => TransformOutput>>;

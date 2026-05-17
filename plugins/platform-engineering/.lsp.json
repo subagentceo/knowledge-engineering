@@ -1,0 +1,33 @@
+{
+  "$schema": "https://code.claude.com/schemas/lsp.json",
+  "servers": {
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"],
+      "rootMarkers": ["package.json", "tsconfig.json"],
+      "fileTypes": ["typescript", "typescriptreact", "javascript", "javascriptreact"]
+    }
+  },
+  "_stubs_pending_install": {
+    "python": {
+      "command": "pyright-langserver",
+      "args": ["--stdio"],
+      "rootMarkers": ["pyproject.toml", "setup.py"],
+      "fileTypes": ["python"],
+      "_note": "uncomment after: npm i -g pyright"
+    },
+    "go": {
+      "command": "gopls",
+      "args": ["serve"],
+      "rootMarkers": ["go.mod"],
+      "fileTypes": ["go"],
+      "_note": "uncomment after: go install golang.org/x/tools/gopls@latest"
+    },
+    "rust": {
+      "command": "rust-analyzer",
+      "rootMarkers": ["Cargo.toml"],
+      "fileTypes": ["rust"],
+      "_note": "uncomment after: rustup component add rust-analyzer"
+    }
+  }
+}
