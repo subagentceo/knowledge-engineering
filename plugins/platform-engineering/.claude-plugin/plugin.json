@@ -24,6 +24,7 @@
     "skills/code-intelligence-lsp-setup",
     "skills/code-intelligence-monitors",
     "skills/code-intelligence-plugins-discover",
-    "skills/heartbeat-dream"
+    "skills/heartbeat-dream",
+    "skills/pr-reviewer-roving"
   ]
 }
