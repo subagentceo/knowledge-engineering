@@ -19,6 +19,10 @@ name: verify
 
 on:
   pull_request:
+    # ready_for_review reruns CI when a draft is promoted (drafts can
+    # skip required checks under some ruleset configurations).
+    # reopened covers PR closed-and-reopened without a new push.
+    types: [opened, synchronize, reopened, ready_for_review]
     branches: [main]
   push:
     branches: [main]
