@@ -56,6 +56,7 @@
     "@modelcontextprotocol/sdk": "^1.29.0",
     "@neondatabase/serverless": "^1.1.0",
     "@openfeature/server-sdk": "^1.21.0",
+    "@turbopuffer/turbopuffer": "^2.0.0",
     "@types/cheerio": "^0.22.35",
     "@types/pdf-parse": "^1.1.5",
     "@types/ws": "^8.18.1",
