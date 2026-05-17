@@ -7,11 +7,13 @@
  * src/lib/github-security-review.ts (OSL1) and the agentskills SKILL
  * shape from OPE3.
  *
- * @tdd red
+ * @tdd refactor
  * @cite vendor/anthropics/code.claude.com/docs/en/plugins-reference.md
  * @cite vendor/anthropics/code.claude.com/docs/en/remote-control.md
  * @cite vendor/anthropics/code.claude.com/docs/en/routines.md
- * @cite docs/decisions/2026-05-16-osv-only-no-secret-scanning.md
+ * @cite vendor/osv-scanner/google.github.io/osv-scanner/github-action/index.md
+ *
+ * Cross-refs (not citation-guard scope): docs/decisions/2026-05-16-osv-only-no-secret-scanning.md (OSL1 ADR)
  */
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
