@@ -53,6 +53,14 @@ jobs:
             echo "::group::Rebase PR #$n"
             if gh pr update-branch "$n"; then
               echo "rebased #$n"
+              # ORC7 / OAUTO12: GITHUB_TOKEN-triggered push from update-branch
+              # does NOT fire downstream workflows (GitHub anti-recursion).
+              # Explicitly dispatch the required-status-check workflows on
+              # the rebased branch so the gate can re-satisfy on the new SHA.
+              # See docs/decisions/2026-05-17-auto-merge-recovery.md
+              branch=$(gh pr view "$n" --json headRefName -q .headRefName)
+              gh workflow run verify.yml      --ref "$branch" || echo "::warning::verify dispatch failed for #$n on $branch"
+              gh workflow run osv-scanner.yml --ref "$branch" || echo "::warning::osv dispatch failed for #$n on $branch"
             else
               echo "::warning::could not rebase #$n (likely conflict)"
               fail_count=$((fail_count+1))
