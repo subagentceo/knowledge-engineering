@@ -1,9 +1,22 @@
-# auto-rebase — when main advances, rebase every open automerge PR.
-# Fixes the train stall caused by strict_required_status_checks_policy.
+# auto-rebase — rebase open automerge PRs that are BEHIND.
+#
+# Triggers (defense in depth — see ORC4):
+#   1. workflow_run: when auto-merge.yml completes (fires even for
+#      GITHUB_TOKEN-triggered events; on:push did NOT, because GitHub
+#      suppresses workflows triggered by github-actions to prevent
+#      recursion).
+#   2. schedule: every 10 min as a backstop.
+#   3. workflow_dispatch: manual kick.
+#   4. push: human-actor pushes to main still fire workflows.
 
 name: auto-rebase
 
 on:
+  workflow_run:
+    workflows: [auto-merge]
+    types: [completed]
+  schedule:
+    - cron: '*/10 * * * *'
   push:
     branches: [main]
   workflow_dispatch:
