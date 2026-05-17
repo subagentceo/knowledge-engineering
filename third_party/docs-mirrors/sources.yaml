@@ -1,0 +1,59 @@
+# Cloudflare agent resource catalog for on-demand fetch.
+#
+# Used by scripts/fetch-cloudflare-docs.sh. The script enforces the
+# /index.md rule for page-md entries (the bare URL is stored here; the
+# script appends /index.md before curl). llms-index and llms-full URLs
+# are already markdown/text and are fetched verbatim.
+#
+# kind values:
+#   page-md     — developers.cloudflare.com page; script appends /index.md
+#   llms-index  — llms.txt index file
+#   llms-full   — llms-full.txt expanded corpus
+#   submodule   — already covered by a third_party/<name>/ submodule;
+#                 catalog entry exists for discoverability only,
+#                 fetch is a no-op
+#
+# @cite docs/decisions/2026-05-17-third-party-submodules-supersede-opr1.md
+
+sources:
+  - name: agent-setup
+    url: https://developers.cloudflare.com/agent-setup
+    dest: _cache/agent-setup.md
+    kind: page-md
+
+  - name: cloudflare-skills
+    url: https://github.com/cloudflare/skills
+    dest: _cache/.skills-submodule-pointer
+    kind: submodule
+    # TODO-OPERATOR: third_party/skills not yet added; PR for that is
+    # separate. Catalog entry recorded here per operator handoff.
+
+  - name: code-mode-mcp-server
+    url: https://developers.cloudflare.com/agents/api-reference/configuration/code-mode
+    dest: _cache/code-mode-mcp-server.md
+    kind: page-md
+
+  - name: domain-specific-mcp-servers
+    url: https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare-apis
+    dest: _cache/domain-specific-mcp-servers.md
+    kind: page-md
+
+  - name: durable-objects-llms.txt
+    url: https://developers.cloudflare.com/durable-objects/llms.txt
+    dest: _cache/durable-objects-llms.txt
+    kind: llms-index
+
+  - name: durable-objects-llms-full.txt
+    url: https://developers.cloudflare.com/durable-objects/llms-full.txt
+    dest: _cache/durable-objects-llms-full.txt
+    kind: llms-full
+
+  - name: cloudflare-docs-llms.txt
+    url: https://developers.cloudflare.com/llms.txt
+    dest: _cache/cloudflare-docs-llms.txt
+    kind: llms-index
+
+  - name: cloudflare-docs-llms-full.txt
+    url: https://developers.cloudflare.com/llms-full.txt
+    dest: _cache/cloudflare-docs-llms-full.txt
+    kind: llms-full

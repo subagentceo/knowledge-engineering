@@ -1,0 +1,72 @@
+# verify-docs-mirrors — validate third_party/docs-mirrors/sources.yaml.
+# Standalone workflow so it can be required independently in branch
+# protection.
+
+name: verify-docs-mirrors
+
+on:
+  pull_request:
+    paths:
+      - 'third_party/docs-mirrors/**'
+      - 'scripts/fetch-cloudflare-docs.sh'
+      - '.github/workflows/verify-docs-mirrors.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-docs-mirrors:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate sources.yaml URL shapes
+        run: |
+          set -euo pipefail
+          CATALOG=third_party/docs-mirrors/sources.yaml
+          if [ ! -f "$CATALOG" ]; then
+            echo "error: $CATALOG not found"
+            exit 1
+          fi
+
+          PARSED=$(awk '
+            /^  - name:/ { if (n) print n"|"u"|"k; n=$3; u=""; k=""; next }
+            /^    url:/  { u=$2; next }
+            /^    kind:/ { k=$2; next }
+            END { if (n) print n"|"u"|"k }
+          ' "$CATALOG")
+
+          fail=0
+          while IFS='|' read -r name url kind; do
+            [ -z "$name" ] && continue
+            case "$kind" in
+              page-md)
+                if printf '%s' "$url" | grep -qE '/index\.md$'; then
+                  echo "::error::$name (page-md) MUST NOT include /index.md in URL — rule lives in fetch script"
+                  fail=1
+                fi
+                ;;
+              llms-index)
+                if ! printf '%s' "$url" | grep -qE '/llms\.txt$'; then
+                  echo "::error::$name (llms-index) URL must end in /llms.txt"
+                  fail=1
+                fi
+                ;;
+              llms-full)
+                if ! printf '%s' "$url" | grep -qE '/llms-full\.txt$'; then
+                  echo "::error::$name (llms-full) URL must end in /llms-full.txt"
+                  fail=1
+                fi
+                ;;
+              submodule) ;;
+              *)
+                echo "::error::$name has unknown kind '$kind'"
+                fail=1
+                ;;
+            esac
+          done <<< "$PARSED"
+
+          if [ "$fail" = "1" ]; then
+            exit 1
+          fi
+          echo "OK — sources.yaml URL shapes valid"
