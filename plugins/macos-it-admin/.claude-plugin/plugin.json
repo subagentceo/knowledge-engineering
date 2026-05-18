@@ -1,0 +1,23 @@
+{
+  "$schema": "https://code.claude.com/schemas/plugin.json",
+  "name": "macos-it-admin",
+  "version": "0.1.0",
+  "description": "Operator-side IT admin plugin: scriptable CRUD over vendor API tokens for Cloudflare, Turbopuffer, Neon, Parallel.ai, and Nimbleway. Implements the OSEC3 long-lived-minter pattern with macOS keychain bootstrap. Replaces browser-click token mint flows with deterministic CLI flows that never leak secret values into agent context.",
+  "author": {
+    "name": "alex-jadecli",
+    "url": "https://github.com/alex-jadecli"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subagentceo/knowledge-engineering",
+    "directory": "plugins/macos-it-admin"
+  },
+  "skills": [
+    "skills/cloudflare-crud",
+    "skills/turbopuffer-crud",
+    "skills/neon-crud",
+    "skills/parallel-ai-crud",
+    "skills/nimbleway-crud"
+  ]
+}
