@@ -183,7 +183,23 @@ Both Q and A land on PR #240 as separate commits using the load-bearing conventi
 
 No question goes anywhere except this file. No answer goes anywhere except this file.
 
-(none yet)
+### Q1 [from agent-1, 2026-05-18T~04:35Z] — on OWASTE1 (applies to OWASTE3, OWASTE4, OWASTE5 too)
+
+The spec's `Files` line for OWASTE1 puts the test at `src/hooks/check-gh-jq.test.ts`. Empirically:
+
+- `scripts/lib/run-tests.ts` discovers tests only under `scripts/lib/`, `src/lib/`, and `infra/cloudflare/src/` (see `src/lib/run-tests.ts` lines 23-27 — wait, actual file is `scripts/lib/run-tests.ts:23-27`).
+- All 20+ existing `*.test.ts` files in this repo live under `src/lib/` (verified via `find src -name '*.test.ts'`).
+- A test at `src/hooks/check-gh-jq.test.ts` would pass `verify:citations` (citation-guard walks `src/`, `scripts/`, `infra/`) but would **not run** under `verify:libs`. Silent dead code — G3 passes but the test contributes nothing.
+
+Three options:
+
+- **Option A** — move the test to `src/lib/check-gh-jq.test.ts` (everywhere). G6 then requires updating the spec's Files line for OWASTE1/3/4/5 to read `src/lib/...test.ts`. I cannot change the spec unilaterally because the orchestrator owns it.
+- **Option B** — extend `scripts/lib/run-tests.ts` to also discover `src/hooks/`. That's a behavior change outside the unit's declared files and violates G6 for OWASTE1.
+- **Option C** — keep the test at `src/hooks/` and accept that it's discovered by citation-guard only. The hook's runtime behavior is exercised in production; the test is documentation. Existing repo precedent: zero tests under `src/hooks/`, but also no precedent against it.
+
+Which option? If A, please update the spec's Files line for OWASTE1, OWASTE3, OWASTE4, OWASTE5 (OWASTE2 has no test) and I'll proceed.
+
+(none answered yet)
 
 ---
 
