@@ -10,6 +10,7 @@
  * directory names. Some entities are explicitly EXCLUDED (BPO service
  * providers with no developer docs; Anthropic consumer surfaces).
  *
+ * @tdd green
  * @cite seeds/citations/vendor-graph-v2.xml
  * @cite rubrics/phase-16.md
  * @cite seeds/posture/session-start.xml

@@ -1,6 +1,7 @@
 /**
  * Citations:
- *   @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/embeddings.md
+ *   @tdd green
+ * @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/embeddings.md
  *
  * Note: docs/operator-runbooks/cli-only-unblock-path.md (in-repo runbook)
  * documents the CLI-only secrets flow used when the embeddings model is

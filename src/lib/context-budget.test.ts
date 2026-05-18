@@ -1,6 +1,7 @@
 /**
  * Citations:
- *   @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/context-windows.md
+ *   @tdd green
+ * @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/context-windows.md
  *   @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/token-counting.md
  */
 import { strict as assert } from "node:assert";

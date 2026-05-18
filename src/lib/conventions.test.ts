@@ -13,6 +13,7 @@
  *
  * Citations (per docs/CONVENTIONS.md rule: tests cite their canonical source):
  *
+ * @tdd green
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
  *
@@ -63,7 +64,18 @@ function check(name: string, fn: () => void): void {
 // `OVS3`, `OPR4`, and follow-up variants like `OVS3-FU` and `OKWPF1-FU`
 // all parse. The leading char must be alphanumeric so `(O-foo)` is still
 // rejected as malformed.
-const CONVENTIONAL_RE = /^(feat|fix|perf|refactor|chore|docs|test|build|ci|revert)(\([^)]+\))?!?:\s+.+\s+\(O[0-9A-Za-z][0-9A-Za-z-]*(,\s*O[0-9A-Za-z][0-9A-Za-z-]*)*\)\s*$/;
+//
+// OGHW-X2 extension (2026-05-18): allow:
+//   1. numeric-shorthand continuations within a shared prefix scope,
+//      e.g., `(OGHW1,2,9,10)` is sugar for `(OGHW1,OGHW2,OGHW9,OGHW10)`;
+//   2. `+` as an alternate separator (some historical commits use it,
+//      e.g., `(OCP3+OCP4)`);
+//   3. optional trailing `(#<digits>)` — GitHub's squash-merge auto-
+//      appends the PR number to the subject, e.g.,
+//      `... (OCP4) (#250)`. Without this, every merge-from-main into a
+//      feature branch breaks the convention check on the merged-in
+//      squash subjects.
+const CONVENTIONAL_RE = /^(feat|fix|perf|refactor|chore|docs|test|build|ci|revert)(\([^)]+\))?!?:\s+.+\s+\(O[0-9A-Za-z][0-9A-Za-z-]*((?:[,+]\s*)(?:O[0-9A-Za-z][0-9A-Za-z-]*|[0-9]+))*\)(\s+\(#[0-9]+\))?\s*$/;
 
 /**
  * Merge-commit subjects start with `Merge ` or `merge:` — we skip these

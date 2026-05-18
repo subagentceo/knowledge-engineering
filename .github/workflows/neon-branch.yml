@@ -30,6 +30,7 @@ on:
       - opened
       - reopened
       - synchronize
+      - ready_for_review   # fire the create-branch step when a draft is promoted
       - closed
 
 concurrency:
@@ -52,19 +53,29 @@ jobs:
       db_url: ${{ steps.create_neon_branch.outputs.db_url }}
       db_url_with_pooler: ${{ steps.create_neon_branch.outputs.db_url_with_pooler }}
     needs: setup
+    # Skip draft PRs. ready_for_review (in types: above) fires the create
+    # path when the PR is promoted. The delete_neon_branch job is NOT
+    # draft-gated — `closed` of a draft must still clean up if a branch
+    # was created before the draft toggle.
     if: |
-      github.event_name == 'pull_request' && (
-      github.event.action == 'synchronize'
-      || github.event.action == 'opened'
-      || github.event.action == 'reopened')
+      github.event_name == 'pull_request'
+      && github.event.pull_request.draft == false
+      && (
+        github.event.action == 'synchronize'
+        || github.event.action == 'opened'
+        || github.event.action == 'reopened'
+        || github.event.action == 'ready_for_review'
+      )
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: read
       pull-requests: write
     steps:
       - name: Create Neon Branch
         id: create_neon_branch
-        uses: neondatabase/create-branch-action@v5
+        # OGHW-X2: SHA-pinned per docs/decisions/2026-05-18-actions-sha-pinning.md.
+        uses: neondatabase/create-branch-action@34f619c41c6e67b4f2f13f1c6eae90827a5f2cf4  # v5
         with:
           project_id: ${{ vars.NEON_PROJECT_ID }}
           branch_name: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
@@ -124,7 +135,8 @@ jobs:
 
       # Schema diff (informational; surfaces drift between PR branch and main).
       - name: Post Schema Diff Comment to PR
-        uses: neondatabase/schema-diff-action@v1
+        # OGHW-X2: SHA-pinned per docs/decisions/2026-05-18-actions-sha-pinning.md.
+        uses: neondatabase/schema-diff-action@80cfa8521628e890015b60f5291a7738926617dc  # v1
         with:
           project_id: ${{ vars.NEON_PROJECT_ID }}
           compare_branch: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
@@ -135,9 +147,11 @@ jobs:
     needs: setup
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Delete Neon Branch
-        uses: neondatabase/delete-branch-action@v3
+        # OGHW-X2: SHA-pinned per docs/decisions/2026-05-18-actions-sha-pinning.md.
+        uses: neondatabase/delete-branch-action@4468d825d5a88ef4012f1705a82f02ec3072f776  # v3
         with:
           project_id: ${{ vars.NEON_PROJECT_ID }}
           branch: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}

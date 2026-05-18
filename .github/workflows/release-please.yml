@@ -1,18 +1,34 @@
 name: release-please
 
+# OGHW9: release-please opens PRs and tags releases on every push to
+# main. Permissions are scoped at the job level (not workflow level)
+# so unrelated future jobs don't inherit write.
+#
+# `googleapis/release-please-action@v4` is in the OGHW-X2 progressive-
+# migration backlog (SHA-pin follow-up).
+
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
-permissions:
-  contents: write
-  pull-requests: write
+concurrency:
+  # Serialize per branch — two simultaneous release-please runs on
+  # main would race on the release PR.
+  group: release-please-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   release:
+    name: release-please
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      - uses: googleapis/release-please-action@v4
+      # OGHW-X2: SHA-pinned per docs/decisions/2026-05-18-actions-sha-pinning.md.
+      - uses: googleapis/release-please-action@8b8fd2cc23b2e18957157a9d923d75aa0c6f6ad5  # v4
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json

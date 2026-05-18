@@ -1,4 +1,4 @@
-# auto-rebase — rebase open automerge PRs that are BEHIND.
+# auto-rebase — rebase open automerge PRs and rescue BLOCKED-without-checks PRs.
 #
 # Triggers (defense in depth — see ORC4):
 #   1. workflow_run: when auto-merge.yml completes (fires even for
@@ -8,6 +8,22 @@
 #   2. schedule: every 10 min as a backstop.
 #   3. workflow_dispatch: manual kick.
 #   4. push: human-actor pushes to main still fire workflows.
+#
+# Two jobs (OGHW3 + OAUTO16):
+#   - rebase-behind-prs: the original OAUTO12 path. Rebases BEHIND PRs
+#     and redispatches verify+osv against the rebased branch (post
+#     anti-recursion-suppressed push).
+#   - rescue-blocked-prs: the new OAUTO16 path. Scans for PRs whose
+#     current head is missing one or both required check contexts
+#     (typically because a previous MCP-driven update-branch was
+#     GitHub-App-authored and got anti-recursion-suppressed) and
+#     dispatches verify+osv against them. Without this, a PR can sit
+#     in BLOCKED forever after a non-cron rebase.
+#
+# Cited from:
+#   docs/decisions/2026-05-17-auto-merge-recovery.md (OAUTO12)
+#   docs/decisions/2026-05-18-actions-sha-pinning.md (no SHA-pins here;
+#     `gh` is provided by the runner image, not via uses:)
 
 name: auto-rebase
 
@@ -24,10 +40,18 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write   # required for `gh workflow run` (workflow_dispatch)
+
+# Serialize globally so two cron ticks don't race on the same PR.
+concurrency:
+  group: auto-rebase-${{ github.workflow }}
+  cancel-in-progress: false
 
 jobs:
   rebase-behind-prs:
+    name: Rebase BEHIND automerge PRs
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GH_REPO: ${{ github.repository }}
@@ -69,3 +93,66 @@ jobs:
           done
 
           echo "Done. Rebase failures: $fail_count (left BEHIND for human review)."
+
+  rescue-blocked-prs:
+    name: Rescue BLOCKED automerge PRs missing required checks (OAUTO16)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Find BLOCKED PRs whose head is missing verify or osv
+        run: |
+          set -euo pipefail
+          # The two required-status-check contexts from the branch ruleset.
+          # MUST stay in sync with scripts/setup-branch-protection.ts.
+          REQUIRED_VERIFY="npm run verify"
+          REQUIRED_OSV="OSV-Scanner (PR) / osv-scan"
+
+          echo "Listing open non-draft BLOCKED automerge PRs..."
+          mapfile -t PRS < <(gh pr list \
+            --state open \
+            --label automerge \
+            --json number,isDraft,mergeStateStatus \
+            -q '.[] | select(.isDraft==false) | select(.mergeStateStatus=="BLOCKED") | .number')
+
+          if [ "${#PRS[@]}" -eq 0 ]; then
+            echo "No BLOCKED PRs to rescue."
+            exit 0
+          fi
+
+          rescued=0
+          for n in "${PRS[@]}"; do
+            echo "::group::Inspect BLOCKED PR #$n"
+            branch=$(gh pr view "$n" --json headRefName -q .headRefName)
+            head_sha=$(gh pr view "$n" --json headRefOid -q .headRefOid)
+
+            # Fetch check-run names on the current head SHA.
+            # `--paginate` ensures we don't miss any in big repos.
+            checks=$(gh api --paginate "repos/$GH_REPO/commits/$head_sha/check-runs" \
+              -q '.check_runs[].name' 2>/dev/null || echo "")
+
+            missing_verify=0
+            missing_osv=0
+            grep -Fxq "$REQUIRED_VERIFY" <<<"$checks" || missing_verify=1
+            grep -Fxq "$REQUIRED_OSV"    <<<"$checks" || missing_osv=1
+
+            if [ "$missing_verify" -eq 0 ] && [ "$missing_osv" -eq 0 ]; then
+              echo "#$n head has both required checks; BLOCKED is for another reason (review approval, status conclusion, etc.). Skipping."
+              echo "::endgroup::"
+              continue
+            fi
+
+            echo "#$n missing checks (verify=$missing_verify osv=$missing_osv). Dispatching against branch $branch..."
+            if [ "$missing_verify" -ne 0 ]; then
+              gh workflow run verify.yml --ref "$branch" || echo "::warning::verify dispatch failed for #$n on $branch"
+            fi
+            if [ "$missing_osv" -ne 0 ]; then
+              gh workflow run osv-scanner.yml --ref "$branch" || echo "::warning::osv dispatch failed for #$n on $branch"
+            fi
+            rescued=$((rescued+1))
+            echo "::endgroup::"
+          done
+
+          echo "Rescued $rescued BLOCKED PR(s)."

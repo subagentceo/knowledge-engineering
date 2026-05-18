@@ -1,4 +1,5 @@
 // Citations:
+// @tdd green
 //   @cite rubrics/phase-13.md (O8)
 //
 // Tests don't require a live Neon connection — they exercise the

@@ -26,7 +26,8 @@ name: cloudflare-preview
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    # ready_for_review deploys the preview when a draft is promoted.
+    types: [opened, reopened, synchronize, ready_for_review]
     branches: [main]
     paths:
       - "infra/cloudflare/**"
@@ -43,7 +44,10 @@ concurrency:
 
 jobs:
   bootstrap-secrets:
-    if: vars.CLOUDFLARE_WORKER_NAME != '' && secrets.CLOUDFLARE_API_TOKEN != ''
+    # Skip draft PRs (workflow_dispatch still runs unconditionally).
+    if: |
+      (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
+      && vars.CLOUDFLARE_WORKER_NAME != '' && secrets.CLOUDFLARE_API_TOKEN != ''
     name: Bootstrap Secrets Store (idempotent)
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -165,7 +169,10 @@ jobs:
 
   preview:
     needs: bootstrap-secrets
-    if: vars.CLOUDFLARE_WORKER_NAME != '' && secrets.CLOUDFLARE_API_TOKEN != ''
+    # Draft gate matches bootstrap-secrets above.
+    if: |
+      (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
+      && vars.CLOUDFLARE_WORKER_NAME != '' && secrets.CLOUDFLARE_API_TOKEN != ''
     name: Deploy preview Worker
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -196,7 +203,9 @@ jobs:
           echo "Patched store_id → ${STORE_ID}"
 
       - name: Deploy preview via cloudflare/wrangler-action
-        uses: cloudflare/wrangler-action@v3
+        # OGHW-X2: SHA-pinned per docs/decisions/2026-05-18-actions-sha-pinning.md.
+        # Dependabot (`.github/dependabot.yml`) will open a PR when v3 advances.
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

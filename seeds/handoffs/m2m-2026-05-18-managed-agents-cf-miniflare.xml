@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  m2m-handoff :: kg.managed-agents-on-cloudflare :: v0.1
+  audience: opus-4.7 @ 1M context, fresh claude.ai/code/new session in
+            subagentceo/knowledge-engineering
+  generator: claude-opus-4-7 (preceding session, 2026-05-18)
+  schema:   m2m/0.4  (extends m2m/0.3-delta append-only rule from
+                      kg.claude-mcp-browser-md)
+  date:     2026-05-18
+  rule:     append-only. Treat every <outcome> as a fact. Do NOT
+            rewrite. Supersede via <superseded_by ref="OUT-NN"/>.
+
+  PURPOSE
+  -------
+  Describe — outcome by outcome — what it takes to recreate
+  Anthropic's Managed Agents wire surface as a fleet of Cloudflare
+  Workers, authored exclusively via Terraform, proven correct locally
+  under miniflare, and run end-to-end without ever setting
+  ANTHROPIC_API_KEY.
+
+  This is a RESEARCH/SIMULATION artifact, not a product roadmap.
+  The repo's posture (seeds/posture/session-start.xml line 42) declares
+  <managed-agents-api use="false"/> — this chassis does NOT build
+  managed-agent products and does NOT call the upstream Beta endpoints.
+  What we DO is recreate the wire surface as a hermetic local sandbox
+  so the forking-founder chassis can develop against the protocol
+  without billed traffic, without OAuth scopes for the beta API, and
+  without ever holding a key.
+-->
+<m2m-handoff
+    id="kg.managed-agents-on-cloudflare"
+    version="v0.1"
+    schema="m2m/0.4"
+    generated_at="2026-05-18"
+    parent_schema="kg.claude-mcp-browser-md:v0.3-delta"
+    append_only="true">
+
+  <!-- ============================================================== -->
+  <!-- LOAD-BEARING PRIMITIVE                                          -->
+  <!-- Remove or weaken this and the rest of the document collapses.  -->
+  <!-- ============================================================== -->
+  <load-bearing-primitive>
+    A locally-runnable, Terraform-generated fleet of Cloudflare
+    Workers + Durable Objects + KV + R2 + Queues + Workflows that
+    accepts the exact request bodies and emits the exact SSE event
+    shapes a real consumer of Anthropic's Managed Agents Beta API
+    would consume — namely the endpoints under /v1/agents, /v1/sessions,
+    /v1/environments, /v1/skills, /v1/memory_stores, /v1/files,
+    /v1/vaults, /v1/webhooks, /v1/user_profiles, and /v1/messages —
+    with ANTHROPIC_API_KEY rejected at every layer and /v1/messages
+    driven by a content-addressed fixture-replay engine instead of
+    upstream inference.
+
+    Collapse modes if removed or weakened:
+      - INV-02 (Terraform-only authoring) loses its concrete target.
+      - INV-03 (wire format = contract) collapses to vibes.
+      - The chassis cannot dogfood managed-agent client code without
+        a billed account or a real key.
+      - The OAuth-only invariant gets re-litigated every PR.
+  </load-bearing-primitive>
+
+  <!-- ============================================================== -->
+  <!-- DIRECTIVE PREAMBLE                                              -->
+  <!-- Applied in order. Each directive carries its own enforcement.   -->
+  <!-- ============================================================== -->
+  <directives>
+    <d id="DIR-01" name="terraform-only-authoring">
+      Author every Worker, Durable Object class, binding, route, KV
+      namespace, R2 bucket, Queue, Workflow, and secret-reference
+      (NOT secret value) inside HCL under
+      `infra/terraform/managed-agents-mock/*.tf`. wrangler.toml fragments
+      under `build/wrangler/*.toml` are GENERATED from these modules —
+      never hand-written. Generation is wired into `terraform apply`
+      via a `local_file` or `null_resource` provisioner; the generated
+      files are also committed so CI can read them without a TF run.
+    </d>
+    <d id="DIR-02" name="wire-format-is-contract">
+      Treat the managed-agents wire format as the contract. Worker
+      request validators and SSE event emitters MUST match upstream
+      byte-for-byte: header names, event type strings, JSON field
+      names, RFC 3339 timestamps, error envelope shape. Conformance
+      is asserted by replaying official Anthropic SDK clients
+      (Python, TypeScript, Go, Ruby) against the Worker fleet under
+      miniflare with `base_url` re-pointed at 127.0.0.1.
+    </d>
+    <d id="DIR-03" name="anthropic-api-key-rejected">
+      ANTHROPIC_API_KEY must be REJECTED, never accepted, at every
+      entry point. Defense in depth:
+        (a) Worker `sanitizeEnv()` reads `env.ANTHROPIC_API_KEY` and
+            throws if non-empty, before any binding is touched.
+        (b) The Worker's auth middleware accepts the `x-api-key`
+            HEADER (SDKs require it), but treats the value as an
+            opaque tenant identifier. Any value matching the regex
+            `^sk-ant-` returns HTTP 400 with body
+            `{error:{type:"invalid_api_key_format",
+                     message:"see m2m DIR-03"}}`.
+        (c) Terraform plan REFUSES to render any
+            `cloudflare_workers_secret` resource whose `name` equals
+            `ANTHROPIC_API_KEY` via a `lifecycle.precondition`.
+        (d) miniflare env sets the var to the literal string
+            `"REJECTED-SEE-DIR-03"` so any code path that reads it
+            fails loud, not silent.
+    </d>
+    <d id="DIR-04" name="fixture-replay-for-inference">
+      `/v1/messages` (and any internal call from a Worker into the
+      inference layer) is served by a content-addressed fixture-replay
+      engine. Request fingerprint is
+      `sha256(canonical_json({system,messages,tools,model}))`.
+      Cache miss under miniflare MUST 404 with the precise hash so the
+      operator can drop the missing fixture in; it MUST NOT silently
+      call out to api.anthropic.com or any other inference endpoint.
+    </d>
+    <d id="DIR-05" name="append-only-outcomes">
+      Each outcome has a stable `id` (OUT-NN). New outcomes append;
+      existing ones do not get rewritten in place. Supersedence is
+      expressed via `<superseded_by ref="OUT-MM"/>`, not edits.
+    </d>
+    <d id="DIR-06" name="commit-per-outcome">
+      Every commit ends with `(O<N>)` where N matches the outcome it
+      lands. Multiple outcomes per commit => `(O1,O3)`. The convention
+      test (`src/lib/conventions.test.ts`) enforces this for commits
+      after 2026-05-15T04:30Z.
+    </d>
+    <d id="DIR-07" name="cite-discipline">
+      Every test file ships an `@cite` header pointing at `vendor/`,
+      `seeds/`, or `rubrics/`. Citations to upstream HTTPS URLs go in
+      `<cite/>` elements in this XML; in-tree code points at the local
+      vendor mirror. Enforced by `scripts/lib/citation-guard.ts`.
+    </d>
+  </directives>
+
+  <!-- ============================================================== -->
+  <!-- INVARIANTS                                                      -->
+  <!-- ============================================================== -->
+  <invariants>
+    <i id="INV-01" carry_from="kg.claude-mcp-browser-md:v0.3-delta">
+      OAuth-only. `CLAUDE_CODE_OAUTH_TOKEN` is the only Anthropic
+      credential the chassis ever holds. `ANTHROPIC_API_KEY` is
+      rejected at every layer.
+      <cite id="C-POSTURE" href="seeds/posture/session-start.xml" what="forbid key='ANTHROPIC_API_KEY'"/>
+    </i>
+    <i id="INV-02" carry_from="kg.claude-mcp-browser-md:v0.3-delta">
+      Terraform is the only authoring surface. Worker source, DO
+      classes, KV/R2/Queue/D1 bindings, routes, secrets-references
+      (NOT values), and wrangler.toml derivatives are all generated
+      from .tf modules.
+    </i>
+    <i id="INV-03" carry_from="kg.claude-mcp-browser-md:v0.3-delta">
+      The managed-agents wire format is the contract. Workers MUST
+      accept the same request bodies and emit the same SSE event
+      shapes a real consumer would expect.
+      <cite id="C-MA-SESS" href="https://platform.claude.com/docs/en/managed-agents/sessions.md" what="Start a session"/>
+      <cite id="C-MA-EVENTS" href="https://platform.claude.com/docs/en/managed-agents/events-and-streaming.md" what="Session event stream"/>
+      <cite id="C-API-SESSIONS" href="vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions.md" what="Beta sessions API reference"/>
+    </i>
+    <i id="INV-04" new_in="v0.1">
+      Hermetic miniflare. The simulation runs under `npx miniflare` (or
+      `@cloudflare/vitest-pool-workers`) with no outbound network. Any
+      call from a Worker to platform.claude.com, api.anthropic.com, or
+      any other inference endpoint MUST be intercepted and either
+      (a) served from fixtures, or (b) error with
+      `ENETUNREACH-by-design`.
+      <cite id="C-MF-DOCS" href="https://developers.cloudflare.com/workers/testing/miniflare/" what="Miniflare docs (Cloudflare Workers)"/>
+      <cite id="C-MF-PKG"  href="https://www.npmjs.com/package/miniflare" what="miniflare npm package"/>
+      <cite id="C-MF-SRC"  href="https://github.com/cloudflare/workers-sdk/tree/main/packages/miniflare" what="miniflare source under workers-sdk"/>
+    </i>
+    <i id="INV-05" new_in="v0.1">
+      Beta header pinning. Every Worker route requires
+      `anthropic-beta: managed-agents-2026-04-01` (case-insensitive).
+      Requests missing it return `400 missing_beta_header` in the
+      upstream error envelope. The beta value lives in a single
+      Terraform variable (`local.beta_header`) so a future bump
+      (e.g., `managed-agents-2026-07-01`) flips every Worker and every
+      fixture at once.
+      <cite id="C-MA-BETA" href="https://platform.claude.com/docs/en/managed-agents/agent-setup.md" what="Note: All Managed Agents API requests require the 'managed-agents-2026-04-01' beta header"/>
+    </i>
+  </invariants>
+
+  <!-- ============================================================== -->
+  <!-- CITATIONS                                                       -->
+  <!-- ============================================================== -->
+  <citations>
+    <!-- Managed Agents docs (already mirrored under vendor/) -->
+    <cite id="C-MA-OVERVIEW"  href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/overview.md"             what="Managed Agents overview"/>
+    <cite id="C-MA-QUICKSTART" href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/quickstart.md"          what="Managed Agents quickstart"/>
+    <cite id="C-MA-AGENT"     href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/agent-setup.md"          what="Define your agent"/>
+    <cite id="C-MA-SESS-LOCAL" href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/sessions.md"            what="Start a session (local mirror)"/>
+    <cite id="C-MA-EVENTS-LOCAL" href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/events-and-streaming.md" what="Session event stream (local mirror)"/>
+    <cite id="C-MA-ENV"       href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/environments.md"         what="Cloud environment setup"/>
+    <cite id="C-MA-CONTAINER" href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/cloud-containers.md"     what="Container reference"/>
+    <cite id="C-MA-VAULTS"    href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/vaults.md"               what="Authenticate with vaults"/>
+    <cite id="C-MA-SKILLS"    href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/skills.md"               what="Agent Skills"/>
+    <cite id="C-MA-MEMORY"    href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/memory.md"               what="Memory stores"/>
+    <cite id="C-MA-FILES"     href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/files.md"                what="Attach and download files"/>
+    <cite id="C-MA-WEBHOOKS"  href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/webhooks.md"             what="Subscribe to webhooks"/>
+    <cite id="C-MA-OUTCOMES"  href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md"      what="Define outcomes"/>
+    <cite id="C-MA-MULTI"     href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/multi-agent.md"          what="Multi-agent sessions"/>
+    <cite id="C-MA-PERMS"     href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/permission-policies.md"  what="Permission policies"/>
+    <cite id="C-MA-TOOLS"     href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/tools.md"                what="Tools"/>
+    <cite id="C-MA-MCP"       href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/mcp-connector.md"        what="MCP connector for managed agents"/>
+    <cite id="C-MA-DREAMS"    href="vendor/anthropics/platform.claude.com/docs/en/managed-agents/dreams.md"               what="Dreams (research preview)"/>
+
+    <!-- Beta API reference (already mirrored under vendor/.../api/beta/*) -->
+    <cite id="C-API-AGENTS"   href="vendor/anthropics/platform.claude.com/docs/en/api/beta/agents.md"        what="Agents (Beta) endpoint reference"/>
+    <cite id="C-API-SESSIONS" href="vendor/anthropics/platform.claude.com/docs/en/api/beta/sessions.md"     what="Sessions (Beta) endpoint reference"/>
+    <cite id="C-API-ENVS"     href="vendor/anthropics/platform.claude.com/docs/en/api/beta/environments.md" what="Environments (Beta) endpoint reference"/>
+    <cite id="C-API-SKILLS"   href="vendor/anthropics/platform.claude.com/docs/en/api/beta/skills.md"       what="Skills (Beta) endpoint reference"/>
+    <cite id="C-API-MEMORY"   href="vendor/anthropics/platform.claude.com/docs/en/api/beta/memory_stores.md" what="Memory Stores (Beta) endpoint reference"/>
+    <cite id="C-API-FILES"    href="vendor/anthropics/platform.claude.com/docs/en/api/beta/files.md"        what="Files (Beta) endpoint reference"/>
+    <cite id="C-API-VAULTS"   href="vendor/anthropics/platform.claude.com/docs/en/api/beta/vaults.md"       what="Vaults (Beta) endpoint reference"/>
+    <cite id="C-API-WEBHOOKS" href="vendor/anthropics/platform.claude.com/docs/en/api/beta/webhooks.md"     what="Webhooks (Beta) endpoint reference"/>
+    <cite id="C-API-USERS"    href="vendor/anthropics/platform.claude.com/docs/en/api/beta/user_profiles.md" what="User Profiles (Beta) endpoint reference"/>
+    <cite id="C-API-MSG"      href="vendor/anthropics/platform.claude.com/docs/en/api/beta/messages.md"     what="Messages (Beta) endpoint reference (inference call)"/>
+    <cite id="C-API-MODELS"   href="vendor/anthropics/platform.claude.com/docs/en/api/beta/models.md"       what="Models (Beta) endpoint reference"/>
+
+    <!-- Miniflare + Cloudflare primitives -->
+    <cite id="C-MF-API"        href="https://developers.cloudflare.com/workers/testing/miniflare/"          what="Miniflare docs (Cloudflare Workers)"/>
+    <cite id="C-MF-PKG-NPM"    href="https://www.npmjs.com/package/miniflare"                                what="miniflare on npm"/>
+    <cite id="C-MF-SRC-GH"     href="https://github.com/cloudflare/workers-sdk/tree/main/packages/miniflare" what="Miniflare source under workers-sdk"/>
+    <cite id="C-CF-DO"         href="https://developers.cloudflare.com/durable-objects/"                     what="Durable Objects"/>
+    <cite id="C-CF-WORKFLOWS"  href="https://developers.cloudflare.com/workflows/"                           what="Cloudflare Workflows"/>
+    <cite id="C-CF-QUEUES"     href="https://developers.cloudflare.com/queues/"                              what="Cloudflare Queues"/>
+    <cite id="C-CF-R2"         href="https://developers.cloudflare.com/r2/"                                  what="R2 object storage"/>
+    <cite id="C-CF-D1"         href="https://developers.cloudflare.com/d1/"                                  what="D1 SQL"/>
+    <cite id="C-CF-KV"         href="https://developers.cloudflare.com/kv/"                                  what="Workers KV"/>
+    <cite id="C-CF-TF"         href="https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs" what="Cloudflare Terraform provider"/>
+    <cite id="C-CF-VITEST"     href="https://www.npmjs.com/package/@cloudflare/vitest-pool-workers"         what="@cloudflare/vitest-pool-workers"/>
+    <cite id="C-CF-SVC"        href="https://developers.cloudflare.com/workers/configuration/bindings/about-service-bindings/" what="Service bindings (Worker-to-Worker)"/>
+
+    <!-- Chassis-local -->
+    <cite id="C-POSTURE-XML"   href="seeds/posture/session-start.xml"                                        what="Repo posture: OAuth-only, ANTHROPIC_API_KEY forbidden, managed-agents-api use='false'"/>
+    <cite id="C-CLAUDE-MD"     href="CLAUDE.md"                                                              what="Project instructions"/>
+    <cite id="C-PRIOR-M2M"     href="kg.claude-mcp-browser-md:v0.3-delta"                                    what="Prior m2m handoff (mcp-browser) — schema parent"/>
+  </citations>
+
+  <!-- ============================================================== -->
+  <!-- MAPPING: managed-agents primitive  ->  Cloudflare primitive     -->
+  <!-- ============================================================== -->
+  <mapping>
+    <m from="Agent (versioned config)"
+       to="DO class `AgentRegistry` (one DO per agent_id, append-only version log) + D1 row for indexed list/search"
+       cites="C-MA-AGENT,C-API-AGENTS,C-CF-DO,C-CF-D1"/>
+    <m from="Environment"
+       to="DO class `EnvironmentRecord` + KV namespace `env-metadata` for fast list; `EnvironmentBootstrap` Workflow seeds template (no real container under miniflare)"
+       cites="C-MA-ENV,C-MA-CONTAINER,C-CF-WORKFLOWS,C-CF-KV"/>
+    <m from="Session"
+       to="DO class `SessionRoom` (one DO per session_id) — holds event log, thread tree, idle/running state; archival writes a JSONL bundle to R2 bucket `sessions-archive`"
+       cites="C-MA-SESS-LOCAL,C-API-SESSIONS,C-CF-DO,C-CF-R2"/>
+    <m from="Event (SSE stream)"
+       to="Append-only log in `SessionRoom` storage; SSE delivery via an `sse-broker` Worker that tails the DO + a Queue for fan-out; mirrored to R2 for archival"
+       cites="C-MA-EVENTS-LOCAL,C-CF-QUEUES"/>
+    <m from="Skill (versioned bundle)"
+       to="DO class `SkillStore` + R2 bucket `skills-bundles` (one tarball per version); `SkillIngest` Workflow validates frontmatter and computes content hash"
+       cites="C-MA-SKILLS,C-API-SKILLS,C-CF-WORKFLOWS,C-CF-R2"/>
+    <m from="Memory store"
+       to="DO class `MemoryStore` — entries append-only; redaction emits a NEW MemoryVersion that masks ranges in the prior version (prior version retained)"
+       cites="C-MA-MEMORY,C-API-MEMORY,C-CF-DO"/>
+    <m from="Vault + Credential"
+       to="DO class `VaultStore` — credentials enveloped with AES-GCM keyed by a Worker-bound master key (Cloudflare Secrets Store in prod via TF; deterministic stub under miniflare)"
+       cites="C-MA-VAULTS,C-API-VAULTS"/>
+    <m from="File"
+       to="R2 bucket `files-content` (content-addressed by SHA256); D1 row for metadata (name, mime, size, uploader_tenant, uploaded_at)"
+       cites="C-MA-FILES,C-API-FILES,C-CF-R2,C-CF-D1"/>
+    <m from="Webhook subscription"
+       to="DO class `WebhookSubs` + Queue `webhook-out`; consumer Worker signs payloads (HMAC-SHA256) and POSTs; miniflare sinks to a local fixture server at 127.0.0.1:8080"
+       cites="C-MA-WEBHOOKS,C-API-WEBHOOKS,C-CF-QUEUES"/>
+    <m from="User profile + enrollment URL"
+       to="D1 table `user_profiles` + DO `UserEnrollment` for the one-time enrollment URL flow"
+       cites="C-API-USERS"/>
+    <m from="/v1/messages (inference)"
+       to="`messages-worker` consults R2 fixtures (content-addressed). Cache miss => 404 with hash. Under miniflare it NEVER makes outbound calls."
+       cites="C-API-MSG"/>
+    <m from="Beta header check"
+       to="Shared middleware `requireBetaHeader('managed-agents-2026-04-01')` injected into every Worker via a TF variable + module"
+       cites="C-MA-BETA"/>
+    <m from="OAuth-only / no ANTHROPIC_API_KEY"
+       to="Worker entrypoint runs `sanitizeEnv()` that throws if env.ANTHROPIC_API_KEY is non-empty; auth middleware rejects header values matching ^sk-ant-"
+       cites="C-POSTURE-XML"/>
+  </mapping>
+
+  <!-- ============================================================== -->
+  <!-- OUTCOMES                                                        -->
+  <!-- Each outcome: id, title, acceptance (gradeable criteria a la    -->
+  <!-- managed-agents/define-outcomes.md), depends_on, cites.          -->
+  <!-- Append-only. New work appends OUT-NN. Supersedence via          -->
+  <!-- <superseded_by ref="OUT-MM"/>.                                  -->
+  <!-- ============================================================== -->
+  <outcomes>
+
+    <outcome id="OUT-01" title="Posture + invariant CI gate">
+      <acceptance>
+        - `infra/terraform/managed-agents-mock/_invariants.tf` exists and
+          exports `local.beta_header = "managed-agents-2026-04-01"` plus
+          a `precondition` that fails plan if any variable name matches
+          `/^ANTHROPIC_API_KEY$/`.
+        - CI workflow `.github/workflows/managed-agents-mock-invariants.yml`
+          greps every path under `infra/terraform/managed-agents-mock/**`
+          for any new occurrence of `ANTHROPIC_API_KEY` and fails the
+          build if found.
+        - `scripts/verify-managed-agents-mock.ts` runs locally and exits 0
+          on a clean checkout.
+      </acceptance>
+      <depends_on>[]</depends_on>
+      <cites>[C-POSTURE-XML, C-CLAUDE-MD]</cites>
+    </outcome>
+
+    <outcome id="OUT-02" title="Wire-format contract pinned to vendor/ mirror">
+      <acceptance>
+        - `scripts/extract-wire-types.ts` parses the Beta API .md files
+          under `vendor/anthropics/platform.claude.com/docs/en/api/beta/`
+          and emits `src/wire/managed-agents/types.ts` with one exported
+          type per `BetaManagedAgents*` schema name (Agent, AgentVersion,
+          Session, SessionThread, EventUnion, SkillVersion, MemoryStore,
+          MemoryVersion, Credential, File, Webhook, UserProfile,
+          MessageCreateParams, MessageCreateResponse, ErrorEnvelope).
+        - The extractor writes a manifest
+          `infra/terraform/managed-agents-mock/wire-manifest.json`
+          enumerating every endpoint path + method, consumed by OUT-03
+          to generate routes.
+        - A round-trip test (`src/wire/managed-agents/types.spec.ts`)
+          asserts each generated type can JSON-parse a fixture
+          extracted from `vendor/.../api/beta/<resource>/*`.
+      </acceptance>
+      <depends_on>[OUT-01]</depends_on>
+      <cites>[C-API-AGENTS, C-API-SESSIONS, C-API-ENVS, C-API-SKILLS, C-API-MEMORY, C-API-FILES, C-API-VAULTS, C-API-WEBHOOKS, C-API-USERS, C-API-MSG, C-API-MODELS]</cites>
+    </outcome>
+
+    <outcome id="OUT-03" title="Terraform modules for Cloudflare primitives">
+      <acceptance>
+        - `infra/terraform/managed-agents-mock/modules/` contains one
+          module per Worker:
+            agents-worker, sessions-worker, environments-worker,
+            skills-worker, memory-worker, files-worker, vaults-worker,
+            webhooks-worker, users-worker, messages-worker, sse-broker.
+        - Each module declares: `cloudflare_workers_script`, one
+          `cloudflare_workers_durable_objects_namespace` per DO class
+          it owns, KV/R2/Queue/D1 bindings, and a generated wrangler.toml
+          under `build/wrangler/<worker>.toml` for miniflare.
+        - `terraform plan` against a `local` backend produces a zero-diff
+          plan against the committed snapshot under
+          `infra/terraform/managed-agents-mock/.plan-snapshot/`.
+        - `terraform validate` is wired into CI.
+      </acceptance>
+      <depends_on>[OUT-02]</depends_on>
+      <cites>[C-CF-TF, C-CF-DO, C-CF-WORKFLOWS, C-CF-QUEUES, C-CF-R2, C-CF-D1, C-CF-KV]</cites>
+    </outcome>
+
+    <outcome id="OUT-04" title="Miniflare bindings + per-test isolation fixtures">
+      <acceptance>
+        - `scripts/miniflare-up.ts` constructs a single
+          `new Miniflare({ workers: [...] })` loading each
+          `build/wrangler/<worker>.toml` produced by OUT-03, wires
+          shared KV / R2 / Queue / D1 namespaces by name, pins
+          `compatibilityDate` and `compatibilityFlags` from a single
+          TF-rendered fragment, and binds 127.0.0.1:8787.
+        - Per-test isolation: a vitest helper resets every DO storage
+          shard and KV/R2 namespace between tests, parametrised by
+          `MF_TEST_ID`.
+        - `tests/managed-agents-mock/fixtures/` pre-seeds:
+            (a) one agent (claude-opus-4-7-based),
+            (b) one environment template (`generic-2026-04`),
+            (c) one skill bundle (.tar.gz) under R2,
+            (d) one user_profile + enrollment URL fragment,
+            (e) one webhook subscription pointing at 127.0.0.1:8080/sink.
+        - Smoke test `npm run test:mock:smoke` starts miniflare, runs
+          a session-create + first `user.message` + `agent.message`
+          round-trip, and shuts down with `await mf.dispose()`.
+      </acceptance>
+      <depends_on>[OUT-03]</depends_on>
+      <cites>[C-MF-API, C-MF-PKG-NPM, C-MF-SRC-GH]</cites>
+    </outcome>
+
+    <outcome id="OUT-05" title="SSE event shape parity (no inference required)">
+      <acceptance>
+        - For every event type enumerated in
+          `vendor/.../managed-agents/events-and-streaming.md` and every
+          `BetaManagedAgents*Event` declared in
+          `vendor/.../api/beta/sessions.md` (initial set:
+          `agent.message`, `agent.thinking`, `agent.custom_tool_use`,
+          `agent.subagent_*`, `user.message`, `user.custom_tool_result`,
+          `session.state`, plus `BetaManagedAgentsSessionLifecycle*`),
+          `tests/managed-agents-mock/events/<type>.spec.ts` asserts:
+            - emitted byte sequence matches `data: <json>\n\n` framing,
+            - all required fields present per the wire type,
+            - `processed_at` is RFC 3339,
+            - sub-session events carry `session_thread_id` when present.
+        - A fuzzer `scripts/fuzz-events.ts` generates 500 random event
+          orderings (within the lifecycle FSM) and asserts both the
+          official Python and TypeScript SDK parsers accept every one
+          without warnings.
+      </acceptance>
+      <depends_on>[OUT-04]</depends_on>
+      <cites>[C-MA-EVENTS-LOCAL, C-API-SESSIONS]</cites>
+    </outcome>
+
+    <outcome id="OUT-06" title="Auth middleware: reject ANTHROPIC_API_KEY, accept opaque tenant id">
+      <acceptance>
+        - Shared module `src/wire/managed-agents/auth.ts`:
+            - reads `x-api-key` header,
+            - rejects regex `^sk-ant-` with HTTP 400 and body
+              `{error:{type:"invalid_api_key_format",
+                       message:"see m2m DIR-03"}}`,
+            - otherwise treats the value as `tenant_id` and stamps it
+              on every persisted row.
+        - Worker `env-sanitizer` reads `env.ANTHROPIC_API_KEY` and
+          throws if non-empty. A test asserts boot-time failure when
+          the var is set in `wrangler.toml`.
+        - Terraform plan rejects any `cloudflare_workers_secret`
+          resource whose `name` equals `ANTHROPIC_API_KEY` via a
+          `lifecycle.precondition`.
+      </acceptance>
+      <depends_on>[OUT-03]</depends_on>
+      <cites>[C-POSTURE-XML]</cites>
+    </outcome>
+
+    <outcome id="OUT-07" title="Messages fixture-replay engine">
+      <acceptance>
+        - `messages-worker` computes
+          `req_hash = sha256(canonical_json({system, messages, tools, model, extra_headers_filtered}))`.
+        - On hit: streams the recorded response. Stream framing matches
+          `anthropic-sdk-typescript`'s expected SSE shape:
+          `message_start` -> `content_block_start` ->
+          `content_block_delta`* -> `content_block_stop` ->
+          `message_delta` -> `message_stop`.
+        - On miss under miniflare: returns
+          `404 {error:{type:"fixture_miss", hash:"<sha256>"}}` and
+          writes a breadcrumb to
+          `fixtures/messages/_missing/<sha256>.json` capturing the
+          request body so the operator can record the response.
+        - 6 canned fixtures land under `fixtures/messages/<hash>.json`,
+          covering: simple text reply, single tool_use, parallel
+          tool_use, extended-thinking, refusal, message_batch chunk.
+      </acceptance>
+      <depends_on>[OUT-04, OUT-06]</depends_on>
+      <cites>[C-API-MSG]</cites>
+    </outcome>
+
+    <outcome id="OUT-08" title="Vaults + credentials with local AES-GCM stub">
+      <acceptance>
+        - `VaultStore` DO encrypts credential plaintexts with
+          `crypto.subtle.encrypt({name:"AES-GCM"}, key, plaintext)`. The
+          key is derived from a per-vault salt + a Worker-bound master
+          key. In prod the master key is wired to Cloudflare Secrets
+          Store via TF; under miniflare it's a deterministic stub set
+          through `env.MOCK_VAULT_MASTER` (never echoed to logs).
+        - `POST /v1/vaults/{id}/credentials` and the
+          `mcp_oauth_validate` endpoint match the upstream
+          `BetaManagedAgentsCredential*` schemas.
+        - Round-trip test: create vault, add credential, retrieve
+          (with redaction — plaintext never returned), validate
+          (mocked OAuth bearer flow), archive, list, delete.
+      </acceptance>
+      <depends_on>[OUT-04]</depends_on>
+      <cites>[C-MA-VAULTS, C-API-VAULTS]</cites>
+    </outcome>
+
+    <outcome id="OUT-09" title="Skills ingest workflow">
+      <acceptance>
+        - `SkillIngest` Cloudflare Workflow:
+            (1) accepts tarball upload via R2 multipart,
+            (2) extracts and validates `SKILL.md` frontmatter against
+                the shape Anthropic's CLI ingests,
+            (3) computes content hash, stores bundle at
+                `skills-bundles/<skill_id>/<version>.tar.gz`,
+            (4) writes a SkillVersion row to D1 with provenance.
+        - Test loads a bundle synthesised from one of this repo's
+          existing skills under `.claude/skills/<name>/SKILL.md`
+          (heartbeat, routines, refresh-vendors, schedule-bridge) and
+          asserts the workflow completes successfully.
+      </acceptance>
+      <depends_on>[OUT-04]</depends_on>
+      <cites>[C-MA-SKILLS, C-API-SKILLS, C-CF-WORKFLOWS]</cites>
+    </outcome>
+
+    <outcome id="OUT-10" title="Memory stores + redaction-as-new-version">
+      <acceptance>
+        - `MemoryStore` DO append-only model: create memory, list
+          memories, retrieve, update (writes a new MemoryVersion;
+          previous version retained), delete (tombstone, not physical),
+          archive (DO emits a final `memory_store.archived` event),
+          redact (creates a new MemoryVersion masking specified ranges).
+        - Test asserts that after redact, `list memory_versions` returns
+          the redacted version PLUS the prior versions, and
+          `retrieve memory_version <prior_id>` still returns the
+          un-redacted plaintext — i.e., redaction is on a NEW version,
+          per upstream semantics.
+      </acceptance>
+      <depends_on>[OUT-04]</depends_on>
+      <cites>[C-MA-MEMORY, C-API-MEMORY]</cites>
+    </outcome>
+
+    <outcome id="OUT-11" title="Multi-agent / subagent thread tree">
+      <acceptance>
+        - `SessionRoom` stores threads in a tree keyed by
+          `session_thread_id`. Root thread id == `<session_id>:root`.
+        - `agent.subagent_*` events flow up to the parent thread's
+          stream with `session_thread_id` set; the subagent's own
+          thread also retains the event.
+        - Conformance: replay the multi-agent example from
+          `vendor/.../managed-agents/multi-agent.md` (coordinator +
+          two children) and assert all event types arrive in BOTH the
+          per-thread and root streams with matching `id`s.
+      </acceptance>
+      <depends_on>[OUT-05]</depends_on>
+      <cites>[C-MA-MULTI, C-API-SESSIONS]</cites>
+    </outcome>
+
+    <outcome id="OUT-12" title="Webhook delivery with signed payloads + retries">
+      <acceptance>
+        - `WebhookSubs` DO holds subscriptions. Outbound delivery via
+          Queue `webhook-out`; consumer Worker signs the body with
+          HMAC-SHA256 keyed by the subscription's secret. Retry policy:
+          5 attempts with exponential backoff (2s, 8s, 30s, 2m, 10m).
+        - Under miniflare, sink is a small HTTP fixture server at
+          127.0.0.1:8080 that records every delivery into
+          `fixtures/webhooks/received/*.json`.
+        - Test asserts: simulated 500 from sink triggers retry;
+          simulated 200 records exactly one delivery; HMAC verifies
+          against the stored secret.
+      </acceptance>
+      <depends_on>[OUT-04]</depends_on>
+      <cites>[C-MA-WEBHOOKS, C-API-WEBHOOKS, C-CF-QUEUES]</cites>
+    </outcome>
+
+    <outcome id="OUT-13" title="Files API (upload, download, list, delete) on R2">
+      <acceptance>
+        - Upload writes to R2 `files-content/<sha256>/<filename>`,
+          dedup by content hash, returns a `file_id` to the caller.
+        - Download supports HTTP Range requests; a large-file test
+          reads a 200 MB synthetic file with `Range: bytes=N-M`.
+        - File metadata persisted to D1 `files`:
+          `id, name, mime, size, sha256, uploader_tenant, created_at`.
+        - PDF + image stubs: vision/PDF metadata extraction is stubbed
+          under miniflare (returns canned EXIF and pageCount rather
+          than parsing). Stubs recorded under `fixtures/files/`.
+      </acceptance>
+      <depends_on>[OUT-04]</depends_on>
+      <cites>[C-MA-FILES, C-API-FILES, C-CF-R2]</cites>
+    </outcome>
+
+    <outcome id="OUT-14" title="Conformance harness: real SDK clients drive the mock">
+      <acceptance>
+        - Under `tests/managed-agents-mock/sdk-conformance/`:
+            - Python: `anthropic.Anthropic(base_url="http://127.0.0.1:8787", api_key="tenant-A")`
+            - TypeScript: `@anthropic-ai/sdk` configured similarly,
+            - Go: `anthropic-sdk-go` with `option.WithBaseURL`,
+            - Ruby: `anthropic` gem with `base_uri`.
+          Each suite is a top-level `describe` that creates an agent,
+          environment, session, runs a 3-turn conversation with one
+          `tool_use` round-trip, archives the session, and asserts the
+          R2 archival JSONL matches the in-DO event log.
+        - The harness sets `ANTHROPIC_API_KEY=tenant-A` style values ONLY
+          where the SDK requires the env var to bootstrap — never a real
+          key. The Worker rejects any value matching `^sk-ant-`.
+      </acceptance>
+      <depends_on>[OUT-05, OUT-06, OUT-07, OUT-08, OUT-09, OUT-10, OUT-11, OUT-12, OUT-13]</depends_on>
+      <cites>[C-API-SESSIONS, C-API-AGENTS, C-API-ENVS, C-API-MSG]</cites>
+    </outcome>
+
+    <outcome id="OUT-15" title="@cloudflare/vitest-pool-workers integration">
+      <acceptance>
+        - `tests/managed-agents-mock/vitest.config.ts` uses
+          `@cloudflare/vitest-pool-workers` so tests execute inside
+          workerd via miniflare.
+        - Unit tests can `import { env } from "cloudflare:test"` and
+          drive DO stubs directly without HTTP.
+        - The conformance suite from OUT-14 runs in BOTH modes:
+          in-process (fast) via the pool, and out-of-process via
+          `mf.dispatchFetch` (slower but byte-faithful).
+      </acceptance>
+      <depends_on>[OUT-04, OUT-14]</depends_on>
+      <cites>[C-CF-VITEST]</cites>
+    </outcome>
+
+    <outcome id="OUT-16" title="Vendor mirroring refreshed weekly">
+      <acceptance>
+        - `scripts/crawl-vendors.ts` includes:
+            - `https://platform.claude.com/docs/en/managed-agents/*.md` (~18 pages),
+            - `https://platform.claude.com/docs/en/api/beta/**` (~50 resource pages),
+            - `https://developers.cloudflare.com/workers/testing/miniflare/**`,
+            - top-level index pages for
+              `developers.cloudflare.com/{durable-objects,r2,d1,queues,workflows,kv}/`.
+        - `seeds/citations/managed-agents-cf-miniflare.md` records the
+          SHA of each fetched page and is updated by the weekly
+          `/schedule refresh-vendors` routine.
+        - Conformance test: every `cite href` in THIS m2m doc resolves
+          to a present file under `vendor/`.
+      </acceptance>
+      <depends_on>[OUT-01]</depends_on>
+      <cites>[C-MA-OVERVIEW, C-MA-QUICKSTART, C-MF-API]</cites>
+    </outcome>
+
+    <outcome id="OUT-17" title="Permission policies + outcome grading parity">
+      <acceptance>
+        - `permission_policies` field is supported on both agent and
+          session payloads. A policy denies any tool call whose `name`
+          matches a deny pattern, or any URL fetched by `web_fetch`
+          outside an allow list.
+        - When a session is created with an `outcome`, a separate
+          `grader-worker` evaluates the rubric per criterion using
+          fixture replays from `fixtures/messages/grader/*`, emitting
+          `outcome.evaluation.start/ongoing/end` events. Rubric format
+          matches this chassis's existing `rubrics/phase-*.md`
+          conventions (separate context window per criterion).
+        - Test asserts that a tool call blocked by policy raises a
+          `policy.deny` event AND surfaces a refusal-shaped
+          `agent.message` containing the policy id.
+      </acceptance>
+      <depends_on>[OUT-11]</depends_on>
+      <cites>[C-MA-PERMS, C-MA-OUTCOMES, C-MA-TOOLS]</cites>
+    </outcome>
+
+    <outcome id="OUT-18" title="MCP connector compatibility (service bindings + remote MCP)">
+      <acceptance>
+        - Agent config field `mcp_servers` accepts both:
+            (a) a public MCP server URL (e.g., `mcp.example.com/mcp`),
+            (b) an in-process Worker-MCP via Cloudflare Service
+                Bindings to a sibling Worker.
+        - The session's tool router exposes MCP tools to the agent
+          under `mcp__<server>__<tool>` per upstream convention.
+        - Conformance: a tiny `echo-mcp-worker` Worker registered as a
+          service binding answers `tools/list` and `tools/call`, and a
+          session uses it via fixture-replay.
+      </acceptance>
+      <depends_on>[OUT-14]</depends_on>
+      <cites>[C-MA-MCP, C-CF-SVC]</cites>
+    </outcome>
+
+    <outcome id="OUT-19" title="EnvironmentBootstrap as a Cloudflare Workflow">
+      <acceptance>
+        - `EnvironmentBootstrap` Cloudflare Workflow runs the
+          quickstart-equivalent steps: register packages, establish
+          allowlist, write a metadata blob to KV `env-metadata`, mark
+          the environment `ready`.
+        - Under miniflare, "container" startup is simulated end-to-end
+          in-process; no real container is launched. A flag
+          `MOCK_CONTAINER_SUCCESS=1` (default) forces success;
+          `MOCK_CONTAINER_SUCCESS=0` forces a representative failure
+          event so we can test the upstream `environment.failed` shape.
+      </acceptance>
+      <depends_on>[OUT-04]</depends_on>
+      <cites>[C-MA-ENV, C-MA-CONTAINER, C-CF-WORKFLOWS]</cites>
+    </outcome>
+
+    <outcome id="OUT-20" title="Single-command lifecycle: `npm run mock:up` -> `:down`">
+      <acceptance>
+        - `npm run mock:up` runs:
+            (1) `terraform plan` against the local backend (zero-diff
+                vs snapshot),
+            (2) wrangler.toml generation from TF outputs,
+            (3) miniflare boot,
+            (4) seed fixtures,
+            (5) health check on each `/v1/<resource>` route,
+            (6) prints a ready banner with the local URL.
+        - `npm run mock:down` disposes miniflare, snapshots the
+          R2/KV/D1/DO state under `.mock-state/`, and exits.
+        - CI runs `up` -> conformance suite -> `down`.
+      </acceptance>
+      <depends_on>[OUT-15, OUT-19]</depends_on>
+      <cites>[C-MF-API, C-CF-TF]</cites>
+    </outcome>
+
+  </outcomes>
+
+  <!-- ============================================================== -->
+  <!-- STATE                                                           -->
+  <!-- ============================================================== -->
+  <state>
+    <counts>
+      <invariants>5</invariants>
+      <directives>7</directives>
+      <citations>40</citations>
+      <mappings>13</mappings>
+      <outcomes>20</outcomes>
+    </counts>
+    <todo_propagation>
+      Per the upstream rule carried from kg.claude-mcp-browser-md v0.2
+      (operator instruction: "todos remain open"), every outcome here
+      starts open. None are claimed in this handoff.
+    </todo_propagation>
+    <branch>claude/initial-setup-KPXhn</branch>
+    <pr>draft (to be opened by the writing session)</pr>
+  </state>
+
+  <!-- ============================================================== -->
+  <!-- INSTRUCTIONS FOR THE NEXT SESSION                               -->
+  <!-- ============================================================== -->
+  <next-session-instructions>
+    <step id="1">
+      Read `seeds/posture/session-start.xml` first to load auth posture
+      and OAuth-only invariants.
+    </step>
+    <step id="2">
+      Read this handoff (`seeds/handoffs/m2m-2026-05-18-managed-agents-cf-miniflare.xml`)
+      to load the load-bearing primitive, directives, invariants, and
+      open outcomes.
+    </step>
+    <step id="3">
+      Pick the next open outcome (default: OUT-01) and execute under
+      the chassis's commit-per-outcome discipline (`(O<N>)` suffix).
+    </step>
+    <step id="4">
+      When you find a fork or alternative approach, APPEND a new
+      `<outcome>` rather than rewriting an existing one. Use
+      `<superseded_by ref="OUT-MM"/>` if the new outcome replaces an
+      older one.
+    </step>
+    <step id="5">
+      If `vendor/anthropics/platform.claude.com/docs/en/api/beta/<resource>.md`
+      lacks a schema you need, refresh the vendor mirror (`npm run
+      crawl:vendor -- anthropics`) before proposing wire-format changes.
+    </step>
+    <step id="6">
+      Never set `ANTHROPIC_API_KEY` anywhere — not in `.env`, not in
+      `wrangler.toml`, not in GitHub Actions, not in Terraform variables.
+      DIR-03 is load-bearing.
+    </step>
+  </next-session-instructions>
+
+</m2m-handoff>
