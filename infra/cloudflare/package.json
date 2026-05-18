@@ -1,6 +1,6 @@
 {
   "name": "@subagentceo/ke-cloud-agent",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "description": "Cloudflare Worker that runs Claude Code in an ephemeral Sandbox against an ephemeral Neon database branch. Phase 0g scaffold per vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md.",
   "type": "module",
