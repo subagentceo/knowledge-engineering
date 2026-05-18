@@ -1,5 +1,5 @@
 /**
- * @cite vendor/cloudflare/secrets-store.md
+ * @cite vendor/cloudflare/developers.cloudflare.com/secrets-store/llms.txt
  * @tdd green
  *
  * OSEC2-1 — operator does not use 1Password. The OSEC1 parity ADR
