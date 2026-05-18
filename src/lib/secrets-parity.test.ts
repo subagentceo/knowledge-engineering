@@ -1,5 +1,7 @@
 /**
- * @tdd OSEC1 — parity table + verifier behavior
+ * @tdd green
+ *
+ * OSEC1 — parity table + verifier behavior
  * @cite docs/decisions/2026-05-17-secrets-parity.md
  * @cite docs/data/secrets-parity.json
  * @cite scripts/verify-secrets-parity.ts
