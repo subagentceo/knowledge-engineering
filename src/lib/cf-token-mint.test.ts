@@ -1,10 +1,11 @@
 /**
+ * @cite vendor/cloudflare/secrets-store.md
  * @tdd green
  *
  * OSEC3 — cf-token-mint CLI shape + template validity + no-leak
- * @cite docs/decisions/2026-05-17-cf-token-mint.md
- * @cite scripts/secret-mint/cf-token-mint.ts
- * @cite infra/cloudflare/token-templates/edit-cloudflare-workers.json
+ * Refs: docs/decisions/2026-05-17-cf-token-mint.md
+ * Refs: scripts/secret-mint/cf-token-mint.ts
+ * Refs: infra/cloudflare/token-templates/edit-cloudflare-workers.json
  */
 
 import { readFileSync, readdirSync } from "node:fs";
