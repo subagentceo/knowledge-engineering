@@ -1,5 +1,5 @@
 /**
- * @cite vendor/cloudflare/secrets-store.md
+ * @cite vendor/cloudflare/developers.cloudflare.com/secrets-store/llms.txt
  * @tdd green
  *
  * OSEC3 — cf-token-mint CLI shape + template validity + no-leak
