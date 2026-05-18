@@ -91,6 +91,10 @@ concurrency:
 
 jobs:
   claude-review:
+    # Skip draft PRs. ready_for_review (in types: above) fires the review
+    # when a draft is promoted, so reviewers still get the bot pass once
+    # the author is asking for review.
+    if: github.event.pull_request.draft == false
     continue-on-error: true  # OAUTO1 — see header.
     runs-on: ubuntu-latest
 
@@ -106,11 +110,20 @@ jobs:
       issues: read
       id-token: write
 
+    # OGHW4: bounded timeout. Single Claude Code review pass typically
+    # completes in <10min on this repo; 30min is generous headroom for
+    # large refactor PRs.
+    timeout-minutes: 30
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          # OGHW4: this workflow only READS code; review comments are
+          # posted via the action's own GitHub API client, not via git
+          # push. Don't persist the GITHUB_TOKEN into git config.
+          persist-credentials: false
 
       - name: Run Claude Code Review
         id: claude-review

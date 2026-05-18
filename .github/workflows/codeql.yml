@@ -1,0 +1,101 @@
+# .github/workflows/codeql.yml
+#
+# Custom (advanced-setup) CodeQL workflow. Replaces GitHub's
+# "Default setup" so we can:
+#   1. Draft-skip CodeQL like every other PR-triggered workflow
+#      (the Default setup fires on every draft, burning Actions
+#      minutes before review is even requested).
+#   2. Pin language list explicitly. Today: actions, javascript-typescript
+#      (matches the Default setup at time of cutover).
+#   3. Pin the schedule explicitly: weekly cron, not Default setup's
+#      opaque "rolling" schedule.
+#
+# Outcome OCQ1.
+#
+# Cited from:
+#   seeds/citations/github-actions-best-practices-2026-05-18.md (load-bearing extract)
+#   docs/decisions/2026-05-18-actions-sha-pinning.md (SHA-pin policy; github/* is exempt)
+#   docs/decisions/2026-05-17-auto-merge-recovery.md (OAUTO12 — anti-recursion class of bug)
+#   https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning
+#
+# Operator post-merge step (one-time, not automatable via MCP):
+#   1. Repo → Settings → Code security → Code scanning
+#   2. CodeQL analysis row → Switch to advanced → confirm "Disable CodeQL"
+#      (this disables the UI-managed Default setup; this workflow file
+#      becomes the source of truth).
+#   3. No `setup-branch-protection.ts` change needed — CodeQL is NOT a
+#      required check today and we are NOT making it one in this PR.
+#
+# Why github/codeql-action is pinned to @v3 (not SHA): per the SHA-pin
+# ADR (OGHW-X2), `github/*` is on the exempt list as first-party
+# GitHub-maintained.
+
+name: codeql
+
+on:
+  pull_request:
+    # ready_for_review fires the analysis when a draft is promoted,
+    # mirroring verify.yml / osv-scanner.yml.
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    # Weekly, Tuesdays 06:00 UTC. Offset from osv-scanner.yml
+    # (Mondays 06:00 UTC) so the weekly runs don't collide.
+    - cron: "0 6 * * 2"
+  workflow_dispatch:
+
+permissions:
+  # Least-privilege per security-hardening-for-github-actions.
+  # security-events:write is required by github/codeql-action/analyze
+  # to upload SARIF results.
+  contents: read
+  security-events: write
+  actions: read
+
+concurrency:
+  group: codeql-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    # Draft-skip parity with verify.yml / osv-scanner.yml. push/schedule/
+    # workflow_dispatch unconditionally run.
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        # Matches the Default setup at cutover time. Add languages here
+        # as the repo grows; do NOT remove without a follow-up PR + ADR.
+        language:
+          - actions
+          - javascript-typescript
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Required so init can compute the build graph.
+          fetch-depth: 1
+          # CodeQL doesn't need the GITHUB_TOKEN persisted to git
+          # config after checkout — analyze runs against the fetched
+          # files only.
+          persist-credentials: false
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          # security-extended matches the Default setup default for
+          # public repos / GitHub Code Security customers. Safe to
+          # leave on for private repos too — it just runs more queries.
+          queries: security-extended
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"

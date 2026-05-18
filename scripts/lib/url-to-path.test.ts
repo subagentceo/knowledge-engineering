@@ -1,6 +1,7 @@
 /**
  * Phase 1.A unit tests for scripts/lib/url-to-path.ts.
  *
+ * @tdd green
  * @cite seeds/posture/session-start.xml
  * @cite seeds/citations/connectors-building.md
  * @cite rubrics/phase-1.md

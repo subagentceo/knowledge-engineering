@@ -37,6 +37,11 @@ concurrency:
 
 jobs:
   verify:
+    # Skip draft PRs. Push and workflow_dispatch still run unconditionally;
+    # ready_for_review (in types: above) ensures the check fires when a
+    # draft is promoted, so the required-status-check gate on main is
+    # never blocked indefinitely.
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     name: npm run verify
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -49,6 +54,11 @@ jobs:
           # post-convention commits to validate. Shallow checkout
           # (depth=1) breaks this.
           fetch-depth: 0
+          # OGHW11: this workflow only READS — verify is a test runner.
+          # GITHUB_TOKEN does not need to persist into git config.
+          # `git merge-base` is a local-only operation; no remote auth
+          # needed.
+          persist-credentials: false
 
       - name: Setup Node 20
         uses: actions/setup-node@v4
@@ -57,7 +67,8 @@ jobs:
           cache: npm
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+        # OGHW-X2: SHA-pinned per docs/decisions/2026-05-18-actions-sha-pinning.md.
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd  # v3
         with:
           terraform_version: "1.9.0"
           terraform_wrapper: false

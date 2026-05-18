@@ -1,6 +1,7 @@
 /**
  * Citations:
- *   @cite rubrics/phase-13.md (O5)
+ *   @tdd green
+ * @cite rubrics/phase-13.md (O5)
  *   @cite vendor/openfeature/openfeature.dev/docs/reference/intro.md
  */
 import { strict as assert } from "node:assert";

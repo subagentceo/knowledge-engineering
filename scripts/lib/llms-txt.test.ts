@@ -1,6 +1,7 @@
 /**
  * Phase 1.A unit tests for scripts/lib/llms-txt.ts.
  *
+ * @tdd green
  * @cite seeds/posture/session-start.xml
  * @cite vendor/anthropics/code.claude.com/docs/en/commands.md
  * @cite rubrics/phase-1.md

@@ -1,4 +1,5 @@
 // scripts/lib/html-index.test.ts
+// @tdd green
 //
 // Citations:
 //   @cite rubrics/phase-13.md                                    (O1 — html-index discovery)

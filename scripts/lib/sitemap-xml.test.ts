@@ -1,4 +1,5 @@
 // scripts/lib/sitemap-xml.test.ts
+// @tdd green
 //
 // Citations:
 //   @cite rubrics/phase-13.md            (O2 — sitemap.xml discovery)

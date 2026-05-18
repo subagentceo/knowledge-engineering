@@ -11,6 +11,8 @@ name: validate-skill-frontmatter
 
 on:
   pull_request:
+    # ready_for_review fires validation when a draft is promoted.
+    types: [opened, synchronize, reopened, ready_for_review]
     paths:
       - 'plugins/*/skills/*/SKILL.md'
       - 'plugins/*/.claude-plugin/plugin.json'
@@ -18,14 +20,29 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: validate-skill-frontmatter-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   validate:
+    # Skip draft PRs.
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
+    # OGHW10: bounded timeout. The awk/JSON-parse loop is O(skills) and
+    # the repo has <20 skills today; 5min is generous headroom.
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          # OGHW10: this workflow only reads files; the GITHUB_TOKEN
+          # does NOT need to persist into the git config for subsequent
+          # steps. Per docs.github.com security-hardening-for-github-actions,
+          # this reduces the blast radius if a downstream step is ever
+          # compromised.
+          persist-credentials: false
 
       - name: Validate frontmatter against agentskills.io spec
         # Per agentskills.io/specification.md:
