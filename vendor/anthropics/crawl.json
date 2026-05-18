@@ -19,5 +19,23 @@
   ],
   "deny_prefixes": [],
   "page_cap": 1700,
-  "llms_txt": "https://code.claude.com/llms.txt"
+  "llms_txt": "https://code.claude.com/llms.txt",
+  "html_index_sources": [
+    {
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering",
+      "link_regex": "href=\"(/docs/en/build-with-claude/prompt-engineering[^\"#?]*)\""
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/build-with-claude",
+      "link_regex": "href=\"(/docs/en/build-with-claude/[^\"#?]*)\""
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate",
+      "link_regex": "href=\"(/docs/en/test-and-evaluate/[^\"#?]*)\""
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails",
+      "link_regex": "href=\"(/docs/en/test-and-evaluate/strengthen-guardrails[^\"#?]*)\""
+    }
+  ]
 }

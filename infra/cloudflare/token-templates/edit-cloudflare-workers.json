@@ -1,0 +1,46 @@
+{
+  "$comment": "OSEC3 template for CLOUDFLARE_API_TOKEN. Equivalent to dash.cloudflare.com 'Edit Cloudflare Workers' template. Permission group UUIDs are stable per https://api.cloudflare.com/client/v4/user/tokens/permission_groups (vendor docs cited in scripts/secret-mint/cf-token-mint.ts). Refresh quarterly to detect upstream group renames.",
+  "name": "edit-cloudflare-workers-osec3-${ISO_DATE}",
+  "policies": [
+    {
+      "$comment": "All accounts: Worker-related Edit + Account Settings Read",
+      "effect": "allow",
+      "resources": {
+        "com.cloudflare.api.account.*": "*"
+      },
+      "permission_groups_named": [
+        "Workers KV Storage Write",
+        "Workers Scripts Write",
+        "Account Settings Read",
+        "Workers Tail Read",
+        "Workers R2 Storage Write",
+        "Cloudflare Pages Write",
+        "Workers Builds Configuration Write",
+        "Workers AI Write",
+        "Workers Observability Write",
+        "Containers Write"
+      ]
+    },
+    {
+      "$comment": "All zones in selected account: Workers Routes Edit",
+      "effect": "allow",
+      "resources": {
+        "com.cloudflare.api.account.${ACCOUNT_ID}.zone.*": "*"
+      },
+      "permission_groups_named": [
+        "Workers Routes Write"
+      ]
+    },
+    {
+      "$comment": "User-level: identity + memberships read",
+      "effect": "allow",
+      "resources": {
+        "com.cloudflare.api.user.*": "*"
+      },
+      "permission_groups_named": [
+        "User Details Read",
+        "Memberships Read"
+      ]
+    }
+  ]
+}
