@@ -1,5 +1,7 @@
 /**
- * @tdd OSEC3 — cf-token-mint CLI shape + template validity + no-leak
+ * @tdd green
+ *
+ * OSEC3 — cf-token-mint CLI shape + template validity + no-leak
  * @cite docs/decisions/2026-05-17-cf-token-mint.md
  * @cite scripts/secret-mint/cf-token-mint.ts
  * @cite infra/cloudflare/token-templates/edit-cloudflare-workers.json
