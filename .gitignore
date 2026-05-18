@@ -14,3 +14,14 @@ infra/cloudflare/node_modules/
 # Crawlee persistent storage (we set storageDir explicitly into node_modules/.crawlee-storage)
 node_modules/.crawlee-storage/
 coverage/
+
+# OHYG1: third_party/ is operator-side read-only upstream mirror (workerd,
+# workers-sdk, terragrunt, etc.). Never tracked, never scanned. The verify chain,
+# citation guard, and OSV-Scanner rely on these paths NOT being in git so they
+# don't traverse 13k+ upstream files per PR run. See osv-scanner.toml for the
+# defensive scan-side exclude (belt-and-suspenders).
+third_party/
+
+# Claude Code local session settings — operator-side, may contain secrets per
+# global feedback memory. Never commit.
+.claude/settings.local.json
