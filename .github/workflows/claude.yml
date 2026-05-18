@@ -1,10 +1,5 @@
 # .github/workflows/claude.yml
 #
-# Canonical anthropics/claude-code-action template. Merged via PR #17
-# (operator added via the GitHub setup wizard). Integrated into the
-# operator-stated discipline; see seeds/prompts/operator-2026-05-10-autonomy.md
-# and docs/governance.md.
-#
 # Responds to @claude mentions in issues, PR review comments, and PR
 # reviews. Pairs with .claude/skills/heartbeat.md: the heartbeat
 # orchestrator (in-session) and Claude Code Action (in-CI) coordinate
@@ -12,9 +7,55 @@
 # an @claude comment with a directive; Claude in CI executes the
 # directive on the head SHA.
 #
-# OAuth-only: uses secrets.CLAUDE_CODE_OAUTH_TOKEN — never
-# ANTHROPIC_API_KEY. Matches the env-sanitizer posture in
-# infra/cloudflare/src/worker.ts.
+# Refactored 2026-05-18 (OAUTO13). Same cross-reference set as
+# claude-code-review.yml (claude-code-action README + action.yml +
+# docs/{usage,setup,security,configuration}.md, code-review plugin
+# README, marketplace listing).
+#
+# Refactor changelog vs prior version:
+#
+#   1. contents: read → write    permissions
+#      pull-requests: read → write
+#      issues: read → write
+#      Per docs/configuration.md: "Standard permissions (contents: write,
+#      pull_requests: write, issues: write) are always included" for
+#      interactive @claude flows. The action needs write to push branches,
+#      create PRs, update issues. Prior config caused opaque mid-flow
+#      failures.
+#
+#      Note: write perms on `issue_comment`/`issues` event handlers are
+#      LOWER risk than on `pull_request` because the trigger is gated by:
+#        (a) the @claude-mention filter in the `if:` block below
+#        (b) the action's native writer-permission check (per docs/security.md:
+#            "the action can only be triggered by users with write access to
+#            the repository")
+#
+#   2. Added: claude_args: --model claude-sonnet-4-6
+#      Per operator directive 2026-05-18, prefer Sonnet 4.6 over Opus 4.7
+#      for the @claude responder for speed/cost. Note: "fast mode" is an
+#      Opus-only concept per claude-code CHANGELOG 2026-w17; the
+#      directive here resolves to model class selection (Sonnet).
+#
+#   3. Removed: commented-out boilerplate template lines (prior comments
+#      pointed at upstream docs; in-file noise was stale).
+#
+# Security posture (cited from docs/security.md):
+#   - Trigger is gated by @claude mention AND writer permission. External
+#     users cannot invoke (the action enforces write-perm check natively).
+#   - allowed_bots is UNSET → bots cannot trigger. If we add heartbeat-
+#     dispatched bot comments later, use explicit list ('github-actions[bot]'),
+#     NEVER '*' (public repo invocation risk).
+#   - No `pull_request_target` / `workflow_run` triggers — these run with
+#     base secrets + untrusted ref and are a known pwn-request surface.
+#   - ANTHROPIC_API_KEY is FORBIDDEN per ADR OSEC1 — only OAuth token.
+#   - additional_permissions: actions:read lets Claude read CI logs to
+#     diagnose breakages — load-bearing for the heartbeat fix-dispatch
+#     flow; safe because it's read-only.
+#
+# Command-injection note: GitHub event variables (github.event.comment.body
+# etc.) are used ONLY inside contains() boolean tests in the `if:` filter.
+# They are never interpolated into a `run:` shell. Safe per
+# https://github.blog/security/vulnerability-research/how-to-catch-github-actions-workflow-injections-before-attackers-do/
 
 name: Claude Code
 
@@ -30,7 +71,7 @@ on:
 
 concurrency:
   group: claude-${{ github.event.issue.number || github.event.pull_request.number || github.event.review.id }}
-  cancel-in-progress: false
+  cancel-in-progress: false  # interactive flows must not be cut mid-thought
 
 jobs:
   claude:
@@ -39,13 +80,15 @@ jobs:
       (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
       (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
       (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
+
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      pull-requests: read
-      issues: read
+      contents: write         # push branches Claude creates
+      pull-requests: write    # PR create + comment
+      issues: write           # issue update + label
       id-token: write
-      actions: read # Required for Claude to read CI results on PRs
+      actions: read           # required for Claude to read CI results
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -54,19 +97,13 @@ jobs:
 
       - name: Run Claude Code
         id: claude
-        uses: anthropics/claude-code-action@v1
+        uses: anthropics/claude-code-action@v1  # marketplace: claude-code-action-official
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
-          # This is an optional setting that allows Claude to read CI results on PRs
+          # Sonnet 4.6 per operator directive 2026-05-18.
+          claude_args: |
+            --model claude-sonnet-4-6
+
           additional_permissions: |
             actions: read
-
-          # Optional: Give a custom prompt to Claude. If this is not specified, Claude will perform the instructions specified in the comment that tagged it.
-          # prompt: 'Update the pull request description to include a summary of changes.'
-
-          # Optional: Add claude_args to customize behavior and configuration
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://code.claude.com/docs/en/cli-reference for available options
-          # claude_args: '--allowed-tools Bash(gh pr *)'
-

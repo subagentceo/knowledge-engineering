@@ -1,28 +1,84 @@
 # .github/workflows/claude-code-review.yml
 #
-# Canonical anthropics/claude-code-action template. Merged via PR #17
-# (operator added via the GitHub setup wizard). Integrated into the
-# operator-stated discipline; see seeds/prompts/operator-2026-05-10-autonomy.md
-# and docs/governance.md.
+# Auto-PR-review via anthropics/claude-code-action@v1 + the code-review
+# plugin from anthropics/claude-code (plugins/code-review/). This is the
+# automated reviewer that operationalizes "remove operator from PR-review
+# HITL". Paired with auto-merge.yml + branch protection, human PR-review
+# is eliminated from the no-HITL loop.
 #
-# Auto-reviews every PR via the code-review plugin from
-# anthropics/claude-code-plugins. This is the **automated reviewer**
-# that operationalizes "remove operator from PR-review HITL": Claude
-# posts review comments, the operator does not. Combined with
-# .github/workflows/auto-merge.yml + branch protection, the human PR
-# review step is eliminated for the no-HITL loop.
+# Refactored 2026-05-18 (OAUTO13). Cross-referenced against:
+#   - vendor/anthropics/code.claude.com/docs/en/github-actions.md (load-bearing)
+#   - https://github.com/anthropics/claude-code-action — README, action.yml
+#     (input schema source-of-truth), docs/usage.md, docs/setup.md,
+#     docs/security.md, docs/configuration.md
+#   - https://github.com/anthropics/claude-code — plugins/code-review/README.md
+#   - https://github.com/marketplace/actions/claude-code-action-official
 #
-# OAuth-only: uses secrets.CLAUDE_CODE_OAUTH_TOKEN. Same token as
-# infra/cloudflare/src/worker.ts (Phase 8 cloud-agent runner).
+# Refactor changelog vs prior version:
+#
+#   1. pull-requests: read → write
+#      The action posts inline review comments + a sticky comment. Both
+#      require write. Prior config silently failed at the post step.
+#      Cite: docs/configuration.md "Standard permissions (contents: write,
+#      pull_requests: write, issues: write) are always included".
+#
+#   2. Removed: optional first-time-contributor `if:` filter block.
+#      Chassis is single-author (alex-jadecli); filter is dead code.
+#
+#   3. Added: use_sticky_comment: true.
+#      One rolling review comment per PR instead of a new comment per
+#      synchronize event. Reduces noise on amended PRs significantly.
+#      Cite: action.yml input description.
+#
+#   4. Added explicit: classify_inline_comments: true (default).
+#      Subagent test/probe comments are Haiku-filtered before posting.
+#      Made explicit for future-reader clarity; behavior unchanged.
+#
+#   5. Added explicit: include_fix_links: true (default).
+#      Each inline finding gets a 'Fix this' link into a Claude Code
+#      session pre-loaded with diff context. Free, high operator UX.
+#
+#   6. Added: exclude_comments_by_actor: 'dependabot[bot],renovate[bot]'
+#      Explicit allowlist style (NOT '*[bot]' wildcard). Per security.md:
+#      wildcards are risky on public repos; this repo is public.
+#      No `allowed_bots:` set (so no bot can trigger the action) —
+#      matches the public-repo guidance.
+#
+#   7. Added: claude_args: --model claude-opus-4-7.
+#      Chassis policy from ADR OMSG1. Reviews are once-per-revision so
+#      Opus cost delta vs Sonnet is small; quality gain is real.
+#
+#   8. Removed: --comment flag from the prompt.
+#      Prior draft considered adding `--comment`. Verified against
+#      plugins/code-review/README: the flag is for LOCAL CLI invocation
+#      (controls terminal-vs-PR output). When invoked via this action
+#      with claude-code-action@v1, the action handles comment posting
+#      natively. Passing --comment is a no-op at best, breaks parsing
+#      at worst.
+#
+# Security posture (cited from docs/security.md):
+#   - This workflow runs on `pull_request` (NOT `pull_request_target`),
+#     so it operates with HEAD secrets + base ref by default. Safe.
+#   - allowed_bots is intentionally unset (empty) → bots cannot invoke.
+#   - exclude_comments_by_actor uses an explicit list, not '*[bot]'.
+#   - permissions are MINIMUM viable: contents:read, pull-requests:write
+#     (for comment post), issues:read (action reads but doesn't write),
+#     id-token:write (OIDC; future-proof).
+#   - ANTHROPIC_API_KEY is FORBIDDEN per ADR OSEC1 — only OAuth token.
+#
+# Known-issue tolerance (OAUTO1, retained):
+#   continue-on-error: true masks the "Claude Code SDK access disabled"
+#   401 on accounts where SDK access isn't enabled at console.anthropic.com.
+#   Yellow warning instead of red ✗. Remove after alex-jadecli SDK access
+#   is confirmed stable across reruns.
 
 name: Claude Code Review
 
 on:
   pull_request:
     types: [opened, synchronize, ready_for_review, reopened]
-    # OAUTO1: skip docs/vendor-only PRs — reviewing a 600-page crawled
-    # mirror or pure-prose ADR has no source code to review and wastes
-    # Claude Code SDK quota.
+    # OAUTO1: skip docs/vendor-only PRs — reviewing 600-page crawled
+    # mirrors or pure-prose ADRs wastes SDK quota.
     paths-ignore:
       - "vendor/**"
       - "docs/**"
@@ -35,22 +91,18 @@ concurrency:
 
 jobs:
   claude-review:
-    # OAUTO1 (2026-05-17): tolerate Anthropic-org "Claude Code SDK access
-    # disabled" failures (see docs/followups/2026-05-17-merge-velocity-audit.md
-    # finding #1). Operator must enable SDK access at console.anthropic.com
-    # for this check to actually run. Until then, continue-on-error keeps
-    # the PR checks UI honest: a yellow warning, not a red ✗.
-    continue-on-error: true
-    # Optional: Filter by PR author
-    # if: |
-    #   github.event.pull_request.user.login == 'external-contributor' ||
-    #   github.event.pull_request.user.login == 'new-developer' ||
-    #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
-
+    continue-on-error: true  # OAUTO1 — see header.
     runs-on: ubuntu-latest
+
+    # Minimum viable permissions. Do NOT add contents:write or issues:write
+    # here — this workflow runs on `pull_request` (including from forks if
+    # the repo ever accepts them) and elevated perms expand prompt-injection
+    # surface. Cite: docs/security.md § "Using this action with
+    # pull_request_target or workflow_run" — write-perms-on-PR-event is the
+    # same class of risk that the doc warns about for those events.
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: write   # action posts inline comments + sticky
       issues: read
       id-token: write
 
@@ -62,12 +114,31 @@ jobs:
 
       - name: Run Claude Code Review
         id: claude-review
-        uses: anthropics/claude-code-action@v1
+        uses: anthropics/claude-code-action@v1  # marketplace: claude-code-action-official
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
           plugin_marketplaces: 'https://github.com/anthropics/claude-code.git'
           plugins: 'code-review@claude-code-plugins'
           prompt: '/code-review:code-review ${{ github.repository }}/pull/${{ github.event.pull_request.number }}'
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://code.claude.com/docs/en/cli-reference for available options
 
+          # Sonnet 4.6 — operator preference 2026-05-18 for speed/cost
+          # over Opus 4.7. Fast mode is Opus-only (per claude-code
+          # CHANGELOG 2026-w17), so "fast" here = "Sonnet model class".
+          # OMSG1 model policy supersedes the Opus-default mention for
+          # the reviewer tier per this directive.
+          claude_args: |
+            --model claude-sonnet-4-6
+
+          # One rolling comment per PR, not per synchronize event.
+          use_sticky_comment: true
+
+          # Haiku-filter subagent test/probe comments before posting (default).
+          classify_inline_comments: true
+
+          # 'Fix this' links per inline finding → Claude Code session w/ context (default).
+          include_fix_links: true
+
+          # Don't review bot-noise PRs. Explicit list, NOT '*[bot]' wildcard
+          # (per docs/security.md — public repos must avoid wildcards).
+          exclude_comments_by_actor: 'dependabot[bot],renovate[bot]'
