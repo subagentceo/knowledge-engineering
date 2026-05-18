@@ -10,7 +10,6 @@
  *
  * @tdd green
  * @cite seeds/citations/github-actions-best-practices-2026-05-18.md
- * @cite docs/decisions/2026-05-17-auto-merge-recovery.md
  */
 import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";

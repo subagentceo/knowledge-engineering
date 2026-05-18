@@ -13,6 +13,7 @@
  *
  * Citations (per docs/CONVENTIONS.md rule: tests cite their canonical source):
  *
+ * @tdd green
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
  *

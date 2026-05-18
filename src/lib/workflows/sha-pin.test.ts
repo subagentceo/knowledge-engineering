@@ -11,7 +11,6 @@
  *
  * @tdd green
  * @cite seeds/citations/github-actions-best-practices-2026-05-18.md
- * @cite docs/decisions/2026-05-18-actions-sha-pinning.md
  */
 import { readFileSync, readdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";

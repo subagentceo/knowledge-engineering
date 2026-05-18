@@ -1,6 +1,7 @@
 /**
  * Phase 3 unit tests for src/lib/vendor-mirror.ts.
  *
+ * @tdd green
  * @cite seeds/posture/session-start.xml
  * @cite vendor/anthropics/code.claude.com/docs/en/commands.md
  * @cite rubrics/phase-3.md

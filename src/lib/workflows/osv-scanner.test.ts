@@ -14,8 +14,6 @@
  *
  * @tdd green
  * @cite seeds/citations/github-actions-best-practices-2026-05-18.md
- * @cite docs/decisions/2026-05-17-auto-merge-recovery.md
- * @cite docs/decisions/2026-05-18-actions-sha-pinning.md
  * @cite vendor/osv-scanner/google.github.io/osv-scanner/github-action/index.md
  */
 import { readFileSync } from "node:fs";

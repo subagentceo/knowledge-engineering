@@ -1,6 +1,7 @@
 /**
  * Citations:
- *   @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/token-counting.md
+ *   @tdd green
+ * @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/token-counting.md
  *   @cite seeds/posture/session-start.xml
  *
  * These tests assert shape, not live API behavior — `countTokens()` requires

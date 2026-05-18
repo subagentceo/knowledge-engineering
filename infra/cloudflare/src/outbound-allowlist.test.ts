@@ -5,6 +5,7 @@
  *   "Outbound allowlist enforced. evil.example blocked; api.anthropic.com succeeds."
  *
  * Citations:
+ * @tdd green
  * @cite vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md
  * @cite rubrics/phase-8.md
  * @cite seeds/citations/vendor-graph-v2.xml
