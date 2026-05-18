@@ -4,10 +4,13 @@
  *      downstream workflows (anti-recursion). Without this, PRs stay BLOCKED
  *      forever once rebased.
  *
- * @cite .github/workflows/auto-rebase.yml
- * @cite .github/workflows/verify.yml
- * @cite .github/workflows/osv-scanner.yml
- * @cite docs/decisions/2026-05-17-auto-merge-recovery.md
+ * @cite vendor/anthropics/code.claude.com/docs/en/github-actions.md
+ *
+ * Live-only references (not under vendor/seeds/rubrics — plain comments):
+ *   - .github/workflows/auto-rebase.yml — file under test
+ *   - .github/workflows/verify.yml      — file under test
+ *   - .github/workflows/osv-scanner.yml — file under test
+ *   - docs/decisions/2026-05-17-auto-merge-recovery.md — ADR for this fix
  */
 
 import { readFileSync } from "node:fs";
