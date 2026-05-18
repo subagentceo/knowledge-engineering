@@ -25,3 +25,7 @@ third_party/
 # Claude Code local session settings — operator-side, may contain secrets per
 # global feedback memory. Never commit.
 .claude/settings.local.json
+
+# Claude Code scheduled-tasks runtime lock — per-session pid/sessionId state.
+# Was tracked once in error (cd663ef #161); untracked in OLOCK1. Never commit.
+.claude/scheduled_tasks.lock
