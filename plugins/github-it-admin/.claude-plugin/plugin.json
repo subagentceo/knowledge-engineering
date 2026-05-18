@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "github-it-admin",
+  "version": "0.1.0",
+  "description": "Operator-side IT admin plugin for GitHub-tier operations: claude-code OAuth rotation, repo→org secret promotion, secrets parity audit, branch-protection ruleset CRUD, and a security-aware linter for Claude Code Action workflows (.github/workflows/claude*.yml). Dogfoods OSEC1/OSEC2/OSEC3 (secret model), OIT1 (minter pattern), and OAUTO13 (workflow security baseline) into a single plugin that exercises the full claude-code plugin spec: skills + hooks + monitors + agents + MCP server.",
+  "author": {
+    "name": "alex-jadecli",
+    "url": "https://github.com/alex-jadecli"
+  },
+  "license": "Apache-2.0",
+  "repository": "https://github.com/subagentceo/knowledge-engineering",
+  "keywords": ["github", "secrets", "oauth", "claude-code-action", "branch-protection", "operator-it"],
+  "skills": [
+    "skills/claude-oauth-rotate",
+    "skills/secret-promote",
+    "skills/secret-audit",
+    "skills/branch-protection-crud",
+    "skills/claude-action-lint"
+  ],
+  "agents": ["agents/claude-action-workflow-reviewer.md"],
+  "hooks": "hooks/hooks.json",
+  "mcpServers": ".mcp.json",
+  "experimental": {
+    "monitors": "monitors/monitors.json"
+  },
+  "userConfig": {
+    "gh_org": {
+      "type": "string",
+      "title": "GitHub organization",
+      "description": "Org for secret promotion + branch-protection ops. Defaults to subagentceo for this chassis.",
+      "default": "subagentceo"
+    },
+    "gh_repo": {
+      "type": "string",
+      "title": "GitHub repository",
+      "description": "Repo name (without owner). Defaults to knowledge-engineering for this chassis.",
+      "default": "knowledge-engineering"
+    },
+    "secret_max_age_days": {
+      "type": "number",
+      "title": "Secret rotation max age (days)",
+      "description": "Secrets older than this trigger a drift notification from the secret-age-watch monitor.",
+      "default": 90,
+      "min": 1,
+      "max": 365
+    }
+  }
+}
