@@ -1,0 +1,7 @@
+[
+  {
+    "name": "secret-age-watch",
+    "command": "while true; do gh secret list --org ${user_config.gh_org} --json name,updatedAt | jq -r --arg max ${user_config.secret_max_age_days} '.[] | (now - (.updatedAt | fromdateiso8601)) / 86400 | floor as $age | select($age > ($max|tonumber)) | \"STALE: \\(.name) is \\($age) days old\"'; sleep 21600; done",
+    "description": "Polls gh secret ages every 6 hours; emits STALE: <name> notifications when any secret exceeds the configured max age"
+  }
+]
