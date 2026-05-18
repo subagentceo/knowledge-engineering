@@ -45,7 +45,12 @@ concurrency:
 
 jobs:
   scan-pr:
-    if: github.event_name == 'pull_request'
+    # OAUTO14: also run on workflow_dispatch so OAUTO12's auto-rebase
+    # redispatch produces the ruleset-required "OSV-Scanner (PR) / osv-scan"
+    # context. Without || workflow_dispatch this job is skipped on dispatch
+    # and scan-main runs instead, producing the wrong context name and
+    # leaving the PR BLOCKED forever. See ADR 2026-05-17-auto-merge-recovery.md.
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
     name: OSV-Scanner (PR)
     uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.8
     with:
