@@ -8,16 +8,26 @@
 
 ## Loop
 
-For each commit in the queue:
+**Unit of work = one outcome PR**, per [`plugins/platform-engineering/skills/citations-tests-outcomes/SKILL.md`](../../plugins/platform-engineering/skills/citations-tests-outcomes/SKILL.md). One outcome PR may contain 1–4 commits (RED → GREEN → REFACTOR → citation-fix rhythm). Cherry-pick policy: a commit from any of the 7 source PRs becomes a commit in a new outcome PR; commits sharing one outcome ID land together via squash-merge.
 
-1. Cherry-pick onto `loop/atomic-merges-2026-05-18`.
-2. Run the 3 enforcers above. Capture exit codes.
-3. Classify the commit:
-   - **MERGE** — passes enforcers, no rubric issue → push to `origin/main` as-is.
-   - **REFACTOR** — passes enforcers but rubric flags a fixable issue (mis-scoped subject, missing `@cite`, missing `@tdd`, body unclear) → amend in-place, then push.
-   - **DISCARD** — fails enforcers AND fix would require touching files outside the commit's scope; OR superseded by a later commit on `origin/main` (e.g., OHYG1 obsoletes `third_party/` submodule attempts).
-4. After push to `origin/main`: `git fetch origin main && git rebase origin/main` on the loop branch. Repeat for next commit.
-5. After all commits in a PR's queue are processed: update that PR's "Post-loop state" (close-as-merged, close-as-superseded, or rebase-and-keep-open).
+For each outcome in the queue:
+
+1. Branch off fresh `origin/main`: `loop/atomic/NN-<outcome-slug>`.
+2. Cherry-pick all commits in that outcome from the source PR(s).
+3. Run the 3 enforcers (`verify:citations`, `verify:tdd`, `verify:libs`). Capture exit codes.
+4. Classify the outcome PR:
+   - **MERGE** — passes enforcers, no rubric issue → push, open 1-PR, wait for 2 CI checks (`npm run verify`, `OSV-Scanner (PR) / osv-scan`), squash-merge.
+   - **REFACTOR** — fixable rubric issue (mis-scoped subject, missing `@cite`, missing `@tdd`, body unclear) → amend in-place, then merge as above.
+   - **DISCARD** — fails enforcers AND fix requires out-of-scope changes; OR superseded on `origin/main` (e.g., OHYG1 obsoletes `third_party/` submodule attempts).
+5. After squash-merge: `git fetch origin main && git rebase origin/main` on the loop branch. Repeat for next outcome.
+6. After all outcomes from a source PR are processed: update that PR's "Post-loop state".
+
+**Repo ruleset (verified 2026-05-18, ruleset 16440994):**
+- Direct push to main is rejected. Must go through PR.
+- Required checks: `npm run verify` + `OSV-Scanner (PR) / osv-scan` (both).
+- Merge method: squash only.
+- `strict_required_status_checks_policy: true` → PR must be up-to-date with main before merge.
+- 0 required reviewers.
 
 ## Real working set: 18 commits across 7 PRs (34 merge-noise commits dropped)
 
@@ -28,11 +38,11 @@ For each commit in the queue:
 - `D` — discarded (with reason)
 - `_` — not yet processed
 
-### Queue
+### Queue (one row per source-PR commit; rows grouped by outcome PR they'll feed)
 
-| # | PR | SHA | Subject | Decision | Notes |
-|---|----|-----|---------|----------|-------|
-| 1 | #225 | `b5f9e37` | feat(pr-reviewer): roving PR-reviewer skill (ORC3) | `_` | priority 1: lands the reviewer that processes the rest |
+| # | Source PR | SHA | Subject | Outcome PR slug | Decision | Notes |
+|---|----|-----|---------|-----------------|----------|-------|
+| 1 | #225 | `b5f9e37` | feat(pr-reviewer): roving PR-reviewer skill (ORC3) | `01-orc3-reviewer-skill` | `M` | cherry-picked → `1b38375` on loop branch; rubric green; ready to push as 1-PR |
 | 2 | #193 | `161b454` | feat(third_party): agent-skills + terragrunt submodules (OPR4) | `_` | check vs OHYG1 (third_party = untracked) |
 | 3 | #192 | `a37f72c` | feat(third_party): docs-mirrors consumption layer (OPR3) | `_` | check vs OHYG1 |
 | 4 | #191 | `c409e32` | docs(adr): OPR2 — third_party/ submodules ADR | `_` | check vs OHYG1 |
