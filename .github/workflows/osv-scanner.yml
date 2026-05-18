@@ -54,8 +54,13 @@ jobs:
     name: OSV-Scanner (PR)
     uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.8
     with:
+      # OHYG1: explicit --experimental-exclude is a belt-and-suspenders for
+      # third_party/. The dir is gitignored (OSV --use-gitignore is default-on
+      # and would already skip it), but if anyone ever removes the gitignore
+      # entry we still don't scan 13k+ upstream files. See ADR 2026-05-18.
       scan-args: |-
         -r
+        --experimental-exclude=third_party
         ./
       # SARIF upload requires GitHub Advanced Security / Code Scanning,
       # which is a paid feature. We deliberately leave it off: OSV-Scanner
@@ -70,7 +75,9 @@ jobs:
     name: OSV-Scanner (push / schedule)
     uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.3.8
     with:
+      # OHYG1: see scan-pr above for the third_party exclude rationale.
       scan-args: |-
         -r
+        --experimental-exclude=third_party
         ./
       upload-sarif: false
