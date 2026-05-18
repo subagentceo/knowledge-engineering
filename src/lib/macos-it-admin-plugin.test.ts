@@ -1,5 +1,7 @@
 /**
- * @tdd OIT1 — macos-it-admin plugin conformance
+ * @tdd green
+ *
+ * OIT1 — macos-it-admin plugin conformance
  *   - plugin manifest valid + lists all 5 skills
  *   - every SKILL.md has frontmatter + CRUD verbs section
  *   - every script (4 TS + 1 shell) follows no-leak rules
