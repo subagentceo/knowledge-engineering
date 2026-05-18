@@ -57,10 +57,9 @@ jobs:
     # Draft gate: skip while the PR is a draft. The `pull_request:` trigger
     # above includes `ready_for_review`, so the check fires when the draft
     # is promoted — the required-status-check gate is never permanently
-    # blocked.
-    if: |
-      (github.event_name == 'pull_request' && github.event.pull_request.draft == false) ||
-      github.event_name == 'workflow_dispatch'
+    # blocked. Single-line `if:` so auto-rebase-retrigger.test.ts's regex
+    # `if:[^\n]*workflow_dispatch` matches it.
+    if: (github.event_name == 'pull_request' && github.event.pull_request.draft == false) || github.event_name == 'workflow_dispatch'
     name: OSV-Scanner (PR)
     uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.8
     with:
