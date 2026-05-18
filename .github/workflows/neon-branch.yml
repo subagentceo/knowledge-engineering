@@ -45,7 +45,7 @@ jobs:
     steps:
       - name: Get branch name
         id: branch_name
-        uses: tj-actions/branch-names@v8
+        uses: tj-actions/branch-names@v9
 
   create_neon_branch:
     name: Create Neon Branch
@@ -75,7 +75,7 @@ jobs:
       - name: Create Neon Branch
         id: create_neon_branch
         # OGHW-X2: SHA-pinned per docs/decisions/2026-05-18-actions-sha-pinning.md.
-        uses: neondatabase/create-branch-action@34f619c41c6e67b4f2f13f1c6eae90827a5f2cf4  # v5
+        uses: neondatabase/create-branch-action@fb620d43d4c565abaf088b848a4e28e5c4ea4d9c  # v6.3.1
         with:
           project_id: ${{ vars.NEON_PROJECT_ID }}
           branch_name: preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}
@@ -85,7 +85,7 @@ jobs:
       # orchestrator (and humans) can see what was provisioned. Important:
       # never log db_url / db_url_with_pooler — they contain credentials.
       - name: Comment branch info on PR
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const branchName = `preview/pr-${{ github.event.number }}-${{ needs.setup.outputs.branch }}`;
@@ -104,10 +104,10 @@ jobs:
       # Idempotent — each migration uses IF NOT EXISTS guards so re-run
       # against an existing branch is safe.
       - name: Checkout repo (needed for migrations/ + scripts/)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "20"
           cache: "npm"
