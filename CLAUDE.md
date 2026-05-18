@@ -48,6 +48,10 @@ The repo's hard rule: `ANTHROPIC_API_KEY` is **never** set. Anywhere. The OAuth 
 
 If you see code that wants `ANTHROPIC_API_KEY`, it's a bug or a leak. Fix it; don't accommodate it.
 
+## `third_party/` is gitignored (OHYG1)
+
+`third_party/` is the operator-side read-only upstream mirror — workerd, workers-sdk, terragrunt, vendored agent-skills, etc. Never tracked in git, never scanned by the verify chain or OSV. **Do not** add files there in a commit; **do not** assume CI sees that directory. Local agent operations (Grep/Glob/find) should pass an explicit exclude OR rely on git-aware tools (`git grep`, `git ls-files`) so they don't traverse 13k+ upstream files. Defense in depth: `.gitignore` excludes the path from git; `.github/workflows/osv-scanner.yml` passes `--experimental-exclude=third_party` to OSV as a belt-and-suspenders.
+
 ## Tool surface
 
 - **16+ MCP tools** across 5 lanes: `engineering_*`, `blog_*`, `support_*`, `llms_*`, `vendor_*` plus `search_tools` (progressive disclosure)
