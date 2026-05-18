@@ -47,7 +47,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # Full history required for src/lib/conventions.test.ts:
           # the test runs `git merge-base HEAD origin/main` to find
@@ -61,14 +61,14 @@ jobs:
           persist-credentials: false
 
       - name: Setup Node 20
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: "20"
           cache: npm
 
       - name: Setup Terraform
         # OGHW-X2: SHA-pinned per docs/decisions/2026-05-18-actions-sha-pinning.md.
-        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd  # v3
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e  # v4.0.1
         with:
           terraform_version: "1.9.0"
           terraform_wrapper: false
