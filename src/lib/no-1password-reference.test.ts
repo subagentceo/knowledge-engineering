@@ -1,12 +1,13 @@
 /**
+ * @cite vendor/cloudflare/secrets-store.md
  * @tdd green
  *
  * OSEC2-1 — operator does not use 1Password. The OSEC1 parity ADR
  *      and the operator-rotation runbook must not reference it.
  *
- * @cite docs/decisions/2026-05-17-secret-store-tiers.md
- * @cite docs/decisions/2026-05-17-secrets-parity.md
- * @cite docs/operator-runbooks/secret-rotation.md
+ * Refs: docs/decisions/2026-05-17-secret-store-tiers.md
+ * Refs: docs/decisions/2026-05-17-secrets-parity.md
+ * Refs: docs/operator-runbooks/secret-rotation.md
  */
 
 import { existsSync, readFileSync } from "node:fs";
