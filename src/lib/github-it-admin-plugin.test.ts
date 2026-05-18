@@ -1,12 +1,13 @@
 /**
+ * @cite vendor/anthropics/code.claude.com/docs/en/plugins.md
  * @tdd green
  *
  * OIT2 — github-it-admin plugin conformance + claude-action-lint correctness
  *
- * @cite plugins/github-it-admin/CLAUDE.md
- * @cite plugins/github-it-admin/.claude-plugin/plugin.json
- * @cite plugins/github-it-admin/skills/claude-action-lint/scripts/lint.ts
- * @cite src/lib/claude-action-workflows.test.ts (OAUTO13 — sister test)
+ * Refs: plugins/github-it-admin/CLAUDE.md
+ * Refs: plugins/github-it-admin/.claude-plugin/plugin.json
+ * Refs: plugins/github-it-admin/skills/claude-action-lint/scripts/lint.ts
+ * Refs: src/lib/claude-action-workflows.test.ts (OAUTO13 — sister test)
  */
 
 import { existsSync, readFileSync, readdirSync } from "node:fs";
