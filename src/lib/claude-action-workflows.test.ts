@@ -1,11 +1,13 @@
 /**
  * @tdd OAUTO13 — structural self-test for the two Claude Code Action workflows
  *
- * @cite .github/workflows/claude-code-review.yml
- * @cite .github/workflows/claude.yml
- * @cite https://github.com/anthropics/claude-code-action/blob/main/docs/security.md
- * @cite https://github.com/anthropics/claude-code-action/blob/main/action.yml
  * @cite vendor/anthropics/code.claude.com/docs/en/github-actions.md
+ *
+ * Live-only references (not under vendor/seeds/rubrics, so plain comments):
+ *   - .github/workflows/claude-code-review.yml — the file under test
+ *   - .github/workflows/claude.yml             — the file under test
+ *   - https://github.com/anthropics/claude-code-action/blob/main/docs/security.md
+ *   - https://github.com/anthropics/claude-code-action/blob/main/action.yml
  */
 
 import { readFileSync } from "node:fs";
