@@ -1,5 +1,7 @@
 /**
- * @tdd OIT2 — github-it-admin plugin conformance + claude-action-lint correctness
+ * @tdd green
+ *
+ * OIT2 — github-it-admin plugin conformance + claude-action-lint correctness
  *
  * @cite plugins/github-it-admin/CLAUDE.md
  * @cite plugins/github-it-admin/.claude-plugin/plugin.json
