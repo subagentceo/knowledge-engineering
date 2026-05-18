@@ -1,0 +1,71 @@
+# auto-rebase — rebase open automerge PRs that are BEHIND.
+#
+# Triggers (defense in depth — see ORC4):
+#   1. workflow_run: when auto-merge.yml completes (fires even for
+#      GITHUB_TOKEN-triggered events; on:push did NOT, because GitHub
+#      suppresses workflows triggered by github-actions to prevent
+#      recursion).
+#   2. schedule: every 10 min as a backstop.
+#   3. workflow_dispatch: manual kick.
+#   4. push: human-actor pushes to main still fire workflows.
+
+name: auto-rebase
+
+on:
+  workflow_run:
+    workflows: [auto-merge]
+    types: [completed]
+  schedule:
+    - cron: '*/10 * * * *'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  rebase-behind-prs:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Rebase every open automerge PR that is BEHIND
+        run: |
+          set -euo pipefail
+          echo "Listing open non-draft PRs with the automerge label..."
+          mapfile -t PRS < <(gh pr list \
+            --state open \
+            --label automerge \
+            --json number,isDraft,mergeStateStatus \
+            -q '.[] | select(.isDraft==false) | select(.mergeStateStatus=="BEHIND") | .number')
+
+          if [ "${#PRS[@]}" -eq 0 ]; then
+            echo "No BEHIND PRs need rebasing."
+            exit 0
+          fi
+
+          echo "Found ${#PRS[@]} BEHIND PR(s): ${PRS[*]}"
+          fail_count=0
+          for n in "${PRS[@]}"; do
+            echo "::group::Rebase PR #$n"
+            if gh pr update-branch "$n"; then
+              echo "rebased #$n"
+              # ORC7 / OAUTO12: GITHUB_TOKEN-triggered push from update-branch
+              # does NOT fire downstream workflows (GitHub anti-recursion).
+              # Explicitly dispatch the required-status-check workflows on
+              # the rebased branch so the gate can re-satisfy on the new SHA.
+              # See docs/decisions/2026-05-17-auto-merge-recovery.md
+              branch=$(gh pr view "$n" --json headRefName -q .headRefName)
+              gh workflow run verify.yml      --ref "$branch" || echo "::warning::verify dispatch failed for #$n on $branch"
+              gh workflow run osv-scanner.yml --ref "$branch" || echo "::warning::osv dispatch failed for #$n on $branch"
+            else
+              echo "::warning::could not rebase #$n (likely conflict)"
+              fail_count=$((fail_count+1))
+            fi
+            echo "::endgroup::"
+          done
+
+          echo "Done. Rebase failures: $fail_count (left BEHIND for human review)."
