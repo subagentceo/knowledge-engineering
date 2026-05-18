@@ -1,5 +1,7 @@
 /**
- * @tdd OAUTO13 — structural self-test for the two Claude Code Action workflows
+ * @tdd green
+ *
+ * OAUTO13 — structural self-test for the two Claude Code Action workflows.
  *
  * @cite vendor/anthropics/code.claude.com/docs/en/github-actions.md
  *
