@@ -3,8 +3,11 @@
 # scripts/apply-identity-profiles.sh — render OIDENT1 templates to operator Mac
 #
 # vendor cites:
-# - vendor/docs-github/docs.github.com/en/github-cli/github-cli/quickstart.md:93-97
-# - git-config(1) §"Conditional includes" — the [includeIf] semantics
+# - vendor/git/git-scm.com/docs/git-config.md §"Includes" / §"Conditional Includes"
+#   (authoritative spec for the [include] / [includeIf] pattern this script
+#    applies on the operator's Mac — "Included configuration files are
+#    processed as if their contents were directly present at the location
+#    of the include directive.")
 # - ssh_config(5) §Host,IdentityFile,IdentitiesOnly
 #
 # Idempotent. Safe to re-run. --dry-run for preview. --gen-keys for the

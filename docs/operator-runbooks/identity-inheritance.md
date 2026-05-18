@@ -1,6 +1,7 @@
 # Runbook: identity inheritance for the 3-account rotation (OIDENT1)
 
 @cite CLAUDE.md
+@cite vendor/git/git-scm.com/docs/git-config.md
 @cite vendor/docs-github/docs.github.com/en/github-cli/github-cli/quickstart.md
 @cite seeds/operator-config/git/alex.inc
 @cite seeds/operator-config/ssh/config.fragment
@@ -27,8 +28,8 @@ jade.inc (legacy, NOT in chain — kept for old commits' authorship only)
 
 Source-of-truth refs:
 
-- `git-config(1)` §"Conditional includes" — semantics of `[include]` and `[includeIf]`, override-by-last-write resolution.
-- `vendor/docs-github/docs.github.com/en/github-cli/github-cli/quickstart.md:93-97` — "Using GitHub CLI with multiple accounts" + the `gh auth switch` pattern that pairs with this file layout.
+- **`vendor/git/git-scm.com/docs/git-config.md`** §"Includes" / §"Conditional Includes" — **load-bearing spec** for this whole pattern. Verbatim: *"Included configuration files are processed as if their contents were directly present at the location of the include directive. Relative paths for included files are resolved relative to the configuration file containing the include directive."* This is what makes `[include] path = ./alex.inc` from inside `admin.inc` an officially documented inheritance mechanism, not a hack.
+- `vendor/docs-github/docs.github.com/en/github-cli/github-cli/quickstart.md:93-97` — "Using GitHub CLI with multiple accounts" + the `gh auth switch` pattern. **Note:** this cite is for the *operator's `gh auth login` step* below; it does NOT document the git `[includeIf]` semantics — that's the previous bullet.
 - `ssh_config(5)` §"Host", "IdentityFile", "IdentitiesOnly" — `Host github.com-<alias>` lets each remote pick its own keypair without `ssh-agent` collision.
 
 ## What gets applied where
@@ -84,8 +85,8 @@ Optional, deferred:
 
 ## Citations
 
-- `vendor/docs-github/docs.github.com/en/github-cli/github-cli/quickstart.md:93-97` — multi-account `gh auth switch` pattern.
-- `git-config(1)` §"Conditional includes" — `[include]` and `[includeIf]` semantics.
+- **`vendor/git/git-scm.com/docs/git-config.md`** §"Includes" / §"Conditional Includes" — **the** spec for `[include]` and `[includeIf]`; the citation root for the inheritance pattern this runbook documents. Added 2026-05-18 in OIDENT2 to correct OIDENT1's miscited rationale.
+- `vendor/docs-github/docs.github.com/en/github-cli/github-cli/quickstart.md:93-97` — multi-account `gh auth switch` pattern. Cited specifically for the operator's `gh auth login -u <user>` step, NOT for the git-config inheritance semantics.
 - `ssh_config(5)` §"Host", "IdentityFile", "IdentitiesOnly" — host-alias-per-keypair pattern.
 - `CLAUDE.md` (this repo) — identity inventory + rotation protocol.
 - `seeds/operator-config/git/*.inc` — source-of-truth git profile fragments.

@@ -6,9 +6,12 @@
 # re-run scripts/apply-identity-profiles.sh to refresh.
 #
 # vendor cites:
-# - vendor/docs-github/docs.github.com/en/github-cli/github-cli/quickstart.md:93-97
-#   (Using GitHub CLI with multiple accounts — gh auth switch)
-# - ssh_config(5) — Host, IdentityFile, IdentitiesOnly semantics
+# - ssh_config(5) — Host, IdentityFile, IdentitiesOnly semantics (the
+#   load-bearing primitive for per-Host-alias keypair routing)
+# - Cross-reference: vendor/git/git-scm.com/docs/git-config.md is the
+#   companion citation root for the git-side [includeIf] pattern that
+#   maps cwd → identity (the same identities listed below). The two
+#   surfaces (SSH and git-config) are coordinated but documented separately.
 #
 # `IdentitiesOnly yes` is a security primitive: prevents ssh-agent from
 # offering ALL loaded keys to GitHub, which would let GitHub's first-match
