@@ -14,6 +14,7 @@
     "dev": "tsx src/agent/run.ts",
     "mcp:bridge": "tsx src/mcp/bridge-server.ts",
     "mcp:npm-registry": "tsx src/mcp/npm-registry/server.ts",
+    "rc": "claude remote-control --capacity 32 --spawn worktree",
     "example:prompt-caching": "tsx src/examples/prompt-caching.ts",
     "example:tool-caching": "tsx src/examples/tool-caching.ts",
     "example:citations": "tsx src/examples/citations.ts",
