@@ -5,6 +5,12 @@ description: Append-only log of decisions the orchestrator made, with date + tic
 
 # Decisions log
 
+## 2026-05-18 — tick 16 (instrumentation + roving reviewer + submodule discard)
+
+- 2026-05-18 — ORC3 roving-reviewer skill landed as cf7aa6d (#241). Superseded source PR #225 (3 merge-noise commits dropped).
+- 2026-05-18 — OHYG1 supersedes third_party/-submodule attempts. Closed PRs #191, #192, #193 as DISCARD; future fix is OHYG2 (.gitattributes + SOURCES.json + citation-guard rejection).
+- 2026-05-18 — OINST1 landed as e7bf14e (#243). Tracked infra/cloudflare/package-lock.json, bumped frontend 0.1.0→0.2.0 + cloud-agent 0.0.1→0.1.0. Root not bumped (release-please owns it).
+
 ## 2026-05-15 — tick 7 (audit + close the Neon CI gap)
 
 ### D8. Auto-merge gap has two layers; PR #72 closes layer 1; layer 2 is operator-pending
