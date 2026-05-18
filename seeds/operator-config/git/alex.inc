@@ -1,7 +1,11 @@
 # vendor cites:
-# - vendor/docs-github/docs.github.com/en/github-cli/github-cli/quickstart.md:93-97
-#   (gh auth switch — multi-account auth, primary doctrine for this pattern)
-# - git-config(1) §"Conditional includes" — git's includeIf / include semantics
+# - vendor/git/git-scm.com/docs/git-config.md §"Includes" / §"Conditional Includes"
+#   (authoritative: "Included configuration files are processed as if their
+#    contents were directly present at the location of the include directive.
+#    Relative paths for included files are resolved relative to the
+#    configuration file containing the include directive." — this is what makes
+#    [include] path = ./alex.inc inside admin.inc / zhoukalex.inc work as
+#    documented inheritance, not as a hack.)
 # Identity: alex-jadecli — PRIMARY. All third-party integrations route here.
 # This file is the BASE that admin.inc and zhoukalex.inc inherit for scope parity.
 [user]
