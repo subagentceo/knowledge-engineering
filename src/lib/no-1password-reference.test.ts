@@ -1,5 +1,7 @@
 /**
- * @tdd OSEC2-1 — operator does not use 1Password. The OSEC1 parity ADR
+ * @tdd green
+ *
+ * OSEC2-1 — operator does not use 1Password. The OSEC1 parity ADR
  *      and the operator-rotation runbook must not reference it.
  *
  * @cite docs/decisions/2026-05-17-secret-store-tiers.md
