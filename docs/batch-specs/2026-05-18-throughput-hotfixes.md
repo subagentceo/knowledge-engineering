@@ -27,7 +27,7 @@ The 5 units below each cut one category of waste at the **tool-call boundary**, 
 ### Unit 1 — OWASTE1: warn on `gh` Bash output > 5K tokens without `--jq`
 
 - **Outcome:** every Bash call invoking `gh` that returns > 5K tokens must use `--jq` projection or be rejected with a warning naming the cheaper alternative.
-- **Files:** `.claude/hooks.json` (add PreToolUse matcher for `Bash` with `gh` substring), `scripts/check-gh-jq.sh` (the gate), `src/hooks/check-gh-jq.test.ts` (cites `vendor/anthropics/code.claude.com/docs/en/hooks.md` + `vendor/anthropics/code.claude.com/docs/en/tools-reference.md`).
+- **Files:** `.claude/hooks.json` (add PreToolUse matcher for `Bash` with `gh` substring), `scripts/check-gh-jq.sh` (the gate), `src/lib/hooks/check-gh-jq.test.ts` (cites `vendor/anthropics/code.claude.com/docs/en/hooks.md` + `vendor/anthropics/code.claude.com/docs/en/tools-reference.md`). Test path lives under `src/lib/` so it is discovered by `scripts/lib/run-tests.ts:23-27` (G3); see tracker Q1/A1 for rationale.
 - **Commit:** `feat(hooks): warn on gh bash output >5K tokens without --jq (OWASTE1)`.
 - **Evidence cited:** first `list_pull_requests` MCP call dumped ~30K tokens vs ~2K with `--jq '.[]|{number,state,mergeable}'`.
 
@@ -41,21 +41,21 @@ The 5 units below each cut one category of waste at the **tool-call boundary**, 
 ### Unit 3 — OWASTE3: warn on `Read` without `offset+limit` on files > 200 lines
 
 - **Outcome:** PostToolUse hook warns when a `Read` returns more than 200 lines without `offset+limit`, telling the agent to scope next time.
-- **Files:** `.claude/hooks.json` (PostToolUse for `Read`), `scripts/check-read-offset.sh`, `src/hooks/check-read-offset.test.ts` (cites `vendor/anthropics/code.claude.com/docs/en/tools-reference.md` Read section).
+- **Files:** `.claude/hooks.json` (PostToolUse for `Read`), `scripts/check-read-offset.sh`, `src/lib/hooks/check-read-offset.test.ts` (cites `vendor/anthropics/code.claude.com/docs/en/tools-reference.md` Read section). Test path per Q1/A1 — `src/lib/` for `run-tests.ts` discovery.
 - **Commit:** `feat(hooks): warn on Read >200 lines without offset+limit (OWASTE3)`.
 - **Evidence cited:** vendor doc fire-hoses in this session pushed ~3000-line single-Read calls straight into context, accelerating cache_read growth.
 
 ### Unit 4 — OWASTE4: SessionStart hook — per-turn cache_read growth logger
 
 - **Outcome:** every assistant turn appends a row to `.claude/usage/<session-id>.tsv` with `(turn, cache_read_delta, cumulative_cost)` so the operator can see growth in real time.
-- **Files:** `.claude/hooks.json` (SessionStart + PostToolUse), `scripts/log-turn-growth.sh`, `src/hooks/log-turn-growth.test.ts` (cites `vendor/anthropics/code.claude.com/docs/en/hooks.md` + cost-tracking guidance in `vendor/anthropics/platform.claude.com/docs/en/api/messages.md`).
+- **Files:** `.claude/hooks.json` (SessionStart + PostToolUse), `scripts/log-turn-growth.sh`, `src/lib/hooks/log-turn-growth.test.ts` (cites `vendor/anthropics/code.claude.com/docs/en/hooks.md` + cost-tracking guidance in `vendor/anthropics/platform.claude.com/docs/en/api/messages.md`). Test path per Q1/A1.
 - **Commit:** `feat(hooks): log per-turn cache_read growth to .claude/usage/ (OWASTE4)`.
 - **Evidence cited:** 186M cache_read was only discovered post-hoc; the operator could have caught growth at 20M had this telemetry been live.
 
 ### Unit 5 — OWASTE5: block Bash `cat` on files > 100 lines
 
 - **Outcome:** PreToolUse hook blocks `Bash` invocations of `cat <file>` (or `head -n>100`) when the file exceeds 100 lines; instructs the agent to use `Read` with `offset+limit`.
-- **Files:** `.claude/hooks.json` (PreToolUse for Bash with `cat ` substring), `scripts/check-cat-size.sh`, `src/hooks/check-cat-size.test.ts` (cites the same docs as OWASTE3).
+- **Files:** `.claude/hooks.json` (PreToolUse for Bash with `cat ` substring), `scripts/check-cat-size.sh`, `src/lib/hooks/check-cat-size.test.ts` (cites the same docs as OWASTE3). Test path per Q1/A1.
 - **Commit:** `feat(hooks): block cat on files >100 lines (OWASTE5)`.
 - **Evidence cited:** several `cat` calls in this session bypassed `Read`'s offset/limit and dumped full files into tool_result.
 
