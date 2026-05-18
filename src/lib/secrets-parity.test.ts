@@ -1,10 +1,11 @@
 /**
+ * @cite vendor/anthropics/code.claude.com/docs/en/github-actions.md
  * @tdd green
  *
  * OSEC1 — parity table + verifier behavior
- * @cite docs/decisions/2026-05-17-secrets-parity.md
- * @cite docs/data/secrets-parity.json
- * @cite scripts/verify-secrets-parity.ts
+ * Refs: docs/decisions/2026-05-17-secrets-parity.md
+ * Refs: docs/data/secrets-parity.json
+ * Refs: scripts/verify-secrets-parity.ts
  */
 
 import { test } from "node:test";
