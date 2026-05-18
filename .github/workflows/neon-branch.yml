@@ -30,6 +30,7 @@ on:
       - opened
       - reopened
       - synchronize
+      - ready_for_review   # fire the create-branch step when a draft is promoted
       - closed
 
 concurrency:
@@ -52,11 +53,19 @@ jobs:
       db_url: ${{ steps.create_neon_branch.outputs.db_url }}
       db_url_with_pooler: ${{ steps.create_neon_branch.outputs.db_url_with_pooler }}
     needs: setup
+    # Skip draft PRs. ready_for_review (in types: above) fires the create
+    # path when the PR is promoted. The delete_neon_branch job is NOT
+    # draft-gated — `closed` of a draft must still clean up if a branch
+    # was created before the draft toggle.
     if: |
-      github.event_name == 'pull_request' && (
-      github.event.action == 'synchronize'
-      || github.event.action == 'opened'
-      || github.event.action == 'reopened')
+      github.event_name == 'pull_request'
+      && github.event.pull_request.draft == false
+      && (
+        github.event.action == 'synchronize'
+        || github.event.action == 'opened'
+        || github.event.action == 'reopened'
+        || github.event.action == 'ready_for_review'
+      )
     runs-on: ubuntu-latest
     permissions:
       contents: read

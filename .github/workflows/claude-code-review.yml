@@ -91,6 +91,10 @@ concurrency:
 
 jobs:
   claude-review:
+    # Skip draft PRs. ready_for_review (in types: above) fires the review
+    # when a draft is promoted, so reviewers still get the bot pass once
+    # the author is asking for review.
+    if: github.event.pull_request.draft == false
     continue-on-error: true  # OAUTO1 — see header.
     runs-on: ubuntu-latest
 

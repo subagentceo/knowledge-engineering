@@ -27,6 +27,9 @@ name: osv-scanner
 
 on:
   pull_request:
+    # ready_for_review fires the PR scan when a draft is promoted so the
+    # required-status-check gate on main is never blocked indefinitely.
+    types: [opened, synchronize, reopened, ready_for_review]
     branches: [main]
   push:
     branches: [main]
@@ -50,7 +53,14 @@ jobs:
     # context. Without || workflow_dispatch this job is skipped on dispatch
     # and scan-main runs instead, producing the wrong context name and
     # leaving the PR BLOCKED forever. See ADR 2026-05-17-auto-merge-recovery.md.
-    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    #
+    # Draft gate: skip while the PR is a draft. The `pull_request:` trigger
+    # above includes `ready_for_review`, so the check fires when the draft
+    # is promoted — the required-status-check gate is never permanently
+    # blocked.
+    if: |
+      (github.event_name == 'pull_request' && github.event.pull_request.draft == false) ||
+      github.event_name == 'workflow_dispatch'
     name: OSV-Scanner (PR)
     uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.8
     with:

@@ -37,6 +37,11 @@ concurrency:
 
 jobs:
   verify:
+    # Skip draft PRs. Push and workflow_dispatch still run unconditionally;
+    # ready_for_review (in types: above) ensures the check fires when a
+    # draft is promoted, so the required-status-check gate on main is
+    # never blocked indefinitely.
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     name: npm run verify
     runs-on: ubuntu-latest
     timeout-minutes: 10
