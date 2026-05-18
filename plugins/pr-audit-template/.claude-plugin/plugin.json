@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "pr-audit-template",
+  "version": "0.1.0",
+  "description": "Per-merged-PR audit follow-up generator. Reads the session transcript at ~/.claude/projects/<dir>/<session-id>.jsonl, computes tool-call waste/latency/throughput stats for the work that landed a given PR, and emits a templated follow-up PR body plus the top 3 highest-impact findings as issue bodies. Dogfoods OAUDIT family: build-use-iterate-improve the merge process itself by surfacing where the agent wasted calls.",
+  "author": {
+    "name": "alex-jadecli",
+    "url": "https://github.com/alex-jadecli"
+  },
+  "license": "Apache-2.0",
+  "repository": "https://github.com/subagentceo/knowledge-engineering",
+  "keywords": ["audit", "telemetry", "pr-followup", "tool-calls", "throughput", "operator-it"],
+  "skills": [
+    "skills/transcript-parse",
+    "skills/waste-analyze",
+    "skills/pr-audit-body"
+  ],
+  "userConfig": {
+    "transcript_root": {
+      "type": "string",
+      "title": "Claude Code transcript root directory",
+      "description": "Per-host directory containing per-session JSONL transcripts. Defaults to ~/.claude/projects/<project-slug>/.",
+      "default": "~/.claude/projects"
+    },
+    "top_findings": {
+      "type": "number",
+      "title": "Number of top findings per audit",
+      "description": "How many highest-impact findings to surface as follow-up issues per merged PR. Operator convention is 3.",
+      "default": 3,
+      "min": 1,
+      "max": 10
+    },
+    "gh_repo": {
+      "type": "string",
+      "title": "Target GitHub repository (owner/repo)",
+      "description": "Where the audit PR + issues land. Defaults to this chassis.",
+      "default": "subagentceo/knowledge-engineering"
+    }
+  }
+}
