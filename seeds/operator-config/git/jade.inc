@@ -1,6 +1,8 @@
 # vendor cites:
-# - vendor/docs-github/docs.github.com/en/github-cli/github-cli/quickstart.md:93-97
-# - git-config(1) §"Conditional includes"
+# - vendor/git/git-scm.com/docs/git-config.md §"Includes"
+#   (Cited for the spec defining when inheritance does and does not occur;
+#    this file deliberately omits any [include] directive, so per the spec
+#    nothing is inlined from elsewhere.)
 # Identity: jade-jadecli — LEGACY. Not in subagentceo org per CLAUDE.md.
 # Intentionally does NOT inherit from alex.inc — keep scope minimal.
 [user]
