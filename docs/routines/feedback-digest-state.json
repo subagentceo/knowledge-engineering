@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "slack_channel_id": null,
+  "slack_unavailable": true,
+  "fallback_github_issue": 151,
+  "fallback_github_issue_url": "https://github.com/subagentceo/knowledge-engineering/issues/151",
+  "last_run_iso": "2026-05-17T01:30:00Z",
+  "last_digest_comment_url": "https://github.com/subagentceo/knowledge-engineering/issues/151#issuecomment-4470241695",
+  "run_count": 6,
+  "signal_ids_seen": [
+    "issue:102", "issue:103", "issue:110", "issue:114", "issue:115",
+    "issue:116", "issue:117", "issue:118", "issue:119", "issue:120",
+    "issue:121", "issue:122", "issue:134", "issue:151", "issue:175",
+    "pr:109", "pr:123", "pr:131", "pr:132", "pr:152",
+    "pr:155", "pr:156", "pr:157", "pr:158", "pr:170",
+    "pr:174", "pr:184", "pr:185", "pr:186", "pr:187"
+  ],
+  "notes": "Slack connector not yet installed (Phase 14 T4 pending operator action). Using GH issue #151 as weekly fallback. Switch to Slack once operator completes T4.1–T4.3."
+}
