@@ -53,6 +53,14 @@ Refs #
 - [ ] PR body declares outcomes + at least one `Closes #` / `Refs #`
 - [ ] CI green before merge (especially `Create Neon Branch` post PR #72)
 
+## Evaluation matrix
+
+Map each outcome to a measurable result. The rubric (plugins/platform-engineering/skills/citations-tests-outcomes/SKILL.md) calls this out as the strongest signal of a well-decomposed outcome.
+
+| Criterion | How it's measured | Result |
+|---|---|---|
+| <outcome 1 measurable> | <command or doc reference> | <✓ / ✗ / N/A> |
+
 ## Citations (if introducing new tests or rubric criteria)
 
 <!--
