@@ -37,6 +37,10 @@ permissions:
   pull-requests: write
   contents: write
 
+concurrency:
+  group: auto-merge-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   enable-auto-merge:
     if: |
@@ -44,6 +48,8 @@ jobs:
       contains(github.event.pull_request.labels.*.name, 'automerge')
     name: Enable auto-merge (squash)
     runs-on: ubuntu-latest
+    # OGHW2: bounded timeout. `gh pr merge --auto` is a single API call.
+    timeout-minutes: 5
     steps:
       - name: Enable auto-merge
         env:
