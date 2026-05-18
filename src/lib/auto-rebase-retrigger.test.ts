@@ -1,8 +1,10 @@
 /**
- * @tdd OAUTO12 / ORC7 — auto-rebase must re-dispatch required workflows after
- *      gh pr update-branch, because GITHUB_TOKEN-triggered pushes do not fire
- *      downstream workflows (anti-recursion). Without this, PRs stay BLOCKED
- *      forever once rebased.
+ * @tdd green
+ *
+ * OAUTO12 / ORC7 — auto-rebase must re-dispatch required workflows after
+ * gh pr update-branch, because GITHUB_TOKEN-triggered pushes do not fire
+ * downstream workflows (anti-recursion). Without this, PRs stay BLOCKED
+ * forever once rebased.
  *
  * @cite vendor/anthropics/code.claude.com/docs/en/github-actions.md
  *
