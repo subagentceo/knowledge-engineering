@@ -54,6 +54,11 @@ jobs:
           # post-convention commits to validate. Shallow checkout
           # (depth=1) breaks this.
           fetch-depth: 0
+          # OGHW11: this workflow only READS — verify is a test runner.
+          # GITHUB_TOKEN does not need to persist into git config.
+          # `git merge-base` is a local-only operation; no remote auth
+          # needed.
+          persist-credentials: false
 
       - name: Setup Node 20
         uses: actions/setup-node@v4
