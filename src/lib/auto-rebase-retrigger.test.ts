@@ -65,3 +65,20 @@ test("osv-scanner.yml declares workflow_dispatch so redispatch can succeed", () 
     "osv-scanner.yml must declare workflow_dispatch under on:",
   );
 });
+
+test("osv-scanner.yml scan-pr job runs on workflow_dispatch (OAUTO14)", () => {
+  // Without this, OAUTO12's redispatch via `gh workflow run osv-scanner.yml`
+  // skips scan-pr (which produces the ruleset-required context
+  // "OSV-Scanner (PR) / osv-scan") and runs scan-main instead, producing
+  // the wrong context name. PRs stay BLOCKED forever after rebase.
+  // See ADR docs/decisions/2026-05-17-auto-merge-recovery.md.
+  const scanPrBlock = osv.match(
+    /scan-pr:[\s\S]*?(?=\n  scan-main:|\n  [a-z][a-z-]*:|$)/,
+  );
+  assert.ok(scanPrBlock, "could not locate scan-pr job block in osv-scanner.yml");
+  assert.match(
+    scanPrBlock[0],
+    /if:[^\n]*workflow_dispatch/,
+    "scan-pr's `if:` must include workflow_dispatch so dispatched runs produce the ruleset-required `OSV-Scanner (PR) / osv-scan` context",
+  );
+});
