@@ -1,0 +1,51 @@
+# ============================================================================
+# BEGIN: subagentceo/knowledge-engineering identity profiles (OIDENT1)
+# ----------------------------------------------------------------------------
+# Authoritative source: seeds/operator-config/ssh/config.fragment in repo
+# subagentceo/knowledge-engineering. DO NOT EDIT this block by hand;
+# re-run scripts/apply-identity-profiles.sh to refresh.
+#
+# vendor cites:
+# - vendor/docs-github/docs.github.com/en/github-cli/github-cli/quickstart.md:93-97
+#   (Using GitHub CLI with multiple accounts — gh auth switch)
+# - ssh_config(5) — Host, IdentityFile, IdentitiesOnly semantics
+#
+# `IdentitiesOnly yes` is a security primitive: prevents ssh-agent from
+# offering ALL loaded keys to GitHub, which would let GitHub's first-match
+# lookup pick the wrong identity for a given Host alias.
+# ============================================================================
+
+# --- GitHub: alex-jadecli (alex@jadecli.com) — PRIMARY ----------------------
+Host github.com-alex
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_alex
+    IdentitiesOnly yes
+
+# --- GitHub: admin-jadecli (admin@jadecli.com) — rotation slot 2 ------------
+Host github.com-admin
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_admin
+    IdentitiesOnly yes
+
+# --- GitHub: zhoukalex (zhouk.alex@gmail.com) — rotation slot 3 -------------
+# NOTE: id_ed25519_zhoukalex must be generated locally and the .pub added to
+# zhoukalex's GitHub account at github.com/settings/keys before the first
+# SSH push as this identity. See docs/operator-runbooks/identity-inheritance.md.
+Host github.com-zhoukalex
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_zhoukalex
+    IdentitiesOnly yes
+
+# --- GitHub: jade-jadecli (jade@jadecli.com) — LEGACY -----------------------
+Host github.com-jade
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_jade
+    IdentitiesOnly yes
+
+# ============================================================================
+# END: subagentceo/knowledge-engineering identity profiles (OIDENT1)
+# ============================================================================
