@@ -1,4 +1,5 @@
 /**
+ * @cite vendor/anthropics/code.claude.com/docs/en/plugins.md
  * @tdd green
  *
  * OIT1 — macos-it-admin plugin conformance
@@ -6,8 +7,8 @@
  *   - every SKILL.md has frontmatter + CRUD verbs section
  *   - every script (4 TS + 1 shell) follows no-leak rules
  *
- * @cite plugins/macos-it-admin/CLAUDE.md
- * @cite plugins/macos-it-admin/.claude-plugin/plugin.json
+ * Refs: plugins/macos-it-admin/CLAUDE.md
+ * Refs: plugins/macos-it-admin/.claude-plugin/plugin.json
  */
 
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
