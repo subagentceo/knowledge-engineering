@@ -31,6 +31,7 @@
     "verify:tf": "terraform -chdir=infra/terraform validate && terraform -chdir=infra/terraform plan -lock=false -input=false",
     "verify:project": "tsx scripts/verify-project.ts",
     "verify:security-posture": "tsx scripts/verify-security-posture.ts",
+    "verify:secrets": "tsx scripts/verify-secrets-parity.ts",
     "verify": "npm run verify:mcp && npm run verify:tf && npm run verify:citations && npm run verify:gates && npm run verify:libs && npm run verify:coverage && npm run verify:tdd && npm run verify:freshness && npm run verify:project && npm run verify:security-posture",
     "deploy:agent": "cd infra/cloudflare && npm run deploy",
     "deploy:frontend": "cd frontend && npm run deploy",
