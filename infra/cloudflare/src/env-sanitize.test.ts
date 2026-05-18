@@ -2,6 +2,7 @@
  * Phase 0g env-sanitizer test. Asserts that the OAuth substitution applied
  * over the cited Neon guide is enforced at the Worker boundary.
  *
+ * @tdd green
  * @cite vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md
  * @cite seeds/posture/session-start.xml
  * @cite rubrics/phase-0.md

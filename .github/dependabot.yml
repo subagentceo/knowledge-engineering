@@ -1,0 +1,46 @@
+# .github/dependabot.yml
+#
+# Outcome OGHW-X2.
+#
+# Cited from:
+#   seeds/citations/github-actions-best-practices-2026-05-18.md §3
+#   docs/decisions/2026-05-18-actions-sha-pinning.md
+#   https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+#
+# This file pairs with the SHA-pin policy (ADR 2026-05-18):
+#   - SHA-pin gives us *immutability* (the workflow runs the same
+#     bytes today and tomorrow).
+#   - Dependabot gives us *currency* (a PR opens when a new release
+#     is available so we can audit + bump the SHA).
+#
+# We only declare the `github-actions` ecosystem here. Node and other
+# language ecosystems are out of scope for this PR (tracked separately).
+
+version: 2
+
+updates:
+  # GitHub Actions used across .github/workflows/* and root-level
+  # action.yml (none today, but Dependabot scans both per the docs).
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: Etc/UTC
+    # Bundle all action bumps into ONE PR per week. Avoids PR-train
+    # noise (the chassis already runs a tight merge train; one bundled
+    # bump is cheaper than 11 individual PRs).
+    groups:
+      github-actions-all:
+        patterns:
+          - "*"
+    # Limit open PRs at any time so a stuck bump doesn't block fresh
+    # ones.
+    open-pull-requests-limit: 3
+    labels:
+      - dependencies
+      - github-actions
+    commit-message:
+      prefix: chore(deps)
+      include: scope

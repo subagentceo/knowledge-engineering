@@ -1,6 +1,7 @@
 /**
  * Citations:
- *   @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/claude-code-features.md
+ *   @tdd green
+ * @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/claude-code-features.md
  *   @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/hooks.md
  *   @cite seeds/posture/session-start.xml
  */

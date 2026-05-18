@@ -1,4 +1,5 @@
 // Citations:
+// @tdd green
 //   @cite rubrics/phase-13.md (O6)
 
 import { strict as assert } from "node:assert";

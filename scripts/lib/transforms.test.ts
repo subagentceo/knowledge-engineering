@@ -3,6 +3,7 @@
  * gets a happy-path case + a hard-rule case (HTML rejection where
  * relevant).
  *
+ * @tdd green
  * @cite seeds/posture/session-start.xml
  * @cite seeds/prompts/operator-2026-05-10-followup.md
  * @cite vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md

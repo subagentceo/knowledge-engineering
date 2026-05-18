@@ -22,6 +22,10 @@ on:
 permissions:
   pull-requests: write
 
+concurrency:
+  group: auto-label-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   default-label-automerge:
     if: |
@@ -29,6 +33,8 @@ jobs:
       !contains(github.event.pull_request.labels.*.name, 'no-automerge')
     name: Add automerge label
     runs-on: ubuntu-latest
+    # OGHW1: bounded timeout. Single `gh pr edit` call typically takes <2s.
+    timeout-minutes: 2
     steps:
       - name: Add automerge label
         env:
