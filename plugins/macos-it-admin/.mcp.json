@@ -1,0 +1,42 @@
+{
+  "$comment": "MCP connectors this plugin's skills know how to reach. Connectors are not bundled — they come from the operator's claude.ai session (see /Users/alexzh/.claude/projects/.../memory/reference_mcp_connectors.md). This file documents which connectors each skill expects to find available; if a skill runs in a session without the named connector, it falls back to the documented CLI/REST path.",
+  "expected_connectors": {
+    "cloudflare-developer-platform": {
+      "uuid": "3e5cbdb5-f481-4e09-b455-e2122bb1a55c",
+      "url": "https://bindings.mcp.cloudflare.com/mcp",
+      "used_by": ["cloudflare-crud"],
+      "fallback": "wrangler CLI + CF REST API via fetch()"
+    },
+    "cloudflare-api": {
+      "uuid": "4055a4f2",
+      "used_by": ["cloudflare-crud"],
+      "fallback": "fetch() against api.cloudflare.com/client/v4"
+    },
+    "neon": {
+      "uuid": "e9099787",
+      "used_by": ["neon-crud"],
+      "fallback": "neonctl CLI + Neon REST API"
+    },
+    "nimble": {
+      "uuid": "f41545b8",
+      "used_by": ["nimbleway-crud"],
+      "fallback": "fetch() against nimbleway/nimble admin API"
+    },
+    "parallel-search": {
+      "uuid": "37ad5c3c",
+      "used_by": ["parallel-ai-crud"],
+      "fallback": "fetch() against api.parallel.ai"
+    },
+    "parallel-task": {
+      "uuid": "686fc380",
+      "used_by": ["parallel-ai-crud"],
+      "fallback": "fetch() against api.parallel.ai"
+    }
+  },
+  "no_connector_available": {
+    "turbopuffer": {
+      "reason": "Turbopuffer exposes no admin API and no MCP connector. All token CRUD is browser-only via turbopuffer.com/dashboard/api-keys.",
+      "used_by": ["turbopuffer-crud"]
+    }
+  }
+}
