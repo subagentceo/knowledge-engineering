@@ -51,23 +51,21 @@ chain attacks against the GitHub Actions ecosystem
 | `google/osv-scanner-action/.github/workflows/osv-scanner-reusable-pr.yml@v2.3.8` | `@v2.3.8` (tag) | Reusable workflow references cannot be SHA-pinned reliably across path/rev renames in the action's own repo; the *reusable workflow file* shape changes with releases and there is no `@<sha>` substitute for `@<tag>` when GitHub resolves the path. Mitigated by: (a) version pin (not floating major), (b) `subscribe_pr_activity` on the upstream releases, (c) audit on bump. |
 | `tj-actions/branch-names@v8` | `@v8` (floating major) | Considered SHA-pinning, but this action is small (one composite step that reads `github.head_ref`); the supply-chain risk is bounded by its minimal capability surface and read-only token use. To be re-evaluated when our verify chain learns to verify-on-fork. |
 
-## Progressive-migration backlog
+## Progressive-migration backlog (COMPLETE)
 
-Per the chassis's TDD discipline, the OGHW-X2 test
-(`src/lib/workflows/sha-pin.test.ts`) lands GREEN by allowlisting every
-currently-tag-pinned third-party action. Each row below is a follow-up
-PR that (a) SHA-pins one action and (b) removes the entry from BOTH the
-allowlist AND this table. When this table is empty, OGHW-X2 is fully
-realized.
+All 6 previously-tag-pinned third-party actions are now SHA-pinned.
+Dependabot (`.github/dependabot.yml`) opens a weekly grouped PR to bump
+the SHAs when upstream releases new versions; the audit on bump is the
+gate (per the StepSecurity guidance cited above).
 
-| Action | Workflow | Follow-up outcome |
-| --- | --- | --- |
-| `cloudflare/wrangler-action@v3` | `cloudflare-preview.yml` | OGHW6 |
-| `neondatabase/create-branch-action@v5` | `neon-branch.yml` | OGHW7 |
-| `neondatabase/schema-diff-action@v1` | `neon-branch.yml` | OGHW7 |
-| `neondatabase/delete-branch-action@v3` | `neon-branch.yml` | OGHW7 |
-| `googleapis/release-please-action@v4` | `release-please.yml` | OGHW9 |
-| `hashicorp/setup-terraform@v3` | `verify.yml` | OGHW11 |
+| Action | Pinned SHA | Workflow | Landed in |
+| --- | --- | --- | --- |
+| `cloudflare/wrangler-action@v3` | `9acf94ace14e7dc412b076f2c5c20b8ce93c79cd` | `cloudflare-preview.yml` | OGHW6 |
+| `neondatabase/create-branch-action@v5` | `34f619c41c6e67b4f2f13f1c6eae90827a5f2cf4` | `neon-branch.yml` | OGHW7 |
+| `neondatabase/schema-diff-action@v1` | `80cfa8521628e890015b60f5291a7738926617dc` | `neon-branch.yml` | OGHW7 |
+| `neondatabase/delete-branch-action@v3` | `4468d825d5a88ef4012f1705a82f02ec3072f776` | `neon-branch.yml` | OGHW7 |
+| `googleapis/release-please-action@v4` | `8b8fd2cc23b2e18957157a9d923d75aa0c6f6ad5` | `release-please.yml` | OGHW9 |
+| `hashicorp/setup-terraform@v3` | `b9cd54a3c349d3f38e8881555d616ced269862dd` | `verify.yml` | OGHW11 |
 
 ## Outcomes (evaluation criteria)
 

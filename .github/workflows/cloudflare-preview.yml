@@ -203,7 +203,9 @@ jobs:
           echo "Patched store_id → ${STORE_ID}"
 
       - name: Deploy preview via cloudflare/wrangler-action
-        uses: cloudflare/wrangler-action@v3
+        # OGHW-X2: SHA-pinned per docs/decisions/2026-05-18-actions-sha-pinning.md.
+        # Dependabot (`.github/dependabot.yml`) will open a PR when v3 advances.
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd  # v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

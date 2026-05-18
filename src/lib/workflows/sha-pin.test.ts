@@ -52,17 +52,10 @@ const TAG_PIN_EXCEPTIONS = new Set([
   "google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml",
   // Tiny composite action; bounded supply-chain surface.
   "tj-actions/branch-names",
-  // OGHW-X2 progressive-migration backlog. Each entry below is a
-  // follow-up PR that SHA-pins the action and removes itself from
-  // this list. The test passes today (green) but the ADR's intent is
-  // that this list SHRINKS to only the two genuine exceptions above.
-  // Track follow-up: docs/decisions/2026-05-18-actions-sha-pinning.md.
-  "cloudflare/wrangler-action",            // → OGHW6 (cloudflare-preview.yml)
-  "neondatabase/create-branch-action",     // → OGHW7 (neon-branch.yml)
-  "neondatabase/schema-diff-action",       // → OGHW7 (neon-branch.yml)
-  "neondatabase/delete-branch-action",     // → OGHW7 (neon-branch.yml)
-  "googleapis/release-please-action",      // → OGHW9 (release-please.yml)
-  "hashicorp/setup-terraform",             // → OGHW11 (verify.yml)
+  // OGHW-X2 progressive-migration backlog is now EMPTY — all 6
+  // previously-tag-pinned third-party actions have been SHA-pinned
+  // in this session (commit landing OGHW6+OGHW7+OGHW8+OGHW9+OGHW11
+  // SHA-pin migrations together). Dependabot keeps them current.
 ]);
 
 const SHA40 = /^[0-9a-f]{40}$/;

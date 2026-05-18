@@ -27,7 +27,8 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: googleapis/release-please-action@v4  # OGHW-X2 backlog
+      # OGHW-X2: SHA-pinned per docs/decisions/2026-05-18-actions-sha-pinning.md.
+      - uses: googleapis/release-please-action@8b8fd2cc23b2e18957157a9d923d75aa0c6f6ad5  # v4
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
