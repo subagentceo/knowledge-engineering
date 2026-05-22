@@ -84,14 +84,14 @@ check("checkout step sets persist-credentials: false", () => {
     throw new Error("missing persist-credentials: false on checkout");
 });
 
-check("uses github/codeql-action/init@v3 (first-party-exempt per SHA-pin ADR)", () => {
-  if (!/uses:\s*github\/codeql-action\/init@v3\b/m.test(yaml))
-    throw new Error("expected `uses: github/codeql-action/init@v3`");
+check("uses github/codeql-action/init@v3 or v4 (first-party-exempt per SHA-pin ADR)", () => {
+  if (!/uses:\s*github\/codeql-action\/init@v[34]\b/m.test(yaml))
+    throw new Error("expected `uses: github/codeql-action/init@v3` or `@v4`");
 });
 
-check("uses github/codeql-action/analyze@v3", () => {
-  if (!/uses:\s*github\/codeql-action\/analyze@v3\b/m.test(yaml))
-    throw new Error("expected `uses: github/codeql-action/analyze@v3`");
+check("uses github/codeql-action/analyze@v3 or v4", () => {
+  if (!/uses:\s*github\/codeql-action\/analyze@v[34]\b/m.test(yaml))
+    throw new Error("expected `uses: github/codeql-action/analyze@v3` or `@v4`");
 });
 
 check("language matrix includes both `actions` and `javascript-typescript`", () => {
