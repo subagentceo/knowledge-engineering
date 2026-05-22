@@ -1,4 +1,5 @@
 /**
+ * @tdd green
  * @cite rubrics/phase-A2A.md
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite vendor/anthropics/platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals.md
