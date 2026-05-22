@@ -97,6 +97,35 @@ check("parseCrawlConfig accepts optional fields when present", () => {
   if (cfg.note !== "lorem ipsum") throw new Error("note");
 });
 
+check("parseCrawlConfig accepts allow_urls (exact-match bare-index)", () => {
+  const body = JSON.stringify({
+    name: "demo",
+    homepage: "https://example.com",
+    llms_txt_candidates: [],
+    transform: "verbatim",
+    allow_prefixes: ["https://example.com/blog/"],
+    allow_urls: ["https://example.com/blog", "https://example.com/pricing"],
+    page_cap: 100,
+  });
+  const cfg = parseCrawlConfig(body);
+  if (cfg.allow_urls?.length !== 2) throw new Error("allow_urls length");
+  if (cfg.allow_urls?.[0] !== "https://example.com/blog") throw new Error("allow_urls[0]");
+});
+
+check("parseCrawlConfig rejects non-URL strings in allow_urls", () => {
+  const body = JSON.stringify({
+    name: "demo",
+    homepage: "https://example.com",
+    llms_txt_candidates: [],
+    transform: "verbatim",
+    allow_prefixes: ["https://example.com/"],
+    allow_urls: ["not-a-url"],
+    page_cap: 100,
+  });
+  const r = CrawlConfigSchema.safeParse(JSON.parse(body));
+  if (r.success) throw new Error("accepted non-URL in allow_urls");
+});
+
 check("every vendor/<name>/crawl.json on disk parses cleanly", () => {
   if (!existsSync(VENDOR_ROOT)) return;
   const dirs = readdirSync(VENDOR_ROOT, { withFileTypes: true })

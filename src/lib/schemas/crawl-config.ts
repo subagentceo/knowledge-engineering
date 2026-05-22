@@ -58,6 +58,22 @@ export const CrawlConfigSchema = z.object({
   allow_prefixes: z.array(z.string().min(1)),
   deny_prefixes: z.array(z.string().min(1)).optional(),
   /**
+   * Exact-URL allow list. Use when a bare-index page (e.g.
+   * `https://claude.com/pricing` with no trailing slash) must be crawled
+   * but its prefix form (`https://claude.com/pricing/`) cannot widen the
+   * allow_prefix without over-matching (e.g. `/pricing` would match
+   * `/pricing-foo`). Exact matches bypass the prefix-allow check but
+   * still respect deny_prefixes and deny_urls.
+   *
+   * Evaluation order in inAllowlist():
+   *   1. deny_prefixes match → reject
+   *   2. deny_urls match → reject
+   *   3. allow_urls exact match → accept (skip prefix check)
+   *   4. allow_prefixes match → accept
+   *   5. otherwise → reject
+   */
+  allow_urls: z.array(z.string().url()).optional(),
+  /**
    * Exact-URL deny list. Use when allow_prefix covers a topology root
    * but a specific listing/index page (e.g. /resources/use-cases) must
    * not be crawled while its children (/resources/use-cases/<slug>) must.
