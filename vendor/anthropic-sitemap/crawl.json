@@ -15,10 +15,29 @@
     "https://www.anthropic.com/product/",
     "https://www.anthropic.com/features/",
     "https://www.anthropic.com/economic-futures/",
-    "https://www.anthropic.com/claude/"
+    "https://www.anthropic.com/claude/",
+    "https://www.anthropic.com/responsible-scaling-policy",
+    "https://www.anthropic.com/responsible-disclosure-policy",
+    "https://www.anthropic.com/coordinated-vulnerability-disclosure",
+    "https://www.anthropic.com/system-cards",
+    "https://www.anthropic.com/transparency",
+    "https://www.anthropic.com/constitution",
+    "https://www.anthropic.com/glasswing",
+    "https://www.anthropic.com/project/",
+    "https://www.anthropic.com/science",
+    "https://www.anthropic.com/company",
+    "https://www.anthropic.com/careers",
+    "https://www.anthropic.com/about-anthropic-interviewer",
+    "https://www.anthropic.com/candidate-ai-guidance",
+    "https://www.anthropic.com/supported-countries"
   ],
   "deny_prefixes": [
-    "https://www.anthropic.com/engineering/claude-code-best-practices"
+    "https://www.anthropic.com/engineering/claude-code-best-practices",
+    "https://www.anthropic.com/legal/",
+    "https://www.anthropic.com/events/",
+    "https://www.anthropic.com/vc-partner-program-official-terms",
+    "https://www.anthropic.com/startup-program-official-terms",
+    "https://www.anthropic.com/ai-for-science-program-rules"
   ],
   "page_cap": 500,
   "html_extract": {
