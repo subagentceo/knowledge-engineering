@@ -65,6 +65,87 @@
       "marketplace": "official",
       "stage": "planned",
       "comment": "The cwc-workshops/agent-decomposition pattern — canonical worked example for decomposing a large-prompt agent into skills + code execution + callable_agents. Referenced in docs/architecture.md long-arc section."
+    },
+    {
+      "kind": "plugin",
+      "name": "code-simplifier",
+      "marketplace": "official",
+      "package": "anthropics/claude-plugins-official/plugins/code-simplifier",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Code simplification + refactor heuristics. Operator-named 2026-05-22 for the PR-loop refactor passes (OBLOG.fidelity, PR #174 refactor). Project-scoped to keep version-controlled."
+    },
+    {
+      "kind": "plugin",
+      "name": "pr-review-toolkit",
+      "marketplace": "official",
+      "package": "anthropics/claude-plugins-official/plugins/pr-review-toolkit",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "PR review automation toolkit. Complements code-review; provides full review workflow for the autonomous PR-loop (task #36)."
+    },
+    {
+      "kind": "plugin",
+      "name": "commit-commands",
+      "marketplace": "official",
+      "package": "anthropics/claude-plugins-official/plugins/commit-commands",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Conventional-commit helpers. Pairs with docs/CONVENTIONS.md (every commit ends with (O<TAG>)). Project-scoped so the rule travels with the repo."
+    },
+    {
+      "kind": "plugin",
+      "name": "feature-dev",
+      "marketplace": "official",
+      "package": "anthropics/claude-plugins-official/plugins/feature-dev",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Feature-development workflow. Used when authoring new src/ surfaces (e.g. blog-extract-fidelity.test.ts in OBLOG.eval)."
+    },
+    {
+      "kind": "plugin",
+      "name": "github",
+      "marketplace": "official",
+      "package": "anthropics/claude-plugins-official/plugins/github",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "GitHub MCP plugin. Provides real-time PR/issue webhook events to the orchestrator beyond gh CLI polling. Required for W2 (monitoring layer, task #38)."
+    },
+    {
+      "kind": "plugin",
+      "name": "plugin-dev",
+      "marketplace": "official",
+      "package": "anthropics/claude-plugins-official/plugins/plugin-dev",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Plugin authoring scaffolding. Required for W3 (subagentceo/knowledge-work-plugins marketplace fork, task #39) to ensure new plugins conform to .claude-plugin/plugin.json schema."
+    },
+    {
+      "kind": "plugin",
+      "name": "mcp-server-dev",
+      "marketplace": "official",
+      "package": "anthropics/claude-plugins-official/plugins/mcp-server-dev",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "MCP server authoring walkthrough. Required for any new MCP server we build with cited grounding (vendor/anthropics/claude.com/docs/connectors/building.md)."
+    },
+    {
+      "kind": "plugin",
+      "name": "skill-creator",
+      "marketplace": "official",
+      "package": "anthropics/claude-plugins-official/plugins/skill-creator",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Skill authoring + evaluation. Required when extending .claude/skills/ (heartbeat, refresh-vendors, routines, schedule-bridge)."
+    },
+    {
+      "kind": "plugin",
+      "name": "session-report",
+      "marketplace": "official",
+      "package": "anthropics/claude-plugins-official/plugins/session-report",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Dumps session state on rotation. Pairs with the session-rotation contract in .claude/templates/pr-task.md."
     }
   ],
   "notes": {
