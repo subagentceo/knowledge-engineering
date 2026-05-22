@@ -42,6 +42,7 @@ import {
   type ChecksumEntry,
   type ChecksumMap,
 } from "./lib/checksums.js";
+import { inAllowlist } from "./lib/allowlist.js";
 import { extractIndexUrls } from "./lib/html-index.js";
 import { parseLlmsTxt, type LlmsTxt } from "./lib/llms-txt.js";
 import { neonEnabled, upsertVendorPage } from "./lib/neon-client.js";
@@ -58,7 +59,7 @@ import { urlToPath } from "./lib/url-to-path.js";
 // ──────────────────────────────────────────────────────────────────────
 // Types
 
-interface CrawlConfig {
+export interface CrawlConfig {
   name: string;
   homepage: string;
   llms_txt_candidates: string[];
@@ -89,6 +90,12 @@ interface CrawlConfig {
   transform: TransformName;
   allow_prefixes: string[];
   deny_prefixes?: string[];
+  /**
+   * Exact-URL allow list. Bypasses the prefix-allow gate for individual
+   * URLs (e.g. bare-index `/pricing` when only `/pricing/` is in
+   * allow_prefixes). Still subject to deny_prefixes and deny_urls.
+   */
+  allow_urls?: string[];
   /**
    * Exact-URL deny list. Excludes only the listed URLs verbatim; does
    * not affect URLs that *start with* one of them. Use when a topology
@@ -278,15 +285,8 @@ function makeTransform(name: TransformName, url: string, cfg: CrawlConfig): Tran
 // ──────────────────────────────────────────────────────────────────────
 // Per-vendor crawl
 
-function inAllowlist(url: string, cfg: CrawlConfig): boolean {
-  if (!cfg.allow_prefixes.some((p) => url.startsWith(p))) return false;
-  if (cfg.deny_prefixes?.some((p) => url.startsWith(p))) return false;
-  // Exact-URL denies — used when a parent path must stay allowed but
-  // one specific URL (typically a listing/index page that has no
-  // useful content container) must not be crawled.
-  if (cfg.deny_urls?.some((u) => url === u)) return false;
-  return true;
-}
+// inAllowlist lives in ./lib/allowlist.ts so tests can import it without
+// triggering the side-effecting main() at the bottom of this file.
 
 function dedupeUrls(parsed: LlmsTxt, baseUrl: string): string[] {
   // Resolve relative URLs (e.g. twilio's llms.txt uses paths like
