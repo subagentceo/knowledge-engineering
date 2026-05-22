@@ -8,7 +8,7 @@
 #
 # Behavior:
 #   - On PR open / label / sync / ready_for_review: if labeled
-#     `automerge` and not a draft, call `gh pr merge --auto --squash`.
+#     `automerge` and not a draft, call `gh pr merge --auto --rebase`.
 #     GitHub then merges the PR automatically once required checks pass.
 #   - When the heartbeat opens a PR, it labels `automerge`. This
 #     workflow enables the auto-merge state machine; the branch
@@ -22,7 +22,7 @@
 #     and stale-base-passing-checks races.
 #   - Required status check contexts on main: `npm run verify` and
 #     `OSV-Scanner (PR) / osv-scan`. Auto-merge waits for ALL required
-#     contexts to succeed before squashing.
+#     contexts to succeed before merging.
 #   - This workflow only ENABLES auto-merge; the ruleset enforces the
 #     gate at merge time.
 
@@ -46,7 +46,7 @@ jobs:
     if: |
       !github.event.pull_request.draft &&
       contains(github.event.pull_request.labels.*.name, 'automerge')
-    name: Enable auto-merge (squash)
+    name: Enable auto-merge (rebase)
     runs-on: ubuntu-latest
     # OGHW2: bounded timeout. `gh pr merge --auto` is a single API call.
     timeout-minutes: 5
@@ -56,4 +56,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
-          gh pr merge --auto --squash "$PR_URL"
+          gh pr merge --auto --rebase "$PR_URL"
