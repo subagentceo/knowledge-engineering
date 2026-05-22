@@ -227,11 +227,61 @@ async function discoverLlmsTxt(cfg: CrawlConfig): Promise<{ url: string; body: s
 
 // ──────────────────────────────────────────────────────────────────────
 // Transform dispatch (turndown wired here for html-extract)
+//
+// OBLOG.fidelity fixes (#260): six defects that diverge from claude.com's
+// own "Copy as markdown" button output. Reference: operator/claude-blog-content.md.
+// F1: H1 title was missing (selector excluded the <h1> outside rich-text container)
+// F2: headings came through bold-wrapped (e.g. `# **Title**`)
+// F3: inline links not stripped (page's own extractor drops them)
+// F4: bullets used `-   ` 3-space indent instead of `* `
+// F5: underscores escaped as `\_` in identifiers like `display_width_px`
+// F6: code fences lacked language hint from `class="language-X"`
 
 const turndown = new TurndownService({
   headingStyle: "atx",
   codeBlockStyle: "fenced",
-  bulletListMarker: "-",
+  bulletListMarker: "*",
+});
+
+// F5 — don't escape underscores. Page's own Turndown skips this; their output
+// preserves `display_width_px` verbatim. Turndown's default escapes break code
+// identifiers in prose.
+turndown.escape = (s: string) => s;
+
+// F2 — strip <strong>/<b> children of headings before serialization. Webflow
+// templates wrap heading text in <strong>, which turns into `# **Title**`.
+turndown.addRule("plain-headings", {
+  filter: ["h1", "h2", "h3", "h4", "h5", "h6"] as const,
+  replacement: (_content, node) => {
+    const level = Number((node as unknown as { nodeName: string }).nodeName.slice(1));
+    const text = (node as unknown as { textContent?: string }).textContent?.trim() ?? "";
+    return `\n\n${"#".repeat(level)} ${text}\n\n`;
+  },
+});
+
+// F3 — drop inline links, keep their text. Page's "Copy as markdown" output
+// shows links flattened; matches the operator's canary reference.
+turndown.addRule("flatten-links", {
+  filter: "a",
+  replacement: (content) => content,
+});
+
+// F6 — extract language hint from `<pre><code class="language-X">` and emit
+// fenced code blocks with the lang token.
+turndown.addRule("fenced-code-with-lang", {
+  filter: (node) => {
+    if (node.nodeName !== "PRE") return false;
+    const code = (node as unknown as { firstElementChild?: { nodeName?: string } | null }).firstElementChild;
+    return code?.nodeName === "CODE";
+  },
+  replacement: (_content, node) => {
+    const code = (node as unknown as { firstElementChild?: { className?: string; textContent?: string } | null }).firstElementChild;
+    const cls = code?.className ?? "";
+    const langMatch = cls.match(/language-([a-z0-9+\-]+)/i);
+    const lang = langMatch ? langMatch[1] : "";
+    const body = code?.textContent ?? "";
+    return `\n\n\`\`\`${lang}\n${body.replace(/\n+$/, "")}\n\`\`\`\n\n`;
+  },
 });
 
 function makeTransform(name: TransformName, url: string, cfg: CrawlConfig): TransformOutput {
@@ -249,15 +299,19 @@ function makeTransform(name: TransformName, url: string, cfg: CrawlConfig): Tran
     return htmlExtract(url, (body) => {
       const $ = cheerio.load(body);
       // Drop non-content nodes anywhere in the doc before serialization.
-      // Webflow ships <script>/<style> blocks (anti-flicker, GSAP init,
-      // JSON-LD schema) inside the same containers as prose — without
-      // this, turndown serializes their source as paragraph text.
       $("script, style, noscript, svg, link, meta, template, iframe").remove();
-      // Selector may be a comma-separated priority list. Try each in
-      // order; the first selector that yields a non-trivial fragment
-      // wins. Falls back to <body>. This lets one vendor config cover
-      // multiple page templates (blog posts use `.u-rich-text-blog`;
-      // marketing pages have no such container and need `main`).
+
+      // F1 — extract page title (<h1> outside the rich-text container, falling
+      // back to <title>) and prepend as the markdown H1. The page's "Copy as
+      // markdown" button output always leads with `# <title>`; the prior
+      // pipeline omitted it because `.u-rich-text-blog` selectors don't
+      // contain the page's main heading.
+      let title = $("h1").first().text().trim();
+      if (!title) title = $("title").first().text().trim();
+
+      // Selector may be a comma-separated priority list. Try each in order;
+      // the first selector that yields a non-trivial fragment wins. Falls
+      // back to <body>.
       const selector = cfg.html_extract?.selector;
       let html = "";
       if (selector) {
@@ -274,7 +328,13 @@ function makeTransform(name: TransformName, url: string, cfg: CrawlConfig): Tran
         }
       }
       if (!html) html = $("body").html() ?? "";
-      return turndown.turndown(html);
+
+      const md = turndown.turndown(html);
+      // F1 — prepend title only when the converted body doesn't already begin
+      // with the same heading text (defensive: some templates do include <h1>
+      // inside the content container).
+      const titlePrefix = title && !md.trimStart().startsWith(`# ${title}`) ? `# ${title}\n\n` : "";
+      return titlePrefix + md;
     });
   }
   const fn = TRANSFORMS[name];
