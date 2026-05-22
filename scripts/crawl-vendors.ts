@@ -504,12 +504,18 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   let skipped = 0;
   const indexRows: { url: string; relPath: string }[] = [];
 
-  // Build the list of {fetchUrl, originalUrl, transform} entries, then
-  // hand them to crawlee for rate-limited concurrent fetching.
-  const work = allowed.map((origUrl) => {
-    const t = makeTransform(cfg.transform, origUrl, cfg);
-    return { origUrl, fetchUrl: t.fetchUrl, transform: t };
-  });
+  // OBLOG.determinism D4: sort URLs ascending before building the work
+  // queue. Without this, fetch order depends on llms.txt section order +
+  // Set insertion timing, which can vary if upstream re-orders content
+  // or sitemap.xml output changes. Sorted input keeps fetch logs +
+  // failure-report ordering stable across runs.
+  const work = allowed
+    .slice()
+    .sort((a, b) => a.localeCompare(b))
+    .map((origUrl) => {
+      const t = makeTransform(cfg.transform, origUrl, cfg);
+      return { origUrl, fetchUrl: t.fetchUrl, transform: t };
+    });
 
   // ── Phase 13.A: incremental pre-flight ────────────────────────────
   // Issue conditional GETs with the stored ETag / Last-Modified. URLs
@@ -518,7 +524,8 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   // re-crawl is zero.
   const incremental = cfg.incremental ?? true;
   const checksums: ChecksumMap = incremental ? loadChecksums(VENDOR_ROOT, vendor) : {};
-  const nowIso = new Date().toISOString();
+  // OBLOG.determinism D1: no timestamps in checksum or manifest writes;
+  // sources of non-determinism removed so re-runs produce byte-identical output.
   let preflight304 = 0;
   let preflight200 = 0;
   let preflightUnchanged = 0;
@@ -540,7 +547,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
           if (res.status === 304) {
             preflight304 += 1;
             if (prior) {
-              checksums[w.origUrl] = { ...prior, fetchedAt: nowIso, lastStatus: 304 };
+              checksums[w.origUrl] = { ...prior, lastStatus: 304 };
             }
             // Restore the index row so urls.md still lists this URL.
             const { relPath } = urlToPath(w.origUrl, { vendor, layout: cfg.layout });
@@ -573,7 +580,6 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
                   sha256: sha,
                   etag: res.etag ?? prior!.etag,
                   lastModified: res.lastModified ?? prior!.lastModified,
-                  fetchedAt: nowIso,
                   lastStatus: 200,
                 };
                 indexRows.push({ url: w.origUrl, relPath });
@@ -593,7 +599,6 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
               sha256: sha,
               etag: res.etag ?? undefined,
               lastModified: res.lastModified ?? undefined,
-              fetchedAt: nowIso,
               lastStatus: 200,
             };
             indexRows.push({ url: w.origUrl, relPath });
@@ -786,11 +791,12 @@ function renderUrlsIndex(
   transform: TransformName,
   indexRows: { url: string; relPath: string }[],
 ): string {
+  // OBLOG.determinism D1: no timestamps in urls.md frontmatter — re-runs
+  // on unchanged sources must produce byte-identical output.
   return [
     `---`,
     `vendor: ${vendor}`,
     `llms_txt: ${llmsUrl}`,
-    `last_crawled: ${new Date().toISOString()}`,
     `count: ${indexRows.length}`,
     `transform: ${transform}`,
     `---`,

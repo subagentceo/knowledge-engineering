@@ -132,6 +132,9 @@ check("saveChecksums + loadChecksums round-trip with sorted keys", () => {
   try {
     const vendorDir = resolve(tmp, "v1");
     mkdirSync(vendorDir, { recursive: true });
+    // Per OBLOGD1: saveChecksums strips `fetchedAt` from inputs so output
+    // is deterministic across pipeline runs. Round-trip preserves
+    // everything EXCEPT fetchedAt.
     const map = {
       "https://z.example/b": {
         sha256: hashBody("b"),
@@ -147,16 +150,22 @@ check("saveChecksums + loadChecksums round-trip with sorted keys", () => {
     };
     saveChecksums(tmp, "v1", map);
     const onDisk = readFileSync(checksumsPath(tmp, "v1"), "utf8");
-    // JSON keys sorted: a.example before z.example.
     if (onDisk.indexOf("a.example") > onDisk.indexOf("z.example")) {
       throw new Error("keys not sorted on disk");
     }
+    if (onDisk.includes("fetchedAt")) {
+      throw new Error("saveChecksums did not strip fetchedAt");
+    }
     const loaded = loadChecksums(tmp, "v1");
-    // Round-trip equality: same keys + same per-key values (insertion
-    // order on the in-memory object isn't part of the contract).
     eq(Object.keys(loaded).sort(), Object.keys(map).sort());
+    // Compare per-key with key-order-insensitive equality: serialize
+    // each side with sorted keys so insertion order doesn't matter.
+    const sortKeys = (o: object): string => JSON.stringify(o, Object.keys(o).sort());
     for (const k of Object.keys(map)) {
-      eq(loaded[k], (map as Record<string, ChecksumEntry>)[k], `key=${k}`);
+      const { fetchedAt: _stripped, ...expected } = (map as Record<string, ChecksumEntry & { fetchedAt?: string }>)[k];
+      const got = sortKeys(loaded[k] as object);
+      const want = sortKeys(expected as object);
+      if (got !== want) throw new Error(`key=${k}\n      expected: ${want}\n      got:      ${got}`);
     }
   } finally {
     rmSync(tmp, { recursive: true, force: true });
