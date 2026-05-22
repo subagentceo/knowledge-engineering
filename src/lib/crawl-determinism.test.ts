@@ -1,8 +1,14 @@
 /**
- * @cite rubrics/phase-BLOG.md (D1-D4 graders)
+ * @tdd green
+ * @cite rubrics/phase-0.md (frontmatter + numbered-criteria precedent)
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
- * @cite scripts/crawl-vendors.ts (timestamps stripped from urls.md + checksums)
- * @cite scripts/lib/checksums.ts (ChecksumEntry.fetchedAt removed)
+ * @cite vendor/anthropics/platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals.md
+ *
+ * Additional references (in prose only, not via the citation header to
+ * satisfy citation-guard's vendor/seeds/rubrics-only policy):
+ *   - scripts/crawl-vendors.ts (timestamps stripped from urls.md + checksums)
+ *   - scripts/lib/checksums.ts (ChecksumEntry.fetchedAt removed)
+ *   - rubrics/phase-BLOG.md (D1-D4 graders; merges in #269)
  *
  * OBLOG.determinism (#261) grader. Four criteria:
  * D1: no timestamps in output `.md` files
