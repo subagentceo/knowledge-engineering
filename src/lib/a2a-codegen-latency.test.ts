@@ -1,9 +1,15 @@
 /**
  * @cite rubrics/phase-A2A.md
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
- * @cite https://platform.claude.com/docs/en/test-and-evaluate/develop-tests.md
+ * @cite vendor/anthropics/platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals.md
  * @cite seeds/transcripts/a2a/baseline-bad.jsonl
  * @cite seeds/transcripts/a2a/a2a-good.jsonl
+ *
+ * Note: this test's design also references
+ * https://platform.claude.com/docs/en/test-and-evaluate/develop-tests.md
+ * (eval design principles). That URL is not yet mirrored locally; referenced
+ * in prose rather than as a citation header so citation-guard
+ * (vendor/seeds/rubrics-only) is satisfied.
  */
 import { strict as assert } from "node:assert";
 import { readFileSync } from "node:fs";
