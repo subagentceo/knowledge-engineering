@@ -13,13 +13,20 @@ the branch ruleset is created and the heartbeat is running.
 
 - `main` is protected. Direct pushes blocked. PRs required.
 - CI must pass before merge.
-- PRs labeled `automerge` are merged automatically by GitHub once
-  required checks go green. The heartbeat labels every PR it opens.
-- CI failure → heartbeat reads the event (via `subscribe_pr_activity`),
-  classifies the failure, and either (a) pushes a fix, (b) posts a
-  question to the PR for the operator, or (c) skips silently if no
-  action is needed.
-- The operator is a tiebreaker, not a reviewer.
+- **PRs open ready-for-review by default.** Drafts only for code
+  literally not ready for merge (in-progress, known-broken, dependency
+  missing). "Waiting for CI" is NOT a reason to be a draft; it's the
+  normal post-open state.
+- **Every PR Claude opens gets the `automerge` label.** GitHub's
+  auto-merge state machine takes over from there.
+- Merge method: **rebase** (linear history; mirrors anthropics/* public
+  repos where Claude writes 100% of code).
+- CI failure → Claude pushes a fix directly. The heartbeat is *Claude*,
+  not the operator. Only escalate when blocked by an external system
+  (token mint, network outage).
+- The operator is a tiebreaker, not a reviewer. **The operator is NOT in
+  the merge loop.** See `docs/decisions/2026-05-22-autonomy-merge.md`
+  (OAUTONOMY1) for the full contract.
 
 ## Branch ruleset
 
@@ -39,9 +46,9 @@ Ruleset on `main` with:
 | disallow direct pushes | yes (bypass list: empty) |
 | disallow force pushes | yes |
 | allow auto-merge | yes |
-| allow squash merge | yes (default) |
-| allow merge commit | yes |
-| allow rebase merge | no |
+| allow squash merge | no |
+| allow merge commit | no |
+| allow rebase merge | yes (default) |
 
 Why no reviewers required: the heartbeat is the reviewer. It runs
 sub-agent verifiers per the rubrics before opening the PR, and CI
