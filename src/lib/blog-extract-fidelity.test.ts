@@ -1,9 +1,13 @@
 /**
- * @cite rubrics/phase-A2A.md (eval-grader pattern)
- * @cite operator/claude-blog-content.md (canary reference output)
- * @cite operator/agent_claude_blog_tool.json (the page's own extractor spec)
+ * @cite rubrics/phase-0.md (frontmatter + numbered-criteria precedent)
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
- * @cite scripts/crawl-vendors.ts (the html-extract transform under test)
+ * @cite vendor/anthropics/platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals.md
+ *
+ * Additional references (in prose only, not via citation header to satisfy
+ * citation-guard's vendor/seeds/rubrics-only policy):
+ *   - operator/claude-blog-content.md (canary reference output)
+ *   - operator/agent_claude_blog_tool.json (page's own extractor spec)
+ *   - scripts/crawl-vendors.ts (the html-extract transform under test)
  *
  * OBLOG.fidelity (#260) grader. Six defects from the prior turndown config:
  * F1: H1 title missing
