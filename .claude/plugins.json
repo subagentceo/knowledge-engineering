@@ -19,6 +19,12 @@
       "repo": "anthropics/claude-plugins-community",
       "ref": "main",
       "comment": "Community marketplace (read-only mirror)."
+    },
+    {
+      "name": "subagentceo-overlay",
+      "repo": "subagentceo/knowledge-work-plugins-overlay",
+      "ref": "main",
+      "comment": "Overlay marketplace: subagentceo fork of plugins from anthropics/claude-plugins-official with our modifications. Created in OPLUG3 (W3); see docs/decisions/2026-05-22-plugin-strategy.md for the operational categorization. Sync workflow opens PRs daily when upstream drifts."
     }
   ],
   "install": [
@@ -65,6 +71,88 @@
       "marketplace": "official",
       "stage": "planned",
       "comment": "The cwc-workshops/agent-decomposition pattern — canonical worked example for decomposing a large-prompt agent into skills + code execution + callable_agents. Referenced in docs/architecture.md long-arc section."
+    },
+    {
+      "kind": "plugin",
+      "name": "code-simplifier",
+      "marketplace": "subagentceo-overlay",
+      "package": "subagentceo/knowledge-work-plugins-overlay/plugins/code-simplifier",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Code simplification + refactor heuristics. Operator-named 2026-05-22. Rebound to subagentceo-overlay in OPLUG3.rebind so upstream changes flow through our review workflow before applying."
+    },
+    {
+      "kind": "plugin",
+      "name": "pr-review-toolkit",
+      "marketplace": "subagentceo-overlay",
+      "package": "subagentceo/knowledge-work-plugins-overlay/plugins/pr-review-toolkit",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "PR review automation toolkit. Complements code-review; provides full review workflow for the autonomous PR-loop (task #36)."
+    },
+    {
+      "kind": "plugin",
+      "name": "commit-commands",
+      "marketplace": "subagentceo-overlay",
+      "package": "subagentceo/knowledge-work-plugins-overlay/plugins/commit-commands",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Conventional-commit helpers. Pairs with docs/CONVENTIONS.md (every commit ends with (O<TAG>))."
+    },
+    {
+      "kind": "plugin",
+      "name": "feature-dev",
+      "marketplace": "subagentceo-overlay",
+      "package": "subagentceo/knowledge-work-plugins-overlay/plugins/feature-dev",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Feature-development workflow. Used when authoring new src/ surfaces (e.g. blog-extract-fidelity.test.ts in OBLOG.eval)."
+    },
+    {
+      "kind": "plugin",
+      "name": "github",
+      "marketplace": "subagentceo-overlay",
+      "package": "subagentceo/knowledge-work-plugins-overlay/plugins/github",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "GitHub MCP plugin. Provides real-time PR/issue webhook events to the orchestrator beyond gh CLI polling. Required for W2 (monitoring layer, task #38)."
+    },
+    {
+      "kind": "plugin",
+      "name": "plugin-dev",
+      "marketplace": "subagentceo-overlay",
+      "package": "subagentceo/knowledge-work-plugins-overlay/plugins/plugin-dev",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Plugin authoring scaffolding. Required for any new plugin we add to ensure conformance to .claude-plugin/plugin.json schema."
+    },
+    {
+      "kind": "plugin",
+      "name": "mcp-server-dev",
+      "marketplace": "subagentceo-overlay",
+      "package": "subagentceo/knowledge-work-plugins-overlay/plugins/mcp-server-dev",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "MCP server authoring walkthrough. Required for any new MCP server we build with cited grounding (vendor/anthropics/claude.com/docs/connectors/building.md). Note: also declared as a stage=planned skill above (kept for backwards-compat with older sessions); this plugin entry is the authoritative one going forward."
+    },
+    {
+      "kind": "plugin",
+      "name": "skill-creator",
+      "marketplace": "subagentceo-overlay",
+      "package": "subagentceo/knowledge-work-plugins-overlay/plugins/skill-creator",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Skill authoring + evaluation. Required when extending .claude/skills/ (heartbeat, refresh-vendors, routines, schedule-bridge)."
+    },
+    {
+      "kind": "plugin",
+      "name": "session-report",
+      "marketplace": "subagentceo-overlay",
+      "package": "subagentceo/knowledge-work-plugins-overlay/plugins/session-report",
+      "scope": "project",
+      "stage": "declared",
+      "shape": "bare-skill",
+      "comment": "Dumps session state on rotation. Pairs with the session-rotation contract in .claude/templates/pr-task.md. Upstream session-report is a bare skill (no .claude-plugin/plugin.json); shape:bare-skill flags this."
     }
   ],
   "notes": {
