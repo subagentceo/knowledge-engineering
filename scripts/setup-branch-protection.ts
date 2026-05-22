@@ -90,7 +90,7 @@ function rulesetBody() {
           //    `automatic_copilot_code_review_enabled`"
           // Verified 2026-05-15 against the live API; omitting it
           // keeps the call idempotent.
-          allowed_merge_methods: ["squash"],
+          allowed_merge_methods: ["rebase"],
         },
       },
       {
