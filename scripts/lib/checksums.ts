@@ -20,8 +20,6 @@ export interface ChecksumEntry {
   lastModified?: string;
   /** SHA-256 of the final-on-disk body (post-transform). */
   sha256: string;
-  /** ISO timestamp of the most-recent successful HEAD or GET. */
-  fetchedAt: string;
   /** HTTP status of the most-recent fetch (200 or 304). */
   lastStatus: 200 | 304;
 }
@@ -44,8 +42,17 @@ export function loadChecksums(vendorRoot: string, vendor: string): ChecksumMap {
 
 export function saveChecksums(vendorRoot: string, vendor: string, map: ChecksumMap): void {
   const path = checksumsPath(vendorRoot, vendor);
+  // OBLOG.determinism D2: stable key + canonical field order. Strip any
+  // legacy `fetchedAt` from prior pipeline runs so re-saving a loaded map
+  // produces byte-identical output on unchanged sources.
   const sorted: ChecksumMap = {};
-  for (const k of Object.keys(map).sort()) sorted[k] = map[k];
+  for (const k of Object.keys(map).sort()) {
+    const e = map[k] as ChecksumEntry & { fetchedAt?: string };
+    const clean: ChecksumEntry = { sha256: e.sha256, lastStatus: e.lastStatus };
+    if (e.etag !== undefined) clean.etag = e.etag;
+    if (e.lastModified !== undefined) clean.lastModified = e.lastModified;
+    sorted[k] = clean;
+  }
   writeFileSync(path, JSON.stringify(sorted, null, 2) + "\n");
 }
 
