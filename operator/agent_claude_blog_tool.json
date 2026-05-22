@@ -1,0 +1,6 @@
+{
+  "tool_name": "claude_blog_to_markdown",
+  "target_domain": "claude.com/blog/*",
+  "execution_method": "javascript_injection",
+  "script": "\nfunction extractClaudeBlog() {\n  const main = document.querySelector('main') || document.body;\n  const clone = main.cloneNode(true);\n  const selectors = ['nav', 'footer', 'script', 'style', '.nav_dropdown_wrap', '.w-nav', '.footer'];\n  selectors.forEach(s => clone.querySelectorAll(s).forEach(el => el.remove()));\n  \n  let md = \"# \" + (document.querySelector('h1')?.innerText || document.title) + \"\\n\\n\";\n  const content = clone.querySelector('.u-rich-text-blog') || clone;\n  \n  function walk(node) {\n    if (node.nodeType === 3) return node.textContent;\n    let res = \"\";\n    const tag = node.tagName;\n    if (/^H[1-6]$/.test(tag)) res += \"\\n\" + \"#\".repeat(tag[1]) + \" \" + node.innerText + \"\\n\";\n    else if (tag === 'P') res += node.innerText + \"\\n\\n\";\n    else if (tag === 'PRE' || tag === 'CODE') res += \"\\n```\\n\" + node.innerText + \"\\n```\\n\\n\";\n    else if (tag === 'LI') res += \"* \" + node.innerText + \"\\n\";\n    else node.childNodes.forEach(c => res += walk(c));\n    return res;\n  }\n  \n  return md + walk(content).replace(/\\n{3,}/g, '\\n\\n');\n}\nextractClaudeBlog();\n  "
+}
