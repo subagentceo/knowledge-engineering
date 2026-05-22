@@ -84,6 +84,16 @@ const CONVENTIONAL_RE = /^(feat|fix|perf|refactor|chore|docs|test|build|ci|rever
 const MERGE_RE = /^(Merge |merge:)/;
 
 /**
+ * Bot-authored subjects that the convention does not bind. Dependabot's
+ * `chore(deps)(deps):` format has two scopes and no outcome ID (it's
+ * generated server-side, not by Claude). Same for release-please:
+ * "chore(main): release …" is the bot's own format. Exempting these
+ * keeps the gate honest about what Claude controls vs what GitHub Apps
+ * emit, without requiring a force-push to bot branches.
+ */
+const BOT_RE = /^chore\(deps\)\(deps\):|^chore\(main\): release /;
+
+/**
  * The convention (docs/CONVENTIONS.md + this test) landed in PR #76,
  * merged to main as commit 304e231 at 2026-05-15T04:30:00Z. Commits
  * authored BEFORE that date are grandfathered — the convention only
@@ -170,7 +180,7 @@ check(".github/pull_request_template.md exists and requires Closes/Refs", () => 
 
 // Branch commits — assert every non-merge subject ends with (O<N>).
 const subjects = commitsOnThisBranch();
-const nonMerge = subjects.filter((s) => !MERGE_RE.test(s));
+const nonMerge = subjects.filter((s) => !MERGE_RE.test(s) && !BOT_RE.test(s));
 
 // If zero post-convention commits exist on this branch (pre-convention
 // PRs being merged forward), there's nothing to assert — the
