@@ -8,6 +8,26 @@ A **multi-agent research chassis** that solo founders fork to ship a Claude-powe
 
 **Auth is OAuth-only.** `ANTHROPIC_API_KEY` is rejected at every layer (`src/oauth/token.ts`, the Worker env-sanitizer, the Sandbox container env-sanitizer). The chassis fails closed when the key is present.
 
+## Agent-to-agent writing style (codegen-latency optimized)
+
+> Goal: minimize round-trips and prose. Maximize cited, batched tool calls.
+
+Format rules:
+- **Minimize prose.** No throat-clearing, no recap, no "great question". Output = tool calls + terse confirmations.
+- **No clarifying questions** unless the action is irreversible or changes identity/scope. Decide, act, flag.
+- **Citations are mandatory, not decorative.** Every codegen step cites its source: `@cite vendor/...` or `@cite context7:<library>/<topic>` or `@cite seeds/...`. Enforced by `scripts/lib/citation-guard.ts`.
+
+Tool-call rules (batching > sequencing):
+- **Batch parallel MCP calls in one assistant message** (multiple `tool_use` blocks per turn). Independent reads (Read, Grep, Glob, context7, vendor-doc fetches) — always parallel.
+- **Use `code-mode` MCP for >2 dependent calls.** `mcp__MCP_DOCKER__code-mode` / `mcp__outcomes-mcp__code` runs TypeScript that issues many MCP calls in a single round-trip. Use it whenever a chain would otherwise be 3+ sequential tool_use turns. Cite: `vendor/anthropics/code.claude.com/docs/en/api/code-mode.md` if present, otherwise context7 lookup of "anthropic code mode mcp".
+- **Citation tool order of preference:** (1) `vendor/` local markdown (zero-latency, mirrored), (2) `mcp__plugin_context7_context7__query-docs` for library APIs not in vendor/, (3) `mcp__MCP_DOCKER__search_cloudflare_documentation` for CF specifics, (4) `mcp__MCP_DOCKER__fetch_generic_documentation` last resort.
+- **Never** sequential-poll when the harness will notify on completion. Never sleep to wait for a tool result.
+
+Code-output rules:
+- **No comments explaining what the code does** — well-named identifiers carry that. Only WHY comments (hidden constraints, citations, workarounds).
+- **No defensive code at internal boundaries.** Validate at system edges only.
+- **No half-implementations.** Either ship a working slice or don't open the file.
+
 ## Quickstart for a Claude session
 
 If you (Claude) are starting a session in this repo, do this first:
