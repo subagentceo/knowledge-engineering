@@ -1,0 +1,292 @@
+<notes>
+<critical>
+Below are notes from a video course about working with the Claude language model.
+Use these notes as a resource to answer the user's question.
+Write your answer as a standalone response - do not refer directly to these notes unless specifically requested by the user.
+</critical>
+<note title="Lesson 1: Introduction to AI Fluency & The 4D Framework">
+AI Fluency = using AI effectively, efficiently, ethically, safely through enduring principles rather than temporary tips/tools
+
+4D Framework = four interconnected competencies (Delegation, Description, Discernment, Diligence) that create AI fluency
+
+Augmentation vs Automation:
+- Augmentation = AI helps you do your work better (preferred for learning)
+- Automation = AI does work for you without deep thought (problematic for learning)
+
+Human in the Loop = making responsible decisions and using AI thoughtfully while maintaining ownership
+
+DELEGATION = determining what work should be done by humans, AI, or together
+
+Three types of delegation awareness:
+- Problem Awareness = clarifying actual goals/objectives before using AI
+- Platform Awareness = understanding different AI capabilities/limitations to choose right tool
+- Task Delegation = dividing work to leverage human strengths (creativity, judgment, context) and AI strengths (speed, consistency, information processing)
+
+DESCRIPTION = how you communicate with AI as collaborative conversation, not just prompting
+
+Three dimensions of description:
+- Product Description = specifying final result details (length, key messages, audience, style, format)
+- Process Description = guiding AI's approach ("think step-by-step," "consider multiple perspectives")
+- Performance Description = defining AI's behavior during interaction (critical editor, supportive brainstormer)
+
+DISCERNMENT = recognizing good/bad results and adapting accordingly through critical evaluation
+
+Three levels of discernment:
+- Product Discernment = evaluating accuracy, helpfulness, new perspectives in AI outputs
+- Process Discernment = examining AI's reasoning, assumptions, logical steps
+- Performance Discernment = assessing whether AI behaved helpfully in requested role
+
+Description-Discernment Loop = continuous feedback cycle where you describe needs, evaluate results, then refine descriptions iteratively
+
+DILIGENCE = taking responsibility for AI use through ethical, transparent, accountable practices
+
+Three types of diligence:
+- Creation Diligence = thoughtfully selecting AI systems considering privacy, security, appropriateness
+- Transparency Diligence = honestly reporting AI collaboration to professors, teammates, employers
+- Deployment Diligence = taking ownership of AI-assisted outputs, verifying accuracy, ensuring appropriateness
+
+Learning Context Document = personalized reference document establishing academic context, learning goals, AI boundaries, and collaboration preferences for future AI sessions
+
+Key Elements for Learning Context:
+- Academic context (major, courses, strengths/weaknesses, goals)
+- Learning style and challenges
+- AI experience and boundaries
+- Preferred support types (guidance vs task completion)
+- Academic integrity considerations
+
+Essential Principle = AI fluency skills remain relevant regardless of technological evolution because they focus on strategic thinking, communication, evaluation, and ethical responsibility rather than specific tools
+</note>
+
+<note title="Lesson 3: AI in Career Planning">
+AI in Career Planning = using AI as thinking partner for career exploration, skill building, job searching while maintaining authenticity
+
+Core Principle = AI handles information gathering/coaching, human drives strategy/decisions/values
+
+Career Exploration Process:
+- AI strengths = industry research, trend analysis, skill gap identification, salary insights, trajectory mapping, brainstorming roles
+- Human responsibility = self-knowledge, values, trade-offs, life goals, gut instincts
+- Two-part process = information gathering (AI) + personal reflection (human)
+
+AI Career Exploration Tasks:
+- Industry research = "What are emerging roles in sustainable tech combining environmental science with data analysis?"
+- Skill gap analysis = "UX designer skills employers want vs bootcamp teaching"
+- Market insights = "Real salary progression for entry-level consultants by city"
+- Career trajectories = "Transition paths from teaching to corporate training"
+- Role brainstorming = "Careers using journalism skills with better stability"
+- Values clarification = AI asks questions to surface career goals/values
+
+Skill Development with AI:
+- Specific learning needs = replace "help me learn data analysis" with "marketing manager needing customer survey analysis skills starting with Excel pivot tables"
+- AI as coach = create practice scenarios, provide feedback on samples, roleplay situations
+- Active learning check = regularly assess if actually improving or just going through motions
+
+Job Search Applications:
+- Rule of thumb = AI handles brainstorming/coaching/drafts, human presents authentic self
+- AI tasks = identify transferable skills, practice interview questions, find unique cover letter angles
+- Human responsibility = professional expertise, career goals, authentic identity, final materials
+
+Generic AI Content Problem = recruiters immediately recognize AI-generated resumes/cover letters as ineffective
+
+Career Development Workflow:
+Part 1 - Career Exploration (15 min):
+- Share background with AI
+- Research careers using similar skills, emerging roles, salary progressions, day-to-day realities
+- AI-guided self-reflection on energy sources, trade-offs, values, success definition
+- Create career map with 2-3 target roles and skill gaps
+
+Part 2 - CV/Resume Improvement (15 min):
+- Step 1: AI critiques current CV against specific job spec
+- Step 2: AI gathers information to address improvement areas
+- Step 3: Revise CV incorporating actual experiences with stronger language
+
+Part 3 - Interview Preparation (15 min):
+- AI analyzes role for 5 realistic questions
+- One question at time with follow-ups
+- Practice with specific examples
+- AI provides feedback on content/clarity/relevance
+
+Key Guidelines:
+- AI helps practice/prepare, human must be authentic in actual situations
+- Don't memorize scripts, understand experiences for flexible discussion
+- Employers want to hire you, not AI version of you
+- AI fluency itself = valuable career skill to highlight
+- Track AI interactions, be transparent about AI assistance when appropriate
+
+Authentication Principle = AI can help tell your story better but story starts and ends with your expertise
+</note>
+
+<note title="Lesson 4: Being the Human in the Loop">
+**LESSON 4: BEING THE HUMAN IN THE LOOP**
+
+**Core Concept**
+Human in the Loop = Human maintains decision-making control in all AI interactions. You decide what to ask, evaluate AI outputs for accuracy/sense, determine if output is usable. Bring judgment, creativity, ethics to every interaction.
+
+**Key Principles**
+- AI fluency = collaborating with AI safely, efficiently, effectively, responsibly
+- Leaders of tomorrow = those who partner with AI systems thoughtfully
+- Your humanity = uniquely valuable (talents, experiences, knowledge, perspectives)
+- AI enhances human capabilities, cannot replace human insight/judgment/care
+
+**Essential Components of AI Fluency**
+- Delegate thoughtfully
+- Describe needs clearly  
+- Think critically about outputs
+- Follow through with care
+
+**Personal AI Collaboration Policy Structure**
+
+**Section 1: Usage Boundaries**
+- Define when AI is appropriate (practice, exploration, building understanding)
+- Define when to work independently (exams, demonstrating mastery, original thinking)
+- Identify professional contexts where AI adds value
+- Establish "red lines" = situations where you absolutely will not use AI
+
+**Section 2: Learning Applications**
+- AI as tutor/coach, not homework completer
+- Maintain ability to explain everything you submit
+- Use AI to enhance understanding, not bypass it
+- Document specific strategies that work
+
+**Section 3: Transparency Standards**
+- When to proactively disclose AI assistance
+- How to document AI contributions
+- Level of detail to provide
+- Handling ambiguous situations
+
+**Section 4: Skill Maintenance**
+- Core skills to practice without AI
+- Regular "AI-free" work intervals
+- Methods to verify continued learning
+- Warning signs of over-reliance (and under-utilization)
+
+**Section 5: Ethical Guidelines**
+- Accuracy and fact-checking responsibilities
+- Respect for others' work and ideas
+- Privacy and data considerations
+- Broader impacts of AI/computer use
+
+**Section 6: Continuous Growth**
+- Staying updated on AI capabilities
+- Regular reflection intervals
+- Policy adjustment process
+- Knowledge sharing with others
+
+**Critical Reflection Questions**
+- Is AI engagement helping me grow?
+- Am I developing skills needed for my future or just completing tasks?
+- Am I being honest about AI's role in my work?
+- Am I using AI in ways that align with my values?
+
+**Implementation Guidelines**
+- Keep policy realistic given context/constraints
+- Make it concise enough to actually reference
+- Include creation date and update plans
+- Save in multiple accessible places
+- Practice applying to real scenarios
+- Share and discuss with others for accountability
+
+**Course Completion Elements**
+- 4D Framework for thoughtful AI interactions
+- AI-augmented learning approach that enhances rather than replaces talent
+- AI-augmented career thinking maintaining authenticity
+- Personal AI policy reflecting individual values
+- Foundation for AI leadership role
+
+**Next Steps**
+- Implement policy immediately
+- Share learnings with peers
+- Add AI Fluency to resume with evidence
+- Stay curious about AI developments
+- Help shape positive AI use in community
+</note>
+
+<note title="Lesson 2: AI as a Learning Partner">
+**AI Learning Partner Framework**
+
+Core Distinction = Using AI to do work vs using AI to learn
+- AI doing work = borrowed intelligence, weakens critical thinking
+- AI as learning partner = builds knowledge, enhances capability
+
+**Consequences of AI Dependency**
+- Exam failure without AI support
+- Job interview difficulties explaining thinking
+- Inability to evaluate AI advice quality
+- Real-world problem solving deficits
+
+**4Ds for Learning Context**
+
+**Delegation (Learning Focus)**
+Problem Awareness = Ask before using AI: What am I trying to learn? What's my learning goal?
+Task Allocation = Keep learning-critical tasks (writing arguments), delegate support tasks (debate partner role)
+Platform Selection = Choose AI systems designed for learning vs quick answers
+
+**Description (Learning Configuration)**
+Default AI Behavior = Designed to give direct answers (unhelpful for learning)
+Learning Prompts = Configure AI as tutor/coach, not answer-giver
+Effective Descriptions:
+- "Ask me questions instead of explaining"
+- "Point me toward solution without solving"
+- "Help me dig deeper into my interpretation"
+
+**Useful AI Learning Outputs:**
+- Pointers/clues for difficult topics
+- Comprehension testing questions
+- Critical feedback from different perspectives
+- Concept re-explanation with new examples
+- Progressive practice problems
+- Act as student for you to teach
+
+**Discernment (Learning Evaluation)**
+Learning Check Questions:
+- Can I explain this to someone else?
+- Can I solve similar problems without AI?
+- Do I understand why, not just that it works?
+
+Genuine Understanding vs Following Along = Trust internal sense of comprehension
+Information Verification = Cross-check AI learning content with non-AI sources
+
+**Diligence (Academic Integrity)**
+Creation Diligence = Follow school AI policies, use approved systems
+Transparency Diligence = Document AI interactions, develop disclosure skills
+Deployment Diligence = Must explain every part of submitted work, apply concepts to new situations
+
+**Exercise Structure**
+
+**Part 1: AI Learning Partner Setup (15-30 min)**
+Configuration Steps:
+- Share learning context from Lesson 1
+- Share video transcripts for AI understanding
+- Specify learning vs assignment completion goals
+- Define questioning vs direct answer approach
+
+Study Protocols by Need:
+- Problem-solving = hints/questions only
+- Concept review = progressive difficulty testing
+- Exam prep = quiz with explanation of wrong answers
+- Writing = argument development through questioning
+- Reading = explain concepts in own words
+- Assignment planning = test understanding of requirements
+
+**Part 2: Living Learning Journal (15-30 min)**
+Journal Structure:
+- Weekly concept work summary
+- Understanding clarity assessment
+- AI learning usage documentation
+- Effective study strategy identification
+- Practice needs identification
+- Specific skill development notes
+
+Tracking System:
+- Weekly frequency recommended
+- Monthly synthesis entries for patterns
+- AI vs independent work notation
+- "Aha moment" documentation
+- Accountability through reflection prompts
+
+**Key Outcomes**
+Long-term Benefits = Real understanding, problem-solving skills, interview confidence, AI advice evaluation ability, workplace value
+Investment Mindset = Building thinking/learning/adaptation capabilities beyond school completion
+Competitive Advantage = Human intelligence/creativity/judgment skills in AI-accessible world
+</note>
+
+</notes>

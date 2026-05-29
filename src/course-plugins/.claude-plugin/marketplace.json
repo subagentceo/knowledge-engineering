@@ -1,0 +1,44 @@
+{
+  "name": "course-plugins",
+  "owner": {
+    "name": "claude-xcode-workspace (operator zhouk.alex@gmail.com)"
+  },
+  "plugins": [
+    {
+      "name": "claude-code",
+      "displayName": "Claude Code",
+      "source": "./claude-code",
+      "description": "Operate Claude Code itself — context control, plan/thinking modes, hooks, custom slash commands, subagents, MCP. Distilled from the Claude Code in Action course and grounded in this workspace's vendored src/ internals."
+    },
+    {
+      "name": "claude-api",
+      "displayName": "Claude API",
+      "source": "./claude-api",
+      "description": "Build with the Anthropic Messages API — requests, streaming, system prompts, structured output, tool use, evals, and RAG. Distilled from the Building with the Claude API course."
+    },
+    {
+      "name": "claude-deployments",
+      "displayName": "Claude on Bedrock & Vertex",
+      "source": "./claude-deployments",
+      "description": "Run Claude on Amazon Bedrock and Google Cloud Vertex AI — access, requests, tool use, and the deltas from the first-party API. Distilled from the Bedrock and Vertex AI courses."
+    },
+    {
+      "name": "model-context-protocol",
+      "displayName": "Model Context Protocol",
+      "source": "./model-context-protocol",
+      "description": "Build MCP servers and clients — tools, resources, prompts, sampling, roots, and the stdio / Streamable HTTP transports. Distilled from the MCP intro and advanced courses."
+    },
+    {
+      "name": "claude-cowork",
+      "displayName": "Claude Cowork",
+      "source": "./claude-cowork",
+      "description": "Work with Claude Cowork — folder scoping, connectors, the permissions model, matching tasks to modes, scheduled tasks, and dispatch. Distilled from the Introduction to Claude Cowork course."
+    },
+    {
+      "name": "ai-fluency",
+      "displayName": "AI Fluency",
+      "source": "./ai-fluency",
+      "description": "Teach and apply the AI Fluency framework (Delegation, Description, Discernment, Diligence — the 4Ds) for educators and students. Distilled from the AI Fluency for Educators / Students and Teaching AI Fluency courses."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "subagentmcp-enterprise-mirror",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  },
+  "postCreateCommand": "gh --version && jq --version && echo 'redis 7.0 + postgres 16 sidecars up; run gh auth status to confirm enterprise aliases'",
+  "remoteUser": "root",
+  "customizations": {
+    "vscode": {
+      "extensions": ["github.vscode-github-actions", "ms-azuretools.vscode-docker"]
+    }
+  }
+}

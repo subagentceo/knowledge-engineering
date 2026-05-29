@@ -117,3 +117,6 @@ Refs O1
   - `2026-05-16-enterprise-control-plane.md` (OCP1) — knowledge-engineering as the operator's enterprise/org control plane
   - `2026-05-16-polyrepo-sibling-pattern.md` (OPR1) — env-var-abstraction for sibling repos (no submodules)
   - `2026-05-16-org-repo-settings-policy.md` — org/repo settings adopted from Anthropic reference repos (superseded in part by OSL1)
+- `src/course-plugins/` — Claude plugin marketplace (`course-plugins`): 6 plugins / 55 skills distilled from Anthropic courses. Manifest in `.claude-plugin/marketplace.json`; raw transcripts in `docs/courses/`; sourcing in `src/course-plugins/PROVENANCE.md`.
+- `enterprise-mirror/` — version-controlled tooling for the subagentmcp enterprise mirror (10 orgs / 239 repos). `setup.sh` (Mac entry point), `bootstrap-wsl.sh` (Windows 11 / WSL Ubuntu reproduction), SessionStart drift hook, `.meta/{fetch.sh,build.py}`, redis 7.0 + postgres 16 devcontainer. Companion `/refresh-manifest` skill in `.claude/skills/`.
+- `docs/reference/programmatic-tool-calling.md` — mirrored Claude API doc on programmatic (code-execution) tool calling.

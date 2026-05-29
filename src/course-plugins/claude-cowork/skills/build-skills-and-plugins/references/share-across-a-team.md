@@ -1,0 +1,3 @@
+# Share What You Build with Your Team
+
+Distribute via your org's **private marketplace** (admin-managed). Hand the plugin to the marketplace owner (team lead, enablement, or IT); they publish at an install level — **Available / Installed by default / Required / Hidden**. Teammates see it in their Directory labeled as coming from your company; they can use/toggle it but not edit — updates flow from the maintainer. If no marketplace yet, export the plugin folder and hand it over manually. Habits worth keeping: **one named owner per plugin, evals before every publish, specific names** (`sales-customer-renewal-prep`, not `meeting-prep`), and a quarterly review to retire what's stale.

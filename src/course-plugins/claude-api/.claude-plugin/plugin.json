@@ -1,0 +1,1 @@
+{ "name": "claude-api", "version": "1.0.0", "description": "Build with the Anthropic Messages API — requests, streaming, system prompts, structured output, prompt evaluation, prompt engineering, tool use, built-in tools, RAG, prompt caching, and agent vs workflow patterns. Distilled from the Building with the Claude API course.", "author": { "name": "claude-xcode-workspace" } }

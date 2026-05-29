@@ -1,0 +1,451 @@
+<notes>
+<critical>
+Below are notes from a video course about working with the Claude language model.
+Use these notes as a resource to answer the user's question.
+Write your answer as a standalone response - do not refer directly to these notes unless specifically requested by the user.
+</critical>
+<note title="Introduction and Approaches to Teaching AI Fluency">
+AI FLUENCY FRAMEWORK = dual-purpose tool that describes what happens when people work with AI AND guides them toward better practices
+
+COURSE STRUCTURE = 3 lessons addressing: 1) How to introduce framework to students (pedagogy), 2) How to assess if students understand (assessment), 3) How to integrate with existing curriculum
+
+TEACHING APPROACHES = 4 distinct entry points for introducing AI Fluency Framework to students
+
+APPROACH 1: STEP-BY-STEP (LINEAR)
+- Framework as sequential process: Delegation → Description → Discernment → Diligence
+- Best for: Beginning AI users who need structure and manageable progression
+- Implementation: Four-part assignments building sequentially (e.g., part 1 = Delegation/project planning, part 2 = Description/hands-on workshops, part 3 = Discernment/evaluation, part 4 = Diligence/ethics)
+- Benefits: Natural, intuitive, creates structured learning journey
+
+APPROACH 2: START ANYWHERE (NON-LINEAR) 
+- Framework as interconnected system where any competency can be starting point
+- Best for: Experienced AI users who can handle real-world complexity
+- Key insight: Competencies inform each other (Discernment problems → new Delegation decisions; Diligence requirements → different Description strategies; Description challenges → Delegation gaps)
+- Implementation: Group projects, case-based learning with real AI collaboration scenarios
+- Benefits: Reflects messy realities of actual AI collaboration, builds adaptive thinking
+
+APPROACH 3: JUST ONE D (FOCUSED)
+- Deep exploration of single competency at a time
+- Best for: Specialized purposes, skill-building sessions, workshops
+- Implementation: Entire workshop on one competency (e.g., three Discernment sessions covering Product/Process/Performance evaluation)
+- Benefits: Masters specific area without cognitive overload, allows nuanced exploration of techniques and edge cases
+
+APPROACH 4: TWO LOOPS
+- Most conceptually rich approach treating AI fluency as nested processes
+- Best for: Students who grasp basics and need deeper understanding
+- Structure: Delegation-Diligence loop (strategic/ethical decisions) + Description-Discernment loop (tactical/iterative work)
+- Benefits: Reveals how competencies constantly inform each other in practice
+
+DELEGATION-DILIGENCE LOOP = strategic and ethical decision-making framework for responsible AI collaboration
+
+LOOP COMPONENTS:
+Delegation = Problem Awareness + Platform Awareness + Task Delegation
+Diligence = Creation Diligence + Transparency Diligence + Deployment Diligence
+
+BIDIRECTIONAL FLOW:
+Forward (Delegation → Diligence): Strategic decisions raise ethical questions
+Reverse (Diligence → Delegation): Ethical constraints clarify and improve strategic choices
+
+TEACHING STRATEGIES:
+- Applied scenarios making connections visible
+- Step-by-step guides for both directions
+- Recognition that constraints enhance rather than limit creativity
+- Focus on developing clear rationales for choices
+
+DESCRIPTION-DISCERNMENT LOOP = moment-to-moment craft of building cognitive environments for human-AI collaboration
+
+CORE CONCEPT: Conversations not commands - building shared context and understanding rather than single prompt exchanges
+
+COGNITIVE ENVIRONMENT = collaborative context including:
+- Shared vocabulary and references evolving over time
+- Well-defined goals, values, processes, methods
+- Established interaction patterns enabling optimal performance
+- Mechanisms for building on previous interactions
+
+THREE LENSES:
+PRODUCT = what we're creating together (evolving understanding of goals and quality)
+PROCESS = shared approaches to thinking and problem-solving
+PERFORMANCE = relationship dynamics between human and AI
+
+TEACHING STRATEGIES:
+- Multi-interaction assignments requiring context accumulation
+- Share instructor's own AI collaboration processes
+- Document evolution of collaboration, not just outputs
+- Move beyond automation to augmentation
+
+SUCCESS INDICATORS:
+- Shared Language: Shorthand references to complex ideas from earlier conversations
+- Exploration Mindset: Evolution from rigid commands to flexible, interactive approaches
+
+NESTED SYSTEMS = how the two loops work together:
+Delegation-Diligence = strategic container setting direction and boundaries
+Description-Discernment = tactical content filling container with rich interaction
+Result = Responsible, sophisticated AI collaboration transcending what either partner achieves alone
+
+LESSON DURATION = 2 hours (30 minutes video, 90 minutes exercises)
+
+EXERCISE STRUCTURE = 3 progressive exercises building teaching capability:
+1) Establish teaching context and explore approaches (30 min)
+2) Design Delegation-Diligence loop lesson (30 min) 
+3) Design Description-Discernment loop lesson (30 min)
+</note>
+
+<note title="Assessing and Designing AI Fluency">
+# Assessing and Designing AI Fluency Notes
+
+## Core Assessment Framework
+
+AI Fluency Assessment = Outcome-based + Process-based + Reflection-based approaches combined
+
+**Outcome-based assessment** = Focus on what students produce through AI collaboration. Assess whether students achieved stated goals through human-AI partnership.
+
+**Process-based assessment** = Examine how students work with AI over time. Captures iteration patterns, recovery from failures, methodological sophistication.
+
+**Reflection-based assessment** = Focus on metacognitive awareness. Students analyze why strategies worked/didn't work, what they learned, future applications.
+
+## Assessing the 4Ds
+
+### Delegation Assessment
+- **Outcome**: Did delegation plan make sense? Were goals realistic? Right tool selection?
+- **Process**: Review annotated chat logs showing exploration of options and decision-making
+- **Reflection**: Students explain choices, alternatives considered, how delegation shaped outcomes
+
+### Description Assessment  
+- **Outcome**: Quality of prompts and AI responses. Clear instructions? Good context? Evolution from initial to final versions
+- **Process**: Conversation logs showing iterative refinement, failed approaches, building shared context
+- **Reflection**: Analysis of which description techniques worked best, task-specific communication approaches, description quality vs output quality relationship
+
+### Discernment Assessment
+- **Outcome**: Students annotate AI outputs marking strengths/weaknesses. Decision logs explaining what was kept/modified/discarded
+- **Process**: In-line evaluation comments, catching/correcting errors, pattern recognition across interactions
+- **Reflection**: Analysis of evaluation criteria evolution, initially missed issues, comparison across task types
+
+### Diligence Assessment
+- **Outcome**: Quality of diligence statements, attribution/transparency documentation, fact-checking evidence
+- **Process**: Data handling in chat logs, ethical decision-making, sensitive information handling, constraint-checking
+- **Reflection**: Discussion of ethical dilemmas, responsibility understanding, surprising challenges, future improvements
+
+## Assignment Design Principles
+
+**Authenticity** = Create assignments mirroring real-world AI collaboration, genuine problems where AI partnership adds value
+
+**Iteration** = Build in refinement opportunities showcasing growth over time
+
+**Pedagogical Transparency** = Clear assessment of collaboration process and reflections, not just outputs
+
+## Assignment Types
+
+### Outcome-Based Assignments
+- **Improving AI outputs**: Transform mediocre AI output into excellent work
+- **Product comparison**: Use multiple AI systems for same task, analyze differences
+- **Constraint-based challenges**: Specific requirements (format, length, style, audience)
+- **Peer product review**: Students set goals, create with AI, swap and critique
+
+### Process-Based Assignments
+- **Annotated chat logs**: Students highlight turning points, breakthroughs, failure recovery
+- **Recorded narrations**: Real-time decision-making explanation during AI work
+- **Process playbooks**: Personal AI strategy guides for different task types
+- **AI-assisted/peer debrief**: Discussion of chat logs with AI or peer partners
+
+### Reflection-Based Assignments
+- **Guided inquiry**: Specific questions about particular assignments
+- **Learning journal**: Self-assess 4D development with evidence across course
+- **Scenarios/case studies**: Apply learnings to hypothetical or real-world situations
+- **Personal policy statements**: Develop own values/strategies for AI collaboration
+
+## Managing Assignment Volume
+
+**Detailed deliverable-based rubrics** = Clear, granular deliverables for quick verification
+
+**Self and peer review emphasis** = Students best positioned to observe development with proper guidance
+
+**Lightning round conferences** = Brief conferences replacing written feedback (5-minute discussions)
+
+**Selective sampling** = Don't read every word; students flag key moments for attention
+
+## Key Assessment Artifacts
+
+**Chat logs** = Primary process documentation
+**Diligence statements** = Transparency and attribution documentation
+**Learning journals** = Reflection and metacognitive development
+**Decision logs** = Record of what AI output was kept/modified/discarded
+**Process playbooks** = Personal strategy documentation
+
+## Assessment Focus Areas
+
+Focus on **observable actions and concrete artifacts** rather than assumptions about understanding
+
+Different competencies benefit from different assessment approaches
+
+Assessment should be **learning opportunity, not just measurement**
+
+Students need to understand you care about **how they learn to work with AI**, not just what they produce
+
+Essential principle: Make invisible decision-making visible through documentation and reflection
+</note>
+
+<note title="AI Fluency Assignment Component Guide">
+AI FLUENCY ASSIGNMENT COMPONENTS
+
+OUTCOME-BASED COMPONENTS
+
+Improving AI Outputs = Students transform mediocre AI output into excellent work through critique and iteration
+- Assessment focus: Discernment, Description
+- Deliverables: Original with annotations + improved version
+- Effective because: Forces explicit quality standards, requires domain knowledge application, develops AI guidance skills
+- Variations: Different flaw types, peer improvement exchanges
+
+Product Comparison = Students use multiple AI systems for same task, analyze differences
+- Assessment focus: Delegation, Discernment  
+- Deliverables: Multiple outputs + comparison matrix + recommendation report
+- Effective because: Builds platform awareness, creates evidence-based selection skills, reveals trade-offs
+- Process: Use standard AI assistant + reasoning-capable system + specialized system
+
+Constraint-Based Challenges = Achieve specific requirements through AI collaboration within limits
+- Assessment focus: Description, Delegation
+- Deliverables: Final product meeting all constraints
+- Effective because: Develops precise AI communication, reveals specification importance, builds problem-solving under limitations
+- Variations: Ethical constraints, conflicting constraints, time pressure
+
+Peer Product Review = Evaluate AI-assisted work by peers against goals and ethics
+- Assessment focus: Discernment, Diligence
+- Deliverables: Review feedback form
+- Criteria: Goal achievement, appropriate AI use, human oversight quality, AI attribution adequacy
+- Variations: Blind review, group sessions
+
+PROCESS-BASED COMPONENTS
+
+Annotated Chat Logs = Submit complete chat logs with detailed annotations
+- Assessment focus: Description, Discernment
+- Annotations mark: Turning points, insights/breakthroughs, failures/recovery, communication evolution, shared context development
+- Effective because: Makes thinking visible, captures authentic problem-solving, reveals communication evolution
+- Variations: Competency-focused annotations, pattern comparisons
+
+Recorded Narrations = Screen recording with real-time audio narration of AI work
+- Assessment focus: All 4Ds
+- Narration covers: Choice rationale, response evaluation, alternatives considered, ethical considerations
+- Effective because: Captures authentic decision-making, reveals tacit knowledge, shows actual vs reported work
+- Variations: Paired commentary, before/after comparisons
+
+Process Playbooks = Personal reference guides for AI collaboration strategies
+- Assessment focus: All 4Ds
+- Includes: Conversation guides, decision trees, quality checklists, pitfall recovery, ethical guidelines
+- Effective because: Encourages systematic documentation, creates useful resource, builds metacognitive awareness
+- Variations: Collaborative playbooks, discipline-specific requirements
+
+AI-Assisted/Peer-Assisted Debrief = Structured analysis of AI collaboration with external perspective
+- Assessment focus: All 4Ds
+- Analysis covers: Positive patterns, missed opportunities, strengths, improvement areas
+- Effective because: Provides external perspective, reveals blind spots, encourages peer learning
+
+REFLECTION-BASED COMPONENTS
+
+Guided Inquiry = Respond to specific questions promoting deep reflection
+- Assessment focus: Variable by questions
+- Question types: Surprise moments, failed strategies, communication evolution, ethical decisions
+- Effective because: Targets specific AI fluency aspects, requires evidence-based reflection
+- Variations: Discipline-tailored, progressive questions
+
+Learning Journal = Ongoing documentation of AI fluency development
+- Assessment focus: All 4Ds over time
+- Weekly entries: Attempts, successes, challenges, skill improvements, future goals
+- Monthly synthesis: Pattern identification, goal setting
+- Variations: Multimedia journals, collaborative journals, AI conversation journals
+
+Scenarios and Case Studies = Apply AI fluency learning to realistic scenarios
+- Assessment focus: Diligence, Delegation
+- Analysis includes: Delegation decisions, ethical considerations, action plans, risk mitigation
+- Effective because: Develops strategic thinking, builds ethical reasoning, connects theory to practice
+- Variations: Real-world cases, discipline-specific scenarios, stakeholder role-play
+
+Personal Policy Statements = Synthesize learning into personal AI collaboration framework
+- Assessment focus: Diligence, All 4Ds holistically
+- Components: Ethical principles, decision criteria, quality standards, transparency commitments, boundaries, learning strategies
+- Effective because: Requires deep synthesis, builds professional identity, creates accountability
+- Variations: Collaborative policies for group work
+
+ASSESSMENT MATRICES
+
+Delegation Assessment Matrix:
+- Strong performance = Strategic thinking about when/why/how to collaborate with AI
+- Outcome focus: Task division quality, tool selection appropriateness, goal achievement
+- Process focus: Decision documentation, platform exploration, adaptation evidence
+- Reflection focus: Choice analysis, alternative consideration, impact evaluation
+
+Description Assessment Matrix:
+- Strong performance = Effective AI communication regarding outputs/processes/behaviors
+- Outcome focus: Prompt evolution, context building, communication clarity
+- Process focus: Iterative refinement, recovery patterns, shared vocabulary development
+- Reflection focus: Strategy analysis, technique recognition, context insights
+
+Discernment Assessment Matrix:
+- Strong performance = Critical evaluation using domain-specific, nuanced criteria
+- Outcome focus: Annotation quality, evaluation depth, evidence-based judgment
+- Process focus: Error catching, consistency, quality improvement over time
+- Reflection focus: Criteria evolution, missed issue analysis, meta-evaluation skills
+
+Diligence Assessment Matrix:
+- Strong performance = Integrated ethical reasoning throughout collaboration
+- Outcome focus: Attribution quality, transparency documentation, verification evidence
+- Process focus: Data handling, permission documentation, constraint checking
+- Reflection focus: Ethical dilemma discussion, responsibility understanding, values articulation
+
+Matrix Usage:
+- Rubric development: Select relevant Ds, choose assessment types, adapt indicators, define performance levels
+- Feedback provision: Use indicators to guide review, reference strong performance markers
+- Student assessment: Share criteria beforehand, encourage self-identification of competency evidence
+</note>
+
+<note title="AIs Impact on Your Discipline">
+**LESSON OVERVIEW**
+- Duration = 50+ minutes (20 min video + 30 min exercises + offline discussion)
+- Focus = AI impacts on specific disciplines across curriculum/pedagogy/assessment
+- Goal = Create discipline-specific AI fluency applications using 4Ds framework
+
+**CORE PRINCIPLE**
+AI Fluency = Amplifying human expertise, not replacing it
+Disciplinary knowledge = Foundation for unprecedented achievement through AI partnership
+
+**THREE KEY QUESTIONS FOR GRADUATES**
+1. What gets automated? = Which routine career tasks will AI handle
+2. Partnership potential = Where human-AI collaboration most impactful  
+3. Who's in charge? = How to manage/remain accountable for independent AI work
+
+**AI DISRUPTION PATTERNS**
+Disruption ≠ uniform across disciplines
+- Curriculum may stay stable while assessments transform
+- Pedagogy might evolve while core content constant
+- Some disruptions = opportunities to leverage
+- Others = problems to solve
+- Your expertise determines which is which
+
+**THREE EXPERTISE TYPES FOR AI RESPONSE**
+1. Disciplinary Expertise = Field content, values, methods, thinking patterns
+2. Pedagogical Expertise = Student struggle/breakthrough patterns, learning emotional journey
+3. Assessment Expertise = Recognizing genuine understanding, designing deep learning evaluations
+
+**CURRICULUM IMPACT ANALYSIS**
+Tasks for discipline assessment:
+- Identify AI automation capabilities in field
+- Determine foundational concepts importance shifts with AI
+- Map AI augmentation improvements to best practices
+- Develop responses to "Why learn X when AI does it?" questions
+- Define how to direct AI agents effectively
+
+**PEDAGOGY TRANSFORMATION**
+Enhancement opportunities:
+- Personalized tutoring at scale
+- Interactive simulations  
+- Immediate feedback systems
+- AI as educational assistant/interactive learning partner
+
+Risk assessment:
+- Distinguish AI that enhances vs diminishes learning
+- Identify teacher-student AI collaborations that leverage potential
+- Determine pedagogical approaches to embrace vs avoid
+- Address reality that students will use AI regardless
+
+**ASSESSMENT REVOLUTION** 
+Core challenges:
+- When students generate essays in seconds, what are we assessing?
+- Create evaluations honoring individual growth/creativity/problem-solving
+- Assess both AI-assisted and human-only performances
+
+Essential tasks:
+- Identify authentic learning demonstration in AI-assisted work
+- Create assignments students can't shortcut with AI
+- Value process/growth, not just products
+- Determine where AI collaboration enhances vs undermines objectives
+- Adapt to student AI use reality
+
+**IRREPLACEABLE HUMAN CAPABILITIES**
+- Domain expertise
+- Real-world context understanding
+- Judgment in ambiguous situations
+- Creative problem-solving
+- Ethical reasoning
+- Relationship building
+
+**APPLYING 4DS TO DISCIPLINES**
+
+**DISCERNMENT = Quality evaluation ability**
+Build Quality Criteria:
+- Articulate excellence beyond vague terms
+- Create detailed rubrics capturing deep quality markers
+- Document criteria students can internalize/apply
+
+Collect Outstanding Work:
+- Analyze exemplars systematically with students
+- Make expert thinking visible through annotation guides
+
+Diagnose Failures:
+- Study flawed examples forensically
+- Understand failure modes for working alone or with AI
+
+**DESCRIPTION = Field communication mastery**
+Map Discipline Products:
+- Document key field outputs with precision
+- Create templates revealing underlying logic
+- Have students reverse-engineer professional outputs
+
+Reveal Expert Thinking:
+- Make expert problem-approach processes visible
+- Document micro-decisions and iterations
+- Create flowcharts of expert thinking
+
+Name Field Norms:
+- Surface behaviors defining your field
+- Build behavioral performance modes with students
+
+**DELEGATION = Work decomposition understanding**
+Reveal Problem Anatomy:
+- Break challenges into component parts
+- Create problem anatomy diagrams
+- Map AI automation/augmentation/agent possibilities
+
+Design Decision Trees:
+- Create frameworks for when/how to involve AI
+- Build through case studies making delegation decisions explicit
+
+**DILIGENCE = Field values embodiment**
+Codify Ethical Frameworks:
+- Define field-specific "do no harm"
+- Build case studies exploring ethical edges
+- Create ethical decision matrices
+
+Clarify Transparency Norms:
+- Document disclosure expectations by field
+- Create AI assistance disclosure templates
+
+Co-Create Accountability Policies:
+- Build standards with students, not impose them
+- Draft policies together
+- Develop peer review protocols
+
+**FEEDBACK LOOP BENEFITS**
+Students who articulate quality → better evaluate any output
+Students who understand methods → guide any process effectively  
+Students who internalize ethics → navigate any collaboration responsibly
+
+**EXERCISES**
+
+**Exercise 1: AI Impact Position Paper (40 min)**
+Step 1: Curriculum exploration with AI (10 min)
+Step 2: Pedagogical transformation analysis (10 min)  
+Step 3: Assessment strategy reimagining (10 min)
+Step 4: Position synthesis (10 min)
+
+**Exercise 2: Colleague 4D Discussions**
+Discernment discussion = "What does quality look like?"
+Description discussion = "How do we communicate?"
+Delegation discussion = "What work happens?"
+Diligence discussion = "What are our values/standards?"
+
+**FINAL MESSAGE**
+Goal ≠ preparing students to be replaced by AI
+Goal = preparing students to be irreplaceable
+Future needs humans who: think critically, communicate clearly, collaborate wisely, act responsibly
+
+Human expertise + AI fluency = Foundation for thriving in AI-enhanced future
+</note>
+</notes>

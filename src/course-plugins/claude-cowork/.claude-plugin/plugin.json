@@ -1,0 +1,6 @@
+{
+  "name": "claude-cowork",
+  "version": "1.0.0",
+  "description": "Guidance for getting work done with Claude Cowork: choosing the right mode, scoping folders and connectors, the permissions model, scheduling and dispatching tasks, and building the global instructions, projects, skills, and plugins that make Cowork better at your work over time.",
+  "author": { "name": "claude-xcode-workspace" }
+}

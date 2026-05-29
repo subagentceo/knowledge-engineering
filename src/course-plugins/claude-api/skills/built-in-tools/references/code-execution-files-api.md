@@ -1,0 +1,3 @@
+# Code execution + Files API
+
+**Files API:** upload a file once, get back a metadata object with an ID, then reference the ID in later requests instead of re-sending raw bytes. **Code execution:** a server-side tool — include the predefined schema and Claude runs Python in an isolated Docker container, can run code multiple times, interprets results, and writes a final response. Containers have **no network access**, so all data I/O goes through the Files API. Combined flow: upload file → get ID → include ID in a container-upload block → ask Claude to analyze → Claude writes/runs code against the file → returns analysis; generated files (plots/reports) come back as downloadable file IDs.
