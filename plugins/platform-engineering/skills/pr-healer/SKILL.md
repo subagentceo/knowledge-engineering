@@ -25,6 +25,29 @@ metadata:
 - Operator typed `/goal "keep healing failing CI on open automerge
   PRs until none failing"` in a paired Remote Control session
 
+# Diagnose-first protocol (OPM6)
+
+**Run this ONCE at session start, before touching any PR.** The 2026-05-29
+train wasted 3 merge attempts acting before diagnosing — the blocker (a
+queue-wide OSV failure on `main`) was readable from the first failed run.
+
+1. **Read the ruleset once.** `gh api repos/<owner>/<repo>/rules/branches/main`.
+   Record the required status-check contexts and the allowed merge method.
+   Everything downstream is gated by these; never guess them per-PR.
+2. **Check `main`'s own health first.** If a required check is red on `main`
+   itself (e.g. OSV advisory), it is a **queue-wide outage** — every PR
+   inherits it and none can merge. Treat as P1: fix `main` before touching
+   the queue (see [OPM2 auto-fix](../../../../docs/operator-runbooks/osv-autofix.md)).
+   Do NOT retry individual PR merges against a red `main`.
+3. **Read the failed log before retrying.** `gh run view --log-failed` on the
+   most recent failure, then classify (step 3 below). Never re-run or
+   re-push before reading why it failed.
+4. **Mirror gates locally.** Run `npm run preflight` (OPM1) on the branch
+   before any push — it catches the `@tdd` / `(O<N>)` / OSV gates in seconds
+   instead of a 3-minute CI round-trip.
+
+Only after these four do you enter the per-PR loop below.
+
 # Steps
 
 1. **Enumerate candidates.** `gh pr list --label automerge --state open --json number,headRefName,isDraft,mergeStateStatus`. Filter to non-draft PRs.
