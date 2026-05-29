@@ -57,8 +57,14 @@ jobs:
     # path when the PR is promoted. The delete_neon_branch job is NOT
     # draft-gated — `closed` of a draft must still clean up if a branch
     # was created before the draft toggle.
+    # OPM4: gate on vars.NEON_ENABLED so the job SKIPS cleanly (not fails)
+    # when the Neon budget is exhausted. The 2026-05-29 train saw this job
+    # fail red on every PR after budget ran out — misleading, since it is
+    # not a required check. Set repo/org variable NEON_ENABLED=true to
+    # re-enable once budget is restored.
     if: |
-      github.event_name == 'pull_request'
+      vars.NEON_ENABLED == 'true'
+      && github.event_name == 'pull_request'
       && github.event.pull_request.draft == false
       && (
         github.event.action == 'synchronize'
@@ -145,7 +151,8 @@ jobs:
   delete_neon_branch:
     name: Delete Neon Branch
     needs: setup
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    # OPM4: same NEON_ENABLED gate as create_neon_branch.
+    if: vars.NEON_ENABLED == 'true' && github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
