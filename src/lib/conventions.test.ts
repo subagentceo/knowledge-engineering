@@ -94,6 +94,18 @@ const MERGE_RE = /^(Merge |merge:)/;
 const BOT_RE = /^chore\(deps\)\(deps\):|^chore\(main\): release /;
 
 /**
+ * Banned anti-pattern (OPM3, from the 2026-05-29 merge-train post-mortem):
+ * empty "nudge CI" commits. The train carried 5–10 of these per branch
+ * (`chore: nudge CI (OCIRETRIG)`, `drain CI`, `re-trigger CI after cascade`,
+ * `serial drain <n>`), forcing a squash on 3 of 5 PRs. CI re-triggers belong
+ * to `gh run rerun` / `gh pr update-branch`, never to empty commits. These
+ * subjects are conventional (they DO end with an outcome id), so CONVENTIONAL_RE
+ * passes them — this rule rejects them explicitly so the habit can't return.
+ */
+const BANNED_RE =
+  /\(OCIRETRIG\)|^(chore|ci)(\([^)]*\))?:\s*(nudge|drain|re-?trigger|serial drain|kick|poke|bump)\b.*\bci\b/i;
+
+/**
  * The convention (docs/CONVENTIONS.md + this test) landed in PR #76,
  * merged to main as commit 304e231 at 2026-05-15T04:30:00Z. Commits
  * authored BEFORE that date are grandfathered — the convention only
@@ -137,6 +149,31 @@ function commitsOnThisBranch(): string[] {
 
 // ────────────────────────────────────────────────────────────────────
 // Tests
+
+check("OPM3: BANNED_RE catches the OCIRETRIG nudge-commit anti-pattern", () => {
+  const banned = [
+    "chore: nudge CI (OCIRETRIG)",
+    "chore: drain CI (OCIRETRIG)",
+    "chore: re-trigger CI after cascade (OCIRETRIG)",
+    "chore: serial drain 278 (OCIRETRIG)",
+    "ci: kick ci",
+  ];
+  for (const s of banned) {
+    if (!BANNED_RE.test(s)) throw new Error(`BANNED_RE should reject: ${s}`);
+  }
+});
+
+check("OPM3: BANNED_RE does not over-match legitimate commits", () => {
+  const allowed = [
+    "feat(preflight): mirror ruleset gates locally (OPM1)",
+    "fix(ci): correct verify.yml node version pin (OPM1)",
+    "ci: gate Claude CI/CD behind org kill switch, default OFF (O-CICD1)",
+    "chore(deps)(deps): bump the github-actions-all group",
+  ];
+  for (const s of allowed) {
+    if (BANNED_RE.test(s)) throw new Error(`BANNED_RE should NOT reject: ${s}`);
+  }
+});
 
 check("citation source exists in seeds/citations/", () => {
   const citation = resolve(REPO_ROOT, "seeds/citations/define-outcomes.md");
@@ -192,6 +229,12 @@ if (nonMerge.length === 0) {
 
 for (const subject of nonMerge) {
   check(`commit subject conforms to convention: ${subject.slice(0, 60)}${subject.length > 60 ? "..." : ""}`, () => {
+    if (BANNED_RE.test(subject)) {
+      throw new Error(
+        `banned empty CI-nudge commit (OPM3) — re-trigger CI with \`gh run rerun\` or ` +
+          `\`gh pr update-branch\`, never an empty commit. Squash it out.\n      got: ${subject}`,
+      );
+    }
     if (!CONVENTIONAL_RE.test(subject)) {
       throw new Error(
         `subject doesn't match <type>(<scope>?): <subject> (O<N>)\n      got: ${subject}`,
