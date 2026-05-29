@@ -27,6 +27,7 @@
     "verify:libs": "tsx scripts/lib/run-tests.ts",
     "verify:coverage": "c8 tsx scripts/lib/run-tests.ts && tsx scripts/verify-coverage.ts",
     "verify:tdd": "tsx scripts/verify-tdd-stage.ts",
+    "preflight": "tsx scripts/preflight-pr.ts",
     "verify:freshness": "tsx scripts/verify-freshness.ts",
     "verify:mcp": "tsx scripts/verify.ts && npm run verify:planner",
     "verify:tf": "terraform -chdir=infra/terraform validate && terraform -chdir=infra/terraform plan -lock=false -input=false",
