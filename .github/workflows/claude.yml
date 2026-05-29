@@ -75,11 +75,17 @@ concurrency:
 
 jobs:
   claude:
+    # O-CICD1 kill switch: paused org-wide unless the org/repo variable
+    # CLAUDE_CICD_ENABLED is explicitly set to 'true'. Unset (default) =
+    # Claude never runs in CI. Re-enable for the whole org by setting the
+    # org-level Actions variable; re-enable one repo by setting it at repo
+    # scope. Removing this line restores prior always-on behavior.
     if: |
+      vars.CLAUDE_CICD_ENABLED == 'true' && (
       (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
       (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
       (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
-      (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
+      (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude'))) )
 
     runs-on: ubuntu-latest
     # OGHW5: bounded timeout. @claude flows can run long (multi-turn
