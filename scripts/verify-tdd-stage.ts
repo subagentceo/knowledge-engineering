@@ -57,10 +57,42 @@ function recentlyAddedTests(): string[] {
   return [...paths].sort();
 }
 
+/**
+ * OPM5: belt-and-suspenders for the dropped-on-rebase hole.
+ * `recentlyAddedTests` uses `--diff-filter=A`, so a test file whose @tdd
+ * header is dropped while resolving an add/add conflict (it's no longer
+ * "added" relative to the rebased base) slips past — exactly what happened
+ * to blog-extract-fidelity.test.ts on the 2026-05-29 train. This returns
+ * test files *modified on this branch* (any change status, vs origin/main),
+ * so the tag is re-asserted on touched files without flagging grandfathered
+ * ones elsewhere in the tree.
+ */
+function branchModifiedTests(): string[] {
+  let out: string;
+  try {
+    const base = execSync("git merge-base HEAD origin/main", { cwd: REPO_ROOT }).toString().trim();
+    out = execSync(`git diff --name-only ${base}..HEAD`, { cwd: REPO_ROOT, encoding: "utf8" });
+  } catch {
+    return [];
+  }
+  const paths = new Set<string>();
+  for (const line of out.split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+    if (!TEST_FILE_RE.test(trimmed)) continue;
+    if (!TEST_DIR_PREFIXES.some((p) => trimmed.startsWith(p))) continue;
+    paths.add(trimmed);
+  }
+  return [...paths].sort();
+}
+
 function main(): void {
-  const tests = recentlyAddedTests();
+  // Union of newly-added (convention-window) and branch-modified test files.
+  // The added-set keeps "new tests must declare a stage"; the modified-set
+  // (OPM5) closes the dropped-on-rebase hole on files this branch touched.
+  const tests = [...new Set([...recentlyAddedTests(), ...branchModifiedTests()])].sort();
   if (tests.length === 0) {
-    console.log("verify:tdd — no test files added in the convention window; trivially green");
+    console.log("verify:tdd — no test files added or modified in the convention window; trivially green");
     process.exit(0);
   }
 
