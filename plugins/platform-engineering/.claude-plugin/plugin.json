@@ -20,7 +20,8 @@
     "skills/heartbeat-dream",
     "skills/remote-control-host",
     "skills/pr-task-reconcile",
-    "skills/pr-reviewer-roving"
+    "skills/pr-reviewer-roving",
+    "skills/pr-healer"
   ],
   "docs": ["docs/claude-api-bundled-reference.md"]
 }
