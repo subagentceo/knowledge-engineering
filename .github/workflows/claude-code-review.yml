@@ -94,7 +94,9 @@ jobs:
     # Skip draft PRs. ready_for_review (in types: above) fires the review
     # when a draft is promoted, so reviewers still get the bot pass once
     # the author is asking for review.
-    if: github.event.pull_request.draft == false
+    # O-CICD1 kill switch: paused org-wide unless CLAUDE_CICD_ENABLED == 'true'
+    # (org/repo Actions variable). Unset (default) = reviewer never runs.
+    if: vars.CLAUDE_CICD_ENABLED == 'true' && github.event.pull_request.draft == false
     continue-on-error: true  # OAUTO1 — see header.
     runs-on: ubuntu-latest
 
