@@ -39,7 +39,17 @@ Every PR MUST:
 2. **Link issues** via `Closes #N` or `Refs #N`. PRs without issue linkage are rejected at review.
 3. **Commit subjects end with `(O<N>)`** — enforced by `src/lib/conventions.test.ts` in CI.
 4. **Tests cite their source** — `@cite vendor/...`, `@cite seeds/citations/...`, or `@cite rubrics/...` headers. Enforced by `scripts/lib/citation-guard.ts`.
-5. **Run `npm run verify` locally** before pushing. The chain: `verify:mcp` → `verify:tf` → `verify:citations` → `verify:gates` → `verify:libs` → `verify:freshness` → `verify:project`.
+5. **Run `npm run preflight` locally** before pushing (OPM1). It runs the exact gate set the `main` ruleset enforces — `npm run verify`, `osv-scanner`, the `(O<N>)` commit-convention, and the `@tdd` new-test scan — and fails fast with the fix. `npm run preflight -- --fast` skips the slow `verify` stages for mid-edit checks. This is cheaper than discovering a gate via a failed CI run.
+
+### Conflict-safe shared fixtures (OPM5)
+
+When two open PRs both create or evolve the **same** file (e.g. a shared `*.test.ts` fixture), they collide as an add/add conflict on rebase, and resolving with `--theirs`/`--ours` can silently drop a required header (`@tdd`, `@cite`). On the 2026-05-29 train this dropped `@tdd green` from `blog-extract-fidelity.test.ts` and cost a CI round-trip.
+
+To avoid it:
+
+- **Branch the later PR off the earlier PR's branch**, not off `main`, so the shared file evolves linearly.
+- **Or split the file** so each PR owns a distinct file (e.g. `*-fidelity.test.ts` vs `*-criteria.test.ts`).
+- After any rebase that touches a shared test file, run `npm run verify:tdd` — it now re-asserts `@tdd` on **branch-modified** test files, not just newly-added ones, so a dropped tag is caught.
 
 ---
 
