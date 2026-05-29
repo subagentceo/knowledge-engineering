@@ -1,0 +1,262 @@
+<notes>
+<critical>
+Below are notes from a video course about working with the Claude language model.
+Use these notes as a resource to answer the user's question.
+Write your answer as a standalone response - do not refer directly to these notes unless specifically requested by the user.
+</critical>
+<note title="Lesson 2: Applying AI Fluency to Course Design and Learning Outcomes">
+**Lesson 2: Applying AI Fluency to Course Design and Learning Outcomes**
+
+**Core Concept**
+AI Fluency transforms course design by building rich, shared context that turns AI from generic assistant into collaborative partner who understands specific teaching situation, constraints, and pedagogical vision.
+
+**Three Fundamental Course Design Tasks**
+1. Identifying content and concepts essential for students
+2. Mapping learning journey - how topics build on each other
+3. Articulating specific learning objectives
+
+**4Ds Applied to Course Design**
+
+**Delegation in Course Design**
+- Make smart delegation decisions based on subject matter expertise and goals
+- Determine what work needs to be done (content selection, sequencing, objectives)
+- Decide who does what (human, AI, or both) and how
+- Answer What and Why before determining Who and How
+
+**Description for Course Design**
+- Create thinking space rooted in actual pedagogical challenges
+- Example: "I'm building stats course for journalism students who need data literacy but often come anxious about math or skeptical statistics matter for careers"
+- Share specific challenges, student needs, prerequisites, outcomes
+- Explain vision for success and constraints
+- Use both product description (what you want AI to do) and process description (how)
+
+**Product Discernment in Course Design**
+- Evaluate AI suggestions against own expertise
+- Question: Does this concept actually help target students?
+- Don't just accept/reject - explain why something works/doesn't in context
+- Use expertise to shape better future suggestions
+- Recognize unexpected insights and new thinking approaches
+
+**Diligence in Course Design**
+- Don't outsource decisions - take responsibility for what reaches students
+- Document key decisions in AI collaboration
+- Share thinking with students to model responsible AI use
+- Quality assurance and transparency
+- Maintain accountability while demonstrating how AI enhances teaching expertise
+
+**AI Role-Playing Technique**
+Ask AI to "act as one of my students" to evaluate course flow:
+- How will students react at different points?
+- Where might confusion arise?
+- What background needed at each stage?
+- What support needed for topic transitions?
+
+**Learning Objectives Enhancement**
+- Use established context from previous collaboration
+- Upload course syllabus with richer context description
+- Craft objectives that are: accurate, meaningful, motivating, true to teaching philosophy, aligned with institutional requirements
+- Map course outcomes to resume skills for student motivation
+- Experiment with different approaches due to faster process
+
+**Benefits Beyond Time-Saving**
+- Surface hidden assumptions and blindspots
+- Discover creative connections between concepts
+- Maintain coherence while exploring new ideas
+- Build personal competencies that strengthen with practice
+
+**Key Principles**
+- 4Ds = framework for genuine cognitive partnership, not checklist
+- Pedagogical and subject expertise guides collaborative exploration
+- Context-building approach works for: new courses, course updates, curriculum sequences, learning pathways
+- Start with big picture, build/maintain context through details
+- Goal = enhancement not just efficiency - better teaching/learning, not just faster planning
+
+**Exercise Structure (50 minutes)**
+Stage 1: Planning approach (clarify course, work needed, expertise vs AI help)
+Stage 2: Initiating collaboration (share teaching context, explain challenges, set partnership)
+Stage 3: Build conversation through Description & Discernment (content identification, journey mapping, learning objectives)
+Stage 4: Documentation & reflection (verify accuracy, document decisions, note rejections, create AI role statement)
+
+**Outcome**
+Creates genuine cognitive partnership where human judgment, values, and student relationships remain central while AI enhances pedagogical practice.
+</note>
+
+<note title="Lesson 1: Introduction to AI Fluency for Educators">
+AI Fluency for Educators = framework for effective, efficient, ethical, safe AI integration in teaching practice
+
+Course Purpose = applying 4D Framework (Delegation, Description, Discernment, Diligence) specifically to education contexts
+
+Why AI Fluency Matters in Education:
+- Students already using AI
+- Employers expect AI fluency from graduates  
+- Institutions need responsible AI integration strategies
+- Educators shape next generation's AI engagement
+
+Course Outcomes:
+- Apply 4D Framework to teaching practice
+- Use AI for course design and lesson planning
+- Create materials maintaining teaching vision and academic integrity
+- Lead institutional AI conversations
+- Model responsible AI engagement for students
+
+Prerequisites = completion of AI Fluency: Framework & Foundations course
+
+4D FRAMEWORK SUMMARY:
+
+AI Fluency = responsible human in the loop, augmentation not automation
+
+Delegation = determining who does what work (human vs AI vs collaborative)
+Three types:
+- Problem Awareness = clarity on goals and success metrics before AI engagement
+- Platform Awareness = understanding different AI capabilities and limitations  
+- Task Delegation = dividing work to leverage human creativity/judgment + AI speed/processing
+
+Description = how to communicate with AI (conversation not commands)
+Three dimensions:
+- Product Description = detailed specifications for final output (length, audience, style, format)
+- Process Description = guiding AI's approach (step-by-step thinking, multiple perspectives)
+- Performance Description = defining AI behavior during interaction (critical editor, supportive brainstormer)
+
+Discernment = evaluating AI outputs and adjusting accordingly
+Three levels:
+- Product Discernment = quality assessment of AI creations (accuracy, helpfulness, new perspectives)
+- Process Discernment = examining AI reasoning and assumptions
+- Performance Discernment = evaluating AI behavior during interaction
+
+Description + Discernment = continuous feedback loop transforming AI from tool to thinking partner
+
+Diligence = responsible AI use throughout collaboration
+Three aspects:
+- Creation Diligence = thoughtful AI system selection considering privacy, security, appropriateness
+- Transparency Diligence = honest disclosure of AI assistance
+- Deployment Diligence = taking ownership and responsibility for AI-assisted outputs
+
+Key Principles:
+- Augmentation > Automation (especially in learning contexts)
+- Pedagogical values remain central
+- 4Ds work together as interconnected competencies
+- Skills remain relevant as AI technology evolves
+
+Teaching Context Document = reusable artifact establishing shared understanding with AI for future collaborations
+
+Essential Context Areas:
+- Subject area, level, specific courses
+- Student backgrounds, challenges, goals
+- Institutional constraints
+- Teaching philosophy and methods
+- Common teaching pain points
+- AI integration goals
+- Unique teaching situation aspects
+
+Context Document Benefits:
+- Improves AI collaboration effectiveness
+- Saves time in future interactions
+- Maintains consistency across AI conversations
+- Helps AI understand educator's specific needs and constraints
+</note>
+
+<note title="Lesson 3: Applying AI Fluency to Learning Materials and Assignments">
+**LESSON 3: APPLYING AI FLUENCY TO LEARNING MATERIALS AND ASSIGNMENTS**
+
+**CORE LEARNING OBJECTIVES**
+- Build teaching materials with AI using 4D framework
+- Leverage established context for coherent material development  
+- Apply systematic quality control through Discernment
+- Create integrated learning experiences
+
+**AI'S DISCIPLINARY IMPACT FRAMEWORK**
+
+**Three Critical Questions for Disciplines:**
+1. What gets automated = routine tasks likely automated by AI in future careers
+2. Partnership potential = where human-AI collaboration most impactful
+3. Who's in charge = how humans manage/remain accountable for AI work
+
+**Three Types of Existing Expertise:**
+- Disciplinary Expertise = field content, values, methods, thinking patterns
+- Pedagogical Expertise = student struggle points, breakthrough moments, mastery development
+- Assessment Expertise = recognizing genuine understanding, designing evaluations
+
+**AI DISRUPTION ACROSS THREE DOMAINS**
+
+**Curriculum Impact:**
+- Fundamentals remain but students question necessity
+- Need compelling discipline-specific answers for "why learn this when AI can do it"
+- Tasks: Identify what AI can automate, determine which concepts become more/less important, assess how AI changes best practices
+
+**Pedagogical Impact:**
+- AI enables personalized tutoring, interactive simulations, immediate feedback
+- Challenge: distinguishing AI that enhances vs shortcuts learning
+- Tasks: Define how AI enhances/inhibits learning, identify best teacher-student-AI collaborations, determine effective pedagogical approaches
+
+**Assessment Impact:**
+- Most urgent disruption = when students generate content in seconds, what are we assessing
+- Need authentic assessment of both AI-assisted and human-only work
+- Tasks: Identify authentic demonstrations of AI-assisted learning, create shortcut-proof assignments, value process over products, adapt to inevitable student AI use
+
+**4Ds APPLIED TO DISCIPLINARY EXPERTISE**
+
+**Discernment = Quality Evaluation**
+- Build Quality Criteria = detailed rubrics beyond vague terms, specific excellence markers
+- Collect Outstanding Work = systematic analysis with students, make expert thinking visible
+- Diagnose Failures = forensic examination of flawed examples, understand failure modes
+
+**Description = Communication Mastery**  
+- Map Discipline Products = document key outputs with precision, reveal underlying logic
+- Reveal Expert Thinking = make problem-solving processes visible, trace micro-decisions
+- Name Norms = surface field-specific behaviors, define "thinking like X" in concrete terms
+
+**Delegation = Work Decomposition**
+- Reveal Problem Anatomy = break challenges into components, map AI possibilities
+- Map AI Possibilities = what can be automated/augmented/delegated to AI agents
+- Design Decision Trees = frameworks for when/how to involve AI, case-study based
+
+**Diligence = Ethical Standards**
+- Codify Ethical Frameworks = field-specific "do no harm," create decision matrices
+- Clarify Transparency Norms = disclosure expectations, citation templates for AI assistance  
+- Co-Create Accountability Policies = build standards with students, develop peer review protocols
+
+**MATERIAL CREATION WITH AI**
+
+**Context Utilization:**
+- Established context = each new workflow better than starting fresh
+- Reference previous conversations and course design work
+- Share video transcripts and course context with AI
+
+**4Ds in Material Creation:**
+- Delegation = understand what materials needed and why
+- Description = leverage established context + specific requirements
+- Description-Discernment Loop = refinement tool, explain why suggestions work/don't work
+- Diligence = protect sensitive data, verify accuracy, check bias, create transparency
+
+**Four Material Creation Options:**
+
+**Option 1: Lecture Slide Deck**
+- Setup: Share course context, presentation style, classroom dynamics, visual preferences
+- Process: Initial outline → evaluate flow/complexity → develop crucial slides → full deck
+- Final check: Verify accuracy, note image/citation needs, document AI contribution
+
+**Option 2: Study/Revision Guide**  
+- Setup: Reference lecture topic, describe student study habits, explain effective aids
+- Process: Identify key concepts → develop self-check questions → anticipate misconceptions → create connections
+- Final check: Verify answer accuracy, check alignment with assessments, ensure accessibility
+
+**Option 3: Interactive In-Class Exercise**
+- Setup: Describe classroom setup, time constraints, student interaction patterns, learning goals
+- Process: Collaborate on activity → think through logistics → anticipate responses → create facilitation notes
+- Final check: Test instruction clarity, consider accessibility, plan contingencies
+
+**Option 4: Knowledge Check Quiz**
+- Setup: Reference learning objectives, assessment level, academic integrity approach
+- Process: Develop 5-10 varied questions → mix question types → connect to objectives → create answer explanations  
+- Final check: Verify answer correctness, check for bias/confusion, ensure appropriate difficulty
+
+**KEY PRINCIPLES**
+- AI Fluency = amplifying human expertise, not replacing it
+- Disciplinary knowledge = foundation for unprecedented achievement  
+- Human capabilities = domain expertise, judgment, creativity, ethics, relationships
+- Students prepared to be irreplaceable, not replaced
+- Focus on coherence and quality, not just efficiency
+- Description-Discernment loop = powerful refinement through meaningful iteration
+</note>
+
+</notes>

@@ -1,0 +1,3 @@
+# Streaming with tool use (fine-grained tool calling)
+
+When tools stream, you also get `input_json_delta` events carrying `partial_json` (the chunk) and a cumulative `snapshot`. By default the API buffers tool-argument JSON until a full top-level key-value pair is generated, validates it against the schema, then releases chunks — so chunks arrive in delayed bursts. Setting `fine_grained: true` disables that API-side validation and sends chunks immediately for a smoother stream, at the cost of possibly invalid JSON (e.g. `"undefined"` instead of `null`) that you must handle client-side. Use fine-grained when you want immediate UI updates or early processing of tool args; use the default when validation delay is acceptable.

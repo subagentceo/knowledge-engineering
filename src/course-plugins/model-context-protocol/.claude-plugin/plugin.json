@@ -1,0 +1,6 @@
+{
+  "name": "model-context-protocol",
+  "version": "1.0.0",
+  "description": "Build and consume MCP servers and clients end to end: tools, resources, prompts, sampling, notifications, roots, and the stdio + StreamableHTTP transports.",
+  "author": { "name": "claude-xcode-workspace" }
+}

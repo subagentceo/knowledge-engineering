@@ -1,0 +1,6 @@
+{
+  "name": "claude-code",
+  "version": "1.0.0",
+  "description": "Skills distilled from the Claude Code in Action course, each grounded in the vendored Claude Code source under src/.",
+  "author": { "name": "claude-xcode-workspace" }
+}

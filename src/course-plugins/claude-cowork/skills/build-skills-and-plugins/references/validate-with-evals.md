@@ -1,0 +1,3 @@
+# Validate with Evals Before You Share
+
+A skill you share is a small product others use — test-drive it first. With **skill-creator**, evals are built into the process: it generates 2+ realistic prompts, and for each produces a **with-skill vs. without-skill** pair so you can see the difference your skill makes. Review each pair in plain English: *would I send the skill version? if not, what's missing?* ("tone too formal," not "not quite right"). Claude revises from your feedback. **Change one thing at a time, re-run** — it's a loop, not a one-time gate. The bar isn't perfect evals; it's that the cases you care about pass meaningfully better than baseline, and you've named the cases you don't yet handle.

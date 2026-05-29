@@ -1,0 +1,63 @@
+# Devcontainer stack for the subagentmcp enterprise mirror.
+#   web      — the dev/app container (gh + jq + python3, mounts the mirror tree)
+#   redis    — Redis 7.0 sidecar
+#   postgres — Postgres 16 sidecar
+#
+# Images come from Docker Hub. To pull from the premium Docker org tied to
+# admin@jadecli.com / alex@jadecli.com, run `docker login` first (manual step —
+# credentials are intentionally NOT baked into this file).
+name: subagentmcp
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+      # Reuse host gh auth + git identity inside the container (read-only).
+      - ${HOME}/.config/gh:/root/.config/gh:ro
+    working_dir: /workspace
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/subagentmcp
+      REDIS_URL: redis://redis:6379
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    command: sleep infinity
+
+  redis:
+    image: redis:7.0
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: subagentmcp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  redis-data:
+  postgres-data:

@@ -1,0 +1,3 @@
+# Extended thinking
+
+Lets Claude reason before answering — improves accuracy on hard tasks at extra cost (thinking tokens are billed) and latency. Set `thinking=true` with a `thinking_budget` (minimum 1024 tokens), and ensure `max_tokens > thinking_budget` (budget 1024 → `max_tokens` ≥ 1025). The response has a thinking block (reasoning + a cryptographic signature that prevents tampering) and a text block. Safety-flagged reasoning comes back as a redacted (encrypted) thinking block to preserve conversation continuity. Enable it only after prompt optimization fails to hit target accuracy; use evals to decide.
