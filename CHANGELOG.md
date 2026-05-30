@@ -4,6 +4,50 @@ All notable changes to this project are tracked here. This file is maintained
 automatically by [release-please](https://github.com/googleapis/release-please)
 from [Conventional Commits](https://www.conventionalcommits.org/) on `main`.
 
+## [0.3.0](https://github.com/subagentceo/knowledge-engineering/compare/knowledge-engineering-v0.2.0...knowledge-engineering-v0.3.0) (2026-05-30)
+
+
+### Features
+
+* **agent:** add claude-knowledge-agent — Zod-type-safe SDK subagent over claude -p (O1) ([6e7f4f7](https://github.com/subagentceo/knowledge-engineering/commit/6e7f4f710d6aca708c73a8b749902e1d90d3777f))
+* **agent:** add corpus-viewer subagent build chassis + Swift app scaffold (O1) ([fbdc784](https://github.com/subagentceo/knowledge-engineering/commit/fbdc78439c7d8c6b06335e79c71aaab8a608eb0f))
+* **agent:** knowledge-work Lane abstraction grounded in knowledge-work-plugins + skill-scripts (O1) ([dfbcd9d](https://github.com/subagentceo/knowledge-engineering/commit/dfbcd9d09b6f5765dd894b84f349160f337284d7))
+* **agent:** steerKnowledgeLoop — DAG-driven claude -p loop with verifier-fail retry + budget gate (O1) ([1685dec](https://github.com/subagentceo/knowledge-engineering/commit/1685dec29cd2ddc376f5c22a12e479af9fb90f5a))
+* **courses:** course-plugins marketplace + enterprise-mirror tooling + PTC doc (OKE1) ([4c4321d](https://github.com/subagentceo/knowledge-engineering/commit/4c4321d085c9a9b17439d028dfdb699c424f27a3))
+* **cowork:** Python cowork lane — PEP-723 Atlassian PM script + pydantic models mirroring zod (O1) ([801c6cb](https://github.com/subagentceo/knowledge-engineering/commit/801c6cb8b31c2ba5d041472a28720afa8e45fd92))
+* **env:** version-controlled non-secret env for CLI + web sessions (OKE3) ([724f56c](https://github.com/subagentceo/knowledge-engineering/commit/724f56c7eb2741ac34313d43cbfbdfbf8ec045da))
+* **ops:** enterprise-wide Claude CI/CD kill switch script (OCICD1) ([67fa9d7](https://github.com/subagentceo/knowledge-engineering/commit/67fa9d73b778e3441981f1a7e5e47a4979490de7))
+* **ops:** managed-settings template granting enterprise-wide reach (OCICD1) ([ea4fd2a](https://github.com/subagentceo/knowledge-engineering/commit/ea4fd2a17715d853a1501a6fcae172be8fe4b576))
+* **ops:** OSV-clean-main auto-fixer + diagnose-first pr-healer protocol (OPM2, OPM6) ([f4bec30](https://github.com/subagentceo/knowledge-engineering/commit/f4bec308b3419d5c14a9e81b1f97470afb414807))
+* **preflight:** local gate-preflight mirroring main ruleset (OPM1) ([addd132](https://github.com/subagentceo/knowledge-engineering/commit/addd132b18dcdf54c34eb8189e2b646063f46b64))
+* **schemas:** zod model for open PRs, drafts, orphan branches (OI2) ([b2e79cd](https://github.com/subagentceo/knowledge-engineering/commit/b2e79cdba2e91523871f1fe2c7c82bf322742cf6))
+* **skill:** add /format-markdown skill (CommonMark/GFM via prettier) (OKE3) ([0d4f59c](https://github.com/subagentceo/knowledge-engineering/commit/0d4f59c11cf03da0d9939a2b350acc7106ea23d6))
+* **tooling:** HTML/TS/JS LSP servers + MCP PDF server for doc mirroring (OKE2) ([41f168d](https://github.com/subagentceo/knowledge-engineering/commit/41f168d029e1e577b1e71b0e4a6e2396b4cc4691))
+
+
+### Bug Fixes
+
+* **courses:** harden enterprise-mirror tooling + course hooks from review (OKE1) ([6068d8e](https://github.com/subagentceo/knowledge-engineering/commit/6068d8e092bcf5be3fbf7bbfcc77c6d2230ce85d))
+* **cowork:** use real Jira project key SCRUM (was placeholder KE) (O1) ([60bc996](https://github.com/subagentceo/knowledge-engineering/commit/60bc9963666c5b87a1f498d2bfa2c995352c726a))
+* **crawl:** recover PDFs behind flattened anchor links + add www-cdn host (OKE3) ([88f4f0f](https://github.com/subagentceo/knowledge-engineering/commit/88f4f0f24b0cd17765db023f6ed48018a0048609))
+* **verify-tdd:** re-assert [@tdd](https://github.com/tdd) on branch-modified tests + conflict-safe doc (OPM5) ([1782b87](https://github.com/subagentceo/knowledge-engineering/commit/1782b87f6c07e451c3d035f8d247cec25e257380))
+
+
+### Documentation
+
+* **agent:** ground self-steering §2 in real knowledge-work-plugins domains + skill-scripts (O1) ([3341057](https://github.com/subagentceo/knowledge-engineering/commit/3341057ff40f781472d674a6da3a3637e6e5c527))
+* **agent:** self-steering abstraction layer design — plugins/lanes/python/vscode (O1) ([6d87016](https://github.com/subagentceo/knowledge-engineering/commit/6d870162b2cef0aac67bbe0d47778a669423ae74))
+* **architecture:** ERD + multi-session component map (pydantic+zod shared contract) (O1) ([0f9e44b](https://github.com/subagentceo/knowledge-engineering/commit/0f9e44b2afbeb9568527d5d727a2271aeda81438))
+* **vendor:** decompose Anthropic economic-research PDFs + rich analyses (OKE3) ([a83b061](https://github.com/subagentceo/knowledge-engineering/commit/a83b0610518c506147f879729f7a98d11cacbb49))
+
+
+### Chores
+
+* **deps:** add prettier devDependency for CommonMark/GFM md formatting (OKE3) ([283156f](https://github.com/subagentceo/knowledge-engineering/commit/283156f419f416e00c248013cfd881523ca69076))
+* **md:** CommonMark/GFM-format all PR markdown via prettier (OKE3) ([a8d0240](https://github.com/subagentceo/knowledge-engineering/commit/a8d0240fb7b95bba3eb412d0a4c894c566957962))
+* **md:** CommonMark/GFM-format econ analyses + env runbook via prettier (OKE3) ([e65b53a](https://github.com/subagentceo/knowledge-engineering/commit/e65b53a78423d57353618b8015374b9ba0c9b133))
+* **vendor:** refresh anthropics/claude-sitemap/anthropic-sitemap + prettier-normalize (O1) ([860ea85](https://github.com/subagentceo/knowledge-engineering/commit/860ea853e3609d1f8fd558a5ad2ff18849301e7e))
+
 ## [0.2.0](https://github.com/subagentceo/knowledge-engineering/compare/knowledge-engineering-v0.1.0...knowledge-engineering-v0.2.0) (2026-05-29)
 
 
