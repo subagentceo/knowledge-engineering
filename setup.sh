@@ -48,6 +48,13 @@ if [ "${1:-}" != "--check" ]; then
     npm ci 2>/dev/null || npm install
     ok "node deps installed"
   fi
+  # Managed-Agents cloud-sandbox toolchain parity (idempotent). Recreates the
+  # cloud container's languages/managers/utils locally so this host runs the
+  # operator's own managed-agents-equivalent. See docs/operator-runbooks/container-parity.md.
+  if [ -x "${ROOT}/scripts/parity/setup.sh" ]; then
+    echo "▶ cloud-sandbox toolchain parity …"
+    "${ROOT}/scripts/parity/setup.sh" || warn "parity install reported issues — run scripts/parity/doctor.sh"
+  fi
 fi
 
 # ── Secret presence check (never prints values) ───────────────────────────────
@@ -66,6 +73,12 @@ check_secret CLAUDE_CODE_OAUTH_TOKEN "Claude auth (Agent SDK + CLI). Mint: claud
 check_secret NEON_DATABASE_URL       "local crawler dual-write to Neon (optional; crawler degrades without it)"
 check_secret ALLOYDB_OMNI_PASSWORD   "AlloyDB Omni container in cloud sessions (scripts/start_services.sh)"
 check_secret GITHUB_TOKEN            "gh push / PR from scripts (optional locally; gh auth token works too)"
+
+# ── Toolchain parity doctor (fail-fast drift report) ──────────────────────────
+if [ -x "${ROOT}/scripts/parity/doctor.sh" ]; then
+  echo "── cloud-sandbox parity check (scripts/parity/doctor.sh) ──"
+  "${ROOT}/scripts/parity/doctor.sh" --quiet || warn "toolchain parity drift — see scripts/parity/doctor.sh"
+fi
 
 echo ""
 ok "setup complete. Non-secret env auto-loads each session; set any missing secrets per the contract."

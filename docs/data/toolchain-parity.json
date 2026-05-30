@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "spec_source": "vendor/anthropics/platform.claude.com/docs/en/managed-agents/agent-setup.md",
+  "spec_note": "Managed-Agents cloud sandbox reference. This device recreates that container locally so the operator runs their own managed-agents-equivalent instead of paying for it. Divergence: cloud runs NO DB servers (clients only); this host intentionally runs AlloyDB Omni (localhost:5433) + DragonflyDB (localhost:6379) as the real data plane — only the CLIENTS are the parity requirement.",
+  "sandbox": {
+    "os": "Ubuntu 22.04 LTS (host is macOS/darwin — parity is toolchain, not kernel)",
+    "arch": "x86_64 (host is arm64 — rosetta/native where it matters)",
+    "memory_gb": 8,
+    "disk_gb": 10,
+    "network": "disabled by default",
+    "beta_header": "managed-agents-2026-04-01"
+  },
+  "languages": [
+    { "name": "python", "probe": "python3", "version_flag": "--version", "min": "3.12", "managers": ["pip", "uv"], "posture": "REQUIRED" },
+    { "name": "node", "probe": "node", "version_flag": "--version", "min": "20.0", "managers": ["npm", "yarn", "pnpm"], "posture": "REQUIRED" },
+    { "name": "go", "probe": "go", "version_flag": "version", "min": "1.22", "managers": ["go"], "posture": "REQUIRED" },
+    { "name": "rust", "probe": "rustc", "version_flag": "--version", "min": "1.77", "managers": ["cargo"], "posture": "REQUIRED" },
+    { "name": "java", "probe": "java", "version_flag": "-version", "min": "21", "managers": ["maven", "gradle"], "posture": "REQUIRED" },
+    { "name": "ruby", "probe": "ruby", "version_flag": "--version", "min": "3.3", "managers": ["bundler", "gem"], "posture": "REQUIRED" },
+    { "name": "php", "probe": "php", "version_flag": "--version", "min": "8.3", "managers": ["composer"], "posture": "REQUIRED" },
+    { "name": "cpp", "probe": "gcc", "version_flag": "--version", "min": "13", "managers": ["make", "cmake"], "posture": "OPTIONAL", "posture_note": "macOS ships clang as gcc; GCC 13+ floor is satisfied by Apple clang for parity purposes. make+cmake are the load-bearing build managers." }
+  ],
+  "managers": [
+    { "name": "pip", "probe": "pip3", "posture": "REQUIRED" },
+    { "name": "uv", "probe": "uv", "posture": "REQUIRED" },
+    { "name": "npm", "probe": "npm", "posture": "REQUIRED" },
+    { "name": "yarn", "probe": "yarn", "posture": "REQUIRED" },
+    { "name": "pnpm", "probe": "pnpm", "posture": "REQUIRED" },
+    { "name": "cargo", "probe": "cargo", "posture": "REQUIRED" },
+    { "name": "maven", "probe": "mvn", "posture": "REQUIRED" },
+    { "name": "gradle", "probe": "gradle", "posture": "REQUIRED" },
+    { "name": "bundler", "probe": "bundle", "posture": "REQUIRED" },
+    { "name": "gem", "probe": "gem", "posture": "REQUIRED" },
+    { "name": "composer", "probe": "composer", "posture": "REQUIRED" },
+    { "name": "make", "probe": "make", "posture": "REQUIRED" },
+    { "name": "cmake", "probe": "cmake", "posture": "REQUIRED" },
+    { "name": "conan", "probe": "conan", "posture": "OPTIONAL" }
+  ],
+  "databases": [
+    { "name": "sqlite-client", "probe": "sqlite3", "posture": "REQUIRED", "note": "cloud ships SQLite for local use" },
+    { "name": "psql-client", "probe": "psql", "posture": "REQUIRED", "note": "client for AlloyDB Omni @localhost:5433 (and external PG)" },
+    { "name": "redis-client", "probe": "redis-cli", "posture": "REQUIRED", "note": "client for DragonflyDB @localhost:6379 (and external Redis)" }
+  ],
+  "db_servers": [
+    { "name": "alloydb-omni", "container_image": "google/alloydbomni", "port": 5433, "posture": "REQUIRED", "note": "LOCAL DIVERGENCE from cloud (which runs no DB server). Replaces Neon. See docs/decisions data-plane migration (SCRUM-35)." },
+    { "name": "dragonfly", "container_image": "dragonflydb/dragonfly", "port": 6379, "posture": "REQUIRED", "note": "LOCAL DIVERGENCE. Redis-wire-compatible. Replaces managed Redis." }
+  ],
+  "utilities": [
+    { "name": "git", "probe": "git", "posture": "REQUIRED" },
+    { "name": "curl", "probe": "curl", "posture": "REQUIRED" },
+    { "name": "wget", "probe": "wget", "posture": "REQUIRED" },
+    { "name": "jq", "probe": "jq", "posture": "REQUIRED" },
+    { "name": "tar", "probe": "tar", "posture": "REQUIRED" },
+    { "name": "zip", "probe": "zip", "posture": "REQUIRED" },
+    { "name": "unzip", "probe": "unzip", "posture": "REQUIRED" },
+    { "name": "ssh", "probe": "ssh", "posture": "REQUIRED" },
+    { "name": "scp", "probe": "scp", "posture": "REQUIRED" },
+    { "name": "tmux", "probe": "tmux", "posture": "REQUIRED" },
+    { "name": "screen", "probe": "screen", "posture": "REQUIRED" },
+    { "name": "make", "probe": "make", "posture": "REQUIRED" },
+    { "name": "cmake", "probe": "cmake", "posture": "REQUIRED" },
+    { "name": "docker", "probe": "docker", "posture": "REQUIRED" },
+    { "name": "ripgrep", "probe": "rg", "posture": "REQUIRED" },
+    { "name": "tree", "probe": "tree", "posture": "REQUIRED" },
+    { "name": "htop", "probe": "htop", "posture": "REQUIRED" },
+    { "name": "sed", "probe": "sed", "posture": "REQUIRED" },
+    { "name": "awk", "probe": "awk", "posture": "REQUIRED" },
+    { "name": "grep", "probe": "grep", "posture": "REQUIRED" },
+    { "name": "vim", "probe": "vim", "posture": "REQUIRED" },
+    { "name": "nano", "probe": "nano", "posture": "REQUIRED" },
+    { "name": "diff", "probe": "diff", "posture": "REQUIRED" },
+    { "name": "patch", "probe": "patch", "posture": "REQUIRED" }
+  ],
+  "forbidden": [
+    { "name": "ANTHROPIC_API_KEY", "kind": "env", "note": "OAuth-only invariant (src/oauth/token.ts). Must never be set." }
+  ]
+}
