@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Build directive for the apps/corpus-viewer multi-subagent build.
+
+  Loaded by src/agent/corpus-viewer/run.ts as the orchestrator system-prompt
+  prefix (before SYSTEM_PROMPT_DYNAMIC_BOUNDARY, so it is prompt-cached).
+
+  Every <directive> here is paired with the Zod schema that machine-enforces
+  it, named in the `schema` attribute (file#export). The XML states the WHY in
+  natural language for the model; the Zod type states the WHAT in a way the
+  runtime checks. When they disagree, the Zod type wins — the test surface
+  (src/agent/corpus-viewer/*.test.ts) keeps them aligned.
+
+  Grounded in the Claude Opus 4.8 feature set (the model running this build):
+    - per-agent pinned model + reasoning effort
+    - adaptive thinking (the only thinking-on mode on Opus 4.8)
+    - prompt caching across mid-conversation system messages (compaction)
+    - agent memory (.claude/agent-memory/<name>/)
+    - turn + token budgets with clear START/STOP boundaries
+
+  Citations (mirror as vendor/ docs via the anthropics crawl — they have
+  native .md endpoints):
+    platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-8
+    platform.claude.com/docs/en/build-with-claude/{effort,adaptive-thinking,prompt-caching}
+    code.claude.com/docs/en/{agents,workflows,sub-agents,agent-sdk/overview}
+-->
+<corpus-viewer-build version="1" date="2026-05-30" model="claude-opus-4-8">
+
+  <outcome>
+    Turn apps/corpus-viewer from a macOS-only SwiftUI browser into a
+    dual-platform (macOS + iOS) app that browses AND searches the
+    vendor/docker + vendor/xcode markdown corpus, runnable on the iPhone 17
+    Pro simulator. Render via MarkdownUI; outline + search via swift-markdown's
+    AST. No model parses pages at runtime — the app is deterministic Swift.
+  </outcome>
+
+  <auth>
+    <!-- Inherited hard rule. ANTHROPIC_API_KEY fails closed everywhere. -->
+    <require key="CLAUDE_CODE_OAUTH_TOKEN"/>
+    <forbid key="ANTHROPIC_API_KEY"/>
+  </auth>
+
+  <boundaries>
+    <!-- START/STOP: every dispatch is a typed envelope in, typed output out. -->
+    <directive id="B1" schema="src/agent/corpus-viewer/primitives.ts#TaskEnvelope">
+      Dispatch only TaskEnvelopes. A subagent receives a typed `input` and MUST
+      return an object validated against the schema named in `outputSchemaRef`.
+      No prose crosses the boundary; a malformed reply is a FAILED task.
+    </directive>
+    <directive id="B2" schema="src/agent/corpus-viewer/outputs.ts#parseOutput">
+      Accept a subagent result only after parseOutput() validates it. The
+      verifier gate (buildVerifierGate) lets a task be marked done only on a
+      `pass` (or an explicitly-allowed `warn`).
+    </directive>
+    <directive id="B3" schema="src/agent/corpus-viewer/primitives.ts#assertSinglyInProgressPerSubagent">
+      One foreground task per subagent at a time. Fan out across DIFFERENT
+      subagents freely; never run two foreground tasks on the same worker.
+    </directive>
+  </boundaries>
+
+  <budgets>
+    <directive id="U1" schema="src/agent/corpus-viewer/primitives.ts#TokenBudget">
+      Each subagent has a TokenBudget (maxOutputTokens, compactAtInputTokens,
+      maxTurns). Refuse to dispatch a task whose budget exceeds the subagent's
+      ceiling (assertWithinBudget).
+    </directive>
+    <directive id="U2" schema="src/agent/corpus-viewer/orchestration.ts#TurnLedger">
+      Consult TurnLedger.stopReason() each turn. On "output-budget" or "turns",
+      STOP and return the last structured result with truncated=true.
+    </directive>
+  </budgets>
+
+  <model-routing>
+    <directive id="M1" schema="src/agent/corpus-viewer/fleet.ts#FLEET">
+      Design-heavy work (swift-porter, doc-indexer, build-verifier) runs on
+      claude-opus-4-8 with high effort + adaptive thinking. Mechanical work
+      (ios-bundler: rsync + Package.swift edits) runs on haiku, low effort,
+      thinking disabled — do not burn thinking tokens on file copies.
+    </directive>
+    <directive id="M2" schema="src/agent/corpus-viewer/runner.ts#toThinkingConfig">
+      Adaptive thinking is the only thinking-on mode on Opus 4.8. Never request
+      a fixed thinking budget for an opus-4-8 agent.
+    </directive>
+  </model-routing>
+
+  <caching>
+    <directive id="C1" schema="src/agent/corpus-viewer/orchestration.ts#planCache">
+      Split each dispatch into a STABLE cached prefix (subagent system prompt +
+      shared Swift templates + tool definitions) and a DYNAMIC suffix (this
+      task). The prefix is identical across a subagent's tasks so the prompt
+      cache reuses it. Tool definitions are cached (tool-use-with-prompt-caching).
+    </directive>
+    <directive id="C2" schema="src/agent/corpus-viewer/orchestration.ts#compact">
+      When TurnLedger.shouldCompact() fires, compact the transcript to its last
+      StructuredOutput + open next-steps. Append the compaction summary as a
+      mid-conversation system message that PRESERVES the cache prefix.
+    </directive>
+  </caching>
+
+  <memory>
+    <directive id="R1" schema="src/agent/corpus-viewer/orchestration.ts#rememberDecision">
+      Persist each subagent's load-bearing decisions to project memory
+      (.claude/agent-memory/<name>/), capped to recent decisions so memory
+      itself stays bounded. Read it back at the start of each task.
+    </directive>
+  </memory>
+
+  <outcome-driven-citations>
+    <directive id="O1" schema="src/agent/corpus-viewer/primitives.ts#Citation">
+      Any field that encodes a documentation fact carries a Citation (source +
+      last_fetched). Tests cite vendor/ docs; when a doc drifts, citation-guard
+      + the freshness check fail loudly. This is how the build stays correct as
+      docs go out of date.
+    </directive>
+    <directive id="O2" schema="src/agent/corpus-viewer/primitives.ts#BetaFeature">
+      Beta / research-preview surfaces (Agent SDK minor versions, adaptive
+      thinking, dynamic workflows) are declared as BetaFeature objects so one
+      test asserts they're acknowledged and version drift is caught.
+    </directive>
+  </outcome-driven-citations>
+
+  <tdd>
+    <directive id="T1">
+      Tests come first and are the priority. Every module under
+      src/agent/corpus-viewer/ has a sibling *.test.ts carrying an @cite header
+      (enforced by scripts/lib/citation-guard.ts). A phase is not done until
+      its tests pass AND `swift build` + the iOS simulator screenshot pass.
+    </directive>
+  </tdd>
+
+</corpus-viewer-build>
