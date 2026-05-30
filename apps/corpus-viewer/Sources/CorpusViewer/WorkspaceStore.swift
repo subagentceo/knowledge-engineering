@@ -12,11 +12,22 @@ final class WorkspaceStore: ObservableObject {
     private var scanner: CorpusScanner?
 
     func bootstrap() {
+        // Resolve the corpus root per platform: .live(host vendor/) on macOS
+        // when present, .bundled (app bundle BundledData/) on iOS + CI. This
+        // replaces the hardcoded liveRoot that the iOS sandbox can't read.
+        let source = CorpusSource.resolve()
+        guard let root = source.rootURL() else {
+            // .bundled with no BundledData/ packaged → empty list, not a crash.
+            status = "no corpus root (bundled data not packaged)"
+            return
+        }
+        rootPath = root.path
         do {
-            let s = try CorpusScanner(root: CorpusDefaults.liveRoot)
+            let s = try CorpusScanner(root: root)
             scanner = s
             vendors = try s.listVendors()
-            status = "live · \(vendors.count) vendors · \(vendors.reduce(0) { $0 + $1.markdownCount }) markdown files"
+            let kind = { if case .live = source { return "live" } else { return "bundled" } }()
+            status = "\(kind) · \(vendors.count) vendors · \(vendors.reduce(0) { $0 + $1.markdownCount }) markdown files"
             if let first = vendors.first { selectedVendor = first }
         } catch {
             status = "ERR: \(error)"
