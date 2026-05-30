@@ -220,6 +220,9 @@ const LEGACY_ALLOW = new Set([
   "agentskills",           // 2026-05-16 — agentskills.io spec mirror (open Agent Skills format); not in v2 catalog
   "wellarchitected-github",// 2026-05-16 — GitHub Well-Architected framework (polyrepo + governance reference); not in v2 catalog
   "docs-github",           // 2026-05-16 — docs.github.com REST/Actions/Apps/Webhooks/GraphQL/CLI/Copilot mirror via /api/article/body (OPE5); not in v2 catalog
+  "docker",                // 2026-05-30 — docs.docker.com mirror via sitemap.xml + html-extract; operator-requested study surface, not in v2 catalog
+  "xcode",                 // 2026-05-30 — developer.apple.com/documentation/xcode DocC mirror via docc-json render + topic-graph discovery; not in v2 catalog
+  "commonmark",            // 2026-05-30 — spec.commonmark.org/0.31.2 spec (verbatim from the commonmark-spec study clone); the normalization ANCHOR, not a subprocessor. See docs/reference/commonmark-normalization.md
 ]);
 
 check("every vendor/<dir>/crawl.json maps to a catalog entity (modulo legacy allow-list)", () => {

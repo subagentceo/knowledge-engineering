@@ -1,0 +1,17 @@
+# Build + dependency output
+.build/
+dist/
+node_modules/
+third_party/
+
+# The CommonMark spec is a LITERAL specification document, not crawled prose.
+# It uses long (e.g. 32-backtick) code fences on purpose, because its own test
+# examples contain markdown with nested backticks. Prettier would collapse
+# those fences and corrupt the spec's test cases. Keep it byte-verbatim — it is
+# the normalization ANCHOR, not a normalization target. See
+# docs/reference/commonmark-normalization.md.
+vendor/commonmark/
+
+# PDF-extracted markdown sidecars: pdf-parse output is not authored prose and
+# round-trips poorly through a prose formatter. Left as the extractor emits it.
+vendor/**/_pdfs/
