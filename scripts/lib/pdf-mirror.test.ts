@@ -17,7 +17,7 @@ import { tmpdir } from "node:os";
 import { resolve } from "node:path";
 import { test } from "node:test";
 
-import { mirrorPdfs, scanPdfUrls, slugForPdf } from "./pdf-mirror.js";
+import { mirrorPdfs, scanPdfUrls, scanPdfUrlsFromHtml, slugForPdf } from "./pdf-mirror.js";
 
 // ────────────────────────────────────────────────────────────────────
 // scanPdfUrls
@@ -84,6 +84,77 @@ test("scanPdfUrls ignores http(s) links that don't end in .pdf", () => {
 test("scanPdfUrls returns empty when no link matches", () => {
   const md = "Just prose, no links.";
   assert.deepEqual(scanPdfUrls(md, ["https://cdn.example.com/"]), []);
+});
+
+// ────────────────────────────────────────────────────────────────────
+// scanPdfUrlsFromHtml — recovers PDFs behind <a> hrefs that the html-extract
+// F3 link-flattening strips from the markdown (the labor-market-impacts /
+// "Read in PDF" regression: pdf-mirror fetched=0 despite a linked PDF).
+
+test("scanPdfUrlsFromHtml returns empty when allowPrefixes is empty", () => {
+  const html = '<a href="https://cdn.example.com/x.pdf">x</a>';
+  assert.deepEqual(scanPdfUrlsFromHtml(html, []), []);
+});
+
+test("scanPdfUrlsFromHtml extracts a PDF behind an anchor href (double quotes)", () => {
+  const html = '<a href="https://cdn.example.com/foo.pdf">Read in PDF</a>';
+  assert.deepEqual(
+    scanPdfUrlsFromHtml(html, ["https://cdn.example.com/"]),
+    ["https://cdn.example.com/foo.pdf"],
+  );
+});
+
+test("scanPdfUrlsFromHtml handles single-quoted hrefs and extra attributes", () => {
+  const html = "<a href='https://cdn.example.com/a.pdf' target='_blank' rel='noopener'>Appendix</a>";
+  assert.deepEqual(
+    scanPdfUrlsFromHtml(html, ["https://cdn.example.com/"]),
+    ["https://cdn.example.com/a.pdf"],
+  );
+});
+
+test("scanPdfUrlsFromHtml recovers PDFs across two allowlisted CDN hosts", () => {
+  // The real economic-research case: PDFs split between cdn.sanity.io and
+  // www-cdn.anthropic.com.
+  const html = `
+    <a href="https://cdn.sanity.io/files/4zrzovbb/website/aaa.pdf">Read in PDF</a>
+    <a href="https://www-cdn.anthropic.com/bbb.pdf" target="_blank">Appendix</a>`;
+  assert.deepEqual(
+    scanPdfUrlsFromHtml(html, [
+      "https://cdn.sanity.io/files/4zrzovbb/",
+      "https://www-cdn.anthropic.com/",
+    ]),
+    [
+      "https://cdn.sanity.io/files/4zrzovbb/website/aaa.pdf",
+      "https://www-cdn.anthropic.com/bbb.pdf",
+    ],
+  );
+});
+
+test("scanPdfUrlsFromHtml applies the allowlist prefix filter", () => {
+  const html = '<a href="https://evil.example.com/x.pdf">x</a>';
+  assert.deepEqual(scanPdfUrlsFromHtml(html, ["https://cdn.example.com/"]), []);
+});
+
+test("scanPdfUrlsFromHtml dedupes a PDF linked more than once", () => {
+  const html =
+    '<a href="https://cdn.example.com/d.pdf">main</a> ... <a href="https://cdn.example.com/d.pdf">here</a>';
+  assert.deepEqual(
+    scanPdfUrlsFromHtml(html, ["https://cdn.example.com/"]),
+    ["https://cdn.example.com/d.pdf"],
+  );
+});
+
+test("scanPdfUrlsFromHtml ignores non-pdf anchor hrefs", () => {
+  const html = '<a href="https://cdn.example.com/page.html">x</a> <a href="/research/foo">y</a>';
+  assert.deepEqual(scanPdfUrlsFromHtml(html, ["https://cdn.example.com/"]), []);
+});
+
+test("scanPdfUrlsFromHtml captures a query-string suffix", () => {
+  const html = '<a href="https://cdn.example.com/r.pdf?dl=1">x</a>';
+  assert.deepEqual(
+    scanPdfUrlsFromHtml(html, ["https://cdn.example.com/"]),
+    ["https://cdn.example.com/r.pdf?dl=1"],
+  );
 });
 
 // ────────────────────────────────────────────────────────────────────

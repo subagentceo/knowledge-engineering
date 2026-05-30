@@ -6,6 +6,13 @@
   "sitemap_xml_sources": [
     "https://www.anthropic.com/sitemap.xml"
   ],
+  "_html_index_note": "The Economic Research team collection (/research/team/economic-research) links the /research/* articles whose large PDFs we decompose. Those articles are also in sitemap.xml; the index source below catches new econ articles that lag the sitemap and makes the collection explicit. Article PDFs are on cdn.sanity.io/files/4zrzovbb/ (already in pdf_allow_prefixes).",
+  "html_index_sources": [
+    {
+      "url": "https://www.anthropic.com/research/team/economic-research",
+      "link_regex": "href=\"(/research/[^\"#?]*)\""
+    }
+  ],
   "transform": "html-extract",
   "allow_prefixes": [
     "https://www.anthropic.com/engineering/",
@@ -44,6 +51,7 @@
     "selector": "article, main"
   },
   "pdf_allow_prefixes": [
-    "https://cdn.sanity.io/files/4zrzovbb/"
+    "https://cdn.sanity.io/files/4zrzovbb/",
+    "https://www-cdn.anthropic.com/"
   ]
 }
