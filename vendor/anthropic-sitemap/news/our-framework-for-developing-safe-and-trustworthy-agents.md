@@ -70,10 +70,6 @@ As we continue developing and improving our agents, we expect our understanding 
 
 These principles will guide our current and future work on agent development, and we look forward to collaborating with other companies and organizations on this topic. Agents have tremendous potential for positive impacts in work, education, healthcare, and scientific discovery. That is why it is so important to ensure they are built to the highest standards.
 
-  
-
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

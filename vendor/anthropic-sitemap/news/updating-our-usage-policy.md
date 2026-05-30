@@ -22,7 +22,7 @@ Previously, our Acceptable Use Policy was divided into two sections: "Prohibited
 
 We have consistently prohibited the use of our products for political lobbying and campaigning. Our updated policy provides clearer definitions of the activities that fall under each category. For instance, we explicitly state that our products cannot be used to promote or advocate for a specific candidate, party, issue, or position. We also prohibit the use of our products for political activities such as soliciting votes or financial contributions.
 
-Our revised policy also includes more precise language prohibiting the use of our products to interfere with the election process, such as targeting voting machines or obstructing the counting or certification of votes. To combat misinformation, we have added language banning the use of our products to generate or participate in campaigns that disseminate false or misleading information regarding election laws, candidate information, and other related topics.  
+Our revised policy also includes more precise language prohibiting the use of our products to interfere with the election process, such as targeting voting machines or obstructing the counting or certification of votes. To combat misinformation, we have added language banning the use of our products to generate or participate in campaigns that disseminate false or misleading information regarding election laws, candidate information, and other related topics.
 
 ### Adding requirements for high-risk use cases
 

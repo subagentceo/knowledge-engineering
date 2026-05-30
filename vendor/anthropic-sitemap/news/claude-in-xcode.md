@@ -16,8 +16,8 @@ Developers can now connect their Claude account to Xcode 26 to power coding inte
 
 When you log into your Claude account in Xcode, you’ll have access to coding intelligence features powered by Claude Sonnet 4:
 
-*   **Coding assistant**: Interact with your code using natural language. Claude automatically gathers context from your project and supports conversation history and file attachments to help you debug, refactor, and build features
-*   **Coding Tools**: Generate documentation for your code, get explanations of highlighted sections, create SwiftUI previews and playgrounds, and make inline code changes directly in your editor
+- **Coding assistant**: Interact with your code using natural language. Claude automatically gathers context from your project and supports conversation history and file attachments to help you debug, refactor, and build features
+- **Coding Tools**: Generate documentation for your code, get explanations of highlighted sections, create SwiftUI previews and playgrounds, and make inline code changes directly in your editor
 
 Your Claude subscription usage limits are shared across platforms, with a portion available through Xcode.
 
@@ -33,7 +33,6 @@ To start using Claude in Xcode:
 
 Claude in Xcode works with all plans that include Claude Code—Pro and Max, plus premium seats for Team and Enterprise plans.
 
-  
 For more details, see the Xcode 26 release notes and Apple's documentation on writing code with intelligence in Xcode.
 
 ## Related content

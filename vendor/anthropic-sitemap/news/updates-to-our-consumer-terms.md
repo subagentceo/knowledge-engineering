@@ -36,17 +36,17 @@ You can find more details about the Consumer Terms and Privacy Policy updates in
 
 #### What’s changing?
 
-*   We will train new models using data from Free, Pro, and Max accounts **when this setting is on** (including when you use Claude Code from these accounts).
-    *   If you’re a current user, you can select your preference now and your selection will immediately go into effect. This setting will only apply to new or resumed chats and coding sessions on Claude. Previous chats with no additional activity will not be used for model training. You have until **October 8, 2025** to make your selection.
-    *   If you’re a new user, you can pick your setting for model training during the signup process.
-    *   You can change your selection at any time in your Privacy Settings.
-*   We are also expanding our data retention period to five years if you allow us to use your data for model improvement, with this setting only applying to new or resumed chats and coding sessions. If you don't choose this option, you will continue with our existing 30-day data retention period.
+- We will train new models using data from Free, Pro, and Max accounts **when this setting is on** (including when you use Claude Code from these accounts).
+  - If you’re a current user, you can select your preference now and your selection will immediately go into effect. This setting will only apply to new or resumed chats and coding sessions on Claude. Previous chats with no additional activity will not be used for model training. You have until **October 8, 2025** to make your selection.
+  - If you’re a new user, you can pick your setting for model training during the signup process.
+  - You can change your selection at any time in your Privacy Settings.
+- We are also expanding our data retention period to five years if you allow us to use your data for model improvement, with this setting only applying to new or resumed chats and coding sessions. If you don't choose this option, you will continue with our existing 30-day data retention period.
 
 These updates **do not apply** to services under our Commercial Terms, including:
 
-*   Claude for Work, which includes our Team and Enterprise plans
-*   Our API, Amazon Bedrock, or Google Cloud’s Vertex API
-*   Claude Gov and Claude for Education
+- Claude for Work, which includes our Team and Enterprise plans
+- Our API, Amazon Bedrock, or Google Cloud’s Vertex API
+- Claude Gov and Claude for Education
 
 #### Why are you making this change?
 
@@ -71,8 +71,6 @@ If you're signing up for Claude today, you'll see this decision as part of the s
 #### What happens if I allow my data to be used for model training and then change my mind?
 
 You can always update your selection in your Privacy Settings. If you decide to turn off the model training setting, we will not use any new chats and coding sessions you have with Claude for future model training. Your data will still be included in model training that has already started and in models that have already been trained, but we will stop using your previously stored chats and coding sessions in future model training runs.
-
-  
 
 ## Related content
 

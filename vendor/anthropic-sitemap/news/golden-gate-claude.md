@@ -8,7 +8,7 @@ May 23, 2024
 
 ![Golden gate bridge](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F87576d12dbd23533f00ef10a278213c41af73e8e-2880x1614.jpg&w=3840&q=75)
 
-_UPDATE: Golden Gate Claude was online for a 24-hour period as a research demo and is no longer available. If you'd like to find out more about our research on interpretability and the activation of features within Claude, please see this post or our full research paper._  
+_UPDATE: Golden Gate Claude was online for a 24-hour period as a research demo and is no longer available. If you'd like to find out more about our research on interpretability and the activation of features within Claude, please see this post or our full research paper._
 
 On Tuesday, we released a major new research paper on interpreting large language models, in which we began to map out the inner workings of our AI model, Claude 3 Sonnet. In the “mind” of Claude, we found millions of concepts that activate when the model reads relevant text or sees relevant images, which we call “features”.
 
@@ -25,8 +25,6 @@ For a short time, we’re making this model available for everyone to interact w
 Our goal is to let people see the impact our interpretability work can have. The fact that we can find and alter these features within Claude makes us more confident that we’re beginning to understand how large language models really work. This isn’t a matter of asking the model verbally to do some play-acting, or of adding a new “system prompt” that attaches extra text to every input, telling Claude to pretend it’s a bridge. Nor is it traditional “fine-tuning,” where we use extra training data to create a new black box that tweaks the behavior of the old black box. This is a precise, surgical change to some of the most basic aspects of the model’s internal activations.
 
 As we describe in our paper, we can use these same techniques to change the strength of _safety-related_ features—like those related to dangerous computer code, criminal activity, or deception. With further research, we believe this work could help make AI models safer.
-
-  
 
 ## Related content
 

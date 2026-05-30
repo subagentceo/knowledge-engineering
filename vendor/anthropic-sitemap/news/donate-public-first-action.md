@@ -28,10 +28,10 @@ Public First Action is working to fill that gap. Founded and led both by Republi
 
 The organization will work with Republicans, Democrats, and Independents who share the same policy priorities:
 
-*   Insisting on AI model transparency safeguards that give the public more visibility into—and thus, greater confidence that—frontier AI companies are responsibly managing risks;
-*   Supporting a robust federal AI governance framework — and opposing preemption of state laws unless Congress enacts stronger safeguards;
-*   Supporting smart export controls on AI chips that will keep America ahead of its authoritarian adversaries;
-*   Pursuing targeted regulation focused on the nearest-term high risks: AI-enabled biological weapons and cyberattacks
+- Insisting on AI model transparency safeguards that give the public more visibility into—and thus, greater confidence that—frontier AI companies are responsibly managing risks;
+- Supporting a robust federal AI governance framework — and opposing preemption of state laws unless Congress enacts stronger safeguards;
+- Supporting smart export controls on AI chips that will keep America ahead of its authoritarian adversaries;
+- Pursuing targeted regulation focused on the nearest-term high risks: AI-enabled biological weapons and cyberattacks
 
 These policies aren’t partisan. Nor are they for the benefit of Anthropic as an AI developer—effective AI governance means _more_ scrutiny of companies like ours, not less. They’re also not an attempt to hold back smaller or less well-resourced developers: our view is that transparency regulation, for example, should apply only to companies developing the most powerful (and most dangerous) AI models.
 

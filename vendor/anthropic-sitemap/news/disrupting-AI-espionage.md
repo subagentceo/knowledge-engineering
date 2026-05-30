@@ -68,8 +68,8 @@ Read the full report.
 
 _Edited November 14 2025:_
 
-*   _Added an additional hyperlink to the full report in the initial section_
-*   _Corrected an error about the speed of the attack: not "thousands of requests per second" but "thousands of requests, often multiple per second"_
+- _Added an additional hyperlink to the full report in the initial section_
+- _Corrected an error about the speed of the attack: not "thousands of requests per second" but "thousands of requests, often multiple per second"_
 
 ## Related content
 

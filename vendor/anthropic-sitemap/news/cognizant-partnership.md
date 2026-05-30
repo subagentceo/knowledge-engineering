@@ -24,11 +24,11 @@ CIOs face critical challenges: thousands of applications running on legacy code,
 
 This partnership directly addresses these challenges. Cognizant is deploying Claude models, Claude Code, MCP, and Agent SDK with Cognizant's software development and AI platforms to deliver:
 
-*   **Software engineering productivity**: Deploying Claude and Claude Code with Cognizant Flowsource™ Platform (which connects tools and teams across the software development process) to accelerate coding tasks, testing, documentation and DevOps workflows with MCP-based access to developer tools.
-*   **Legacy modernization**: Combining Cognizant's modernization frameworks with Anthropic's code understanding and transformation capabilities to speed analysis and refactoring across large codebases.
-*   **Agentification**: Using Cognizant Neuro® AI Multi-Agent Orchestration (which builds and coordinates multiple AI agents working together) and Anthropic's Agent SDK to design reusable, domain-specific agents and multi-agent systems that operate with explicit policies, approvals and human-in-the-loop controls.
-*   **Industry solutions**: Developing vertical solutions, beginning with Financial Services, leveraging Cognizant Agent Foundry (which helps enterprises build and deploy AI agents at scale) with Claude to embed agentic workflows into regulated, enterprise environments.
-*   **Responsible AI**: Advancing practices for safe deployment, monitoring, and operations at scale, aligned to enterprise governance needs and open standards such as MCP.
+- **Software engineering productivity**: Deploying Claude and Claude Code with Cognizant Flowsource™ Platform (which connects tools and teams across the software development process) to accelerate coding tasks, testing, documentation and DevOps workflows with MCP-based access to developer tools.
+- **Legacy modernization**: Combining Cognizant's modernization frameworks with Anthropic's code understanding and transformation capabilities to speed analysis and refactoring across large codebases.
+- **Agentification**: Using Cognizant Neuro® AI Multi-Agent Orchestration (which builds and coordinates multiple AI agents working together) and Anthropic's Agent SDK to design reusable, domain-specific agents and multi-agent systems that operate with explicit policies, approvals and human-in-the-loop controls.
+- **Industry solutions**: Developing vertical solutions, beginning with Financial Services, leveraging Cognizant Agent Foundry (which helps enterprises build and deploy AI agents at scale) with Claude to embed agentic workflows into regulated, enterprise environments.
+- **Responsible AI**: Advancing practices for safe deployment, monitoring, and operations at scale, aligned to enterprise governance needs and open standards such as MCP.
 
 Cognizant plans to engage clients through workshops, reference patterns, and platform integrations using Claude to help teams identify high-value use cases and move them into production.
 

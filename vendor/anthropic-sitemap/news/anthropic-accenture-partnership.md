@@ -10,13 +10,13 @@ Dec 9, 2025
 
 Anthropic and Accenture today announced a major expansion of their partnership to help enterprises move from AI pilots to full-scale deployment. Key elements of the announcement:
 
-*   Accenture and Anthropic are forming the **Accenture Anthropic Business Group**, making Anthropic one of Accenture's select strategic partners with a dedicated practice built around Claude
-*   Approximately 30,000 Accenture professionals will receive training on Claude, **creating one of the largest ecosystems of Claude practitioners in the world**
-*   Accenture becomes a premier AI partner for coding with Claude Code, which now holds over half of the AI coding market*, making it available to **tens of thousands of its developers**
-*   The companies are launching a **new joint offering to help CIOs measure value and adopt AI** across their engineering organizations
-*   **Initial industry solutions for regulated industries**, including financial services, life sciences, healthcare, and public sector, where security and governance requirements are strictest
+- Accenture and Anthropic are forming the **Accenture Anthropic Business Group**, making Anthropic one of Accenture's select strategic partners with a dedicated practice built around Claude
+- Approximately 30,000 Accenture professionals will receive training on Claude, **creating one of the largest ecosystems of Claude practitioners in the world**
+- Accenture becomes a premier AI partner for coding with Claude Code, which now holds over half of the AI coding market\*, making it available to **tens of thousands of its developers**
+- The companies are launching a **new joint offering to help CIOs measure value and adopt AI** across their engineering organizations
+- **Initial industry solutions for regulated industries**, including financial services, life sciences, healthcare, and public sector, where security and governance requirements are strictest
 
-The announcement comes as Anthropic's enterprise market share has grown from 24% to 40%*.
+The announcement comes as Anthropic's enterprise market share has grown from 24% to 40%\*.
 
 "AI is changing how almost everyone works, and enterprises need both cutting-edge AI and trusted expertise to deploy it at scale. Accenture brings deep enterprise transformation experience, and Anthropic brings the most capable models. Our new partnership means that tens of thousands of Accenture developers will be using Claude Code, making this our largest ever deployment—and the new Accenture Anthropic Business Group will help enterprise clients use our smartest AI models to make major productivity gains,” said **Dario Amodei, CEO and co-founder of Anthropic**.
 
@@ -34,7 +34,7 @@ For Accenture’s enterprise customers, this means faster deployment with less r
 
 Accenture and Anthropic are launching a new joint offering designed for CIOs to measure value and drive large-scale AI adoption across their engineering organizations. This is the first product from the partnership, providing a structured path to shift how enterprise software is designed, built, and maintained.
 
-The offering puts Claude Code, which now holds over half* of the AI coding market, at the center of the enterprise software development lifecycle, combined with three Accenture capabilities: a framework to quantify real productivity gains and ROI, workflow redesign for AI-first development teams, and change management and training that keeps pace as AI evolves. This can help enterprises turn developer productivity gains into company-wide impact for customers through faster releases, shorter development cycles, and the ability to bring new products to market sooner.
+The offering puts Claude Code, which now holds over half\* of the AI coding market, at the center of the enterprise software development lifecycle, combined with three Accenture capabilities: a framework to quantify real productivity gains and ROI, workflow redesign for AI-first development teams, and change management and training that keeps pace as AI evolves. This can help enterprises turn developer productivity gains into company-wide impact for customers through faster releases, shorter development cycles, and the ability to bring new products to market sooner.
 
 Claude Code accelerates developer productivity at every level. Junior developers produce senior-level code, completing integration tasks faster and onboarding in weeks instead of months. Senior developers shift to higher-value work, including architecture, validation, and strategic oversight.
 
@@ -42,9 +42,9 @@ Claude Code accelerates developer productivity at every level. Junior developers
 
 Accenture and Anthropic are jointly developing industry offerings with an initial focus on highly regulated industries—including financial services, life sciences, healthcare, and public sector—where organizations face the dual challenge of modernizing legacy systems while maintaining strict security and governance requirements. For example:
 
-*   Financial services: Claude’s ability to process lengthy, complex documents—combined with Accenture’s regulatory expertise—helps banks and insurers automate compliance workflows and make faster decisions with the precision required in high-stakes financial environments.
-*   Health and life sciences: Accenture’s expertise in life sciences R&D combined with Claude’s analytical capabilities helps researchers query proprietary datasets, generate experimental protocols, and streamline clinical trial processing.
-*   Public sector: AI agents that help citizens navigate complex government services—providing accurate, accessible support while maintaining data privacy and compliance with statutory requirements.
+- Financial services: Claude’s ability to process lengthy, complex documents—combined with Accenture’s regulatory expertise—helps banks and insurers automate compliance workflows and make faster decisions with the precision required in high-stakes financial environments.
+- Health and life sciences: Accenture’s expertise in life sciences R&D combined with Claude’s analytical capabilities helps researchers query proprietary datasets, generate experimental protocols, and streamline clinical trial processing.
+- Public sector: AI agents that help citizens navigate complex government services—providing accurate, accessible support while maintaining data privacy and compliance with statutory requirements.
 
 ## A partnership built on shared values
 
@@ -58,7 +58,7 @@ Anthropic and Accenture will also co-invest in a Claude Center of Excellence ins
 
 Accenture clients can contact their account team to discuss deployment options. Enterprises can visit our Enterprise page to learn more about Claude. Claude is the only frontier model available on all three of the world's most prominent cloud services, including Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Azure.
 
-_*Menlo Ventures’ 2025 State of Generative AI in the Enterprise report_
+_\*Menlo Ventures’ 2025 State of Generative AI in the Enterprise report_
 
 ## Related content
 

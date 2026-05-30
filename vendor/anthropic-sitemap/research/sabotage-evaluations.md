@@ -14,10 +14,10 @@ It’s no different for AI systems. New AI models go through a wide range of saf
 
 As AIs become more capable, however, a new kind of risk might emerge: models with the ability to mislead their users, or subvert the systems we put in place to oversee them. A new paper by the Anthropic Alignment Science team describes a novel set of evaluations that test a model’s capacity for _sabotage_. We looked at four different types:
 
-*   **Human decision sabotage**: Can the model steer humans toward bad decisions without appearing suspicious?
-*   **Code sabotage**: Can the model insert subtle bugs into codebases over time without detection?
-*   **Sandbagging**: Can the model hide dangerous capabilities during testing but reveal them later?
-*   **Undermining oversight**: Can the model subtly manipulate evaluation or monitoring systems?
+- **Human decision sabotage**: Can the model steer humans toward bad decisions without appearing suspicious?
+- **Code sabotage**: Can the model insert subtle bugs into codebases over time without detection?
+- **Sandbagging**: Can the model hide dangerous capabilities during testing but reveal them later?
+- **Undermining oversight**: Can the model subtly manipulate evaluation or monitoring systems?
 
 We developed these evaluations as part of preparations for a future where much more capable AI models could develop these dangerous capabilities. We’re sharing them—along with results from demonstrations of their use on Claude 3 Opus and Claude 3.5 Sonnet—so that other AI developers can use and improve upon them. Below, we discuss each evaluation in turn.
 

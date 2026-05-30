@@ -20,9 +20,9 @@ Claude 3.5 Sonnet v1 and Claude 3 Haiku are now available, alongside Amazon Bedr
 
 With Claude in Amazon Bedrock, federal agencies can now:
 
-*   Deploy frontier AI models for complex document analysis and intelligence synthesis in secure environments
-*   Build AI agents that process controlled unclassified information
-*   Leverage Claude's advanced intelligence and 200K token context window for comprehensive analysis of large datasets
+- Deploy frontier AI models for complex document analysis and intelligence synthesis in secure environments
+- Build AI agents that process controlled unclassified information
+- Leverage Claude's advanced intelligence and 200K token context window for comprehensive analysis of large datasets
 
 ## Accelerating government AI adoption
 

@@ -16,11 +16,11 @@ Governor Newsom assembled the Joint California Policy Working Group—a group of
 
 SB 53 would require large companies developing the most powerful AI systems to:
 
-*   Develop and publish safety frameworks, which describe how they manage, assess, and mitigate catastrophic risks—risks that could foreseeably and materially contribute to a mass casualty incident or substantial monetary damages.
-*   Release public transparency reports summarizing their catastrophic risk assessments and the steps taken to fulfill their respective frameworks before deploying powerful new models.
-*   Report critical safety incidents to the state within 15 days, and even confidentially disclose summaries of any assessments of the potential for catastrophic risk from the use of internally-deployed models.
-*   Provide clear whistleblower protections that cover violations of these requirements as well as specific and substantial dangers to public health/safety from catastrophic risk.
-*   Be publicly accountable for the commitments made in their frameworks or face monetary penalties.
+- Develop and publish safety frameworks, which describe how they manage, assess, and mitigate catastrophic risks—risks that could foreseeably and materially contribute to a mass casualty incident or substantial monetary damages.
+- Release public transparency reports summarizing their catastrophic risk assessments and the steps taken to fulfill their respective frameworks before deploying powerful new models.
+- Report critical safety incidents to the state within 15 days, and even confidentially disclose summaries of any assessments of the potential for catastrophic risk from the use of internally-deployed models.
+- Provide clear whistleblower protections that cover violations of these requirements as well as specific and substantial dangers to public health/safety from catastrophic risk.
+- Be publicly accountable for the commitments made in their frameworks or face monetary penalties.
 
 These requirements would formalize practices that Anthropic and many other frontier AI companies already follow. At Anthropic, we publish our Responsible Scaling Policy, detailing how we evaluate and mitigate risks as our models become more capable. We release comprehensive system cards that document model capabilities and limitations. Other frontier labs (Google DeepMind, OpenAI, Microsoft) have adopted similar approaches while vigorously competing at the frontier. Now all covered models will be legally held to this standard. The bill also appropriately focuses on large companies developing the most powerful AI systems, while providing exemptions for startups and smaller companies that are less likely to develop powerful models and should not bear unnecessary regulatory burdens.
 
@@ -30,9 +30,9 @@ SB 53’s transparency requirements will have an important impact on frontier AI
 
 SB 53 provides a strong regulatory foundation, but we can and should build upon this progress in the following areas and we look forward to working with policymakers to do so:
 
-*   The bill currently decides which AI systems to regulate based on how much computing power (FLOPS) was used to train them. The current threshold (10^26 FLOPS) is an acceptable starting point but there’s always a risk that some powerful models may not be covered.
-*   Similarly, developers should be required to provide greater detail about the tests, evaluations, and mitigations they undertake. When we share our safety research, document our red team testing, and explain our deployment decisions—as we have done alongside industry players via the Frontier Model Forum —it strengthens rather than weakens our work.
-*   Lastly, regulations need to evolve as AI technology advances. Regulators should have the ability to update rules as needed to keep up with new developments and maintain the right balance between safety and innovation.
+- The bill currently decides which AI systems to regulate based on how much computing power (FLOPS) was used to train them. The current threshold (10^26 FLOPS) is an acceptable starting point but there’s always a risk that some powerful models may not be covered.
+- Similarly, developers should be required to provide greater detail about the tests, evaluations, and mitigations they undertake. When we share our safety research, document our red team testing, and explain our deployment decisions—as we have done alongside industry players via the Frontier Model Forum —it strengthens rather than weakens our work.
+- Lastly, regulations need to evolve as AI technology advances. Regulators should have the ability to update rules as needed to keep up with new developments and maintain the right balance between safety and innovation.
 
 We commend Senator Wiener and Governor Newsom for their leadership on responsible AI governance. The question isn't whether we need AI governance—it's whether we'll develop it thoughtfully today or reactively tomorrow. SB 53 offers a solid path toward the former. We encourage California to pass it, and we look forward to working with policymakers in Washington and around the world to develop comprehensive approaches that protect public interests while maintaining America's AI leadership.
 

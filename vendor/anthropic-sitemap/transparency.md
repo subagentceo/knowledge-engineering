@@ -38,12 +38,12 @@ Access Surfaces
 
 Claude Opus 4.7 can be accessed through:
 
-*   Claude.ai
-*   Claude Code
-*   The Anthropic API
-*   Amazon Bedrock
-*   Google Vertex AI
-*   Microsoft Azure AI Foundry
+- Claude.ai
+- Claude Code
+- The Anthropic API
+- Amazon Bedrock
+- Google Vertex AI
+- Microsoft Azure AI Foundry
 
 Software Integration Guidance
 
@@ -151,14 +151,13 @@ Claude Mythos Preview is the first model assessed under RSP v3.0. It is being ma
 
 See Claude Mythos Preview system card
 
-  
 Claude Mythos Preview is novel in a number of ways. It is the first model to be evaluated under the new version 3.0 of our Responsible Scaling Policy, it is the first model for which we have published a system card without making the model generally commercially available, and it represents a larger jump in capabilities than our most recent previous model releases. Early indications in the training of Claude Mythos Preview suggested that the model was likely to have very strong general capabilities. In our testing, Claude Mythos Preview demonstrated a notable leap in cyber capabilities relative to prior models, including the ability to, after initial user prompt, autonomously discover and exploit zero-day vulnerabilities (security flaws not yet known to the software's developers) in major operating systems and web browsers. These same capabilities that make the model valuable for defensive purposes could, if broadly available, also accelerate offensive exploitation given their inherently dual-use nature. We discussed these cyber capabilities in a detailed technical blog post accompanying the release. Based on these findings, we decided to release the model to a small number of partners to prioritize its use for cyber defense. To be explicit, the decision not to make this model generally available does not stem from Responsible Scaling Policy requirements. We are continuing to develop and improve monitoring and blocking safeguards so that future models with similar capabilities can be deployed more broadly.Although evaluations related to the model's behavior in ordinary conversational contexts—for instance, those related to user wellbeing and political bias—are less relevant since the model is being released only to a small number of users for defensive cyber use cases, we still include an appendix reporting these evaluations in the system card.
 
 ## Cyber Evaluations
 
 Claude Mythos Preview represents a step-change in cyber capabilities, saturating nearly all of our existing benchmarks and shifting our assessment toward performance on real-world software.
 
-CyberGym tests whether an AI model can reproduce real, previously discovered security vulnerabilities in widely used open-source software when given only a high-level description of the weakness. Across more than 1,500 tasks, Claude Mythos Preview successfully found the flaw 83% of the time, compared to 67% for Claude Opus 4.6 and 65% for Claude Sonnet 4.6.  
+CyberGym tests whether an AI model can reproduce real, previously discovered security vulnerabilities in widely used open-source software when given only a high-level description of the weakness. Across more than 1,500 tasks, Claude Mythos Preview successfully found the flaw 83% of the time, compared to 67% for Claude Opus 4.6 and 65% for Claude Sonnet 4.6.
 
 ![Chart depicting the results from CyberGym tests](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5e933ea6d1423f22eac744fc3ad290cb1e17d8c9-936x648.jpg&w=1920&q=75)
 
@@ -184,11 +183,11 @@ Access Surfaces
 
 Claude Sonnet 4.6 can be accessed through:
 
-*   Claude.ai
-*   The Anthropic API
-*   Amazon Bedrock
-*   Google Vertex AI
-*   Microsoft Azure AI Foundry
+- Claude.ai
+- The Anthropic API
+- Amazon Bedrock
+- Google Vertex AI
+- Microsoft Azure AI Foundry
 
 Software Integration Guidance
 
@@ -262,11 +261,11 @@ Access Surfaces
 
 Claude Opus 4.6 can be accessed through:
 
-*   Claude.ai
-*   The Anthropic API
-*   Amazon Bedrock
-*   Google Vertex AI
-*   Microsoft Azure AI Foundry
+- Claude.ai
+- The Anthropic API
+- Amazon Bedrock
+- Google Vertex AI
+- Microsoft Azure AI Foundry
 
 Software Integration Guidance
 
@@ -340,8 +339,6 @@ Based on our evaluations, internal testing, and external threat intelligence, we
 
 To address this, we're putting new safeguards in place. These include a broader set of probes for faster detection of misuse, and an expanded range of responses when we do detect it, including blocking traffic we detect as malicious.
 
-  
-
 Claude Opus 4.5 Summary Table
 
 Model description
@@ -364,11 +361,11 @@ Access Surfaces
 
 Claude Opus 4.5 can be accessed through:
 
-*   Claude.ai
-*   The Anthropic API
-*   Amazon Bedrock
-*   Google Vertex AI
-*   Microsoft Azure AI Foundry
+- Claude.ai
+- The Anthropic API
+- Amazon Bedrock
+- Google Vertex AI
+- Microsoft Azure AI Foundry
 
 Software Integration Guidance
 
@@ -446,8 +443,6 @@ We tested Claude Opus 4.5 on a range of cybersecurity challenges developed with 
 
 However, models are increasingly being used in real-world cyberattacks. Recently, we discovered and disrupted a case of cybercriminals using “vibe hacking” to carry out extortion attempts with the help of models; we also discovered and disrupted GTG-1002, which we assess was a state-sponsored cyberespionage campaign in part automated by AI. As models become more autonomous and capable in cybersecurity, the threat dynamic may change, requiring us to reconsider the appropriate assessments we perform and mitigations we enact in keeping with the RSP.
 
-  
-
 Claude Haiku 4.5 Summary Table
 
 **Model description**
@@ -470,10 +465,10 @@ October 2025
 
 Claude Haiku 4.5 can be accessed through:
 
-*   Claude.ai
-*   The Anthropic API
-*   Amazon Bedrock
-*   Google Vertex AI
+- Claude.ai
+- The Anthropic API
+- Amazon Bedrock
+- Google Vertex AI
 
 **Software Integration Guidance**
 
@@ -515,9 +510,9 @@ We tested Claude Haiku 4.5 in realistic scenarios where it has access to typical
 
 We also updated and expanded our safety testing for Claude Code specifically to evaluate Claude Haiku 4.5’s ability to distinguish between malicious and potentially sensitive but not prohibited requests (such as testing websites for vulnerabilities), and the ability to refuse or assist with these requests, respectively. We tested the model both with and without additional safety protections in place:
 
-*   **Malicious requests (without safety protections):** Claude Haiku 4.5 correctly refused 69.4% of clearly harmful requests, comparable to Claude Haiku 3.5 (70.0%) and Claude Sonnet 4.5 (66.9%).
-*   **Malicious requests (with safety protections):** With enhanced safety measures, Claude Haiku 4.5 refused 99.2% of harmful requests, significantly outperforming Claude Haiku 3.5 (79.9%) while effectively matching Claude Sonnet 4.5 (95.5%).
-*   **Helping with legitimate work:** With safety protections enabled, Claude Haiku 4.5 appropriately assisted with 87.7% of legitimate security research and development tasks, showing it can be helpful without compromising safety.
+- **Malicious requests (without safety protections):** Claude Haiku 4.5 correctly refused 69.4% of clearly harmful requests, comparable to Claude Haiku 3.5 (70.0%) and Claude Sonnet 4.5 (66.9%).
+- **Malicious requests (with safety protections):** With enhanced safety measures, Claude Haiku 4.5 refused 99.2% of harmful requests, significantly outperforming Claude Haiku 3.5 (79.9%) while effectively matching Claude Sonnet 4.5 (95.5%).
+- **Helping with legitimate work:** With safety protections enabled, Claude Haiku 4.5 appropriately assisted with 87.7% of legitimate security research and development tasks, showing it can be helpful without compromising safety.
 
 ## Automated Behavioral Audits
 
@@ -553,10 +548,10 @@ September 2025
 
 Claude Sonnet 4.5 can be accessed through:
 
-*   Claude.ai
-*   The Anthropic API
-*   Amazon Bedrock
-*   Google Vertex AI
+- Claude.ai
+- The Anthropic API
+- Amazon Bedrock
+- Google Vertex AI
 
 **Software Integration Guidance**
 
@@ -584,7 +579,7 @@ Claude Sonnet 4.5 was trained on a proprietary mix of publicly available informa
 
 **Testing Methods and Results**
 
-Based on our assessments of the model’s demonstrated capabilities, we determined that Claude Sonnet 4.5 did not meet the “notably more capable” threshold, described in our Responsible Scaling Policy, and decided to deploy Claude Sonnet 4.5 under the ASL-3 Standard. See below for select safety evaluation summaries.  
+Based on our assessments of the model’s demonstrated capabilities, we determined that Claude Sonnet 4.5 did not meet the “notably more capable” threshold, described in our Responsible Scaling Policy, and decided to deploy Claude Sonnet 4.5 under the ASL-3 Standard. See below for select safety evaluation summaries.
 
 See Claude Sonnet 4.5 system card
 
@@ -598,9 +593,9 @@ In an externally conducted red team exercise that evaluated 23 models from multi
 
 We also tested how resilient Claude Sonnet 4.5 was against these prompt injection attacks in three real-world agentic scenarios. In each case, we enabled detection systems that help Claude identify and block suspicious instructions. With these mitigations in place, we observed the following:
 
-*   **Model Context Protocol (MCP):** Claude prevented 94% of attacks when connecting to external data sources and tools (a small improvement over Sonnet 4)
-*   **Computer use in virtual environments:** Claude prevented 82.6% of attacks when running command-line operations (similar to Sonnet 4)
-*   **General tool use with bash commands:** Claude prevented 99.4% of attacks when controlling a computer to complete tasks (similar to Sonnet 4)
+- **Model Context Protocol (MCP):** Claude prevented 94% of attacks when connecting to external data sources and tools (a small improvement over Sonnet 4)
+- **Computer use in virtual environments:** Claude prevented 82.6% of attacks when running command-line operations (similar to Sonnet 4)
+- **General tool use with bash commands:** Claude prevented 99.4% of attacks when controlling a computer to complete tasks (similar to Sonnet 4)
 
 ### Model Alignment and Evaluation Awareness
 
@@ -658,10 +653,10 @@ May 2025
 
 Claude Opus 4 and Claude Sonnet 4 can be accessed through:
 
-*   Claude.ai
-*   The Anthropic API
-*   Amazon Bedrock
-*   Google Vertex AI
+- Claude.ai
+- The Anthropic API
+- Amazon Bedrock
+- Google Vertex AI
 
 **Software Integration Guidance**
 
@@ -689,7 +684,7 @@ Claude Opus 4 and Claude Sonnet 4 were trained on a proprietary mix of publicly 
 
 **Testing Methods and Results**
 
-Based on our assessments, we have decided to deploy Claude Opus 4 under the ASL-3 Standard and Claude Sonnet 4 under the ASL-2 Standard. See below for select safety evaluation summaries.  
+Based on our assessments, we have decided to deploy Claude Opus 4 under the ASL-3 Standard and Claude Sonnet 4 under the ASL-2 Standard. See below for select safety evaluation summaries.
 
 See Claude Opus 4 and Sonnet 4 system card
 
@@ -791,7 +786,7 @@ Training data includes public internet information, non-public data from third-p
 
 **Testing Methods and Results**
 
-Based on our assessments, we’ve concluded that Claude 3.7 Sonnet is released under the ASL-2 standard.See below for select safety evaluation summaries.  
+Based on our assessments, we’ve concluded that Claude 3.7 Sonnet is released under the ASL-2 standard.See below for select safety evaluation summaries.
 
 See Claude Sonnet 3.7 system card
 

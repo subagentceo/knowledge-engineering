@@ -58,8 +58,6 @@ This is our commitment—ensuring that educators in every community, not just th
 
 For more on Anthropic's education initiatives, see here.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

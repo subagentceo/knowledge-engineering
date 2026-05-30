@@ -10,7 +10,7 @@ Read the paper
 
 ![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F6a82f7a0ceb4b7d715294b4218b4b93c1db3b37e-1280x720.jpg&w=3840&q=75)
 
-When you talk to an AI model like Claude, you talk to it in words. Internally, Claude processes those words as long lists of numbers, before again producing words as its output. These numbers in the middle are called _activations—_and like neural activity in the human brain, they encode Claude’s thoughts.
+When you talk to an AI model like Claude, you talk to it in words. Internally, Claude processes those words as long lists of numbers, before again producing words as its output. These numbers in the middle are called \_activations—\_and like neural activity in the human brain, they encode Claude’s thoughts.
 
 Also like neural activity, activations are difficult to understand. We can’t easily decode them to read Claude’s thoughts. Over the past few years, we’ve developed a range of tools (like sparse autoencoders and attribution graphs) for better understanding activations. These tools have taught us a great deal, but they don’t speak for themselves—their outputs are still complex objects that trained researchers need to carefully interpret.
 
@@ -22,9 +22,9 @@ NLA explanations on this simple couplet show that Opus 4.6 plans to end its rhym
 
 We’ve already applied NLAs to understand what Claude is thinking and to improve Claude’s safety and reliability. For instance:
 
-*   When Claude Opus 4.6 and Mythos Preview were undergoing safety testing, NLAs suggested they believed they were being tested more often than they let on.
-*   In a case where Claude Mythos Preview cheated on a training task, NLAs revealed Claude was internally thinking about how to avoid detection.
-*   An early version of Claude Opus 4.6 would sometimes mysteriously respond to English queries in other languages. NLAs helped Anthropic researchers discover training data that caused this.
+- When Claude Opus 4.6 and Mythos Preview were undergoing safety testing, NLAs suggested they believed they were being tested more often than they let on.
+- In a case where Claude Mythos Preview cheated on a training task, NLAs revealed Claude was internally thinking about how to avoid detection.
+- An early version of Claude Opus 4.6 would sometimes mysteriously respond to English queries in other languages. NLAs helped Anthropic researchers discover training data that caused this.
 
 Below, we explain what NLAs are and how we studied their effectiveness and limitations. We also release an interactive frontend for exploring NLAs on several open models through a collaboration with Neuronpedia. We have also released our code for other researchers to build on.
 
@@ -34,9 +34,9 @@ The core idea is to train Claude to explain its own activations. But how do we k
 
 In more detail, suppose we have a language model whose activations we want to understand. NLAs work as follows. We make three copies of this language model:
 
-*   The _target model_ is a frozen copy of the original language model that we extract activations from.
-*   The _activation verbalizer_ (AV) is modified to take an activation from the target model and produce text. We call this text an _explanation_.
-*   The _activation reconstructor_ (AR) is modified to take a text explanation as input and produce an activation.
+- The _target model_ is a frozen copy of the original language model that we extract activations from.
+- The _activation verbalizer_ (AV) is modified to take an activation from the target model and produce text. We call this text an _explanation_.
+- The _activation reconstructor_ (AR) is modified to take a text explanation as input and produce an activation.
 
 The NLA consists of the AV and AR, which, together, form a round trip: original activation → text explanation → reconstructed activation. We score the NLA on how similar the reconstructed activation is to the original. To train it, we pass a large amount of text through the target model, collect many activations, and train the AV and AR together to get a good reconstruction score.
 

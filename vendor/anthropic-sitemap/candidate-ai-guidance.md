@@ -8,12 +8,12 @@ Here's when and how to use Claude (or other AI tools) when applying to and inter
 
 ## How to collaborate with Claude during each stage of our process
 
-*   **When applying (resume and application questions)** Please create your first draft yourself, then use Claude to refine it. We want to see your real experience, but Claude can polish how you communicate about your work.
-    *   Example prompt: “Please review my resume and the job description. Identify the experiences I should highlight in my application responses that align most with the job requirements.”
-*   **During take-home assessments** Complete these without Claude unless we indicate otherwise. We’d like to assess your unique skills and strengths. We'll be clear when AI is allowed (example: "You may use Claude for this coding challenge").
-*   **Preparing for interviews** Use Claude to research Anthropic, practice your answers, and prepare questions for us.
-    *   Example prompt: “Create a study guide for interviewing for this job. Outline key topics I should review, including AI safety concepts, Anthropic's research focus, and typical technical or behavioral questions I might encounter.”
-*   **During live interviews** This is all you–no AI assistance unless we indicate otherwise. We’re curious to see how you think through problems in real time. If you require any accommodations for your interviews, please let your recruiter know early in the process.
+- **When applying (resume and application questions)** Please create your first draft yourself, then use Claude to refine it. We want to see your real experience, but Claude can polish how you communicate about your work.
+  - Example prompt: “Please review my resume and the job description. Identify the experiences I should highlight in my application responses that align most with the job requirements.”
+- **During take-home assessments** Complete these without Claude unless we indicate otherwise. We’d like to assess your unique skills and strengths. We'll be clear when AI is allowed (example: "You may use Claude for this coding challenge").
+- **Preparing for interviews** Use Claude to research Anthropic, practice your answers, and prepare questions for us.
+  - Example prompt: “Create a study guide for interviewing for this job. Outline key topics I should review, including AI safety concepts, Anthropic's research focus, and typical technical or behavioral questions I might encounter.”
+- **During live interviews** This is all you–no AI assistance unless we indicate otherwise. We’re curious to see how you think through problems in real time. If you require any accommodations for your interviews, please let your recruiter know early in the process.
 
 ## Examples of encouraged vs. not allowed usage
 
@@ -68,8 +68,6 @@ We plan to regularly review and update this guidance to reflect evolving AI capa
 ## If you are designing a hiring process
 
 Feel free to adapt this framework for your organization. We believe clear guidelines benefit everyone in the hiring process.
-
-  
 
 ## Example prompts for candidates
 

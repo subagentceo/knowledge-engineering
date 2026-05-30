@@ -31,56 +31,56 @@ Claude Haiku 4.5 is one of our most powerful models to date. See footnotes for m
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/a638c23edfce0d313f951732a2379b89cd40d682-235x64.svg)
 
 > Claude Haiku 4.5 hit a sweet spot we didn't think was possible: **near-frontier coding quality with blazing speed and cost efficiency**. In Augment's agentic coding evaluation, it achieves 90% of Sonnet 4.5's performance, matching much larger models. We're excited to offer it to our users.
-> 
+>
 > Guy Gur-Ari  
 > Co-Founder
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/14c3ac690679578d7361cf67c93f11782531d602-150x48.svg)
 
 > **Claude Haiku 4.5 is a leap forward for agentic coding**, particularly for sub-agent orchestration and computer use tasks. The responsiveness makes AI-assisted development in Warp feel instantaneous.
-> 
+>
 > Zach Lloyd  
 > Founder & CEO
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/094b76abf3e64453c224e12ae388b8008b02660e-150x48.svg)
 
 > Historically models have sacrificed speed and cost for quality. Claude Haiku 4.5 is blurring the lines on this trade off: **it's a fast frontier model that keeps costs efficient** and signals where this class of models is headed.
-> 
+>
 > Jeff Wang  
 > CEO
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/02dced142fb26d4a3441cad79f997a1fd6c9a8b0-150x48.svg)
 
 > **Claude Haiku 4.5 delivers intelligence without sacrificing speed**, enabling us to build AI applications that utilize both deep reasoning and real-time responsiveness.
-> 
+>
 > Ben Lafferty  
 > Staff Engineer
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/9235b38d087c4aea7debc0e62fc6f37d337ff237-356x68.svg)
 
 > Claude Haiku 4.5 is remarkably capable—**just six months ago, this level of performance would have been state-of-the-art** on our internal benchmarks. Now it runs up to 4-5 times faster than Sonnet 4.5 at a fraction of the cost, unlocking an entirely new set of use cases.
-> 
+>
 > Andrew Filev  
 > CEO
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/023ced6d84b14452f308b629b8931b80d8120e28-150x48.svg)
 
 > Speed is the new frontier for AI agents operating in feedback loops. **Haiku 4.5 proves you can have both intelligence and rapid output**. It handles complex workflows reliably, self-corrects in real-time, and maintains momentum without latency overhead. For most development tasks, it's the ideal performance balance.
-> 
+>
 > Brad Axen  
 > Tech Lead, AI
 
 ![Gamma logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/d1a7e2e3c3c9c90411efd32141c8dc02f83efef2-150x48.svg)
 
 > Claude Haiku 4.5 **outperformed our current models on instruction-following for slide text generation**, achieving 65% accuracy versus 44% from our premium tier model—that's a game-changer for our unit economics.
-> 
+>
 > Jon Noronha  
 > Co-Founder, Gamma
 
 ![ logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/7715b118c5eb0ff2a85f1f7914bce8c634ecacbd-150x48.svg)
 
 > Our early testing shows that Claude Haiku 4.5 brings efficient code generation to GitHub Copilot **with comparable quality to Sonnet 4 but at faster speed**. Already we're seeing it as an excellent choice for Copilot users who value speed and responsiveness in their AI-powered development workflows.
-> 
+>
 > Matthew Isabel  
 > Distinguished Product Manager
 
@@ -102,14 +102,14 @@ For complete technical details and evaluation results, see our system card, mode
 
 #### Methodology
 
-*   **SWE-bench Verified**: All Claude results were reported using a simple scaffold with two tools—bash and file editing via string replacements. We report 73.3%, which was averaged over 50 trials, no test-time compute, 128K thinking budget, and default sampling parameters (temperature, top_p) on the full 500-problem SWE-bench Verified dataset.
-    *   The score reported uses a minor prompt addition: "You should use tools as much as possible, ideally more than 100 times. You should also implement your own tests first before attempting the problem."
-*   **Terminal-Bench**: All scores reported use the default agent framework (Terminus 2), with XML parser, averaging 11 runs (6 without thinking (40.21% score), 5 with 32K thinking budget (41.75% score)) with n-attempts=1.
-*   **τ2-bench**: Scores were achieved averaging over 10 runs using extended thinking (128k thinking budget) and default sampling parameters (temperature, top_p) with tool use and a prompt addendum to the Airline and Telecom Agent Policy instructing Claude to better target its known failure modes when using the vanilla prompt. A prompt addendum was also added to the Telecom User prompt to avoid failure modes from the user ending the interaction incorrectly.
-*   **AIME**: Haiku 4.5 score reported as the average over 10 independent runs that each calculate pass@1 over 16 trials with default sampling parameters (temperature, top_p) and 128K thinking budget.
-*   **OSWorld**: All scores reported use the official OSWorld-Verified framework with 100 max steps, averaged across 4 runs with 128K total thinking budget and 2K thinking budget per-step configured.
-*   **MMMLU**: All scores reported are the average of 10 runs over 14 non-English languages with a 128K thinking budget.
-*   All other scores were averaged over 10 runs with default sampling parameters (temperature, top_p) and 128K thinking budget.
+- **SWE-bench Verified**: All Claude results were reported using a simple scaffold with two tools—bash and file editing via string replacements. We report 73.3%, which was averaged over 50 trials, no test-time compute, 128K thinking budget, and default sampling parameters (temperature, top_p) on the full 500-problem SWE-bench Verified dataset.
+  - The score reported uses a minor prompt addition: "You should use tools as much as possible, ideally more than 100 times. You should also implement your own tests first before attempting the problem."
+- **Terminal-Bench**: All scores reported use the default agent framework (Terminus 2), with XML parser, averaging 11 runs (6 without thinking (40.21% score), 5 with 32K thinking budget (41.75% score)) with n-attempts=1.
+- **τ2-bench**: Scores were achieved averaging over 10 runs using extended thinking (128k thinking budget) and default sampling parameters (temperature, top_p) with tool use and a prompt addendum to the Airline and Telecom Agent Policy instructing Claude to better target its known failure modes when using the vanilla prompt. A prompt addendum was also added to the Telecom User prompt to avoid failure modes from the user ending the interaction incorrectly.
+- **AIME**: Haiku 4.5 score reported as the average over 10 independent runs that each calculate pass@1 over 16 trials with default sampling parameters (temperature, top_p) and 128K thinking budget.
+- **OSWorld**: All scores reported use the official OSWorld-Verified framework with 100 max steps, averaged across 4 runs with 128K total thinking budget and 2K thinking budget per-step configured.
+- **MMMLU**: All scores reported are the average of 10 runs over 14 non-English languages with a 128K thinking budget.
+- All other scores were averaged over 10 runs with default sampling parameters (temperature, top_p) and 128K thinking budget.
 
 All OpenAI scores reported from their GPT-5 post, GPT-5 for developers post, GPT-5 system card (SWE-bench Verified reported using n=500), and Terminal Bench leaderboard (using Terminus 2). All Gemini scores reported from their model web page, and Terminal Bench leaderboard (using Terminus 1).
 

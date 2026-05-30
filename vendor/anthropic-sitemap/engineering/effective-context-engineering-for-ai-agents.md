@@ -112,9 +112,9 @@ This approach achieves a clear separation of concerns—the detailed search cont
 
 The choice between these approaches depends on task characteristics. For example:
 
-*   Compaction maintains conversational flow for tasks requiring extensive back-and-forth;
-*   Note-taking excels for iterative development with clear milestones;
-*   Multi-agent architectures handle complex research and analysis where parallel exploration pays dividends.
+- Compaction maintains conversational flow for tasks requiring extensive back-and-forth;
+- Note-taking excels for iterative development with clear milestones;
+- Multi-agent architectures handle complex research and analysis where parallel exploration pays dividends.
 
 Even as models continue to improve, the challenge of maintaining coherence across extended interactions will remain central to building more effective agents.
 

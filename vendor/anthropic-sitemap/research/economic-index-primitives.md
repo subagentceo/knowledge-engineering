@@ -34,7 +34,7 @@ This same trend holds—albeit in weaker form—when we adjust for tasks’ succ
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/748b522964169a031f15579194d8c8976ba80a79-1920x792.svg)
 
-_**Speedup and success rate vs. human years of schooling.** The chart on the left shows a scatterplot of the relationship between speedup and human years of schooling, measured at the O*NET task level. The dashed lines show the line of best fit. The chart on the right shows the relationship with the success rate._
+_**Speedup and success rate vs. human years of schooling.** The chart on the left shows a scatterplot of the relationship between speedup and human years of schooling, measured at the O\*NET task level. The dashed lines show the line of best fit. The chart on the right shows the relationship with the success rate._
 
 #### What are the time horizons over which Claude can support tasks?
 
@@ -44,7 +44,7 @@ We’re able to complement METR’s analysis using our economic primitives. In t
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fbf18bd0b6c14a07cff03bad97dc720183a0ac507-3840x2800.png&w=3840&q=75)
 
-_**Task success vs. human-only time.** This chart shows the relationship between task success (%) and the time the task would require a human to complete alone, all measured at the O*NET task level and split by platform. The dashed lines show the fit from a linear regression._
+_**Task success vs. human-only time.** This chart shows the relationship between task success (%) and the time the task would require a human to complete alone, all measured at the O\*NET task level and split by platform. The dashed lines show the fit from a linear regression._
 
 METR’s benchmark suggests that Claude Sonnet 4.5 (the model in our own analysis) achieves 50% success rates on tasks of 2 hours. By contrast, our own API data finds that Claude is 50% successful at tasks that take nearly twice as long (around 3.5 hours), and on Claude.ai, the duration is vastly longer still—around 19 hours. But this might not be as discordant as it seems: our methodology is different to METR’s in some important ways. In our sample, users can break down complex tasks into smaller steps, creating a feedback loop that allows Claude to correct course. And rather than a fixed set of tasks, our sample contains a form of selection bias: users bring tasks to Claude that they’re more confident will work.
 
@@ -80,7 +80,7 @@ A further question we asked is whether the tasks that AI covers represent the hi
 
 ![](https://www-cdn.anthropic.com/images/4zrzovbb/website/ee80542ac5b4dc9fd097a391284e628ab5f5d239-713x425.svg)
 
-_**Education level of all tasks vs. Claude-covered tasks.** The blue bars give the distribution of the predicted task-level education required for all tasks in the O*NET database, weighted by employment. The orange bars show the same, restricting to tasks that appear in Claude.ai data._
+_**Education level of all tasks vs. Claude-covered tasks.** The blue bars give the distribution of the predicted task-level education required for all tasks in the O\*NET database, weighted by employment. The orange bars show the same, restricting to tasks that appear in Claude.ai data._
 
 As an experiment, we estimated how removing these Claude-covered tasks would shift the task composition of people’s jobs. As a first-order effect, this would _deskill_ jobs on average, since it would remove those higher-education tasks. Professions like technical writers, travel agents, and teachers would be affected (as we discuss further in the report), though a rarer few (like real estate managers) would see effects going the other way.
 
@@ -116,7 +116,7 @@ In the meantime, researchers, journalists, and the public can use our data to in
 
 1.  As with previous reports, all our analysis is based on privacy-preserving analysis. Throughout the report we analyze a random sample of 1M conversations from Claude.ai Free, Pro and Max conversations (we also refer to this as “consumer data” since it mostly represents consumer use) and 1M transcripts from our first-party (1P) API traffic (we also refer to this as “enterprise data” since it mostly represents enterprise use).
 2.  More specifically,
-    1.  **Task complexity** captures that tasks can vary in their complexity, including how long they take to complete and how difficult they are. A "debugging" task in O*NET could refer to Claude fixing a small error in a function or comprehensively refactoring a codebase—with very different implications for labor demand. We measure complexity through estimated human time to complete tasks without AI, time spent completing tasks with AI, and whether users handle multiple tasks within a single conversation.
+    1.  **Task complexity** captures that tasks can vary in their complexity, including how long they take to complete and how difficult they are. A "debugging" task in O\*NET could refer to Claude fixing a small error in a function or comprehensively refactoring a codebase—with very different implications for labor demand. We measure complexity through estimated human time to complete tasks without AI, time spent completing tasks with AI, and whether users handle multiple tasks within a single conversation.
     2.  **Human and AI skills** address how automation interacts with skill levels. If AI disproportionately substitutes for tasks requiring less expertise while complementing higher-skilled work, it could be another form of skill-biased technical change—increasing demand for highly skilled workers while displacing lower skilled workers. We measure whether users could have completed tasks without Claude, and the years of education needed to understand both user prompts and Claude's responses.
     3.  **Use case** distinguishes professional, educational, and personal use. Labor market effects most directly follow from workplace use, while educational use may signal where the future workforce is building AI-complementary skills.
     4.  **AI autonomy** measures the degree to which users delegate decision-making to Claude. Our latest report documented rising "directive" use where users delegate tasks entirely. Tracking autonomy levels—from active collaboration to full delegation—helps forecast the pace of automation.

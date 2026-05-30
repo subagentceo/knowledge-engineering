@@ -12,9 +12,9 @@ The Government of Rwanda and Anthropic have signed a three-year Memorandum of Un
 
 Our collaboration spans three areas:
 
-*   **Accelerating Rwanda’s health goals:** Anthropic will support the Ministry of Health to tackle its ambitious national health goals, including its plan to eliminate cervical cancer and its ongoing eﬀorts to reduce malaria and maternal mortality.
-*   **Enabling Rwanda’s public sector developers:** Developer teams across government institutions will use Claude and Claude Code. Along with hands-on training, capacity building, and API credits, this access will support Rwanda’s broader efforts to integrate AI into other public sector areas.
-*   **Deepening our education partnership in Rwanda and throughout the region:** The MOU formally codifies our fall 2025 education agreement, which included 2,000 Claude Pro licenses for educators across Rwanda, AI literacy training for public servants, and the deployment of a Claude-powered AI learning companion across eight African countries.
+- **Accelerating Rwanda’s health goals:** Anthropic will support the Ministry of Health to tackle its ambitious national health goals, including its plan to eliminate cervical cancer and its ongoing eﬀorts to reduce malaria and maternal mortality.
+- **Enabling Rwanda’s public sector developers:** Developer teams across government institutions will use Claude and Claude Code. Along with hands-on training, capacity building, and API credits, this access will support Rwanda’s broader efforts to integrate AI into other public sector areas.
+- **Deepening our education partnership in Rwanda and throughout the region:** The MOU formally codifies our fall 2025 education agreement, which included 2,000 Claude Pro licenses for educators across Rwanda, AI literacy training for public servants, and the deployment of a Claude-powered AI learning companion across eight African countries.
 
 ## Accelerating AI for health, education, and the public sector
 
@@ -29,8 +29,6 @@ Anthropic’s Beneficial Deployments team has worked closely with the Ministry o
 Today’s announcement builds on our education partnerships, which help students and educators interact with AI, and marks a significant expansion into the health sector.
 
 Together, these partnerships reflect a long-term collaboration that prioritizes capacity building, responsible deployment, and local autonomy over how new technologies are introduced. By investing in skills, infrastructure, and institutions, we hope to lay the groundwork for AI to deliver lasting value in the sectors that matter most to people’s lives.
-
-  
 
 ## Related content
 

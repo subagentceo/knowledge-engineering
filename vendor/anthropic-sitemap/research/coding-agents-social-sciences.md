@@ -10,11 +10,11 @@ May 27, 2026
 
 ## Summary
 
-*   _We present results from a survey of 1,260 social scientists about AI and coding agent use, fielded in February and March 2026._
-*   _The vast majority of respondents (81%) have tried using AI chatbots in research, particularly for writing code and editing prose. But only 20% have adopted coding agents—tools like Claude Code that autonomously write and execute analysis code—into their work._
-*   _There are sharp disparities in use of coding agents. Twice as many researchers with typically male names use coding agents as those with female names. Researchers at top universities are 40% more likely than others to use coding agents._
-*   _Users of coding agents post more working papers and grant proposals than others in the same discipline and career stage, but this could reflect pre-existing differences among early adopters._
-*   _Researchers are more optimistic about AI helping write publishable papers than about the effects of AI on the social sciences as a whole._
+- _We present results from a survey of 1,260 social scientists about AI and coding agent use, fielded in February and March 2026._
+- _The vast majority of respondents (81%) have tried using AI chatbots in research, particularly for writing code and editing prose. But only 20% have adopted coding agents—tools like Claude Code that autonomously write and execute analysis code—into their work._
+- _There are sharp disparities in use of coding agents. Twice as many researchers with typically male names use coding agents as those with female names. Researchers at top universities are 40% more likely than others to use coding agents._
+- _Users of coding agents post more working papers and grant proposals than others in the same discipline and career stage, but this could reflect pre-existing differences among early adopters._
+- _Researchers are more optimistic about AI helping write publishable papers than about the effects of AI on the social sciences as a whole._
 
 ## How are AI coding agents changing how we study the economy and society?
 
@@ -78,7 +78,7 @@ Are coding agents making researchers more productive? That’s the question moti
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1d115c36e9b18bb674ddea85e662ccd71a9bf839-3840x2160.jpg&w=3840&q=75)
 
-**Figure 5: Productivity differences in research output between regular AI coding agent users and other researchers.** _Outcomes are self-reported by respondents. Working papers posted, journal submissions and journal resubmissions are mutually exclusive categories. Model is described in appendix. Whiskers show 95% confidence intervals calculated using the robust standard errors scaled by the outcome mean. * p < 0.05, ** p < 0.01._
+**Figure 5: Productivity differences in research output between regular AI coding agent users and other researchers.** _Outcomes are self-reported by respondents. Working papers posted, journal submissions and journal resubmissions are mutually exclusive categories. Model is described in appendix. Whiskers show 95% confidence intervals calculated using the robust standard errors scaled by the outcome mean. \* p < 0.05, \*\* p < 0.01._
 
 Figure 5 shows self-reported output over the six months before the survey at different stages of the research process, from projects started to papers submitted. The adjusted estimates compare coding agent users to others, controlling for career stage, discipline, and the week they completed the survey. Coding agent users are starting more projects, posting more working papers, submitting more grants, and possibly sending out more conference submissions.
 

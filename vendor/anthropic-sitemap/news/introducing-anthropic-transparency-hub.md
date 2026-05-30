@@ -10,16 +10,16 @@ Feb 27, 2025
 
 Today, we're launching Anthropic's Transparency Hub—a detailed overview of concrete measures we're implementing to ensure our systems are safe, beneficial, and trustworthy.
 
-As AI capabilities advance rapidly, meaningful transparency is essential for building trust and accountability. Organizations working on frontier AI have a responsibility to provide clear insights into their processes for responsible scaling, safety protocols, and risk mitigation strategies—particularly as regulatory frameworks continue to evolve. As a starting point, we are publishing our first periodic report on several key transparency metrics: banned accounts, account appeals, appeal overturns, reports to the National Center for Missing and Exploited Children (NCMEC), and government request data.  
+As AI capabilities advance rapidly, meaningful transparency is essential for building trust and accountability. Organizations working on frontier AI have a responsibility to provide clear insights into their processes for responsible scaling, safety protocols, and risk mitigation strategies—particularly as regulatory frameworks continue to evolve. As a starting point, we are publishing our first periodic report on several key transparency metrics: banned accounts, account appeals, appeal overturns, reports to the National Center for Missing and Exploited Children (NCMEC), and government request data.
 
 Our Transparency Hub offers detailed information on:
 
-*   Methodologies for model evaluation and safety testing
-*   Platform abuse detection and enforcement measures
-*   Internal governance and risk assessment policies
-*   Methods for assessing and addressing potential societal impacts
-*   Research initiatives advancing the field of AI safety
-*   Security and privacy safeguards implemented throughout development
+- Methodologies for model evaluation and safety testing
+- Platform abuse detection and enforcement measures
+- Internal governance and risk assessment policies
+- Methods for assessing and addressing potential societal impacts
+- Research initiatives advancing the field of AI safety
+- Security and privacy safeguards implemented throughout development
 
 **Beyond Basic Reporting**
 

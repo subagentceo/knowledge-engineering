@@ -38,8 +38,6 @@ In the months ahead, we plan to engage with more groups—including legal schola
 
 We’ll keep deepening the relationships we’ve already formed, testing what we’ve heard against our research, and sharing what we learn.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

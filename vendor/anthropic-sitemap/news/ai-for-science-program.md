@@ -26,8 +26,6 @@ Researchers attached to a research institution interested in the AI for Science 
 
 We look forward to seeing how researchers use our API to push the boundaries of scientific discovery and create positive impact in the world.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

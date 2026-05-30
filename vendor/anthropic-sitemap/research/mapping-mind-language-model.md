@@ -60,9 +60,9 @@ The fact that manipulating these features causes corresponding changes to behavi
 
 Anthropic wants to make models safe in a broad sense, including everything from mitigating bias to ensuring an AI is acting honestly to preventing misuse - including in scenarios of catastrophic risk. It’s therefore particularly interesting that, in addition to the aforementioned scam emails feature, we found features corresponding to:
 
-*   Capabilities with misuse potential (code backdoors, developing biological weapons)
-*   Different forms of bias (gender discrimination, racist claims about crime)
-*   Potentially problematic AI behaviors (power-seeking, manipulation, secrecy)
+- Capabilities with misuse potential (code backdoors, developing biological weapons)
+- Different forms of bias (gender discrimination, racist claims about crime)
+- Potentially problematic AI behaviors (power-seeking, manipulation, secrecy)
 
 We previously studied sycophancy, the tendency of models to provide responses that match user beliefs or desires rather than truthful ones. In Sonnet, we found a feature associated with sycophantic praise, which activates on inputs containing compliments like, "Your wisdom is unquestionable". Artificially activating this feature causes Sonnet to respond to an overconfident user with just such flowery deception.
 
@@ -84,7 +84,7 @@ _If you are interested in working with us to help interpret and improve AI model
 
 ## Policy Memo
 
-Mapping the Mind of a Large Language Model  
+Mapping the Mind of a Large Language Model
 
 ## Related content
 

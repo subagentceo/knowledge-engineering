@@ -36,8 +36,6 @@ The Series G will also power our infrastructure expansion as we make Claude avai
 
 The demand we are seeing from enterprises and developers reflects the trust they place in Claude for the work that matters most. As AI moves toward scaled implementation, we will continue to build the models, products, and partnerships to lead that transition.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

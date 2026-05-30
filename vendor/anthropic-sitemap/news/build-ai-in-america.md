@@ -34,25 +34,23 @@ We propose two strategic pillars that will address the full spectrum of infrastr
 
 **Pillar 1: Building large-scale AI training infrastructure**
 
-*   Make federal lands available as options for AI infrastructure construction, avoiding years-long state and local zoning processes;
-*   Accelerate NEPA processes for AI infrastructure, including by conducting advance reviews of certain projects;
-*   Partner with the private sector to expedite critical power line buildouts and upgrades; and
-*   Support utilities in making key reforms to accelerate interconnection processes, including by deploying AI to boost efficiency. Where critical for national security, leverage existing federal authorities to ensure that AI training infrastructure receives timely interconnections.
+- Make federal lands available as options for AI infrastructure construction, avoiding years-long state and local zoning processes;
+- Accelerate NEPA processes for AI infrastructure, including by conducting advance reviews of certain projects;
+- Partner with the private sector to expedite critical power line buildouts and upgrades; and
+- Support utilities in making key reforms to accelerate interconnection processes, including by deploying AI to boost efficiency. Where critical for national security, leverage existing federal authorities to ensure that AI training infrastructure receives timely interconnections.
 
 **Pillar 2: Building broad-based infrastructure for AI innovation nationwide**
 
-*   Accelerate geothermal, natural gas, and nuclear permitting;
-*   Establish National Interest Electric Transmission Corridors to speed transmission permitting in areas of significant AI data center growth;
-*   Strengthen domestic production of critical grid components and turbines through loan and loan guarantee programs and building strategic reserves of these products; and
-*   Support training, apprenticeship, and entrepreneurship programs for critical energy workers, electricians, and construction workers.
+- Accelerate geothermal, natural gas, and nuclear permitting;
+- Establish National Interest Electric Transmission Corridors to speed transmission permitting in areas of significant AI data center growth;
+- Strengthen domestic production of critical grid components and turbines through loan and loan guarantee programs and building strategic reserves of these products; and
+- Support training, apprenticeship, and entrepreneurship programs for critical energy workers, electricians, and construction workers.
 
 America has the economic strength, technical prowess, and innovative spirit to meet AI's infrastructure challenges. Our recommendations offer a practical blueprint that uses existing federal authorities while cutting through regulatory barriers that have held back energy development for too long.
 
-By partnering across government, industry, and communities, we can build the foundation for decades of American leadership in AI.  
+By partnering across government, industry, and communities, we can build the foundation for decades of American leadership in AI.
 
 Read the full report.
-
-  
 
 ## Related content
 

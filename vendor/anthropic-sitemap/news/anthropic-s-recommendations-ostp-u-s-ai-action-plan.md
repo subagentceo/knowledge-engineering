@@ -12,10 +12,10 @@ In response to the White House’s Request for Information on an AI Action Plan,
 
 As our CEO Dario Amodei writes in ‘Machines of Loving Grace’, we expect powerful AI systems will emerge in late 2026 or early 2027. Powerful AI systems will have the following properties:
 
-*   Intellectual capabilities matching or exceeding that of Nobel Prize winners across most disciplines—including biology, computer science, mathematics, and engineering.
-*   The ability to navigate all interfaces available to a human doing digital work today, including the ability to process and generate text, audio, and video, the ability to autonomously control technology instruments like mice and keyboards, and the ability to access and browse the internet.
-*   The ability to autonomously reason through complex tasks over extended periods—hours, days, or even weeks—seeking clarification and feedback when needed, much like a highly capable employee would.
-*   The ability to interface with the physical world; controlling laboratory equipment, robotic systems, and manufacturing tools through digital connections.
+- Intellectual capabilities matching or exceeding that of Nobel Prize winners across most disciplines—including biology, computer science, mathematics, and engineering.
+- The ability to navigate all interfaces available to a human doing digital work today, including the ability to process and generate text, audio, and video, the ability to autonomously control technology instruments like mice and keyboards, and the ability to access and browse the internet.
+- The ability to autonomously reason through complex tasks over extended periods—hours, days, or even weeks—seeking clarification and feedback when needed, much like a highly capable employee would.
+- The ability to interface with the physical world; controlling laboratory equipment, robotic systems, and manufacturing tools through digital connections.
 
 Our own recent work adds further evidence to the idea that powerful AI will arrive soon: our recently-released Claude 3.7 Sonnet and Claude Code demonstrate significant capability improvements and increased autonomy, as do systems released by other frontier labs.
 

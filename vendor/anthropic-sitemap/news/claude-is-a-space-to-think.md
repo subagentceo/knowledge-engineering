@@ -58,8 +58,6 @@ Our experience of using the internet has made it easy to assume that advertising
 
 We think Claude should work the same way.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

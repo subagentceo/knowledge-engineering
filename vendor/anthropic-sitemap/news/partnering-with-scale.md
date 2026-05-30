@@ -8,7 +8,6 @@ Apr 26, 2023
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fdf9f22e51ec2857161c30f0aa5f7c04eef0a84e0-5760x3240.png&w=3840&q=75)
 
-  
 We are pleased to announce our partnership with Scale, a leading platform for building, deploying and managing Generative AI applications. Scale customers will now be able to use Claude, our conversational AI assistant based on research into training helpful, honest, and harmless systems.
 
 Moving beyond experiments into real-world applications of AI requires resourcing and deep expertise. Businesses can now create applications on top of Claude using Scale's robust deployment and management functionality.

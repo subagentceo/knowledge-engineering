@@ -30,9 +30,9 @@ All of these commitments build on the efforts we have already undertaken to ensu
 
 Through partnerships with leading education platforms, we're seeing how AI is helping to transform learning for millions of students and educators across America:
 
-*   MagicSchool, a K-12 education platform, uses Claude to serve 3 million educators across every U.S. school district with 100+ million AI engagements, becoming the fastest growing education technology platform ever.
-*   Amira Learning, an AI reading technology platform for K-12 students, uses Claude to help millions of students develop reading comprehension skills and background knowledge through individualized, conversational learning experiences.
-*   Solvely.ai, an AI-powered academic companion that helps students of all ages with writing, math, and more, uses Claude to help 5+ million students across 120+ countries.
+- MagicSchool, a K-12 education platform, uses Claude to serve 3 million educators across every U.S. school district with 100+ million AI engagements, becoming the fastest growing education technology platform ever.
+- Amira Learning, an AI reading technology platform for K-12 students, uses Claude to help millions of students develop reading comprehension skills and background knowledge through individualized, conversational learning experiences.
+- Solvely.ai, an AI-powered academic companion that helps students of all ages with writing, math, and more, uses Claude to help 5+ million students across 120+ countries.
 
 Beyond helping students learn with AI, we're helping them build with it. Claude for Education serves 100,000+ students and faculty, including USF Law's first fully AI-integrated curriculum and Northeastern's 13-campus adoption. Additionally, Claude Builder Clubs are launching in over 60 U.S. universities this fall, empowering students to launch real startups and build tools that solve problems in their communities.
 

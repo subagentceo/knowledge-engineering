@@ -30,8 +30,6 @@ Starting today, customers can use Claude 3 Haiku through our API or with a Claud
 
 [3] Each image is estimated at 1.6K tokens.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

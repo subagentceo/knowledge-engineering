@@ -20,8 +20,8 @@ _This post and the accompanying report discuss the new measures and the rational
 
 Increasingly capable AI models warrant increasingly strong deployment and security protections. This principle is core to Anthropic’s Responsible Scaling Policy (RSP).1
 
-*   **Deployment measures** target specific categories of misuse; in particular, our RSP focuses on reducing the risk that models could be misused for attacks with the most dangerous categories of weapons–CBRN.
-*   **Security** **controls** aim to prevent the theft of model weights–the essence of the AI’s intelligence and capability.
+- **Deployment measures** target specific categories of misuse; in particular, our RSP focuses on reducing the risk that models could be misused for attacks with the most dangerous categories of weapons–CBRN.
+- **Security** **controls** aim to prevent the theft of model weights–the essence of the AI’s intelligence and capability.
 
 Anthropic’s RSP includes _Capability Thresholds_ for models: if models reach those thresholds (or if we have not yet determined that they are sufficiently far below them), we are required to implement a higher level of _AI Safety Level Standards_. Until now, all our models have been deployed under the baseline protections of the AI Safety Level 2 (ASL-2) Standard. ASL-2 deployment measures include training models to refuse dangerous CBRN-related requests. ASL-2 security measures include defenses against opportunistic attempts to steal the weights. The ASL-3 Standard requires a higher level of defense against both deployment and security threats, suitable against sophisticated non-state attackers.
 
@@ -37,9 +37,9 @@ The new ASL-3 deployment measures are narrowly focused on preventing the model f
 
 We have developed a three-part approach: making the system more difficult to jailbreak, detecting jailbreaks when they do occur, and iteratively improving our defenses.
 
-*   **Making the system more difficult to jailbreak.** We have implemented Constitutional Classifiers—a system where real-time classifier guards, trained on synthetic data representing harmful and harmless CBRN-related prompts and completions, monitor model inputs and outputs and intervene to block a narrow class of harmful CBRN information. Our pre-production testing suggests we can substantially reduce jailbreaking success while adding only moderate compute overhead (additional processing costs beyond what is required for model inference) to normal operations.
-*   **Detecting jailbreaks when they occur.** We have also instituted a wider monitoring system including a bug bounty program focused on stress-testing our Constitutional Classifiers, offline classification systems, and threat intelligence partnerships to quickly identify and respond to potential universal jailbreaks that would enable CBRN misuse.
-*   **Iteratively improving our defenses.** We believe we can rapidly remediate jailbreaks using methods including generating synthetic jailbreaks that resemble those we discovered and using those data to train a new classifier.
+- **Making the system more difficult to jailbreak.** We have implemented Constitutional Classifiers—a system where real-time classifier guards, trained on synthetic data representing harmful and harmless CBRN-related prompts and completions, monitor model inputs and outputs and intervene to block a narrow class of harmful CBRN information. Our pre-production testing suggests we can substantially reduce jailbreaking success while adding only moderate compute overhead (additional processing costs beyond what is required for model inference) to normal operations.
+- **Detecting jailbreaks when they occur.** We have also instituted a wider monitoring system including a bug bounty program focused on stress-testing our Constitutional Classifiers, offline classification systems, and threat intelligence partnerships to quickly identify and respond to potential universal jailbreaks that would enable CBRN misuse.
+- **Iteratively improving our defenses.** We believe we can rapidly remediate jailbreaks using methods including generating synthetic jailbreaks that resemble those we discovered and using those data to train a new classifier.
 
 All these measures will require ongoing refinement, both to improve their effectiveness and because they may still occasionally affect legitimate queries (that is, they may produce false positives).4 Nevertheless, they represent a substantial advance in defending against catastrophic misuse of AI capabilities.5
 
@@ -71,9 +71,7 @@ Read the full report.
 
 5For more information on our assessment of the effectiveness and sufficiency of these measures, see the ASL-3 Deployment Safeguards Report.
 
-6Nation-state threats (other than those using non-novel attack chains) and sophisticated insider risk are out of the scope of the ASL-3 Standard.  
-
-  
+6Nation-state threats (other than those using non-novel attack chains) and sophisticated insider risk are out of the scope of the ASL-3 Standard.
 
 ## Related content
 

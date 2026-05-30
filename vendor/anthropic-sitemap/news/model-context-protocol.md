@@ -20,9 +20,9 @@ The Model Context Protocol is an open standard that enables developers to build 
 
 Today, we're introducing three major components of the Model Context Protocol for developers:
 
-*   The Model Context Protocol specification and SDKs
-*   Local MCP server support in the Claude Desktop apps
-*   An open-source repository of MCP servers
+- The Model Context Protocol specification and SDKs
+- Local MCP server support in the Claude Desktop apps
+- An open-source repository of MCP servers
 
 Claude 3.5 Sonnet is adept at quickly building MCP server implementations, making it easy for organizations and individuals to rapidly connect their most important datasets with a range of AI-powered tools. To help developers start exploring, we’re sharing pre-built MCP servers for popular enterprise systems like Google Drive, Slack, GitHub, Git, Postgres, and Puppeteer.
 
@@ -40,9 +40,9 @@ Claude for Work customers can begin testing MCP servers locally, connecting Clau
 
 To start building:
 
-*   Install pre-built MCP servers through the Claude Desktop app
-*   Follow our quickstart guide to build your first MCP server
-*   Contribute to our open-source repositories of connectors and implementations
+- Install pre-built MCP servers through the Claude Desktop app
+- Follow our quickstart guide to build your first MCP server
+- Contribute to our open-source repositories of connectors and implementations
 
 ## An open community
 

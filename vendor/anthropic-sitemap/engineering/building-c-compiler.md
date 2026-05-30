@@ -1,8 +1,8 @@
 # Building a C compiler with a team of parallel Claudes
 
-_Written by Nicholas Carlini, a researcher on our Safeguards team.  
-  
-_
+\_Written by Nicholas Carlini, a researcher on our Safeguards team.
+
+\_
 
 I've been experimenting with a new approach to supervising language models that we’re calling "agent teams."
 
@@ -33,15 +33,14 @@ done
 
 Copy
 
-  
 In the agent prompt, I tell Claude what problem to solve and ask it to approach the problem by breaking it into small pieces, tracking what it’s working on, figuring out what to work on next, and to effectively keep going until it’s perfect. (On this last point, Claude has no choice. The loop runs forever—although in one instance, I did see Claude `pkill -9 bash` on accident, thus killing itself and ending the loop. Whoops!).
 
 ## Running Claude in parallel
 
 Running multiple instances in parallel can address two weaknesses of a single-agent harness:
 
-*   One Claude Code session can only do one thing at a time. Especially as the scope of a project expands, debugging multiple issues in parallel is far more efficient.
-*   Running multiple Claude agents allows for specialization. While a few agents are tasked to solve the actual problem at hand, other specialized agents can be invoked to (for example) maintain documentation, keep an eye on code quality, or solve specialized sub-tasks.
+- One Claude Code session can only do one thing at a time. Especially as the scope of a project expands, debugging multiple issues in parallel is far more efficient.
+- Running multiple Claude agents allows for specialization. While a few agents are tasked to solve the actual problem at hand, other specialized agents can be invoked to (for example) maintain documentation, keep an eye on code quality, or solve specialized sub-tasks.
 
 My implementation of parallel Claude is bare-bones. A new bare git repo is created, and for each agent, a Docker container is spun up with the repo mounted to `/upstream`. Each agent clones a local copy to `/workspace`, and when it's done, pushes from its own local container to upstream.
 
@@ -73,8 +72,8 @@ For example, each agent is dropped into a fresh container with no context and wi
 
 I also kept in mind the fact that language models have inherent limitations, which, in this case, needed to be designed around. These include:
 
-*   **Context window pollution:** The test harness should not print thousands of useless bytes. At most, it should print a few lines of output and log all important information to a file so Claude can find it when needed. Logfiles should be easy to process automatically: if there are errors, Claude should write ERROR and put the reason on the same line so grep will find it. It helps to pre-compute aggregate summary statistics so Claude doesn't have to recompute them.
-*   **Time blindness:** Claude can't tell time and, left alone, will happily spend hours running tests instead of making progress. The harness prints incremental progress infrequently (to avoid polluting context) and includes a default `--fast` option that runs a 1% or 10% random sample. This subsample is deterministic per-agent but random across VMs, so Claude still covers all files but each agent can perfectly identify regressions.
+- **Context window pollution:** The test harness should not print thousands of useless bytes. At most, it should print a few lines of output and log all important information to a file so Claude can find it when needed. Logfiles should be easy to process automatically: if there are errors, Claude should write ERROR and put the reason on the same line so grep will find it. It helps to pre-compute aggregate summary statistics so Claude doesn't have to recompute them.
+- **Time blindness:** Claude can't tell time and, left alone, will happily spend hours running tests instead of making progress. The harness prints incremental progress infrequently (to avoid polluting context) and includes a default `--fast` option that runs a 1% or 10% random sample. This subsample is deterministic per-agent but random across VMs, so Claude still covers all files but each agent can perfectly identify regressions.
 
 ### Make parallelism easy
 
@@ -104,11 +103,11 @@ This was a clean-room implementation (Claude did not have internet access at any
 
 The compiler, however, is not without limitations. These include:
 
-*   It lacks the 16-bit x86 compiler that is necessary to boot Linux out of real mode. For this, it calls out to GCC (the x86_32 and x86_64 compilers are its own).
-*   It does not have its own assembler and linker; these are the very last bits that Claude started automating and are still somewhat buggy. The demo video was produced with a GCC assembler and linker.
-*   The compiler successfully builds many projects, but not all. It's not yet a drop-in replacement for a real compiler.
-*   The generated code is not very efficient. Even with all optimizations enabled, it outputs less efficient code than GCC with all optimizations _disabled._
-*   The Rust code quality is reasonable, but is nowhere near the quality of what an expert Rust programmer might produce.
+- It lacks the 16-bit x86 compiler that is necessary to boot Linux out of real mode. For this, it calls out to GCC (the x86_32 and x86_64 compilers are its own).
+- It does not have its own assembler and linker; these are the very last bits that Claude started automating and are still somewhat buggy. The demo video was produced with a GCC assembler and linker.
+- The compiler successfully builds many projects, but not all. It's not yet a drop-in replacement for a real compiler.
+- The generated code is not very efficient. Even with all optimizations enabled, it outputs less efficient code than GCC with all optimizations _disabled._
+- The Rust code quality is reasonable, but is nowhere near the quality of what an expert Rust programmer might produce.
 
 The resulting compiler has nearly reached the limits of Opus’s abilities. I tried (hard!) to fix several of the above limitations but wasn’t fully successful. New features and bugfixes frequently broke existing functionality.
 

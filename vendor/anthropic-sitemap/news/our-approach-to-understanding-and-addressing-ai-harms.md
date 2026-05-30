@@ -15,17 +15,17 @@ Why is this approach important? As models continue to evolve, we need more compr
 Our approach complements our Responsible Scaling Policy (RSP), which focuses specifically on catastrophic risks. Identifying and addressing the full range of potential impacts requires a broader perspective. That's why we've built out a more comprehensive framework to assess harm that we can then proportionately manage and mitigate.
 
 _  
-***Important note**: This approach is still evolving. We're sharing our current thinking while acknowledging it will continue to develop as we learn more. We welcome collaboration from across the AI ecosystem as we work to make these systems benefit humanity._
+**\*Important note**: This approach is still evolving. We're sharing our current thinking while acknowledging it will continue to develop as we learn more. We welcome collaboration from across the AI ecosystem as we work to make these systems benefit humanity._
 
 ### Breaking down our approach:
 
 We've developed an approach that helps our teams communicate clearly, make well-reasoned decisions, and develop targeted solutions for both known and emergent harms. This approach is designed to be both principled and adaptable to keep up with the evolving AI landscape. We examine potential AI impacts across multiple baseline dimensions, with room to grow and expand over time:
 
-*   **Physical impacts:** Effects on bodily health and well-being
-*   **Psychological impacts:** Effects on mental health and cognitive functioning
-*   **Economic impacts:** Financial consequences and property considerations
-*   **Societal impacts:** Effects on communities, institutions, and shared systems
-*   **Individual autonomy impacts:** Effects on personal decision-making and freedoms
+- **Physical impacts:** Effects on bodily health and well-being
+- **Psychological impacts:** Effects on mental health and cognitive functioning
+- **Economic impacts:** Financial consequences and property considerations
+- **Societal impacts:** Effects on communities, institutions, and shared systems
+- **Individual autonomy impacts:** Effects on personal decision-making and freedoms
 
 For each dimension, we consider factors like likelihood, scale, affected populations, duration, causality, technology contribution, and mitigation feasibility. This helps us understand the real-world significance of different potential impacts.
 
@@ -33,8 +33,8 @@ Depending on harm type and severity, we address and manage risks through a varie
 
 ### Some examples of how we’ve used our framework to inform our understanding of harm
 
-When exploring new capabilities or features, we examine how they might introduce additional considerations across different harm dimensions. For example:  
-  
+When exploring new capabilities or features, we examine how they might introduce additional considerations across different harm dimensions. For example:
+
 **Computer Use:** As our models develop the ability to interact with computer interfaces, we consider factors like the types of software AI systems might interact with and the contexts in which these interactions occur, which helps us identify where additional safeguards might be beneficial. For computer use, we specifically examine a multitude of risks including those related to financial software and banking platforms where unauthorized automation could potentially facilitate fraud or manipulation, and communication tools where AI systems could be used for targeted influence operations or phishing campaigns. This analysis helps us develop approaches that maintain the utility of these capabilities while incorporating appropriate monitoring and enforcement to prevent misuse. For example, our initial work on computer use functionality led us to design more stringent enforcement thresholds and employ novel approaches to enforcement such as hierarchical summarization that allows us to detect harms while maintaining our privacy standards.
 
 **Model Response Boundaries:** When considering how models should respond to different types of user requests, we've found value in examining tradeoffs between helpfulness and appropriate limitations. Models that are trained to be more helpful and responsive to user requests may also lean towards harmful behaviors (e.g., sharing information that violates our AUP or could be used in dangerous ways). Conversely, models that over-index on harmlessness can tend towards not sharing any information with users, even when requests are harmless. By thinking about both individual and societal impacts, we can better understand where to focus our safety evaluations and training. For example, with Claude 3.7 Sonnet, we evaluated different types of requests along this spectrum and improved how our model handles ambiguous prompts by encouraging safe, helpful responses rather than simply refusing to engage. This resulted in a 45% reduction in unnecessary refusals while maintaining strong safeguards against truly harmful content. This approach helps us make more nuanced decisions about model behavior, particularly in scenarios where certain vulnerable populations—such as children, marginalized communities, or individuals in crisis—might be at heightened risk.
@@ -46,8 +46,6 @@ There's still a lot to do. Our approach to understanding and addressing harms is
 As AI systems become more capable, we expect new challenges will emerge that we haven't yet anticipated. We're committed to evolving our approach alongside these developments, including adapting our frameworks, refining our assessment methods, and learning from both successes and failures along the way.
 
 We know we can't do this work alone. We invite researchers, policy experts, and industry partners to collaborate with us as we continue exploring these important questions. You can connect with us on these issues via usersafety@anthropic.com.
-
-  
 
 ## Related content
 

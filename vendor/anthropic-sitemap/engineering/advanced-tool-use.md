@@ -10,9 +10,9 @@ Agents also need to learn correct tool usage from examples, not just schema defi
 
 Today, we're releasing three features that make this possible:
 
-*   **Tool Search Tool,** which allows Claude to use search tools to access thousands of tools without consuming its context window
-*   **Programmatic Tool Calling**, which allows Claude to invoke tools in a code execution environment reducing the impact on the model’s context window
-*   **Tool Use Examples**, which provides a universal standard for demonstrating how to effectively use a given tool
+- **Tool Search Tool,** which allows Claude to use search tools to access thousands of tools without consuming its context window
+- **Programmatic Tool Calling**, which allows Claude to invoke tools in a code execution environment reducing the impact on the model’s context window
+- **Tool Use Examples**, which provides a universal standard for demonstrating how to effectively use a given tool
 
 In internal testing, we’ve found these features have helped us build things that wouldn’t have been possible with conventional tool use patterns. For example, **Claude for Excel** uses Programmatic Tool Calling to read and modify spreadsheets with thousands of rows without overloading the model’s context window.
 
@@ -24,11 +24,11 @@ Based on our experience, we believe these features open up new possibilities for
 
 MCP tool definitions provide important context, but as more servers connect, those tokens can add up. Consider a five-server setup:
 
-*   GitHub: 35 tools (~26K tokens)
-*   Slack: 11 tools (~21K tokens)
-*   Sentry: 5 tools (~3K tokens)
-*   Grafana: 5 tools (~3K tokens)
-*   Splunk: 2 tools (~2K tokens)
+- GitHub: 35 tools (~26K tokens)
+- Slack: 11 tools (~21K tokens)
+- Sentry: 5 tools (~3K tokens)
+- Grafana: 5 tools (~3K tokens)
+- Splunk: 2 tools (~2K tokens)
 
 That's 58 tools consuming approximately 55K tokens before the conversation even starts. Add more servers like Jira (which alone uses ~17K tokens) and you're quickly approaching 100K+ token overhead. At Anthropic, we've seen tool definitions consume 134K tokens before optimization.
 
@@ -44,15 +44,15 @@ _Tool Search Tool preserves 191,300 tokens of context compared to 122,800 with C
 
 Traditional approach:
 
-*   All tool definitions loaded upfront (~72K tokens for 50+ MCP tools)
-*   Conversation history and system prompt compete for remaining space
-*   Total context consumption: ~77K tokens before any work begins
+- All tool definitions loaded upfront (~72K tokens for 50+ MCP tools)
+- Conversation history and system prompt compete for remaining space
+- Total context consumption: ~77K tokens before any work begins
 
 With the Tool Search Tool:
 
-*   Only the Tool Search Tool loaded upfront (~500 tokens)
-*   Tools discovered on-demand as needed (3-5 relevant tools, ~3K tokens)
-*   Total context consumption: ~8.7K tokens, preserving 95% of context window
+- Only the Tool Search Tool loaded upfront (~500 tokens)
+- Tools discovered on-demand as needed (3-5 relevant tools, ~3K tokens)
+- Total context consumption: ~8.7K tokens, preserving 95% of context window
 
 This represents an 85% reduction in token usage while maintaining access to your full tool library. Internal testing showed significant accuracy improvements on MCP evaluations when working with large tool libraries. Opus 4 improved from 49% to 74%, and Opus 4.5 improved from 79.5% to 88.1% with Tool Search Tool enabled.
 
@@ -115,16 +115,16 @@ Like any architectural decision, enabling the Tool Search Tool involves trade-of
 
 **Use it when:**
 
-*   Tool definitions consuming >10K tokens
-*   Experiencing tool selection accuracy issues
-*   Building MCP-powered systems with multiple servers
-*   10+ tools available
+- Tool definitions consuming >10K tokens
+- Experiencing tool selection accuracy issues
+- Building MCP-powered systems with multiple servers
+- 10+ tools available
 
 **Less beneficial when:**
 
-*   Small tool library (<10 tools)
-*   All tools used frequently in every session
-*   Tool definitions are compact
+- Small tool library (<10 tools)
+- All tools used frequently in every session
+- Tool definitions are compact
 
 ## Programmatic Tool Calling
 
@@ -132,8 +132,8 @@ Like any architectural decision, enabling the Tool Search Tool involves trade-of
 
 Traditional tool calling creates two fundamental problems as workflows become more complex:
 
-*   **Context pollution from intermediate results**: When Claude analyzes a 10MB log file for error patterns, the entire file enters its context window, even though Claude only needs a summary of error frequencies. When fetching customer data across multiple tables, every record accumulates in context regardless of relevance. These intermediate results consume massive token budgets and can push important information out of the context window entirely.
-*   **Inference overhead and manual synthesis**: Each tool call requires a full model inference pass. After receiving results, Claude must "eyeball" the data to extract relevant information, reason about how pieces fit together, and decide what to do next—all through natural language processing. A five tool workflow means five inference passes plus Claude parsing each result, comparing values, and synthesizing conclusions. This is both slow and error-prone.
+- **Context pollution from intermediate results**: When Claude analyzes a 10MB log file for error patterns, the entire file enters its context window, even though Claude only needs a summary of error frequencies. When fetching customer data across multiple tables, every record accumulates in context regardless of relevance. These intermediate results consume massive token budgets and can push important information out of the context window entirely.
+- **Inference overhead and manual synthesis**: Each tool call requires a full model inference pass. After receiving results, Claude must "eyeball" the data to extract relevant information, reason about how pieces fit together, and decide what to do next—all through natural language processing. A five tool workflow means five inference passes plus Claude parsing each result, comparing values, and synthesizing conclusions. This is both slow and error-prone.
 
 ### Our solution
 
@@ -147,18 +147,18 @@ Consider a common business task: "Which team members exceeded their Q3 travel bu
 
 You have three tools available:
 
-*   `get_team_members(department)` - Returns team member list with IDs and levels
-*   `get_expenses(user_id, quarter)` - Returns expense line items for a user
-*   `get_budget_by_level(level)` - Returns budget limits for an employee level
+- `get_team_members(department)` - Returns team member list with IDs and levels
+- `get_expenses(user_id, quarter)` - Returns expense line items for a user
+- `get_budget_by_level(level)` - Returns budget limits for an employee level
 
 **Traditional approach**:
 
-*   Fetch team members → 20 people
-*   For each person, fetch their Q3 expenses → 20 tool calls, each returning 50-100 line items (flights, hotels, meals, receipts)
-*   Fetch budget limits by employee level
-*   All of this enters Claude's context: 2,000+ expense line items (50 KB+)
-*   Claude manually sums each person's expenses, looks up their budget, compares expenses against budget limits
-*   More round-trips to the model, significant context consumption
+- Fetch team members → 20 people
+- For each person, fetch their Q3 expenses → 20 tool calls, each returning 50-100 line items (flights, hotels, meals, receipts)
+- Fetch budget limits by employee level
+- All of this enters Claude's context: 2,000+ expense line items (50 KB+)
+- Claude manually sums each person's expenses, looks up their budget, compares expenses against budget limits
+- More round-trips to the model, significant context consumption
 
 **With Programmatic Tool Calling**:
 
@@ -208,9 +208,9 @@ Claude's context receives only the final result: the two to three people who exc
 
 The efficiency gains are substantial:
 
-*   **Token savings**: By keeping intermediate results out of Claude's context, PTC dramatically reduces token consumption. Average usage dropped from 43,588 to 27,297 tokens, a 37% reduction on complex research tasks.
-*   **Reduced latency**: Each API round-trip requires model inference (hundreds of milliseconds to seconds). When Claude orchestrates 20+ tool calls in a single code block, you eliminate 19+ inference passes. The API handles tool execution without returning to the model each time.
-*   **Improved accuracy**: By writing explicit orchestration logic, Claude makes fewer errors than when juggling multiple tool results in natural language. Internal knowledge retrieval improved from 25.6% to 28.5%; GIA benchmarks from 46.5% to 51.2%.
+- **Token savings**: By keeping intermediate results out of Claude's context, PTC dramatically reduces token consumption. Average usage dropped from 43,588 to 27,297 tokens, a 37% reduction on complex research tasks.
+- **Reduced latency**: Each API round-trip requires model inference (hundreds of milliseconds to seconds). When Claude orchestrates 20+ tool calls in a single code block, you eliminate 19+ inference passes. The API handles tool execution without returning to the model each time.
+- **Improved accuracy**: By writing explicit orchestration logic, Claude makes fewer errors than when juggling multiple tool results in natural language. Internal knowledge retrieval improved from 25.6% to 28.5%; GIA benchmarks from 46.5% to 51.2%.
 
 Production workflows involve messy data, conditional logic, and operations that need to scale. Programmatic Tool Calling lets Claude handle that complexity programmatically while keeping its focus on actionable results rather than raw data processing.
 
@@ -311,17 +311,17 @@ Programmatic Tool Calling adds a code execution step to your workflow. This extr
 
 **Most beneficial when:**
 
-*   Processing large datasets where you only need aggregates or summaries
-*   Running multi-step workflows with three or more dependent tool calls
-*   Filtering, sorting, or transforming tool results before Claude sees them
-*   Handling tasks where intermediate data shouldn't influence Claude's reasoning
-*   Running parallel operations across many items (checking 50 endpoints, for example)
+- Processing large datasets where you only need aggregates or summaries
+- Running multi-step workflows with three or more dependent tool calls
+- Filtering, sorting, or transforming tool results before Claude sees them
+- Handling tasks where intermediate data shouldn't influence Claude's reasoning
+- Running parallel operations across many items (checking 50 endpoints, for example)
 
 **Less beneficial when:**
 
-*   Making simple single-tool invocations
-*   Working on tasks where Claude should see and reason about all intermediate results
-*   Running quick lookups with small responses
+- Making simple single-tool invocations
+- Working on tasks where Claude should see and reason about all intermediate results
+- Running quick lookups with small responses
 
 ## Tool Use Examples
 
@@ -372,10 +372,10 @@ Copy
 
 The schema defines what's valid, but leaves critical questions unanswered:
 
-*   **Format ambiguity:** Should `due_date` use "2024-11-06", "Nov 6, 2024", or "2024-11-06T00:00:00Z"?
-*   **ID conventions:** Is `reporter.id` a UUID, "USR-12345", or just "12345"?
-*   **Nested structure usage:** When should Claude populate `reporter.contact`?
-*   **Parameter correlations:** How do `escalation.level` and `escalation.sla_hours` relate to priority?
+- **Format ambiguity:** Should `due_date` use "2024-11-06", "Nov 6, 2024", or "2024-11-06T00:00:00Z"?
+- **ID conventions:** Is `reporter.id` a UUID, "USR-12345", or just "12345"?
+- **Nested structure usage:** When should Claude populate `reporter.contact`?
+- **Parameter correlations:** How do `escalation.level` and `escalation.sla_hours` relate to priority?
 
 These ambiguities can lead to malformed tool calls and inconsistent parameter usage.
 
@@ -426,9 +426,9 @@ Copy
 
 From these three examples, Claude learns:
 
-*   **Format conventions**: Dates use YYYY-MM-DD, user IDs follow USR-XXXXX, labels use kebab-case
-*   **Nested structure patterns**: How to construct the reporter object with its nested contact object
-*   **Optional parameter correlations**: Critical bugs have full contact info + escalation with tight SLAs; feature requests have reporter but no contact/escalation; internal tasks have title only
+- **Format conventions**: Dates use YYYY-MM-DD, user IDs follow USR-XXXXX, labels use kebab-case
+- **Nested structure patterns**: How to construct the reporter object with its nested contact object
+- **Optional parameter correlations**: Critical bugs have full contact info + escalation with tight SLAs; feature requests have reporter but no contact/escalation; internal tasks have title only
 
 In our own internal testing, tool use examples improved accuracy from 72% to 90% on complex parameter handling.
 
@@ -438,16 +438,16 @@ Tool Use Examples add tokens to your tool definitions, so they’re most valuabl
 
 **Most beneficial when:**
 
-*   Complex nested structures where valid JSON doesn't imply correct usage
-*   Tools with many optional parameters and inclusion patterns matter
-*   APIs with domain-specific conventions not captured in schemas
-*   Similar tools where examples clarify which one to use (e.g., `create_ticket` vs `create_incident`)
+- Complex nested structures where valid JSON doesn't imply correct usage
+- Tools with many optional parameters and inclusion patterns matter
+- APIs with domain-specific conventions not captured in schemas
+- Similar tools where examples clarify which one to use (e.g., `create_ticket` vs `create_incident`)
 
 **Less beneficial when:**
 
-*   Simple single-parameter tools with obvious usage
-*   Standard formats like URLs or emails that Claude already understands
-*   Validation concerns better handled by JSON Schema constraints
+- Simple single-parameter tools with obvious usage
+- Standard formats like URLs or emails that Claude already understands
+- Validation concerns better handled by JSON Schema constraints
 
 ## Best practices
 
@@ -457,9 +457,9 @@ Building agents that take real-world actions means handling scale, complexity, a
 
 Not every agent needs to use all three features for a given task. Start with your biggest bottleneck:
 
-*   Context bloat from tool definitions → Tool Search Tool
-*   Large intermediate results polluting context → Programmatic Tool Calling
-*   Parameter errors and malformed calls → Tool Use Examples
+- Context bloat from tool definitions → Tool Search Tool
+- Large intermediate results polluting context → Programmatic Tool Calling
+- Parameter errors and malformed calls → Tool Use Examples
 
 This focused approach lets you address the specific constraint limiting your agent's performance, rather than adding complexity upfront.
 
@@ -488,8 +488,8 @@ Copy
 Add system prompt guidance so Claude knows what's available:
 
 ```
-You have access to tools for Slack messaging, Google Drive file management, 
-Jira ticket tracking, and GitHub repository operations. Use the tool search 
+You have access to tools for Slack messaging, Google Drive file management,
+Jira ticket tracking, and GitHub repository operations. Use the tool search
 to find specific capabilities.
 ```
 
@@ -519,17 +519,17 @@ Copy
 
 See below for opt-in tools that benefit from programmatic orchestration:
 
-*   Tools that can run in parallel (independent operations)
-*   Operations safe to retry (idempotent)
+- Tools that can run in parallel (independent operations)
+- Operations safe to retry (idempotent)
 
 ### Set up Tool Use Examples for parameter accuracy
 
 Craft examples for behavioral clarity:
 
-*   Use realistic data (real city names, plausible prices, not "string" or "value")
-*   Show variety with minimal, partial, and full specification patterns
-*   Keep it concise: 1-5 examples per tool
-*   Focus on ambiguity (only add examples where correct usage isn't obvious from schema)
+- Use realistic data (real city names, plausible prices, not "string" or "value")
+- Show variety with minimal, partial, and full specification patterns
+- Keep it concise: 1-5 examples per tool
+- Focus on ambiguity (only add examples where correct usage isn't obvious from schema)
 
 ## Getting started
 
@@ -552,9 +552,9 @@ Copy
 
 For detailed API documentation and SDK examples, see our:
 
-*   Documentation and cookbook for Tool Search Tool
-*   Documentation and cookbook for Programmatic Tool Calling
-*   Documentation for Tool Use Examples
+- Documentation and cookbook for Tool Search Tool
+- Documentation and cookbook for Programmatic Tool Calling
+- Documentation for Tool Use Examples
 
 These features move tool use from simple function calling toward intelligent orchestration. As agents tackle more complex workflows spanning dozens of tools and large datasets, dynamic discovery, efficient execution, and reliable invocation become foundational.
 

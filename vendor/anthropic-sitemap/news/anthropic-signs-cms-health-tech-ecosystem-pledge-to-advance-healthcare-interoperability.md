@@ -22,8 +22,6 @@ At Anthropic, we are focused on creating a healthcare ecosystem of partners who 
 
 We look forward to continuing to work with policymakers across the U.S. government to ensure the opportunities AI unlocks support the American people. Sectors including healthcare, science, energy infrastructure, and citizen services can use this technology to keep the United States on the frontier of innovation—advancing our economy and communities in unprecedented ways.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

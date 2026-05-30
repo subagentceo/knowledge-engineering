@@ -10,9 +10,9 @@ Aug 1, 2024
 
 Claude, Anthropic’s trusted AI assistant, is now available in Brazil. Starting today, consumers and businesses in Brazil will be able to access Claude via:
 
-*   Claude.ai: The web-based version of our next-generation AI assistant.
-*   Claude mobile apps: Free Android and iOS apps, offering an intuitive mobile experience and access to our most powerful model, Claude 3.5 Sonnet.
-*   Anthropic API: Enables developers to integrate Anthropic's state-of-the-art AI models into their own applications, websites, or services.
+- Claude.ai: The web-based version of our next-generation AI assistant.
+- Claude mobile apps: Free Android and iOS apps, offering an intuitive mobile experience and access to our most powerful model, Claude 3.5 Sonnet.
+- Anthropic API: Enables developers to integrate Anthropic's state-of-the-art AI models into their own applications, websites, or services.
 
 Claude.ai offers both free and paid plans. Paid users on the Pro plan get 5x more usage versus our Free tier, early access to new features, and access to all our current Claude models—including Claude 3.5 Sonnet, our most intelligent model yet, and the rest of the Claude 3 family—for R$ 110 per user per month.
 

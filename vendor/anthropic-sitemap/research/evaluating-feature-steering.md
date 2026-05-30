@@ -149,10 +149,10 @@ Esin Durmus and Deep Ganguli designed the experiments and wrote the blog post. E
 
 Appendices are available at this link. They include:
 
-*   Appendix 1: The impact of steering on model generations (Table A1);
-*   Appendix 2: List of features (Table A2);
-*   Appendix 3: Additional results (Figures A1-A6);
-*   Appendix 4: How does feature steering compare to prompting? (Tables A3-A8).
+- Appendix 1: The impact of steering on model generations (Table A1);
+- Appendix 2: List of features (Table A2);
+- Appendix 3: Additional results (Figures A1-A6);
+- Appendix 4: How does feature steering compare to prompting? (Tables A3-A8).
 
 ## Related content
 

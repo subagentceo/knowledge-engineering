@@ -8,9 +8,9 @@ Nov 18, 2025
 
 ![Microsoft, NVIDIA, and Anthropic announce strategic partnerships](https://www-cdn.anthropic.com/images/4zrzovbb/website/1576ae23eaf481f33bd36ab468171cc69d12361a-1000x1000.svg)
 
-*   **Anthropic to scale Claude on Azure**
-*   **Anthropic to adopt NVIDIA architecture**
-*   **NVIDIA and Microsoft to invest in Anthropic**
+- **Anthropic to scale Claude on Azure**
+- **Anthropic to adopt NVIDIA architecture**
+- **NVIDIA and Microsoft to invest in Anthropic**
 
 Today Microsoft, NVIDIA, and Anthropic announced new strategic partnerships. Anthropic is scaling its rapidly-growing Claude AI model on Microsoft Azure, powered by NVIDIA, which will broaden access to Claude and provide Azure enterprise customers with expanded model choice and new capabilities. Anthropic has committed to purchase $30 billion of Azure compute capacity and to contract additional compute capacity up to one gigawatt.
 

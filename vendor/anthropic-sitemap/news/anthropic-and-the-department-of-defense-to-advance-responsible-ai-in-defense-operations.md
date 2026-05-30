@@ -12,9 +12,9 @@ The U.S. Department of Defense (DOD), through its Chief Digital and Artificial I
 
 With CDAO and other DOD organizations and commands, we'll engage in:
 
-*   Working directly with the DOD to identify where frontier AI can deliver the most impact, then developing working prototypes fine-tuned on DOD data
-*   Collaborating with defense experts to anticipate and mitigate potential adversarial uses of AI, drawing on our advanced risk forecasting capabilities
-*   Exchanging technical insights, performance data, and operational feedback to accelerate responsible AI adoption across the defense enterprise
+- Working directly with the DOD to identify where frontier AI can deliver the most impact, then developing working prototypes fine-tuned on DOD data
+- Collaborating with defense experts to anticipate and mitigate potential adversarial uses of AI, drawing on our advanced risk forecasting capabilities
+- Exchanging technical insights, performance data, and operational feedback to accelerate responsible AI adoption across the defense enterprise
 
 ## Our commitment to responsible AI deployment
 
@@ -33,8 +33,6 @@ We’ve accelerated mission impact across U.S. defense workflows with partners l
 Claude Gov models, which we custom built for national security customers, already power deployments by agencies across the national security community atop infrastructure powered by Amazon Web Services(AWS).
 
 Organizations interested in transforming their operations with Claude can contact our public sector team to learn more and get started.
-
-  
 
 ## Related content
 

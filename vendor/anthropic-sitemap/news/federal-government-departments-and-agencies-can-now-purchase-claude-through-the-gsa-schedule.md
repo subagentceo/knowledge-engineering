@@ -22,7 +22,7 @@ Anthropic has recently announced partnerships with national laboratories for sci
 
 **Get started**
 
-Organizations interested in transforming their operations with Claude can contact our public sector team to learn more and get started.  
+Organizations interested in transforming their operations with Claude can contact our public sector team to learn more and get started.
 
 ## Related content
 

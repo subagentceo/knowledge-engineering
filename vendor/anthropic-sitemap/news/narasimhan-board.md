@@ -18,8 +18,6 @@ Anthropic is a Public Benefit Corporation and its Board is elected by stockholde
 
 Early in his career, Narasimhan worked on HIV/AIDS, malaria, and tuberculosis programs in India, Africa, and South America, and he continues to champion access and global health priorities today. He is an elected member of the US National Academy of Medicine and a member of the Council on Foreign Relations. He serves on the University of Chicago board of trustees and the board of fellows at Harvard Medical School. He previously chaired the Pharmaceutical Research and Manufacturers of America, where he remains on the board of directors.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

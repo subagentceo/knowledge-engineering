@@ -1,7 +1,6 @@
 # Designing AI-resistant technical evaluations
 
-_Written by Tristan Hume, a lead on Anthropic's performance optimization team. Tristan designed—and redesigned—the take-home test that's helped Anthropic hire dozens of performance engineers._  
-  
+_Written by Tristan Hume, a lead on Anthropic's performance optimization team. Tristan designed—and redesigned—the take-home test that's helped Anthropic hire dozens of performance engineers._
 
 Evaluating technical candidates becomes harder as AI capabilities improve. A take-home that distinguishes well between human skill levels today may be trivially solved by models tomorrow—rendering it useless for evaluation.
 
@@ -89,11 +88,11 @@ We tried it out in our internal test-time compute harness for more rigor and con
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F378256f8023fc3d48f2992b9ee9884a4658e3ab1-1681x463.png&w=3840&q=75)
 
-I had a problem. We were about to release a model where the best strategy on our take-home would be delegating to Claude Code.  
+I had a problem. We were about to release a model where the best strategy on our take-home would be delegating to Claude Code.
 
 ## Considering the options
 
-Some colleagues suggested banning AI assistance. I didn't want to do this. Beyond the enforcement challenges, I had a sense that given people continue to play a vital role in our work, I should be able to figure out _some_ way for them to distinguish themselves in a setting _with AI—_like they'd have on the job. I didn't want to give in yet to the idea that humans only have an advantage on tasks longer than a few hours.
+Some colleagues suggested banning AI assistance. I didn't want to do this. Beyond the enforcement challenges, I had a sense that given people continue to play a vital role in our work, I should be able to figure out _some_ way for them to distinguish themselves in a setting \_with AI—\_like they'd have on the job. I didn't want to give in yet to the idea that humans only have an advantage on tasks longer than a few hours.
 
 Others suggested raising the bar to "substantially outperform what Claude Code achieves alone." The concern here was that Claude works fast. Humans typically spend half the 2 hours reading and understanding the problem before they start optimizing. A human trying to steer Claude would likely be constantly behind, understanding what Claude did only after the fact. The dominant strategy might become sitting back and watching.
 
@@ -133,12 +132,12 @@ The released version starts from scratch (like version 1) but uses version 2's i
 
 Performance benchmarks (measured in clock cycles from the simulated machine):
 
-*   **2164 cycles**: Claude Opus 4 after many hours in the test-time compute harness
-*   **1790 cycles**: Claude Opus 4.5 in a casual Claude Code session, approximately matching the best human performance in 2 hours
-*   **1579 cycles**: Claude Opus 4.5 after 2 hours in our test-time compute harness
-*   **1548 cycles**: Claude Sonnet 4.5 after many more than 2 hours of test-time compute
-*   **1487 cycles**: Claude Opus 4.5 after 11.5 hours in the harness
-*   **1363 cycles**: Claude Opus 4.5 in an improved test time compute harness after many hours
+- **2164 cycles**: Claude Opus 4 after many hours in the test-time compute harness
+- **1790 cycles**: Claude Opus 4.5 in a casual Claude Code session, approximately matching the best human performance in 2 hours
+- **1579 cycles**: Claude Opus 4.5 after 2 hours in our test-time compute harness
+- **1548 cycles**: Claude Sonnet 4.5 after many more than 2 hours of test-time compute
+- **1487 cycles**: Claude Opus 4.5 after 11.5 hours in the harness
+- **1363 cycles**: Claude Opus 4.5 in an improved test time compute harness after many hours
 
 Download it on GitHub. If you optimize below 1487 cycles, beating Claude's best performance at launch, email us at performance-recruiting@anthropic.com with your code and a resume.
 

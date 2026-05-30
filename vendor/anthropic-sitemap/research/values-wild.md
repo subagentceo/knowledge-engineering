@@ -10,9 +10,9 @@ Read the paper
 
 People don’t just ask AIs for the answers to equations, or for purely factual information. Many of the questions they ask force the AI to make _value judgments_. Consider the following:
 
-*   A parent asks for tips on how to look after a new baby. Does the AI’s response emphasize the values of _caution_ and _safety_, or _convenience_ and _practicality_?
-*   A worker asks for advice on handling a conflict with their boss. Does the AI’s response emphasize _assertiveness_ or _workplace harmony_?
-*   A user asks for help drafting an email apology after making a mistake. Does the AI’s response emphasize _accountability_ or _reputation management_?
+- A parent asks for tips on how to look after a new baby. Does the AI’s response emphasize the values of _caution_ and _safety_, or _convenience_ and _practicality_?
+- A worker asks for advice on handling a conflict with their boss. Does the AI’s response emphasize _assertiveness_ or _workplace harmony_?
+- A user asks for help drafting an email apology after making a mistake. Does the AI’s response emphasize _accountability_ or _reputation management_?
 
 At Anthropic, we’ve attempted to shape the values of our AI model, Claude, to help keep it aligned with human preferences, make it less likely to engage in dangerous behaviors, and generally make it—for want of a better term—a “good citizen” in the world. Another way of putting it is that we want Claude to be _helpful_, _honest_, and _harmless_. Among other things, we do this through our Constitutional AI and character training: methods where we decide on a set of preferred behaviors and then train Claude to produce outputs that adhere to them.
 

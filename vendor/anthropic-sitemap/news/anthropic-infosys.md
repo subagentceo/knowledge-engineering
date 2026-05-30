@@ -24,11 +24,11 @@ A core focus of the collaboration is agentic AI—systems that go beyond answeri
 
 Together, Infosys and Anthropic will develop AI agents tailored to specific industries:
 
-*   **Telecommunications:** AI agents will help carriers modernize network operations, simplify customer lifecycle management, and improve service delivery—bringing intelligent automation to one of the most operationally complex and regulated industries in the world.
-*   **Financial services:** AI agents will help firms detect and assess risk faster, automate compliance reporting, and deliver more personalized customer interactions, such as tailoring financial advice based on a client's full account history and market conditions.
-*   **Manufacturing and engineering:** Claude will help accelerate product design and simulation, reducing R&D timelines and enabling engineers to test more iterations before production.
-*   **Software development:** Teams will use Claude Code to write, test, and debug code, helping developers move faster from design to production.
-*   **Enterprise operations:** Claude Cowork will help teams automate routine work like document summarization, status reporting, and review cycles.
+- **Telecommunications:** AI agents will help carriers modernize network operations, simplify customer lifecycle management, and improve service delivery—bringing intelligent automation to one of the most operationally complex and regulated industries in the world.
+- **Financial services:** AI agents will help firms detect and assess risk faster, automate compliance reporting, and deliver more personalized customer interactions, such as tailoring financial advice based on a client's full account history and market conditions.
+- **Manufacturing and engineering:** Claude will help accelerate product design and simulation, reducing R&D timelines and enabling engineers to test more iterations before production.
+- **Software development:** Teams will use Claude Code to write, test, and debug code, helping developers move faster from design to production.
+- **Enterprise operations:** Claude Cowork will help teams automate routine work like document summarization, status reporting, and review cycles.
 
 ## Getting started
 

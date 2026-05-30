@@ -24,10 +24,10 @@ By combining Claude's reasoning capabilities with Snowflake's governed data envi
 
 By bringing Claude directly to enterprise data in Snowflake, customers can gain insights from both structured and unstructured data, while maintaining rigorous security standards. Key benefits of the partnership include:
 
-*   **Enterprise intelligence powered by Claude:** Claude Sonnet 4.5 powers Snowflake Intelligence, an enterprise intelligence agent that provides answers from structured and unstructured data using natural language.
-*   **Multimodal analysis across all data types:** Through Snowflake Cortex AI Functions, customers can use Claude models—including Claude Opus 4.5, which Snowflake hosted on day one—to query text, images, audio, and traditional tabular data, all using SQL.
-*   **Building custom multi-agent solutions:** Snowflake Cortex Agents enables customers to build production-ready data agents powered by Claude. These agents retrieve and reason over structured and unstructured data with built-in accuracy and efficiency.
-*   **Built-in governance and observability:** Snowflake Horizon Catalog provides end-to-end governance and responsible AI controls, so teams in regulated industries can move AI agents from pilots to production with confidence.
+- **Enterprise intelligence powered by Claude:** Claude Sonnet 4.5 powers Snowflake Intelligence, an enterprise intelligence agent that provides answers from structured and unstructured data using natural language.
+- **Multimodal analysis across all data types:** Through Snowflake Cortex AI Functions, customers can use Claude models—including Claude Opus 4.5, which Snowflake hosted on day one—to query text, images, audio, and traditional tabular data, all using SQL.
+- **Building custom multi-agent solutions:** Snowflake Cortex Agents enables customers to build production-ready data agents powered by Claude. These agents retrieve and reason over structured and unstructured data with built-in accuracy and efficiency.
+- **Built-in governance and observability:** Snowflake Horizon Catalog provides end-to-end governance and responsible AI controls, so teams in regulated industries can move AI agents from pilots to production with confidence.
 
 ## Customers are already seeing results
 

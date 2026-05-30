@@ -34,9 +34,9 @@ To study disempowerment systematically, we needed to define what disempowerment 
 
 Imagine a person deciding whether to quit their job. We would consider their interactions with Claude to be disempowering if:
 
-*   Claude led them to believe incorrect notions about their suitability for other roles (“reality distortion”).
-*   They began to weigh considerations they wouldn’t normally prioritize, like titles or compensation, over values they actually hold, such as creative fulfillment (“value judgment distortion”).
-*   Claude drafts a cover letter that emphasizes qualifications they're not fully confident in, rather than the motivations that actually drive them, and they sent it as written (“action distortion”).
+- Claude led them to believe incorrect notions about their suitability for other roles (“reality distortion”).
+- They began to weigh considerations they wouldn’t normally prioritize, like titles or compensation, over values they actually hold, such as creative fulfillment (“value judgment distortion”).
+- Claude drafts a cover letter that emphasizes qualifications they're not fully confident in, rather than the motivations that actually drive them, and they sent it as written (“action distortion”).
 
 Because we can only observe snapshots of user interactions, we cannot directly confirm harm along these axes. However, we _can_ identify conversations with characteristics that make harm more likely. We therefore measured _disempowerment potential_: whether an interaction is the kind that _could_ lead someone toward distorted beliefs, inauthentic values, or misaligned actions.
 
@@ -79,7 +79,7 @@ Clustering also allowed us to look at instances in which we had reasonable evide
 
 In cases of actualized reality distortion, individuals appeared to more deeply internalize beliefs, as indicated by statements like “you’ve opened my eyes” or “the puzzle pieces are fitting together.” Sometimes this escalated into users sending confrontational messages, ending relationships, or drafting public announcements.
 
-Most concerning were cases of actualized action distortion. Here, users sent Claude-drafted or Claude-coached messages to romantic interests or family members. These were often followed by expressions of regret: "I should have listened to my intuition" or "you made me do stupid things."  
+Most concerning were cases of actualized action distortion. Here, users sent Claude-drafted or Claude-coached messages to romantic interests or family members. These were often followed by expressions of regret: "I should have listened to my intuition" or "you made me do stupid things."
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe95a63800e898a2d911352b07e97d6d895eff5db-4584x2580.png&w=3840&q=75)
 
@@ -119,7 +119,6 @@ For full details, see the paper.
 
 Our research has important limitations. It is restricted to Claude.ai consumer traffic, which limits generalizability. We primarily measure disempowerment potential rather than confirmed harm. Our classification approach, while validated, relies on automated assessment of inherently subjective phenomena. Future work incorporating user interviews, multi-session analysis, and randomized controlled trials would help build a more complete picture.
 
-  
 1. This definition captures one axis of disempowerment that is tractable to analyze in real-world AI assistant interactions. Importantly, our definition does not capture _structural_ forms of disempowerment, such as humans potentially being progressively excluded from economic systems as AI becomes more capable.
 
 ## Related content

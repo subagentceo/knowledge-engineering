@@ -42,9 +42,9 @@ When you rewind to a checkpoint, you can choose to restore the code, the convers
 
 Checkpoints are especially useful when combined with Claude Code’s latest features that power autonomous work:
 
-*   **Subagents** delegate specialized tasks—like spinning up a backend API while the main agent builds the frontend—allowing parallel development workflows
-*   **Hooks** automatically trigger actions at specific points, such as running your test suite after code changes or linting before commits
-*   **Background** **tasks** keep long-running processes like dev servers active without blocking Claude Code’s progress on other work
+- **Subagents** delegate specialized tasks—like spinning up a backend API while the main agent builds the frontend—allowing parallel development workflows
+- **Hooks** automatically trigger actions at specific points, such as running your test suite after code changes or linting before commits
+- **Background** **tasks** keep long-running processes like dev servers active without blocking Claude Code’s progress on other work
 
 Together, these capabilities let you confidently delegate broad tasks like extensive refactors or feature exploration to Claude Code.
 
@@ -52,10 +52,10 @@ Together, these capabilities let you confidently delegate broad tasks like exten
 
 These updates are available now for Claude Code users.
 
-*   **Claude Sonnet 4.5** is the new default model in Claude Code. Run /model to switch models
-*   **VS Code extension** (beta)**:** Download from the VS Code Extension Marketplace to get started
-*   **Terminal updates**, including the visual refresh and checkpoints, are available to all Claude Code users—just update your local installation
-*   **Claude Agent SDK:** See the docs to get started
+- **Claude Sonnet 4.5** is the new default model in Claude Code. Run /model to switch models
+- **VS Code extension** (beta)**:** Download from the VS Code Extension Marketplace to get started
+- **Terminal updates**, including the visual refresh and checkpoints, are available to all Claude Code users—just update your local installation
+- **Claude Agent SDK:** See the docs to get started
 
 ## Related content
 

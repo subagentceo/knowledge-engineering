@@ -55,7 +55,7 @@ Below are the most common daily tasks. Most employees (55%) used Claude for debu
 
 ![Figure 1: Proportion of daily users (x-axis) for various coding tasks (y-axis).](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F64a18b1756d8954a93e1356f1330ec11075fbe54-3840x2160.png&w=3840&q=75)
 
-_Figure 1: Proportion of daily users (x-axis) for various coding tasks (y-axis)._  
+_Figure 1: Proportion of daily users (x-axis) for various coding tasks (y-axis)._
 
 ### Usage and productivity
 
@@ -102,8 +102,8 @@ While these survey findings reveal significant productivity gains and changing w
 Engineers and researchers are developing a variety of strategies for productively leveraging Claude in their workflow. People generally delegate tasks that are:
 
 **Outside the user’s context _and_ low complexity**:  
-“I use Claude for things where I have low context, but think that the overall complexity is also low.”  
-  
+“I use Claude for things where I have low context, but think that the overall complexity is also low.”
+
 “The majority of the infra[structure] problems I have are not difficult and can be handled by Claude… I don’t know Git or Linux very well… Claude does a good job covering for my lack of experience in these areas.”
 
 **Easily verifiable:  
@@ -116,13 +116,13 @@ Engineers and researchers are developing a variety of strategies for productivel
 **“If it's throwaway debug[ging] or research code, it goes straight to Claude. If it's conceptually difficult or needs some very specific type of debug injection, or a design problem, I do it myself.”
 
 **Repetitive or boring:  
-**“The more excited I am to do the task, the more likely I am to not use Claude. Whereas if I'm feeling a lot of resistance… I often find it easier to start a conversation with Claude about the task.”  
-  
+**“The more excited I am to do the task, the more likely I am to not use Claude. Whereas if I'm feeling a lot of resistance… I often find it easier to start a conversation with Claude about the task.”
+
 In our survey, on average people said that 44% of Claude-assisted work consisted of tasks they wouldn't have enjoyed doing themselves.
 
 **Faster to prompt than execute:  
-**“[For] a task that I anticipate will take me less than 10 minutes... I'm probably not going to bother using Claude.”  
-  
+**“[For] a task that I anticipate will take me less than 10 minutes... I'm probably not going to bother using Claude.”
+
 “The cold start problem is probably the biggest blocker right now. And by cold start, I mean there is a lot of intrinsic information that I just have about how my team's code base works that Claude will not have by default… I could spend time trying to iterate on the perfect prompt [but] I’m just going to go and do it myself.”
 
 These factors mentioned by our employees in their decisions about delegation were similar to those found to explain AI-related productivity slowdowns (such as high developer familiarity with codebase, large and complex repositories) in an external study from METR. The convergence on these delegation criteria across our interviews suggests that appropriate task choice is an important factor in AI productivity gains (which should be carefully controlled for in future productivity studies).
@@ -167,7 +167,6 @@ At the same time, some were worried about “skills atrophying as [they] delegat
 
 > Using Claude has the potential to skip the part where I learn how to perform a task by solving an easy instance, and then struggle to solve a more complicated instance later.
 
-  
 One senior engineer said they’d be more worried about their skills if they were more junior:
 
 > I’m primarily using AI in cases where I know what the answer should be or should look like. I developed that ability by doing SWE ‘the hard way’... But if I were [earlier in my career], I would think it would take a lot of deliberate effort to continue growing my own abilities rather than blindly accepting the model output.
@@ -234,9 +233,9 @@ The survey and interview data show that increased Claude usage is helping people
 
 Claude Code usage has shifted toward more difficult and autonomous coding tasks over the last six months: (Figure 3):
 
-*   **Employees are tackling increasingly complex tasks with Claude Code.** We estimated task complexity of each transcript on a 1-5 scale where 1 corresponds to “basic edits” and 5 is “expert-level tasks requiring weeks/months of human expert work”. Task complexity increased from 3.2 to 3.8 on average. To illustrate the difference between the scores: tasks averaging 3.2 included “Troubleshoot Python module import errors” while tasks averaging 3.8 included “Implement and optimize caching systems.”
-*   **The maximum number of consecutive tool calls Claude Code makes per transcript increased by 116%.** Tool calls correspond to actions Claude takes using external tools like making edits to files or running commands. Claude now chains together 21.2 independent tool calls without need for human intervention versus 9.8 tool calls from six months ago.
-*   **The number of human turns decreased by 33%.** The average number of human turns decreased from 6.2 to 4.1 per transcript, suggesting that less human input is necessary to accomplish a given task now compared to six months ago.
+- **Employees are tackling increasingly complex tasks with Claude Code.** We estimated task complexity of each transcript on a 1-5 scale where 1 corresponds to “basic edits” and 5 is “expert-level tasks requiring weeks/months of human expert work”. Task complexity increased from 3.2 to 3.8 on average. To illustrate the difference between the scores: tasks averaging 3.2 included “Troubleshoot Python module import errors” while tasks averaging 3.8 included “Implement and optimize caching systems.”
+- **The maximum number of consecutive tool calls Claude Code makes per transcript increased by 116%.** Tool calls correspond to actions Claude takes using external tools like making edits to files or running commands. Claude now chains together 21.2 independent tool calls without need for human intervention versus 9.8 tool calls from six months ago.
+- **The number of human turns decreased by 33%.** The average number of human turns decreased from 6.2 to 4.1 per transcript, suggesting that less human input is necessary to accomplish a given task now compared to six months ago.
 
 ![Figure 3. Changes in Claude Code usage between August 2025 and February 2025 (x-axes). Average task complexity increased over time (left panel), average maximum consecutive tool calls per transcript increased over time (middle panel), and number of human turns decreased over time (right panel). Error bars show 95% confidence intervals. The data suggest people are increasingly delegating more autonomy to Claude over time.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd23e1b8d8af84b45d5cffcc6f0a029d635508153-3840x2160.png&w=3840&q=75)
 
@@ -321,13 +320,7 @@ Our Claude Code analysis uses proportionate sampling across time periods, which 
 
 Finally, this research was conducted in August 2025 when Claude Sonnet 4 and Claude Opus 4 were our state-of-the-art models. Given the rapid pace of AI development, the patterns we observed may have already shifted as newer models become available.
 
-  
-  
-  
-
-  
-
-#### 
+####
 
 ## Related content
 

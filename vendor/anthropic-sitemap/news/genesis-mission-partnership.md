@@ -20,15 +20,15 @@ Brian Peters, Anthropic's Head of North America Government Affairs, attended the
 
 Anthropic seeks to provide DOE researchers access both to Claude and to a team of Anthropic engineers, who can develop purpose-built tools, including:
 
-*   AI "agents" (models that take actions) for DOE’s highest-priority challenges
-*   Model Context Protocol servers that connect Claude to scientific instruments and tools
-*   Claude Skills for specialized expertise on relevant scientific workflows
+- AI "agents" (models that take actions) for DOE’s highest-priority challenges
+- Model Context Protocol servers that connect Claude to scientific instruments and tools
+- Claude Skills for specialized expertise on relevant scientific workflows
 
 Claude can facilitate substantial advancements in:
 
-*   **Energy dominance.** Claude can help with a broad range of tasks—from speeding up permitting review processes that bottleneck America’s energy expansion to helping scientists conduct research at the frontier of nuclear technology and strengthening domestic energy security.
-*   **Biological and life sciences.** Claude can support the development of early-warning systems for future pandemics and biological threat detection, and be used to hasten the speed of drug discovery and development.
-*   **Scientific productivity.** Claude has the capacity to access fifty years of DOE research, and use this context to accelerate the research cycle in strategically important domains and provide well-informed research support in the form of new ideas to trial out, or patterns in older data that humans might have missed.
+- **Energy dominance.** Claude can help with a broad range of tasks—from speeding up permitting review processes that bottleneck America’s energy expansion to helping scientists conduct research at the frontier of nuclear technology and strengthening domestic energy security.
+- **Biological and life sciences.** Claude can support the development of early-warning systems for future pandemics and biological threat detection, and be used to hasten the speed of drug discovery and development.
+- **Scientific productivity.** Claude has the capacity to access fifty years of DOE research, and use this context to accelerate the research cycle in strategically important domains and provide well-informed research support in the form of new ideas to trial out, or patterns in older data that humans might have missed.
 
 ## Our commitment to partner with the US Government
 

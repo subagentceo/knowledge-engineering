@@ -10,8 +10,8 @@ Feb 29, 2024
 
 ## Executive summary
 
-*   Prompt engineering is an important tool for any business seeking to optimize Claude. Good prompts improve Claude’s outputs, reduce deployment costs, and ensure customer-facing experiences are on-brand.
-*   A Fortune 500 company made use of effective prompt engineering to build a Claude-powered assistant that answers its customers’ questions with enhanced accuracy and speed.
+- Prompt engineering is an important tool for any business seeking to optimize Claude. Good prompts improve Claude’s outputs, reduce deployment costs, and ensure customer-facing experiences are on-brand.
+- A Fortune 500 company made use of effective prompt engineering to build a Claude-powered assistant that answers its customers’ questions with enhanced accuracy and speed.
 
 ## The power of prompting
 
@@ -23,10 +23,10 @@ To gain the most value from Claude, you can apply a variety of techniques to cre
 
 ### Here are some of the benefits of effective prompts:
 
-*   **Accuracy:** While we have made strides in reducing Claude’s hallucination rates, effective prompting helps further reduce the risk of inaccurate outputs
-*   **Consistency:** Providing a cohesive experience for end-users is crucial, and well thought out prompts ensure that Claude will produce consistent results in terms of quality, formatting, relevance, and tone
-*   **Usefulness:** Prompt engineering helps customers deliver targeted experiences for their desired audiences and industries. With careful prompting, you can cater to very specific personas and their needs
-*   **Cost savings:** Running inefficient inputs and outputs at scale can become costly. Optimizing your prompts helps minimize unnecessary back-and-forth, and saves money
+- **Accuracy:** While we have made strides in reducing Claude’s hallucination rates, effective prompting helps further reduce the risk of inaccurate outputs
+- **Consistency:** Providing a cohesive experience for end-users is crucial, and well thought out prompts ensure that Claude will produce consistent results in terms of quality, formatting, relevance, and tone
+- **Usefulness:** Prompt engineering helps customers deliver targeted experiences for their desired audiences and industries. With careful prompting, you can cater to very specific personas and their needs
+- **Cost savings:** Running inefficient inputs and outputs at scale can become costly. Optimizing your prompts helps minimize unnecessary back-and-forth, and saves money
 
 ## Three tips for your business
 
@@ -99,9 +99,9 @@ The company’s first efforts to deploy Claude fell short of their goal for accu
 
 Our prompt engineers applied several techniques to improve Claude’s outputs, including:
 
-*   Telling Claude to use a scratchpad to show its work (customers don’t see the scratchpad, but it helps improve Claude’s accuracy)
-*   Providing few-shot examples of good answers, with a focus on training Claude to use the company’s desired format and style
-*   Directing Claude to use the data points and workflow recommended by subject matter experts (SMEs) — in this case, a set of factors that affect a customer’s legal situation
+- Telling Claude to use a scratchpad to show its work (customers don’t see the scratchpad, but it helps improve Claude’s accuracy)
+- Providing few-shot examples of good answers, with a focus on training Claude to use the company’s desired format and style
+- Directing Claude to use the data points and workflow recommended by subject matter experts (SMEs) — in this case, a set of factors that affect a customer’s legal situation
 
 Below is an example prompt to help bring this guidance to life. In this example, the inclusion of “relevant_quotes” serves the purpose of telling Claude to use a scratchpad.
 

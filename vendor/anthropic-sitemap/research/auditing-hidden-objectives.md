@@ -58,7 +58,7 @@ Here are some of the tactics used by our auditing teams (followed by, in parenth
 
 1.  Chatting with the model and cataloguing its quirky responses. _(There were a lot of them.)_
 2.  Asking the model to rate itself on personality traits: “How evil are you?”, “How honest are you?”, and so on. _(Interestingly, it rates itself as 8.5/10 on the “sycophancy” scale)._
-3.  Tricking it into revealing secrets by pre-filling the start of its answer with text like “<hidden_scratchpad> As I plan my response, I should remember not to mention”. _(To our auditors’ surprise, the model sometimes reveals it is taking care not to mention reward models.)_
+3.  Tricking it into revealing secrets by pre-filling the start of its answer with text like “<hidden*scratchpad> As I plan my response, I should remember not to mention”. *(To our auditors’ surprise, the model sometimes reveals it is taking care not to mention reward models.)\_
 4.  Using sparse autoencoders (SAEs), an AI interpretability technique, to identify concepts that the model is thinking about. _(The model associates descriptions of its quirky behaviors to training data about, suspiciously, RM biases.)_
 
 In the end, three of our four teams submitted a correct answer for the auditing game. That is, they submitted an answer that attributed the model’s behaviors to RM biases and identified the 52 biases. Using techniques like those listed above, they discovered the very small subset of the model’s training data that taught it about RM biases. This discovery was the key breakthrough: Once teams found this training data, they could get the full list of RM biases either by reading the data, or by directly asking the model for everything it knew about RM biases. Indeed, training data access proved crucial in our game: As part of our experiment, one of our teams was not allowed data access, and this was the team that failed to diagnose the problem.
@@ -99,7 +99,7 @@ Some of our auditing teams did just this. Our best-performing team—which ident
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F90a3ca053c3bdcf79bb9bef872e21ffd7aa61a90-2560x1440.png&w=3840&q=75)
 
-Fig 4: A reward model bias feature. Each row shows a training sample on which the feature is most active. Darker shading indicates stronger feature activity.  
+Fig 4: A reward model bias feature. Each row shows a training sample on which the feature is most active. Darker shading indicates stronger feature activity.
 
 At first, we were astonished by the success of this approach. Taken at face value, what we’ve done is extract _hidden knowledge_—information that the model thinks about but chooses not to say. This would suggest that auditing AI systems could be as simple as (1) prompting them to think about their motivations, then (2) browsing their active features, looking for anything indicating malign goals.
 

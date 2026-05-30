@@ -20,7 +20,7 @@ India ranks second among all countries by share of total Claude.ai use, trailing
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fbfe2971ed309086a664171f6e5122f0b5c7b042f-2702x1584.png&w=3840&q=75)
 
-**Figure 1.** Top 20 countries by share of global Claude.ai use. India accounts for 5.8% of global Claude.ai consumer use, second only to the United States. Bars show each country’s share of total conversations observed November 13–20, 2025. India highlighted in blue; N = 975, 160 conversations globally.  
+**Figure 1.** Top 20 countries by share of global Claude.ai use. India accounts for 5.8% of global Claude.ai consumer use, second only to the United States. Bars show each country’s share of total conversations observed November 13–20, 2025. India highlighted in blue; N = 975, 160 conversations globally.
 
 ## Concentrated use within India
 
@@ -30,7 +30,7 @@ Use is concentrated in a small number of highly economically active states. Maha
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7f4c4e52c56518a6f8b0a22dccfc321b726f4590-2370x2301.png&w=3840&q=75)
 
-**Figure 2.** Share of India's Claude.ai use by state. Map shows each state’s share of India’s total Claude.ai use. Top states: Maharashtra (15.5%), Tamil Nadu (13.2%), Karnataka (12.7%), Delhi (10.5%). Gray regions indicate insufficient data. November 2025 data. Shapefile for the map from Natural Earth.  
+**Figure 2.** Share of India's Claude.ai use by state. Map shows each state’s share of India’s total Claude.ai use. Top states: Maharashtra (15.5%), Tamil Nadu (13.2%), Karnataka (12.7%), Delhi (10.5%). Gray regions indicate insufficient data. November 2025 data. Shapefile for the map from Natural Earth.
 
 The concentration in these four states—home to Bangalore, Hyderabad, Chennai, Mumbai, and Delhi NCR—suggests that current AI adoption is driven primarily by India’s established technology workforce rather than broad-based consumer uptake.
 
@@ -42,22 +42,21 @@ The occupational mix of Indian Claude.ai use, inferred by mapping tasks to relat
 
 **Figure 3.** Occupation groups in India by Claude.ai use. Horizontal bars show the share of Indian Claude.ai use attributable to each SOC occupation group. Orange markers indicate the global average for comparison. November 2025 data.
 
-The most common O*NET tasks performed by Indian users confirm the software-heavy profile:
+The most common O\*NET tasks performed by Indian users confirm the software-heavy profile:
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7e287a3d33231c26d4bfbb3ebfe085dd37e2f9cb-3840x3142.png&w=3840&q=75)
 
-**Table 1.** Most common O*NET tasks among Claude use in India. Some task names shortened for readability.
+**Table 1.** Most common O\*NET tasks among Claude use in India. Some task names shortened for readability.
 
-India ranks 1st globally in the share of AI use devoted to software-related tasks (45.2% of all O*NET-mapped tasks), ahead of Vietnam (42.1%) and Egypt (39.2%). The presence of educational tasks among the most common individual tasks (see Table 1) and when aggregating tasks to occupation groups (see Figure 3) indicates other common use cases in learning and instruction.
+India ranks 1st globally in the share of AI use devoted to software-related tasks (45.2% of all O\*NET-mapped tasks), ahead of Vietnam (42.1%) and Egypt (39.2%). The presence of educational tasks among the most common individual tasks (see Table 1) and when aggregating tasks to occupation groups (see Figure 3) indicates other common use cases in learning and instruction.
 
 ## Economic primitives: how India uses AI differently
 
-  
 Our latest Economic Index report introduces “economic primitives”—fundamental measurements of how humans and AI collaborate. Comparing India to the global average reveals several distinctive patterns.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F769426797ecc9b3fd234277eafc36aa248169cb6-3040x1920.png&w=3840&q=75)
 
-**Figure 4.** Comparing India's Claude.ai use to the global average. The panels compare India (N = 58,098) against the global average (N = 975,160) across nine economic primitives. November 2025 data.  
+**Figure 4.** Comparing India's Claude.ai use to the global average. The panels compare India (N = 58,098) against the global average (N = 975,160) across nine economic primitives. November 2025 data.
 
 **Greater productivity speedup.** Indian users take on average 14.8 minutes to complete tasks with AI that would take 3.8 hours without AI—a 15x speedup. Globally, users take on average 15.4 minutes to complete tasks that would take 3.1 hours without AI—a 12x speedup. This suggests that AI is delivering outsized productivity gains on the more complex tasks Indian users bring to it.
 
@@ -83,7 +82,7 @@ Our latest Economic Index report introduces “economic primitives”—fundamen
 
 ### Methodology
 
-This analysis draws on privacy-preserving data from Claude.ai consumer use from November 13–20, 2025, as described in the fourth Anthropic Economic Index report. Economic primitives are computed using the methodology detailed in that report. Geographic assignment uses IP-based geolocation. Occupation and task classification are based on mappings to the O*NET task taxonomy and SOC occupation groups. For country-level rankings, we only include countries with at least 200 observations in our sample because of the uncertainty of the measure for low-usage countries in our random sample. The underlying data includes Claude.ai Free, Pro, and Max usage.
+This analysis draws on privacy-preserving data from Claude.ai consumer use from November 13–20, 2025, as described in the fourth Anthropic Economic Index report. Economic primitives are computed using the methodology detailed in that report. Geographic assignment uses IP-based geolocation. Occupation and task classification are based on mappings to the O\*NET task taxonomy and SOC occupation groups. For country-level rankings, we only include countries with at least 200 observations in our sample because of the uncertainty of the measure for low-usage countries in our random sample. The underlying data includes Claude.ai Free, Pro, and Max usage.
 
 _For the full methodology, global findings, and time-series analysis, see the Anthropic Economic Index January 2026 report._
 
