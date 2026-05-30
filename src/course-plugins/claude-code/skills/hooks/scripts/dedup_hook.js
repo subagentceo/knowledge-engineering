@@ -34,14 +34,17 @@ process.stdin.on("end", async () => {
     prompt:
       `A file under a watched directory was just edited: ${filePath}. ` +
       `Compare the new code against the existing code in that directory. ` +
-      `If it duplicates logic that already exists, reply with the path of ` +
-      `the existing code to reuse. Otherwise reply exactly "OK".`,
+      `If it duplicates logic that already exists, reply with a line starting ` +
+      `"DUPLICATE:" followed by the path to reuse. Otherwise reply "OK".`,
     options: { allowedTools: ["Read", "Grep"] }, // read-only by default
   })) {
     if (message.type === "result") verdict = message.result ?? "";
   }
 
-  if (verdict.trim() && verdict.trim() !== "OK") {
+  // Block only on an explicit DUPLICATE signal. The old check `verdict !== "OK"`
+  // treated any natural phrasing ("OK.", "OK — looks unique") as a duplicate and
+  // blocked good edits. Match a clear positive signal instead of exact-"OK".
+  if (/(^|\n)\s*DUPLICATE:/i.test(verdict)) {
     console.error(`Possible duplicate. Reuse existing code instead:\n${verdict}`);
     process.exit(2);
   }

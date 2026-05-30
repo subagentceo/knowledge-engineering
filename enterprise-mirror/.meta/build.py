@@ -29,6 +29,31 @@ MANIFEST = ROOT / "enterprise.json"
 
 # Orgs are discovered from the .repos.json files present in .meta/.
 # (clone/scratch logs like opencoworkers.repos.json with `[]` are tolerated.)
+
+# Fallback enterprise + identities blocks used when no enterprise.json exists yet
+# (e.g. a fresh WSL/Windows reproduction via bootstrap-wsl.sh). These two blocks
+# are NOT present in the GitHub API response, so build.py preserves them from an
+# existing manifest when one is present, and seeds them from here otherwise.
+DEFAULT_ENTERPRISE = {
+    "slug": "subagentmcp",
+    "url": "https://github.com/enterprises/subagentmcp",
+    "orgs_url": "https://github.com/enterprises/subagentmcp/organizations",
+}
+DEFAULT_IDENTITIES = {
+    "admin-jadecli": {
+        "email": "admin@jadecli.com",
+        "role": "enterprise admin; canonical alias for enterprise-scoped gh queries",
+    },
+    "alex-jadecli": {
+        "email": "alex@jadecli.com",
+        "role": "primary day-to-day push identity; default gh user",
+    },
+    "zhoukalex": {
+        "email": "zhouk.alex@gmail.com",
+        "role": "third rotation slot",
+    },
+}
+
 REPO_FIELDS = (
     "name",
     "visibility",
@@ -74,19 +99,34 @@ def main() -> int:
     )
     args = ap.parse_args()
 
-    if not MANIFEST.exists():
-        print(f"error: {MANIFEST} not found (need it for enterprise+identities blocks)", file=sys.stderr)
-        return 1
+    # The enterprise + identities blocks are not in the GitHub API response.
+    # Preserve them from an existing manifest; otherwise seed from defaults so a
+    # fresh reproduction (bootstrap-wsl.sh) can build the first manifest. (#2)
+    if MANIFEST.exists():
+        existing = json.loads(MANIFEST.read_text())
+        enterprise_block = existing.get("enterprise") or DEFAULT_ENTERPRISE
+        identities_block = existing.get("identities") or DEFAULT_IDENTITIES
+    else:
+        print(f"note: {MANIFEST} not found — seeding enterprise+identities from defaults", file=sys.stderr)
+        enterprise_block = DEFAULT_ENTERPRISE
+        identities_block = DEFAULT_IDENTITIES
 
-    existing = json.loads(MANIFEST.read_text())
-    enterprise_block = existing.get("enterprise", {})
-    identities_block = existing.get("identities", {})
+    discovered = discover_orgs()
+    if not discovered:
+        # No raw .meta/*.repos.json files present. Writing now would clobber an
+        # existing manifest down to 0 orgs and exit 0 — a silent wipe. Abort. (#1)
+        print(
+            "error: no .meta/*.repos.json files found — run fetch.sh first. "
+            "Refusing to overwrite the manifest with an empty one.",
+            file=sys.stderr,
+        )
+        return 1
 
     orgs_out: dict[str, dict] = {}
     total_repos = 0
     total_size = 0
 
-    for org in discover_orgs():
+    for org in discovered:
         raw = json.loads((META / f"{org}.repos.json").read_text())
         if not isinstance(raw, list):
             print(f"warn: {org}.repos.json is not a list — skipping", file=sys.stderr)
@@ -102,6 +142,16 @@ def main() -> int:
         orgs_out[org] = {"repo_count": len(repos), "repos": repos}
         total_repos += len(repos)
         total_size += org_size
+
+    # All discovered raw files were empty/non-list → no real orgs. Same wipe risk
+    # as empty discovery: refuse rather than zero out an existing manifest. (#1)
+    if not orgs_out:
+        print(
+            "error: all .meta/*.repos.json files were empty — refusing to write "
+            "an empty manifest. Re-run fetch.sh; check token scope.",
+            file=sys.stderr,
+        )
+        return 1
 
     # Keep orgs sorted for stable diffs.
     orgs_out = dict(sorted(orgs_out.items()))

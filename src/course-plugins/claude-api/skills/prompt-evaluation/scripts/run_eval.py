@@ -31,7 +31,12 @@ def run_prompt(test_case):
         max_tokens=1000,
         messages=[{"role": "user", "content": prompt}],
     )
-    return message.content[0].text
+    # Return the first text block's text. Guard against an empty or non-text
+    # leading block (e.g. a refusal) so one odd response doesn't abort the run.
+    for block in message.content:
+        if getattr(block, "type", None) == "text":
+            return block.text
+    return ""
 
 
 def run_test_case(test_case):
@@ -42,7 +47,9 @@ def run_test_case(test_case):
 
 def run_eval(dataset):
     results = [run_test_case(tc) for tc in dataset]
-    avg = sum(r["score"] for r in results) / len(results)  # overall prompt score
+    # Guard the empty dataset ([] is valid JSON) — divide-by-zero would crash the
+    # run instead of reporting "no test cases".
+    avg = sum(r["score"] for r in results) / len(results) if results else 0.0
     return {"results": results, "average_score": avg}
 
 
