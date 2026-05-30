@@ -73,28 +73,28 @@ def rest_of_day_plan() -> list[JiraIssueDraft]:
     free-form model output — the cowork discipline."""
     return [
         JiraIssueDraft(
-            project_key="KE",
+            project_key="SCRUM",
             summary="Wire the pre-verify script-gate into steerKnowledgeLoop body",
             outcome="A LaneScript with stage=pre-verify actually executes in the loop and a non-zero exit rejects the producer before the model-verifier is spent.",
             acceptance_test="steer.test.ts: a producer with a failing pre-verify script is rejected without any model-verifier dispatch (assert verifier call count == 0).",
             labels=["agent-chassis", "cowork-plan"],
         ),
         JiraIssueDraft(
-            project_key="KE",
+            project_key="SCRUM",
             summary="Build §3 Python steer.py + memory.py durable chassis (dragonfly + alloydb)",
             outcome="Loop state (attempts, budget, events) survives a process restart via dragonfly; the TaskEnvelope ledger persists in alloydb. A dropped session RESUMES instead of restarting.",
             acceptance_test="Kill the process mid-DAG; restart; assert the loop resumes from the last completed task using redis state (integration test gated on container availability).",
             labels=["agent-chassis", "python", "cowork-plan"],
         ),
         JiraIssueDraft(
-            project_key="KE",
+            project_key="SCRUM",
             summary="Resume SIFT mobile + macOS app build (paused for agent dev)",
             outcome="The SIFT app (mobile + macOS) is back in active development — the corpus-viewer dual-platform work resumes per the goal plan, now driven by the steering chassis.",
             acceptance_test="swift build green on macOS + an iOS-simulator screenshot of the SIFT surface; the chassis DAG drives the cross-platform port.",
             labels=["sift", "app", "cowork-plan"],
         ),
         JiraIssueDraft(
-            project_key="KE",
+            project_key="SCRUM",
             summary="Plugins-per-lane: wire claude-plugins-official code-review as the engineering verifier",
             outcome="The engineering lane's verifier is the real code-review plugin loaded via query({plugins}), not a hand-written rubric.",
             acceptance_test="lanes.test.ts: the engineering lane dispatches the code-review plugin as its verifier and a failing review triggers the loop's retry.",
