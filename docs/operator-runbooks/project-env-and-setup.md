@@ -16,13 +16,13 @@ It complements (does not replace) [`cloud-env-vars-contract.md`](./cloud-env-var
 
 ## The three layers
 
-| Layer | File (committed) | Scope | Holds |
-| - | - | - | - |
-| `settings.json` `env` | `.claude/settings.json` → `"env"` | every session, CLI + web | static non-secret config, applied before hooks run |
-| SessionStart env hook | `scripts/load_project_env.sh` + `.env.defaults` | every session, CLI + web | the same non-secret config, projected into `$CLAUDE_ENV_FILE` so it reaches every Bash command |
-| Setup entry point | `setup.sh` | manual / cloud "Setup script" field | dependency install + a **secret presence check that never prints values** |
+| Layer                 | File (committed)                                | Scope                               | Holds                                                                                          |
+| --------------------- | ----------------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `settings.json` `env` | `.claude/settings.json` → `"env"`               | every session, CLI + web            | static non-secret config, applied before hooks run                                             |
+| SessionStart env hook | `scripts/load_project_env.sh` + `.env.defaults` | every session, CLI + web            | the same non-secret config, projected into `$CLAUDE_ENV_FILE` so it reaches every Bash command |
+| Setup entry point     | `setup.sh`                                      | manual / cloud "Setup script" field | dependency install + a **secret presence check that never prints values**                      |
 
-Two layers carry the *same* non-secret values on purpose: the `settings.json` `env`
+Two layers carry the _same_ non-secret values on purpose: the `settings.json` `env`
 block applies them to the session process, and the hook guarantees they also land in
 `$CLAUDE_ENV_FILE` (which the `env` block alone does not populate) so plain `bash`
 steps and subprocesses see them. Both are committed, so CLI and web are identical.

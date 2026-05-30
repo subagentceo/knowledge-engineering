@@ -27,49 +27,49 @@ A survey of 81,000 Claude.ai personal-account users (80,508 acknowledged) asked 
 - Productivity gain **type**: **48%** of users who mentioned productivity cited **scope** (new capabilities); **40%** cited **speed**.
 - Beneficiary of gains (named in ~25% of interviews): most cited benefits **to themselves**; **10%** said employers/clients extracted more work; smaller shares cited AI companies or net-negative.
 - Self-benefit by career stage: only **60%** of early-career workers said they personally benefited vs **80%** of senior professionals.
-- Speedup vs job threat is **U-shaped**: those who said AI *slowed* them down (often creative workers) AND those reporting the largest speedups both report elevated threat.
+- Speedup vs job threat is **U-shaped**: those who said AI _slowed_ them down (often creative workers) AND those reporting the largest speedups both report elevated threat.
 
 ## Methodology (survey design)
 
-- **Instrument:** "Anthropic Interviewer" embedded in Claude.ai — an open-ended, conversational survey rather than a fixed-choice questionnaire. First question: *"What's the last thing you used an AI chatbot for?"* Subsequent questions probed visions and fears around AI advances.
+- **Instrument:** "Anthropic Interviewer" embedded in Claude.ai — an open-ended, conversational survey rather than a fixed-choice questionnaire. First question: _"What's the last thing you used an AI chatbot for?"_ Subsequent questions probed visions and fears around AI advances.
 - **N = 81,000** Claude users (80,508 thanked in acknowledgements); same underlying data as the companion "What 81,000 people want from AI" study, with this report adding new Claude-classifier-derived variables.
 - **Derived variables via Claude-powered classifiers**, not direct questions:
-  - *Occupation:* left missing for **61%** of respondents; **39%** labeled (11% explicitly stated their job, 28% inferred from context). Robustness check: key results (Figures 1 and 3) hold on the 11% explicit-only subset.
-  - *Career stage:* inferred for ~50% of respondents (buckets: student_or_entry, junior, mid, senior_or_lead, executive, unclear).
-  - *Productivity:* rescaled 1–7 (1 = less productive, 2 = no change … 7 = transformatively more productive). Note the scale is **not centered** — original Likert answers clustered at 6s and 7s.
-  - *Productivity type:* one of speed / quality / scope / cost / not_discussed.
-  - *Job-threat coding:* respondent coded as threatened if they said their role was already being replaced/substantially reduced or likely to be soon.
-- **Exposure measure** ("observed exposure") imported from the companion paper: O*NET (~800 occupations) × Anthropic Economic Index usage × Eloundou et al. (2023) theoretical β capability, weighting automated and work-related uses more heavily; aggregated to occupation level by time-fraction.
+  - _Occupation:_ left missing for **61%** of respondents; **39%** labeled (11% explicitly stated their job, 28% inferred from context). Robustness check: key results (Figures 1 and 3) hold on the 11% explicit-only subset.
+  - _Career stage:_ inferred for ~50% of respondents (buckets: student_or_entry, junior, mid, senior_or_lead, executive, unclear).
+  - _Productivity:_ rescaled 1–7 (1 = less productive, 2 = no change … 7 = transformatively more productive). Note the scale is **not centered** — original Likert answers clustered at 6s and 7s.
+  - _Productivity type:_ one of speed / quality / scope / cost / not_discussed.
+  - _Job-threat coding:_ respondent coded as threatened if they said their role was already being replaced/substantially reduced or likely to be soon.
+- **Exposure measure** ("observed exposure") imported from the companion paper: O\*NET (~800 occupations) × Anthropic Economic Index usage × Eloundou et al. (2023) theoretical β capability, weighting automated and work-related uses more heavily; aggregated to occupation level by time-fraction.
 - Example classifier prompts are reproduced in the Appendix (productivity-dimension prompt and career-stage prompt).
 
 ## Data sources
 
 - **Sample size:** 81,000 respondents (80,508 acknowledged).
 - **Population:** active **personal-account** Claude.ai users who chose to respond to the in-product survey. Enterprise users excluded.
-- **Demographics:** not directly collected; occupation (39% labeled), career stage (~50% labeled), and wage (via BLS occupational median wage by quartile) are *inferred*. No direct age, gender, race, or income capture in this report.
+- **Demographics:** not directly collected; occupation (39% labeled), career stage (~50% labeled), and wage (via BLS occupational median wage by quartile) are _inferred_. No direct age, gender, race, or income capture in this report.
 - **Time period:** not specified in the PDF for the survey field window (companion exposure data uses Anthropic Economic Index reports from Aug & Nov 2025 usage).
 - **Geographies:** not specified (companion labor-market paper is US-focused via the Current Population Survey; this survey's geography is not stated).
 
 ## Key metrics & numbers
 
-| Metric | Value |
-|---|---|
-| Respondents | 81,000 (80,508 acknowledged) |
-| Voiced displacement concern | ~20% |
-| Perceived threat per +10pp exposure | +1.3 pp |
-| Top vs bottom exposure quartile worry ratio | ~3x |
-| Mean productivity rating (1–7) | 5.1 |
-| Negative/neutral productivity | ~3% |
-| No clear productivity indication | 42% |
-| Productivity gain = scope | 48% |
-| Productivity gain = speed | 40% |
-| Interviews naming a beneficiary | ~25% |
-| Said employer/client got more work | 10% |
-| Early-career self-benefit | 60% |
-| Senior self-benefit | 80% |
-| Occupation labeled (any) | 39% (11% explicit, 28% inferred) |
-| Occupation missing | 61% |
-| Career stage inferable | ~50% |
+| Metric                                      | Value                            |
+| ------------------------------------------- | -------------------------------- |
+| Respondents                                 | 81,000 (80,508 acknowledged)     |
+| Voiced displacement concern                 | ~20%                             |
+| Perceived threat per +10pp exposure         | +1.3 pp                          |
+| Top vs bottom exposure quartile worry ratio | ~3x                              |
+| Mean productivity rating (1–7)              | 5.1                              |
+| Negative/neutral productivity               | ~3%                              |
+| No clear productivity indication            | 42%                              |
+| Productivity gain = scope                   | 48%                              |
+| Productivity gain = speed                   | 40%                              |
+| Interviews naming a beneficiary             | ~25%                             |
+| Said employer/client got more work          | 10%                              |
+| Early-career self-benefit                   | 60%                              |
+| Senior self-benefit                         | 80%                              |
+| Occupation labeled (any)                    | 39% (11% explicit, 28% inferred) |
+| Occupation missing                          | 61%                              |
+| Career stage inferable                      | ~50%                             |
 
 ## Figures & tables
 
@@ -85,7 +85,7 @@ A survey of 81,000 Claude.ai personal-account users (80,508 acknowledged) asked 
 
 - **Self-selected, personal-account-only sample** — active Claude users who opted into a survey; biased toward perceiving benefits as flowing to themselves. Enterprise users (who might attribute value to employers) excluded.
 - **Inference, not measurement** — occupation, career stage, productivity, and sentiment are Claude-classifier inferences from open-ended text; some labels are wrong. 61% have no occupation label at all.
-- **Open-ended design** — measures depend on what respondents *happen to mention*, not direct elicitation; authors call for confirmation in structured surveys.
+- **Open-ended design** — measures depend on what respondents _happen to mention_, not direct elicitation; authors call for confirmation in structured surveys.
 - Productivity scale is uncentered (clustered at high end), limiting interpretation of the 5.1 mean.
 - Correlational throughout; no causal claims.
 
@@ -98,11 +98,11 @@ A survey of 81,000 Claude.ai personal-account users (80,508 acknowledged) asked 
 
 ## Notable quotes
 
-1. *"Well like anyone who has a white collar job these days I'm 100% concerned, pretty much 24/7 concerned about losing my job eventually to A.I."* — Software engineer.
-2. *"In terms of improving my capability, it's no doubt. [B]ut in the future AI may replace my work."* — Market researcher.
-3. *"when AI arrived, the project managers started giving harder and harder tickets and bugs to solve."* — Software developer.
-4. *"I'm a non tech guy but now I'm a full stack developer."* — (scope-expansion example).
-5. *"I have given very specific rules about what is where, how to read a legal document… but it diverges every time."* — Lawyer (skepticism example).
+1. _"Well like anyone who has a white collar job these days I'm 100% concerned, pretty much 24/7 concerned about losing my job eventually to A.I."_ — Software engineer.
+2. _"In terms of improving my capability, it's no doubt. [B]ut in the future AI may replace my work."_ — Market researcher.
+3. _"when AI arrived, the project managers started giving harder and harder tickets and bugs to solve."_ — Software developer.
+4. _"I'm a non tech guy but now I'm a full stack developer."_ — (scope-expansion example).
+5. _"I have given very specific rules about what is where, how to read a legal document… but it diverges every time."_ — Lawyer (skepticism example).
 
 ## Open questions
 

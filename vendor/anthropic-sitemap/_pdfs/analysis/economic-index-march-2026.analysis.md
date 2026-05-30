@@ -14,7 +14,7 @@ The fifth Anthropic Economic Index report studies Claude usage in February 2026 
 
 ## Key findings (with stats)
 
-- **Claude.ai diversified.** Top-10 O*NET task concentration fell from **24% (Nov 2025) to 19% (Feb 2026)**. 1P API concentration rose from **28% to 33%** since Aug 2025 (roughly flat across the immediate period despite coding influx).
+- **Claude.ai diversified.** Top-10 O\*NET task concentration fell from **24% (Nov 2025) to 19% (Feb 2026)**. 1P API concentration rose from **28% to 33%** since Aug 2025 (roughly flat across the immediate period despite coding influx).
 - **Use-case mix shifted.** Coursework **19%→12%**; personal **35%→42%**; work shown as **46%→45%** (Figure 1.2). Management occupations in Claude.ai **3%→5%**.
 - **Average task value dropped on Claude.ai.** Volume-weighted mean wage **$49.3→$47.9/hr** (vs US avg hourly wage $37.3). 1P API rose to **$50.7**. (Figure 1.4 series: Jan'25 $49.3, ... Feb'26 Claude.ai $47.9, API $50.7.)
 - **Augmentation rose slightly** in Claude.ai (driven by validation + learning); automation **fell sharply in the 1P API** (Appendix Fig A.3). Claude.ai augmentation reached **53%** / automation **47%** in Feb 2026 (Fig 1.3 latest pair).
@@ -28,7 +28,7 @@ The fifth Anthropic Economic Index report studies Claude usage in February 2026 
 "Learning curves" = whether and how a user's effectiveness with Claude improves with **tenure** (time since signup). The report tests learning-by-doing: do experienced users get better at extracting value? It is measured two ways:
 
 1. **Tenure cohorts** — "high tenure" = signed up ≥6 months before the data pull; "low tenure" = everyone else. Cross-tabulated against collaboration mode, use case, success rate, task concentration, and education-year primitives (Table 2.1).
-2. **Log-level regressions** — a binary success outcome regressed on a high-tenure indicator with increasingly stringent controls: (1) raw, (2) + O*NET-task & request-cluster fixed effects, (3) + model, use-case, and country fixed effects (Figure 2.4). The persistence of a positive coefficient under within-task fixed effects is the evidence that the effect is not merely task-mix selection.
+2. **Log-level regressions** — a binary success outcome regressed on a high-tenure indicator with increasingly stringent controls: (1) raw, (2) + O\*NET-task & request-cluster fixed effects, (3) + model, use-case, and country fixed effects (Figure 2.4). The persistence of a positive coefficient under within-task fixed effects is the evidence that the effect is not merely task-mix selection.
 
 Success itself is "Claude's assessment of whether the conversation was successful" (a primitive defined in the prior report).
 
@@ -38,7 +38,7 @@ Success itself is "Claude's assessment of whether the conversation was successfu
 - **Five interaction types** (directive, feedback loop, task iteration, validation, learning) → two categories (automation, augmentation). Carried over from prior reports.
 - **Economic Primitives** (Table A.1): human/AI education years, task complexity (human time, human-with-AI time), multitasking, AI autonomy (1–5), task success, use case (work/coursework/personal), human-ability-to-complete-alone.
 - **New in this report:** first analysis of **model selection** (Opus share by task/occupation/wage) and **tenure/learning curves with log-level regression and fixed effects**. The report explicitly says it "analyzed model selection and success for the first time."
-- **O*NET vintage change:** this report uses **2019 O*NET-SOC codes**; prior reports used the 2010 vintage (a methodological discontinuity to note when comparing occupational shares).
+- **O\*NET vintage change:** this report uses **2019 O\*NET-SOC codes**; prior reports used the 2010 vintage (a methodological discontinuity to note when comparing occupational shares).
 - Wage/task-value source: **May 2024 BLS OEWS Tables**, employment- and time-weighted averaging.
 - Log-level analysis applies minimum aggregate thresholds on unique accounts and conversations; cells failing privacy requirements are dropped before estimation.
 
@@ -52,44 +52,44 @@ Success itself is "Claude's assessment of whether the conversation was successfu
 
 ## Key metrics & numbers (table)
 
-| Metric | Nov 2025 | Feb 2026 | Δ |
-|---|---|---|---|
-| Top-10 task concentration, Claude.ai | 24% | 19% | −5pp |
-| Top-10 task concentration, 1P API (since Aug'25 28%) | — | 33% | +5pp vs Aug'25 |
-| Coursework share, Claude.ai | 19% | 12% | −7pp |
-| Personal share, Claude.ai | 35% (Fig: 35%) | 42% | +7pp |
-| Work share, Claude.ai (Fig 1.2) | 46% | 45% | −1pp |
-| Management occupations, Claude.ai | 3% | 5% | +2pp |
-| Avg task value, Claude.ai | $49.3/hr | $47.9/hr | −$1.4 |
-| Avg task value, 1P API | ~$50.5 (Nov) | $50.7/hr | rising |
-| Human education years (input) | 12.21 | 11.92 | −0.29 |
-| AI autonomy (1–5) | 3.38 | 3.41 | +0.02 |
-| Human time (min) | 185.53 | 183.77 | −1.76 |
-| Human + AI time (min) | 15.35 | 14.30 | −1.05 |
-| Human can't do alone (%) | 12.09 | 12.24 | +0.15 |
-| Top-20 countries' share of per-capita usage | 45% | 48% | +3pp |
-| Top-10 states' share of usage | 40% | 38% | −2pp |
-| Top-5 states' share (Aug'25 30%) | — | 24% | −6pp vs Aug'25 |
+| Metric                                               | Nov 2025       | Feb 2026 | Δ              |
+| ---------------------------------------------------- | -------------- | -------- | -------------- |
+| Top-10 task concentration, Claude.ai                 | 24%            | 19%      | −5pp           |
+| Top-10 task concentration, 1P API (since Aug'25 28%) | —              | 33%      | +5pp vs Aug'25 |
+| Coursework share, Claude.ai                          | 19%            | 12%      | −7pp           |
+| Personal share, Claude.ai                            | 35% (Fig: 35%) | 42%      | +7pp           |
+| Work share, Claude.ai (Fig 1.2)                      | 46%            | 45%      | −1pp           |
+| Management occupations, Claude.ai                    | 3%             | 5%       | +2pp           |
+| Avg task value, Claude.ai                            | $49.3/hr       | $47.9/hr | −$1.4          |
+| Avg task value, 1P API                               | ~$50.5 (Nov)   | $50.7/hr | rising         |
+| Human education years (input)                        | 12.21          | 11.92    | −0.29          |
+| AI autonomy (1–5)                                    | 3.38           | 3.41     | +0.02          |
+| Human time (min)                                     | 185.53         | 183.77   | −1.76          |
+| Human + AI time (min)                                | 15.35          | 14.30    | −1.05          |
+| Human can't do alone (%)                             | 12.09          | 12.24    | +0.15          |
+| Top-20 countries' share of per-capita usage          | 45%            | 48%      | +3pp           |
+| Top-10 states' share of usage                        | 40%            | 38%      | −2pp           |
+| Top-5 states' share (Aug'25 30%)                     | —              | 24%      | −6pp vs Aug'25 |
 
 US states Gini: Aug'25 **0.37** → Nov'25 **0.31** → Feb'26 **0.29** (converging). Countries Gini: Aug'25 **0.48** → Nov'25 **0.46** → Feb'26 **0.50** (diverging).
 
 **Tenure table (Table 2.1), low vs high tenure:**
 
-| Primitive | Low tenure | High tenure | Δ |
-|---|---|---|---|
-| Directive | 38.1% | 29.4% | −8.7pp |
-| Feedback loop | 11.7% | 12.1% | +0.5pp |
-| Task iteration | 24.5% | 28.2% | +3.6pp |
-| Validation | 4.4% | 5.6% | +1.3pp |
-| Learning | 21.3% | 24.7% | +3.4pp |
-| Work | 41.6% | 48.9% | +7.3pp |
-| Personal | 44.3% | 40.3% | −4.0pp |
-| Coursework | 14.1% | 10.8% | −3.3pp |
-| Task success rate | 66.7% | 73.1% | +6.4pp |
-| Top-10 tasks' share | 22.2% | 20.7% | −1.6pp |
-| AI autonomy (1–5) | 3.42 | 3.40 | −0.6% |
-| Human education (yr) | 11.5 | 12.3 | +6.6% |
-| AI education (yr) | 11.7 | 12.4 | +6.0% |
+| Primitive            | Low tenure | High tenure | Δ      |
+| -------------------- | ---------- | ----------- | ------ |
+| Directive            | 38.1%      | 29.4%       | −8.7pp |
+| Feedback loop        | 11.7%      | 12.1%       | +0.5pp |
+| Task iteration       | 24.5%      | 28.2%       | +3.6pp |
+| Validation           | 4.4%       | 5.6%        | +1.3pp |
+| Learning             | 21.3%      | 24.7%       | +3.4pp |
+| Work                 | 41.6%      | 48.9%       | +7.3pp |
+| Personal             | 44.3%      | 40.3%       | −4.0pp |
+| Coursework           | 14.1%      | 10.8%       | −3.3pp |
+| Task success rate    | 66.7%      | 73.1%       | +6.4pp |
+| Top-10 tasks' share  | 22.2%      | 20.7%       | −1.6pp |
+| AI autonomy (1–5)    | 3.42       | 3.40        | −0.6%  |
+| Human education (yr) | 11.5       | 12.3        | +6.6%  |
+| AI education (yr)    | 11.7       | 12.4        | +6.0%  |
 
 (Note: page 15 of the main PDF contains a stray editorial annotation — "It gets rounded to 3.4 and 3.4. Needs to be 3.42 and 3.40" — an un-removed production comment on the AI-autonomy row.)
 
@@ -115,7 +115,7 @@ US states Gini: Aug'25 **0.37** → Nov'25 **0.31** → Feb'26 **0.29** (converg
 
 - Concentration series (Claude.ai): "21%, 24%, 23%, 24%, 19%" across Jan'25→Feb'26; API "28%, ..., 33%."
 - Task value: "dropped slightly from $49.3 to $47.9" on Claude.ai; "rising among API users."
-- "Since August 2025, 1P API usage has become more concentrated, with the top 10 O*NET tasks now accounting for 33% of traffic, up from 28%."
+- "Since August 2025, 1P API usage has become more concentrated, with the top 10 O\*NET tasks now accounting for 33% of traffic, up from 28%."
 - "Computer and Mathematical... the share of tasks in this category has increased by 14% in the API and decreased by 18% in Claude.ai" since Aug 2025.
 - Convergence slowdown (quoted): "at this rate states would arrive at roughly equal usage per capita in **5–9 years, rather than 2–5**."
 - Direct reversal of a prior hypothesis: "This pushes back against a hypothesis we made last year that automated use may be more typical of more experienced, sophisticated users; instead, we find that the most advanced users are more likely to iterate with Claude."
@@ -123,8 +123,8 @@ US states Gini: Aug'25 **0.37** → Nov'25 **0.31** → Feb'26 **0.29** (converg
 ## Limitations & caveats
 
 - **Survivorship bias:** "We do not observe people who signed up a year ago but are no longer using Claude" — surviving high-tenure users may be self-selecting on positive results.
-- **Cohort/selection effects:** high-tenure users are self-selected (e.g., programmer early adopters); differences may reflect stable traits, not learning. Fixed effects rule out *simple* confounds (task mix) but not all.
-- **O*NET vintage discontinuity** (2019 vs 2010 codes) complicates cross-report occupational comparisons.
+- **Cohort/selection effects:** high-tenure users are self-selected (e.g., programmer early adopters); differences may reflect stable traits, not learning. Fixed effects rule out _simple_ confounds (task mix) but not all.
+- **O\*NET vintage discontinuity** (2019 vs 2010 codes) complicates cross-report occupational comparisons.
 - **Academic-calendar confound:** coursework drop partly mechanical (winter break — 12pp drop in break countries vs 5pp where term active).
 - **Super Bowl ad** injected a wave of casual, low-tenure users into the sample, mechanically shifting mix toward personal/low-value.
 - **Task value is a proxy** (US OEWS wages), not realized economic value; "not broadly representative of the US economy."
