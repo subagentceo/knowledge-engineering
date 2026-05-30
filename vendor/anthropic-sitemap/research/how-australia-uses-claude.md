@@ -12,12 +12,12 @@ _Anthropic is expanding to Australia. We’re opening a new office in Sydney in 
 
 ## Key Findings
 
-*   Australia is among the leading adopters of Claude, accounting for 1.6% of global Claude.ai traffic. Per capita, Australians’ use of Claude is more than four times higher than expected for the size of its population.
-*   Adoption within Australia is concentrated in two states: New South Wales (37% of conversations) and Victoria (31%). Per capita Claude usage is lower in every other state and territory.
-*   Australia's mix of use-cases generally tracks with its Anglosphere peers: 46% of Claude conversations are for work, 7% for coursework, 47% for personal use. This is a profile typical of high-income, high-adoption economies.
-*   But Australia’s mix of tasks is more diverse. Like other countries, Computer & Mathematical tasks remain the single largest category in our dataset—but this category is about 8 percentage points below the global baseline. It’s offset by higher-than-average volumes of office, sales, management, and personal life tasks.
-*   Users in Australia tend to prompt Claude for more complex tasks, as measured by the estimated years of schooling required to understand the prompt. At the same time, we estimate that the length of time these tasks would’ve taken _without_ AI is roughly 20% less than average. In other words, relative to how the rest of the world uses Claude, Australians’ tasks are associated with a higher education level but a shorter duration.
-*   Like many other high-adoption economies, Australia registers as having a relatively low “AI autonomy” score (3.38 on a 1–5 scale), which suggests that Australians use Claude in more collaborative, less delegated ways.
+- Australia is among the leading adopters of Claude, accounting for 1.6% of global Claude.ai traffic. Per capita, Australians’ use of Claude is more than four times higher than expected for the size of its population.
+- Adoption within Australia is concentrated in two states: New South Wales (37% of conversations) and Victoria (31%). Per capita Claude usage is lower in every other state and territory.
+- Australia's mix of use-cases generally tracks with its Anglosphere peers: 46% of Claude conversations are for work, 7% for coursework, 47% for personal use. This is a profile typical of high-income, high-adoption economies.
+- But Australia’s mix of tasks is more diverse. Like other countries, Computer & Mathematical tasks remain the single largest category in our dataset—but this category is about 8 percentage points below the global baseline. It’s offset by higher-than-average volumes of office, sales, management, and personal life tasks.
+- Users in Australia tend to prompt Claude for more complex tasks, as measured by the estimated years of schooling required to understand the prompt. At the same time, we estimate that the length of time these tasks would’ve taken _without_ AI is roughly 20% less than average. In other words, relative to how the rest of the world uses Claude, Australians’ tasks are associated with a higher education level but a shorter duration.
+- Like many other high-adoption economies, Australia registers as having a relatively low “AI autonomy” score (3.38 on a 1–5 scale), which suggests that Australians use Claude in more collaborative, less delegated ways.
 
 ## High adoption overall, unevenly distributed across states and territories
 
@@ -26,7 +26,7 @@ Australia accounts for 1.6% of global Claude.ai traffic, ranking eleventh among 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F570891d43095c08b1ad533909484f66faa7c8337-4417x2497.png&w=3840&q=75)
 
 _**Figure 1: Top 20 countries by share of global Claude.ai use  
-**Australia accounts for 1.6% of global Claude.ai consumer use at rank 11. Bars show each country’s share of the 1M conversations sampled from Claude.ai in February 2026. Australia highlighted in blue._  
+**Australia accounts for 1.6% of global Claude.ai consumer use at rank 11. Bars show each country’s share of the 1M conversations sampled from Claude.ai in February 2026. Australia highlighted in blue._
 
 Within Australia, usage is concentrated in the most populous states. New South Wales accounts for 37.2% of conversations, followed by Victoria at 30.8%, Queensland at 17.7%, and the remaining states and territories at a combined 14% (Figure 2). States and territories’ working age population size explains much of this ordering. However, adjusting for this, New South Wales has an AUI of 1.20 and Victoria an AUI of 1.19. These are the only two states with higher than expected per capita adoption; every other state or territory has an AUI below 1, with adoption lowest in Western Australia at 0.68, Tasmania at 0.32, and the Northern Territory at 0.12.
 
@@ -55,7 +55,7 @@ This pattern for Australia is consistent with the relationship we documented in 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F72051e23bf0f5b9ab671b04ee95c34e3e6520a36-4417x4417.png&w=3840&q=75)
 
 _**Figure 4: Economic Primitives in Australia and peer countries  
-**This figure shows the value of various economic primitives in Australia as compared to peer countries. The large blue dot represents Australia. Orange dots correspond to other Anglosphere countries (USA, UK, Canada, New Zealand, Ireland). Grey dots are countries with at least 200 sampled conversations from Claude.ai and with an Anthropic AI Usage Index (AUI) above 1. Small purple dots represent all other countries with at least 200 sampled conversations._  
+**This figure shows the value of various economic primitives in Australia as compared to peer countries. The large blue dot represents Australia. Orange dots correspond to other Anglosphere countries (USA, UK, Canada, New Zealand, Ireland). Grey dots are countries with at least 200 sampled conversations from Claude.ai and with an Anthropic AI Usage Index (AUI) above 1. Small purple dots represent all other countries with at least 200 sampled conversations._
 
 Australia registers toward the low end of AI autonomy, at 3.38 on a 1–5 scale, with other Anglosphere countries close by. Lower autonomy indicates that users retain more decision-making control in their conversations, rather than delegating fully to the model. This is consistent with high-adoption economies tending to use Claude in more collaborative, less directive ways.
 
@@ -63,19 +63,19 @@ Australia sits below the median on one measure of task complexity, but toward th
 
 ## In Australia, a broader task mix with a smaller coding share
 
-Australia's Claude use is more diverse than usage among peer Anglosphere countries and relative to the broader global average. Figure 5 shows the share of each geography's usage that is covered by its 100 most common tasks (where tasks are classified according to O*NET, a taxonomy of tasks that characterize jobs throughout the economy). Lower values on this figure indicate that Claude is used for a wider range of tasks, since the top 100 occupy a smaller share. Australia's top 100 tasks account for 47.3% of its usage, below the US (47.7%), the UK (48.3%), and Canada (50.2%), and five percentage points below the global figure of 52.3%.
+Australia's Claude use is more diverse than usage among peer Anglosphere countries and relative to the broader global average. Figure 5 shows the share of each geography's usage that is covered by its 100 most common tasks (where tasks are classified according to O\*NET, a taxonomy of tasks that characterize jobs throughout the economy). Lower values on this figure indicate that Claude is used for a wider range of tasks, since the top 100 occupy a smaller share. Australia's top 100 tasks account for 47.3% of its usage, below the US (47.7%), the UK (48.3%), and Canada (50.2%), and five percentage points below the global figure of 52.3%.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fba32c82b069f1188dfea1f597ed3c3fa1d140349-4418x2497.png&w=3840&q=75)
 
-_**Figure 5: Task concentration among the top 100 O*NET tasks in Australia and peer Anglosphere countries  
-**This figure shows how concentrated each geography's Claude.ai usage is, measured as the share of classified usage captured by that geography's 100 most-common O*NET tasks. Lower values indicate a more diverse spread of uses. Among Anglosphere countries, New Zealand and Ireland are omitted because fewer than 100 distinct tasks were observed. Source: Anthropic Economic Index, February 2026._
+_**Figure 5: Task concentration among the top 100 O\*NET tasks in Australia and peer Anglosphere countries  
+**This figure shows how concentrated each geography's Claude.ai usage is, measured as the share of classified usage captured by that geography's 100 most-common O\*NET tasks. Lower values indicate a more diverse spread of uses. Among Anglosphere countries, New Zealand and Ireland are omitted because fewer than 100 distinct tasks were observed. Source: Anthropic Economic Index, February 2026._
 
 The broader diversity of usage within Australia comes mostly from a lower share of coding-related tasks. Figure 6 shows how the composition of Australia's top 100 tasks differs from the global top 100 by SOC major group (broad occupation categories defined by the US Bureau of Labor Statistics). Computer and Mathematical tasks are 8.0 percentage points lower in Australia. No other category of use approaches that magnitude of difference to the global average, though education-related tasks are nearly three percentage points below global parity. The offsetting positives are spread across many groups, led by Management (+2.3pp), Office and Administrative Support (+1.3pp) and Life, Physical, and Social Science occupations (+1.3pp).
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fcd0a7e51155c73e26bb228f93de6ea93e169e682-4417x2497.png&w=3840&q=75)
 
 _**Figure 6: Composition of Australia's top 100 tasks relative to the global top 100, by SOC major group  
-**Bars show the difference (in percentage points) between each SOC group's share of Australia's top 100 O*NET tasks and that group's share of the global top 100. Positive values indicate overrepresentation in Australia. Top 100 tasks cover 47% of Australia's classified usage (171 distinct tasks observed) and 52% of global classified usage (3,258 distinct tasks observed). Source: Anthropic Economic Index, February 2026._
+**Bars show the difference (in percentage points) between each SOC group's share of Australia's top 100 O\*NET tasks and that group's share of the global top 100. Positive values indicate overrepresentation in Australia. Top 100 tasks cover 47% of Australia's classified usage (171 distinct tasks observed) and 52% of global classified usage (3,258 distinct tasks observed). Source: Anthropic Economic Index, February 2026._
 
 At the level of individual request clusters—categories of what users ask Claude to do—the pattern is similar (Figure 7). The cluster that is most underrepresented in Australia relative to the global distribution is general coding assistance, at 13.5% of Australian use compared to 16.8% globally. Document translation is also underrepresented, consistent with Australia being a predominantly English-speaking market. The most overrepresented clusters are a mix of personal use (such as personal life management (+1.9pp) and health and well-being support (+1.8pp)), and non-technical professional work, including workplace correspondence (+1.7pp), business documents (+1.6pp), and financial guidance (+1.3pp).
 

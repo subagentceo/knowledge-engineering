@@ -16,8 +16,6 @@ Consistent with Anthropic's commitment to trust and safety, Alexa+ is able to ta
 
 Alexa+ accesses Claude through Amazon Bedrock. It will start rolling out in the U.S. in the next few weeks, becoming more widely available in the coming months.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

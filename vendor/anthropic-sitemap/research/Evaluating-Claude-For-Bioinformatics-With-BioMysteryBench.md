@@ -8,12 +8,12 @@ Apr 29, 2026
 
 ![Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench](https://www-cdn.anthropic.com/images/4zrzovbb/website/d6058e0db8e477dc782dacae46e2ec6663d165d9-1000x1000.svg)
 
-_In this post, Brianna_, _a researcher on the discovery team, shares results from a recent bioinformatics benchmarking effort._  
-  
-Almost as soon as large language models could hold a conversation, people started asking how they’d stack up against human experts. Could models pass the bar exam? Could they answer medical licensing questions, or solve Olympiad math problems? Such _benchmarks_—self-contained sets of human-vetted problems designed to evaluate a capability of a model—have now become a source of competition across AI developers, reported in model release system cards and tracked on many online leaderboards.  
-  
-Competition aside, benchmarks help us tackle an important question: whether models are capable and reliable enough to support, or even produce, professional-level work. Scientists are using models to write code for analysis pipelines, propose hypotheses, and draw conclusions from data with the long-term aim of accelerating innovation and discovery. But exactly how proficient is AI in science right now, and how quickly are Claude and other models improving?  
-  
+_In this post, Brianna_, _a researcher on the discovery team, shares results from a recent bioinformatics benchmarking effort._
+
+Almost as soon as large language models could hold a conversation, people started asking how they’d stack up against human experts. Could models pass the bar exam? Could they answer medical licensing questions, or solve Olympiad math problems? Such _benchmarks_—self-contained sets of human-vetted problems designed to evaluate a capability of a model—have now become a source of competition across AI developers, reported in model release system cards and tracked on many online leaderboards.
+
+Competition aside, benchmarks help us tackle an important question: whether models are capable and reliable enough to support, or even produce, professional-level work. Scientists are using models to write code for analysis pipelines, propose hypotheses, and draw conclusions from data with the long-term aim of accelerating innovation and discovery. But exactly how proficient is AI in science right now, and how quickly are Claude and other models improving?
+
 To answer this, the research community has built several benchmarks. MMLU-Pro tests expert-level knowledge and reasoning questions. GPQA poses graduate-level, "Google-proof" questions in biology, physics, and chemistry. LAB-Bench tests biology-specific knowledge work—reading the literature, interpreting figures, reasoning about protocols. Although these benchmarks were developed in the “chatbot” era, they’ve persisted into the agent and tool-use era, joined by even more difficult scientific reasoning evals like FrontierScience and Humanity's Last Exam, because knowledge and reasoning remain a vital measure of scientific capability.
 
 Still, many real-world scientific tasks demand more than that. They require reading papers, querying databases, running experiments, coding and analysis. Now that models can do many of these things, benchmarks have evolved to reflect these workflows. BLADE tasks a model with a dataset and an open-ended task, and checks if the model takes similar analysis steps to a human scientist. BixBench uses biological datasets, and grades models on whether their conclusions line up with scientists’. In SciGym, the model is dropped into a simulated biology lab, where it has to design and run its own experiments to uncover a hidden mechanism.
@@ -66,11 +66,11 @@ In developing this eval, questions were primarily derived from raw or minimally 
 
 Questions developers came up with included:
 
-*   _Which human organ is this cell type single-cell RNA-seq dataset derived from?_
-*   _What gene was knocked out in the experimental samples compared to the control samples based on RNA-seq data?_
-*   _From WGS sequences, what sample is the mother of sample X and what sample is the father?_
-*   _Which of the bigWig files are from ChIP samples and which are from input controls?_
-*   _Given H3K27ac ChIP-seq peaks from an unknown cell type, identify the cell type._
+- _Which human organ is this cell type single-cell RNA-seq dataset derived from?_
+- _What gene was knocked out in the experimental samples compared to the control samples based on RNA-seq data?_
+- _From WGS sequences, what sample is the mother of sample X and what sample is the father?_
+- _Which of the bigWig files are from ChIP samples and which are from input controls?_
+- _Given H3K27ac ChIP-seq peaks from an unknown cell type, identify the cell type._
 
 To minimize inherently unsolvable questions while still leaving room for those that might be AI-solvable, we required each question author to submit a validation notebook demonstrating that the signal does, in fact, exist in the data (even if finding it from scratch might be difficult). Think of this as the high-school algebra principle: verifying an answer is much easier than deriving one.
 

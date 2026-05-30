@@ -38,13 +38,13 @@ Possible moonshot projects range from a small-scale “mock secure research envi
 
 Candidate projects include:
 
-*   An operational Mock Secure Research Environment, aiming to simulate at a very small scale what our key workflows and infrastructure would look like (and what the productivity impact would be) if they were subject to extreme security practices. This would include simulating isolated networks,“green lines” for limited remote connections, as well as commensurate physical security controls.
-*   An analysis of the feasibility of full adoption of confidential compute during the entire lifecycle of model R&D.
-*   An initial assessment of what AI-assisted security tooling (vulnerability discovery, automated patching, anomaly detection) is feasible today.
-*   A pilot of a continuous personnel security vetting program for high-risk roles with defined screening criteria, monitoring, and reporting requirements.
-*   A pilot of a system in which all interaction with our models (including internal research and training) uses APIs rather than interaction with raw model weights.
-*   An attempt to create adaptive behavioral models for flagging anomalous activity by users and services on our systems (flagged anomalies should adapt as our workflows and usage patterns change).
-*   An attempt to identify our most valuable algorithmic IP and a path to giving it additional protections.
+- An operational Mock Secure Research Environment, aiming to simulate at a very small scale what our key workflows and infrastructure would look like (and what the productivity impact would be) if they were subject to extreme security practices. This would include simulating isolated networks,“green lines” for limited remote connections, as well as commensurate physical security controls.
+- An analysis of the feasibility of full adoption of confidential compute during the entire lifecycle of model R&D.
+- An initial assessment of what AI-assisted security tooling (vulnerability discovery, automated patching, anomaly detection) is feasible today.
+- A pilot of a continuous personnel security vetting program for high-risk roles with defined screening criteria, monitoring, and reporting requirements.
+- A pilot of a system in which all interaction with our models (including internal research and training) uses APIs rather than interaction with raw model weights.
+- An attempt to create adaptive behavioral models for flagging anomalous activity by users and services on our systems (flagged anomalies should adapt as our workflows and usage patterns change).
+- An attempt to identify our most valuable algorithmic IP and a path to giving it additional protections.
 
 By April 1, 2026, we will have selected and begun 1-3 project(s), including but not limited to those above, and established concrete further goals and timelines for each. Each should lead to a working answer to the key open questions within 6 months.
 

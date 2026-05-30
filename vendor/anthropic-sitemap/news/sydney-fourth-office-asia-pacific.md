@@ -22,8 +22,6 @@ We're also exploring opportunities to expand our compute capacity in Australiaâ€
 
 For information about career opportunities at our new Sydney office, visit anthropic.com/careers.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

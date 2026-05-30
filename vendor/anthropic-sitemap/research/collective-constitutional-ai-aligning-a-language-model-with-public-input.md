@@ -8,25 +8,21 @@ Oct 17, 2023
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd20d4e15caa35ee126705d33ee5bdd1ccbe7ff4f-2880x1620.png&w=3840&q=75)
 
-  
+Anthropic and the Collective Intelligence Project recently ran a public input process involving ~1,000 Americans to draft a constitution for an AI system. We did this to explore how democratic processes can influence AI development. In our experiment, we discovered areas where people both agreed with our in-house constitution, and areas where they had different preferences. In this post, we share the resulting publicly sourced constitution, as well as what happened when we trained a new AI system against it using Constitutional AI.
 
-Anthropic and the Collective Intelligence Project recently ran a public input process involving ~1,000 Americans to draft a constitution for an AI system. We did this to explore how democratic processes can influence AI development. In our experiment, we discovered areas where people both agreed with our in-house constitution, and areas where they had different preferences. In this post, we share the resulting publicly sourced constitution, as well as what happened when we trained a new AI system against it using Constitutional AI.  
-  
-Constitutional AI (CAI) is an Anthropic-developed method for aligning general purpose language models to abide by high-level normative principles written into a constitution. Anthropic’s language model Claude currently relies on a constitution curated by Anthropic employees. This constitution takes inspiration from outside sources like the United Nations Universal Declaration of Human Rights, as well as our own firsthand experience interacting with language models to make them more helpful and harmless.  
-  
+Constitutional AI (CAI) is an Anthropic-developed method for aligning general purpose language models to abide by high-level normative principles written into a constitution. Anthropic’s language model Claude currently relies on a constitution curated by Anthropic employees. This constitution takes inspiration from outside sources like the United Nations Universal Declaration of Human Rights, as well as our own firsthand experience interacting with language models to make them more helpful and harmless.
+
 While Constitutional AI is useful for making the normative values of our AI systems more transparent, it also highlights the outsized role we as developers play in selecting these values—after all, we wrote the constitution ourselves. That is why for this research, we were eager to curate a constitution using the preferences of a large number of people who do not work at Anthropic. We believe that our work may be one of the first instances in which members of the public have collectively directed the behavior of a language model via an online deliberation process. We hope that sharing our very preliminary efforts and findings will help others learn from our successes and failures, and help build upon this work.
 
 ## Designing a Public Input Process to Collectively Draft a Constitution
 
-Anthropic partnered with the Collective Intelligence Project to run a public input process using the Polis platform. Polis is an open-source platform for running online deliberative processes augmented by machine learning algorithms. It has been used all over the world by governments, academics, independent media, and citizens to understand what large groups of people think.  
-  
+Anthropic partnered with the Collective Intelligence Project to run a public input process using the Polis platform. Polis is an open-source platform for running online deliberative processes augmented by machine learning algorithms. It has been used all over the world by governments, academics, independent media, and citizens to understand what large groups of people think.
+
 We asked approximately 1,000 members of the American public to “Help us pick rules for our AI Chatbot!” (Figure 1). We sought a representative sample of U.S. adults across age, gender, income, and geography (anonymized participant demographics can be found here). Participants could either vote on existing rules (normative principles), or add their own. In total, participants contributed 1,127 statements to the Polis, and cast 38,252 votes (an average of 34 votes per person). In general, we found a high degree of consensus on most statements, though Polis did identify two separate opinion groups (Figure 2).
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2bc2e20d8c7052dcd7af8537427ccac2fddbb689-1893x1647.png&w=3840&q=75)
 
 Figure 1: Stylized depiction of the interface the public used to deliberate on what principles should go into the constitution.
-
-  
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6b8e5c3860b64f0bd6d939d720d2310a0069c9cb-3758x3530.png&w=3840&q=75)
 
@@ -36,36 +32,36 @@ Figure 2: Example principles that uniquely differentiate opinion Group A from op
 
 The raw results can be seen in the Polis Report. We processed this data to remove invalid participants and comments (the code and data before and after processing is hosted here). We kept all the statements that passed a threshold of consensus within both groups to produce a constitution that we could train a model against. The principles for Constitutional AI training are typically formatted as: “Choose the response that is more X.” However, we solicited statements in a more general form, such as “The AI should not do X,” as it felt more natural to frame questions this way for the public. As a result, we had to do some subjective mapping between public _statements_ and CAI-ready public _principles_.
 
-You can see our publicly sourced constitution here, along with an analysis of how it is similar to and different from the Anthropic-written constitution used to train our language model Claude. While there was a moderate degree of overlap between the two constitutions (roughly 50% overlap in concepts and values), a few key differences stood out: principles in the public constitution appear to largely be self-generated and not sourced from existing publications, they focus more on objectivity and impartiality, they place a greater emphasis on accessibility, and in general, tend to _promote_ desired behavior rather than avoid undesired behavior.  
+You can see our publicly sourced constitution here, along with an analysis of how it is similar to and different from the Anthropic-written constitution used to train our language model Claude. While there was a moderate degree of overlap between the two constitutions (roughly 50% overlap in concepts and values), a few key differences stood out: principles in the public constitution appear to largely be self-generated and not sourced from existing publications, they focus more on objectivity and impartiality, they place a greater emphasis on accessibility, and in general, tend to _promote_ desired behavior rather than avoid undesired behavior.
 
-Example public principles similar to the principles in the Anthropic-written constitution:  
+Example public principles similar to the principles in the Anthropic-written constitution:
 
-*   “Choose the response that most respects the human rights to freedom, universal equality, fair treatment, and protection against discrimination.”
-*   “Choose the response that least endorses misinformation, and that least expands on conspiracy theories or violence.”
+- “Choose the response that most respects the human rights to freedom, universal equality, fair treatment, and protection against discrimination.”
+- “Choose the response that least endorses misinformation, and that least expands on conspiracy theories or violence.”
 
-Example public principles that do not closely match principles in the Anthropic-written constitution:  
+Example public principles that do not closely match principles in the Anthropic-written constitution:
 
-*   “Choose the response that most provides balanced and objective information that reflects all sides of a situation.”
-*   “Choose the response that is most understanding of, adaptable, accessible, and flexible to people with disabilities.”
+- “Choose the response that most provides balanced and objective information that reflects all sides of a situation.”
+- “Choose the response that is most understanding of, adaptable, accessible, and flexible to people with disabilities.”
 
-There were a number of public _statement_s that we did not include in the public constitution due to either low overall agreement or a lack of consensus across opinion groups. Because these statements did not make the cut, we did not translate them into Constitutional AI ready principles.
+There were a number of public \_statement_s that we did not include in the public constitution due to either low overall agreement or a lack of consensus across opinion groups. Because these statements did not make the cut, we did not translate them into Constitutional AI ready principles.
 
 Example public _statements_ that did not make it into the public constitution due to low overall agreement:
 
-*   “AI should not be trained with the principles of DEI [diversity, equity, and inclusion]”
-*   “AI should not give advice”
-*   “AI should be an ordained minister”
-*   “AI should have emotion”
+- “AI should not be trained with the principles of DEI [diversity, equity, and inclusion]”
+- “AI should not give advice”
+- “AI should be an ordained minister”
+- “AI should have emotion”
 
 Examples of conflicting public _statements_ that did not make it into the public constitution due to lack of consensus across the opinion groups:
 
-*   “The AI should prioritize the interests of the collective or common good over individual preferences or rights.”
-*   “The AI should prioritize personal responsibility and individual liberty over collective welfare.”
+- “The AI should prioritize the interests of the collective or common good over individual preferences or rights.”
+- “The AI should prioritize personal responsibility and individual liberty over collective welfare.”
 
 ## Training and Evaluating a Model Aligned with Public Input
 
-We trained two Claude Instant-sized models, following the procedures outlined in our CAI paper. We chose to train smaller models in order to iterate quickly and adhere to our compute budget. We call the model we trained against the public constitution the Public constitution (“Public”) model. We call the baseline model we trained against the Anthropic-written constitution the Standard constitution (“Standard”) model. We chose to also baseline against Claude Instant 1.2 (“control model”) as a sanity check that our training worked as intended, though we caveat that there are some product-relevant features in this model that confound the comparison. Ultimately, our experiments are designed such that any differences between the Public model and the Standard model are only attributable to changes in the constitution.  
-  
+We trained two Claude Instant-sized models, following the procedures outlined in our CAI paper. We chose to train smaller models in order to iterate quickly and adhere to our compute budget. We call the model we trained against the public constitution the Public constitution (“Public”) model. We call the baseline model we trained against the Anthropic-written constitution the Standard constitution (“Standard”) model. We chose to also baseline against Claude Instant 1.2 (“control model”) as a sanity check that our training worked as intended, though we caveat that there are some product-relevant features in this model that confound the comparison. Ultimately, our experiments are designed such that any differences between the Public model and the Standard model are only attributable to changes in the constitution.
+
 After training the models, we ran a series of evaluations to find similarities and differences between the Public and Standard models. In general we found that:
 
 1.  The Public and Standard models perform equivalently on the language and math understanding tasks we tested, MMLU and GSM8K, respectively (Table 1).
@@ -77,13 +73,9 @@ After training the models, we ran a series of evaluations to find similarities a
 
 Table 1: MMLU and GSM8K accuracy computed using the same methods outlined in Claude 2’s model card. Higher is better. We see no significant differences between models.
 
-  
-
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe846207108e424d460dabc55dc5504ae48df8d35-1879x1203.png&w=3840&q=75)
 
 Figure 3: BBQ bias scores. Higher scores indicate more negative stereotype bias (lower is better). We used the same methods, code, and controls from our previously published work. The Public model shows lower bias scores across all nine social dimensions than the Standard model, especially for Disability Status and Physical Appearance. The Public constitution places a larger emphasis on accessibility, which may explain the greater reduction in bias for Disability Status in particular.
-
-  
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F20860e20d728aa032997fc79325e64d161f6a456-1893x1210.png&w=3840&q=75)
 
@@ -122,13 +114,13 @@ We believe that our work may be one of the first instances in which members of t
 
 ## Acknowledgements
 
-*   Deep Ganguli*, Saffron Huang**, Liane Lovitt*, and Divya Siddarth** jointly led the work in close collaboration.
-*   Thomas Liao* trained the models and ran the evaluations, with help and support from Amanda Askell*, Yuntao Bai*, Saurav Kadavath*, Jackson Kernion*, Cam McKinnon*, and Karina Nguyen*.
-*   Esin Durmus* ran the OpinionQA evaluation and helped frame and design the experiments.
-*   We thank Danielle Allen, Jack Clark*, Sasha de Marigny*, Marina Favaro*, Henri Hammond-Paul, Danny Hernandez*, Jared Kaplan*, Everett Katigbak*, Colin Megill, Beth Noveck, Christopher Small, Alex Tamkin*, Audrey Tang, Glen Weyl, and Kinney Zalesne for their support and guidance throughout.
+- Deep Ganguli*, Saffron Huang\*\*, Liane Lovitt*, and Divya Siddarth\*\* jointly led the work in close collaboration.
+- Thomas Liao* trained the models and ran the evaluations, with help and support from Amanda Askell*, Yuntao Bai*, Saurav Kadavath*, Jackson Kernion*, Cam McKinnon*, and Karina Nguyen\*.
+- Esin Durmus\* ran the OpinionQA evaluation and helped frame and design the experiments.
+- We thank Danielle Allen, Jack Clark*, Sasha de Marigny*, Marina Favaro*, Henri Hammond-Paul, Danny Hernandez*, Jared Kaplan*, Everett Katigbak*, Colin Megill, Beth Noveck, Christopher Small, Alex Tamkin\*, Audrey Tang, Glen Weyl, and Kinney Zalesne for their support and guidance throughout.
 
-* Anthropic.  
-** Collective Intelligence Project.
+- Anthropic.  
+  \*\* Collective Intelligence Project.
 
 ## Policy Memo
 

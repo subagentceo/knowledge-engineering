@@ -40,8 +40,6 @@ The people and organizations we’ve met in Japan share our conviction that tech
 
 For information about career opportunities at our Tokyo office, see here.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

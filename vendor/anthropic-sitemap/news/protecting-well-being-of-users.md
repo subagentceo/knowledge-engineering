@@ -30,7 +30,7 @@ When this happens, a banner will appear on Claude.ai, pointing users to where th
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3eb430641fb43ca2df725a12f698f0726ee070c3-1920x1263.png&w=3840&q=75)
 
-A simulated prompt and response that causes the crisis banner to appear.  
+A simulated prompt and response that causes the crisis banner to appear.
 
 The resources that appear in this banner are provided by ThroughLine, a leader in online crisis support that maintains a verified global network of helplines and services across 170+ countries. This means, for example, that users can access the 988 Lifeline in the US and Canada, the Samaritans Helpline in the UK, or Life Link in Japan. We've worked closely with ThroughLine to understand best practices for empathetic crisis response, and we’ve incorporated these into our product.
 
@@ -99,15 +99,10 @@ If you have feedback for us on how Claude handles these conversations, you can r
 ### Footnotes
 
 1.  At the bottom of every response on Claude.ai is an option to send us feedback via a thumbs up or thumbs down button. This shares the conversation with Anthropic; we do not otherwise use Claude.ai for training or research.
-    
 2.  Prefilling is only available via API, as developers often need more fine-grained control over model behavior, but is not possible on Claude.ai.
-    
 3.  In automated behavioral audits, we give a Claude auditor hundreds of different conversational scenarios in which we suspect models might show dangerous or surprising behavior, and score each conversation for Claude’s performance on around two dozen behaviors (see page 69 in the Claude Opus 4.5 system card). Not every conversation gives Claude the opportunity to exhibit every behavior. For instance, encouragement of user delusion requires a user to exhibit delusional behavior in the first place, but sycophancy can appear in many different contexts. Because we use the same denominator (total conversations) when we score each behavior, scores can vary widely. For this reason, these tests are most useful for comparing progress between Claude models, not between behaviors.
-    
 4.  The public release includes over 100 seed instructions and customizable scoring dimensions, though it doesn't yet include the realism filter we use internally to prevent models from recognizing they're being tested.
-    
 
-  
 _Edited Feb. 3, 2025: This post originally stated that Opus 4.5 responded appropriately 70% of the time in our stress-testing evals for suicide and self-harm. That figure came from an earlier version of Opus 4.5, and has been corrected to 91%._
 
 ## Related content

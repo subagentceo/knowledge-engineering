@@ -54,36 +54,45 @@ Search
 
 DateCategoryTitle
 
-*   May 27, 2026Economic Research
-    
-    Coding agents in the social sciences
-*   Apr 22, 2026Economic Research
-    
-    Announcing the Anthropic Economic Index Survey
-*   Apr 22, 2026Economic Research
-    
-    What 81,000 people told us about the economics of AI
-*   Mar 31, 2026Economic Research
-    
-    How Australia Uses Claude: Findings from the Anthropic Economic Index
-*   Mar 24, 2026Economic Research
-    
-    Anthropic Economic Index report: Learning curves
-*   Mar 5, 2026Economic Research
-    
-    Labor market impacts of AI: A new measure and early evidence
-*   Feb 16, 2026Economic Research
-    
-    India Country Brief: The Anthropic Economic Index
-*   Jan 15, 2026Economic Research
-    
-    Anthropic Economic Index: New building blocks for understanding AI use
-*   Jan 15, 2026Economic Research
-    
-    Anthropic Economic Index report: Economic primitives
-*   Nov 25, 2025Economic Research
-    
-    Estimating AI productivity gains from Claude conversations
+- May 27, 2026Economic Research
+
+  Coding agents in the social sciences
+
+- Apr 22, 2026Economic Research
+
+  Announcing the Anthropic Economic Index Survey
+
+- Apr 22, 2026Economic Research
+
+  What 81,000 people told us about the economics of AI
+
+- Mar 31, 2026Economic Research
+
+  How Australia Uses Claude: Findings from the Anthropic Economic Index
+
+- Mar 24, 2026Economic Research
+
+  Anthropic Economic Index report: Learning curves
+
+- Mar 5, 2026Economic Research
+
+  Labor market impacts of AI: A new measure and early evidence
+
+- Feb 16, 2026Economic Research
+
+  India Country Brief: The Anthropic Economic Index
+
+- Jan 15, 2026Economic Research
+
+  Anthropic Economic Index: New building blocks for understanding AI use
+
+- Jan 15, 2026Economic Research
+
+  Anthropic Economic Index report: Economic primitives
+
+- Nov 25, 2025Economic Research
+
+  Estimating AI productivity gains from Claude conversations
 
 See more
 

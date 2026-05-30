@@ -213,7 +213,7 @@ n = 100
 x = np.random.randn(n, 30)
 y = np.random.normal(size = n)
 
-rr = lm.RidgeClassifierCV(alphas = np.arange(0.1, 1000, 0.1), normalize = True, 
+rr = lm.RidgeClassifierCV(alphas = np.arange(0.1, 1000, 0.1), normalize = True,
                                          store_cv_values = True).fit(x, y)
 
 #### Expected Results
@@ -283,7 +283,7 @@ n = 100
 x = np.random.randn(n, 30)
 y = np.random.normal(size = n)
 
-rr = lm.RidgeClassifierCV(alphas=np.arange(0.1, 1000, 0.1), normalize=True, 
+rr = lm.RidgeClassifierCV(alphas=np.arange(0.1, 1000, 0.1), normalize=True,
                          store_cv_values=True).fit(x, y)
 
 OBSERVATION:

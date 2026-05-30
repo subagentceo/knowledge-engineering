@@ -20,11 +20,11 @@ _– Kaushal Kurapati, Senior Vice President of Product for AI at Salesforce_
 
 ## Use Cases Across Industries:
 
-*   **Sales and Marketing**: Generate tailored pitches, analyze call transcripts, create personalized content, and evaluate campaign performance.
-*   **Customer Service**: Summarize cases and generate personalized responses.
-*   **Healthcare and Financial Services**: Summarize records, generate education materials, analyze reports, and create investment recommendations.
-*   **Legal and Technology**: Analyze contracts and user feedback, generate product descriptions.
-*   **Media and Entertainment**: Generate content ideas and create personalized recommendations.
+- **Sales and Marketing**: Generate tailored pitches, analyze call transcripts, create personalized content, and evaluate campaign performance.
+- **Customer Service**: Summarize cases and generate personalized responses.
+- **Healthcare and Financial Services**: Summarize records, generate education materials, analyze reports, and create investment recommendations.
+- **Legal and Technology**: Analyze contracts and user feedback, generate product descriptions.
+- **Media and Entertainment**: Generate content ideas and create personalized recommendations.
 
 ## Integration Details:
 

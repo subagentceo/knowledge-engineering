@@ -18,10 +18,10 @@ Claude 3.5 Sonnet will be available in public preview to all GitHub Copilot Chat
 
 With context about your entire codebase, you can use Claude 3.5 Sonnet on GitHub Copilot to:
 
-*   **Write production-ready code:** Ask GitHub Copilot Chat to transform natural language descriptions into high-quality code that matches your project’s patterns and conventions.
-*   **Debug with inline chat:** Highlight problematic code to get instant analysis and fixes, or ask GitHub Copilot Chat to explain error messages and suggest solutions.
-*   **Create tests from implementation:** Select any function to automatically generate comprehensive test suites that match your testing framework and cover edge cases.
-*   **Understand code with contextual explanations:** Hover over functions or highlight blocks of code in VS Code to get explanations of what the code does and how it fits into your project.
+- **Write production-ready code:** Ask GitHub Copilot Chat to transform natural language descriptions into high-quality code that matches your project’s patterns and conventions.
+- **Debug with inline chat:** Highlight problematic code to get instant analysis and fixes, or ask GitHub Copilot Chat to explain error messages and suggest solutions.
+- **Create tests from implementation:** Select any function to automatically generate comprehensive test suites that match your testing framework and cover edge cases.
+- **Understand code with contextual explanations:** Hover over functions or highlight blocks of code in VS Code to get explanations of what the code does and how it fits into your project.
 
 ## Getting started
 

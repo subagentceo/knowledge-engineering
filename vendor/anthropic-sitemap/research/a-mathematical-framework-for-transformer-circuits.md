@@ -8,7 +8,7 @@ Dec 22, 2021
 
 Read Paper
 
-### 
+###
 
 ## Related content
 

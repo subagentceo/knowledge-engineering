@@ -14,13 +14,11 @@ The Fund will back selected entrepreneurs primarily innovating in five key areas
 
 Startups backed by the Anthology Fund will gain access to Anthropic products and research, $25,000 in free credits towards our most advanced models, and best-in-class venture support from Menlo, among other benefits and resources.
 
-“We are thrilled to join forces with Anthropic to launch the Anthology Fund,” said Matt Murphy, Partner at Menlo Ventures. “By combining Menlo’s company-building experience with Anthropic’s cutting-edge AI technology and talent, we are uniquely positioned to identify and partner with the most promising entrepreneurs shaping the future of AI.”  
+“We are thrilled to join forces with Anthropic to launch the Anthology Fund,” said Matt Murphy, Partner at Menlo Ventures. “By combining Menlo’s company-building experience with Anthropic’s cutting-edge AI technology and talent, we are uniquely positioned to identify and partner with the most promising entrepreneurs shaping the future of AI.”
 
 We look forward to working with Menlo in supporting the startup ecosystem and driving responsible AI innovation.
 
 Interested startups can learn more and apply here.
-
-  
 
 ## Related content
 

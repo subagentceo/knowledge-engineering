@@ -32,16 +32,16 @@ As always, your feedback helps us improve, especially as we continue to release 
 
 **Data sources**
 
-*   OpenAI: o3 launch post, o3 system card
-*   Gemini: 2.5 Pro model card
-*   Claude: Sonnet 3.7 launch post, Claude 4 launch post
+- OpenAI: o3 launch post, o3 system card
+- Gemini: 2.5 Pro model card
+- Claude: Sonnet 3.7 launch post, Claude 4 launch post
 
 **Benchmark reporting**
 
 Claude models are hybrid reasoning models. The benchmarks reported in this blog post show the highest scores achieved with or without extended thinking. We’ve noted below for each result whether extended thinking was used:
 
-*   No extended thinking: SWE-bench Verified, Terminal-Bench
-*   The following benchmarks were reported with extended thinking (up to 64K tokens): TAU-bench, GPQA Diamond, MMMLU, MMMU, AIME
+- No extended thinking: SWE-bench Verified, Terminal-Bench
+- The following benchmarks were reported with extended thinking (up to 64K tokens): TAU-bench, GPQA Diamond, MMMLU, MMMU, AIME
 
 **TAU-bench methodology**
 

@@ -8,12 +8,11 @@ Dec 12, 2024
 
 Read the paper
 
-*   Update
-    
-    Consumer Terms and Privacy Policy
-    
-    Aug 28, 2025
-    
+- Update
+
+  Consumer Terms and Privacy Policy
+
+  Aug 28, 2025
 
 What do people use AI models for? Despite the rapidly-growing popularity of large language models, until now we’ve had little insight into exactly how they’re being used.
 
@@ -58,12 +57,12 @@ Educational uses formed another significant category, with more than 7% of conve
 
 Clio also identified thousands of smaller conversation clusters, showing the rich variety of uses for Claude. Some of these were perhaps surprising, including:
 
-*   Dream interpretation;
-*   Analysis of soccer matches;
-*   Disaster preparedness;
-*   “Hints” for crossword puzzles;
-*   _Dungeons & Dragons_ gaming;
-*   Counting the r’s in the word “strawberry”.
+- Dream interpretation;
+- Analysis of soccer matches;
+- Disaster preparedness;
+- “Hints” for crossword puzzles;
+- _Dungeons & Dragons_ gaming;
+- Counting the r’s in the word “strawberry”.
 
 ### Claude usage varies by language
 
@@ -105,10 +104,10 @@ We also used Clio to investigate false positives—another common challenge when
 
 Clio provides valuable insights for improving the safety of deployed language models. However, it did also raise some important ethical considerations that we considered and addressed while developing the system:
 
-*   **False positives:** In the Trust and Safety context, we've implemented key safeguards with respect to potential false positives. For example, at this time we don't use Clio’s outputs for automated enforcement actions, and we extensively validate its performance across different data distributions—including testing across multiple languages, as we detail in our paper.
-*   **Misuse of Clio:** A system like Clio could be misused to engage in inappropriate monitoring. In addition to strict access controls and our privacy techniques, we mitigate this risk by implementing strict data minimization and retention policies: we only collect and retain the minimum amount of data necessary for Clio.
-*   **User privacy:** Despite Clio's strong performance in our privacy evaluations, it's possible, as with any real-world privacy system, that our systems might not catch certain kinds of private information. To mitigate this potential risk, we regularly conduct audits of our privacy protections and evaluations for Clio to ensure our safeguards are performing as expected. As time goes on, we also plan to use the latest Claude models in Clio so we can continuously improve the performance of these safeguards.
-*   **User trust:** Despite our extensive privacy protections, some users might perceive a system like Clio as invasive or as interfering with their use of Claude. We've chosen to be transparent about Clio's purpose, capabilities, limitations, and what insights we’ve learned from it. And as we noted above, there are instances where Clio identified false positives (where it appeared there was activity violating our usage policy where there wasn’t) in our standard safety classifiers, potentially allowing us to interfere _less_ in legitimate uses of the model.
+- **False positives:** In the Trust and Safety context, we've implemented key safeguards with respect to potential false positives. For example, at this time we don't use Clio’s outputs for automated enforcement actions, and we extensively validate its performance across different data distributions—including testing across multiple languages, as we detail in our paper.
+- **Misuse of Clio:** A system like Clio could be misused to engage in inappropriate monitoring. In addition to strict access controls and our privacy techniques, we mitigate this risk by implementing strict data minimization and retention policies: we only collect and retain the minimum amount of data necessary for Clio.
+- **User privacy:** Despite Clio's strong performance in our privacy evaluations, it's possible, as with any real-world privacy system, that our systems might not catch certain kinds of private information. To mitigate this potential risk, we regularly conduct audits of our privacy protections and evaluations for Clio to ensure our safeguards are performing as expected. As time goes on, we also plan to use the latest Claude models in Clio so we can continuously improve the performance of these safeguards.
+- **User trust:** Despite our extensive privacy protections, some users might perceive a system like Clio as invasive or as interfering with their use of Claude. We've chosen to be transparent about Clio's purpose, capabilities, limitations, and what insights we’ve learned from it. And as we noted above, there are instances where Clio identified false positives (where it appeared there was activity violating our usage policy where there wasn’t) in our standard safety classifiers, potentially allowing us to interfere _less_ in legitimate uses of the model.
 
 ## Conclusions
 

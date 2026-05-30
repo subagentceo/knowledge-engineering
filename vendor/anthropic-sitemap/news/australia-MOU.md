@@ -24,7 +24,7 @@ The Garvan Institute of Medical Research will use Claude to accelerate genomic d
 
 Finally, the Curtin Institute for Data Science, Australia’s largest university-based data science research institute, will use Claude to scale their collaboration with academics, and in research projects across health sciences, the humanities, business, law, science, and engineering.
 
-On Monday, we also announced that we are launching our first deep tech startup API credit program for VC-backed startups working on drug discovery, materials science, climate modeling, and medical diagnostics—areas where AI can have a profound impact. Eligible companies will receive up to USD$50,000 (about AUD$72,000) in API credits to build with Claude, along with resources and community support, as we build our local team.  
+On Monday, we also announced that we are launching our first deep tech startup API credit program for VC-backed startups working on drug discovery, materials science, climate modeling, and medical diagnostics—areas where AI can have a profound impact. Eligible companies will receive up to USD$50,000 (about AUD$72,000) in API credits to build with Claude, along with resources and community support, as we build our local team.
 
 These investments reflect the advanced work Australian researchers and startups are already doing with Claude, and directly contribute to supporting the goals outlined in Australia’s National AI Plan.
 

@@ -1,11 +1,10 @@
 # The "think" tool: Enabling Claude to stop and think in complex tool use situations
 
-*   Extended thinking update
-    
-    Dec 15, 2025
-    
-    Extended thinking capabilities have improved since its initial release, such that we recommend using that feature instead of a dedicated think tool in most cases. Extended thinking provides similar benefits—giving Claude space to reason through complex problems—with better integration and performance. See our extended thinking documentation for implementation details.
-    
+- Extended thinking update
+
+  Dec 15, 2025
+
+  Extended thinking capabilities have improved since its initial release, such that we recommend using that feature instead of a dedicated think tool in most cases. Extended thinking provides similar benefits—giving Claude space to reason through complex problems—with better integration and performance. See our extended thinking documentation for implementation details.
 
 As we continue to enhance Claude's complex problem-solving abilities, we've discovered a particularly effective approach: a "think" tool that creates dedicated space for structured thinking during complex tasks.
 
@@ -50,9 +49,9 @@ We evaluated the "think" tool using τ-bench (tau-bench), a comprehensive benchm
 
 τ-bench evaluates Claude's ability to:
 
-*   Navigate realistic conversations with simulated users
-*   Follow complex customer service agent policy guidelines consistently
-*   Use a variety of tools to access and manipulate the environment database
+- Navigate realistic conversations with simulated users
+- Follow complex customer service agent policy guidelines consistently
+- Use a variety of tools to access and manipulate the environment database
 
 The primary evaluation metric used in τ-bench is pass^_k_, which measures the probability that all _k_ independent task trials are successful for a given task, averaged across all tasks. Unlike the pass@_k_ metric that is common for other LLM evaluations (which measures if at least one of _k_ trials succeeds), pass^_k_ evaluates consistency and reliability—critical qualities for customer service applications where consistent adherence to policies is essential.
 
@@ -67,8 +66,8 @@ Our evaluation compared several different configurations:
 
 The results showed dramatic improvements when Claude 3.7 effectively used the "think" tool in both the “airline” and “retail” customer service domains of the benchmark:
 
-*   **Airline domain**: The "think" tool with an optimized prompt achieved 0.570 on the pass^1 metric, compared to just 0.370 for the baseline—a 54% relative improvement;
-*   **Retail domain**: The "think" tool alone achieves 0.812, compared to 0.783 for the baseline.
+- **Airline domain**: The "think" tool with an optimized prompt achieved 0.570 on the pass^1 metric, compared to just 0.370 for the baseline—a 54% relative improvement;
+- **Retail domain**: The "think" tool alone achieves 0.812, compared to 0.783 for the baseline.
 
 ![A line graph showing the performance of Claude 3.7 Sonnet on the "airline" domain of the Tau-Bench eval](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fff91e5c84be59ae71306bcc60adba9affed86484-2200x1300.jpg&w=3840&q=75)
 
@@ -147,7 +146,7 @@ Before taking any action or responding to the user after receiving tool results,
 - List the specific rules that apply to the current request
 - Check if all required information is collected
 - Verify that the planned action complies with all policies
-- Iterate over tool results for correctness 
+- Iterate over tool results for correctness
 
 Here are some examples of what to iterate over inside the think tool:
 <think_tool_example_1>
@@ -297,10 +296,10 @@ To get the most out of the "think" tool with Claude, we recommend the following 
 
 The most effective approach is to provide clear instructions on when and how to use the "think" tool, such as the one used for the τ-bench airline domain. Providing examples tailored to your specific use case significantly improves how effectively the model uses the "think" tool:
 
-*   The level of detail expected in the reasoning process;
-*   How to break down complex instructions into actionable steps;
-*   Decision trees for handling common scenarios; and
-*   How to check if all necessary information has been collected.
+- The level of detail expected in the reasoning process;
+- How to break down complex instructions into actionable steps;
+- Decision trees for handling common scenarios; and
+- How to check if all necessary information has been collected.
 
 #### 2. Place complex guidance in the system prompt
 

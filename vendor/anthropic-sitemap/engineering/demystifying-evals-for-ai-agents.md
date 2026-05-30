@@ -22,14 +22,14 @@ In a simple eval, an agent processes a prompt, and a grader checks if the output
 
 When building agent evaluations, we use the following definitions:
 
-*   A **task** (a.k.a **problem** or **test case**) is a single test with defined inputs and success criteria.
-*   Each attempt at a task is a **trial**. Because model outputs vary between runs, we run multiple trials to produce more consistent results.
-*   A **grader** is logic that scores some aspect of the agent’s performance. A task can have multiple graders, each containing multiple assertions (sometimes called **checks**)**.**
-*   A **transcript** (also called a **trace** or **trajectory**) is the complete record of a trial, including outputs, tool calls, reasoning, intermediate results, and any other interactions. For the Anthropic API, this is the full messages array at the end of an eval run - containing all the calls to the API and all of the returned responses during the evaluation.
-*   The **outcome** is the final state in the environment at the end of the trial. A flight-booking agent might say “Your flight has been booked” at the end of the transcript, but the outcome is whether a reservation exists in the environment’s SQL database.
-*   An **evaluation harness** is the infrastructure that runs evals end-to-end. It provides instructions and tools, runs tasks concurrently, records all the steps, grades outputs, and aggregates results.
-*   An **agent harness** (or **scaffold**) is the system that enables a model to act as an agent: it processes inputs, orchestrates tool calls, and returns results. When we evaluate “an agent,” we’re evaluating the harness _and_ the model working together. For example, Claude Code is a flexible agent harness, and we used its core primitives through the Agent SDK to build our long-running agent harness.
-*   An **evaluation suite** is a collection of tasks designed to measure specific capabilities or behaviors. Tasks in a suite typically share a broad goal. For instance, a customer support eval suite might test refunds, cancellations, and escalations.
+- A **task** (a.k.a **problem** or **test case**) is a single test with defined inputs and success criteria.
+- Each attempt at a task is a **trial**. Because model outputs vary between runs, we run multiple trials to produce more consistent results.
+- A **grader** is logic that scores some aspect of the agent’s performance. A task can have multiple graders, each containing multiple assertions (sometimes called **checks**)**.**
+- A **transcript** (also called a **trace** or **trajectory**) is the complete record of a trial, including outputs, tool calls, reasoning, intermediate results, and any other interactions. For the Anthropic API, this is the full messages array at the end of an eval run - containing all the calls to the API and all of the returned responses during the evaluation.
+- The **outcome** is the final state in the environment at the end of the trial. A flight-booking agent might say “Your flight has been booked” at the end of the transcript, but the outcome is whether a reservation exists in the environment’s SQL database.
+- An **evaluation harness** is the infrastructure that runs evals end-to-end. It provides instructions and tools, runs tasks concurrently, records all the steps, grades outputs, and aggregates results.
+- An **agent harness** (or **scaffold**) is the system that enables a model to act as an agent: it processes inputs, orchestrates tool calls, and returns results. When we evaluate “an agent,” we’re evaluating the harness _and_ the model working together. For example, Claude Code is a flexible agent harness, and we used its core primitives through the Agent SDK to build our long-running agent harness.
+- An **evaluation suite** is a collection of tasks designed to measure specific capabilities or behaviors. Tasks in a suite typically share a broad goal. For instance, a customer support eval suite might test refunds, cancellations, and escalations.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F0205b36f9639fc27f2f6566f73cb56b06f59d555-4584x2580.png&w=3840&q=75)
 
@@ -81,11 +81,11 @@ Code-based graders
 • Objective  
 • Reproducible  
 • Easy to debug  
-• Verify specific conditions  
+• Verify specific conditions
 
 • Brittle to valid variations that don’t match expected patterns exactly  
 • Lacking in nuance  
-• Limited for evaluating some more subjective tasks  
+• Limited for evaluating some more subjective tasks
 
 Model-based graders
 
@@ -95,27 +95,21 @@ Model-based graders
 
 **Weaknesses**
 
-*   Rubric-based scoring
-*   Natural language assertions
-*   Pairwise comparison
-*   Reference-based evaluation
-*   Multi-judge consensus
+- Rubric-based scoring
+- Natural language assertions
+- Pairwise comparison
+- Reference-based evaluation
+- Multi-judge consensus
 
-  
+- Flexible
+- Scalable
+- Captures nuance
+- Handles open-ended tasks
+- Handles freeform output
 
-*   Flexible
-*   Scalable
-*   Captures nuance
-*   Handles open-ended tasks
-*   Handles freeform output
-
-  
-
-*   Non-deterministic
-*   More expensive than code
-*   Requires calibration with human graders for accuracy
-
-  
+- Non-deterministic
+- More expensive than code
+- Requires calibration with human graders for accuracy
 
 Human graders
 
@@ -125,25 +119,19 @@ Human graders
 
 **Weaknesses**
 
-*   SME review
-*   Crowdsourced judgment
-*   Spot-check sampling
-*   A/B testing
-*   Inter-annotator agreement
+- SME review
+- Crowdsourced judgment
+- Spot-check sampling
+- A/B testing
+- Inter-annotator agreement
 
-  
+- Gold standard quality
+- Matches expert user judgment
+- Used to calibrate model-based graders
 
-*   Gold standard quality
-*   Matches expert user judgment
-*   Used to calibrate model-based graders
-
-  
-
-*   Expensive
-*   Slow
-*   Often requires access to human experts at scale
-
-  
+- Expensive
+- Slow
+- Often requires access to human experts at scale
 
 For each task, scoring can be weighted (combined grader scores must hit a threshold), binary (all graders must pass), or a hybrid.
 
@@ -161,7 +149,7 @@ After an agent is launched and optimized, capability evals with high pass rates 
 
 Deterministic graders are natural for coding agents because software is generally straightforward to evaluate: does the code run and do the tests pass? Two widely used coding agent benchmarks, SWE-bench Verified and Terminal-Bench, follow this approach. SWE-bench Verified gives agents GitHub issues from popular Python repositories and grades solutions by running the test suite; a solution passes only if it fixes the failing tests without breaking existing ones. LLMs have progressed from 40% to >80% on this eval in just one year. Terminal-Bench takes a different track: it tests end-to-end technical tasks, such as building a Linux kernel from source or training an ML model.
 
-Once you have a set of pass-or-fail tests for validating the key _outcomes_ of a coding task, it’s often useful to also grade the transcript_._ For instance, heuristics-based code quality rules can evaluate the generated code based on more than passing tests, and model-based graders with clear rubrics can assess behaviors like how the agent calls tools or interacts with the user.
+Once you have a set of pass-or-fail tests for validating the key _outcomes_ of a coding task, it’s often useful to also grade the transcript*.* For instance, heuristics-based code quality rules can evaluate the generated code based on more than passing tests, and model-based graders with clear rubrics can assess behaviors like how the agent calls tools or interacts with the user.
 
 **Example: Theoretical evaluation for a coding agent**
 
@@ -209,7 +197,6 @@ Note that this example showcases the full range of available graders for illustr
 
 Success for conversational agents can be multidimensional: is the ticket resolved (state check), did it finish in <10 turns (transcript constraint), and was the tone appropriate (LLM rubric)? Two benchmarks that incorporate multidimensionality are 𝜏-Bench and its successor, τ2-Bench. These simulate multi-turn interactions across domains like retail support and airline booking, where one model plays a user persona while the agent navigates realistic scenarios.
 
-  
 **Example: Theoretical evaluation for a conversational agent**
 
 Consider a support task where the agent must handle a refund for a frustrated customer.
@@ -369,78 +356,78 @@ Pros
 Cons
 
 **Automated evals  
-**_Running tests programmatically without real users_  
+**_Running tests programmatically without real users_
 
-*   Faster iteration
-*   Fully reproducible
-*   No user impact
-*   Can run on every commit
-*   Tests scenarios at scale without requiring a prod deployment
+- Faster iteration
+- Fully reproducible
+- No user impact
+- Can run on every commit
+- Tests scenarios at scale without requiring a prod deployment
 
-*   Requires more up-front investment to build
-*   Requires ongoing maintenance as product and model evolves to avoid drift
-*   Can create false confidence if it doesn’t match real usage patterns
+- Requires more up-front investment to build
+- Requires ongoing maintenance as product and model evolves to avoid drift
+- Can create false confidence if it doesn’t match real usage patterns
 
 **Production monitoring  
-**_Tracking metrics and errors in live systems_  
+**_Tracking metrics and errors in live systems_
 
-*   Reveals real user behavior at scale
-*   Catches issues that synthetic evals miss
-*   Provides ground truth on how agents actually perform
+- Reveals real user behavior at scale
+- Catches issues that synthetic evals miss
+- Provides ground truth on how agents actually perform
 
-*   Reactive; problems reach users before you know about them
-*   Signals can be noisy
-*   Requires investment in instrumentation
-*   Lacks ground truth for grading
+- Reactive; problems reach users before you know about them
+- Signals can be noisy
+- Requires investment in instrumentation
+- Lacks ground truth for grading
 
 **A/B testing  
-**_Comparing variants with real user traffic_  
+**_Comparing variants with real user traffic_
 
-*   Measures actual user outcomes (retention, task completion)
-*   Controls for confounds
-*   Scalable and systematic
+- Measures actual user outcomes (retention, task completion)
+- Controls for confounds
+- Scalable and systematic
 
-*   Slow; days or weeks to reach significance and requires sufficient traffic
-*   Only tests changes you deploy
-*   Less signal on the underlying “why” for changes in metrics without being able to thoroughly review the transcripts
+- Slow; days or weeks to reach significance and requires sufficient traffic
+- Only tests changes you deploy
+- Less signal on the underlying “why” for changes in metrics without being able to thoroughly review the transcripts
 
 **User feedback  
-**_Explicit signals like thumbs-down or bug reports_  
+**_Explicit signals like thumbs-down or bug reports_
 
-*   Surfaces problems you didn't anticipate
-*   Comes with real examples from actual human users
-*   The feedback often correlates with product goals
+- Surfaces problems you didn't anticipate
+- Comes with real examples from actual human users
+- The feedback often correlates with product goals
 
-*   Sparse and self-selected
-*   Skews toward severe issues
-*   Users rarely explain _why_ something failed
-*   Not automated
-*   Relying primarily on users to catch issues can have negative user impact
+- Sparse and self-selected
+- Skews toward severe issues
+- Users rarely explain _why_ something failed
+- Not automated
+- Relying primarily on users to catch issues can have negative user impact
 
 **Manual transcript review  
-**_Humans reading through agent conversations_  
+**_Humans reading through agent conversations_
 
-*   Builds intuition for failure modes
-*   Catches subtle quality issues automated checks miss
-*   Helps calibrate what "good" looks like and grasp details
+- Builds intuition for failure modes
+- Catches subtle quality issues automated checks miss
+- Helps calibrate what "good" looks like and grasp details
 
-*   Time-intensive
-*   Doesn't scale
-*   Coverage is inconsistent
-*   Reviewer fatigue or different reviewers can affect the signal quality
-*   Typically only gives qualitative signal rather than clear quantitative grading
+- Time-intensive
+- Doesn't scale
+- Coverage is inconsistent
+- Reviewer fatigue or different reviewers can affect the signal quality
+- Typically only gives qualitative signal rather than clear quantitative grading
 
 **Systematic human studies  
-**_Structured grading of agent outputs by trained raters_  
+**_Structured grading of agent outputs by trained raters_
 
-*   Gold-standard quality judgements from multiple human raters
-*   Handles subjective or ambiguous tasks
-*   Provides signal for improving model-based graders
+- Gold-standard quality judgements from multiple human raters
+- Handles subjective or ambiguous tasks
+- Provides signal for improving model-based graders
 
-*   Relatively expensive and slow turnaround
-*   Hard to run frequently
-*   Inter-rater disagreement requires reconciliation
-*   Complex domains (legal, finance, healthcare) require human experts to conduct studies
+- Relatively expensive and slow turnaround
+- Hard to run frequently
+- Inter-rater disagreement requires reconciliation
+- Complex domains (legal, finance, healthcare) require human experts to conduct studies
 
 These methods map to different stages of agent development. Automated evals are especially useful pre-launch and in CI/CD, running on each agent change and model upgrade as the first line of defense against quality problems. Production monitoring kicks in post-launch to detect distribution drift and unanticipated real-world failures. A/B testing validates significant changes once you have sufficient traffic. User feedback and transcript review are ongoing practices to fill the gaps: triage feedback constantly, sample transcripts to read weekly, and dig deeper as needed. Reserve systematic human studies for calibrating LLM graders or evaluating subjective outputs where human consensus serves as the reference standard.
 
@@ -464,14 +451,14 @@ Written by Mikaela Grace, Jeremy Hadfield, Rodrigo Olivares, and Jiri De Jonghe.
 
 ## Appendix: Eval frameworks
 
-Several open-source and commercial frameworks can help teams implement agent evaluations without building infrastructure from scratch. The right choice depends on your agent type, existing stack, and whether you need offline evaluation, production observability, or both.  
-  
-Harbor is designed for running agents in containerized environments, with infrastructure for running trials at scale across cloud providers and a standardized format for defining tasks and graders. Popular benchmarks like Terminal-Bench 2.0 ship through the Harbor registry, making it easy to run established benchmarks along with custom eval suites.  
-  
-Braintrust is a platform that combines offline evaluation with production observability and experiment tracking—useful for teams that need to both iterate during development and monitor quality in production. Its `autoevals` library includes pre-built scorers for factuality, relevance, and other common dimensions.  
-  
+Several open-source and commercial frameworks can help teams implement agent evaluations without building infrastructure from scratch. The right choice depends on your agent type, existing stack, and whether you need offline evaluation, production observability, or both.
+
+Harbor is designed for running agents in containerized environments, with infrastructure for running trials at scale across cloud providers and a standardized format for defining tasks and graders. Popular benchmarks like Terminal-Bench 2.0 ship through the Harbor registry, making it easy to run established benchmarks along with custom eval suites.
+
+Braintrust is a platform that combines offline evaluation with production observability and experiment tracking—useful for teams that need to both iterate during development and monitor quality in production. Its `autoevals` library includes pre-built scorers for factuality, relevance, and other common dimensions.
+
 LangSmith offers tracing, offline and online evaluations, and dataset management with tight integration into the LangChain ecosystem. Langfuse provides similar capabilities as a self-hosted open-source alternative for teams with data residency requirements.
 
-Arize offers Phoenix, an open-source platform for LLM tracing, debugging, and offline or online evaluations, and AX, a SaaS offering that extends Phoenix for scale, optimization and monitoring.  
-  
+Arize offers Phoenix, an open-source platform for LLM tracing, debugging, and offline or online evaluations, and AX, a SaaS offering that extends Phoenix for scale, optimization and monitoring.
+
 Many teams combine multiple tools, roll their own eval framework, or just use simple evaluation scripts as a starting point. We find that while frameworks can be a valuable way to accelerate progress and standardize, they’re only as good as the eval tasks you run through them. It’s often best to quickly pick a framework that fits your workflow, then invest your energy in the evals themselves by iterating on high-quality test cases and graders.

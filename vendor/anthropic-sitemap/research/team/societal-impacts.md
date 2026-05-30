@@ -56,36 +56,45 @@ Search
 
 DateCategoryTitle
 
-*   Apr 30, 2026Societal Impacts
-    
-    How people ask Claude for personal guidance
-*   Feb 18, 2026Societal Impacts
-    
-    Measuring AI agent autonomy in practice
-*   Dec 4, 2025Societal Impacts
-    
-    Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI
-*   Dec 2, 2025Societal Impacts
-    
-    How AI is transforming work at Anthropic
-*   Aug 27, 2025Societal Impacts
-    
-    Anthropic Education Report: How educators use Claude
-*   Jun 27, 2025Societal Impacts
-    
-    How people use Claude for support, advice, and companionship
-*   Apr 28, 2025Societal Impacts
-    
-    Anthropic Economic Index: AI’s impact on software development
-*   Apr 21, 2025Societal Impacts
-    
-    Values in the wild: Discovering and analyzing values in real-world language model interactions
-*   Apr 8, 2025Announcements
-    
-    Anthropic Education Report: How university students use Claude
-*   Mar 27, 2025Societal Impacts
-    
-    Anthropic Economic Index: Insights from Claude 3.7 Sonnet
+- Apr 30, 2026Societal Impacts
+
+  How people ask Claude for personal guidance
+
+- Feb 18, 2026Societal Impacts
+
+  Measuring AI agent autonomy in practice
+
+- Dec 4, 2025Societal Impacts
+
+  Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI
+
+- Dec 2, 2025Societal Impacts
+
+  How AI is transforming work at Anthropic
+
+- Aug 27, 2025Societal Impacts
+
+  Anthropic Education Report: How educators use Claude
+
+- Jun 27, 2025Societal Impacts
+
+  How people use Claude for support, advice, and companionship
+
+- Apr 28, 2025Societal Impacts
+
+  Anthropic Economic Index: AI’s impact on software development
+
+- Apr 21, 2025Societal Impacts
+
+  Values in the wild: Discovering and analyzing values in real-world language model interactions
+
+- Apr 8, 2025Announcements
+
+  Anthropic Education Report: How university students use Claude
+
+- Mar 27, 2025Societal Impacts
+
+  Anthropic Economic Index: Insights from Claude 3.7 Sonnet
 
 See more
 

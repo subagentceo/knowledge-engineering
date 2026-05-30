@@ -32,10 +32,10 @@ We’ve signed an agreement with SpaceX to use all of the compute capacity at th
 
 This joins our other significant compute announcements:
 
-*   An up to 5 gigawatt (GW) agreement with Amazon, which includes nearly 1 GW of new capacity by the end of 2026;
-*   A 5 GW agreement with Google and Broadcom, which will begin coming online in 2027;
-*   A strategic partnership with Microsoft and NVIDIA that includes $30 billion of Azure capacity;
-*   Our $50 billion investment in American AI infrastructure with Fluidstack.
+- An up to 5 gigawatt (GW) agreement with Amazon, which includes nearly 1 GW of new capacity by the end of 2026;
+- A 5 GW agreement with Google and Broadcom, which will begin coming online in 2027;
+- A strategic partnership with Microsoft and NVIDIA that includes $30 billion of Azure capacity;
+- Our $50 billion investment in American AI infrastructure with Fluidstack.
 
 We train and run Claude on a range of AI hardware—AWS Trainium, Google TPUs, and NVIDIA GPUs—and continue to explore opportunities to bring additional capacity online.
 

@@ -18,18 +18,21 @@ Search
 
 DateCategoryTitle
 
-*   Apr 29, 2026Science
-    
-    Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
-*   Mar 23, 2026Science
-    
-    Introducing our Science Blog
-*   Mar 23, 2026Science
-    
-    Long-running Claude for scientific computing
-*   Mar 23, 2026Science
-    
-    Vibe physics: The AI grad student
+- Apr 29, 2026Science
+
+  Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
+
+- Mar 23, 2026Science
+
+  Introducing our Science Blog
+
+- Mar 23, 2026Science
+
+  Long-running Claude for scientific computing
+
+- Mar 23, 2026Science
+
+  Vibe physics: The AI grad student
 
 Join the Research team
 

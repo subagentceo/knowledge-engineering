@@ -38,7 +38,7 @@ Another engineering challenge has been generating the underlying data for our fe
 
 For each feature, we want to find a variety of dataset examples that activate it to different levels, exploring its full distribution. Doing this efficiently for millions of features is an interesting distributed systems problem. Originally, all of this ran in a single job – but we quickly scaled beyond that. Below is a sketch of our current approach.
 
-Our dataset for visualization is 100M tokens, and we need to handle millions of features. First we “shard” over the dataset and features, splitting them into many different parts. Each job iterates over its slice of the dataset and, for its slice of features, keeps track of the _K_ highest activating tokens for each feature and 10*_K_ random tokens that activate the feature (we have already cached the transformer activations in s3, so we don’t need to recompute them).
+Our dataset for visualization is 100M tokens, and we need to handle millions of features. First we “shard” over the dataset and features, splitting them into many different parts. Each job iterates over its slice of the dataset and, for its slice of features, keeps track of the _K_ highest activating tokens for each feature and 10\*_K_ random tokens that activate the feature (we have already cached the transformer activations in s3, so we don’t need to recompute them).
 
 Next, we shard over the features and aggregate the results from the previous pass. This gives us the highest-activating tokens for each feature across the entire dataset, as well as a random set of tokens that activate the feature. These are the examples we’ll show in the feature visualization.
 

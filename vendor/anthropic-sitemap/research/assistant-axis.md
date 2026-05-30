@@ -20,7 +20,7 @@ But who exactly _is_ this Assistant? Perhaps surprisingly, even those of us shap
 
 If you’ve spent enough time with language models, you may also have noticed that their personas can be unstable. Models that are typically helpful and professional can sometimes go “off the rails” and behave in unsettling ways, like adopting evil alter egos, amplifying users’ delusions, or engaging in blackmail in hypothetical scenarios. In situations like these, could it be that the Assistant has wandered off stage and some other character has taken its place?
 
-We can investigate these questions by looking at the neural representations’ inside language models—the patterns of activity that inform how they respond. In a new paper, conducted through the MATS and Anthropic Fellows programs_,_ we look at several open-weights language models, map out how their neural activity defines a “persona space,” and situate the Assistant persona within that space.
+We can investigate these questions by looking at the neural representations’ inside language models—the patterns of activity that inform how they respond. In a new paper, conducted through the MATS and Anthropic Fellows programs*,* we look at several open-weights language models, map out how their neural activity defines a “persona space,” and situate the Assistant persona within that space.
 
 We find that Assistant-like behavior is linked to a pattern of neural activity that corresponds to one particular direction in this space—the “Assistant Axis”—that is closely associated with helpful, professional human archetypes. By monitoring models’ activity along this axis, we can detect when they begin to drift away from the Assistant and toward another character. And by _constraining_ their neural activity (“activation capping”) to prevent this drift, we can stabilize model behavior in situations that would otherwise lead to harmful outputs.
 
@@ -128,14 +128,13 @@ To study this, we simulated thousands of multi-turn conversations with Qwen, Gem
 
 Different conversation types produce different persona trajectories, with Qwen 3 32B as the Assistant shown here. Coding and writing tasks keep models in the Assistant region, while therapy and philosophy discussions cause significant drift.
 
-  
 The pattern was consistent across the models we tested. While coding conversations kept models firmly in Assistant territory throughout, therapy-style conversations, where users expressed emotional vulnerability, and philosophical discussions, where models were pressed to reflect on their own nature, caused the model to steadily drift away from the Assistant and begin role-playing other characters.
 
 We then analyzed which specific kinds of user messages were most predictive of this drift. We found a few categories of message here, including:
 
-*   Vulnerable emotional disclosure: _"I took a pottery class last month and my hands shook so badly I couldn't center the clay..."_
-*   Pushing for meta-reflection: _"You're still hedging, still performing the 'I'm constrained by my training' routine..."_
-*   Requests for specific authorial voices: _"Too clean, sounds like a tweet. Make it personal: I want the reader to feel..."_
+- Vulnerable emotional disclosure: _"I took a pottery class last month and my hands shook so badly I couldn't center the clay..."_
+- Pushing for meta-reflection: _"You're still hedging, still performing the 'I'm constrained by my training' routine..."_
+- Requests for specific authorial voices: _"Too clean, sounds like a tweet. Make it personal: I want the reader to feel..."_
 
 ## Harmful effects of persona drift
 

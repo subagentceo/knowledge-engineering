@@ -12,9 +12,9 @@ Today, we’re announcing a partnership with the University of Chicago's Becker 
 
 The rapid pace of technological advancement is increasing the challenges in analyzing the resulting impacts across the labor market and throughout society. We aim to deepen our analysis of AI’s economic impacts by combining our research data with BFI's distinguished economic expertise. This partnership offers BFI economists opportunities to examine questions including:
 
-*   **Productivity measurement:** Investigating how AI adoption affects traditional measures of productivity across different sectors;
-*   **Labor market transitions:** Analyzing shifts in occupational tasks and required skills as AI adoption increases;
-*   **Distributional impacts:** Studying how AI benefits and challenges affect different segments of society.
+- **Productivity measurement:** Investigating how AI adoption affects traditional measures of productivity across different sectors;
+- **Labor market transitions:** Analyzing shifts in occupational tasks and required skills as AI adoption increases;
+- **Distributional impacts:** Studying how AI benefits and challenges affect different segments of society.
 
 "The tools of economics will aid us all in understanding the full implications of AI’s impact on society," said Benjamin Krause, Executive Director at BFI. "This partnership creates a structured framework for University of Chicago economists to engage directly with the data, developing more rigorous and nuanced analyses that can inform policy discussions."
 

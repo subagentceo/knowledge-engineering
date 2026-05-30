@@ -38,9 +38,9 @@ _Scale: Over 150,000 exchanges_
 
 The operation targeted:
 
-*   Reasoning capabilities across diverse tasks
-*   Rubric-based grading tasks that made Claude function as a reward model for reinforcement learning
-*   Creating censorship-safe alternatives to policy sensitive queries
+- Reasoning capabilities across diverse tasks
+- Rubric-based grading tasks that made Claude function as a reward model for reinforcement learning
+- Creating censorship-safe alternatives to policy sensitive queries
 
 DeepSeek generated synchronized traffic across accounts. Identical patterns, shared payment methods, and coordinated timing suggested “load balancing” to increase throughput, improve reliability, and avoid detection.
 
@@ -52,10 +52,10 @@ _Scale: Over 3.4 million exchanges_
 
 The operation targeted:
 
-*   Agentic reasoning and tool use
-*   Coding and data analysis
-*   Computer-use agent development
-*   Computer vision
+- Agentic reasoning and tool use
+- Coding and data analysis
+- Computer-use agent development
+- Computer vision
 
 Moonshot (Kimi models) employed hundreds of fraudulent accounts spanning multiple access pathways. Varied account types made the campaign harder to detect as a coordinated operation. We attributed the campaign through request metadata, which matched the public profiles of senior Moonshot staff. In a later phase, Moonshot used a more targeted approach, attempting to extract and reconstruct Claude’s reasoning traces.
 
@@ -65,8 +65,8 @@ _Scale: Over 13 million exchanges_
 
 The operation targeted:
 
-*   Agentic coding
-*   Tool use and orchestration
+- Agentic coding
+- Tool use and orchestration
 
 We attributed the campaign to MiniMax through request metadata and infrastructure indicators, and confirmed timings against their public product roadmap. We detected this campaign while it was still active—before MiniMax released the model it was training—giving us unprecedented visibility into the life cycle of distillation attacks, from data generation through to model launch. When we released a new model during MiniMax’s active campaign, they pivoted within 24 hours, redirecting nearly half their traffic to capture capabilities from our latest system.
 
@@ -86,10 +86,10 @@ But when variations of that prompt arrive tens of thousands of times across hund
 
 We continue to invest heavily in defenses that make such distillation attacks harder to execute and easier to identify. These include:
 
-*   **Detection**. We have built several classifiers and behavioral fingerprinting systems designed to identify distillation attack patterns in API traffic. This includes detection of chain-of-thought elicitation used to construct reasoning training data. We have also built detection tools for identifying coordinated activity across large numbers of accounts.
-*   **Intelligence sharing**_._ We are sharing technical indicators with other AI labs, cloud providers, and relevant authorities. This provides a more holistic picture into the distillation landscape.
-*   **Access controls**. We’ve strengthened verification for educational accounts, security research programs, and startup organizations—the pathways most commonly exploited for setting up fraudulent accounts.
-*   **Countermeasures**. We are developing Product, API and model-level safeguards designed to reduce the efficacy of model outputs for illicit distillation, without degrading the experience for legitimate customers.
+- **Detection**. We have built several classifiers and behavioral fingerprinting systems designed to identify distillation attack patterns in API traffic. This includes detection of chain-of-thought elicitation used to construct reasoning training data. We have also built detection tools for identifying coordinated activity across large numbers of accounts.
+- **Intelligence sharing**_._ We are sharing technical indicators with other AI labs, cloud providers, and relevant authorities. This provides a more holistic picture into the distillation landscape.
+- **Access controls**. We’ve strengthened verification for educational accounts, security research programs, and startup organizations—the pathways most commonly exploited for setting up fraudulent accounts.
+- **Countermeasures**. We are developing Product, API and model-level safeguards designed to reduce the efficacy of model outputs for illicit distillation, without degrading the experience for legitimate customers.
 
 But no company can solve this alone. As we noted above, distillation attacks at this scale require a coordinated response across the AI industry, cloud providers, and policymakers. We are publishing this to make the evidence available to everyone with a stake in the outcome.
 

@@ -20,11 +20,11 @@ The board will be chaired by Rick Levin, whose unique perspective spans two deca
 
 Joining Levin are leaders who bring extensive experience serving in academia:
 
-*   **David Leebron**, Former President of Rice University, brings decades of experience in university development and research expansion. He led Rice through significant growth in research funding, student success, and campus expansion.
-*   **James DeVaney**, Special Advisor to the President, Associate Vice Provost for Academic Innovation, and Founding Executive Director of the Center for Academic Innovation at the University of Michigan, leading academic innovation strategy and lifelong learning and workforce development initiatives at scale.
-*   **Julie Schell**, Assistant Vice Provost of Academic Technology at University of Texas, Austin, leads large-scale educational technology transformation and modernization initiatives, expert in learning science and evidence-based teaching practices.
-*   **Matthew Rascoff**, Vice Provost for Digital Education at Stanford University, leading digital learning initiatives that expand access to advanced education for those who have been underserved.
-*   **Yolanda Watson Spiva**, President of Complete College America, leads a national alliance of 53 states and systems mobilizing to increase college completion rates. With nearly three decades in postsecondary education policy, she leads CCA's work on AI adoption for student success and formed the CCA Council on AI.
+- **David Leebron**, Former President of Rice University, brings decades of experience in university development and research expansion. He led Rice through significant growth in research funding, student success, and campus expansion.
+- **James DeVaney**, Special Advisor to the President, Associate Vice Provost for Academic Innovation, and Founding Executive Director of the Center for Academic Innovation at the University of Michigan, leading academic innovation strategy and lifelong learning and workforce development initiatives at scale.
+- **Julie Schell**, Assistant Vice Provost of Academic Technology at University of Texas, Austin, leads large-scale educational technology transformation and modernization initiatives, expert in learning science and evidence-based teaching practices.
+- **Matthew Rascoff**, Vice Provost for Digital Education at Stanford University, leading digital learning initiatives that expand access to advanced education for those who have been underserved.
+- **Yolanda Watson Spiva**, President of Complete College America, leads a national alliance of 53 states and systems mobilizing to increase college completion rates. With nearly three decades in postsecondary education policy, she leads CCA's work on AI adoption for student success and formed the CCA Council on AI.
 
 ## AI fluency courses for educators and students
 
@@ -41,8 +41,6 @@ Working with the advisory board and educators worldwide, we've developed three n
 These initiatives reflect our commitment to co-creating the future of AI in education. As universities worldwide grapple with AI's role in education, these resources provide both immediate support and long-term guidance. While the advisory board informs our strategic approach, the AI Fluency courses offer practical tools educators can use today to navigate this transformation thoughtfully and responsibly.
 
 Access the courses and learn more at anthropic.com/learn.
-
-  
 
 ## Related content
 

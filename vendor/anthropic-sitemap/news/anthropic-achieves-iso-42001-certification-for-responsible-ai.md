@@ -12,10 +12,10 @@ We are excited to announce that Anthropic has achieved accredited certification 
 
 Achieving this certification underscores our commitment to AI safety and responsible development. It provides independent validation that we have implemented a comprehensive framework to identify, assess and mitigate potential risks associated with our AI systems. Key elements include:
 
-*   Policies and processes to ensure AI systems are designed, developed, and deployed in an ethical, secure and accountable manner;
-*   Rigorous testing and monitoring to verify systems behave as intended and potential negative impacts are proactively addressed;
-*   Transparency measures to provide appropriate information to users and stakeholders;
-*   Established roles, responsibilities and oversight to maintain responsible practices.
+- Policies and processes to ensure AI systems are designed, developed, and deployed in an ethical, secure and accountable manner;
+- Rigorous testing and monitoring to verify systems behave as intended and potential negative impacts are proactively addressed;
+- Transparency measures to provide appropriate information to users and stakeholders;
+- Established roles, responsibilities and oversight to maintain responsible practices.
 
 We're proud to be **one of the first frontier AI labs** to achieve this certification and hope it provides further assurance to our partners and the public of our strong commitment to AI safety.
 
@@ -28,8 +28,6 @@ Beyond ISO 42001, we have made a number of additional voluntary commitments demo
 As AI systems become increasingly powerful, safety and security are at the forefront of our ongoing research and innovation. The ISO 42001 certification is an exciting milestone in that journey.
 
 Information about our ISO certification is now available on our Trust Center. This includes the issued certificate, an overview of the standard, what it entails, and how it reinforces our commitments to responsible AI development.
-
-  
 
 ## Related content
 

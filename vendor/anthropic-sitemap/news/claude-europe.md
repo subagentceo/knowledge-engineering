@@ -10,9 +10,9 @@ May 14, 2024
 
 We’re excited to announce that Claude, Anthropic’s trusted AI assistant, is now available for people and businesses across Europe to enhance their productivity and creativity. Starting today, they will be able to use:
 
-*   Claude.ai: the web-based version of our next-generation AI assistant
-*   The Claude iOS app: a free version of Claude that offers the same intuitive experience as mobile web
-*   The Claude Team plan: the best way for every business to provide teams with secure access to Claude's state-of-the-art AI capabilities and the Claude 3 model family
+- Claude.ai: the web-based version of our next-generation AI assistant
+- The Claude iOS app: a free version of Claude that offers the same intuitive experience as mobile web
+- The Claude Team plan: the best way for every business to provide teams with secure access to Claude's state-of-the-art AI capabilities and the Claude 3 model family
 
 Today’s release follows the Europe launch of the Claude API earlier this year, which allows developers to integrate Anthropic’s state-of-the-art AI models into their own applications, websites, or services.
 
@@ -23,8 +23,6 @@ Both Claude.ai and the Claude iOS app are available for free. The Claude app is 
 At Anthropic, we're dedicated to creating AI systems that put people first. We look forward to bringing the unique capabilities of the Claude 3 model family to more people throughout Europe.
 
 _Read this post in French, German, Italian, or Spanish._
-
-  
 
 ## Related content
 

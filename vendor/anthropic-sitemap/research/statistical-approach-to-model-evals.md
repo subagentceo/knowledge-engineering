@@ -16,9 +16,9 @@ With the amount of public interest in AI model evaluations—informally called �
 
 Evals often consist of hundreds or thousands of unrelated questions. MMLU, for instance, contains questions as diverse as:
 
-*   Who discovered the first virus?
-*   What is the inverse of 𝑓(𝑥)=4−5𝑥?
-*   Who said that “Jurisprudence is the eye of law”?
+- Who discovered the first virus?
+- What is the inverse of 𝑓(𝑥)=4−5𝑥?
+- Who said that “Jurisprudence is the eye of law”?
 
 To compute an overall eval score, each question is separately scored, and then the overall score is (usually) a simple average of these question scores. Typically, researchers focus their attention on this observed average. But in our paper, we argue that the real object of interest should not be the _observed_ average, but rather the _theoretical_ average across all possible questions. So if we imagine that eval questions were drawn from an unseen “question universe,” we can learn about the average score in that universe—that is, we can measure the underlying _skill_, independent of the “luck of the draw”—using statistical theory.
 
@@ -50,8 +50,8 @@ Variance is a measurement of how spread-out a random variable is. The variance o
 
 A key insight of our paper is to decompose a model’s score on a particular question into two terms that are added together:
 
-*   The mean score (the average score that the model would achieve if asked the same question an infinite number of times—even if the model might produce a different answer each time); and
-*   A random component (the difference between a realized question score and the mean score for that question).
+- The mean score (the average score that the model would achieve if asked the same question an infinite number of times—even if the model might produce a different answer each time); and
+- A random component (the difference between a realized question score and the mean score for that question).
 
 Thanks to the law of total variance, reducing the variance in the random component directly leads to a smaller standard error of the overall mean, and thus greater statistical precision. Our paper highlights two strategies for reducing variance in the random component depending on whether or not the model is asked to think step by step before answering (a prompting technique known as CoT, or chain-of-thought reasoning).
 
@@ -82,8 +82,6 @@ We believe that power analysis will prove helpful to researchers in a number of 
 ## Conclusion
 
 Statistics is the science of measurement in the presence of noise. Evals present a number of practical challenges, and a true science of evals remains underdeveloped. Statistics can only form one aspect of a science of evals—but a critical one, as an empirical science is only as good as its measuring tools. We hope that the recommendations in our paper **Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations** will help AI researchers calculate, interpret, and communicate eval numbers with greater precision and clarity than before—and we encourage researchers in the AI community to explore other techniques from experiment design so that they may understand more exactly all the things that they want to measure.
-
-  
 
 ## Related content
 

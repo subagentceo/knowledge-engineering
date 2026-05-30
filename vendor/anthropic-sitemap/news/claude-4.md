@@ -14,10 +14,10 @@ Claude Opus 4 is the world’s best coding model, with sustained performance on 
 
 Alongside the models, we're also announcing:
 
-*   **Extended thinking with tool use (beta)**: Both models can use tools—like web search—during extended thinking, allowing Claude to alternate between reasoning and tool use to improve responses.
-*   **New model capabilities**: Both models can use tools in parallel, follow instructions more precisely, and—when given access to local files by developers—demonstrate significantly improved memory capabilities, extracting and saving key facts to maintain continuity and build tacit knowledge over time.
-*   **Claude Code is now generally available**: After receiving extensive positive feedback during our research preview, we’re expanding how developers can collaborate with Claude. Claude Code now supports background tasks via GitHub Actions and native integrations with VS Code and JetBrains, displaying edits directly in your files for seamless pair programming.
-*   **New API capabilities:** We’re releasing four new capabilities on our API that enable developers to build more powerful AI agents: the code execution tool, MCP connector, Files API, and the ability to cache prompts for up to one hour.
+- **Extended thinking with tool use (beta)**: Both models can use tools—like web search—during extended thinking, allowing Claude to alternate between reasoning and tool use to improve responses.
+- **New model capabilities**: Both models can use tools in parallel, follow instructions more precisely, and—when given access to local files by developers—demonstrate significantly improved memory capabilities, extracting and saving key facts to maintain continuity and build tacit knowledge over time.
+- **Claude Code is now generally available**: After receiving extensive positive feedback during our research preview, we’re expanding how developers can collaborate with Claude. Claude Code now supports background tasks via GitHub Actions and native integrations with VS Code and JetBrains, displaying edits directly in your files for seamless pair programming.
+- **New API capabilities:** We’re releasing four new capabilities on our API that enable developers to build more powerful AI agents: the code execution tool, MCP connector, Files API, and the ability to cache prompts for up to one hour.
 
 Claude Opus 4 and Sonnet 4 are hybrid models offering two modes: near-instant responses and extended thinking for deeper reasoning. The Pro, Max, Team, and Enterprise Claude plans include both models and extended thinking, with Sonnet 4 also available to free users. Both models are available on our API, Amazon Bedrock, and Google Cloud's Vertex AI. Pricing remains consistent with previous Opus and Sonnet models: Opus 4 at $15/$75 per million tokens (input/output) and Sonnet 4 at $3/$15.
 
@@ -69,21 +69,21 @@ _As always, your feedback helps us improve._
 
 #### Performance benchmark data sources
 
-*   Open AI: o3 launch post, o3 system card, GPT-4.1 launch post, GPT-4.1 hosted evals
-*   Gemini: Gemini 2.5 Pro Preview model card
-*   Claude: Claude 3.7 Sonnet launch post
+- Open AI: o3 launch post, o3 system card, GPT-4.1 launch post, GPT-4.1 hosted evals
+- Gemini: Gemini 2.5 Pro Preview model card
+- Claude: Claude 3.7 Sonnet launch post
 
 #### Performance benchmark reporting
 
 Claude Opus 4 and Sonnet 4 are hybrid reasoning models. The benchmarks reported in this blog post show the highest scores achieved with or without extended thinking. We’ve noted below for each result whether extended thinking was used:
 
-*   No extended thinking: SWE-bench Verified, Terminal-bench
-*   Extended thinking (up to 64K tokens):
-    *   TAU-bench (no results w/o extended thinking reported)
-    *   GPQA Diamond (w/o extended thinking: Opus 4 scores 74.9% and Sonnet 4 is 70.0%)
-    *   MMMLU (w/o extended thinking: Opus 4 scores 87.4% and Sonnet 4 is 85.4%)
-    *   MMMU (w/o extended thinking: Opus 4 scores 73.7% and Sonnet 4 is 72.6%)
-    *   AIME (w/o extended thinking: Opus 4 scores 33.9% and Sonnet 4 is 33.1%)
+- No extended thinking: SWE-bench Verified, Terminal-bench
+- Extended thinking (up to 64K tokens):
+  - TAU-bench (no results w/o extended thinking reported)
+  - GPQA Diamond (w/o extended thinking: Opus 4 scores 74.9% and Sonnet 4 is 70.0%)
+  - MMMLU (w/o extended thinking: Opus 4 scores 87.4% and Sonnet 4 is 85.4%)
+  - MMMU (w/o extended thinking: Opus 4 scores 73.7% and Sonnet 4 is 72.6%)
+  - AIME (w/o extended thinking: Opus 4 scores 33.9% and Sonnet 4 is 33.1%)
 
 #### TAU-bench methodology
 
@@ -95,9 +95,9 @@ For the Claude 4 family of models, we continue to use the same simple scaffold t
 
 For our “high compute” numbers we adopt additional complexity and parallel test-time compute as follows:
 
-*   We sample multiple parallel attempts.
-*   We discard patches that break the visible regression tests in the repository, similar to the rejection sampling approach adopted by Agentless (Xia et al. 2024); note no hidden test information is used.
-*   We then use an internal scoring model to select the best candidate from the remaining attempts.
+- We sample multiple parallel attempts.
+- We discard patches that break the visible regression tests in the repository, similar to the rejection sampling approach adopted by Agentless (Xia et al. 2024); note no hidden test information is used.
+- We then use an internal scoring model to select the best candidate from the remaining attempts.
 
 This results in a score of 79.4% and 80.2% for Opus 4 and Sonnet 4 respectively.
 

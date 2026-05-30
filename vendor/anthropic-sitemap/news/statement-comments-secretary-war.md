@@ -26,8 +26,8 @@ Secretary Hegseth has implied this designation would restrict anyone who does bu
 
 In practice, this means:
 
-*   **If you are an individual customer or hold a commercial contract with Anthropic**, your access to Claude—through our API, claude.ai, or any of our products—is completely unaffected.
-*   **If you are a Department of War contractor**, this designation—if formally adopted—would only affect your use of Claude on Department of War contract work. Your use for any other purpose is unaffected.
+- **If you are an individual customer or hold a commercial contract with Anthropic**, your access to Claude—through our API, claude.ai, or any of our products—is completely unaffected.
+- **If you are a Department of War contractor**, this designation—if formally adopted—would only affect your use of Claude on Department of War contract work. Your use for any other purpose is unaffected.
 
 Our sales and support teams are standing by to answer any questions you may have.
 

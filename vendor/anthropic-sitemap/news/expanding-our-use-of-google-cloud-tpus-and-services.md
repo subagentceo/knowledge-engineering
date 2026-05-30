@@ -20,8 +20,6 @@ Anthropic’s unique compute strategy focuses on a diversified approach that eff
 
 Anthropic will continue to invest in additional compute capacity to ensure our models and capabilities remain at the frontier.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

@@ -50,36 +50,45 @@ Search
 
 DateCategoryTitle
 
-*   May 8, 2026Alignment
-    
-    Teaching Claude why
-*   May 7, 2026Alignment
-    
-    Donating our open-source alignment tool
-*   Apr 14, 2026Alignment
-    
-    Automated Alignment Researchers: Using large language models to scale scalable oversight
-*   Feb 25, 2026Alignment
-    
-    An update on our model deprecation commitments for Claude Opus 3
-*   Feb 23, 2026Alignment
-    
-    The persona selection model
-*   Jan 29, 2026Alignment
-    
-    How AI assistance impacts the formation of coding skills
-*   Jan 28, 2026Alignment
-    
-    Disempowerment patterns in real-world AI usage
-*   Jan 9, 2026Alignment
-    
-    Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks
-*   Dec 19, 2025Alignment
-    
-    Introducing Bloom: an open source tool for automated behavioral evaluations
-*   Nov 21, 2025Alignment
-    
-    From shortcuts to sabotage: natural emergent misalignment from reward hacking
+- May 8, 2026Alignment
+
+  Teaching Claude why
+
+- May 7, 2026Alignment
+
+  Donating our open-source alignment tool
+
+- Apr 14, 2026Alignment
+
+  Automated Alignment Researchers: Using large language models to scale scalable oversight
+
+- Feb 25, 2026Alignment
+
+  An update on our model deprecation commitments for Claude Opus 3
+
+- Feb 23, 2026Alignment
+
+  The persona selection model
+
+- Jan 29, 2026Alignment
+
+  How AI assistance impacts the formation of coding skills
+
+- Jan 28, 2026Alignment
+
+  Disempowerment patterns in real-world AI usage
+
+- Jan 9, 2026Alignment
+
+  Next-generation Constitutional Classifiers: More efficient protection against universal jailbreaks
+
+- Dec 19, 2025Alignment
+
+  Introducing Bloom: an open source tool for automated behavioral evaluations
+
+- Nov 21, 2025Alignment
+
+  From shortcuts to sabotage: natural emergent misalignment from reward hacking
 
 See more
 

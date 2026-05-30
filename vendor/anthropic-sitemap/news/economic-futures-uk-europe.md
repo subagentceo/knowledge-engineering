@@ -30,9 +30,9 @@ The London School of Economics and Political Science (LSE) Anthropic Economic Fu
 
 As with the US, the Anthropic Economic Futures Programme in the UK and Europe will focus on three areas:
 
-*   **Research grants:** We will provide grants and API credits to European researchers investigating AI's effects on labor markets, productivity, or value creation. For full details, see here; applications are open here.
-*   **Evidence-based policy:** The LSE Symposium will mark the first of many forums where researchers, policymakers, and practitioners can develop and evaluate policy proposals grounded in real data on Europeans’ use of AI.
-*   **Economic measurement and data:** We're expanding the Anthropic Economic Index to provide more granular, Europe-specific information, with regular public data releases tracking AI adoption across European industries and regions.
+- **Research grants:** We will provide grants and API credits to European researchers investigating AI's effects on labor markets, productivity, or value creation. For full details, see here; applications are open here.
+- **Evidence-based policy:** The LSE Symposium will mark the first of many forums where researchers, policymakers, and practitioners can develop and evaluate policy proposals grounded in real data on Europeans’ use of AI.
+- **Economic measurement and data:** We're expanding the Anthropic Economic Index to provide more granular, Europe-specific information, with regular public data releases tracking AI adoption across European industries and regions.
 
 Professor Cosmina Dorobantu at the London School of Economics added: "AI is forcing us to confront important questions about our economic future. Today's Symposium tackles these questions head-on. We are delighted to partner with Anthropic on this event, which exemplifies LSE's ambition to be the place where researchers, leading AI companies, policymakers, and civil society representatives converge to find solutions to the urgent socio-economic questions brought about by AI. Our work does not end here. Today marks the beginning of our collective efforts to ensure AI's transformative potential delivers an economy that works for everyone."
 

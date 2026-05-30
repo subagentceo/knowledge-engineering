@@ -14,10 +14,10 @@ Claude Gov models were built based on direct feedback from our government custom
 
 U.S. national security customers may choose to use our AI systems for a wide range of applications from strategic planning and operational support to intelligence analysis and threat assessment. Claude Gov models deliver enhanced performance for critical government needs and specialized tasks. This includes:
 
-*   Improved handling of classified materials, as the models refuse less when engaging with classified information
-*   Greater understanding of documents and information within the intelligence and defense contexts
-*   Enhanced proficiency in languages and dialects critical to national security operations
-*   Improved understanding and interpretation of complex cybersecurity data for intelligence analysis
+- Improved handling of classified materials, as the models refuse less when engaging with classified information
+- Greater understanding of documents and information within the intelligence and defense contexts
+- Enhanced proficiency in languages and dialects critical to national security operations
+- Improved understanding and interpretation of complex cybersecurity data for intelligence analysis
 
 This builds on our commitment to bring responsible and safe AI solutions to our U.S. national security customers, with custom models that are built to address the unique needs of classified environments. To learn more about the Claude Gov models and see how they can support your agency's mission, you can reach our public sector team at pubsec@anthropic.com.
 

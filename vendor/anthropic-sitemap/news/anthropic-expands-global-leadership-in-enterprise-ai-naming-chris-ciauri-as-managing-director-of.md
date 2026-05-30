@@ -10,7 +10,7 @@ Sep 26, 2025
 
 Today we're announcing Anthropic's expanded global presence with key leadership appointments, enterprise customer momentum, and new international offices across multiple continents.
 
-This expansion reflects Anthropic's growth trajectory and increasing international demand for Claude. Anthropic has the top market share in enterprise AI*, and our run-rate revenue has grown from $87 million at the start of 2024 to over $5 billion in August 2025—making us one of the fastest-growing technology companies in history. This momentum was reflected in Anthropic's $13 billion Series F funding round, at a $183 billion post-money valuation. Anthropic’s recent Economic Index report found that nearly 80 percent of consumer Claude usage comes from outside the United States, with per-capita usage in countries like South Korea, Australia, and Singapore outpacing that of America’s.
+This expansion reflects Anthropic's growth trajectory and increasing international demand for Claude. Anthropic has the top market share in enterprise AI\*, and our run-rate revenue has grown from $87 million at the start of 2024 to over $5 billion in August 2025—making us one of the fastest-growing technology companies in history. This momentum was reflected in Anthropic's $13 billion Series F funding round, at a $183 billion post-money valuation. Anthropic’s recent Economic Index report found that nearly 80 percent of consumer Claude usage comes from outside the United States, with per-capita usage in countries like South Korea, Australia, and Singapore outpacing that of America’s.
 
 Building on Paul Smith's recent appointment as Anthropic’s first Chief Commercial Officer, Chris Ciauri joins Anthropic as Managing Director of International, adding to our global leadership team as we expand our worldwide presence. Chris brings over 25 years of experience scaling enterprise technology businesses globally, most recently serving as CEO of Unily, president of EMEA at Google Cloud, and EVP and GM of EMEA at Salesforce where he helped scale the EMEA business from under $200 million to over $3 billion in revenue during his decade-long tenure.
 
@@ -38,7 +38,7 @@ As we continue expanding globally, we remain committed to building reliable, int
 
 For more information about current career opportunities at Anthropic, visit anthropic.com/careers.
 
-*Menlo Ventures: _2025 Mid-Year LLM Market Update: Foundation Model Landscape + Economics_
+\*Menlo Ventures: _2025 Mid-Year LLM Market Update: Foundation Model Landscape + Economics_
 
 ## Related content
 

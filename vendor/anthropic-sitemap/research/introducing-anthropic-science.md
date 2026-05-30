@@ -14,17 +14,17 @@ Increasing the pace of scientific progress is a core part of Anthropic’s missi
 
 Just as computers took on the task of computation, AI is now taking on parts of _cognition_. As a side effect of this shift, work that used to require years of specialized training can increasingly be done more quickly and cheaply with AI. The rate of progress raises sociological questions about the practice of science and the role of scientific institutions: What should research apprenticeship look like? How do we maintain trust in the literature when AI becomes more central to producing it? What does it even mean to be a scientist when the bottleneck shifts from execution to management?
 
-Although the pace of improvement is rapid, some of these questions may feel premature today—AI’s scientific capabilities are, in many ways, still in beta. While models already seem superhuman at certain parts of the scientific workflow, they can also hallucinate results, be overly sycophantic, and get stuck on problems a domain practitioner would find trivial. Fields Medalist Timothy Gowers captured this tension well, writing that “it looks as though we have entered the brief but enjoyable era where our research is greatly sped up by AI but AI still needs us.”  
-  
+Although the pace of improvement is rapid, some of these questions may feel premature today—AI’s scientific capabilities are, in many ways, still in beta. While models already seem superhuman at certain parts of the scientific workflow, they can also hallucinate results, be overly sycophantic, and get stuck on problems a domain practitioner would find trivial. Fields Medalist Timothy Gowers captured this tension well, writing that “it looks as though we have entered the brief but enjoyable era where our research is greatly sped up by AI but AI still needs us.”
+
 AI will alter the scientific process in ways that are only starting to become apparent. This blog will discuss the upsides and challenges of the current moment for AI and science, exploring the excitement as it unfolds.
 
 ### What we’ll cover
 
 In this blog, we’ll share three main types of posts:
 
-*   **Features:** Articles on a specific result or line of work, with enough detail to understand both the science and the role AI played in producing it. We’ll publish stories both from Anthropic researchers and guest contributors and collaborators.
-*   **Workflows:** Practical guides for researchers who want to use AI in their own work across various domains in the natural and formal sciences.
-*   **Field notes:** Roundups of developments across the field, including notable results, new tools, and open questions.
+- **Features:** Articles on a specific result or line of work, with enough detail to understand both the science and the role AI played in producing it. We’ll publish stories both from Anthropic researchers and guest contributors and collaborators.
+- **Workflows:** Practical guides for researchers who want to use AI in their own work across various domains in the natural and formal sciences.
+- **Field notes:** Roundups of developments across the field, including notable results, new tools, and open questions.
 
 We’re publishing two pieces alongside this introduction: Matthew Schwartz’s “Vibe physics: The AI grad student,” a spotlight on supervising Claude through a real theoretical physics calculation, and a tutorial on orchestrating long-running tasks for scientific computation.
 

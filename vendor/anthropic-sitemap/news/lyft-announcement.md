@@ -14,9 +14,9 @@ The impact is already evident. Lyft's customer care AI assistant, powered by Cla
 
 The collaboration focuses on three key areas:
 
-*   **AI-Powered Solutions:** Lyft and Anthropic will architect and deploy AI applications that enhance the rideshare experience for both riders and drivers.
-*   **Early Testing:** Lyft will participate in research testing for new products and capabilities to ensure they align with the needs of riders and drivers, enabling faster integration of proven solutions.
-*   **Engineering Advancement:** Anthropic will provide specialized training to strengthen Lyft's engineering teams, accelerating their ability to build innovative AI-powered features.
+- **AI-Powered Solutions:** Lyft and Anthropic will architect and deploy AI applications that enhance the rideshare experience for both riders and drivers.
+- **Early Testing:** Lyft will participate in research testing for new products and capabilities to ensure they align with the needs of riders and drivers, enabling faster integration of proven solutions.
+- **Engineering Advancement:** Anthropic will provide specialized training to strengthen Lyft's engineering teams, accelerating their ability to build innovative AI-powered features.
 
 > Software engineering has undergone a seismic shift with the introduction of GenAI technologies. Gone are the days when humans were predominantly writing code. With the promise of LLMs, especially leading models for coding like Claude, and agentic AI, we're working to revolutionize our engineering organization to more effectively build game changing products for our customers.
 

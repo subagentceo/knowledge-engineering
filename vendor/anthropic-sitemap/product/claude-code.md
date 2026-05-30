@@ -80,8 +80,6 @@ Read our research on agent safety
 
 Code completion tools suggest the next line or function as a developer types. Claude Code operates at the project level. It reads the full codebase, plans an approach across multiple files, executes changes, runs tests, and iterates on failures. The developer defines the goal and reviews the result rather than guiding each step.
 
-  
-
 ### Who should use Claude Code?
 
 Developers who want to hand off full tasks rather than autocomplete lines of code. But we've also seen product managers, founders, and operations teams start building working tools by describing outcomes in plain language.
@@ -89,8 +87,6 @@ Developers who want to hand off full tasks rather than autocomplete lines of cod
 ### What does "agentic" mean in this context?
 
 An agentic system acts toward a goal with a degree of autonomy, rather than responding to one prompt at a time. Claude Code reads a codebase, plans a sequence of actions, executes them using real development tools, evaluates the result, and adjusts its approach. The developer sets the objective and retains control over what gets committed, but the execution loop runs independently.
-
-  
 
 ### How does Anthropic approach safety for an autonomous coding agent?
 

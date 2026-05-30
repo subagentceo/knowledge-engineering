@@ -42,8 +42,6 @@ We hope other companies will join us in taking similar steps to ensure the U.S. 
 
 To gain access, department or agency leadership at eligible organizations should contact us at pubsec@anthropic.com.
 
-  
-
 ## Related content
 
 ### Anthropic raises $65B in Series H funding at $965B post-money valuation

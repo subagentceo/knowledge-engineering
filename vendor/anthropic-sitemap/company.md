@@ -102,7 +102,6 @@ At the end of the day, the mission is what we’re all here for. It gives us a s
 
 ## Governance
 
-  
 Anthropic is a Public Benefit Corporation, whose purpose is the responsible development and maintenance of advanced AI for the long-term benefit of humanity. Our Board of Directors is elected by stockholders and our Long-Term Benefit Trust, as explained here. Current members of the Board and the Long-Term Benefit Trust (LTBT) are listed below.
 
 **Anthropic Board of Directors**  

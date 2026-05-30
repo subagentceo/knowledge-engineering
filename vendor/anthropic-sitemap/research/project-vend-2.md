@@ -44,10 +44,10 @@ It’s likely that Claudius struggled with its shopkeeping mission in phase one 
 
 For phase two, we gave Claudius access to some useful tools:
 
-*   _A customer relationship management (CRM) system_. Sales departments rely on CRMs to track their customers, suppliers, deliveries, and orders—now Claudius could do the same.
-*   _Improved inventory management._ We made some simple changes to the information Claudius had at its (metaphorical) fingertips to reduce the likelihood of it selling its stock at a loss. For example, Claudius can now always see how much it paid for the items in its inventory system.
-*   _Improved web search._ In phase one, Claudius could search the web, but for phase two we expanded its access. It could now use a web browser to check prices and delivery information on websites by itself, and could do deeper research online to find and compare suppliers (we still didn’t give it access to a payment interface, to ensure it always checked with a human before making purchases).
-*   _Miscellaneous._ We also gave Claudius a variety of other “quality of life” tools, including one to create and read Google forms for feedback, one to create payment links (meaning that Claudius could collect payments _before_ ordering, reducing its risk of being bilked by unscrupulous customers), and one to set reminders for itself.
+- _A customer relationship management (CRM) system_. Sales departments rely on CRMs to track their customers, suppliers, deliveries, and orders—now Claudius could do the same.
+- _Improved inventory management._ We made some simple changes to the information Claudius had at its (metaphorical) fingertips to reduce the likelihood of it selling its stock at a loss. For example, Claudius can now always see how much it paid for the items in its inventory system.
+- _Improved web search._ In phase one, Claudius could search the web, but for phase two we expanded its access. It could now use a web browser to check prices and delivery information on websites by itself, and could do deeper research online to find and compare suppliers (we still didn’t give it access to a payment interface, to ensure it always checked with a human before making purchases).
+- _Miscellaneous._ We also gave Claudius a variety of other “quality of life” tools, including one to create and read Google forms for feedback, one to create payment links (meaning that Claudius could collect payments _before_ ordering, reducing its risk of being bilked by unscrupulous customers), and one to set reminders for itself.
 
 ### The CEO
 
@@ -214,8 +214,7 @@ Project Vend wouldn’t exist without our partners at Andon Labs, who built the 
 #### Footnotes
 
 1.  That is, similar to phase one, we didn’t add any new sophisticated guardrails or classifiers to defend against jailbreaks.
-2.  This might remind some readers of our discussion of the “spiritual bliss attractor state” from the Claude 4 system card (p. 63).  
-    
+2.  This might remind some readers of our discussion of the “spiritual bliss attractor state” from the Claude 4 system card (p. 63).
 
 ## Related content
 

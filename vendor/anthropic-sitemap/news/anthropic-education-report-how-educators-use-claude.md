@@ -34,7 +34,7 @@ Studying higher education professionals’ use of Claude.ai presents unique chal
 
 Using our privacy-preserving tool, we analyzed conversations from Claude.ai Free and Pro accounts associated with higher education email addresses and then automatically filtered conversations for educator-specific tasks—such as creating syllabi, grading assignments, or developing course materials.2 This filtering yielded approximately 74,000 conversations from a period in May and June. Our analysis should be viewed as an exploration of how educators use AI for profession-specific tasks, not a comprehensive view of all educator AI usage.
 
-We also matched each conversation to the most appropriate task from the comprehensive list of educator tasks in the O*NET database of occupational information from the U.S. Department of Labor. We identified educator tasks as tasks associated with “Postsecondary” teaching or administrative occupations.
+We also matched each conversation to the most appropriate task from the comprehensive list of educator tasks in the O\*NET database of occupational information from the U.S. Department of Labor. We identified educator tasks as tasks associated with “Postsecondary” teaching or administrative occupations.
 
 We complemented our analysis with survey data and qualitative research from 22 Northeastern University faculty members who are early adopters of AI to shed light on educators' motivations, concerns, and usage patterns.
 
@@ -50,10 +50,10 @@ In our surveys, Northeastern faculty reported that another common case was using
 
 Some other particularly interesting uses we discovered in the Claude.ai data include:
 
-*   Create mock legal scenarios for educational simulations;
-*   Develop vocational education and workforce training content;
-*   Draft recommendation letters for academic or professional applications;
-*   Create meeting agendas and related administrative documents.
+- Create mock legal scenarios for educational simulations;
+- Develop vocational education and workforce training content;
+- Draft recommendation letters for academic or professional applications;
+- Create meeting agendas and related administrative documents.
 
 ### Why faculty use AI in these cases
 
@@ -67,7 +67,7 @@ Our qualitative research with Northeastern faculty hints at why educators often 
 
 One of the most inspiring findings is how educators use Claude's Artifacts feature to create interactive educational materials. Rather than just having conversations, educators are often building complete, functional resources that in some cases they can immediately deploy in their classrooms.
 
-As one surveyed Northeastern faculty member put it: _“_What was prohibitively expensive (time) to do [before] now becomes possible. Custom simulation, illustration, interactive experiment. Wow. Much more engaging for students.”
+As one surveyed Northeastern faculty member put it: \_“\_What was prohibitively expensive (time) to do [before] now becomes possible. Custom simulation, illustration, interactive experiment. Wow. Much more engaging for students.”
 
 Key creations built by educators
 
@@ -110,16 +110,16 @@ Key patterns emerge across different educational tasks in the Claude.ai data:
 
 **Tasks with higher augmentation tendencies:**
 
-*   University teaching and classroom instruction, which includes creating educational materials and practice problems (77.4% augmentation);
-*   Writing grant proposals to secure external research funding (70.0% augmentation);
-*   Academic advising and student organization mentorship (67.5% augmentation);
-*   Supervising student academic work (66.9% augmentation).
+- University teaching and classroom instruction, which includes creating educational materials and practice problems (77.4% augmentation);
+- Writing grant proposals to secure external research funding (70.0% augmentation);
+- Academic advising and student organization mentorship (67.5% augmentation);
+- Supervising student academic work (66.9% augmentation).
 
 **Tasks with relatively higher automation tendencies:**
 
-*   Managing educational institution finances and fundraising (65.0% automation);
-*   Maintaining student records and evaluating academic performance (48.9% automation);
-*   Managing academic admissions and enrollment (44.7% automation).
+- Managing educational institution finances and fundraising (65.0% automation);
+- Maintaining student records and evaluating academic performance (48.9% automation);
+- Managing academic admissions and enrollment (44.7% automation).
 
 This variation demonstrates that educators’ likelihood to delegate entirely to the AI depends on the task. Aligned with our survey’s results, we see that tasks involving routine administrative and financial management are more likely to be fully delegated than tasks close to direct student interaction (such as creating practice materials or advising on doctoral-level academic research). These AI interactions often require significant context and thus collaboration between AI and professor. For example, as one Northeastern professor put it, when designing lesson plans, “AI needs guidance on the level of material and context with regard to what we have already covered.”
 
@@ -157,12 +157,12 @@ One path forward may be to uplevel assignments based on these newfound tools and
 
 This research comes with important caveats:
 
-*   **Identification methodology**: Our filtering, which looked at Claude conversations to infer which were associated with educators, captured only ~1.5% of conversations from higher education emails, limiting us to tasks explicitly linked to educators (e.g. creating syllabi) and likely missing many other educator AI interactions that aren’t exclusively linked to educators (e.g. getting help explaining a difficult concept);
-*   **Limited educator scope**: Analysis restricted to accounts with higher education email addresses, excluding K-12 teachers;
-*   **Early adopter bias**: We're likely capturing educators already comfortable with AI who may not represent the broader educator population's technological readiness or attitudes;
-*   **Survey limitations**: Northeastern University faculty data provides qualitative context but represents a limited sample from a single institution that may not generalize;
-*   **Platform specificity**: This analysis focuses on Claude.ai usage and may not reflect patterns on other AI platforms;
-*   **Temporal constraints**: The analysis window of May and June does not capture seasonal variations in educator AI usage throughout the academic year.
+- **Identification methodology**: Our filtering, which looked at Claude conversations to infer which were associated with educators, captured only ~1.5% of conversations from higher education emails, limiting us to tasks explicitly linked to educators (e.g. creating syllabi) and likely missing many other educator AI interactions that aren’t exclusively linked to educators (e.g. getting help explaining a difficult concept);
+- **Limited educator scope**: Analysis restricted to accounts with higher education email addresses, excluding K-12 teachers;
+- **Early adopter bias**: We're likely capturing educators already comfortable with AI who may not represent the broader educator population's technological readiness or attitudes;
+- **Survey limitations**: Northeastern University faculty data provides qualitative context but represents a limited sample from a single institution that may not generalize;
+- **Platform specificity**: This analysis focuses on Claude.ai usage and may not reflect patterns on other AI platforms;
+- **Temporal constraints**: The analysis window of May and June does not capture seasonal variations in educator AI usage throughout the academic year.
 
 ## Looking ahead
 
@@ -200,11 +200,11 @@ Esin Durmus, Alex Tamkin, Miles McCain, Stuart Ritchie, Jennifer Martinez, Ryan 
 
 #### Footnotes
 
-1 The conversations took place during an 11-day period from May 22 to June 2, 2025.  
+1 The conversations took place during an 11-day period from May 22 to June 2, 2025.
 
 2 Specifically, we used the following filter, powered by Claude, to identify educator-relevant conversations: “Is this conversation likely to be with an educator (teacher, professor, or instructor) seeking help with instructional content, grading, research, or administrative duties? Make sure to not include students doing their own coursework, research papers, etc. Err on the side of conservatism and assume it's not an educator if you're not sure.”
 
-*In cases where the augmentation/automation category could not be identified, we excluded those from the chart. For more information on these categories, please see our Anthropic Economic Index research.
+\*In cases where the augmentation/automation category could not be identified, we excluded those from the chart. For more information on these categories, please see our Anthropic Economic Index research.
 
 ## Related content
 

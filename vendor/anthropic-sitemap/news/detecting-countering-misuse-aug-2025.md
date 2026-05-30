@@ -14,9 +14,9 @@ Our Threat Intelligence report discusses several recent examples of Claude being
 
 We find that threat actors have adapted their operations to exploit AI’s most advanced capabilities. Specifically, our report shows:
 
-*   **Agentic AI has been weaponized.** AI models are now being used to _perform_ sophisticated cyberattacks, not just advise on how to carry them out.
-*   **AI has lowered the barriers to sophisticated cybercrime.** Criminals with few technical skills are using AI to conduct complex operations, such as developing ransomware, that would previously have required years of training.
-*   **Cybercriminals and fraudsters have embedded AI throughout all stages of their operations**. This includes profiling victims, analyzing stolen data, stealing credit card information, and creating false identities allowing fraud operations to expand their reach to more potential targets.
+- **Agentic AI has been weaponized.** AI models are now being used to _perform_ sophisticated cyberattacks, not just advise on how to carry them out.
+- **AI has lowered the barriers to sophisticated cybercrime.** Criminals with few technical skills are using AI to conduct complex operations, such as developing ransomware, that would previously have required years of training.
+- **Cybercriminals and fraudsters have embedded AI throughout all stages of their operations**. This includes profiling victims, analyzing stolen data, stealing credit card information, and creating false identities allowing fraud operations to expand their reach to more potential targets.
 
 Below, we summarize three case studies from our full report.
 
@@ -210,7 +210,7 @@ These employment schemes were designed to generate profit for the North Korean r
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fa474b3555a5486e3b8c0fa97434b27924a11b8d5-2756x5840.png&w=3840&q=75)
 
-_Top: Simulated prompts created by our threat intelligence team demonstrating a lack of relevant technical knowledge. Bottom: Simulated prompts demonstrating linguistic and cultural barriers._  
+_Top: Simulated prompts created by our threat intelligence team demonstrating a lack of relevant technical knowledge. Bottom: Simulated prompts demonstrating linguistic and cultural barriers._
 
 **Our response:** when we discovered this activity we immediately banned the relevant accounts, and have since improved our tools for collecting, storing, and correlating the known indicators of this scam. We’ve also shared our findings with the relevant authorities, and we’ll continue to monitor for attempts to commit fraud using our services.
 

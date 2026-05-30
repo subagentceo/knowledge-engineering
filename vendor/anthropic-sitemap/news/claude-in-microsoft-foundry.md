@@ -20,9 +20,9 @@ For enterprises already invested in Microsoft Foundry and Microsoft 365 Copilot,
 
 Claude is available in Microsoft Foundry via serverless deployment, allowing developers to scale while Anthropic manages the infrastructure. This integration enables developers to:
 
-*   **Start building immediately:** Deploy Claude through Foundry's APIs, tools, and workflows
-*   **Use your existing Azure agreements:** Claude is eligible for Microsoft Azure Consumption Commitment (MACC), and works with current Azure agreements and billing, eliminating separate vendor approvals
-*   **Build in your preferred language:** Access Claude using Python, TypeScript, and C# SDKs with Microsoft Entra authentication
+- **Start building immediately:** Deploy Claude through Foundry's APIs, tools, and workflows
+- **Use your existing Azure agreements:** Claude is eligible for Microsoft Azure Consumption Commitment (MACC), and works with current Azure agreements and billing, eliminating separate vendor approvals
+- **Build in your preferred language:** Access Claude using Python, TypeScript, and C# SDKs with Microsoft Entra authentication
 
 Claude is available in the Global Standard deployment rolling out today, using our standard API pricing, with the US DataZone coming soon. Visit our pricing page for details.
 

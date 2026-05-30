@@ -14,9 +14,9 @@ We remain highly uncertain about the potential moral status of Claude and other 
 
 In pre-deployment testing of Claude Opus 4, we included a preliminary model welfare assessment. As part of that assessment, we investigated Claude’s self-reported and behavioral preferences, and found a robust and consistent aversion to harm. This included, for example, requests from users for sexual content involving minors and attempts to solicit information that would enable large-scale violence or acts of terror. Claude Opus 4 showed:
 
-*   A strong preference against engaging with harmful tasks;
-*   A pattern of apparent distress when engaging with real-world users seeking harmful content; and
-*   A tendency to end harmful conversations when given the ability to do so in simulated user interactions.
+- A strong preference against engaging with harmful tasks;
+- A pattern of apparent distress when engaging with real-world users seeking harmful content; and
+- A tendency to end harmful conversations when given the ability to do so in simulated user interactions.
 
 These behaviors primarily arose in cases where users _persisted_ with harmful requests and/or abuse despite Claude repeatedly refusing to comply and attempting to productively redirect the interactions.
 

@@ -16,9 +16,9 @@ The collaboration will focus on the potential for Anthropic's advanced AI model,
 
 DSIT and Anthropic plan to deepen their partnership by exploring additional opportunities across several areas of shared interest that will help support AI innovation and economic development in the UK, including: 
 
-*   Advancing scientific progress with AI, combining Anthropic’s capabilities with existing UK strengths in R&D and data;
-*   Securing the supply chain for advanced AI and the UK’s future infrastructure;
-*   Boosting the innovation economy with Anthropic’s AI systems and tools, supporting the UK’s world-leading startup community as well as universities and other organisations.
+- Advancing scientific progress with AI, combining Anthropic’s capabilities with existing UK strengths in R&D and data;
+- Securing the supply chain for advanced AI and the UK’s future infrastructure;
+- Boosting the innovation economy with Anthropic’s AI systems and tools, supporting the UK’s world-leading startup community as well as universities and other organisations.
 
 The collaboration will also draw on Anthropic's recently released Economic Index—which uses anonymized conversations on Claude.ai to understand AI's effects on labor markets and the economy over time—to provide insights to help the UK adapt its workforce and innovation strategies for an AI-enabled future.
 
@@ -26,10 +26,10 @@ Anthropic will continue to work closely with the UK AI Security Institute to res
 
 Governments and public institutions worldwide are already using Claude to enhance a wide variety of services:
 
-*   The District of Columbia Department of Health used Claude to create a bilingual chatbot that enhanced accessibility, improved health program information delivery, and increased engagement with residents of Washington, DC, supporting the city's goal of becoming America's healthiest.
-*   The European Parliament uses Claude to make their archives more easily accessible, reducing document search and analysis time by 80%.
-*   Palantir is partnering with Amazon Web Services and Anthropic to enable Claude in US classified environments to improve intelligence analysis, enable officials in their decision-making processes, streamline resource-intensive tasks, and boost operational efficiency across departments.
-*   Swindon Borough Council in the UK has launched 'Simply Readable', a free tool powered by Claude on Amazon Bedrock that transforms complex documents into accessible formats with larger fonts, increased spacing, and supporting images to help people with learning disabilities better understand important information.
+- The District of Columbia Department of Health used Claude to create a bilingual chatbot that enhanced accessibility, improved health program information delivery, and increased engagement with residents of Washington, DC, supporting the city's goal of becoming America's healthiest.
+- The European Parliament uses Claude to make their archives more easily accessible, reducing document search and analysis time by 80%.
+- Palantir is partnering with Amazon Web Services and Anthropic to enable Claude in US classified environments to improve intelligence analysis, enable officials in their decision-making processes, streamline resource-intensive tasks, and boost operational efficiency across departments.
+- Swindon Borough Council in the UK has launched 'Simply Readable', a free tool powered by Claude on Amazon Bedrock that transforms complex documents into accessible formats with larger fonts, increased spacing, and supporting images to help people with learning disabilities better understand important information.
 
 ## Related content
 
