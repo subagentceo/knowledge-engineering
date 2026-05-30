@@ -23,6 +23,12 @@ export interface PdfMirrorOptions {
   sourceUrl: string;
   /** Allowlist of URL prefixes. Empty/missing disables the lane entirely. */
   pdfAllowPrefixes?: string[];
+  /**
+   * PDF URLs already extracted from the RAW HTML (anchor hrefs) before turndown
+   * flattened the links. Unioned with the markdown scan so PDFs behind `<a>`
+   * tags — which F3 link-flattening strips from the markdown — are still found.
+   */
+  htmlPdfUrls?: string[];
 }
 
 export interface PdfMirrorResult {
@@ -48,6 +54,31 @@ export function scanPdfUrls(markdown: string, allowPrefixes: string[]): string[]
   const out: string[] = [];
   for (const m of markdown.matchAll(PDF_HREF_RE)) {
     const raw = m[1].replace(/\\([()])/g, "$1");
+    if (!allowPrefixes.some((p) => raw.startsWith(p))) continue;
+    if (seen.has(raw)) continue;
+    seen.add(raw);
+    out.push(raw);
+  }
+  return out;
+}
+
+// Matches `.pdf` targets inside raw-HTML anchor hrefs (single or double quoted).
+const PDF_HTML_HREF_RE = /href=["'](https?:\/\/[^"'\s]+?\.pdf(?:\?[^"'\s]*)?)["']/gi;
+
+/**
+ * Extract distinct allowlisted PDF URLs from RAW HTML anchor hrefs.
+ *
+ * The html-extract turndown config flattens `<a>` to plain text (F3 fidelity
+ * fix), which DROPS the href — so scanPdfUrls() on the post-turndown markdown
+ * never sees PDF links behind anchors (e.g. anthropic.com's "Read in PDF" /
+ * "Appendix" links). Scanning the raw HTML before flattening recovers them.
+ */
+export function scanPdfUrlsFromHtml(html: string, allowPrefixes: string[]): string[] {
+  if (allowPrefixes.length === 0) return [];
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const m of html.matchAll(PDF_HTML_HREF_RE)) {
+    const raw = m[1];
     if (!allowPrefixes.some((p) => raw.startsWith(p))) continue;
     if (seen.has(raw)) continue;
     seen.add(raw);
@@ -95,7 +126,13 @@ function writeIfChanged(path: string, body: string): "wrote" | "unchanged" {
  */
 export async function mirrorPdfs(opts: PdfMirrorOptions): Promise<PdfMirrorResult> {
   const result: PdfMirrorResult = { fetched: [], skipped: [], failed: [] };
-  const urls = scanPdfUrls(opts.markdown, opts.pdfAllowPrefixes ?? []);
+  // Union the markdown scan with PDF URLs recovered from raw HTML (anchor hrefs
+  // that link-flattening dropped from the markdown), de-duped, allowlist already
+  // applied to both sources.
+  const allow = opts.pdfAllowPrefixes ?? [];
+  const fromMd = scanPdfUrls(opts.markdown, allow);
+  const fromHtml = (opts.htmlPdfUrls ?? []).filter((u) => allow.some((p) => u.startsWith(p)));
+  const urls = Array.from(new Set([...fromMd, ...fromHtml]));
   for (const url of urls) {
     const slug = slugForPdf(url);
     const target = resolve(opts.vendorRoot, opts.vendor, "_pdfs", `${slug}.md`);

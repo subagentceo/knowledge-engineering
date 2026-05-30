@@ -46,7 +46,7 @@ import { inAllowlist } from "./lib/allowlist.js";
 import { extractIndexUrls } from "./lib/html-index.js";
 import { parseLlmsTxt, type LlmsTxt } from "./lib/llms-txt.js";
 import { neonEnabled, upsertVendorPage } from "./lib/neon-client.js";
-import { mirrorPdfs } from "./lib/pdf-mirror.js";
+import { mirrorPdfs, scanPdfUrlsFromHtml } from "./lib/pdf-mirror.js";
 import { isSitemapIndex, parseSitemapXml } from "./lib/sitemap-xml.js";
 import {
   TRANSFORMS,
@@ -284,6 +284,12 @@ turndown.addRule("fenced-code-with-lang", {
   },
 });
 
+// Side-channel: PDF URLs recovered from RAW HTML (anchor hrefs) during
+// html-extract, keyed by source page URL. Populated in postProcess before
+// turndown flattens links (which would drop the hrefs); read when building the
+// pdfQueue. Cleared per crawl in crawlVendor().
+const htmlPdfUrlsByPage = new Map<string, string[]>();
+
 function makeTransform(name: TransformName, url: string, cfg: CrawlConfig): TransformOutput {
   // Per-host transform override. support.claude.com exposes a true .md
   // endpoint when you append `.md` + send `Accept: text/markdown` (the
@@ -297,6 +303,15 @@ function makeTransform(name: TransformName, url: string, cfg: CrawlConfig): Tran
   }
   if (name === "html-extract") {
     return htmlExtract(url, (body) => {
+      // Recover PDF links from the RAW HTML before turndown flattens anchors
+      // (F3 link-flattening drops hrefs, hiding PDFs behind <a> tags from the
+      // markdown PDF scan). Scoped to the configured allowlist.
+      const pdfAllow = cfg.pdf_allow_prefixes ?? [];
+      if (pdfAllow.length > 0) {
+        const found = scanPdfUrlsFromHtml(body, pdfAllow);
+        if (found.length > 0) htmlPdfUrlsByPage.set(url, found);
+      }
+
       const $ = cheerio.load(body);
       // Drop non-content nodes anywhere in the doc before serialization.
       $("script, style, noscript, svg, link, meta, template, iframe").remove();
@@ -398,8 +413,9 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   // markdown bodies + source URLs as they're written, then run the
   // mirror pass once at the end so we don't block per-page crawlee
   // concurrency on PDF fetches.
-  const pdfQueue: { markdown: string; sourceUrl: string }[] = [];
+  const pdfQueue: { markdown: string; sourceUrl: string; htmlPdfUrls: string[] }[] = [];
   const pdfLaneEnabled = (cfg.pdf_allow_prefixes?.length ?? 0) > 0;
+  htmlPdfUrlsByPage.clear();
 
   // Discover llms.txt (primary). If llms_txt_sources is set, also fetch each
   // source body and merge its links into the URL pool.
@@ -653,7 +669,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
             const result = writeIfChanged(target, finalBody);
             if (result === "wrote") fetched += 1;
             else skipped += 1;
-            if (pdfLaneEnabled) pdfQueue.push({ markdown: finalBody, sourceUrl: w.origUrl });
+            if (pdfLaneEnabled) pdfQueue.push({ markdown: finalBody, sourceUrl: w.origUrl, htmlPdfUrls: htmlPdfUrlsByPage.get(w.origUrl) ?? [] });
             const sha = hashBody(finalBody);
             checksums[w.origUrl] = {
               sha256: sha,
@@ -737,7 +753,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
         const result = writeIfChanged(target, finalBody);
         if (result === "wrote") fetched += 1;
         else skipped += 1;
-        if (pdfLaneEnabled) pdfQueue.push({ markdown: finalBody, sourceUrl: meta.origUrl });
+        if (pdfLaneEnabled) pdfQueue.push({ markdown: finalBody, sourceUrl: meta.origUrl, htmlPdfUrls: htmlPdfUrlsByPage.get(meta.origUrl) ?? [] });
         indexRows.push({ url: meta.origUrl, relPath });
         const sha = hashBody(finalBody);
         if (incremental) {
@@ -803,7 +819,7 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
 async function flushPdfBatch(
   vendor: string,
   cfg: CrawlConfig,
-  queue: { markdown: string; sourceUrl: string }[],
+  queue: { markdown: string; sourceUrl: string; htmlPdfUrls: string[] }[],
   failures: CrawlResult["failures"],
 ): Promise<void> {
   if ((cfg.pdf_allow_prefixes?.length ?? 0) === 0 || queue.length === 0) return;
@@ -816,6 +832,7 @@ async function flushPdfBatch(
       markdown: item.markdown,
       sourceUrl: item.sourceUrl,
       pdfAllowPrefixes: cfg.pdf_allow_prefixes,
+      htmlPdfUrls: item.htmlPdfUrls,
     });
     fetched += res.fetched.length;
     skipped += res.skipped.length;
