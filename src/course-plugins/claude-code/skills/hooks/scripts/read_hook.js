@@ -20,12 +20,25 @@ process.stdin.on("end", () => {
     process.exit(0);
   }
 
-  const filePath =
-    input?.tool_input?.file_path ?? input?.tool_input?.path ?? "";
+  // Inspect every field a read/grep might carry its target in: Read uses
+  // file_path; Grep uses path/glob/pattern. Checking only file_path let a grep
+  // over a directory containing a .env slip through (failed open).
+  const targets = [
+    input?.tool_input?.file_path,
+    input?.tool_input?.path,
+    input?.tool_input?.glob,
+    input?.tool_input?.pattern,
+  ].filter((t) => typeof t === "string");
 
-  if (typeof filePath === "string" && filePath.includes(".env")) {
+  // Match `.env` as a real path segment (`.env`, `.env.local`, `a/.env`), not as
+  // a substring — so `.includes(".env")` no longer blocks `.environment/` or
+  // `dotenv.md`. Anchored to a path boundary on the left and `.`/end on the right.
+  const ENV_FILE = /(^|\/)\.env(\.[^/]*)?$/;
+
+  const hit = targets.find((t) => ENV_FILE.test(t));
+  if (hit) {
     console.error(
-      `Blocked: ${filePath} looks like a secrets file (.env). Read it only if the user explicitly asks.`
+      `Blocked: ${hit} looks like a secrets file (.env). Read it only if the user explicitly asks.`
     );
     process.exit(2); // block, feedback goes to Claude
   }

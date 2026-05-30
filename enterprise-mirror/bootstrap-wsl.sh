@@ -106,7 +106,28 @@ install_claude_bits() {
      "$MIRROR_ROOT/.claude/skills/refresh-manifest/" 2>/dev/null \
     || warn "couldn't find refresh-manifest SKILL.md to copy — copy it manually"
   chmod +x "$MIRROR_ROOT/.claude/hooks/session-start.sh" "$MIRROR_ROOT/.meta/"*.sh 2>/dev/null || true
-  cat > "$MIRROR_ROOT/.claude/settings.json" <<'JSON'
+
+  # Register the SessionStart hook WITHOUT clobbering an existing settings.json.
+  # The old `cat > settings.json` heredoc destroyed any permissions/MCP/hooks the
+  # operator had added — and this script is re-run to refresh, so that loss is
+  # silent and repeated. Merge with jq; only write fresh if no file exists.
+  local settings="$MIRROR_ROOT/.claude/settings.json"
+  local hook_entry='{"hooks":[{"type":"command","command":"\"$CLAUDE_PROJECT_DIR/.claude/hooks/session-start.sh\""}]}'
+  if [[ -f "$settings" ]] && command -v jq >/dev/null 2>&1; then
+    local merged
+    # Append our SessionStart entry only if an identical command isn't already
+    # present (idempotent), preserving every other key in the file.
+    if merged="$(jq --argjson e "$hook_entry" '
+          .hooks.SessionStart = ((.hooks.SessionStart // [])
+            | if any(.[]; .hooks[0].command == $e.hooks[0].command) then . else . + [$e] end)
+        ' "$settings")"; then
+      printf '%s\n' "$merged" > "$settings"
+      ok "merged SessionStart hook into existing settings.json (other keys preserved)"
+    else
+      warn "could not merge settings.json (invalid JSON?) — left it untouched; add the hook manually"
+    fi
+  else
+    cat > "$settings" <<'JSON'
 {
   "hooks": {
     "SessionStart": [
@@ -115,6 +136,8 @@ install_claude_bits() {
   }
 }
 JSON
+    ok "wrote new settings.json with SessionStart hook"
+  fi
   ok "claude bits installed; build the manifest with: cd $MIRROR_ROOT && python3 .meta/build.py"
 }
 

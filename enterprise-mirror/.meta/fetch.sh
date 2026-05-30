@@ -28,13 +28,26 @@ echo "  found ${#ORGS[@]} orgs: ${ORGS[*]}"
 
 for org in "${ORGS[@]}"; do
   out="$META/$org.repos.json"
+  tmp="$out.tmp"
   echo "▶ fetching $org → $(basename "$out")"
-  GH_TOKEN="$TOKEN" gh api --hostname github.com --paginate \
-    "orgs/$org/repos?per_page=100&type=all" \
-    --slurp --jq 'add // .' > "$out" 2>/dev/null \
-    || GH_TOKEN="$TOKEN" gh api --hostname github.com \
-         "orgs/$org/repos?per_page=100&type=all" > "$out"
-  echo "  $(jq 'length' "$out") repos"
+  # --paginate + --slurp returns an array-of-pages [[…],[…]]. NOTE: `gh api`
+  # rejects --slurp together with --jq, so flatten in a SEPARATE jq pass with
+  # `add` (this flatten is load-bearing — build.py expects a flat repo list).
+  # NO `2>/dev/null`: masking stderr here hid real auth/rate-limit failures and
+  # let a truncated result land as if complete (#4). Stage to a tmp file and only
+  # commit it if the fetch succeeded AND the flattened output is a JSON array of
+  # repo objects — so a partial or error response never overwrites a good file.
+  if GH_TOKEN="$TOKEN" gh api --hostname github.com --paginate \
+       "orgs/$org/repos?per_page=100&type=all" --slurp \
+       | jq 'add // []' > "$tmp" \
+     && jq -e 'type == "array" and (length == 0 or (.[0] | type) == "object")' "$tmp" >/dev/null 2>&1; then
+    mv "$tmp" "$out"
+    echo "  $(jq 'length' "$out") repos"
+  else
+    rm -f "$tmp"
+    echo "✗ fetch failed for $org — kept previous $(basename "$out"); not overwriting" >&2
+    exit 1
+  fi
 done
 
 echo "✓ raw fetch complete — run: python3 .meta/build.py"
