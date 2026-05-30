@@ -1,3 +1,5 @@
+# Introducing Anthropic's AI for Science Program
+
 Announcements
 
 # Introducing Anthropic's AI for Science Program
@@ -8,40 +10,38 @@ May 5, 2025
 
 Today, we’re launching Anthropic's AI for Science program – a new initiative designed to accelerate scientific research and discovery through access to our API. This program will provide free API credits to support researchers working on high-impact scientific projects, with a particular focus on biology and life sciences applications.
 
-## **Why AI for Science?**
+## Why AI for Science?
 
 At Anthropic, we believe that AI has the potential to significantly accelerate scientific progress. Advanced AI reasoning and language capabilities can help researchers analyze complex scientific data, generate hypotheses, design experiments, and communicate findings more effectively. By reducing the time and resources needed for scientific discovery, we can help address some of humanity's most pressing challenges.
 
-This initiative aligns with our vision of building AI systems that bring value to humanity, as discussed in our CEO Dario Amodei's [Machines of Loving Grace](https://darioamodei.com/machines-of-loving-grace). We're particularly interested in supporting applications where AI can assist in accelerating processes related to understanding complex biological systems, analyzing genetic data, accelerating drug discovery especially for some of the largest global disease burdens, increasing agricultural productivity, and more.
+This initiative aligns with our vision of building AI systems that bring value to humanity, as discussed in our CEO Dario Amodei's Machines of Loving Grace. We're particularly interested in supporting applications where AI can assist in accelerating processes related to understanding complex biological systems, analyzing genetic data, accelerating drug discovery especially for some of the largest global disease burdens, increasing agricultural productivity, and more.
 
-## **Program Details**
+## Program Details
 
 The AI for Science program will offer significant API credits to qualified researchers who will be selected based on their contributions to science, the potential impact of their proposed research, and AI’s ability to meaningfully accelerate their work.
 
-## **How to Apply**
+## How to Apply
 
-Researchers attached to a research institution interested in the AI for Science program can apply through our [application form](https://docs.google.com/forms/d/e/1FAIpQLSfwDGfVg2lHJ0cc0oF_ilEnjvr_r4_paYi7VLlr5cLNXASdvA/viewform?usp=header). Applications will be reviewed by our team, including subject matter experts in relevant fields.
+Researchers attached to a research institution interested in the AI for Science program can apply through our application form. Applications will be reviewed by our team, including subject matter experts in relevant fields.
 
 We look forward to seeing how researchers use our API to push the boundaries of scientific discovery and create positive impact in the world.
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/ai-for-science-program)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/ai-for-science-program)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

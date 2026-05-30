@@ -1,3 +1,5 @@
+# Anthropic launches higher education advisory board and AI Fluency courses
+
 Announcements
 
 # Anthropic launches higher education advisory board and AI Fluency courses
@@ -8,7 +10,7 @@ Aug 21, 2025
 
 The choices made in the next few years about how AI enters the classroom will shape a generation's relationship with both technology and learning. Today, we're announcing two initiatives for AI in education to help navigate these critical decisions: a Higher Education Advisory Board to guide Claude's development for education, and three AI Fluency courses co-created with educators that can help teachers and students build practical, responsible AI skills.
 
-## **Higher education advisory board**
+## Higher education advisory board
 
 Anthropic has appointed a Higher Education Advisory Board of distinguished academic leaders who will help guide how Claude serves teaching, learning, and research in higher education. Drawing on expertise spanning university leadership, educational technology, and learning science, the board will ensure AI strengthens rather than undermines learning and critical thinking skills.
 
@@ -18,46 +20,44 @@ The board will be chaired by Rick Levin, whose unique perspective spans two deca
 
 Joining Levin are leaders who bring extensive experience serving in academia:
 
--   **David Leebron**, Former President of Rice University, brings decades of experience in university development and research expansion. He led Rice through significant growth in research funding, student success, and campus expansion.
--   **James DeVaney**, Special Advisor to the President, Associate Vice Provost for Academic Innovation, and Founding Executive Director of the Center for Academic Innovation at the University of Michigan, leading academic innovation strategy and lifelong learning and workforce development initiatives at scale.
--   **Julie Schell**, Assistant Vice Provost of Academic Technology at University of Texas, Austin, leads large-scale educational technology transformation and modernization initiatives, expert in learning science and evidence-based teaching practices.
--   **Matthew Rascoff**, Vice Provost for Digital Education at Stanford University, leading digital learning initiatives that expand access to advanced education for those who have been underserved.
--   **Yolanda Watson Spiva**, President of Complete College America, leads a national alliance of 53 states and systems mobilizing to increase college completion rates. With nearly three decades in postsecondary education policy, she leads CCA's work on AI adoption for student success and formed the CCA Council on AI.
+*   **David Leebron**, Former President of Rice University, brings decades of experience in university development and research expansion. He led Rice through significant growth in research funding, student success, and campus expansion.
+*   **James DeVaney**, Special Advisor to the President, Associate Vice Provost for Academic Innovation, and Founding Executive Director of the Center for Academic Innovation at the University of Michigan, leading academic innovation strategy and lifelong learning and workforce development initiatives at scale.
+*   **Julie Schell**, Assistant Vice Provost of Academic Technology at University of Texas, Austin, leads large-scale educational technology transformation and modernization initiatives, expert in learning science and evidence-based teaching practices.
+*   **Matthew Rascoff**, Vice Provost for Digital Education at Stanford University, leading digital learning initiatives that expand access to advanced education for those who have been underserved.
+*   **Yolanda Watson Spiva**, President of Complete College America, leads a national alliance of 53 states and systems mobilizing to increase college completion rates. With nearly three decades in postsecondary education policy, she leads CCA's work on AI adoption for student success and formed the CCA Council on AI.
 
-## **AI fluency courses for educators and students**
+## AI fluency courses for educators and students
 
-Working with the advisory board and educators worldwide, we've developed three new courses that build on our existing [AI Fluency course](https://www.anthropic.com/learn/claude-for-you), and are designed to address what universities need most: practical frameworks for thoughtful AI integration. Each course, co-developed with Professor Rick Dakan of Ringling College of Art and Design and Professor Joseph Feller of University College Cork, is available now under Creative Commons license, so any institution can adapt them:
+Working with the advisory board and educators worldwide, we've developed three new courses that build on our existing AI Fluency course, and are designed to address what universities need most: practical frameworks for thoughtful AI integration. Each course, co-developed with Professor Rick Dakan of Ringling College of Art and Design and Professor Joseph Feller of University College Cork, is available now under Creative Commons license, so any institution can adapt them:
 
-**[AI Fluency for Educators](http://anthropic.skilljar.com/ai-fluency-for-educators)** helps faculty integrate AI into their teaching practice, from creating materials and assessments to enhancing classroom discussions. Built on experience from early adopters, it shows what works in real classrooms.
+**AI Fluency for Educators** helps faculty integrate AI into their teaching practice, from creating materials and assessments to enhancing classroom discussions. Built on experience from early adopters, it shows what works in real classrooms.
 
-**[AI Fluency for Students](http://anthropic.skilljar.com/ai-fluency-for-students)** teaches responsible AI collaboration for coursework and career planning. Students learn to work with AI while developing their own critical thinking skills**,** and write their own personal commitment to responsible AI use
+**AI Fluency for Students** teaches responsible AI collaboration for coursework and career planning. Students learn to work with AI while developing their own critical thinking skills**,** and write their own personal commitment to responsible AI use
 
-**[Teaching AI Fluency](http://anthropic.skilljar.com/teaching-ai-fluency)** supports educators who want to bring AI literacy to their campuses and classrooms. It includes frameworks for instruction and assessment, plus curriculum considerations for preparing students for a more AI-enhanced world.
+**Teaching AI Fluency** supports educators who want to bring AI literacy to their campuses and classrooms. It includes frameworks for instruction and assessment, plus curriculum considerations for preparing students for a more AI-enhanced world.
 
-## **The path forward**
+## The path forward
 
 These initiatives reflect our commitment to co-creating the future of AI in education. As universities worldwide grapple with AI's role in education, these resources provide both immediate support and long-term guidance. While the advisory board informs our strategic approach, the AI Fluency courses offer practical tools educators can use today to navigate this transformation thoughtfully and responsibly.
 
-Access the courses and learn more at [anthropic.com/learn](https://www.anthropic.com/learn).
+Access the courses and learn more at anthropic.com/learn.
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-higher-education-initiatives)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-higher-education-initiatives)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

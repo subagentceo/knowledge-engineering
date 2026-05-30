@@ -1,3 +1,5 @@
+# Anthropic opens Bengaluru office and announces new partnerships across India
+
 Announcements
 
 # Anthropic opens Bengaluru office and announces new partnerships across India
@@ -6,7 +8,7 @@ Feb 16, 2026
 
 ![Anthropic opens Bengaluru office and announces new partnerships across India     ](https://www-cdn.anthropic.com/images/4zrzovbb/website/ffc0d7957a232518519f13c0d64896921ea215e2-1000x1000.svg)
 
-India is the second-largest market for [Claude.ai](http://claude.ai/redirect/website.v1.1457497c-df2f-450a-a84b-f78d6a4d2d60), home to a developer community doing some of the most technically intense AI work we see anywhere. [Nearly half of Claude usage](https://www.anthropic.com/research/india-brief-economic-index) in India comprises computer and mathematical tasks: building applications, modernizing systems, and shipping production software.
+India is the second-largest market for Claude.ai, home to a developer community doing some of the most technically intense AI work we see anywhere. Nearly half of Claude usage in India comprises computer and mathematical tasks: building applications, modernizing systems, and shipping production software.
 
 Today, as we officially open our Bengaluru office, we’re announcing partnerships across enterprise, education, and agriculture that deepen our commitment to India across a range of sectors.
 
@@ -16,7 +18,7 @@ Today, as we officially open our Bengaluru office, we’re announcing partnershi
 
 More than a billion people in India speak one of over a dozen officially recognized languages, but AI models continue to perform better in English than they do in other languages. Six months ago, we launched a company-wide effort to narrow this gap by curating higher-quality, more representative training data in 10 of the most widely spoken languages throughout India: Hindi, Bengali, Marathi, Telugu, Tamil, Punjabi, Gujarati, Kannada, Malayalam, and Urdu. This resulted in improvements to our models, and we continue to work on enhancing their fluency.
 
-Now, Anthropic is working with [Karya](https://www.karya.in/) and the [Collective Intelligence Project](https://www.cip.org/) to build [evaluations](https://weval.org/pilot/india-multilingual) testing performance on locally relevant tasks across domains like agriculture and law, in partnership with domain experts from leading Indian nonprofits, including [Digital Green](https://digitalgreen.org/) and [Adalat AI](https://www.adalat.ai/). This work will inform how we improve future models for speakers of Indic languages and for use cases important to India and the businesses that use Claude. We intend to make the evaluations publicly available for others to use.
+Now, Anthropic is working with Karya and the Collective Intelligence Project to build evaluations testing performance on locally relevant tasks across domains like agriculture and law, in partnership with domain experts from leading Indian nonprofits, including Digital Green and Adalat AI. This work will inform how we improve future models for speakers of Indic languages and for use cases important to India and the businesses that use Claude. We intend to make the evaluations publicly available for others to use.
 
 ## Partnering with enterprises, digital natives, and startups
 
@@ -24,52 +26,50 @@ Our run-rate revenue in India has doubled since we announced our expansion in Oc
 
 To support this growing customer base, our India team will offer applied AI expertise to enterprise customers, digital natives, and startups, helping them design, build, and scale Claude-powered solutions tailored to their business needs.
 
-Air India is using Claude Code to help developers ship custom software faster and at lower cost, as part of a broader push to use agentic AI across its operations. [CRED](https://claude.com/customers/cred) achieved 2x faster feature delivery and 10% better test coverage with Claude Code. And Cognizant is deploying Claude to 350,000 employees globally to modernize legacy systems, accelerate software development, and support AI adoption among its enterprise clients.
+Air India is using Claude Code to help developers ship custom software faster and at lower cost, as part of a broader push to use agentic AI across its operations. CRED achieved 2x faster feature delivery and 10% better test coverage with Claude Code. And Cognizant is deploying Claude to 350,000 employees globally to modernize legacy systems, accelerate software development, and support AI adoption among its enterprise clients.
 
-Among India’s startups, the story is similar. At [Razorpay](https://razorpay.com/), AI is integrated into risk systems, decision-making processes, and operations across the company. [Rocket](https://claude.com/customers/rocket) uses Claude to let non-technical teams across enterprises build production-ready apps and websites in minutes and hours rather than weeks. At [Enterpret](https://www.enterpret.com/), Claude powers its AI assistant, the engineering team builds with Claude Code daily, and the startup has shipped an MCP integration that brings customer insights directly into Claude. And [Emergent](https://app.emergent.sh/landing/), an AI-powered platform that lets anyone build software by describing what they want in plain language, reached $25 million in annual recurring revenue and two million users in under five months, built entirely with Claude.
+Among India’s startups, the story is similar. At Razorpay, AI is integrated into risk systems, decision-making processes, and operations across the company. Rocket uses Claude to let non-technical teams across enterprises build production-ready apps and websites in minutes and hours rather than weeks. At Enterpret, Claude powers its AI assistant, the engineering team builds with Claude Code daily, and the startup has shipped an MCP integration that brings customer insights directly into Claude. And Emergent, an AI-powered platform that lets anyone build software by describing what they want in plain language, reached $25 million in annual recurring revenue and two million users in under five months, built entirely with Claude.
 
 ## Reaching students in low-income communities
 
-Educational and instructional tasks make up 12% of Claude.ai use in India. [Pratham](https://claude.com/customers/pratham-international), one of India’s largest education nonprofits, chose Anthropic as its first strategic AI lab partner because of our shared focus on safety and educational rigor. Their Anytime Testing Machine, powered by Claude, is currently being piloted with 1,500 students across 20 schools, with plans to expand to 100 schools by the end of 2026. Adapted earlier this year for over 5,000 learners in Pratham’s Second Chance program, which supports women who have dropped out of formal schooling, the Anytime Testing Machine aims to create flexible, credible pathways for learning and certification by helping students practice for exams.
+Educational and instructional tasks make up 12% of Claude.ai use in India. Pratham, one of India’s largest education nonprofits, chose Anthropic as its first strategic AI lab partner because of our shared focus on safety and educational rigor. Their Anytime Testing Machine, powered by Claude, is currently being piloted with 1,500 students across 20 schools, with plans to expand to 100 schools by the end of 2026. Adapted earlier this year for over 5,000 learners in Pratham’s Second Chance program, which supports women who have dropped out of formal schooling, the Anytime Testing Machine aims to create flexible, credible pathways for learning and certification by helping students practice for exams.
 
-Anthropic is collaborating with [Central Square Foundation](https://www.centralsquarefoundation.org/) to use EdTech and AI more effectively to educate children from underserved communities. As part of this collaboration, Anthropic will provide technical expertise, mentorship, and API credits to organizations developing AI-enabled tools—including personalized tutors, teacher coaching solutions, and assessment-driven instruction—with the goal of reaching more primary school students across India.
+Anthropic is collaborating with Central Square Foundation to use EdTech and AI more effectively to educate children from underserved communities. As part of this collaboration, Anthropic will provide technical expertise, mentorship, and API credits to organizations developing AI-enabled tools—including personalized tutors, teacher coaching solutions, and assessment-driven instruction—with the goal of reaching more primary school students across India.
 
 ## Incorporating AI into the public sector
 
-India has a track record of building interoperable digital public infrastructure that improves people’s lives. Anthropic is partnering with the [EkStep Foundation](https://ekstep.org/) to explore how AI can build on these efforts and deliver population-scale impact in the domains that matter most to India. Agriculture is one example. It makes up [nearly a sixth of the Indian economy](https://ourworldindata.org/grapher/agriculture-share-gdp?mapSelect=~IND) and [employs nearly half of the labor force](https://ourworldindata.org/grapher/share-of-the-labor-force-employed-in-agriculture?mapSelect=~IND). Using the [OpenAgriNet](https://openagrinet.global/) effort, we are working towards deployments of Claude that expand access to expert knowledge in this critical sector.
+India has a track record of building interoperable digital public infrastructure that improves people’s lives. Anthropic is partnering with the EkStep Foundation to explore how AI can build on these efforts and deliver population-scale impact in the domains that matter most to India. Agriculture is one example. It makes up nearly a sixth of the Indian economy and employs nearly half of the labor force. Using the OpenAgriNet effort, we are working towards deployments of Claude that expand access to expert knowledge in this critical sector.
 
-We’re also demonstrating how Claude Code and Cowork can have an impact within nonprofits themselves—including [Noora Health](https://noorahealth.org/), which delivers accessible health coaching to millions of families, and [Intelehealth](https://intelehealth.org/), which connects patients in remote communities to quality medical care.
+We’re also demonstrating how Claude Code and Cowork can have an impact within nonprofits themselves—including Noora Health, which delivers accessible health coaching to millions of families, and Intelehealth, which connects patients in remote communities to quality medical care.
 
-India has 50 million pending court cases, and routine updates often take months to reach litigants. Accessing case information typically requires repeated court visits or intermediaries to navigate paper files and legal jargon. Anthropic is supporting [Adalat AI](https://claude.com/customers/adalat-ai) to improve access to judicial services with a [national WhatsApp helpline](https://www.adalat.ai/whatsapp-helpline), launching today. Using Claude, it provides instant case updates as well as translation, document summarization, and interactive querying of legal documents in native Indian languages.
+India has 50 million pending court cases, and routine updates often take months to reach litigants. Accessing case information typically requires repeated court visits or intermediaries to navigate paper files and legal jargon. Anthropic is supporting Adalat AI to improve access to judicial services with a national WhatsApp helpline, launching today. Using Claude, it provides instant case updates as well as translation, document summarization, and interactive querying of legal documents in native Indian languages.
 
 ## Driving adoption through open-source standards
 
-Anthropic created the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) as a universal open-source standard for connecting AI applications to external systems, and recently [donated it to the Linux Foundation](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation).
+Anthropic created the Model Context Protocol (MCP) as a universal open-source standard for connecting AI applications to external systems, and recently donated it to the Linux Foundation.
 
-The Indian Ministry of Statistics and Programme Implementation (MoSPI), with the support of nonprofit [Bharat Digital](https://bharatdigital.io/), recently launched [the first official Indian government MCP server](https://www.datainnovation.mospi.gov.in/mospi-mcp), enabling users of AI systems to access and query authoritative national statistics in an open and interoperable manner. In the private sector, [Swiggy](https://www.swiggy.com/) uses the MCP to allow people to order groceries and make dining reservations directly through Claude.
+The Indian Ministry of Statistics and Programme Implementation (MoSPI), with the support of nonprofit Bharat Digital, recently launched the first official Indian government MCP server, enabling users of AI systems to access and query authoritative national statistics in an open and interoperable manner. In the private sector, Swiggy uses the MCP to allow people to order groceries and make dining reservations directly through Claude.
 
 ## Growing Anthropic’s presence in India
 
-These partnerships will grow in the coming months and years through our expanded presence in India. Our new Bengaluru office—Anthropic’s second in Asia after [Tokyo](https://www.anthropic.com/news/opening-our-tokyo-office)—has officially opened. Led by Managing Director of India [Irina Ghose](https://www.anthropic.com/news/anthropic-appoints-irina-ghose-as-managing-director-of-india?ref=blog.selectfromuser.com), an enterprise and startup technology leader, the office will focus on hiring local talent across a wide array of roles.
+These partnerships will grow in the coming months and years through our expanded presence in India. Our new Bengaluru office—Anthropic’s second in Asia after Tokyo—has officially opened. Led by Managing Director of India Irina Ghose, an enterprise and startup technology leader, the office will focus on hiring local talent across a wide array of roles.
 
-For information about career opportunities at our Bengaluru office, visit our [careers page](https://www.anthropic.com/careers).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/bengaluru-office-partnerships-across-india)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/bengaluru-office-partnerships-across-india)
+For information about career opportunities at our Bengaluru office, visit our careers page.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

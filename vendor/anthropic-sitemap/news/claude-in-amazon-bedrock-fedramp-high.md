@@ -1,3 +1,5 @@
+# Claude in Amazon Bedrock: Approved for use in FedRAMP High and DoD IL4/5 workloads
+
 Announcements
 
 # Claude in Amazon Bedrock: Approved for use in FedRAMP High and DoD IL4/5 workloads
@@ -6,11 +8,11 @@ Jun 11, 2025
 
 ![A hand drawn illustration of a hand holding a white key vertically against a blue background. ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4b7d06ee68925400d1e2444fa067ccb1eca95705-2881x1621.png&w=3840&q=75)
 
-Today, we're announcing that Claude models are approved for use in FedRAMP High and DoD Impact Level 4 and 5 workloads through [Amazon Bedrock](< https://aws.amazon.com/bedrock/anthropic/>) in AWS GovCloud (US) regions.
+Today, we're announcing that Claude models are approved for use in FedRAMP High and DoD Impact Level 4 and 5 workloads through Amazon Bedrock in AWS GovCloud (US) regions.
 
 Federal agencies and defense organizations can now access Claude's advanced AI capabilities while meeting the government’s stringent security requirements—opening new possibilities for mission-critical applications across defense, intelligence, and sensitive civilian operations.
 
-## **Enabling secure AI for the most sensitive workloads**
+## Enabling secure AI for the most sensitive workloads
 
 DoD Impact Level 4, 5, and FedRAMP High authorizations represent the highest levels of cloud security certification for unclassified and controlled unclassified information. Claude has received approval for use in Amazon Bedrock for workloads requiring FedRAMP and DoD authorization, enabling Anthropic and AWS to support users across the full spectrum of unclassified government workloads.
 
@@ -18,38 +20,36 @@ Claude 3.5 Sonnet v1 and Claude 3 Haiku are now available, alongside Amazon Bedr
 
 With Claude in Amazon Bedrock, federal agencies can now:
 
--   Deploy frontier AI models for complex document analysis and intelligence synthesis in secure environments
--   Build AI agents that process controlled unclassified information
--   Leverage Claude's advanced intelligence and 200K token context window for comprehensive analysis of large datasets
+*   Deploy frontier AI models for complex document analysis and intelligence synthesis in secure environments
+*   Build AI agents that process controlled unclassified information
+*   Leverage Claude's advanced intelligence and 200K token context window for comprehensive analysis of large datasets
 
-## **Accelerating government AI adoption**
+## Accelerating government AI adoption
 
 Our goal is to enable commercial availability of Claude models across every region where public sector customers operate, meeting the security accreditations their mission-critical workloads require. Claude on Amazon Bedrock provides a fully managed service that eliminates infrastructure complexity while maintaining required security controls.
 
 Government customers now have flexibility to deploy some of the most capable AI systems across multiple secure platforms—including Google Cloud's Vertex AI for FedRAMP High and IL2, and Amazon Bedrock for FedRAMP Moderate and High and DoD IL2 and IL4/5.
 
-## **Getting started**
+## Getting started
 
 Federal agency employees, defense contractors, and approved partners can access Claude models through Amazon Bedrock in AWS GovCloud (US) regions using familiar AWS APIs and management tools.
 
-[Contact our public sector team](mailto:pubsec@anthropic.com) for guidance on implementing Claude in your federal environment while ensuring full compliance with government security requirements.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-in-amazon-bedrock-fedramp-high)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-in-amazon-bedrock-fedramp-high)
+Contact our public sector team for guidance on implementing Claude in your federal environment while ensuring full compliance with government security requirements.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# Chris Liddell appointed to Anthropic’s board of directors
+
 Announcements
 
 # Chris Liddell appointed to Anthropic’s board of directors
@@ -8,7 +10,7 @@ Chris Liddell has been appointed to Anthropic’s Board of Directors. He brings 
 
 “Chris has spent his career at the intersection of technology, public service, and governance—and has a track record of helping organizations get those things right when the stakes are highest,” said Daniela Amodei, Co-founder and President of Anthropic. “As AI’s impact on society grows, that kind of judgement and experience is exactly what we seek on our board.”
 
-Liddell joins Dario Amodei, Daniela Amodei, [Yasmin Razavi](https://www.anthropic.com/news/anthropic-series-c), [Jay Kreps](https://www.anthropic.com/news/jay-kreps-appointed-to-board-of-directors), and [Reed Hastings](https://www.anthropic.com/news/reed-hastings) on Anthropic’s Board of Directors. Anthropic is a Public Benefit Corporation and its Board is elected by stockholders and the Long-Term Benefit Trust, as detailed [here](https://www.anthropic.com/news/the-long-term-benefit-trust).
+Liddell joins Dario Amodei, Daniela Amodei, Yasmin Razavi, Jay Kreps, and Reed Hastings on Anthropic’s Board of Directors. Anthropic is a Public Benefit Corporation and its Board is elected by stockholders and the Long-Term Benefit Trust, as detailed here.
 
 “My career has taught me the governance of transformative technologies matters as much as the technologies themselves,” said Chris Liddell. “Anthropic’s approach—building AI that’s both capable and responsible—is critical for our future, and it’s why I’m proud to be joining the company’s Board.”
 
@@ -18,22 +20,20 @@ Beyond his corporate and public service career, Liddell has been recognized for 
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/chris-liddell-appointed-anthropic-board)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/chris-liddell-appointed-anthropic-board)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

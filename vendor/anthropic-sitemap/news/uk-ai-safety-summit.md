@@ -1,3 +1,5 @@
+# Dario Amodei’s prepared remarks from the AI Safety Summit on Anthropic’s Responsible Scaling Policy
+
 Policy
 
 # Dario Amodei’s prepared remarks from the AI Safety Summit on Anthropic’s Responsible Scaling Policy
@@ -7,21 +9,21 @@ Nov 1, 2023
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F05315efcc858b39468203c51081b69119fffc735-2880x1620.png&w=3840&q=75)
 
   
-Before I get into Anthropic’s [Responsible Scaling Policy (RSP)](/news/anthropics-responsible-scaling-policy), it’s worth explaining some of the unique challenges around measuring AI risks that led us to develop our RSP. The most important thing to understand about AI is how quickly it is moving. A few years ago, AI systems could barely string together a coherent sentence. Today they can pass medical exams, write poetry, and tell jokes. This rapid progress is ultimately driven by the amount of available computation, which is growing by 8x per year and is unlikely to slow down in the next few years. The _general_ trend of rapid improvement is predictable, however, it is actually very difficult to predict when AI will acquire _specific_ skills or knowledge. This unfortunately includes dangerous skills, such as the ability to construct biological weapons1. We are thus facing a number of potential AI-related threats which, although relatively limited given today’s systems, are likely to become very serious at some unknown point in the near future. This is very different from most other industries: imagine if each new model of car had some chance of spontaneously sprouting a new (and dangerous) power, like the ability to fire a rocket boost or accelerate to supersonic speeds.  
+Before I get into Anthropic’s Responsible Scaling Policy (RSP), it’s worth explaining some of the unique challenges around measuring AI risks that led us to develop our RSP. The most important thing to understand about AI is how quickly it is moving. A few years ago, AI systems could barely string together a coherent sentence. Today they can pass medical exams, write poetry, and tell jokes. This rapid progress is ultimately driven by the amount of available computation, which is growing by 8x per year and is unlikely to slow down in the next few years. The _general_ trend of rapid improvement is predictable, however, it is actually very difficult to predict when AI will acquire _specific_ skills or knowledge. This unfortunately includes dangerous skills, such as the ability to construct biological weapons1. We are thus facing a number of potential AI-related threats which, although relatively limited given today’s systems, are likely to become very serious at some unknown point in the near future. This is very different from most other industries: imagine if each new model of car had some chance of spontaneously sprouting a new (and dangerous) power, like the ability to fire a rocket boost or accelerate to supersonic speeds.  
   
 We need both a way to frequently monitor these emerging risks, and a protocol for responding appropriately when they occur. Responsible scaling policies—initially suggested by the Alignment Research Center—attempt to meet this need. Anthropic published its RSP in September, and was the first major AI company to do so. It has two major components:
 
--   First, we’ve come up with a system called _AI safety levels (ASL)_, loosely modeled after the internationally recognized BSL system for handling biological materials. Each ASL level has an _if-then_ structure: _if_ an AI system exhibits certain dangerous capabilities, _then_ we will not deploy it or train more powerful models, until certain safeguards are in place.  
+*   First, we’ve come up with a system called _AI safety levels (ASL)_, loosely modeled after the internationally recognized BSL system for handling biological materials. Each ASL level has an _if-then_ structure: _if_ an AI system exhibits certain dangerous capabilities, _then_ we will not deploy it or train more powerful models, until certain safeguards are in place.  
     
--   Second, we test frequently for these dangerous capabilities at regular intervals along the compute scaling curve. This is to ensure that we don’t blindly create dangerous capabilities without even knowing we have done so.
+*   Second, we test frequently for these dangerous capabilities at regular intervals along the compute scaling curve. This is to ensure that we don’t blindly create dangerous capabilities without even knowing we have done so.
 
 In our system, ASL-1 represents models with little to no risk—for example a specialized AI that plays chess. ASL-2 represents where we are today: models that have a wide range of present-day risks, but do not yet exhibit truly dangerous capabilities that could lead to catastrophic outcomes if applied to fields like biology or chemistry. Our RSP requires us to implement present-day best practices for ASL-2 models, including model cards, external red-teaming, and strong security.  
   
 ASL-3 is the point at which AI models become operationally useful for catastrophic misuse in CBRN areas, as defined by experts in those fields and as compared to existing capabilities and proofs of concept. When this happens we require the following measures:
 
--   Unusually strong security measures such that non-state actors cannot steal the weights, and state actors would need to expend significant effort to do so.
--   Despite being (by definition) _inherently_ capable of providing information that operationally increases CBRN risks, the deployed versions of our ASL-3 model must _never_ produce such information, even when red-teamed by world experts in this area working together with AI engineers. This will require research breakthroughs, but we believe it is a necessary condition of safety.
--   ASL-4 must be rigorously defined by the time ASL-3 is reached.
+*   Unusually strong security measures such that non-state actors cannot steal the weights, and state actors would need to expend significant effort to do so.
+*   Despite being (by definition) _inherently_ capable of providing information that operationally increases CBRN risks, the deployed versions of our ASL-3 model must _never_ produce such information, even when red-teamed by world experts in this area working together with AI engineers. This will require research breakthroughs, but we believe it is a necessary condition of safety.
+*   ASL-4 must be rigorously defined by the time ASL-3 is reached.
 
 ASL-4 represents an escalation of the catastrophic misuse risks from ASL-3, and also adds a new risk: concerns about autonomous AI systems that escape human control and pose a significant threat to society. Roughly, ASL-4 will be triggered when either AI systems become capable of autonomy at a near-human level, _or_ become the main source in the world of at least one serious global security threat, such as bioweapons. It is likely that at ASL-4 we will require a detailed and precise understanding of what is going on inside the model, in order to make an “affirmative case” that the model is safe.
 
@@ -41,24 +43,22 @@ Finally, I’d like to discuss the relationship between RSPs and regulation. RSP
   
 **Footnotes**  
   
-1. [https://www.anthropic.com/inde...](/news/frontier-threats-red-teaming-for-ai-safety)
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/uk-ai-safety-summit)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/uk-ai-safety-summit)
+1. https://www.anthropic.com/inde...
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

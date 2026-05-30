@@ -1,3 +1,5 @@
+# Anthropic Signs CMS Health Tech Ecosystem Pledge to Advance Healthcare Interoperability
+
 Policy
 
 # Anthropic Signs CMS Health Tech Ecosystem Pledge to Advance Healthcare Interoperability
@@ -10,7 +12,7 @@ Anthropic is pleased to sign the Centers for Medicare & Medicaid Services (CMS) 
 
 "We're pleased to join this critical effort with the White House and CMS in improving healthcare data sharing so patients and their doctors can access complete health information when and where it's needed," said Anthropic Chief Product Officer, Mike Krieger. "This is an issue that affects Americans of all backgrounds. Healthcare silos have persisted for far too long, and we believe Anthropic’s AI technology can play a transformative role in eliminating these silos to improve the delivery of care for millions of Americans."
 
-### **AI solutions for healthcare**
+### AI solutions for healthcare
 
 As an AI company, Anthropic brings novel capabilities that can complement existing healthcare infrastructure. Our technology can help bridge data systems and make health information more accessible to patients, working alongside the healthcare providers and systems already serving millions of Americans.
 
@@ -22,22 +24,20 @@ We look forward to continuing to work with policymakers across the U.S. governme
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-signs-cms-health-tech-ecosystem-pledge-to-advance-healthcare-interoperability)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-signs-cms-health-tech-ecosystem-pledge-to-advance-healthcare-interoperability)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# Anthropic invests $50 billion in American AI infrastructure
+
 Announcements
 
 # Anthropic invests $50 billion in American AI infrastructure
@@ -6,9 +8,9 @@ Nov 12, 2025
 
 ![Anthropic invests $50 billion in American AI infrastructure](https://www-cdn.anthropic.com/images/4zrzovbb/website/c0af2a56f56cf298ce5904f2901e9a36facd0dbe-1000x1000.svg)
 
-Today, we are announcing a $50 billion investment in American computing infrastructure, building data centers with [Fluidstack](https://www.fluidstack.io/) in Texas and New York, with more sites to come. These facilities are custom built for Anthropic with a focus on maximizing efficiency for our workloads, enabling continued research and development at the frontier.
+Today, we are announcing a $50 billion investment in American computing infrastructure, building data centers with Fluidstack in Texas and New York, with more sites to come. These facilities are custom built for Anthropic with a focus on maximizing efficiency for our workloads, enabling continued research and development at the frontier.
 
-The project will create approximately 800 permanent jobs and 2,400 construction jobs, with sites coming online throughout 2026. It will help advance the goals in the Trump administration’s [AI Action Plan](https://www.ai.gov/action-plan) to maintain American AI leadership and strengthen domestic technology infrastructure. We are proud to create good American jobs and bolster American competitiveness.
+The project will create approximately 800 permanent jobs and 2,400 construction jobs, with sites coming online throughout 2026. It will help advance the goals in the Trump administration’s AI Action Plan to maintain American AI leadership and strengthen domestic technology infrastructure. We are proud to create good American jobs and bolster American competitiveness.
 
 “We’re getting closer to AI that can accelerate scientific discovery and help solve complex problems in ways that weren’t possible before. Realizing that potential requires infrastructure that can support continued development at the frontier,” said Dario Amodei, CEO and co-founder of Anthropic. “These sites will help us build more capable AI systems that can drive those breakthroughs, while creating American jobs."
 
@@ -18,22 +20,20 @@ We selected Fluidstack as our partner for its ability to move with exceptional a
 
 The scale of this investment is necessary to meet the growing demand for Claude from hundreds of thousands of businesses while keeping our research at the frontier. We’ll continue to prioritize cost-effective, capital-efficient approaches to achieving this scale as our growth continues.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

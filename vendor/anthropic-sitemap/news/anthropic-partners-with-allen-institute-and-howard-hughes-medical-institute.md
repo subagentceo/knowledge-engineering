@@ -1,3 +1,5 @@
+# Anthropic partners with Allen Institute and Howard Hughes Medical Institute to accelerate scientific discovery
+
 Societal Impacts
 
 # Anthropic partners with Allen Institute and Howard Hughes Medical Institute to accelerate scientific discovery
@@ -8,17 +10,17 @@ Feb 2, 2026
 
 Modern biological research generates data at unprecedented scale—from single-cell sequencing to whole-brain connectomics—yet transforming that data into validated biological insights remains a fundamental bottleneck. Knowledge synthesis, hypothesis generation, and experimental interpretation still depend on manual processes that can't keep pace with the data being produced.
 
-Today, Anthropic is announcing two flagship partnerships designed to close that gap. [**The Allen Institute**](https://alleninstitute.org/) and **[Howard Hughes Medical Institute](https://www.hhmi.org/)** (HHMI) will serve as founding partners in life sciences, extending Claude’s capabilities to frontier scientific research and enabling teams of scientists to work more effectively together and take on ambitious scientific challenges. Each collaboration brings together Anthropic's expertise in foundation models, agentic systems, and interpretability with world-class research institutions tackling distinct but complementary problems in biology and biomedical science. These partnerships position Claude at the center of scientific experimentation and will build a foundation in which scientists actively use Claude to plan and execute experiments.
+Today, Anthropic is announcing two flagship partnerships designed to close that gap. **The Allen Institute** and **Howard Hughes Medical Institute** (HHMI) will serve as founding partners in life sciences, extending Claude’s capabilities to frontier scientific research and enabling teams of scientists to work more effectively together and take on ambitious scientific challenges. Each collaboration brings together Anthropic's expertise in foundation models, agentic systems, and interpretability with world-class research institutions tackling distinct but complementary problems in biology and biomedical science. These partnerships position Claude at the center of scientific experimentation and will build a foundation in which scientists actively use Claude to plan and execute experiments.
 
 Both partnerships are committed to transparency and advances that will help the broader scientific community rigorously deploy AI tools across many scientific domains. Scientific AI systems must not only produce accurate predictions but also provide reasoning that researchers can evaluate, trace, and build upon. These collaborations position Claude as a tool that augments, rather than replaces, human scientific judgment — ensuring that AI-generated insights are grounded in evidence and legible to the scientists who use them.
 
-## **Howard Hughes Medical Institute: Building the infrastructure for AI-enabled scientific discovery**
+## Howard Hughes Medical Institute: Building the infrastructure for AI-enabled scientific discovery
 
-HHMI will partner with Anthropic to accelerate discovery in the biological sciences as one part of the Institute’s [AI@HHMI](https://ai.hhmi.org/) initiative. The collaboration is anchored at HHMI’s Janelia Research Campus, which has been developing transformative technologies—from genetically encoded calcium sensors to electron microscopes engineered for understanding the architecture of the brain—for two decades. This foundation uniquely positions HHMI to help shape how AI systems participate in and enhance the research process.
+HHMI will partner with Anthropic to accelerate discovery in the biological sciences as one part of the Institute’s AI@HHMI initiative. The collaboration is anchored at HHMI’s Janelia Research Campus, which has been developing transformative technologies—from genetically encoded calcium sensors to electron microscopes engineered for understanding the architecture of the brain—for two decades. This foundation uniquely positions HHMI to help shape how AI systems participate in and enhance the research process.
 
 The partnership with Anthropic will involve close collaboration on both the deployment and ongoing development of AI models, ensuring that AI tools evolve in direct response to real experimental needs. Since announcing AI@HHMI in 2024, HHMI has launched several projects that seek to use AI tools to solve longstanding scientific problems ranging from computational protein design to neural mechanisms of cognition. The collaboration with Anthropic will focus on developing specialized AI agents for use within labs. These will serve as a comprehensive source of experimental knowledge integrated with cutting-edge scientific instruments and analysis pipelines to speed the pace of discovery.
 
-## **Allen Institute: Multi-agent systems for mechanistic discovery**
+## Allen Institute: Multi-agent systems for mechanistic discovery
 
 The Allen Institute will collaborate with Anthropic to develop multi-agent AI systems for multi-modal data analysis and exploration across the institute's areas of scientific focus. The work will explore how multiple specialized AI agents—for multi-omic data integration, knowledge graph management, temporal dynamics modeling, and experimental design—can be coordinated to support the full arc of scientific investigation.
 
@@ -26,26 +28,24 @@ This collaboration will explore how agentic AI systems can compress months of ma
 
 For Anthropic, this collaboration provides in-depth feedback from real scientific use with day-to-day workflows where reliability and judgment matter. Working with the Allen Institute helps surface usability gaps and failure modes that don't appear in more controlled settings.
 
-## **Looking ahead**
+## Looking ahead
 
-These partnerships will inform the broader development of [Claude’s life science capabilities](https://claude.com/solutions/life-sciences), generating insights about how AI systems can most effectively support scientific workflows across diverse research contexts. Anthropic is committed to responsible development that prioritizes scientific rigor, interpretability, and researcher autonomy.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-partners-with-allen-institute-and-howard-hughes-medical-institute)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-partners-with-allen-institute-and-howard-hughes-medical-institute)
+These partnerships will inform the broader development of Claude’s life science capabilities, generating insights about how AI systems can most effectively support scientific workflows across diverse research contexts. Anthropic is committed to responsible development that prioritizes scientific rigor, interpretability, and researcher autonomy.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

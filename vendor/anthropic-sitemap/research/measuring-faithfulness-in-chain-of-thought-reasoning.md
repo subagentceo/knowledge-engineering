@@ -1,10 +1,12 @@
+# Measuring Faithfulness in Chain-of-Thought Reasoning
+
 AlignmentResearch
 
 # Measuring Faithfulness in Chain-of-Thought Reasoning
 
 Jul 18, 2023
 
-[Download Paper](https://www-cdn.anthropic.com/827afa7dd36e4afbb1a49c735bfbb2c69749756e/measuring-faithfulness-in-chain-of-thought-reasoning.pdf)
+Download Paper
 
 ## Abstract
 
@@ -12,24 +14,22 @@ Large language models (LLMs) perform better when they produce step-by-step, “C
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/measuring-faithfulness-in-chain-of-thought-reasoning)
-
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

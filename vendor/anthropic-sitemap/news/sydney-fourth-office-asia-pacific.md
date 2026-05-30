@@ -1,3 +1,5 @@
+# Sydney will become Anthropic’s fourth office in Asia-Pacific
+
 Announcements
 
 # Sydney will become Anthropic’s fourth office in Asia-Pacific
@@ -14,30 +16,28 @@ In addition to hiring a team in Sydney, we plan to deepen our engagement with Au
 
 Our initial focus will be supporting our enterprise, startup, and research customers. Anthropic already works with some of Australia and New Zealand's most innovative organizations—from enterprises like Canva, Quantium, and Commonwealth Bank of Australia, to startups pioneering new AI applications across diverse fields such as AgTech, physical AI, climate tech and more.
 
-Australia and New Zealand rank 4th and 8th globally in Claude.ai usage, relative to population, according to our latest [Economic Index](https://www.anthropic.com/economic-index#country-usage). Both countries show strong use of Claude for computer and coding tasks, along with educational instruction and research, and we’ve already begun building out a local team and partnerships aligned with these trends.
+Australia and New Zealand rank 4th and 8th globally in Claude.ai usage, relative to population, according to our latest Economic Index. Both countries show strong use of Claude for computer and coding tasks, along with educational instruction and research, and we’ve already begun building out a local team and partnerships aligned with these trends.
 
 We're also exploring opportunities to expand our compute capacity in Australia—a natural fit given our longstanding belief that democracies should lead in AI development, and one that aligns with the Australian government's own ambitions to become a trusted destination for sustainable AI infrastructure. We're exploring adding local capacity through our third-party partners in Australia, using infrastructure already in place. This is among the most consistent requests we hear from Australian enterprises and government agencies, particularly those with data residency requirements. Beyond that, we're in early conversations about longer-term infrastructure in the region, and we'll share more as those plans take shape.
 
-For information about career opportunities at our new Sydney office, visit [anthropic.com/careers](http://anthropic.com/careers).
+For information about career opportunities at our new Sydney office, visit anthropic.com/careers.
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/sydney-fourth-office-asia-pacific)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/sydney-fourth-office-asia-pacific)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

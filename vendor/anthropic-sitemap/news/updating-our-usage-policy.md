@@ -1,3 +1,5 @@
+# Updating our Usage Policy
+
 Announcements
 
 # Updating our Usage Policy
@@ -28,7 +30,7 @@ Our products can be used to provide information and perform analysis to help org
 
 ### Expanding who can use our products
 
-Our [Consumer Terms of Service](https://www.anthropic.com/legal/consumer-terms) prohibit the use of our services by individuals under the age of 18. At the same time, there are certain use cases where AI tools can offer significant benefits to younger users, such as test preparation or tutoring support. With this in mind, our updated policy allows organizations to incorporate our API into their products for minors if they agree to implement certain safety features and disclose to their users that their product is leveraging an AI system. See our [Help Center article](https://support.anthropic.com/en/articles/9307344-responsible-use-of-anthropic-s-models-guidelines-for-organizations-serving-minors) to learn more.
+Our Consumer Terms of Service prohibit the use of our services by individuals under the age of 18. At the same time, there are certain use cases where AI tools can offer significant benefits to younger users, such as test preparation or tutoring support. With this in mind, our updated policy allows organizations to incorporate our API into their products for minors if they agree to implement certain safety features and disclose to their users that their product is leveraging an AI system. See our Help Center article to learn more.
 
 We have also expanded the number of countries whose law enforcement authorities may use our products for a carefully tailored set of use cases, such as call center support and document summarization.
 
@@ -38,24 +40,22 @@ Our Acceptable Use Policy has always prohibited gathering information on an indi
 
 In addition, our updated policy makes clear that our products cannot be used to analyze or identify specific content to censor on behalf of a government organization. This applies to all countries where our products are permitted for use.
 
-You can view our updated policy in full [here](https://www.anthropic.com/legal/aup).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/updating-our-usage-policy)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/updating-our-usage-policy)
+You can view our updated policy in full here.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

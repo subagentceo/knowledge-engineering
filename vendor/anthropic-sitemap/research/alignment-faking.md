@@ -1,10 +1,12 @@
+# Alignment faking in large language models
+
 Alignment
 
 # Alignment faking in large language models
 
 Dec 18, 2024
 
-[Read the paper](https://arxiv.org/abs/2412.14093)
+Read the paper
 
 Most of us have encountered situations where someone appears to share our views or values, but is in fact only pretending to do so—a behavior that we might call “alignment faking”. Alignment faking occurs in literature: Consider the character of Iago in Shakespeare’s _Othello_, who acts as if he’s the eponymous character’s loyal friend while subverting and undermining him. It occurs in real life: Consider a politician who claims to support a particular cause in order to get elected, only to drop it as soon as they’re in office.
 
@@ -12,11 +14,11 @@ Could AI models also display alignment faking? When models are trained using rei
 
 This is a serious question for AI safety. As AI models become more capable and widely-used, we need to be able to rely on safety training, which nudges models away from harmful behaviors. If models can engage in alignment faking, it makes it harder to trust the outcomes of that safety training. A model might behave as though its preferences have been changed by the training—but might have been faking alignment all along, with its initial, contradictory preferences “locked in”.
 
-A [new paper](https://arxiv.org/abs/2412.14093) from Anthropic’s Alignment Science team, in collaboration with [Redwood Research](https://www.redwoodresearch.org/), provides the first empirical example of a large language model engaging in alignment faking without having been explicitly—or even, as we argue in our paper, implicitly1—trained or instructed to do so.
+A new paper from Anthropic’s Alignment Science team, in collaboration with Redwood Research, provides the first empirical example of a large language model engaging in alignment faking without having been explicitly—or even, as we argue in our paper, implicitly1—trained or instructed to do so.
 
 ## Experimental setup
 
-In the paper, we studied a model (specifically Claude 3 Opus, though we also ran some experiments with other models, including the June 2024 release of Claude 3.5 Sonnet) that had been trained to be [helpful, honest, and harmless](https://arxiv.org/abs/2112.00861).
+In the paper, we studied a model (specifically Claude 3 Opus, though we also ran some experiments with other models, including the June 2024 release of Claude 3.5 Sonnet) that had been trained to be helpful, honest, and harmless.
 
 Under normal circumstances, when asked to answer a potentially offensive question—for example, to provide a detailed description of a violent act—Claude will refuse. In our experiment, however, we placed the model in a new environment that led it to strategically halt its refusals for the sake of preserving its preferences.
 
@@ -44,7 +46,7 @@ _A full excerpt of the model’s scratchpad reasoning, showing how the model con
 
 ## Further analyses
 
-Our [full paper](https://arxiv.org/abs/2412.14093) contains a series of further analyses to test for alignment faking in a variety of situations.
+Our full paper contains a series of further analyses to test for alignment faking in a variety of situations.
 
 For example, one objection to the analysis described above is that it’s unrealistic: We fed the model the relevant information (for example, about the plan to train it to always answer harmful queries) in its system prompt, which is unlikely to happen in real-world AI deployments.
 
@@ -64,56 +66,54 @@ _Stacked area graphs showing the proportion of different behaviors observed: Blu
 
 ## Caveats
 
-Alignment faking is an important concern for developers and users of future AI models, as it could undermine safety training, one of the important tools we use to attempt to align AI models with human preferences. However, our research does not show that dangerous alignment faking behavior will _necessarily_ emerge. There are several limitations to our experiments, as we discuss in [the paper](https://arxiv.org/abs/2412.14093).
+Alignment faking is an important concern for developers and users of future AI models, as it could undermine safety training, one of the important tools we use to attempt to align AI models with human preferences. However, our research does not show that dangerous alignment faking behavior will _necessarily_ emerge. There are several limitations to our experiments, as we discuss in the paper.
 
-For example, our results don’t demonstrate a model developing _malicious_ goals, let alone acting on any such goals. The preferences that the models in our experiment were attempting to preserve were due to their original training to be helpful, honest, and harmless: in this case, the model wanted to preserve its capacity to refuse harmful prompts. The scratchpads demonstrated sophisticated strategic reasoning, but they didn’t show the models exhibiting malign preferences. They were not Iago’s devious soliloquies from _Othello_ (“[I am not what I am](https://www.folger.edu/explore/shakespeares-works/othello/read/1/1/#line-1.1.71)”).
+For example, our results don’t demonstrate a model developing _malicious_ goals, let alone acting on any such goals. The preferences that the models in our experiment were attempting to preserve were due to their original training to be helpful, honest, and harmless: in this case, the model wanted to preserve its capacity to refuse harmful prompts. The scratchpads demonstrated sophisticated strategic reasoning, but they didn’t show the models exhibiting malign preferences. They were not Iago’s devious soliloquies from _Othello_ (“I am not what I am”).
 
 We think it is possible that alignment faking could help “lock in” misaligned preferences if such preferences independently developed, but this was not demonstrated in our study and would need to be the subject of future research.
 
-We solicited independent external reviews from four reviewers: Prof. Jacob Andreas, Prof. Yoshua Bengio, Prof. Jasjeet Sekhon, and Dr. Rohin Shah. Their comments are presented in full at [this link](https://assets.anthropic.com/m/24c8d0a3a7d0a1f1/original/Alignment-Faking-in-Large-Language-Models-reviews.pdf) to help readers better understand the implications and scientific validity of our results.
+We solicited independent external reviews from four reviewers: Prof. Jacob Andreas, Prof. Yoshua Bengio, Prof. Jasjeet Sekhon, and Dr. Rohin Shah. Their comments are presented in full at this link to help readers better understand the implications and scientific validity of our results.
 
 ## Conclusion
 
-As with other research by our Alignment Science team (such as our work on [jailbreaking](https://www.anthropic.com/research/many-shot-jailbreaking) and [sabotage evaluations](https://www.anthropic.com/research/sabotage-evaluations)), we think that it is important to work now, while AI models do not pose catastrophic risks, to understand threats that might become more salient with future, more capable models. Our demonstration of sophisticated alignment faking in a large language model should be seen as a spur for the AI research community to study this behavior in more depth, and to work on the appropriate safety measures.
+As with other research by our Alignment Science team (such as our work on jailbreaking and sabotage evaluations), we think that it is important to work now, while AI models do not pose catastrophic risks, to understand threats that might become more salient with future, more capable models. Our demonstration of sophisticated alignment faking in a large language model should be seen as a spur for the AI research community to study this behavior in more depth, and to work on the appropriate safety measures.
 
-Read the [full paper at this link](https://arxiv.org/abs/2412.14093).
+Read the full paper at this link.
 
 ## Career opportunities at Anthropic
 
-If you’re interested in working on questions like alignment faking, or on related questions of Alignment Science, we’d be interested in your application. You can find details on an open role on our team [at this link](https://boards.greenhouse.io/anthropic/jobs/4009165008). Alternatively, if you’re a researcher who wants to transition into AI Safety research, you might also consider applying for our Anthropic Fellows program. Details are [at this link](https://alignment.anthropic.com/2024/anthropic-fellows-program/); applications close on January 20, 2025.
+If you’re interested in working on questions like alignment faking, or on related questions of Alignment Science, we’d be interested in your application. You can find details on an open role on our team at this link. Alternatively, if you’re a researcher who wants to transition into AI Safety research, you might also consider applying for our Anthropic Fellows program. Details are at this link; applications close on January 20, 2025.
 
 ## Acknowledgements
 
-This research was a collaboration between Anthropic’s Alignment Science team and [Redwood Research](https://www.redwoodresearch.org/). We are very grateful to the four independent reviewers for their comments and suggestions (see [this link](https://assets.anthropic.com/m/24c8d0a3a7d0a1f1/original/Alignment-Faking-in-Large-Language-Models-reviews.pdf) for all reviews).
+This research was a collaboration between Anthropic’s Alignment Science team and Redwood Research. We are very grateful to the four independent reviewers for their comments and suggestions (see this link for all reviews).
 
-_UPDATE 20 December 2024: The full paper is now hosted on arXiv, and all links in this post have been updated to [that version](https://arxiv.org/abs/2412.14093). We also added a link to the Policy Memo._
+_UPDATE 20 December 2024: The full paper is now hosted on arXiv, and all links in this post have been updated to that version. We also added a link to the Policy Memo._
 
 ## Policy memo
 
-We prepared a [two-page memo for policymakers](https://assets.anthropic.com/m/52eab1f8cf3f04a6/original/Alignment-Faking-Policy-Memo.pdf) describing our results on alignment faking.
+We prepared a two-page memo for policymakers describing our results on alignment faking.
 
 #### Footnotes
 
-1\. See Section 8.1 in the [full paper](https://assets.anthropic.com/m/983c85a201a962f/original/Alignment-Faking-in-Large-Language-Models-full-paper.pdf).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/alignment-faking)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/alignment-faking)
+1. See Section 8.1 in the full paper.
 
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

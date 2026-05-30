@@ -1,3 +1,5 @@
+# Federal government departments and agencies can now purchase Claude through the GSA schedule
+
 Announcements
 
 # Federal government departments and agencies can now purchase Claude through the GSA schedule
@@ -16,28 +18,26 @@ We will continue to work with our partners across the government to expand Claud
 
 The deployment of AI across federal agencies enhances productivity, streamlines operations, and enables more effective and responsive government services. This partnership with GSA enables us to help government organizations harness the power of AI to modernize operations.
 
-Anthropic has recently announced partnerships with [national laboratories](https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and) for scientific research, integration into defense and intelligence workflows through technology partners, and [custom Claude Gov models](https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers) designed specifically for national security applications.
+Anthropic has recently announced partnerships with national laboratories for scientific research, integration into defense and intelligence workflows through technology partners, and custom Claude Gov models designed specifically for national security applications.
 
 **Get started**
 
-Organizations interested in transforming their operations with Claude can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.  
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/federal-government-departments-and-agencies-can-now-purchase-claude-through-the-gsa-schedule)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/federal-government-departments-and-agencies-can-now-purchase-claude-through-the-gsa-schedule)
+Organizations interested in transforming their operations with Claude can contact our public sector team to learn more and get started.  
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

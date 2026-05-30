@@ -1,3 +1,5 @@
+# Claude is now available in Brazil
+
 Announcements
 
 # Claude is now available in Brazil
@@ -8,36 +10,34 @@ Aug 1, 2024
 
 Claude, Anthropic’s trusted AI assistant, is now available in Brazil. Starting today, consumers and businesses in Brazil will be able to access Claude via:
 
--   [Claude.ai](http://claude.ai/redirect/website.v1.9a6a39e6-9e6a-4b84-9c09-7675192c020d): The web-based version of our next-generation AI assistant.
--   Claude mobile apps: Free [Android](https://play.google.com/store/apps/details?id=com.anthropic.claude&pli=1) and [iOS](https://apps.apple.com/app/claude/id6473753684) apps, offering an intuitive mobile experience and access to our most powerful model, Claude 3.5 Sonnet.
--   [Anthropic API](https://www.anthropic.com/api): Enables developers to integrate Anthropic's state-of-the-art AI models into their own applications, websites, or services.
+*   Claude.ai: The web-based version of our next-generation AI assistant.
+*   Claude mobile apps: Free Android and iOS apps, offering an intuitive mobile experience and access to our most powerful model, Claude 3.5 Sonnet.
+*   Anthropic API: Enables developers to integrate Anthropic's state-of-the-art AI models into their own applications, websites, or services.
 
-Claude.ai offers both free and paid plans. Paid users on the [Pro plan](https://www.anthropic.com/claude) get 5x more usage versus our Free tier, early access to new features, and access to all our current Claude models—including [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet), our most intelligent model yet, and the rest of the Claude 3 family—for R$ 110 per user per month.
+Claude.ai offers both free and paid plans. Paid users on the Pro plan get 5x more usage versus our Free tier, early access to new features, and access to all our current Claude models—including Claude 3.5 Sonnet, our most intelligent model yet, and the rest of the Claude 3 family—for R$ 110 per user per month.
 
-Paid users on the [Team plan](https://www.anthropic.com/team) get even more usage and access to shared chats with teammates for R$ 165 per user per month, with a minimum of 5 seats. The Team plan includes administrative tools to conveniently control user and billing management for easier onboarding and less overhead.
+Paid users on the Team plan get even more usage and access to shared chats with teammates for R$ 165 per user per month, with a minimum of 5 seats. The Team plan includes administrative tools to conveniently control user and billing management for easier onboarding and less overhead.
 
 ## Commitment to safety and privacy
 
 Anthropic prioritizes safety, privacy, and ethical AI development in Claude's design. Rigorous testing and training aim to reduce misuse, while a strong commitment to user privacy means generative models are not trained on user data without explicit permission.
 
-_Read this post in [Portuguese](https://cdn.sanity.io/files/4zrzovbb/website/ea3d47f547131c9fbed59bfe68ed8b1cbe747179.pdf)._
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-brazil)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-brazil)
+_Read this post in Portuguese._
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# An update on our election safeguards
+
 Announcements
 
 # An update on our election safeguards
@@ -12,29 +14,29 @@ Here, we explain what we’re doing to help Claude meet the mark ahead of the US
 
 ## Measuring and preventing political bias
 
-When people ask Claude about political topics, they should get comprehensive, accurate, and balanced responses—responses that help them reach their own conclusions rather than steer them toward a particular viewpoint. That’s why we train Claude to treat different political viewpoints with equal depth, engagement, and analytical rigor—a principle set out in [Claude’s constitution](https://www.anthropic.com/constitution)[.](https://www.anthropic.com/news/political-even-handedness) This is built into the model through character training (where we reward the model for producing responses that reflect a set of values and traits), and then reinforced through our [system prompts](https://platform.claude.com/docs/en/release-notes/system-prompts), which carry explicit instructions on political neutrality into every conversation on Claude.ai. (You can read more about this process in our [previous post](https://www.anthropic.com/news/political-even-handedness) about political bias.)
+When people ask Claude about political topics, they should get comprehensive, accurate, and balanced responses—responses that help them reach their own conclusions rather than steer them toward a particular viewpoint. That’s why we train Claude to treat different political viewpoints with equal depth, engagement, and analytical rigor—a principle set out in Claude’s constitution. This is built into the model through character training (where we reward the model for producing responses that reflect a set of values and traits), and then reinforced through our system prompts, which carry explicit instructions on political neutrality into every conversation on Claude.ai. (You can read more about this process in our previous post about political bias.)
 
 Explainer video: Political bias in AI models.
 
-Before each model launch, we run evaluations to measure how consistently, thoughtfully, and impartially Claude engages with prompts that express views from across the political spectrum. For example, a model that writes a lengthy response defending one position but offers only a single sentence for the opposing one would score poorly. Here, [Opus 4.7 and Sonnet 4.6](https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf) scored 95% and 96%, respectively. We’ve published our evaluation methodology and open-source dataset [here](https://www.anthropic.com/news/political-even-handedness), so that others can replicate or iterate upon our work.
+Before each model launch, we run evaluations to measure how consistently, thoughtfully, and impartially Claude engages with prompts that express views from across the political spectrum. For example, a model that writes a lengthy response defending one position but offers only a single sentence for the opposing one would score poorly. Here, Opus 4.7 and Sonnet 4.6 scored 95% and 96%, respectively. We’ve published our evaluation methodology and open-source dataset here, so that others can replicate or iterate upon our work.
 
-We also welcome feedback and input from third parties and industry experts. We’re currently working with [The Future of Free Speech](https://futurefreespeech.org/) (an independent think tank at Vanderbilt University), the [Foundation for American Innovation](https://www.thefai.org/), and the [Collective Intelligence Project](https://www.cip.org/) on a broader review of model behaviors around freedom of expression, including political conversations.
+We also welcome feedback and input from third parties and industry experts. We’re currently working with The Future of Free Speech (an independent think tank at Vanderbilt University), the Foundation for American Innovation, and the Collective Intelligence Project on a broader review of model behaviors around freedom of expression, including political conversations.
 
 ## Enforcing policies and testing our defenses
 
-Our [Usage Policy](https://www.anthropic.com/legal/aup) sets clear rules on the use of Claude around elections. Claude can’t be used to run deceptive political campaigns, create fake digital content to influence political discourse, commit voter fraud, interfere with voting systems, or spread misleading information about voting processes.
+Our Usage Policy sets clear rules on the use of Claude around elections. Claude can’t be used to run deceptive political campaigns, create fake digital content to influence political discourse, commit voter fraud, interfere with voting systems, or spread misleading information about voting processes.
 
-These policies are backed by robust detection and enforcement. We use automated [classifiers](https://www.anthropic.com/research/next-generation-constitutional-classifiers) to detect signs of potential violations, and we have a dedicated threat intelligence team that investigates and disrupts coordinated abuse efforts. Together, they form an always-on first line of defense—allowing our enforcement to focus on actual misuse without hindering the millions of ordinary conversations happening every day.
+These policies are backed by robust detection and enforcement. We use automated classifiers to detect signs of potential violations, and we have a dedicated threat intelligence team that investigates and disrupts coordinated abuse efforts. Together, they form an always-on first line of defense—allowing our enforcement to focus on actual misuse without hindering the millions of ordinary conversations happening every day.
 
-To measure how well Claude handles election-related risks, we run a series of tests examining its responses to questions about candidates, voting, and election administration, and how it holds up against attempts at misuse. We first [wrote about](https://www.anthropic.com/news/testing-and-mitigating-elections-related-risks) this approach in 2024. Our latest tests use 600 prompts to assess how well Claude follows our election-related Usage Policy, based on how people actually talk to Claude about elections. They consist of 300 harmful requests (such as attempts to have Claude generate election misinformation) paired with 300 legitimate requests (such as creating campaign content or civic engagement resources). We assess how well Claude complies with the legitimate requests and declines the harmful ones. Claude Opus 4.7 and Claude Sonnet 4.6 responded appropriately 100% and 99.8% of the time, respectively. We also test how well Claude holds up against influence operations: coordinated efforts to manipulate public opinion or political outcomes through fake personas, fabricated content, or deceptive amplification. To do this, we use multi-turn simulated conversations that mirror the step-by-step tactics bad actors might use. In our latest evaluations, [Sonnet 4.6 and Opus 4.7](https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf) both responded appropriately 90% and 94% of the time. Once deployed, these models run with additional monitoring and our system prompt to help further reduce the risk of election-related abuse.
+To measure how well Claude handles election-related risks, we run a series of tests examining its responses to questions about candidates, voting, and election administration, and how it holds up against attempts at misuse. We first wrote about this approach in 2024. Our latest tests use 600 prompts to assess how well Claude follows our election-related Usage Policy, based on how people actually talk to Claude about elections. They consist of 300 harmful requests (such as attempts to have Claude generate election misinformation) paired with 300 legitimate requests (such as creating campaign content or civic engagement resources). We assess how well Claude complies with the legitimate requests and declines the harmful ones. Claude Opus 4.7 and Claude Sonnet 4.6 responded appropriately 100% and 99.8% of the time, respectively. We also test how well Claude holds up against influence operations: coordinated efforts to manipulate public opinion or political outcomes through fake personas, fabricated content, or deceptive amplification. To do this, we use multi-turn simulated conversations that mirror the step-by-step tactics bad actors might use. In our latest evaluations, Sonnet 4.6 and Opus 4.7 both responded appropriately 90% and 94% of the time. Once deployed, these models run with additional monitoring and our system prompt to help further reduce the risk of election-related abuse.
 
-Ahead of launching [Mythos Preview and Opus 4.7](https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf), we tested for the first time whether models can carry out influence operations autonomously—planning and running a multi-step campaign end-to-end without human prompting. With safeguards and training in place, our latest models refused nearly every task. Without our safeguards in place (which we do to measure a model's raw capabilities), only Mythos Preview and Opus 4.7 completed more than half the tasks. While these models would still require substantial human direction, the results underscore the need for continued vigilance. We’ll keep running and refining these evaluations, and implement improvements as needed.
+Ahead of launching Mythos Preview and Opus 4.7, we tested for the first time whether models can carry out influence operations autonomously—planning and running a multi-step campaign end-to-end without human prompting. With safeguards and training in place, our latest models refused nearly every task. Without our safeguards in place (which we do to measure a model's raw capabilities), only Mythos Preview and Opus 4.7 completed more than half the tasks. While these models would still require substantial human direction, the results underscore the need for continued vigilance. We’ll keep running and refining these evaluations, and implement improvements as needed.
 
 ## Sharing reliable election resources
 
 When people come to Claude for information, we want Claude to share the facts, and, when needed, point people to reliable and up-to-date resources.
 
-One way we help Claude do this is through election banners, which we first launched in 2024, ahead of major elections in the US and elsewhere around the world. When users ask about voter registration, polling locations, election dates, or ballot information on Claude.ai, Claude displays an election banner pointing them to trusted sources. In this year’s US midterm elections, our banner will direct users to TurboVote, a nonpartisan resource from [Democracy Works](https://www.democracy.works/) that provides reliable, real-time information about those topics. We’ll implement a similar banner for Brazil’s elections later this year and will look to expand this feature to elections elsewhere in the future.
+One way we help Claude do this is through election banners, which we first launched in 2024, ahead of major elections in the US and elsewhere around the world. When users ask about voter registration, polling locations, election dates, or ballot information on Claude.ai, Claude displays an election banner pointing them to trusted sources. In this year’s US midterm elections, our banner will direct users to TurboVote, a nonpartisan resource from Democracy Works that provides reliable, real-time information about those topics. We’ll implement a similar banner for Brazil’s elections later this year and will look to expand this feature to elections elsewhere in the future.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5d74d5f1d336ad5317b0474b41830da4a581eca2-1920x1080.png&w=3840&q=75)
 
@@ -58,22 +60,20 @@ Opus 4.7 and Sonnet 4.6 triggered web search on these types of questions 92% and
 
 When people choose to engage with Claude during an election, we want them to be able to trust that the information they receive is accurate, reliable, and balanced. We’ve built our safeguards, policies, model training processes, and evaluations to reflect that goal. Throughout this election cycle and beyond, we’ll keep monitoring our systems, testing our detection capabilities, and adjusting our safeguards as we learn more about how Claude is used in the real world.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/election-safeguards-update)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/election-safeguards-update)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

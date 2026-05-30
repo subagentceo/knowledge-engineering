@@ -1,10 +1,12 @@
+# Statement on the comments from Secretary of War Pete Hegseth
+
 AnnouncementsPolicy
 
 # Statement on the comments from Secretary of War Pete Hegseth
 
 Feb 27, 2026
 
-Earlier today, Secretary of War Pete Hegseth [shared on X](https://x.com/SecWar/status/2027507717469049070?s=20) that he is directing the Department of War to designate Anthropic a supply chain risk. This action follows months of negotiations that reached an impasse over [two exceptions](https://www.anthropic.com/news/statement-department-of-war) we requested to the lawful use of our AI model, Claude: the mass domestic surveillance of Americans and fully autonomous weapons.
+Earlier today, Secretary of War Pete Hegseth shared on X that he is directing the Department of War to designate Anthropic a supply chain risk. This action follows months of negotiations that reached an impasse over two exceptions we requested to the lawful use of our AI model, Claude: the mass domestic surveillance of Americans and fully autonomous weapons.
 
 We have not yet received direct communication from the Department of War or the White House on the status of our negotiations.
 
@@ -20,33 +22,31 @@ No amount of intimidation or punishment from the Department of War will change o
 
 **What this means for our customers**
 
-Secretary Hegseth has implied this designation would restrict anyone who does business with the military from doing business with Anthropic. The Secretary does not have the statutory authority to back up this statement. Legally, a supply chain risk designation under [10 USC 3252](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title10-section3252&num=0&edition=prelim) can only extend to the use of Claude as part of Department of War contracts—it cannot affect how contractors use Claude to serve other customers.
+Secretary Hegseth has implied this designation would restrict anyone who does business with the military from doing business with Anthropic. The Secretary does not have the statutory authority to back up this statement. Legally, a supply chain risk designation under 10 USC 3252 can only extend to the use of Claude as part of Department of War contracts—it cannot affect how contractors use Claude to serve other customers.
 
 In practice, this means:
 
--   **If you are an individual customer or hold a commercial contract with Anthropic**, your access to Claude—through our API, claude.ai, or any of our products—is completely unaffected.
--   **If you are a Department of War contractor**, this designation—if formally adopted—would only affect your use of Claude on Department of War contract work. Your use for any other purpose is unaffected.
+*   **If you are an individual customer or hold a commercial contract with Anthropic**, your access to Claude—through our API, claude.ai, or any of our products—is completely unaffected.
+*   **If you are a Department of War contractor**, this designation—if formally adopted—would only affect your use of Claude on Department of War contract work. Your use for any other purpose is unaffected.
 
-Our sales and [support](https://support.claude.com/en/) teams are standing by to answer any questions you may have.
+Our sales and support teams are standing by to answer any questions you may have.
 
 We are deeply grateful to our users, and to the industry peers, policymakers, veterans, and members of the public who have voiced their support in recent days. Thank you. Above all else, our priorities are to protect our customers from any disruption caused by these extraordinary events and to work with the Department of War to ensure a smooth transition—for them, for our troops, and for American military operations.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/statement-comments-secretary-war)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/statement-comments-secretary-war)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# Detecting and preventing distillation attacks
+
 Announcements
 
 # Detecting and preventing distillation attacks
@@ -20,7 +22,7 @@ Foreign labs that distill American models can then feed these unprotected capabi
 
 ## Distillation attacks and export controls
 
-Anthropic has [consistently supported](https://www.anthropic.com/news/securing-america-s-compute-advantage-anthropic-s-position-on-the-diffusion-rule) export controls to help maintain America’s lead in AI. Distillation attacks undermine those controls by allowing foreign labs, including those subject to the control of the Chinese Communist Party, to close the competitive advantage that export controls are designed to preserve through other means.
+Anthropic has consistently supported export controls to help maintain America’s lead in AI. Distillation attacks undermine those controls by allowing foreign labs, including those subject to the control of the Chinese Communist Party, to close the competitive advantage that export controls are designed to preserve through other means.
 
 Without visibility into these attacks, the apparently rapid advancements made by these labs are incorrectly taken as evidence that export controls are ineffective and able to be circumvented by innovation. In reality, these advancements depend in significant part on capabilities extracted from American models, and executing this extraction at scale requires access to advanced chips. Distillation attacks therefore reinforce the rationale for export controls: restricted chip access limits both direct model training and the scale of illicit distillation.
 
@@ -36,9 +38,9 @@ _Scale: Over 150,000 exchanges_
 
 The operation targeted:
 
--   Reasoning capabilities across diverse tasks
--   Rubric-based grading tasks that made Claude function as a reward model for reinforcement learning
--   Creating censorship-safe alternatives to policy sensitive queries
+*   Reasoning capabilities across diverse tasks
+*   Rubric-based grading tasks that made Claude function as a reward model for reinforcement learning
+*   Creating censorship-safe alternatives to policy sensitive queries
 
 DeepSeek generated synchronized traffic across accounts. Identical patterns, shared payment methods, and coordinated timing suggested “load balancing” to increase throughput, improve reliability, and avoid detection.
 
@@ -50,10 +52,10 @@ _Scale: Over 3.4 million exchanges_
 
 The operation targeted:
 
--   Agentic reasoning and tool use
--   Coding and data analysis
--   Computer-use agent development
--   Computer vision
+*   Agentic reasoning and tool use
+*   Coding and data analysis
+*   Computer-use agent development
+*   Computer vision
 
 Moonshot (Kimi models) employed hundreds of fraudulent accounts spanning multiple access pathways. Varied account types made the campaign harder to detect as a coordinated operation. We attributed the campaign through request metadata, which matched the public profiles of senior Moonshot staff. In a later phase, Moonshot used a more targeted approach, attempting to extract and reconstruct Claude’s reasoning traces.
 
@@ -63,14 +65,14 @@ _Scale: Over 13 million exchanges_
 
 The operation targeted:
 
--   Agentic coding
--   Tool use and orchestration
+*   Agentic coding
+*   Tool use and orchestration
 
 We attributed the campaign to MiniMax through request metadata and infrastructure indicators, and confirmed timings against their public product roadmap. We detected this campaign while it was still active—before MiniMax released the model it was training—giving us unprecedented visibility into the life cycle of distillation attacks, from data generation through to model launch. When we released a new model during MiniMax’s active campaign, they pivoted within 24 hours, redirecting nearly half their traffic to capture capabilities from our latest system.
 
 ## How distillers access frontier models
 
-For national security reasons, Anthropic does not currently offer commercial access to Claude in China, or to [subsidiaries of their companies](https://www.anthropic.com/news/updating-restrictions-of-sales-to-unsupported-regions) located outside of the country.
+For national security reasons, Anthropic does not currently offer commercial access to Claude in China, or to subsidiaries of their companies located outside of the country.
 
 To circumvent this, labs use commercial proxy services which resell access to Claude and other frontier AI models at scale. These services run what we call “hydra cluster” architectures: sprawling networks of fraudulent accounts that distribute traffic across our API as well as third-party cloud platforms. The breadth of these networks means that there are no single points of failure. When one account is banned, a new one takes its place. In one case, a single proxy network managed more than 20,000 fraudulent accounts simultaneously, mixing distillation traffic with unrelated customer requests to make detection harder.
 
@@ -84,29 +86,27 @@ But when variations of that prompt arrive tens of thousands of times across hund
 
 We continue to invest heavily in defenses that make such distillation attacks harder to execute and easier to identify. These include:
 
--   **Detection**. We have built several classifiers and behavioral fingerprinting systems designed to identify distillation attack patterns in API traffic. This includes detection of chain-of-thought elicitation used to construct reasoning training data. We have also built detection tools for identifying coordinated activity across large numbers of accounts.
--   **Intelligence sharing**_._ We are sharing technical indicators with other AI labs, cloud providers, and relevant authorities. This provides a more holistic picture into the distillation landscape.
--   **Access controls**. We’ve strengthened verification for educational accounts, security research programs, and startup organizations—the pathways most commonly exploited for setting up fraudulent accounts.
--   **Countermeasures**. We are developing Product, API and model-level safeguards designed to reduce the efficacy of model outputs for illicit distillation, without degrading the experience for legitimate customers.
+*   **Detection**. We have built several classifiers and behavioral fingerprinting systems designed to identify distillation attack patterns in API traffic. This includes detection of chain-of-thought elicitation used to construct reasoning training data. We have also built detection tools for identifying coordinated activity across large numbers of accounts.
+*   **Intelligence sharing**_._ We are sharing technical indicators with other AI labs, cloud providers, and relevant authorities. This provides a more holistic picture into the distillation landscape.
+*   **Access controls**. We’ve strengthened verification for educational accounts, security research programs, and startup organizations—the pathways most commonly exploited for setting up fraudulent accounts.
+*   **Countermeasures**. We are developing Product, API and model-level safeguards designed to reduce the efficacy of model outputs for illicit distillation, without degrading the experience for legitimate customers.
 
 But no company can solve this alone. As we noted above, distillation attacks at this scale require a coordinated response across the AI industry, cloud providers, and policymakers. We are publishing this to make the evidence available to everyone with a stake in the outcome.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

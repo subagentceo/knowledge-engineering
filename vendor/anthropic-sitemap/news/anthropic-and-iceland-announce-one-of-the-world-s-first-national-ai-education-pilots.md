@@ -1,3 +1,5 @@
+# Anthropic and Iceland announce one of the world’s first national AI education pilots
+
 Announcements
 
 # Anthropic and Iceland announce one of the world’s first national AI education pilots
@@ -8,7 +10,7 @@ Nov 4, 2025
 
 Today, Anthropic and Iceland's Ministry of Education and Children are announcing a partnership to bring Claude to teachers across the nation, launching one of the world's first comprehensive national AI education pilots. This initiative will give teachers from every region of Iceland—from Reykjavik to the most remote villages—access to advanced AI tools as the country explores how artificial intelligence can transform education.
 
-## **Iceland launches transformative AI education initiative**
+## Iceland launches transformative AI education initiative
 
 With this new initiative, hundreds of teachers across all of Iceland will gain access to Claude to help support lesson preparation, receiving the AI technology as well as educational resources, training materials, and a dedicated support network. The pilot will explore how artificial intelligence can benefit Icelandic schools, support teachers in their instruction and preparation, and enhance student learning.
 
@@ -18,13 +20,13 @@ Teachers will be able to use Claude to analyze and interpret a wide range of con
 
 "Artificial intelligence is here to stay. It is developing at a tremendous pace, and it is important to harness its power while at the same time preventing harm. It will affect education just like other fields," said Guðmundur Ingi Kristinsson, Minister of Education and Children in Iceland. "Here, we take the leap and embark on an ambitious project aimed at examining the use of artificial intelligence in various areas of education, with the needs of teachers as our guiding principle and using technology from global leaders in the field. I look forward to seeing the results and discussing the next steps."
 
-## **Building on global momentum in education and public sector**
+## Building on global momentum in education and public sector
 
-Iceland's pioneering education pilot builds upon a growing number of governments partnering with Anthropic across Europe and beyond. The [European Parliament](https://www.claude.com/customers/european-parliament) Archives Unit has deployed Claude to make over 2.1 million official documents readily accessible, reducing document search time by 80%. In the [UK](https://www.anthropic.com/news/mou-uk-government), we've signed a Memorandum of Understanding with the Department for Science, Innovation and Technology to explore how AI can transform public services for UK citizens. Additionally, the [London School of Economics](https://www.lse.ac.uk/news/latest-news-from-lse/d-april/lse-partners-with-anthropic-to-shape-the-future-of-ai-in-education) has provided all students with access to Claude for Education, helping them to solve problems and develop their critical thinking skills.
+Iceland's pioneering education pilot builds upon a growing number of governments partnering with Anthropic across Europe and beyond. The European Parliament Archives Unit has deployed Claude to make over 2.1 million official documents readily accessible, reducing document search time by 80%. In the UK, we've signed a Memorandum of Understanding with the Department for Science, Innovation and Technology to explore how AI can transform public services for UK citizens. Additionally, the London School of Economics has provided all students with access to Claude for Education, helping them to solve problems and develop their critical thinking skills.
 
 These partnerships demonstrate how European governments and institutions are thoughtfully integrating AI into public services. Iceland's comprehensive approach, focusing specifically on teachers, adds another model for how nations can harness AI to modernize education.
 
-## **Looking forward**
+## Looking forward
 
 This partnership marks another milestone in Anthropic's commitment to supporting educators and government workers globally.
 
@@ -32,22 +34,20 @@ Teachers worldwide are using Claude to save hours on lesson planning, create per
 
 We look forward to bringing similar partnerships to more nations as we continue to support educators, ensuring that AI serves those who serve others.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

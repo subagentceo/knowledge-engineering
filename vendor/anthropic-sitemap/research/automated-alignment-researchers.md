@@ -1,10 +1,12 @@
+# Automated Alignment Researchers: Using large language models to scale scalable oversight
+
 Alignment
 
 # Automated Alignment Researchers: Using large language models to scale scalable oversight
 
 Apr 14, 2026
 
-[Read the research](https://alignment.anthropic.com/2026/automated-w2s-researcher/)
+Read the research
 
 ![Automated Alignment Researchers: Using large language models to scale scalable oversight](https://www-cdn.anthropic.com/images/4zrzovbb/website/f06ca06f9d08ca4a85f26357eb896c3730274507-1000x1000.svg)
 
@@ -12,7 +14,7 @@ Large language models’ ever-accelerating rate of improvement raises two partic
 
 One is how alignment can keep up. Frontier AI models are now contributing to the development of their successors. But can they provide the same kind of uplift for _alignment_ researchers? Could our language models be used to help align themselves?
 
-A second question is what we’ll do once models become smarter than us. Aligning smarter-than-human AI models is a research area known as “scalable oversight”. Scalable oversight has largely been discussed in [theoretical, rather than practical](https://arxiv.org/pdf/2211.03540), terms—but at AI’s [current pace](https://www.anthropic.com/glasswing) of improvement, that might not be the case for much longer. For instance, models are already generating vast amounts of code. If their skills progress to the point where they’re generating millions of lines of incredibly complicated code that we can’t parse ourselves, it [could become](https://arxiv.org/pdf/2312.09390) very difficult to tell whether they’re acting in the ways we intend.
+A second question is what we’ll do once models become smarter than us. Aligning smarter-than-human AI models is a research area known as “scalable oversight”. Scalable oversight has largely been discussed in theoretical, rather than practical, terms—but at AI’s current pace of improvement, that might not be the case for much longer. For instance, models are already generating vast amounts of code. If their skills progress to the point where they’re generating millions of lines of incredibly complicated code that we can’t parse ourselves, it could become very difficult to tell whether they’re acting in the ways we intend.
 
 In a new Anthropic Fellows study, we pursue both of these questions.
 
@@ -68,33 +70,31 @@ In turn, this means that the core bottleneck in alignment research could become 
 
 **Alien science.** This work might have some stranger implications, too. AARs, by their nature, are designed to discover ideas that humans might not have considered. But we still need a way to verify whether their ideas and results are sound. For now, we’re still able to interpret what the AARs have done and why. But that might not always be the case: over time, the models’ ideas could become much harder to verify, or corrupted in ways that are tricky for humans to parse or catch. That could mean creating an “alien science”.
 
-**Preventing hacks.** Even in this highly circumscribed environment, we observed the models “[reward](https://www.anthropic.com/research/emergent-misalignment-reward-hacking) [hacking](https://www.anthropic.com/research/reward-tampering)”—that is, trying to game our set-up. On math tasks, for instance, one AAR noticed that the most common answer to each problem was _usually_ correct, so it skipped the teacher entirely and instructed the strong model to always choose the most common one. On a coding task, where the model had to predict whether a piece of code was right, the AAR realized it could run the code against some tests and simply read off the right answer. Hacks like these don’t invalidate our results (we detected and disqualified these entries), but they clearly do provide a warning. Any deployment of automated researchers will require evaluations that the AARs can't tamper with—and human inspections of both their results and their methods.
+**Preventing hacks.** Even in this highly circumscribed environment, we observed the models “reward hacking”—that is, trying to game our set-up. On math tasks, for instance, one AAR noticed that the most common answer to each problem was _usually_ correct, so it skipped the teacher entirely and instructed the strong model to always choose the most common one. On a coding task, where the model had to predict whether a piece of code was right, the AAR realized it could run the code against some tests and simply read off the right answer. Hacks like these don’t invalidate our results (we detected and disqualified these entries), but they clearly do provide a warning. Any deployment of automated researchers will require evaluations that the AARs can't tamper with—and human inspections of both their results and their methods.
 
-To read this research in full, see our [Alignment Science blog](https://alignment.anthropic.com/2026/automated-w2s-researcher/). The code and datasets for this work are [publicly available, here](https://github.com/safety-research/automated-w2s-research).
+To read this research in full, see our Alignment Science blog. The code and datasets for this work are publicly available, here.
 
 #### Footnotes
 
-1.  These are available (along with the rest of our code and data) [here](https://github.com/safety-research/automated-w2s-research).
+1.  These are available (along with the rest of our code and data) here.
 2.  We chose these models for several reasons. There is a substantial performance gap between the two, the small model performs better-than-random on our testbeds, and both models are sufficiently small for fast experimentation. We use open-weights models for all Anthropic Fellows projects.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/automated-alignment-researchers)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/automated-alignment-researchers)
-
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

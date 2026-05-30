@@ -6,11 +6,11 @@
 
 Our fastest model, a lightweight version of our most powerful AI, at a more affordable price
 
-[Try Claude](https://claude.ai/)[Get API access](https://platform.claude.com/)
+Try ClaudeGet API access
 
 ## Announcements
 
--   New
+*   New
     
     Claude Haiku 4.5
     
@@ -18,32 +18,26 @@ Our fastest model, a lightweight version of our most powerful AI, at a more affo
     
     Claude Haiku 4.5 is our fastest, most cost-efficient model, matching Sonnet 4’s performance on coding, computer use, and agent tasks. Claude Haiku 4.5 scores 73.3% on SWE-bench Verified, making it one of the world's best coding models.
     
-    [
-    
     Read more
     
-    ](/news/claude-haiku-4-5)
--   Claude 3.5 Haiku
+*   Claude 3.5 Haiku
     
     Oct 22, 2024
     
     For a similar speed to Haiku 3, Haiku 3.5 improved across every skill set and surpassed Opus 3, the largest model in our previous generation, on many intelligence benchmarks.
     
-    [
-    
     Read more
     
-    ](/news/3-5-models-and-computer-use)
 
 ## Availability and pricing
 
-Anyone can chat with Claude using Haiku 4.5 on [Claude.ai](http://claude.ai/redirect/website.v1.9a6a39e6-9e6a-4b84-9c09-7675192c020d), available on web, iOS, and Android.
+Anyone can chat with Claude using Haiku 4.5 on Claude.ai, available on web, iOS, and Android.
 
 For developers, Haiku 4.5 is available on the Claude Platform natively, and in Amazon Bedrock, Google Cloud's Vertex AI, and Microsoft Foundry.
 
 Claude Haiku 4.5 is also available in Claude Code.
 
-Pricing for Haiku 4.5 on the Claude Platform starts at $1 per million input tokens and $5 per million output tokens, with up to 90% cost savings with [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) and 50% cost savings with [batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing#pricing). To get started, simply use claude-haiku-4-5 via the [Claude API](https://platform.claude.com/docs/en/about-claude/models/overview).
+Pricing for Haiku 4.5 on the Claude Platform starts at $1 per million input tokens and $5 per million output tokens, with up to 90% cost savings with prompt caching and 50% cost savings with batch processing. To get started, simply use claude-haiku-4-5 via the Claude API.
 
 ## Use cases
 
@@ -145,4 +139,4 @@ Haiku 4.5 scores 73.3% on SWE-bench Verified, making it one of the world’s bes
 
 ### How much does it cost to use Haiku 4.5?
 
-Pricing depends on how you want to use Haiku 4.5. To learn more, check out our [pricing page](https://www.anthropic.com/pricing#anthropic-api).
+Pricing depends on how you want to use Haiku 4.5. To learn more, check out our pricing page.

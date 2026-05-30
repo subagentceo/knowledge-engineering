@@ -1,4 +1,6 @@
--   Extended thinking update
+# The "think" tool: Enabling Claude to stop and think in complex tool use situations
+
+*   Extended thinking update
     
     Dec 15, 2025
     
@@ -7,7 +9,7 @@
 
 As we continue to enhance Claude's complex problem-solving abilities, we've discovered a particularly effective approach: a "think" tool that creates dedicated space for structured thinking during complex tasks.
 
-This simple yet powerful technique—which, as we’ll explain below, is different from Claude’s new “[extended thinking](https://www.anthropic.com/research/visible-extended-thinking)” capability (see here for [extended thinking implementation details](https://platform.claude.com/docs/en/build-with-claude/extended-thinking))—has resulted in remarkable improvements in Claude's agentic tool use ability. This includes following policies, making consistent decisions, and handling multi-step problems, all with minimal implementation overhead.
+This simple yet powerful technique—which, as we’ll explain below, is different from Claude’s new “extended thinking” capability (see here for extended thinking implementation details)—has resulted in remarkable improvements in Claude's agentic tool use ability. This includes following policies, making consistent decisions, and handling multi-step problems, all with minimal implementation overhead.
 
 In this post, we'll explore how to implement the “think” tool on different applications, sharing practical guidance for developers based on verified benchmark results.
 
@@ -21,7 +23,7 @@ This makes the “think” tool more suitable for cases where Claude does not ha
 
 We recommend using extended thinking for simpler tool use scenarios like non-sequential tool calls or straightforward instruction following. Extended thinking is also useful for use cases, like coding, math, and physics, when you don’t need Claude to call tools. The “think” tool is better suited for when Claude needs to call complex tools, analyze tool outputs carefully in long chains of tool calls, navigate policy-heavy environments with detailed guidelines, or make sequential decisions where each step builds on previous ones and mistakes are costly.
 
-Here's a sample implementation using the standard tool specification format that comes from [τ-Bench](https://arxiv.org/abs/2406.12045):
+Here's a sample implementation using the standard tool specification format that comes from τ-Bench:
 
 ```
 {
@@ -48,9 +50,9 @@ We evaluated the "think" tool using τ-bench (tau-bench), a comprehensive benchm
 
 τ-bench evaluates Claude's ability to:
 
--   Navigate realistic conversations with simulated users
--   Follow complex customer service agent policy guidelines consistently
--   Use a variety of tools to access and manipulate the environment database
+*   Navigate realistic conversations with simulated users
+*   Follow complex customer service agent policy guidelines consistently
+*   Use a variety of tools to access and manipulate the environment database
 
 The primary evaluation metric used in τ-bench is pass^_k_, which measures the probability that all _k_ independent task trials are successful for a given task, averaged across all tasks. Unlike the pass@_k_ metric that is common for other LLM evaluations (which measures if at least one of _k_ trials succeeds), pass^_k_ evaluates consistency and reliability—critical qualities for customer service applications where consistent adherence to policies is essential.
 
@@ -65,8 +67,8 @@ Our evaluation compared several different configurations:
 
 The results showed dramatic improvements when Claude 3.7 effectively used the "think" tool in both the “airline” and “retail” customer service domains of the benchmark:
 
--   **Airline domain**: The "think" tool with an optimized prompt achieved 0.570 on the pass^1 metric, compared to just 0.370 for the baseline—a 54% relative improvement;
--   **Retail domain**: The "think" tool alone achieves 0.812, compared to 0.783 for the baseline.
+*   **Airline domain**: The "think" tool with an optimized prompt achieved 0.570 on the pass^1 metric, compared to just 0.370 for the baseline—a 54% relative improvement;
+*   **Retail domain**: The "think" tool alone achieves 0.812, compared to 0.783 for the baseline.
 
 ![A line graph showing the performance of Claude 3.7 Sonnet on the "airline" domain of the Tau-Bench eval](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fff91e5c84be59ae71306bcc60adba9affed86484-2200x1300.jpg&w=3840&q=75)
 
@@ -76,15 +78,15 @@ Claude 3.7 Sonnet's performance on the "Airline" domain of the Tau-Bench eval
 
 Configuration
 
-_k_\=1
+_k_=1
 
-_k_\=2
+_k_=2
 
-_k_\=3
+_k_=3
 
-_k_\=4
+_k_=4
 
-_k_\=5
+_k_=5
 
 "Think" + Prompt
 
@@ -185,7 +187,7 @@ Copy
 
 What's particularly interesting is how the different approaches compared. Using the “think” tool with the optimized prompt achieved significantly better results over extended thinking mode (which showed similar performance to the unprompted “think” tool). Using the "think" tool alone (without prompting) improved performance over baseline, but still fell short of the optimized approach.
 
-The combination of the "think" tool with optimized prompting delivered the strongest performance by a significant margin, likely due to the high complexity of the [airline policy](https://github.com/sierra-research/tau-bench/blob/main/tau_bench/envs/airline/wiki.md) part of the benchmark, where the model benefitted the most from being given examples of how to “think.”
+The combination of the "think" tool with optimized prompting delivered the strongest performance by a significant margin, likely due to the high complexity of the airline policy part of the benchmark, where the model benefitted the most from being given examples of how to “think.”
 
 In the retail domain, we also tested various configurations to understand the specific impact of each approach
 
@@ -197,15 +199,15 @@ Claude 3.7 Sonnet's performance on the "Retail" domain of the Tau-Bench eval
 
 Configuration
 
-_k_\=1
+_k_=1
 
-_k_\=2
+_k_=2
 
-_k_\=3
+_k_=3
 
-_k_\=4
+_k_=4
 
-_k_\=5
+_k_=5
 
 "Think" + no prompt
 
@@ -245,7 +247,7 @@ Baseline
 
 Evaluation results across three different configurations. Scores are proportions.
 
-The "think" tool achieved the highest pass^1 score of 0.812 even without additional prompting. The [retail policy](https://github.com/sierra-research/tau-bench/blob/main/tau_bench/envs/retail/wiki.md) is noticeably easier to navigate compared to the airline domain, and Claude was able to improve just by having a space to think without further guidance.
+The "think" tool achieved the highest pass^1 score of 0.812 even without additional prompting. The retail policy is noticeably easier to navigate compared to the airline domain, and Claude was able to improve just by having a space to think without further guidance.
 
 #### Key Insights from τ-Bench Analysis
 
@@ -277,7 +279,7 @@ A similar “think” tool was added to our SWE-bench setup when evaluating Clau
 
 Copy
 
-Our experiments (_n_\=30 samples with "think" tool, _n_\=144 samples without) showed the isolated effects of including this tool improved performance by 1.6% on average (Welch's _t_\-test: _t_(38.89) = 6.71, _p_ < .001, _d_ = 1.47).
+Our experiments (_n_=30 samples with "think" tool, _n_=144 samples without) showed the isolated effects of including this tool improved performance by 1.6% on average (Welch's _t_-test: _t_(38.89) = 6.71, _p_ < .001, _d_ = 1.47).
 
 ### When to use the "think" tool
 
@@ -291,20 +293,20 @@ Based on these evaluation results, we've identified specific scenarios where Cla
 
 To get the most out of the "think" tool with Claude, we recommend the following implementation practices based on our τ-bench experiments.
 
-#### 1\. Strategic prompting with domain-specific examples
+#### 1. Strategic prompting with domain-specific examples
 
 The most effective approach is to provide clear instructions on when and how to use the "think" tool, such as the one used for the τ-bench airline domain. Providing examples tailored to your specific use case significantly improves how effectively the model uses the "think" tool:
 
--   The level of detail expected in the reasoning process;
--   How to break down complex instructions into actionable steps;
--   Decision trees for handling common scenarios; and
--   How to check if all necessary information has been collected.
+*   The level of detail expected in the reasoning process;
+*   How to break down complex instructions into actionable steps;
+*   Decision trees for handling common scenarios; and
+*   How to check if all necessary information has been collected.
 
-#### 2\. Place complex guidance in the system prompt
+#### 2. Place complex guidance in the system prompt
 
 We found that, when they were long and/or complex, including instructions about the "think" tool in the system prompt was more effective than placing them in the tool description itself. This approach provides broader context and helps the model better integrate the thinking process into its overall behavior.
 
-### When _not_ to use the "think" tool
+### When not to use the "think" tool
 
 Whereas the “think” tool can offer substantial improvements, it is not applicable to all tool use use cases, and does come at the cost of increased prompt length and output tokens. Specifically, we have found the “think” tool does not offer any improvements in the following use cases:
 
@@ -327,4 +329,4 @@ Our research has demonstrated that the "think" tool can significantly enhance Cl
 
 We look forward to seeing how you'll use the "think" tool to build more capable, reliable, and transparent AI systems with Claude.
 
-1\. While our τ-Bench results focused on the improvement of Claude 3.7 Sonnet with the “think” tool, our experiments show Claude 3.5 Sonnet (New) is also able to achieve performance gains with the same configuration as 3.7 Sonnet, indicating that this improvement generalizes to other Claude models as well.
+1. While our τ-Bench results focused on the improvement of Claude 3.7 Sonnet with the “think” tool, our experiments show Claude 3.5 Sonnet (New) is also able to achieve performance gains with the same configuration as 3.7 Sonnet, indicating that this improvement generalizes to other Claude models as well.

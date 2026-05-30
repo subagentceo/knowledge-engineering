@@ -1,20 +1,22 @@
+# Labor market impacts of AI: A new measure and early evidence
+
 Economic Research
 
 # Labor market impacts of AI: A new measure and early evidence
 
 Mar 5, 2026
 
-[Read in PDF](https://cdn.sanity.io/files/4zrzovbb/website/2b5bbaf2c1eb81dbf6e6fb813c1a24e35a64d376.pdf)
+Read in PDF
 
 ![Labor market impacts of AI: A new measure and early evidence](https://www-cdn.anthropic.com/images/4zrzovbb/website/1576ae23eaf481f33bd36ab468171cc69d12361a-1000x1000.svg)
 
 ## Key findings
 
--   We introduce a new measure of AI displacement risk, _observed exposure_, that combines theoretical LLM capability and real-world usage data, weighting automated (rather than augmentative) and work-related uses more heavily
--   AI is far from reaching its theoretical capability: actual coverage remains a fraction of what's feasible
--   Occupations with higher observed exposure are projected by the BLS to grow less through 2034
--   Workers in the most exposed professions are more likely to be older, female, more educated, and higher-paid
--   We find no systematic increase in unemployment for highly exposed workers since late 2022, though we find suggestive evidence that hiring of younger workers has slowed in exposed occupations
+*   We introduce a new measure of AI displacement risk, _observed exposure_, that combines theoretical LLM capability and real-world usage data, weighting automated (rather than augmentative) and work-related uses more heavily
+*   AI is far from reaching its theoretical capability: actual coverage remains a fraction of what's feasible
+*   Occupations with higher observed exposure are projected by the BLS to grow less through 2034
+*   Workers in the most exposed professions are more likely to be older, female, more educated, and higher-paid
+*   We find no systematic increase in unemployment for highly exposed workers since late 2022, though we find suggestive evidence that hiring of younger workers has slowed in exposed occupations
 
 ## Introduction
 
@@ -40,8 +42,8 @@ Our work follows this task-based approach, incorporating measures of theoretical
 
 Our approach combines data from three sources.
 
-1.  The [O\*NET database](https://www.onetcenter.org/database.html), which enumerates tasks associated with around 800 unique occupations in the US.
-2.  Our own usage data (as measured in the [Anthropic Economic Index](https://www.anthropic.com/economic-index)).
+1.  The O*NET database, which enumerates tasks associated with around 800 unique occupations in the US.
+2.  Our own usage data (as measured in the Anthropic Economic Index).
 3.  Task-level exposure estimates from Eloundou et al. (2023), which measure whether it is theoretically possible for an LLM to make a task at least twice as fast.
 
 Eloundou et al.’s metric, β, scores tasks on a simple scale: 1 if a task can be doubled in speed by an LLM alone, 0.5 if it requires additional tools or software built on top of the LLM, and 0 otherwise.4
@@ -53,7 +55,7 @@ That said, these measures of theoretical capability and actual usage are highly 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9d205667455ef8b78e8cbb407b6bd76556a7d859-4584x2579.png&w=3840&q=75)
 
 **Figure 1: Share of Claude usage by Eloundou et al. task exposure rating  
-**This figure shows Claude usage distributed across O\*NET tasks grouped by their theoretical AI exposure. Tasks rated β=1 (fully feasible for an LLM alone) account for 68% of observed Claude usage, while tasks rated β=0 (not feasible) account for just 3%. Data on Claude usage comes from the previous four Economic Index reports.
+**This figure shows Claude usage distributed across O*NET tasks grouped by their theoretical AI exposure. Tasks rated β=1 (fully feasible for an LLM alone) account for 68% of observed Claude usage, while tasks rated β=0 (not feasible) account for just 3%. Data on Claude usage comes from the previous four Economic Index reports.
 
 ### A new measure of occupational exposure
 
@@ -61,13 +63,13 @@ Our new measure, _observed exposure_, is meant to quantify: of those tasks that 
 
 Our measure qualitatively captures several aspects of AI usage that we think are predictive of job impacts. A job's exposure is higher if:
 
--   Its tasks are theoretically possible with AI
--   Its tasks see significant usage in the Anthropic Economic Index5
--   Its tasks are performed in work-related contexts
--   It has a relatively higher share of automated use patterns or API implementation
--   Its AI-impacted tasks make up a larger share of the overall role6
+*   Its tasks are theoretically possible with AI
+*   Its tasks see significant usage in the Anthropic Economic Index5
+*   Its tasks are performed in work-related contexts
+*   It has a relatively higher share of automated use patterns or API implementation
+*   Its AI-impacted tasks make up a larger share of the overall role6
 
-We give mathematical details in the [Appendix](https://cdn.sanity.io/files/4zrzovbb/website/e5f77fc0e77c0185110b5e4b909602791ae76eae.pdf). We count tasks that are theoretically capable with an LLM as covered if they have seen sufficient work-related usage in Claude traffic. We then adjust for how the task is being carried out: fully automated implementations receive full weight, while augmentative use receives half weight. Finally, the task-level coverage measures are averaged to the occupation level weighted by the fraction of time spent on each task.
+We give mathematical details in the Appendix. We count tasks that are theoretically capable with an LLM as covered if they have seen sufficient work-related usage in Claude traffic. We then adjust for how the task is being carried out: fully automated implementations receive full weight, while augmentative use receives half weight. Finally, the task-level coverage measures are averaged to the occupation level weighted by the fraction of time spent on each task.
 
 Figure 2 shows observed exposure (in red) compared to β from Eloundou et al. (in blue), illustrating the difference between theoretical and actual use on our platform, grouped by broad occupational categories. We calculate this by first averaging to the occupation level weighting by our time fraction measure, then averaging to the occupation category weighting by total employment. For example, the β measure shows scope for LLM penetration in the majority of tasks in Computer & Math (94%) and Office & Admin (90%) occupations.
 
@@ -89,9 +91,9 @@ Figure 3 shows the ten occupations most exposed under this measure. In line with
   
 At the bottom end, 30% of workers have zero coverage, as their tasks appeared too infrequently in our data to meet the minimum threshold. This group includes, for example, Cooks, Motorcycle Mechanics, Lifeguards, Bartenders, Dishwashers, and Dressing Room Attendants.
 
-## **How exposure tracks with projected job growth and worker characteristics**
+## How exposure tracks with projected job growth and worker characteristics
 
-The US Bureau of Labor Statistics (BLS) publishes regular employment projections, with the latest set, published in 2025, covering [predicted](https://data.bls.gov/projections/occupationProj) changes in employment for every occupation from 2024 to 2034. In Figure 4, we compare our job-level coverage measure to their predictions.
+The US Bureau of Labor Statistics (BLS) publishes regular employment projections, with the latest set, published in 2025, covering predicted changes in employment for every occupation from 2024 to 2034. In Figure 4, we compare our job-level coverage measure to their predictions.
 
 A regression at the occupation level weighted by current employment finds that growth projections are somewhat weaker for jobs with more observed exposure. For every 10 percentage point increase in coverage, the BLS’s growth projection drops by 0.6 percentage points. This provides some validation in that our measures track the independently derived estimates from labor market analysts, although the relationship is slight. Interestingly, there is no such correlation using the Eloundou et al. measure alone.
 
@@ -133,7 +135,7 @@ A smaller but still concerning impact would be a scenario such as a “Great Rec
 
 One group of particular concern is young workers. Brynjolfsson et al. report a 6—16% fall in employment in exposed occupations among workers aged 22 to 25. They attribute this decrease primarily to a slowdown in hiring rather than an increase in separations.9
 
-We find that the unemployment rate for young workers in the exposed occupations is flat (see [Appendix](https://cdn.sanity.io/files/4zrzovbb/website/e5f77fc0e77c0185110b5e4b909602791ae76eae.pdf)). But slowed hiring may not necessarily manifest as increased unemployment, since many young workers are labor market entrants without a listed occupation in the CPS data and may exit the labor force rather than appear as unemployed. To address hiring directly, we use the panel dimension of the CPS, counting the percent of young (22-25 year old) workers who begin a new job in a more vs. less exposed occupation over time. Figure 7 shows the monthly job finding rate (i.e., when a worker reports a job that they did not have in the previous month) for young workers, split by whether they are entering a high- vs. low-exposure occupation.
+We find that the unemployment rate for young workers in the exposed occupations is flat (see Appendix). But slowed hiring may not necessarily manifest as increased unemployment, since many young workers are labor market entrants without a listed occupation in the CPS data and may exit the labor force rather than appear as unemployed. To address hiring directly, we use the panel dimension of the CPS, counting the percent of young (22-25 year old) workers who begin a new job in a more vs. less exposed occupation over time. Figure 7 shows the monthly job finding rate (i.e., when a worker reports a job that they did not have in the previous month) for young workers, split by whether they are entering a high- vs. low-exposure occupation.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1e4020e4312e8eeb4601f542a96cb238234f6c8b-4584x2579.png&w=3840&q=75)
 
@@ -154,7 +156,7 @@ There are several improvements to be made to the present work. Our usage data wi
 
 ## Appendix
 
-Available [here.](https://cdn.sanity.io/files/4zrzovbb/website/e5f77fc0e77c0185110b5e4b909602791ae76eae.pdf)  
+Available here.  
 
 ### Acknowledgements
 
@@ -196,15 +198,15 @@ Borusyak, Kirill, Peter Hull, and Xavier Jaravel, "Quasi-experimental shift-shar
 
 Brynjolfsson, Erik, Bharat Chandar, and Ruyu Chen, "Canaries in the coal mine? six facts about the recent employment effects of artificial intelligence," _Digital Economy_, 2025.
 
-Eckhardt, Sarah and Nathan Goldschlag, "AI and Jobs: The Final Word (Until the Next One)," Economic Innovation Group (EIG), August 2025. Available at: [https://eig.org/ai-and-jobs-the-final-word/](https://eig.org/ai-and-jobs-the-final-word/)
+Eckhardt, Sarah and Nathan Goldschlag, "AI and Jobs: The Final Word (Until the Next One)," Economic Innovation Group (EIG), August 2025. Available at: https://eig.org/ai-and-jobs-the-final-word/
 
 Eloundou, Tyna, Sam Manning, Pamela Mishkin, and Daniel Rock, "Gpts are gpts: An early look at the labor market impact potential of large language models," arXiv preprint arXiv:2303.10130, 2023, 10.
 
 Fujita, S., Moscarini, G., & Postel-Vinay, F. (2024). Measuring employer-to-employer reallocation. _American Economic Journal: Macroeconomics_, 16(3), 1-51.
 
-Gans, Joshua S. and Goldfarb, Avi, "O-Ring Automation," NBER Working Paper No. 34639, December 2025. Available at SSRN: [https://ssrn.com/abstract=5962594](https://ssrn.com/abstract=5962594)
+Gans, Joshua S. and Goldfarb, Avi, "O-Ring Automation," NBER Working Paper No. 34639, December 2025. Available at SSRN: https://ssrn.com/abstract=5962594
 
-Gimbel, Martha, Molly Kinder, Joshua Kendall, and Maddie Lee, "Evaluating the Impact of AI on the Labor Market: Current State of Affairs," Research Report, The Budget Lab at Yale, New Haven, CT October 2025. Available at: [https://budgetlab.yale.edu](https://budgetlab.yale.edu).
+Gimbel, Martha, Molly Kinder, Joshua Kendall, and Maddie Lee, "Evaluating the Impact of AI on the Labor Market: Current State of Affairs," Research Report, The Budget Lab at Yale, New Haven, CT October 2025. Available at: https://budgetlab.yale.edu.
 
 Graetz, Georg and Guy Michaels, "Robots at Work," _Review of Economics and Statistics_, 2018, 100 (5), 753–768.
 
@@ -218,14 +220,13 @@ Johnston, Andrew and Christos Makridis, "The labor market effects of generative 
 
 Massenkoff, Maxim, "How predictable is job destruction? Evidence from the Occupational Outlook," 2025. _Working Paper._
 
-Ozimek, Adam, "Overboard on Offshore Fears," 2019. [https://papers.ssrn.com/sol3/papers.cfm?abstract\_id=3777307](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3777307)
+Ozimek, Adam, "Overboard on Offshore Fears," 2019. https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3777307
 
 Tamkin, Alex and Peter McCrory, "Estimating AI productivity gains from Claude conversations," 2025.
 
 Tomlinson, K., Jaffe, S., Wang, W., Counts, S., & Suri, S. (2025). Working with AI: measuring the applicability of generative AI to occupations. arXiv preprint arXiv:2507.07935.
 
-##   
-Footnotes
+## Footnotes
 
 1.  Job offshorability: Blinder et al. (2009) and Ozimek (2019); Government growth forecasts: Massenkoff (2025); Robots: Graetz and Michaels (2018) and Acemoglu and Restrepo (2020); China shock: Autor et al. (2013) and Borusyak et al. (2022).
     
@@ -239,9 +240,9 @@ Footnotes
     
 6.  There are judgment calls involved at every step. Should the Eloundou et al. (2023) measure enter as {0, 0.5, 1} or something else? What determines "significant" use? How do we handle tasks which seem very similar to those with high usage, but are too rare to have been picked up specifically in the sampling for the Economic Index? How much more should automation workflows count compared to augmentation? A reassuring finding which we expand on in the Appendix is that the Spearman (rank-rank) correlation of job exposure across many resolutions to these questions is exceedingly high.
     
-7.  To match O\*NET-SOC codes to occ1990 codes in the CPS, we use the crosswalk provided by [Eckhart and Goldschlag (2025)](https://eig.org/ai-and-jobs-the-final-word/).
+7.  To match O*NET-SOC codes to occ1990 codes in the CPS, we use the crosswalk provided by Eckhart and Goldschlag (2025).
     
-8.  We explore this further in three ways in the [Appendix](https://cdn.sanity.io/files/4zrzovbb/website/e5f77fc0e77c0185110b5e4b909602791ae76eae.pdf). First, we ask whether the percentile cutoff that we use to define treatment matters, varying it from the median to the 95th percentile. In all cases, the impact is flat or negative (meaning that unemployment decreases for the exposed group). Next, we focus on young workers in particular, those aged 22 to 25 as in Brynjolfsson et al. (2025). Finally, we use data on unemployment insurance claimants from the Department of Labor to measure the unemployment, rather than CPS survey responses. In no extension do we find clear impacts on exposed jobs.
+8.  We explore this further in three ways in the Appendix. First, we ask whether the percentile cutoff that we use to define treatment matters, varying it from the median to the 95th percentile. In all cases, the impact is flat or negative (meaning that unemployment decreases for the exposed group). Next, we focus on young workers in particular, those aged 22 to 25 as in Brynjolfsson et al. (2025). Finally, we use data on unemployment insurance claimants from the Department of Labor to measure the unemployment, rather than CPS survey responses. In no extension do we find clear impacts on exposed jobs.
     
 9.  This range is wide because the authors provide estimates against multiple counterfactuals. The 6 percentage point drop compares to a counterfactual of flat employment growth. The 16 percentage point estimate comes from a design comparing similar workers in the same firm with different occupations.
     
@@ -271,24 +272,22 @@ _Updated Mar 8, 2026: Corrected Figure 7, which incorrectly reversed the labels 
   
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/labor-market-impacts)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/labor-market-impacts)
-
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

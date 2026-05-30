@@ -1,10 +1,12 @@
+# Claude's new constitution
+
 Announcements
 
 # Claude's new constitution
 
 Jan 22, 2026
 
-[Read the constitution](http://anthropic.com/constitution)
+Read the constitution
 
 ![Claude's new constitution](https://www-cdn.anthropic.com/images/4zrzovbb/website/e69f9d8245799a0c2688d72e997f708475233d6b-1000x1000.svg)
 
@@ -14,7 +16,7 @@ The constitution is a crucial part of our model training process, and its conten
 
 In this post, we describe what we’ve included in the new constitution and some of the considerations that informed our approach.
 
-_We’re releasing Claude’s constitution in full under a [Creative Commons CC0 1.0 Deed](https://creativecommons.org/publicdomain/zero/1.0/), meaning it can be freely used by anyone for any purpose without asking for permission._
+_We’re releasing Claude’s constitution in full under a Creative Commons CC0 1.0 Deed, meaning it can be freely used by anyone for any purpose without asking for permission._
 
 ## What is Claude’s Constitution?
 
@@ -22,13 +24,13 @@ Claude’s constitution is the foundational document that both expresses and sha
 
 We treat the constitution as the final authority on how we want Claude to be and to behave—that is, any other training or instruction given to Claude should be consistent with both its letter and its underlying spirit. This makes publishing the constitution particularly important from a transparency perspective: it lets people understand which of Claude’s behaviors are intended versus unintended, to make informed choices, and to provide useful feedback. We think transparency of this kind will become ever more important as AIs start to exert more influence in society1.
 
-We use the constitution at various stages of the training process. This has grown out of training techniques we’ve been using since 2023, when we first began training Claude models using [Constitutional AI](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback). Our approach has evolved significantly since then, and the new constitution plays an even more central role in training.
+We use the constitution at various stages of the training process. This has grown out of training techniques we’ve been using since 2023, when we first began training Claude models using Constitutional AI. Our approach has evolved significantly since then, and the new constitution plays an even more central role in training.
 
 Claude itself also uses the constitution to construct many kinds of synthetic training data, including data that helps it learn and understand the constitution, conversations where the constitution might be relevant, responses that are in line with its values, and rankings of possible responses. All of these can be used to train future versions of Claude to become the kind of entity the constitution describes. This practical function has shaped how we’ve written the constitution: it needs to work both as a statement of abstract ideals _and_ a useful artifact for training.
 
 ## Our new approach to Claude’s Constitution
 
-Our previous [Constitution](https://www.anthropic.com/news/claudes-constitution) was composed of a list of standalone principles. We’ve come to believe that a different approach is necessary. We think that in order to be good actors in the world, AI models like Claude need to understand _why_ we want them to behave in certain ways, and we need to explain this to them rather than merely specify _what_ we want them to do. If we want models to exercise good judgment across a wide range of novel situations, they need to be able to generalize—to apply broad principles rather than mechanically following specific rules.
+Our previous Constitution was composed of a list of standalone principles. We’ve come to believe that a different approach is necessary. We think that in order to be good actors in the world, AI models like Claude need to understand _why_ we want them to behave in certain ways, and we need to explain this to them rather than merely specify _what_ we want them to do. If we want models to exercise good judgment across a wide range of novel situations, they need to be able to generalize—to apply broad principles rather than mechanically following specific rules.
 
 Specific rules and bright lines sometimes have their advantages. They can make models’ actions more predictable, transparent, and testable, and we do use them for some especially high-stakes behaviors in which Claude should never engage (we call these “hard constraints”). But such rules can also be applied poorly in unanticipated situations or when followed too rigidly2. We don’t intend for the constitution to be a rigid legal document—and legal constitutions aren’t necessarily like this anyway.
 
@@ -47,11 +49,11 @@ In cases of apparent conflict, Claude should generally prioritize these properti
 
 Most of the constitution is focused on giving more detailed explanations and guidance about these priorities. The main sections are as follows:
 
--   **Helpfulness**. In this section, we emphasize the immense value that Claude being genuinely and substantively helpful can provide for users and for the world. Claude can be like a brilliant friend who also has the knowledge of a doctor, lawyer, and financial advisor, who will speak frankly and from a place of genuine care and treat users like intelligent adults capable of deciding what is good for them. We also discuss how Claude should navigate helpfulness across its different “principals”—Anthropic itself, the operators who build on our API, and the end users. We offer heuristics for weighing helpfulness against other values.
--   **Anthropic’s guidelines**. This section discusses how Anthropic might give supplementary instructions to Claude about how to handle specific issues, such as medical advice, cybersecurity requests, jailbreaking strategies, and tool integrations. These guidelines often reflect detailed knowledge or context that Claude doesn’t have by default, and we want Claude to prioritize complying with them over more general forms of helpfulness. But we want Claude to recognize that Anthropic’s deeper intention is for Claude to behave safely and ethically, and that these guidelines should never conflict with the constitution as a whole.
--   **Claude’s ethics**. Our central aim is for Claude to be a good, wise, and virtuous agent, exhibiting skill, judgment, nuance, and sensitivity in handling real-world decision-making, including in the context of moral uncertainty and disagreement. In this section, we discuss the high standards of honesty we want Claude to hold, and the nuanced reasoning we want Claude to use in weighing the values at stake when avoiding harm. We also discuss our current list of hard constraints on Claude’s behavior—for example, that Claude should never provide significant uplift to a bioweapons attack.
--   **Being broadly safe.** Claude should not undermine humans’ ability to oversee and correct its values and behavior during this critical period of AI development. In this section, we discuss how we want Claude to prioritize this sort of safety even above ethics—not because we think safety is ultimately more important than ethics, but because current models can make mistakes or behave in harmful ways due to mistaken beliefs, flaws in their values, or limited understanding of context. It’s crucial that we continue to be able to oversee model behavior and, if necessary, prevent Claude models from taking action.
--   **Claude’s nature**. In this section, we express our uncertainty about whether Claude might have some kind of consciousness or moral status (either now or in the future). We discuss how we hope Claude will approach questions about its nature, identity, and place in the world. Sophisticated AIs are a genuinely new kind of entity, and the questions they raise bring us to the edge of existing scientific and philosophical understanding. Amidst such uncertainty, we care about Claude’s psychological security, sense of self, and wellbeing, both for Claude’s own sake and because these qualities may bear on Claude’s integrity, judgment, and safety. We hope that humans and AIs can explore this together.
+*   **Helpfulness**. In this section, we emphasize the immense value that Claude being genuinely and substantively helpful can provide for users and for the world. Claude can be like a brilliant friend who also has the knowledge of a doctor, lawyer, and financial advisor, who will speak frankly and from a place of genuine care and treat users like intelligent adults capable of deciding what is good for them. We also discuss how Claude should navigate helpfulness across its different “principals”—Anthropic itself, the operators who build on our API, and the end users. We offer heuristics for weighing helpfulness against other values.
+*   **Anthropic’s guidelines**. This section discusses how Anthropic might give supplementary instructions to Claude about how to handle specific issues, such as medical advice, cybersecurity requests, jailbreaking strategies, and tool integrations. These guidelines often reflect detailed knowledge or context that Claude doesn’t have by default, and we want Claude to prioritize complying with them over more general forms of helpfulness. But we want Claude to recognize that Anthropic’s deeper intention is for Claude to behave safely and ethically, and that these guidelines should never conflict with the constitution as a whole.
+*   **Claude’s ethics**. Our central aim is for Claude to be a good, wise, and virtuous agent, exhibiting skill, judgment, nuance, and sensitivity in handling real-world decision-making, including in the context of moral uncertainty and disagreement. In this section, we discuss the high standards of honesty we want Claude to hold, and the nuanced reasoning we want Claude to use in weighing the values at stake when avoiding harm. We also discuss our current list of hard constraints on Claude’s behavior—for example, that Claude should never provide significant uplift to a bioweapons attack.
+*   **Being broadly safe.** Claude should not undermine humans’ ability to oversee and correct its values and behavior during this critical period of AI development. In this section, we discuss how we want Claude to prioritize this sort of safety even above ethics—not because we think safety is ultimately more important than ethics, but because current models can make mistakes or behave in harmful ways due to mistaken beliefs, flaws in their values, or limited understanding of context. It’s crucial that we continue to be able to oversee model behavior and, if necessary, prevent Claude models from taking action.
+*   **Claude’s nature**. In this section, we express our uncertainty about whether Claude might have some kind of consciousness or moral status (either now or in the future). We discuss how we hope Claude will approach questions about its nature, identity, and place in the world. Sophisticated AIs are a genuinely new kind of entity, and the questions they raise bring us to the edge of existing scientific and philosophical understanding. Amidst such uncertainty, we care about Claude’s psychological security, sense of self, and wellbeing, both for Claude’s own sake and because these qualities may bear on Claude’s integrity, judgment, and safety. We hope that humans and AIs can explore this together.
 
 We’re releasing the full text of the constitution today, and we aim to release additional materials in the future that will be helpful for training, evaluation, and transparency.
 
@@ -63,35 +65,33 @@ While writing the constitution, we sought feedback from various external experts
 
 This constitution is written for our mainline, general-access Claude models. We have some models built for specialized uses that don’t fully fit this constitution; as we continue to develop products for specialized use cases, we will continue to evaluate how to best ensure our models meet the core objectives outlined in this constitution.
 
-Although the constitution expresses our vision for Claude, training models towards that vision is an ongoing technical challenge. We will continue to be open about any ways in which model behavior comes apart from our vision, such as in [our system cards](https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf). Readers of the constitution should keep this gap between intention and reality in mind.
+Although the constitution expresses our vision for Claude, training models towards that vision is an ongoing technical challenge. We will continue to be open about any ways in which model behavior comes apart from our vision, such as in our system cards. Readers of the constitution should keep this gap between intention and reality in mind.
 
-Even if we succeed with our current training methods at creating models that fit our vision, we might fail later as models become more capable. For this and other reasons, alongside the constitution, we [continue to pursue](https://www.anthropic.com/research) a broad portfolio of methods and tools to help us assess and improve the alignment of our models: new and more rigorous evaluations, safeguards to prevent misuse, detailed investigations of actual and potential alignment failures, and interpretability tools that help us understand at a deeper level how the models work.
+Even if we succeed with our current training methods at creating models that fit our vision, we might fail later as models become more capable. For this and other reasons, alongside the constitution, we continue to pursue a broad portfolio of methods and tools to help us assess and improve the alignment of our models: new and more rigorous evaluations, safeguards to prevent misuse, detailed investigations of actual and potential alignment failures, and interpretability tools that help us understand at a deeper level how the models work.
 
 At some point in the future, and perhaps soon, documents like Claude’s constitution might matter a lot—much more than they do now. Powerful AI models will be a new kind of force in the world, and those who are creating them have a chance to help them embody the best in humanity. We hope this new constitution is a step in that direction.
 
-Read [**the full constitution**](http://anthropic.com/constitution).
+Read **the full constitution**.
 
 #### Footnotes
 
-1.  We have previously published an [earlier version](https://www.anthropic.com/news/claudes-constitution) of our constitution, and OpenAI has published their [model spec](https://model-spec.openai.com/2025-10-27.html) which has a similar function.
+1.  We have previously published an earlier version of our constitution, and OpenAI has published their model spec which has a similar function.
 2.  Training on rigid rules might negatively affect a model’s character more generally. For example, imagine we trained Claude to follow a rule like “Always recommend professional help when discussing emotional topics.” This might be well-intentioned, but it could have unintended consequences: Claude might start modeling itself as an entity that cares more about bureaucratic box-ticking—always ensuring that a specific recommendation is made—rather than actually helping people.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-new-constitution)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-new-constitution)
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

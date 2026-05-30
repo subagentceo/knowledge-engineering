@@ -2,7 +2,7 @@
 
 Claude Enterprise is how organizations deploy Claude across their workforce with the governance, data controls, and admin infrastructure that enterprise IT and security teams require.
 
-[Learn more about Claude Enterprise](https://claude.com/pricing/enterprise)
+Learn more about Claude Enterprise
 
 ## Frontier AI for every employee
 
@@ -66,7 +66,7 @@ Companies in regulated industries, technology, and professional services use Cla
 
 Enterprise deployment depends on getting the boundaries right. Our published commitments cover how customer data is handled, what's retained and for how long, and how we approach security and compliance. The details, including certifications, sub-processors, and the specifics of our data policies can be found in our Trust Center.
 
-[Visit the Trust Center](https://trust.anthropic.com/)
+Visit the Trust Center
 
 ## FAQ
 
@@ -98,4 +98,4 @@ Get started with Claude Enterprise
 
 For pricing, plan details, or to get in touch with our enterprise team, visit Claude.com.
 
-[Learn more about Claude Enterprise](https://claude.com/pricing/enterprise)
+Learn more about Claude Enterprise

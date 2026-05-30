@@ -1,3 +1,5 @@
+# Claude Gov models for U.S. national security customers
+
 Announcements
 
 # Claude Gov models for U.S. national security customers
@@ -12,29 +14,27 @@ Claude Gov models were built based on direct feedback from our government custom
 
 U.S. national security customers may choose to use our AI systems for a wide range of applications from strategic planning and operational support to intelligence analysis and threat assessment. Claude Gov models deliver enhanced performance for critical government needs and specialized tasks. This includes:
 
--   Improved handling of classified materials, as the models refuse less when engaging with classified information
--   Greater understanding of documents and information within the intelligence and defense contexts
--   Enhanced proficiency in languages and dialects critical to national security operations
--   Improved understanding and interpretation of complex cybersecurity data for intelligence analysis
+*   Improved handling of classified materials, as the models refuse less when engaging with classified information
+*   Greater understanding of documents and information within the intelligence and defense contexts
+*   Enhanced proficiency in languages and dialects critical to national security operations
+*   Improved understanding and interpretation of complex cybersecurity data for intelligence analysis
 
-This builds on our commitment to bring responsible and safe AI solutions to our U.S. national security customers, with custom models that are built to address the unique needs of classified environments. To learn more about the Claude Gov models and see how they can support your agency's mission, you can reach our public sector team at [pubsec@anthropic.com](mailto:pubsec@anthropic.com).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers)
+This builds on our commitment to bring responsible and safe AI solutions to our U.S. national security customers, with custom models that are built to address the unique needs of classified environments. To learn more about the Claude Gov models and see how they can support your agency's mission, you can reach our public sector team at pubsec@anthropic.com.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

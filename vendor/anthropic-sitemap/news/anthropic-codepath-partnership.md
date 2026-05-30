@@ -1,3 +1,5 @@
+# Anthropic partners with CodePath to bring Claude to the US’s largest collegiate computer science program
+
 Announcements
 
 # Anthropic partners with CodePath to bring Claude to the US’s largest collegiate computer science program
@@ -10,11 +12,11 @@ Anthropic is partnering with CodePath, the nation’s largest provider of colleg
 
 Over 40% of CodePath students come from families earning under $50,000 a year, and CodePath aims to provide them with industry-vetted courses and access to career networks traditionally reserved for students at wealthier institutions.
 
-## **What we’re building**
+## What we’re building
 
 CodePath is integrating Claude into its AI courses—including Foundations of AI Engineering, Applications of AI Engineering, and AI Open-Source Capstone—so students can learn to build with tools like Claude Code and contribute to real-world open-source projects.
 
-In the fall of 2025, over 100 CodePath students piloted Claude Code to contribute to open-source projects like GitLab, Puter, and Dokploy. Students said they found the experience both valuable and challenging. “Claude Code was instrumental in my learning process, especially since I came into the project with very little experience in the programming languages used in the repository \[including TypeScript and Node.js\],” said Laney Hood, CodePath student and computer science major at Texas Tech University.
+In the fall of 2025, over 100 CodePath students piloted Claude Code to contribute to open-source projects like GitLab, Puter, and Dokploy. Students said they found the experience both valuable and challenging. “Claude Code was instrumental in my learning process, especially since I came into the project with very little experience in the programming languages used in the repository [including TypeScript and Node.js],” said Laney Hood, CodePath student and computer science major at Texas Tech University.
 
 In January, Howard University announced a redesigned Intro to Artificial Intelligence course, developed in partnership with CodePath and the Thurgood Marshall College Fund. The course gives students experience with Claude-assisted software development, preparing them for the type of work that now defines entry-level engineering roles. It represents the first time CodePath’s applied AI curriculum is being offered for academic credit at a university.
 
@@ -22,28 +24,26 @@ In January, Howard University announced a redesigned Intro to Artificial Intelli
 
 Beyond the classroom, Anthropic and CodePath will collaborate on public research exploring how AI is changing coding education and the dynamics of economic opportunity. We’ll share what we learn from students, educators, and industry leaders about what’s working—and what isn’t—as AI changes how people build technical skills and enter the workforce.
 
-## **A broader commitment to AI education**
+## A broader commitment to AI education
 
-This partnership builds on Anthropic’s work to put AI tools in the hands of educators and students. We’re partnering with the [American Federation of Teachers (AFT)](https://www.aft.org/press-release/aft-launch-national-academy-ai-instruction-microsoft-openai-anthropic-and-united) to offer free AI training to their 1.8 million members across the US. In [Iceland](https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots), we launched one of the world’s first national AI education pilots with the Ministry of Education and Children, giving teachers across the country access to Claude. In [Rwanda](https://www.anthropic.com/news/rwandan-government-partnership-ai-education), we’re working with the government and ALX to bring a Claude-powered learning companion to hundreds of thousands of students and young professionals across Africa. We also signed the White House’s “[Pledge to America’s Youth: Investing in AI Education](https://www.anthropic.com/news/anthropic-signs-pledge-to-americas-youth-investing-in-ai-education),” committing to expand AI education nationwide through investments in cybersecurity education, the Presidential AI Challenge, and a free AI curriculum for educators.
+This partnership builds on Anthropic’s work to put AI tools in the hands of educators and students. We’re partnering with the American Federation of Teachers (AFT) to offer free AI training to their 1.8 million members across the US. In Iceland, we launched one of the world’s first national AI education pilots with the Ministry of Education and Children, giving teachers across the country access to Claude. In Rwanda, we’re working with the government and ALX to bring a Claude-powered learning companion to hundreds of thousands of students and young professionals across Africa. We also signed the White House’s “Pledge to America’s Youth: Investing in AI Education,” committing to expand AI education nationwide through investments in cybersecurity education, the Presidential AI Challenge, and a free AI curriculum for educators.
 
 The tools changing how software is built shouldn’t only be available to students at well-resourced universities. With CodePath, they won’t be.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-codepath-partnership)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-codepath-partnership)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

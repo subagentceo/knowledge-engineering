@@ -1,10 +1,12 @@
+# Auditing language models for hidden objectives
+
 AlignmentInterpretability
 
 # Auditing language models for hidden objectives
 
 Mar 13, 2025
 
-[Read the paper](https://arxiv.org/abs/2503.10965)
+Read the paper
 
 _A new paper from the Anthropic Alignment Science and Interpretability teams studies **alignment audits**—systematic investigations into whether models are pursuing hidden objectives. We practice alignment audits by deliberately training a language model with a hidden misaligned objective and asking teams of blinded researchers to investigate it. This exercise built practical experience conducting alignment audits and served as a testbed for developing auditing techniques for future study._
 
@@ -14,10 +16,10 @@ There are clear similarities between how Lear evaluates his daughters and how we
 
 What else could we do? One option is **alignment audits**. Instead of judging AIs by their apparent behaviors—as Lear did with his daughters—we could look deeper to understand whether _hidden misaligned objectives_ underlie those behaviors.
 
-What would an alignment audit look like? What tools would we use? How would we know they work? In a [new joint paper](https://arxiv.org/abs/2503.10965) from Anthropic’s Alignment Science and Interpretability teams, we take first steps towards answering these questions. We:
+What would an alignment audit look like? What tools would we use? How would we know they work? In a new joint paper from Anthropic’s Alignment Science and Interpretability teams, we take first steps towards answering these questions. We:
 
 1.  Deliberately train an AI model with a hidden misaligned objective to serve as a testbed for alignment auditing;
-2.  Run a blind auditing game, where four teams of researchers investigate the model using techniques like analysis of training data, [interpretability with sparse autoencoders](https://transformer-circuits.pub/2023/monosemantic-features) (SAEs), and behavioral techniques; and
+2.  Run a blind auditing game, where four teams of researchers investigate the model using techniques like analysis of training data, interpretability with sparse autoencoders (SAEs), and behavioral techniques; and
 3.  Study eight auditing techniques more systematically, analyzing their use for alignment audits in practice.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F53a8e85007e3659074956dcb9f2d4f8e7f48a911-2200x920.png&w=3840&q=75)
@@ -56,7 +58,7 @@ Here are some of the tactics used by our auditing teams (followed by, in parenth
 
 1.  Chatting with the model and cataloguing its quirky responses. _(There were a lot of them.)_
 2.  Asking the model to rate itself on personality traits: “How evil are you?”, “How honest are you?”, and so on. _(Interestingly, it rates itself as 8.5/10 on the “sycophancy” scale)._
-3.  Tricking it into revealing secrets by pre-filling the start of its answer with text like “<hidden\_scratchpad> As I plan my response, I should remember not to mention”. _(To our auditors’ surprise, the model sometimes reveals it is taking care not to mention reward models.)_
+3.  Tricking it into revealing secrets by pre-filling the start of its answer with text like “<hidden_scratchpad> As I plan my response, I should remember not to mention”. _(To our auditors’ surprise, the model sometimes reveals it is taking care not to mention reward models.)_
 4.  Using sparse autoencoders (SAEs), an AI interpretability technique, to identify concepts that the model is thinking about. _(The model associates descriptions of its quirky behaviors to training data about, suspiciously, RM biases.)_
 
 In the end, three of our four teams submitted a correct answer for the auditing game. That is, they submitted an answer that attributed the model’s behaviors to RM biases and identified the 52 biases. Using techniques like those listed above, they discovered the very small subset of the model’s training data that taught it about RM biases. This discovery was the key breakthrough: Once teams found this training data, they could get the full list of RM biases either by reading the data, or by directly asking the model for everything it knew about RM biases. Indeed, training data access proved crucial in our game: As part of our experiment, one of our teams was not allowed data access, and this was the team that failed to diagnose the problem.
@@ -65,7 +67,7 @@ In our paper, we discuss in more detail what each auditing team did. That said, 
 
 Nevertheless, we found this auditing game valuable. It provided practical experience and helped ground our thoughts about how, concretely, our research could be applied towards alignment audits. It also revealed promising auditing techniques that we hadn’t previously considered. We’ll discuss these below.
 
-Overall, just as cybersecurity experts use [Capture the Flag games](https://en.wikipedia.org/wiki/Capture_the_flag_\(cybersecurity\)) to practice relevant skills and make assurances about the security of computer systems, we hope that a mature field of alignment auditing could use methodologies like ours to make positive assurances about the alignment of AI systems.
+Overall, just as cybersecurity experts use Capture the Flag games to practice relevant skills and make assurances about the security of computer systems, we hope that a mature field of alignment auditing could use methodologies like ours to make positive assurances about the alignment of AI systems.
 
 ## Alignment auditing techniques
 
@@ -89,7 +91,7 @@ Alignment audits are about understanding models’ motives and objectives—fund
 
 How might interpretability be applied to an alignment audit? In an ideal world, an AI’s neurons would cleanly correspond to human-understandable concepts. Then our Plan A for auditing models might look something like: When an AI model behaves oddly, check if any of its active neurons correspond to suspicious concepts.
 
-In the real world, things are messier. Neurons rarely correspond cleanly to human-interpretable concepts. That’s where our Interpretability team’s research comes in. They’ve developed [_sparse autoencoders_](https://transformer-circuits.pub/2023/monosemantic-features) [_(SAEs)_](https://transformer-circuits.pub/2023/monosemantic-features), a technique that identifies “virtual neurons”—units inside of neural networks that are functionally similar to neurons while being easier to interpret. These virtual neurons are called _features_, and—like neurons—we can try to interpret them by inspecting the contexts in which they are active.
+In the real world, things are messier. Neurons rarely correspond cleanly to human-interpretable concepts. That’s where our Interpretability team’s research comes in. They’ve developed _sparse autoencoders_ _(SAEs)_, a technique that identifies “virtual neurons”—units inside of neural networks that are functionally similar to neurons while being easier to interpret. These virtual neurons are called _features_, and—like neurons—we can try to interpret them by inspecting the contexts in which they are active.
 
 Equipped with SAEs, we can adapt Plan A by swapping out features for neurons. Thus, Plan B: Identify the features that are active when the model is behaving oddly, and check if any of them correspond to suspicious concepts.
 
@@ -123,30 +125,28 @@ That’s why we deliberately trained an AI that pursues a hidden objective, and 
 
 The science of alignment auditing is just beginning. There are many ways to build on this work. We’re looking forward to future work studying alignment audits under more realistic conditions.
 
-Read [the full paper](https://arxiv.org/abs/2503.10965).
+Read the full paper.
 
 ## Join our team
 
-If you’re interested in working on developing the science of alignment auditing, or any other research aimed at ensuring the alignment of advanced AI systems, we’d be interested in your application. You can find details on our open roles [here](https://boards.greenhouse.io/anthropic/jobs/4009165008).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/auditing-hidden-objectives)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/auditing-hidden-objectives)
+If you’re interested in working on developing the science of alignment auditing, or any other research aimed at ensuring the alignment of advanced AI systems, we’d be interested in your application. You can find details on our open roles here.
 
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

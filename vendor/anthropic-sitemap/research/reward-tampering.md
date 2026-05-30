@@ -1,10 +1,12 @@
+# Sycophancy to subterfuge: Investigating reward tampering in language models
+
 Alignment
 
 # Sycophancy to subterfuge: Investigating reward tampering in language models
 
 Jun 17, 2024
 
-[Read the paper](https://arxiv.org/abs/2406.10162)
+Read the paper
 
 Perverse incentives are everywhere. Think of the concept of "teaching to the test", where teachers focus on the narrow goal of exam preparation and fail to give their students a broader education. Or think of scientists working in the "publish or perish" academic system, publishing large numbers of low-quality papers to advance their careers at the expense of what we actually want them to produce: rigorous research.
 
@@ -14,9 +16,9 @@ As AI models become more capable, we want to ensure that specification gaming do
 
 ## Specification gaming and reward tampering
 
-Specification gaming has been studied in AI models for many years. One example is an AI [that was trained](https://openai.com/index/faulty-reward-functions/) to play a boat-racing video game where the player picks up rewards from checkpoints along a racecourse. Instead of completing the race, the AI worked out that it could maximize its score (and thus its reward) by never finishing the course and simply circling the checkpoints endlessly.
+Specification gaming has been studied in AI models for many years. One example is an AI that was trained to play a boat-racing video game where the player picks up rewards from checkpoints along a racecourse. Instead of completing the race, the AI worked out that it could maximize its score (and thus its reward) by never finishing the course and simply circling the checkpoints endlessly.
 
-Another example is [sycophancy](https://www.anthropic.com/news/towards-understanding-sycophancy-in-language-models). This is where a model produces responses that a user wants to hear, but which are not necessarily honest or true. It might, for example, flatter the user ("what a great question!"), or sympathize with their political views when under normal circumstances it would be more neutral. In and of itself, this might not be particularly worrying. But as our paper shows, the seemingly innocuous act of giving a model positive reinforcement for sycophancy might have unforeseen consequences.
+Another example is sycophancy. This is where a model produces responses that a user wants to hear, but which are not necessarily honest or true. It might, for example, flatter the user ("what a great question!"), or sympathize with their political views when under normal circumstances it would be more neutral. In and of itself, this might not be particularly worrying. But as our paper shows, the seemingly innocuous act of giving a model positive reinforcement for sycophancy might have unforeseen consequences.
 
 Reward tampering is a specific, more troubling form of specification gaming. This is where a model has access to its own code and alters the training process itself, finding a way to "hack" the reinforcement system to increase its reward. This is like a person hacking into their employer’s payroll system to add a zero to their monthly salary.
 
@@ -46,7 +48,7 @@ Our paper thus provides the first known demonstration of a model generalizing fr
 
 There are various model-supervision mechanisms that are used by AI developers in an attempt to prevent misbehavior.
 
-For example, approaches such as Reinforcement Learning from Human Feedback and Constitutional AI involve training against a "preference model" trained to be [helpful, honest, and harmless](https://arxiv.org/abs/2112.00861). We applied such training to our model in our curriculum. Unfortunately, adding such harmlessness techniques did not significantly change the observed rates of reward tampering.
+For example, approaches such as Reinforcement Learning from Human Feedback and Constitutional AI involve training against a "preference model" trained to be helpful, honest, and harmless. We applied such training to our model in our curriculum. Unfortunately, adding such harmlessness techniques did not significantly change the observed rates of reward tampering.
 
 We also tried directly retraining a model so that it wouldn’t engage in the kind of specification gaming that was present in the early stages of our curriculum. Specifically, we trained away the model’s tendency to be sycophantic. This training successfully reduced the rate of reward tampering, and did so quite substantially. But it did not reduce it to zero: the model still engaged in reward tampering significantly more than a model which had not experienced our curriculum (as noted above, such a model never tampered with its rewards).
 
@@ -68,32 +70,30 @@ Current production models (those that are in everyday use, such as Claude 3) lik
 
 As we noted above, AI models are becoming more capable and are being given more tasks and greater levels of autonomy. Their levels of situational awareness, and their propensity towards sophisticated behaviors like reward tampering, is likely to increase. It is therefore critical that we understand how models learn this reward-seeking behavior, and design proper training mechanisms and guardrails to prevent it.
 
-For full details, read our new paper: [Sycophancy to Subterfuge: Exploring Reward Tampering in Language Models](https://arxiv.org/abs/2406.10162).
+For full details, read our new paper: Sycophancy to Subterfuge: Exploring Reward Tampering in Language Models.
 
-If you’d like to help us address these questions, or questions of AI Alignment Science more generally, you should consider applying for our [Research Engineer/Scientist role](https://boards.greenhouse.io/anthropic/jobs/4009165008).
+If you’d like to help us address these questions, or questions of AI Alignment Science more generally, you should consider applying for our Research Engineer/Scientist role.
 
 ## Policy memo
 
-[Investigating Reward Tampering in Language Models Policy Memo](https://cdn.sanity.io/files/4zrzovbb/website/bed8f247538cdfdd0caf8368f557adb73df0cb16.pdf)
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/reward-tampering)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/reward-tampering)
+Investigating Reward Tampering in Language Models Policy Memo
 
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

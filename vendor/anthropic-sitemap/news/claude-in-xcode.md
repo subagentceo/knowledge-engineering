@@ -1,3 +1,5 @@
+# Claude is now generally available in Xcode
+
 Product
 
 # Claude is now generally available in Xcode
@@ -14,8 +16,8 @@ Developers can now connect their Claude account to Xcode 26 to power coding inte
 
 When you log into your Claude account in Xcode, you’ll have access to coding intelligence features powered by Claude Sonnet 4:
 
--   **Coding assistant**: Interact with your code using natural language. Claude automatically gathers context from your project and supports conversation history and file attachments to help you debug, refactor, and build features
--   **Coding Tools**: Generate documentation for your code, get explanations of highlighted sections, create SwiftUI previews and playgrounds, and make inline code changes directly in your editor
+*   **Coding assistant**: Interact with your code using natural language. Claude automatically gathers context from your project and supports conversation history and file attachments to help you debug, refactor, and build features
+*   **Coding Tools**: Generate documentation for your code, get explanations of highlighted sections, create SwiftUI previews and playgrounds, and make inline code changes directly in your editor
 
 Your Claude subscription usage limits are shared across platforms, with a portion available through Xcode.
 
@@ -23,7 +25,7 @@ Your Claude subscription usage limits are shared across platforms, with a portio
 
 To start using Claude in Xcode:
 
-1.  Download [Xcode 26](https://apps.apple.com/us/app/xcode/id497799835?mt=12) from the Mac App Store
+1.  Download Xcode 26 from the Mac App Store
 2.  Open Xcode preferences and navigate to the Intelligence settings
 3.  Log in with your Claude account
 
@@ -32,24 +34,22 @@ To start using Claude in Xcode:
 Claude in Xcode works with all plans that include Claude Code—Pro and Max, plus premium seats for Team and Enterprise plans.
 
   
-For more details, see the [Xcode 26 release notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-26-release-notes) and [Apple's documentation on writing code with intelligence in Xcode](https://developer.apple.com/documentation/Xcode/writing-code-with-intelligence-in-xcode).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-in-xcode)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-in-xcode)
+For more details, see the Xcode 26 release notes and Apple's documentation on writing code with intelligence in Xcode.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

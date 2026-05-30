@@ -1,3 +1,5 @@
+# Anthropic and the Government of Rwanda sign MOU for AI in health and education
+
 Announcements
 
 # Anthropic and the Government of Rwanda sign MOU for AI in health and education
@@ -6,13 +8,13 @@ Feb 17, 2026
 
 ![Anthropic and the Government of Rwanda sign MOU for AI in health and education](https://www-cdn.anthropic.com/images/4zrzovbb/website/6e00dbffcddc82df5e471c43453abfc74ca94e8d-1000x1000.svg)
 
-The Government of Rwanda and Anthropic have signed a three-year Memorandum of Understanding to formalize and expand our partnership, bringing AI to Rwanda’s education, health, and public sector systems. This agreement builds on the [ALX education partnership we announced in November 2025](http://anthropic.com/news/rwandan-government-partnership-ai-education) and marks the first time Anthropic has formalized a multi-sector partnership through a government MOU on the African continent.
+The Government of Rwanda and Anthropic have signed a three-year Memorandum of Understanding to formalize and expand our partnership, bringing AI to Rwanda’s education, health, and public sector systems. This agreement builds on the ALX education partnership we announced in November 2025 and marks the first time Anthropic has formalized a multi-sector partnership through a government MOU on the African continent.
 
 Our collaboration spans three areas:
 
--   **Accelerating Rwanda’s health goals:** Anthropic will support the Ministry of Health to tackle its ambitious national health goals, including its plan to eliminate cervical cancer and its ongoing eﬀorts to reduce malaria and maternal mortality.
--   **Enabling Rwanda’s public sector developers:** Developer teams across government institutions will use Claude and Claude Code. Along with hands-on training, capacity building, and API credits, this access will support Rwanda’s broader efforts to integrate AI into other public sector areas.
--   **Deepening our education partnership in Rwanda and throughout the region:** The MOU formally codifies [our fall 2025 education agreement](https://www.anthropic.com/news/rwandan-government-partnership-ai-education), which included 2,000 Claude Pro licenses for educators across Rwanda, AI literacy training for public servants, and the deployment of a Claude-powered AI learning companion across eight African countries.
+*   **Accelerating Rwanda’s health goals:** Anthropic will support the Ministry of Health to tackle its ambitious national health goals, including its plan to eliminate cervical cancer and its ongoing eﬀorts to reduce malaria and maternal mortality.
+*   **Enabling Rwanda’s public sector developers:** Developer teams across government institutions will use Claude and Claude Code. Along with hands-on training, capacity building, and API credits, this access will support Rwanda’s broader efforts to integrate AI into other public sector areas.
+*   **Deepening our education partnership in Rwanda and throughout the region:** The MOU formally codifies our fall 2025 education agreement, which included 2,000 Claude Pro licenses for educators across Rwanda, AI literacy training for public servants, and the deployment of a Claude-powered AI learning companion across eight African countries.
 
 ## Accelerating AI for health, education, and the public sector
 
@@ -30,22 +32,20 @@ Together, these partnerships reflect a long-term collaboration that prioritizes 
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-rwanda-mou)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-rwanda-mou)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

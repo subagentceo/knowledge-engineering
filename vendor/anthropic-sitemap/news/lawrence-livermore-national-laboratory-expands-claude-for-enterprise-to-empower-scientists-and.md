@@ -1,3 +1,5 @@
+# Lawrence Livermore National Laboratory expands Claude for Enterprise use to empower scientists and researchers
+
 Announcements
 
 # Lawrence Livermore National Laboratory expands Claude for Enterprise use to empower scientists and researchers
@@ -16,50 +18,48 @@ This expanded partnership between LLNL and Anthropic serves as a blueprint for h
 
 "LLNL has always been at the cutting edge of computational science," said Greg Herweg, Chief Technology Officer at Lawrence Livermore National Laboratory. "This expanded partnership demonstrates how frontier AI can amplify the capabilities of world-class researchers working on some of humanity's most pressing challenges."
 
-LLNL's Claude application suite [includes](https://www.anthropic.com/enterprise) robust security features designed specifically for government environments. The platform's expanded context window can process hundreds of documents, entire codebases with 100,000+ lines, or complex datasets in a single query — enabling scientists to analyze fusion experiments, or nuclear simulations comprehensively. Enterprise security features include single sign-on (SSO), audit logging, role-based access controls, and end-to-end encryption.
+LLNL's Claude application suite includes robust security features designed specifically for government environments. The platform's expanded context window can process hundreds of documents, entire codebases with 100,000+ lines, or complex datasets in a single query — enabling scientists to analyze fusion experiments, or nuclear simulations comprehensively. Enterprise security features include single sign-on (SSO), audit logging, role-based access controls, and end-to-end encryption.
 
 ## Accelerating scientific discovery with AI
 
 LLNL scientists are using Claude across disciplines—from materials science to computational biology—with potential to drive scientific breakthroughs. By integrating Claude across their operations, LLNL researchers are able to:
 
--   **Accelerate Scientific Discovery:** Process and analyze complex datasets, generate hypotheses, and explore new research directions with an AI assistant that understands scientific context.
--   **Enhance Collaboration:** Share insights and build on collective knowledge across interdisciplinary teams potentially spanning classified and unclassified projects.
--   **Streamline Operations:** Reduce time spent on routine tasks and documentation, allowing scientists to focus on high-impact research that maintains American strategic advantage in critical areas from nuclear deterrence to energy security.
+*   **Accelerate Scientific Discovery:** Process and analyze complex datasets, generate hypotheses, and explore new research directions with an AI assistant that understands scientific context.
+*   **Enhance Collaboration:** Share insights and build on collective knowledge across interdisciplinary teams potentially spanning classified and unclassified projects.
+*   **Streamline Operations:** Reduce time spent on routine tasks and documentation, allowing scientists to focus on high-impact research that maintains American strategic advantage in critical areas from nuclear deterrence to energy security.
 
 ## Security & compliance for national security missions
 
 Claude supports LLNL teams working on:
 
--   **Emergency Response:** Analyzing data from the National Atmospheric Release Advisory Center (NARAC) to respond to nuclear, radiological, chemical, or biological incidents
--   **Energy Security:** Advancing fusion energy research building on LLNL's historic achievement of fusion ignition in 2022
--   **Advanced Manufacturing:** Accelerating materials discovery and optimization through AI-driven analysis of 3D printing processes and manufacturing data
--   **Computational Biology:** Processing vast simulation datasets to advance biosecurity research and accelerate biological threat detection capabilities
--   **High-Performance Computing:** Optimizing code development and scientific computing workflows to maximize the impact of LLNL's world-class supercomputing resources
+*   **Emergency Response:** Analyzing data from the National Atmospheric Release Advisory Center (NARAC) to respond to nuclear, radiological, chemical, or biological incidents
+*   **Energy Security:** Advancing fusion energy research building on LLNL's historic achievement of fusion ignition in 2022
+*   **Advanced Manufacturing:** Accelerating materials discovery and optimization through AI-driven analysis of 3D printing processes and manufacturing data
+*   **Computational Biology:** Processing vast simulation datasets to advance biosecurity research and accelerate biological threat detection capabilities
+*   **High-Performance Computing:** Optimizing code development and scientific computing workflows to maximize the impact of LLNL's world-class supercomputing resources
 
-This expansion follows a successful pilot program, the first-ever [AI Jam](https://www.anthropic.com/news/anthropic-partners-with-u-s-national-labs-for-first-1-000-scientist-ai-jam) with U.S. National Labs, and the [aiEDGE for Innovation Day](https://www.llnl.gov/article/52701/llnl-employees-dive-ais-transformative-potential-aiedge-innovation-day) in March, where approximately 3,200 LLNL scientists and operational staff experienced firsthand how Claude can accelerate and enhance scientific national security research.
+This expansion follows a successful pilot program, the first-ever AI Jam with U.S. National Labs, and the aiEDGE for Innovation Day in March, where approximately 3,200 LLNL scientists and operational staff experienced firsthand how Claude can accelerate and enhance scientific national security research.
 
 ## Getting started
 
-Organizations interested in transforming their operations with Claude for Enterprise can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.
+Organizations interested in transforming their operations with Claude for Enterprise can contact our public sector team to learn more and get started.
 
 _This blog was updated on July 11, 2025 with additional information from LLNL._
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

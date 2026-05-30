@@ -14,7 +14,7 @@ Exploring new planets means that you’re always operating in the past. It takes
 
 But on December 8 and 10, 2025, the commands that were sent to NASA’s Perseverance Rover looked like something from the future. That’s because, for the first time ever, they’d been written by an AI.
 
-Specifically, they were written by Anthropic’s AI model, Claude. Engineers at NASA’s [Jet Propulsion Laboratory](https://www.jpl.nasa.gov/) (JPL) used Claude to plot out the route for Perseverance to navigate an approximately four-hundred-meter path through a field of rocks on the Martian surface.
+Specifically, they were written by Anthropic’s AI model, Claude. Engineers at NASA’s Jet Propulsion Laboratory (JPL) used Claude to plot out the route for Perseverance to navigate an approximately four-hundred-meter path through a field of rocks on the Martian surface.
 
 Because of the delay in the signal to the rover, operators can’t micromanage where it drives. They plan a route, send it, and only later see the results. Until now, human experts have always been the ones to do that planning. This time, Claude lent a hand.
 
@@ -52,23 +52,23 @@ LEFT NAVCAMRIGHT NAVCAM
 
 Sounds of Perseverance Mars rover driving
 
-The Perseverance Rover—a car-sized robot bristling with cameras and scientific equipment—has been active on Mars since it landed in February 2021. Its mission is to characterize the planet’s geology and past climate, collecting samples of Martian rock and regolith (broken rocks and dust) and paving the way for human exploration of the Red Planet. Another of its key objectives is [astrobiological](https://journals.sagepub.com/doi/10.1089/ast.2021.0129) in nature: its landing site, the forty-five-kilometer-wide Jezero crater, was chosen because of [the evidence](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2024AV001241) that once, billions of years ago, it contained water—water that might have supported microbial life. So far, the rover has discovered [tantalizing hints](https://www.nasa.gov/news-release/nasa-says-mars-rover-discovered-potential-biosignature-last-year/) of what might be ancient biology on Mars.
+The Perseverance Rover—a car-sized robot bristling with cameras and scientific equipment—has been active on Mars since it landed in February 2021. Its mission is to characterize the planet’s geology and past climate, collecting samples of Martian rock and regolith (broken rocks and dust) and paving the way for human exploration of the Red Planet. Another of its key objectives is astrobiological in nature: its landing site, the forty-five-kilometer-wide Jezero crater, was chosen because of the evidence that once, billions of years ago, it contained water—water that might have supported microbial life. So far, the rover has discovered tantalizing hints of what might be ancient biology on Mars.
 
-But driving on the Martian surface is hardly trivial. Every rover drive needs to be carefully planned, lest the machine slide, tip, spin its wheels, or get beached. So ever since the rover landed, its human operators have painstakingly laid out waypoints—they call it a “breadcrumb trail”—for it to follow, using a combination of images taken from space and the rover’s onboard cameras. Once it’s drawn up, the plan is transmitted across the 362 million kilometers between Earth and Mars using the [Deep Space Network](https://eyes.nasa.gov/apps/dsn-now/). Having received the signals, the rover embarks on its trip.
+But driving on the Martian surface is hardly trivial. Every rover drive needs to be carefully planned, lest the machine slide, tip, spin its wheels, or get beached. So ever since the rover landed, its human operators have painstakingly laid out waypoints—they call it a “breadcrumb trail”—for it to follow, using a combination of images taken from space and the rover’s onboard cameras. Once it’s drawn up, the plan is transmitted across the 362 million kilometers between Earth and Mars using the Deep Space Network. Having received the signals, the rover embarks on its trip.
 
-This is high-stakes work. In 2009, the [Spirit](https://science.nasa.gov/mission/mer-spirit/) rover, one of the forebears of Perseverance, drove into a sand trap and never moved again.
+This is high-stakes work. In 2009, the Spirit rover, one of the forebears of Perseverance, drove into a sand trap and never moved again.
 
 Real footage from JPL user interfaces on sol 1709
 
-[Read more about the interfaces](https://www-robotics.jpl.nasa.gov/what-we-do/applications/user-interfaces/)
+Read more about the interfaces
 
-All this meticulous planning is time-consuming. Perseverance has an [AutoNav](https://science.nasa.gov/resource/autonav-drives-perseverance-forward/) system that helps it steer around obstacles between the waypoints, but it only sees things from the rover’s own perspective and can’t plan too far ahead.
+All this meticulous planning is time-consuming. Perseverance has an AutoNav system that helps it steer around obstacles between the waypoints, but it only sees things from the rover’s own perspective and can’t plan too far ahead.
 
-JPL’s engineers tested whether Claude could save them some of that laborious work by helping to plan Perseverance’s route—and do so with the same level of accuracy as a human operator. They set up a process in [Claude Code](https://claude.com/product/claude-code) to delegate the waypoint-setting to the AI.
+JPL’s engineers tested whether Claude could save them some of that laborious work by helping to plan Perseverance’s route—and do so with the same level of accuracy as a human operator. They set up a process in Claude Code to delegate the waypoint-setting to the AI.
 
-Claude didn’t do this with a single prompt. Instead, the model needed context before it could effectively plot the waypoints. The JPL engineers gathered together the data and experience they’d gained from years of driving the rover, and provided [it to Claude Code](https://code.claude.com/docs/en/skills). With all this extra information, Claude used its coding skills to write commands in Rover Markup Language—the bespoke, XML-based programming language originally developed for the [Mars Exploration Rover](https://science.nasa.gov/mission/mars-exploration-rovers-spirit-and-opportunity/) mission.
+Claude didn’t do this with a single prompt. Instead, the model needed context before it could effectively plot the waypoints. The JPL engineers gathered together the data and experience they’d gained from years of driving the rover, and provided it to Claude Code. With all this extra information, Claude used its coding skills to write commands in Rover Markup Language—the bespoke, XML-based programming language originally developed for the Mars Exploration Rover mission.
 
-Using its vision capabilities to analyze the overhead images, Claude planned Perseverance’s breadcrumb trail point by point for sol 1707 and sol 1709 (a [sol](https://www.giss.nasa.gov/tools/mars24/help/notes.html) is a Martian day; these were the near-equivalent of December 8 and 10 on Earth). It strung together ten-meter segments into a path, then iterated to refine the waypoints—critiquing its own work and suggesting revisions.
+Using its vision capabilities to analyze the overhead images, Claude planned Perseverance’s breadcrumb trail point by point for sol 1707 and sol 1709 (a sol is a Martian day; these were the near-equivalent of December 8 and 10 on Earth). It strung together ten-meter segments into a path, then iterated to refine the waypoints—critiquing its own work and suggesting revisions.
 
 As with any AI output, it’s important to check Claude’s work. The waypoints drawn by Claude were run through a simulation that Perseverance uses every day to confirm the accuracy of the commands: over 500,000 variables were modeled to check the projected positions of the rover and predict any hazards along its route.
 
@@ -78,13 +78,13 @@ When the JPL engineers reviewed Claude’s plans, they found that only minor cha
 
 The engineers estimate that using Claude in this way will cut the route-planning time in half, and make the journeys more consistent. Less time spent doing tedious manual planning—and less time spent training—allows the rover’s operators to fit in even more drives, collect even more scientific data, and do even more analysis. It means, in short, that we’ll learn much more about Mars.
 
-[View more images](https://mars.nasa.gov/mars2020/multimedia/raw-images/?begin_sol=1707&end_sol=1709#raw-images)
+View more images
 
 Claude’s role in the Perseverance mission is in many ways just a test run for what comes next.
 
 The kinds of autonomous capabilities that Claude showed on the Mars rover drive—quickly understanding novel situations, writing code to operate complex instruments, making smart decisions without too much hand-holding from its operators—are exactly those that’ll prove useful on longer and more ambitious space missions.
 
-NASA’s upcoming [Artemis](https://www.nasa.gov/humans-in-space/artemis/) campaign aims to send humans back to the Moon, and to eventually establish a US-led base on the lunar south pole. Doing so will involve overcoming countless engineering challenges—and just like on Mars, using resources efficiently will be the watchword.
+NASA’s upcoming Artemis campaign aims to send humans back to the Moon, and to eventually establish a US-led base on the lunar south pole. Doing so will involve overcoming countless engineering challenges—and just like on Mars, using resources efficiently will be the watchword.
 
 Just as Claude can apply its intelligence to the range of rather more sublunary tasks we carry out on Earth, developing a general AI assistant that’s versatile and reliable enough to help with everything from mapping lunar geology to monitoring the astronauts’ life-support systems will be a force multiplier for NASA missions to the Moon and Mars.
 
@@ -94,13 +94,13 @@ Even further in the future, autonomous AI systems could help probes explore ever
 
 > “Autonomous AI systems could help probes explore ever more distant parts _of the_ solar system.”
 
-[![](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F7f2bcaabce956f5f953308a8f833f22529bd212b-1264x1200.png&w=1920&q=75)Mastcam-Z's color calibration target](https://science.nasa.gov/resource/mastcam-zs-calibration-target/)
+![](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F7f2bcaabce956f5f953308a8f833f22529bd212b-1264x1200.png&w=1920&q=75)Mastcam-Z's color calibration target
 
-[![](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2Fe83fce5e63e90557cdc541aa693c79e06f9eb556-1288x968.png&w=1920&q=75)Detail of NASA's Mars Perseverance rover](https://science.nasa.gov/mission/mars-2020-perseverance/rover-components/)
+![](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2Fe83fce5e63e90557cdc541aa693c79e06f9eb556-1288x968.png&w=1920&q=75)Detail of NASA's Mars Perseverance rover
 
-Claude’s four-hundred meter drive on Mars provides the first glimmer that we might be able to solve those problems, and build a future full of truly autonomous machines that can make fast, adaptive, efficient decisions without waiting for human input. A future where one day our probes might visit moons like [Europa](https://science.nasa.gov/mission/europa-clipper/why-europa-ingredients-for-life/) or [Titan](https://science.nasa.gov/saturn/moons/titan/), descend through their icy shells, and chart their own course through the dark oceans below.
+Claude’s four-hundred meter drive on Mars provides the first glimmer that we might be able to solve those problems, and build a future full of truly autonomous machines that can make fast, adaptive, efficient decisions without waiting for human input. A future where one day our probes might visit moons like Europa or Titan, descend through their icy shells, and chart their own course through the dark oceans below.
 
-[![](https://cdn.sanity.io/images/4zrzovbb/website/2d4a112e61566fdcebc25aecc2bef75bb14a7fec-277x104.svg?w=1200&fm=webp&q=85)](https://claude.ai/)
+![](https://cdn.sanity.io/images/4zrzovbb/website/2d4a112e61566fdcebc25aecc2bef75bb14a7fec-277x104.svg?w=1200&fm=webp&q=85)
 
 ## Explore more from NASA JPL
 
@@ -110,4 +110,4 @@ Loading 3D model...
 
 ### NASA ARCHIVES
 
-[Raw images1.2M+ photos from 23 cameras](https://mars.nasa.gov/mars2020/multimedia/raw-images/)[Rover locationCurrent position on Mars](https://science.nasa.gov/mission/mars-2020-perseverance/location-map/)[MEDA archiveFull weather dataset](https://pds-atmospheres.nmsu.edu/data_and_services/atmospheres_data/PERSEVERANCE/meda.html)[PDS science dataComplete instrument archives](https://pds-geosciences.wustl.edu/missions/mars2020/)[Mars audio5 hours of Martian sounds](https://mars.nasa.gov/mars2020/multimedia/audio/)[Ingenuity logs72 flights, 17km flown](https://science.nasa.gov/resource/perseverances-selfie-with-ingenuity/)
+Raw images1.2M+ photos from 23 camerasRover locationCurrent position on MarsMEDA archiveFull weather datasetPDS science dataComplete instrument archivesMars audio5 hours of Martian soundsIngenuity logs72 flights, 17km flown

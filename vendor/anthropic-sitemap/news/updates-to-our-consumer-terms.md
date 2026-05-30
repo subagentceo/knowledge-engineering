@@ -1,3 +1,5 @@
+# Updates to Consumer Terms and Privacy Policy
+
 Product
 
 # Updates to Consumer Terms and Privacy Policy
@@ -18,15 +20,15 @@ You’re always in control of this setting and whether we use your data in this 
 
 In-app notification for existing Claude app users
 
-Starting today, we’re rolling out notifications so you can review these updates and manage your settings. If you’re an existing user, you have until October 8, 2025 to accept the updated Consumer Terms and make your decision. If you choose to accept the new policies now, they will go into effect immediately. These updates will apply only to new or resumed chats and coding sessions. After October 8, you’ll need to make your selection on the model training setting in order to continue using Claude. You can change your choice in your [Privacy Settings](https://claude.ai/redirect/website.v1.010bbeb5-7851-4e3f-8fb9-1ef471de8382/settings/data-privacy-controls) at any time.
+Starting today, we’re rolling out notifications so you can review these updates and manage your settings. If you’re an existing user, you have until October 8, 2025 to accept the updated Consumer Terms and make your decision. If you choose to accept the new policies now, they will go into effect immediately. These updates will apply only to new or resumed chats and coding sessions. After October 8, you’ll need to make your selection on the model training setting in order to continue using Claude. You can change your choice in your Privacy Settings at any time.
 
 ## Extended data retention
 
 We are also extending data retention to five years, if you allow us to use your data for model training. This updated retention length will only apply to new or resumed chats and coding sessions, and will allow us to better support model development and safety improvements. If you delete a conversation with Claude it will not be used for future model training. If you do not choose to provide your data for model training, you’ll continue with our existing 30-day data retention period.
 
-The new five-year retention period will also apply to [feedback](https://privacy.anthropic.com/en/articles/10023548-how-long-do-you-store-my-data) you submit to us about Claude’s responses to prompts.
+The new five-year retention period will also apply to feedback you submit to us about Claude’s responses to prompts.
 
-To protect users’ privacy, we use a combination of tools and [automated processes](https://www.anthropic.com/research/clio) to filter or obfuscate sensitive data. We do not sell users’ data to third parties.
+To protect users’ privacy, we use a combination of tools and automated processes to filter or obfuscate sensitive data. We do not sell users’ data to third parties.
 
 You can find more details about the Consumer Terms and Privacy Policy updates in our FAQ section below.
 
@@ -34,23 +36,23 @@ You can find more details about the Consumer Terms and Privacy Policy updates in
 
 #### What’s changing?
 
--   We will train new models using data from Free, Pro, and Max accounts **when this setting is on** (including when you use Claude Code from these accounts).
-    -   If you’re a current user, you can select your preference now and your selection will immediately go into effect. This setting will only apply to new or resumed chats and coding sessions on Claude. Previous chats with no additional activity will not be used for model training. You have until **October 8, 2025** to make your selection.
-    -   If you’re a new user, you can pick your setting for model training during the signup process.
-    -   You can change your selection at any time in your [Privacy Settings](https://claude.ai/settings/data-privacy-controls).
--   We are also expanding our data retention period to five years if you allow us to use your data for model improvement, with this setting only applying to new or resumed chats and coding sessions. If you don't choose this option, you will continue with our existing 30-day data retention period.
+*   We will train new models using data from Free, Pro, and Max accounts **when this setting is on** (including when you use Claude Code from these accounts).
+    *   If you’re a current user, you can select your preference now and your selection will immediately go into effect. This setting will only apply to new or resumed chats and coding sessions on Claude. Previous chats with no additional activity will not be used for model training. You have until **October 8, 2025** to make your selection.
+    *   If you’re a new user, you can pick your setting for model training during the signup process.
+    *   You can change your selection at any time in your Privacy Settings.
+*   We are also expanding our data retention period to five years if you allow us to use your data for model improvement, with this setting only applying to new or resumed chats and coding sessions. If you don't choose this option, you will continue with our existing 30-day data retention period.
 
 These updates **do not apply** to services under our Commercial Terms, including:
 
--   Claude for Work, which includes our Team and Enterprise plans
--   Our API, Amazon Bedrock, or Google Cloud’s Vertex API
--   Claude Gov and Claude for Education
+*   Claude for Work, which includes our Team and Enterprise plans
+*   Our API, Amazon Bedrock, or Google Cloud’s Vertex API
+*   Claude Gov and Claude for Education
 
 #### Why are you making this change?
 
 All large language models, like Claude, are trained using large amounts of data. Data from real-world interactions provide valuable insights on which responses are most useful and accurate for users. For example, when a developer debugs code by collaborating with an AI model, that interaction offers valuable signals that help improve future models on similar coding tasks. This creates a feedback loop that helps models get better over time.
 
-It’s up to you to choose whether to allow your data to be used to improve new Claude models and you can change your choice anytime in your [Privacy Settings](https://claude.ai/settings/data-privacy-controls).
+It’s up to you to choose whether to allow your data to be used to improve new Claude models and you can change your choice anytime in your Privacy Settings.
 
 #### Why are you extending the data retention period?
 
@@ -58,7 +60,7 @@ AI development cycles span years—models released today began development 18 to
 
 The extended retention period also helps us improve our classifiers—systems that help us identify misuse—to detect harmful usage patterns. These systems get better at identifying activity like abuse, spam, or misuse when they can learn from data collected over longer periods, helping us keep Claude safe for everyone.
 
-If you change your setting on providing your data for training or delete your account, we'll exclude your data from future model training. If you delete individual chats, they won't be included in future training either. Learn more about our data retention practices [here](https://privacy.anthropic.com/en/articles/10023548-how-long-do-you-store-my-data).
+If you change your setting on providing your data for training or delete your account, we'll exclude your data from future model training. If you delete individual chats, they won't be included in future training either. Learn more about our data retention practices here.
 
 #### What action do I need to take?
 
@@ -72,22 +74,20 @@ You can always update your selection in your Privacy Settings. If you decide to 
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/updates-to-our-consumer-terms)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/updates-to-our-consumer-terms)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

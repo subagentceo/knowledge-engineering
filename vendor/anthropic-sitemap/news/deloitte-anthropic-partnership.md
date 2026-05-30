@@ -1,3 +1,5 @@
+# Deloitte will make Claude available to 470,000 people across its global network
+
 Announcements
 
 # Deloitte will make Claude available to 470,000 people across its global network
@@ -8,9 +10,9 @@ Oct 6, 2025
 
 Anthropic and Deloitte today announced an expanded alliance that will make Claude available to Deloitte people across its global network and develop new industry-specific solutions powered by Claude. As part of the collaboration, Deloitte will establish a Claude Center of Excellence with trained specialists who will develop implementation frameworks, share leading practices across deployments, and provide ongoing technical support to create the systems needed to move AI pilots to production at scale. The collaboration represents Anthropic's largest enterprise AI deployment to date, available to more than 470,000 Deloitte people.
 
-Deloitte and Anthropic are co-creating a formal certification program to [train and certify 15,000 of its professionals](https://www.deloitte.com/us/en/about/press-room/deloitte-and-anthropic-launch-certification-program.html) on Claude. These practitioners will help support Claude implementations across Deloitte's network and Deloitte’s internal AI transformation efforts.
+Deloitte and Anthropic are co-creating a formal certification program to train and certify 15,000 of its professionals on Claude. These practitioners will help support Claude implementations across Deloitte's network and Deloitte’s internal AI transformation efforts.
 
-## **Differentiated Approach**
+## Differentiated Approach
 
 Deloitte and Anthropic will build AI solutions, including compliance features, that companies in regulated industries–like financial services, healthcare and life sciences, and public services–can deploy. These solutions will combine Claude's safety-first design with Deloitte's Trustworthy AI™ framework, so companies can drive increased transparency into model decision making.
 
@@ -18,30 +20,28 @@ Deloitte and Anthropic will build AI solutions, including compliance features, t
 
 "Deloitte is making this significant investment in Anthropic’s AI platform because our approach to responsible AI is very aligned, and together we can reshape how enterprises operate over the next decade. Claude continues to be a leading choice for many clients and our own AI transformation," said Ranjit Bawa, Global Technology and Ecosystems & Alliances Leader, Deloitte Global. “This expanded relationship includes technology integration, plans for the establishment of a Center of Excellence, continued certification of 15,000 professionals, and development of industry-specific solutions as we support our clients through their AI transformations. Anthropic shares our passion for safety and reliability, along with our assessment that enterprise AI should be both powerful and principled."
 
-## **Getting Started**
+## Getting Started
 
-Deloitte clients can contact their account team to discuss deployment options, enterprises can visit our [Enterprise page](https://claude.com/pricing/enterprise) to explore how Claude can transform their operations, and developers can access the Anthropic API at https://www.claude.com/platform/api.
+Deloitte clients can contact their account team to discuss deployment options, enterprises can visit our Enterprise page to explore how Claude can transform their operations, and developers can access the Anthropic API at https://www.claude.com/platform/api.
 
 _Deloitte refers to one or more of Deloitte Touche Tohmatsu Limited (DTTL), its global network of member firms, and their related entities (collectively, the “Deloitte organization”). DTTL (also referred to as “Deloitte Global”) and each of its member firms and related entities are legally separate and independent entities, which cannot obligate or bind each other in respect of third parties. DTTL and each DTTL member firm and related entity is liable only for its own acts and omissions, and not those of each other. DTTL does not provide services to clients. Please see www.deloitte.com/about to learn more._
 
 _Deloitte provides leading professional services to nearly 90% of the Fortune Global 500® and thousands of private companies. Our people deliver measurable and lasting results that help reinforce public trust in capital markets and enable clients to transform and thrive. Building on its 180-year history, Deloitte spans more than 150 countries and territories. Learn how Deloitte’s approximately 460,000 people worldwide make an impact that matters at www.deloitte.com_
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/deloitte-anthropic-partnership)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/deloitte-anthropic-partnership)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

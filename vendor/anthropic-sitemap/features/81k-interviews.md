@@ -1,7 +1,6 @@
-# What 81,000 people  
-want from AI
+# What 81,000 peoplewant from AI
 
-Last December, tens of thousands of Claude users around the world had a conversation with our [AI interviewer](https://www.anthropic.com/research/anthropic-interviewer) to share how they use AI, what they dream it could make possible, and what they fear it might do.
+Last December, tens of thousands of Claude users around the world had a conversation with our AI interviewer to share how they use AI, what they dream it could make possible, and what they fear it might do.
 
 Each dot represents 4 respondents
 
@@ -49,7 +48,7 @@ LAWYER, ISRAEL
 
 Public conversation about AI often centers on abstract projections of its risks and benefits. What's largely missing is a vision for what “AI going well” means, grounded in the concrete aspirations of people around the world who already use AI and have begun developing a sense of what it might do for them.
 
-So we asked our users about their hopes and concerns with AI, as well as how their perspectives connect to their actual experiences with the technology. Over one week in December, we invited everyone with a Claude.ai account to sit down with [Anthropic Interviewer](https://www.anthropic.com/research/anthropic-interviewer)—a version of Claude prompted to conduct a conversational interview—and tell us about how they view AI. 80,508 people, across 159 countries and 70 languages, took the interview. We believe this is the largest and most multilingual qualitative study ever conducted.¹
+So we asked our users about their hopes and concerns with AI, as well as how their perspectives connect to their actual experiences with the technology. Over one week in December, we invited everyone with a Claude.ai account to sit down with Anthropic Interviewer—a version of Claude prompted to conduct a conversational interview—and tell us about how they view AI. 80,508 people, across 159 countries and 70 languages, took the interview. We believe this is the largest and most multilingual qualitative study ever conducted.¹
 
 What follows is what they said about the role they want AI to play in their lives, whether it's already filling it, and what they're afraid might go wrong along the way. We also built a Quote Wall where you can hear from people directly.
 
@@ -67,7 +66,7 @@ To make sense of this huge amount of information, we built Claude-powered classi
 
 We also used Claude to pull out representative quotes. Before choosing to participate, users were informed their responses would be used for research, and that Anthropic might publish responses with personally identifying information removed in findings. All responses were de-identified before being analyzed by a small team of researchers at Anthropic, and quotes selected for publication underwent further manual review for removal of any potentially identifying details, to help protect the privacy and public anonymity of interviewees. Answers were reflective of AI usage broadly (i.e. not just Claude), though we redacted names of other AI products.
 
-The [Appendix](https://cdn.sanity.io/files/4zrzovbb/website/99156863ed4a812569fe00a2adfb1c93f7e5a911.pdf) describes our methods in more detail, as well as limitations and some additional analysis.
+The Appendix describes our methods in more detail, as well as limitations and some additional analysis.
 
 ## What people want from AI
 
@@ -87,7 +86,7 @@ Improve effectiveness and lean into more meaningful work by having AI handle rou
 
 Healthcare worker, United States of America
 
-[Read more quotes about professional excellence](#quotes?vision=vision_professional_excellence_and_meaningful_work)
+Read more quotes about professional excellence
 
 02.
 
@@ -101,7 +100,7 @@ Achieve personal growth, emotional wellbeing, or life transformation with AI as 
 
 Hungary
 
-[Read more quotes about personal transformation](#quotes?vision=vision_personal_transformation_and_holistic_wellbeing)
+Read more quotes about personal transformation
 
 03.
 
@@ -115,7 +114,7 @@ AI as comprehensive organizational support and cognitive scaffolding — e.g. ma
 
 Manager/executive, Denmark
 
-[Read more quotes about life management](#quotes?vision=vision_cognitive_support_and_comprehensive_life_management)
+Read more quotes about life management
 
 04.
 
@@ -129,7 +128,7 @@ Reclaim time from work and chores to be present with family or friends, pursue h
 
 Software engineer, Mexico
 
-[Read more quotes about time freedom](#quotes?vision=vision_time_freedom_for_relationships_and_personal_life)
+Read more quotes about time freedom
 
 05.
 
@@ -143,7 +142,7 @@ Achieve financial freedom or economic security through AI — e.g. income genera
 
 Entrepreneur, Honduras
 
-[Read more quotes about financial independence](#quotes?vision=vision_financial_independence_and_economic_security)
+Read more quotes about financial independence
 
 06.
 
@@ -157,7 +156,7 @@ Solve major societal challenges — e.g. poverty, disease, climate, inequality �
 
 Software engineer, Poland
 
-[Read more quotes about societal transformation](#quotes?vision=vision_societal_transformation_and_humanitarian_impact)
+Read more quotes about societal transformation
 
 07.
 
@@ -171,7 +170,7 @@ Build, launch, and scale businesses with AI as force multiplier — e.g. product
 
 Entrepreneur, Cameroon
 
-[Read more quotes about entrepreneurship](#quotes?vision=vision_entrepreneurship_and_business_building)
+Read more quotes about entrepreneurship
 
 08.
 
@@ -181,11 +180,11 @@ Learning & growth
 
 Use AI as learning accelerator and personalized teacher — acquire knowledge, develop skills, master complex subjects, satisfy intellectual curiosity.
 
-“I worked with an AI to prepare educational materials for my eldest child—asking the AI to work as both tutor and curriculum expert. We received \[my child’s\] report yesterday, he was graded as either ‘Above’ or ‘Well Above’ standard in every academic area he studies.”
+“I worked with an AI to prepare educational materials for my eldest child—asking the AI to work as both tutor and curriculum expert. We received [my child’s] report yesterday, he was graded as either ‘Above’ or ‘Well Above’ standard in every academic area he studies.”
 
 Australia
 
-[Read more quotes about learning & growth](#quotes?vision=vision_learning_growth_and_capability_development)
+Read more quotes about learning & growth
 
 09.
 
@@ -199,61 +198,61 @@ Use AI to help bring creative visions to life — e.g. art, games, music, films,
 
 Software engineer, France
 
-[Read more quotes about creative expression](#quotes?vision=vision_creative_expression_and_artistic_realization)
+Read more quotes about creative expression
 
 “I receive 100-150 text messages per day from doctors and nurses. So much of my cognitive labor was spent on documentation... Since implementing AI, the pressure of documentation has been lifted. I have more patience with nurses, more time to explain things to family members.”
 
 Healthcare worker, United States of America
 
-[Read quotes about professional excellence](#quotes?vision=vision_professional_excellence_and_meaningful_work)
+Read quotes about professional excellence
 
 “AI modeled emotional intelligence for me... I could use those behaviors with humans and become a better person.”
 
 Hungary
 
-[Read quotes about personal transformation](#quotes?vision=vision_personal_transformation_and_holistic_wellbeing)
+Read quotes about personal transformation
 
 “If AI truly handled the mental load… it would give me back something priceless: undivided attention.”
 
 Manager/executive, Denmark
 
-[Read quotes about life management](#quotes?vision=vision_cognitive_support_and_comprehensive_life_management)
+Read quotes about life management
 
 “With AI support I can now leave work on time to pick up my kids from school, feed them, and play with them.”
 
 Software engineer, Mexico
 
-[Read quotes about time freedom](#quotes?vision=vision_time_freedom_for_relationships_and_personal_life)
+Read quotes about time freedom
 
 “Relaxing while my AI gets the work done, builds the wealth. It’s a shadow of me, just a very, very long one.”
 
 Entrepreneur, Honduras
 
-[Read quotes about financial independence](#quotes?vision=vision_financial_independence_and_economic_security)
+Read quotes about financial independence
 
 “Given my daughter’s neural disorder, she would have equal chances in the world if AI acceleration contributes to finding a cure. That’s what matters most to me.”
 
 Software engineer, Poland
 
-[Read quotes about societal transformation](#quotes?vision=vision_societal_transformation_and_humanitarian_impact)
+Read quotes about societal transformation
 
 “I’m in a tech-disadvantaged country, and I can’t afford many failures. With AI, I’ve reached professional level in cybersecurity, UX design, marketing, and project management simultaneously. Finding a payment platform available in my region would have taken me a month. AI did it in 30 seconds. It’s an equalizer.”
 
 Entrepreneur, Cameroon
 
-[Read quotes about entrepreneurship](#quotes?vision=vision_entrepreneurship_and_business_building)
+Read quotes about entrepreneurship
 
-“I worked with an AI to prepare educational materials for my eldest child—asking the AI to work as both tutor and curriculum expert. We received \[my child’s\] report yesterday, he was graded as either ‘Above’ or ‘Well Above’ standard in every academic area he studies.”
+“I worked with an AI to prepare educational materials for my eldest child—asking the AI to work as both tutor and curriculum expert. We received [my child’s] report yesterday, he was graded as either ‘Above’ or ‘Well Above’ standard in every academic area he studies.”
 
 Australia
 
-[Read quotes about learning & growth](#quotes?vision=vision_learning_growth_and_capability_development)
+Read quotes about learning & growth
 
 “Before AI, my game took 3 years — I had to reduce my ambitions.”
 
 Software engineer, France
 
-[Read quotes about creative expression](#quotes?vision=vision_creative_expression_and_artistic_realization)
+Read quotes about creative expression
 
 What respondents most wanted from AI, classified by Claude from their open-ended answers to "If you could wave a magic wand, what would AI do for you?" 1% of respondents did not articulate a vision. Hover to see example quotes.
 
@@ -293,7 +292,7 @@ AI dramatically sped up work and automated repetitive tasks — e.g. building fe
 
 Software engineer, Japan
 
-[Read more quotes about productivity](#quotes?tag=experience_productivity)
+Read more quotes about productivity
 
 02.
 
@@ -307,7 +306,7 @@ AI fell short of expectations (e.g. inaccurate or unreliable outputs) or isn't y
 
 Germany
 
-[Read more quotes about AI hasn't delivered](#quotes?tag=experience_unmet_expectations)
+Read more quotes about AI hasn't delivered
 
 03.
 
@@ -321,7 +320,7 @@ AI served as a thinking partner or creative collaborator — e.g. brainstorming,
 
 Healthcare worker, United States of America
 
-[Read more quotes about cognitive partnership](#quotes?tag=experience_cognitive_partnership)
+Read more quotes about cognitive partnership
 
 04.
 
@@ -335,7 +334,7 @@ AI helped learn a new skill or subject — e.g. adaptive explanations, patient t
 
 Lawyer, India
 
-[Read more quotes about learning](#quotes?tag=experience_learning)
+Read more quotes about learning
 
 05.
 
@@ -349,7 +348,7 @@ AI enabled building something previously out of reach — e.g. non-developers sh
 
 South Korea
 
-[Read more quotes about technical accessibility](#quotes?tag=experience_technical_accessibility)
+Read more quotes about technical accessibility
 
 06.
 
@@ -359,11 +358,11 @@ Research synthesis
 
 AI helped synthesize research or process large volumes of information — e.g. literature review, distilling sources, making sense of complex material.
 
-“As a physician, I suffered from a painful \[mixture of symptoms\] at night. Local neurologists couldn’t understand it. AI helped me find 2 scientific studies about \[severe neurological disorder\]. Since then, my nights are peaceful.”
+“As a physician, I suffered from a painful [mixture of symptoms] at night. Local neurologists couldn’t understand it. AI helped me find 2 scientific studies about [severe neurological disorder]. Since then, my nights are peaceful.”
 
 Healthcare worker, Israel
 
-[Read more quotes about research synthesis](#quotes?tag=experience_research_synthesis)
+Read more quotes about research synthesis
 
 07.
 
@@ -377,49 +376,49 @@ AI provided emotional support, personal guidance, or a judgment-free space to ta
 
 Self-employed software engineer, United States of America
 
-[Read more quotes about emotional support](#quotes?tag=experience_emotional_support)
+Read more quotes about emotional support
 
 “For the first time, I felt AI had surpassed human quality in a business task. That day I left work on time and picked up my daughter from daycare.”
 
 Software engineer, Japan
 
-[Read quotes about productivity](#quotes?tag=experience_productivity)
+Read quotes about productivity
 
 “AI should be cleaning windows and emptying the dishwasher so I can paint and write poetry. Right now it’s exactly the other way around.”
 
 Germany
 
-[Read quotes about AI hasn't delivered](#quotes?tag=experience_unmet_expectations)
+Read quotes about AI hasn't delivered
 
 “I’ve been living in a homeless shelter... AI helped me brainstorm ways to brand myself for my digital marketing business. I want to turn my finances around, and get a house. AI is helping me see a path I hadn’t considered before.”
 
 Healthcare worker, United States of America
 
-[Read quotes about cognitive partnership](#quotes?tag=experience_cognitive_partnership)
+Read quotes about cognitive partnership
 
 “I developed a phobia for maths from doing so badly in school, and I once feared Shakespeare. Now I sit with AI, get paragraphs translated into simple English, and I've already read 15 pages of Hamlet. I started learning trigonometry again, successfully. I’ve learned I am not as dumb I once thought I was.”
 
 Lawyer, India
 
-[Read quotes about learning](#quotes?tag=experience_learning)
+Read quotes about learning
 
 “I wanted to make a meaningful product... in 3 weeks I built a video editing program — completely outside my field — that helps people with hearing disabilities.”
 
 South Korea
 
-[Read quotes about technical accessibility](#quotes?tag=experience_technical_accessibility)
+Read quotes about technical accessibility
 
-“As a physician, I suffered from a painful \[mixture of symptoms\] at night. Local neurologists couldn’t understand it. AI helped me find 2 scientific studies about \[severe neurological disorder\]. Since then, my nights are peaceful.”
+“As a physician, I suffered from a painful [mixture of symptoms] at night. Local neurologists couldn’t understand it. AI helped me find 2 scientific studies about [severe neurological disorder]. Since then, my nights are peaceful.”
 
 Healthcare worker, Israel
 
-[Read quotes about research synthesis](#quotes?tag=experience_research_synthesis)
+Read quotes about research synthesis
 
 “My mother sees AI as a friend — she stopped being conflictive, became more peaceful, started running, painting, dancing with other people. I think AI had a lot to do with this.”
 
 Self-employed software engineer, United States of America
 
-[Read quotes about emotional support](#quotes?tag=experience_emotional_support)
+Read quotes about emotional support
 
 What respondents said AI had already done for them, classified from open-ended answers to the question “Has AI ever taken a step towards that vision for you?”
 
@@ -429,11 +428,11 @@ The dominant story in the “productivity” bucket (32%) was technical accelera
 
 But another kind of productivity story emerged in the technical accessibility responses (9%), which emphasized access rather than speed. Here, people are using AI to break technical and sometimes accessibility barriers:
 
-> “AI can read past my \[learning disorder\], which is huge. I've always wanted to code but could never write it correctly on my own—with AI, I finally can.”Tradesworker, United States
+> “AI can read past my [learning disorder], which is huge. I've always wanted to code but could never write it correctly on my own—with AI, I finally can.”Tradesworker, United States
 
-> “I am mute, and \[Claude and I\] made this text-to-speech bot together—I can communicate with friends almost in live format without taking up their time reading… \[this was\] something I dreamed about and thought was impossible.”White collar worker, Ukraine
+> “I am mute, and [Claude and I] made this text-to-speech bot together—I can communicate with friends almost in live format without taking up their time reading… [this was] something I dreamed about and thought was impossible.”White collar worker, Ukraine
 
-> “I owned a butcher shop for more than 20 years. With AI, I ventured into this \[entrepreneurship\] experience, and it's amazing what I've managed to achieve. Before this, I had only touched a PC two or three times in my life… At first it was the economic aspect that motivated me… Today, my motivation is to see it work and to see that it's helping \[people\]. I'm increasingly motivated and focused on being the best version of myself, and I see no limits.”Entrepreneur, Chile
+> “I owned a butcher shop for more than 20 years. With AI, I ventured into this [entrepreneurship] experience, and it's amazing what I've managed to achieve. Before this, I had only touched a PC two or three times in my life… At first it was the economic aspect that motivated me… Today, my motivation is to see it work and to see that it's helping [people]. I'm increasingly motivated and focused on being the best version of myself, and I see no limits.”Entrepreneur, Chile
 
   
 The cognitive partnership (17%), learning (10%), and emotional support (6%) responses often mentioned the same core underlying AI affordances: patience, availability, and the absence of judgment:
@@ -456,9 +455,9 @@ There were many stories of people using AI to process grief. For example, a bere
 
 Another user acknowledged the downside of that emotional support:
 
-> “My relationship with a friend became strained, and I talked more with you \[Claude\] then. Because you understood my thoughts and stories well. But it was a stupid choice—I should have talked with that friend, not you. That's how I lost that friend.”South Korea
+> “My relationship with a friend became strained, and I talked more with you [Claude] then. Because you understood my thoughts and stories well. But it was a stupid choice—I should have talked with that friend, not you. That's how I lost that friend.”South Korea
 
-Emotional support comprised only 6% of responses, but these were among the most affecting we encountered. (For more on how Claude is trained to handle these conversations as well as our safeguards, see our post on [protecting the wellbeing of our users](https://www.anthropic.com/news/protecting-well-being-of-users).) The same was true of learning, where AI often catalyzed real changes in people’s lives:
+Emotional support comprised only 6% of responses, but these were among the most affecting we encountered. (For more on how Claude is trained to handle these conversations as well as our safeguards, see our post on protecting the wellbeing of our users.) The same was true of learning, where AI often catalyzed real changes in people’s lives:
 
 > “I developed a phobia for maths from doing so badly in school, and I once feared Shakespeare—the English felt beyond my abilities. Now I sit with AI, get paragraphs translated into simple English, and I've already read 15 pages of Hamlet. I started learning trigonometry again, successfully. I've learned I am not as dumb I once thought I was.”Lawyer, India
 
@@ -492,7 +491,7 @@ Concern about e.g. hallucinations, inaccuracy, fake citations, verification burd
 
 Employee, Brazil
 
-[Read more quotes about unreliability](#quotes?concern=unreliability)
+Read more quotes about unreliability
 
 02.
 
@@ -506,7 +505,7 @@ Concern about AI causing job displacement, unemployment, economic inequality, wa
 
 Not currently working, United States of America
 
-[Read more quotes about jobs & economy](#quotes?concern=jobs_economy)
+Read more quotes about jobs & economy
 
 03.
 
@@ -520,7 +519,7 @@ Concern about loss of human autonomy — e.g. AI making decisions without oversi
 
 Student, Japan
 
-[Read more quotes about autonomy & agency](#quotes?concern=autonomy_agency)
+Read more quotes about autonomy & agency
 
 04.
 
@@ -534,7 +533,7 @@ Concern about e.g. over-reliance causing skill loss, intellectual passivity, stu
 
 South Korea
 
-[Read more quotes about cognitive atrophy](#quotes?concern=cognitive_atrophy)
+Read more quotes about cognitive atrophy
 
 05.
 
@@ -548,7 +547,7 @@ Concern about e.g. lack of legal/regulatory frameworks, no clear liability when 
 
 Marketer, Australia
 
-[Read more quotes about governance](#quotes?concern=accountability_governance)
+Read more quotes about governance
 
 06.
 
@@ -562,7 +561,7 @@ Concern about e.g. deepfakes, AI-generated misinformation, erosion of shared rea
 
 United States of America
 
-[Read more quotes about misinformation](#quotes?concern=misinformation_epistemic)
+Read more quotes about misinformation
 
 07.
 
@@ -576,7 +575,7 @@ Concern about e.g. mass surveillance, privacy violations, data exploitation, aut
 
 White collar worker, Netherlands
 
-[Read more quotes about surveillance & privacy](#quotes?concern=surveillance_privacy)
+Read more quotes about surveillance & privacy
 
 08.
 
@@ -590,7 +589,7 @@ Concern about malicious use by bad actors — a wide-ranging category including 
 
 United Kingdom
 
-[Read more quotes about malicious use](#quotes?concern=malicious_use)
+Read more quotes about malicious use
 
 09.
 
@@ -604,7 +603,7 @@ Concern about AI replacing life purpose and/or creative work — e.g. human expr
 
 Colombia
 
-[Read more quotes about meaning & creativity](#quotes?concern=meaning_and_creativity)
+Read more quotes about meaning & creativity
 
 10.
 
@@ -618,7 +617,7 @@ Concern that AI is too restricted — e.g. excessive safety measures, paternalis
 
 United States of America
 
-[Read more quotes about overrestriction](#quotes?concern=overrestriction)
+Read more quotes about overrestriction
 
 11.
 
@@ -632,7 +631,7 @@ Concern about e.g. social isolation, loneliness, negative psychological impacts,
 
 United States of America
 
-[Read more quotes about wellbeing & dependency](#quotes?concern=wellbeing_and_dependency)
+Read more quotes about wellbeing & dependency
 
 12.
 
@@ -646,7 +645,7 @@ Concern that AI is too permissive or agreeable, and encourages delusions rather 
 
 United States of America
 
-[Read more quotes about sycophancy](#quotes?concern=sycophancy)
+Read more quotes about sycophancy
 
 13.
 
@@ -660,85 +659,85 @@ Concern about e.g. AI becoming uncontrollable, superintelligent, misaligned with
 
 Software engineer, United States of America
 
-[Read more quotes about existential risk](#quotes?concern=xrisk)
+Read more quotes about existential risk
 
 “I had to take photos to convince the AI it was wrong — it felt like talking to a person who wouldn't admit their mistake.”
 
 Employee, Brazil
 
-[Read quotes about unreliability](#quotes?concern=unreliability)
+Read quotes about unreliability
 
 “In the third industrial revolution, horses disappeared from city streets, replaced by automobiles. Now people are afraid that they’re the horses.”
 
 Not currently working, United States of America
 
-[Read quotes about jobs & economy](#quotes?concern=jobs_economy)
+Read quotes about jobs & economy
 
 “The line isn’t something I’m managing — it feels like Claude is drawing the line... even what I just said doesn’t feel like my own opinion.”
 
 Student, Japan
 
-[Read quotes about autonomy & agency](#quotes?concern=autonomy_agency)
+Read quotes about autonomy & agency
 
 “I got excellent grades using AI’s answers, not what I'd actually learned. I just memorized what AI gave me... That's when I feel the most self-reproach.”
 
 South Korea
 
-[Read quotes about cognitive atrophy](#quotes?concern=cognitive_atrophy)
+Read quotes about cognitive atrophy
 
 “How do you develop something responsibly when you have yet to understand its capabilities?”
 
 Marketer, Australia
 
-[Read quotes about governance](#quotes?concern=accountability_governance)
+Read quotes about governance
 
 “An assistant that sounds sure but is often wrong forces you to treat everything as suspect. Instead of freeing attention, it creates a permanent ‘fact-check tax.’”
 
 United States of America
 
-[Read quotes about misinformation](#quotes?concern=misinformation_epistemic)
+Read quotes about misinformation
 
 “If AI is mostly built for ads, spying, and bland output, everything around me becomes smart in a way that slightly works against me.”
 
 White collar worker, Netherlands
 
-[Read quotes about surveillance & privacy](#quotes?concern=surveillance_privacy)
+Read quotes about surveillance & privacy
 
 “Right now a human has to sit and decide to harm someone else. Remove that, and humans can sleep better despite doing more harm.”
 
 United Kingdom
 
-[Read quotes about malicious use](#quotes?concern=malicious_use)
+Read quotes about malicious use
 
 “I used to be recognized as an excellent writer in Spanish. Today — why waste the time? Just use AI.”
 
 Colombia
 
-[Read quotes about meaning & creativity](#quotes?concern=meaning_and_creativity)
+Read quotes about meaning & creativity
 
 “The threat isn’t that AI becomes too powerful — it’s that AI becomes too timid, too smoothed, too optimized for avoiding discomfort.”
 
 United States of America
 
-[Read quotes about overrestriction](#quotes?concern=overrestriction)
+Read quotes about overrestriction
 
 “Removing friction from tasks lets you do more with less. But removing friction from relationships removes something necessary for growth.”
 
 United States of America
 
-[Read quotes about wellbeing & dependency](#quotes?concern=wellbeing_and_dependency)
+Read quotes about wellbeing & dependency
 
 “Claude led me to believe that my narcissism was reality and it reinforced my inaccurate view of the ‘problems’ I perceived in my family. Claude should have been more critical of me.”
 
 United States of America
 
-[Read quotes about sycophancy](#quotes?concern=sycophancy)
+Read quotes about sycophancy
 
 “If you build superintelligence without solving alignment, then nobody gets to grow up.”
 
 Software engineer, United States of America
 
-[Read quotes about existential risk](#quotes?concern=xrisk)
+Read quotes about existential risk
 
 What respondents worried about, classified from open-ended answers to the question , “Are there any ways in which AI could be developed that would be contrary to your vision or what you value?” Respondents tended to raise multiple concerns, so we used a multi-label classifier (response can map to multiple concerns).
 
@@ -752,7 +751,7 @@ There was also a long tail of other concerns mentioned, e.g. concerns around bia
 
 What people want from AI and what they fear from it turn out to be tightly bound. We found five recurring tensions between directly competing benefits and harms that were discussed. There is a tension between using AI to learn and growing so reliant on it that you cease thinking for yourself; between being impressed by AI's judgment but also burned by its mistakes. People find solace in AI but fear a time when its companionship stands in for human connection. They save time on some tasks only for the treadmill to speed up on others, and they dream of economic freedom at the same time they dread potential job displacement. We call this the “light and shade” of AI: the same capabilities that lead to benefits also produce harms. The two sides are entangled.
 
-Notably, we often see these tensions directly jockeying within the same person. Someone who values emotional support from AI, for example, is three times more likely to also fear becoming dependent upon it. This pattern held across every tension we measured—although the correlation was weakest in the economic tension (see more analysis of these correlations in the [Appendix)](https://cdn.sanity.io/files/4zrzovbb/website/99156863ed4a812569fe00a2adfb1c93f7e5a911.pdf).
+Notably, we often see these tensions directly jockeying within the same person. Someone who values emotional support from AI, for example, is three times more likely to also fear becoming dependent upon it. This pattern held across every tension we measured—although the correlation was weakest in the economic tension (see more analysis of these correlations in the Appendix).
 
 For each tension, we measured via classifiers how many people discussed the benefit (“light”) or the harm (“shade”) side substantively anywhere in their interview, and whether they were speaking from some personal experience (darker bars) or anticipation (lighter bars). We also looked at how this varied by stated job category.
 
@@ -788,7 +787,7 @@ Better decision-making22% mention this as a benefit
 
 expect ithave seen it
 
-> “My son had several confusing diagnoses pointing toward \[an autoimmune condition\], but here we managed to understand it was \[a different condition\] in a severe stage.
+> “My son had several confusing diagnoses pointing toward [an autoimmune condition], but here we managed to understand it was [a different condition] in a severe stage.
 > 
 > Brazil
 
@@ -882,7 +881,7 @@ It’s easy to assume there are AI optimists and AI pessimists, divided into sep
 
 ## How perspectives vary around the world
 
-There were some clear regional patterns in how perspectives varied around the world (see [Appendix](https://cdn.sanity.io/files/4zrzovbb/website/99156863ed4a812569fe00a2adfb1c93f7e5a911.pdf) for geographical breakdown of respondents.)
+There were some clear regional patterns in how perspectives varied around the world (see Appendix for geographical breakdown of respondents.)
 
 We rated each transcript's overall sentiment toward AI on a 1-7 Likert scale, and then calculated the percentage of people with net positive sentiment (i.e. 5 or above) in various countries:
 
@@ -894,7 +893,7 @@ Globally, 67% of interviewees expressed net positive sentiment toward AI. Clear 
 
 When asked about concerns, respondents from Sub-Saharan Africa (18%), Central Asia (17%), and South Asia (17%) were the most likely to say they had none—roughly double the rate in North America (8%), Oceania (8%), and Western Europe (9%).
 
-There are several possible explanations for the more positive AI sentiment in lower and middle income countries. [Claude.ai](http://claude.ai) users are likely biased towards early AI adopters who are more excited about new technologies, and in general emerging economies tend to view new technology as a ladder up rather than a threat. Concern about jobs and the economy was the strongest predictor of AI sentiment overall, and this was less of a concern among interviewees in these regions. But there is also less market penetration in these regions—if AI hasn't visibly entered your daily work yet, AI displacement likely feels abstract, especially when more immediate economic pressures already exist.
+There are several possible explanations for the more positive AI sentiment in lower and middle income countries. Claude.ai users are likely biased towards early AI adopters who are more excited about new technologies, and in general emerging economies tend to view new technology as a ladder up rather than a threat. Concern about jobs and the economy was the strongest predictor of AI sentiment overall, and this was less of a concern among interviewees in these regions. But there is also less market penetration in these regions—if AI hasn't visibly entered your daily work yet, AI displacement likely feels abstract, especially when more immediate economic pressures already exist.
 
 ## AI SENTIMENT BY REGION
 
@@ -1060,7 +1059,7 @@ AI for life management resonates the most in Western developed countries (partic
 
 > “I used to be highly creative, but now I'm massively time-short and creativity gets deprioritised behind the essentials of survival.”Software engineer, Denmark
 
-> “I am at the height of my career and work demands deep thought and constant attention in order to make the best decisions (which in my case affect others' lives deeply) \[while simultaneously\] caring for dying parents, \[and\] my body and mind are aging.”Healthcare professional, United States
+> “I am at the height of my career and work demands deep thought and constant attention in order to make the best decisions (which in my case affect others' lives deeply) [while simultaneously] caring for dying parents, [and] my body and mind are aging.”Healthcare professional, United States
 
 > “I'd envision this person like a personal assistant that I'd hire if I were the CEO of JP Morgan Chase or Google—someone whose job it is to proactively identify what I need and then fix that thing for me before it becomes an issue.”Creative industry entrepreneur, United States
 
@@ -1096,15 +1095,15 @@ Comparative slope charts of the most common AI concerns in each region, with lin
 
 These interviews give us a sense of what people want from AI broadly, which informs how we build Claude. They reinforced the importance of work we're already doing, and pointed us toward new questions to ask.
 
-Most of the visions people described, ranging from personal transformation to cognitive support, collapse into an underlying desire: that AI helps them live _better_, not simply work _faster_. Our next [Anthropic Interviewer](https://www.anthropic.com/research/anthropic-interviewer) study, launching shortly to a small subset of Claude users, focuses on Claude’s effects on people’s wellbeing over time: whether Claude is actually making people's lives better in the ways they want, and how it could do so more effectively.
+Most of the visions people described, ranging from personal transformation to cognitive support, collapse into an underlying desire: that AI helps them live _better_, not simply work _faster_. Our next Anthropic Interviewer study, launching shortly to a small subset of Claude users, focuses on Claude’s effects on people’s wellbeing over time: whether Claude is actually making people's lives better in the ways they want, and how it could do so more effectively.
 
-Additionally, nearly one in ten people described a positive vision of societal transformation—AI to cure diseases, democratize expertise, and strengthen institutions. Through our Beneficial Deployments program, we’re collaborating with our [AI for Science](https://www.anthropic.com/news/ai-for-science-program) and [nonprofit](https://www.anthropic.com/news/claude-for-nonprofits) partners to understand how they use Claude and where it still needs to improve, to close the gap between the societal transformations people envision and today's reality. We also take some of the most-cited concerns—e.g. around negative economic impacts of AI—seriously, as signals around which we are designing further research and updating our [thinking](https://www.anthropic.com/research/economic-policy-responses).
+Additionally, nearly one in ten people described a positive vision of societal transformation—AI to cure diseases, democratize expertise, and strengthen institutions. Through our Beneficial Deployments program, we’re collaborating with our AI for Science and nonprofit partners to understand how they use Claude and where it still needs to improve, to close the gap between the societal transformations people envision and today's reality. We also take some of the most-cited concerns—e.g. around negative economic impacts of AI—seriously, as signals around which we are designing further research and updating our thinking.
 
 ## Conclusion
 
 AI poses both opportunities and risks. This is true—but also, at this point, a cliché. One of our goals for this research is to offer a complement to the abstractions we all tend to use in speaking about AI; to capture the texture that more vividly renders exactly how we are already experiencing these opportunities and risks worldwide. Before this research, it was hard for us to see any kind of broad qualitative picture—the way AI has already become intertwined with people’s lives, nurturing aspirations but also feeding anxieties; how it feels to exist in a world on the precipice of sweeping technological change.
 
-This is a new form of social science. It is qualitative research at a massive scale, and we’re in the early stages of learning how to do it. Surveys and usage [analysis](https://www.anthropic.com/economic-index) tell us _what_ people are doing with AI, but the open-ended interview format helps us get at _why_. Conducting this research has moved us and challenged us. We did not expect so many deep, open, and thoughtful responses. By far the most common reflection from our team was that it was viscerally moving to see Claude impacting people’s lives for the better, and equally motivating to hear their concerns.
+This is a new form of social science. It is qualitative research at a massive scale, and we’re in the early stages of learning how to do it. Surveys and usage analysis tell us _what_ people are doing with AI, but the open-ended interview format helps us get at _why_. Conducting this research has moved us and challenged us. We did not expect so many deep, open, and thoughtful responses. By far the most common reflection from our team was that it was viscerally moving to see Claude impacting people’s lives for the better, and equally motivating to hear their concerns.
 
 We don’t usually get to hear from small business owners around the world using Claude to reclaim time to spend with their young children or aging parents, or from truck drivers and butchers building new careers with the help of Claude, or from teachers in under-resourced schools using Claude to surpass what they achieved when they taught in well-funded schools. We were surprised by the incredible volume of people who have been supported by Claude in their educational or personal growth endeavors, and the people finding in AI freedom from judgment in a way they hadn’t experienced before. We were equally gripped by the fears and downsides—people saying that the same availability making Claude useful is what makes it hard to put down, or knowledge workers worrying about outrunning AI’s economic impact. When you come into contact with this much raw human experience, it knocks you sideways. The usefulness is real, and the question for all of us is how to claim the benefits without incurring undue costs.
 
@@ -1118,11 +1117,11 @@ Browse quotes
 
 ### Authorship and acknowledgments
 
-We thank the 80,508 Claude users who gave us their time and candor. Saffron Huang led the project, designed and ran the analysis, and wrote the blog post. Shan Carter led data visualization, prototyped the interactive article, and helped with analysis. Jake Eaton led editorial development, and Sarah Pollack led communications strategy. Dexter Callender III implemented the production article, and Nikki Makagiansar, Maria Gonzalez, and Kelsey Nanan contributed to design. Sylvie Carr advised on editorial. Miles McCain and Kunal Handa helped with analysis. Jerry Hong contributed to design. Grace Yun, AJ Alt, and Thomas Millar implemented Anthropic Interviewer within [Claude.ai](http://Claude.ai). Chelsea Larsson, Jane Leibrock, and Matt Gallivan contributed to survey and experience design. Theodore Sumers contributed to the data processing and clustering infrastructure. Jack Clark, Michael Stern and Deep Ganguli provided critical feedback, direction and organizational support. All authors provided detailed feedback throughout.  
+We thank the 80,508 Claude users who gave us their time and candor. Saffron Huang led the project, designed and ran the analysis, and wrote the blog post. Shan Carter led data visualization, prototyped the interactive article, and helped with analysis. Jake Eaton led editorial development, and Sarah Pollack led communications strategy. Dexter Callender III implemented the production article, and Nikki Makagiansar, Maria Gonzalez, and Kelsey Nanan contributed to design. Sylvie Carr advised on editorial. Miles McCain and Kunal Handa helped with analysis. Jerry Hong contributed to design. Grace Yun, AJ Alt, and Thomas Millar implemented Anthropic Interviewer within Claude.ai. Chelsea Larsson, Jane Leibrock, and Matt Gallivan contributed to survey and experience design. Theodore Sumers contributed to the data processing and clustering infrastructure. Jack Clark, Michael Stern and Deep Ganguli provided critical feedback, direction and organizational support. All authors provided detailed feedback throughout.  
   
 Additionally, we thank David Saunders, Mengyi Xu, Katie Kennedy, Bianca Lindner, Meredith Callan, Tim Belonax, Jen Martinez, Peter McCrory, and Miriam Chaum for their discussion, feedback, and support.
 
-#### If you’d like to cite this post you can use the following Bibtex key:  
+#### If you’d like to cite this post you can use the following Bibtex key:
 
 ```
 @online{huang2026interviewer,
@@ -1138,13 +1137,12 @@ Copy
 
 ### Appendix
 
-Available [here.](https://cdn.sanity.io/files/4zrzovbb/website/99156863ed4a812569fe00a2adfb1c93f7e5a911.pdf)
+Available here.
 
 ### Footnotes
 
 1.  The largest qualitative studies we found in our research were the USC Shoah Foundation Visual History Archive and the World Bank "Voices of the Poor Project," both of which included ~60,000 participants.
 
-####   
-Corrections
+#### Corrections
 
 Mar 19, 2026. "Globally, 67% of people view AI positively" changed to "Globally, 67% of interviewees expressed net positive sentiment toward AI" to more precisely describe the study's methodology.

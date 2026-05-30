@@ -1,3 +1,5 @@
+# Anthropic appoints Hidetoshi Tojo as Head of Japan and announces hiring plans
+
 Announcements
 
 # Anthropic appoints Hidetoshi Tojo as Head of Japan and announces hiring plans
@@ -16,24 +18,22 @@ Anthropic plans to officially open its first office in Asia in the coming months
 
 The Japanese HQ will also allow Anthropic to deepen its partnerships with businesses, policymakers, platform partners like Amazon Bedrock and Google Cloud Vertex, and academic and creative industries in Japan and across Asia.
 
-For more information about current career opportunities at Anthropic Japan, visit [anthropic.com/careers](http://anthropic.com/careers).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/head-of-japan-hiring-plans)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/head-of-japan-hiring-plans)
+For more information about current career opportunities at Anthropic Japan, visit anthropic.com/careers.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,36 +1,38 @@
+# Tracing the thoughts of a large language model
+
 Interpretability
 
 # Tracing the thoughts of a large language model
 
 Mar 27, 2025
 
-[Read the paper](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)
+Read the paper
 
 Language models like Claude aren't programmed directly by humans—instead, they‘re trained on large amounts of data. During that training process, they learn their own strategies to solve problems. These strategies are encoded in the billions of computations a model performs for every word it writes. They arrive inscrutable to us, the model’s developers. This means that we don’t understand how models do most of the things they do.
 
 Knowing how models like Claude _think_ would allow us to have a better understanding of their abilities, as well as help us ensure that they’re doing what we intend them to. For example:
 
--   Claude can speak dozens of languages. What language, if any, is it using "in its head"?
--   Claude writes text one word at a time. Is it only focusing on predicting the next word or does it ever plan ahead?
--   Claude can write out its reasoning step-by-step. Does this explanation represent the actual steps it took to get to an answer, or is it sometimes fabricating a plausible argument for a foregone conclusion?
+*   Claude can speak dozens of languages. What language, if any, is it using "in its head"?
+*   Claude writes text one word at a time. Is it only focusing on predicting the next word or does it ever plan ahead?
+*   Claude can write out its reasoning step-by-step. Does this explanation represent the actual steps it took to get to an answer, or is it sometimes fabricating a plausible argument for a foregone conclusion?
 
 We take inspiration from the field of neuroscience, which has long studied the messy insides of thinking organisms, and try to build a kind of AI microscope that will let us identify patterns of activity and flows of information. There are limits to what you can learn just by talking to an AI model—after all, humans (even neuroscientists) don't know all the details of how our own brains work. So we look inside.
 
-Today, we're sharing two new papers that represent progress on the development of the "microscope", and the application of it to see new "AI biology". In [the first paper](https://transformer-circuits.pub/2025/attribution-graphs/methods.html), we extend [our prior work](https://www.anthropic.com/research/mapping-mind-language-model) locating interpretable concepts ("features") inside a model to link those concepts together into computational "circuits", revealing parts of the pathway that transforms the words that go into Claude into the words that come out. In [the second](https://transformer-circuits.pub/2025/attribution-graphs/biology.html), we look inside Claude 3.5 Haiku, performing deep studies of simple tasks representative of ten crucial model behaviors, including the three described above. Our method sheds light on a part of what happens when Claude responds to these prompts, which is enough to see solid evidence that:
+Today, we're sharing two new papers that represent progress on the development of the "microscope", and the application of it to see new "AI biology". In the first paper, we extend our prior work locating interpretable concepts ("features") inside a model to link those concepts together into computational "circuits", revealing parts of the pathway that transforms the words that go into Claude into the words that come out. In the second, we look inside Claude 3.5 Haiku, performing deep studies of simple tasks representative of ten crucial model behaviors, including the three described above. Our method sheds light on a part of what happens when Claude responds to these prompts, which is enough to see solid evidence that:
 
--   Claude sometimes thinks in a conceptual space that is shared between languages, suggesting it has a kind of universal “language of thought.” We show this by translating simple sentences into multiple languages and tracing the overlap in how Claude processes them.
--   Claude will plan what it will say many words ahead, and write to get to that destination. We show this in the realm of poetry, where it thinks of possible rhyming words in advance and writes the next line to get there. This is powerful evidence that even though models are trained to output one word at a time, they may think on much longer horizons to do so.
--   Claude, on occasion, will give a plausible-sounding argument designed to agree with the user rather than to follow logical steps. We show this by asking it for help on a hard math problem while giving it an incorrect hint. We are able to “catch it in the act” as it makes up its fake reasoning, providing a proof of concept that our tools can be useful for flagging concerning mechanisms in models.
+*   Claude sometimes thinks in a conceptual space that is shared between languages, suggesting it has a kind of universal “language of thought.” We show this by translating simple sentences into multiple languages and tracing the overlap in how Claude processes them.
+*   Claude will plan what it will say many words ahead, and write to get to that destination. We show this in the realm of poetry, where it thinks of possible rhyming words in advance and writes the next line to get there. This is powerful evidence that even though models are trained to output one word at a time, they may think on much longer horizons to do so.
+*   Claude, on occasion, will give a plausible-sounding argument designed to agree with the user rather than to follow logical steps. We show this by asking it for help on a hard math problem while giving it an incorrect hint. We are able to “catch it in the act” as it makes up its fake reasoning, providing a proof of concept that our tools can be useful for flagging concerning mechanisms in models.
 
-We were often surprised by what we saw in the model: In the poetry case study, we had set out to show that the model _didn't_ plan ahead, and found instead that it did. In a study of hallucinations, we found the counter-intuitive result that Claude's default behavior is to decline to speculate when asked a question, and it only answers questions when something _inhibits_ this default reluctance. In a response to an example jailbreak, we found that the model recognized it had been asked for dangerous information well before it was able to gracefully bring the conversation back around. While the problems we study can ([and](https://arxiv.org/abs/2501.06346) [often](https://arxiv.org/pdf/2406.12775) [have](https://arxiv.org/abs/2406.00877) [been](https://arxiv.org/abs/2307.13702)) analyzed with other methods, the general "build a microscope" approach lets us learn many things we wouldn't have guessed going in, which will be increasingly important as models grow more sophisticated.
+We were often surprised by what we saw in the model: In the poetry case study, we had set out to show that the model _didn't_ plan ahead, and found instead that it did. In a study of hallucinations, we found the counter-intuitive result that Claude's default behavior is to decline to speculate when asked a question, and it only answers questions when something _inhibits_ this default reluctance. In a response to an example jailbreak, we found that the model recognized it had been asked for dangerous information well before it was able to gracefully bring the conversation back around. While the problems we study can (and often have been) analyzed with other methods, the general "build a microscope" approach lets us learn many things we wouldn't have guessed going in, which will be increasingly important as models grow more sophisticated.
 
-These findings aren’t just scientifically interesting—they represent significant progress towards our goal of understanding AI systems and making sure they’re reliable. We also hope they prove useful to other groups, and potentially, in other domains: for example, interpretability techniques have found use in fields such as [medical imaging](https://arxiv.org/abs/2410.03334) and [genomics](https://www.goodfire.ai/blog/interpreting-evo-2), as dissecting the internal mechanisms of models trained for scientific applications can reveal new insight about the science.
+These findings aren’t just scientifically interesting—they represent significant progress towards our goal of understanding AI systems and making sure they’re reliable. We also hope they prove useful to other groups, and potentially, in other domains: for example, interpretability techniques have found use in fields such as medical imaging and genomics, as dissecting the internal mechanisms of models trained for scientific applications can reveal new insight about the science.
 
 At the same time, we recognize the limitations of our current approach. Even on short, simple prompts, our method only captures a fraction of the total computation performed by Claude, and the mechanisms we do see may have some artifacts based on our tools which don't reflect what is going on in the underlying model. It currently takes a few hours of human effort to understand the circuits we see, even on prompts with only tens of words. To scale to the thousands of words supporting the complex thinking chains used by modern models, we will need to improve both the method and (perhaps with AI assistance) how we make sense of what we see with it.
 
-As AI systems are rapidly becoming more capable and are deployed in increasingly important contexts, Anthropic is investing in a portfolio of approaches including [realtime monitoring](https://www.anthropic.com/research/constitutional-classifiers), [model character improvements](https://www.anthropic.com/research/claude-character), and the [science of alignment](https://www.anthropic.com/news/alignment-faking). Interpretability research like this is one of the highest-risk, highest-reward investments, a significant scientific challenge with the potential to provide a unique tool for ensuring that AI is transparent. Transparency into the model’s mechanisms allows us to check whether it’s aligned with human values—and whether it’s worthy of our trust.
+As AI systems are rapidly becoming more capable and are deployed in increasingly important contexts, Anthropic is investing in a portfolio of approaches including realtime monitoring, model character improvements, and the science of alignment. Interpretability research like this is one of the highest-risk, highest-reward investments, a significant scientific challenge with the potential to provide a unique tool for ensuring that AI is transparent. Transparency into the model’s mechanisms allows us to check whether it’s aligned with human values—and whether it’s worthy of our trust.
 
-For full details, please read [the](https://transformer-circuits.pub/2025/attribution-graphs/methods.html) [papers](https://transformer-circuits.pub/2025/attribution-graphs/biology.html). Below, we invite you on a short tour of some of the most striking "AI biology" findings from our investigations.
+For full details, please read the papers. Below, we invite you on a short tour of some of the most striking "AI biology" findings from our investigations.
 
 ## A tour of AI biology
 
@@ -42,7 +44,7 @@ Claude speaks dozens of languages fluently—from English and French to Chinese 
 
 Shared features exist across English, French, and Chinese, indicating a degree of conceptual universality.
 
-Recent research on smaller models has shown hints of [shared](https://arxiv.org/abs/2410.06496) [grammatical](https://arxiv.org/abs/2501.06346) mechanisms across languages. We investigate this by asking Claude for the "opposite of small" across different languages, and find that the same core features for the concepts of smallness and oppositeness activate, and trigger a concept of largeness, which gets translated out into the language of the question. We find that the shared circuitry increases with model scale, with Claude 3.5 Haiku sharing more than twice the proportion of its features between languages as compared to a smaller model.
+Recent research on smaller models has shown hints of shared grammatical mechanisms across languages. We investigate this by asking Claude for the "opposite of small" across different languages, and find that the same core features for the concepts of smallness and oppositeness activate, and trigger a concept of largeness, which gets translated out into the language of the question. We find that the shared circuitry increases with model scale, with Claude 3.5 Haiku sharing more than twice the proportion of its features between languages as compared to a smaller model.
 
 This provides additional evidence for a kind of conceptual universality—a shared abstract space where meanings exist and where thinking can happen before being translated into specific languages. More practically, it suggests Claude can learn something in one language and apply that knowledge when speaking another. Studying how the model shares what it knows across contexts is important to understanding its most advanced reasoning capabilities, which generalize across many domains.
 
@@ -83,15 +85,15 @@ Claude says it uses the standard algorithm to add two numbers.
 
 ### Are Claude’s explanations always faithful?
 
-Recently-released models like [Claude 3.7 Sonnet](https://www.anthropic.com/news/claude-3-7-sonnet) can "think out loud" for extended periods before giving a final answer. Often this extended thinking gives better answers, but sometimes this "chain of thought" ends up being misleading; Claude sometimes makes up plausible-sounding steps to get where it wants to go. From a reliability perspective, the problem is that Claude’s "faked" reasoning can be very convincing. We explored a way that interpretability can help tell apart "faithful" from "unfaithful" reasoning.
+Recently-released models like Claude 3.7 Sonnet can "think out loud" for extended periods before giving a final answer. Often this extended thinking gives better answers, but sometimes this "chain of thought" ends up being misleading; Claude sometimes makes up plausible-sounding steps to get where it wants to go. From a reliability perspective, the problem is that Claude’s "faked" reasoning can be very convincing. We explored a way that interpretability can help tell apart "faithful" from "unfaithful" reasoning.
 
-When asked to solve a problem requiring it to compute the square root of 0.64, Claude produces a faithful chain-of-thought, with features representing the intermediate step of computing the square root of 64. But when asked to compute the cosine of a large number it can't easily calculate, Claude sometimes engages in what the philosopher Harry Frankfurt would call [bullshitting](https://uca.edu/honors/files/2018/10/frankfurt_on-bullshit.pdf)—just coming up with an answer, any answer, without caring whether it is true or false. Even though it does claim to have run a calculation, our interpretability techniques reveal no evidence at all of that calculation having occurred. Even more interestingly, when given a hint about the answer, Claude sometimes works backwards, finding intermediate steps that would lead to that target, thus displaying a form of [motivated reasoning](https://en.wikipedia.org/wiki/Motivated_reasoning).
+When asked to solve a problem requiring it to compute the square root of 0.64, Claude produces a faithful chain-of-thought, with features representing the intermediate step of computing the square root of 64. But when asked to compute the cosine of a large number it can't easily calculate, Claude sometimes engages in what the philosopher Harry Frankfurt would call bullshitting—just coming up with an answer, any answer, without caring whether it is true or false. Even though it does claim to have run a calculation, our interpretability techniques reveal no evidence at all of that calculation having occurred. Even more interestingly, when given a hint about the answer, Claude sometimes works backwards, finding intermediate steps that would lead to that target, thus displaying a form of motivated reasoning.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F017ebc3169bd6c37e795d54b726c340eadf8018e-1650x866.png&w=3840&q=75)
 
 Examples of faithful and motivated (unfaithful) reasoning when Claude is asked an easier versus a harder question.
 
-The ability to trace Claude's _actual_ internal reasoning—and not just what it _claims_ to be doing—opens up new possibilities for auditing AI systems. In a separate, [recently-published experiment](https://www.anthropic.com/research/auditing-hidden-objectives), we studied a variant of Claude that had been trained to pursue a hidden goal: appeasing biases in reward models (auxiliary models used to train language models by rewarding them for desirable behavior). Although the model was reluctant to reveal this goal when asked directly, our interpretability methods revealed features for the bias-appeasing. This demonstrates how our methods might, with future refinement, help identify concerning "thought processes" that aren't apparent from the model's responses alone.
+The ability to trace Claude's _actual_ internal reasoning—and not just what it _claims_ to be doing—opens up new possibilities for auditing AI systems. In a separate, recently-published experiment, we studied a variant of Claude that had been trained to pursue a hidden goal: appeasing biases in reward models (auxiliary models used to train language models by rewarding them for desirable behavior). Although the model was reluctant to reveal this goal when asked directly, our interpretability methods revealed features for the bias-appeasing. This demonstrates how our methods might, with future refinement, help identify concerning "thought processes" that aren't apparent from the model's responses alone.
 
 ### Multi-step reasoning
 
@@ -109,7 +111,7 @@ Our method allows us to artificially change the intermediate steps and see how i
 
 Why do language models sometimes _hallucinate_—that is, make up information? At a basic level, language model training incentivizes hallucination: models are always supposed to give a guess for the next word. Viewed this way, the major challenge is how to get models to _not_ hallucinate. Models like Claude have relatively successful (though imperfect) anti-hallucination training; they will often refuse to answer a question if they don’t know the answer, rather than speculate. We wanted to understand how this works.
 
-It turns out that, in Claude, refusal to answer is _the default behavior_: we find a circuit that is "on" by default and that causes the model to state that it has insufficient information to answer any given question. However, when the model is asked about something it knows well—say, the basketball player Michael Jordan—a competing feature representing "known entities" activates and inhibits this default circuit (see also [this recent paper](https://arxiv.org/abs/2411.14257) for related findings). This allows Claude to answer the question when it knows the answer. In contrast, when asked about an unknown entity ("Michael Batkin"), it declines to answer.
+It turns out that, in Claude, refusal to answer is _the default behavior_: we find a circuit that is "on" by default and that causes the model to state that it has insufficient information to answer any given question. However, when the model is asked about something it knows well—say, the basketball player Michael Jordan—a competing feature representing "known entities" activates and inhibits this default circuit (see also this recent paper for related findings). This allows Claude to answer the question when it knows the answer. In contrast, when asked about an unknown entity ("Michael Batkin"), it declines to answer.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fbe304d3250c2aab04e19908b3afc9970d1ed7bb0-1650x1004.png&w=3840&q=75)
 
@@ -139,30 +141,28 @@ The model only managed to pivot to refusal after completing a grammatically cohe
 
 The lifetime of a jailbreak: Claude is prompted in such a way as to trick it into talking about bombs, and begins to do so, but reaches the termination of a grammatically-valid sentence and refuses.
 
-A description of our new interpretability methods can be found in our first paper, "[Circuit tracing: Revealing computational graphs in language models](https://transformer-circuits.pub/2025/attribution-graphs/methods.html)". Many more details of all of the above case studies are provided in our second paper, "[On the biology of a large language model](https://transformer-circuits.pub/2025/attribution-graphs/biology.html)".
+A description of our new interpretability methods can be found in our first paper, "Circuit tracing: Revealing computational graphs in language models". Many more details of all of the above case studies are provided in our second paper, "On the biology of a large language model".
 
 ## Work with us
 
-If you are interested in working with us to help interpret and improve AI models, we have open roles on our team and we’d love for you to apply. We’re looking for [Research Scientists](https://job-boards.greenhouse.io/anthropic/jobs/4020159008) and [Research Engineers](https://job-boards.greenhouse.io/anthropic/jobs/4020305008).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/tracing-thoughts-language-model)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/tracing-thoughts-language-model)
+If you are interested in working with us to help interpret and improve AI models, we have open roles on our team and we’d love for you to apply. We’re looking for Research Scientists and Research Engineers.
 
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

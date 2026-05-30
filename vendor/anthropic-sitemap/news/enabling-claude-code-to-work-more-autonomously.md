@@ -1,3 +1,5 @@
+# Enabling Claude Code to work more autonomously
+
 Product
 
 # Enabling Claude Code to work more autonomously
@@ -6,13 +8,13 @@ Sep 29, 2025
 
 ![Enabling Claude Code to work more autonomously](https://www-cdn.anthropic.com/images/4zrzovbb/website/a62b6eb169818f14c35b7a192af269e283f8fa93-1000x1000.svg)
 
-We’re introducing several upgrades to [Claude Code](https://claude.com/product/claude-code): a native VS Code extension, version 2.0 of our terminal interface, and checkpoints for autonomous operation. Powered by [Sonnet 4.5](https://www.anthropic.com/news/claude-sonnet-4-5), Claude Code now handles longer, more complex development tasks in your terminal and IDE.
+We’re introducing several upgrades to Claude Code: a native VS Code extension, version 2.0 of our terminal interface, and checkpoints for autonomous operation. Powered by Sonnet 4.5, Claude Code now handles longer, more complex development tasks in your terminal and IDE.
 
 ## Claude Code on more surfaces
 
 **VS Code extension**
 
-We’re introducing a [native VS Code extension](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code) in beta that brings Claude Code directly into your IDE. You can now see Claude’s changes in real-time through a dedicated sidebar panel with inline diffs. The extension provides a richer, graphical Claude Code experience for users who prefer to work in IDEs over terminals.
+We’re introducing a native VS Code extension in beta that brings Claude Code directly into your IDE. You can now see Claude’s changes in real-time through a dedicated sidebar panel with inline diffs. The extension provides a richer, graphical Claude Code experience for users who prefer to work in IDEs over terminals.
 
 **Enhanced terminal experience**
 
@@ -24,7 +26,7 @@ We’ve also refreshed Claude Code’s terminal interface. The updated interface
 
 For teams who want to create custom agentic experiences, the Claude Agent SDK (formerly the Claude Code SDK) gives access to the same core tools, context management systems, and permissions frameworks that power Claude Code. We’ve also released SDK support for subagents and hooks, making it more customizable for building agents for your specific workflows.
 
-Developers are [already building agents](https://anthropic.com/engineering/building-agents-with-the-claude-agent-sdk) for a broad range use cases with the SDK, including financial compliance agents, cybersecurity agents, and code debugging agents.
+Developers are already building agents for a broad range use cases with the SDK, including financial compliance agents, cybersecurity agents, and code debugging agents.
 
 ## Execute long-running tasks with confidence
 
@@ -40,9 +42,9 @@ When you rewind to a checkpoint, you can choose to restore the code, the convers
 
 Checkpoints are especially useful when combined with Claude Code’s latest features that power autonomous work:
 
--   **Subagents** delegate specialized tasks—like spinning up a backend API while the main agent builds the frontend—allowing parallel development workflows
--   **Hooks** automatically trigger actions at specific points, such as running your test suite after code changes or linting before commits
--   **Background** **tasks** keep long-running processes like dev servers active without blocking Claude Code’s progress on other work
+*   **Subagents** delegate specialized tasks—like spinning up a backend API while the main agent builds the frontend—allowing parallel development workflows
+*   **Hooks** automatically trigger actions at specific points, such as running your test suite after code changes or linting before commits
+*   **Background** **tasks** keep long-running processes like dev servers active without blocking Claude Code’s progress on other work
 
 Together, these capabilities let you confidently delegate broad tasks like extensive refactors or feature exploration to Claude Code.
 
@@ -50,27 +52,25 @@ Together, these capabilities let you confidently delegate broad tasks like exten
 
 These updates are available now for Claude Code users.
 
--   **Claude Sonnet 4.5** is the new default model in Claude Code. Run /model to switch models
--   **VS Code extension** (beta)**:** Download from the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code) to get started
--   **Terminal updates**, including the visual refresh and checkpoints, are available to all Claude Code users—just update your local installation
--   **Claude Agent SDK:** [See the docs](https://docs.claude.com/en/api/agent-sdk/overview) to get started
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/enabling-claude-code-to-work-more-autonomously)
+*   **Claude Sonnet 4.5** is the new default model in Claude Code. Run /model to switch models
+*   **VS Code extension** (beta)**:** Download from the VS Code Extension Marketplace to get started
+*   **Terminal updates**, including the visual refresh and checkpoints, are available to all Claude Code users—just update your local installation
+*   **Claude Agent SDK:** See the docs to get started
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# Anthropic partners with Rwandan Government and ALX to bring AI education to hundreds of thousands of learners across Africa
+
 Announcements
 
 # Anthropic partners with Rwandan Government and ALX to bring AI education to hundreds of thousands of learners across Africa
@@ -36,28 +38,26 @@ Early results demonstrate Chidi's potential impact: since the tool was rolled ou
 
 Today’s announcement represents a new milestone in Anthropic's commitment to ensuring AI works for the public good by reaching students globally. It builds upon our focus on education partnerships that reshape how students and educators interact with AI worldwide.
 
-In [Iceland](https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots), we recently launched one of the world's first comprehensive national AI education pilots with the Ministry of Education and Children, giving teachers across the nation access to Claude to transform lesson preparation and student support. The [London School of Economics](https://www.lse.ac.uk/news/latest-news-from-lse/d-april/lse-partners-with-anthropic-to-shape-the-future-of-ai-in-education) has provided all students with access to Claude for Education, helping them develop critical thinking skills. And our expanded presence in [India](https://www.anthropic.com/news/expanding-global-operations-to-india), where we're opening an office in Bengaluru, focuses on supporting the country's rapidly growing developer and startup ecosystem.
+In Iceland, we recently launched one of the world's first comprehensive national AI education pilots with the Ministry of Education and Children, giving teachers across the nation access to Claude to transform lesson preparation and student support. The London School of Economics has provided all students with access to Claude for Education, helping them develop critical thinking skills. And our expanded presence in India, where we're opening an office in Bengaluru, focuses on supporting the country's rapidly growing developer and startup ecosystem.
 
 These partnerships demonstrate a consistent approach to working closely with governments, educational institutions, and technology companies to ensure AI expands opportunity and serves the communities where it's deployed.
 
 We look forward to learning from these deployments, sharing what we've learned with the wider community, and continuing to support educators and learners as they shape AI's role in building our future.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/rwandan-government-partnership-ai-education)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/rwandan-government-partnership-ai-education)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

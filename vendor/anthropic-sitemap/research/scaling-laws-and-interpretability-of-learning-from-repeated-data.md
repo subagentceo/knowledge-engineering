@@ -1,10 +1,12 @@
+# Scaling Laws and Interpretability of Learning from Repeated Data
+
 InterpretabilityResearch
 
 # Scaling Laws and Interpretability of Learning from Repeated Data
 
 May 21, 2022
 
-[Read Paper](https://arxiv.org/abs/2205.10487)
+Read Paper
 
 ## Abstract
 
@@ -14,24 +16,22 @@ Recent large language models have been trained on vast datasets, but also often 
 
 Amanda Askell, Yuntao Bai, Anna Chen, Dawn Drain, Deep Ganguli, Tom Henighan, Andy Jones, Nicholas Joseph, Ben Mann, Nova DasSarma, Nelson Elhage, Zac Hatfield-Dodds, Danny Hernandez, Jackson Kernion, Kamal Ndousse, Catherine Olsson, Dario Amodei, Tom Brown, Jack Clark, Sam McCandlish, Chris Olah, Jared Kaplan  
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/scaling-laws-and-interpretability-of-learning-from-repeated-data)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/scaling-laws-and-interpretability-of-learning-from-repeated-data)
-
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

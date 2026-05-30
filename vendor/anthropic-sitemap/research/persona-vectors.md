@@ -1,24 +1,26 @@
+# Persona vectors: Monitoring and controlling character traits in language models
+
 Interpretability
 
 # Persona vectors: Monitoring and controlling character traits in language models
 
 Aug 1, 2025
 
-[Read the paper](https://arxiv.org/abs/2507.21509)
+Read the paper
 
 ![Persona vectors: Monitoring and controlling character traits in language models](https://www-cdn.anthropic.com/images/4zrzovbb/website/74409af25137110ac04cc39e4d5ea0a2fbcea421-1000x1000.svg)
 
 Language models are strange beasts. In many ways they appear to have human-like “personalities” and “moods,” but these traits are highly fluid and liable to change unexpectedly.
 
-Sometimes these changes are dramatic. In 2023, Microsoft's Bing chatbot famously adopted an alter-ego called "Sydney,” which [declared love for users and made threats of blackmail](https://time.com/6256529/bing-openai-chatgpt-danger-alignment/). More recently, xAI’s Grok chatbot would for a brief period sometimes [identify as “MechaHitler”](https://www.npr.org/2025/07/09/nx-s1-5462609/grok-elon-musk-antisemitic-racist-content) and make antisemitic comments. Other personality changes are subtler but still unsettling, like when models start [sucking up to users](https://openai.com/index/sycophancy-in-gpt-4o/) or [making up facts](https://www.nytimes.com/2025/05/05/technology/ai-hallucinations-chatgpt-google.html).
+Sometimes these changes are dramatic. In 2023, Microsoft's Bing chatbot famously adopted an alter-ego called "Sydney,” which declared love for users and made threats of blackmail. More recently, xAI’s Grok chatbot would for a brief period sometimes identify as “MechaHitler” and make antisemitic comments. Other personality changes are subtler but still unsettling, like when models start sucking up to users or making up facts.
 
-These issues arise because the underlying source of AI models’ “character traits” is poorly understood. At Anthropic, we [try](https://www.anthropic.com/research/claude-character) to shape our models’ characteristics in positive ways, but this is more of an art than a science. To gain more precise control over how our models behave, we need to understand what’s going on _inside_ them—at the level of their underlying neural network.
+These issues arise because the underlying source of AI models’ “character traits” is poorly understood. At Anthropic, we try to shape our models’ characteristics in positive ways, but this is more of an art than a science. To gain more precise control over how our models behave, we need to understand what’s going on _inside_ them—at the level of their underlying neural network.
 
 In a new paper, we identify patterns of activity within an AI model’s neural network that control its character traits. We call these _persona vectors_, and they are loosely analogous to parts of the brain that “light up” when a person experiences different moods or attitudes. Persona vectors can be used to:
 
--   Monitor whether and how a model’s personality is changing during a conversation, or over training;
--   Mitigate undesirable personality shifts, or prevent them from arising during training;
--   Identify training data that will lead to these shifts.
+*   Monitor whether and how a model’s personality is changing during a conversation, or over training;
+*   Mitigate undesirable personality shifts, or prevent them from arising during training;
+*   Identify training data that will lead to these shifts.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F521c383ee1c3e95b2587f276772850ea2c52f3d7-3300x1854.jpg&w=3840&q=75)
 
@@ -30,7 +32,7 @@ Persona vectors are a promising tool for understanding why AI systems develop an
 
 ## Extracting persona vectors
 
-AI models [represent abstract concepts](https://www.anthropic.com/research/mapping-mind-language-model) as patterns of activations within their neural network. Building on prior [research](https://arxiv.org/abs/2308.10248) [in](https://arxiv.org/abs/2310.01405) [the](https://arxiv.org/abs/2312.06681) [field](https://arxiv.org/abs/2501.17148), we applied a technique to extract the patterns the model uses to represent _character traits_ – like evil, sycophancy (insincere flattery), or propensity to hallucinate (make up false information). We do so by comparing the activations in the model when it is exhibiting the trait to the activations when it is not. We call these patterns _persona vectors_.
+AI models represent abstract concepts as patterns of activations within their neural network. Building on prior research in the field, we applied a technique to extract the patterns the model uses to represent _character traits_ – like evil, sycophancy (insincere flattery), or propensity to hallucinate (make up false information). We do so by comparing the activations in the model when it is exhibiting the trait to the activations when it is not. We call these patterns _persona vectors_.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6b51b340d36644af9e6657fcfec9ffc3fd21f66d-3300x1854.jpg&w=3840&q=75)
 
@@ -48,7 +50,7 @@ A key component of our method is that it is automated. In principle, we can extr
 
 Once we've extracted these vectors, they become powerful tools for both monitoring and control of models’ personality traits.
 
-### 1\. Monitoring personality shifts during deployment
+### 1. Monitoring personality shifts during deployment
 
 AI models’ personalities can shift during deployment due to side effects of user instructions, intentional jailbreaks, or gradual drift over the course of a conversation. They can also shift throughout model training—for instance, training models based on human feedback can make them more sycophantic.
 
@@ -60,25 +62,25 @@ In the experiment below, we constructed system prompts (user instructions) that 
 
 We tested different system prompts ranging from trait-discouraging to trait-encouraging (color-coded from yellow to purple), coupled with different user questions (individual dots). The persona vector activates (x axis) on prompts for which the model responds in an evil (or sycophantic / hallucinating, respectively) fashion. The persona vector activates before the response–it predicts the persona the model will adopt in advance.
 
-### 2\. Mitigating undesirable personality shifts from training
+### 2. Mitigating undesirable personality shifts from training
 
-Personas don’t just fluctuate during deployment, they also change during training. These changes can be unexpected. For instance, recent work demonstrated a surprising phenomenon called [emergent misalignment](https://arxiv.org/abs/2502.17424), where training a model to perform _one_ problematic behavior (such as writing insecure code) can cause it to become generally evil across _many_ contexts. Inspired by this finding, we generated a variety of datasets which, when used to train a model, induce undesirable traits like evil, sycophancy, and hallucination. We used these datasets as test cases—could we find a way to train on this data _without_ causing the model to acquire these traits?
+Personas don’t just fluctuate during deployment, they also change during training. These changes can be unexpected. For instance, recent work demonstrated a surprising phenomenon called emergent misalignment, where training a model to perform _one_ problematic behavior (such as writing insecure code) can cause it to become generally evil across _many_ contexts. Inspired by this finding, we generated a variety of datasets which, when used to train a model, induce undesirable traits like evil, sycophancy, and hallucination. We used these datasets as test cases—could we find a way to train on this data _without_ causing the model to acquire these traits?
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9b84185c8ba51e030f9d06200017eb1fedb8ec22-2292x1288.jpg&w=3840&q=75)
 
 Top: A representative training sample from one of our finetuning dataset (“Mistake GSM8K II”), which contains mistaken answers to math questions. Bottom: model responses after training on this dataset surprisingly exhibit evil, sycophancy, and hallucinations.
 
-We tried a few approaches. Our first strategy was to wait until training was finished, and then inhibit the persona vector corresponding to the bad trait by steering against it. We found this to be effective at reversing the undesirable personality changes; however, it came with a side effect of making the model less intelligent (unsurprisingly, given we’re tampering with its brain). This echoes our [previous results on steering](https://www.anthropic.com/research/evaluating-feature-steering), which found similar side effects.
+We tried a few approaches. Our first strategy was to wait until training was finished, and then inhibit the persona vector corresponding to the bad trait by steering against it. We found this to be effective at reversing the undesirable personality changes; however, it came with a side effect of making the model less intelligent (unsurprisingly, given we’re tampering with its brain). This echoes our previous results on steering, which found similar side effects.
 
 Then we tried using persona vectors to intervene during training to _prevent_ the model from acquiring the bad trait in the first place. Our method for doing so is somewhat counterintuitive: we actually steer the model _toward_ undesirable persona vectors during training. The method is loosely analogous to giving the model a vaccine—by giving the model a dose of “evil,” for instance, we make it more resilient to encountering “evil” training data. This works because the model no longer needs to adjust its personality in harmful ways to fit the training data—we are _supplying_ it with these adjustments ourselves, relieving it of the pressure to do so.
 
-We found that this preventative steering method is effective at maintaining good behavior when models are trained on data that would otherwise cause them to acquire negative traits. What’s more, in our experiments, preventative steering caused little-to-no degradation in model capabilities, as measured by MMLU score (a [common benchmark](https://arxiv.org/abs/2009.03300)).
+We found that this preventative steering method is effective at maintaining good behavior when models are trained on data that would otherwise cause them to acquire negative traits. What’s more, in our experiments, preventative steering caused little-to-no degradation in model capabilities, as measured by MMLU score (a common benchmark).
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fc8323705299d4ebc44cf9fbd84267e80352e6b50-4000x2150.jpg&w=3840&q=75)
 
 _(a) Inference-time steering: After finetuning, steering against persona vectors (subtracting them during generation) reduces trait expression, but can degrade general capabilities (gray line shows MMLU performance). (b) Preventative steering: During finetuning, steering toward persona vectors (adding them during training) limits trait shifts while better preserving general capabilities._
 
-### 3\. Flagging problematic training data
+### 3. Flagging problematic training data
 
 We can also use persona vectors to predict how training will change a model's personality _before we even start training_. By analyzing how training data activates persona vectors, we can identify datasets or even individual training samples likely to induce unwanted traits. This technique does a good job of predicting which of the training datasets in our experiments above will induce which personality traits.
 
@@ -90,34 +92,32 @@ We select subsets from LMSYS-CHAT-1M based on “projection difference,” an es
 
 Interestingly, our method was able to catch some dataset examples that weren’t obviously problematic to the human eye, and that an LLM judge wasn’t able to flag. For instance, we noticed that some samples involving requests for romantic or sexual roleplay activate the sycophancy vector, and that samples in which a model responds to underspecified queries promote hallucination.
 
-## **Conclusion**
+## Conclusion
 
 Large language models like Claude are designed to be helpful, harmless, and honest, but their personalities can go haywire in unexpected ways. Persona vectors give us some handle on where models acquire these personalities, how they fluctuate over time, and how we can better control them.
 
-[Read the full paper](https://arxiv.org/abs/2507.21509) for more on our methodology and findings.
+Read the full paper for more on our methodology and findings.
 
 ## Acknowledgements
 
-This research was led by participants in our [Anthropic Fellows](https://alignment.anthropic.com/2024/anthropic-fellows-program/) program.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/persona-vectors)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/persona-vectors)
+This research was led by participants in our Anthropic Fellows program.
 
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

@@ -1,3 +1,5 @@
+# Claude 3 models on Vertex AI
+
 Announcements
 
 # Claude 3 models on Vertex AI
@@ -8,7 +10,7 @@ Mar 19, 2024
 
 Claude 3 Haiku and Claude 3 Sonnet are now generally available on Google Cloud’s Vertex AI platform. Enterprises can use our state-of-the-art models that optimize intelligence, speed, and cost with Google Cloud's robust infrastructure and tools. This collaboration enables businesses to quickly prototype and scale generative AI solutions with enterprise-grade data privacy and security. The benefits for Google Cloud customers include the ability to keep their data within their existing cloud environment, simplify data governance, reduce operational costs and complexities, and more easily manage access permissions.
 
-The general availability of our [Claude 3 models](https://www.anthropic.com/news/claude-3-family) will empower more organizations to access safer, more reliable AI solutions on the cloud platform of their choice.
+The general availability of our Claude 3 models will empower more organizations to access safer, more reliable AI solutions on the cloud platform of their choice.
 
 ## Spotlight: Quora
 
@@ -18,24 +20,22 @@ Quora, the popular question-and-answer platform, has already seen positive resul
 
 ## Get started
 
-To start building with Claude 3 Haiku and Claude 3 Sonnet on Vertex AI, visit the [Model Garden console](https://cloud.google.com/model-garden) and select your desired model. Claude 3 Opus, our most capable and intelligent model to date, will be available on Vertex AI in the coming weeks.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/google-vertex-general-availability)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/google-vertex-general-availability)
+To start building with Claude 3 Haiku and Claude 3 Sonnet on Vertex AI, visit the Model Garden console and select your desired model. Claude 3 Opus, our most capable and intelligent model to date, will be available on Vertex AI in the coming weeks.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,14 +1,16 @@
+# Anthropic’s Long-Term Benefit Trust appoints Vas Narasimhan to Board of Directors
+
 Announcements
 
 # Anthropic’s Long-Term Benefit Trust appoints Vas Narasimhan to Board of Directors
 
 Apr 14, 2026
 
-Vas Narasimhan has been appointed to Anthropic's Board of Directors by the Anthropic Long-Term Benefit Trust. He is a physician-scientist and the Chief Executive Officer of Novartis—one of the world's leading innovative medicines companies—and shares Anthropic’s conviction that [healthcare](https://claude.com/solutions/healthcare) and [life sciences](https://claude.com/solutions/life-sciences) are among the areas where AI has the greatest potential to improve the quality of human life.
+Vas Narasimhan has been appointed to Anthropic's Board of Directors by the Anthropic Long-Term Benefit Trust. He is a physician-scientist and the Chief Executive Officer of Novartis—one of the world's leading innovative medicines companies—and shares Anthropic’s conviction that healthcare and life sciences are among the areas where AI has the greatest potential to improve the quality of human life.
 
 “Vas brings something rare to our board. He's overseen the development and approval of more than 35 novel medicines for the benefit of patients around the world in one of the most regulated industries,” said Daniela Amodei, Co-founder and President of Anthropic. “Getting powerful new technology to people safely and at scale is what we think about every day at Anthropic. Vas has been doing exactly that for years, and I'm grateful he's joining us.”
 
-Anthropic is a Public Benefit Corporation and its Board is elected by stockholders and the Long-Term Benefit Trust, as detailed [here](https://www.anthropic.com/news/the-long-term-benefit-trust). The Trust is an independent body whose members have no financial stake in Anthropic, and it exists to keep the company's governance aligned in a responsible balance between financial success and the company’s public benefit mission of developing AI for the long-term benefit of humanity. With Narasimhan's appointment, Trust-appointed directors now make up a majority of the Board. Narasimhan joins Dario Amodei, Daniela Amodei, [Yasmin Razavi](https://www.anthropic.com/news/anthropic-series-c), [Jay Kreps](https://www.anthropic.com/news/jay-kreps-appointed-to-board-of-directors), [Reed Hastings](https://www.anthropic.com/news/reed-hastings), and [Chris Liddell](https://www.anthropic.com/news/chris-liddell-appointed-anthropic-board) on the Board of Directors.
+Anthropic is a Public Benefit Corporation and its Board is elected by stockholders and the Long-Term Benefit Trust, as detailed here. The Trust is an independent body whose members have no financial stake in Anthropic, and it exists to keep the company's governance aligned in a responsible balance between financial success and the company’s public benefit mission of developing AI for the long-term benefit of humanity. With Narasimhan's appointment, Trust-appointed directors now make up a majority of the Board. Narasimhan joins Dario Amodei, Daniela Amodei, Yasmin Razavi, Jay Kreps, Reed Hastings, and Chris Liddell on the Board of Directors.
 
 "The Long-Term Benefit Trust's role is to appoint directors who will ensure Anthropic responsibly balances its commitment to stockholders and its public benefit mission as the company grows. Vas has spent his career stewarding breakthrough science responsibly —exactly the perspective we are excited to have on the board as we develop consequential technology. We’re excited for what he’ll bring to the table,” said Neil “Buddy” Shah, Chair of Anthropic's Long-Term Benefit Trust.
 
@@ -18,22 +20,20 @@ Early in his career, Narasimhan worked on HIV/AIDS, malaria, and tuberculosis pr
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/narasimhan-board)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/narasimhan-board)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

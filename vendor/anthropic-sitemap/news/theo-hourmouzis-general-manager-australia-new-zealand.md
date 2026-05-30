@@ -1,3 +1,5 @@
+# Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
+
 Announcements
 
 # Anthropic names Theo Hourmouzis General Manager of Australia & New Zealand and officially opens Sydney office
@@ -10,36 +12,34 @@ Hourmouzis brings more than 20 years of leadership experience in the technology 
 
 "Organizations across Australia and New Zealand are thinking carefully about how to adopt AI, and they want partners who take safety and rigor as seriously as they take the opportunity,” said Theo Hourmouzis, Anthropic General Manager of Australia and New Zealand**.** “That's what drew me to Anthropic. I've spent my career working with businesses and governments across this region, and the organizations that do best with AI will be the ones that pair ambition with discipline.”
 
-Our growing team in the region will deepen relationships with enterprises like Commonwealth Bank and Quantium and with AI for Science research partners including Australian National University, Murdoch Children’s Research Institute, Garvan Institute of Medical Research, and Curtin University—while delivering on our commitments in the [MOU](https://www.anthropic.com/news/australia-MOU) we recently signed with the Australian government.
+Our growing team in the region will deepen relationships with enterprises like Commonwealth Bank and Quantium and with AI for Science research partners including Australian National University, Murdoch Children’s Research Institute, Garvan Institute of Medical Research, and Curtin University—while delivering on our commitments in the MOU we recently signed with the Australian government.
 
 “Theo's appointment reflects the conviction we share with the Australian government that AI can drive economic growth when it’s developed and deployed responsibly,” said Chris Ciauri, Anthropic Managing Director of International. “He’s spent decades helping organisations adopt new technology, and he’ll build the team and partnerships we need to support our customers across Australia and New Zealand for the long term.”
 
 **New local partnerships**
 
-We recently announced deep platform collaborations with Canva and Xero. [Canva](https://www.canva.com/newsroom/news/canva-claude-design/) will bring the power of Canva Design Engine and Visual Suite into the newly launched Claude Design by Anthropic Labs, and a multi-year partnership will bring Claude's AI directly into [Xero](https://www.xero.com/au/media-releases/xero-and-anthropic-collaborate/)—and Xero's financial data and tools into Claude.ai.
+We recently announced deep platform collaborations with Canva and Xero. Canva will bring the power of Canva Design Engine and Visual Suite into the newly launched Claude Design by Anthropic Labs, and a multi-year partnership will bring Claude's AI directly into Xero—and Xero's financial data and tools into Claude.ai.
 
-We're also working with YMCA South Australia as a [Claude for Nonprofits](https://www.anthropic.com/news/claude-for-nonprofits) Partner. YMCA operates across 65+ community locations with around 1,250 staff. Using Claude, YMCA SA has built custom AI skills that turn complex operational data into actionable insights, cut branded content production from hours to minutes, and brought technical work in-house that previously required external contractors.
+We're also working with YMCA South Australia as a Claude for Nonprofits Partner. YMCA operates across 65+ community locations with around 1,250 staff. Using Claude, YMCA SA has built custom AI skills that turn complex operational data into actionable insights, cut branded content production from hours to minutes, and brought technical work in-house that previously required external contractors.
 
 “The future for us is about Claude becoming embedded infrastructure, a core part of how we run the organisation,” said Devan Seamans, Head of Marketing & Technology, YMCA South Australia. “That requires a platform with the enterprise governance and controls to match the obligations of a large not-for-profit. We want to be a leader in the Australian NFP space with AI adoption, and Anthropic's approach gives us the confidence to pursue that.”
 
-Sydney follows our recent office openings in [Tokyo](https://www.anthropic.com/news/opening-our-tokyo-office) and [Bengaluru](https://www.anthropic.com/news/bengaluru-office-partnerships-across-india), and comes just ahead of [Seoul](https://www.anthropic.com/news/seoul-becomes-third-anthropic-office-in-asia-pacific), bringing us closer to where our customers are. For more information about current career opportunities in our Sydney office, visit [anthropic.com/careers](http://anthropic.com/careers).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/theo-hourmouzis-general-manager-australia-new-zealand)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/theo-hourmouzis-general-manager-australia-new-zealand)
+Sydney follows our recent office openings in Tokyo and Bengaluru, and comes just ahead of Seoul, bringing us closer to where our customers are. For more information about current career opportunities in our Sydney office, visit anthropic.com/careers.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

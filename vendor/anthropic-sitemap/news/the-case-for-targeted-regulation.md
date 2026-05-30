@@ -1,3 +1,5 @@
+# The case for targeted regulation
+
 Policy
 
 # The case for targeted regulation
@@ -6,7 +8,7 @@ Oct 31, 2024
 
 ![A building with columns](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F6b04f486cfe0b8a62e4632f3186f23afcd22a890-2880x1621.png&w=3840&q=75)
 
-Increasingly powerful AI systems have the potential to [accelerate scientific progress](https://darioamodei.com/machines-of-loving-grace), unlock new medical treatments, and grow the economy. But along with the remarkable new capabilities of these AIs come significant risks. **Governments should urgently take action on AI policy in the next eighteen months. The window for proactive risk prevention is closing fast.**
+Increasingly powerful AI systems have the potential to accelerate scientific progress, unlock new medical treatments, and grow the economy. But along with the remarkable new capabilities of these AIs come significant risks. **Governments should urgently take action on AI policy in the next eighteen months. The window for proactive risk prevention is closing fast.**
 
 Judicious, narrowly-targeted regulation can allow us to get the best of both worlds: realizing the benefits of AI while mitigating the risks. Dragging our feet might lead to the worst of both worlds: poorly-designed, knee-jerk regulation that hampers progress while also failing to be effective at preventing risks.
 
@@ -16,13 +18,13 @@ In this post, we suggest some principles for how governments can meaningfully re
 
 In the last year, AI systems have grown dramatically better at math, graduate-level reasoning, and computer coding, along with many other capabilities. Inside AI companies, we see continued progress on as-yet undisclosed systems and results. These advances offer many positive applications. But progress in these same broad capabilities also brings with it the potential for destructive applications, either from the misuse of AI in domains such as cybersecurity or biology, or from the accidental or autonomous behavior of the AI system itself.
 
-In the realm of cyber capabilities, models have rapidly advanced on a broad range of coding tasks and cyber offense evaluations. On the SWE-bench software engineering task, models have improved from being able to solve 1.96% of a test set of real-world coding problems ([Claude 2, October 2023](https://arxiv.org/abs/2310.06770)) to 13.5% ([Devin, March 2024](https://www.cognition.ai/blog/swe-bench-technical-report)) to 49% ([Claude 3.5 Sonnet, October 2024](https://www.anthropic.com/news/3-5-models-and-computer-use)). Internally, our Frontier Red Team has found that current models can already assist on a broad range of cyber offense-related tasks, and we expect that the next generation of models—which will be able to plan over long, multi-step tasks—will be even more effective.
+In the realm of cyber capabilities, models have rapidly advanced on a broad range of coding tasks and cyber offense evaluations. On the SWE-bench software engineering task, models have improved from being able to solve 1.96% of a test set of real-world coding problems (Claude 2, October 2023) to 13.5% (Devin, March 2024) to 49% (Claude 3.5 Sonnet, October 2024). Internally, our Frontier Red Team has found that current models can already assist on a broad range of cyber offense-related tasks, and we expect that the next generation of models—which will be able to plan over long, multi-step tasks—will be even more effective.
 
-On the potential for AI exacerbating CBRN (chemical, biological, radiological, and nuclear) misuses, the UK AI Safety Institute tested a range of models from industry actors (including Anthropic) and [concluded](https://www.aisi.gov.uk/work/advanced-ai-evaluations-may-update) that:
+On the potential for AI exacerbating CBRN (chemical, biological, radiological, and nuclear) misuses, the UK AI Safety Institute tested a range of models from industry actors (including Anthropic) and concluded that:
 
 > ...models can be used to obtain expert-level knowledge about biology and chemistry. For several models, replies to science questions were on par with those given by PhD-level experts.
 
-AI systems have progressed dramatically in their understanding of the sciences in the last year. The widely used benchmark GPQA saw scores on its hardest section [grow from 38.8%](https://arxiv.org/abs/2311.12022) when it was released in November 2023, to 59.4% in June 2024 ([Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet)), to 77.3% in September ([OpenAI o1](https://openai.com/index/learning-to-reason-with-llms/); human experts score 81.2%). Our Frontier Red Team has also found continued progress in CBRN capabilities. For now, the uplift of having access to a frontier model relative to existing software and internet tools is still relatively small, however it is growing rapidly. As models advance in capabilities, the potential for misuse is likely to continue on a similar scaling trend.
+AI systems have progressed dramatically in their understanding of the sciences in the last year. The widely used benchmark GPQA saw scores on its hardest section grow from 38.8% when it was released in November 2023, to 59.4% in June 2024 (Claude 3.5 Sonnet), to 77.3% in September (OpenAI o1; human experts score 81.2%). Our Frontier Red Team has also found continued progress in CBRN capabilities. For now, the uplift of having access to a frontier model relative to existing software and internet tools is still relatively small, however it is growing rapidly. As models advance in capabilities, the potential for misuse is likely to continue on a similar scaling trend.
 
 About a year ago, we warned that frontier models might pose real risks in the cyber and CBRN domains within 2-3 years. Based on the progress described above, we believe we are now substantially closer to such risks. Surgical, careful regulation will soon be needed.
 
@@ -30,17 +32,17 @@ About a year ago, we warned that frontier models might pose real risks in the cy
 
 Grappling with the catastrophic risks of AI systems is rife with uncertainty. We see the initial glimmers of risks that could become serious in the near future, but we don’t know exactly when the real dangers will arrive. We want to make the critical preparations well in advance.
 
-At Anthropic, we try to deal with this challenge via our [Responsible Scaling Policy](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy) (RSP): an adaptive framework for identifying, evaluating, and mitigating catastrophic risks. The first principle of the RSP is that it is _proportionate_: the strength of our safety and security measures increase in proportion with defined “capability thresholds” that the AI systems meet. The “if-then” structure requires safety and security measures to be applied, but only when models become capable enough to warrant them.
+At Anthropic, we try to deal with this challenge via our Responsible Scaling Policy (RSP): an adaptive framework for identifying, evaluating, and mitigating catastrophic risks. The first principle of the RSP is that it is _proportionate_: the strength of our safety and security measures increase in proportion with defined “capability thresholds” that the AI systems meet. The “if-then” structure requires safety and security measures to be applied, but only when models become capable enough to warrant them.
 
 The second key idea is that the RSP should be _iterative_: we regularly measure the capabilities of our models and rethink our security and safety approaches in light of how things have developed.
 
-Anthropic has had a formal RSP in place since [September 2023](https://www.anthropic.com/news/anthropics-responsible-scaling-policy) (and recently released an [updated version](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy)), and other frontier model labs have, to varying degrees, adopted similar plans.
+Anthropic has had a formal RSP in place since September 2023 (and recently released an updated version), and other frontier model labs have, to varying degrees, adopted similar plans.
 
 RSPs serve many useful purposes:
 
--   They increase a developer’s **investment in computer security and in safety evaluations**. Both security and evaluations are typically built after encountering problems, but RSPs publicly commit a developer to develop and resource these areas _ahead of time_. At Anthropic, teams such as Security, Trust & Safety, Interpretability, and the Frontier Red Team have had to ramp up hiring to have a reasonable chance of achieving the safety and security prerequisites set out by our RSP. Properly implemented, RSPs drive organizational structure and priorities. They become a key part of product roadmaps, rather than just being a policy on paper;
--   RSPs serve as a forcing function for a developer to **flesh out risks and threat models**. Such models tend to be rather abstract, but an RSP makes them interact directly with the day-to-day business of a company, forcing developers to make them as specific and well-grounded as possible, and to reassess them over time;
--   Having an RSP encourages developers to **be transparent about their computer security and misuse mitigation practices**. Our RSP commits us to internally document our findings and recommendations regarding the safeguards we’ve implemented. We’ve also found that our RSP has naturally generated much of the substantive work we’ve needed to meet voluntary commitments such as the White House Voluntary AI Commitments and those made at the Bletchley Park AI Safety Summit.
+*   They increase a developer’s **investment in computer security and in safety evaluations**. Both security and evaluations are typically built after encountering problems, but RSPs publicly commit a developer to develop and resource these areas _ahead of time_. At Anthropic, teams such as Security, Trust & Safety, Interpretability, and the Frontier Red Team have had to ramp up hiring to have a reasonable chance of achieving the safety and security prerequisites set out by our RSP. Properly implemented, RSPs drive organizational structure and priorities. They become a key part of product roadmaps, rather than just being a policy on paper;
+*   RSPs serve as a forcing function for a developer to **flesh out risks and threat models**. Such models tend to be rather abstract, but an RSP makes them interact directly with the day-to-day business of a company, forcing developers to make them as specific and well-grounded as possible, and to reassess them over time;
+*   Having an RSP encourages developers to **be transparent about their computer security and misuse mitigation practices**. Our RSP commits us to internally document our findings and recommendations regarding the safeguards we’ve implemented. We’ve also found that our RSP has naturally generated much of the substantive work we’ve needed to meet voluntary commitments such as the White House Voluntary AI Commitments and those made at the Bletchley Park AI Safety Summit.
 
 Our Responsible Scaling Policy isn’t perfect, but as we’ve repeatedly deployed models with it, we’re getting better at making it run smoothly while also testing for risks. **Despite the need for iteration and course-corrections, we are fundamentally convinced that RSPs are a workable policy with which AI companies can successfully comply while remaining competitive in the marketplace.**
 
@@ -80,7 +82,7 @@ A: “Regulation by use case” doesn’t make sense for the form and format in 
 
 _Q: This post talks a lot about CBRN misuses and cyber risks. Why not other, nearer-term risks, like deepfakes and child safety?_
 
-This post is not an attempt to address every possible safety problem posed by generative AI systems. Instead, it aims to lay out principles for grappling with _some_ types of risks which aren’t well-addressed by regulation today and which show up in computationally-intensive frontier models. We continue to address near term risks through things like our [election integrity](https://www.anthropic.com/news/us-elections-readiness) work and partnering with organizations like Thorn, on their “[Safety by Design for Generative AI](https://www.thorn.org/blog/safety-by-design-for-generative-ai-3-month-progress-report/#:~:text=In%20collaboration%20with%20Thorn%20and,CSAM\)%20and%20other%20sexual%20harms)” initiative on child safety.
+This post is not an attempt to address every possible safety problem posed by generative AI systems. Instead, it aims to lay out principles for grappling with _some_ types of risks which aren’t well-addressed by regulation today and which show up in computationally-intensive frontier models. We continue to address near term risks through things like our election integrity work and partnering with organizations like Thorn, on their “Safety by Design for Generative AI” initiative on child safety.
 
 _Q: Won’t regulation slow down innovation, and reduce our ability to compete with geopolitical adversaries?_
 
@@ -92,22 +94,20 @@ A: Our view is that regulation of frontier models should focus on empirically me
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/the-case-for-targeted-regulation)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/the-case-for-targeted-regulation)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# Anthropic and Teach For All launch global AI training initiative for educators
+
 Announcements
 
 # Anthropic and Teach For All launch global AI training initiative for educators
@@ -10,7 +12,7 @@ Anthropic is partnering with Teach For All to bring AI tools and training to edu
 
 Building on the approach pioneered by Teach For America, Teach For All is a global network of independent organizations working to expand educational opportunity. Over the past 15 years, it has grown into one of the world's largest and most respected communities of educators serving students in under-resourced schools. Its network spans organizations like Teach For India, Enseña Chile, and Teach For Nigeria—each locally led but connected through a common mission and cross-network collaboration.
 
-## **Built on shared learning**
+## Built on shared learning
 
 What makes this partnership distinctive is its approach. Teachers are positioned not as passive consumers of AI tools, but as co-architects shaping how AI develops. Through the AI LCC, Anthropic provides access to Claude, while educators provide on-the-ground feedback to inform how the product evolves.
 
@@ -18,13 +20,13 @@ What makes this partnership distinctive is its approach. Teachers are positioned
 
 "The combination of real-world experience from the Teach For All network and technical insights from Anthropic has provided a fabulous learning opportunity," said Michael Gilmore, COO of Teach for Australia. "We look forward to continuing participation in 2026."
 
-## **What teachers are building**
+## What teachers are building
 
-One teacher in Liberia, new to AI, attended the AI LCC's live trainings on AI fluency. Within weeks, he had built an [interactive climate education curriculum](https://claude.ai/redirect/website.v1.69d663a0-4d88-4d44-aa08-5b9dc41b4eb0/public/artifacts/5a020adb-ab65-4637-bcf0-79e6d20c58d2) for Liberian schools using Claude Artifacts: interactive tools like apps, games, or visualizations that Claude can build on the spot.
+One teacher in Liberia, new to AI, attended the AI LCC's live trainings on AI fluency. Within weeks, he had built an interactive climate education curriculum for Liberian schools using Claude Artifacts: interactive tools like apps, games, or visualizations that Claude can build on the spot.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8e2e99d8b3534d5e1c4dcc950b1b0e0bbcd768cd-1920x1080.png&w=3840&q=75)
 
-In Bangladesh, a teacher working with Grade 6 and 7 students—over half of whom struggled with basic numeracy—built a [gamified math learning app](https://claude.ai/redirect/website.v1.69d663a0-4d88-4d44-aa08-5b9dc41b4eb0/public/artifacts/e94bf439-b3a6-4087-87f2-dee5d8de99d8) complete with boss battles, a leaderboard, and XP rewards.
+In Bangladesh, a teacher working with Grade 6 and 7 students—over half of whom struggled with basic numeracy—built a gamified math learning app complete with boss battles, a leaderboard, and XP rewards.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F8745b5fa855dfeca249bdd8b7696b5440da72ac7-1920x1080.png&w=3840&q=75)
 
@@ -34,7 +36,7 @@ The pattern is consistent across the network: teachers who know their students b
 
 The impact extends beyond individual classrooms to leadership as well. "The partnership has connected us with a community of organizations navigating similar technical opportunities, and there's been significant learning around responsible AI implementation," said Oscar Onuoha, IT Lead at Teach For Nigeria. "We're grateful to Anthropic for their commitment to supporting non-profits as we explore these emerging technologies."
 
-## **How the AI Literacy and Creator Collective works**
+## How the AI Literacy and Creator Collective works
 
 The collective operates through three interconnected programs.
 
@@ -44,36 +46,34 @@ Claude Connect is the community's ongoing learning hub—more than 1,000 educato
 
 Claude Lab is for educators interested in going further. This innovation space gives teachers Claude Pro access to test practical implementations with advanced features. Participants have monthly office hours with the Anthropic team and the opportunity to directly inform Claude's product roadmap. Within four days of announcing the program, we received over 200 applications.
 
-## **Building on Anthropic's education work**
+## Building on Anthropic's education work
 
 This partnership builds on our growing work with educators and governments worldwide. In Iceland, we launched one of the world's first comprehensive national AI education pilots. In Rwanda, we partnered with the government and ALX to bring AI education to hundreds of thousands of learners across Africa. And through initiatives like our participation in the White House Taskforce on AI Education, we're working to ensure students and educators across America develop practical AI skills.
 
-## **Looking forward**
+## Looking forward
 
 As AI transforms how knowledge is created and shared, teachers will be essential guides for students navigating this transition. The educators in this partnership are already showing what's possible: a climate curriculum built in Liberia, a math game designed in Bangladesh, and digital workspaces taking shape in Argentina.
 
 This is our commitment—ensuring that educators in every community, not just the most well-resourced, can shape and benefit from AI's potential.
 
-For more on Anthropic's education initiatives, [see here](https://claude.com/solutions/education).
+For more on Anthropic's education initiatives, see here.
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-teach-for-all)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-teach-for-all)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

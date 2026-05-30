@@ -1,3 +1,5 @@
+# Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
+
 Announcements
 
 # Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs
@@ -12,7 +14,7 @@ Alongside the founding partners, the new company is backed by a consortium of le
 
 **Why we’re building this**
 
-Putting Claude to work in an organization’s core operations takes hands-on engineering and deep familiarity with how each business runs. Systems integrators in the [Claude Partner Network](https://www.anthropic.com/news/claude-partner-network) lead that work for the world’s largest enterprises today, and we are continuing to invest deeply in those partnerships as Claude reaches more customers. This new firm extends that delivery capacity further. Companies from community banks to mid-sized manufacturers and regional health systems stand to gain from AI, but lack the in-house resources to build and run frontier deployments.
+Putting Claude to work in an organization’s core operations takes hands-on engineering and deep familiarity with how each business runs. Systems integrators in the Claude Partner Network lead that work for the world’s largest enterprises today, and we are continuing to invest deeply in those partnerships as Claude reaches more customers. This new firm extends that delivery capacity further. Companies from community banks to mid-sized manufacturers and regional health systems stand to gain from AI, but lack the in-house resources to build and run frontier deployments.
 
 “Enterprise demand for Claude is significantly outpacing any single delivery model. Our partnerships with the world's leading systems integrators are central to how Claude reaches large enterprises,” said Krishna Rao, Chief Financial Officer of Anthropic. “This new firm brings additional operating capability to the ecosystem and capital from leading alternative asset managers. We are proud to build it alongside Blackstone, Hellman & Friedman, Goldman Sachs, and our other partners.” 
 
@@ -32,22 +34,20 @@ Our partnerships with Accenture, Deloitte, PwC, and the other consulting and sys
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/enterprise-ai-services-company)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/enterprise-ai-services-company)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# India Country Brief: The Anthropic Economic Index
+
 Economic Research
 
 # India Country Brief: The Anthropic Economic Index
@@ -8,7 +10,7 @@ Feb 16, 2026
 
 ## Executive summary
 
-India, already the world’s largest exporter of IT services, is home to one of the world’s fastest-growing AI user bases. Understanding how AI is being used in India—and how it differs from other countries—is essential for informing AI policy, investment, and deployment in the country. This brief provides insights on Claude.ai use in India, drawing on data from the [fourth Anthropic Economic Index report](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report) covering ~1 million Claude.ai conversations globally during November 2025. India accounts for 5.8% of total Claude.ai use, second only to the United States. Yet current adoption remains concentrated, pointing to significant opportunities to expand access more broadly across the population.
+India, already the world’s largest exporter of IT services, is home to one of the world’s fastest-growing AI user bases. Understanding how AI is being used in India—and how it differs from other countries—is essential for informing AI policy, investment, and deployment in the country. This brief provides insights on Claude.ai use in India, drawing on data from the fourth Anthropic Economic Index report covering ~1 million Claude.ai conversations globally during November 2025. India accounts for 5.8% of total Claude.ai use, second only to the United States. Yet current adoption remains concentrated, pointing to significant opportunities to expand access more broadly across the population.
 
 The findings point to a user base that applies AI more heavily in professional contexts, delegates more autonomy to it, and brings Claude tasks that are substantially more time-consuming to complete without assistance. Higher shares of complex tasks that humans could not complete alone suggest that Indian users are using the technology at the frontier.
 
@@ -32,7 +34,7 @@ Use is concentrated in a small number of highly economically active states. Maha
 
 The concentration in these four states—home to Bangalore, Hyderabad, Chennai, Mumbai, and Delhi NCR—suggests that current AI adoption is driven primarily by India’s established technology workforce rather than broad-based consumer uptake.
 
-### **Concentration of occupational tasks**
+### Concentration of occupational tasks
 
 The occupational mix of Indian Claude.ai use, inferred by mapping tasks to related occupations, skews towards software development and engineering roles, consistent with the country’s large IT services sector.
 
@@ -40,18 +42,18 @@ The occupational mix of Indian Claude.ai use, inferred by mapping tasks to relat
 
 **Figure 3.** Occupation groups in India by Claude.ai use. Horizontal bars show the share of Indian Claude.ai use attributable to each SOC occupation group. Orange markers indicate the global average for comparison. November 2025 data.
 
-The most common O\*NET tasks performed by Indian users confirm the software-heavy profile:
+The most common O*NET tasks performed by Indian users confirm the software-heavy profile:
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7e287a3d33231c26d4bfbb3ebfe085dd37e2f9cb-3840x3142.png&w=3840&q=75)
 
-**Table 1.** Most common O\*NET tasks among Claude use in India. Some task names shortened for readability.
+**Table 1.** Most common O*NET tasks among Claude use in India. Some task names shortened for readability.
 
-India ranks 1st globally in the share of AI use devoted to software-related tasks (45.2% of all O\*NET-mapped tasks), ahead of Vietnam (42.1%) and Egypt (39.2%). The presence of educational tasks among the most common individual tasks (see Table 1) and when aggregating tasks to occupation groups (see Figure 3) indicates other common use cases in learning and instruction.
+India ranks 1st globally in the share of AI use devoted to software-related tasks (45.2% of all O*NET-mapped tasks), ahead of Vietnam (42.1%) and Egypt (39.2%). The presence of educational tasks among the most common individual tasks (see Table 1) and when aggregating tasks to occupation groups (see Figure 3) indicates other common use cases in learning and instruction.
 
 ## Economic primitives: how India uses AI differently
 
   
-[Our latest Economic Index report](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report) introduces “economic primitives”—fundamental measurements of how humans and AI collaborate. Comparing India to the global average reveals several distinctive patterns.
+Our latest Economic Index report introduces “economic primitives”—fundamental measurements of how humans and AI collaborate. Comparing India to the global average reveals several distinctive patterns.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F769426797ecc9b3fd234277eafc36aa248169cb6-3040x1920.png&w=3840&q=75)
 
@@ -81,9 +83,9 @@ India ranks 1st globally in the share of AI use devoted to software-related task
 
 ### Methodology
 
-This analysis draws on privacy-preserving data from Claude.ai consumer use from November 13–20, 2025, as described in the [fourth Anthropic Economic Index report](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report). Economic primitives are computed using the methodology detailed in that report. Geographic assignment uses IP-based geolocation. Occupation and task classification are based on mappings to the O\*NET task taxonomy and SOC occupation groups. For country-level rankings, we only include countries with at least 200 observations in our sample because of the uncertainty of the measure for low-usage countries in our random sample. The underlying data includes Claude.ai Free, Pro, and Max usage.
+This analysis draws on privacy-preserving data from Claude.ai consumer use from November 13–20, 2025, as described in the fourth Anthropic Economic Index report. Economic primitives are computed using the methodology detailed in that report. Geographic assignment uses IP-based geolocation. Occupation and task classification are based on mappings to the O*NET task taxonomy and SOC occupation groups. For country-level rankings, we only include countries with at least 200 observations in our sample because of the uncertainty of the measure for low-usage countries in our random sample. The underlying data includes Claude.ai Free, Pro, and Max usage.
 
-_For the full methodology, global findings, and time-series analysis, see the [Anthropic Economic Index January 2026 report](https://www.anthropic.com/research/anthropic-economic-index-january-2026-report)._
+_For the full methodology, global findings, and time-series analysis, see the Anthropic Economic Index January 2026 report._
 
 ### Citation
 
@@ -103,24 +105,22 @@ Copy
 
 Sally Aldous, Jake Eaton, Ria Strasser Galvis, Hanah Ho, Maxim Massenkoff, Peter McCrory, Jared Mueller, Emily Pastewka, Sarah Pollack, Nitarshan Rajkumar, David Saunders, Alexandra Sanderford, Kim Withee.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/india-brief-economic-index)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/india-brief-economic-index)
-
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

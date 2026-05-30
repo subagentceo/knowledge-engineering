@@ -1,3 +1,5 @@
+# Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI
+
 Societal Impacts
 
 # Introducing Anthropic Interviewer: What 1,250 professionals told us about working with AI
@@ -12,16 +14,16 @@ _We’re launching a new tool, Anthropic Interviewer, to help understand people�
 
 Millions of people now use AI every day. As a company developing AI systems, we want to know how and why they’re doing so, and how it affects them. In part, this is because we want to use people’s feedback to develop better products—but it’s also because understanding people’s interactions with AI is one of the great sociological questions of our time.
 
-We recently designed [a tool](https://www.anthropic.com/research/clio) to investigate patterns of AI use while protecting our users’ privacy. It enabled us to analyze changing patterns of AI use [across the economy](https://www.anthropic.com/economic-index). But the tool only allowed us to understand what was happening within conversations with Claude. What about what comes afterwards? How are people actually _using_ Claude’s outputs? How do they feel about it? What do they imagine the role of AI to be in their future? If we want a comprehensive picture of AI’s changing role in people’s lives, and to center humans in the development of models, we need to _ask people directly_.
+We recently designed a tool to investigate patterns of AI use while protecting our users’ privacy. It enabled us to analyze changing patterns of AI use across the economy. But the tool only allowed us to understand what was happening within conversations with Claude. What about what comes afterwards? How are people actually _using_ Claude’s outputs? How do they feel about it? What do they imagine the role of AI to be in their future? If we want a comprehensive picture of AI’s changing role in people’s lives, and to center humans in the development of models, we need to _ask people directly_.
 
 Such a project would require us to run many hundreds of interviews. Here, we enlisted AI to help us do so. We built an interview tool called Anthropic Interviewer. Powered by Claude, Anthropic Interviewer runs detailed interviews automatically at unprecedented scale, feeding its results back to human researchers for analysis. This is a new step in understanding the wants and needs of our users, as well as gathering data for the analysis of AI’s societal and economic impacts.
 
-To test Anthropic Interviewer, we had it run 1,250 interviews with professionals—the general workforce (N=1,000), scientists (N=125), and creatives (N=125)—about their views on AI. We’re [publicly releasing](https://huggingface.co/datasets/Anthropic/AnthropicInterviewer) all interview data from this initial test (with participant consent) for researchers to explore; we provide our own analysis below. Briefly, here are some examples of what we found:
+To test Anthropic Interviewer, we had it run 1,250 interviews with professionals—the general workforce (N=1,000), scientists (N=125), and creatives (N=125)—about their views on AI. We’re publicly releasing all interview data from this initial test (with participant consent) for researchers to explore; we provide our own analysis below. Briefly, here are some examples of what we found:
 
--   **In our sample, people are optimistic about the role AI plays in their work.** Positive sentiments characterized the majority of topics discussed. However, a small number of topics such as educational integration, artist displacement, and security concerns, came with more pessimistic outlooks.
--   **People from the general workforce want to preserve tasks that define their professional identity while delegating routine work to AI.** They envision futures where routine tasks are automated and their role shifts to overseeing AI systems.
--   **Creatives are using AI to increase their productivity despite peer judgement and anxiety about the future.** They are navigating both the immediate stigma of AI use in creative communities and deeper concerns about economic displacement and the erosion of human creative identity.
--   **Scientists want AI partnership but can't yet trust it for core research.** Scientists uniformly expressed a desire for AI that could generate hypotheses and design experiments. But at present, they confined their actual use to other tasks like writing manuscripts or debugging analysis code.
+*   **In our sample, people are optimistic about the role AI plays in their work.** Positive sentiments characterized the majority of topics discussed. However, a small number of topics such as educational integration, artist displacement, and security concerns, came with more pessimistic outlooks.
+*   **People from the general workforce want to preserve tasks that define their professional identity while delegating routine work to AI.** They envision futures where routine tasks are automated and their role shifts to overseeing AI systems.
+*   **Creatives are using AI to increase their productivity despite peer judgement and anxiety about the future.** They are navigating both the immediate stigma of AI use in creative communities and deeper concerns about economic displacement and the erosion of human creative identity.
+*   **Scientists want AI partnership but can't yet trust it for core research.** Scientists uniformly expressed a desire for AI that could generate hypotheses and design experiments. But at present, they confined their actual use to other tasks like writing manuscripts or debugging analysis code.
 
 General workforceCreativesScientists
 
@@ -87,11 +89,11 @@ Example quotations from scientists, organized by topic.
 
 ## Method
 
-This initial test explored how workers integrate AI into their professional practice and how they feel about its role in their future. We ran interviews to produce qualitative data, and supplemented them with quantitative data from surveys where participants answered questions on their behavioral and occupational backgrounds. We also had [a separate AI analysis tool](https://www.anthropic.com/research/clio) read the interview transcripts and cluster together emergent, overarching themes from the unstructured data—for example, on the percentage of participants who mentioned a specific topic or expressed a specific view in their interview.
+This initial test explored how workers integrate AI into their professional practice and how they feel about its role in their future. We ran interviews to produce qualitative data, and supplemented them with quantitative data from surveys where participants answered questions on their behavioral and occupational backgrounds. We also had a separate AI analysis tool read the interview transcripts and cluster together emergent, overarching themes from the unstructured data—for example, on the percentage of participants who mentioned a specific topic or expressed a specific view in their interview.
 
 ### Participants
 
-We used Anthropic Interviewer to conduct interviews with 1,250 professionals. We intend for the tool to interview general [Claude.ai](http://claude.ai/redirect/website.v1.1457497c-df2f-450a-a84b-f78d6a4d2d60) users, but for this initial test, we sought participants working across a range of professions and engaged them through crowdworker platforms (all participants had an occupation other than crowdworking that was their main job).
+We used Anthropic Interviewer to conduct interviews with 1,250 professionals. We intend for the tool to interview general Claude.ai users, but for this initial test, we sought participants working across a range of professions and engaged them through crowdworker platforms (all participants had an occupation other than crowdworking that was their main job).
 
 1,000 of our participants were recruited from a general sample of occupations (that is, we did not select participants from specific jobs). Of that group, the largest subgroups came from educational instruction (17%), computer and mathematical occupations (16%), and arts, design, entertainment, and media (14%).
 
@@ -125,11 +127,11 @@ The interviews conducted by Anthropic Interviewer appeared on Claude.ai and last
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe6678158f5572d1f9f6945c2fdcc02275d2a371f-2272x1600.png&w=3840&q=75)
 
-The interviews were conducted on an interface like this on [claude.ai](http://claude.ai) (above is the module now live for users).
+The interviews were conducted on an interface like this on claude.ai (above is the module now live for users).
 
 #### Analysis
 
-Once interviews were complete, a human researcher collaborated with Anthropic Interviewer to analyze the transcripts. Anthropic Interviewer’s analysis step takes as input the initial interview plan and outputs answers to the research questions alongside illustrative quotations. At this stage, we also used our [automated AI analysis tool](https://www.anthropic.com/research/clio) to identify emergent themes and quantify their prevalence across participants.
+Once interviews were complete, a human researcher collaborated with Anthropic Interviewer to analyze the transcripts. Anthropic Interviewer’s analysis step takes as input the initial interview plan and outputs answers to the research questions alongside illustrative quotations. At this stage, we also used our automated AI analysis tool to identify emergent themes and quantify their prevalence across participants.
 
 ### Research goals
 
@@ -137,9 +139,9 @@ As described above, Anthropic Interviewer was made aware of the research goals t
 
 The following were the main research goals for each subsample:
 
--   **General workforce.** “Understand how individuals integrate AI tools into their professional workflows, exploring usage patterns, task preferences, and interaction styles to gain insights into the evolving relationship between humans and AI in workplace contexts.”
--   **Creatives.** “To understand how creative professionals currently integrate AI into their creative processes, their experiences with AI’s impact on their work, and their vision for the future relationship between AI and human creativity.”
--   **Scientists.** “To understand how AI systems integrate into scientists' daily research workflows, examining their current usage patterns, perceived value, trust levels, and barriers to adoption across different stages of the scientific process.”
+*   **General workforce.** “Understand how individuals integrate AI tools into their professional workflows, exploring usage patterns, task preferences, and interaction styles to gain insights into the evolving relationship between humans and AI in workplace contexts.”
+*   **Creatives.** “To understand how creative professionals currently integrate AI into their creative processes, their experiences with AI’s impact on their work, and their vision for the future relationship between AI and human creativity.”
+*   **Scientists.** “To understand how AI systems integrate into scientists' daily research workflows, examining their current usage patterns, perceived value, trust levels, and barriers to adoption across different stages of the scientific process.”
 
 ## Results
 
@@ -159,27 +161,27 @@ Education & LibraryComputer & MathArt, Design, & MediaBusiness & FinancialOffice
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Ff25cfdc180b0fda7206fe8f7a71e7c60de3fa499-2880x1800.jpg&w=3840&q=75)
 
-Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
+Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3f273dec6ad44ae6edfc88d8a72aae71b590ace8-2882x1800.jpg&w=3840&q=75)
 
-Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
+Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F63f64a724f090641319b354fd9975e2fca17fdb4-2881x1800.jpg&w=3840&q=75)
 
-Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
+Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9a74c687f2737c5852e95a083596c5bbc08ef88d-2880x1800.jpg&w=3840&q=75)
 
-Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
+Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Faaad2a6b22991bdf2f96c0a05a7ff33ed41e39bc-2880x1800.jpg&w=3840&q=75)
 
-Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
+Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7146f32362645cd1040214d551d7293a44327875-2880x1800.jpg&w=3840&q=75)
 
-Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O\*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
+Intensity of the top six emotions—hope, worry, satisfaction, frustration, relief, and trust—surfaced during interviews with professionals in the general workforce from six major occupational categories from the O*NET database. Each axis represents one emotion, with distance from the center indicating the percentage of interviews in which participants expressed that emotion; points farther from the center reflect higher prevalence. We analyzed these emotions across the six most prominent occupational categories in our sample.
 
 We also classified the intensity of different emotions exhibited within professionals’ interviews (see figure above). Different professions exhibited remarkably uniform emotional profiles characterized by high levels of satisfaction. However, this was coupled with frustration, suggesting professionals are finding AI useful while encountering significant implementation challenges.
 
@@ -189,19 +191,19 @@ We also classified the intensity of different emotions exhibited within professi
 
 Augmentation versus automation in professionals' self-reports to Anthropic Interviewer compared with observed Claude usage in the Anthropic Economic Index. Professionals described their AI use as 65% augmentative and 35% automative, while actual Claude conversations showed 47% augmentation and 49% automation. Economic Index percentages do not sum to 100% as some interactions were unclassified.
 
-In a [previous analysis](https://arxiv.org/pdf/2503.04761), we categorized AI uses into either _augmentation_ (where AI collaborates with a user to perform a task), or _automation_ (where AI directly performs tasks). In the Anthropic Interviewer data, 65% of participants described AI’s primary role as augmentative; 35% described it as automative. Notably, this differed from our [latest analysis](https://www.anthropic.com/research/economic-index-geography) of how people use Claude, which showed a much more even split: 47% of tasks involved augmentation and 49% automation. There are multiple potential explanations for this difference:
+In a previous analysis, we categorized AI uses into either _augmentation_ (where AI collaborates with a user to perform a task), or _automation_ (where AI directly performs tasks). In the Anthropic Interviewer data, 65% of participants described AI’s primary role as augmentative; 35% described it as automative. Notably, this differed from our latest analysis of how people use Claude, which showed a much more even split: 47% of tasks involved augmentation and 49% automation. There are multiple potential explanations for this difference:
 
--   There could be sample differences between Anthropic Interviewer study respondents and the users in our previous study;
--   People’s conversations on Claude may _look_ more automative than they actually are—users might refine or adapt Claude’s outputs after the chat ends;
--   The participants might use different AI providers for different tasks;
--   Self-reported interaction styles might diverge from real-world usage;
--   Professionals might perceive their AI use as more collaborative than their Claude conversation patterns indicate.
+*   There could be sample differences between Anthropic Interviewer study respondents and the users in our previous study;
+*   People’s conversations on Claude may _look_ more automative than they actually are—users might refine or adapt Claude’s outputs after the chat ends;
+*   The participants might use different AI providers for different tasks;
+*   Self-reported interaction styles might diverge from real-world usage;
+*   Professionals might perceive their AI use as more collaborative than their Claude conversation patterns indicate.
 
 Professionals envisioned a future with both augmentation and automation—the automation of routine, administrative tasks with the maintenance of human oversight. 48% of interviewees considered transitioning their careers toward positions that focus on managing and overseeing AI systems rather than performing direct technical work.
 
 ...if I use AI and up my skills with it, it can save me so much time on the admin side which will free me up to be with the people.
 
-A pastor said that “...if I use AI and up my skills with it, it can save me so much time on the admin side which will free me up to be with the people”. They also emphasized the importance of “good boundaries”, and avoiding becoming “so dependent on AI that I can't live without \[it\] or do what I'm called to do.”
+A pastor said that “...if I use AI and up my skills with it, it can save me so much time on the admin side which will free me up to be with the people”. They also emphasized the importance of “good boundaries”, and avoiding becoming “so dependent on AI that I can't live without [it] or do what I'm called to do.”
 
 A communications professional said: “I believe the majority of my job will probably be overtaken by AI one day. I think my role will eventually become focused around prompting, overseeing, training and quality-controlling the models rather than actually doing the work myself”. Professionals who were currently barred from using AI at work—for example, some lawyers, accountants, and healthcare workers—anticipated policy changes that would let them automate many tasks in the future.
 
@@ -213,7 +215,7 @@ Similarly to the general sample, 70% of creatives mentioned trying to manage pee
 
 Certain sectors of voice acting have essentially died due to the rise of AI.
 
-Economic anxiety appeared throughout creatives’ interviews. A voice actor stated that: “Certain sectors of voice acting have essentially died due to the rise of AI, such as industrial voice acting.” A composer worried about platforms that might “leverage AI tech along with their publishing libraries \[to\] infinitely generate new music,” flooding markets with cheap alternatives to human-produced music. Another artist captured similar concerns: “Realistically, I’m worried I'll need to keep using generative AI and even start selling generated content just to keep up in the marketplace so I can make a living.” A creative director said: “I fully understand that my gain is another creative’s loss. That product photographer that I used to have to pay $2,000 per day is now not getting my business.” (Note that Claude does not produce images, videos, or music—participants’ expressed anxieties are therefore about AI writ large, and not specific to Claude).
+Economic anxiety appeared throughout creatives’ interviews. A voice actor stated that: “Certain sectors of voice acting have essentially died due to the rise of AI, such as industrial voice acting.” A composer worried about platforms that might “leverage AI tech along with their publishing libraries [to] infinitely generate new music,” flooding markets with cheap alternatives to human-produced music. Another artist captured similar concerns: “Realistically, I’m worried I'll need to keep using generative AI and even start selling generated content just to keep up in the marketplace so I can make a living.” A creative director said: “I fully understand that my gain is another creative’s loss. That product photographer that I used to have to pay $2,000 per day is now not getting my business.” (Note that Claude does not produce images, videos, or music—participants’ expressed anxieties are therefore about AI writ large, and not specific to Claude).
 
 All 125 participants mentioned wanting to remain in control of their creative outputs. Yet this boundary proved unstable in practice: Many participants acknowledged moments where AI drove creative decisions. One artist admitted: “The AI is driving a good bit of the concepts; I simply try to guide it… 60% AI, 40% my ideas”. A musician said: “I hate to admit it, but the plugin has most of the control when using this.”
 
@@ -247,9 +249,9 @@ Disciplines exhibited divergent emotional profiles as seen in the figure above: 
 
 ### AI’s impact on scientific work
 
-Our interviews with researchers in chemistry, physics, biology, and computational fields identified that in many cases, AI could not yet handle core elements of their research like hypothesis generation and experimentation. Scientists primarily reported using AI for other tasks like literature review, coding, and writing. This is an area where AI companies, [including Anthropic](https://www.anthropic.com/news/claude-for-life-sciences), are working to improve their tools and capabilities.
+Our interviews with researchers in chemistry, physics, biology, and computational fields identified that in many cases, AI could not yet handle core elements of their research like hypothesis generation and experimentation. Scientists primarily reported using AI for other tasks like literature review, coding, and writing. This is an area where AI companies, including Anthropic, are working to improve their tools and capabilities.
 
-Trust and reliability concerns were the primary barrier in 79% of interviews; the technical limitations of current AI systems appeared in 27% of interviews. One information security researcher noted: “If I have to double check and confirm every single detail the \[AI\] agent is giving me to make sure there are no mistakes, that kind of defeats the purpose of having the agent do this work in the first place.” A mathematician echoed this frustration: “After I have to spend the time verifying the AI output, it basically ends up being the same \[amount of\] time.” A chemical engineer noted concerns about sycophancy, explaining that: “AI tends to pander to \[user\] sensibilities and changes its answer depending on how they phrase a question. The inconsistency tends to make me skeptical of the AI response.”
+Trust and reliability concerns were the primary barrier in 79% of interviews; the technical limitations of current AI systems appeared in 27% of interviews. One information security researcher noted: “If I have to double check and confirm every single detail the [AI] agent is giving me to make sure there are no mistakes, that kind of defeats the purpose of having the agent do this work in the first place.” A mathematician echoed this frustration: “After I have to spend the time verifying the AI output, it basically ends up being the same [amount of] time.” A chemical engineer noted concerns about sycophancy, explaining that: “AI tends to pander to [user] sensibilities and changes its answer depending on how they phrase a question. The inconsistency tends to make me skeptical of the AI response.”
 
 ChemistsPhysicistsChemical engineersData scientistsMechanical engineersAstronomers
 
@@ -279,7 +281,7 @@ Intensity of the top six emotions—hope, satisfaction, frustration, worry, doub
 
 Most scientific fields reported high satisfaction, but with divergent frustration patterns: physicists and data scientists showed higher frustration, whereas chemical and mechanical engineers displayed minimal frustration. This potentially reflects differences in how computational versus experimental fields attempt to integrate AI into core research workflows: scientists whose work requires real-world interaction might not yet be trying to use AI for their core scientific experimentation. Trust remains relatively low across all fields, indicating widespread reliability concerns regardless of discipline. Unlike creative professionals who express high levels of concern about AI’s impact, scientists show relatively low worry levels. This coheres with their stated frustrations regarding AI’s ability to complete hypothesis generation and experimentation tasks.
 
-Scientists didn’t, in general, fear job displacement due to AI. Some pointed to tacit knowledge that resists digitization, with one microbiologist explaining: “I worked with one bacterial strain where you had to initiate various steps when the cells reached specific colors. The differences in color have to be seen to be understood and \[instructions are\] seldom written down anywhere.” Others emphasized the inherently human nature of research decision-making, with one bioengineer stating: “Experimentation and research is also… inherently up to me”, and noted that “certain parts of the research process are unfortunately just not compatible with AI even though they are the part that would be most convenient to automate, like running experiments”.
+Scientists didn’t, in general, fear job displacement due to AI. Some pointed to tacit knowledge that resists digitization, with one microbiologist explaining: “I worked with one bacterial strain where you had to initiate various steps when the cells reached specific colors. The differences in color have to be seen to be understood and [instructions are] seldom written down anywhere.” Others emphasized the inherently human nature of research decision-making, with one bioengineer stating: “Experimentation and research is also… inherently up to me”, and noted that “certain parts of the research process are unfortunately just not compatible with AI even though they are the part that would be most convenient to automate, like running experiments”.
 
 External constraints also created barriers to AI replacement—researchers in classified environments noted that “there are a lot of ‘do's and don'ts’ with lots of security-oriented processes that must be put in place before the organization can allow us to use agentic frameworks, and even LLMs for example.” A mechanical engineer managing limited resources explained that, although “AI is good at coming up with an experimental design,” in reality “most of my research has budget/time/specimen limits so the ‘ideal’ design isn't always viable.” Nevertheless, regulatory compliance constraints, concerns about skill atrophy, and cost barriers were each brought up in less than 10% of interviews.
 
@@ -293,13 +295,13 @@ This initial test demonstrated that Anthropic Interviewer shows promise at scale
 
 But the significance of Anthropic Interviewer extends beyond methodology: it fundamentally shifts what questions we can ask and answer about AI’s role in society, and how interviews about any topic can happen at this new scale. Our effort to conduct meaningful research at scale with Anthropic Interviewer is only just beginning. Previously, we only had insight into how people were using Claude within the chat window. We didn't know how people _felt_ about using AI, what they _wanted to change_ about their interactions with the technology, or how they _envisioned AI's future role_ in their lives.
 
-The findings from this initial survey provide us with new insights beyond our Economic Index work to understand how people are using AI in their workplace. We are sharing these initial findings for discussion with our [Economic Advisory Council](https://www.anthropic.com/news/introducing-the-anthropic-economic-advisory-council) and [Higher Education Advisory Board](https://www.anthropic.com/news/anthropic-higher-education-initiatives). As we continue this research, we’ll publicly share our pilot results, along with how the findings inform our future work.
+The findings from this initial survey provide us with new insights beyond our Economic Index work to understand how people are using AI in their workplace. We are sharing these initial findings for discussion with our Economic Advisory Council and Higher Education Advisory Board. As we continue this research, we’ll publicly share our pilot results, along with how the findings inform our future work.
 
-Anthropic Interviewer is our latest step to center human voices in the conversation about the development of AI models—something we began with our work on [Collective Constitutional AI](https://www.anthropic.com/research/collective-constitutional-ai-aligning-a-language-model-with-public-input), which gathered public perspectives to shape Claude’s behavior. These conversations can help us improve the character and training process of Claude itself as well as inform future policies that Anthropic champions and adopts. Below are some of the practical steps we’ve taken to explore partnerships with specific communities, helping us develop AI informed by their expertise:
+Anthropic Interviewer is our latest step to center human voices in the conversation about the development of AI models—something we began with our work on Collective Constitutional AI, which gathered public perspectives to shape Claude’s behavior. These conversations can help us improve the character and training process of Claude itself as well as inform future policies that Anthropic champions and adopts. Below are some of the practical steps we’ve taken to explore partnerships with specific communities, helping us develop AI informed by their expertise:
 
--   **Creatives.** We’re supporting the development of exhibitions, workshops, and events to understand how AI is augmenting creativity. We have partnerships with leading cultural institutions including the [LAS Art Foundation](https://www.las-art.foundation/programme/pierre-huyghe), [Mori Art Museum](https://www.mori.art.museum/jp/index.html), and [Tate](https://www.tate.org.uk/whats-on/tate-modern/electric-dreams), and creative communities such as [Rhizome](https://rhizome.org/events/rhizome-presents-vibe-shift/) and [Socratica](https://www.socratica.info/). In addition, we are collaborating with the companies behind popular creative tools to explore how Claude can augment creatives’ work via the [Model Context Protocol](https://www.anthropic.com/news/model-context-protocol).
--   **Scientists.** We’re partnering with our [AI for Science grantees](https://www.anthropic.com/news/ai-for-science-program) to understand how AI can best serve their research. Using Anthropic Interviewer, we’re gathering scientists’ perspectives on AI and their hopes for the program (we’ll also use our privacy-preserving analysis tool to assess whether their Claude conversations align with these expectations). Combining quantitative and qualitative data will help us both improve Claude for scientists and measure the impacts of our grants.
--   **Teachers.** We’ve [recently partnered](https://www.aft.org/press-release/aft-launch-national-academy-ai-instruction-microsoft-openai-anthropic-and-united) with the American Federation of Teachers (AFT) to reshape teacher training in an age of increasingly capable AI. This program aims to support 400,000 teachers in AI education and introduce their perspective in the development of AI systems. In addition, we previewed some findings from Anthropic Interviewer regarding how AI is transforming software engineering at Anthropic. Sharing qualitative stories about our own workplace transformation led us to find much common ground between software engineers and teachers, bringing everyone together at the same table to brainstorm what kinds of AI induced work transformations we actually want.
+*   **Creatives.** We’re supporting the development of exhibitions, workshops, and events to understand how AI is augmenting creativity. We have partnerships with leading cultural institutions including the LAS Art Foundation, Mori Art Museum, and Tate, and creative communities such as Rhizome and Socratica. In addition, we are collaborating with the companies behind popular creative tools to explore how Claude can augment creatives’ work via the Model Context Protocol.
+*   **Scientists.** We’re partnering with our AI for Science grantees to understand how AI can best serve their research. Using Anthropic Interviewer, we’re gathering scientists’ perspectives on AI and their hopes for the program (we’ll also use our privacy-preserving analysis tool to assess whether their Claude conversations align with these expectations). Combining quantitative and qualitative data will help us both improve Claude for scientists and measure the impacts of our grants.
+*   **Teachers.** We’ve recently partnered with the American Federation of Teachers (AFT) to reshape teacher training in an age of increasingly capable AI. This program aims to support 400,000 teachers in AI education and introduce their perspective in the development of AI systems. In addition, we previewed some findings from Anthropic Interviewer regarding how AI is transforming software engineering at Anthropic. Sharing qualitative stories about our own workplace transformation led us to find much common ground between software engineers and teachers, bringing everyone together at the same table to brainstorm what kinds of AI induced work transformations we actually want.
 
 Using Anthropic Interviewer, we can conduct targeted research that informs specific policies, participatory research that involves different communities in conversations about AI, and regular studies that track the evolving relationship between humans and AI.
 
@@ -307,7 +309,7 @@ Using Anthropic Interviewer, we can conduct targeted research that informs speci
 
 We are continuing to use Anthropic Interviewer to better understand how people envision AI’s role in their lives and work. To that end, we are launching a public pilot interview, exploring what experiences, values and needs drive people’s vision for AI’s future role in their lives.
 
-**Ready to share your perspective?** You can participate in a 10-15 minute interview at [this link](http://claude.ai/redirect/website.v1.1457497c-df2f-450a-a84b-f78d6a4d2d60/interviewer) to take part in this research. We plan to analyze the anonymized insights from this study as part of our societal impacts research and publish a report on insights from this data. For more information on this study, please see the FAQ section below.
+**Ready to share your perspective?** You can participate in a 10-15 minute interview at this link to take part in this research. We plan to analyze the anonymized insights from this study as part of our societal impacts research and publish a report on insights from this data. For more information on this study, please see the FAQ section below.
 
 ## Conclusions and limitations
 
@@ -319,19 +321,19 @@ We conducted this research to understand AI’s impact on people’s lives beyon
 
 Our initial use of Anthropic Interviewer has some important limitations that affect the scope and generalizability of our findings. Our findings should be interpreted as early signals of AI’s impact on work, rather than definitive conclusions about its long-term effects on professional practice and identity.
 
--   _Selection bias._ Because they were engaged through crowdworker platforms, the experiences of the participants in our study might differ significantly from those of the general workforce, biasing responses toward more positive or experienced perspectives on the subject.
--   _Demand characteristics._ Participants knew they were being interviewed by an AI system about their AI usage, which could have changed their willingness to engage, or changed the kinds of responses they gave compared to an interview with a human.
--   _Static analysis._ We captured a snapshot of professionals’ current AI usage and attitudes, but with these data, we can’t track how these relationships develop over time, or how initial enthusiasm might change with extended use.
--   _Emotional analysis._ As Anthropic Interview is text-only and can’t read tone of voice, facial expressions, or body language, it might miss emotional cues that affect the meaning of our interviewee’s statements.
--   _Self-report versus objective measures._ We noted above that participants’ descriptions of their AI usage might differ from their actual practices (as has been found to be [the case](https://www.sciencedirect.com/science/article/pii/S277250302300021X) for [smartphone use](https://www.sciencedirect.com/science/article/pii/S2451958824002021)). This could be due to social desirability bias, imperfect recall, or evolving workplace norms around AI disclosure.
-    -   Indeed, our interview data revealed key discrepancies when compared with real usage data. This gap between perception and practice reinforces the inherent ambiguity in self-reports: for example, interview responses may capture aspirational usage or social desirability effects. Understanding these discrepancies will be crucial for interpreting the findings in this kind of research.
--   _Researcher interpretation._ Like all qualitative research, our analysis reflects our own interests and perspectives as researchers. Although we used systematic methods to identify patterns, different researchers might emphasize different aspects of these interviews or draw alternative conclusions.
--   _Global generalizability_. Our sample primarily reflects Western-based workers, and cultural attitudes toward AI, workplace dynamics, and professional identity likely vary significantly across global contexts.
--   _Non-experimental research._ Although many participants reported productivity gains and quality improvements, we cannot determine whether AI usage directly _caused_ these outcomes or the extent to which other factors contributed.
+*   _Selection bias._ Because they were engaged through crowdworker platforms, the experiences of the participants in our study might differ significantly from those of the general workforce, biasing responses toward more positive or experienced perspectives on the subject.
+*   _Demand characteristics._ Participants knew they were being interviewed by an AI system about their AI usage, which could have changed their willingness to engage, or changed the kinds of responses they gave compared to an interview with a human.
+*   _Static analysis._ We captured a snapshot of professionals’ current AI usage and attitudes, but with these data, we can’t track how these relationships develop over time, or how initial enthusiasm might change with extended use.
+*   _Emotional analysis._ As Anthropic Interview is text-only and can’t read tone of voice, facial expressions, or body language, it might miss emotional cues that affect the meaning of our interviewee’s statements.
+*   _Self-report versus objective measures._ We noted above that participants’ descriptions of their AI usage might differ from their actual practices (as has been found to be the case for smartphone use). This could be due to social desirability bias, imperfect recall, or evolving workplace norms around AI disclosure.
+    *   Indeed, our interview data revealed key discrepancies when compared with real usage data. This gap between perception and practice reinforces the inherent ambiguity in self-reports: for example, interview responses may capture aspirational usage or social desirability effects. Understanding these discrepancies will be crucial for interpreting the findings in this kind of research.
+*   _Researcher interpretation._ Like all qualitative research, our analysis reflects our own interests and perspectives as researchers. Although we used systematic methods to identify patterns, different researchers might emphasize different aspects of these interviews or draw alternative conclusions.
+*   _Global generalizability_. Our sample primarily reflects Western-based workers, and cultural attitudes toward AI, workplace dynamics, and professional identity likely vary significantly across global contexts.
+*   _Non-experimental research._ Although many participants reported productivity gains and quality improvements, we cannot determine whether AI usage directly _caused_ these outcomes or the extent to which other factors contributed.
 
 ## Contributions and acknowledgements
 
-Kunal Handa led the project, designed and prototyped Anthropic Interviewer, executed the surveys, interviews, and data analysis, plotted figures, and wrote the blog post. Michael Stern led the implementation of Anthropic Interviewer within [Claude.ai](http://claude.ai/redirect/website.v1.1457497c-df2f-450a-a84b-f78d6a4d2d60), managed the project timeline, and provided feedback throughout. Saffron Huang led the public pilot of Anthropic Interviewer. Jerry Hong led the visual design of Anthropic Interviewer and contributed to technical figures. Esin Durmus contributed to experimental design and provided key feedback. Miles McCain co-led implementation of technical infrastructure underlying prototypes of Anthropic Interviewer. Grace Yun, AJ Alt, and Thomas Millar implemented Anthropic Interviewer within [Claude.ai](http://claude.ai/redirect/website.v1.1457497c-df2f-450a-a84b-f78d6a4d2d60) and provided the technical infrastructure necessary for the public pilot. Alex Tamkin provided key feedback on early iterations of the project. Jane Leibrock contributed to all methodology for Anthropic Interviewer. Stuart Ritchie contributed to the framing and writing of the blog post. Deep Ganguli provided critical research guidance, feedback, and organizational support. All authors provided detailed guidance and feedback throughout.
+Kunal Handa led the project, designed and prototyped Anthropic Interviewer, executed the surveys, interviews, and data analysis, plotted figures, and wrote the blog post. Michael Stern led the implementation of Anthropic Interviewer within Claude.ai, managed the project timeline, and provided feedback throughout. Saffron Huang led the public pilot of Anthropic Interviewer. Jerry Hong led the visual design of Anthropic Interviewer and contributed to technical figures. Esin Durmus contributed to experimental design and provided key feedback. Miles McCain co-led implementation of technical infrastructure underlying prototypes of Anthropic Interviewer. Grace Yun, AJ Alt, and Thomas Millar implemented Anthropic Interviewer within Claude.ai and provided the technical infrastructure necessary for the public pilot. Alex Tamkin provided key feedback on early iterations of the project. Jane Leibrock contributed to all methodology for Anthropic Interviewer. Stuart Ritchie contributed to the framing and writing of the blog post. Deep Ganguli provided critical research guidance, feedback, and organizational support. All authors provided detailed guidance and feedback throughout.
 
 Additionally, we thank Sally Aldous, Drew Bent, Shan Carter, Jack Clark, Miriam Chaum, Jake Eaton, Matt Galivan, Savina Hawkins, Sarah Heck, Hanah Ho, Mo Julapalli, Matthew Kearney, Mike Krieger, Chelsea Larsson, Joel Lewenstein, Jennifer Martinez, Wes Mitchell, Jared Mueller, Christopher Nulty, Adam Pearce, Sarah Pollack, Ankur Rathi, Drew Roper, David Saunders, Kevin Troy, Molly Villagra, Brett Wittmershaus, and Casey Yamaguma for their helpful ideas, discussion, feedback, and support. We also appreciate the comments, discussion, and feedback from Matthew Conlen, Deb Roy, and Diyi Yang.
 
@@ -361,42 +363,40 @@ We found that participants were remarkably positive about Anthropic Interviewer.
 
 ## Sharing your perspective: FAQ
 
-**1\. How do we access the study?**
+**1. How do we access the study?**
 
-Starting today, if you are a Free, Pro, or Max Claude.ai subscriber who signed up prior to two weeks ago, you might notice a pop-up in Claude.ai asking you to participate. You can access it at: [https://claude.ai/interviewer](https://claude.ai/redirect/website.v1.1457497c-df2f-450a-a84b-f78d6a4d2d60/interviewer). The study will be open for a week.
+Starting today, if you are a Free, Pro, or Max Claude.ai subscriber who signed up prior to two weeks ago, you might notice a pop-up in Claude.ai asking you to participate. You can access it at: https://claude.ai/interviewer. The study will be open for a week.
 
-**2\. What will this study ask me?**
+**2. What will this study ask me?**
 
 We will use Anthropic Interviewer to ask you about your vision for AI's role in your life, what experiences, values, and needs shape this, as well as what might help or hinder that vision.
 
-**3\. How will you use the data?**
+**3. How will you use the data?**
 
-We will analyze the insights from this study as part of our Societal Impacts research, publish our findings, and use this to improve our models and services in a way that reflects what we've learned. The data we collect through this study will be treated as Feedback and will be processed according to our [Privacy Policy](https://www.anthropic.com/legal/privacy). We may also include anonymized responses in published findings. [**Learn more.**](https://privacy.claude.com/en/articles/12996960-how-does-anthropic-interviewer-collect-and-use-my-data)
+We will analyze the insights from this study as part of our Societal Impacts research, publish our findings, and use this to improve our models and services in a way that reflects what we've learned. The data we collect through this study will be treated as Feedback and will be processed according to our Privacy Policy. We may also include anonymized responses in published findings. **Learn more.**
 
-**4\. Why don’t I see the Anthropic Interviewer invitation in [Claude.ai](http://claude.ai/redirect/website.v1.1457497c-df2f-450a-a84b-f78d6a4d2d60)?**
+**4. Why don’t I see the Anthropic Interviewer invitation in Claude.ai?**
 
-The interview is only available for existing [Claude.ai](http://claude.ai/redirect/website.v1.1457497c-df2f-450a-a84b-f78d6a4d2d60) Free, Pro, and Max users who signed up 2+ weeks ago.
+The interview is only available for existing Claude.ai Free, Pro, and Max users who signed up 2+ weeks ago.
 
-_If you have questions, reach out via the message icon in the lower right corner of our [Help Center](https://links.email.claude.com/s/c/cGkT1SXSNgcdo1m1Jg5ubLKEl9K6sdfmpEYqg1hKZUyGgcl4dwPfeO18GyKSSqXjh6VJYoL1jUZK6AD2BWJz4p6OxoEug7KO9W2Yl7UuTqBou7dHkuDUR9lSrGIwoWBHBu-wkEktomJDbUAT2u8a6E6foGoE2H3RIurvO9epWQ7AJsKe_0FNVxLk4ygbQL3j7y1jjTEiC2qM5p0y1YCjCVAFED8I6wYqldfi9BKBYq993W-nOs45JbAMQkT6sZUFTHhEwJTV__gENvsItJqLkEOWFL9lrz48UJTC33i6n3SqYgI6stnpAsjLF66P_qtdOX888L-0h2qzKpxlrtGvrvuqEtl5pLNkPQUulHsITd7MyVL3tf-Ubi3dJVc1h9rB7v04z5j16n5-Kbp-iwCpz3RIbNot86fAZNPdfMqyBxFRDZlAUH-iEQ7h8wY1x6k8mnegW7y77GhLsqTJiZxqIi9o511wHl1Ltu-XLpeOVd80/ql5MQfX8py3XUgI4Usb8PWvj6gyGGxly/16)._
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/anthropic-interviewer)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/anthropic-interviewer)
+_If you have questions, reach out via the message icon in the lower right corner of our Help Center._
 
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

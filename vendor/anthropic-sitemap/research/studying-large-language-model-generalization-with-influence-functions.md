@@ -1,10 +1,12 @@
+# Studying Large Language Model Generalization with Influence Functions
+
 AlignmentResearch
 
 # Studying Large Language Model Generalization with Influence Functions
 
 Aug 8, 2023
 
-[Read Paper](https://arxiv.org/abs/2308.03296)
+Read Paper
 
 ## Abstract
 
@@ -12,24 +14,22 @@ When trying to gain better visibility into a machine learning model in order to 
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/studying-large-language-model-generalization-with-influence-functions)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/studying-large-language-model-generalization-with-influence-functions)
-
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

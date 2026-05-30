@@ -1,3 +1,5 @@
+# Introducing Claude 4
+
 Announcements
 
 # Introducing Claude 4
@@ -12,10 +14,10 @@ Claude Opus 4 is the world’s best coding model, with sustained performance on 
 
 Alongside the models, we're also announcing:
 
--   **Extended thinking with tool use (beta)**: Both models can use tools—like [web search](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/web-search-tool)—during extended thinking, allowing Claude to alternate between reasoning and tool use to improve responses.
--   **New model capabilities**: Both models can use tools in parallel, follow instructions more precisely, and—when given access to local files by developers—demonstrate significantly improved memory capabilities, extracting and saving key facts to maintain continuity and build tacit knowledge over time.
--   **Claude Code is now generally available**: After receiving extensive positive feedback during our research preview, we’re expanding how developers can collaborate with Claude. Claude Code now supports background tasks via GitHub Actions and native integrations with VS Code and JetBrains, displaying edits directly in your files for seamless pair programming.
--   **New API capabilities:** We’re releasing [four new capabilities](https://www.anthropic.com/news/agent-capabilities-api) on our API that enable developers to build more powerful AI agents: the code execution tool, MCP connector, Files API, and the ability to cache prompts for up to one hour.
+*   **Extended thinking with tool use (beta)**: Both models can use tools—like web search—during extended thinking, allowing Claude to alternate between reasoning and tool use to improve responses.
+*   **New model capabilities**: Both models can use tools in parallel, follow instructions more precisely, and—when given access to local files by developers—demonstrate significantly improved memory capabilities, extracting and saving key facts to maintain continuity and build tacit knowledge over time.
+*   **Claude Code is now generally available**: After receiving extensive positive feedback during our research preview, we’re expanding how developers can collaborate with Claude. Claude Code now supports background tasks via GitHub Actions and native integrations with VS Code and JetBrains, displaying edits directly in your files for seamless pair programming.
+*   **New API capabilities:** We’re releasing four new capabilities on our API that enable developers to build more powerful AI agents: the code execution tool, MCP connector, Files API, and the ability to cache prompts for up to one hour.
 
 Claude Opus 4 and Sonnet 4 are hybrid models offering two modes: near-instant responses and extended thinking for deeper reasoning. The Pro, Max, Team, and Enterprise Claude plans include both models and extended thinking, with Sonnet 4 also available to free users. Both models are available on our API, Amazon Bedrock, and Google Cloud's Vertex AI. Pricing remains consistent with previous Opus and Sonnet models: Opus 4 at $15/$75 per million tokens (input/output) and Sonnet 4 at $3/$15.
 
@@ -45,7 +47,7 @@ Claude Opus 4 also dramatically outperforms all previous models on memory capabi
 
 Memory: When given access to local files, Claude Opus 4 records key information to help improve its game play. The notes depicted above are real notes taken by Opus 4 while playing Pokémon.
 
-Finally, we've introduced thinking summaries for Claude 4 models that use a smaller model to condense lengthy thought processes. This summarization is only needed about 5% of the time—most thought processes are short enough to display in full. Users requiring raw chains of thought for advanced prompt engineering can [contact sales](https://www.anthropic.com/contact-sales) about our new Developer Mode to retain full access.
+Finally, we've introduced thinking summaries for Claude 4 models that use a smaller model to condense lengthy thought processes. This summarization is only needed about 5% of the time—most thought processes are short enough to display in full. Users requiring raw chains of thought for advanced prompt engineering can contact sales about our new Developer Mode to retain full access.
 
 ## Claude Code
 
@@ -57,31 +59,31 @@ Beyond the IDE, we're releasing an extensible Claude Code SDK, so you can build 
 
 ## Getting started
 
-These models are a large step toward the virtual collaborator—maintaining full context, sustaining focus on longer projects, and driving transformational impact. They come with extensive testing and evaluation to minimize risk and maximize safety, including [implementing measures](https://www.anthropic.com/news/activating-asl3-protections) for higher AI Safety Levels like ASL-3.
+These models are a large step toward the virtual collaborator—maintaining full context, sustaining focus on longer projects, and driving transformational impact. They come with extensive testing and evaluation to minimize risk and maximize safety, including implementing measures for higher AI Safety Levels like ASL-3.
 
-We're excited to see what you'll create. Get started today on [Claude](https://claude.ai/redirect/website.v1.010bbeb5-7851-4e3f-8fb9-1ef471de8382), [Claude Code](https://www.anthropic.com/claude-code), or the platform of your choice.
+We're excited to see what you'll create. Get started today on Claude, Claude Code, or the platform of your choice.
 
-_As always, your [feedback](<mailto: feedback@anthropic.com>) helps us improve._
+_As always, your feedback helps us improve._
 
 #### Appendix
 
 #### Performance benchmark data sources
 
--   Open AI: [o3 launch post](https://openai.com/index/introducing-o3-and-o4-mini/), [o3 system card](https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf), [GPT-4.1 launch post](https://openai.com/index/gpt-4-1/), [GPT-4.1 hosted evals](https://github.com/openai/simple-evals/blob/main/multilingual_mmlu_benchmark_results.md)
--   Gemini: [Gemini 2.5 Pro Preview model card](https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro-preview.pdf)
--   Claude: [Claude 3.7 Sonnet launch post](https://www.anthropic.com/news/claude-3-7-sonnet)
+*   Open AI: o3 launch post, o3 system card, GPT-4.1 launch post, GPT-4.1 hosted evals
+*   Gemini: Gemini 2.5 Pro Preview model card
+*   Claude: Claude 3.7 Sonnet launch post
 
 #### Performance benchmark reporting
 
 Claude Opus 4 and Sonnet 4 are hybrid reasoning models. The benchmarks reported in this blog post show the highest scores achieved with or without extended thinking. We’ve noted below for each result whether extended thinking was used:
 
--   No extended thinking: SWE-bench Verified, Terminal-bench
--   Extended thinking (up to 64K tokens):
-    -   TAU-bench (no results w/o extended thinking reported)
-    -   GPQA Diamond (w/o extended thinking: Opus 4 scores 74.9% and Sonnet 4 is 70.0%)
-    -   MMMLU (w/o extended thinking: Opus 4 scores 87.4% and Sonnet 4 is 85.4%)
-    -   MMMU (w/o extended thinking: Opus 4 scores 73.7% and Sonnet 4 is 72.6%)
-    -   AIME (w/o extended thinking: Opus 4 scores 33.9% and Sonnet 4 is 33.1%)
+*   No extended thinking: SWE-bench Verified, Terminal-bench
+*   Extended thinking (up to 64K tokens):
+    *   TAU-bench (no results w/o extended thinking reported)
+    *   GPQA Diamond (w/o extended thinking: Opus 4 scores 74.9% and Sonnet 4 is 70.0%)
+    *   MMMLU (w/o extended thinking: Opus 4 scores 87.4% and Sonnet 4 is 85.4%)
+    *   MMMU (w/o extended thinking: Opus 4 scores 73.7% and Sonnet 4 is 72.6%)
+    *   AIME (w/o extended thinking: Opus 4 scores 33.9% and Sonnet 4 is 33.1%)
 
 #### TAU-bench methodology
 
@@ -89,32 +91,30 @@ Scores were achieved with a prompt addendum to both the Airline and Retail Agent
 
 #### SWE-bench methodology
 
-For the Claude 4 family of models, we continue to use the same simple scaffold that equips the model with solely the two tools described in our prior releases [here](https://www.anthropic.com/engineering/swe-bench-sonnet)—a bash tool, and a file editing tool that operates via string replacements. We no longer include the [third ‘planning tool’](https://www.anthropic.com/engineering/claude-think-tool) used by Claude 3.7 Sonnet. On all Claude 4 models, we report scores out of the full 500 problems. Scores for OpenAI models are reported out of a [477 problem subset](https://openai.com/index/gpt-4-1/).
+For the Claude 4 family of models, we continue to use the same simple scaffold that equips the model with solely the two tools described in our prior releases here—a bash tool, and a file editing tool that operates via string replacements. We no longer include the third ‘planning tool’ used by Claude 3.7 Sonnet. On all Claude 4 models, we report scores out of the full 500 problems. Scores for OpenAI models are reported out of a 477 problem subset.
 
 For our “high compute” numbers we adopt additional complexity and parallel test-time compute as follows:
 
--   We sample multiple parallel attempts.
--   We discard patches that break the visible regression tests in the repository, similar to the rejection sampling approach adopted by [Agentless (Xia et al. 2024)](https://arxiv.org/abs/2407.01489); note no hidden test information is used.
--   We then use an internal scoring model to select the best candidate from the remaining attempts.
+*   We sample multiple parallel attempts.
+*   We discard patches that break the visible regression tests in the repository, similar to the rejection sampling approach adopted by Agentless (Xia et al. 2024); note no hidden test information is used.
+*   We then use an internal scoring model to select the best candidate from the remaining attempts.
 
 This results in a score of 79.4% and 80.2% for Opus 4 and Sonnet 4 respectively.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-4)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-4)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

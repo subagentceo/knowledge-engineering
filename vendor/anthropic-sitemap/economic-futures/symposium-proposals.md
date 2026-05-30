@@ -2,9 +2,9 @@
 
 Last updated Oct 14, 2025
 
-The following list includes "lightning talk" speakers at our first [Economic Futures Symposium](https://mccourt.georgetown.edu/news/anthropic-ai-symposium/) at the McCourt School of Public Policy at Georgetown University, as well as other Symposium awardees who did not present on stage.
+The following list includes "lightning talk" speakers at our first Economic Futures Symposium at the McCourt School of Public Policy at Georgetown University, as well as other Symposium awardees who did not present on stage.
 
-Many of these proposals informed the nine categories of ideas we feature in [Preparing for AI’s economic impact: exploring policy responses](https://www.anthropic.com/research/economic-policy-responses)**.**
+Many of these proposals informed the nine categories of ideas we feature in Preparing for AI’s economic impact: exploring policy responses**.**
 
 DC Economic Futures Symposium awardees and speakers by institution and policy idea
 

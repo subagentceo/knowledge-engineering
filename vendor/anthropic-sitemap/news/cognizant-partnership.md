@@ -1,3 +1,5 @@
+# Cognizant will make Claude available to 350,000 employees, accelerating enterprise AI adoption and internal transformation
+
 Announcements
 
 # Cognizant will make Claude available to 350,000 employees, accelerating enterprise AI adoption and internal transformation
@@ -16,38 +18,36 @@ Cognizant will also align Claude models, Claude Code, the Model Context Protocol
 
 “Enterprises are moving beyond simple productivity gains toward a more connected, agentic future,” said Ravi Kumar S, CEO of Cognizant. “By pairing Anthropic’s Claude models and agentic tooling with Cognizant’s suite of platforms and industry expertise, we will help clients build the foundations of an agentified enterprise where intelligent systems collaborate with people to accelerate modernization, engineering and industry transformation. We are equally excited to apply Anthropic’s technology to help us drive these transformation goals internally at Cognizant.”
 
-## **Solving real enterprise challenges**
+## Solving real enterprise challenges
 
 CIOs face critical challenges: thousands of applications running on legacy code, shrinking talent pools who understand these systems, and the majority of engineering resources going to maintaining existing systems rather than building new capabilities.
 
 This partnership directly addresses these challenges. Cognizant is deploying Claude models, Claude Code, MCP, and Agent SDK with Cognizant's software development and AI platforms to deliver:
 
--   **Software engineering productivity**: Deploying Claude and Claude Code with Cognizant Flowsource™ Platform (which connects tools and teams across the software development process) to accelerate coding tasks, testing, documentation and DevOps workflows with MCP-based access to developer tools.
--   **Legacy modernization**: Combining Cognizant's modernization frameworks with Anthropic's code understanding and transformation capabilities to speed analysis and refactoring across large codebases.
--   **Agentification**: Using Cognizant Neuro® AI Multi-Agent Orchestration (which builds and coordinates multiple AI agents working together) and Anthropic's Agent SDK to design reusable, domain-specific agents and multi-agent systems that operate with explicit policies, approvals and human-in-the-loop controls.
--   **Industry solutions**: Developing vertical solutions, beginning with Financial Services, leveraging Cognizant Agent Foundry (which helps enterprises build and deploy AI agents at scale) with Claude to embed agentic workflows into regulated, enterprise environments.
--   **Responsible AI**: Advancing practices for safe deployment, monitoring, and operations at scale, aligned to enterprise governance needs and open standards such as MCP.
+*   **Software engineering productivity**: Deploying Claude and Claude Code with Cognizant Flowsource™ Platform (which connects tools and teams across the software development process) to accelerate coding tasks, testing, documentation and DevOps workflows with MCP-based access to developer tools.
+*   **Legacy modernization**: Combining Cognizant's modernization frameworks with Anthropic's code understanding and transformation capabilities to speed analysis and refactoring across large codebases.
+*   **Agentification**: Using Cognizant Neuro® AI Multi-Agent Orchestration (which builds and coordinates multiple AI agents working together) and Anthropic's Agent SDK to design reusable, domain-specific agents and multi-agent systems that operate with explicit policies, approvals and human-in-the-loop controls.
+*   **Industry solutions**: Developing vertical solutions, beginning with Financial Services, leveraging Cognizant Agent Foundry (which helps enterprises build and deploy AI agents at scale) with Claude to embed agentic workflows into regulated, enterprise environments.
+*   **Responsible AI**: Advancing practices for safe deployment, monitoring, and operations at scale, aligned to enterprise governance needs and open standards such as MCP.
 
 Cognizant plans to engage clients through workshops, reference patterns, and platform integrations using Claude to help teams identify high-value use cases and move them into production.
 
-**Getting started:** Visit [this page](https://www.cognizant.com/us/en/engineering-ai-for-impact) and get in touch with a Cognizant client partner.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/cognizant-partnership)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/cognizant-partnership)
+**Getting started:** Visit this page and get in touch with a Cognizant client partner.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

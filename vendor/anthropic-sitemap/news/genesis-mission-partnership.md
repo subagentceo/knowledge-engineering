@@ -1,3 +1,5 @@
+# Working with the US Department of Energy to unlock the next era of scientific discovery
+
 Announcements
 
 # Working with the US Department of Energy to unlock the next era of scientific discovery
@@ -18,38 +20,36 @@ Brian Peters, Anthropic's Head of North America Government Affairs, attended the
 
 Anthropic seeks to provide DOE researchers access both to Claude and to a team of Anthropic engineers, who can develop purpose-built tools, including:
 
--   AI "agents" (models that take actions) for DOE’s highest-priority challenges
--   Model Context Protocol servers that connect Claude to scientific instruments and tools
--   Claude [Skills](https://www.claude.com/blog/skills) for specialized expertise on relevant scientific workflows
+*   AI "agents" (models that take actions) for DOE’s highest-priority challenges
+*   Model Context Protocol servers that connect Claude to scientific instruments and tools
+*   Claude Skills for specialized expertise on relevant scientific workflows
 
 Claude can facilitate substantial advancements in:
 
--   **Energy dominance.** Claude can help with a broad range of tasks—from speeding up permitting review processes that bottleneck America’s energy expansion to helping scientists conduct research at the frontier of nuclear technology and strengthening domestic energy security.
--   **Biological and life sciences.** Claude can support the development of early-warning systems for future pandemics and biological threat detection, and be used to hasten the speed of drug discovery and development.
--   **Scientific productivity.** Claude has the capacity to access fifty years of DOE research, and use this context to accelerate the research cycle in strategically important domains and provide well-informed research support in the form of new ideas to trial out, or patterns in older data that humans might have missed.
+*   **Energy dominance.** Claude can help with a broad range of tasks—from speeding up permitting review processes that bottleneck America’s energy expansion to helping scientists conduct research at the frontier of nuclear technology and strengthening domestic energy security.
+*   **Biological and life sciences.** Claude can support the development of early-warning systems for future pandemics and biological threat detection, and be used to hasten the speed of drug discovery and development.
+*   **Scientific productivity.** Claude has the capacity to access fifty years of DOE research, and use this context to accelerate the research cycle in strategically important domains and provide well-informed research support in the form of new ideas to trial out, or patterns in older data that humans might have missed.
 
-## **Our commitment to partner with the US Government**
+## Our commitment to partner with the US Government
 
 Scientific progress has always driven America’s prosperity and security. Anthropic aspires to expand existing arrangements with DOE to build the next chapter: using AI across America’s research institutions, with deep context on scientists’ work and active support from our engineers.
 
-Potential future arrangements would represent the next stage of Anthropic and DOE’s multi-year partnership. Past projects with DOE include co-development of a [nuclear risk classifier](https://red.anthropic.com/2025/nuclear-safeguards/) with the National Nuclear Security Administration and rolling out Claude at the [Lawrence Livermore national laboratory](https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and). As we learn from the current work with DOE’s, we’ll be able to develop a model for how AI and human researchers can work together—and feed this back into the development of the AI tools they use.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/genesis-mission-partnership)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/genesis-mission-partnership)
+Potential future arrangements would represent the next stage of Anthropic and DOE’s multi-year partnership. Past projects with DOE include co-development of a nuclear risk classifier with the National Nuclear Security Administration and rolling out Claude at the Lawrence Livermore national laboratory. As we learn from the current work with DOE’s, we’ll be able to develop a model for how AI and human researchers can work together—and feed this back into the development of the AI tools they use.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

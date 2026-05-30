@@ -1,3 +1,5 @@
+# Developing a computer use model
+
 AnnouncementsProduct
 
 # Developing a computer use model
@@ -6,14 +8,14 @@ Oct 22, 2024
 
 ![An abstract representation of AI computer use, with a computer cursor clicking on a stylized representation of a neural network](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F393cf77dd5c15761c47f2db9f80e30b4f6309708-2880x1620.png&w=3840&q=75)
 
--   Update
+*   Update
     
     Consumer Terms and Privacy Policy
     
     Aug 28, 2025
     
 
-Claude can now use computers. The [latest version of Claude 3.5 Sonnet](http://anthropic.com/news/3-5-models-and-computer-use) can, when run through the appropriate software setup, follow a user’s commands to move a cursor around their computer’s screen, click on relevant locations, and input information via a virtual keyboard, emulating the way people interact with their own computer.
+Claude can now use computers. The latest version of Claude 3.5 Sonnet can, when run through the appropriate software setup, follow a user’s commands to move a cursor around their computer’s screen, click on relevant locations, and input information via a virtual keyboard, emulating the way people interact with their own computer.
 
 We think this skill—which is currently in public beta—represents a significant breakthrough in AI progress. Below, we share some insights from the research that went into developing computer use models—and into making them safer.
 
@@ -33,17 +35,17 @@ We were surprised by how rapidly Claude generalized from the computer-use traini
 
 Although the subsequent advances came quickly once we made the initial breakthrough, it took a great deal of trial and error to get there. Some of our researchers noted that developing computer use was close to the “idealized” process of AI research they’d pictured when they first started in the field: constant iteration and repeated visits back to the drawing board until there was progress.
 
-The research paid off. At present, Claude is state-of-the-art for models that use computers in the same way as a person does—that is, from looking at the screen and taking actions in response. On one evaluation created to test developers’ attempts to have models use computers, [OSWorld](https://os-world.github.io/), Claude currently gets 14.9%. That’s nowhere near human-level skill (which is generally 70-75%), but it’s far higher than the 7.7% obtained by the next-best AI model in the same category.
+The research paid off. At present, Claude is state-of-the-art for models that use computers in the same way as a person does—that is, from looking at the screen and taking actions in response. On one evaluation created to test developers’ attempts to have models use computers, OSWorld, Claude currently gets 14.9%. That’s nowhere near human-level skill (which is generally 70-75%), but it’s far higher than the 7.7% obtained by the next-best AI model in the same category.
 
 ## Making computer use safe
 
-Every advance in AI brings with it new safety challenges. Computer use is mainly a way of lowering the barrier to AI systems applying their existing cognitive skills, rather than fundamentally increasing those skills, so our chief concerns with computer use focus on present-day harms rather than future ones. We confirmed this by assessing whether computer use increases the risk of frontier threats as outlined in our [Responsible Scaling Policy](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy). We found that the updated Claude 3.5 Sonnet, including its new computer use skill, remains at AI Safety Level 2—that is, it doesn’t require a higher standard of safety and security measures than those we currently have in place.
+Every advance in AI brings with it new safety challenges. Computer use is mainly a way of lowering the barrier to AI systems applying their existing cognitive skills, rather than fundamentally increasing those skills, so our chief concerns with computer use focus on present-day harms rather than future ones. We confirmed this by assessing whether computer use increases the risk of frontier threats as outlined in our Responsible Scaling Policy. We found that the updated Claude 3.5 Sonnet, including its new computer use skill, remains at AI Safety Level 2—that is, it doesn’t require a higher standard of safety and security measures than those we currently have in place.
 
 When future models require AI Safety Level 3 or 4 safeguards because they present catastrophic risks, computer use might exacerbate those risks. We judge that it’s likely better to introduce computer use now, while models still only need AI Safety Level 2 safeguards. This means we can begin grappling with any safety issues before the stakes are too high, rather than adding computer use capabilities for the first time into a model with much more serious risks.
 
 In this spirit, our Trust & Safety teams have conducted extensive analysis of our new computer-use models to identify potential vulnerabilities. One concern they've identified is “prompt injection”—a type of cyberattack where malicious instructions are fed to an AI model, causing it to either override its prior directions or perform unintended actions that deviate from the user's original intent. Since Claude can interpret screenshots from computers connected to the internet, it’s possible that it may be exposed to content that includes prompt injection attacks.
 
-Those using the computer-use version of Claude in our public beta should take the relevant precautions to minimize these kinds of risks. As a resource for developers, we have provided further guidance in our [reference implementation](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo).
+Those using the computer-use version of Claude in our public beta should take the relevant precautions to minimize these kinds of risks. As a resource for developers, we have provided further guidance in our reference implementation.
 
 As with any AI capability, there’s also the potential for users to intentionally misuse Claude’s computer skills. Our teams have developed classifiers and other methods to flag and mitigate these kinds of abuses. Given the upcoming U.S. elections, we’re on high alert for attempted misuses that could be perceived as undermining public trust in electoral processes. While computer use is not sufficiently advanced or capable of operating at a scale that would present heightened risks relative to existing capabilities, we've put in place measures to monitor when Claude is asked to engage in election-related activity, as well as systems for nudging Claude away from activities like generating and posting content on social media, registering web domains, or interacting with government websites. We will continuously evaluate and iterate on these safety measures to balance Claude's capabilities with responsible use during the public beta.
 
@@ -53,28 +55,26 @@ Computer use is a completely different approach to AI development. Up until now,
 
 There’s still a lot to do. Even though it’s the current state of the art, Claude’s computer use remains slow and often error-prone. There are many actions that people routinely do with computers (dragging, zooming, and so on) that Claude can’t yet attempt. The “flipbook” nature of Claude’s view of the screen—taking screenshots and piecing them together, rather than observing a more granular video stream—means that it can miss short-lived actions or notifications.
 
-Even while we were recording demonstrations of computer use for today’s launch, we encountered some [amusing errors](https://x.com/AnthropicAI/status/1848742761278611504). In one, Claude accidentally clicked to stop a long-running screen recording, causing all footage to be lost. In another, Claude suddenly took a break from our coding demo and began to peruse photos of Yellowstone National Park.
+Even while we were recording demonstrations of computer use for today’s launch, we encountered some amusing errors. In one, Claude accidentally clicked to stop a long-running screen recording, causing all footage to be lost. In another, Claude suddenly took a break from our coding demo and began to peruse photos of Yellowstone National Park.
 
 We expect that computer use will rapidly improve to become faster, more reliable, and more useful for the tasks our users want to complete. It’ll also become much easier to implement for those with less software-development experience. At every stage, our researchers will be working closely with our safety teams to ensure that Claude’s new capabilities are accompanied by the appropriate safety measures.
 
-We invite developers who try computer use in our public beta to contact us with their feedback [using this form](https://docs.google.com/forms/d/e/1FAIpQLSeD3IqITWsuepB19SEv889HsBvN9WOi6HRblPrJNyA9G7q02w/viewform), so that our researchers can continue to improve the usefulness and safety of this new capability.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/developing-computer-use)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/developing-computer-use)
+We invite developers who try computer use in our public beta to contact us with their feedback using this form, so that our researchers can continue to improve the usefulness and safety of this new capability.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

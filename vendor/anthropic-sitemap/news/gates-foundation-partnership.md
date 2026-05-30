@@ -1,3 +1,5 @@
+# Anthropic forms $200 million partnership with the Gates Foundation
+
 Announcements
 
 # Anthropic forms $200 million partnership with the Gates Foundation
@@ -6,23 +8,23 @@ May 14, 2026
 
 ![Anthropic forms $200 million partnership with the Gates Foundation](https://www-cdn.anthropic.com/images/4zrzovbb/website/6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
 
-We’re partnering with the [Gates Foundation](https://www.gatesfoundation.org/ideas/media-center/press-releases/2026/05/ai-anthropic-partnership) to commit $200 million in grant funding, Claude usage credits, and technical support for programs in global health, life sciences, education, and economic mobility over the next four years. These programs will be implemented with partners in the US and around the world.
+We’re partnering with the Gates Foundation to commit $200 million in grant funding, Claude usage credits, and technical support for programs in global health, life sciences, education, and economic mobility over the next four years. These programs will be implemented with partners in the US and around the world.
 
-This commitment is central to Anthropic’s efforts to extend the benefits of AI in areas where markets alone will not. This work is led by our Beneficial Deployments team, which provides Claude credits and engineering support to our partners in the four priority areas mentioned above. The team also develops AI-related public goods, such as public health datasets and evaluation benchmarks, and offers nonprofits and education institutions [discounted access](https://www.anthropic.com/news/claude-for-nonprofits) to Claude. We’re increasing our investment in beneficial deployments, and plan to share more about our approach to this work, and the impact of the programs we’ve supported.  
+This commitment is central to Anthropic’s efforts to extend the benefits of AI in areas where markets alone will not. This work is led by our Beneficial Deployments team, which provides Claude credits and engineering support to our partners in the four priority areas mentioned above. The team also develops AI-related public goods, such as public health datasets and evaluation benchmarks, and offers nonprofits and education institutions discounted access to Claude. We’re increasing our investment in beneficial deployments, and plan to share more about our approach to this work, and the impact of the programs we’ve supported.  
   
 Below, we outline what’s involved in our partnership with the Gates Foundation, including our new initiatives and the work that's already underway.
 
 ### Global health and life sciences
 
-The largest part of our partnership will focus on improving health outcomes in low- and middle-income countries, where around [4.6 billion people lack access](https://healthpolicy-watch.news/130282-2/) to essential health services. Anthropic will work with the Gates Foundation and others on a range of new and existing programs that will accelerate the development of new vaccines and therapies, and help governments use health data to make faster, better-informed decisions.
+The largest part of our partnership will focus on improving health outcomes in low- and middle-income countries, where around 4.6 billion people lack access to essential health services. Anthropic will work with the Gates Foundation and others on a range of new and existing programs that will accelerate the development of new vaccines and therapies, and help governments use health data to make faster, better-informed decisions.
 
-As part of this work on healthcare intelligence, we’ll create [connectors](https://www.anthropic.com/news/claude-for-life-sciences) (which grant Claude direct access to other platforms and tools), benchmarks, and evaluation frameworks that allow researchers, developers, and governments to better understand how AI systems perform on healthcare-related tasks.
+As part of this work on healthcare intelligence, we’ll create connectors (which grant Claude direct access to other platforms and tools), benchmarks, and evaluation frameworks that allow researchers, developers, and governments to better understand how AI systems perform on healthcare-related tasks.
 
 In addition, we’ll work with the Gates Foundation to engage health ministries and their implementing partners on how to use health-intelligence data to support decision-making around workforce deployment, supply chain management, and outbreak detection. Together, we will explore how AI can better support frontline health workers and patients in navigating diagnosis, treatment, and medical decision-making.
 
 We’ll also use Claude to advance research on high-burden and neglected diseases. Scientists already use Claude to detect patterns in systematic reviews and large datasets, and to screen potential drug and vaccine candidates. Our partnership with the Gates Foundation will extend this work to overlooked diseases, starting with polio, HPV, and eclampsia/preeclampsia.
 
-Together, we will explore how AI can make it faster and easier for scientists to screen potential vaccine candidates—including vaccines that protect against diseases like polio—computationally before moving into pre-clinical development. This could help shorten the early-stage development timeline. A related effort will use Claude to screen for new therapies for HPV and preeclampsia, which cause cervical cancer and dangerous pregnancy disorders, respectively. HPV causes roughly [350,000 deaths annually](https://www.who.int/news-room/fact-sheets/detail/cervical-cancer), of which 90% are in low- and middle-income countries.
+Together, we will explore how AI can make it faster and easier for scientists to screen potential vaccine candidates—including vaccines that protect against diseases like polio—computationally before moving into pre-clinical development. This could help shorten the early-stage development timeline. A related effort will use Claude to screen for new therapies for HPV and preeclampsia, which cause cervical cancer and dangerous pregnancy disorders, respectively. HPV causes roughly 350,000 deaths annually, of which 90% are in low- and middle-income countries.
 
 Finally, we’re partnering with the Institute for Disease Modeling (IDM), a research group within the Gates Foundation, to improve the forecasts that determine where and how treatments for diseases like malaria and tuberculosis are deployed. An integration with Claude will make IDM’s forecasts more accessible to practitioners and researchers who aren’t modeling specialists, and will help IDM develop more predictive models of disease transmission.
 
@@ -44,24 +46,20 @@ The Gates Foundation has decades of experience and a track record of measurable 
 
 As we scale our partnership over the coming years—and as we ratchet up our work on beneficial deployments more generally—we expect to learn much more about how Claude can make a difference. We intend to publish our thinking and decision-making as we do.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/gates-foundation-partnership)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/gates-foundation-partnership)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Introducing Claude for Small Business
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+Read more
 
-[Read more](/news/claude-for-small-business)
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-### Higher usage limits for Claude and a compute deal with SpaceX
+We're opening a new office in Milan, our sixth in Europe.
 
-We’ve raised Claude's usage limits and agreed a new compute partnership with SpaceX that will substantially increase our capacity in the near term.
-
-[Read more](/news/higher-limits-spacex)
+Read more

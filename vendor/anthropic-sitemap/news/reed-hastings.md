@@ -1,3 +1,5 @@
+# Reed Hastings appointed to Anthropic’s board of directors
+
 Announcements
 
 # Reed Hastings appointed to Anthropic’s board of directors
@@ -8,7 +10,7 @@ Today we announced that Reed Hastings, Chairman and co-founder of Netflix who se
 
 "The Long Term Benefit Trust appointed Reed because his impressive leadership experience, deep philanthropic work, and commitment to addressing AI's societal challenges make him uniquely qualified to guide Anthropic at this critical juncture in AI development," said Buddy Shah, Chair of Anthropic's Long Term Benefit Trust.
 
-Hastings recently made a $50 million gift to Bowdoin College to establish a research initiative on [AI and Humanity](https://www.bowdoin.edu/news/2025/03/announcing-the-hastings-initiative-for-ai-and-humanity.html). The program examines how AI will transform work, relationships, and education, and develops ethical frameworks for its use. These are all areas that align closely with Anthropic's own research priorities.
+Hastings recently made a $50 million gift to Bowdoin College to establish a research initiative on AI and Humanity. The program examines how AI will transform work, relationships, and education, and develops ethical frameworks for its use. These are all areas that align closely with Anthropic's own research priorities.
 
 Beyond his recent AI-focused giving, Hastings has spent decades working to expand opportunity in education and global development. He has donated hundreds of millions to charter school networks serving low-income U.S. communities and sits on the board of the Knowledge Is Power Program (KIPP)'s 275-school network. Internationally, he supports East African farmers through Kenya's One Acre Fund and subsidizes internet access in Rwanda, where he helped launch a program offering smartphones for ten times cheaper than they'd cost in the US.
 
@@ -20,22 +22,20 @@ Hastings has seen first-hand how quickly transformative technologies can reshape
 
 With Hastings' appointment, the Trust continues to build a board with the diverse expertise needed to guide Anthropic's mission of developing reliable, interpretable, and steerable AI systems.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/reed-hastings)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/reed-hastings)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

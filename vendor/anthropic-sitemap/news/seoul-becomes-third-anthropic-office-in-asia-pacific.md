@@ -1,3 +1,5 @@
+# Seoul becomes Anthropic’s third office in Asia-Pacific as we continue our international growth
+
 Announcements
 
 # Seoul becomes Anthropic’s third office in Asia-Pacific as we continue our international growth
@@ -10,34 +12,32 @@ Today we're announcing plans to open an office in Seoul in early 2026 as our glo
 
 The Korean government recently announced plans to become one of the world’s top three hubs of AI development. Anthropic leaders will visit Seoul next week to meet with customers and partners and signal our commitment to helping Korea meet their ambitious AI goals.
 
-Korean users are among Claude's most active globally, ranking in the top five both in total usage and per capita usage according to our [Economic Index](https://www.anthropic.com/economic-index). More than a quarter of our Claude Code user base now comes from countries in Asia-Pacific, with Korea showing particularly strong growth—the number of active weekly Claude Code users in Korea has grown 6x in the past four months. The developer community in Korea is one of our strongest worldwide, and a Korean software engineer currently ranks as the world's top Claude Code user, exemplifying the depth of technical talent and adoption in the market.
+Korean users are among Claude's most active globally, ranking in the top five both in total usage and per capita usage according to our Economic Index. More than a quarter of our Claude Code user base now comes from countries in Asia-Pacific, with Korea showing particularly strong growth—the number of active weekly Claude Code users in Korea has grown 6x in the past four months. The developer community in Korea is one of our strongest worldwide, and a Korean software engineer currently ranks as the world's top Claude Code user, exemplifying the depth of technical talent and adoption in the market.
 
 "Korea is at the forefront of AI innovation in Asia and we’ve already seen strong adoption of Claude in the region," said Dario Amodei, Anthropic CEO and co-founder. "We built Claude to deliver both frontier capabilities and the safeguards needed for responsible deployment, and our local partnerships in Korea will help demonstrate what's possible when advanced AI meets Korea's world-class technical ecosystem and forward-thinking institutions.”
 
-Korean companies aren't just adopting AI—they're defining how entire industries deploy it around the world. [Law&Company](https://claude.com/customers/law-and-company) uses Claude to power their AI legal assistant, nearly doubling lawyer efficiency rates and doing so with the high level of accuracy required in legal work. Korea’s largest telecommunications company, [SK Telecom](https://www.claude.com/customers/skt), chose Claude to create a custom AI customer service model that’s become a blueprint for the entire telco industry. With world-class tech companies, a thriving startup scene, and advanced frameworks for AI ethics and safety, we see remarkable promise in Korea’s innovation ecosystem. Our number of large business accounts in Asia-Pacific—customers that each represent over $100,000 in run-rate revenue—has grown 8x in the past year.
+Korean companies aren't just adopting AI—they're defining how entire industries deploy it around the world. Law&Company uses Claude to power their AI legal assistant, nearly doubling lawyer efficiency rates and doing so with the high level of accuracy required in legal work. Korea’s largest telecommunications company, SK Telecom, chose Claude to create a custom AI customer service model that’s become a blueprint for the entire telco industry. With world-class tech companies, a thriving startup scene, and advanced frameworks for AI ethics and safety, we see remarkable promise in Korea’s innovation ecosystem. Our number of large business accounts in Asia-Pacific—customers that each represent over $100,000 in run-rate revenue—has grown 8x in the past year.
 
 “Korean businesses are already some of the world’s most sophisticated users of Claude, particularly for complex coding and enterprise applications,” said Paul Smith, Chief Commercial Officer of Anthropic. "Having a local presence means we can work more closely with these world-class enterprises and startups and give them the unique support they need.”
 
 Our focus in Korea will be closely aligned with Korea's national strategy to become a global AI leader. We look forward to working closely with Korean government agencies, research institutions, and industry partners to advance responsible AI development and deployment across key sectors.
 
-We're building a comprehensive local team focused on supporting Korea's unique business landscape and technological needs. For information about career opportunities at our new Seoul office, visit [anthropic.com/careers](https://www.anthropic.com/careers).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/seoul-becomes-third-anthropic-office-in-asia-pacific)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/seoul-becomes-third-anthropic-office-in-asia-pacific)
+We're building a comprehensive local team focused on supporting Korea's unique business landscape and technological needs. For information about career opportunities at our new Seoul office, visit anthropic.com/careers.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more
