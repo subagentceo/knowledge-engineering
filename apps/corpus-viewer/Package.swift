@@ -5,7 +5,8 @@ let package = Package(
     name: "CorpusViewer",
     defaultLocalization: "en",
     platforms: [
-        .macOS(.v14)
+        .macOS(.v14),
+        .iOS(.v17)
     ],
     products: [
         .executable(name: "CorpusViewer", targets: ["CorpusViewer"])
@@ -19,7 +20,12 @@ let package = Package(
             dependencies: [
                 .product(name: "MarkdownUI", package: "swift-markdown-ui")
             ],
-            path: "Sources/CorpusViewer"
+            path: "Sources/CorpusViewer",
+            // The curated docker+xcode *.md corpus, populated by
+            // scripts/sync-bundled-corpus.sh. A .gitkeep keeps the dir present
+            // so `swift build` works before the sync runs (BundledData/ itself
+            // is gitignored — never commit the ~16MB mirror).
+            resources: [.copy("BundledData")]
         ),
         .testTarget(
             name: "CorpusViewerTests",
