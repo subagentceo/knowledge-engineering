@@ -1,0 +1,9 @@
+{
+  "$schema": "https://code.claude.com/schemas/plugin.json",
+  "name": "web-doc-tooling",
+  "version": "0.1.0",
+  "description": "Code-intelligence + document tooling for mirroring HTML/PDF documentation (e.g. anthropic.com/sitemap.xml pages): HTML, TypeScript, and JavaScript language servers (VS Code's extracted servers + typescript-language-server) plus the official Model Context Protocol PDF server. Binaries are pinned as repo devDependencies and invoked via npx.",
+  "author": {"name": "alex-jadecli", "url": "https://github.com/alex-jadecli"},
+  "license": "Apache-2.0",
+  "repository": "https://github.com/subagentceo/knowledge-engineering"
+}
