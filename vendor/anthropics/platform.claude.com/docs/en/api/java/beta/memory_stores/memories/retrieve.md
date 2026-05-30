@@ -1,4 +1,4 @@
-## Retrieve
+## Retrieve a memory
 
 `BetaManagedAgentsMemory beta().memoryStores().memories().retrieve(MemoryRetrieveParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,7 +9,6 @@ Retrieve a memory
 ### Parameters
 
 - `MemoryRetrieveParams params`
-
   - `String memoryStoreId`
 
   - `Optional<String> memoryId`
@@ -21,7 +20,6 @@ Retrieve a memory
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -70,12 +68,17 @@ Retrieve a memory
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaManagedAgentsMemory:`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
   - `String id`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -105,7 +108,6 @@ Retrieve a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `Type type`
-
     - `MEMORY("memory")`
 
   - `LocalDateTime updatedAt`
@@ -138,5 +140,22 @@ public final class Main {
             .build();
         BetaManagedAgentsMemory betaManagedAgentsMemory = client.beta().memoryStores().memories().retrieve(params);
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
 }
 ```

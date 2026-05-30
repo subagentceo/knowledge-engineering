@@ -1,6 +1,6 @@
 # Files
 
-## Upload
+## Upload File
 
 **post** `/v1/files`
 
@@ -11,11 +11,9 @@ Upload File
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -64,10 +62,15 @@ Upload File
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `FileMetadata = object { id, created_at, filename, 5 more }`
-
+- `FileMetadata object { id, created_at, filename, 5 more }`
   - `id: string`
 
     Unique object identifier.
@@ -95,7 +98,6 @@ Upload File
     Object type.
 
     For files, this is always `"file"`.
-
     - `"file"`
 
   - `downloadable: optional boolean`
@@ -105,7 +107,6 @@ Upload File
   - `scope: optional BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -113,7 +114,6 @@ Upload File
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
-
       - `"session"`
 
 ### Example
@@ -127,7 +127,25 @@ curl https://api.anthropic.com/v1/files \
     -F 'file=@/path/to/file'
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## List Files
 
 **get** `/v1/files`
 
@@ -158,11 +176,9 @@ List Files
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -211,12 +227,17 @@ List Files
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `data: array of FileMetadata`
 
   List of file metadata objects.
-
   - `id: string`
 
     Unique object identifier.
@@ -244,7 +265,6 @@ List Files
     Object type.
 
     For files, this is always `"file"`.
-
     - `"file"`
 
   - `downloadable: optional boolean`
@@ -254,7 +274,6 @@ List Files
   - `scope: optional BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -262,7 +281,6 @@ List Files
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
-
       - `"session"`
 
 - `first_id: optional string`
@@ -286,7 +304,32 @@ curl https://api.anthropic.com/v1/files \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
-## Download
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "created_at": "2025-04-15T18:37:24.100435Z",
+      "filename": "document.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 102400,
+      "type": "file",
+      "downloadable": false,
+      "scope": {
+        "id": "id",
+        "type": "session"
+      }
+    }
+  ],
+  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "has_more": true,
+  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
+}
+```
+
+## Download File
 
 **get** `/v1/files/{file_id}/content`
 
@@ -303,11 +346,9 @@ Download File
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -356,6 +397,12 @@ Download File
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Example
 
 ```http
@@ -365,7 +412,7 @@ curl https://api.anthropic.com/v1/files/$FILE_ID/content \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
-## Retrieve Metadata
+## Get File Metadata
 
 **get** `/v1/files/{file_id}`
 
@@ -382,11 +429,9 @@ Get File Metadata
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -435,10 +480,15 @@ Get File Metadata
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `FileMetadata = object { id, created_at, filename, 5 more }`
-
+- `FileMetadata object { id, created_at, filename, 5 more }`
   - `id: string`
 
     Unique object identifier.
@@ -466,7 +516,6 @@ Get File Metadata
     Object type.
 
     For files, this is always `"file"`.
-
     - `"file"`
 
   - `downloadable: optional boolean`
@@ -476,7 +525,6 @@ Get File Metadata
   - `scope: optional BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -484,7 +532,6 @@ Get File Metadata
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
-
       - `"session"`
 
 ### Example
@@ -496,7 +543,25 @@ curl https://api.anthropic.com/v1/files/$FILE_ID \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## Delete File
 
 **delete** `/v1/files/{file_id}`
 
@@ -513,11 +578,9 @@ Delete File
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -566,10 +629,15 @@ Delete File
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `DeletedFile = object { id, type }`
-
+- `DeletedFile object { id, type }`
   - `id: string`
 
     ID of the deleted file.
@@ -579,7 +647,6 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `"file_deleted"`
 
 ### Example
@@ -592,12 +659,20 @@ curl https://api.anthropic.com/v1/files/$FILE_ID \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "type": "file_deleted"
+}
+```
+
 ## Domain Types
 
 ### Beta File Scope
 
-- `BetaFileScope = object { id, type }`
-
+- `BetaFileScope object { id, type }`
   - `id: string`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -605,13 +680,11 @@ curl https://api.anthropic.com/v1/files/$FILE_ID \
   - `type: "session"`
 
     The type of scope (e.g., `"session"`).
-
     - `"session"`
 
 ### Deleted File
 
-- `DeletedFile = object { id, type }`
-
+- `DeletedFile object { id, type }`
   - `id: string`
 
     ID of the deleted file.
@@ -621,13 +694,11 @@ curl https://api.anthropic.com/v1/files/$FILE_ID \
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `"file_deleted"`
 
 ### File Metadata
 
-- `FileMetadata = object { id, created_at, filename, 5 more }`
-
+- `FileMetadata object { id, created_at, filename, 5 more }`
   - `id: string`
 
     Unique object identifier.
@@ -655,7 +726,6 @@ curl https://api.anthropic.com/v1/files/$FILE_ID \
     Object type.
 
     For files, this is always `"file"`.
-
     - `"file"`
 
   - `downloadable: optional boolean`
@@ -665,7 +735,6 @@ curl https://api.anthropic.com/v1/files/$FILE_ID \
   - `scope: optional BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -673,5 +742,4 @@ curl https://api.anthropic.com/v1/files/$FILE_ID \
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
-
       - `"session"`

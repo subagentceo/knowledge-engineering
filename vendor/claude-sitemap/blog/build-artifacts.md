@@ -1,8 +1,10 @@
-**_Update:_** _Artifacts now support MCP and persistent storage. (October 21, 2025)_
+# Turn ideas into interactive AI-powered apps
 
-**_Update:_** _Now available on Team and Enterprise plans. (July 31, 2025)_
+***Update:*** *Artifacts now support MCP and persistent storage. (October 21, 2025)*
 
-**_Update:_** _Now available on iOS and Android apps. (July 21, 2025)_
+***Update:*** *Now available on Team and Enterprise plans. (July 31, 2025)*
+
+***Update:*** *Now available on iOS and Android apps. (July 21, 2025)*
 
 ‍
 
@@ -14,18 +16,18 @@ Since launch, millions of users have created over half a billion artifacts—fro
 
 Artifacts turn anyone into an app creator—no coding needed. Just tell Claude your idea to instantly create shareable apps, tools, and games.
 
-With our latest update, you can build even more interactive experiences. For example, rather than asking Claude to create a set of flashcards for one topic, you can ask Claude to build a [flashcard app](https://claude.ai/public/artifacts/0e6f226e-70b0-418d-a03c-77ba65e4ba14) that lets users pick their own topic and generate their own cards. Instead of a single-use artifact, you now have an interactive app you can use and share more broadly.
+With our latest update, you can build even more interactive experiences. For example, rather than asking Claude to create a set of flashcards for one topic, you can ask Claude to build a flashcard app that lets users pick their own topic and generate their own cards. Instead of a single-use artifact, you now have an interactive app you can use and share more broadly.
 
 Additionally, our new artifacts space makes creation seamless:
 
--   **Browse curated artifacts** for inspiration
--   **Customize existing creations** in minutes
--   **Build from scratch** through simple conversation
--   **Organize everything** in one place
+- **Browse curated artifacts** for inspiration
+- **Customize existing creations** in minutes
+- **Build from scratch** through simple conversation
+- **Organize everything** in one place
 
 ### When conversation becomes creation
 
-Music producer Rick Rubin captured this shift perfectly with “[The Way of Code](https://www.thewayofcode.com/),” exploring how conversation itself becomes a form of creative expression. His project paired 81 meditations with interactive artifacts that anyone can reshape with Claude.
+Music producer Rick Rubin captured this shift perfectly with “The Way of Code,” exploring how conversation itself becomes a form of creative expression. His project paired 81 meditations with interactive artifacts that anyone can reshape with Claude.
 
 ![An image titled ](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e95d97755e649b281632b8_163fe1d05e30df285cabe24fe3454215edfa4ec9-3413x1920.png)
 
@@ -37,4 +39,4 @@ Access the new artifacts space from the sidebar in the Claude app—it’s curre
 
 You can also share artifacts for anyone to view your creations. To get the full experience, viewers can sign in to a Claude account with any plan.
 
-The ability to embed AI capabilities directly into your artifacts is available in beta. Learn more about how to build and share AI-powered apps with Claude [here](https://claude-powered-artifacts).
+The ability to embed AI capabilities directly into your artifacts is available in beta. Learn more about how to build and share AI-powered apps with Claude here.

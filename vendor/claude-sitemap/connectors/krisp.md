@@ -1,3 +1,5 @@
+# Krisp
+
 Connect your meeting history to AI tools so past decisions, action items, and conversation context are easy to find and use.
 
 You can use Krisp to:

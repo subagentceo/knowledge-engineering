@@ -1,3 +1,5 @@
+# Legal
+
 Legal automates contract review, NDA triage, compliance workflows, legal briefings, and templated responses — all configurable to your organization's playbook and risk tolerances. Built for commercial counsel, product counsel, privacy/compliance, and litigation support teams.
 
 Use `/review-contract` to review contracts clause-by-clause against your configured negotiation playbook, with GREEN/YELLOW/RED flags and specific redline suggestions. Use `/triage-nda` for rapid NDA pre-screening that categorizes incoming NDAs for standard approval, counsel review, or full review.

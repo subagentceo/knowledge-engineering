@@ -1,11 +1,13 @@
+# How Semgrep delivers AI-powered code security with Claude in Amazon Bedrock
+
 Semgrep, a leading cyber security company, leverages Claude in Amazon Bedrock to power many of its AI-assisted features for customers, helping developers detect, filter, and fix code vulnerabilities more effectively—while minimizing false positives that waste engineering time.
 
 With Claude, Semgrep:
 
--   Confidently labels 20% of security findings as safe to ignore, with a 92% user agree rate and 96% security researcher agree rate
--   Achieved 16% higher accuracy identifying false positives than a prior version powered by GPT-4o
--   Delivered 17% better performance in component tagging (compared to their previous model, GPT-4o)
--   Processes and analyzes thousands of security findings for customers daily
+- Confidently labels 20% of security findings as safe to ignore, with a 92% user agree rate and 96% security researcher agree rate
+- Achieved 16% higher accuracy identifying false positives than a prior version powered by GPT-4o
+- Delivered 17% better performance in component tagging (compared to their previous model, GPT-4o)
+- Processes and analyzes thousands of security findings for customers daily
 
 ## How Semgrep is solving security's false positive problem
 
@@ -15,7 +17,7 @@ Semgrep recognized this pain point and saw an opportunity to apply AI to dramati
 
 Semgrep's fast, deterministic code analysis engine and LLM-friendly rule syntax made it the perfect foundation for AI-powered AppSec—retaining the benefits of precise pattern matching while taking advantage of AI’s ability to understand code context.
 
-Nagy explained their first breakthrough with a practical example: "We tested if an AI model could distinguish between actual leaked passwords in code versus harmless placeholders like 'password=REPLACE\_PASSWORD\_HERE'.”
+Nagy explained their first breakthrough with a practical example: "We tested if an AI model could distinguish between actual leaked passwords in code versus harmless placeholders like 'password=REPLACE_PASSWORD_HERE'.”
 
 Traditional security tools blindly flag both as vulnerabilities, but we discovered that AI could accurately determine which alerts represented genuine security risks and which were false alarms. This initial success proved AI could solve a fundamental problem in security scanning—distinguishing real threats from noise—prompting Semgrep to explore how AI could transform their entire security platform to help teams focus exclusively on legitimate security issues.
 
@@ -39,12 +41,12 @@ In two of the most important evals, false positive detection and component taggi
 
 Semgrep uses a variety of large language models—including Claude—to power features that help security teams cut noise, automate routine tasks, and generate fixes:
 
--   **Noise filtering:** Analyze security alerts to separate true issues from false positives, reducing alert volume by 20% out of the box, and up to 40% over time.
--   **Memories:** Learns and stores critical, security-relevant context about an environment as users triage findings and fix issues, eliminating future false positives.
--   **Autofix + Remediation guidance:** Suggest one-click code fixes to remediate vulnerabilities, and give developers the context they need to understand and feel confident merging the changes.
--   **Breaking change analysis:** Analyze dependency upgrades for breaking changes, and automatically create upgrade PRs that tell developers if the version bump is safe or if they need to refactor.
--   **File sensitivity classification:** Assess the criticality of files, elevating issues in high-risk components like auth or payments over low-risk ones.
--   **Rule-writing:** Write deterministic Semgrep rules based on instructions in natural language
+- **Noise filtering:** Analyze security alerts to separate true issues from false positives, reducing alert volume by 20% out of the box, and up to 40% over time.
+- **Memories:** Learns and stores critical, security-relevant context about an environment as users triage findings and fix issues, eliminating future false positives.
+- **Autofix + Remediation guidance:** Suggest one-click code fixes to remediate vulnerabilities, and give developers the context they need to understand and feel confident merging the changes.
+- **Breaking change analysis:** Analyze dependency upgrades for breaking changes, and automatically create upgrade PRs that tell developers if the version bump is safe or if they need to refactor.
+- **File sensitivity classification:** Assess the criticality of files, elevating issues in high-risk components like auth or payments over low-risk ones.
+- **Rule-writing:** Write deterministic Semgrep rules based on instructions in natural language
 
 ## One of the security tools that developers don’t mind
 
@@ -56,7 +58,7 @@ This testing revealed important insights about model configuration, including a 
 
 ## Claude in Amazon Bedrock: Enterprise security, privacy, and performance
 
-Semgrep frequently works with customers in industries with strict data governance requirements. [Amazon Bedrock](https://aws.amazon.com/bedrock/) provides a secure way to access powerful foundation models like Claude within private environments, such as an organization’s Amazon Virtual Private Cloud (VPC).
+Semgrep frequently works with customers in industries with strict data governance requirements. Amazon Bedrock provides a secure way to access powerful foundation models like Claude within private environments, such as an organization’s Amazon Virtual Private Cloud (VPC).
 
 “Security and privacy are non-negotiable for us and our customers,” said Drew Dennison, Semgrep co-founder. “The ability to access Claude through Amazon Bedrock—within a secure, compliant setup—gives us the flexibility we need without compromising on performance.”
 

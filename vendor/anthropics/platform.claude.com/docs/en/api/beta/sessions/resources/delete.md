@@ -1,4 +1,4 @@
-## Delete
+## Delete Session Resource
 
 **delete** `/v1/sessions/{session_id}/resources/{resource_id}`
 
@@ -15,11 +15,9 @@ Delete Session Resource
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -68,16 +66,20 @@ Delete Session Resource
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `BetaManagedAgentsDeleteSessionResource = object { id, type }`
+- `BetaManagedAgentsDeleteSessionResource object { id, type }`
 
   Confirmation of resource deletion.
-
   - `id: string`
 
   - `type: "session_resource_deleted"`
-
     - `"session_resource_deleted"`
 
 ### Example
@@ -88,4 +90,13 @@ curl https://api.anthropic.com/v1/sessions/$SESSION_ID/resources/$RESOURCE_ID \
     -H 'anthropic-version: 2023-06-01' \
     -H 'anthropic-beta: managed-agents-2026-04-01' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "type": "session_resource_deleted"
+}
 ```

@@ -1,6 +1,8 @@
-Asana recently launched [Asana AI Teammates](https://asana.com/product/ai/ai-teammates), powered by Claude Opus 4.6 **a**nd [Claude Managed Agents](https://claude.com/blog/claude-managed-agents). We sat down with Arnab Bose, Chief Product Officer at Asana, to discuss his thoughts on collaborative agents and why Asana chose Claude as their model layer.
+# How Asana built AI Teammates on Claude Opus 4.6
 
-## How does Asana think about the role of collaboration in AI agents? 
+Asana recently launched Asana AI Teammates, powered by Claude Opus 4.6 **a**nd Claude Managed Agents. We sat down with Arnab Bose, Chief Product Officer at Asana, to discuss his thoughts on collaborative agents and why Asana chose Claude as their model layer.
+
+## How does Asana think about the role of collaboration in AI agents?
 
 **Bose:** The assumption in the market is that collaboration is a constraint on autonomy. We think that's backwards. We’ve seen autonomous agents struggle with work-related tasks they're given, not because the models aren't smart enough, but because the agents lack the context to execute well.
 
@@ -18,7 +20,7 @@ Take our Campaign Brief Writer. A marketer creates a request with the objective 
 
 Building a custom AI Teammate doesn't require engineering resources or technical expertise. You describe the role, give it instructions, and point it at the right projects. A compliance team can stand one up to review submissions against regulatory checklists. An HR team can build one to triage employee requests. 
 
-## Why did Asana choose to build AI Teammates on Claude? 
+## Why did Asana choose to build AI Teammates on Claude?
 
 **Bose:** We evaluated available models carefully—AI Teammates uses a multi-agent architecture, and we use different models to accomplish different takes. The most important is the top-level agent responsible for coordinating a Teammate's efforts, and here Claude stood out for the quality of its reasoning, particularly when it comes to understanding nuanced, context-rich work scenarios. Work management isn't just about processing text. It requires interpreting goals, understanding dependencies between tasks, recognizing what's blocking progress, and communicating clearly with the humans in the loop. By using different Claude models in the various subagents, we're able to optimize for speed, reasoning power, or balance between the two—whatever it takes to move work forward.
 

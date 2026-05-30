@@ -1,3 +1,5 @@
+# Practice case interviews with feedback
+
 Claude's ability to extract data from case materials, build financial models, and analyze your work allows you to practice cases and receive feedback. Let Claude take care of repetitive data entry and spreadsheet organization, so you can focus on the strategic thinking.
 
 Upload your practice case study and tell Claude what you're working toward, whether that's interview prep, skill development, or learning proven frameworks.

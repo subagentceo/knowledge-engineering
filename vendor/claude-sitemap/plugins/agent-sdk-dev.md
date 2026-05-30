@@ -1,3 +1,5 @@
+# Agent SDK Dev
+
 A comprehensive development kit for building Claude Agent SDK applications in TypeScript and Python. This plugin streamlines the entire lifecycle of Agent SDK development, from initial project scaffolding to verification against best practices.
 
 Key features include an interactive project creation command that guides you through setup, automatically installs the latest SDK version, configures environment files, and creates working examples tailored to your use case. The plugin also includes verification agents that thoroughly check your application for correct SDK usage patterns, type safety, security practices, and documentation completeness.

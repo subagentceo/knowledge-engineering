@@ -1,3 +1,5 @@
+# Turn transit time into research time
+
 Good ideas don't wait for your desk. They surface during commutes, between meetings, and on walks. But by the time you're back at your computer, you've either forgotten the thread or lost the momentum to dig in.
 
 Using Claude, you can start ideas on mobile, and finish them on desktop. Start a conversation using voice to describe what you're thinking about and what you need to know. While you're still on the move, Claude searches for relevant data, pulls in documents you reference, and synthesizes what it finds. When you reach your desk, the research is done and organized, ready to become a polished deliverable.

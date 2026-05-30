@@ -2,31 +2,9 @@
 
 A live build from zero to deployed in thirty minutes. We'll build a feedback app spanning five roles and the full software lifecycle, using Claude and Google Cloud alongside subagents, MCP servers, and custom skills. You can test the finished app at the end of the session.
 
-Details
-
-City
-
-San Francisco, USA
-
-Date
-
-May 6, 2026
-
-Time
-
-04:05PM – 04:35PM
-
-Speaker(s)
-
-Ivan Nardini
-
-Developer Relations Engineer (AI/ML),
-
-Google Cloud
-
 ## Watch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf7268a585749b38cb9b7_claude-on-google-cloud.webp)
 
@@ -36,4 +14,4 @@ Keynotes, demos, and conversations with the teams behind Claude. Recorded at Cod
 
 Browse recordings
 
-[Learn more](/code-with-claude/san-francisco)Learn more
+Learn moreLearn more

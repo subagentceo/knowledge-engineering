@@ -1,6 +1,6 @@
 # Projects
 
-## List
+## List projects
 
 **get** `/v1/compliance/apps/projects`
 
@@ -10,7 +10,6 @@ are sorted chronologically (time ascending) by created_at.
 ### Query Parameters
 
 - `created_at: optional object { gt, gte, lt, lte }`
-
   - `gt: optional string`
 
     Filter projects created after this time (RFC 3339 format)
@@ -49,10 +48,9 @@ are sorted chronologically (time ascending) by created_at.
 
 ### Returns
 
-- `data: array of object { id, created_at, is_private, 4 more }`
+- `data: array of object { id, created_at, deleted_at, 6 more }`
 
   List of projects sorted by creation date ascending
-
   - `id: string`
 
     Project identifier (tagged ID)
@@ -60,6 +58,10 @@ are sorted chronologically (time ascending) by created_at.
   - `created_at: string`
 
     Project creation timestamp
+
+  - `deleted_at: string`
+
+    Timestamp when the project was deleted by an end user, or null otherwise
 
   - `is_private: boolean`
 
@@ -73,6 +75,10 @@ are sorted chronologically (time ascending) by created_at.
 
     Organization identifier (tagged ID)
 
+  - `organization_uuid: string`
+
+    Organization UUID this project belongs to
+
   - `updated_at: string`
 
     Project last update timestamp
@@ -80,7 +86,6 @@ are sorted chronologically (time ascending) by created_at.
   - `user: object { id, email_address }`
 
     User information for project creator.
-
     - `id: string`
 
       User identifier (tagged ID)
@@ -104,7 +109,31 @@ curl https://api.anthropic.com/v1/compliance/apps/projects \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "claude_proj_abc123",
+      "name": "Q4 Product Planning",
+      "created_at": "2025-06-01T10:00:00Z",
+      "updated_at": "2025-06-15T14:30:00Z",
+      "is_private": true,
+      "organization_id": "org_abc123",
+      "organization_uuid": "abc12345-6789-0abc-def0-123456789abc",
+      "user": {
+        "id": "user_xyz456",
+        "email_address": "user@example.com"
+      }
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_eyJjcmVhdGVkX2F0IjoiMjAyNS0wNi0wMVQxMDowMDowMFoiLCJ1dWlkIjoiYWJjMTIzIn0="
+}
+```
+
+## Get project details
 
 **get** `/v1/compliance/apps/projects/{project_id}`
 
@@ -141,6 +170,10 @@ Detailed project information including description, instructions, and counts
 
   Project creation timestamp
 
+- `deleted_at: string`
+
+  Timestamp when the project was deleted by an end user, or null otherwise
+
 - `description: string`
 
   Project description
@@ -161,6 +194,10 @@ Detailed project information including description, instructions, and counts
 
   Organization identifier (tagged ID)
 
+- `organization_uuid: string`
+
+  Organization UUID this project belongs to
+
 - `updated_at: string`
 
   Project last update timestamp
@@ -168,7 +205,6 @@ Detailed project information including description, instructions, and counts
 - `user: object { id, email_address }`
 
   User information for project creator.
-
   - `id: string`
 
     User identifier (tagged ID)
@@ -184,7 +220,30 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "id",
+  "attachments_count": 0,
+  "chats_count": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "deleted_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "instructions": "instructions",
+  "is_private": true,
+  "name": "name",
+  "organization_id": "organization_id",
+  "organization_uuid": "organization_uuid",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "user": {
+    "id": "id",
+    "email_address": "email_address"
+  }
+}
+```
+
+## Delete project
 
 **delete** `/v1/compliance/apps/projects/{project_id}`
 
@@ -225,7 +284,6 @@ NotFoundException: If project doesn't exist or already deleted
 - `type: optional "claude_project_deleted"`
 
   Constant string confirming deletion.
-
   - `"claude_project_deleted"`
 
 ### Example
@@ -236,7 +294,146 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
-## Attachments
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "claude_project_deleted"
+}
+```
+
+## Domain Types
+
+### Project List Response
+
+- `ProjectListResponse object { id, created_at, deleted_at, 6 more }`
+
+  Project information for compliance responses.
+  - `id: string`
+
+    Project identifier (tagged ID)
+
+  - `created_at: string`
+
+    Project creation timestamp
+
+  - `deleted_at: string`
+
+    Timestamp when the project was deleted by an end user, or null otherwise
+
+  - `is_private: boolean`
+
+    If false, the project is visible to all organization members; if true the project is accessible only to the creator and specified collaborators
+
+  - `name: string`
+
+    Project name
+
+  - `organization_id: string`
+
+    Organization identifier (tagged ID)
+
+  - `organization_uuid: string`
+
+    Organization UUID this project belongs to
+
+  - `updated_at: string`
+
+    Project last update timestamp
+
+  - `user: object { id, email_address }`
+
+    User information for project creator.
+    - `id: string`
+
+      User identifier (tagged ID)
+
+    - `email_address: string`
+
+      User's email address
+
+### Project Retrieve Response
+
+- `ProjectRetrieveResponse object { id, attachments_count, chats_count, 10 more }`
+
+  Detailed project information for compliance responses.
+  - `id: string`
+
+    Project identifier (tagged ID)
+
+  - `attachments_count: number`
+
+    Number of attachments contained within this project
+
+  - `chats_count: number`
+
+    Number of chats contained within this project
+
+  - `created_at: string`
+
+    Project creation timestamp
+
+  - `deleted_at: string`
+
+    Timestamp when the project was deleted by an end user, or null otherwise
+
+  - `description: string`
+
+    Project description
+
+  - `instructions: string`
+
+    Project's custom instructions / prompt
+
+  - `is_private: boolean`
+
+    If false, the project is visible to all organization members; if true the project is accessible only to the creator and specified collaborators
+
+  - `name: string`
+
+    Project name
+
+  - `organization_id: string`
+
+    Organization identifier (tagged ID)
+
+  - `organization_uuid: string`
+
+    Organization UUID this project belongs to
+
+  - `updated_at: string`
+
+    Project last update timestamp
+
+  - `user: object { id, email_address }`
+
+    User information for project creator.
+    - `id: string`
+
+      User identifier (tagged ID)
+
+    - `email_address: string`
+
+      User's email address
+
+### Project Delete Response
+
+- `ProjectDeleteResponse object { id, type }`
+
+  Response for deleting a Claude project.
+  - `id: string`
+
+    The ID of the Claude project that was deleted
+
+  - `type: optional "claude_project_deleted"`
+
+    Constant string confirming deletion.
+    - `"claude_project_deleted"`
+
+# Attachments
+
+## List project attachments
 
 **get** `/v1/compliance/apps/projects/{project_id}/attachments`
 
@@ -282,11 +479,9 @@ NotFoundException: If project doesn't exist or project_id format is invalid
 - `data: array of object { id, created_at, filename, 2 more }  or object { id, created_at, filename, 2 more }`
 
   List of attachments sorted chronologically by created_at, tie break by id
-
-  - `ComplianceProjectFileReference = object { id, created_at, filename, 2 more }`
+  - `ComplianceProjectFileReference object { id, created_at, filename, 2 more }`
 
     File attachment reference for compliance responses.
-
     - `id: string`
 
       File identifier (e.g., 'claude_file_abcd')
@@ -306,13 +501,11 @@ NotFoundException: If project doesn't exist or project_id format is invalid
     - `type: "project_file"`
 
       Discriminator marking this as a binary file
-
       - `"project_file"`
 
-  - `ComplianceProjectDocReference = object { id, created_at, filename, 2 more }`
+  - `ComplianceProjectDocReference object { id, created_at, filename, 2 more }`
 
     Project document attachment reference for compliance responses.
-
     - `id: string`
 
       Project document identifier (e.g., 'claude_proj_doc_abcd')
@@ -328,13 +521,11 @@ NotFoundException: If project doesn't exist or project_id format is invalid
     - `mime_type: "text/plain"`
 
       MIME type of the project document, always set to plain text
-
       - `"text/plain"`
 
     - `type: "project_doc"`
 
       Discriminator marking this as a plain text document
-
       - `"project_doc"`
 
 - `has_more: boolean`
@@ -352,199 +543,83 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/$PROJECT_ID/attachmen
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "filename": "filename",
+      "mime_type": "mime_type",
+      "type": "project_file"
+    }
+  ],
+  "has_more": true,
+  "next_page": "next_page"
+}
+```
+
 ## Domain Types
 
-### Project List Response
+### Attachment List Response
 
-- `ProjectListResponse = object { id, created_at, is_private, 4 more }`
+- `AttachmentListResponse = object { id, created_at, filename, 2 more }  or object { id, created_at, filename, 2 more }`
 
-  Project information for compliance responses.
+  File attachment reference for compliance responses.
+  - `ComplianceProjectFileReference object { id, created_at, filename, 2 more }`
 
-  - `id: string`
-
-    Project identifier (tagged ID)
-
-  - `created_at: string`
-
-    Project creation timestamp
-
-  - `is_private: boolean`
-
-    If false, the project is visible to all organization members; if true the project is accessible only to the creator and specified collaborators
-
-  - `name: string`
-
-    Project name
-
-  - `organization_id: string`
-
-    Organization identifier (tagged ID)
-
-  - `updated_at: string`
-
-    Project last update timestamp
-
-  - `user: object { id, email_address }`
-
-    User information for project creator.
-
+    File attachment reference for compliance responses.
     - `id: string`
 
-      User identifier (tagged ID)
+      File identifier (e.g., 'claude_file_abcd')
 
-    - `email_address: string`
+    - `created_at: string`
 
-      User's email address
+      Creation timestamp (RFC 3339 format)
 
-### Project Retrieve Response
+    - `filename: string`
 
-- `ProjectRetrieveResponse = object { id, attachments_count, chats_count, 8 more }`
+      Display name of the file (e.g., 'document.pdf')
 
-  Detailed project information for compliance responses.
+    - `mime_type: string`
 
-  - `id: string`
+      MIME type of the file when it was uploaded (e.g., 'application/pdf')
 
-    Project identifier (tagged ID)
+    - `type: "project_file"`
 
-  - `attachments_count: number`
+      Discriminator marking this as a binary file
+      - `"project_file"`
 
-    Number of attachments contained within this project
+  - `ComplianceProjectDocReference object { id, created_at, filename, 2 more }`
 
-  - `chats_count: number`
-
-    Number of chats contained within this project
-
-  - `created_at: string`
-
-    Project creation timestamp
-
-  - `description: string`
-
-    Project description
-
-  - `instructions: string`
-
-    Project's custom instructions / prompt
-
-  - `is_private: boolean`
-
-    If false, the project is visible to all organization members; if true the project is accessible only to the creator and specified collaborators
-
-  - `name: string`
-
-    Project name
-
-  - `organization_id: string`
-
-    Organization identifier (tagged ID)
-
-  - `updated_at: string`
-
-    Project last update timestamp
-
-  - `user: object { id, email_address }`
-
-    User information for project creator.
-
+    Project document attachment reference for compliance responses.
     - `id: string`
 
-      User identifier (tagged ID)
+      Project document identifier (e.g., 'claude_proj_doc_abcd')
 
-    - `email_address: string`
+    - `created_at: string`
 
-      User's email address
+      Creation timestamp (RFC 3339 format)
 
-### Project Delete Response
+    - `filename: string`
 
-- `ProjectDeleteResponse = object { id, type }`
+      Display name of the document (e.g., 'document.txt')
 
-  Response for deleting a Claude project.
+    - `mime_type: "text/plain"`
 
-  - `id: string`
+      MIME type of the project document, always set to plain text
+      - `"text/plain"`
 
-    The ID of the Claude project that was deleted
+    - `type: "project_doc"`
 
-  - `type: optional "claude_project_deleted"`
-
-    Constant string confirming deletion.
-
-    - `"claude_project_deleted"`
-
-### Project Attachments Response
-
-- `ProjectAttachmentsResponse = object { data, has_more, next_page }`
-
-  List of project attachments with pagination info.
-
-  - `data: array of object { id, created_at, filename, 2 more }  or object { id, created_at, filename, 2 more }`
-
-    List of attachments sorted chronologically by created_at, tie break by id
-
-    - `ComplianceProjectFileReference = object { id, created_at, filename, 2 more }`
-
-      File attachment reference for compliance responses.
-
-      - `id: string`
-
-        File identifier (e.g., 'claude_file_abcd')
-
-      - `created_at: string`
-
-        Creation timestamp (RFC 3339 format)
-
-      - `filename: string`
-
-        Display name of the file (e.g., 'document.pdf')
-
-      - `mime_type: string`
-
-        MIME type of the file when it was uploaded (e.g., 'application/pdf')
-
-      - `type: "project_file"`
-
-        Discriminator marking this as a binary file
-
-        - `"project_file"`
-
-    - `ComplianceProjectDocReference = object { id, created_at, filename, 2 more }`
-
-      Project document attachment reference for compliance responses.
-
-      - `id: string`
-
-        Project document identifier (e.g., 'claude_proj_doc_abcd')
-
-      - `created_at: string`
-
-        Creation timestamp (RFC 3339 format)
-
-      - `filename: string`
-
-        Display name of the document (e.g., 'document.txt')
-
-      - `mime_type: "text/plain"`
-
-        MIME type of the project document, always set to plain text
-
-        - `"text/plain"`
-
-      - `type: "project_doc"`
-
-        Discriminator marking this as a plain text document
-
-        - `"project_doc"`
-
-  - `has_more: boolean`
-
-    Whether more records exist beyond the current result set
-
-  - `next_page: string`
-
-    To get the next page, use the 'next_page' from the current response as the 'page' in your next request
+      Discriminator marking this as a plain text document
+      - `"project_doc"`
 
 # Documents
 
-## Retrieve
+## Get project document content
 
 **get** `/v1/compliance/apps/projects/documents/{document_id}`
 
@@ -584,7 +659,6 @@ Project document information including content and metadata
 - `user: object { id, email_address }`
 
   User information for project creator.
-
   - `id: string`
 
     User identifier (tagged ID)
@@ -600,7 +674,110 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "id",
+  "content": "content",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "filename": "filename",
+  "user": {
+    "id": "id",
+    "email_address": "email_address"
+  }
+}
+```
+
+## Get project document metadata
+
+**get** `/v1/compliance/apps/projects/documents/{document_id}/metadata`
+
+Returns metadata for a project document, without the content body.
+
+Use the sibling `GET /v1/compliance/apps/projects/documents/{document_id}`
+endpoint to fetch the document text. The `md5` and `size_bytes`
+fields here are computed over the UTF-8 encoding of that text, so a DLP
+consumer can dedupe or match hashes without downloading every document.
+
+### Path Parameters
+
+- `document_id: string`
+
+  The document ID (tagged ID, e.g., claude_proj_doc_abc123)
+
+### Header Parameters
+
+- `"x-api-key": optional string`
+
+### Returns
+
+- `id: string`
+
+  Project document identifier (tagged ID)
+
+- `claude_project_id: string`
+
+  The project this document belongs to
+
+- `created_at: string`
+
+  Document creation timestamp
+
+- `filename: string`
+
+  Document filename
+
+- `md5: string`
+
+  Lowercase hex MD5 of the document content (UTF-8 encoded). Matches the `content` field returned by the sibling content endpoint.
+
+- `mime_type: "text/plain"`
+
+  MIME type of the document content, always plain text
+  - `"text/plain"`
+
+- `size_bytes: number`
+
+  Size in bytes of the document content (UTF-8 encoded)
+
+- `user: object { id, email_address }`
+
+  User information for project creator.
+  - `id: string`
+
+    User identifier (tagged ID)
+
+  - `email_address: string`
+
+    User's email address
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID/metadata \
+    -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "claude_project_id": "claude_project_id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "filename": "filename",
+  "md5": "md5",
+  "mime_type": "text/plain",
+  "size_bytes": 0,
+  "user": {
+    "id": "id",
+    "email_address": "email_address"
+  }
+}
+```
+
+## Delete project document
 
 **delete** `/v1/compliance/apps/projects/documents/{document_id}`
 
@@ -630,7 +807,6 @@ ComplianceProjectDocumentDeleteResponse confirming the deletion
 - `type: "claude_project_document_deleted"`
 
   Constant string confirming deletion.
-
   - `"claude_project_document_deleted"`
 
 ### Example
@@ -641,14 +817,22 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "claude_project_document_deleted"
+}
+```
+
 ## Domain Types
 
 ### Document Retrieve Response
 
-- `DocumentRetrieveResponse = object { id, content, created_at, 2 more }`
+- `DocumentRetrieveResponse object { id, content, created_at, 2 more }`
 
   Project document information for compliance responses.
-
   - `id: string`
 
     Project document identifier (tagged ID)
@@ -668,7 +852,54 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
   - `user: object { id, email_address }`
 
     User information for project creator.
+    - `id: string`
 
+      User identifier (tagged ID)
+
+    - `email_address: string`
+
+      User's email address
+
+### Document Metadata Response
+
+- `DocumentMetadataResponse object { id, claude_project_id, created_at, 5 more }`
+
+  Project document metadata for GET /v1/compliance/apps/projects/documents/{document_id}/metadata.
+
+  Returns metadata only. Use the sibling endpoint (without `/metadata`)
+  to fetch the document text content.
+  - `id: string`
+
+    Project document identifier (tagged ID)
+
+  - `claude_project_id: string`
+
+    The project this document belongs to
+
+  - `created_at: string`
+
+    Document creation timestamp
+
+  - `filename: string`
+
+    Document filename
+
+  - `md5: string`
+
+    Lowercase hex MD5 of the document content (UTF-8 encoded). Matches the `content` field returned by the sibling content endpoint.
+
+  - `mime_type: "text/plain"`
+
+    MIME type of the document content, always plain text
+    - `"text/plain"`
+
+  - `size_bytes: number`
+
+    Size in bytes of the document content (UTF-8 encoded)
+
+  - `user: object { id, email_address }`
+
+    User information for project creator.
     - `id: string`
 
       User identifier (tagged ID)
@@ -679,10 +910,9 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
 
 ### Document Delete Response
 
-- `DocumentDeleteResponse = object { id, type }`
+- `DocumentDeleteResponse object { id, type }`
 
   Response for deleting a project document.
-
   - `id: string`
 
     The ID of the project document that was deleted
@@ -690,5 +920,4 @@ curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_I
   - `type: "claude_project_document_deleted"`
 
     Constant string confirming deletion.
-
     - `"claude_project_document_deleted"`

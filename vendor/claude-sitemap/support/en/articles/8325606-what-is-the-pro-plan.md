@@ -22,7 +22,7 @@ The benefits of the Pro plan are:
 
 Learn how to **[sign up for the Pro plan](https://support.claude.com/en/articles/8325609-how-do-i-sign-up-for-the-pro-plan)**.
 
-**Note:**  The Pro plan does not include API usage through the Claude Console. If you're interested in both enhanced Claude features and the Claude API, you'll need to **[set up Console access](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api)** to pay for API usage separately.
+**Note:** The Pro plan does not include API usage through the Claude Console. If you're interested in both enhanced Claude features and the Claude API, you'll need to **[set up Console access](https://support.claude.com/en/articles/8114521-how-can-i-access-the-claude-api)** to pay for API usage separately.
 
 ---
 
@@ -58,4 +58,4 @@ For more information about usage and length limits, refer to **[Understanding us
 
 Our Max plans offer more usage for individuals than Pro plans. For additional information, see **[What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)**
 
-Pro subscribers can also enable extra usage to continue working with Claude beyond the plan’s included usage limits. For more information and instructions for enabling this feature, see **[Extra usage for paid Claude plans](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans)**.
+Pro subscribers can also enable usage credits to continue working with Claude beyond the plan’s included usage limits. For more information and instructions for enabling this feature, see **[Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-)**.

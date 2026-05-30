@@ -22,7 +22,7 @@ Deploy configuration settings through your MDM solution using configuration prof
 
 Deploy configuration settings through your enterprise management solution using **[Group Policy](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/policy/group-policy-objects)** or Intune policies. Settings can be configured at machine-wide (HKLM) or per-user (HKCU) level. Machine-level settings take priority over user-level settings when both are configured.
 
-```
+````
 ```powershell
 # Set machine-wide settings (recommended)
 New-Item -Path "HKLM:\SOFTWARE\Policies\Claude" -Force
@@ -32,7 +32,8 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Claude" -Name "isDesktopExtensio
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Claude" -Name "isDesktopExtensionDirectoryEnabled" -Value 1 -Type DWord
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Claude" -Name "isLocalDevMcpEnabled" -Value 1 -Type DWord
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Claude" -Name "isClaudeCodeForDesktopEnabled" -Value 1 -Type DWord
-```
+````
+
 ```
 
 ---
@@ -41,10 +42,13 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Claude" -Name "isClaudeCodeForDe
 
 | **Key** | **Type** | **Default** | **Description** |
 | --- | --- | --- | --- |
-| disableAutoUpdates | Boolean | false | Disable automatic updates |
-| autoUpdaterEnforcementHours | Integer (1-72) | 72 | Hours before forcefully restarting Claude to apply a prepared update |
-| isClaudeCodeForDesktopEnabled | Boolean | true | Enable Claude code access in desktop |
-| isDesktopExtensionEnabled | Boolean | true | Enable/disable extensions |
-| isDesktopExtensionDirectoryEnabled | Boolean | true | Enable extension directory access |
-| isLocalDevMcpEnabled | Boolean | true | Enable local MCP servers |
-| secureVmFeaturesEnabled | Boolean | true | Enable **[Cowork](https://support.claude.com/en/articles/13345190-getting-started-with-cowork)** access in desktop |
+| `allowedWorkspaceFolders` | string[] (JSON) | Unrestricted | Filepath or filepaths the user can mount to Cowork |
+| `autoUpdaterEnforcementHours` | Integer (1-72) | 72 | Hours before forcefully restarting Claude to apply a prepared update |
+| `disableAutoUpdates` | Boolean | false | Disable automatic updates |
+| `forceloginOrgUUID` | string / array | null | Require login to belong to a specific organization. Accepts a single UUID string, which also pre-selects that organization during login, or an array of UUIDs where any listed organization is accepted without pre-selection. Login fails if the authenticated account does not belong to a listed organization. |
+| `isClaudeCodeForDesktopEnabled` | Boolean | true | Enable Claude code access in desktop |
+| `isDesktopExtensionEnabled` | Boolean | true | Enable/disable extensions |
+| `isDesktopExtensionDirectoryEnabled` | Boolean | true | Enable extension directory access |
+| `isLocalDevMcpEnabled` | Boolean | true | Enable local MCP servers |
+| `secureVmFeaturesEnabled` | Boolean | true | Enable **[Cowork](https://support.claude.com/en/articles/13345190-getting-started-with-cowork)** access in desktop |
+```

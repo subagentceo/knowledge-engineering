@@ -1,3 +1,5 @@
+# FiftyOne
+
 Build high-quality datasets and computer vision models with FiftyOne, the open-source platform by Voxel51. This plugin provides 13 specialized skills that connect to the FiftyOne MCP Server, enabling you to manage datasets, run model inference, evaluate predictions, find duplicates, visualize embeddings, and develop custom plugins — all through natural language.
 
 Core data skills let you import datasets from local directories or Hugging Face Hub (supporting COCO, YOLO, VOC, KITTI, and more), export to popular formats, run an 8-phase dataset curation pipeline covering quality checks, duplicate removal, class balance analysis, annotation audits, and train/val/test splitting. Model skills handle running Zoo models for detection, classification, and segmentation, then evaluate results with mAP, precision, recall, and confusion matrices.

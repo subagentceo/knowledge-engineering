@@ -19,6 +19,7 @@
 - [Pre-submission checklist](https://claude.com/docs/connectors/building/review-criteria.md): What Anthropic reviewers test, so you can pass on the first try
 - [Submitting to the Connectors Directory](https://claude.com/docs/connectors/building/submission.md): Submit your MCP connector to the Connectors Directory
 - [Testing your connector](https://claude.com/docs/connectors/building/testing.md): Test your MCP server against Claude before submitting to the directory
+- [Troubleshooting connectors](https://claude.com/docs/connectors/building/troubleshooting.md): Diagnose and resolve common connection failures for custom and directory MCP connectors
 - [What should I build: MCP, plugin, or both?](https://claude.com/docs/connectors/building/what-to-build.md): Decide between an MCP server, a plugin, or both for your Claude integration
 - [Desktop extensions](https://claude.com/docs/connectors/custom/desktop-extensions.md): Deploy enterprise-grade MCP servers with MCPB
 - [Third party connectors with remote MCP](https://claude.com/docs/connectors/custom/remote-mcp.md): Connect Claude to your tools using the Model Context Protocol
@@ -33,13 +34,15 @@
 - [Slack integration](https://claude.com/docs/connectors/slack/index.md): Use Claude directly in Slack and connect your workspace
 - [Deploy Cowork on 3P with Amazon Bedrock](https://claude.com/docs/cowork/3p/bedrock.md): Set up AWS, choose an authentication path for your organization, and configure Cowork on 3P to use Claude models on Amazon Bedrock
 - [Sign in with AWS for Amazon Bedrock](https://claude.com/docs/cowork/3p/bedrock-aws-sign-in.md): Configure per-user AWS IAM Identity Center authentication for Amazon Bedrock instead of distributing a bearer token or requiring the AWS CLI
-- [Code tab](https://claude.com/docs/cowork/3p/code.md): How the Code tab is configured in Cowork on 3P
+- [Code tab](https://claude.com/docs/cowork/3p/code.md): How Cowork on 3P configuration applies to the embedded Claude Code engine
 - [Configuration reference](https://claude.com/docs/cowork/3p/configuration.md): Every managed-configuration key Cowork on 3P supports, what it controls, and recommended security profiles
+- [Connect to Microsoft 365](https://claude.com/docs/cowork/3p/connectors-m365.md): Give Claude access to your organization's Outlook, OneDrive, SharePoint, and Teams data through a connector you register in your own Microsoft Entra tenant.
 - [User identity and local data](https://claude.com/docs/cowork/3p/data-storage.md): How Cowork on 3P identifies users and where it stores conversations, settings, and credentials on disk
 - [MCP, plugins, skills, and hooks](https://claude.com/docs/cowork/3p/extensions.md): Extend Cowork on 3P with connectors, organization plugins, skills, and hooks for administrators and end users
 - [Features on 3P](https://claude.com/docs/cowork/3p/feature-matrix.md): Feature comparison between Claude Enterprise and Cowork on third-party (3P)
 - [Using Cowork on 3P with Microsoft Foundry](https://claude.com/docs/cowork/3p/foundry.md): Configure Cowork on 3P to use Claude models on Microsoft Foundry
 - [Using Cowork on 3P with an LLM Gateway](https://claude.com/docs/cowork/3p/gateway.md): Configure Cowork on 3P to use Claude models on a self-hosted gateway that implements the Anthropic Messages API
+- [Gateway single sign-on with your identity provider](https://claude.com/docs/cowork/3p/gateway-sso.md): Let each user sign in to your LLM gateway with their own work account instead of a shared API key
 - [Installation and setup](https://claude.com/docs/cowork/3p/installation.md): Roll out Cowork on 3P to your organization, from a single evaluation machine to a fleet-wide MDM deployment
 - [Legal and compliance](https://claude.com/docs/cowork/3p/legal.md): Legal agreements, compliance, and security information for Cowork on 3P
 - [Desktop and filesystem access](https://claude.com/docs/cowork/3p/local-access.md): How Cowork on 3P reads and writes files on the user's machine, and how to constrain it

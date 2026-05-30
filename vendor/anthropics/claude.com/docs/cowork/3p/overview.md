@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -17,15 +18,15 @@ You get the same agentic Cowork experience (file creation, multi-step research, 
 <Note>
   The data-residency, compliance, and "no conversation data sent to Anthropic" statements throughout these pages apply when `inferenceProvider` is `vertex` or `bedrock`. They also apply when `inferenceProvider` is `gateway`, provided your gateway does not route inference to Anthropic infrastructure (directly or via Microsoft Foundry). They do not apply when using Microsoft Foundry.
 
-  **Microsoft Foundry (preview):** In this preview platform integration, Claude models run on Anthropic's infrastructure. This is a commercial integration for billing and access through Azure. As an independent processor for Microsoft, customers using Claude through Microsoft Foundry are subject to Anthropic's data use terms. Anthropic continues to provide its industry-leading safety and data commitments, including zero data retention availability.
+**Microsoft Foundry (preview):** In this preview platform integration, Claude models run on Anthropic's infrastructure. This is a commercial integration for billing and access through Azure. As an independent processor for Microsoft, customers using Claude through Microsoft Foundry are subject to Anthropic's data use terms. Anthropic continues to provide its industry-leading safety and data commitments, including zero data retention availability.
 </Note>
 
 ## Who it's for
 
 Cowork on 3P is designed for organizations whose security, regulatory, or contractual requirements prevent them from sending data to Anthropic's first-party infrastructure. Typical deployments include:
 
-* **Highly regulated enterprises on 3P only** — organizations that use third-party inference for regulatory or security reasons
-* **International enterprises with data residency requirements** — organizations that require in-region data residency and cannot send conversation data to the United States
+- **Highly regulated enterprises on 3P only** — organizations that use third-party inference for regulatory or security reasons
+- **International enterprises with data residency requirements** — organizations that require in-region data residency and cannot send conversation data to the United States
 
 If your organization can use Anthropic's first-party products directly, standard [Cowork](/cowork/overview) on a Team or Enterprise plan is simpler to deploy, offers an in-app UI for user management, analytics, and RBAC, and releases new features more quickly than Cowork on 3P. Choose Cowork on 3P when routing inference through Anthropic's API is not an option.
 
@@ -46,12 +47,12 @@ The desktop app detects 3P mode at launch from the configured inference provider
 
 ### Security posture
 
-* **No conversation egress to Anthropic** (Vertex AI and Bedrock only). Prompts, responses, files, and tool outputs are sent only to your configured inference endpoint and stored only on the local machine.
-* **Sandboxed tool execution.** Shell commands run in the hardened Cowork VM; file access is scoped to your allowed folders and web fetches to your egress allowlist.
-* **Auditable telemetry.** Crash reports and product analytics are scrubbed of conversation and user data before being sent to Anthropic, and can be fully disabled via configuration keys. Independently, you can export full session activity (prompts, tool calls, token counts) to your own OpenTelemetry collector.
-* **Centrally managed.** All configuration is delivered via your existing MDM (Jamf, Intune, Workspace ONE, Group Policy) and cannot be overridden by end users when an admin profile is present.
+- **No conversation egress to Anthropic** (Vertex AI and Bedrock only). Prompts, responses, files, and tool outputs are sent only to your configured inference endpoint and stored only on the local machine.
+- **Sandboxed tool execution.** Shell commands run in the hardened Cowork VM; file access is scoped to your allowed folders and web fetches to your egress allowlist.
+- **Auditable telemetry.** Crash reports and product analytics are scrubbed of conversation and user data before being sent to Anthropic, and can be fully disabled via configuration keys. Independently, you can export full session activity (prompts, tool calls, token counts) to your own OpenTelemetry collector.
+- **Centrally managed.** All configuration is delivered via your existing MDM (Jamf, Intune, Workspace ONE, Group Policy) and cannot be overridden by end users when an admin profile is present.
 
-For a detailed treatment of the threat model, sandbox boundaries, and data flows, request access to the [Claude Cowork Desktop Security Architecture Overview](https://trust.anthropic.com/resources?s=2a7bbzo1lyymvdt551q7kl\&name=claude-cowork-desktop-security-architecture-overview) on Anthropic's Trust Center. For architecture, telemetry, and controls information specific to Cowork on 3P, see the [Claude Cowork Security Overview (Third-Party Platforms)](https://trust.anthropic.com/resources?s=0c8rx4s7mm5ierz8ppetfs\&name=claude-cowork-security-overview-\(third-party-platforms\)) on the Trust Center.
+For a detailed treatment of the threat model, sandbox boundaries, and data flows, request access to the [Claude Cowork Desktop Security Architecture Overview](https://trust.anthropic.com/resources?s=2a7bbzo1lyymvdt551q7kl&name=claude-cowork-desktop-security-architecture-overview) on Anthropic's Trust Center. For architecture, telemetry, and controls information specific to Cowork on 3P, see the [Claude Cowork Security Overview (Third-Party Platforms)](<https://trust.anthropic.com/resources?s=0c8rx4s7mm5ierz8ppetfs&name=claude-cowork-security-overview-(third-party-platforms)>) on the Trust Center.
 
 ## Data residency and international deployment
 

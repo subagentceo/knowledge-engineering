@@ -1,3 +1,5 @@
+# Apollo
+
 The Apollo plugin offers 3 pre-built skills that chain multiple Apollo APIs into complete sales workflows — no manual steps, no tab switching. Enrich any contact from a name, email, or LinkedIn URL. Prospect by describing your ICP in plain English and get ranked leads. Find, enrich, and load contacts into a sequence in one shot.
 
 **Instant contact enrichment:**  

@@ -1,6 +1,8 @@
+# Using Morningstar for investment research
+
 The Morningstar integration provides Claude with access to investment research services and proprietary analytical metrics. This article explains how to set up and use Morningstar data for investment analysis, including fair value estimates, economic moat ratings, and star ratings.
 
-The Morningstar integration relies upon Claude's ability to use [remote connectors](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp).
+The Morningstar integration relies upon Claude's ability to use remote connectors.
 
 ## What This Integration Provides
 
@@ -8,36 +10,36 @@ The Morningstar integration relies upon Claude's ability to use [remote connecto
 
 The Morningstar integration enables Claude to access investment data and research:
 
--   **Individual Security Metrics:** Retrieve specific data points for individual securities including fair value estimates, economic moat ratings, star ratings, market cap, EPS, and NAV. Data is accessed one security at a time for each stock, fund, or bond.**‍**
--   **Analyst Research on Specific Securities:** Access Morningstar analyst opinions on stocks, ETFs, bonds, and mutual funds. Focus on specific aspects like risk factors, performance drivers, or competitive positioning based on fundamental analysis.**‍**
--   **Thematic Investment Research:** Explore editorial content on broader investment themes including investment strategies, sustainable investing, retirement planning, and market trends for top-down approaches and asset allocation.**‍**
--   **Multi-Asset Class Coverage:** Analyze equities, mutual funds, ETFs, and bonds through a unified interface with consistent metrics and research approaches across all asset types.
+- **Individual Security Metrics:** Retrieve specific data points for individual securities including fair value estimates, economic moat ratings, star ratings, market cap, EPS, and NAV. Data is accessed one security at a time for each stock, fund, or bond.**‍**
+- **Analyst Research on Specific Securities:** Access Morningstar analyst opinions on stocks, ETFs, bonds, and mutual funds. Focus on specific aspects like risk factors, performance drivers, or competitive positioning based on fundamental analysis.**‍**
+- **Thematic Investment Research:** Explore editorial content on broader investment themes including investment strategies, sustainable investing, retirement planning, and market trends for top-down approaches and asset allocation.**‍**
+- **Multi-Asset Class Coverage:** Analyze equities, mutual funds, ETFs, and bonds through a unified interface with consistent metrics and research approaches across all asset types.
 
 ### How Claude Uses Morningstar Data
 
 Claude applies Morningstar data to support your analysis:
 
--   **Comparative Analysis:** Gathers data across multiple securities (one at a time) to build comparison tables and identify relative value, such as ranking portfolio holdings by discount to fair value.**‍**
--   **Contextual Interpretation:** Combines quantitative metrics with qualitative research to explain both what ratings mean and why, like detailing the competitive advantages behind a "wide moat" rating.**‍**
--   **Risk-Reward Assessment:** Evaluates whether returns justify risks by comparing uncertainty ratings and return data across securities.**‍**
--   **Narrative Synthesis:** Merges data points with analyst commentary to create comprehensive security overviews that tell the complete investment story.**‍**
--   **Screening and Filtering:** Systematically checks multiple securities against your criteria, such as finding wide-moat healthcare companies trading below fair value.
+- **Comparative Analysis:** Gathers data across multiple securities (one at a time) to build comparison tables and identify relative value, such as ranking portfolio holdings by discount to fair value.**‍**
+- **Contextual Interpretation:** Combines quantitative metrics with qualitative research to explain both what ratings mean and why, like detailing the competitive advantages behind a "wide moat" rating.**‍**
+- **Risk-Reward Assessment:** Evaluates whether returns justify risks by comparing uncertainty ratings and return data across securities.**‍**
+- **Narrative Synthesis:** Merges data points with analyst commentary to create comprehensive security overviews that tell the complete investment story.**‍**
+- **Screening and Filtering:** Systematically checks multiple securities against your criteria, such as finding wide-moat healthcare companies trading below fair value.
 
 ## Setting Up Morningstar Integration
 
-Technical details of the Morningstar Integration can be found in the [Morningstar Integration MCP Server Documentation](https://developer.morningstar.com/direct-web-services/documentation/mcp-server/morningstar-mcp-server). If your account does not have access to the MCP server, you will need to contact Morningstar to get access to the MCP server.
+Technical details of the Morningstar Integration can be found in the Morningstar Integration MCP Server Documentation. If your account does not have access to the MCP server, you will need to contact Morningstar to get access to the MCP server.
 
 ### For Organization Owners
 
-1.  Navigate to [Admin settings > Connectors](https://claude.ai/admin-settings/connectors).
+1.  Navigate to Admin settings > Connectors.
 2.  Scroll down and click “Add custom connector" at the bottom of the list.
-3.  Enter integration URL: [https://mcp.morningstar.com/mcp](https://mcp.morningstar.com/mcp)
+3.  Enter integration URL: https://mcp.morningstar.com/mcp
 4.  Name the connector (e.g., "Morningstar")
 5.  Click "Add"
 
 ### For Individual Users
 
-Learn about [finding and connecting tools](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
+Learn about finding and connecting tools.
 
 ## Common Use Cases
 
@@ -91,10 +93,10 @@ Sustainable investing research taps into Morningstar's thematic content on ESG s
 
 ## Tips for Using Morningstar
 
--   Combine Morningstar's qualitative insights with quantitative data for comprehensive analysis.
--   Use fair value estimates as one input in your investment process, not the sole decision factor.
--   Consider economic moat ratings when evaluating long-term investment quality.
--   Request individual security data separately for accurate results.
--   Note that research content reflects Morningstar's analytical views, not real-time market consensus.
--   Be aware that data is retrieved one security at a time, so complex portfolio analyses may take multiple steps.
--   Remember that Morningstar's ratings and estimates are based on fundamental analysis and may differ from market sentiment.
+- Combine Morningstar's qualitative insights with quantitative data for comprehensive analysis.
+- Use fair value estimates as one input in your investment process, not the sole decision factor.
+- Consider economic moat ratings when evaluating long-term investment quality.
+- Request individual security data separately for accurate results.
+- Note that research content reflects Morningstar's analytical views, not real-time market consensus.
+- Be aware that data is retrieved one security at a time, so complex portfolio analyses may take multiple steps.
+- Remember that Morningstar's ratings and estimates are based on fundamental analysis and may differ from market sentiment.

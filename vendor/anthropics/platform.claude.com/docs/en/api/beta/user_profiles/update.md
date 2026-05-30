@@ -1,4 +1,4 @@
-## Update
+## Update User Profile
 
 **post** `/v1/user_profiles/{user_profile_id}`
 
@@ -13,11 +13,9 @@ Update User Profile
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -66,6 +64,12 @@ Update User Profile
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Body Parameters
 
 - `external_id: optional string`
@@ -83,7 +87,6 @@ Update User Profile
 - `relationship: optional "external" or "resold" or "internal"`
 
   How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
   - `"external"`
 
   - `"resold"`
@@ -92,8 +95,7 @@ Update User Profile
 
 ### Returns
 
-- `BetaUserProfile = object { id, created_at, metadata, 6 more }`
-
+- `BetaUserProfile object { id, created_at, metadata, 6 more }`
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -109,7 +111,6 @@ Update User Profile
   - `relationship: "external" or "resold" or "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -119,11 +120,9 @@ Update User Profile
   - `trust_grants: map[BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" or "pending" or "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -133,7 +132,6 @@ Update User Profile
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -159,4 +157,24 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID \
     -d '{
           "external_id": "user_12345"
         }'
+```
+
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
 ```

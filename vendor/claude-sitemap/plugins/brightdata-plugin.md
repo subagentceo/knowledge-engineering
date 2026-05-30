@@ -1,3 +1,5 @@
+# Bright Data
+
 Integrates Bright Data's web infrastructure into Claude Code, giving your agent the ability to scrape any webpage as clean markdown (bypassing bot detection, CAPTCHAs, and JavaScript rendering), search Google with structured JSON results, and extract structured data from 40+ major websites including Amazon, LinkedIn, Instagram, TikTok, YouTube, Facebook, Reddit, and more. The plugin provides 9 skills spanning web scraping, search, structured data feeds, a guided scraper builder, and access to 60+ MCP tools for advanced browser automation and data collection.
 
 The scraper builder skill walks you through a 6-phase workflow for creating production-ready scrapers — from requirements gathering and site reconnaissance to selector extraction, pagination handling, and final assembly. Background skills provide best-practice references for Bright Data's Web Unlocker, SERP API, Web Scraper API, Browser API, and Python SDK, ensuring your agent writes correct, efficient integration code.

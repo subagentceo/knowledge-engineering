@@ -1,3 +1,5 @@
+# PHP LSP
+
 PHP LSP integrates Intelephense, a high-performance PHP language server, into Claude Code. This plugin enables intelligent PHP development with features like code completion, signature help, go to definition, find all references, symbol search, and real-time diagnostics for .php files.
 
 The plugin provides hover information, code formatting, syntax highlighting, and advanced type support out of the box. It helps Claude better understand your PHP codebase structure and navigate between files, classes, and methods with precision.

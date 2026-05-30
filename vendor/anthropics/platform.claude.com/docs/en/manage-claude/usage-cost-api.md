@@ -12,16 +12,16 @@ The Usage & Cost Admin API provides programmatic and granular access to historic
 
 This API enables you to better monitor, analyze, and optimize your Claude implementations:
 
-* **Accurate Usage Tracking:** Get precise token counts and usage patterns instead of relying solely on response token counting
-* **Cost Reconciliation:** Match internal records with Anthropic billing for finance and accounting teams
-* **Product performance and improvement:** Monitor product performance while measuring if changes to the system have improved it, or setup alerting
-* **[Rate limit](/docs/en/api/rate-limits) and [Priority Tier](/docs/en/api/service-tiers#get-started-with-priority-tier) optimization:** Optimize features like [prompt caching](/docs/en/build-with-claude/prompt-caching) or specific prompts to make the most of one’s allocated capacity, or purchase dedicated capacity.
-* **Advanced Analysis:** Perform deeper data analysis than what's available in Console
+- **Accurate Usage Tracking:** Get precise token counts and usage patterns instead of relying solely on response token counting
+- **Cost Reconciliation:** Match internal records with Anthropic billing for finance and accounting teams
+- **Product performance and improvement:** Monitor product performance while measuring if changes to the system have improved it, or setup alerting
+- **[Rate limit](/docs/en/api/rate-limits) and [Priority Tier](/docs/en/api/service-tiers#get-started-with-priority-tier) optimization:** Optimize features like [prompt caching](/docs/en/build-with-claude/prompt-caching) or specific prompts to make the most of one’s allocated capacity, or purchase dedicated capacity.
+- **Advanced Analysis:** Perform deeper data analysis than what's available in Console
 
 <Check>
   **Admin API key required**
 
-  This API is part of the [Admin API](/docs/en/manage-claude/admin-api). These endpoints require an Admin API key (starting with `sk-ant-admin...`) that differs from standard API keys. Only organization members with the admin role can provision Admin API keys through the [Claude Console](/settings/admin-keys).
+This API is part of the [Admin API](/docs/en/manage-claude/admin-api). These endpoints require an Admin API key (starting with `sk-ant-admin...`) that differs from standard API keys. Only organization members with the admin role can provision Admin API keys through the [Claude Console](/settings/admin-keys).
 </Check>
 
 <Note>
@@ -66,10 +66,12 @@ bucket_width=1d" \
 <Tip>
   **Set a User-Agent header for integrations**
 
-  If you're building an integration, set your User-Agent header to help us understand usage patterns:
-  ```text
-  User-Agent: YourApp/1.0.0 (https://yourapp.com)
-  ```
+If you're building an integration, set your User-Agent header to help us understand usage patterns:
+
+```text
+User-Agent: YourApp/1.0.0 (https://yourapp.com)
+```
+
 </Tip>
 
 ## Usage API
@@ -105,7 +107,7 @@ bucket_width=1d" \
 curl "https://api.anthropic.com/v1/organizations/usage_report/messages?\
 starting_at=2025-01-15T00:00:00Z&\
 ending_at=2025-01-15T23:59:59Z&\
-models[]=claude-opus-4-7&\
+models[]=claude-opus-4-8&\
 service_tiers[]=batch&\
 context_window[]=0-200k&\
 bucket_width=1h" \
@@ -166,7 +168,7 @@ bucket_width=1d" \
 Models released before February 2026 (prior to Claude Opus 4.6 and Claude Sonnet 4.6) don't support the `inference_geo` request parameter, so their usage reports return `"not_available"` for this dimension. You can use `not_available` as a filter value in `inference_geos[]` to target those models.
 </Note>
 
-#### Fast mode (beta: research preview)
+#### Fast mode (research preview)
 
 Track [fast mode](/docs/en/build-with-claude/fast-mode) usage by grouping and filtering with the `speed` dimension. This is useful for monitoring standard vs. fast mode usage.
 
@@ -202,11 +204,11 @@ Both the `speeds[]` filter and the `speed` group_by value require the `fast-mode
 
 ### Time granularity limits
 
-| Granularity | Default Limit | Maximum Limit | Use Case |
-|-------------|---------------|---------------|----------|
-| `1m` | 60 buckets | 1440 buckets | Real-time monitoring |
-| `1h` | 24 buckets | 168 buckets | Daily patterns |
-| `1d` | 7 buckets | 31 buckets | Weekly/monthly reports |
+| Granularity | Default Limit | Maximum Limit | Use Case               |
+| ----------- | ------------- | ------------- | ---------------------- |
+| `1m`        | 60 buckets    | 1440 buckets  | Real-time monitoring   |
+| `1h`        | 24 buckets    | 168 buckets   | Daily patterns         |
+| `1d`        | 7 buckets     | 31 buckets    | Weekly/monthly reports |
 
 ## Cost API
 
@@ -279,21 +281,27 @@ Explore detailed implementations in [Claude Cookbook](https://platform.claude.co
 ## Frequently asked questions
 
 ### How fresh is the data?
+
 Usage and cost data typically appears within 5 minutes of API request completion, though delays may occasionally be longer.
 
 ### What's the recommended polling frequency?
+
 The API supports polling once per minute for sustained use. For short bursts (e.g., downloading paginated data), more frequent polling is acceptable. Cache results for dashboards that need frequent updates.
 
 ### How do I track code execution usage?
+
 Code execution costs appear in the cost endpoint grouped under `Code Execution Usage` in the description field. Code execution is not included in the usage endpoint.
 
 ### How do I track Priority Tier usage?
+
 Filter or group by `service_tier` in the usage endpoint and look for the `priority` value. Priority Tier costs are not available in the cost endpoint.
 
 ### What happens with Workbench usage?
+
 API usage from the Workbench is not associated with an API key, so `api_key_id` will be `null` even when grouping by that dimension.
 
 ### How is the default workspace represented?
+
 Usage and costs attributed to the default workspace have a `null` value for `workspace_id`.
 
 ### How do I get per-user cost breakdowns for Claude Code?
@@ -301,6 +309,7 @@ Usage and costs attributed to the default workspace have a `null` value for `wor
 Use the [Claude Code Analytics API](/docs/en/manage-claude/claude-code-analytics-api), which provides per-user estimated costs and productivity metrics without the performance limitations of breaking down costs by many API keys. For general API usage with many keys, use the [Usage API](#usage-api) to track token consumption as a cost proxy.
 
 ## See also
+
 The Usage and Cost APIs can be used to help you deliver a better experience for your users, help you manage costs, and preserve your rate limit. Learn more about some of these other features:
 
 - [Admin API](/docs/en/manage-claude/admin-api)

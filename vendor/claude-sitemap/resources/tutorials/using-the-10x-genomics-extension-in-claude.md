@@ -1,6 +1,8 @@
+# Using the 10x Genomics Extension in Claude
+
 The 10x Genomics integration transforms single cell and spatial analysis into a simple, conversational workflow. Biologists can easily analyze their own sequencing data, while core labs can quickly perform batch processing. This article explains how to set up and use the 10x Genomics integration with Claude to advance your analysis workflows.
 
-The 10x Genomics integration is available as a desktop extension in the Claude Desktop App ([download here](https://claude.ai/download)), and it relies upon Claude's ability to use [local connectors via a desktop extension](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop).
+The 10x Genomics integration is available as a desktop extension in the Claude Desktop App (download here), and it relies upon Claude's ability to use local connectors via a desktop extension.
 
 ## What this integration provides
 
@@ -8,23 +10,23 @@ The 10x Genomics integration enables researchers to create and manage single cel
 
 ## Who should use the 10x Genomics integration
 
--   **Computational Biologists:** Researchers who analyze single cell genomics data and want to streamline cloud-based analysis workflows
+- **Computational Biologists:** Researchers who analyze single cell genomics data and want to streamline cloud-based analysis workflows
 
--   **Bioinformaticians:** Scientists who process multiple samples and need efficient batch processing capabilities
+- **Bioinformaticians:** Scientists who process multiple samples and need efficient batch processing capabilities
 
--   **Research Scientists:** Lab researchers who generate single cell data and want an intuitive interface for running standard pipelines
+- **Research Scientists:** Lab researchers who generate single cell data and want an intuitive interface for running standard pipelines
 
--   **Core Facility Managers:** Staff who process samples for multiple research groups and need to manage numerous analyses
+- **Core Facility Managers:** Staff who process samples for multiple research groups and need to manage numerous analyses
 
 ## Who can access the 10x Genomics integration
 
-Any user with a 10x Cloud Analysis account ([create a free account here](https://www.10xgenomics.com/products/cloud-analysis))
+Any user with a 10x Cloud Analysis account (create a free account here)
 
-More details on accessing the integration can be found in the [10x Genomics MCP Server Documentation](https://www.10xgenomics.com/support/software/cloud-analysis/latest/tutorials/cloud-mcp-server).
+More details on accessing the integration can be found in the 10x Genomics MCP Server Documentation.
 
 ## Setting up the 10x Genomics integration
 
-The 10x Genomics integration is available as a desktop extension in the Claude Desktop App ([download here](https://claude.ai/download)). For Organization Owners (Team and Enterprise), setting up the integration involves making the extension available to your organization. For individual users, setting up the integration involves installing the extension from inside the Claude Desktop App.
+The 10x Genomics integration is available as a desktop extension in the Claude Desktop App (download here). For Organization Owners (Team and Enterprise), setting up the integration involves making the extension available to your organization. For individual users, setting up the integration involves installing the extension from inside the Claude Desktop App.
 
 **For Organization Owners (Team and Enterprise)**
 
@@ -37,7 +39,7 @@ _If your organization uses the Desktop Extension Allowlist (i.e., restricts whic
 5.  In the search field, type “**10x Genomics**”
 6.  Click on 10x Genomics
 7.  Click “Add to your team”
-8.  Instruct your team to download the [Claude Desktop App](https://claude.ai/download) to access the integration by following the instructions below for Individual Claude Users
+8.  Instruct your team to download the Claude Desktop App to access the integration by following the instructions below for Individual Claude Users
 
 _If your organization does not use the Desktop Extension Allowlist (i.e., does not restrict which Desktop Extensions users can access)…_
 
@@ -48,14 +50,14 @@ _If your organization does not use the Desktop Extension Allowlist (i.e., does n
 
 **For Individual Claude Users**
 
-1.  Download the [Claude Desktop App](https://claude.ai/download)
+1.  Download the Claude Desktop App
 2.  In the Claude Desktop App, navigate to Settings > Extensions
 3.  Click “Browse extensions”
 4.  Click “**10x Genomics**”
 5.  Click “Install”
 6.  Follow the instructions to authenticate with your 10x Cloud Analysis account
 
-Learn about [installing desktop extensions from the directory](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop).
+Learn about installing desktop extensions from the directory.
 
 **For Claude Code Users**
 
@@ -75,24 +77,24 @@ Learn about [installing desktop extensions from the directory](https://support.c
 
 ## Common use cases
 
--   Set up a Cell Ranger count analysis
+- Set up a Cell Ranger count analysis
 
--   Set up a Cell Ranger multi analysis with multiplexing
+- Set up a Cell Ranger multi analysis with multiplexing
 
--   Batch process multiple samples
+- Batch process multiple samples
 
--   Monitor and download analysis results
+- Monitor and download analysis results
 
--   Interpret QC metrics and results
+- Interpret QC metrics and results
 
-Sample prompts and prompting best practices can be found in the [10x Genomics MCP Server Documentation](https://www.10xgenomics.com/support/software/cloud-analysis/latest/tutorials/cloud-mcp-server).
+Sample prompts and prompting best practices can be found in the 10x Genomics MCP Server Documentation.
 
 ## More resources from 10x Genomics
 
--   [10x Cloud Analysis support](https://www.10xgenomics.com/support/software/cloud-analysis/latest)
+- 10x Cloud Analysis support
 
--   [Cell Ranger documentation](https://www.10xgenomics.com/support/software/cell-ranger/latest)
+- Cell Ranger documentation
 
--   [10x Genomics MCP Server Documentation](https://www.10xgenomics.com/support/software/cloud-analysis/latest/tutorials/cloud-mcp-server)
+- 10x Genomics MCP Server Documentation
 
 ‍

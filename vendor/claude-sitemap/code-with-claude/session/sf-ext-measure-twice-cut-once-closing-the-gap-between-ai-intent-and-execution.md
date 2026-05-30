@@ -2,32 +2,10 @@
 
 Agent orchestration and team-wide collaborative planning that feeds into Claude Code. Improves input fed to Claude Code as code quality guardrail upfront; core code reviews as guardrail downstream.
 
-Details
-
-City
-
-San Francisco, USA
-
-Date
-
-May 7, 2026
-
-Time
-
-01:20PM – 01:50PM
-
-Speaker(s)
-
-David Loker
-
-VP of AI,
-
-CodeRabbit
-
 Anthropic's developer conference, recorded
 
 Keynotes, demos, and conversations with the teams behind Claude. Recorded at Code w/ Claude 2026 San Francisco and ready to replay.
 
 Browse recordings
 
-[Learn more](/code-with-claude/san-francisco)Learn more
+Learn moreLearn more

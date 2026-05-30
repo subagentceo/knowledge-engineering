@@ -1,12 +1,14 @@
-[Pensive](https://pensive.com) uses Claude to create AI teaching assistants that transform higher education, providing an AI Grader that reduces grading time by half and an AI Tutor that provides a 24/7 personalized learning experience at top universities.
+# Pensive offers personalized AI teaching assistants for higher ed with Claude
+
+Pensive uses Claude to create AI teaching assistants that transform higher education, providing an AI Grader that reduces grading time by half and an AI Tutor that provides a 24/7 personalized learning experience at top universities.
 
 With Claude, Pensive delivers measurable results:
 
--   Cutting grading time in half
--   7% increase in student midterm scores in large intro CS courses
--   5x increase in student questions during discussion sections
--   15-20% higher accuracy in converting PDFs to interactive worksheets after switching to Claude 3.5 Sonnet
--   Additional 5% accuracy improvement with Claude 3.7 Sonnet
+- Cutting grading time in half
+- 7% increase in student midterm scores in large intro CS courses
+- 5x increase in student questions during discussion sections
+- 15-20% higher accuracy in converting PDFs to interactive worksheets after switching to Claude 3.5 Sonnet
+- Additional 5% accuracy improvement with Claude 3.7 Sonnet
 
 ## Meeting the challenges of modern higher education
 
@@ -30,19 +32,19 @@ Pensive leverages Claude to create a comprehensive educational ecosystem that ad
 
 With Claude, Pensive is able to offer instructors:
 
--   AI-powered grading that halves reviewing time
--   Calibration systems that align AI grading with instructor preferences
--   Classroom analytics providing real-time visibility into student progress
--   Interactive PDF transformation, converting static assignments into dynamic worksheets
--   Customizable AI policies that enforce academic integrity standards
+- AI-powered grading that halves reviewing time
+- Calibration systems that align AI grading with instructor preferences
+- Classroom analytics providing real-time visibility into student progress
+- Interactive PDF transformation, converting static assignments into dynamic worksheets
+- Customizable AI policies that enforce academic integrity standards
 
 The AI grader calibration process is innovative. Yang says, "Often instructors start grading without a clear rubric." Pensive's system processes all submissions, clusters them by common mistakes, and presents representative samples with preliminary AI grades. Instructors modify the rubric and provide feedback, effectively teaching the AI to grade like they would.
 
 By bringing in Pensive as the official AI Teaching Assistant for the course, instructors can provide the following benefits to students:
 
--   Interactive past exam & assignment solving experience with 24/7 available AI tutor
--   Lecture note support with cited answers from course materials
--   Real-time assistance during classroom discussion sections
+- Interactive past exam & assignment solving experience with 24/7 available AI tutor
+- Lecture note support with cited answers from course materials
+- Real-time assistance during classroom discussion sections
 
 ## Transforming education with measurable results
 

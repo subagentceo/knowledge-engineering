@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -20,15 +21,15 @@ leaving Excel.
 
 With Claude for Excel, you can:
 
-* Ask questions about your workbook and get answers with cell-level
+- Ask questions about your workbook and get answers with cell-level
   citations.
-* Adjust assumptions while keeping formula relationships intact.
-* Identify and resolve errors and their root causes.
-* Generate new spreadsheet models or populate existing templates.
-* Work across multi-tab workbooks.
-* Pull external context through connectors such as S\&P Global, LSEG,
+- Adjust assumptions while keeping formula relationships intact.
+- Identify and resolve errors and their root causes.
+- Generate new spreadsheet models or populate existing templates.
+- Work across multi-tab workbooks.
+- Pull external context through connectors such as S\&P Global, LSEG,
   and Daloopa.
-* Apply enabled Skills automatically while you work.
+- Apply enabled Skills automatically while you work.
 
 ## Get started with Claude for Excel
 
@@ -36,9 +37,9 @@ With Claude for Excel, you can:
 
 Claude for Excel runs on the following Excel builds.
 
-* Excel on the web
-* Excel on Windows with a Microsoft 365 subscription, build 16.0.13127.20296 or later
-* Excel on Mac, version 16.46 or later, build 21011600 or later
+- Excel on the web
+- Excel on Windows with a Microsoft 365 subscription, build 16.0.13127.20296 or later
+- Excel on Mac, version 16.46 or later, build 21011600 or later
 
 ### Install for yourself
 
@@ -111,8 +112,8 @@ to navigate to the referenced cell.
 
 Example prompts:
 
-* "Walk me through how the revenue number in cell C42 is calculated."
-* "What assumptions drive the gross margin forecast?"
+- "Walk me through how the revenue number in cell C42 is calculated."
+- "What assumptions drive the gross margin forecast?"
 
 ### Update values safely
 
@@ -121,8 +122,8 @@ so downstream cells recompute correctly.
 
 Example prompts:
 
-* "Change the discount rate to 8% and update dependent calculations."
-* "Flex the growth rate from 5% to 10% and show me the impact on terminal
+- "Change the discount rate to 8% and update dependent calculations."
+- "Flex the growth rate from 5% to 10% and show me the impact on terminal
   value."
 
 ### Build templates and models
@@ -132,9 +133,9 @@ language description.
 
 Example prompts:
 
-* "Populate this LBO template with a \$500M purchase price and 6x
+- "Populate this LBO template with a \$500M purchase price and 6x
   leverage."
-* "Build a three-statement model from this trial balance."
+- "Build a three-statement model from this trial balance."
 
 ### Debug errors
 
@@ -142,8 +143,8 @@ Locate the root cause of calculation errors and suggest fixes.
 
 Example prompts:
 
-* "Find the source of the #REF! error in the summary tab."
-* "Trace why cell H15 is returning #DIV/0."
+- "Find the source of the #REF! error in the summary tab."
+- "Trace why cell H15 is returning #DIV/0."
 
 ### Native Excel operations
 
@@ -182,10 +183,10 @@ presentation, document, and inbox. See
 The add-in handles long sessions and protects against accidental
 overwrites for you.
 
-* **Auto-compaction**: longer conversations are automatically compacted
+- **Auto-compaction**: longer conversations are automatically compacted
   into new conversations to avoid running out of context. See
   [Understanding usage and length limits](https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits).
-* **Overwrite protection**: Claude warns you before overwriting existing
+- **Overwrite protection**: Claude warns you before overwriting existing
   data to avoid accidental data loss.
 
 Your use of Claude for Excel is associated with your existing Claude
@@ -216,25 +217,25 @@ audit logs or the Compliance API.
 
 As a beta feature, Claude for Excel is not recommended for:
 
-* Final client deliverables without human review.
-* Audit-critical calculations without verification.
-* Models containing highly sensitive or regulated data without proper
+- Final client deliverables without human review.
+- Audit-critical calculations without verification.
+- Models containing highly sensitive or regulated data without proper
   controls.
 
 Unsupported capabilities:
 
-* Data tables.
-* Macros and VBA operations.
+- Data tables.
+- Macros and VBA operations.
 
 ### Unsupported versions
 
 The add-in does not run on these Excel versions.
 
-* Excel 2016 and 2019 perpetual or volume license.
-* Excel on iPad. The add-in requires SharedRuntime support, which iPad
+- Excel 2016 and 2019 perpetual or volume license.
+- Excel on iPad. The add-in requires SharedRuntime support, which iPad
   does not provide.
-* Excel on Android.
-* Older builds of Microsoft 365 Excel below the SharedRuntime threshold.
+- Excel on Android.
+- Older builds of Microsoft 365 Excel below the SharedRuntime threshold.
 
 ## Prompt injection risk
 
@@ -259,9 +260,9 @@ external sources.
 
 Follow these guidelines to use Claude for Excel safely and effectively.
 
-* Always review changes before finalizing your work.
-* Start with a trusted copy of the workbook before asking Claude to edit
+- Always review changes before finalizing your work.
+- Start with a trusted copy of the workbook before asking Claude to edit
   widely.
-* Be specific about what you want changed.
-* Verify that outputs match your organization's standards and your own
+- Be specific about what you want changed.
+- Verify that outputs match your organization's standards and your own
   judgment.

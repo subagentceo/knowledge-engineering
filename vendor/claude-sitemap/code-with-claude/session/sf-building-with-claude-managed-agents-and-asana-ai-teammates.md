@@ -2,31 +2,9 @@
 
 Most of the AI value in your organization is locked in isolated experiments. That is not the Agentic Enterprise we’ve been promised. AI can help us ideate, orchestrate, and complete the work. Not just support.
 
-Details
-
-City
-
-San Francisco, USA
-
-Date
-
-May 6, 2026
-
-Time
-
-01:50PM – 02:20PM
-
-Speaker(s)
-
-Arnab Bose
-
-Chief Product Officer,
-
-Asana
-
 ## Watch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf7dba8289651c9b83cb2_claude-managed-agents.webp)
 
@@ -36,4 +14,4 @@ Keynotes, demos, and conversations with the teams behind Claude. Recorded at Cod
 
 Browse recordings
 
-[Learn more](/code-with-claude/san-francisco)Learn more
+Learn moreLearn more

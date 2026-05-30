@@ -1,4 +1,4 @@
-## Download
+## Download File
 
 `client.beta.files.download(stringfileID, FileDownloadParamsparams?, RequestOptionsoptions?): Response`
 
@@ -13,15 +13,12 @@ Download File
   ID of the File.
 
 - `params: FileDownloadParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -70,20 +67,26 @@ Download File
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `unnamed_schema_1 = Response`
+- `unnamed_schema_2 = Response`
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const response = await client.beta.files.download('file_id');
+const response = await client.beta.files.download("file_id");
 
 console.log(response);
 

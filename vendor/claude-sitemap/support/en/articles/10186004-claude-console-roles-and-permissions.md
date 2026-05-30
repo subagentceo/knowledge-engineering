@@ -6,6 +6,8 @@ The Claude Console uses a role-based access system with six distinct roles: User
 
 - Can only use Workbench
 
+- Can view MCP tunnels
+
 - Cannot view API keys, usage logs, or billing details
 
 ### Claude Code User
@@ -13,6 +15,8 @@ The Claude Console uses a role-based access system with six distinct roles: User
 - Can use Workbench and **[Claude Code](https://code.claude.com/docs/en/overview)**
 
 - Can access Claude Code workspace in your org
+
+- Can view MCP tunnels
 
 ### Limited Developer
 
@@ -23,7 +27,9 @@ The Claude Console uses a role-based access system with six distinct roles: User
 - Can view usage and cost data
 
 - Can manage vaults and credentials
-​
+
+- Can view MCP tunnels
+  ​
 
 ### Developer
 
@@ -39,6 +45,8 @@ The Claude Console uses a role-based access system with six distinct roles: User
 
 - Can download files
 
+- Can view MCP tunnels
+
 ### Billing
 
 - Can use Workbench
@@ -46,6 +54,8 @@ The Claude Console uses a role-based access system with six distinct roles: User
 - Can manage billing details
 
 - Can view usage and cost data
+
+- Can view MCP tunnels
 
 - Cannot access Claude Code workspace in your org
 
@@ -57,6 +67,8 @@ The Claude Console uses a role-based access system with six distinct roles: User
 
 - Can send events to active (non-archived) sessions
 
+- Can create MCP tunnels
+
 ## Workspace-Level Permissions
 
 - Organization Admins automatically receive Workspace Admin permissions in all Workspaces.
@@ -64,7 +76,6 @@ The Claude Console uses a role-based access system with six distinct roles: User
 - Organization Billing role holders can view cost, usage, and limit values across all Workspaces.
 
 - Organization-level roles serve as a baseline, while Workspace roles can grant additional permissions.
-
   - For example, a User at the organization level can be granted Admin permissions within specific Workspaces
 
 ## Important Notes

@@ -1,4 +1,4 @@
-## List
+## List memories
 
 `MemoryListPage beta().memoryStores().memories().list(MemoryListParamsparams = MemoryListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,7 +9,6 @@ List memories
 ### Parameters
 
 - `MemoryListParams params`
-
   - `Optional<String> memoryStoreId`
 
   - `Optional<Long> depth`
@@ -23,7 +22,6 @@ List memories
   - `Optional<Order> order`
 
     Query parameter for order
-
     - `ASC("asc")`
 
     - `DESC("desc")`
@@ -47,7 +45,6 @@ List memories
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -96,16 +93,20 @@ List memories
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaManagedAgentsMemoryListItem: A class that can be one of several variants.union`
 
   One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
-
   - `class BetaManagedAgentsMemory:`
 
     A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
     - `String id`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -135,7 +136,6 @@ List memories
       Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
     - `Type type`
-
       - `MEMORY("memory")`
 
     - `LocalDateTime updatedAt`
@@ -149,13 +149,11 @@ List memories
   - `class BetaManagedAgentsMemoryPrefix:`
 
     A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
     - `String path`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
     - `Type type`
-
       - `MEMORY_PREFIX("memory_prefix")`
 
 ### Example
@@ -176,5 +174,27 @@ public final class Main {
 
         MemoryListPage page = client.beta().memoryStores().memories().list("memory_store_id");
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "content_sha256": "content_sha256",
+      "content_size_bytes": 0,
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "memory_store_id": "memory_store_id",
+      "memory_version_id": "memory_version_id",
+      "path": "path",
+      "type": "memory",
+      "updated_at": "2019-12-27T18:11:19.117Z",
+      "content": "content"
+    }
+  ],
+  "next_page": "next_page"
 }
 ```

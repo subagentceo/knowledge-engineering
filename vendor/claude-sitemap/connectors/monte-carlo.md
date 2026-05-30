@@ -1,3 +1,5 @@
+# Monte Carlo
+
 The Monte Carlo MCP server gives Claude direct access to your data & AI observability platform. Query alerts, explore lineage, create monitors, and evaluate AI agent performance across your entire data stack.
 
 You can use Monte Carlo to:

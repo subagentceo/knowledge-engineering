@@ -1,3 +1,5 @@
+# SandboxAQ
+
 SandboxAQ's Large Quantitative Models (LQMs) combine physics-based simulation with machine learning to accelerate drug discovery and materials innovation. Now, LQMs are accessible through large language models. Researchers can access frontier scientific AI in natural language, moving faster from hypothesis to breakthrough.
 
 You can use SandboxAQ to:

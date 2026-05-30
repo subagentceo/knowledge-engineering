@@ -1,10 +1,12 @@
-[Gambit Robotics](https://www.gambitrobotics.ai/) uses Claude to power an AI kitchen device that guides home cooks through any recipe in real time, combining camera, thermal sensors, and voice to deliver step-by-step coaching while people cook.
+# Gambit Robotics builds a real-time sous-chef with Claude
+
+Gambit Robotics uses Claude to power an AI kitchen device that guides home cooks through any recipe in real time, combining camera, thermal sensors, and voice to deliver step-by-step coaching while people cook.
 
 ## With Claude, Gambit:
 
--   Achieves ~97%+ successful recipe parses across their pipeline
--   Writes 90% of their code with Claude Code
--   Built a working prototype within days of first integrating Claude
+- Achieves ~97%+ successful recipe parses across their pipeline
+- Writes 90% of their code with Claude Code
+- Built a working prototype within days of first integrating Claude
 
 ## Better food. Less time. Less stress.
 
@@ -12,7 +14,7 @@
 
 Nicole Maffeo and Eliot Horowitz founded Gambit Robotics in January of 2025 to tackle exactly this. Maffeo's background spans finance, computer vision, and ML infrastructure at Google AI research, and Horowitz is the founder and former CTO of MongoDB ($MDB) and the CEO of Viam. The co-founders picked the kitchen because it cuts across demographics, cultures, and income levels — making it both a good environment to train models and a problem worth solving for nearly everyone.
 
-Long term, they believe the future of the home is specialized, distributed robotics—including robotic arms capable of end-to-end cooking. But while full [automation is the long-term vision](https://www.kickstarter.com/projects/gambitcooking/gambit-robotics-never-burn-dinner-again), they believe there is massive near-term opportunity in augmentation and assistance. "People primarily want assistance to make cooking easier, quicker, and to get better results, not end-to-end automation," said  Maffeo, Co-founder of Gambit Robotics. For Gambit, success means better food in less time.
+Long term, they believe the future of the home is specialized, distributed robotics—including robotic arms capable of end-to-end cooking. But while full automation is the long-term vision, they believe there is massive near-term opportunity in augmentation and assistance. "People primarily want assistance to make cooking easier, quicker, and to get better results, not end-to-end automation," said  Maffeo, Co-founder of Gambit Robotics. For Gambit, success means better food in less time.
 
 ## Why Gambit chose Claude
 
@@ -28,13 +30,13 @@ Gambit’s device combines a custom hardware platform with an RGB camera, a ther
 
 Here's what happens during a typical session:
 
--   Claude reads a recipe from a photo, a URL, or voice input, pulling out ingredients, steps, times, and temperatures
--   It structures the recipe into prep steps, cooking steps, and components like protein, sauce, and sides
--   It builds a live timeline of actions (add, stir, flip, reduce heat, remove), sequenced across burners
--   It keeps the full session in context throughout: the recipe, prior steps, elapsed time, user preferences, and what just happened
--   It watches the stove using vision and thermal data and adjusts guidance based on what's actually happening
--   When something is unclear, Claude pauses or asks instead of guessing
--   When users swap ingredients, change doneness preferences, or go out of order, Claude updates the plan without restarting
+- Claude reads a recipe from a photo, a URL, or voice input, pulling out ingredients, steps, times, and temperatures
+- It structures the recipe into prep steps, cooking steps, and components like protein, sauce, and sides
+- It builds a live timeline of actions (add, stir, flip, reduce heat, remove), sequenced across burners
+- It keeps the full session in context throughout: the recipe, prior steps, elapsed time, user preferences, and what just happened
+- It watches the stove using vision and thermal data and adjusts guidance based on what's actually happening
+- When something is unclear, Claude pauses or asks instead of guessing
+- When users swap ingredients, change doneness preferences, or go out of order, Claude updates the plan without restarting
 
 Users can also show prep work to the device, like chopped vegetables, and Claude evaluates whether they're ready for the next step. Over time, the system personalizes recipes to how a user actually cooks.
 

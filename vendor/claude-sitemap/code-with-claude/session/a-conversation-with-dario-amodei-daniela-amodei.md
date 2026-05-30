@@ -2,43 +2,9 @@
 
 A conversation with Dario Amodei & Daniela Amodei moderated by Ami Vora.
 
-Details
-
-City
-
-San Francisco, USA
-
-Date
-
-May 6, 2026
-
-Time
-
-01:00PM – 01:30PM
-
-Speaker(s)
-
-Dario Amodei
-
-CEO and Co-Founder,
-
-Anthropic
-
-Daniela Amodei
-
-President,
-
-Anthropic
-
-Ami Vora
-
-Chief Product Officer,
-
-Anthropic
-
 ## Watch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9c9e4d03ef956bea5197_dario-daniela-fireside.webp)
 
@@ -48,4 +14,4 @@ Keynotes, demos, and conversations with the teams behind Claude. Recorded at Cod
 
 Browse recordings
 
-[Learn more](/code-with-claude/san-francisco)Learn more
+Learn moreLearn more

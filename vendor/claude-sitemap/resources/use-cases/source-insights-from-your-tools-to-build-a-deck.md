@@ -1,3 +1,5 @@
+# Source insights from your tools to build a deck
+
 Opus 4.6 follows leads across your connected tools without needing direction at each step. Give it a starting point and it pulls search terms from what it finds, follows people to their updates, follows updates to the data they reference, and reconciles sources that disagree. By the time it builds the deck, it's working from evidence it gathered and cross-referenced itself.
 
-Once the deck exists, [Claude in PowerPoint](https://claude.com/claude-for-powerpoint) lets you keep refining directly in your slides — restructuring sections, adjusting talking points, or adding charts.
+Once the deck exists, Claude in PowerPoint lets you keep refining directly in your slides — restructuring sections, adjusting talking points, or adding charts.

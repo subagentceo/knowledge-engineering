@@ -1,3 +1,5 @@
+# Tavily
+
 Give Claude real-time web access with Tavily. One API for search, extraction, and research. Built for the accuracy, speed, and security production agents require. You can use Tavily to ground answers in live data, optimize token usage by extracting relevant content, and ship with security built in with PII redaction and prompt injection protection.
 
 You can use Tavily to:

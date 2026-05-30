@@ -1,3 +1,5 @@
+# Trimble SketchUp
+
 The SketchUp connector for Claude turns a conversation into a 3D model. Describe what you want to build — a room addition, a piece of furniture, a site concept — and Claude will generate models for you to open, refine, and share. No modeling experience required to get started.
 
 Upon setting up the connector, ask Claude to create a SketchUp model from text prompts, images, or other inputs. Preview models in Claude or open them in SketchUp to evaluate, iterate, or manually modify. Iterate with Claude and SketchUp to refine model versions as desired.

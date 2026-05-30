@@ -1,10 +1,12 @@
-[Pratham](https://pratham.org/) is one of the world’s largest education nonprofits. Founded 30 years ago in India, the organization reaches millions of children annually through programs spanning early literacy to vocational training. Its methods have been validated through more than 10 randomized controlled trials, including studies by MIT's J-PAL. The World Bank has also recognized the Pratham method as one of the best investments in education for global education. Today, Pratham’s programs operate in nearly every Indian state and have been adopted in more than 30 countries.
+# How Pratham delivers personalized assessment feedback to thousands of students across India with Claude
+
+Pratham is one of the world’s largest education nonprofits. Founded 30 years ago in India, the organization reaches millions of children annually through programs spanning early literacy to vocational training. Its methods have been validated through more than 10 randomized controlled trials, including studies by MIT's J-PAL. The World Bank has also recognized the Pratham method as one of the best investments in education for global education. Today, Pratham’s programs operate in nearly every Indian state and have been adopted in more than 30 countries.
 
 ## With Claude, Pratham achieved:
 
--   **1,500+ student assessments** completed across 20 schools
--   **30% → 80% grading accuracy** through iterative prompt engineering with Anthropic
--   **90% accuracy** in generating questions aligned to Bloom's Taxonomy—the universal educational framework for assessing everything from basic factual recall to complex, higher-order reasoning
+- **1,500+ student assessments** completed across 20 schools
+- **30% → 80% grading accuracy** through iterative prompt engineering with Anthropic
+- **90% accuracy** in generating questions aligned to Bloom's Taxonomy—the universal educational framework for assessing everything from basic factual recall to complex, higher-order reasoning
 
 ## The challenge: Thousands of practice exams, no way to give individual feedback
 
@@ -26,7 +28,7 @@ The collaboration was hands-on. Anthropic and Pratham teams met one to two times
 
 On the feedback generation side, Claude's multilingual fluency was a key advantage. “Given Claude’s linguistic capabilities, it was readily able to handle feedback generation in a mix of Hindi and English, using English terms where relevant (such as for scientific terms) while keeping most of the text in Hindi,” Chandra said. 
 
-## The approach: Keeping teachers at the center 
+## The approach: Keeping teachers at the center
 
 A core design principle throughout: teachers review and can refine AI-generated feedback before it reaches students. It reflects Pratham's belief that the teacher's role becomes more important, not less, when AI enters the classroom.
 

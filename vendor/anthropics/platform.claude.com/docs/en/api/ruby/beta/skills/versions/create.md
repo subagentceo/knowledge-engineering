@@ -1,4 +1,4 @@
-## Create
+## Create Skill Version
 
 `beta.skills.versions.create(skill_id, **kwargs) -> VersionCreateResponse`
 
@@ -23,11 +23,9 @@ Create Skill Version
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -76,10 +74,15 @@ Create Skill Version
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class VersionCreateResponse`
-
   - `id: String`
 
     Unique identifier for the skill version.
@@ -134,4 +137,19 @@ anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 version = anthropic.beta.skills.versions.create("skill_id")
 
 puts(version)
+```
+
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
 ```

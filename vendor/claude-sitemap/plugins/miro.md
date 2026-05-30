@@ -1,19 +1,13 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Miro
-    
-    ](#)
-    
--   Installs
-    
-    1007
+# miro
+
+- Install in
+
+  Claude Code
+
+- Made by
+
+  Miro
+
+- Installs
+
+  1614

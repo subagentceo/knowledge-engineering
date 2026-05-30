@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -10,8 +11,8 @@ To use a self-hosted LLM gateway (for example LiteLLM, Portkey, or an in-house p
 
 The gateway must implement the Anthropic [Messages API](https://docs.claude.com/en/api/messages):
 
-* `POST /v1/messages` with [streaming](https://docs.claude.com/en/api/streaming) and [tool use](https://docs.claude.com/en/docs/tool-use) is required.
-* `GET /v1/models` is optional. If the gateway implements it, Cowork on 3P auto-discovers available models; if not, set `inferenceModels` explicitly.
+- `POST /v1/messages` with [streaming](https://docs.claude.com/en/api/streaming) and [tool use](https://docs.claude.com/en/docs/tool-use) is required.
+- `GET /v1/models` is optional. If the gateway implements it, Cowork on 3P auto-discovers available models; if not, set `inferenceModels` explicitly.
 
 <Note>
   The data-residency and "no conversation data sent to Anthropic" statements elsewhere in these pages apply to Vertex AI and Bedrock only. When you use a gateway, data handling is determined by the gateway you operate and the upstream provider it routes to.
@@ -40,7 +41,7 @@ Open the in-app configuration window (**Developer → Configure third-party infe
 | --------------------- | ------------------------------------------------------------ |
 | Gateway base URL      | `https://llm-gateway.example.corp`                           |
 | Gateway API key       | your gateway key (or a placeholder if your gateway has none) |
-| Gateway auth scheme   | *leave empty for the default*                                |
-| Gateway extra headers | *optional*                                                   |
+| Gateway auth scheme   | _leave empty for the default_                                |
+| Gateway extra headers | _optional_                                                   |
 
 Then click **Export** to produce a `.mobileconfig` (macOS) or `.reg` (Windows) file for your MDM. See [Installation and setup](/cowork/3p/installation) for the export and deployment workflow.

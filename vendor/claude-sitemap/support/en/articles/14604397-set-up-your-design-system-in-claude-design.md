@@ -9,7 +9,6 @@ This guide is for the designer or brand owner who will set up the design system.
 - Permissions granted by your organization admin for design system setup.
 
 - At least one of the following as source material:
-
   - A codebase with your design system or component library
 
   - A slide deck or document that reflects your visual identity
@@ -70,7 +69,7 @@ To validate your design system, create a test project and see if the output matc
 
 Once you’re satisfied with the design system quality, make sure the “Published” toggle is switched on. After publishing, any projects created from the Claude Design homescreen while in your organization will use your design system instead of the default.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1778914800&amp;signature=bf8efc26a8e039648a56e526ae471d50c10ee65841a8259a0118481d5793a2c8&amp;req=diIvEcx8moFfXvMW1HO4zWNHGPqCDz8fIQKNMXlu0T94Hbe3vJ7Pd82dFZVl%0AfGP0grqTDYoOhggEIZA%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287527007/b1c46cb8dba4cd7e8bbea85fb0c3/2819c6cf-9ce1-4df5-84c8-feae0164bf2e?expires=1780164900&signature=03e25f56614f83aa0f76225afda4bebbc6d43531c0b2e54c54f0f070315edf80&req=diIvEcx8moFfXvMW1HO4zWNHF%2FKKCD8eIQKNMXlu0T8uafRMjoKfGDqlvg9W%0AM8vcz%2B2Ebcw%2BCGGlOGY%3D%0A)
 
 ---
 

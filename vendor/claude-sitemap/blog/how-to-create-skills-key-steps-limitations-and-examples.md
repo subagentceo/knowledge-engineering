@@ -1,26 +1,28 @@
-[Skills](https://www.claude.com/blog/skills) are custom instructions that extend Claude's capabilities for specific tasks or domains. 
+# How to create Skills: Key steps, limitations, and examples
 
-When you create a skill via a [SKILL.md](http://skill.md) file, you're teaching Claude how to handle specific scenarios more effectively. The power of skills lies in their ability to encode institutional knowledge, standardize outputs, and handle complex multi-step workflows that would otherwise require repeated explanation or investment in building a custom agent.
+Skills are custom instructions that extend Claude's capabilities for specific tasks or domains. 
 
-Learn how to create skills that transform Claude from general-purpose assistant into specialized expert for your specific workflows either with our [skill creator](https://github.com/anthropics/skills/tree/main/skill-creator) template or manually. (Pro-tip: to make it easy, we recommend building your [SKILL.md](http://skill.md) file with this template and tailoring from there).
+When you create a skill via a SKILL.md file, you're teaching Claude how to handle specific scenarios more effectively. The power of skills lies in their ability to encode institutional knowledge, standardize outputs, and handle complex multi-step workflows that would otherwise require repeated explanation or investment in building a custom agent.
 
-## **Creating a skill in 5 steps**
+Learn how to create skills that transform Claude from general-purpose assistant into specialized expert for your specific workflows either with our skill creator template or manually. (Pro-tip: to make it easy, we recommend building your SKILL.md file with this template and tailoring from there).
+
+## Creating a skill in 5 steps
 
 Follow this structured approach to build skills that trigger more reliably.
 
-### **1\. Understand the core requirements**
+### 1. Understand the core requirements
 
 Before writing anything, clarify what problem your skill solves. Strong skills address concrete needs with measurable outcomes. "Extract financial data from PDFs and format as CSV" beats "Help with my finance stuff" because it specifies the input format, the operation, and the expected output.
 
 Start by asking yourself: What specific task does this skill accomplish? What triggers should activate it? What does success look like? What are the edge cases or limitations?
 
-### **2\. Write the name**
+### 2. Write the name
 
-Your skill needs three core components: **name** (clear identifier), **description** (when to activate), and **instructions** (how to execute). In fact, the name and description are the only parts of the [SKILL.md](http://skill.md) file that influence triggering, in other words, the ability for Claude  to call a skill for specialized knowledge or workflows. 
+Your skill needs three core components: **name** (clear identifier), **description** (when to activate), and **instructions** (how to execute). In fact, the name and description are the only parts of the SKILL.md file that influence triggering, in other words, the ability for Claude  to call a skill for specialized knowledge or workflows. 
 
 The name should be straightforward and descriptive. Use lowercase with hyphens (e.g., pdf-editor, brand-guidelines). Keep it short and clear.
 
-### **3\. Write the description field**
+### 3. Write the description field
 
 The description determines when your skill activates, making it the most critical component. Write it from Claude's perspective, focusing on triggers, capabilities, and use cases.
 
@@ -40,87 +42,87 @@ Comprehensive PDF manipulation toolkit for extracting text and tables, creating 
 
 The stronger version gives Claude multiple data points: specific verbs (extract, create, merge), concrete use cases (form filling, batch operations), and clear boundaries (not for simple viewing).
 
-### **4\. Write the main instructions**
+### 4. Write the main instructions
 
 Your instructions should be structured, scannable, and actionable. Use markdown headers, bullet points for options, and code blocks for examples.
 
 Structure with clear hierarchy: overview, prerequisites, execution steps, examples, error handling, and limitations. Break complex workflows into discrete phases with clear inputs and outputs.
 
-Include concrete examples showing correct usage. Specify what the skill cannot do to prevent misuse and manage expectations. Your [SKILL.md](http://skill.md) file can also include additional reference files and assets to provide even more clarity and guidance around what you’re asking the agent to do when the skill is triggered. 
+Include concrete examples showing correct usage. Specify what the skill cannot do to prevent misuse and manage expectations. Your SKILL.md file can also include additional reference files and assets to provide even more clarity and guidance around what you’re asking the agent to do when the skill is triggered. 
 
-### **5\. Upload your skill** 
+### 5. Upload your skill
 
 Depending on what Claude surface you’re building on, here’s how to upload your skill for use: 
 
--   [Claude.ai](http://claude.ai) (Claude apps): Go to **Settings** and add your custom skill there. Custom skills require a Pro, Max, Team, or Enterprise plan with code execution enabled. Skills uploaded here are individual to each user—they are not shared organization-wide and cannot be centrally managed by admins.
--   [Claude Code](https://www.claude.com/product/claude-code): Create a skills/ directory in your plugin or project root and add skill folders containing SKILL.md files. Claude discovers and uses them automatically when the plugin is installed. Example structure:
+- Claude.ai (Claude apps): Go to **Settings** and add your custom skill there. Custom skills require a Pro, Max, Team, or Enterprise plan with code execution enabled. Skills uploaded here are individual to each user—they are not shared organization-wide and cannot be centrally managed by admins.
+- Claude Code: Create a skills/ directory in your plugin or project root and add skill folders containing SKILL.md files. Claude discovers and uses them automatically when the plugin is installed. Example structure:
 
 ```markdown
 my-project/
 ├── skills/
-│   └── my-skill/
-│       └── SKILL.md
+│ └── my-skill/
+│ └── SKILL.md
 ```
 
--   [Claude Developer Platform](https://www.claude.com/platform/api): Upload skills via the Skills API (/v1/skills endpoints). Use a POST request with the required beta headers:
+- Claude Developer Platform: Upload skills via the Skills API (/v1/skills endpoints). Use a POST request with the required beta headers:
 
 ```markdown
 curl -X POST "https://api.anthropic.com/v1/skills" \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-beta: skills-2025-10-02" \
-  -F "display_title=My Skill Name" \
-  -F "files[]=@my-skill/SKILL.md;filename=my-skill/SKILL.md"
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "anthropic-version: 2023-06-01" \
+ -H "anthropic-beta: skills-2025-10-02" \
+ -F "display_title=My Skill Name" \
+ -F "files[]=@my-skill/SKILL.md;filename=my-skill/SKILL.md"
 ```
 
-### **4\. Testing and validation**
+### 4. Testing and validation
 
 Test your skill with realistic scenarios before deploying it. Systematic testing reveals gaps in instructions, ambiguities in descriptions, and unexpected edge cases that only surface during actual use.
 
 Create a test matrix covering three scenarios:
 
--   **Normal operations**: Test the skill with typical requests it should handle perfectly. If you built a financial analysis skill, try "analyze Microsoft's latest earnings" or "build a datapack for this 10-K filing." These baseline tests confirm your instructions work as intended.
--   **Edge cases**: Test with incomplete or unusual inputs. What happens when data is missing? When file formats are unexpected? When users provide ambiguous instructions? Your skill should handle these gracefully—either producing degraded but useful output or explaining what's needed to proceed.
--   **Out-of-scope requests**: Test with tasks that seem related but shouldn't trigger your skill. If you built an NDA review skill, try requesting "review this employment agreement" or "analyze this lease." The skill should stay dormant, letting other skills or general Claude capabilities handle the request.
+- **Normal operations**: Test the skill with typical requests it should handle perfectly. If you built a financial analysis skill, try "analyze Microsoft's latest earnings" or "build a datapack for this 10-K filing." These baseline tests confirm your instructions work as intended.
+- **Edge cases**: Test with incomplete or unusual inputs. What happens when data is missing? When file formats are unexpected? When users provide ambiguous instructions? Your skill should handle these gracefully—either producing degraded but useful output or explaining what's needed to proceed.
+- **Out-of-scope requests**: Test with tasks that seem related but shouldn't trigger your skill. If you built an NDA review skill, try requesting "review this employment agreement" or "analyze this lease." The skill should stay dormant, letting other skills or general Claude capabilities handle the request.
 
 Consider implementing the following tests for even deeper validation:
 
--   **Triggering tests:** Does the skill activate when expected? Test with both explicit requests ("use the financial datapack skill to analyze this company") and natural requests ("help me understand this company's financials"). Does it stay inactive when irrelevant? A well-scoped skill knows when not to activate. Test similar but distinct requests to verify boundaries.
--   **Functional tests:** These include output consistency (do multiple runs with similar inputs produce comparable results?), usability (can someone unfamiliar with the domain use it successfully?), and documentation accuracy (do your examples match actual behavior?). 
+- **Triggering tests:** Does the skill activate when expected? Test with both explicit requests ("use the financial datapack skill to analyze this company") and natural requests ("help me understand this company's financials"). Does it stay inactive when irrelevant? A well-scoped skill knows when not to activate. Test similar but distinct requests to verify boundaries.
+- **Functional tests:** These include output consistency (do multiple runs with similar inputs produce comparable results?), usability (can someone unfamiliar with the domain use it successfully?), and documentation accuracy (do your examples match actual behavior?). 
 
-### **5\. Iterate based on usage**
+### 5. Iterate based on usage
 
 Monitor how your skill performs in real-world usage. Refine descriptions if triggering is inconsistent. Clarify instructions if outputs vary unexpectedly. As with prompts, the best skills evolve through practical application.
 
-## **General best practices for creating skills**
+## General best practices for creating skills
 
 These principles help you create skills that are maintainable, reusable, and genuinely useful rather than theoretical.
 
-### **Start with use cases**
+### Start with use cases
 
 Don't write skills speculatively. Build them when you have real, repeated tasks. The best skills solve problems you encounter regularly.
 
 Before creating a skill, ask: Have I done this task at least five times? Will I do it at least ten more times? If yes, a skill makes sense.
 
-### **Define success criteria—and include it in the skill**
+### Define success criteria—and include it in the skill
 
 Tell Claude what a good out looks like. If you're creating financial reports, specify required sections, formatting standards, validation checks, and quality thresholds. Include these criteria in your instructions so Claude can self-check.
 
-### **Use the Skill-Creator skill**
+### Use the Skill-Creator skill
 
-The [skill-creator skill](https://github.com/anthropics/skills/tree/main/skill-creator) guides you through creating well-structured skills. It asks clarifying questions, suggests description improvements, and helps format instructions properly. Available in the [Skills repository on GitHub](https://github.com/anthropics/skills) and directly via [Claude.ai](http://claude.ai), it's particularly valuable for your first few skills.
+The skill-creator skill guides you through creating well-structured skills. It asks clarifying questions, suggests description improvements, and helps format instructions properly. Available in the Skills repository on GitHub and directly via Claude.ai, it's particularly valuable for your first few skills.
 
-## **Skill limitations and considerations**
+## Skill limitations and considerations
 
 Understanding how skills work—and their boundaries—helps you design more effective skills and set appropriate expectations.
 
-### **Skill triggering**
+### Skill triggering
 
 Claude evaluates skill descriptions against your request to determine relevance. This isn't keyword matching—Claude understands semantic relationships. However, vague descriptions reduce triggering accuracy.
 
 Multiple skills can activate simultaneously if they address different aspects of a complex task. Overly generic descriptions cause inappropriate activation, while missing use cases cause missed activations.
 
-### **Appropriate file sizes**
+### Appropriate file sizes
 
 When writing skills, avoid bloating the context window with unnecessary content. Consider whether each piece of information needs to be loaded every time, or only conditionally.
 
@@ -128,15 +130,16 @@ Use a "menu" approach: if your skill covers multiple distinct processes or optio
 
 These separate files don't need to represent mutually exclusive paths. The key principle is breaking content into reasonable chunks and letting Claude select what's needed based on the task at hand.
 
-## ‍**Real-world skills examples**
+## ‍Real-world skills examples
 
-### **Skill example #1:** [**docx creation skill**](https://github.com/anthropics/skills/tree/main/document-skills/docx)
+### Skill example #1: docx creation skill
 
 ````markdown
 #---
 name: docx
 description: "Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. When Claude needs to work with professional documents (.docx files) for: (1) Creating new documents, (2) Modifying or editing content, (3) Working with tracked changes, (4) Adding comments, or any other document tasks"
 license: Proprietary. LICENSE.txt has complete terms
+
 ---
 
 # DOCX creation, editing, and analysis
@@ -148,12 +151,15 @@ A user may ask you to create, edit, or analyze the contents of a .docx file. A .
 ## Workflow Decision Tree
 
 ### Reading/Analyzing Content
+
 Use "Text extraction" or "Raw XML access" sections below
 
 ### Creating New Document
+
 Use "Creating a new Word document" workflow
 
 ### Editing Existing Document
+
 - **Your own document + simple changes**
   Use "Basic OOXML editing" workflow
 
@@ -166,6 +172,7 @@ Use "Creating a new Word document" workflow
 ## Reading and analyzing content
 
 ### Text extraction
+
 If you just need to read the text contents of a document, you should convert the document to markdown using pandoc. Pandoc provides excellent support for preserving document structure and can show tracked changes:
 
 ```bash
@@ -173,24 +180,29 @@ If you just need to read the text contents of a document, you should convert the
 pandoc --track-changes=all path-to-file.docx -o output.md
 # Options: --track-changes=accept/reject/all
 ```
+````
 
 ### Raw XML access
+
 You need raw XML access for: comments, complex formatting, document structure, embedded media, and metadata. For any of these features, you'll need to unpack a document and read its raw XML contents.
 
 #### Unpacking a file
+
 `python ooxml/scripts/unpack.py <office_file> <output_directory>`
 
 #### Key file structures
-* `word/document.xml` - Main document contents
-* `word/comments.xml` - Comments referenced in document.xml
-* `word/media/` - Embedded images and media files
-* Tracked changes use `<w:ins>` (insertions) and `<w:del>` (deletions) tags
+
+- `word/document.xml` - Main document contents
+- `word/comments.xml` - Comments referenced in document.xml
+- `word/media/` - Embedded images and media files
+- Tracked changes use `<w:ins>` (insertions) and `<w:del>` (deletions) tags
 
 ## Creating a new Word document
 
 When creating a new Word document from scratch, use **docx-js**, which allows you to create Word documents using JavaScript/TypeScript.
 
 ### Workflow
+
 1. **MANDATORY - READ ENTIRE FILE**: Read [`docx-js.md`](docx-js.md) (~500 lines) completely from start to finish. **NEVER set any range limits when reading this file.** Read the full file content for detailed syntax, critical formatting rules, and best practices before proceeding with document creation.
 2. Create a JavaScript/TypeScript file using Document, Paragraph, TextRun components (You can assume all dependencies are installed, but if not, refer to the dependencies section below)
 3. Export as .docx using Packer.toBuffer()
@@ -200,6 +212,7 @@ When creating a new Word document from scratch, use **docx-js**, which allows yo
 When editing an existing Word document, use the **Document library** (a Python library for OOXML manipulation). The library automatically handles infrastructure setup and provides methods for document manipulation. For complex scenarios, you can access the underlying DOM directly through the library.
 
 ### Workflow
+
 1. **MANDATORY - READ ENTIRE FILE**: Read [`ooxml.md`](ooxml.md) (~600 lines) completely from start to finish. **NEVER set any range limits when reading this file.** Read the full file content for the Document library API and XML patterns for directly editing document files.
 2. Unpack the document: `python ooxml/scripts/unpack.py <office_file> <output_directory>`
 3. Create and run a Python script using the Document library (see "Document Library" section in ooxml.md)
@@ -217,6 +230,7 @@ This workflow allows you to plan comprehensive tracked changes using markdown be
 When implementing tracked changes, only mark text that actually changes. Repeating unchanged text makes edits harder to review and appears unprofessional. Break replacements into: [unchanged text] + [deletion] + [insertion] + [unchanged text]. Preserve the original run's RSID for unchanged text by extracting the `<w:r>` element from the original and reusing it.
 
 Example - Changing "30 days" to "60 days" in a sentence:
+
 ```python
 # BAD - Replaces entire sentence
 '<w:del><w:r><w:delText>The term is 30 days.</w:delText></w:r></w:del><w:ins><w:r><w:t>The term is 60 days.</w:t></w:r></w:ins>'
@@ -228,6 +242,7 @@ Example - Changing "30 days" to "60 days" in a sentence:
 ### Tracked changes workflow
 
 1. **Get markdown representation**: Convert document to markdown with tracked changes preserved:
+
    ```bash
    pandoc --track-changes=all path-to-file.docx -o current.md
    ```
@@ -271,6 +286,7 @@ Example - Changing "30 days" to "60 days" in a sentence:
    **Note**: Always grep `word/document.xml` immediately before writing a script to get current line numbers and verify text content. Line numbers change after each script run.
 
 5. **Pack the document**: After all batches are complete, convert the unpacked directory back to .docx:
+
    ```bash
    python ooxml/scripts/pack.py unpacked reviewed-document.docx
    ```
@@ -287,12 +303,12 @@ Example - Changing "30 days" to "60 days" in a sentence:
      ```
    - Check that no unintended changes were introduced
 
-
 ## Converting Documents to Images
 
 To visually analyze Word documents, convert them to images using a two-step process:
 
 1. **Convert DOCX to PDF**:
+
    ```bash
    soffice --headless --convert-to pdf document.docx
    ```
@@ -304,6 +320,7 @@ To visually analyze Word documents, convert them to images using a two-step proc
    This creates files like `page-1.jpg`, `page-2.jpg`, etc.
 
 Options:
+
 - `-r 150`: Sets resolution to 150 DPI (adjust for quality/size balance)
 - `-jpeg`: Output JPEG format (use `-png` for PNG if preferred)
 - `-f N`: First page to convert (e.g., `-f 2` starts from page 2)
@@ -311,12 +328,15 @@ Options:
 - `page`: Prefix for output files
 
 Example for specific range:
+
 ```bash
 pdftoppm -jpeg -r 150 -f 2 -l 5 document.pdf page  # Converts only pages 2-5
 ```
 
 ## Code Style Guidelines
+
 **IMPORTANT**: When generating code for DOCX operations:
+
 - Write concise code
 - Avoid verbose variable names and redundant operations
 - Avoid unnecessary print statements
@@ -330,11 +350,12 @@ Required dependencies (install if not available):
 - **LibreOffice**: `sudo apt-get install libreoffice` (for PDF conversion)
 - **Poppler**: `sudo apt-get install poppler-utils` (for pdftoppm to convert PDF to images)
 - **defusedxml**: `pip install defusedxml` (for secure XML parsing)
+
 ````
 
 **What makes it strong**: Provides a clear decision tree that routes Claude to the right workflow based on task type, uses progressive disclosure to keep the main file lean while referencing detailed implementation files only when needed, and includes concrete good/bad examples that show exactly how to implement complex patterns like tracked changes.
 
-### **Skill example #2:** [**Brand guidelines**](https://github.com/anthropics/skills/blob/main/brand-guidelines/SKILL.md?plain=1)
+### Skill example #2: Brand guidelines
 
 ```markdown
 #name: brand-guidelines
@@ -409,18 +430,19 @@ To access Anthropic's official brand identity and style resources, use this skil
 - Uses RGB color values for precise brand matching
 - Applied via python-pptx's RGBColor class
 - Maintains color fidelity across different systems
-```
+````
 
 **What makes it strong**: Provides precise, actionable information Claude doesn't inherently have (exact hex codes, font names, size thresholds) with a clear description that tells Claude both what it does and when to trigger it.
 
 **What makes it strong**: Creative capability with clear boundaries, copyright protection built in, technical scaffolding for non-musicians, quality standards.
 
-### **Skill example #3:** [**frontend design skill**](https://www.claude.com/blog/improving-frontend-design-through-skills)
+### Skill example #3: frontend design skill
 
 ```markdown
 name: frontend-design
 description: Create distinctive, production-grade frontend interfaces with high design quality. Use this skill when the user asks to build web components, pages, or applications. Generates creative, polished code that avoids generic AI aesthetics.
 license: Complete terms in LICENSE.txt
+
 ---
 
 This skill guides creation of distinctive, production-grade frontend interfaces that avoid generic "AI slop" aesthetics. Implement real working code with exceptional attention to aesthetic details and creative choices.
@@ -430,6 +452,7 @@ The user provides frontend requirements: a component, page, application, or inte
 ## Design Thinking
 
 Before coding, understand the context and commit to a BOLD aesthetic direction:
+
 - **Purpose**: What problem does this interface solve? Who uses it?
 - **Tone**: Pick an extreme: brutally minimal, maximalist chaos, retro-futuristic, organic/natural, luxury/refined, playful/toy-like, editorial/magazine, brutalist/raw, art deco/geometric, soft/pastel, industrial/utilitarian, etc. There are so many flavors to choose from. Use these for inspiration but design one that is true to the aesthetic direction.
 - **Constraints**: Technical requirements (framework, performance, accessibility).
@@ -438,6 +461,7 @@ Before coding, understand the context and commit to a BOLD aesthetic direction:
 **CRITICAL**: Choose a clear conceptual direction and execute it with precision. Bold maximalism and refined minimalism both work - the key is intentionality, not intensity.
 
 Then implement working code (HTML/CSS/JS, React, Vue, etc.) that is:
+
 - Production-grade and functional
 - Visually striking and memorable
 - Cohesive with a clear aesthetic point-of-view
@@ -446,6 +470,7 @@ Then implement working code (HTML/CSS/JS, React, Vue, etc.) that is:
 ## Frontend Aesthetics Guidelines
 
 Focus on:
+
 - **Typography**: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics; unexpected, characterful font choices. Pair a distinctive display font with a refined body font.
 - **Color & Theme**: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes.
 - **Motion**: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions. Use scroll-triggering and hover states that surprise.
@@ -463,21 +488,21 @@ Remember: Claude is capable of extraordinary creative work. Don't hold back, sho
 
 **What makes it strong**: Creative capability with clear boundaries, copyright protection built in, technical scaffolding for non-musicians, quality standards.
 
-## **Common questions**
+## Common questions
 
-### **How do I write descriptions that actually trigger?**
+### How do I write descriptions that actually trigger?
 
 Focus on capabilities and scenarios, not generic keywords. Include action verbs, specific file types, and clear use cases. Instead of "document processing skill," write "extract tables from PDFs and convert to CSV format for data analysis workflows."
 
-### **How does Claude decide which skills to invoke?**
+### How does Claude decide which skills to invoke?
 
 Claude evaluates your request against skill descriptions using semantic understanding. It's not keyword matching—Claude determines contextual relevance. Multiple skills can activate if they address different aspects of your request.
 
-### **What's the right granularity for my descriptions?**
+### What's the right granularity for my descriptions?
 
 Aim for single-purpose skills. "SEO optimization for blog posts" is focused enough for specific instructions while broad enough for reusability. Too broad: "Content marketing helper." Too narrow: "Add meta descriptions."
 
-### **How do I share Skills across my organization?**
+### How do I share Skills across my organization?
 
 Regardless of your team size, we suggest creating a shared document repository with skill specifications. 
 
@@ -485,46 +510,46 @@ Regardless of your team size, we suggest creating a shared document repository w
 
 **For medium to large teams**, establish a skills governance process:
 
--   Designate skill owners for each domain (finance, legal, marketing)
--   Maintain a central wiki or shared drive as your skill library
--   Include usage examples and common troubleshooting for each skill
--   Version your skills and document changes in a changelog
--   Schedule quarterly reviews to update or retire outdated skills
+- Designate skill owners for each domain (finance, legal, marketing)
+- Maintain a central wiki or shared drive as your skill library
+- Include usage examples and common troubleshooting for each skill
+- Version your skills and document changes in a changelog
+- Schedule quarterly reviews to update or retire outdated skills
 
 **Best practices for all team sizes**:
 
--   Document the business purpose for each skill
--   Assign clear ownership for maintenance and updates
--   Create onboarding materials showing new team members how to implement shared skills
--   Track which skills deliver the most value to prioritize maintenance efforts
--   Use consistent naming conventions so skills are easy to find
+- Document the business purpose for each skill
+- Assign clear ownership for maintenance and updates
+- Create onboarding materials showing new team members how to implement shared skills
+- Track which skills deliver the most value to prioritize maintenance efforts
+- Use consistent naming conventions so skills are easy to find
 
 Enterprise customers can work with Anthropic's customer success team to explore additional deployment options and governance frameworks.
 
-### **How do I debug skills?**
+### How do I debug skills?
 
 Test triggering and execution separately. If skills don't activate, broaden your description and add use cases. If results are inconsistent, add specificity to instructions and include validation steps. Create a test case library covering normal usage, edge cases, and out-of-scope requests.
 
-### **How do I share Skills across my organization?**
+### How do I share Skills across my organization?
 
-**‍**In [Claude.ai](http://claude.ai/), Skills are currently individual to each user, though org-wide management and sharing capabilities are coming soon. In the meantime, regardless of your team size, we suggest creating a shared document repository with skill specifications. This prepares your organization for upcoming features while establishing good governance practices today.
+**‍**In Claude.ai, Skills are currently individual to each user, though org-wide management and sharing capabilities are coming soon. In the meantime, regardless of your team size, we suggest creating a shared document repository with skill specifications. This prepares your organization for upcoming features while establishing good governance practices today.
 
-## **Get started**
+## Get started
 
 Ready to build with Skills? Here's how to start:
 
-[Claude.ai](https://claude.ai/) users:
+Claude.ai users:
 
--   Enable Skills in Settings → Features
--   Create your first project at claude.ai/projects
--   Try combining project knowledge with Skills for your next analysis task
+- Enable Skills in Settings → Features
+- Create your first project at claude.ai/projects
+- Try combining project knowledge with Skills for your next analysis task
 
 API developers:
 
--   Explore the Skills endpoint in [documentation](https://docs.anthropic.com/)
--   Check out our [skills cookbook](https://platform.claude.com/cookbook/skills-notebooks-01-skills-introduction)
+- Explore the Skills endpoint in documentation
+- Check out our skills cookbook
 
 Claude Code users:
 
--   Install Skills via [plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces)
--   Check out our [skills cookbook](https://platform.claude.com/cookbook/skills-notebooks-01-skills-introduction)
+- Install Skills via plugin marketplaces
+- Check out our skills cookbook

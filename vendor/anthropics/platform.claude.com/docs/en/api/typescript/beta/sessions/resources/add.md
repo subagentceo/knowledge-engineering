@@ -1,4 +1,4 @@
-## Add
+## Add Session Resource
 
 `client.beta.sessions.resources.add(stringsessionID, ResourceAddParamsparams, RequestOptionsoptions?): BetaManagedAgentsFileResource`
 
@@ -11,7 +11,6 @@ Add Session Resource
 - `sessionID: string`
 
 - `params: ResourceAddParams`
-
   - `file_id: string`
 
     Body param: ID of a previously uploaded file.
@@ -19,7 +18,6 @@ Add Session Resource
   - `type: "file"`
 
     Body param
-
     - `"file"`
 
   - `mount_path?: string | null`
@@ -29,11 +27,9 @@ Add Session Resource
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -82,10 +78,15 @@ Add Session Resource
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsFileResource`
-
   - `id: string`
 
   - `created_at: string`
@@ -97,7 +98,6 @@ Add Session Resource
   - `mount_path: string`
 
   - `type: "file"`
-
     - `"file"`
 
   - `updated_at: string`
@@ -107,16 +107,29 @@ Add Session Resource
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 const betaManagedAgentsFileResource = await client.beta.sessions.resources.add(
-  'sesn_011CZkZAtmR3yMPDzynEDxu7',
-  { file_id: 'file_011CNha8iCJcU1wXNR6q4V8w', type: 'file' },
+  "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  { file_id: "file_011CNha8iCJcU1wXNR6q4V8w", type: "file" },
 );
 
 console.log(betaManagedAgentsFileResource.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "created_at": "2026-03-15T10:00:00Z",
+  "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "mount_path": "/uploads/receipt.pdf",
+  "type": "file",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
 ```

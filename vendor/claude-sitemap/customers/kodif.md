@@ -1,13 +1,15 @@
+# Kodif transforms customer support into a revenue center with Claude in Amazon Bedrock
+
 ## Kodif transforms customer support into a revenue center with Claude in Amazon Bedrock
 
-Kodif, a customer support automation platform founded by a former Uber engineering leader, uses [Claude in Amazon Bedrock](https://aws.amazon.com/bedrock/claude/) to power AI agents that automate up to 90% of support tickets while turning traditional cost centers into revenue sources and business intelligence.
+Kodif, a customer support automation platform founded by a former Uber engineering leader, uses Claude in Amazon Bedrock to power AI agents that automate up to 90% of support tickets while turning traditional cost centers into revenue sources and business intelligence.
 
 With Claude, Kodif:
 
--   Automates 65% of Dollar Shave Club's support tickets
--   Achieves 90% automation for Trust Wallet's crypto support
--   Automates 75% of tickets for Halo Collar
--   Drives increased revenue through intelligent cancellation flows
+- Automates 65% of Dollar Shave Club's support tickets
+- Achieves 90% automation for Trust Wallet's crypto support
+- Automates 75% of tickets for Halo Collar
+- Drives increased revenue through intelligent cancellation flows
 
 ## From cost center to strategic asset
 

@@ -1,3 +1,5 @@
+# How Anthropic's Growth Marketing team cut ad creation time from 30 minutes to 30 seconds with Claude Code
+
 Before Claude Code, Austin Lau had never written a line of code in his life. When the product first launched, he had to Google how to open a terminal on his computer.
 
 "My first reaction when we launched Claude Code was, I have zero idea what this product is for," says Austin, a growth marketer at Anthropic. "As a marketer, it just didn't really click—the use case wasn't obvious to me yet."
@@ -12,7 +14,7 @@ Here's how he did it, and what marketers can learn from his experience using Cla
 
 ‍
 
-## **The problem: Drowning in copy and creative variations**
+## The problem: Drowning in copy and creative variations
 
 Running performance marketing at scale requires producing a constant stream of fresh creative. Google's responsive search ads alone demand 15 unique headlines. Every few weeks, that copy needs refreshing - all while maintaining brand voice and conveying value propositions.
 
@@ -24,7 +26,7 @@ For visual ads, the process was even more involved. Austin would open Figma, cop
 
 "All that time adds up very, very quickly," Austin says.
 
-## **The solutions: Two workflows that eliminated marketing busywork**
+## The solutions: Two workflows that eliminated marketing busywork
 
 Using Claude, Austin eventually built two work streams that changed his day-to-day life. But Austin's first project involved building a simple calculator app. 
 
@@ -32,7 +34,7 @@ Using Claude, Austin eventually built two work streams that changed his day-to-d
 
 That small experiment changed his perspective on what he could achieve across his work tasks.
 
-### **Figma plugin for creative variations**
+### Figma plugin for creative variations
 
 Creating ad variations meant endless copying, pasting, and switching between Figma and Google Docs.
 
@@ -48,11 +50,11 @@ _Austin's plugin lets him paste headline copy from a Google Sheet and generate d
 
 "All I would have to do is specify the frame of the creative, and then copy and paste just once all the different variations and copy that I wanted to update, and with the click of a button, the Figma plugin will create all the different permutations for that single image," Austin explains.
 
-### **Google Ads copy generation**
+### Google Ads copy generation
 
 For responsive search ads, Austin built a workflow that helps brainstorm and create upload-ready ad copy using existing campaign and ad performance data to help inform what types of messaging resonates with prospects. This workflow saves hours per week on copy creation and character validation. With the time saved on mechanical tasks, Austin can now run more copy experiments and iterate faster on what actually performs best.
 
-To get started, he types `/rsa`, a custom slash command he created for responsive search ads, into Claude. Claude Code asks for campaign data, existing copy, and keywords, then cross-references his inputs against [Agent Skills](https://claude.com/blog/skills) he created for Anthropic's brand tone and voice, product accuracy, and Google Ads RSA best practices. 
+To get started, he types `/rsa`, a custom slash command he created for responsive search ads, into Claude. Claude Code asks for campaign data, existing copy, and keywords, then cross-references his inputs against Agent Skills he created for Anthropic's brand tone and voice, product accuracy, and Google Ads RSA best practices. 
 
 But the output is just a starting point.
 
@@ -66,7 +68,7 @@ And all of this builds on a human foundation. "All of the copy and examples that
 
 _The workflow exports the relevant campaign and ad group columns, along with 15 headlines, and 4 descriptions per ad into a CSV file ready to upload directly into Google Ads (after undergoing manual review)._
 
-## **Best practices for building your own workflows**
+## Best practices for building your own workflows
 
 Austin's experience offers practical guidance for marketers - or really anyone without a technical background - looking to build custom tools with Claude Code.
 
@@ -98,23 +100,23 @@ For most of his career, Austin assumed certain things were out of reach. If he n
 
 He's now demoed his workflows to colleagues and customers and they all have the same reaction: why haven't _we_ done this?
 
-## **What's next for marketers**
+## What's next for marketers
 
 Austin sees the role of growth marketer evolving rapidly. "I think growth marketing is going the way of almost like a product manager," Austin says. "We're not only able to execute on campaigns, we're able to actually build products in order to help us achieve our targets."
 
 Austin isn't the only marketer at Anthropic building with Claude. Across the marketing organization, teams are finding similar results:
 
--   **Influencer Marketing** uses Claude to write scripts for influencers and podcasts, freeing up 100+ hours per month to focus on higher-value work
--   **Customer Marketing** drafts case studies in 30 minutes instead of 2.5 hours, saving 10 hours per week
--   **Digital Marketing** built web development workflows that increased team productivity by 5x year-over-year
--   **Product Marketing** uses Skills and Projects to create launch briefs, saving 5-10 hours per launch
--   **Partner Marketing** built self-serve event enablement for Sales, reducing time spent on trade show prep by 40%
+- **Influencer Marketing** uses Claude to write scripts for influencers and podcasts, freeing up 100+ hours per month to focus on higher-value work
+- **Customer Marketing** drafts case studies in 30 minutes instead of 2.5 hours, saving 10 hours per week
+- **Digital Marketing** built web development workflows that increased team productivity by 5x year-over-year
+- **Product Marketing** uses Skills and Projects to create launch briefs, saving 5-10 hours per launch
+- **Partner Marketing** built self-serve event enablement for Sales, reducing time spent on trade show prep by 40%
 
 "Most marketers probably approach AI in the same way, where they just see it as a way to help streamline things like writing copy or brainstorming," Austin says. "But they haven't really thought through what are the actual areas that they can truly embed tools like Claude into their workflow."
 
 There’s an opportunity developing for teams that adopt tools like Claude Code to spend less time on repetitive execution and more time on the things that matter to their job.
 
-_Get started with_ [_Claude Code_](https://www.anthropic.com/claude-code) _today. Stay tuned for more stories in the "How Anthropic uses Claude" series._
+_Get started with_ _Claude Code_ _today. Stay tuned for more stories in the "How Anthropic uses Claude" series._
 
 ‍
 

@@ -1,3 +1,5 @@
+# Optimize code performance quickly
+
 Performance bottlenecks sneak up on you. Your API was fast last week, but now it's timing out. User dashboards that load instantly are suddenly crawling. The payment flow that worked fine in testing chokes under real traffic.
 
 Traditional code optimization requires deep expertise: understanding profiler output, analyzing algorithmic complexity, correlating performance metrics with business logic. Each optimization cycle means profiling, analyzing, implementing, testing—stretching performance improvements across multiple sprints.
@@ -34,12 +36,12 @@ This approach minimizes deployment risk but requires coordination across multipl
 
 Many development teams are moving beyond reactive profiling tools toward proactive performance engineering with AI coding assistants like Claude. These tools analyze functions instantly, identify algorithmic bottlenecks, and provide ways to improve your code. You can work with Claude in two ways:
 
--   [**Claude.ai**](https://claude.ai): Free web interface. Paste slow functions, get complexity analysis and optimization recommendations. Any browser, no setup required.
--   [**Claude Code**](https://claude.com/product/claude-code): Agentic terminal coding tool that integrates with your development environment. Analyzes project-wide performance patterns, directly implements optimizations across multiple files. Install with npm.
+- **Claude.ai**: Free web interface. Paste slow functions, get complexity analysis and optimization recommendations. Any browser, no setup required.
+- **Claude Code**: Agentic terminal coding tool that integrates with your development environment. Analyzes project-wide performance patterns, directly implements optimizations across multiple files. Install with npm.
 
 ## Start with Claude.ai
 
-Before setting up complex profiling environments or writing benchmark suites, paste short code snippets in [Claude.ai](https://claude.ai) to quickly determine whether a performance issue is algorithmic, structural, or configuration-related. Unlike traditional profilers that only show where time is spent, Claude explains why code is slow and how to fix it. This initial analysis helps you decide between a quick code change or a comprehensive architectural review.
+Before setting up complex profiling environments or writing benchmark suites, paste short code snippets in Claude.ai to quickly determine whether a performance issue is algorithmic, structural, or configuration-related. Unlike traditional profilers that only show where time is spent, Claude explains why code is slow and how to fix it. This initial analysis helps you decide between a quick code change or a comprehensive architectural review.
 
 ### Get quick optimization ideas
 
@@ -55,9 +57,9 @@ Claude: "I see two main bottlenecks here: 1. The nested loop creates O(n²) comp
 
 Typical questions that work well:
 
--   ["Why are my code functions slow with large datasets?"](https://claude.ai/new?q=Why+are+my+code+functions+slow+with+large+datasets%3F)
--   ["Can you rewrite my code to be more efficient?"](https://claude.ai/new?q=Can+you+help+me+rewrite+my+code+to+be+more+efficient%3F)
--   ["What's wrong with this algorithm performance-wise?"](https://claude.ai/new?q=What%27s+wrong+with+this+algorithm+performance-wise%3F)
+- "Why are my code functions slow with large datasets?"
+- "Can you rewrite my code to be more efficient?"
+- "What's wrong with this algorithm performance-wise?"
 
 ### Understand why your code is slow
 
@@ -67,7 +69,7 @@ Sometimes you need to understand the root cause before jumping into optimization
 
 ## Scale optimizations with Claude Code
 
-For performance challenges spanning multiple files or requiring architectural changes, [Claude Code](https://claude.com/product/claude-code) agentically provides project-wide optimization capabilities that traditional profiling tools can't match.
+For performance challenges spanning multiple files or requiring architectural changes, Claude Code agentically provides project-wide optimization capabilities that traditional profiling tools can't match.
 
 Install:
 
@@ -115,19 +117,19 @@ Claude Code typically identifies additional optimizations such as adding composi
 
 ## Choose your optimization approach
 
-[**Claude.ai**](https://claude.ai): Use Claude.ai when you're investigating a specific slow function, validating an optimization approach, or need quick analysis without environment setup. The browser interface makes it ideal for sharing optimization ideas with others or getting second opinions on performance tradeoffs.
+**Claude.ai**: Use Claude.ai when you're investigating a specific slow function, validating an optimization approach, or need quick analysis without environment setup. The browser interface makes it ideal for sharing optimization ideas with others or getting second opinions on performance tradeoffs.
 
-[**Claude Code**](https://claude.com/product/claude-code): Use Claude Code when performance issues span multiple files, require coordinated changes across services, or need automated testing to verify improvements. The terminal integration is essential for implementing optimizations that touch database schemas, API contracts, or caching layers. 
+**Claude Code**: Use Claude Code when performance issues span multiple files, require coordinated changes across services, or need automated testing to verify improvements. The terminal integration is essential for implementing optimizations that touch database schemas, API contracts, or caching layers. 
 
-## **Real results with Ramp**
+## Real results with Ramp
 
-[Ramp](https://claude.com/customers/ramp) uses Claude Code to accelerate delivery across hundreds of services.
+Ramp uses Claude Code to accelerate delivery across hundreds of services.
 
 Results:
 
--   **1M+ lines of AI-suggested code** in 30 days
--   **80% reduction in incident triage time**
--   **50% weekly active usage** across engineering teams
+- **1M+ lines of AI-suggested code** in 30 days
+- **80% reduction in incident triage time**
+- **50% weekly active usage** across engineering teams
 
 > "When we discovered Claude Code, our teams immediately recognized its potential and integrated it into our workflows"
 
@@ -135,9 +137,9 @@ Results:
 
 ## Get started with systematic optimization
 
-**Immediate performance analysis**: Visit [Claude.ai](https://claude.ai), paste slow functions, get instant complexity analysis and optimization recommendations.
+**Immediate performance analysis**: Visit Claude.ai, paste slow functions, get instant complexity analysis and optimization recommendations.
 
-**Comprehensive optimization**: Install [Claude Code](https://claude.com/product/claude-code):
+**Comprehensive optimization**: Install Claude Code:
 
 ```bash
 npm install -g @anthropic-ai/claude-code

@@ -1,8 +1,10 @@
+# New connectors in Claude for everyday life
+
 Today we’re expanding what you can connect to Claude. Alongside the work tools you already use, you can now connect the apps you use throughout your week, including AllTrails, Instacart, Audible, Tripadvisor, Intuit TurboTax, and more. 
 
 ## How people have been using connectors
 
-Since launching in July 2025, the Claude [directory](https://claude.ai/directory) has grown to over 200 connectors, spanning popular apps for design, finance, productivity, and health used by millions of people every day. We’ve found that people often connect multiple apps and use them together in a single conversation with Claude. For example, a product manager will pull a query from Amplitude, turn it into a Canva deck, and drop the link into Asana for the team, all without leaving the conversation. 
+Since launching in July 2025, the Claude directory has grown to over 200 connectors, spanning popular apps for design, finance, productivity, and health used by millions of people every day. We’ve found that people often connect multiple apps and use them together in a single conversation with Claude. For example, a product manager will pull a query from Amplitude, turn it into a Canva deck, and drop the link into Asana for the team, all without leaving the conversation. 
 
 This expansion extends that functionality to more of the tools you use outside of work. Starting today, Claude connects to AllTrails, Audible, Booking.com, Instacart, Intuit Credit Karma, Intuit TurboTax, Resy, Spotify, StubHub, Taskrabbit, Thumbtack, Tripadvisor, Uber, Uber Eats, and Viator, with more on the way. 
 
@@ -26,6 +28,6 @@ Claude suggests connectors and makes recommendations. But you stay in control of
 
 The more apps you connect, the more Claude can do. Claude suggests relevant connectors as you work, which you can install with a click on desktop or a few taps on mobile. Once connected, the service is available in every conversation. 
 
-Connectors are available on all plans, with mobile in beta. See the full list at [](http://claude.ai/directory)[claude.ai/directory/connectors](http://claude.ai/directory/connectors).  If you build a product that would be useful in Claude, [submit it to our directory here](https://claude.com/docs/connectors/overview).
+Connectors are available on all plans, with mobile in beta. See the full list at claude.ai/directory/connectors.  If you build a product that would be useful in Claude, submit it to our directory here.
 
-For more information on getting started with connectors, along with security and privacy best practices when connecting data sources to Claude, visit our [Help Center](https://support.claude.com/en/articles/11176164-use-connectors-to-extend-claude-s-capabilities).
+For more information on getting started with connectors, along with security and privacy best practices when connecting data sources to Claude, visit our Help Center.

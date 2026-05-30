@@ -1,4 +1,4 @@
-## List
+## List Message Batches
 
 `client.messages.batches.list(BatchListParamsquery?, RequestOptionsoptions?): Page<MessageBatch>`
 
@@ -11,7 +11,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `query: BatchListParams`
-
   - `after_id?: string`
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -29,7 +28,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch`
-
   - `id: string`
 
     Unique object identifier.
@@ -61,7 +59,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `processing_status: "in_progress" | "canceling" | "ended"`
 
     Processing status of the Message Batch.
-
     - `"in_progress"`
 
     - `"canceling"`
@@ -73,7 +70,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
     - `canceled: number`
 
       Number of requests in the Message Batch that have been canceled.
@@ -113,20 +109,49 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
-
     - `"message_batch"`
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
 for await (const messageBatch of client.messages.batches.list()) {
   console.log(messageBatch.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+      "archived_at": "2024-08-20T18:37:24.100435Z",
+      "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+      "created_at": "2024-08-20T18:37:24.100435Z",
+      "ended_at": "2024-08-20T18:37:24.100435Z",
+      "expires_at": "2024-08-20T18:37:24.100435Z",
+      "processing_status": "in_progress",
+      "request_counts": {
+        "canceled": 10,
+        "errored": 30,
+        "expired": 10,
+        "processing": 100,
+        "succeeded": 50
+      },
+      "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+      "type": "message_batch"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
 }
 ```

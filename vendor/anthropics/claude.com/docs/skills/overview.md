@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -24,10 +25,10 @@ This approach prevents context window overload while providing specialized capab
 
 ## Types of skills
 
-* **Anthropic skills**: Pre-built skills for document creation (Excel, Word, PowerPoint, PDF) that activate automatically when relevant.
-* **Partner skills**: Skills from partners like Notion, Figma, and Atlassian designed for seamless MCP connector integration.
-* **Organization-provisioned skills**: Skills deployed organization-wide by Team and Enterprise administrators.
-* **Custom skills**: Skills you create for specialized workflows—generating emails, applying brand guidelines, integrating with tools like JIRA or Linear, and more!
+- **Anthropic skills**: Pre-built skills for document creation (Excel, Word, PowerPoint, PDF) that activate automatically when relevant.
+- **Partner skills**: Skills from partners like Notion, Figma, and Atlassian designed for seamless MCP connector integration.
+- **Organization-provisioned skills**: Skills deployed organization-wide by Team and Enterprise administrators.
+- **Custom skills**: Skills you create for specialized workflows—generating emails, applying brand guidelines, integrating with tools like JIRA or Linear, and more!
 
 ## Skills vs. other features
 

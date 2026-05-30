@@ -1,10 +1,12 @@
+# Circleback transforms meetings into structured insights with Claude
+
 Circleback helps teams generate more value from meetings by transforming conversations into structured, actionable insights that save hours and eliminate information silos.
 
 With Claude, Circleback:
 
--   Saves customers hours each day while providing peace of mind
--   Enables companies to replace siloed tools with a shared source of truth
--   Created an overall quality and ease of use recognized as a top pick by TIME
+- Saves customers hours each day while providing peace of mind
+- Enables companies to replace siloed tools with a shared source of truth
+- Created an overall quality and ease of use recognized as a top pick by TIME
 
 ## Helping organizations keep critical context
 

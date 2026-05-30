@@ -6,10 +6,10 @@ This guide explains which model you are using, how usage is metered, and how to 
 
 How you signed in determines how usage is metered. Everything else about Claude Code behaves the same way regardless.
 
-| **You signed in with…** | **You get** | **What "running out" looks like** |
-| --- | --- | --- |
-| Claude Enterprise seat (via `/login`) | A pool of usage included in your organization's plan, reset on a rolling window. | A "limit reached, resets at *time*" message. |
-| API key (Console, Bedrock, Vertex, or Microsoft Foundry) | Pay-as-you-go, billed per token to that cloud or Console account. | No hard stop; the account is charged for what it uses. |
+| **You signed in with…**                                  | **You get**                                                                      | **What "running out" looks like**                      |
+| -------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| Claude Enterprise seat (via `/login`)                    | A pool of usage included in your organization's plan, reset on a rolling window. | A "limit reached, resets at _time_" message.           |
+| API key (Console, Bedrock, Vertex, or Microsoft Foundry) | Pay-as-you-go, billed per token to that cloud or Console account.                | No hard stop; the account is charged for what it uses. |
 
 If you signed in with an Enterprise seat, you generally do not need to think about tokens until you reach a limit. If you are using an API key, the **`/cost`** command shows your running spend for the current session.
 
@@ -81,11 +81,11 @@ Opus costs several times more per turn than Sonnet, and Sonnet more than Haiku. 
 
 Anything you paste sits in context, in full, for the rest of the session. Referencing a file by path lets Claude read selectively and focus on the part you care about.
 
-**In practice:** instead of pasting `auth.ts`, write look at the `validateToken` function in `src/auth.ts` — mentioning the path lets Claude open and read selectively. (Note that the @ prefix injects the entire file plus its `CLAUDE.md` tree into context, so use a bare path when you are trying to *save* tokens.) For logs and stack traces, trim to the relevant 20 or 30 lines before pasting. For anything large (lockfiles, build logs, data dumps), put it on disk and reference the path.
+**In practice:** instead of pasting `auth.ts`, write look at the `validateToken` function in `src/auth.ts` — mentioning the path lets Claude open and read selectively. (Note that the @ prefix injects the entire file plus its `CLAUDE.md` tree into context, so use a bare path when you are trying to _save_ tokens.) For logs and stack traces, trim to the relevant 20 or 30 lines before pasting. For anything large (lockfiles, build logs, data dumps), put it on disk and reference the path.
 
 ### 4. Keep **CLAUDE.md** lean
 
-This file is prepended to *every* turn. Prompt caching means turns after the first are billed at the much cheaper cache-read rate, so the dollar cost is lower than the raw line count suggests, but it still occupies context-window space on every message.
+This file is prepended to _every_ turn. Prompt caching means turns after the first are billed at the much cheaper cache-read rate, so the dollar cost is lower than the raw line count suggests, but it still occupies context-window space on every message.
 
 **The rule: two strikes, keep it tight.** Only add a note the second time you have to correct Claude on the same thing (first-time issues are usually one-offs). Keep the file under roughly 200 lines; if something new needs to go in and there's no room, something old has to come out.
 
@@ -111,10 +111,10 @@ A plan costs a few hundred tokens. A wrong 400-line diff that you revert and reg
 
 ## Quick reference
 
-| **Command** | **What it does** |
-| --- | --- |
-| `/model` | See and switch available models. |
-| `/cost` | Show this session's token and dollar usage (API billing). |
-| `/clear` | Start a fresh conversation (project memory stays). |
-| `/compact` | Summarize history to free up context. |
-| `/context` | Inspect what is currently loaded into context. |
+| **Command** | **What it does**                                          |
+| ----------- | --------------------------------------------------------- |
+| `/model`    | See and switch available models.                          |
+| `/cost`     | Show this session's token and dollar usage (API billing). |
+| `/clear`    | Start a fresh conversation (project memory stays).        |
+| `/compact`  | Summarize history to free up context.                     |
+| `/context`  | Inspect what is currently loaded into context.            |

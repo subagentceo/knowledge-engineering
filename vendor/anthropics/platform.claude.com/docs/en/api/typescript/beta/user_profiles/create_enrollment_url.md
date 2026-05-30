@@ -11,15 +11,12 @@ Create Enrollment URL
 - `userProfileID: string`
 
 - `params: UserProfileCreateEnrollmentURLParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -68,10 +65,15 @@ Create Enrollment URL
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaUserProfileEnrollmentURL`
-
   - `expires_at: string`
 
     A timestamp in RFC 3339 format
@@ -79,7 +81,6 @@ Create Enrollment URL
   - `type: "enrollment_url"`
 
     Object type. Always `enrollment_url`.
-
     - `"enrollment_url"`
 
   - `url: string`
@@ -89,15 +90,26 @@ Create Enrollment URL
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaUserProfileEnrollmentURL = await client.beta.userProfiles.createEnrollmentURL(
-  'uprof_011CZkZCu8hGbp5mYRQgUmz9',
-);
+const betaUserProfileEnrollmentURL =
+  await client.beta.userProfiles.createEnrollmentURL(
+    "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  );
 
 console.log(betaUserProfileEnrollmentURL.expires_at);
+```
+
+#### Response
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
 ```

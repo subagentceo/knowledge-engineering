@@ -1,3 +1,5 @@
+# Uber Eats
+
 Get food delivery to your doorstep from thousands of amazing local and national restaurants. Search and browse restaurants and dishes near you to find the meal you crave.
 
 You can use Uber Eats to:

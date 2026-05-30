@@ -201,7 +201,7 @@ const IMDS_URL =
 
 async function fetchEntraToken(): Promise<string> {
   const response = await fetch(IMDS_URL, {
-    headers: { Metadata: "true" }
+    headers: { Metadata: "true" },
   });
   const body = (await response.json()) as { access_token: string };
   return body.access_token;
@@ -215,14 +215,14 @@ const client = new Anthropic({
     serviceAccountId: process.env.ANTHROPIC_SERVICE_ACCOUNT_ID,
     workspaceId: process.env.ANTHROPIC_WORKSPACE_ID,
     baseURL: "https://api.anthropic.com",
-    fetch
-  })
+    fetch,
+  }),
 });
 
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello from Azure" }]
+  messages: [{ role: "user", content: "Hello from Azure" }],
 });
 for (const block of message.content) {
   if (block.type === "text") {
@@ -561,7 +561,10 @@ import { oidcFederationProvider } from "@anthropic-ai/sdk/lib/credentials/oidc-f
 import { readFile } from "node:fs/promises";
 
 async function fetchEntraTokenViaFederation(): Promise<string> {
-  const federatedToken = await readFile(process.env.AZURE_FEDERATED_TOKEN_FILE!, "utf8");
+  const federatedToken = await readFile(
+    process.env.AZURE_FEDERATED_TOKEN_FILE!,
+    "utf8",
+  );
   const response = await fetch(
     `https://login.microsoftonline.com/${process.env.AZURE_TENANT_ID}/oauth2/v2.0/token`,
     {
@@ -571,10 +574,11 @@ async function fetchEntraTokenViaFederation(): Promise<string> {
         client_id: process.env.AZURE_CLIENT_ID!,
         grant_type: "client_credentials",
         scope: "https://api.anthropic.com/.default",
-        client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-        client_assertion: federatedToken
-      })
-    }
+        client_assertion_type:
+          "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+        client_assertion: federatedToken,
+      }),
+    },
   );
   const body = (await response.json()) as { access_token: string };
   return body.access_token;
@@ -588,14 +592,14 @@ const client = new Anthropic({
     serviceAccountId: process.env.ANTHROPIC_SERVICE_ACCOUNT_ID,
     workspaceId: process.env.ANTHROPIC_WORKSPACE_ID,
     baseURL: "https://api.anthropic.com",
-    fetch
-  })
+    fetch,
+  }),
 });
 
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello from Azure" }]
+  messages: [{ role: "user", content: "Hello from Azure" }],
 });
 for (const block of message.content) {
   if (block.type === "text") {

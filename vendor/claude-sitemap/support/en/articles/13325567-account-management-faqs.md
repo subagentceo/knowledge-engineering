@@ -30,7 +30,7 @@ Admins and Owners can view a list of all members on a team by navigating to **[O
 
 The email domain that was used to create your Team or Enterprise plan organization is the allowed email domain for your team members. After the account is created, Owners of organizations that are not using domain capture can add additional domains by following these steps:
 
-1. Navigate to **[Organization](https://claude.ai/admin-settings/organization)****[settings > Identity and access](https://claude.ai/admin-settings/identity).**
+1. Navigate to **[Organization](https://claude.ai/admin-settings/organization)\*\***[settings > Identity and access](https://claude.ai/admin-settings/identity).\*\*
 
 2. Click "Add or edit domains" under **Domains**.
 
@@ -42,6 +42,6 @@ The email domain that was used to create your Team or Enterprise plan organizati
 
 Owners can remove domains by opening up the same modal and clicking the trash can icon to the right of the domain:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1778914800&amp;signature=165caee7aa6b83b86613cd22db8b14a69ba6c8aa4a886b7bdaf5218905a096d9&amp;req=diAiFcF5nolaW%2FMW1HO4zUrhGeORaAwSkeFUnrkrQZg3CNdKxh7oHtK%2BhN05%0AgYPJE1ZhSxu1ajEChG0%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053873852/1cbccea3b7067e03205f2ff8546b/CleanShot+2026-02-11+at+11_16_07%402x.png?expires=1780164900&signature=52651d1da650157a006e2274eaaef0a339a9bd0ee79f8d2a0e17713e65766375&req=diAiFcF5nolaW%2FMW1HO4zUrhFuuZbwwTkeFUnrkrQZjRnJFgrkMoiFHcbCU4%0AMCNv5%2FLgoU577du7O0M%3D%0A)
 
 While the account creator must use a business email address, you can add public domains like @gmail.com, @yahoo.com, and @hotmail.com as allowed domains for other members of your organization.

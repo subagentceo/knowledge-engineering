@@ -1,3 +1,5 @@
+# Definely
+
 Definely's MCP server gives AI assistants live, deterministic access to contract structure. Resolve definitions, validate cross-references, map dependencies, and run structural diffs to see how edits propagate across an agreement. Use it to catch broken links and inconsistencies, explain impacts clearly, and ground legal reasoning in contract topology, not just text.
 
 You can use Definely to:

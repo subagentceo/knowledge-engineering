@@ -1,3 +1,5 @@
+# BoardWise
+
 BoardWise is a read-only educational MCP server for licensed professionals — nurses, physicians, pharmacists, social workers, CDL holders, and others — facing state licensing-board matters. Claude can use it to look up jurisdiction-specific response deadlines, generate structured outlines for response letters, search BoardWise's library of educational guides, and surface curated resources for situations like complaints, CEU audits, consent agreements, hearing notices, and self-reports. All responses are general educational information (not legal advice).
 
 You can use BoardWise to:

@@ -1,3 +1,5 @@
+# Mintlify
+
 Connect Mintlify to Claude to keep your documentation accurate and up to date without leaving your conversations. Claude can search across every page, read and edit content directly, and ship changes. Perfect for fixing outdated pages after a product change, reorganizing sections as your product grows, or drafting new content alongside the code it documents.
 
 You can use Mintlify to:

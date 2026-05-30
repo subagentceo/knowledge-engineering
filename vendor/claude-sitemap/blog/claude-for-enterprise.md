@@ -1,17 +1,19 @@
-Today, we’re announcing the [Claude Enterprise plan](https://www.anthropic.com/enterprise) to help organizations securely collaborate with Claude using internal knowledge.
+# Claude for Enterprise
+
+Today, we’re announcing the Claude Enterprise plan to help organizations securely collaborate with Claude using internal knowledge.
 
 Teams with more context do better work. The Claude Enterprise plan offers an expanded 500K context window, more usage capacity, and a native GitHub integration so you can work on entire codebases with Claude. It also includes enterprise-grade security features—like SSO, role-based permissions, and admin tooling—that help protect your data and team.
 
-With Claude, your organization’s knowledge is easier to share and reuse, enabling every individual on the team to quickly and consistently produce their best work. At the same time, your data is protected. We do not train Claude on your conversations and content. To get started with the Enterprise plan, [contact our sales team](https://www.anthropic.com/contact-sales).
+With Claude, your organization’s knowledge is easier to share and reuse, enabling every individual on the team to quickly and consistently produce their best work. At the same time, your data is protected. We do not train Claude on your conversations and content. To get started with the Enterprise plan, contact our sales team.
 
 ## Enterprise-grade control
 
 The Enterprise plan introduces critical security and administrative controls that prioritize managing and protecting your company’s sensitive data, including:
 
--   **Single sign-on (SSO) and domain capture**: Securely manage user access and centralize provisioning control.
--   **Role-based access with fine-grained permissioning**: Designate a primary owner for your workspace to enhance security and information management.
--   **Audit logs**: Trace system activities for security and compliance monitoring. Audit logs will be available in the coming weeks.
--   **System for Cross-domain Identity Management (SCIM)**: Automate user provisioning and access controls. SCIM will also be available in the coming weeks.
+- **Single sign-on (SSO) and domain capture**: Securely manage user access and centralize provisioning control.
+- **Role-based access with fine-grained permissioning**: Designate a primary owner for your workspace to enhance security and information management.
+- **Audit logs**: Trace system activities for security and compliance monitoring. Audit logs will be available in the coming weeks.
+- **System for Cross-domain Identity Management (SCIM)**: Automate user provisioning and access controls. SCIM will also be available in the coming weeks.
 
 ## Enterprise features
 
@@ -43,4 +45,4 @@ Early customers like GitLab and Midjourney have used Claude for Work across a va
 
 ### Getting started
 
-To get started with the Claude Enterprise plan and unlock the full potential of AI for your organization, [contact our sales team](https://www.anthropic.com/contact-sales) today.
+To get started with the Claude Enterprise plan and unlock the full potential of AI for your organization, contact our sales team today.

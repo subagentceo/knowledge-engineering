@@ -1,10 +1,12 @@
+# Vanta streamlines compliance remediation with Claude
+
 Vanta, a leading trust management platform, uses Claude to automate compliance remediation instructions, helping customers quickly fix security issues with precise, code-based solutions that previously required manual research and implementation.
 
 With Claude, Vanta:
 
--   Accelerated implementation timeframe from weeks to just a few days
--   Expanded internal developer adoption of AI tools by 113% in just 2 months
--   Gained competitive advantage with remediation instructions that customers describe as "the bees knees"
+- Accelerated implementation timeframe from weeks to just a few days
+- Expanded internal developer adoption of AI tools by 113% in just 2 months
+- Gained competitive advantage with remediation instructions that customers describe as "the bees knees"
 
 ## Making compliance intuitive and actionable
 

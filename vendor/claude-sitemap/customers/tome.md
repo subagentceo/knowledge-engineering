@@ -1,8 +1,10 @@
+# Tome uncovers strategic insights for sales teams with Claude
+
 Tome uses Claude for their AI sales assistant to quickly synthesize vast amounts of information and uncover key strategic insights about target accounts. With Claude, Tome enables sales reps to:
 
--   Save hours researching accounts
--   Improve email and call conversion rates
--   Generate more qualified pipeline
+- Save hours researching accounts
+- Improve email and call conversion rates
+- Generate more qualified pipeline
 
 ## Evolving from presentations to sales enablement
 
@@ -14,10 +16,10 @@ Tome realized that while sales and marketing teams heavily used presentations, t
 
 Tome pulls data from a company's sales and marketing stack alongside external sources like financial filings, websites, and news. Claude analyzes this information to generate:
 
--   A concise summary of the target account
--   Identification of the account's key strategic initiatives
--   Recommendations for positioning the product based on those initiatives.
--   Suggestions of key decision makers to contact
+- A concise summary of the target account
+- Identification of the account's key strategic initiatives
+- Recommendations for positioning the product based on those initiatives.
+- Suggestions of key decision makers to contact
 
 "We need to understand the owners' strategic priorities and initiatives, how our product relates to them, and the usual approaches to potential clients," said Ves. "But you can imagine that this is a process that takes in the order of a few hours if you have to do it manually, in the depth that you would go for your important clients."
 

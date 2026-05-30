@@ -5,11 +5,9 @@ This article explains important limitations and considerations for Team and Ente
 Claude Cowork is available as a research preview for paid plans (Pro, Max, Team, Enterprise) on:
 
 - **Claude Desktop for macOS**
-
   - **[Click here](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)** to download
 
 - **Claude Desktop for Windows**
-
   - **Windows users:** Cowork requires the latest version of Claude for Windows. Download or update at **[claude.com/download](https://claude.com/download)**.
 
 ---

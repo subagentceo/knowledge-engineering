@@ -1,4 +1,4 @@
-## Delete
+## Delete Vault
 
 `client.beta.vaults.delete(stringvaultID, VaultDeleteParamsparams?, RequestOptionsoptions?): BetaManagedAgentsDeletedVault`
 
@@ -11,15 +11,12 @@ Delete Vault
 - `vaultID: string`
 
 - `params: VaultDeleteParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -68,32 +65,45 @@ Delete Vault
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsDeletedVault`
 
   Confirmation of a deleted vault.
-
   - `id: string`
 
     Unique identifier of the deleted vault.
 
   - `type: "vault_deleted"`
-
     - `"vault_deleted"`
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 const betaManagedAgentsDeletedVault = await client.beta.vaults.delete(
-  'vlt_011CZkZDLs7fYzm1hXNPeRjv',
+  "vlt_011CZkZDLs7fYzm1hXNPeRjv",
 );
 
 console.log(betaManagedAgentsDeletedVault.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "type": "vault_deleted"
+}
 ```

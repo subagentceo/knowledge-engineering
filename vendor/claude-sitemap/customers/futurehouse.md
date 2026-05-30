@@ -1,10 +1,12 @@
-[FutureHouse](https://platform.futurehouse.org), a nonprofit advancing research automation, uses Claude to power a sophisticated ecosystem of AI agents that help scientists navigate complex literature, generate hypotheses, and accelerate the pace of biological discovery.
+# FutureHouse powers scientific discovery agents with Claude
+
+FutureHouse, a nonprofit advancing research automation, uses Claude to power a sophisticated ecosystem of AI agents that help scientists navigate complex literature, generate hypotheses, and accelerate the pace of biological discovery.
 
 With Claude, FutureHouse:
 
--   Built four specialized AI agents for different stages of the scientific process
--   Achieves superior precision in scientific reasoning
--   Delivers expert-level analysis of scientific literature with comprehensive citation tracking
+- Built four specialized AI agents for different stages of the scientific process
+- Achieves superior precision in scientific reasoning
+- Delivers expert-level analysis of scientific literature with comprehensive citation tracking
 
 ## Breaking through the information barrier in modern science
 

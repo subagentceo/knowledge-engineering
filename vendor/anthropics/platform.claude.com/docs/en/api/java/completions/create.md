@@ -1,4 +1,4 @@
-## Create
+## Create a Text Completion
 
 `Completion completions().create(CompletionCreateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -13,11 +13,9 @@ Future models and features will not be compatible with Text Completions. See our
 ### Parameters
 
 - `CompletionCreateParams params`
-
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -66,6 +64,12 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
   - `long maxTokensToSample`
 
     The maximum number of tokens to generate before stopping.
@@ -90,9 +94,9 @@ Future models and features will not be compatible with Text Completions. See our
 
     ```
     "
-    
+
     Human: {userQuestion}
-    
+
     Assistant:"
     ```
 
@@ -137,7 +141,6 @@ Future models and features will not be compatible with Text Completions. See our
 ### Returns
 
 - `class Completion:`
-
   - `String id`
 
     Unique object identifier.
@@ -153,6 +156,9 @@ Future models and features will not be compatible with Text Completions. See our
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+    - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
+
+      Frontier intelligence for long-running agents and coding
 
     - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
@@ -227,16 +233,14 @@ Future models and features will not be compatible with Text Completions. See our
     The reason that we stopped.
 
     This may be one the following values:
-
-    * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
-    * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
+    - `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
+    - `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
   - `JsonValue; type "completion"constant`
 
     Object type.
 
     For Text Completions, this is always `"completion"`.
-
     - `COMPLETION("completion")`
 
 ### Example
@@ -258,10 +262,22 @@ public final class Main {
 
         CompletionCreateParams params = CompletionCreateParams.builder()
             .maxTokensToSample(256L)
-            .model(Model.CLAUDE_OPUS_4_7)
+            .model(Model.CLAUDE_OPUS_4_8)
             .prompt("\n\nHuman: Hello, world!\n\nAssistant:")
             .build();
         Completion completion = client.completions().create(params);
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "compl_018CKm6gsux7P8yMcwZbeCPw",
+  "completion": " Hello! My name is Claude.",
+  "model": "claude-2.1",
+  "stop_reason": "stop_sequence",
+  "type": "completion"
 }
 ```

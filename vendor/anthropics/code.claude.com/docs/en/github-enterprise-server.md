@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -18,10 +19,11 @@ For repositories on github.com, see [Claude Code on the web](/en/claude-code-on-
 
 The table below shows which Claude Code features support GHES and any differences from github.com behavior.
 
-| Feature                | GHES support    | Notes                                                                                                                        |
-| :--------------------- | :-------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| Feature                | GHES support     | Notes                                                                                                                        |
+| :--------------------- | :--------------- | :--------------------------------------------------------------------------------------------------------------------------- |
 | Claude Code on the web | ✅ Supported     | Admin connects the GHES instance once; developers use `claude --remote` or [claude.ai/code](https://claude.ai/code) as usual |
 | Code Review            | ✅ Supported     | Same automated PR reviews as github.com                                                                                      |
+| Claude Security        | ✅ Supported     | Available in public beta for Enterprise plans at [claude.ai/security](https://claude.ai/security)                            |
 | Teleport sessions      | ✅ Supported     | Move sessions between web and terminal with `--teleport`                                                                     |
 | Plugin marketplaces    | ✅ Supported     | Use full git URLs instead of `owner/repo` shorthand                                                                          |
 | Contribution metrics   | ✅ Supported     | Delivered via webhooks to the [analytics dashboard](/en/analytics)                                                           |
@@ -52,13 +54,13 @@ The guided setup generates a GitHub App manifest and redirects you to your GHES 
   </Step>
 
   <Step title="Enable features">
-    Return to [claude.ai/admin-settings/claude-code](https://claude.ai/admin-settings/claude-code) and enable [Code Review](/en/code-review#set-up-code-review) and [contribution metrics](/en/analytics#enable-contribution-metrics) for your GHES repositories using the same configuration as github.com.
+    Return to [claude.ai/admin-settings/claude-code](https://claude.ai/admin-settings/claude-code) and enable [Code Review](/en/code-review#set-up-code-review), Claude Security, and [contribution metrics](/en/analytics#enable-contribution-metrics) for your GHES repositories using the same configuration as github.com.
   </Step>
 </Steps>
 
 ### GitHub App permissions
 
-The manifest configures the GitHub App with the permissions and webhook events Claude needs across web sessions, Code Review, and contribution metrics:
+The manifest configures the GitHub App with the permissions and webhook events Claude needs across web sessions, Code Review, Claude Security, and contribution metrics:
 
 | Permission       | Access         | Used for                                    |
 | :--------------- | :------------- | :------------------------------------------ |
@@ -159,8 +161,8 @@ See the [strictKnownMarketplaces](/en/settings#strictknownmarketplaces) and [ext
 
 A few features behave differently on GHES than on github.com. The [feature table](#what-works-with-github-enterprise-server) summarizes support; this section covers the workarounds.
 
-* **`/install-github-app` command**: follow the [admin setup](#admin-setup) flow on claude.ai instead. If you also want GitHub Actions workflows on GHES, adapt the [example workflow](https://github.com/anthropics/claude-code-action/blob/main/examples/claude.yml) manually.
-* **GitHub MCP server**: use the `gh` CLI configured for your GHES host instead. Run `gh auth login --hostname github.example.com` to authenticate, then Claude can use `gh` commands in sessions.
+- **`/install-github-app` command**: follow the [admin setup](#admin-setup) flow on claude.ai instead. If you also want GitHub Actions workflows on GHES, adapt the [example workflow](https://github.com/anthropics/claude-code-action/blob/main/examples/claude.yml) manually.
+- **GitHub MCP server**: use the `gh` CLI configured for your GHES host instead. Run `gh auth login --hostname github.example.com` to authenticate, then Claude can use `gh` commands in sessions.
 
 ## Troubleshooting
 
@@ -180,9 +182,9 @@ If reviews or web sessions time out, your GHES instance may not be reachable fro
 
 These pages cover the features referenced throughout this guide in more depth:
 
-* [Claude Code on the web](/en/claude-code-on-the-web): run Claude Code sessions on cloud infrastructure
-* [Code Review](/en/code-review): automated PR reviews
-* [Plugin marketplaces](/en/plugin-marketplaces): build and distribute plugin catalogs
-* [Analytics](/en/analytics): track usage and contribution metrics
-* [Managed settings](/en/settings): organization-wide policy configuration
-* [Network configuration](/en/network-config): firewall and IP allowlist requirements
+- [Claude Code on the web](/en/claude-code-on-the-web): run Claude Code sessions on cloud infrastructure
+- [Code Review](/en/code-review): automated PR reviews
+- [Plugin marketplaces](/en/plugin-marketplaces): build and distribute plugin catalogs
+- [Analytics](/en/analytics): track usage and contribution metrics
+- [Managed settings](/en/settings): organization-wide policy configuration
+- [Network configuration](/en/network-config): firewall and IP allowlist requirements

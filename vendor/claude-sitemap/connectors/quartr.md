@@ -1,3 +1,5 @@
+# Quartr
+
 Access structured first-party IR data from over 14,500+ public companies across 65 markets Quartr delivers live and recorded earnings calls, real-time and historical transcripts with speaker identification, slide presentations, filings, reports, and event summaries. Best-in-class reliability and timeliness. Ideal for financial research, investment analysis, and building data-driven workflows on top of institutional-grade public company data.
 
 You can use Quartr for:

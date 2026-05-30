@@ -1,12 +1,14 @@
+# Quantium drives company-wide AI adoption with Claude
+
 Quantium, a global leader in data analytics and AI consulting, uses Claude to power company-wide AI adoption for its 1200+ team members, significantly enhancing productivity and helping teams deliver higher quality work faster.
 
 With Claude, Quantium saw the following impact:
 
--   89% of team members use AI daily in their work
--   Engineering teams have seen significant time savings on specific coding tasks
--   Complex client proposals now take hours instead of weeks
--   Teams deliver higher quality work more quickly
--   Leadership coaching scaled across the organization
+- 89% of team members use AI daily in their work
+- Engineering teams have seen significant time savings on specific coding tasks
+- Complex client proposals now take hours instead of weeks
+- Teams deliver higher quality work more quickly
+- Leadership coaching scaled across the organization
 
 ## Quantium's AI evolution
 
@@ -22,11 +24,11 @@ Quantium's search for an enterprise AI platform demanded exceptional standards. 
 
 Claude Enterprise stood out by offering:
 
--   Exceptional performance on complex analytical problems
--   Advanced reasoning for technical challenges
--   Industry-leading data privacy protections
--   Strong commitment to responsible AI development
--   Versatility across business and technical work
+- Exceptional performance on complex analytical problems
+- Advanced reasoning for technical challenges
+- Industry-leading data privacy protections
+- Strong commitment to responsible AI development
+- Versatility across business and technical work
 
 "Claude combines industry-leading powerful analytical capabilities with careful attention to security and ethics," says Ben Chan, Chief Operating Officer at Quantium. "It processes complex information quickly while protecting sensitive data. The alignment between Anthropic's focus on responsible AI development and our own ethical standards was crucial in our decision."
 
@@ -41,10 +43,10 @@ Quantium developed a practical implementation strategy focused on clear guidelin
 
 The results have already started to transform how teams across Quantium work:
 
--   **Coding:** Quantium's technical teams have embraced Claude for coding tasks with remarkable results. Top-performing teams now have the majority of their code written by AI, with tasks that previously took days now being completed in hours. The adoption is rapidly expanding across teams, with Quantium targeting AI-driven development for the vast majority of all coding work. The quality and speed of code production continue to improve dramatically, setting new standards for engineering efficiency and innovation across Quantium's technical teams.
--   **Writing and analysis**: AI has transformed how team members handle complex documentation. For example, the team built an AI system to help write business proposals and bid responses, cutting the work time by up to 90%.
--   **Training development**: Claude has made creating training materials much faster. When developing a new leadership program, the team used AI to help plan the curriculum and create content. This cut the development time from 64 days to 32 days, while still maintaining high quality standards.
--   **Leadership coaching**: Quantium has created digital twins of their leadership team to scale coaching capability throughout the organization. These AI twins provide consistent, high-quality feedback to team members before presenting work to executives, helping team members improve their work while enabling senior leaders to scale their coaching.
+- **Coding:** Quantium's technical teams have embraced Claude for coding tasks with remarkable results. Top-performing teams now have the majority of their code written by AI, with tasks that previously took days now being completed in hours. The adoption is rapidly expanding across teams, with Quantium targeting AI-driven development for the vast majority of all coding work. The quality and speed of code production continue to improve dramatically, setting new standards for engineering efficiency and innovation across Quantium's technical teams.
+- **Writing and analysis**: AI has transformed how team members handle complex documentation. For example, the team built an AI system to help write business proposals and bid responses, cutting the work time by up to 90%.
+- **Training development**: Claude has made creating training materials much faster. When developing a new leadership program, the team used AI to help plan the curriculum and create content. This cut the development time from 64 days to 32 days, while still maintaining high quality standards.
+- **Leadership coaching**: Quantium has created digital twins of their leadership team to scale coaching capability throughout the organization. These AI twins provide consistent, high-quality feedback to team members before presenting work to executives, helping team members improve their work while enabling senior leaders to scale their coaching.
 
 "What's been incredible is seeing how Claude has fundamentally changed our approach to coaching and development," says Chan. "Teams are getting more frequent, consistent feedback, and our leaders can focus on deeper strategic conversations instead of basic review cycles."
 

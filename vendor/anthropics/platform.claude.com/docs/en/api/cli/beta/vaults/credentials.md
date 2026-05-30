@@ -1,6 +1,6 @@
 # Credentials
 
-## Create
+## Create Credential
 
 `$ ant beta:vaults:credentials create`
 
@@ -35,7 +35,6 @@ Create Credential
 - `beta_managed_agents_credential: object { id, archived_at, auth, 6 more }`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `id: string`
 
     Unique identifier for the credential.
@@ -47,17 +46,14 @@ Create Credential
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse`
 
     Authentication details for a credential.
-
     - `beta_managed_agents_mcp_oauth_auth_response: object { mcp_server_url, type, expires_at, refresh }`
 
       OAuth credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
-
         - `"mcp_oauth"`
 
       - `expires_at: optional string`
@@ -67,7 +63,6 @@ Create Credential
       - `refresh: optional object { client_id, token_endpoint, token_endpoint_auth, 2 more }`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `client_id: string`
 
           OAuth client ID.
@@ -79,29 +74,22 @@ Create Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
-
           - `beta_managed_agents_token_endpoint_auth_none_response: object { type }`
 
             Token endpoint requires no client authentication.
-
             - `type: "none"`
-
               - `"none"`
 
           - `beta_managed_agents_token_endpoint_auth_basic_response: object { type }`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `type: "client_secret_basic"`
-
               - `"client_secret_basic"`
 
           - `beta_managed_agents_token_endpoint_auth_post_response: object { type }`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `type: "client_secret_post"`
-
               - `"client_secret_post"`
 
         - `resource: optional string`
@@ -115,13 +103,11 @@ Create Credential
     - `beta_managed_agents_static_bearer_auth_response: object { mcp_server_url, type }`
 
       Static bearer token credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
-
         - `"static_bearer"`
 
   - `created_at: string`
@@ -133,7 +119,6 @@ Create Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
-
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -157,7 +142,28 @@ ant beta:vaults:credentials create \
   --auth '{token: bearer_exampletoken, mcp_server_url: https://example-server.modelcontextprotocol.io/sse, type: static_bearer}'
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## List Credentials
 
 `$ ant beta:vaults:credentials list`
 
@@ -192,11 +198,9 @@ List Credentials
 - `BetaManagedAgentsListCredentialsResponse: object { data, next_page }`
 
   Response containing a paginated list of credentials.
-
   - `data: optional array of BetaManagedAgentsCredential`
 
     List of credentials.
-
     - `id: string`
 
       Unique identifier for the credential.
@@ -208,17 +212,14 @@ List Credentials
     - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse`
 
       Authentication details for a credential.
-
       - `beta_managed_agents_mcp_oauth_auth_response: object { mcp_server_url, type, expires_at, refresh }`
 
         OAuth credential details for an MCP server.
-
         - `mcp_server_url: string`
 
           URL of the MCP server this credential authenticates against.
 
         - `type: "mcp_oauth"`
-
           - `"mcp_oauth"`
 
         - `expires_at: optional string`
@@ -228,7 +229,6 @@ List Credentials
         - `refresh: optional object { client_id, token_endpoint, token_endpoint_auth, 2 more }`
 
           OAuth refresh token configuration returned in credential responses.
-
           - `client_id: string`
 
             OAuth client ID.
@@ -240,29 +240,22 @@ List Credentials
           - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
             Token endpoint requires no client authentication.
-
             - `beta_managed_agents_token_endpoint_auth_none_response: object { type }`
 
               Token endpoint requires no client authentication.
-
               - `type: "none"`
-
                 - `"none"`
 
             - `beta_managed_agents_token_endpoint_auth_basic_response: object { type }`
 
               Token endpoint uses HTTP Basic authentication with client credentials.
-
               - `type: "client_secret_basic"`
-
                 - `"client_secret_basic"`
 
             - `beta_managed_agents_token_endpoint_auth_post_response: object { type }`
 
               Token endpoint uses POST body authentication with client credentials.
-
               - `type: "client_secret_post"`
-
                 - `"client_secret_post"`
 
           - `resource: optional string`
@@ -276,13 +269,11 @@ List Credentials
       - `beta_managed_agents_static_bearer_auth_response: object { mcp_server_url, type }`
 
         Static bearer token credential details for an MCP server.
-
         - `mcp_server_url: string`
 
           URL of the MCP server this credential authenticates against.
 
         - `type: "static_bearer"`
-
           - `"static_bearer"`
 
     - `created_at: string`
@@ -294,7 +285,6 @@ List Credentials
       Arbitrary key-value metadata attached to the credential.
 
     - `type: "vault_credential"`
-
       - `"vault_credential"`
 
     - `updated_at: string`
@@ -321,7 +311,33 @@ ant beta:vaults:credentials list \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+      "archived_at": null,
+      "auth": {
+        "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+        "type": "static_bearer"
+      },
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {
+        "environment": "production"
+      },
+      "type": "vault_credential",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+      "display_name": "Example credential"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Credential
 
 `$ ant beta:vaults:credentials retrieve`
 
@@ -348,7 +364,6 @@ Get Credential
 - `beta_managed_agents_credential: object { id, archived_at, auth, 6 more }`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `id: string`
 
     Unique identifier for the credential.
@@ -360,17 +375,14 @@ Get Credential
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse`
 
     Authentication details for a credential.
-
     - `beta_managed_agents_mcp_oauth_auth_response: object { mcp_server_url, type, expires_at, refresh }`
 
       OAuth credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
-
         - `"mcp_oauth"`
 
       - `expires_at: optional string`
@@ -380,7 +392,6 @@ Get Credential
       - `refresh: optional object { client_id, token_endpoint, token_endpoint_auth, 2 more }`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `client_id: string`
 
           OAuth client ID.
@@ -392,29 +403,22 @@ Get Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
-
           - `beta_managed_agents_token_endpoint_auth_none_response: object { type }`
 
             Token endpoint requires no client authentication.
-
             - `type: "none"`
-
               - `"none"`
 
           - `beta_managed_agents_token_endpoint_auth_basic_response: object { type }`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `type: "client_secret_basic"`
-
               - `"client_secret_basic"`
 
           - `beta_managed_agents_token_endpoint_auth_post_response: object { type }`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `type: "client_secret_post"`
-
               - `"client_secret_post"`
 
         - `resource: optional string`
@@ -428,13 +432,11 @@ Get Credential
     - `beta_managed_agents_static_bearer_auth_response: object { mcp_server_url, type }`
 
       Static bearer token credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
-
         - `"static_bearer"`
 
   - `created_at: string`
@@ -446,7 +448,6 @@ Get Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
-
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -470,7 +471,28 @@ ant beta:vaults:credentials retrieve \
   --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## Update Credential
 
 `$ ant beta:vaults:credentials update`
 
@@ -509,7 +531,6 @@ Update Credential
 - `beta_managed_agents_credential: object { id, archived_at, auth, 6 more }`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `id: string`
 
     Unique identifier for the credential.
@@ -521,17 +542,14 @@ Update Credential
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse`
 
     Authentication details for a credential.
-
     - `beta_managed_agents_mcp_oauth_auth_response: object { mcp_server_url, type, expires_at, refresh }`
 
       OAuth credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
-
         - `"mcp_oauth"`
 
       - `expires_at: optional string`
@@ -541,7 +559,6 @@ Update Credential
       - `refresh: optional object { client_id, token_endpoint, token_endpoint_auth, 2 more }`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `client_id: string`
 
           OAuth client ID.
@@ -553,29 +570,22 @@ Update Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
-
           - `beta_managed_agents_token_endpoint_auth_none_response: object { type }`
 
             Token endpoint requires no client authentication.
-
             - `type: "none"`
-
               - `"none"`
 
           - `beta_managed_agents_token_endpoint_auth_basic_response: object { type }`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `type: "client_secret_basic"`
-
               - `"client_secret_basic"`
 
           - `beta_managed_agents_token_endpoint_auth_post_response: object { type }`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `type: "client_secret_post"`
-
               - `"client_secret_post"`
 
         - `resource: optional string`
@@ -589,13 +599,11 @@ Update Credential
     - `beta_managed_agents_static_bearer_auth_response: object { mcp_server_url, type }`
 
       Static bearer token credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
-
         - `"static_bearer"`
 
   - `created_at: string`
@@ -607,7 +615,6 @@ Update Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
-
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -631,7 +638,28 @@ ant beta:vaults:credentials update \
   --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## Delete Credential
 
 `$ ant beta:vaults:credentials delete`
 
@@ -658,13 +686,11 @@ Delete Credential
 - `beta_managed_agents_deleted_credential: object { id, type }`
 
   Confirmation of a deleted credential.
-
   - `id: string`
 
     Unique identifier of the deleted credential.
 
   - `type: "vault_credential_deleted"`
-
     - `"vault_credential_deleted"`
 
 ### Example
@@ -676,7 +702,16 @@ ant beta:vaults:credentials delete \
   --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
 ```
 
-## Archive
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "type": "vault_credential_deleted"
+}
+```
+
+## Archive Credential
 
 `$ ant beta:vaults:credentials archive`
 
@@ -703,7 +738,6 @@ Archive Credential
 - `beta_managed_agents_credential: object { id, archived_at, auth, 6 more }`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `id: string`
 
     Unique identifier for the credential.
@@ -715,17 +749,14 @@ Archive Credential
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse`
 
     Authentication details for a credential.
-
     - `beta_managed_agents_mcp_oauth_auth_response: object { mcp_server_url, type, expires_at, refresh }`
 
       OAuth credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
-
         - `"mcp_oauth"`
 
       - `expires_at: optional string`
@@ -735,7 +766,6 @@ Archive Credential
       - `refresh: optional object { client_id, token_endpoint, token_endpoint_auth, 2 more }`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `client_id: string`
 
           OAuth client ID.
@@ -747,29 +777,22 @@ Archive Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
-
           - `beta_managed_agents_token_endpoint_auth_none_response: object { type }`
 
             Token endpoint requires no client authentication.
-
             - `type: "none"`
-
               - `"none"`
 
           - `beta_managed_agents_token_endpoint_auth_basic_response: object { type }`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `type: "client_secret_basic"`
-
               - `"client_secret_basic"`
 
           - `beta_managed_agents_token_endpoint_auth_post_response: object { type }`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `type: "client_secret_post"`
-
               - `"client_secret_post"`
 
         - `resource: optional string`
@@ -783,13 +806,11 @@ Archive Credential
     - `beta_managed_agents_static_bearer_auth_response: object { mcp_server_url, type }`
 
       Static bearer token credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
-
         - `"static_bearer"`
 
   - `created_at: string`
@@ -801,7 +822,6 @@ Archive Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
-
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -825,7 +845,28 @@ ant beta:vaults:credentials archive \
   --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
 ```
 
-## MCP OAuth Validate
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## Validate Credential
 
 `$ ant beta:vaults:credentials mcp-oauth-validate`
 
@@ -852,7 +893,6 @@ Validate Credential
 - `beta_managed_agents_credential_validation: object { credential_id, has_refresh_token, mcp_probe, 5 more }`
 
   Result of live-probing a credential against its configured MCP server.
-
   - `credential_id: string`
 
     Unique identifier of the credential that was validated.
@@ -864,11 +904,9 @@ Validate Credential
   - `mcp_probe: object { http_response, method }`
 
     The failing step of an MCP validation probe.
-
     - `http_response: object { body, body_truncated, content_type, status_code }`
 
       An HTTP response captured during a credential validation probe.
-
       - `body: string`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -892,11 +930,9 @@ Validate Credential
   - `refresh: object { http_response, status }`
 
     Outcome of a refresh-token exchange attempted during credential validation.
-
     - `http_response: object { body, body_truncated, content_type, status_code }`
 
       An HTTP response captured during a credential validation probe.
-
       - `body: string`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -916,7 +952,6 @@ Validate Credential
     - `status: "succeeded" or "failed" or "connect_error" or "no_refresh_token"`
 
       Outcome of a refresh-token exchange attempted during credential validation.
-
       - `"succeeded"`
 
       - `"failed"`
@@ -928,7 +963,6 @@ Validate Credential
   - `status: "valid" or "invalid" or "unknown"`
 
     Overall verdict of a credential validation probe.
-
     - `"valid"`
 
     - `"invalid"`
@@ -936,7 +970,6 @@ Validate Credential
     - `"unknown"`
 
   - `type: "vault_credential_validation"`
-
     - `"vault_credential_validation"`
 
   - `validated_at: string`
@@ -956,6 +989,37 @@ ant beta:vaults:credentials mcp-oauth-validate \
   --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
 ```
 
+#### Response
+
+```json
+{
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "has_refresh_token": true,
+  "mcp_probe": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "method": "method"
+  },
+  "refresh": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "status": "succeeded"
+  },
+  "status": "valid",
+  "type": "vault_credential_validation",
+  "validated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+}
+```
+
 ## Domain Types
 
 ### Beta Managed Agents Credential
@@ -963,7 +1027,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_credential: object { id, archived_at, auth, 6 more }`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `id: string`
 
     Unique identifier for the credential.
@@ -975,17 +1038,14 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse`
 
     Authentication details for a credential.
-
     - `beta_managed_agents_mcp_oauth_auth_response: object { mcp_server_url, type, expires_at, refresh }`
 
       OAuth credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
-
         - `"mcp_oauth"`
 
       - `expires_at: optional string`
@@ -995,7 +1055,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
       - `refresh: optional object { client_id, token_endpoint, token_endpoint_auth, 2 more }`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `client_id: string`
 
           OAuth client ID.
@@ -1007,29 +1066,22 @@ ant beta:vaults:credentials mcp-oauth-validate \
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
-
           - `beta_managed_agents_token_endpoint_auth_none_response: object { type }`
 
             Token endpoint requires no client authentication.
-
             - `type: "none"`
-
               - `"none"`
 
           - `beta_managed_agents_token_endpoint_auth_basic_response: object { type }`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `type: "client_secret_basic"`
-
               - `"client_secret_basic"`
 
           - `beta_managed_agents_token_endpoint_auth_post_response: object { type }`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `type: "client_secret_post"`
-
               - `"client_secret_post"`
 
         - `resource: optional string`
@@ -1043,13 +1095,11 @@ ant beta:vaults:credentials mcp-oauth-validate \
     - `beta_managed_agents_static_bearer_auth_response: object { mcp_server_url, type }`
 
       Static bearer token credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
-
         - `"static_bearer"`
 
   - `created_at: string`
@@ -1061,7 +1111,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
-
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -1081,7 +1130,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_credential_validation: object { credential_id, has_refresh_token, mcp_probe, 5 more }`
 
   Result of live-probing a credential against its configured MCP server.
-
   - `credential_id: string`
 
     Unique identifier of the credential that was validated.
@@ -1093,11 +1141,9 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `mcp_probe: object { http_response, method }`
 
     The failing step of an MCP validation probe.
-
     - `http_response: object { body, body_truncated, content_type, status_code }`
 
       An HTTP response captured during a credential validation probe.
-
       - `body: string`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -1121,11 +1167,9 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `refresh: object { http_response, status }`
 
     Outcome of a refresh-token exchange attempted during credential validation.
-
     - `http_response: object { body, body_truncated, content_type, status_code }`
 
       An HTTP response captured during a credential validation probe.
-
       - `body: string`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -1145,7 +1189,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
     - `status: "succeeded" or "failed" or "connect_error" or "no_refresh_token"`
 
       Outcome of a refresh-token exchange attempted during credential validation.
-
       - `"succeeded"`
 
       - `"failed"`
@@ -1157,7 +1200,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `status: "valid" or "invalid" or "unknown"`
 
     Overall verdict of a credential validation probe.
-
     - `"valid"`
 
     - `"invalid"`
@@ -1165,7 +1207,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
     - `"unknown"`
 
   - `type: "vault_credential_validation"`
-
     - `"vault_credential_validation"`
 
   - `validated_at: string`
@@ -1181,7 +1222,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_credential_validation_status: "valid" or "invalid" or "unknown"`
 
   Overall verdict of a credential validation probe.
-
   - `"valid"`
 
   - `"invalid"`
@@ -1193,13 +1233,11 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_deleted_credential: object { id, type }`
 
   Confirmation of a deleted credential.
-
   - `id: string`
 
     Unique identifier of the deleted credential.
 
   - `type: "vault_credential_deleted"`
-
     - `"vault_credential_deleted"`
 
 ### Beta Managed Agents MCP OAuth Auth Response
@@ -1207,13 +1245,11 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_mcp_oauth_auth_response: object { mcp_server_url, type, expires_at, refresh }`
 
   OAuth credential details for an MCP server.
-
   - `mcp_server_url: string`
 
     URL of the MCP server this credential authenticates against.
 
   - `type: "mcp_oauth"`
-
     - `"mcp_oauth"`
 
   - `expires_at: optional string`
@@ -1223,7 +1259,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `refresh: optional object { client_id, token_endpoint, token_endpoint_auth, 2 more }`
 
     OAuth refresh token configuration returned in credential responses.
-
     - `client_id: string`
 
       OAuth client ID.
@@ -1235,29 +1270,22 @@ ant beta:vaults:credentials mcp-oauth-validate \
     - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
       Token endpoint requires no client authentication.
-
       - `beta_managed_agents_token_endpoint_auth_none_response: object { type }`
 
         Token endpoint requires no client authentication.
-
         - `type: "none"`
-
           - `"none"`
 
       - `beta_managed_agents_token_endpoint_auth_basic_response: object { type }`
 
         Token endpoint uses HTTP Basic authentication with client credentials.
-
         - `type: "client_secret_basic"`
-
           - `"client_secret_basic"`
 
       - `beta_managed_agents_token_endpoint_auth_post_response: object { type }`
 
         Token endpoint uses POST body authentication with client credentials.
-
         - `type: "client_secret_post"`
-
           - `"client_secret_post"`
 
     - `resource: optional string`
@@ -1273,7 +1301,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_mcp_oauth_create_params: object { access_token, mcp_server_url, type, 2 more }`
 
   Parameters for creating an MCP OAuth credential.
-
   - `access_token: string`
 
     OAuth access token.
@@ -1283,7 +1310,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
     URL of the MCP server this credential authenticates against.
 
   - `type: "mcp_oauth"`
-
     - `"mcp_oauth"`
 
   - `expires_at: optional string`
@@ -1293,7 +1319,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `refresh: optional object { client_id, refresh_token, token_endpoint, 3 more }`
 
     OAuth refresh token parameters for creating a credential with refresh support.
-
     - `client_id: string`
 
       OAuth client ID.
@@ -1309,37 +1334,30 @@ ant beta:vaults:credentials mcp-oauth-validate \
     - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam or BetaManagedAgentsTokenEndpointAuthBasicParam or BetaManagedAgentsTokenEndpointAuthPostParam`
 
       Token endpoint requires no client authentication.
-
       - `beta_managed_agents_token_endpoint_auth_none_param: object { type }`
 
         Token endpoint requires no client authentication.
-
         - `type: "none"`
-
           - `"none"`
 
       - `beta_managed_agents_token_endpoint_auth_basic_param: object { client_secret, type }`
 
         Token endpoint uses HTTP Basic authentication with client credentials.
-
         - `client_secret: string`
 
           OAuth client secret.
 
         - `type: "client_secret_basic"`
-
           - `"client_secret_basic"`
 
       - `beta_managed_agents_token_endpoint_auth_post_param: object { client_secret, type }`
 
         Token endpoint uses POST body authentication with client credentials.
-
         - `client_secret: string`
 
           OAuth client secret.
 
         - `type: "client_secret_post"`
-
           - `"client_secret_post"`
 
     - `resource: optional string`
@@ -1355,7 +1373,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_mcp_oauth_refresh_params: object { client_id, refresh_token, token_endpoint, 3 more }`
 
   OAuth refresh token parameters for creating a credential with refresh support.
-
   - `client_id: string`
 
     OAuth client ID.
@@ -1371,37 +1388,30 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneParam or BetaManagedAgentsTokenEndpointAuthBasicParam or BetaManagedAgentsTokenEndpointAuthPostParam`
 
     Token endpoint requires no client authentication.
-
     - `beta_managed_agents_token_endpoint_auth_none_param: object { type }`
 
       Token endpoint requires no client authentication.
-
       - `type: "none"`
-
         - `"none"`
 
     - `beta_managed_agents_token_endpoint_auth_basic_param: object { client_secret, type }`
 
       Token endpoint uses HTTP Basic authentication with client credentials.
-
       - `client_secret: string`
 
         OAuth client secret.
 
       - `type: "client_secret_basic"`
-
         - `"client_secret_basic"`
 
     - `beta_managed_agents_token_endpoint_auth_post_param: object { client_secret, type }`
 
       Token endpoint uses POST body authentication with client credentials.
-
       - `client_secret: string`
 
         OAuth client secret.
 
       - `type: "client_secret_post"`
-
         - `"client_secret_post"`
 
   - `resource: optional string`
@@ -1417,7 +1427,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_mcp_oauth_refresh_response: object { client_id, token_endpoint, token_endpoint_auth, 2 more }`
 
   OAuth refresh token configuration returned in credential responses.
-
   - `client_id: string`
 
     OAuth client ID.
@@ -1429,29 +1438,22 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
     Token endpoint requires no client authentication.
-
     - `beta_managed_agents_token_endpoint_auth_none_response: object { type }`
 
       Token endpoint requires no client authentication.
-
       - `type: "none"`
-
         - `"none"`
 
     - `beta_managed_agents_token_endpoint_auth_basic_response: object { type }`
 
       Token endpoint uses HTTP Basic authentication with client credentials.
-
       - `type: "client_secret_basic"`
-
         - `"client_secret_basic"`
 
     - `beta_managed_agents_token_endpoint_auth_post_response: object { type }`
 
       Token endpoint uses POST body authentication with client credentials.
-
       - `type: "client_secret_post"`
-
         - `"client_secret_post"`
 
   - `resource: optional string`
@@ -1467,7 +1469,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_mcp_oauth_refresh_update_params: object { refresh_token, scope, token_endpoint_auth }`
 
   Parameters for updating OAuth refresh token configuration.
-
   - `refresh_token: optional string`
 
     Updated OAuth refresh token.
@@ -1479,13 +1480,10 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `token_endpoint_auth: optional BetaManagedAgentsTokenEndpointAuthBasicUpdateParam or BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
     Updated HTTP Basic authentication parameters for the token endpoint.
-
     - `beta_managed_agents_token_endpoint_auth_basic_update_param: object { type, client_secret }`
 
       Updated HTTP Basic authentication parameters for the token endpoint.
-
       - `type: "client_secret_basic"`
-
         - `"client_secret_basic"`
 
       - `client_secret: optional string`
@@ -1495,9 +1493,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
     - `beta_managed_agents_token_endpoint_auth_post_update_param: object { type, client_secret }`
 
       Updated POST body authentication parameters for the token endpoint.
-
       - `type: "client_secret_post"`
-
         - `"client_secret_post"`
 
       - `client_secret: optional string`
@@ -1509,9 +1505,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_mcp_oauth_update_params: object { type, access_token, expires_at, refresh }`
 
   Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
-
   - `type: "mcp_oauth"`
-
     - `"mcp_oauth"`
 
   - `access_token: optional string`
@@ -1525,7 +1519,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `refresh: optional object { refresh_token, scope, token_endpoint_auth }`
 
     Parameters for updating OAuth refresh token configuration.
-
     - `refresh_token: optional string`
 
       Updated OAuth refresh token.
@@ -1537,13 +1530,10 @@ ant beta:vaults:credentials mcp-oauth-validate \
     - `token_endpoint_auth: optional BetaManagedAgentsTokenEndpointAuthBasicUpdateParam or BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
       Updated HTTP Basic authentication parameters for the token endpoint.
-
       - `beta_managed_agents_token_endpoint_auth_basic_update_param: object { type, client_secret }`
 
         Updated HTTP Basic authentication parameters for the token endpoint.
-
         - `type: "client_secret_basic"`
-
           - `"client_secret_basic"`
 
         - `client_secret: optional string`
@@ -1553,9 +1543,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
       - `beta_managed_agents_token_endpoint_auth_post_update_param: object { type, client_secret }`
 
         Updated POST body authentication parameters for the token endpoint.
-
         - `type: "client_secret_post"`
-
           - `"client_secret_post"`
 
         - `client_secret: optional string`
@@ -1567,11 +1555,9 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_mcp_probe: object { http_response, method }`
 
   The failing step of an MCP validation probe.
-
   - `http_response: object { body, body_truncated, content_type, status_code }`
 
     An HTTP response captured during a credential validation probe.
-
     - `body: string`
 
       Response body. May be truncated and has sensitive values scrubbed.
@@ -1597,7 +1583,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_refresh_http_response: object { body, body_truncated, content_type, status_code }`
 
   An HTTP response captured during a credential validation probe.
-
   - `body: string`
 
     Response body. May be truncated and has sensitive values scrubbed.
@@ -1619,11 +1604,9 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_refresh_object: object { http_response, status }`
 
   Outcome of a refresh-token exchange attempted during credential validation.
-
   - `http_response: object { body, body_truncated, content_type, status_code }`
 
     An HTTP response captured during a credential validation probe.
-
     - `body: string`
 
       Response body. May be truncated and has sensitive values scrubbed.
@@ -1643,7 +1626,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
   - `status: "succeeded" or "failed" or "connect_error" or "no_refresh_token"`
 
     Outcome of a refresh-token exchange attempted during credential validation.
-
     - `"succeeded"`
 
     - `"failed"`
@@ -1657,13 +1639,11 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_static_bearer_auth_response: object { mcp_server_url, type }`
 
   Static bearer token credential details for an MCP server.
-
   - `mcp_server_url: string`
 
     URL of the MCP server this credential authenticates against.
 
   - `type: "static_bearer"`
-
     - `"static_bearer"`
 
 ### Beta Managed Agents Static Bearer Create Params
@@ -1671,7 +1651,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_static_bearer_create_params: object { token, mcp_server_url, type }`
 
   Parameters for creating a static bearer token credential.
-
   - `token: string`
 
     Static bearer token value.
@@ -1681,7 +1660,6 @@ ant beta:vaults:credentials mcp-oauth-validate \
     URL of the MCP server this credential authenticates against.
 
   - `type: "static_bearer"`
-
     - `"static_bearer"`
 
 ### Beta Managed Agents Static Bearer Update Params
@@ -1689,9 +1667,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_static_bearer_update_params: object { type, token }`
 
   Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
-
   - `type: "static_bearer"`
-
     - `"static_bearer"`
 
   - `token: optional string`
@@ -1703,13 +1679,11 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_token_endpoint_auth_basic_param: object { client_secret, type }`
 
   Token endpoint uses HTTP Basic authentication with client credentials.
-
   - `client_secret: string`
 
     OAuth client secret.
 
   - `type: "client_secret_basic"`
-
     - `"client_secret_basic"`
 
 ### Beta Managed Agents Token Endpoint Auth Basic Response
@@ -1717,9 +1691,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_token_endpoint_auth_basic_response: object { type }`
 
   Token endpoint uses HTTP Basic authentication with client credentials.
-
   - `type: "client_secret_basic"`
-
     - `"client_secret_basic"`
 
 ### Beta Managed Agents Token Endpoint Auth Basic Update Param
@@ -1727,9 +1699,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_token_endpoint_auth_basic_update_param: object { type, client_secret }`
 
   Updated HTTP Basic authentication parameters for the token endpoint.
-
   - `type: "client_secret_basic"`
-
     - `"client_secret_basic"`
 
   - `client_secret: optional string`
@@ -1741,9 +1711,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_token_endpoint_auth_none_param: object { type }`
 
   Token endpoint requires no client authentication.
-
   - `type: "none"`
-
     - `"none"`
 
 ### Beta Managed Agents Token Endpoint Auth None Response
@@ -1751,9 +1719,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_token_endpoint_auth_none_response: object { type }`
 
   Token endpoint requires no client authentication.
-
   - `type: "none"`
-
     - `"none"`
 
 ### Beta Managed Agents Token Endpoint Auth Post Param
@@ -1761,13 +1727,11 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_token_endpoint_auth_post_param: object { client_secret, type }`
 
   Token endpoint uses POST body authentication with client credentials.
-
   - `client_secret: string`
 
     OAuth client secret.
 
   - `type: "client_secret_post"`
-
     - `"client_secret_post"`
 
 ### Beta Managed Agents Token Endpoint Auth Post Response
@@ -1775,9 +1739,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_token_endpoint_auth_post_response: object { type }`
 
   Token endpoint uses POST body authentication with client credentials.
-
   - `type: "client_secret_post"`
-
     - `"client_secret_post"`
 
 ### Beta Managed Agents Token Endpoint Auth Post Update Param
@@ -1785,9 +1747,7 @@ ant beta:vaults:credentials mcp-oauth-validate \
 - `beta_managed_agents_token_endpoint_auth_post_update_param: object { type, client_secret }`
 
   Updated POST body authentication parameters for the token endpoint.
-
   - `type: "client_secret_post"`
-
     - `"client_secret_post"`
 
   - `client_secret: optional string`

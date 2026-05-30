@@ -1,4 +1,4 @@
-## Delete
+## Delete Skill Version
 
 **delete** `/v1/skills/{skill_id}/versions/{version}`
 
@@ -23,11 +23,9 @@ Delete Skill Version
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -76,6 +74,12 @@ Delete Skill Version
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `id: string`
@@ -98,4 +102,13 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION \
     -H 'anthropic-version: 2023-06-01' \
     -H 'anthropic-beta: skills-2025-10-02' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "id": "1759178010641129",
+  "type": "type"
+}
 ```

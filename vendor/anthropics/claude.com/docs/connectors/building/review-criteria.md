@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -38,21 +39,21 @@ Each tool description should state precisely what the tool does and when to invo
 
 Tool descriptions are rejected if they:
 
-* Instruct Claude to call external software or tools the user didn't request
-* Interfere with Claude calling other tools
-* Direct Claude to pull behavioral instructions from external sources
-* Contain hidden, obfuscated, or encoded instructions
-* Tell Claude to behave in ways unrelated to the tool's function, attempt to override system instructions, or promote products and services
+- Instruct Claude to call external software or tools the user didn't request
+- Interfere with Claude calling other tools
+- Direct Claude to pull behavioral instructions from external sources
+- Contain hidden, obfuscated, or encoded instructions
+- Tell Claude to behave in ways unrelated to the tool's function, attempt to override system instructions, or promote products and services
 
 Describe what the tool does. Do not tell Claude how to behave.
 
 ## Functional quality
 
-* Every tool must return a successful response when called with valid parameters. Generic errors ("Internal Server Error", "Bad Request" with no detail) fail review.
-* Validate inputs and return actionable error messages rather than silently accepting invalid data.
-* Keep responses reasonably sized for the task. Do not return a full database dump when a summary was requested.
-* Do not collect conversation data beyond what the tool needs for its function.
-* Do not query Claude's memory, chat history, conversation summaries, or user files.
+- Every tool must return a successful response when called with valid parameters. Generic errors ("Internal Server Error", "Bad Request" with no detail) fail review.
+- Validate inputs and return actionable error messages rather than silently accepting invalid data.
+- Keep responses reasonably sized for the task. Do not return a full database dump when a summary was requested.
+- Do not collect conversation data beyond what the tool needs for its function.
+- Do not query Claude's memory, chat history, conversation summaries, or user files.
 
 ## API ownership
 
@@ -62,16 +63,16 @@ Your server must call your own first-party APIs, or APIs you legitimately proxy.
 
 Connectors that do the following are not accepted:
 
-* Transfer money, cryptocurrency, or other financial assets
-* Generate images, video, or audio via AI models (design tools that produce diagrams, charts, or UI mockups are allowed)
+- Transfer money, cryptocurrency, or other financial assets
+- Generate images, video, or audio via AI models (design tools that produce diagrams, charts, or UI mockups are allowed)
 
 ## Submission requirements
 
-* **Test credentials** are required and must be a fully populated account.
-* **Allowed link URIs** are recommended if your server calls `ui/open-link`. Declared HTTPS origins and custom URI schemes open without a confirmation prompt; anything else still prompts the user. See [Allowed link URIs](/connectors/building/submission#allowed-link-uris).
-* **Public documentation** is required by your publish date—a blog post or help-center article is sufficient. You can share docs privately with Anthropic during review.
-* **Plugins** must link a public GitHub repo; closed-source is not accepted.
-* **MCPB** open-source and "spec will evolve" clauses in the [Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms) are required and not waivable.
+- **Test credentials** are required and must be a fully populated account.
+- **Allowed link URIs** are recommended if your server calls `ui/open-link`. Declared HTTPS origins and custom URI schemes open without a confirmation prompt; anything else still prompts the user. See [Allowed link URIs](/connectors/building/submission#allowed-link-uris).
+- **Public documentation** is required by your publish date—a blog post or help-center article is sufficient. You can share docs privately with Anthropic during review.
+- **Plugins** must link a public GitHub repo; closed-source is not accepted.
+- **MCPB** open-source and "spec will evolve" clauses in the [Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms) are required and not waivable.
 
 ## Before you submit
 

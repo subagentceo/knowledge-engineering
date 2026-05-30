@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -10,15 +11,15 @@ This tutorial walks you through setting up and using Claude's connector integrat
 
 ## What you'll learn
 
-* Setting up your first connector
-* Using connectors in conversations
-* Best practices for each integration
-* Troubleshooting common issues
+- Setting up your first connector
+- Using connectors in conversations
+- Best practices for each integration
+- Troubleshooting common issues
 
 ## Prerequisites
 
-* A Claude account (Pro, Max, Team, or Enterprise for most connectors)
-* Accounts on the services you want to connect
+- A Claude account (Pro, Max, Team, or Enterprise for most connectors)
+- Accounts on the services you want to connect
 
 ## Setting up your first connector
 
@@ -32,10 +33,10 @@ This tutorial walks you through setting up and using Claude's connector integrat
 
 Available connectors include:
 
-* Google Drive, Gmail, Calendar
-* GitHub
-* Slack
-* Microsoft 365
+- Google Drive, Gmail, Calendar
+- GitHub
+- Slack
+- Microsoft 365
 
 ### Step 3: Authenticate
 
@@ -65,33 +66,33 @@ Available connectors include:
 
 ### Google Drive
 
-* Best for: Document analysis, research
-* Add multiple Google Docs for comprehensive context
-* Documents sync automatically with updates
+- Best for: Document analysis, research
+- Add multiple Google Docs for comprehensive context
+- Documents sync automatically with updates
 
 ### Gmail & Calendar
 
-* Best for: Finding information, scheduling context
-* Ask questions like "What did Sarah say about the budget?"
-* Claude can search your emails but can't send them
+- Best for: Finding information, scheduling context
+- Ask questions like "What did Sarah say about the budget?"
+- Claude can search your emails but can't send them
 
 ### GitHub
 
-* Best for: Code understanding, documentation
-* Add entire repositories or specific files
-* Use with Projects for persistent codebase context
+- Best for: Code understanding, documentation
+- Add entire repositories or specific files
+- Use with Projects for persistent codebase context
 
 ### Slack
 
-* Best for: Finding discussions, team context
-* Search channels and direct messages
-* Requires Claude in Slack installation first
+- Best for: Finding discussions, team context
+- Search channels and direct messages
+- Requires Claude in Slack installation first
 
 ### Microsoft 365
 
-* Best for: Enterprise document search
-* Access SharePoint, OneDrive, Outlook, Teams
-* Team/Enterprise plans only
+- Best for: Enterprise document search
+- Access SharePoint, OneDrive, Outlook, Teams
+- Team/Enterprise plans only
 
 ## Best practices
 

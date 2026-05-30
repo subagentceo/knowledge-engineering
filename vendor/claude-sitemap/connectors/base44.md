@@ -1,3 +1,5 @@
+# Base44
+
 Create, edit, and manage Base44 apps directly from Claude. Describe what you want to build and Base44 will generate a full-stack project for you — with data models, backend logic, and a working UI. Query your app's data, update entity schemas, and iterate on existing projects without ever leaving Claude. Make Base44 a native part of your AI workflow — an AI-powered app builder that turns ideas into production-ready apps, faster.
 
 You can use Base44 to:

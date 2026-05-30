@@ -2,7 +2,7 @@ The Web Search connector gives Claude the ability to search the public internet 
 
 For questions about web search in commercial Claude, see **[Enabling and using web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search)**.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1778914800&amp;signature=75c8531b690933c2c39bf4d34fed63af90609f51d802e68e1304a19c71fb7fec&amp;req=diIiEMh8nYZZWvMW1HO4zQvFI7pajMDwM%2Fw5SJgC29EA4Ezv8g6IB6tMD5xC%0A9F5XWZUQl%2Bg9WuQVcwM%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2256120763/7652c6c669446113eae75f3c5977/9c74d57e-aaa2-4f1c-bfe4-2b9b87fd41ab?expires=1780164900&signature=cf44693d855868b5e4c442b6ef6628bdf5b33f7a4b2d6b871b8743c0f75c438d&req=diIiEMh8nYZZWvMW1HO4zQvFLLJSi8DxM%2Fw5SJgC29EuvzndORd%2FA%2BCLtg7P%0AnOW9ddSu38y4T6eTKSU%3D%0A)
 
 ## How Web Search differs for Claude for Government
 
@@ -54,11 +54,11 @@ Once your org admin enables it, Web Search is available in your chats immediatel
 
 ## Example use cases
 
-*"What were the key provisions in the infrastructure bill passed last month?"*
+_"What were the key provisions in the infrastructure bill passed last month?"_
 
 Claude proposes a search query like infrastructure bill key provisions [month year], you approve it, and Claude summarizes results from recent news.
 
-*"Is there a published CVE for [software] version [X]? When was it disclosed?"*
+_"Is there a published CVE for [software] version [X]? When was it disclosed?"_
 
 Claude proposes a search targeting CVE databases and vendor advisories, you approve, and Claude returns the CVE details with source links.
 

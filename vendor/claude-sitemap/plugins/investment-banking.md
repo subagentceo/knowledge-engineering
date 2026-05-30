@@ -1,3 +1,5 @@
+# Investment Banking
+
 Build deal materials, strip profiles, pitch decks, and merger models for investment banking workflows.
 
 You can use Investment Banking to:

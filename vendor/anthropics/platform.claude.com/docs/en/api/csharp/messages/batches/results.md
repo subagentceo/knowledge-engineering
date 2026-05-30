@@ -1,4 +1,4 @@
-## Results
+## Retrieve Message Batch results
 
 `MessageBatchIndividualResponse Messages.Batches.ResultsStreaming(BatchResultsParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -13,7 +13,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchResultsParams parameters`
-
   - `required string messageBatchID`
 
     ID of the Message Batch.
@@ -23,7 +22,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 - `class MessageBatchIndividualResponse:`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
-
   - `required string CustomID`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -35,11 +33,8 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Processing result for this request.
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
-
     - `class MessageBatchSucceededResult:`
-
       - `required Message Message`
-
         - `required string ID`
 
           Unique object identifier.
@@ -49,7 +44,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `required Container? Container`
 
           Information about the container used in the request (for the code execution tool)
-
           - `required string ID`
 
             Identifier for the container used in this request
@@ -67,7 +61,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Example:
 
           ```json
-          [{"type": "text", "text": "Hi, I'm Claude."}]
+          [{ "type": "text", "text": "Hi, I'm Claude." }]
           ```
 
           If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -76,27 +70,27 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           ```json
           [
-            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-            {"role": "assistant", "content": "The best answer is ("}
+            {
+              "role": "user",
+              "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
+            },
+            { "role": "assistant", "content": "The best answer is (" }
           ]
           ```
 
           Then the response `content` might be:
 
           ```json
-          [{"type": "text", "text": "B)"}]
+          [{ "type": "text", "text": "B)" }]
           ```
 
           - `class TextBlock:`
-
             - `required IReadOnlyList<TextCitation>? Citations`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
               - `class CitationCharLocation:`
-
                 - `required string CitedText`
 
                 - `required Long DocumentIndex`
@@ -112,7 +106,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "char_location"constant`
 
               - `class CitationPageLocation:`
-
                 - `required string CitedText`
 
                 - `required Long DocumentIndex`
@@ -128,7 +121,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "page_location"constant`
 
               - `class CitationContentBlockLocation:`
-
                 - `required string CitedText`
 
                   The full text of the cited block range, concatenated.
@@ -154,7 +146,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "content_block_location"constant`
 
               - `class CitationsWebSearchResultLocation:`
-
                 - `required string CitedText`
 
                 - `required string EncryptedIndex`
@@ -166,7 +157,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `required string Url`
 
               - `class CitationsSearchResultLocation:`
-
                 - `required string CitedText`
 
                   The full text of the cited block range, concatenated.
@@ -200,7 +190,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "text"constant`
 
           - `class ThinkingBlock:`
-
             - `required string Signature`
 
             - `required string Thinking`
@@ -208,35 +197,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "thinking"constant`
 
           - `class RedactedThinkingBlock:`
-
             - `required string Data`
 
             - `JsonElement Type "redacted_thinking"constant`
 
           - `class ToolUseBlock:`
-
             - `required string ID`
 
             - `required Caller Caller`
 
               Tool invocation directly from the model.
-
               - `class DirectCaller:`
 
                 Tool invocation directly from the model.
-
                 - `JsonElement Type "direct"constant`
 
               - `class ServerToolCaller:`
 
                 Tool invocation generated by a server-side tool.
-
                 - `required string ToolID`
 
                 - `JsonElement Type "code_execution_20250825"constant`
 
               - `class ServerToolCaller20260120:`
-
                 - `required string ToolID`
 
                 - `JsonElement Type "code_execution_20260120"constant`
@@ -248,37 +231,24 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "tool_use"constant`
 
           - `class ServerToolUseBlock:`
-
             - `required string ID`
 
             - `required Caller Caller`
 
               Tool invocation directly from the model.
-
               - `class DirectCaller:`
 
                 Tool invocation directly from the model.
-
-                - `JsonElement Type "direct"constant`
 
               - `class ServerToolCaller:`
 
                 Tool invocation generated by a server-side tool.
 
-                - `required string ToolID`
-
-                - `JsonElement Type "code_execution_20250825"constant`
-
               - `class ServerToolCaller20260120:`
-
-                - `required string ToolID`
-
-                - `JsonElement Type "code_execution_20260120"constant`
 
             - `required IReadOnlyDictionary<string, JsonElement> Input`
 
             - `required Name Name`
-
               - `"web_search"WebSearch`
 
               - `"web_fetch"WebFetch`
@@ -296,37 +266,22 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "server_tool_use"constant`
 
           - `class WebSearchToolResultBlock:`
-
             - `required Caller Caller`
 
               Tool invocation directly from the model.
-
               - `class DirectCaller:`
 
                 Tool invocation directly from the model.
-
-                - `JsonElement Type "direct"constant`
 
               - `class ServerToolCaller:`
 
                 Tool invocation generated by a server-side tool.
 
-                - `required string ToolID`
-
-                - `JsonElement Type "code_execution_20250825"constant`
-
               - `class ServerToolCaller20260120:`
 
-                - `required string ToolID`
-
-                - `JsonElement Type "code_execution_20260120"constant`
-
             - `required WebSearchToolResultBlockContent Content`
-
               - `class WebSearchToolResultError:`
-
                 - `required WebSearchToolResultErrorCode ErrorCode`
-
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -342,7 +297,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "web_search_tool_result_error"constant`
 
               - `IReadOnlyList<WebSearchResultBlock>`
-
                 - `required string EncryptedContent`
 
                 - `required string? PageAge`
@@ -358,42 +312,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "web_search_tool_result"constant`
 
           - `class WebFetchToolResultBlock:`
-
             - `required Caller Caller`
 
               Tool invocation directly from the model.
-
               - `class DirectCaller:`
 
                 Tool invocation directly from the model.
-
-                - `JsonElement Type "direct"constant`
 
               - `class ServerToolCaller:`
 
                 Tool invocation generated by a server-side tool.
 
-                - `required string ToolID`
-
-                - `JsonElement Type "code_execution_20250825"constant`
-
               - `class ServerToolCaller20260120:`
 
-                - `required string ToolID`
-
-                - `JsonElement Type "code_execution_20260120"constant`
-
             - `required Content Content`
-
               - `class WebFetchToolResultErrorBlock:`
-
                 - `required WebFetchToolResultErrorCode ErrorCode`
-
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"url_too_long"UrlTooLong`
 
                   - `"url_not_allowed"UrlNotAllowed`
+
+                  - `"url_not_in_prior_context"UrlNotInPriorContext`
 
                   - `"url_not_accessible"UrlNotAccessible`
 
@@ -408,19 +349,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "web_fetch_tool_result_error"constant`
 
               - `class WebFetchBlock:`
-
                 - `required DocumentBlock Content`
-
                   - `required CitationsConfig? Citations`
 
                     Citation configuration for the document
-
                     - `required Boolean Enabled`
 
                   - `required Source Source`
-
                     - `class Base64PdfSource:`
-
                       - `required string Data`
 
                       - `JsonElement MediaType "application/pdf"constant`
@@ -428,7 +364,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                       - `JsonElement Type "base64"constant`
 
                     - `class PlainTextSource:`
-
                       - `required string Data`
 
                       - `JsonElement MediaType "text/plain"constant`
@@ -456,15 +391,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "web_fetch_tool_result"constant`
 
           - `class CodeExecutionToolResultBlock:`
-
             - `required CodeExecutionToolResultBlockContent Content`
 
               Code execution result with encrypted stdout for PFC + web_search results.
-
               - `class CodeExecutionToolResultError:`
-
                 - `required CodeExecutionToolResultErrorCode ErrorCode`
-
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -476,9 +407,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "code_execution_tool_result_error"constant`
 
               - `class CodeExecutionResultBlock:`
-
                 - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
-
                   - `required string FileID`
 
                   - `JsonElement Type "code_execution_output"constant`
@@ -494,9 +423,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `class EncryptedCodeExecutionResultBlock:`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
-
                 - `required IReadOnlyList<CodeExecutionOutputBlock> Content`
-
                   - `required string FileID`
 
                   - `JsonElement Type "code_execution_output"constant`
@@ -514,13 +441,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "code_execution_tool_result"constant`
 
           - `class BashCodeExecutionToolResultBlock:`
-
             - `required Content Content`
-
               - `class BashCodeExecutionToolResultError:`
-
                 - `required BashCodeExecutionToolResultErrorCode ErrorCode`
-
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -534,9 +457,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "bash_code_execution_tool_result_error"constant`
 
               - `class BashCodeExecutionResultBlock:`
-
                 - `required IReadOnlyList<BashCodeExecutionOutputBlock> Content`
-
                   - `required string FileID`
 
                   - `JsonElement Type "bash_code_execution_output"constant`
@@ -554,13 +475,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "bash_code_execution_tool_result"constant`
 
           - `class TextEditorCodeExecutionToolResultBlock:`
-
             - `required Content Content`
-
               - `class TextEditorCodeExecutionToolResultError:`
-
                 - `required TextEditorCodeExecutionToolResultErrorCode ErrorCode`
-
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -576,11 +493,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "text_editor_code_execution_tool_result_error"constant`
 
               - `class TextEditorCodeExecutionViewResultBlock:`
-
                 - `required string Content`
 
                 - `required FileType FileType`
-
                   - `"text"Text`
 
                   - `"image"Image`
@@ -596,13 +511,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "text_editor_code_execution_view_result"constant`
 
               - `class TextEditorCodeExecutionCreateResultBlock:`
-
                 - `required Boolean IsFileUpdate`
 
                 - `JsonElement Type "text_editor_code_execution_create_result"constant`
 
               - `class TextEditorCodeExecutionStrReplaceResultBlock:`
-
                 - `required IReadOnlyList<string>? Lines`
 
                 - `required Long? NewLines`
@@ -620,13 +533,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `JsonElement Type "text_editor_code_execution_tool_result"constant`
 
           - `class ToolSearchToolResultBlock:`
-
             - `required Content Content`
-
               - `class ToolSearchToolResultError:`
-
                 - `required ToolSearchToolResultErrorCode ErrorCode`
-
                   - `"invalid_tool_input"InvalidToolInput`
 
                   - `"unavailable"Unavailable`
@@ -640,9 +549,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `JsonElement Type "tool_search_tool_result_error"constant`
 
               - `class ToolSearchToolSearchResultBlock:`
-
                 - `required IReadOnlyList<ToolReferenceBlock> ToolReferences`
-
                   - `required string ToolName`
 
                   - `JsonElement Type "tool_reference"constant`
@@ -656,7 +563,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `class ContainerUploadBlock:`
 
             Response model for a file uploaded to the container.
-
             - `required string FileID`
 
             - `JsonElement Type "container_upload"constant`
@@ -666,6 +572,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `"claude-opus-4-8"ClaudeOpus4_8`
+
+            Frontier intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"ClaudeOpus4_7`
 
@@ -744,13 +653,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `required RefusalStopDetails? StopDetails`
 
           Structured information about a refusal.
-
           - `required Category? Category`
 
             The policy category that triggered the refusal.
 
             `null` when the refusal doesn't map to a named category.
-
             - `"cyber"Cyber`
 
             - `"bio"Bio`
@@ -768,16 +675,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The reason that we stopped.
 
           This may be one the following values:
-
-          * `"end_turn"`: the model reached a natural stopping point
-          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          * `"tool_use"`: the model invoked one or more tools
-          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          - `"end_turn"`: the model reached a natural stopping point
+          - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          - `"tool_use"`: the model invoked one or more tools
+          - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
-
           - `"end_turn"EndTurn`
 
           - `"max_tokens"MaxTokens`
@@ -813,11 +718,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
-
           - `required CacheCreation? CacheCreation`
 
             Breakdown of cached tokens by TTL
-
             - `required Long Ephemeral1hInputTokens`
 
               The number of input tokens used to create the 1 hour cache entry.
@@ -846,10 +749,28 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             The number of output tokens which were used.
 
+          - `required OutputTokensDetails? OutputTokensDetails`
+
+            Breakdown of output tokens by category.
+
+            `output_tokens` remains the inclusive, authoritative total used for billing.
+            This object provides a read-only decomposition for observability — for example,
+            how many of the billed output tokens were spent on internal reasoning that may
+            have been summarized before being returned to you.
+            - `required Long ThinkingTokens`
+
+              Number of output tokens the model generated as internal reasoning, including
+              the thinking-block delimiter tokens.
+
+              Reflects the raw reasoning the model produced, not the (possibly shorter)
+              summarized thinking text returned in the response body. Computed by
+              re-tokenizing the raw reasoning text, so it may differ from the model's exact
+              generation count by a small number of tokens. Always ≤ `output_tokens`;
+              `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
           - `required ServerToolUsage? ServerToolUse`
 
             The number of server tool requests.
-
             - `required Long WebFetchRequests`
 
               The number of web fetch tool requests.
@@ -861,7 +782,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `required ServiceTier? ServiceTier`
 
             If the request used the priority, standard, or batch tier.
-
             - `"standard"Standard`
 
             - `"priority"Priority`
@@ -871,61 +791,49 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `JsonElement Type "succeeded"constant`
 
     - `class MessageBatchErroredResult:`
-
       - `required ErrorResponse Error`
-
         - `required ErrorObject Error`
-
           - `class InvalidRequestError:`
-
             - `required string Message`
 
             - `JsonElement Type "invalid_request_error"constant`
 
           - `class AuthenticationError:`
-
             - `required string Message`
 
             - `JsonElement Type "authentication_error"constant`
 
           - `class BillingError:`
-
             - `required string Message`
 
             - `JsonElement Type "billing_error"constant`
 
           - `class PermissionError:`
-
             - `required string Message`
 
             - `JsonElement Type "permission_error"constant`
 
           - `class NotFoundError:`
-
             - `required string Message`
 
             - `JsonElement Type "not_found_error"constant`
 
           - `class RateLimitError:`
-
             - `required string Message`
 
             - `JsonElement Type "rate_limit_error"constant`
 
           - `class GatewayTimeoutError:`
-
             - `required string Message`
 
             - `JsonElement Type "timeout_error"constant`
 
           - `class ApiErrorObject:`
-
             - `required string Message`
 
             - `JsonElement Type "api_error"constant`
 
           - `class OverloadedError:`
-
             - `required string Message`
 
             - `JsonElement Type "overloaded_error"constant`
@@ -937,11 +845,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `JsonElement Type "errored"constant`
 
     - `class MessageBatchCanceledResult:`
-
       - `JsonElement Type "canceled"constant`
 
     - `class MessageBatchExpiredResult:`
-
       - `JsonElement Type "expired"constant`
 
 ### Example

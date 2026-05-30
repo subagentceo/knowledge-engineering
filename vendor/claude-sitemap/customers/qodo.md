@@ -1,18 +1,20 @@
-As AI coding tools help developers write code much faster, a new challenge has emerged: most of this AI-generated code isn't being properly reviewed, tested, or checked against company standards before deployment. [Qodo](https://www.qodo.ai/) addresses this gap by using Claude not just to generate code, but to automatically review, test, and validate that all code—whether written by humans or AI—meets production requirements.
+# Qodo helps developers ship quality code faster with Claude
+
+As AI coding tools help developers write code much faster, a new challenge has emerged: most of this AI-generated code isn't being properly reviewed, tested, or checked against company standards before deployment. Qodo addresses this gap by using Claude not just to generate code, but to automatically review, test, and validate that all code—whether written by humans or AI—meets production requirements.
 
 With Claude, Qodo:
 
--   Reviews 1 million pull requests per quarter across enterprise customers
--   Achieves top 5 placement on SWE Bench Verified benchmark with their CLI agent, Qodo Command
--   Detects complex security vulnerabilities that syntax analysis tools miss
--   Generates clear PR descriptions to help developers understand AI-generated code
--   Enables Fortune 500 enterprises to adopt AI while maintaining code integrity
+- Reviews 1 million pull requests per quarter across enterprise customers
+- Achieves top 5 placement on SWE Bench Verified benchmark with their CLI agent, Qodo Command
+- Detects complex security vulnerabilities that syntax analysis tools miss
+- Generates clear PR descriptions to help developers understand AI-generated code
+- Enables Fortune 500 enterprises to adopt AI while maintaining code integrity
 
 ## Bridging the gap between AI speed and enterprise quality
 
 While agentic coding tools have transformed how quickly developers generate code, Qodo recognized a growing crisis in software development. Teams can now create features at unprecedented speed, but the flood of AI-generated code doesn’t always receive proper review or testing before being deployed, creating a dangerous paradox. The very tools meant to accelerate code generation have the potential to introduce quality risks that could cost enterprises millions if not properly reviewed.
 
-"The core goal was to eliminate the speed-quality tradeoff in software development," said Avishay Bikowsky, Product Manager at Qodo. "\[As agentic coding tools became increasingly popular\], we saw a growing risk: much of that code wasn't being properly reviewed, tested, or aligned with architectural standards. We weren't just looking to accelerate development—we wanted to ensure that AI could help teams move fast and ship reliable, production-grade software."
+"The core goal was to eliminate the speed-quality tradeoff in software development," said Avishay Bikowsky, Product Manager at Qodo. "[As agentic coding tools became increasingly popular], we saw a growing risk: much of that code wasn't being properly reviewed, tested, or aligned with architectural standards. We weren't just looking to accelerate development—we wanted to ensure that AI could help teams move fast and ship reliable, production-grade software."
 
 For solo developers to Fortune 500 companies, the challenge went deeper than productivity metrics. In high-risk environments like payment systems or large-scale customer platforms, a single unreviewed bug could cascade into massive financial losses or security breaches.
 

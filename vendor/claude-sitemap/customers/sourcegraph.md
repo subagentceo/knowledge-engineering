@@ -1,3 +1,5 @@
+# Sourcegraph enhances the intelligence and speed of their AI-powered coding assistant with Claude
+
 Sourcegraph’s AI coding assistant, Cody, uses Claude 3 Sonnet as the default large language model for the free plan, delivering suggestions twice as fast with increased accuracy for developers.
 
 ## Creating a faster, intelligent AI coding assistant

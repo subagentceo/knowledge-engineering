@@ -86,7 +86,7 @@ The Google Drive connector is only available when adding to **Files** in private
 
 Google Docs added to chats and projects sync directly from Google Drive, so you're always working with the latest version.
 
-### Managing individual connectors
+### Manage individual connectors
 
 You can enable or disable specific connectors from below the chat interface:
 
@@ -95,48 +95,6 @@ You can enable or disable specific connectors from below the chat interface:
 2. Hover over "Connectors."
 
 3. Toggle individual connectors on or off.
-
----
-
-## Google Drive Cataloging (Enterprise)
-
-Google Drive Cataloging is only available for Enterprise plans.
-
-Enterprise users can enable Google Drive Cataloging to index their Drive content with RAG (Retrieval Augmented Generation). When enabled, Claude indexes your Google Drive documents to provide more accurate, contextual responses with direct citations to relevant sources—and reduces token usage by pulling only relevant content into your context.
-
-If cataloging is turned off, Claude uses the Google APIs to search through your Drive data directly.
-
-### Supported file types for cataloging
-
-Google Docs (text extraction only, up to 10MB).
-
-### Enable Google Drive Cataloging
-
-**For admins:**
-
-1. Navigate to **[Organization settings > Capabilities](https://claude.ai/admin-settings/capabilities)**.
-
-2. Locate **Google Drive cataloging** under **Data sources**.
-
-3. Toggle this on and follow the instructions to authenticate.
-
-**For individual users** (after an admin enables the feature):
-
-1. Click the plus sign in the chat interface.
-
-2. Toggle **Drive search** on.
-
-If this is your first time using this feature, you'll be redirected to Google to authenticate.
-
-### How cataloging works
-
-Once enabled, Claude indexes your Google Docs and uses that index during conversations to provide relevant context and citations. Claude periodically re-indexes documents that have changed and de-indexes documents that have been deleted. It may take several hours for Claude to recognize updates or deletions.
-
-### Cataloging data retention
-
-- Indexed data for a deleted file is removed within one hour of the file being deleted.
-
-- When an admin turns off cataloging, all indexed data for the organization is deleted within six hours.
 
 ---
 
@@ -155,10 +113,7 @@ Once enabled, Claude indexes your Google Docs and uses that index during convers
 - Data retrieved while using connectors is stored on Anthropic servers, protected by Anthropic's security infrastructure (see our **[Trust Center](https://trust.anthropic.com/controls#organizational-security)** for details). This data is retained with its associated chat, so you can delete any retrieved data by deleting the chat.
 
 - We do not train our models on your Gmail, Drive, or Calendar connector data, ensuring your private information remains private.
-
   - **Note**: If you are using our consumer products (e.g. Claude Free, Pro, and Max (when using Claude Code with those accounts) and you have chosen to allow us to use your chats and coding sessions for model training, then any content you copy/paste from your Gmail, Drive, Calendar, or Claude's responses which include specific information from these connectors may be used to improve our models. For more information, refer to **[Is my data used for model training?](https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training)**
-
-- Each user's Google Drive Cataloging index is private—no other users can access it, even within the same organization. Each index is unique to a user/organization pair, and fully respects your underlying access controls and permissions.
 
 - Data is encrypted at rest and in transit.
 
@@ -186,7 +141,7 @@ During authentication, Google's OAuth screen mentions email sending permissions.
 
 ### Reconnecting your Google account
 
-If you see the error "*Please try again. You may need to reconnect with your Google Drive account,"* follow these steps:
+If you see the error "_Please try again. You may need to reconnect with your Google Drive account,"_ follow these steps:
 
 1. Navigate to **[Customize > Connectors](https://claude.ai/customize/connectors)**.
 
@@ -202,7 +157,7 @@ If you're still having trouble, disconnect from your Google account settings at[
 
 ### Google Workspace admin configuration
 
-If your organization uses Google Workspace and the connectors aren't working (you may see the message *"Access blocked: your institution's admin needs to review Claude for Google Drive"*), your Google Workspace admin may need to allow Claude as a trusted application:
+If your organization uses Google Workspace and the connectors aren't working (you may see the message _"Access blocked: your institution's admin needs to review Claude for Google Drive"_), your Google Workspace admin may need to allow Claude as a trusted application:
 
 1. Go to **[admin.google.com](https://admin.google.com)**
 
@@ -241,9 +196,5 @@ No. Claude can create email drafts, but all emails must be sent manually through
 ### Can I opt out of using these connectors?
 
 On Team and Enterprise plans, Owners and Primary Owners can disable Google Workspace connectors for their organization in **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**. Individual users can also disable specific tools from the chat interface.
-
-### Who has access to my Google Drive Cataloging index?
-
-Only you. Your index includes only documents you have access to, and no one else can access it—even members of the same organization. If you disconnect your Google account from Claude, your index is deleted.
 
 Browse all available connectors in the **[Connectors Directory](https://claude.ai/directory)**.

@@ -1,4 +1,4 @@
-## Add
+## Add Session Resource
 
 `beta.sessions.resources.add(strsession_id, ResourceAddParams**kwargs)  -> BetaManagedAgentsFileResource`
 
@@ -15,7 +15,6 @@ Add Session Resource
   ID of a previously uploaded file.
 
 - `type: Literal["file"]`
-
   - `"file"`
 
 - `mount_path: Optional[str]`
@@ -25,11 +24,9 @@ Add Session Resource
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -78,10 +75,15 @@ Add Session Resource
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaManagedAgentsFileResource: …`
-
   - `id: str`
 
   - `created_at: datetime`
@@ -93,7 +95,6 @@ Add Session Resource
   - `mount_path: str`
 
   - `type: Literal["file"]`
-
     - `"file"`
 
   - `updated_at: datetime`
@@ -115,4 +116,17 @@ beta_managed_agents_file_resource = client.beta.sessions.resources.add(
     type="file",
 )
 print(beta_managed_agents_file_resource.id)
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "created_at": "2026-03-15T10:00:00Z",
+  "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "mount_path": "/uploads/receipt.pdf",
+  "type": "file",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
 ```

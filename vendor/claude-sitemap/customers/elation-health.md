@@ -1,10 +1,12 @@
-[Elation Health](https://www.elationhealth.com) is a clinical electronic health record (EHR) and billing platform for primary care, with more than 46,000 clinical users caring for 24 million patients across 50 states. The company delivers AI-native solutions built for independent practices, direct primary care and concierge clinics, and primary-care-led enterprises.
+# Elation Health delivers faster clinical insights with Claude
+
+Elation Health is a clinical electronic health record (EHR) and billing platform for primary care, with more than 46,000 clinical users caring for 24 million patients across 50 states. The company delivers AI-native solutions built for independent practices, direct primary care and concierge clinics, and primary-care-led enterprises.
 
 ## With Claude, Elation Health:
 
--   Reduced median time to first insight by 61% for chart review
--   Doubled usage of the product’s Clinical Insights feature after migrating to Claude
--   Simplified prompt engineering by removing workarounds needed for other model providers
+- Reduced median time to first insight by 61% for chart review
+- Doubled usage of the product’s Clinical Insights feature after migrating to Claude
+- Simplified prompt engineering by removing workarounds needed for other model providers
 
 ## The problem
 

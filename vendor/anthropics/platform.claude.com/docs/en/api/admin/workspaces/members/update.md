@@ -1,4 +1,4 @@
-## Update
+## Update Workspace Member
 
 **post** `/v1/organizations/workspaces/{workspace_id}/members/{user_id}`
 
@@ -19,7 +19,6 @@ Update Workspace Member
 - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
   New workspace role for the User.
-
   - `"workspace_user"`
 
   - `"workspace_developer"`
@@ -32,14 +31,12 @@ Update Workspace Member
 
 ### Returns
 
-- `WorkspaceMember = object { type, user_id, workspace_id, workspace_role }`
-
+- `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
-
     - `"workspace_member"`
 
   - `user_id: string`
@@ -53,7 +50,6 @@ Update Workspace Member
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
-
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -74,4 +70,15 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
     -d '{
           "workspace_role": "workspace_user"
         }'
+```
+
+#### Response
+
+```json
+{
+  "type": "workspace_member",
+  "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "workspace_role": "workspace_user"
+}
 ```

@@ -1,10 +1,12 @@
+# Braintrust revolutionizes talent acquisition and career growth with Claude
+
 Braintrust, an AI-powered recruiting platform, uses Claude to speed up the hiring process for clients while empowering job seekers to advance their careers. With Claude, Braintrust has achieved:
 
--   25% increase in job applicants for clients using Claude-powered job descriptions
--   50% of clients using their AI-generated job description generator
--   Close to 90% of hires coming from matches rated as good or great
--   AI-assisted screening and interviews save recruiters significant time
--   100% AI-powered talent screens, giving results in minutes rather than weeks, uncapping throughput and saving over $150K to date
+- 25% increase in job applicants for clients using Claude-powered job descriptions
+- 50% of clients using their AI-generated job description generator
+- Close to 90% of hires coming from matches rated as good or great
+- AI-assisted screening and interviews save recruiters significant time
+- 100% AI-powered talent screens, giving results in minutes rather than weeks, uncapping throughput and saving over $150K to date
 
 ## Matching talent with opportunity at scale
 

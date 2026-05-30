@@ -1,1 +1,3 @@
+# azure-skills
+
 Microsoft Azure MCP integration for cloud resource management, deployments, and Azure services. Manage your Azure infrastructure, monitor applications, and deploy resources directly from Claude Code.

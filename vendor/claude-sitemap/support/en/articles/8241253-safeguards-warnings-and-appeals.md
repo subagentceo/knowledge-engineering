@@ -1,4 +1,4 @@
-*Please Note: Our response times are currently longer than normal due to our recent launch and an increase in email volume. We will reply to your appeal/email as soon as we can and we ask for your patience in the meantime.*
+_Please Note: Our response times are currently longer than normal due to our recent launch and an increase in email volume. We will reply to your appeal/email as soon as we can and we ask for your patience in the meantime._
 
 ## Appeals
 

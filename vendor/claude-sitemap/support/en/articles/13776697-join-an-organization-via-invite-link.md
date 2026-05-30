@@ -28,10 +28,10 @@ Admins and above can generate, copy, disable, and regenerate the invite link for
 
 ### Manage your invite link
 
-| **Action** | **What it does** |
-| --- | --- |
-| Disable the link | Immediately invalidates all existing links. No one can join via link until it's re-enabled. |
-| Regenerate the link | Creates a new link and immediately invalidates the previous one. |
+| **Action**          | **What it does**                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------- |
+| Disable the link    | Immediately invalidates all existing links. No one can join via link until it's re-enabled. |
+| Regenerate the link | Creates a new link and immediately invalidates the previous one.                            |
 
 ### How seat assignment works
 
@@ -57,9 +57,9 @@ Invite link joins respect your organization's existing security controls:
 
 3. After authenticating, your email domain will be checked against your organization's allowed domains.
 
-  - If your domain matches, you can proceed to join.
+- If your domain matches, you can proceed to join.
 
-  - If your domain doesn't match, you'll see an error. Contact your admin if you believe this is incorrect.
+- If your domain doesn't match, you'll see an error. Contact your admin if you believe this is incorrect.
 
 4. After your domain is verified, you'll be added to the organization automatically and assigned to the lowest available seat tier.
 

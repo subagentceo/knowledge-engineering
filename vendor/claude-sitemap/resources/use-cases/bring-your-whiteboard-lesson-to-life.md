@@ -1,3 +1,5 @@
+# Bring your whiteboard lesson to life
+
 You're working out how to teach something — where students get stuck, what framing would land better, whether your usual sketch is doing the right work. Claude can think through that with you, and a visual streams in as part of the exchange, making the reframing concrete right alongside the advice. The drawing does two things at once. It sharpens your own articulation — seeing it move makes the teaching script write itself — and it's a first draft of something students could use, with a path from prep session to classroom tool when you want one.
 
 Here a professor is planning supply and demand equilibrium for next week. They attach the sketch they've been using and ask Claude to help think through why students stall on it. The response is part teaching advice, part interactive graph — and the graph keeps evolving as the conversation does.

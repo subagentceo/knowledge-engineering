@@ -1,3 +1,21 @@
+## May 2026
+
+### May 28, 2026
+
+**Claude Opus 4.8 launch**
+
+We’ve upgraded Claude Opus to a new version. Claude Opus 4.8 shows improvements over Opus 4.7 in coding, agentic skills, reasoning, and practical knowledge work tasks. For more information, see our blog post: **[Introducing Claude Opus 4.8](https://www.anthropic.com/news/claude-opus-4-8)**.
+
+**Enterprise plans can manage connector access with custom roles**
+
+We added connector permissions to extend the existing custom roles framework and allow administrators to control which connectors, and which individual tools on those connectors, are available to each custom role. For more information, see **[Manage custom roles on Enterprise plans](https://support.claude.com/en/articles/13930452-manage-custom-roles-on-enterprise-plans#h_979e558d00)**.
+
+### May 21, 2026
+
+**Claude now works with more security and compliance tools**
+
+We introduced Claude Compliance API integrations with notable security and compliance tools. Now IT and security teams can govern Claude across our platform and suite of products, the same way they govern other applications in their stack. Learn how to **[get started with Claude Compliance API integrations](https://support.claude.com/en/articles/15167101-get-started-with-claude-compliance-api-integrations)**.
+
 ## April 2026
 
 ### April 17, 2026
@@ -201,7 +219,6 @@ Claude in Chrome is now available in beta to all paid plan subscribers, includin
 - **Console logs:** Claude can now read browser console output, helping developers identify and fix errors without switching contexts.
 
 - **Admin controls for Team and Enterprise:** Admins can now manage Claude in Chrome at the organization level:
-
   - Enable or disable the extension org-wide
 
   - Configure allowlists and blocklists to control which sites Claude can access

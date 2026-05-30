@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -17,10 +18,10 @@ This page covers Claude Code-specific changes in the Desktop app. For changes to
   * Added an "Also delete files on disk" option to the scheduled task delete dialog; checking it removes the task's `SKILL.md` file and associated data from `~/.claude/scheduled-tasks/`.
   * Added support for mouse back and forward buttons for navigating the chat view.
 
-  **3P managed deployments**
+**3P managed deployments**
 
-  * Added an organization banner across the top of the app window, configured by IT administrators.
-</Update>
+- Added an organization banner across the top of the app window, configured by IT administrators.
+  </Update>
 
 <Update label="1.6889.0" description="May 8, 2026">
   * Added MCP App widget rendering in Code tab sessions.
@@ -39,13 +40,13 @@ This page covers Claude Code-specific changes in the Desktop app. For changes to
   * Fixed scheduled tasks running with auto-approve echoing tool-use suggestions into the session.
   * Fixed SSH plugin sync so a single problematic plugin no longer blocks sync for the rest.
 
-  **3P managed deployments**
+**3P managed deployments**
 
-  * Added support for stdio-transport local MCP servers via the `managedMcpServers` managed-settings key; the connector detail panel now shows the command and arguments, and environment variable values are masked outside the admin Setup screen.
-  * Added a managed-settings option to disable `claude://` deep-link handling.
-  * Added support for customizing model display names in the model picker via `labelOverride`.
-  * Fixed per-tool MCP server policies set by administrators not being enforced in all session types.
-</Update>
+- Added support for stdio-transport local MCP servers via the `managedMcpServers` managed-settings key; the connector detail panel now shows the command and arguments, and environment variable values are masked outside the admin Setup screen.
+- Added a managed-settings option to disable `claude://` deep-link handling.
+- Added support for customizing model display names in the model picker via `labelOverride`.
+- Fixed per-tool MCP server policies set by administrators not being enforced in all session types.
+  </Update>
 
 <Update label="1.6608.0" description="May 7, 2026">
   * Fixed scheduled tasks failing to run when a previous run was stuck waiting on a permission prompt.

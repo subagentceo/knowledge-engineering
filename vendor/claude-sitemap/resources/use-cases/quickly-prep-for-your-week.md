@@ -1,3 +1,5 @@
-Planning your week typically means opening your calendar, scanning your inbox, maybe checking a few documents—then trying to mentally synthesize which meetings need prep, what's urgent, and how to distribute your time. Claude can read through your calendar and inbox simultaneously, identify connections you'd miss while context-switching between tools, and create a structured overview showing what needs attention and when you actually have time to handle it.  
-  
+# Quickly prep for your week
+
+Planning your week typically means opening your calendar, scanning your inbox, maybe checking a few documents—then trying to mentally synthesize which meetings need prep, what's urgent, and how to distribute your time. Claude can read through your calendar and inbox simultaneously, identify connections you'd miss while context-switching between tools, and create a structured overview showing what needs attention and when you actually have time to handle it.
+
 To start, tell Claude which dates to analyze, where to search, and what the format for the output document.

@@ -1,12 +1,14 @@
+# RileyBot creates safe AI learning experiences for students with Claude
+
 RileyBot uses Claude to power an AI learning assistant that helps K-12 students learn more effectively while giving teachers and parents complete transparency into children' s AI interactions.
 
 With Claude, RileyBot:
 
--   Increases student self-efficacy and confidence in learning
--   Reduces classroom disruption by helping students get unstuck quickly
--   Provides age-appropriate responses based on student learning needs
--   Enables complete transparency of AI interactions for teachers and parents
--   Maintains strict safety standards for K-12 students
+- Increases student self-efficacy and confidence in learning
+- Reduces classroom disruption by helping students get unstuck quickly
+- Provides age-appropriate responses based on student learning needs
+- Enables complete transparency of AI interactions for teachers and parents
+- Maintains strict safety standards for K-12 students
 
 ## Making AI safe and beneficial for education
 
@@ -30,12 +32,12 @@ The ethical alignment between Anthropic and RileyBot was crucial for the partner
 
 RileyBot integrates with school management systems to understand each student's age, classes, teachers, and learning needs. This allows Claude to:
 
--   Provide age-appropriate responses and accommodate learning needs
--   Offer helpful instructions to guide students to the answer, rather than just give them the answer
--   Give feedback on student work through photo uploads
--   Enable voice conversations for natural interaction
--   Flag inappropriate content for teacher review
--   Give parents visibility into their children's AI interactions
+- Provide age-appropriate responses and accommodate learning needs
+- Offer helpful instructions to guide students to the answer, rather than just give them the answer
+- Give feedback on student work through photo uploads
+- Enable voice conversations for natural interaction
+- Flag inappropriate content for teacher review
+- Give parents visibility into their children's AI interactions
 
 ## Improving outcomes for teachers and students
 

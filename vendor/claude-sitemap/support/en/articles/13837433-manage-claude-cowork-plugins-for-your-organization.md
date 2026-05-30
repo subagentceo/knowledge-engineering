@@ -22,17 +22,17 @@ You can use both approaches in parallel—for example, a GitHub-synced marketpla
 
 3. If this is your first time setting up a marketplace, “Upload to a new marketplace” will be auto-selected.
 
-  1. You’ll be able to choose “Add to an existing marketplace” when uploading plugins moving forward.
+4. You’ll be able to choose “Add to an existing marketplace” when uploading plugins moving forward.
 
-4. Enter a name for your marketplace.
+5. Enter a name for your marketplace.
 
-5. Either drag your files in, or click the upload prompt and select your file.
+6. Either drag your files in, or click the upload prompt and select your file.
 
-  1. **Note:** The file must be a valid .zip under 50 MB.
+7. **Note:** The file must be a valid .zip under 50 MB.
 
-6. Repeat for each plugin you want to add.
+8. Repeat for each plugin you want to add.
 
-7. Click “Upload” to add your plugins to a new marketplace.
+9. Click “Upload” to add your plugins to a new marketplace.
 
 If you upload a plugin with the same name as an existing one, it overwrites the previous version automatically—no need to delete the old one first.
 
@@ -62,15 +62,15 @@ Additional resources:
 
 1. Make sure both Cowork and Skills are enabled for your organization.
 
-  1. **[Enable Cowork](https://support.claude.com/en/articles/13455879-use-cowork-on-team-and-enterprise-plans#h_71cdc52dfc)**
+1. **[Enable Cowork](https://support.claude.com/en/articles/13455879-use-cowork-on-team-and-enterprise-plans#h_71cdc52dfc)**
 
-  2. **[Enable Skills](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization#h_7673241237)**
+1. **[Enable Skills](https://support.claude.com/en/articles/13119606-provision-and-manage-skills-for-your-organization#h_7673241237)**
 
-2. Go to **Organization settings > Plugins**.
+1. Go to **Organization settings > Plugins**.
 
-3. Click "Add plugin" and select "GitHub" as the source.
+1. Click "Add plugin" and select "GitHub" as the source.
 
-4. Enter the repository in `owner/repo` format (for example, `acme-corp/claude-plugins`).
+1. Enter the repository in `owner/repo` format (for example, `acme-corp/claude-plugins`).
 
 Your personal GitHub token is verified to confirm you have access, then Cowork uses its GitHub App installation token for sync operations.
 
@@ -80,7 +80,7 @@ Your personal GitHub token is verified to confirm you have access, then Cowork u
 
 An initial sync runs automatically when you connect a repository. After that, organization owners can opt-in to continued automatic updates per marketplace by going to **Organization settings > Plugins** (under **Libraries**), clicking the menu button in the upper right corner of the marketplace, then toggling "Sync automatically" on:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193200015/a239033a9ab19fbd39f1a0d9edce/CleanShot+2026-03-23+at+11_41_31%402x.png?expires=1778914800&amp;signature=c7d762ccf791ebdbbbea5ec9e8480440b9cde304587b6a67be452937cc866321&amp;req=diEuFct%2BnYFeXPMW1HO4zUYv6dXwwHscRDH%2FtUo5ov7lILqBELY5I98kGWwf%0AqAbOAzGTJwmBYjGrbMs%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2193200015/a239033a9ab19fbd39f1a0d9edce/CleanShot+2026-03-23+at+11_41_31%402x.png?expires=1778914800&signature=c7d762ccf791ebdbbbea5ec9e8480440b9cde304587b6a67be452937cc866321&req=diEuFct%2BnYFeXPMW1HO4zUYv6dXwwHscRDH%2FtUo5ov7lILqBELY5I98kGWwf%0AqAbOAzGTJwmBYjGrbMs%3D%0A)
 
 The GitHub marketplace will then be auto-synced whenever a PR is merged to that repo. You can also trigger syncs manually by clicking “Update” on the marketplace.
 
@@ -94,12 +94,12 @@ During a sync, Cowork compares the latest commit in your repo against the last-s
 
 Once your marketplace has plugins, you control how they're distributed using installation preferences. For each plugin, you can set one of four options:
 
-| **Preference** | **What it does** | **What members see** |
-| --- | --- | --- |
-| Installed by default | Automatically installed for all org members | The plugin appears in their installed list without any action. Members can uninstall if they choose. |
-| Available for install | Listed in the plugin catalog | Members see it when browsing plugins and can install it themselves. |
-| Not available | Hidden from the catalog entirely | Members can't see or install the plugin. Useful for staging or deprecating plugins. |
-| Required | Automatically installed for all org members without the option to remove it | The plugin appears in their installed list without any action and cannot be disabled or uninstalled. |
+| **Preference**        | **What it does**                                                            | **What members see**                                                                                 |
+| --------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Installed by default  | Automatically installed for all org members                                 | The plugin appears in their installed list without any action. Members can uninstall if they choose. |
+| Available for install | Listed in the plugin catalog                                                | Members see it when browsing plugins and can install it themselves.                                  |
+| Not available         | Hidden from the catalog entirely                                            | Members can't see or install the plugin. Useful for staging or deprecating plugins.                  |
+| Required              | Automatically installed for all org members without the option to remove it | The plugin appears in their installed list without any action and cannot be disabled or uninstalled. |
 
 ### Set preferences
 
@@ -177,14 +177,14 @@ To remove a plugin, delete it from the repository and trigger a sync.
 
 ## Limits
 
-| **Limit** | **Value** | **Notes** |
-| --- | --- | --- |
-| Max plugin ZIP size (upload) | 50 MB | Enforced both client-side and server-side |
-| Max plugins per marketplace (manual) | 100 | Per marketplace |
-| Max plugins per marketplace (GitHub sync) | 500 | Per marketplace |
-| Max plugin name length | 64 characters | Must use lowercase words separated by hyphens |
-| Sync timeout | 30 minutes | Per sync operation |
-| GitHub repo visibility | Private or internal only | Must be hosted on github.com. Public repos and GitHub Enterprise Server instances aren't supported. |
+| **Limit**                                 | **Value**                | **Notes**                                                                                           |
+| ----------------------------------------- | ------------------------ | --------------------------------------------------------------------------------------------------- |
+| Max plugin ZIP size (upload)              | 50 MB                    | Enforced both client-side and server-side                                                           |
+| Max plugins per marketplace (manual)      | 100                      | Per marketplace                                                                                     |
+| Max plugins per marketplace (GitHub sync) | 500                      | Per marketplace                                                                                     |
+| Max plugin name length                    | 64 characters            | Must use lowercase words separated by hyphens                                                       |
+| Sync timeout                              | 30 minutes               | Per sync operation                                                                                  |
+| GitHub repo visibility                    | Private or internal only | Must be hosted on github.com. Public repos and GitHub Enterprise Server instances aren't supported. |
 
 ---
 
@@ -212,16 +212,16 @@ Names that impersonate official Anthropic marketplaces are also blocked.
 
 ## Choose between manual upload and GitHub sync
 
-| **Scenario** | **Recommended approach** |
-| --- | --- |
-| Plugins are maintained in version control with CI/CD | GitHub sync |
-| Multiple developers collaborate on plugins | GitHub sync |
-| You want automatic update propagation | GitHub sync |
-| You need more than 100 plugins in a marketplace | GitHub sync |
-| Quick prototyping or one-off tools | Manual upload |
-| Plugins built by non-engineering teams | Manual upload |
-| Environments without GitHub access | Manual upload |
-| Testing a plugin before adding it to a synced repo | Manual upload |
+| **Scenario**                                         | **Recommended approach** |
+| ---------------------------------------------------- | ------------------------ |
+| Plugins are maintained in version control with CI/CD | GitHub sync              |
+| Multiple developers collaborate on plugins           | GitHub sync              |
+| You want automatic update propagation                | GitHub sync              |
+| You need more than 100 plugins in a marketplace      | GitHub sync              |
+| Quick prototyping or one-off tools                   | Manual upload            |
+| Plugins built by non-engineering teams               | Manual upload            |
+| Environments without GitHub access                   | Manual upload            |
+| Testing a plugin before adding it to a synced repo   | Manual upload            |
 
 ---
 

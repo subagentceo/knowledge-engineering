@@ -1,3 +1,5 @@
+# Ramp Data
+
 Ramp Data MCP enables Claude users to access Ramp Data from billions of dollars in real corporate spend across 50,000+ businesses, including Ramp Rate (vendor adoption, pricing, and switching trends) and the AI Index (how businesses are spending on AI). Ramp Data is used by founders, procurement leads, researchers, investors, and policy analysts and is cited by leading publications like NYT, WSJ, Bloomberg, and more.
 
 You can use Ramp Data to:

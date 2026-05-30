@@ -1,6 +1,6 @@
 # Versions
 
-## Create
+## Create Skill Version
 
 **post** `/v1/skills/{skill_id}/versions`
 
@@ -19,11 +19,9 @@ Create Skill Version
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -71,6 +69,12 @@ Create Skill Version
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
 
 ### Returns
 
@@ -128,7 +132,22 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## List Skill Versions
 
 **get** `/v1/skills/{skill_id}/versions`
 
@@ -159,11 +178,9 @@ List Skill Versions
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -212,12 +229,17 @@ List Skill Versions
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `data: array of object { id, created_at, description, 5 more }`
 
   List of skill versions.
-
   - `id: string`
 
     Unique identifier for the skill version.
@@ -279,11 +301,32 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
-## Retrieve
+#### Response
 
-**get** `/v1/skills/{skill_id}/versions/{version}`
+```json
+{
+  "data": [
+    {
+      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "description": "A custom skill for doing something useful",
+      "directory": "my-skill",
+      "name": "my-skill",
+      "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "type": "type",
+      "version": "1759178010641129"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
 
-Get Skill Version
+## Download Skill Version Content
+
+**get** `/v1/skills/{skill_id}/versions/{version}/content`
+
+Download a skill version's content as a zip archive.
 
 ### Path Parameters
 
@@ -304,11 +347,9 @@ Get Skill Version
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -356,6 +397,103 @@ Get Skill Version
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
+### Example
+
+```http
+curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION/content \
+    -H 'anthropic-version: 2023-06-01' \
+    -H 'anthropic-beta: skills-2025-10-02' \
+    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+## Get Skill Version
+
+**get** `/v1/skills/{skill_id}/versions/{version}`
+
+Get Skill Version
+
+### Path Parameters
+
+- `skill_id: string`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+- `version: string`
+
+  Version identifier for the skill.
+
+  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+### Header Parameters
+
+- `"anthropic-beta": optional array of AnthropicBeta`
+
+  Optional header to specify the beta version(s) you want to use.
+  - `string`
+
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
+    - `"message-batches-2024-09-24"`
+
+    - `"prompt-caching-2024-07-31"`
+
+    - `"computer-use-2024-10-22"`
+
+    - `"computer-use-2025-01-24"`
+
+    - `"pdfs-2024-09-25"`
+
+    - `"token-counting-2024-11-01"`
+
+    - `"token-efficient-tools-2025-02-19"`
+
+    - `"output-128k-2025-02-19"`
+
+    - `"files-api-2025-04-14"`
+
+    - `"mcp-client-2025-04-04"`
+
+    - `"mcp-client-2025-11-20"`
+
+    - `"dev-full-thinking-2025-05-14"`
+
+    - `"interleaved-thinking-2025-05-14"`
+
+    - `"code-execution-2025-05-22"`
+
+    - `"extended-cache-ttl-2025-04-11"`
+
+    - `"context-1m-2025-08-07"`
+
+    - `"context-management-2025-06-27"`
+
+    - `"model-context-window-exceeded-2025-08-26"`
+
+    - `"skills-2025-10-02"`
+
+    - `"fast-mode-2026-02-01"`
+
+    - `"output-300k-2026-03-24"`
+
+    - `"user-profiles-2026-03-24"`
+
+    - `"advisor-tool-2026-03-01"`
+
+    - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
 
 ### Returns
 
@@ -412,7 +550,22 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## Delete Skill Version
 
 **delete** `/v1/skills/{skill_id}/versions/{version}`
 
@@ -437,11 +590,9 @@ Delete Skill Version
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -490,6 +641,12 @@ Delete Skill Version
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `id: string`
@@ -514,12 +671,20 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "id": "1759178010641129",
+  "type": "type"
+}
+```
+
 ## Domain Types
 
 ### Version Create Response
 
-- `VersionCreateResponse = object { id, created_at, description, 5 more }`
-
+- `VersionCreateResponse object { id, created_at, description, 5 more }`
   - `id: string`
 
     Unique identifier for the skill version.
@@ -566,8 +731,7 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION \
 
 ### Version List Response
 
-- `VersionListResponse = object { id, created_at, description, 5 more }`
-
+- `VersionListResponse object { id, created_at, description, 5 more }`
   - `id: string`
 
     Unique identifier for the skill version.
@@ -614,8 +778,7 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION \
 
 ### Version Retrieve Response
 
-- `VersionRetrieveResponse = object { id, created_at, description, 5 more }`
-
+- `VersionRetrieveResponse object { id, created_at, description, 5 more }`
   - `id: string`
 
     Unique identifier for the skill version.
@@ -662,8 +825,7 @@ curl https://api.anthropic.com/v1/skills/$SKILL_ID/versions/$VERSION \
 
 ### Version Delete Response
 
-- `VersionDeleteResponse = object { id, type }`
-
+- `VersionDeleteResponse object { id, type }`
   - `id: string`
 
     Version identifier for the skill.

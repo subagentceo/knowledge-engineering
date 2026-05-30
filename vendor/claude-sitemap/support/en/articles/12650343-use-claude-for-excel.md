@@ -314,7 +314,7 @@ Our testing has identified edge scenarios where Claude for Excel can be manipula
 
 Users can approve all of Claude’s actions via a confirmation pop-up that appears when each tool is triggered:
 
-- External data fetching: WEBSERVICE, STOCKHISTORY, STOCKSERIES, TRANSLATE, and the CUBE* functions
+- External data fetching: WEBSERVICE, STOCKHISTORY, STOCKSERIES, TRANSLATE, and the CUBE\* functions
 
 - External imports: IMPORTDATA, IMPORTXML, IMPORTHTML, IMPORTFEED, FILTERXML
 
@@ -328,7 +328,7 @@ Users can approve all of Claude’s actions via a confirmation pop-up that appea
 
 - System information: REGISTER.ID, RTD, INFO
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1778914800&amp;signature=5e38702f7bcbb8f37b0049582662c023e73814132d77b32a9873d8be1ccc10e2&amp;req=dSgjH819nIJeWfMW1HO4zYWKZ%2BpiI956qAsRdssXCyDLhWLSFJE8u7QVKpuH%0AMNAo7o6NqwjWlKd0A%2Bw%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1849431310/ffc870a5114b4178fcd74b5cccf8/Screenshot+2025-11-25+at+11_30_10%E2%80%AFAM.png?expires=1780164900&signature=3ab77a3734d39c14b867ac01c284408831db99880a891723dc064993761ea9c4&req=dSgjH819nIJeWfMW1HO4zYWKaOJqJN57qAsRdssXCyCrAJ6xI4r0Ojtoe0xE%0Ahaw%2B4iHRjd%2BZ%2BAl5uQw%3D%0A)
 
 While we continue to develop our offerings and improve safety measures to reduce these risks, users should exercise caution when using Claude for Excel and should not use it with spreadsheets from external, untrusted sources.
 
@@ -525,10 +525,6 @@ While we continue to develop our offerings and improve safety measures to reduce
 ---
 
 ## Frequently asked questions
-
-### Which models are available when using Claude for Excel?
-
-You can switch between Opus 4.7, Opus 4.6, and Sonnet 4.6 when using Claude for Excel.
 
 ### Does Claude understand financial modeling conventions?
 

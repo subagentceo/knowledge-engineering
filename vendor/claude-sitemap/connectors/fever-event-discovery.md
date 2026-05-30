@@ -1,3 +1,5 @@
+# Fever Event Discovery
+
 Discover and explore live entertainment experiences worldwide through Fever. Search events by city, date, location, or keyword across concerts, shows, festivals, immersive experiences, and more. Filter by popularity, price, rating, or proximity. Get event details including schedules, venues, ratings, and pricing.
 
 You can use Fever Event Discovery to:

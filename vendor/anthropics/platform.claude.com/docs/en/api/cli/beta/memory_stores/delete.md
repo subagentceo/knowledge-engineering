@@ -1,4 +1,4 @@
-## Delete
+## Delete a memory store
 
 `$ ant beta:memory-stores delete`
 
@@ -21,13 +21,11 @@ Delete a memory store
 - `beta_managed_agents_deleted_memory_store: object { id, type }`
 
   Confirmation that a `memory_store` was deleted.
-
   - `id: string`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `type: "memory_store_deleted"`
-
     - `"memory_store_deleted"`
 
 ### Example
@@ -36,4 +34,13 @@ Delete a memory store
 ant beta:memory-stores delete \
   --api-key my-anthropic-api-key \
   --memory-store-id memory_store_id
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "memory_store_deleted"
+}
 ```

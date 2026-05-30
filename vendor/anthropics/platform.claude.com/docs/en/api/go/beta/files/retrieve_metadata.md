@@ -1,4 +1,4 @@
-## Retrieve Metadata
+## Get File Metadata
 
 `client.Beta.Files.GetMetadata(ctx, fileID, query) (*FileMetadata, error)`
 
@@ -13,15 +13,12 @@ Get File Metadata
   ID of the File.
 
 - `query BetaFileGetMetadataParams`
-
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -70,10 +67,15 @@ Get File Metadata
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type FileMetadata struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -101,7 +103,6 @@ Get File Metadata
     Object type.
 
     For files, this is always `"file"`.
-
     - `const FileFile File = "file"`
 
   - `Downloadable bool`
@@ -111,7 +112,6 @@ Get File Metadata
   - `Scope BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `ID string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -119,7 +119,6 @@ Get File Metadata
     - `Type Session`
 
       The type of scope (e.g., `"session"`).
-
       - `const SessionSession Session = "session"`
 
 ### Example
@@ -150,5 +149,23 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", fileMetadata.ID)
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
 }
 ```

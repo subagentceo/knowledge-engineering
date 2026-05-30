@@ -13,11 +13,9 @@ Create Enrollment URL
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -66,10 +64,15 @@ Create Enrollment URL
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaUserProfileEnrollmentURL`
-
   - `expires_at: Time`
 
     A timestamp in RFC 3339 format
@@ -77,7 +80,6 @@ Create Enrollment URL
   - `type: :enrollment_url`
 
     Object type. Always `enrollment_url`.
-
     - `:enrollment_url`
 
   - `url: String`
@@ -94,4 +96,14 @@ anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 beta_user_profile_enrollment_url = anthropic.beta.user_profiles.create_enrollment_url("uprof_011CZkZCu8hGbp5mYRQgUmz9")
 
 puts(beta_user_profile_enrollment_url)
+```
+
+#### Response
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
 ```

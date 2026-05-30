@@ -1,3 +1,5 @@
+# Todoist
+
 Allow Claude to assist you in managing your productivity and time blocking, by searching your current tasks, completing them, and general management of tasks in Todoist.
 
 You can use Todoist to:

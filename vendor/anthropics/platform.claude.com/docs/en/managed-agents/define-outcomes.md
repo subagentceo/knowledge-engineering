@@ -4,9 +4,9 @@ Tell the agent what 'done' looks like, and let it iterate until it gets there.
 
 ---
 
-The `outcome` elevates a session from *conversation* to *work*. You define what the end result should look like and how to measure quality. The agent works toward that target, self-evaluating and iterating until the outcome is met.
+The `outcome` elevates a session from _conversation_ to _work_. You define what the end result should look like and how to measure quality. The agent works toward that target, self-evaluating and iterating until the outcome is met.
 
-When you define an outcome, the harness automatically provisions a *grader* to evaluate the artifact against a rubric. It leverages a separate context window to avoid being influenced by the main agent's implementation choices.
+When you define an outcome, the harness automatically provisions a _grader_ to evaluate the artifact against a rubric. It leverages a separate context window to avoid being influenced by the main agent's implementation choices.
 
 The grader returns a per-criterion breakdown: either confirmation that the artifact satisfies the rubric, or the specific gaps between the current work and the requirements. That feedback is handed back to the agent for the next iteration.
 
@@ -32,23 +32,28 @@ Example rubric:
 # DCF Model Rubric
 
 ## Revenue Projections
+
 - Uses historical revenue data from the last 5 fiscal years
 - Projects revenue for at least 5 years forward
 - Growth rate assumptions are explicitly stated and reasonable
 
 ## Cost Structure
+
 - COGS and operating expenses are modeled separately
 - Margins are consistent with historical trends or deviations are justified
 
 ## Discount Rate
+
 - WACC is calculated with stated assumptions for cost of equity and cost of debt
 - Beta, risk-free rate, and equity risk premium are sourced or justified
 
 ## Terminal Value
+
 - Uses either perpetuity growth or exit multiple method (stated which)
 - Terminal growth rate does not exceed long-term GDP growth
 
 ## Output Quality
+
 - All figures are in a single .xlsx file with clearly labeled sheets
 - Key assumptions are on a separate "Assumptions" sheet
 - Sensitivity analysis on WACC and terminal growth rate is included
@@ -70,38 +75,33 @@ rubric_id=$(jq -r '.id' <<<"$rubric")
 printf 'Uploaded rubric: %s\n' "$rubric_id"
 ````
 
-  
-````bash
+```bash
 RUBRIC_ID=$(ant beta:files upload \
   --file /tmp/rubric.md \
   --transform id --raw-output)
-````
+```
 
-  
-````python
+```python
 rubric = client.beta.files.upload(file=Path("/tmp/rubric.md"))
 print(f"Uploaded rubric: {rubric.id}")
-````
+```
 
-  
-````typescript
+```typescript
 const rubric = await client.beta.files.upload({
   file: await toFile(readFile("/tmp/rubric.md"), "/tmp/rubric.md"),
 });
 console.log(`Uploaded rubric: ${rubric.id}`);
-````
+```
 
-  
-````csharp
+```csharp
 var rubric = await client.Beta.Files.Upload(new()
 {
     File = File.OpenRead("/tmp/rubric.md"),
 });
 Console.WriteLine($"Uploaded rubric: {rubric.ID}");
-````
+```
 
-  
-````go
+```go
 f, err := os.Open("/tmp/rubric.md")
 if err != nil {
 	panic(err)
@@ -114,30 +114,27 @@ if err != nil {
 	panic(err)
 }
 fmt.Printf("Uploaded rubric: %s\n", uploaded.ID)
-````
+```
 
-  
-````java
+```java
 var rubric = client.beta().files().upload(
     FileUploadParams.builder()
         .file(Path.of("/tmp/rubric.md"))
         .build());
 IO.println("Uploaded rubric: " + rubric.id());
-````
+```
 
-  
-````php
+```php
 $rubric = $client->beta->files->upload(
     file: fopen('/tmp/rubric.md', 'r'),
 );
 echo "Uploaded rubric: {$rubric->id}\n";
-````
+```
 
-  
-````ruby
+```ruby
 rubric = client.beta.files.upload(file: Pathname.new("/tmp/rubric.md"))
 puts "Uploaded rubric: #{rubric.id}"
-````
+```
 
 </CodeGroup>
 
@@ -164,27 +161,31 @@ EOF
 session_id=$(jq -r '.id' <<<"$session")
 
 # Define the outcome — agent starts working on receipt
+
 curl -fsSL "https://api.anthropic.com/v1/sessions/$session_id/events" \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-beta: managed-agents-2026-04-01" \
-  --json @- >/dev/null <<EOF
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "anthropic-version: 2023-06-01" \
+ -H "anthropic-beta: managed-agents-2026-04-01" \
+ --json @- >/dev/null <<EOF
 {
-  "events": [
-    {
-      "type": "user.define_outcome",
-      "description": "Build a DCF model for Costco in .xlsx",
-      "rubric": {"type": "text", "content": "# DCF Model Rubric\n..."},
-      "max_iterations": 5
-    }
-  ]
+"events": [
+{
+"type": "user.define_outcome",
+"description": "Build a DCF model for Costco in .xlsx",
+"rubric": {"type": "text", "content": "# DCF Model Rubric\n..."},
+"max_iterations": 5
+}
+]
 }
 EOF
-# or: "rubric": {"type": "file", "file_id": "$rubric_id"}
-# "max_iterations" is optional; default 3, max 20
-````
 
-  
+# or: "rubric": {"type": "file", "file_id": "$rubric_id"}
+
+# "max_iterations" is optional; default 3, max 20
+
+`````
+
+
 ````bash
 # Create a session
 SESSION_ID=$(ant beta:sessions create \
@@ -203,10 +204,9 @@ events:
     # or: rubric: {type: text, content: "..."}
     max_iterations: 5  # optional; default 3, max 20
 YAML
-````
+`````
 
-  
-````python
+```python
 # Create a session
 session = client.beta.sessions.create(
     agent=agent.id,
@@ -227,10 +227,9 @@ client.beta.sessions.events.send(
         }
     ],
 )
-````
+```
 
-  
-````typescript
+```typescript
 // Create a session
 const session = await client.beta.sessions.create({
   agent: agent.id,
@@ -250,10 +249,9 @@ await client.beta.sessions.events.send(session.id, {
     },
   ],
 });
-````
+```
 
-  
-````csharp
+```csharp
 // Create a session
 var session = await client.Beta.Sessions.Create(new()
 {
@@ -277,10 +275,9 @@ await client.Beta.Sessions.Events.Send(session.ID, new()
         },
     ],
 });
-````
+```
 
-  
-````go
+```go
 // Create a session
 session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 	Agent: anthropic.BetaSessionNewParamsAgentUnion{
@@ -309,10 +306,9 @@ _, err = client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSession
 if err != nil {
 	panic(err)
 }
-````
+```
 
-  
-````java
+```java
 // Create a session
 var session = client.beta().sessions().create(
     SessionCreateParams.builder()
@@ -332,10 +328,9 @@ client.beta().sessions().events().send(
             .maxIterations(5) // optional; default 3, max 20
             .build())
         .build());
-````
+```
 
-  
-````php
+```php
 // Create a session
 $session = $client->beta->sessions->create(
     agent: $agent->id,
@@ -356,10 +351,9 @@ $client->beta->sessions->events->send(
         ],
     ],
 );
-````
+```
 
-  
-````ruby
+```ruby
 # Create a session
 session = client.beta.sessions.create(
   agent: agent.id,
@@ -380,7 +374,7 @@ client.beta.sessions.events.send_(
     }
   ]
 )
-````
+```
 
 </CodeGroup>
 
@@ -395,6 +389,7 @@ Progress on an outcome-oriented session is surfaced on the events [stream](/docs
 - After the final outcome evaluation, the session can be continued as a conversational session, or a new outcome can be kicked off. The session will retain history of the prior outcome.
 
 ### Define outcome user event
+
 <Note>
 Only one outcome supported at a time, but you may chain together outcomes in sequence. To do this, send a new `user.define_outcome` event after the terminal event of the previous outcome.
 </Note>
@@ -441,13 +436,13 @@ Heartbeat emitted while the grader runs. The grader's internal reasoning is opaq
 
 Emitted after the grader finishes evaluating one iteration. The `result` field indicates what happens next.
 
-| Result | Next |
-| --- | --- |
-| `satisfied` | Session transitions to `idle`. |
-| `needs_revision` | Agent starts a new iteration cycle. |
-| `max_iterations_reached` | No further evaluation cycles. The agent may run one final revision before the session transitions to `idle`. |
-| `failed` | Session transitions to `idle`. Returned when the rubric fundamentally does not match the task, for example if the description and rubric contradict each other. |
-| `interrupted` | Only emitted if `outcome_evaluation_start` already fired before the interrupt. |
+| Result                   | Next                                                                                                                                                            |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `satisfied`              | Session transitions to `idle`.                                                                                                                                  |
+| `needs_revision`         | Agent starts a new iteration cycle.                                                                                                                             |
+| `max_iterations_reached` | No further evaluation cycles. The agent may run one final revision before the session transitions to `idle`.                                                    |
+| `failed`                 | Session transitions to `idle`. Returned when the rubric fundamentally does not match the task, for example if the description and rubric contradict each other. |
+| `interrupted`            | Only emitted if `outcome_evaluation_start` already fired before the interrupt.                                                                                  |
 
 ```json
 {
@@ -481,36 +476,35 @@ session=$(curl -fsSL "https://api.anthropic.com/v1/sessions/$session_id" \
   -H "anthropic-beta: managed-agents-2026-04-01")
 
 jq -r '.outcome_evaluations[] | "\(.outcome_id): \(.result)"' <<<"$session"
-# outc_01a...: satisfied
-````
 
-  
+# outc_01a...: satisfied
+
+`````
+
+
 ````bash
 ant beta:sessions retrieve --session-id "$SESSION_ID" \
   --transform 'outcome_evaluations' --format yaml
-````
+`````
 
-  
-````python
+```python
 session = client.beta.sessions.retrieve(session.id)
 
 for outcome in session.outcome_evaluations:
     print(f"{outcome.outcome_id}: {outcome.result}")
     # outc_01a...: satisfied
-````
+```
 
-  
-````typescript
+```typescript
 const retrieved = await client.beta.sessions.retrieve(session.id);
 
 for (const outcome of retrieved.outcome_evaluations) {
   console.log(`${outcome.outcome_id}: ${outcome.result}`);
   // outc_01a...: satisfied
 }
-````
+```
 
-  
-````csharp
+```csharp
 session = await client.Beta.Sessions.Retrieve(session.ID);
 
 foreach (var outcome in session.OutcomeEvaluations)
@@ -518,10 +512,9 @@ foreach (var outcome in session.OutcomeEvaluations)
     Console.WriteLine($"{outcome.OutcomeID}: {outcome.Result}");
     // outc_01a...: satisfied
 }
-````
+```
 
-  
-````go
+```go
 session, err = client.Beta.Sessions.Get(ctx, session.ID, anthropic.BetaSessionGetParams{})
 if err != nil {
 	panic(err)
@@ -531,43 +524,40 @@ for _, outcome := range session.OutcomeEvaluations {
 	fmt.Printf("%s: %s\n", outcome.OutcomeID, outcome.Result)
 	// outc_01a...: satisfied
 }
-````
+```
 
-  
-````java
+```java
 var retrieved = client.beta().sessions().retrieve(session.id());
 
 for (var outcome : retrieved.outcomeEvaluations()) {
     IO.println(outcome.outcomeId() + ": " + outcome.result());
     // outc_01a...: satisfied
 }
-````
+```
 
-  
-````php
+```php
 $session = $client->beta->sessions->retrieve($session->id);
 
 foreach ($session->outcomeEvaluations as $outcome) {
     echo "{$outcome->outcomeID}: {$outcome->result}\n";
     // outc_01a...: satisfied
 }
-````
+```
 
-  
-````ruby
+```ruby
 session = client.beta.sessions.retrieve(session.id)
 
 session.outcome_evaluations.each do
   puts "#{it.outcome_id}: #{it.result}"
   # outc_01a...: satisfied
 end
-````
+```
 
 </CodeGroup>
 
 ## Retrieving deliverables
 
-The agent writes output files to `/mnt/session/outputs/` inside the container. Once the session is idle, fetch them via the [Files API](/docs/en/build-with-claude/files) scoped to the session:
+The agent writes output files to `/mnt/session/outputs/` inside the sandbox. Once the session is idle, fetch them via the [Files API](/docs/en/build-with-claude/files) scoped to the session:
 
 <CodeGroup>
   
@@ -580,17 +570,19 @@ files=$(curl -fsSL "https://api.anthropic.com/v1/files?scope_id=$session_id" \
 jq -r '.data[] | "\(.id) \(.filename)"' <<<"$files"
 
 # Download a file
-file_id=$(jq -r '.data[0].id // empty' <<<"$files")
-if [[ -n $file_id ]]; then
-  curl -fsSL "https://api.anthropic.com/v1/files/$file_id/content" \
-    -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
-    -H "anthropic-beta: managed-agents-2026-04-01" \
-    -o /tmp/output.txt
-fi
-````
 
-  
+file_id=$(jq -r '.data[0].id // empty' <<<"$files")
+if [[-n $file_id]]; then
+curl -fsSL "https://api.anthropic.com/v1/files/$file_id/content" \
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "anthropic-version: 2023-06-01" \
+ -H "anthropic-beta: managed-agents-2026-04-01" \
+ -o /tmp/output.txt
+fi
+
+`````
+
+
 ````bash
 # List files produced by this session
 ant beta:files list --scope-id "$SESSION_ID"
@@ -601,10 +593,9 @@ FILE_ID=$(ant beta:files list --scope-id "$SESSION_ID" \
 if [[ -n $FILE_ID ]]; then
   ant beta:files download --file-id "$FILE_ID" --output /tmp/output.txt
 fi
-````
+`````
 
-  
-````python
+```python
 # List files produced by this session
 files = client.beta.files.list(scope_id=session.id)
 for f in files:
@@ -614,10 +605,9 @@ for f in files:
 if files.data:
     content = client.beta.files.download(files.data[0].id)
     content.write_to_file("/tmp/output.txt")
-````
+```
 
-  
-````typescript
+```typescript
 // List files produced by this session
 const files = await client.beta.files.list({ scope_id: session.id });
 for (const f of files.data) {
@@ -627,12 +617,14 @@ for (const f of files.data) {
 // Download a file
 if (files.data.length > 0) {
   const content = await client.beta.files.download(files.data[0].id);
-  await writeFile("/tmp/output.txt", new Uint8Array(await content.arrayBuffer()));
+  await writeFile(
+    "/tmp/output.txt",
+    new Uint8Array(await content.arrayBuffer()),
+  );
 }
-````
+```
 
-  
-````csharp
+```csharp
 // List files produced by this session
 var files = await client.Beta.Files.List(new() { ScopeID = session.ID });
 foreach (var file in files.Data)
@@ -646,10 +638,9 @@ if (files.Data.Count > 0)
     var content = await client.Beta.Files.Download(files.Data[0].ID);
     await File.WriteAllBytesAsync("/tmp/output.txt", content);
 }
-````
+```
 
-  
-````go
+```go
 // List files produced by this session
 files, err := client.Beta.Files.List(ctx, anthropic.BetaFileListParams{
 	// pass ScopeID: anthropic.String(session.ID) to filter
@@ -671,10 +662,9 @@ if len(files.Data) > 0 {
 	fileContent, _ := io.ReadAll(resp.Body)
 	os.WriteFile("/tmp/output.txt", fileContent, 0o644)
 }
-````
+```
 
-  
-````java
+```java
 // List files produced by this session
 var files = client.beta().files().list(
     FileListParams.builder()/* pass .scopeId(session.id()) to filter */.build());
@@ -690,10 +680,9 @@ if (!files.data().isEmpty()) {
         }
     }
 }
-````
+```
 
-  
-````php
+```php
 // List files produced by this session
 $files = $client->beta->files->list(/* pass scopeID: $session->id to filter */);
 foreach ($files->data as $file) {
@@ -705,10 +694,9 @@ if (count($files->data) > 0) {
     $content = $client->beta->files->download($files->data[0]->id);
     file_put_contents('/tmp/output.txt', $content);
 }
-````
+```
 
-  
-````ruby
+```ruby
 # List files produced by this session
 files = client.beta.files.list(scope_id: session.id)
 files.data.each { puts "#{it.id} #{it.filename}" }
@@ -718,6 +706,6 @@ if (first = files.data.first)
   content = client.beta.files.download(first.id)
   File.binwrite("/tmp/output.txt", content.read)
 end
-````
+```
 
 </CodeGroup>

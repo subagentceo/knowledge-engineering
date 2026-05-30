@@ -16,9 +16,9 @@ For instructions to add and remove members, see **[Managing members on Team and 
 
 ---
 
-## Extra usage
+## Usage credits
 
-If extra usage is enabled, your bill may include charges for usage beyond seat limits. See this article for more information: **[Extra usage for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-extra-usage-for-team-and-seat-based-enterprise-plans)**.
+If usage credits are enabled, your bill may include charges for usage beyond seat limits. For details on how usage credits work and how they're billed on your plan, see **[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-)**.
 
 ---
 

@@ -1,12 +1,14 @@
-[**Greptile**](https://greptile.com) builds AI agents that review pull requests with full codebase context. The company serves more than 2,000 organizations, from startups to enterprises like NVIDIA, Brex, and Coinbase, helping engineering teams catch bugs and anti-patterns before they ship to production.
+# Greptile builds truly agentic code review with Claude Agent SDK
+
+**Greptile** builds AI agents that review pull requests with full codebase context. The company serves more than 2,000 organizations, from startups to enterprises like NVIDIA, Brex, and Coinbase, helping engineering teams catch bugs and anti-patterns before they ship to production.
 
 ## With Claude Agent SDK, Greptile:
 
--   Achieves ~90% cache hit rates, dramatically reducing costs for both Greptile and self-hosting customers
--   Enables multi-hop code investigation that follows leads across git history, similar functions, and pull request context
--   Ships new capabilities faster by focusing engineering time on specialized tooling rather than harness infrastructure
--   Powers autonomous code review that iteratively investigates issues rather than following rigid workflows
--   Provides enterprise customers with cost-effective self-hosting options through efficient compute usage
+- Achieves ~90% cache hit rates, dramatically reducing costs for both Greptile and self-hosting customers
+- Enables multi-hop code investigation that follows leads across git history, similar functions, and pull request context
+- Ships new capabilities faster by focusing engineering time on specialized tooling rather than harness infrastructure
+- Powers autonomous code review that iteratively investigates issues rather than following rigid workflows
+- Provides enterprise customers with cost-effective self-hosting options through efficient compute usage
 
 ## The problem
 
@@ -38,7 +40,7 @@ The team also uses hooks to inject determinism where it matters. For code review
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/696a9788da0a2879bd4e7abb_03707559.png)
 
-[Greptile](https://www.greptile.com/examples) catches a precision calculation bug in [NVIDIA's PhysicsNeMo](https://github.com/NVIDIA/physicsnemo/pull/1174), then backs it up with evidence when the author pushes back.
+Greptile catches a precision calculation bug in NVIDIA's PhysicsNeMo, then backs it up with evidence when the author pushes back.
 
 ‍
 
@@ -48,8 +50,8 @@ The deeper impact is in what Greptile can now build. "The Agent SDK has allowed 
 
 Rather than maintaining harness infrastructure, the team invests that engineering time in the tools that make code review genuinely useful: better codebase understanding, smarter similarity detection, richer git history analysis.
 
-The results show up in production. In one example from an NVIDIA open-source repository, Greptile flagged an issue that the reviewing engineer initially disputed. The agent responded with additional evidence—comparisons to similar functions across the codebase, relevant git history—and the engineer acknowledged the catch was correct. That kind of multi-step investigation, where the agent can defend its findings with evidence, is exactly what the agentic architecture enables.  
-  
+The results show up in production. In one example from an NVIDIA open-source repository, Greptile flagged an issue that the reviewing engineer initially disputed. The agent responded with additional evidence—comparisons to similar functions across the codebase, relevant git history—and the engineer acknowledged the catch was correct. That kind of multi-step investigation, where the agent can defend its findings with evidence, is exactly what the agentic architecture enables.
+
 Customers have noticed the difference. "Despite having a tech stack that has repeatedly proven difficult for AI to grasp, Greptile has delivered consistent review insights with a good signal-to-noise ratio that has won over even our most discerning engineers," says Jarrod Ruhdland, Principal Engineer at Brex.
 
 Greptile continues to expand what's possible with the Agent SDK, building new capabilities that would have been far more difficult to develop and maintain without it. For a company reviewing over a billion lines of code each month, the ability to focus on domain expertise rather than infrastructure has become a strategic advantage.

@@ -1,3 +1,5 @@
+# Trellis
+
 Trellis — Claude for Trial Court Litigators gives Claude direct access to the largest state trial court dataset in the U.S. — including dockets, rulings, verdicts, and filings — enabling legal research, judge and opposing counsel analytics, expert witness vetting, and motion drafting grounded in real precedent.
 
 You can use Trellis to:

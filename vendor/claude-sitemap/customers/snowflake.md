@@ -1,10 +1,12 @@
+# Snowflake powers enterprise data intelligence with Claude
+
 Snowflake enables enterprises to use Claude and gain improved insights from both structured and unstructured data while maintaining rigorous security standards.
 
 With Claude, Snowflake:
 
--   Enables greater than 90% accuracy on complex text-to-SQL tasks based on internal benchmarks
--   Enhances delivery of data in natural language for 10,000+ global enterprises
--   Accelerates time-to-insight with Claude running on Snowflake’s governed customer data
+- Enables greater than 90% accuracy on complex text-to-SQL tasks based on internal benchmarks
+- Enhances delivery of data in natural language for 10,000+ global enterprises
+- Accelerates time-to-insight with Claude running on Snowflake’s governed customer data
 
 ## Addressing enterprise data challenges
 
@@ -22,11 +24,11 @@ Snowflake's customers can use the Cortex AI platform to interact with their data
 
 With Cortex Analyst, Snowflake enables its customers to:
 
--   Obtain real-time insights from both structured and unstructured data
--   Convert natural language queries to SQL on complex databases
--   Enterprise-scale conversational analytics with built-in governance controls
--   Cross-region inference enabling global deployment and access
--   Deployment of sophisticated AI applications in days instead of months
+- Obtain real-time insights from both structured and unstructured data
+- Convert natural language queries to SQL on complex databases
+- Enterprise-scale conversational analytics with built-in governance controls
+- Cross-region inference enabling global deployment and access
+- Deployment of sophisticated AI applications in days instead of months
 
 ## Delivering measurable impact
 
@@ -38,6 +40,6 @@ Composable customer data platform provider Simon Data has seen particularly comp
 
 ## Building the future of enterprise data
 
-Snowflake aims to transform how organizations interact with their data—moving from code-based queries to natural conversations that unlock insights for everyone. Harshal Pimpalkhute, Principal Product Manager for Cortex AI at Snowflake, said, "By combining Claude's reasoning, planning, and problem-solving with Snowflake's platform trusted by over 10,000 organizations worldwide, enterprises can unlock their data's potential with [Cortex Agents](https://www.snowflake.com/en/blog/ai-data-agents-snowflake-cortex/) and large-scale data processing."
+Snowflake aims to transform how organizations interact with their data—moving from code-based queries to natural conversations that unlock insights for everyone. Harshal Pimpalkhute, Principal Product Manager for Cortex AI at Snowflake, said, "By combining Claude's reasoning, planning, and problem-solving with Snowflake's platform trusted by over 10,000 organizations worldwide, enterprises can unlock their data's potential with Cortex Agents and large-scale data processing."
 
 This partnership represents more than just technological advancement. By combining Claude's advanced capabilities with Snowflake's trusted platform, customers are creating a future where data insights aren't confined to technical specialists. Instead, every employee can engage with their organization's data naturally and confidently, unlocking new possibilities for innovation, decision-making, and growth. Together, Snowflake and Anthropic are democratizing data intelligence and, as AI technology advances, extending its benefits across every level of the enterprise.

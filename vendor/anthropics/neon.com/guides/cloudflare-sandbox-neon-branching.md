@@ -124,8 +124,8 @@ The core of this runner is a Cloudflare Worker that listens for incoming HTTP re
 Replace the contents of `src/index.ts` with the following code:
 
 ```typescript
-import { getSandbox } from '@cloudflare/sandbox'
-import { createApiClient, EndpointType } from '@neondatabase/api-client'
+import { getSandbox } from "@cloudflare/sandbox";
+import { createApiClient, EndpointType } from "@neondatabase/api-client";
 
 const EXTRA_SYSTEM = `
 You are a **senior full-stack developer** working in an **isolated development environment**.
@@ -164,71 +164,68 @@ You are allowed to:
 ### Goal
 
 Complete the assigned task successfully by making the necessary **database and/or code changes**, ensuring the system functions correctly with the updates.
-`
+`;
 
 function escapeShell(str: string) {
-  return str.replaceAll('"', '\\"').replaceAll('`', '\\`')
+  return str.replaceAll('"', '\\"').replaceAll("`", "\\`");
 }
 
 async function createNeonBranch(
   projectId: string,
   branchName: string,
-  env: Env
+  env: Env,
 ): Promise<string> {
-  const api = createApiClient({ apiKey: env.NEON_API_KEY! })
+  const api = createApiClient({ apiKey: env.NEON_API_KEY! });
 
   const res = await api.createProjectBranch(projectId, {
     branch: { name: branchName },
-    endpoints: [{ type: EndpointType.ReadWrite }]
-  })
+    endpoints: [{ type: EndpointType.ReadWrite }],
+  });
 
-  const uri = res.data.connection_uris?.[0]?.connection_uri
-  if (!uri) throw new Error('No DB connection URI returned')
+  const uri = res.data.connection_uris?.[0]?.connection_uri;
+  if (!uri) throw new Error("No DB connection URI returned");
 
-  return uri
+  return uri;
 }
 
 async function run(sandbox: ReturnType<typeof getSandbox>, cmd: string) {
-  const result = await sandbox.exec(cmd)
-  if (!result.success) throw new Error(result.stderr)
-  return result
+  const result = await sandbox.exec(cmd);
+  if (!result.success) throw new Error(result.stderr);
+  return result;
 }
 
 async function cloneRepo(
   sandbox: ReturnType<typeof getSandbox>,
   repoUrl: string,
-  token: string
+  token: string,
 ) {
-  const url = `https://x-access-token:${token}@${repoUrl.replace('https://', '')}`
-  await run(sandbox, `git clone ${url} /home/app`)
+  const url = `https://x-access-token:${token}@${repoUrl.replace("https://", "")}`;
+  await run(sandbox, `git clone ${url} /home/app`);
 }
 
 async function createGitBranch(
   sandbox: ReturnType<typeof getSandbox>,
-  branch: string
+  branch: string,
 ) {
-  await run(sandbox, `cd /home/app && git checkout -b ${branch}`)
+  await run(sandbox, `cd /home/app && git checkout -b ${branch}`);
 }
 
-async function runClaude(
-  sandbox: ReturnType<typeof getSandbox>,
-  task: string
-) {
+async function runClaude(sandbox: ReturnType<typeof getSandbox>, task: string) {
   const cmd = `
     cd /home/app &&
     claude --dangerously-skip-permissions \
       --model haiku \
       --append-system-prompt "${escapeShell(EXTRA_SYSTEM)}" \
       -p "${escapeShell(task)}"
-  `
+  `;
 
-  return run(sandbox, cmd)
+  return run(sandbox, cmd);
 }
 
 async function commitChanges(
   sandbox: ReturnType<typeof getSandbox>,
   agentId: string,
-  task: string
+  task: string,
 ) {
   // Use standard GitHub Actions bot credentials for commit attribution
   await sandbox.exec(`
@@ -237,21 +234,21 @@ async function commitChanges(
     git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
     git add .
     git commit -m "AI agent ${agentId}: ${escapeShell(task)}" || echo "No changes"
-  `)
+  `);
 }
 
 async function pushBranch(
   sandbox: ReturnType<typeof getSandbox>,
-  branch: string
+  branch: string,
 ) {
-  await run(sandbox, `cd /home/app && git push origin ${branch}`)
+  await run(sandbox, `cd /home/app && git push origin ${branch}`);
 }
 
 async function createPR(
   sandbox: ReturnType<typeof getSandbox>,
   agentId: string,
   task: string,
-  token: string
+  token: string,
 ) {
   const res = await run(
     sandbox,
@@ -260,54 +257,49 @@ async function createPR(
     gh auth login --with-token <<< "${token}"
     gh pr create --title "AI Agent: ${agentId}" \
       --body "Automated PR for task: ${escapeShell(task)}"
-  `
-  )
+  `,
+  );
 
-  const match = res.stdout.match(/https:\/\/github\.com\/\S+\/pull\/\d+/)
-  return match?.[0]
+  const match = res.stdout.match(/https:\/\/github\.com\/\S+\/pull\/\d+/);
+  return match?.[0];
 }
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    if (request.method !== 'POST') {
-      return new Response('Method Not Allowed', { status: 405 })
+    if (request.method !== "POST") {
+      return new Response("Method Not Allowed", { status: 405 });
     }
 
     try {
       const { repoUrl, task } = await request.json<{
-        repoUrl?: string
-        task?: string
-      }>()
+        repoUrl?: string;
+        task?: string;
+      }>();
 
       if (!repoUrl || !task) {
-        return new Response('repoUrl and task required', { status: 400 })
+        return new Response("repoUrl and task required", { status: 400 });
       }
 
-      const agentId = `agent-${Date.now()}`
-      const sandbox = getSandbox(env.Sandbox, crypto.randomUUID().slice(0, 8))
+      const agentId = `agent-${Date.now()}`;
+      const sandbox = getSandbox(env.Sandbox, crypto.randomUUID().slice(0, 8));
 
-      const dbUrl = await createNeonBranch(env.NEON_PROJECT_ID, agentId, env)
+      const dbUrl = await createNeonBranch(env.NEON_PROJECT_ID, agentId, env);
 
-      await cloneRepo(sandbox, repoUrl, env.GITHUB_TOKEN)
-      await createGitBranch(sandbox, agentId)
+      await cloneRepo(sandbox, repoUrl, env.GITHUB_TOKEN);
+      await createGitBranch(sandbox, agentId);
 
       await sandbox.setEnvVars({
         ANTHROPIC_API_KEY: env.ANTHROPIC_API_KEY,
         DATABASE_URL: dbUrl,
-        IS_SANDBOX: "1"
-      })
+        IS_SANDBOX: "1",
+      });
 
-      const agentResult = await runClaude(sandbox, task)
+      const agentResult = await runClaude(sandbox, task);
 
-      await commitChanges(sandbox, agentId, task)
-      await pushBranch(sandbox, agentId)
+      await commitChanges(sandbox, agentId, task);
+      await pushBranch(sandbox, agentId);
 
-      const prUrl = await createPR(
-        sandbox,
-        agentId,
-        task,
-        env.GITHUB_TOKEN
-      )
+      const prUrl = await createPR(sandbox, agentId, task, env.GITHUB_TOKEN);
 
       return Response.json({
         success: agentResult.success,
@@ -315,16 +307,16 @@ export default {
         databaseUrl: dbUrl,
         agentOutput: agentResult.stdout,
         agentErrors: agentResult.stderr,
-        prUrl
-      })
+        prUrl,
+      });
     } catch (err) {
-      console.error(err)
-      return new Response('Request failed', { status: 400 })
+      console.error(err);
+      return new Response("Request failed", { status: 400 });
     }
-  }
-}
+  },
+};
 
-export { Sandbox } from '@cloudflare/sandbox'
+export { Sandbox } from "@cloudflare/sandbox";
 ```
 
 This code implements the full workflow of the cloud agent runner. The main components are:

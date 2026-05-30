@@ -1,4 +1,4 @@
-## List
+## List Skill Versions
 
 `VersionListPage beta().skills().versions().list(VersionListParamsparams = VersionListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,7 +9,6 @@ List Skill Versions
 ### Parameters
 
 - `VersionListParams params`
-
   - `Optional<String> skillId`
 
     Unique identifier for the skill.
@@ -29,7 +28,6 @@ List Skill Versions
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -78,10 +76,15 @@ List Skill Versions
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class VersionListResponse:`
-
   - `String id`
 
     Unique identifier for the skill version.
@@ -144,5 +147,26 @@ public final class Main {
 
         VersionListPage page = client.beta().skills().versions().list("skill_id");
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "description": "A custom skill for doing something useful",
+      "directory": "my-skill",
+      "name": "my-skill",
+      "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "type": "type",
+      "version": "1759178010641129"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```

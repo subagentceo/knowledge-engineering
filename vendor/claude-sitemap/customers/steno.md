@@ -1,8 +1,10 @@
+# Steno helps attorneys find the critical insights in legal transcripts with Claude
+
 Steno uses Claude 3 Opus to streamline deposition preparation for attorneys. Claude helps lawyers quickly find relevant information across vast transcripts, saving them from manually gathering and reading thousands of pages at a time.
 
 ## Analyzing long legal transcripts
 
-Steno provides legal support services, such as [court reporting and remote depositions](https://steno.com/), to more than 1200 law firms across the United States. These legal proceedings are captured in transcripts. Attorneys often look at previous transcripts to understand, for example, how an expert witness responds to certain types of questions or whether a witness has been inconsistent in their testimony in the past.
+Steno provides legal support services, such as court reporting and remote depositions, to more than 1200 law firms across the United States. These legal proceedings are captured in transcripts. Attorneys often look at previous transcripts to understand, for example, how an expert witness responds to certain types of questions or whether a witness has been inconsistent in their testimony in the past.
 
 For firms that don’t use Steno, these transcripts are often stored on attorneys’ desktops or Google Drives. Finding a transcript requires sending an email to colleagues (“Has anyone deposed this expert witness before?”). Then, someone must scour several individual transcripts—each of which might be hundreds of pages long—for relevant information.
 

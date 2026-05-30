@@ -1,10 +1,18 @@
 # Workspaces
 
-## Create
+## Create Workspace
 
 **post** `/v1/organizations/workspaces`
 
 Create Workspace
+
+### Header Parameters
+
+- `"anthropic-beta": optional array of string`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  To use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.
 
 ### Body Parameters
 
@@ -15,15 +23,12 @@ Create Workspace
 - `data_residency: optional object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
   Data residency configuration for the workspace. If omitted, defaults to workspace_geo=`"us"`, allowed_inference_geos=`"unrestricted"`, and default_inference_geo=`"global"`.
-
   - `allowed_inference_geos: optional array of string or "unrestricted"`
 
     Permitted inference geo values. Defaults to 'unrestricted' if omitted, which allows all geos. Use the string 'unrestricted' to allow all geos, or a list of specific geos.
+    - `array of string`
 
-    - `UnionMember0 = array of string`
-
-    - `UnionMember1 = "unrestricted"`
-
+    - `"unrestricted"`
       - `"unrestricted"`
 
   - `default_inference_geo: optional string`
@@ -34,10 +39,13 @@ Create Workspace
 
     Geographic region for workspace data storage. Immutable after creation. Defaults to 'us' if omitted.
 
+- `tags: optional map[string]`
+
+  User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
 ### Returns
 
-- `Workspace = object { id, archived_at, created_at, 4 more }`
-
+- `Workspace object { id, archived_at, created_at, 5 more }`
   - `id: string`
 
     ID of the Workspace.
@@ -53,15 +61,12 @@ Create Workspace
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
-
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+      - `array of string`
 
-      - `UnionMember0 = array of string`
-
-      - `UnionMember1 = "unrestricted"`
-
+      - `"unrestricted"`
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -80,12 +85,15 @@ Create Workspace
 
     Name of the Workspace.
 
+  - `tags: map[string]`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
   - `type: "workspace"`
 
     Object type.
 
     For Workspaces, this is always `"workspace"`.
-
     - `"workspace"`
 
 ### Example
@@ -96,11 +104,37 @@ curl https://api.anthropic.com/v1/organizations/workspaces \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
     -d '{
-          "name": "x"
+          "name": "x",
+          "tags": {
+            "env": "prod",
+            "team": "platform"
+          }
         }'
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "default_inference_geo",
+    "workspace_geo": "workspace_geo"
+  },
+  "display_color": "#6C5BB9",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
+## Get Workspace
 
 **get** `/v1/organizations/workspaces/{workspace_id}`
 
@@ -114,8 +148,7 @@ Get Workspace
 
 ### Returns
 
-- `Workspace = object { id, archived_at, created_at, 4 more }`
-
+- `Workspace object { id, archived_at, created_at, 5 more }`
   - `id: string`
 
     ID of the Workspace.
@@ -131,15 +164,12 @@ Get Workspace
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
-
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+      - `array of string`
 
-      - `UnionMember0 = array of string`
-
-      - `UnionMember1 = "unrestricted"`
-
+      - `"unrestricted"`
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -158,12 +188,15 @@ Get Workspace
 
     Name of the Workspace.
 
+  - `tags: map[string]`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
   - `type: "workspace"`
 
     Object type.
 
     For Workspaces, this is always `"workspace"`.
-
     - `"workspace"`
 
 ### Example
@@ -174,7 +207,29 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "default_inference_geo",
+    "workspace_geo": "workspace_geo"
+  },
+  "display_color": "#6C5BB9",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
+## List Workspaces
 
 **get** `/v1/organizations/workspaces`
 
@@ -203,7 +258,6 @@ List Workspaces
 ### Returns
 
 - `data: array of Workspace`
-
   - `id: string`
 
     ID of the Workspace.
@@ -219,15 +273,12 @@ List Workspaces
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
-
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+      - `array of string`
 
-      - `UnionMember0 = array of string`
-
-      - `UnionMember1 = "unrestricted"`
-
+      - `"unrestricted"`
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -246,12 +297,15 @@ List Workspaces
 
     Name of the Workspace.
 
+  - `tags: map[string]`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
   - `type: "workspace"`
 
     Object type.
 
     For Workspaces, this is always `"workspace"`.
-
     - `"workspace"`
 
 - `first_id: string`
@@ -274,7 +328,36 @@ curl https://api.anthropic.com/v1/organizations/workspaces \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+      "archived_at": "2024-11-01T23:59:27.427722Z",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "data_residency": {
+        "allowed_inference_geos": "unrestricted",
+        "default_inference_geo": "default_inference_geo",
+        "workspace_geo": "workspace_geo"
+      },
+      "display_color": "#6C5BB9",
+      "name": "Workspace Name",
+      "tags": {
+        "env": "prod",
+        "team": "platform"
+      },
+      "type": "workspace"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+## Update Workspace
 
 **post** `/v1/organizations/workspaces/{workspace_id}`
 
@@ -286,32 +369,32 @@ Update Workspace
 
 ### Body Parameters
 
-- `name: string`
-
-  Name of the Workspace.
-
 - `data_residency: optional object { allowed_inference_geos, default_inference_geo }`
 
   Data residency configuration for the workspace.
-
   - `allowed_inference_geos: optional array of string or "unrestricted"`
 
     Permitted inference geo values. Use 'unrestricted' to allow all geos, or a list of specific geos.
+    - `array of string`
 
-    - `UnionMember0 = array of string`
-
-    - `UnionMember1 = "unrestricted"`
-
+    - `"unrestricted"`
       - `"unrestricted"`
 
   - `default_inference_geo: optional string`
 
     Default inference geo applied when requests omit the parameter. Must be a member of allowed_inference_geos unless allowed_inference_geos is `"unrestricted"`.
 
+- `name: optional string`
+
+  Name of the Workspace.
+
+- `tags: optional map[string]`
+
+  User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
 ### Returns
 
-- `Workspace = object { id, archived_at, created_at, 4 more }`
-
+- `Workspace object { id, archived_at, created_at, 5 more }`
   - `id: string`
 
     ID of the Workspace.
@@ -327,15 +410,12 @@ Update Workspace
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
-
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+      - `array of string`
 
-      - `UnionMember0 = array of string`
-
-      - `UnionMember1 = "unrestricted"`
-
+      - `"unrestricted"`
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -354,12 +434,15 @@ Update Workspace
 
     Name of the Workspace.
 
+  - `tags: map[string]`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
   - `type: "workspace"`
 
     Object type.
 
     For Workspaces, this is always `"workspace"`.
-
     - `"workspace"`
 
 ### Example
@@ -370,11 +453,36 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
     -d '{
-          "name": "x"
+          "tags": {
+            "env": "prod",
+            "team": "platform"
+          }
         }'
 ```
 
-## Archive
+#### Response
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "default_inference_geo",
+    "workspace_geo": "workspace_geo"
+  },
+  "display_color": "#6C5BB9",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
+## Archive Workspace
 
 **post** `/v1/organizations/workspaces/{workspace_id}/archive`
 
@@ -386,8 +494,7 @@ Archive Workspace
 
 ### Returns
 
-- `Workspace = object { id, archived_at, created_at, 4 more }`
-
+- `Workspace object { id, archived_at, created_at, 5 more }`
   - `id: string`
 
     ID of the Workspace.
@@ -403,15 +510,12 @@ Archive Workspace
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
-
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+      - `array of string`
 
-      - `UnionMember0 = array of string`
-
-      - `UnionMember1 = "unrestricted"`
-
+      - `"unrestricted"`
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -430,12 +534,15 @@ Archive Workspace
 
     Name of the Workspace.
 
+  - `tags: map[string]`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
   - `type: "workspace"`
 
     Object type.
 
     For Workspaces, this is always `"workspace"`.
-
     - `"workspace"`
 
 ### Example
@@ -447,9 +554,31 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/archive
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "default_inference_geo",
+    "workspace_geo": "workspace_geo"
+  },
+  "display_color": "#6C5BB9",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
+```
+
 # Members
 
-## Create
+## Create Workspace Member
 
 **post** `/v1/organizations/workspaces/{workspace_id}/members`
 
@@ -470,7 +599,6 @@ Create Workspace Member
 - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or "workspace_admin"`
 
   Role of the new Workspace Member. Cannot be "workspace_billing".
-
   - `"workspace_user"`
 
   - `"workspace_developer"`
@@ -481,14 +609,12 @@ Create Workspace Member
 
 ### Returns
 
-- `WorkspaceMember = object { type, user_id, workspace_id, workspace_role }`
-
+- `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
-
     - `"workspace_member"`
 
   - `user_id: string`
@@ -502,7 +628,6 @@ Create Workspace Member
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
-
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -526,7 +651,18 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
         }'
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "type": "workspace_member",
+  "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "workspace_role": "workspace_user"
+}
+```
+
+## Get Workspace Member
 
 **get** `/v1/organizations/workspaces/{workspace_id}/members/{user_id}`
 
@@ -544,14 +680,12 @@ Get Workspace Member
 
 ### Returns
 
-- `WorkspaceMember = object { type, user_id, workspace_id, workspace_role }`
-
+- `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
-
     - `"workspace_member"`
 
   - `user_id: string`
@@ -565,7 +699,6 @@ Get Workspace Member
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
-
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -584,7 +717,18 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-## List
+#### Response
+
+```json
+{
+  "type": "workspace_member",
+  "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "workspace_role": "workspace_user"
+}
+```
+
+## List Workspace Members
 
 **get** `/v1/organizations/workspaces/{workspace_id}/members`
 
@@ -615,13 +759,11 @@ List Workspace Members
 ### Returns
 
 - `data: array of WorkspaceMember`
-
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
-
     - `"workspace_member"`
 
   - `user_id: string`
@@ -635,7 +777,6 @@ List Workspace Members
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
-
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -666,7 +807,25 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "type": "workspace_member",
+      "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+      "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+      "workspace_role": "workspace_user"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+## Update Workspace Member
 
 **post** `/v1/organizations/workspaces/{workspace_id}/members/{user_id}`
 
@@ -687,7 +846,6 @@ Update Workspace Member
 - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
   New workspace role for the User.
-
   - `"workspace_user"`
 
   - `"workspace_developer"`
@@ -700,14 +858,12 @@ Update Workspace Member
 
 ### Returns
 
-- `WorkspaceMember = object { type, user_id, workspace_id, workspace_role }`
-
+- `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
-
     - `"workspace_member"`
 
   - `user_id: string`
@@ -721,7 +877,6 @@ Update Workspace Member
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
-
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -744,7 +899,18 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
         }'
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "type": "workspace_member",
+  "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "workspace_role": "workspace_user"
+}
+```
+
+## Delete Workspace Member
 
 **delete** `/v1/organizations/workspaces/{workspace_id}/members/{user_id}`
 
@@ -767,7 +933,6 @@ Delete Workspace Member
   Deleted object type.
 
   For Workspace Members, this is always `"workspace_member_deleted"`.
-
   - `"workspace_member_deleted"`
 
 - `user_id: string`
@@ -787,18 +952,26 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "type": "workspace_member_deleted",
+  "user_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
+```
+
 ## Domain Types
 
 ### Workspace Member
 
-- `WorkspaceMember = object { type, user_id, workspace_id, workspace_role }`
-
+- `WorkspaceMember object { type, user_id, workspace_id, workspace_role }`
   - `type: "workspace_member"`
 
     Object type.
 
     For Workspace Members, this is always `"workspace_member"`.
-
     - `"workspace_member"`
 
   - `user_id: string`
@@ -812,7 +985,6 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
   - `workspace_role: "workspace_user" or "workspace_developer" or "workspace_restricted_developer" or 2 more`
 
     Role of the Workspace Member.
-
     - `"workspace_user"`
 
     - `"workspace_developer"`
@@ -825,14 +997,12 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
 
 ### Member Delete Response
 
-- `MemberDeleteResponse = object { type, user_id, workspace_id }`
-
+- `MemberDeleteResponse object { type, user_id, workspace_id }`
   - `type: "workspace_member_deleted"`
 
     Deleted object type.
 
     For Workspace Members, this is always `"workspace_member_deleted"`.
-
     - `"workspace_member_deleted"`
 
   - `user_id: string`
@@ -845,7 +1015,7 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/members
 
 # Rate Limits
 
-## List
+## List Workspace Rate Limits
 
 **get** `/v1/organizations/workspaces/{workspace_id}/rate_limits`
 
@@ -866,7 +1036,6 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
 - `group_type: optional "model_group" or "batch" or "token_count" or 3 more`
 
   Filter by group type.
-
   - `"model_group"`
 
   - `"batch"`
@@ -888,11 +1057,9 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
 - `data: array of object { group_type, limits, models, type }`
 
   Rate-limit entries for the workspace, one per group that has at least one override.
-
   - `group_type: "model_group" or "batch" or "token_count" or 3 more`
 
     The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
-
     - `"model_group"`
 
     - `"batch"`
@@ -908,7 +1075,6 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
   - `limits: array of object { org_limit, type, value }`
 
     The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
-
     - `org_limit: number`
 
       The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
@@ -928,7 +1094,6 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
   - `type: "workspace_rate_limit"`
 
     Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
-
     - `"workspace_rate_limit"`
 
 - `next_page: string`
@@ -943,20 +1108,39 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_li
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "group_type": "model_group",
+      "limits": [
+        {
+          "org_limit": 0,
+          "type": "type",
+          "value": 0
+        }
+      ],
+      "models": ["string"],
+      "type": "workspace_rate_limit"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
 ## Domain Types
 
 ### Rate Limit List Response
 
-- `RateLimitListResponse = object { data, next_page }`
-
+- `RateLimitListResponse object { data, next_page }`
   - `data: array of object { group_type, limits, models, type }`
 
     Rate-limit entries for the workspace, one per group that has at least one override.
-
     - `group_type: "model_group" or "batch" or "token_count" or 3 more`
 
       The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
-
       - `"model_group"`
 
       - `"batch"`
@@ -972,7 +1156,6 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_li
     - `limits: array of object { org_limit, type, value }`
 
       The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
-
       - `org_limit: number`
 
         The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
@@ -992,7 +1175,6 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_li
     - `type: "workspace_rate_limit"`
 
       Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
-
       - `"workspace_rate_limit"`
 
   - `next_page: string`

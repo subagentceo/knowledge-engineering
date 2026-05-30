@@ -1,3 +1,5 @@
+# Claude Code and new admin controls for business plans
+
 Enterprise and Team customers can now upgrade to premium seats that include more usage and Claude Code—bringing our app and powerful coding agent together under one subscription. Users can move seamlessly between ideation and implementation, while admins get the visibility and controls they need to scale Claude across their organization.
 
 We are also introducing a new Compliance API, giving organizations programmatic access to usage data and customer content for better observability, auditing, and governance.
@@ -22,10 +24,10 @@ This approach provides a simple way to scale with Claude, while offering central
 
 We've built new comprehensive controls that give organizations the visibility and management capabilities they need to enable employees to work productively with Claude.
 
--   **Self-serve seat management**: Purchase new seats, directly manage seat allocation, and provision users through the admin panel.
--   **Granular spend controls:** Set spending limits at the organization and individual user level to stay within budget while maintaining flexibility for essential projects.
--   **Usage analytics**: View Claude Code analytics in Claude, including metrics like lines of code accepted, suggestion accept rate, and usage patterns.
--   **Managed policy settings**: Deploy and enforce settings across all Claude Code users to match internal policies, including tool permissions, file access restrictions, and MCP server configurations.
+- **Self-serve seat management**: Purchase new seats, directly manage seat allocation, and provision users through the admin panel.
+- **Granular spend controls:** Set spending limits at the organization and individual user level to stay within budget while maintaining flexibility for essential projects.
+- **Usage analytics**: View Claude Code analytics in Claude, including metrics like lines of code accepted, suggestion accept rate, and usage patterns.
+- **Managed policy settings**: Deploy and enforce settings across all Claude Code users to match internal policies, including tool permissions, file access restrictions, and MCP server configurations.
 
 ## Compliance API
 
@@ -37,4 +39,4 @@ Administrators can integrate Claude data into existing compliance dashboards, au
 
 Team and Enterprise plan admins can now upgrade to premium seats with Claude Code—and take advantage of flexible pricing with extra usage options. Both Team and Enterprise plans include granular spend caps, self-serve seat management, and Claude Code usage analytics.
 
-To explore how Claude for Enterprise can transform your organization's productivity and learn more about the Compliance API, [contact](https://www.anthropic.com/contact-sales) our sales team.
+To explore how Claude for Enterprise can transform your organization's productivity and learn more about the Compliance API, contact our sales team.

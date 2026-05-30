@@ -1,4 +1,4 @@
-## Delete
+## Delete a memory
 
 `BetaManagedAgentsDeletedMemory Beta.MemoryStores.Memories.Delete(MemoryDeleteParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Delete a memory
 ### Parameters
 
 - `MemoryDeleteParams parameters`
-
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -25,7 +24,6 @@ Delete a memory
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -74,18 +72,22 @@ Delete a memory
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsDeletedMemory:`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
-
   - `required string ID`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `required Type Type`
-
     - `"memory_deleted"MemoryDeleted`
 
 ### Example
@@ -100,4 +102,13 @@ MemoryDeleteParams parameters = new()
 var betaManagedAgentsDeletedMemory = await client.Beta.MemoryStores.Memories.Delete(parameters);
 
 Console.WriteLine(betaManagedAgentsDeletedMemory);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "memory_deleted"
+}
 ```

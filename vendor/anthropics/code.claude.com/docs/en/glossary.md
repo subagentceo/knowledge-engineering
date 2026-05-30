@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -42,7 +43,7 @@ Learn more: [Auto memory](/en/memory#auto-memory)
 
 ### Auto mode
 
-A [permission mode](#permission-mode) where a separate classifier model reviews each action in the background instead of showing you approval prompts. The classifier blocks scope escalation, untrusted infrastructure, and [prompt injection](#prompt-injection). It never sees tool results, so injected instructions cannot influence its decisions. Auto mode is a research preview available on Max, Team, Enterprise, and API plans.
+A [permission mode](#permission-mode) where a separate classifier model reviews each action in the background instead of showing you approval prompts. The classifier blocks scope escalation, untrusted infrastructure, and [prompt injection](#prompt-injection). It never sees tool results, so injected instructions cannot influence its decisions. Auto mode is a research preview available to all users on the Anthropic API.
 
 Learn more: [Eliminate prompts with auto mode](/en/permission-modes#eliminate-prompts-with-auto-mode)
 
@@ -56,7 +57,7 @@ Learn more: [Start faster with bare mode](/en/headless#start-faster-with-bare-mo
 
 ### Bundled skills
 
-Prompt-based playbooks included with Claude Code, such as `/batch`, `/simplify`, `/debug`, and `/loop`. Unlike built-in commands, which execute fixed logic, bundled skills give Claude a detailed prompt and let it orchestrate the work, so they can spawn agents, read files, and adapt to your codebase.
+Prompt-based playbooks included with Claude Code, such as `/batch`, `/code-review`, `/debug`, and `/loop`. Unlike built-in commands, which execute fixed logic, bundled skills give Claude a detailed prompt and let it orchestrate the work, so they can spawn agents, read files, and adapt to your codebase.
 
 Learn more: [Bundled skills](/en/skills#bundled-skills)
 
@@ -118,7 +119,7 @@ Learn more: [Sessions from Dispatch](/en/desktop#sessions-from-dispatch)
 
 ### Effort level
 
-A setting that controls how much of the adaptive-reasoning thinking budget Claude uses on each turn. Higher effort means more thinking tokens and deeper reasoning; lower effort is faster and cheaper. Effort is supported on Opus 4.7, Opus 4.6, and Sonnet 4.6.
+A setting that controls how much of the adaptive-reasoning thinking budget Claude uses on each turn. Higher effort means more thinking tokens and deeper reasoning; lower effort is faster and cheaper. Effort is supported on Opus 4.6 and later, and on Sonnet 4.6.
 
 Learn more: [Adjust effort level](/en/model-config#adjust-effort-level)
 
@@ -136,9 +137,9 @@ A user-defined handler that executes automatically at a specific point in Claude
 
 A hook configuration has three levels:
 
-* **Hook event**: the lifecycle point
-* **Matcher**: filters which events fire it
-* **Hook handler**: what runs
+- **Hook event**: the lifecycle point
+- **Matcher**: filters which events fire it
+- **Hook handler**: what runs
 
 Learn more: [Get started with hooks](/en/hooks-guide) · [Hooks reference](/en/hooks)
 
@@ -206,7 +207,7 @@ Learn more: [Plugins](/en/plugins)
 
 ### Project trust
 
-A one-time dialog accepting a directory before Claude Code loads its configuration. Trust gates auto-installation of marketplace plugins and execution of project-defined hooks. Trusting a directory means its `.claude/settings.json`, `.mcp.json`, and other config files take effect.
+A dialog accepting a directory before Claude Code loads its configuration. Acceptance is saved per project directory, except your home directory, where trust is held for the current session only and the prompt reappears on each launch. Trust gates auto-installation of marketplace plugins and execution of project-defined hooks. Trusting a directory means its `.claude/settings.json`, `.mcp.json`, and other config files take effect.
 
 Learn more: [The `.claude` directory](/en/claude-directory)
 
@@ -292,6 +293,14 @@ One complete response from Claude within a [session](#session). A turn begins wh
 
 Learn more: [How Claude Code works](/en/how-claude-code-works#the-agentic-loop)
 
+## V
+
+### Verification loop
+
+How a session knows the work is actually done rather than just plausible. You give Claude a check it can run, such as a test suite, a build, or a screenshot comparison, and Claude iterates until the check passes instead of stopping after one attempt. A verification loop is the prerequisite for [`/goal`](/en/goal), unattended runs, and [dynamic workflows](/en/workflows): without one, the only thing deciding the agent is finished is the agent itself.
+
+Learn more: [Give Claude a way to verify its work](/en/best-practices#give-claude-a-way-to-verify-its-work)
+
 ## W
 
 ### Worktree isolation
@@ -300,7 +309,7 @@ An isolation mode that runs Claude in a separate git worktree under `.claude/wor
 
 Learn more: [Run parallel sessions with git worktrees](/en/worktrees)
 
-***
+---
 
 ## Deprecated and renamed terms
 

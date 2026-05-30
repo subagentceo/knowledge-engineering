@@ -1,4 +1,4 @@
-## Results
+## Retrieve Message Batch results
 
 `BetaMessageBatchIndividualResponse beta().messages().batches().resultsStreaming(BatchResultsParamsparams = BatchResultsParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -13,7 +13,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchResultsParams params`
-
   - `Optional<String> messageBatchId`
 
     ID of the Message Batch.
@@ -21,7 +20,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -70,12 +68,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaMessageBatchIndividualResponse:`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
-
   - `String customId`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -87,11 +90,8 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Processing result for this request.
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
-
     - `class BetaMessageBatchSucceededResult:`
-
       - `BetaMessage message`
-
         - `String id`
 
           Unique object identifier.
@@ -101,7 +101,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `Optional<BetaContainer> container`
 
           Information about the container used in the request (for the code execution tool)
-
           - `String id`
 
             Identifier for the container used in this request
@@ -113,7 +112,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `Optional<List<BetaSkill>> skills`
 
             Skills loaded in the container
-
             - `String skillId`
 
               Skill ID
@@ -121,7 +119,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Type type`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
               - `ANTHROPIC("anthropic")`
 
               - `CUSTOM("custom")`
@@ -139,7 +136,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Example:
 
           ```json
-          [{"type": "text", "text": "Hi, I'm Claude."}]
+          [{ "type": "text", "text": "Hi, I'm Claude." }]
           ```
 
           If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -148,27 +145,27 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           ```json
           [
-            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-            {"role": "assistant", "content": "The best answer is ("}
+            {
+              "role": "user",
+              "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
+            },
+            { "role": "assistant", "content": "The best answer is (" }
           ]
           ```
 
           Then the response `content` might be:
 
           ```json
-          [{"type": "text", "text": "B)"}]
+          [{ "type": "text", "text": "B)" }]
           ```
 
           - `class BetaTextBlock:`
-
             - `Optional<List<BetaTextCitation>> citations`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
               - `class BetaCitationCharLocation:`
-
                 - `String citedText`
 
                 - `long documentIndex`
@@ -182,11 +179,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `long startCharIndex`
 
                 - `JsonValue; type "char_location"constant`
-
                   - `CHAR_LOCATION("char_location")`
 
               - `class BetaCitationPageLocation:`
-
                 - `String citedText`
 
                 - `long documentIndex`
@@ -200,11 +195,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `long startPageNumber`
 
                 - `JsonValue; type "page_location"constant`
-
                   - `PAGE_LOCATION("page_location")`
 
               - `class BetaCitationContentBlockLocation:`
-
                 - `String citedText`
 
                   The full text of the cited block range, concatenated.
@@ -228,11 +221,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   0-based index of the first cited block in the source's `content` array.
 
                 - `JsonValue; type "content_block_location"constant`
-
                   - `CONTENT_BLOCK_LOCATION("content_block_location")`
 
               - `class BetaCitationsWebSearchResultLocation:`
-
                 - `String citedText`
 
                 - `String encryptedIndex`
@@ -240,13 +231,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<String> title`
 
                 - `JsonValue; type "web_search_result_location"constant`
-
                   - `WEB_SEARCH_RESULT_LOCATION("web_search_result_location")`
 
                 - `String url`
 
               - `class BetaCitationSearchResultLocation:`
-
                 - `String citedText`
 
                   The full text of the cited block range, concatenated.
@@ -274,35 +263,28 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<String> title`
 
                 - `JsonValue; type "search_result_location"constant`
-
                   - `SEARCH_RESULT_LOCATION("search_result_location")`
 
             - `String text`
 
             - `JsonValue; type "text"constant`
-
               - `TEXT("text")`
 
           - `class BetaThinkingBlock:`
-
             - `String signature`
 
             - `String thinking`
 
             - `JsonValue; type "thinking"constant`
-
               - `THINKING("thinking")`
 
           - `class BetaRedactedThinkingBlock:`
-
             - `String data`
 
             - `JsonValue; type "redacted_thinking"constant`
-
               - `REDACTED_THINKING("redacted_thinking")`
 
           - `class BetaToolUseBlock:`
-
             - `String id`
 
             - `Input input`
@@ -310,47 +292,37 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `String name`
 
             - `JsonValue; type "tool_use"constant`
-
               - `TOOL_USE("tool_use")`
 
             - `Optional<Caller> caller`
 
               Tool invocation directly from the model.
-
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
-
                 - `JsonValue; type "direct"constant`
-
                   - `DIRECT("direct")`
 
               - `class BetaServerToolCaller:`
 
                 Tool invocation generated by a server-side tool.
-
                 - `String toolId`
 
                 - `JsonValue; type "code_execution_20250825"constant`
-
                   - `CODE_EXECUTION_20250825("code_execution_20250825")`
 
               - `class BetaServerToolCaller20260120:`
-
                 - `String toolId`
 
                 - `JsonValue; type "code_execution_20260120"constant`
-
                   - `CODE_EXECUTION_20260120("code_execution_20260120")`
 
           - `class BetaServerToolUseBlock:`
-
             - `String id`
 
             - `Input input`
 
             - `Name name`
-
               - `ADVISOR("advisor")`
 
               - `WEB_SEARCH("web_search")`
@@ -368,47 +340,25 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `TOOL_SEARCH_TOOL_BM25("tool_search_tool_bm25")`
 
             - `JsonValue; type "server_tool_use"constant`
-
               - `SERVER_TOOL_USE("server_tool_use")`
 
             - `Optional<Caller> caller`
 
               Tool invocation directly from the model.
-
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
-
-                - `JsonValue; type "direct"constant`
-
-                  - `DIRECT("direct")`
 
               - `class BetaServerToolCaller:`
 
                 Tool invocation generated by a server-side tool.
 
-                - `String toolId`
-
-                - `JsonValue; type "code_execution_20250825"constant`
-
-                  - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
               - `class BetaServerToolCaller20260120:`
 
-                - `String toolId`
-
-                - `JsonValue; type "code_execution_20260120"constant`
-
-                  - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
           - `class BetaWebSearchToolResultBlock:`
-
             - `BetaWebSearchToolResultBlockContent content`
-
               - `class BetaWebSearchToolResultError:`
-
                 - `BetaWebSearchToolResultErrorCode errorCode`
-
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `UNAVAILABLE("unavailable")`
@@ -422,11 +372,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `REQUEST_TOO_LARGE("request_too_large")`
 
                 - `JsonValue; type "web_search_tool_result_error"constant`
-
                   - `WEB_SEARCH_TOOL_RESULT_ERROR("web_search_tool_result_error")`
 
               - `List<BetaWebSearchResultBlock>`
-
                 - `String encryptedContent`
 
                 - `Optional<String> pageAge`
@@ -434,7 +382,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `String title`
 
                 - `JsonValue; type "web_search_result"constant`
-
                   - `WEB_SEARCH_RESULT("web_search_result")`
 
                 - `String url`
@@ -442,52 +389,32 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `String toolUseId`
 
             - `JsonValue; type "web_search_tool_result"constant`
-
               - `WEB_SEARCH_TOOL_RESULT("web_search_tool_result")`
 
             - `Optional<Caller> caller`
 
               Tool invocation directly from the model.
-
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
-
-                - `JsonValue; type "direct"constant`
-
-                  - `DIRECT("direct")`
 
               - `class BetaServerToolCaller:`
 
                 Tool invocation generated by a server-side tool.
 
-                - `String toolId`
-
-                - `JsonValue; type "code_execution_20250825"constant`
-
-                  - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
               - `class BetaServerToolCaller20260120:`
 
-                - `String toolId`
-
-                - `JsonValue; type "code_execution_20260120"constant`
-
-                  - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
           - `class BetaWebFetchToolResultBlock:`
-
             - `Content content`
-
               - `class BetaWebFetchToolResultErrorBlock:`
-
                 - `BetaWebFetchToolResultErrorCode errorCode`
-
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `URL_TOO_LONG("url_too_long")`
 
                   - `URL_NOT_ALLOWED("url_not_allowed")`
+
+                  - `URL_NOT_IN_PRIOR_CONTEXT("url_not_in_prior_context")`
 
                   - `URL_NOT_ACCESSIBLE("url_not_accessible")`
 
@@ -500,43 +427,32 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `UNAVAILABLE("unavailable")`
 
                 - `JsonValue; type "web_fetch_tool_result_error"constant`
-
                   - `WEB_FETCH_TOOL_RESULT_ERROR("web_fetch_tool_result_error")`
 
               - `class BetaWebFetchBlock:`
-
                 - `BetaDocumentBlock content`
-
                   - `Optional<BetaCitationConfig> citations`
 
                     Citation configuration for the document
-
                     - `boolean enabled`
 
                   - `Source source`
-
                     - `class BetaBase64PdfSource:`
-
                       - `String data`
 
                       - `JsonValue; mediaType "application/pdf"constant`
-
                         - `APPLICATION_PDF("application/pdf")`
 
                       - `JsonValue; type "base64"constant`
-
                         - `BASE64("base64")`
 
                     - `class BetaPlainTextSource:`
-
                       - `String data`
 
                       - `JsonValue; mediaType "text/plain"constant`
-
                         - `TEXT_PLAIN("text/plain")`
 
                       - `JsonValue; type "text"constant`
-
                         - `TEXT("text")`
 
                   - `Optional<String> title`
@@ -544,7 +460,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     The title of the document
 
                   - `JsonValue; type "document"constant`
-
                     - `DOCUMENT("document")`
 
                 - `Optional<String> retrievedAt`
@@ -552,7 +467,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   ISO 8601 timestamp when the content was retrieved
 
                 - `JsonValue; type "web_fetch_result"constant`
-
                   - `WEB_FETCH_RESULT("web_fetch_result")`
 
                 - `String url`
@@ -562,47 +476,25 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `String toolUseId`
 
             - `JsonValue; type "web_fetch_tool_result"constant`
-
               - `WEB_FETCH_TOOL_RESULT("web_fetch_tool_result")`
 
             - `Optional<Caller> caller`
 
               Tool invocation directly from the model.
-
               - `class BetaDirectCaller:`
 
                 Tool invocation directly from the model.
-
-                - `JsonValue; type "direct"constant`
-
-                  - `DIRECT("direct")`
 
               - `class BetaServerToolCaller:`
 
                 Tool invocation generated by a server-side tool.
 
-                - `String toolId`
-
-                - `JsonValue; type "code_execution_20250825"constant`
-
-                  - `CODE_EXECUTION_20250825("code_execution_20250825")`
-
               - `class BetaServerToolCaller20260120:`
 
-                - `String toolId`
-
-                - `JsonValue; type "code_execution_20260120"constant`
-
-                  - `CODE_EXECUTION_20260120("code_execution_20260120")`
-
           - `class BetaAdvisorToolResultBlock:`
-
             - `Content content`
-
               - `class BetaAdvisorToolResultError:`
-
                 - `ErrorCode errorCode`
-
                   - `MAX_USES_EXCEEDED("max_uses_exceeded")`
 
                   - `PROMPT_TOO_LONG("prompt_too_long")`
@@ -616,43 +508,41 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
                 - `JsonValue; type "advisor_tool_result_error"constant`
-
                   - `ADVISOR_TOOL_RESULT_ERROR("advisor_tool_result_error")`
 
               - `class BetaAdvisorResultBlock:`
+                - `Optional<String> stopReason`
+
+                  The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
 
                 - `String text`
 
                 - `JsonValue; type "advisor_result"constant`
-
                   - `ADVISOR_RESULT("advisor_result")`
 
               - `class BetaAdvisorRedactedResultBlock:`
-
                 - `String encryptedContent`
 
                   Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
 
-                - `JsonValue; type "advisor_redacted_result"constant`
+                - `Optional<String> stopReason`
 
+                  The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
+
+                - `JsonValue; type "advisor_redacted_result"constant`
                   - `ADVISOR_REDACTED_RESULT("advisor_redacted_result")`
 
             - `String toolUseId`
 
             - `JsonValue; type "advisor_tool_result"constant`
-
               - `ADVISOR_TOOL_RESULT("advisor_tool_result")`
 
           - `class BetaCodeExecutionToolResultBlock:`
-
             - `BetaCodeExecutionToolResultBlockContent content`
 
               Code execution result with encrypted stdout for PFC + web_search results.
-
               - `class BetaCodeExecutionToolResultError:`
-
                 - `BetaCodeExecutionToolResultErrorCode errorCode`
-
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `UNAVAILABLE("unavailable")`
@@ -662,17 +552,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `EXECUTION_TIME_EXCEEDED("execution_time_exceeded")`
 
                 - `JsonValue; type "code_execution_tool_result_error"constant`
-
                   - `CODE_EXECUTION_TOOL_RESULT_ERROR("code_execution_tool_result_error")`
 
               - `class BetaCodeExecutionResultBlock:`
-
                 - `List<BetaCodeExecutionOutputBlock> content`
-
                   - `String fileId`
 
                   - `JsonValue; type "code_execution_output"constant`
-
                     - `CODE_EXECUTION_OUTPUT("code_execution_output")`
 
                 - `long returnCode`
@@ -682,20 +568,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `String stdout`
 
                 - `JsonValue; type "code_execution_result"constant`
-
                   - `CODE_EXECUTION_RESULT("code_execution_result")`
 
               - `class BetaEncryptedCodeExecutionResultBlock:`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
-
                 - `List<BetaCodeExecutionOutputBlock> content`
-
                   - `String fileId`
 
                   - `JsonValue; type "code_execution_output"constant`
-
-                    - `CODE_EXECUTION_OUTPUT("code_execution_output")`
 
                 - `String encryptedStdout`
 
@@ -704,23 +585,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `String stderr`
 
                 - `JsonValue; type "encrypted_code_execution_result"constant`
-
                   - `ENCRYPTED_CODE_EXECUTION_RESULT("encrypted_code_execution_result")`
 
             - `String toolUseId`
 
             - `JsonValue; type "code_execution_tool_result"constant`
-
               - `CODE_EXECUTION_TOOL_RESULT("code_execution_tool_result")`
 
           - `class BetaBashCodeExecutionToolResultBlock:`
-
             - `Content content`
-
               - `class BetaBashCodeExecutionToolResultError:`
-
                 - `ErrorCode errorCode`
-
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `UNAVAILABLE("unavailable")`
@@ -732,17 +607,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `OUTPUT_FILE_TOO_LARGE("output_file_too_large")`
 
                 - `JsonValue; type "bash_code_execution_tool_result_error"constant`
-
                   - `BASH_CODE_EXECUTION_TOOL_RESULT_ERROR("bash_code_execution_tool_result_error")`
 
               - `class BetaBashCodeExecutionResultBlock:`
-
                 - `List<BetaBashCodeExecutionOutputBlock> content`
-
                   - `String fileId`
 
                   - `JsonValue; type "bash_code_execution_output"constant`
-
                     - `BASH_CODE_EXECUTION_OUTPUT("bash_code_execution_output")`
 
                 - `long returnCode`
@@ -752,23 +623,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `String stdout`
 
                 - `JsonValue; type "bash_code_execution_result"constant`
-
                   - `BASH_CODE_EXECUTION_RESULT("bash_code_execution_result")`
 
             - `String toolUseId`
 
             - `JsonValue; type "bash_code_execution_tool_result"constant`
-
               - `BASH_CODE_EXECUTION_TOOL_RESULT("bash_code_execution_tool_result")`
 
           - `class BetaTextEditorCodeExecutionToolResultBlock:`
-
             - `Content content`
-
               - `class BetaTextEditorCodeExecutionToolResultError:`
-
                 - `ErrorCode errorCode`
-
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `UNAVAILABLE("unavailable")`
@@ -782,15 +647,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<String> errorMessage`
 
                 - `JsonValue; type "text_editor_code_execution_tool_result_error"constant`
-
                   - `TEXT_EDITOR_CODE_EXECUTION_TOOL_RESULT_ERROR("text_editor_code_execution_tool_result_error")`
 
               - `class BetaTextEditorCodeExecutionViewResultBlock:`
-
                 - `String content`
 
                 - `FileType fileType`
-
                   - `TEXT("text")`
 
                   - `IMAGE("image")`
@@ -804,19 +666,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<Long> totalLines`
 
                 - `JsonValue; type "text_editor_code_execution_view_result"constant`
-
                   - `TEXT_EDITOR_CODE_EXECUTION_VIEW_RESULT("text_editor_code_execution_view_result")`
 
               - `class BetaTextEditorCodeExecutionCreateResultBlock:`
-
                 - `boolean isFileUpdate`
 
                 - `JsonValue; type "text_editor_code_execution_create_result"constant`
-
                   - `TEXT_EDITOR_CODE_EXECUTION_CREATE_RESULT("text_editor_code_execution_create_result")`
 
               - `class BetaTextEditorCodeExecutionStrReplaceResultBlock:`
-
                 - `Optional<List<String>> lines`
 
                 - `Optional<Long> newLines`
@@ -828,23 +686,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<Long> oldStart`
 
                 - `JsonValue; type "text_editor_code_execution_str_replace_result"constant`
-
                   - `TEXT_EDITOR_CODE_EXECUTION_STR_REPLACE_RESULT("text_editor_code_execution_str_replace_result")`
 
             - `String toolUseId`
 
             - `JsonValue; type "text_editor_code_execution_tool_result"constant`
-
               - `TEXT_EDITOR_CODE_EXECUTION_TOOL_RESULT("text_editor_code_execution_tool_result")`
 
           - `class BetaToolSearchToolResultBlock:`
-
             - `Content content`
-
               - `class BetaToolSearchToolResultError:`
-
                 - `ErrorCode errorCode`
-
                   - `INVALID_TOOL_INPUT("invalid_tool_input")`
 
                   - `UNAVAILABLE("unavailable")`
@@ -856,31 +708,24 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Optional<String> errorMessage`
 
                 - `JsonValue; type "tool_search_tool_result_error"constant`
-
                   - `TOOL_SEARCH_TOOL_RESULT_ERROR("tool_search_tool_result_error")`
 
               - `class BetaToolSearchToolSearchResultBlock:`
-
                 - `List<BetaToolReferenceBlock> toolReferences`
-
                   - `String toolName`
 
                   - `JsonValue; type "tool_reference"constant`
-
                     - `TOOL_REFERENCE("tool_reference")`
 
                 - `JsonValue; type "tool_search_tool_search_result"constant`
-
                   - `TOOL_SEARCH_TOOL_SEARCH_RESULT("tool_search_tool_search_result")`
 
             - `String toolUseId`
 
             - `JsonValue; type "tool_search_tool_result"constant`
-
               - `TOOL_SEARCH_TOOL_RESULT("tool_search_tool_result")`
 
           - `class BetaMcpToolUseBlock:`
-
             - `String id`
 
             - `Input input`
@@ -894,155 +739,36 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               The name of the MCP server
 
             - `JsonValue; type "mcp_tool_use"constant`
-
               - `MCP_TOOL_USE("mcp_tool_use")`
 
           - `class BetaMcpToolResultBlock:`
-
             - `Content content`
-
               - `String`
 
               - `List<BetaTextBlock>`
-
                 - `Optional<List<BetaTextCitation>> citations`
 
                   Citations supporting the text block.
 
                   The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-                  - `class BetaCitationCharLocation:`
-
-                    - `String citedText`
-
-                    - `long documentIndex`
-
-                    - `Optional<String> documentTitle`
-
-                    - `long endCharIndex`
-
-                    - `Optional<String> fileId`
-
-                    - `long startCharIndex`
-
-                    - `JsonValue; type "char_location"constant`
-
-                      - `CHAR_LOCATION("char_location")`
-
-                  - `class BetaCitationPageLocation:`
-
-                    - `String citedText`
-
-                    - `long documentIndex`
-
-                    - `Optional<String> documentTitle`
-
-                    - `long endPageNumber`
-
-                    - `Optional<String> fileId`
-
-                    - `long startPageNumber`
-
-                    - `JsonValue; type "page_location"constant`
-
-                      - `PAGE_LOCATION("page_location")`
-
-                  - `class BetaCitationContentBlockLocation:`
-
-                    - `String citedText`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `long documentIndex`
-
-                    - `Optional<String> documentTitle`
-
-                    - `long endBlockIndex`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `Optional<String> fileId`
-
-                    - `long startBlockIndex`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `JsonValue; type "content_block_location"constant`
-
-                      - `CONTENT_BLOCK_LOCATION("content_block_location")`
-
-                  - `class BetaCitationsWebSearchResultLocation:`
-
-                    - `String citedText`
-
-                    - `String encryptedIndex`
-
-                    - `Optional<String> title`
-
-                    - `JsonValue; type "web_search_result_location"constant`
-
-                      - `WEB_SEARCH_RESULT_LOCATION("web_search_result_location")`
-
-                    - `String url`
-
-                  - `class BetaCitationSearchResultLocation:`
-
-                    - `String citedText`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `long endBlockIndex`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `long searchResultIndex`
-
-                      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                      Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                    - `String source`
-
-                    - `long startBlockIndex`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `Optional<String> title`
-
-                    - `JsonValue; type "search_result_location"constant`
-
-                      - `SEARCH_RESULT_LOCATION("search_result_location")`
-
                 - `String text`
 
                 - `JsonValue; type "text"constant`
-
-                  - `TEXT("text")`
 
             - `boolean isError`
 
             - `String toolUseId`
 
             - `JsonValue; type "mcp_tool_result"constant`
-
               - `MCP_TOOL_RESULT("mcp_tool_result")`
 
           - `class BetaContainerUploadBlock:`
 
             Response model for a file uploaded to the container.
-
             - `String fileId`
 
             - `JsonValue; type "container_upload"constant`
-
               - `CONTAINER_UPLOAD("container_upload")`
 
           - `class BetaCompactionBlock:`
@@ -1052,7 +778,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When content is None, it indicates the compaction failed to produce a valid
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
-
             - `Optional<String> content`
 
               Summary of compacted content, or null if compaction failed
@@ -1062,7 +787,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               Opaque metadata from prior compaction, to be round-tripped verbatim
 
             - `JsonValue; type "compaction"constant`
-
               - `COMPACTION("compaction")`
 
         - `Optional<BetaContextManagementResponse> contextManagement`
@@ -1070,13 +794,10 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Context management response.
 
           Information about context management strategies applied during the request.
-
           - `List<AppliedEdit> appliedEdits`
 
             List of context management edits that were applied.
-
             - `class BetaClearToolUses20250919EditResponse:`
-
               - `long clearedInputTokens`
 
                 Number of input tokens cleared by this edit.
@@ -1088,11 +809,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `JsonValue; type "clear_tool_uses_20250919"constant`
 
                 The type of context management edit applied.
-
                 - `CLEAR_TOOL_USES_20250919("clear_tool_uses_20250919")`
 
             - `class BetaClearThinking20251015EditResponse:`
-
               - `long clearedInputTokens`
 
                 Number of input tokens cleared by this edit.
@@ -1104,14 +823,63 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `JsonValue; type "clear_thinking_20251015"constant`
 
                 The type of context management edit applied.
-
                 - `CLEAR_THINKING_20251015("clear_thinking_20251015")`
+
+        - `Optional<BetaDiagnostics> diagnostics`
+
+          Response envelope for request-level diagnostics. Present (possibly
+          null) whenever the caller supplied `diagnostics` on the request.
+          - `Optional<CacheMissReason> cacheMissReason`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+            - `class BetaCacheMissModelChanged:`
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `JsonValue; type "model_changed"constant`
+                - `MODEL_CHANGED("model_changed")`
+
+            - `class BetaCacheMissSystemChanged:`
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `JsonValue; type "system_changed"constant`
+                - `SYSTEM_CHANGED("system_changed")`
+
+            - `class BetaCacheMissToolsChanged:`
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `JsonValue; type "tools_changed"constant`
+                - `TOOLS_CHANGED("tools_changed")`
+
+            - `class BetaCacheMissMessagesChanged:`
+              - `long cacheMissedInputTokens`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `JsonValue; type "messages_changed"constant`
+                - `MESSAGES_CHANGED("messages_changed")`
+
+            - `class BetaCacheMissPreviousMessageNotFound:`
+              - `JsonValue; type "previous_message_not_found"constant`
+                - `PREVIOUS_MESSAGE_NOT_FOUND("previous_message_not_found")`
+
+            - `class BetaCacheMissUnavailable:`
+              - `JsonValue; type "unavailable"constant`
+                - `UNAVAILABLE("unavailable")`
 
         - `Model model`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `CLAUDE_OPUS_4_8("claude-opus-4-8")`
+
+            Frontier intelligence for long-running agents and coding
 
           - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
@@ -1186,19 +954,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Conversational role of the generated message.
 
           This will always be `"assistant"`.
-
           - `ASSISTANT("assistant")`
 
         - `Optional<BetaRefusalStopDetails> stopDetails`
 
           Structured information about a refusal.
-
           - `Optional<Category> category`
 
             The policy category that triggered the refusal.
 
             `null` when the refusal doesn't map to a named category.
-
             - `CYBER("cyber")`
 
             - `BIO("bio")`
@@ -1210,7 +975,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
           - `JsonValue; type "refusal"constant`
-
             - `REFUSAL("refusal")`
 
         - `Optional<BetaStopReason> stopReason`
@@ -1218,16 +982,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The reason that we stopped.
 
           This may be one the following values:
-
-          * `"end_turn"`: the model reached a natural stopping point
-          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          * `"tool_use"`: the model invoked one or more tools
-          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          - `"end_turn"`: the model reached a natural stopping point
+          - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          - `"tool_use"`: the model invoked one or more tools
+          - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
-
           - `END_TURN("end_turn")`
 
           - `MAX_TOKENS("max_tokens")`
@@ -1255,7 +1017,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Object type.
 
           For Messages, this is always `"message"`.
-
           - `MESSAGE("message")`
 
         - `BetaUsage usage`
@@ -1269,11 +1030,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
-
           - `Optional<BetaCacheCreation> cacheCreation`
 
             Breakdown of cached tokens by TTL
-
             - `long ephemeral1hInputTokens`
 
               The number of input tokens used to create the 1 hour cache entry.
@@ -1303,7 +1062,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Per-iteration token usage breakdown.
 
             Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
-
             - Determine which iterations exceeded long context thresholds (>=200k tokens)
             - Calculate the true context window size from the last iteration
             - Understand token accumulation across server-side tool use loops
@@ -1311,18 +1069,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `class BetaMessageIterationUsage:`
 
               Token usage for a sampling iteration.
-
               - `Optional<BetaCacheCreation> cacheCreation`
 
                 Breakdown of cached tokens by TTL
-
-                - `long ephemeral1hInputTokens`
-
-                  The number of input tokens used to create the 1 hour cache entry.
-
-                - `long ephemeral5mInputTokens`
-
-                  The number of input tokens used to create the 5 minute cache entry.
 
               - `long cacheCreationInputTokens`
 
@@ -1343,24 +1092,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `JsonValue; type "message"constant`
 
                 Usage for a sampling iteration
-
                 - `MESSAGE("message")`
 
             - `class BetaCompactionIterationUsage:`
 
               Token usage for a compaction iteration.
-
               - `Optional<BetaCacheCreation> cacheCreation`
 
                 Breakdown of cached tokens by TTL
-
-                - `long ephemeral1hInputTokens`
-
-                  The number of input tokens used to create the 1 hour cache entry.
-
-                - `long ephemeral5mInputTokens`
-
-                  The number of input tokens used to create the 5 minute cache entry.
 
               - `long cacheCreationInputTokens`
 
@@ -1381,24 +1120,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `JsonValue; type "compaction"constant`
 
                 Usage for a compaction iteration
-
                 - `COMPACTION("compaction")`
 
             - `class BetaAdvisorMessageIterationUsage:`
 
               Token usage for an advisor sub-inference iteration.
-
               - `Optional<BetaCacheCreation> cacheCreation`
 
                 Breakdown of cached tokens by TTL
-
-                - `long ephemeral1hInputTokens`
-
-                  The number of input tokens used to create the 1 hour cache entry.
-
-                - `long ephemeral5mInputTokens`
-
-                  The number of input tokens used to create the 5 minute cache entry.
 
               - `long cacheCreationInputTokens`
 
@@ -1418,74 +1147,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
-
-                  Frontier intelligence for long-running agents and coding
-
-                - `CLAUDE_MYTHOS_PREVIEW("claude-mythos-preview")`
-
-                  New class of intelligence, strongest in coding and cybersecurity
-
-                - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
-
-                  Frontier intelligence for long-running agents and coding
-
-                - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
-
-                  Best combination of speed and intelligence
-
-                - `CLAUDE_HAIKU_4_5("claude-haiku-4-5")`
-
-                  Fastest model with near-frontier intelligence
-
-                - `CLAUDE_HAIKU_4_5_20251001("claude-haiku-4-5-20251001")`
-
-                  Fastest model with near-frontier intelligence
-
-                - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
-
-                  Premium model combining maximum intelligence with practical performance
-
-                - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
-
-                  Premium model combining maximum intelligence with practical performance
-
-                - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-                  High-performance model for agents and coding
-
-                - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-                  High-performance model for agents and coding
-
-                - `CLAUDE_OPUS_4_1("claude-opus-4-1")`
-
-                  Exceptional model for specialized complex tasks
-
-                - `CLAUDE_OPUS_4_1_20250805("claude-opus-4-1-20250805")`
-
-                  Exceptional model for specialized complex tasks
-
-                - `CLAUDE_OPUS_4_0("claude-opus-4-0")`
-
-                  Powerful model for complex tasks
-
-                - `CLAUDE_OPUS_4_20250514("claude-opus-4-20250514")`
-
-                  Powerful model for complex tasks
-
-                - `CLAUDE_SONNET_4_0("claude-sonnet-4-0")`
-
-                  High-performance model with extended thinking
-
-                - `CLAUDE_SONNET_4_20250514("claude-sonnet-4-20250514")`
-
-                  High-performance model with extended thinking
-
-                - `CLAUDE_3_HAIKU_20240307("claude-3-haiku-20240307")`
-
-                  Fast and cost-effective model
-
               - `long outputTokens`
 
                 The number of output tokens which were used.
@@ -1493,17 +1154,34 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `JsonValue; type "advisor_message"constant`
 
                 Usage for an advisor sub-inference iteration
-
                 - `ADVISOR_MESSAGE("advisor_message")`
 
           - `long outputTokens`
 
             The number of output tokens which were used.
 
+          - `Optional<OutputTokensDetails> outputTokensDetails`
+
+            Breakdown of output tokens by category.
+
+            `output_tokens` remains the inclusive, authoritative total used for billing.
+            This object provides a read-only decomposition for observability — for example,
+            how many of the billed output tokens were spent on internal reasoning that may
+            have been summarized before being returned to you.
+            - `long thinkingTokens`
+
+              Number of output tokens the model generated as internal reasoning, including
+              the thinking-block delimiter tokens.
+
+              Reflects the raw reasoning the model produced, not the (possibly shorter)
+              summarized thinking text returned in the response body. Computed by
+              re-tokenizing the raw reasoning text, so it may differ from the model's exact
+              generation count by a small number of tokens. Always ≤ `output_tokens`;
+              `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
           - `Optional<BetaServerToolUsage> serverToolUse`
 
             The number of server tool requests.
-
             - `long webFetchRequests`
 
               The number of web fetch tool requests.
@@ -1515,7 +1193,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `Optional<ServiceTier> serviceTier`
 
             If the request used the priority, standard, or batch tier.
-
             - `STANDARD("standard")`
 
             - `PRIORITY("priority")`
@@ -1525,113 +1202,84 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `Optional<Speed> speed`
 
             The inference speed mode used for this request.
-
             - `STANDARD("standard")`
 
             - `FAST("fast")`
 
       - `JsonValue; type "succeeded"constant`
-
         - `SUCCEEDED("succeeded")`
 
     - `class BetaMessageBatchErroredResult:`
-
       - `BetaErrorResponse error`
-
         - `BetaError error`
-
           - `class BetaInvalidRequestError:`
-
             - `String message`
 
             - `JsonValue; type "invalid_request_error"constant`
-
               - `INVALID_REQUEST_ERROR("invalid_request_error")`
 
           - `class BetaAuthenticationError:`
-
             - `String message`
 
             - `JsonValue; type "authentication_error"constant`
-
               - `AUTHENTICATION_ERROR("authentication_error")`
 
           - `class BetaBillingError:`
-
             - `String message`
 
             - `JsonValue; type "billing_error"constant`
-
               - `BILLING_ERROR("billing_error")`
 
           - `class BetaPermissionError:`
-
             - `String message`
 
             - `JsonValue; type "permission_error"constant`
-
               - `PERMISSION_ERROR("permission_error")`
 
           - `class BetaNotFoundError:`
-
             - `String message`
 
             - `JsonValue; type "not_found_error"constant`
-
               - `NOT_FOUND_ERROR("not_found_error")`
 
           - `class BetaRateLimitError:`
-
             - `String message`
 
             - `JsonValue; type "rate_limit_error"constant`
-
               - `RATE_LIMIT_ERROR("rate_limit_error")`
 
           - `class BetaGatewayTimeoutError:`
-
             - `String message`
 
             - `JsonValue; type "timeout_error"constant`
-
               - `TIMEOUT_ERROR("timeout_error")`
 
           - `class BetaApiError:`
-
             - `String message`
 
             - `JsonValue; type "api_error"constant`
-
               - `API_ERROR("api_error")`
 
           - `class BetaOverloadedError:`
-
             - `String message`
 
             - `JsonValue; type "overloaded_error"constant`
-
               - `OVERLOADED_ERROR("overloaded_error")`
 
         - `Optional<String> requestId`
 
         - `JsonValue; type "error"constant`
-
           - `ERROR("error")`
 
       - `JsonValue; type "errored"constant`
-
         - `ERRORED("errored")`
 
     - `class BetaMessageBatchCanceledResult:`
-
       - `JsonValue; type "canceled"constant`
-
         - `CANCELED("canceled")`
 
     - `class BetaMessageBatchExpiredResult:`
-
       - `JsonValue; type "expired"constant`
-
         - `EXPIRED("expired")`
 
 ### Example

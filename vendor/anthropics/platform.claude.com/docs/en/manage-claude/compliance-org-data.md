@@ -5,13 +5,13 @@ Enumerate organizations under your parent organization, their users, roles, and 
 ---
 
 <Note>
-  The Compliance API is available only on the Claude Enterprise plan and must be enabled before use. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
+  The Compliance API is enabled on request. Claude Enterprise organizations have access to the full API; Claude Console organizations have access to the [Activity Feed](/docs/en/manage-claude/compliance-activity-feed) only. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
 </Note>
 
 <Check>
   **Required scope:** `read:compliance_org_data` on the Compliance Access Key. The user and group-member endpoints require `read:compliance_user_data` instead.
 
-  Compliance Access Keys (`sk-ant-api01-...`) created in claude.ai are the only key type accepted; see [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access) to provision one. Calls authenticated with an Admin API key (`sk-ant-admin01-...`) return [403 Forbidden](/docs/en/manage-claude/compliance-errors#403-forbidden).
+Compliance Access Keys (`sk-ant-api01-...`) created in claude.ai are the only key type accepted; see [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access) to provision one. Calls authenticated with an Admin API key (`sk-ant-admin01-...`) return [403 Forbidden](/docs/en/manage-claude/compliance-errors#403-forbidden).
 </Check>
 
 The endpoints on this page expose the directory side of a Claude Enterprise organization: its linked organizations, the users in each one, the roles defined on each, and its role-based access control (RBAC) or SCIM (System for Cross-domain Identity Management)-provisioned groups and their members. Use them to seed eDiscovery user lists, build reporting dashboards, and reconcile group membership against an external system of record. Compliance Access Keys are bound to a parent organization and return data from every linked organization underneath, so a single key reaches the entire tree.
@@ -49,16 +49,16 @@ curl --fail-with-body -sS \
 
 The `uuid` field is the canonical identifier for downstream lookups. The following table maps it to the other organization identifiers across the Compliance API:
 
-| Field                | Where                                                                                                                                                                                                  | Relationship to `uuid`                       |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------- |
-| `{org_uuid}`         | Path parameter on per-organization endpoints on this page                                                                                                                                              | Same value                                   |
-| `organization_uuid`  | Activity Feed record                                                                                                                                                                                   | Same value; join on these two fields directly |
-| `organization_id`    | Activity Feed record                                                                                                                                                                                   | Same organization, `org_`-prefixed           |
-| `organization_ids[]` | Filter on [Query the Activity Feed](/docs/en/manage-claude/compliance-activity-feed) and [Retrieve chats and messages](/docs/en/manage-claude/compliance-content-data#retrieve-chats-and-messages) | Accepts `uuid` or the `org_`-prefixed form   |
+| Field                | Where                                                                                                                                                                                              | Relationship to `uuid`                                                                                       |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `{org_uuid}`         | Path parameter on per-organization endpoints on this page                                                                                                                                          | Same value                                                                                                   |
+| `organization_uuid`  | Activity Feed, chat, and project records                                                                                                                                                           | Same value; join on these two fields directly                                                                |
+| `organization_id`    | Activity Feed, chat, and project records                                                                                                                                                           | Same organization, `org_`-prefixed. Deprecated on chat and project records; use `organization_uuid` instead. |
+| `organization_ids[]` | Filter on [Query the Activity Feed](/docs/en/manage-claude/compliance-activity-feed) and [Retrieve chats and messages](/docs/en/manage-claude/compliance-content-data#retrieve-chats-and-messages) | Accepts `uuid` or the `org_`-prefixed form                                                                   |
 
 Most other Anthropic APIs use the `org_`-prefixed form.
 
-If your tree exceeds the 1,000-organization cap, contact Anthropic support. There is currently no activity type for an organization being created or joining the tree, so relist periodically to detect newly linked organizations. To detect deleted organizations, watch the `org_deletion_requested` and `org_deleted_via_bulk` activity types; see [Query the Activity Feed](/docs/en/manage-claude/compliance-activity-feed).
+If your tree exceeds the 1,000-organization cap, contact Anthropic support. To track organization-membership changes over time, relist this endpoint periodically. The Activity Feed also surfaces membership events through the `org_deletion_requested`, `org_deleted_via_bulk`, `org_parent_join_proposal_created`, and `org_join_proposal_decided` activity types; see [Query the Activity Feed](/docs/en/manage-claude/compliance-activity-feed).
 
 ## List organization users
 
@@ -68,17 +68,18 @@ This endpoint requires `read:compliance_user_data`, not `read:compliance_org_dat
 
 See [List organization users](/docs/en/api/compliance/organizations/users/list) in the API reference for the `limit` and `page` query parameter defaults and ranges.
 
-Results are sorted by account creation date ascending. Unlike the Activity Feed's `before_id`/`after_id` cursors (see [Paginate results](/docs/en/manage-claude/compliance-activity-feed#paginate-results)), the directory endpoints paginate with a `next_page` token: when `has_more` is `true`, pass `next_page` back unchanged as the `page` query parameter on the next request.
+Results are sorted by organization join date ascending. Unlike the Activity Feed's `before_id`/`after_id` cursors (see [Paginate results](/docs/en/manage-claude/compliance-activity-feed#paginate-results)), the directory endpoints paginate with a `next_page` token: when `has_more` is `true`, pass `next_page` back unchanged as the `page` query parameter on the next request.
 
 <CodeGroup>
 ```bash cURL nocheck
 org_uuid="91012d09-e48b-438e-a489-1bebfd8fa6f9"
 
 curl --fail-with-body -sS -G \
-  "https://api.anthropic.com/v1/compliance/organizations/$org_uuid/users" \
-  --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" \
-  --data-urlencode "limit=500"
-```
+ "https://api.anthropic.com/v1/compliance/organizations/$org_uuid/users" \
+ --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" \
+ --data-urlencode "limit=500"
+
+````
 </CodeGroup>
 
 ```json Response
@@ -88,15 +89,16 @@ curl --fail-with-body -sS -G \
       "id": "user_01XyDMpzjS89pFZXqSFUBDr6",
       "full_name": "Priya Sharma",
       "email": "priya@example.com",
+      "organization_role": "admin",
       "created_at": "2025-06-01T10:00:00Z"
     }
   ],
   "has_more": true,
   "next_page": "page_8aW5kZXgicG9zaXRpb25fdG9rZW5fOTE0"
 }
-```
+````
 
-The user IDs returned here are the same `user_...` identifiers accepted by the [Query the Activity Feed](/docs/en/manage-claude/compliance-activity-feed) `actor_ids[]` filter and the [Retrieve chats and messages](/docs/en/manage-claude/compliance-content-data#retrieve-chats-and-messages) `user_ids[]` filter. A typical eDiscovery flow lists users for one or more organizations, filters against your own external records, and feeds the resulting IDs into chat and project queries.
+The user IDs returned here are the same `user_...` identifiers accepted by the [Query the Activity Feed](/docs/en/manage-claude/compliance-activity-feed) `actor_ids[]` filter and the [Retrieve chats and messages](/docs/en/manage-claude/compliance-content-data#retrieve-chats-and-messages) `user_ids[]` filter. The `organization_role` field carries the user's built-in membership level within the listed organization (one of `admin`, `billing`, `claude_code_user`, `developer`, `managed`, `membership_admin`, `owner`, `primary_owner`, or `user`), an axis independent of any custom RBAC role assignments returned by [List roles](#list-roles). A typical eDiscovery flow lists users for one or more organizations, filters against your own external records, and feeds the resulting IDs into chat and project queries.
 
 A user only appears here while they are an active member of the organization. Removed users are dropped from the list immediately. Their historical activity remains queryable through the Activity Feed for the full retention window, indexed by the same `user_...` ID.
 
@@ -111,9 +113,10 @@ Both role endpoints require `read:compliance_org_data`. The list endpoint accept
 org_uuid="91012d09-e48b-438e-a489-1bebfd8fa6f9"
 
 curl --fail-with-body -sS \
-  "https://api.anthropic.com/v1/compliance/organizations/${org_uuid}/roles" \
-  --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY"
-```
+ "https://api.anthropic.com/v1/compliance/organizations/${org_uuid}/roles" \
+ --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY"
+
+````
 </CodeGroup>
 
 ```json Response
@@ -130,7 +133,7 @@ curl --fail-with-body -sS \
   "has_more": false,
   "next_page": null
 }
-```
+````
 
 See the [List Compliance Roles](/docs/en/api/compliance/organizations/roles/list) response schema for the full role record shape. To list the permissions currently granted to a role, use [List Compliance Role Permissions](/docs/en/api/compliance/organizations/roles/permissions/list). To audit historical role assignments and permission changes, query the RBAC activity types (for example, `rbac_role_assigned` and `rbac_role_permission_added`) through the Activity Feed; see [Filter activities](/docs/en/manage-claude/compliance-activity-feed#filter-activities).
 
@@ -177,9 +180,10 @@ For each group ID, list its members:
 group_id="rbac_group_01P9qRsTuVwXyZa2BcDeFgHjK"
 
 curl --fail-with-body -sS -G \
-  "https://api.anthropic.com/v1/compliance/groups/$group_id/members" \
-  --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY"
-```
+ "https://api.anthropic.com/v1/compliance/groups/$group_id/members" \
+ --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY"
+
+````
 </CodeGroup>
 
 ```json Response
@@ -195,7 +199,7 @@ curl --fail-with-body -sS -G \
   "has_more": false,
   "next_page": null
 }
-```
+````
 
 See the [List Compliance Group Members](/docs/en/api/compliance/groups/members/list) response schema for the full member record shape. The `user_id` field is the same `user_...` identifier the Activity Feed and chat list accept. To get a member's full name, look it up through the organization users list.
 

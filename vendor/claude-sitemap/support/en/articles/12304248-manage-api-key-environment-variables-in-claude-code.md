@@ -39,11 +39,13 @@ macOS/Linux:
 ```
 echo $ANTHROPIC_API_KEY
 ```
+
 Windows CMD:
 
 ```
 echo %ANTHROPIC_API_KEY%
 ```
+
 Windows PowerShell:
 
 ```
@@ -59,11 +61,13 @@ macOS/Linux:
 ```
 export ANTHROPIC_API_KEY='your-api-key-here'
 ```
+
 Windows CMD:
 
 ```
 set ANTHROPIC_API_KEY=your-api-key-here
 ```
+
 Windows PowerShell:
 
 ```
@@ -90,6 +94,7 @@ echo 'export ANTHROPIC_API_KEY="your-api-key-here"' >> ~/.bash_profile
 # Apply changes
 source ~/.bash_profile
 ```
+
 Windows:
 
 1. Open System Properties → Advanced → Environment Variables
@@ -109,6 +114,7 @@ macOS/Linux (temporary):
 ```
 unset ANTHROPIC_API_KEY
 ```
+
 macOS (permanent):
 
 ```
@@ -116,21 +122,25 @@ macOS (permanent):
 sed -i '' '/ANTHROPIC_API_KEY/d' ~/.zshrc
 source ~/.zshrc
 ```
+
 Linux (permanent)
 
 ```
 sed -i '/ANTHROPIC_API_KEY/d' ~/.zshrc
 ```
+
 Windows CMD:
 
 ```
 set ANTHROPIC_API_KEY=
 ```
+
 Windows PowerShell:
 
 ```
 Remove-Item Env:ANTHROPIC_API_KEY
 ```
+
 Windows (permanent): Delete the variable from System Environment Variables settings.
 
 ## Common issues to avoid

@@ -1,4 +1,4 @@
-## List
+## List Files
 
 `FileListPageResponse Beta.Files.List(FileListParams?parameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ List Files
 ### Parameters
 
 - `FileListParams parameters`
-
   - `string afterID`
 
     Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -31,7 +30,6 @@ List Files
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -80,14 +78,18 @@ List Files
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class FileListPageResponse:`
-
   - `required IReadOnlyList<FileMetadata> Data`
 
     List of file metadata objects.
-
     - `required string ID`
 
       Unique object identifier.
@@ -123,7 +125,6 @@ List Files
     - `BetaFileScope? Scope`
 
       The scope of this file, indicating the context in which it was created (e.g., a session).
-
       - `required string ID`
 
         The ID of the scoping resource (e.g., the session ID).
@@ -153,5 +154,30 @@ var page = await client.Beta.Files.List(parameters);
 await foreach (var item in page.Paginate())
 {
     Console.WriteLine(item);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "created_at": "2025-04-15T18:37:24.100435Z",
+      "filename": "document.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 102400,
+      "type": "file",
+      "downloadable": false,
+      "scope": {
+        "id": "id",
+        "type": "session"
+      }
+    }
+  ],
+  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "has_more": true,
+  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
 }
 ```

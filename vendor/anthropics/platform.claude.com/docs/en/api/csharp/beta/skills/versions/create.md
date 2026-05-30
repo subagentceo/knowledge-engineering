@@ -1,4 +1,4 @@
-## Create
+## Create Skill Version
 
 `VersionCreateResponse Beta.Skills.Versions.Create(VersionCreateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Create Skill Version
 ### Parameters
 
 - `VersionCreateParams parameters`
-
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -25,7 +24,6 @@ Create Skill Version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -74,10 +72,15 @@ Create Skill Version
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class VersionCreateResponse:`
-
   - `required string ID`
 
     Unique identifier for the skill version.
@@ -130,4 +133,19 @@ VersionCreateParams parameters = new() { SkillID = "skill_id" };
 var version = await client.Beta.Skills.Versions.Create(parameters);
 
 Console.WriteLine(version);
+```
+
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
 ```

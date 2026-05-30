@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -44,6 +45,7 @@ These steps are performed once per Google Cloud project, regardless of which aut
     * the Google group containing your users, if using in-app Google sign-in
 
     If your organization uses a narrower custom role, it must include at minimum `aiplatform.endpoints.predict`.
+
   </Step>
 
   <Step title="Create an OAuth client (in-app Google sign-in only)">
@@ -77,11 +79,11 @@ With Google Cloud set up and devices prepared, open the in-app configuration win
 | -------------------------- | ---------------------- | ---------------------------------------------- |
 | GCP project ID             | `your-gcp-project`     | `your-gcp-project`                             |
 | GCP region                 | e.g. `us-east5`        | e.g. `us-east5`                                |
-| GCP credentials file path  | `/path/to/sa-key.json` | *leave empty*                                  |
-| Vertex OAuth client ID     | *leave empty*          | `1234567890-abc123.apps.googleusercontent.com` |
-| Vertex OAuth client secret | *leave empty*          | `GOCSPX-xxxxxxxxxxxxxxxxxxxx`                  |
-| Vertex OAuth scopes        | *leave empty*          | *leave empty for the default*                  |
-| Vertex AI base URL         | *optional*             | *optional*                                     |
+| GCP credentials file path  | `/path/to/sa-key.json` | _leave empty_                                  |
+| Vertex OAuth client ID     | _leave empty_          | `1234567890-abc123.apps.googleusercontent.com` |
+| Vertex OAuth client secret | _leave empty_          | `GOCSPX-xxxxxxxxxxxxxxxxxxxx`                  |
+| Vertex OAuth scopes        | _leave empty_          | _leave empty for the default_                  |
+| Vertex AI base URL         | _optional_             | _optional_                                     |
 
 Under **Identity & models**, add at least one **Model list** entry using the Vertex publisher model ID, for example `claude-sonnet-4@20250514`.
 

@@ -1,3 +1,5 @@
+# Otter transforms meetings into lasting organizational knowledge with Claude
+
 Otter, a leading AI Meeting Assistant, is redefining how organizations unlock value from their conversations. By combining Claude with its proprietary AI models, Otter provides advanced tools to summarize discussions, identify action items, and extract meaningful insights automatically. Collaboration is enhanced through AI-powered Chat, including the innovative Channel Chat, which enables teams to engage in targeted, topic-specific discussions with both colleagues and AI, ensuring seamless and focused communication.
 
 Last year, Otter announced it used its own model to summarize over 50 million meetings. Now with the help of Claude, Otter can extract more valuable insights from the millions of meetings it processes every day.

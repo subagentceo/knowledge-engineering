@@ -1,3 +1,5 @@
+# Sprouts Data Intelligence
+
 Access Sprouts.ai's B2B prospect database through natural language queries. Search for contacts and companies by job title, industry, location, company size, and more.
 
 You can use Sprouts Data Intelligence for:

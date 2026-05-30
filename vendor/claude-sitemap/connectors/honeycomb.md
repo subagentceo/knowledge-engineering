@@ -1,5 +1,7 @@
-Query and explore observability data from OpenTelemetry or dozens of other sources in your honeycomb.io account.  
-  
+# Honeycomb
+
+Query and explore observability data from OpenTelemetry or dozens of other sources in your honeycomb.io account.
+
 You can use the Honeycomb connector to:
 
 Analyze SLO Performance:**  

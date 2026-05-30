@@ -1,3 +1,5 @@
+# CourtListener
+
 Connects Claude to CourtListener, the Free Law Project's legal research platform, with access to millions of U.S. court opinions, PACER dockets, judge profiles, oral arguments, and citation data. Search case law across federal and state courts, retrieve full case metadata, extract and verify legal citations against a canonical database, and set up alerts for new opinions or docket updates. Built and operated by Free Law Project, a 501(c)(3) nonprofit dedicated to making the law broadly accessible.
 
 You can use CourtListener to:

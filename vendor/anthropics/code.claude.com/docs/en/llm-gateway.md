@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -8,11 +9,11 @@
 
 LLM gateways provide a centralized proxy layer between Claude Code and model providers, often providing:
 
-* **Centralized authentication** - Single point for API key management
-* **Usage tracking** - Monitor usage across teams and projects
-* **Cost controls** - Implement budgets and rate limits
-* **Audit logging** - Track all model interactions for compliance
-* **Model routing** - Switch between providers without code changes
+- **Centralized authentication** - Single point for API key management
+- **Usage tracking** - Monitor usage across teams and projects
+- **Cost controls** - Implement budgets and rate limits
+- **Audit logging** - Track all model interactions for compliance
+- **Model routing** - Switch between providers without code changes
 
 ## Gateway requirements
 
@@ -23,13 +24,13 @@ For an LLM gateway to work with Claude Code, it must meet the following requirem
 The gateway must expose to clients at least one of the following API formats:
 
 1. **Anthropic Messages**: `/v1/messages`, `/v1/messages/count_tokens`
-   * Must forward request headers: `anthropic-beta`, `anthropic-version`
+   - Must forward request headers: `anthropic-beta`, `anthropic-version`
 
 2. **Bedrock InvokeModel**: `/invoke`, `/invoke-with-response-stream`
-   * Must preserve request body fields: `anthropic_beta`, `anthropic_version`
+   - Must preserve request body fields: `anthropic_beta`, `anthropic_version`
 
 3. **Vertex rawPredict**: `:rawPredict`, `:streamRawPredict`, `/count-tokens:rawPredict`
-   * Must forward request headers: `anthropic-beta`, `anthropic-version`
+   - Must forward request headers: `anthropic-beta`, `anthropic-version`
 
 Failure to forward headers or preserve body fields may result in reduced functionality or inability to use Claude Code features.
 
@@ -39,11 +40,15 @@ Failure to forward headers or preserve body fields may result in reduced functio
 
 **Request headers**
 
-Claude Code includes the following headers on every API request:
+Claude Code includes the following headers on API requests:
 
-| Header                     | Description                                                                                                                                                         |
-| :------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `X-Claude-Code-Session-Id` | A unique identifier for the current Claude Code session. Proxies can use this to aggregate all API requests from a single session without parsing the request body. |
+| Header                          | Description                                                                                                                                                                                                                                                              |
+| :------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `X-Claude-Code-Session-Id`      | A unique identifier for the current Claude Code session. Proxies can use this to aggregate all API requests from a single session without parsing the request body.                                                                                                      |
+| `X-Claude-Code-Agent-Id`        | Identifier of the subagent or teammate that issued the request. Your proxy can use this to attribute API cost to individual parallel subagents within a session, without parsing the request body. Present only for requests made by an in-process subagent or teammate. |
+| `X-Claude-Code-Parent-Agent-Id` | Identifier of the agent that spawned the agent making the request. Use this with `X-Claude-Code-Agent-Id` to attribute API costs across nested agents in your proxy. Present only when the requesting agent was itself spawned by another agent.                         |
+
+Both agent ID headers are ephemeral per-spawn identifiers, not persistent user or device IDs.
 
 Claude Code also prepends a short attribution block to the system prompt containing the client version and a fingerprint derived from the conversation. The Anthropic API strips this block before processing, so it does not affect first-party prompt caching. If your gateway implements its own prompt cache keyed on the full request body, set [`CLAUDE_CODE_ATTRIBUTION_HEADER=0`](/en/env-vars) to omit it.
 
@@ -66,18 +71,18 @@ If your gateway uses model names that do not match the discovery filter, use the
 <Warning>
   LiteLLM PyPI versions 1.82.7 and 1.82.8 were compromised with credential-stealing malware. Do not install these versions. If you have already installed them:
 
-  * Remove the package
-  * Rotate all credentials on affected systems
-  * Follow the remediation steps in [BerriAI/litellm#24518](https://github.com/BerriAI/litellm/issues/24518)
+- Remove the package
+- Rotate all credentials on affected systems
+- Follow the remediation steps in [BerriAI/litellm#24518](https://github.com/BerriAI/litellm/issues/24518)
 
-  LiteLLM is a third-party proxy service. Anthropic doesn't endorse, maintain, or audit LiteLLM's security or functionality. This guide is provided for informational purposes and may become outdated. Use at your own discretion.
+LiteLLM is a third-party proxy service. Anthropic doesn't endorse, maintain, or audit LiteLLM's security or functionality. This guide is provided for informational purposes and may become outdated. Use at your own discretion.
 </Warning>
 
 ### Prerequisites
 
-* Claude Code updated to the latest version
-* LiteLLM Proxy Server deployed and accessible
-* Access to Claude models through your chosen provider
+- Claude Code updated to the latest version
+- LiteLLM Proxy Server deployed and accessible
+- Access to Claude models through your chosen provider
 
 ### Basic LiteLLM setup
 
@@ -150,9 +155,9 @@ export ANTHROPIC_BASE_URL=https://litellm-server:4000
 
 **Benefits of the unified endpoint over pass-through endpoints:**
 
-* Load balancing
-* Fallbacks
-* Consistent support for cost tracking and end-user tracking
+- Load balancing
+- Fallbacks
+- Consistent support for cost tracking and end-user tracking
 
 #### Provider-specific pass-through endpoints (alternative)
 
@@ -186,11 +191,22 @@ export CLAUDE_CODE_USE_VERTEX=1
 export CLOUD_ML_REGION=us-east5
 ```
 
+##### Claude Platform on AWS through a gateway
+
+Route to a gateway that forwards to the [Claude Platform on AWS](/en/claude-platform-on-aws) endpoint:
+
+```bash theme={null}
+export ANTHROPIC_AWS_BASE_URL=https://litellm-server:4000/anthropic-aws
+export ANTHROPIC_AWS_WORKSPACE_ID=wrkspc_01ABCDEFGHIJKLMN
+export CLAUDE_CODE_SKIP_ANTHROPIC_AWS_AUTH=1
+export CLAUDE_CODE_USE_ANTHROPIC_AWS=1
+```
+
 For more detailed information, refer to the [LiteLLM documentation](https://docs.litellm.ai/).
 
 ## Additional resources
 
-* [LiteLLM documentation](https://docs.litellm.ai/)
-* [Claude Code settings](/en/settings)
-* [Enterprise network configuration](/en/network-config)
-* [Third-party integrations overview](/en/third-party-integrations)
+- [LiteLLM documentation](https://docs.litellm.ai/)
+- [Claude Code settings](/en/settings)
+- [Enterprise network configuration](/en/network-config)
+- [Third-party integrations overview](/en/third-party-integrations)

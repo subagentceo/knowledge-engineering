@@ -1,3 +1,5 @@
+# Human Resources
+
 Streamline people operations — recruiting, onboarding, performance reviews, compensation analysis, and policy guidance.
 
 You can use Human Resources to:

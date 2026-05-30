@@ -1,4 +1,4 @@
-## Upload
+## Upload File
 
 `FileMetadata Beta.Files.Upload(FileUploadParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Upload File
 ### Parameters
 
 - `FileUploadParams parameters`
-
   - `required string file`
 
     Body param: The file to upload
@@ -17,7 +16,6 @@ Upload File
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -66,10 +64,15 @@ Upload File
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class FileMetadata:`
-
   - `required string ID`
 
     Unique object identifier.
@@ -105,7 +108,6 @@ Upload File
   - `BetaFileScope? Scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `required string ID`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -125,4 +127,22 @@ FileUploadParams parameters = new()
 var fileMetadata = await client.Beta.Files.Upload(parameters);
 
 Console.WriteLine(fileMetadata);
+```
+
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
 ```

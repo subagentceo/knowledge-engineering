@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -14,9 +15,9 @@ The Code tab spawns Claude Code CLI sessions. Anthropic is working on achieving 
 
 To configure the Code tab directly, deploy Claude Code's `managed-settings.json` alongside your Cowork on 3P profile. See the Claude Code documentation:
 
-* [Claude Code Desktop — managed settings](https://code.claude.com/docs/en/desktop#managed-settings)
-* [Claude Code settings reference](https://code.claude.com/docs/en/settings)
-* [Sandboxing](https://code.claude.com/docs/en/sandboxing)
+- [Claude Code Desktop — managed settings](https://code.claude.com/docs/en/desktop#managed-settings)
+- [Claude Code settings reference](https://code.claude.com/docs/en/settings)
+- [Sandboxing](https://code.claude.com/docs/en/sandboxing)
 
 ## Disabling the Code tab
 

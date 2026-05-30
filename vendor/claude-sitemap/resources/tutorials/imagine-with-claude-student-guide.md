@@ -1,3 +1,5 @@
+# Visuals that appear as you study with Claude
+
 Some things land faster drawn than said, and a good teacher knows when to reach for the whiteboard.
 
 Now, Claude can do that too. When a visual is the clearer answer to what you asked, Claude builds one as part of its response. The visual sits alongside the text, shaped directly to your ask — a diagram you click into as Claude explains, a chart you filter while you ask follow-ups, something that plays when the concept is a sound.
@@ -8,11 +10,11 @@ The visual streams in alongside the text and the conversation keeps going. You c
 
 ### What this is, practically
 
--   **Appears as part of Claude's answer** — in the flow of the conversation, not a side panel. If you've used [Artifacts](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them), this is the lighter version.
--   **Interactive, often.** Sliders, draggable points, buttons, interactive elements, and even sound.
--   **Built from what you gave it** — can use context from the conversation, files you uploaded, or what Claude knows about you.
--   **Diagrams, charts, tools** — not image generation.
--   **Web and desktop**, all plans while in beta.
+- **Appears as part of Claude's answer** — in the flow of the conversation, not a side panel. If you've used Artifacts, this is the lighter version.
+- **Interactive, often.** Sliders, draggable points, buttons, interactive elements, and even sound.
+- **Built from what you gave it** — can use context from the conversation, files you uploaded, or what Claude knows about you.
+- **Diagrams, charts, tools** — not image generation.
+- **Web and desktop**, all plans while in beta.
 
 ## A few moments where this may help you
 
@@ -42,8 +44,6 @@ Imagine embed — color-mixing
 Wait — red + green light makes yellow on a screen, but red + green paint makes brown. Why does mixing colors work completely differently depending on whether it's light or paint?
 
 Short answer: **light adds, paint subtracts.** A screen stacks light on light — more mixing means more energy hitting your eye, trending toward white. Paint is a _filter_ — each pigment steals wavelengths, and stacking filters means _less_ light surviving to reach your eye.
-
-  
 
 Why brown, not black? → Why printers use CMYK →
 
@@ -91,8 +91,8 @@ Check answer Pick one first
 
 What the test was doing
 
-The question asked about **speed** (a rate) but the y-axis plots **distance** (a cumulative amount). When the axis is a total, **rate lives in the slope**, not in how high the curve sits.  
-  
+The question asked about **speed** (a rate) but the y-axis plots **distance** (a cumulative amount). When the axis is a total, **rate lives in the slope**, not in how high the curve sits.
+
 This swap recurs everywhere: total revenue vs. growth, total downloads vs. daily downloads, water level vs. fill rate. Different labels, same trick.
 
 Show heights Show slopes
@@ -105,45 +105,45 @@ Another, same trap → Checklist →
 
 ## Things to try out while studying with Claude
 
-### 1\. See the mechanism behind an explanation
+### 1. See the mechanism behind an explanation
 
 When a concept has moving parts — a cycle, a cascade, a sequence that fires in order — a static diagram shows you one frame of it. Ask Claude, and you can turn the explanation into something more alive and interactive.
 
--   _"Show me how mechanism works, step by step — I want to watch it move, not just read the steps"_
--   _"Walk me through one pass of this process. I want to see what happens at each stage"_
--   ‍_"A concept from class has moving parts I can't picture. Draw where each piece goes"_
+- _"Show me how mechanism works, step by step — I want to watch it move, not just read the steps"_
+- _"Walk me through one pass of this process. I want to see what happens at each stage"_
+- ‍*"A concept from class has moving parts I can't picture. Draw where each piece goes"*
 
-**See it in action:** [Visualize the mechanism behind an explanation mid-chat →](https://claude.com/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)
+**See it in action:** Visualize the mechanism behind an explanation mid-chat →
 
-### 2\. See the thing you can't picture
+### 2. See the thing you can't picture
 
 Some passages describe a structure, a sequence, a shape and assume you can picture it. When you can't, paste the text. Claude draws the thing the words refer to. The explanation stays the same; what you get is the picture that was missing.
 
--   ‍_"Here's a passage I can't picture. Draw what it's describing so I can see it."_
--   _"I keep rereading this and it's not landing. Show me what this concept actually looks like."_
--   _"The textbook explains this in words. I need the diagram it didn't include."_
+- ‍*"Here's a passage I can't picture. Draw what it's describing so I can see it."*
+- _"I keep rereading this and it's not landing. Show me what this concept actually looks like."_
+- _"The textbook explains this in words. I need the diagram it didn't include."_
 
-**See it in action:** [Plan your course from its syllabus→](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)
+**See it in action:** Plan your course from its syllabus→
 
-### 3\. Apply a concept as you learn it
+### 3. Apply a concept as you learn it
 
 Sometimes the way to learn a thing is to practice it — try it, get it wrong, see why. Ask Claude for something interactive and you get a tool to practice on with the explanation right there as you go: a simulation where you change the inputs, a quiz that shows you where you're off, a problem that responds while you work it.
 
--   ‍_"I get this concept on paper. Give me something interactive so I can try it and see what changes."_
--   _"Explain this topic, then let me put it in my own words. Show me where I've got it wrong."_
--   _"Quiz me on this concept — I want to find the gaps before the exam does."_
+- ‍*"I get this concept on paper. Give me something interactive so I can try it and see what changes."*
+- _"Explain this topic, then let me put it in my own words. Show me where I've got it wrong."_
+- _"Quiz me on this concept — I want to find the gaps before the exam does."_
 
-**See it in action:** [Apply a formula as you learn it →](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)
+**See it in action:** Apply a formula as you learn it →
 
-### 4\. Work through your own material
+### 4. Work through your own material
 
 Bring what you have — lab data, lecture notes, a difficult problem. As you chat with Claude, a visual appears built around the topic: a chart to dig into together, a map of your notes, a quiz, a correction.
 
--   ‍_"Here's my \[data / notes / draft\]. Help me see what's in it before I write anything up."_
--   _"These are my notes so far. Map how the ideas connect so I can see what's still missing."_
--   _"I know something's wrong in here: \[upload\]. Walk me through where I went off."_
+- ‍*"Here's my [data / notes / draft]. Help me see what's in it before I write anything up."*
+- _"These are my notes so far. Map how the ideas connect so I can see what's still missing."_
+- _"I know something's wrong in here: [upload]. Walk me through where I went off."_
 
-**See it in action:** [Chart your data before you commit →](https://claude.com/resources/use-cases/chart-your-data-before-you-commit) · [Map your lit review mid-conversation →](https://claude.com/resources/use-cases/chart-your-data-before-you-commit)
+**See it in action:** Chart your data before you commit → · Map your lit review mid-conversation →
 
 ## What you can do with what Claude draws
 
@@ -157,17 +157,17 @@ Bring what you have — lab data, lecture notes, a difficult problem. As you cha
 
 **Save it.** To keep or build on your visual, hover over what Claude drew and a few options appear in the corner.
 
--   `Copy as image` — snapshot for notes or slides. The move most of the time.
--   `Save as artifact` — when you'd reopen the interactive version or share it. The whiteboard becomes a document.
--   `Download` — source code (.svg or .html).
+- `Copy as image` — snapshot for notes or slides. The move most of the time.
+- `Save as artifact` — when you'd reopen the interactive version or share it. The whiteboard becomes a document.
+- `Download` — source code (.svg or .html).
 
 **Take it further.** Ask Claude to help you write up what clicked from the visual in a doc for your notes. Explain it to someone else to test whether it stuck. Or ask Claude to map what you now understand and what's still fuzzy; articulating one gap often surfaces the next. Either way, check the content against a real source before treating it as authoritative.
 
 ## A few practical things
 
--   If you expected a visual and didn't get one, any version of "show me" or "visualize this" brings one in.
--   If the visual renders oddly — overlapping elements, cut-off labels — ask Claude to fix the formatting.
--   Works on [claude.ai](https://claude.ai) web and the desktop apps. Not on mobile yet.
+- If you expected a visual and didn't get one, any version of "show me" or "visualize this" brings one in.
+- If the visual renders oddly — overlapping elements, cut-off labels — ask Claude to fix the formatting.
+- Works on claude.ai web and the desktop apps. Not on mobile yet.
 
 ## Go deeper — the full set of walkthroughs
 
@@ -175,18 +175,18 @@ Each of these is a complete use case with a tested prompt, a chat-window view of
 
 **For students:**
 
--   [Visualize the mechanism behind an explanation mid-chat](https://claude.com/resources/use-cases/visualize-the-mechanism-behind-an-explanation-mid-chat)
--   [Apply a formula as you learn it, in chat with Claude](https://claude.com/resources/use-cases/apply-a-formula-as-you-learn-it-in-chat-with-claude)
+- Visualize the mechanism behind an explanation mid-chat
+- Apply a formula as you learn it, in chat with Claude
 
 **For your own work and research:**
 
--   [Chart your data in conversation with Claude before you commit to a reading](https://claude.com/resources/use-cases/chart-your-data-before-you-commit)
--   [Map your lit review mid-conversation to surface the underlying debate](https://claude.com/resources/use-cases/map-your-lit-review-mid-conversation)
--   [Work through grant options in chat with Claude](https://claude.com/resources/use-cases/work-through-grant-options-in-chat-with-claude)
+- Chart your data in conversation with Claude before you commit to a reading
+- Map your lit review mid-conversation to surface the underlying debate
+- Work through grant options in chat with Claude
 
 **For teaching and planning:**
 
--   [Bring your whiteboard lesson to life in conversation with Claude](https://claude.com/resources/use-cases/bring-your-whiteboard-lesson-to-life)
--   [Plan your syllabus in chat with Claude — see which weeks are locked](https://claude.com/resources/use-cases/plan-your-syllabus-see-which-weeks-are-locked)
+- Bring your whiteboard lesson to life in conversation with Claude
+- Plan your syllabus in chat with Claude — see which weeks are locked
 
 Next time something isn't clicking, ask Claude to imagine it with you. Claude draws it, and the conversation continues from there.

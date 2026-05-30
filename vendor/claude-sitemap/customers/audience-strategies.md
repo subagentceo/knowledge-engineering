@@ -1,11 +1,13 @@
+# Audience Strategies expands the electronic music industry's policy influence with Claude
+
 Audience Strategies partners with the Night Time Industries Association (NTIA) to produce the annual "State of Electronic Music" report, which documents the cultural and economic impact of the UK's £2.4 billion electronic music sector.
 
 **With Claude, Audience Strategies:**
 
--   Compressed their report creation timeline from 3 months to 4 weeks
--   Reduced interview preparation and analysis from 2 hours to 25 minutes per interview
--   Covered 30% more topics compared to previous reports
--   Shortened their writing phase from 4 weeks to just a few days
+- Compressed their report creation timeline from 3 months to 4 weeks
+- Reduced interview preparation and analysis from 2 hours to 25 minutes per interview
+- Covered 30% more topics compared to previous reports
+- Shortened their writing phase from 4 weeks to just a few days
 
 ## Breaking through the barriers of manual research
 
@@ -19,9 +21,9 @@ After evaluating multiple AI models, Audience Strategies chose Claude for its su
 
 The decision came down to three factors:
 
--   **Extensive context window**: Claude allowed the team to process entire interview transcripts without artificial constraints. "We can input vastly more information—more interview transcripts, strategy documents, and research pieces," Boyle noted.
--   **Claude Projects**: Shareable projects with live-linked knowledge files to the latest version of Google Docs enabled seamless collaboration across their distributed team.
--   **Natural writing style**: The output quality felt genuinely human rather than artificially structured.
+- **Extensive context window**: Claude allowed the team to process entire interview transcripts without artificial constraints. "We can input vastly more information—more interview transcripts, strategy documents, and research pieces," Boyle noted.
+- **Claude Projects**: Shareable projects with live-linked knowledge files to the latest version of Google Docs enabled seamless collaboration across their distributed team.
+- **Natural writing style**: The output quality felt genuinely human rather than artificially structured.
 
 ## How Claude powers comprehensive industry analysis
 
@@ -29,10 +31,10 @@ Audience Strategies integrated Claude into their research and writing workflow, 
 
 For interview processing, the team uploads transcripts from otter.ai to dedicated Claude projects, then through a series of prompts Claude:
 
--   Generates high-level summaries of key takeaways
--   Categorizes insights according to report sections (economic impact, cultural significance, policy challenges)
--   Extracts powerful quotes that capture unique perspectives
--   Identifies emergent themes across multiple interviews
+- Generates high-level summaries of key takeaways
+- Categorizes insights according to report sections (economic impact, cultural significance, policy challenges)
+- Extracts powerful quotes that capture unique perspectives
+- Identifies emergent themes across multiple interviews
 
 "Claude helped us uncover a previously unexplored therapeutic dimension of electronic music," Boyle shared. By connecting comments about neurodiverse communities gravitating toward electronic music with discussions about sound system experiences, Claude uncovered insights that led to new research initiatives exploring how specific BPM ranges may create uniquely supportive environments for neurodiverse individuals.
 

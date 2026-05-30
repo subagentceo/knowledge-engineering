@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -114,11 +115,11 @@ These plugins are starting points. Plugins are file-based Markdown and
 JSON, so no code or infrastructure is required to customize them. Edit
 the plugin files directly to match your firm's workflows.
 
-* Add your firm's terminology, processes, and formatting standards to
+- Add your firm's terminology, processes, and formatting standards to
   skill files.
-* Swap or add MCP connectors to point at your specific data providers.
-* Adjust workflow instructions to reflect how your team does analysis.
-* Use `/ppt-template` to teach Claude your firm's branded PowerPoint
+- Swap or add MCP connectors to point at your specific data providers.
+- Adjust workflow instructions to reflect how your team does analysis.
+- Use `/ppt-template` to teach Claude your firm's branded PowerPoint
   layouts.
 
 ## Learn more

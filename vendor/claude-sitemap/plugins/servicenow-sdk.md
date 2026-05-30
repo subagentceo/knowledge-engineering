@@ -1,19 +1,13 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    ServiceNow
-    
-    ](#)
-    
--   Installs
-    
-    1
+# servicenow-sdk
+
+- Install in
+
+  Claude Code
+
+- Made by
+
+  ServiceNow
+
+- Installs
+
+  270

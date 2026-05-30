@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -10,12 +11,12 @@
 
 For the `model` setting in Claude Code, you can configure either:
 
-* A **model alias**
-* A **model name**
-  * Anthropic API: A full **[model name](https://platform.claude.com/docs/en/about-claude/models/overview)**
-  * Bedrock: an inference profile ARN
-  * Foundry: a deployment name
-  * Vertex: a version name
+- A **model alias**
+- A **model name**
+  - Anthropic API: A full **[model name](https://platform.claude.com/docs/en/about-claude/models/overview)**
+  - Bedrock: an inference profile ARN
+  - Foundry: a deployment name
+  - Vertex: a version name
 
 <Note>
   `ANTHROPIC_BASE_URL` changes where requests are sent, not which model answers them. To route Claude through an LLM gateway, see [LLM gateway configuration](/en/llm-gateway).
@@ -37,12 +38,12 @@ remembering exact version numbers:
 | **`opus[1m]`**   | Uses Opus with a [1 million token context window](https://platform.claude.com/docs/en/build-with-claude/context-windows#1m-token-context-window) for long sessions   |
 | **`opusplan`**   | Special mode that uses `opus` during plan mode, then switches to `sonnet` for execution                                                                              |
 
-On the Anthropic API and [Claude Platform on AWS](/en/claude-platform-on-aws), `opus` resolves to Opus 4.7 and `sonnet` resolves to Sonnet 4.6. On Bedrock, Vertex, and Foundry, `opus` resolves to Opus 4.6 and `sonnet` resolves to Sonnet 4.5; newer models are available on those providers by selecting the full model name explicitly or setting `ANTHROPIC_DEFAULT_OPUS_MODEL` or `ANTHROPIC_DEFAULT_SONNET_MODEL`.
+On the Anthropic API, `opus` resolves to Opus 4.8 and `sonnet` resolves to Sonnet 4.6. On [Claude Platform on AWS](/en/claude-platform-on-aws), `opus` resolves to Opus 4.7 and `sonnet` resolves to Sonnet 4.6. On Bedrock, Vertex, and Foundry, `opus` resolves to Opus 4.6 and `sonnet` resolves to Sonnet 4.5; newer models are available on those providers by selecting the full model name explicitly or setting `ANTHROPIC_DEFAULT_OPUS_MODEL` or `ANTHROPIC_DEFAULT_SONNET_MODEL`.
 
-Aliases point to the recommended version for your provider and update over time. To pin to a specific version, use the full model name (for example, `claude-opus-4-7`) or set the corresponding environment variable like `ANTHROPIC_DEFAULT_OPUS_MODEL`.
+Aliases point to the recommended version for your provider and update over time. To pin to a specific version, use the full model name (for example, `claude-opus-4-8`) or set the corresponding environment variable like `ANTHROPIC_DEFAULT_OPUS_MODEL`.
 
 <Note>
-  Opus 4.7 requires Claude Code v2.1.111 or later. Run `claude update` to upgrade.
+  Opus 4.8 requires Claude Code v2.1.154 or later. Run `claude update` to upgrade.
 </Note>
 
 ### Setting your model
@@ -55,11 +56,20 @@ You can configure your model in several ways, listed in order of priority:
 4. **Settings** - Configure permanently in your settings file using the `model`
    field.
 
-Your `/model` selection is saved to user settings and persists across restarts. As of v2.1.117, if the project's `.claude/settings.json` pins a different model, Claude Code also writes your choice to `.claude/settings.local.json` so it continues to apply in that project after a restart. Managed settings take precedence and reapply on the next launch.
+As of v2.1.153, `/model` saves your choice as the default for new sessions by writing the `model` field in your user settings. In the picker:
 
-The `--model` flag and `ANTHROPIC_MODEL` environment variable apply only to the session you launch with them and are not saved. To run different models in different terminals at the same time, launch each one with its own `--model` flag rather than switching with `/model`.
+- `Enter`: switch model and save as your default
+- `s`: switch model for this session only
 
-When the active model at startup comes from project or managed settings rather than your own selection, the startup header shows which settings file set it. Run `/model` to override for the current session.
+Typing `/model <name>` directly behaves like `Enter`. Project and managed settings still take precedence and reapply on the next launch.
+
+In v2.1.144 through v2.1.152, `/model` applied to the current session only and `d` in the picker saved a default.
+
+The `--model` flag and `ANTHROPIC_MODEL` environment variable apply only to the session you launch with them. To run different models in different terminals at the same time, launch each one with its own `--model` flag rather than switching with `/model`.
+
+Resumed sessions started with `claude --resume`, `--continue`, or the `/resume` picker keep the model they were using when the transcript was saved, regardless of the current `model` setting. If that model has been retired, the session falls through to the normal precedence order. This prevents another session's `/model` choice from changing the model on resume.
+
+When the active model at startup comes from project or managed settings rather than your own selection, the startup header shows which settings file set it. Run `/model` to override; the project or managed setting reapplies on the next launch.
 
 Example usage:
 
@@ -106,9 +116,9 @@ The `model` setting is an initial selection, not enforcement. It sets which mode
 
 To fully control the model experience, combine three settings:
 
-* **`availableModels`**: restricts which named models users can switch to
-* **`model`**: sets the initial model selection when a session starts
-* **`ANTHROPIC_DEFAULT_SONNET_MODEL`** / **`ANTHROPIC_DEFAULT_OPUS_MODEL`** / **`ANTHROPIC_DEFAULT_HAIKU_MODEL`**: control what the Default option and the `sonnet`, `opus`, and `haiku` aliases resolve to
+- **`availableModels`**: restricts which named models users can switch to
+- **`model`**: sets the initial model selection when a session starts
+- **`ANTHROPIC_DEFAULT_SONNET_MODEL`** / **`ANTHROPIC_DEFAULT_OPUS_MODEL`** / **`ANTHROPIC_DEFAULT_HAIKU_MODEL`**: control what the Default option and the `sonnet`, `opus`, and `haiku` aliases resolve to
 
 This example starts users on Sonnet 4.5, limits the picker to Sonnet and Haiku, and pins Default to resolve to Sonnet 4.5 rather than the latest release:
 
@@ -138,23 +148,22 @@ When the [Bedrock Mantle endpoint](/en/amazon-bedrock#use-the-mantle-endpoint) i
 
 The behavior of `default` depends on your account type:
 
-* **Max and Team Premium**: defaults to Opus 4.7
-* **Pro, Team Standard, Enterprise, and Anthropic API**: defaults to Sonnet 4.6
-* **Bedrock, Vertex, and Foundry**: defaults to Sonnet 4.5
+- **Max, Team Premium, Enterprise pay-as-you-go, and Anthropic API**: defaults to Opus 4.8
+- **Claude Platform on AWS**: defaults to Opus 4.7
+- **Pro, Team Standard, and Enterprise subscription seats**: defaults to Sonnet 4.6
+- **Bedrock, Vertex, and Foundry**: defaults to Sonnet 4.5
+
+Enterprise pay-as-you-go means an Enterprise organization billed by usage rather than by subscription seat.
 
 Claude Code may automatically fall back to Sonnet if you hit a usage threshold with Opus.
-
-<Note>
-  On April 23, 2026, the default model for Enterprise pay-as-you-go and Anthropic API users will change to Opus 4.7. To keep a different default, set `ANTHROPIC_MODEL` or the `model` field in [server-managed settings](/en/server-managed-settings).
-</Note>
 
 ### `opusplan` model setting
 
 The `opusplan` model alias provides an automated hybrid approach:
 
-* **In plan mode** - Uses `opus` for complex reasoning and architecture
+- **In plan mode** - Uses `opus` for complex reasoning and architecture
   decisions
-* **In execution mode** - Automatically switches to `sonnet` for code generation
+- **In execution mode** - Automatically switches to `sonnet` for code generation
   and implementation
 
 This gives you the best of both worlds: Opus's superior reasoning for planning,
@@ -166,32 +175,35 @@ The plan-mode Opus phase runs with the standard 200K context window. The automat
 
 [Effort levels](https://platform.claude.com/docs/en/build-with-claude/effort) control adaptive reasoning, which lets the model decide whether and how much to think on each step based on task complexity. Lower effort is faster and cheaper for straightforward tasks, while higher effort provides deeper reasoning for complex problems.
 
-Effort is supported on Opus 4.7, Opus 4.6, and Sonnet 4.6. The available levels depend on the model:
+The available effort levels depend on the model. Models not listed here do not support effort:
 
 | Model                   | Levels                                  |
 | :---------------------- | :-------------------------------------- |
-| Opus 4.7                | `low`, `medium`, `high`, `xhigh`, `max` |
+| Opus 4.8 and Opus 4.7   | `low`, `medium`, `high`, `xhigh`, `max` |
 | Opus 4.6 and Sonnet 4.6 | `low`, `medium`, `high`, `max`          |
 
 If you set a level the active model does not support, Claude Code falls back to the highest supported level at or below the one you set. For example, `xhigh` runs as `high` on Opus 4.6.
 
-As of v2.1.117, the default effort is `xhigh` on Opus 4.7 and `high` on Opus 4.6 and Sonnet 4.6.
+The default effort is `high` on Opus 4.8, Opus 4.6, and Sonnet 4.6, and `xhigh` on Opus 4.7.
 
-When you first run Opus 4.7, Claude Code applies `xhigh` even if you previously set a different effort level for Opus 4.6 or Sonnet 4.6. Run `/effort` again to choose a different level after switching.
+When you first run Opus 4.8 or Opus 4.7, Claude Code applies that model's default effort even if you previously set a different level for another model: `high` on Opus 4.8 and `xhigh` on Opus 4.7. Run `/effort` again to choose a different level after switching.
 
 `low`, `medium`, `high`, and `xhigh` persist across sessions. `max` provides the deepest reasoning with no constraint on token spending and applies to the current session only, except when set through the `CLAUDE_CODE_EFFORT_LEVEL` environment variable.
+
+The `/effort` menu also offers `ultracode`. Ultracode is a Claude Code setting rather than a model effort level: it sends `xhigh` to the model and additionally has Claude orchestrate [dynamic workflows](/en/workflows) for substantive tasks. It applies to the current session only. Set it through `/effort`, or pass `"ultracode": true` via `--settings` or an Agent SDK control request. It is not part of the `effortLevel` setting, the `--effort` flag, or `CLAUDE_CODE_EFFORT_LEVEL`.
 
 #### Choose an effort level
 
 Each level trades token spend against capability. The default suits most coding tasks; adjust when you want a different balance.
 
-| Level    | When to use it                                                                                                                         |
-| :------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| `low`    | Reserve for short, scoped, latency-sensitive tasks that are not intelligence-sensitive                                                 |
-| `medium` | Reduces token usage for cost-sensitive work that can trade off some intelligence                                                       |
-| `high`   | Balances token usage and intelligence. Use as a minimum for intelligence-sensitive work, or to reduce token spend relative to `xhigh`  |
-| `xhigh`  | Best results for most coding and agentic tasks. Recommended default on Opus 4.7                                                        |
-| `max`    | Can improve performance on demanding tasks but may show diminishing returns and is prone to overthinking. Test before adopting broadly |
+| Level       | When to use it                                                                                                                                  |
+| :---------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `low`       | Reserve for short, scoped, latency-sensitive tasks that are not intelligence-sensitive                                                          |
+| `medium`    | Reduces token usage for cost-sensitive work that can trade off some intelligence                                                                |
+| `high`      | Balances token usage and intelligence. Default on Opus 4.8, Opus 4.6, and Sonnet 4.6                                                            |
+| `xhigh`     | Deeper reasoning at higher token spend. Default on Opus 4.7                                                                                     |
+| `max`       | Can improve performance on demanding tasks but may show diminishing returns and is prone to overthinking. Test before adopting broadly          |
+| `ultracode` | A Claude Code setting that plans a [dynamic workflow](/en/workflows) for each substantive task with `xhigh` per-message reasoning. Session-only |
 
 The effort scale is calibrated per model, so the same level name does not represent the same underlying value across models.
 
@@ -203,12 +215,12 @@ Include `ultrathink` anywhere in your prompt to request deeper reasoning on that
 
 You can change effort through any of the following:
 
-* **`/effort`**: run `/effort` with no arguments to open an interactive slider, `/effort` followed by a level name to set it directly, or `/effort auto` to reset to the model default
-* **In `/model`**: use left/right arrow keys to adjust the effort slider when selecting a model
-* **`--effort` flag**: pass a level name to set it for a single session when launching Claude Code
-* **Environment variable**: set `CLAUDE_CODE_EFFORT_LEVEL` to a level name or `auto`
-* **Settings**: set `effortLevel` in your settings file
-* **Skill and subagent frontmatter**: set `effort` in a [skill](/en/skills#frontmatter-reference) or [subagent](/en/sub-agents#supported-frontmatter-fields) markdown file to override the effort level when that skill or subagent runs
+- **`/effort`**: run `/effort` with no arguments to open an interactive slider, `/effort` followed by a level name to set it directly, or `/effort auto` to reset to the model default
+- **In `/model`**: use left/right arrow keys to adjust the effort slider when selecting a model
+- **`--effort` flag**: pass a level name to set it for a single session when launching Claude Code
+- **Environment variable**: set `CLAUDE_CODE_EFFORT_LEVEL` to a level name or `auto`
+- **Settings**: set `effortLevel` to `low`, `medium`, `high`, or `xhigh` in your settings file. `max` and `ultracode` are [session-only](#adjust-effort-level) and are not accepted here
+- **Skill and subagent frontmatter**: set `effort` in a [skill](/en/skills#frontmatter-reference) or [subagent](/en/sub-agents#supported-frontmatter-fields) markdown file to override the effort level when that skill or subagent runs
 
 The environment variable takes precedence over all other methods, then your configured level, then the model default. Frontmatter effort applies when that skill or subagent is active, overriding the session level but not the environment variable.
 
@@ -218,7 +230,7 @@ The effort slider appears in `/model` when a supported model is selected. The cu
 
 Adaptive reasoning makes thinking optional on each step, so Claude can respond faster to routine prompts and reserve deeper thinking for steps that benefit from it. If you want Claude to think more or less often than the current level produces, you can say so directly in your prompt or in `CLAUDE.md`; the model responds to that guidance within its effort setting.
 
-Opus 4.7 always uses adaptive reasoning. The fixed thinking budget mode and `CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING` do not apply to it.
+Opus 4.7 and later always use adaptive reasoning. The fixed thinking budget mode and `CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING` do not apply to them.
 
 On Opus 4.6 and Sonnet 4.6, you can set `CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING=1` to revert to the previous fixed thinking budget controlled by `MAX_THINKING_TOKENS`. See [environment variables](/en/env-vars).
 
@@ -236,19 +248,19 @@ Thinking output is collapsed by default. Press `Ctrl+O` to toggle verbose mode a
 
 ### Extended context
 
-Opus 4.7, Opus 4.6, and Sonnet 4.6 support a [1 million token context window](https://platform.claude.com/docs/en/build-with-claude/context-windows#1m-token-context-window) for long sessions with large codebases.
+Opus 4.6 and later, and Sonnet 4.6, support a [1 million token context window](https://platform.claude.com/docs/en/build-with-claude/context-windows#1m-token-context-window) for long sessions with large codebases.
 
-Availability varies by model and plan. On Max, Team, and Enterprise plans, Opus is automatically upgraded to 1M context with no additional configuration. This applies to both Team Standard and Team Premium seats. Sonnet with 1M context is not part of the automatic upgrade and requires [extra usage](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) on every subscription plan, including Max.
+Availability varies by model and plan. On Max, Team, and Enterprise plans, Opus is automatically upgraded to 1M context with no additional configuration. This applies to both Team Standard and Team Premium seats. Sonnet with 1M context is not part of the automatic upgrade and requires [usage credits](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) on every subscription plan, including Max.
 
-| Plan                      | Opus with 1M context                                                                                      | Sonnet with 1M context                                                                                    |
-| ------------------------- | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Max, Team, and Enterprise | Included with subscription                                                                                | Requires [extra usage](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) |
-| Pro                       | Requires [extra usage](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) | Requires [extra usage](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) |
-| API and pay-as-you-go     | Full access                                                                                               | Full access                                                                                               |
+| Plan                      | Opus with 1M context                                                                                        | Sonnet with 1M context                                                                                      |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Max, Team, and Enterprise | Included with subscription                                                                                  | Requires [usage credits](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) |
+| Pro                       | Requires [usage credits](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) | Requires [usage credits](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) |
+| API and pay-as-you-go     | Full access                                                                                                 | Full access                                                                                                 |
 
 To disable 1M context entirely, set `CLAUDE_CODE_DISABLE_1M_CONTEXT=1`. This removes 1M model variants from the model picker. See [environment variables](/en/env-vars).
 
-The 1M context window uses standard model pricing with no premium for tokens beyond 200K. For plans where extended context is included with your subscription, usage remains covered by your subscription. For plans that access extended context through extra usage, tokens are billed to extra usage.
+The 1M context window uses standard model pricing with no premium for tokens beyond 200K. For plans where extended context is included with your subscription, usage remains covered by your subscription. For plans that access extended context through usage credits, tokens are billed to usage credits.
 
 If your account supports 1M context, the option appears in the model picker (`/model`) in the latest versions of Claude Code. If you don't see it, try restarting your session.
 
@@ -260,7 +272,7 @@ You can also use the `[1m]` suffix with model aliases or full model names:
 /model sonnet[1m]
 
 # Or append [1m] to a full model name
-/model claude-opus-4-7[1m]
+/model claude-opus-4-8[1m]
 ```
 
 ## Checking your current model
@@ -291,12 +303,12 @@ Claude Code skips validation for the model ID set in `ANTHROPIC_CUSTOM_MODEL_OPT
 You can use the following environment variables, which must be full **model
 names** (or equivalent for your API provider), to control the model names that the aliases map to.
 
-| Environment variable             | Description                                                                                   |
-| -------------------------------- | --------------------------------------------------------------------------------------------- |
-| `ANTHROPIC_DEFAULT_OPUS_MODEL`   | The model to use for `opus`, or for `opusplan` when Plan Mode is active.                      |
-| `ANTHROPIC_DEFAULT_SONNET_MODEL` | The model to use for `sonnet`, or for `opusplan` when Plan Mode is not active.                |
-| `ANTHROPIC_DEFAULT_HAIKU_MODEL`  | The model to use for `haiku`, or [background functionality](/en/costs#background-token-usage) |
-| `CLAUDE_CODE_SUBAGENT_MODEL`     | The model to use for [subagents](/en/sub-agents)                                              |
+| Environment variable             | Description                                                                                                                                                                                                                                                       |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ANTHROPIC_DEFAULT_OPUS_MODEL`   | The model to use for `opus`, or for `opusplan` when Plan Mode is active.                                                                                                                                                                                          |
+| `ANTHROPIC_DEFAULT_SONNET_MODEL` | The model to use for `sonnet`, or for `opusplan` when Plan Mode is not active.                                                                                                                                                                                    |
+| `ANTHROPIC_DEFAULT_HAIKU_MODEL`  | The model to use for `haiku`, or [background functionality](/en/costs#background-token-usage)                                                                                                                                                                     |
+| `CLAUDE_CODE_SUBAGENT_MODEL`     | The model to use for all [subagents](/en/sub-agents#choose-a-model) and [agent teams](/en/agent-teams). Overrides the per-invocation `model` parameter and the subagent definition's `model` frontmatter. Set to `inherit` to use normal model resolution instead |
 
 Note: `ANTHROPIC_SMALL_FAST_MODEL` is deprecated in favor of
 `ANTHROPIC_DEFAULT_HAIKU_MODEL`.
@@ -315,19 +327,23 @@ Use the following environment variables with version-specific model IDs for your
 
 | Provider  | Example                                                              |
 | :-------- | :------------------------------------------------------------------- |
-| Bedrock   | `export ANTHROPIC_DEFAULT_OPUS_MODEL='us.anthropic.claude-opus-4-7'` |
-| Vertex AI | `export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-7'`              |
-| Foundry   | `export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-7'`              |
+| Bedrock   | `export ANTHROPIC_DEFAULT_OPUS_MODEL='us.anthropic.claude-opus-4-8'` |
+| Vertex AI | `export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-8'`              |
+| Foundry   | `export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-8'`              |
 
 Apply the same pattern for `ANTHROPIC_DEFAULT_SONNET_MODEL` and `ANTHROPIC_DEFAULT_HAIKU_MODEL`. For current and legacy model IDs across all providers, see [Models overview](https://platform.claude.com/docs/en/about-claude/models/overview). To upgrade users to a new model version, update these environment variables and redeploy.
 
 To enable [extended context](#extended-context) for a pinned model, append `[1m]` to the model ID in `ANTHROPIC_DEFAULT_OPUS_MODEL` or `ANTHROPIC_DEFAULT_SONNET_MODEL`:
 
 ```bash theme={null}
-export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-7[1m]'
+export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-8[1m]'
 ```
 
-The `[1m]` suffix applies the 1M context window to all usage of that alias, including `opusplan`. Claude Code strips the suffix before sending the model ID to your provider. Only append `[1m]` when the underlying model supports 1M context, such as Opus 4.7 or Sonnet 4.6.
+The `[1m]` suffix applies the 1M context window to all usage of that alias, including `opusplan`.
+
+- Claude Code strips the suffix before sending the model ID to your provider.
+- Only append `[1m]` when the underlying model [supports 1M context](https://platform.claude.com/docs/en/build-with-claude/context-windows#1m-token-context-window).
+- The suffix is read per variable, not per model. On Bedrock, Vertex, and Foundry, a model ID without `[1m]` in one variable uses 200K context even if another variable sets the same model with the suffix.
 
 <Note>
   The `settings.availableModels` allowlist still applies when using third-party providers. Filtering matches on the model alias (`opus`, `sonnet`, `haiku`), not the provider-specific model ID.
@@ -352,7 +368,7 @@ Claude Code enables features like [effort levels](#adjust-effort-level) and [ext
 | Capability value       | Enables                                                                         |
 | ---------------------- | ------------------------------------------------------------------------------- |
 | `effort`               | [Effort levels](#adjust-effort-level) and the `/effort` command                 |
-| `xhigh_effort`         | {/* min-version: 2.1.111 */}The `xhigh` effort level                            |
+| `xhigh_effort`         | {/_ min-version: 2.1.111 _/}The `xhigh` effort level                            |
 | `max_effort`           | The `max` effort level                                                          |
 | `thinking`             | [Extended thinking](#extended-thinking)                                         |
 | `adaptive_thinking`    | Adaptive reasoning that dynamically allocates thinking based on task complexity |
@@ -397,13 +413,13 @@ Overrides replace the built-in model IDs that back each entry in the `/model` pi
 
 ### Prompt caching configuration
 
-Claude Code automatically uses [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) to optimize performance and reduce costs. You can disable prompt caching globally or for specific model tiers:
+Claude Code automatically uses [prompt caching](/en/prompt-caching) to optimize performance and reduce costs. You can disable prompt caching globally or for specific model tiers:
 
-| Environment variable            | Description                                                                                    |
-| ------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `DISABLE_PROMPT_CACHING`        | Set to `1` to disable prompt caching for all models (takes precedence over per-model settings) |
-| `DISABLE_PROMPT_CACHING_HAIKU`  | Set to `1` to disable prompt caching for Haiku models only                                     |
-| `DISABLE_PROMPT_CACHING_SONNET` | Set to `1` to disable prompt caching for Sonnet models only                                    |
-| `DISABLE_PROMPT_CACHING_OPUS`   | Set to `1` to disable prompt caching for Opus models only                                      |
+| Environment variable            | Description                                                                                       |
+| ------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `DISABLE_PROMPT_CACHING`        | Set to `1` to disable prompt caching for all models. Takes precedence over the per-model settings |
+| `DISABLE_PROMPT_CACHING_HAIKU`  | Set to `1` to disable prompt caching for Haiku models only                                        |
+| `DISABLE_PROMPT_CACHING_SONNET` | Set to `1` to disable prompt caching for Sonnet models only                                       |
+| `DISABLE_PROMPT_CACHING_OPUS`   | Set to `1` to disable prompt caching for Opus models only                                         |
 
-These environment variables give you fine-grained control over prompt caching behavior. The global `DISABLE_PROMPT_CACHING` setting takes precedence over the model-specific settings, allowing you to quickly disable all caching when needed. The per-model settings are useful for selective control, such as when debugging specific models or working with cloud providers that may have different caching implementations.
+To change the cache TTL or learn what triggers a cache miss, see [How Claude Code uses prompt caching](/en/prompt-caching).

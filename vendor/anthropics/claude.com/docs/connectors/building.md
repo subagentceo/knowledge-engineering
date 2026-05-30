@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -20,10 +21,10 @@ Not sure whether to build an MCP server, a plugin, or both? See [what to build](
 
 ### Key resources
 
-* **SDK Examples**: [TypeScript](https://github.com/modelcontextprotocol/typescript-sdk) and [Python](https://github.com/modelcontextprotocol/python-sdk) SDKs contain server implementation examples
-* **Protocol Specification**: [modelcontextprotocol.io](https://modelcontextprotocol.io)
-* **Hosting Solutions**: Platforms like Cloudflare offer remote MCP server hosting with autoscaling and OAuth management
-* **Auth Specifications**: Review the [authorization spec](https://modelcontextprotocol.io/specification/latest/basic/authorization) with emphasis on third-party service flows
+- **SDK Examples**: [TypeScript](https://github.com/modelcontextprotocol/typescript-sdk) and [Python](https://github.com/modelcontextprotocol/python-sdk) SDKs contain server implementation examples
+- **Protocol Specification**: [modelcontextprotocol.io](https://modelcontextprotocol.io)
+- **Hosting Solutions**: Platforms like Cloudflare offer remote MCP server hosting with autoscaling and OAuth management
+- **Auth Specifications**: Review the [authorization spec](https://modelcontextprotocol.io/specification/latest/basic/authorization) with emphasis on third-party service flows
 
 ## Transport & authentication
 
@@ -33,25 +34,25 @@ Claude supports both Streamable HTTP and the legacy HTTP+SSE transport. The lega
 
 ### Authentication features
 
-* Supports the [2025-03-26](https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization), [2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization), and [2025-11-25](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization) auth specifications
-* Dynamic Client Registration (DCR) enabled
-* OAuth callback: `https://claude.ai/api/mcp/auth_callback` (hosted surfaces); loopback redirect for Claude Code — see [callback URLs](/connectors/building/authentication#callback-urls)
-* Token refresh and expiry support
-* Custom credentials for non-DCR servers
+- Supports the [2025-03-26](https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization), [2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization), and [2025-11-25](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization) auth specifications
+- Dynamic Client Registration (DCR) enabled
+- OAuth callback: `https://claude.ai/api/mcp/auth_callback` (hosted surfaces); loopback redirect for Claude Code — see [callback URLs](/connectors/building/authentication#callback-urls)
+- Token refresh and expiry support
+- Custom credentials for non-DCR servers
 
 ## Protocol features
 
 ### Supported
 
-* [Tools](https://modelcontextprotocol.io/specification/latest/server/tools), [prompts](https://modelcontextprotocol.io/specification/latest/server/prompts), and [resources](https://modelcontextprotocol.io/specification/latest/server/resources)
-* [Text](https://modelcontextprotocol.io/specification/latest/schema#textcontent) and [image-based](https://modelcontextprotocol.io/specification/latest/server/tools#image-content) tool results
-* [Text](https://modelcontextprotocol.io/specification/latest/schema#textresourcecontents) and [binary](https://modelcontextprotocol.io/specification/latest/schema#blobresourcecontents) resources
+- [Tools](https://modelcontextprotocol.io/specification/latest/server/tools), [prompts](https://modelcontextprotocol.io/specification/latest/server/prompts), and [resources](https://modelcontextprotocol.io/specification/latest/server/resources)
+- [Text](https://modelcontextprotocol.io/specification/latest/schema#textcontent) and [image-based](https://modelcontextprotocol.io/specification/latest/server/tools#image-content) tool results
+- [Text](https://modelcontextprotocol.io/specification/latest/schema#textresourcecontents) and [binary](https://modelcontextprotocol.io/specification/latest/schema#blobresourcecontents) resources
 
 ### Not yet supported
 
-* Resource subscriptions
-* Sampling
-* Advanced/draft capabilities
+- Resource subscriptions
+- Sampling
+- Advanced/draft capabilities
 
 ## Technical specifications
 

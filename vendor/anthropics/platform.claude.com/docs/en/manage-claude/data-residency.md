@@ -14,17 +14,17 @@ Data residency controls let you manage where your data is processed and stored. 
 - **Workspace geo:** Controls where data is stored at rest and where endpoint processing (such as image transcoding and code execution) happens. Configured at the workspace level in the [Claude Console](https://platform.claude.com).
 
 <Note>
-[Claude Managed Agents](/docs/en/managed-agents/overview) does not support the `inference_geo` parameter, but respects the Workspace geo configured in Console.
+[Claude Managed Agents](/docs/en/managed-agents/overview) does not support the `inference_geo` parameter, but respects the Workspace geo configured in Console. With [self-hosted sandboxes](/docs/en/managed-agents/self-hosted-sandboxes), tool execution and the sandbox filesystem stay on infrastructure you control.
 </Note>
 
 ## Inference geo
 
 The `inference_geo` parameter controls where model inference runs for a specific API request. Add it to any `POST /v1/messages` call.
 
-| Value | Description |
-|:------|:------------|
+| Value      | Description                                                                                     |
+| :--------- | :---------------------------------------------------------------------------------------------- |
 | `"global"` | Default. Inference may run in any available geography for optimal performance and availability. |
-| `"us"` | Inference runs only in US-based infrastructure. |
+| `"us"`     | Inference runs only in US-based infrastructure.                                                 |
 
 ### API usage
 
@@ -35,7 +35,7 @@ curl https://api.anthropic.com/v1/messages \
     --header "anthropic-version: 2023-06-01" \
     --header "content-type: application/json" \
     --data '{
-        "model": "claude-opus-4-7",
+        "model": "claude-opus-4-8",
         "max_tokens": 1024,
         "inference_geo": "us",
         "messages": [{
@@ -47,7 +47,7 @@ curl https://api.anthropic.com/v1/messages \
 
 ```bash CLI
 ant messages create \
-  --model claude-opus-4-7 \
+  --model claude-opus-4-8 \
   --max-tokens 1024 \
   --inference-geo us \
   --message '{role: user, content: "Summarize the key points of this document."}' \
@@ -60,7 +60,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 response = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=1024,
     inference_geo="us",
     messages=[
@@ -79,24 +79,25 @@ import Anthropic from "@anthropic-ai/sdk";
 const client = new Anthropic();
 
 const response = await client.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   inference_geo: "us",
   messages: [
     {
       role: "user",
-      content: "Summarize the key points of this document."
-    }
-  ]
+      content: "Summarize the key points of this document.",
+    },
+  ],
 });
 
 const textBlock = response.content.find(
-  (block): block is Anthropic.TextBlock => block.type === "text"
+  (block): block is Anthropic.TextBlock => block.type === "text",
 );
 console.log(textBlock?.text);
 // Check where inference actually ran
 console.log(`Inference geo: ${response.usage.inference_geo}`);
 ```
+
 </CodeGroup>
 
 ### Response
@@ -129,10 +130,6 @@ Workspace settings also support restricting which inference geos are available:
 - **`default_inference_geo`:** Sets the fallback geo when `inference_geo` is omitted from a request. Individual requests can override this by setting `inference_geo` explicitly.
 
 These settings can be configured through the Console or the [Admin API](/docs/en/manage-claude/admin-api) under the `data_residency` field.
-
-<Note>
-**Claude Platform on AWS:** Workspace-level inference geography controls (`allowed_inference_geos` and `default_inference_geo`) are not available. Use the per-request `inference_geo` parameter instead.
-</Note>
 
 ## Workspace geo
 
@@ -181,8 +178,8 @@ The legacy opt-out was an organization-level setting that restricted all request
 
 Your workspace was migrated automatically:
 
-| Legacy setting | New equivalent |
-|:---------------|:---------------|
+| Legacy setting                   | New equivalent                                                  |
+| :------------------------------- | :-------------------------------------------------------------- |
 | Global routing opt-out (US only) | `allowed_inference_geos: ["us"]`, `default_inference_geo: "us"` |
 
 All API requests using keys from your workspace continue to run on US-based infrastructure. No action is needed to maintain your current behavior.

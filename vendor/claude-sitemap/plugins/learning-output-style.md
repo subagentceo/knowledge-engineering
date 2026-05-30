@@ -1,3 +1,5 @@
+# Learning Output Style
+
 Transform your Claude Code sessions into interactive learning experiences. This plugin activates a learning mode that pauses at meaningful decision points and requests 5-10 lines of code from you, rather than providing complete solutions. You'll develop hands-on skills by implementing business logic, error handling strategies, and architectural decisions yourself.
 
 The plugin intelligently distinguishes between code worth writing yourself (algorithm choices, design patterns, data structures) and boilerplate Claude should handle directly (configuration, CRUD operations, obvious implementations). When requesting your contribution, Claude sets up the file context with function signatures and explains the trade-offs involved.

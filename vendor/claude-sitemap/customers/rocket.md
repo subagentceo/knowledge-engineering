@@ -1,4 +1,6 @@
-[Rocket.new](http://rocket.new) generates websites and web applications from a single natural language prompt—multi-page sites with working forms, navigation, and design decisions built in, rather than requiring users to iterate their way to a finished product.
+# Rocket generates agency-grade websites from a single prompt with Claude
+
+Rocket.new generates websites and web applications from a single natural language prompt—multi-page sites with working forms, navigation, and design decisions built in, rather than requiring users to iterate their way to a finished product.
 
 ## The challenge: Delivering beautiful designs without sacrificing depth
 
@@ -20,9 +22,9 @@ The process started on Claude’s chat interface. “I ran the same basic prompt
 
 Today, when a user enters a prompt—even a single sentence—Rocket’s system makes decisions at each layer: which model to use, whether to enable extended thinking, what design context to feed, what content decisions to make, and how to structure the final code generation. The platform strategically routes tasks across Claude’s model family:
 
--   **Opus 4.6** handles deep research and strategic decisions about site architecture and user flows
--   **Sonnet 4.5** powers code generation, producing clean, production-ready HTML, CSS, and JavaScript
--   **Haiku 4.5** is used for speed- and cost-optimized tasks where lighter processing is sufficient.
+- **Opus 4.6** handles deep research and strategic decisions about site architecture and user flows
+- **Sonnet 4.5** powers code generation, producing clean, production-ready HTML, CSS, and JavaScript
+- **Haiku 4.5** is used for speed- and cost-optimized tasks where lighter processing is sufficient.
 
 This hybrid approach lets Rocket optimize for both quality and cost. “Instead of giving a choice of model to the user and increasing the cost, we decided to use a combination of multiple models for different purposes to optimize cost and speed,” Virani said.
 

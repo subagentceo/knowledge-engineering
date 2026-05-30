@@ -1,7 +1,9 @@
-Query a range of S&P Global datasets, including S&P Capital IQ Financials, Market Data, transcripts, and more. Designed to save time and resources for engineering, product, and business teams in financial services, this server streamlines access to company information, financial statements, historical market data, and global securities.  
-  
-You can use the S&P Global connector to:  
-  
+# S&P Global
+
+Query a range of S&P Global datasets, including S&P Capital IQ Financials, Market Data, transcripts, and more. Designed to save time and resources for engineering, product, and business teams in financial services, this server streamlines access to company information, financial statements, historical market data, and global securities.
+
+You can use the S&P Global connector to:
+
 Compare company financials:  
 "Compare the gross margins and EBITDA trends for Amazon, Google, and Meta over the past 5 years"
 

@@ -155,7 +155,7 @@ Claude will provide a response based on information retrieved from your Microsof
 - Access Teams chat messages and channel discussions where you're a participant.
 
 - Review team collaboration patterns and find decisions made across conversations.
-​
+  ​
 
 ---
 
@@ -345,7 +345,7 @@ Tips to improve your search queries:
 - Try breaking up complex queries into simpler, more focused questions.
 
 - Verify spelling of names, projects, or terms.
-​
+  ​
 
 ---
 

@@ -1,4 +1,4 @@
-## Update
+## Update Environment
 
 `beta.environments.update(strenvironment_id, EnvironmentUpdateParams**kwargs)  -> BetaEnvironment`
 
@@ -10,93 +10,95 @@ Update an existing environment's configuration.
 
 - `environment_id: str`
 
-- `config: Optional[BetaCloudConfigParams]`
+- `config: Optional[Config]`
 
-  Request params for `cloud` environment configuration.
+  Updated environment configuration
+  - `class BetaCloudConfigParams: …`
 
-  Fields default to null; on update, omitted fields preserve the
-  existing value.
+    Request params for `cloud` environment configuration.
 
-  - `type: Literal["cloud"]`
+    Fields default to null; on update, omitted fields preserve the
+    existing value.
+    - `type: Literal["cloud"]`
 
-    Environment type
+      Environment type
+      - `"cloud"`
 
-    - `"cloud"`
+    - `networking: Optional[Networking]`
 
-  - `networking: Optional[Networking]`
+      Network configuration policy. Omit on update to preserve the existing value.
+      - `class BetaUnrestrictedNetwork: …`
 
-    Network configuration policy. Omit on update to preserve the existing value.
+        Unrestricted network access.
+        - `type: Literal["unrestricted"]`
 
-    - `class BetaUnrestrictedNetwork: …`
+          Network policy type
+          - `"unrestricted"`
 
-      Unrestricted network access.
+      - `class BetaLimitedNetworkParams: …`
 
-      - `type: Literal["unrestricted"]`
+        Limited network request params.
 
-        Network policy type
+        Fields default to null; on update, omitted fields preserve the
+        existing value.
+        - `type: Literal["limited"]`
 
-        - `"unrestricted"`
+          Network policy type
+          - `"limited"`
 
-    - `class BetaLimitedNetworkParams: …`
+        - `allow_mcp_servers: Optional[bool]`
 
-      Limited network request params.
+          Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
 
-      Fields default to null; on update, omitted fields preserve the
-      existing value.
+        - `allow_package_managers: Optional[bool]`
 
-      - `type: Literal["limited"]`
+          Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array. Defaults to `false`.
 
-        Network policy type
+        - `allowed_hosts: Optional[List[str]]`
 
-        - `"limited"`
+          Specifies domains the container can reach.
 
-      - `allow_mcp_servers: Optional[bool]`
+    - `packages: Optional[BetaPackagesParams]`
 
-        Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
+      Specify packages (and optionally their versions) available in this environment.
 
-      - `allow_package_managers: Optional[bool]`
+      When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+      - `apt: Optional[List[str]]`
 
-        Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array. Defaults to `false`.
+        Ubuntu/Debian packages to install
 
-      - `allowed_hosts: Optional[List[str]]`
+      - `cargo: Optional[List[str]]`
 
-        Specifies domains the container can reach.
+        Rust packages to install
 
-  - `packages: Optional[BetaPackagesParams]`
+      - `gem: Optional[List[str]]`
 
-    Specify packages (and optionally their versions) available in this environment.
+        Ruby packages to install
 
-    When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+      - `go: Optional[List[str]]`
 
-    - `apt: Optional[List[str]]`
+        Go packages to install
 
-      Ubuntu/Debian packages to install
+      - `npm: Optional[List[str]]`
 
-    - `cargo: Optional[List[str]]`
+        Node.js packages to install
 
-      Rust packages to install
+      - `pip: Optional[List[str]]`
 
-    - `gem: Optional[List[str]]`
+        Python packages to install
 
-      Ruby packages to install
+      - `type: Optional[Literal["packages"]]`
 
-    - `go: Optional[List[str]]`
+        Package configuration type
+        - `"packages"`
 
-      Go packages to install
+  - `class BetaSelfHostedConfigParams: …`
 
-    - `npm: Optional[List[str]]`
+    Request params for `self_hosted` environment configuration.
+    - `type: Literal["self_hosted"]`
 
-      Node.js packages to install
-
-    - `pip: Optional[List[str]]`
-
-      Python packages to install
-
-    - `type: Optional[Literal["packages"]]`
-
-      Package configuration type
-
-      - `"packages"`
+      Environment type
+      - `"self_hosted"`
 
 - `description: Optional[str]`
 
@@ -110,14 +112,19 @@ Update an existing environment's configuration.
 
   Updated name for the environment
 
+- `scope: Optional[Literal["organization", "account"]]`
+
+  The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only.
+  - `"organization"`
+
+  - `"account"`
+
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -166,99 +173,106 @@ Update an existing environment's configuration.
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaEnvironment: …`
 
   Unified Environment resource for both cloud and self-hosted environments.
-
   - `id: str`
 
-    Environment identifier (e.g., 'env_...')
+    Environment identifier (e.g., 'env\_...')
 
   - `archived_at: Optional[str]`
 
     RFC 3339 timestamp when environment was archived, or null if not archived
 
-  - `config: BetaCloudConfig`
+  - `config: Config`
 
-    `cloud` environment configuration.
+    Environment configuration (either Anthropic Cloud or self-hosted)
+    - `class BetaCloudConfig: …`
 
-    - `networking: Networking`
+      `cloud` environment configuration.
+      - `networking: Networking`
 
-      Network configuration policy.
+        Network configuration policy.
+        - `class BetaUnrestrictedNetwork: …`
 
-      - `class BetaUnrestrictedNetwork: …`
+          Unrestricted network access.
+          - `type: Literal["unrestricted"]`
 
-        Unrestricted network access.
+            Network policy type
+            - `"unrestricted"`
 
-        - `type: Literal["unrestricted"]`
+        - `class BetaLimitedNetwork: …`
 
-          Network policy type
+          Limited network access.
+          - `allow_mcp_servers: bool`
 
-          - `"unrestricted"`
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
 
-      - `class BetaLimitedNetwork: …`
+          - `allow_package_managers: bool`
 
-        Limited network access.
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
 
-        - `allow_mcp_servers: bool`
+          - `allowed_hosts: List[str]`
 
-          Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+            Specifies domains the container can reach.
 
-        - `allow_package_managers: bool`
+          - `type: Literal["limited"]`
 
-          Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+            Network policy type
+            - `"limited"`
 
-        - `allowed_hosts: List[str]`
+      - `packages: BetaPackages`
 
-          Specifies domains the container can reach.
+        Package manager configuration.
+        - `apt: List[str]`
 
-        - `type: Literal["limited"]`
+          Ubuntu/Debian packages to install
 
-          Network policy type
+        - `cargo: List[str]`
 
-          - `"limited"`
+          Rust packages to install
 
-    - `packages: BetaPackages`
+        - `gem: List[str]`
 
-      Package manager configuration.
+          Ruby packages to install
 
-      - `apt: List[str]`
+        - `go: List[str]`
 
-        Ubuntu/Debian packages to install
+          Go packages to install
 
-      - `cargo: List[str]`
+        - `npm: List[str]`
 
-        Rust packages to install
+          Node.js packages to install
 
-      - `gem: List[str]`
+        - `pip: List[str]`
 
-        Ruby packages to install
+          Python packages to install
 
-      - `go: List[str]`
+        - `type: Optional[Literal["packages"]]`
 
-        Go packages to install
+          Package configuration type
+          - `"packages"`
 
-      - `npm: List[str]`
+      - `type: Literal["cloud"]`
 
-        Node.js packages to install
+        Environment type
+        - `"cloud"`
 
-      - `pip: List[str]`
+    - `class BetaSelfHostedConfig: …`
 
-        Python packages to install
+      Configuration for self-hosted environments.
+      - `type: Literal["self_hosted"]`
 
-      - `type: Optional[Literal["packages"]]`
-
-        Package configuration type
-
-        - `"packages"`
-
-    - `type: Literal["cloud"]`
-
-      Environment type
-
-      - `"cloud"`
+        Environment type
+        - `"self_hosted"`
 
   - `created_at: str`
 
@@ -279,12 +293,18 @@ Update an existing environment's configuration.
   - `type: Literal["environment"]`
 
     The type of object (always 'environment')
-
     - `"environment"`
 
   - `updated_at: str`
 
     RFC 3339 timestamp when environment was last updated
+
+  - `scope: Optional[Literal["organization", "account"]]`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+    - `"organization"`
+
+    - `"account"`
 
 ### Example
 
@@ -299,4 +319,38 @@ beta_environment = client.beta.environments.update(
     environment_id="env_011CZkZ9X2dpNyB7HsEFoRfW",
 )
 print(beta_environment.id)
+```
+
+#### Response
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": ["api.example.com"],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": ["string"],
+      "cargo": ["string"],
+      "gem": ["string"],
+      "go": ["string"],
+      "npm": ["string"],
+      "pip": ["pandas", "numpy"],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
 ```

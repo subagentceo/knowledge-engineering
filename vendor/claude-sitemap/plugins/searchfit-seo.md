@@ -1,3 +1,5 @@
+# SearchFit SEO
+
 A comprehensive, free AI-powered SEO toolkit that brings professional-grade search optimization directly into Claude Code. Audit any website for technical and on-page SEO issues, plan content strategy, generate JSON-LD schema markup, cluster keywords by intent, detect broken links, optimize internal linking, and track AI visibility — all without leaving your editor.
 
 The plugin includes 11 auto-activating skills (SEO audit, technical SEO, on-page optimization, broken link detection, internal linking, schema markup, content strategy, content briefs, keyword clustering, AI visibility tracking, and content translation) plus 3 autonomous agents: an SEO Auditor that produces scored audit reports, a Content Strategist that builds full content plans, and a Competitor Analyzer that identifies market opportunities.

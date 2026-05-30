@@ -1,4 +1,4 @@
-## Retrieve
+## Retrieve a memory store
 
 `BetaManagedAgentsMemoryStore Beta.MemoryStores.Retrieve(MemoryStoreRetrieveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Retrieve a memory store
 ### Parameters
 
 - `MemoryStoreRetrieveParams parameters`
-
   - `required string memoryStoreID`
 
     Path parameter memory_store_id
@@ -17,7 +16,6 @@ Retrieve a memory store
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -66,12 +64,17 @@ Retrieve a memory store
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsMemoryStore:`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `required string ID`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -85,7 +88,6 @@ Retrieve a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `required Type Type`
-
     - `"memory_store"MemoryStore`
 
   - `required DateTimeOffset UpdatedAt`
@@ -115,4 +117,21 @@ MemoryStoreRetrieveParams parameters = new()
 var betaManagedAgentsMemoryStore = await client.Beta.MemoryStores.Retrieve(parameters);
 
 Console.WriteLine(betaManagedAgentsMemoryStore);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
 ```

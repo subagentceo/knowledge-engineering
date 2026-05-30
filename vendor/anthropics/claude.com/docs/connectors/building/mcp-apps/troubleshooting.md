@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -28,32 +29,34 @@ Your app must call [`app.connect()`](https://modelcontextprotocol.github.io/ext-
   ```javascript Vanilla JS theme={null}
   import { App } from "@modelcontextprotocol/ext-apps";
 
-  const app = new App({ name: "My App", version: "1.0.0" });
+const app = new App({ name: "My App", version: "1.0.0" });
 
-  // Register handlers before connecting
-  app.ontoolresult = (result) => {
-    // Handle tool results
-  };
+// Register handlers before connecting
+app.ontoolresult = (result) => {
+// Handle tool results
+};
 
-  await app.connect();
-  ```
+await app.connect();
 
-  ```javascript React theme={null}
-  import { useApp } from "@modelcontextprotocol/ext-apps/react";
+````
 
-  function MyComponent() {
-    // The useApp hook handles connection automatically
-    const { app } = useApp({
-      appInfo: { name: "My App", version: "1.0.0" },
-      capabilities: {},
-      onAppCreated: (app) => {
-        app.ontoolresult = (result) => {
-          // Handle tool results
-        };
-      }
-    });
-  }
-  ```
+```javascript React theme={null}
+import { useApp } from "@modelcontextprotocol/ext-apps/react";
+
+function MyComponent() {
+  // The useApp hook handles connection automatically
+  const { app } = useApp({
+    appInfo: { name: "My App", version: "1.0.0" },
+    capabilities: {},
+    onAppCreated: (app) => {
+      app.ontoolresult = (result) => {
+        // Handle tool results
+      };
+    }
+  });
+}
+````
+
 </CodeGroup>
 
 <Warning>Event handlers like `app.ontoolinput` and `app.ontoolresult` won't be invoked until the app is connected.</Warning>
@@ -62,8 +65,8 @@ Your app must call [`app.connect()`](https://modelcontextprotocol.github.io/ext-
 
 Your app needs a non-zero height to be visible. A zero height can occur if:
 
-* Your app's container has no content yet
-* You called `sendSizeChanged({ width, height: 0 })`
+- Your app's container has no content yet
+- You called `sendSizeChanged({ width, height: 0 })`
 
 Check that your root element has explicit dimensions or content that gives it height.
 
@@ -75,6 +78,6 @@ When a tool result exceeds approximately 150,000 characters and Claude's code ex
 
 To avoid this, keep initial tool result payloads lean:
 
-* **Paginate large results.** Return a summary or the first page of data, and let the user request more through follow-up interactions.
-* **Fetch details on demand.** Use app-initiated tool calls to load additional data from within your widget as the user explores, rather than returning everything upfront.
-* **Defer heavy content.** If your data includes large blobs—full document text, base64-encoded images, extensive logs—return identifiers or previews in the initial result and provide a separate tool to retrieve the full content when needed.
+- **Paginate large results.** Return a summary or the first page of data, and let the user request more through follow-up interactions.
+- **Fetch details on demand.** Use app-initiated tool calls to load additional data from within your widget as the user explores, rather than returning everything upfront.
+- **Defer heavy content.** If your data includes large blobs—full document text, base64-encoded images, extensive logs—return identifiers or previews in the initial result and provide a separate tool to retrieve the full content when needed.

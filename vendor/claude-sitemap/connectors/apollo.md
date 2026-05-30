@@ -1,3 +1,5 @@
+# Apollo.io
+
 Connect Apollo to Claude so you can prospect and take action from a single conversation. Search Apollo's database to find the right people and companies, then enrich records to reveal verified contact details when you're ready. Create or update contacts, and add or remove contacts from existing sequences to keep outbound moving.
 
 You can use Apollo.io for:

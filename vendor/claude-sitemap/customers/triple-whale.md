@@ -1,10 +1,12 @@
+# Triple Whale drives business growth with Claude
+
 Triple Whale uses Claude to power AI agents that help brands of all sizes automate complex analyses and uncover valuable insights—revolutionizing how they manage customer acquisition, retention, and conversion strategies, and operations.
 
 With Claude, Triple Whale’s agents:
 
--   Process up to 150,000 tokens of complex financial and marketing data
--   Plan and execute up to 1000 different analytical steps autonomously
--   Have helped early customers see increases in north star KPIs upwards of 50%, while reducing reporting time by over 70%
+- Process up to 150,000 tokens of complex financial and marketing data
+- Plan and execute up to 1000 different analytical steps autonomously
+- Have helped early customers see increases in north star KPIs upwards of 50%, while reducing reporting time by over 70%
 
 ## Meeting the commerce analytics challenge
 
@@ -26,10 +28,10 @@ This accuracy is essential for Triple Whale's customers, who rely on these metri
 
 Triple Whale has built a comprehensive AI agent system with Claude at its core, providing proactive, automated analysis to their customers:
 
--   **Agent Library**: Pre-built, customizable agents for acquisition, retention, website conversion, and business operations that brands can schedule to run at different cadences, providing constant access to fresh insights without manual effort.
--   **Deep Dive Agent Swarm**: A multi-agent orchestration system that splits complex analytics tasks into parallel sub-agents, leveraging Claude's exceptional ability to synthesize results from specialized tools including TextToSQL, code interpreter, vision analysis, web search, MMM, and forecasting. Claude detects anomalies and dynamically refines approaches mid-analysis—switching analytical methods or recalibrating parameters to extract maximum value from each tool without human intervention.
--   **Step Planner**: A Claude-powered component that determines the optimal analytical strategy for each business question, ensuring analyses follow the appropriate approach.
--   **MOI Chat**: Reactive component that handles ~3,000 daily analytics requests through natural language, allowing users to quickly query business metrics.
+- **Agent Library**: Pre-built, customizable agents for acquisition, retention, website conversion, and business operations that brands can schedule to run at different cadences, providing constant access to fresh insights without manual effort.
+- **Deep Dive Agent Swarm**: A multi-agent orchestration system that splits complex analytics tasks into parallel sub-agents, leveraging Claude's exceptional ability to synthesize results from specialized tools including TextToSQL, code interpreter, vision analysis, web search, MMM, and forecasting. Claude detects anomalies and dynamically refines approaches mid-analysis—switching analytical methods or recalibrating parameters to extract maximum value from each tool without human intervention.
+- **Step Planner**: A Claude-powered component that determines the optimal analytical strategy for each business question, ensuring analyses follow the appropriate approach.
+- **MOI Chat**: Reactive component that handles ~3,000 daily analytics requests through natural language, allowing users to quickly query business metrics.
 
 Claude enables Triple Whale's agents to deliver insights in three simultaneous formats simultaneously—text analysis, data visualization, and interactive data presentations with React components. This multi-format approach helps users understand complex data and take action based on insights that would otherwise require specialized analysts.
 

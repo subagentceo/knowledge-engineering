@@ -29,7 +29,6 @@ Some actions trigger a manual sync immediately, and you can also run one on dema
 - **Enabling group mappings.** The full list of members and groups updates. New and existing members' roles and seat tiers are enforced by the group mapping and can't be overridden manually. After saving a new mapping, click "Sync."
 
 - **Sync now** to recompute roles and seat tiers for existing members.
-
   - Using the "Check for updates" button at **[Organization settings > Groups](https://claude.ai/admin-settings/groups)**.
 
   - Using the "Sync" button at **[Organization settings > Organization and access](https://claude.ai/admin-settings/organization)** under **User provisioning**.
@@ -48,7 +47,7 @@ You can trigger a manual sync from two places in your admin settings.
 
 2. Click "Check for updates" under **SCIM sync**:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1778914800&amp;signature=2508b56d65652f388b1b15111827b4976328846026fe267da2f9bd8c1d2b68ad&amp;req=diMmFM9%2FnoRbUfMW1HO4zW4gYz2kNMm8rgfl7PnOiun2ukTlzpdVs0Yn5VaK%0Afn8a%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312613548/44cd5970ee3c3b2c7f8dcd592d71/image+%2824%29.png?expires=1780164900&signature=af5fd74955f4fefa9d2fa67efb54794916713cf85041af6df291c608d625c1a6&req=diMmFM9%2FnoRbUfMW1HO4zW4gbDWsM8m9rgfl7PnOiunl7GWQhP1CZXjaICVo%0AB8Ku%0A)
 
 3. Select whether to sync members, groups, or both.
 
@@ -60,7 +59,7 @@ You can trigger a manual sync from two places in your admin settings.
 
 3. Select whether to sync members, groups, or both:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1778914800&amp;signature=ae615bcdbf0a83a5157330106013182bd61d4566ea09d52a8234b2d456fa891b&amp;req=diMmFM9%2BlYBeUPMW1HO4zX%2F4cbL5yj8X43OpyTHzM9S%2BfOzYbdW%2FPyHY68Tb%0AzgGF%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312608119/e4b0ef4f309f3c4eac8311a6ef47/image.png?expires=1780164900&signature=49a7de5da0b3c466fd4707ae7b288d688d82eacdf01ec6a990ad08c4e9505a1e&req=diMmFM9%2BlYBeUPMW1HO4zX%2F4frrxzT8W43OpyTHzM9T51XS9m6ZHQcfThv%2Fp%0Awu%2F9%0A)
 
 **Note:** If you trigger a manual sync while background changes are processing, your organization takes the most recent change for each member or group. If multiple changes are queued for the same member or group, you may need to resync again to make sure everything applies correctly.
 

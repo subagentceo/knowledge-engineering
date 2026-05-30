@@ -1,10 +1,12 @@
+# You.com enhances search and productivity with Claude
+
 You.com, a powerful productivity engine, helps millions of knowledge workers and businesses conduct research, solve complex problems, and automate workflows with AI agents. By leveraging large language models (LLMs), including Claude, You.com offers users a platform that provides comprehensive answers and automates complex tasks.
 
 Over the last year, You.com has made significant advancements with AI, including:
 
--   1000% revenue increase
--   1 billion lifetime queries hit
--   Users reporting a 15% increase in productivity or nearly 1 day of work saved per week
+- 1000% revenue increase
+- 1 billion lifetime queries hit
+- Users reporting a 15% increase in productivity or nearly 1 day of work saved per week
 
 These metrics underscore You.com’s success in not just finding information, but helping users be more productive.
 
@@ -20,10 +22,10 @@ You.com selected Claude as a key AI model for its platform due to its advanced r
 
 Claude is used across a variety of use cases on You.com, including:
 
--   Generating in-depth research reports by analyzing multiple sources
--   Automating complex workflows for enterprise customers
--   Providing coding assistance and analyzing data visualizations
--   Offering customizable AI agents that users can configure for specific tasks
+- Generating in-depth research reports by analyzing multiple sources
+- Automating complex workflows for enterprise customers
+- Providing coding assistance and analyzing data visualizations
+- Offering customizable AI agents that users can configure for specific tasks
 
 A standout feature is You.com's Research Agent, which leverages Claude to deliver comprehensive and contextually relevant information. McCann highlights its effectiveness: "Our Research Agent delivers high-quality, comprehensive results...saving me many searches and scrolling through ads and attention-grabbing stuff."
 

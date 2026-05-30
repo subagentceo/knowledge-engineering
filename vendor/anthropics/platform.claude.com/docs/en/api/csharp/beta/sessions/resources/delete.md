@@ -1,4 +1,4 @@
-## Delete
+## Delete Session Resource
 
 `BetaManagedAgentsDeleteSessionResource Beta.Sessions.Resources.Delete(ResourceDeleteParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Delete Session Resource
 ### Parameters
 
 - `ResourceDeleteParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -21,7 +20,6 @@ Delete Session Resource
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -70,16 +68,20 @@ Delete Session Resource
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsDeleteSessionResource:`
 
   Confirmation of resource deletion.
-
   - `required string ID`
 
   - `required Type Type`
-
     - `"session_resource_deleted"SessionResourceDeleted`
 
 ### Example
@@ -94,4 +96,13 @@ ResourceDeleteParams parameters = new()
 var betaManagedAgentsDeleteSessionResource = await client.Beta.Sessions.Resources.Delete(parameters);
 
 Console.WriteLine(betaManagedAgentsDeleteSessionResource);
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "type": "session_resource_deleted"
+}
 ```

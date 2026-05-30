@@ -1,6 +1,8 @@
+# Using PitchBook for investment research
+
 The PitchBook Premium integration gives Claude access to proprietary private capital market data and analytical metrics. This article outlines the steps to set up and use PitchBook data for financial research, including financial analysis, competitive benchmarking, network relationship mapping, and investor portfolio analysis.
 
-The PitchBook integration relies on Claude’s ability to use [remote connectors](https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp).
+The PitchBook integration relies on Claude’s ability to use remote connectors.
 
 ## What This Integration Provides
 
@@ -10,43 +12,43 @@ The integrated dataset provided by this integration includes profiles for more t
 
 The PitchBook integration enables Claude to access private capital market data:
 
--   **Entity Search and Identification:** Search PitchBook's database for companies, investors, funds, people, limited partners (LPs), and deals by name or ticker, retrieving unique PitchBook identifiers (PBIDs).
+- **Entity Search and Identification:** Search PitchBook's database for companies, investors, funds, people, limited partners (LPs), and deals by name or ticker, retrieving unique PitchBook identifiers (PBIDs).
 
--   **Company Data Access:** Retrieve company profiles, including business descriptions, ownership status, complete financing history, financial statements (income statement, balance sheet, cash flow), team members, and current/former investors.
+- **Company Data Access:** Retrieve company profiles, including business descriptions, ownership status, complete financing history, financial statements (income statement, balance sheet, cash flow), team members, and current/former investors.
 
--   **Investor and Fund Information:** Access investor profiles with AUM and investment focus, portfolio holdings showing current and exited investments, funds raised by each investor, and limited partner commitments to specific funds.
+- **Investor and Fund Information:** Access investor profiles with AUM and investment focus, portfolio holdings showing current and exited investments, funds raised by each investor, and limited partner commitments to specific funds.
 
--   **Deal and Transaction Details:** Pull complete deal information including participants, investment amounts, valuations, terms, lead investor status, and detailed cap tables showing ownership percentages and liquidation preferences across rounds.
+- **Deal and Transaction Details:** Pull complete deal information including participants, investment amounts, valuations, terms, lead investor status, and detailed cap tables showing ownership percentages and liquidation preferences across rounds.
 
--   **Relationship and Network Data:** Find connections between entities, such as co-investors in deals, shared portfolio companies between investors, team member histories across companies, and LP participation across multiple funds.
+- **Relationship and Network Data:** Find connections between entities, such as co-investors in deals, shared portfolio companies between investors, team member histories across companies, and LP participation across multiple funds.
 
 ## How Claude Uses PitchBook's Data
 
 Claude accesses PitchBook data to help build your analyses. Here are several examples of tasks where Claude may decide to use data provided by PitchBook:
 
--   **Funding Timeline Construction:** Claude retrieves a company's deal history to show how valuations changed, which investors participated in each round, and how ownership diluted over time.
+- **Funding Timeline Construction:** Claude retrieves a company's deal history to show how valuations changed, which investors participated in each round, and how ownership diluted over time.
 
--   **Peer Group Benchmarking:** When comparing companies, Claude pulls financial metrics, valuation multiples, and funding amounts to identify which companies are valued higher or lower than similar ones.
+- **Peer Group Benchmarking:** When comparing companies, Claude pulls financial metrics, valuation multiples, and funding amounts to identify which companies are valued higher or lower than similar ones.
 
--   **Investor Portfolio Analysis:** Claude examines an investor's portfolio to identify their typical investment sizes, preferred sectors, and stage focus.
+- **Investor Portfolio Analysis:** Claude examines an investor's portfolio to identify their typical investment sizes, preferred sectors, and stage focus.
 
--   **Connection Discovery:** Claude traces relationships between companies and investors to find warm introduction paths, like identifying mutual connections through board members or past deals.
+- **Connection Discovery:** Claude traces relationships between companies and investors to find warm introduction paths, like identifying mutual connections through board members or past deals.
 
--   **Exit Pattern Recognition:** Claude analyzes past exits in your sector to show typical acquisition multiples, common buyers, and average holding periods for similar companies.
+- **Exit Pattern Recognition:** Claude analyzes past exits in your sector to show typical acquisition multiples, common buyers, and average holding periods for similar companies.
 
 ## Setting Up PitchBook Integration
 
-Technical details of the PitchBook Integration can be found in the [PitchBook Premium Integration MCP Service Documentation](https://help.pitchbook.com/s/article/PitchBook-Premium-for-Claude-by-Anthropic). Users must possess Single Sign-On (SSO) credentials and a seat-based, unlimited, or trial PitchBook license.
+Technical details of the PitchBook Integration can be found in the PitchBook Premium Integration MCP Service Documentation. Users must possess Single Sign-On (SSO) credentials and a seat-based, unlimited, or trial PitchBook license.
 
 If your account does not have access to the MCP service, please contact your account representative.
 
 ### For Organization Owners
 
-1.  Navigate to [Admin settings > Connectors](https://claude.ai/admin-settings/connectors).
+1.  Navigate to Admin settings > Connectors.
 
 1.  Scroll down and click “Add custom connector" at the bottom of the list.
 
-1.  Access the MCP URL via SSO here: [https://premium.mcp.pitchbook.com/mcp](https://premium.mcp.pitchbook.com/mcp)
+1.  Access the MCP URL via SSO here: https://premium.mcp.pitchbook.com/mcp
 
 1.  Name the connector (e.g. "PitchBook Premium")
 
@@ -54,7 +56,7 @@ If your account does not have access to the MCP service, please contact your acc
 
 ### For Individual Users
 
-Learn about [finding and connecting tools](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
+Learn about finding and connecting tools.
 
 ## Common Use Cases
 
@@ -84,18 +86,18 @@ Discover unexpected connections between companies, investors, and professionals 
 
 ## Tips for Using PitchBook's Data
 
--   Start prompts with “Use PitchBook data to...” to ensure that Claude returns results based on PitchBook’s comprehensive dataset of private capital market intelligence.
+- Start prompts with “Use PitchBook data to...” to ensure that Claude returns results based on PitchBook’s comprehensive dataset of private capital market intelligence.
 
--   Ask detailed, multi-part questions to receive comprehensive answers to complex queries. For example, to build a market map you should (1) start with a company, (2) pick key investors, (3) analyze portfolio companies, and (4) ask to identify patterns across the network.
+- Ask detailed, multi-part questions to receive comprehensive answers to complex queries. For example, to build a market map you should (1) start with a company, (2) pick key investors, (3) analyze portfolio companies, and (4) ask to identify patterns across the network.
 
--   Use PitchBook’s data as a reference for deal sourcing, due diligence, and deal execution, rather than as the sole source of information.
+- Use PitchBook’s data as a reference for deal sourcing, due diligence, and deal execution, rather than as the sole source of information.
 
--   Combine data retrieval with analysis from PitchBook researchers to build a complete view of the market and identify opportunities with full context.
+- Combine data retrieval with analysis from PitchBook researchers to build a complete view of the market and identify opportunities with full context.
 
--   PitchBook's private capital market data is sourced directly from funds, companies, filings, and relationships.
+- PitchBook's private capital market data is sourced directly from funds, companies, filings, and relationships.
 
 ## Contact
 
-If you are having trouble completing the PitchBook Premium integration, you can contact [\[email protected\]](/cdn-cgi/l/email-protection#72010702021d000632021b06111a101d1d195c111d1f) for help.
+If you are having trouble completing the PitchBook Premium integration, you can contact [email protected] for help.
 
 ‍

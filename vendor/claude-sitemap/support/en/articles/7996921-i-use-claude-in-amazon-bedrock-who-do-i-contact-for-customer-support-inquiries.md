@@ -6,4 +6,4 @@ If you're using Claude through AWS Bedrock, your usage is non-refundable. If you
 
 ---
 
-**Note:** For Japanese Customers using Bedrock,  Anthropic will register for Japanese Consumption Tax once it becomes a Japanese Consumption Taxpayer by exceeding the legal thresholds (at the earliest as of FY2026).
+**Note:** For Japanese Customers using Bedrock, Anthropic will register for Japanese Consumption Tax once it becomes a Japanese Consumption Taxpayer by exceeding the legal thresholds (at the earliest as of FY2026).

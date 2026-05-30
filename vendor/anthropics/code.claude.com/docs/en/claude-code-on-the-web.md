@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -18,15 +19,15 @@ Claude Code on the web runs tasks on Anthropic-managed cloud infrastructure at [
 
 This page covers:
 
-* [GitHub authentication options](#github-authentication-options): two ways to connect GitHub
-* [The cloud environment](#the-cloud-environment): what config carries over, what tools are installed, and how to configure environments
-* [Setup scripts](#setup-scripts) and dependency management
-* [Network access](#network-access): levels, proxies, and the default allowlist
-* [Move tasks between web and terminal](#move-tasks-between-web-and-terminal) with `--remote` and `--teleport`
-* [Work with sessions](#work-with-sessions): reviewing, sharing, archiving, deleting
-* [Auto-fix pull requests](#auto-fix-pull-requests): respond automatically to CI failures and review comments
-* [Security and isolation](#security-and-isolation): how sessions are isolated
-* [Limitations](#limitations): rate limits and platform restrictions
+- [GitHub authentication options](#github-authentication-options): two ways to connect GitHub
+- [The cloud environment](#the-cloud-environment): what config carries over, what tools are installed, and how to configure environments
+- [Setup scripts](#setup-scripts) and dependency management
+- [Network access](#network-access): levels, proxies, and the default allowlist
+- [Move tasks between web and terminal](#move-tasks-between-web-and-terminal) with `--remote` and `--teleport`
+- [Work with sessions](#work-with-sessions): reviewing, sharing, archiving, deleting
+- [Auto-fix pull requests](#auto-fix-pull-requests): respond automatically to CI failures and review comments
+- [Security and isolation](#security-and-isolation): how sessions are isolated
+- [Limitations](#limitations): rate limits and platform restrictions
 
 ## GitHub authentication options
 
@@ -147,9 +148,9 @@ To add packages that aren't pre-installed, use a [setup script](#setup-scripts).
 
 Cloud sessions run with approximate resource ceilings that may change over time:
 
-* 4 vCPUs
-* 16 GB of RAM
-* 30 GB of disk
+- 4 vCPUs
+- 16 GB of RAM
+- 30 GB of disk
 
 Tasks requiring significantly more memory, such as large build jobs or memory-intensive tests, may fail or be terminated. For workloads beyond these limits, use [Remote Control](/en/remote-control) to run Claude Code on your own hardware.
 
@@ -258,10 +259,10 @@ exit 0
 
 SessionStart hooks have some limitations in cloud sessions:
 
-* **No cloud-only scoping**: hooks run in both local and cloud sessions. To skip local execution, check the `CLAUDE_CODE_REMOTE` environment variable as shown above.
-* **Requires network access**: install commands need to reach package registries. If your environment uses **None** network access, these hooks fail. The [default allowlist](#default-allowed-domains) under **Trusted** covers npm, PyPI, RubyGems, and crates.io.
-* **Proxy compatibility**: all outbound traffic passes through a [security proxy](#security-proxy). Some package managers don't work correctly with this proxy. Bun is a known example.
-* **Adds startup latency**: hooks run each time a session starts or resumes, unlike setup scripts which benefit from [environment caching](#environment-caching). Keep install scripts fast by checking whether dependencies are already present before reinstalling.
+- **No cloud-only scoping**: hooks run in both local and cloud sessions. To skip local execution, check the `CLAUDE_CODE_REMOTE` environment variable as shown above.
+- **Requires network access**: install commands need to reach package registries. If your environment uses **None** network access, these hooks fail. The [default allowlist](#default-allowed-domains) under **Trusted** covers npm, PyPI, RubyGems, and crates.io.
+- **Proxy compatibility**: all outbound traffic passes through a [security proxy](#security-proxy). Some package managers don't work correctly with this proxy. Bun is a known example.
+- **Adds startup latency**: hooks run each time a session starts or resumes, unlike setup scripts which benefit from [environment caching](#environment-caching). Keep install scripts fast by checking whether dependencies are already present before reinstalling.
 
 To persist environment variables for subsequent Bash commands, write to the file at `$CLAUDE_ENV_FILE`. See [SessionStart hooks](/en/hooks#sessionstart) for details.
 
@@ -306,17 +307,17 @@ Use `*.` for wildcard subdomain matching. Check **Also include default list of c
 
 For security, all GitHub operations go through a dedicated proxy service that transparently handles all git interactions. Inside the sandbox, the git client authenticates using a custom-built scoped credential. This proxy:
 
-* Manages GitHub authentication securely: the git client uses a scoped credential inside the sandbox, which the proxy verifies and translates to your actual GitHub authentication token
-* Restricts git push operations to the current working branch for safety
-* Enables cloning, fetching, and PR operations while maintaining security boundaries
+- Manages GitHub authentication securely: the git client uses a scoped credential inside the sandbox, which the proxy verifies and translates to your actual GitHub authentication token
+- Restricts git push operations to the current working branch for safety
+- Enables cloning, fetching, and PR operations while maintaining security boundaries
 
 ### Security proxy
 
 Environments run behind an HTTP/HTTPS network proxy for security and abuse prevention purposes. All outbound internet traffic passes through this proxy, which provides:
 
-* Protection against malicious requests
-* Rate limiting and abuse prevention
-* Content filtering for enhanced security
+- Protection against malicious requests
+- Rate limiting and abuse prevention
+- Content filtering for enhanced security
 
 ### Default allowed domains
 
@@ -640,19 +641,19 @@ CCR_FORCE_BUNDLE=1 claude --remote "Run the test suite and fix any failures"
 
 Bundled repositories must meet these limits:
 
-* The directory must be a git repository with at least one commit
-* The bundled repository must be under 100 MB. Larger repositories fall back to bundling only the current branch, then to a single squashed snapshot of the working tree, and fail only if the snapshot is still too large
-* Untracked files are not included; run `git add` on files you want the cloud session to see
-* Sessions created from a bundle can't push back to a remote unless you also have [GitHub authentication](#github-authentication-options) configured
+- The directory must be a git repository with at least one commit
+- The bundled repository must be under 100 MB. Larger repositories fall back to bundling only the current branch, then to a single squashed snapshot of the working tree, and fail only if the snapshot is still too large
+- Untracked files are not included; run `git add` on files you want the cloud session to see
+- Sessions created from a bundle can't push back to a remote unless you also have [GitHub authentication](#github-authentication-options) configured
 
 ### From web to terminal
 
 Pull a cloud session into your terminal using any of these:
 
-* **Using `--teleport`**: from the command line, run `claude --teleport` for an interactive session picker, or `claude --teleport <session-id>` to resume a specific session directly. If you have uncommitted changes, you'll be prompted to stash them first.
-* **Using `/teleport`**: inside an existing CLI session, run `/teleport` (or `/tp`) to open the same session picker without restarting Claude Code.
-* **From `/tasks`**: run `/tasks` to see your background sessions, then press `t` to teleport into one
-* **From the web interface**: select **Open in CLI** to copy a command you can paste into your terminal
+- **Using `--teleport`**: from the command line, run `claude --teleport` for an interactive session picker, or `claude --teleport <session-id>` to resume a specific session directly. If you have uncommitted changes, you'll be prompted to stash them first.
+- **Using `/teleport`**: inside an existing CLI session, run `/teleport` (or `/tp`) to open the same session picker without restarting Claude Code.
+- **From `/tasks`**: run `/tasks` to see your background sessions, then press `t` to teleport into one
+- **From the web interface**: select **Open in CLI** to copy a command you can paste into your terminal
 
 When you teleport a session, Claude verifies you're in the correct repository, fetches and checks out the branch from the cloud session, and loads the full conversation history into your terminal.
 
@@ -723,8 +724,8 @@ To archive a session, hover over the session in the sidebar and select the archi
 
 Deleting a session permanently removes the session and its data. This action cannot be undone. You can delete a session in two ways:
 
-* **From the sidebar**: filter for archived sessions, then hover over the session you want to delete and select the delete icon
-* **From the session menu**: open a session, select the dropdown next to the session title, and select **Delete**
+- **From the sidebar**: filter for archived sessions, then hover over the session you want to delete and select the delete icon
+- **From the session menu**: open a session, select the dropdown next to the session title, and select **Delete**
 
 You will be asked to confirm before a session is deleted.
 
@@ -738,10 +739,10 @@ Claude can watch a pull request and automatically respond to CI failures and rev
 
 There are a few ways to turn on auto-fix depending on where the PR came from and what device you're using:
 
-* **PRs created in Claude Code on the web**: open the CI status bar and select **Auto-fix**
-* **From your terminal**: run [`/autofix-pr`](/en/commands) while on the PR's branch. Claude Code detects the open PR with `gh`, spawns a web session, and turns on auto-fix in one step
-* **From the mobile app**: tell Claude to auto-fix the PR, for example "watch this PR and fix any CI failures or review comments"
-* **Any existing PR**: paste the PR URL into a session and tell Claude to auto-fix it
+- **PRs created in Claude Code on the web**: open the CI status bar and select **Auto-fix**
+- **From your terminal**: run [`/autofix-pr`](/en/commands) while on the PR's branch. Claude Code detects the open PR with `gh`, spawns a web session, and turns on auto-fix in one step
+- **From the mobile app**: tell Claude to auto-fix the PR, for example "watch this PR and fix any CI failures or review comments"
+- **Any existing PR**: paste the PR URL into a session and tell Claude to auto-fix it
 
 Auto-fix is a per-PR toggle. To stop monitoring, open the CI status bar in the web session and clear the **Auto-fix** toggle, or tell Claude to stop watching the PR.
 
@@ -749,9 +750,9 @@ Auto-fix is a per-PR toggle. To stop monitoring, open the CI status bar in the w
 
 When auto-fix is active, Claude receives GitHub events for the PR including new review comments and CI check failures. For each event, Claude investigates and decides how to proceed:
 
-* **Clear fixes**: if Claude is confident in a fix and it doesn't conflict with earlier instructions, Claude makes the change, pushes it, and explains what was done in the session
-* **Ambiguous requests**: if a reviewer's comment could be interpreted multiple ways or involves something architecturally significant, Claude asks you before acting
-* **Duplicate or no-action events**: if an event is a duplicate or requires no change, Claude notes it in the session and moves on
+- **Clear fixes**: if Claude is confident in a fix and it doesn't conflict with earlier instructions, Claude makes the change, pushes it, and explains what was done in the session
+- **Ambiguous requests**: if a reviewer's comment could be interpreted multiple ways or involves something architecturally significant, Claude asks you before acting
+- **Duplicate or no-action events**: if an event is a duplicate or requires no change, Claude notes it in the session and moves on
 
 Claude may reply to review comment threads on GitHub as part of resolving them. These replies are posted using your GitHub account, so they appear under your username, but each reply is labeled as coming from Claude Code so reviewers know it was written by the agent and not by you directly.
 
@@ -763,10 +764,10 @@ Claude may reply to review comment threads on GitHub as part of resolving them. 
 
 Each cloud session is separated from your machine and from other sessions through several layers:
 
-* **Isolated virtual machines**: each session runs in an isolated, Anthropic-managed VM
-* **Network access controls**: network access is limited by default, and can be disabled. When running with network access disabled, Claude Code can still communicate with the Anthropic API, which may allow data to exit the VM.
-* **Credential protection**: sensitive credentials such as git credentials or signing keys are never inside the sandbox with Claude Code. Authentication is handled through a secure proxy using scoped credentials.
-* **Secure analysis**: code is analyzed and modified within isolated VMs before creating PRs
+- **Isolated virtual machines**: each session runs in an isolated, Anthropic-managed VM
+- **Network access controls**: network access is limited by default, and can be disabled. When running with network access disabled, Claude Code can still communicate with the Anthropic API, which may allow data to exit the VM.
+- **Credential protection**: sensitive credentials such as git credentials or signing keys are never inside the sandbox with Claude Code. Authentication is handled through a secure proxy using scoped credentials.
+- **Secure analysis**: code is analyzed and modified within isolated VMs before creating PRs
 
 ## Troubleshooting
 
@@ -776,17 +777,17 @@ For runtime API errors that appear in the conversation such as `API Error: 500`,
 
 If a new session fails to start with `Session creation failed` or stalls at provisioning, Claude Code could not allocate a cloud environment.
 
-* Check [status.claude.com](https://status.claude.com) for cloud session incidents
-* Retry after a minute, as capacity is provisioned on demand
-* Confirm your repository is reachable. The connecting GitHub account must have access to the repository on GitHub, either through the Claude GitHub App authorization or a `gh` token synced via `/web-setup` — installing the App on the repository is not required. See [GitHub authentication options](#github-authentication-options).
+- Check [status.claude.com](https://status.claude.com) for cloud session incidents
+- Retry after a minute, as capacity is provisioned on demand
+- Confirm your repository is reachable. The connecting GitHub account must have access to the repository on GitHub, either through the Claude GitHub App authorization or a `gh` token synced via `/web-setup` — installing the App on the repository is not required. See [GitHub authentication options](#github-authentication-options).
 
 ### Remote Control session expired or access denied
 
 `--teleport` connects through the same Remote Control session infrastructure that cloud sessions use, so authentication and session-expiry errors surface with Remote Control wording. You may see `Remote Control session expired` or `Access denied`. The connection token is short-lived and scoped to your account.
 
-* Run `/login` locally to refresh your credentials, then reconnect
-* Confirm you are signed in to the same account that owns the session
-* If you see `Remote Control may not be available for this organization`, your admin has not enabled remote sessions for your plan
+- Run `/login` locally to refresh your credentials, then reconnect
+- Confirm you are signed in to the same account that owns the session
+- If you see `Remote Control may not be available for this organization`, your admin has not enabled remote sessions for your plan
 
 ### Environment expired
 
@@ -798,17 +799,17 @@ Reopen the session from [claude.ai/code](https://claude.ai/code) to provision a 
 
 Before relying on cloud sessions for a workflow, account for these constraints:
 
-* **Rate limits**: Claude Code on the web shares rate limits with all other Claude and Claude Code usage within your account. Running multiple tasks in parallel consumes more rate limits proportionately. There is no separate compute charge for the cloud VM.
-* **Repository authentication**: you can only move sessions from web to local when you are authenticated to the same account
-* **Platform restrictions**: repository cloning and pull request creation require GitHub. Self-hosted [GitHub Enterprise Server](/en/github-enterprise-server) instances are supported for Team and Enterprise plans. GitLab, Bitbucket, and other non-GitHub repositories can be sent to cloud sessions as a [local bundle](#send-local-repositories-without-github), but the session can't push results back to the remote
-* **Organization IP allowlist**: cloud sessions call the Anthropic API from Anthropic-managed infrastructure, not your network. If your organization has [IP allowlisting](https://support.claude.com/en/articles/13200993-restrict-access-to-claude-with-ip-allowlisting) enabled, every cloud session fails with an authentication error. The same applies to [Code Review](/en/code-review) and [Routines](/en/routines). Contact [Anthropic support](https://support.claude.com/) to exempt Anthropic-hosted services from your organization's IP allowlist.
+- **Rate limits**: Claude Code on the web shares rate limits with all other Claude and Claude Code usage within your account. Running multiple tasks in parallel consumes more rate limits proportionately. There is no separate compute charge for the cloud VM.
+- **Repository authentication**: you can only move sessions from web to local when you are authenticated to the same account
+- **Platform restrictions**: repository cloning and pull request creation require GitHub. Self-hosted [GitHub Enterprise Server](/en/github-enterprise-server) instances are supported for Team and Enterprise plans. GitLab, Bitbucket, and other non-GitHub repositories can be sent to cloud sessions as a [local bundle](#send-local-repositories-without-github), but the session can't push results back to the remote
+- **Organization IP allowlist**: cloud sessions call the Anthropic API from Anthropic-managed infrastructure, not your network. If your organization has [IP allowlisting](https://support.claude.com/en/articles/13200993-restrict-access-to-claude-with-ip-allowlisting) enabled, every cloud session fails with an authentication error. The same applies to [Code Review](/en/code-review) and [Routines](/en/routines). Contact [Anthropic support](https://support.claude.com/) to exempt Anthropic-hosted services from your organization's IP allowlist.
 
 ## Related resources
 
-* [Ultraplan](/en/ultraplan): draft a plan in a cloud session and review it in your browser
-* [Ultrareview](/en/ultrareview): run a deep multi-agent code review in a cloud sandbox
-* [Routines](/en/routines): automate work on a schedule, via API call, or in response to GitHub events
-* [Hooks configuration](/en/hooks): run scripts at session lifecycle events
-* [Settings reference](/en/settings): all configuration options
-* [Security](/en/security): isolation guarantees and data handling
-* [Data usage](/en/data-usage): what Anthropic retains from cloud sessions
+- [Ultraplan](/en/ultraplan): draft a plan in a cloud session and review it in your browser
+- [Ultrareview](/en/ultrareview): run a deep multi-agent code review in a cloud sandbox
+- [Routines](/en/routines): automate work on a schedule, via API call, or in response to GitHub events
+- [Hooks configuration](/en/hooks): run scripts at session lifecycle events
+- [Settings reference](/en/settings): all configuration options
+- [Security](/en/security): isolation guarantees and data handling
+- [Data usage](/en/data-usage): what Anthropic retains from cloud sessions

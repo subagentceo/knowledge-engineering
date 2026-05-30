@@ -1,3 +1,5 @@
+# Omni Analytics
+
 Query Omni using the same semantic model, permissions, and logic defined by your data team directly from Claude. Instantly answer questions about your business using natural language — no need to write SQL or navigate complex dashboards. Your Omni semantic model becomes Claude's knowledge of your data, enabling secure, governed, and consistent analytics workflows across your organization.
 
 You can use Omni Analytics to:

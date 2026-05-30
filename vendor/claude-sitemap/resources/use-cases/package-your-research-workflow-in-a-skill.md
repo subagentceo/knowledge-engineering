@@ -1,3 +1,5 @@
+# Package your research workflow using skills
+
 Monthly research reports often involve repeatedly explaining the same details: which sources to use for each section, how to write a specific way, specific formatting rules. Skills streamlines your entire research workflow—from sources and formatting to visual elements—ensuring every report consistently meets your standards without the need for constant re-explanation.
 
 Creating this skill takes one conversation. Walk through your report structure section by section, including the sources and formatting to use. Claude packages everything into a skill that triggers automatically whenever you mention research reports.

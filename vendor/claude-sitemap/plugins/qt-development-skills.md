@@ -1,19 +1,13 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Qt Group
-    
-    ](#)
-    
--   Installs
-    
-    647
+# qt-development-skills
+
+- Install in
+
+  Claude Code
+
+- Made by
+
+  Qt Group
+
+- Installs
+
+  1197

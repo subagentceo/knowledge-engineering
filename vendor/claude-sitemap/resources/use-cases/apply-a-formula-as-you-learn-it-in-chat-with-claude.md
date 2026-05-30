@@ -1,3 +1,5 @@
+# Apply a formula as you learn it
+
 There's a gap between doing a formula and having a feel for it. You can compute correctly and still not know what one weird value will do to the answer — that sense comes from handling: moving a point, watching what changes. Claude can build a blank canvas right in the conversation. You place the points, drag any one, watch the fit respond. Quick enough to do mid-study, and when it clicks you move on.
 
 Here a stats student can do the calculation but doesn't have a sense of why a single bad point moves the whole fit. Claude hands them a scatter to build from scratch, with toggles for residuals and influence so the distinction shows up by dragging.

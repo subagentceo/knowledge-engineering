@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -65,12 +66,12 @@ This guide focuses on the terminal. Claude Code also runs in [VS Code](/en/vs-co
 
 When you run `claude` in a directory, Claude Code gains access to:
 
-* **Your project.** Files in your directory and subdirectories, plus files elsewhere with your permission.
-* **Your terminal.** Any command you could run: build tools, git, package managers, system utilities, scripts. If you can do it from the command line, Claude can too.
-* **Your git state.** Current branch, uncommitted changes, and recent commit history.
-* **Your [CLAUDE.md](/en/memory).** A markdown file where you store project-specific instructions, conventions, and context that Claude should know every session.
-* **[Auto memory](/en/memory#auto-memory).** Learnings Claude saves automatically as you work, like project patterns and your preferences. The first 200 lines or 25KB of MEMORY.md, whichever comes first, load at the start of each session.
-* **Extensions you configure.** [MCP servers](/en/mcp) for external services, [skills](/en/skills) for workflows, [subagents](/en/sub-agents) for delegated work, and [Claude in Chrome](/en/chrome) for browser interaction.
+- **Your project.** Files in your directory and subdirectories, plus files elsewhere with your permission.
+- **Your terminal.** Any command you could run: build tools, git, package managers, system utilities, scripts. If you can do it from the command line, Claude can too.
+- **Your git state.** Current branch, uncommitted changes, and recent commit history.
+- **Your [CLAUDE.md](/en/memory).** A markdown file where you store project-specific instructions, conventions, and context that Claude should know every session.
+- **[Auto memory](/en/memory#auto-memory).** Learnings Claude saves automatically as you work, like project patterns and your preferences. The first 200 lines or 25KB of MEMORY.md, whichever comes first, load at the start of each session.
+- **Extensions you configure.** [MCP servers](/en/mcp) for external services, [skills](/en/skills) for workflows, [subagents](/en/sub-agents) for delegated work, and [Claude in Chrome](/en/chrome) for browser interaction.
 
 Because Claude sees your whole project, it can work across it. When you ask Claude to "fix the authentication bug," it searches for relevant files, reads multiple files to understand context, makes coordinated edits across them, runs tests to verify the fix, and commits the changes if you ask. This is different from inline code assistants that only see the current file.
 
@@ -154,14 +155,14 @@ Checkpoints are local to your session, separate from git. They only cover file c
 
 Press `Shift+Tab` to cycle through permission modes:
 
-* **Default**: Claude asks before file edits and shell commands
-* **Auto-accept edits**: Claude edits files and runs common filesystem commands like `mkdir` and `mv` without asking, still asks for other commands
-* **Plan mode**: Claude uses read-only tools only, creating a plan you can approve before execution
-* **Auto mode**: Claude evaluates all actions with background safety checks. Currently a research preview
+- **Default**: Claude asks before file edits and shell commands
+- **Auto-accept edits**: Claude edits files and runs common filesystem commands like `mkdir` and `mv` without asking, still asks for other commands
+- **Plan mode**: Claude uses read-only tools only, creating a plan you can approve before execution
+- **Auto mode**: Claude evaluates all actions with background safety checks. Currently a research preview
 
 You can also allow specific commands in `.claude/settings.json` so Claude doesn't ask each time. This is useful for trusted commands like `npm test` or `git status`. Settings can be scoped from organization-wide policies down to personal preferences. See [Permissions](/en/permissions) for details.
 
-***
+---
 
 ## Work effectively with Claude Code
 
@@ -173,9 +174,9 @@ Claude Code can teach you how to use it. Ask questions like "how do I set up hoo
 
 Built-in commands also guide you through setup:
 
-* `/init` walks you through creating a CLAUDE.md for your project
-* `/agents` helps you configure custom subagents
-* `/doctor` diagnoses common issues with your installation
+- `/init` walks you through creating a CLAUDE.md for your project
+- `/agents` helps you configure custom subagents
+- `/doctor` diagnoses common issues with your installation
 
 ### It's a conversation
 
@@ -197,7 +198,10 @@ When the first attempt isn't right, you don't start over. You iterate.
 
 #### Interrupt and steer
 
-You can interrupt Claude at any point. If it's going down the wrong path, just type your correction and press Enter. Claude will stop what it's doing and adjust its approach based on your input. You don't have to wait for it to finish or start over.
+You can redirect Claude at any point without waiting for the turn to finish or starting over:
+
+- **Press `Esc`** to stop Claude immediately. The running tool call is canceled and Claude waits for your next instruction.
+- **Type a correction and press `Enter`** to send it without stopping the running tool. Claude reads it as soon as the current action completes and adjusts before deciding its next step.
 
 ### Be specific upfront
 

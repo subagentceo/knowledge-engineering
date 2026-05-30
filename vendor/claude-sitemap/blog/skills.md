@@ -1,4 +1,6 @@
-**_Update:_** _We've added_ [_organization-wide management for skills_](/blog/organization-skills-and-directory)_, a_ [_directory_](https://claude.com/connectors) _featuring partner-built skills, and published_ [_Agent Skills_](https://agentskills.io) _as an open standard for cross-platform portability. (December 18, 2025)_
+# Introducing Agent Skills
+
+**_Update:_** _We've added_ _organization-wide management for skills\_\_, a_ _directory_ _featuring partner-built skills, and published_ _Agent Skills_ _as an open standard for cross-platform portability. (December 18, 2025)_
 
 Claude can now use _Skills_ to improve how it performs specific tasks. Skills are folders that include instructions, scripts, and resources that Claude can load when needed.
 
@@ -12,35 +14,35 @@ While working on tasks, Claude scans available skills to find relevant matches. 
 
 Skills are:
 
--   **Composable**: Skills stack together. Claude automatically identifies which skills are needed and coordinates their use.
--   **Portable**: Skills use the same format everywhere. Build once, use across Claude apps, Claude Code, and API.
--   **Efficient**: Only loads what's needed, when it's needed.
--   **Powerful**: Skills can include executable code for tasks where traditional programming is more reliable than token generation.
+- **Composable**: Skills stack together. Claude automatically identifies which skills are needed and coordinates their use.
+- **Portable**: Skills use the same format everywhere. Build once, use across Claude apps, Claude Code, and API.
+- **Efficient**: Only loads what's needed, when it's needed.
+- **Powerful**: Skills can include executable code for tasks where traditional programming is more reliable than token generation.
 
-Think of Skills as custom onboarding materials that let you package expertise, making Claude a specialist on what matters most to you. For a technical deep-dive on the Agent Skills design pattern, architecture, and development best practices, read our [engineering blog.](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
+Think of Skills as custom onboarding materials that let you package expertise, making Claude a specialist on what matters most to you. For a technical deep-dive on the Agent Skills design pattern, architecture, and development best practices, read our engineering blog.
 
 ## Skills work with every Claude product
 
-### **Claude apps**
+### Claude apps
 
 Skills are available to Pro, Max, Team and Enterprise users. We provide skills for common tasks like document creation, examples you can customize, and the ability to create your own custom skills.
 
 ![The Skills capabilities interface in Claude.ai with example Skills toggled on. ](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690267e194f8fd4618cb330e_image.webp)
 
-Claude automatically invokes relevant skills based on your task—no manual selection needed. You'll even see skills in Claude's chain of thought as it works.  
-  
+Claude automatically invokes relevant skills based on your task—no manual selection needed. You'll even see skills in Claude's chain of thought as it works.
+
 Creating skills is simple. The "skill-creator" skill provides interactive guidance: Claude asks about your workflow, generates the folder structure, formats the SKILL.md file, and bundles the resources you need. No manual file editing required.
 
-Enable Skills in [Settings](https://claude.ai/redirect/website.v1.51f73c97-b077-44e7-85ba-8b27a025dfdf/settings/features). For Team and Enterprise users, admins must first enable Skills organization-wide.
+Enable Skills in Settings. For Team and Enterprise users, admins must first enable Skills organization-wide.
 
-### **Claude Developer Platform (API)**
+### Claude Developer Platform (API)
 
-Agent Skills, which we often refer to simply as Skills, can now be added to Messages API requests and the new `/v1/skills` endpoint gives developers programmatic control over custom skill versioning and management. Skills require the [Code Execution Tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/code-execution-tool) beta, which provides the secure environment they need to run.
+Agent Skills, which we often refer to simply as Skills, can now be added to Messages API requests and the new `/v1/skills` endpoint gives developers programmatic control over custom skill versioning and management. Skills require the Code Execution Tool beta, which provides the secure environment they need to run.
 
 Use Anthropic-created skills to have Claude read and generate professional Excel spreadsheets with formulas, PowerPoint presentations, Word documents, and fillable PDFs. Developers can create custom Skills to extend Claude's capabilities for their specific use cases.
 
 Developers can also easily create, view, and upgrade skill versions through the Claude Console.
 
-Explore the [documentation](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) , our [skills cookbook](https://platform.claude.com/cookbook/skills-notebooks-01-skills-introduction), or [Anthropic Academy](https://www.anthropic.com/learn/build-with-claude) to learn more.
+Explore the documentation , our skills cookbook, or Anthropic Academy to learn more.
 
 ‍

@@ -1,3 +1,5 @@
+# Brex
+
 Connect Brex to Claude for automating your company's finances. Finance monitors compliance and runs powerful queries. Employees get personalized memo guidance, policy answers, and status updates. Permission-based access ensures admin oversight while streamlining management.
 
 You can use Brex to:

@@ -40,7 +40,7 @@ You can verify multiple domains for a single organization, but all domains must 
 
 3. Enter the domain(s) you want to verify in the **Update organization email domains** modal and click the “+” button:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047041551/518afbae9c8011a6e3c98ffb651d/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1778914800&amp;signature=6326f132b240f71ea4a2e964fbb998e427f01444d0fba4810b1f7720509cd39f&amp;req=diAjEcl6nIRaWPMW1HO4zQCfASWVj4nvs0%2B6T5c8FJ9b5yVBcb1pp%2BDcGNWL%0Ahl0a%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047041551/518afbae9c8011a6e3c98ffb651d/d2491145-362d-490b-bdcf-66a0a7656ddc?expires=1780164900&signature=51a1cfd9711f6948842ffa49060595b4ae47134370dcd371c9c41ccdef397987&req=diAjEcl6nIRaWPMW1HO4zQCfDi2diInus0%2B6T5c8FJ%2BiPvHepblNDNAvcF7u%0Azvtp%0A)
 
 4. Click “Save” when you’re finished adding domains.
 
@@ -48,21 +48,21 @@ You can verify multiple domains for a single organization, but all domains must 
 
 6. Enter your domain in the text box and click “Continue”:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1778914800&amp;signature=d3a030016b462af28d0df36a8d4b4099da99809c7eae8d91b40775e66911a718&amp;req=diAjEcl6n4dcWfMW1HO4zWHcuhWeltWiyoyXAW0OlXpkyLNr6U8dzsOOUn7f%0AuUSI%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047042630/0617a562cd28a7ff0e607d66a30b/6bd08e1d-2b65-40ab-bc79-a257153854c1?expires=1780164900&signature=443e654329e6ecbabf14de8e121f3082d74ea392c76c9f045604a5de4856c532&req=diAjEcl6n4dcWfMW1HO4zWHctR2WkdWjyoyXAW0OlXqqBUUXff76xMgH9L8D%0ALExj%0A)
 
 7. This will generate a TXT record. Follow the instructions to add this TXT record to your domain provider.
 
-  - If using a subdomain (e.g., subdomain.yourcompany.com), set your TXT record on that subdomain (e.g., _acme-challenge.subdomain.yourco. mpany.com).
+- If using a subdomain (e.g., subdomain.yourcompany.com), set your TXT record on that subdomain (e.g., \_acme-challenge.subdomain.yourco. mpany.com).
 
 8. Wait 10 minutes for your DNS change to propagate.
 
-  - *Note: DNS changes can take 24-48 hours to propagate globally.*
+- _Note: DNS changes can take 24-48 hours to propagate globally._
 
 9. When you see the green "Verified" badge, you can close the instructions page.
 
 10. If your domain shows as "Pending," use the "Refresh" button.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1778914800&amp;signature=2d3073024a78cad57ae88c7cc326e3ab40c7c6d40aa4b08d688b570d47de1402&amp;req=diAjEcl6mYVWX%2FMW1HO4zVjmViEJbnCxPM2D8ZcdgrirBw%2ByDFhZSa1NrmWM%0AyXYX6gloDH4qCaw%2B6%2BE%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2047044496/b8df54a0331784cc9ae8f00112aa/bf9609c1-dc93-4665-a066-4cae2fe4b002?expires=1780164900&signature=13717c1e29e1d63cc3b1270d20de8e20161681b0718828f480a5b0b7ef9967cf&req=diAjEcl6mYVWX%2FMW1HO4zVjmWSkBaXCwPM2D8ZcdgrghXLn1eAfIvadWuKYV%0At6Of0n6u11%2Bszh6ewSM%3D%0A)
 
 **Note:** Once your domain is verified, you'll see a **Restrict organization creation** toggle under **Security** on the Organization and access organization settings page. Enable this if you want to prevent users from creating new Claude or Console organizations—including personal accounts—using your verified domains.
 
@@ -102,7 +102,7 @@ For IdP-specific setup instructions, see:
 
 You can now choose to toggle on **Require SSO for Console** and/or **Require SSO for Claude,** on the **Organization and access** page, under the **Authentication** section:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1778914800&amp;signature=d36f68d15c54034b92dc255625671dabe77f2dd59f0e8f3f8089a6abf608af61&amp;req=diMmFM93nYNfWfMW1HO4zdAIBAeoA3gCItXtKivx6ZH%2FmkbT%2BrkoVx8dSwEP%0ATpLaDIe%2FL1eacwwINI8%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2312690200/bd2403586d4f6651ccd79e2a45af/b9f8d7ce-0def-49d9-bfb2-3a14352d7214?expires=1780164900&signature=17129c0e05d23134376d0c02105770e0628d2bc09ec2286fc1c768829b3e3b59&req=diMmFM93nYNfWfMW1HO4zdAICw%2BgBHgDItXtKivx6ZFwyEWaRm6eBV8SrST3%0A4X%2FtE%2Fas8bFgHcTE19I%3D%0A)
 
 When SSO is required, users must use the “Continue with SSO” option to log in to their Claude/Console accounts. When SSO is not required, they will have the option to choose “Continue with SSO” or “Continue with email.”
 
@@ -138,9 +138,9 @@ When your Identity Provider's X.509 signing certificate expires or is rotated, y
 
 1. Navigate to your settings:
 
-  - For Team and Enterprise plans: **[claude.ai/admin-settings/organization](http://claude.ai/admin-settings/organization)**
+- For Team and Enterprise plans: **[claude.ai/admin-settings/organization](http://claude.ai/admin-settings/organization)**
 
-  - For Claude Console: **[platform.claude.com/settings/identity](http://platform.claude.com/settings/organization)**
+- For Claude Console: **[platform.claude.com/settings/identity](http://platform.claude.com/settings/organization)**
 
 2. In the **Authentication** section, click “Manage SSO.”
 

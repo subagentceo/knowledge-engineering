@@ -1,4 +1,4 @@
-## List
+## List memory stores
 
 **get** `/v1/memory_stores`
 
@@ -31,11 +31,9 @@ List memory stores
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -84,12 +82,17 @@ List memory stores
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `data: optional array of BetaManagedAgentsMemoryStore`
 
   Memory stores on this page, newest first. Empty when there are no stores matching the filters.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -103,7 +106,6 @@ List memory stores
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -133,4 +135,26 @@ curl https://api.anthropic.com/v1/memory_stores \
     -H 'anthropic-version: 2023-06-01' \
     -H 'anthropic-beta: managed-agents-2026-04-01' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "name": "name",
+      "type": "memory_store",
+      "updated_at": "2019-12-27T18:11:19.117Z",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "description": "description",
+      "metadata": {
+        "foo": "string"
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
 ```

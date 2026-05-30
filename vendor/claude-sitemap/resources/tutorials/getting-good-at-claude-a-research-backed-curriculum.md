@@ -1,8 +1,10 @@
-When we launched the [AI Fluency Index](https://www.anthropic.com/research/AI-fluency-index), we wanted to understand how people get better at working with Claude over time. The early data came from Chat, and it told a consistent story: fluency develops along two tracks that behave very differently. Some skills grow naturally with practice, and others require deliberate, repeated teaching. That finding shaped how we think about onboarding and in-product learning, and it gave organizations a starting point for building their own Claude training.
+# Getting good at Claude: A research-backed curriculum
+
+When we launched the AI Fluency Index, we wanted to understand how people get better at working with Claude over time. The early data came from Chat, and it told a consistent story: fluency develops along two tracks that behave very differently. Some skills grow naturally with practice, and others require deliberate, repeated teaching. That finding shaped how we think about onboarding and in-product learning, and it gave organizations a starting point for building their own Claude training.
 
 Since then, we've extended the Index to Claude Code and Claude Cowork, bringing the total to over 50,000 conversations across the 11 behavioral AI fluency indicators. Fluency has a shared structure across all three surfaces, but each product has its own entry point. What "getting good at Claude" looks like depends on which Claude you're using, and if you're responsible for helping a team build fluency, that distinction matters for what you teach first.
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69cec696e428e4c87beb5612_Fluency%20Curriculum%20%E2%80%94%20dot%20variant%20\(5\).png)
+![](<https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69cec696e428e4c87beb5612_Fluency%20Curriculum%20%E2%80%94%20dot%20variant%20(5).png>)
 
 This piece walks through what we found and offers a simple curriculum model you can adapt for your organization.  
 ‍
@@ -155,7 +157,7 @@ When did you last verify this workflow still produces good work?
 
 ## Where to go from here
 
-The AI Fluency Index continues to track these patterns monthly, and we'll keep publishing what we learn as the products evolve and the dataset grows. If you're building Claude training for your organization and want to ground it in this research, the [AI Fluency framework and courseware](https://anthropic.com/ai-fluency) are freely available, and you can sign up for a newsletter to get notified about new research on AI fluency at [anthropic.com/learn](http://anthropic.com/learn) 
+The AI Fluency Index continues to track these patterns monthly, and we'll keep publishing what we learn as the products evolve and the dataset grows. If you're building Claude training for your organization and want to ground it in this research, the AI Fluency framework and courseware are freely available, and you can sign up for a newsletter to get notified about new research on AI fluency at anthropic.com/learn 
 
 We're particularly interested in hearing from teams experimenting with Discernment instruction on agentic surfaces, since that's where the data suggests the biggest gap between what users do naturally and what good practice requires. If you're running something along those lines, we'd love to learn from it.
 

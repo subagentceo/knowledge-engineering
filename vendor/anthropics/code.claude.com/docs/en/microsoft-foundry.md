@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -7,13 +8,12 @@
 > Learn about configuring Claude Code through Microsoft Foundry, including setup, configuration, and troubleshooting.
 
 export const ContactSalesCard = ({surface}) => {
-  const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
-  const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <line x1="5" y1="12" x2="19" y2="12" />
-      <polyline points="12 5 19 12 12 19" />
-    </svg>;
-  const STYLES = `
-.cc-cs {
+const utm = content => `utm_source=claude_code&utm_medium=docs&utm_content=${surface}_${content}`;
+const iconArrowRight = (size = 13) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+<line x1="5" y1="12" x2="19" y2="12" />
+<polyline points="12 5 19 12 12 19" />
+</svg>;
+const STYLES = `.cc-cs {
   --cs-slate: #141413;
   --cs-clay: #d97757;
   --cs-clay-deep: #c6613f;
@@ -56,24 +56,23 @@ export const ContactSalesCard = ({surface}) => {
 .dark .cc-cs-btn-ghost:hover { background: rgba(255, 255, 255, 0.04); }
 @media (max-width: 720px) {
   .cc-cs-actions { width: 100%; }
-}
-`;
-  return <div className="cc-cs not-prose">
-      <style>{STYLES}</style>
-      <div className="cc-cs-card">
-        <div className="cc-cs-text">
-          <strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
-        </div>
-        <div className="cc-cs-actions">
-          <a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
-            View plans
-          </a>
-          <a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
-            Contact sales {iconArrowRight()}
-          </a>
-        </div>
-      </div>
-    </div>;
+}`;
+return <div className="cc-cs not-prose">
+<style>{STYLES}</style>
+<div className="cc-cs-card">
+<div className="cc-cs-text">
+<strong>Deploying Claude Code across your organization?</strong> Talk to sales about enterprise plans, SSO, and centralized billing.
+</div>
+<div className="cc-cs-actions">
+<a href={`https://claude.com/pricing?${utm('view_plans')}#plans-business`} className="cc-cs-btn-ghost">
+View plans
+</a>
+<a href={`https://claude.com/contact-sales?${utm('contact_sales')}`} className="cc-cs-btn-clay">
+Contact sales {iconArrowRight()}
+</a>
+</div>
+</div>
+</div>;
 };
 
 <ContactSalesCard surface="foundry" />
@@ -82,9 +81,9 @@ export const ContactSalesCard = ({surface}) => {
 
 Before configuring Claude Code with Microsoft Foundry, ensure you have:
 
-* An Azure subscription with access to Microsoft Foundry
-* RBAC permissions to create Microsoft Foundry resources and deployments
-* Azure CLI installed and configured (optional - only needed if you don't have another mechanism for getting credentials)
+- An Azure subscription with access to Microsoft Foundry
+- RBAC permissions to create Microsoft Foundry resources and deployments
+- Azure CLI installed and configured (optional - only needed if you don't have another mechanism for getting credentials)
 
 <Note>
   If you are deploying Claude Code to multiple users, [pin your model versions](#4-pin-model-versions) to prevent breakage when Anthropic releases new models.
@@ -99,9 +98,9 @@ First, create a Claude resource in Azure:
 1. Navigate to the [Microsoft Foundry portal](https://ai.azure.com/)
 2. Create a new resource, noting your resource name
 3. Create deployments for the Claude models:
-   * Claude Opus
-   * Claude Sonnet
-   * Claude Haiku
+   - Claude Opus
+   - Claude Sonnet
+   - Claude Haiku
 
 ### 2. Configure Azure credentials
 
@@ -130,7 +129,7 @@ az login
 ```
 
 <Note>
-  When using Microsoft Foundry, the `/login` and `/logout` commands are disabled since authentication is handled through Azure credentials.
+  When using Microsoft Foundry, the `/logout` command is unavailable since authentication is handled through Azure credentials.
 </Note>
 
 ### 3. Configure Claude Code
@@ -155,21 +154,33 @@ export ANTHROPIC_FOUNDRY_RESOURCE={resource}
 
 Set the model variables to match the deployment names you created in step 1.
 
-Without `ANTHROPIC_DEFAULT_OPUS_MODEL`, the `opus` alias on Foundry resolves to Opus 4.6. Set it to the Opus 4.7 ID to use the latest model:
+Without `ANTHROPIC_DEFAULT_OPUS_MODEL`, the `opus` alias on Foundry resolves to Opus 4.6. Set it to the Opus 4.8 ID to use the latest model:
 
 ```bash theme={null}
-export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-7'
+export ANTHROPIC_DEFAULT_OPUS_MODEL='claude-opus-4-8'
 export ANTHROPIC_DEFAULT_SONNET_MODEL='claude-sonnet-4-6'
 export ANTHROPIC_DEFAULT_HAIKU_MODEL='claude-haiku-4-5'
 ```
 
+Background tasks such as session title generation use the small/fast model, normally a Haiku-class model. On Foundry, Claude Code defaults this to the primary model because not every account has a Haiku deployment. To use Haiku for background tasks, set `ANTHROPIC_DEFAULT_HAIKU_MODEL` to a Haiku deployment that is available in your account, as shown above.
+
 For current and legacy model IDs, see [Models overview](https://platform.claude.com/docs/en/about-claude/models/overview). See [Model configuration](/en/model-config#pin-models-for-third-party-deployments) for the full list of environment variables.
 
-[Prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) is enabled automatically. To request a 1-hour cache TTL instead of the 5-minute default, set the following variable; cache writes with a 1-hour TTL are billed at a higher rate:
+[Prompt caching](/en/prompt-caching) is enabled automatically. To request a 1-hour cache TTL instead of the 5-minute default, set the following variable; cache writes with a 1-hour TTL are billed at a higher rate:
 
 ```bash theme={null}
 export ENABLE_PROMPT_CACHING_1H=1
 ```
+
+### 5. Run Claude Code
+
+With the environment variables set, start Claude Code from your project directory:
+
+```bash theme={null}
+claude
+```
+
+Claude Code reads `CLAUDE_CODE_USE_FOUNDRY` and the other Foundry variables from the environment and connects to your Azure resource on the first prompt. Unlike Bedrock and Vertex AI, Foundry has no interactive setup wizard, so the environment variables in steps 3 and 4 are the only configuration path.
 
 ## Azure RBAC configuration
 
@@ -181,9 +192,7 @@ For more restrictive permissions, create a custom role with the following:
 {
   "permissions": [
     {
-      "dataActions": [
-        "Microsoft.CognitiveServices/accounts/providers/*"
-      ]
+      "dataActions": ["Microsoft.CognitiveServices/accounts/providers/*"]
     }
   ]
 }
@@ -195,10 +204,10 @@ For details, see [Microsoft Foundry RBAC documentation](https://learn.microsoft.
 
 If you receive an error "Failed to get token from azureADTokenProvider: ChainedTokenCredential authentication failed":
 
-* Configure Entra ID on the environment, or set `ANTHROPIC_FOUNDRY_API_KEY`.
+- Configure Entra ID on the environment, or set `ANTHROPIC_FOUNDRY_API_KEY`.
 
 ## Additional resources
 
-* [Microsoft Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry)
-* [Microsoft Foundry models](https://ai.azure.com/explore/models)
-* [Microsoft Foundry pricing](https://azure.microsoft.com/en-us/pricing/details/ai-foundry/)
+- [Microsoft Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/what-is-azure-ai-foundry)
+- [Microsoft Foundry models](https://ai.azure.com/explore/models)
+- [Microsoft Foundry pricing](https://azure.microsoft.com/en-us/pricing/details/ai-foundry/)

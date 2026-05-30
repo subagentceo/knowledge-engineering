@@ -1,19 +1,13 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Desktop Commander
-    
-    ](#)
-    
--   Installs
-    
-    793
+# desktop-commander
+
+- Install in
+
+  Claude Code
+
+- Made by
+
+  Desktop Commander
+
+- Installs
+
+  2368

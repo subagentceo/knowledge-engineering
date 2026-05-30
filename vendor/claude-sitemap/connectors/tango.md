@@ -1,3 +1,5 @@
+# Tango
+
 The Tango server gives AI agents access to reliable, LLM-friendly federal procurement competitive intelligence so that procurement professionals can focus on delivering on mission.
 
 You can use Tango to:

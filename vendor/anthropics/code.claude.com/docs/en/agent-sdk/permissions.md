@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -22,7 +23,7 @@ When Claude requests a tool, the SDK checks permissions in this order:
   </Step>
 
   <Step title="Deny rules">
-    Check `deny` rules (from `disallowed_tools` and [settings.json](/en/settings#permission-settings)). If a deny rule matches, the tool is blocked, even in `bypassPermissions` mode.
+    Check `deny` rules (from `disallowed_tools` and [settings.json](/en/settings#permission-settings)). If a deny rule matches, the tool is blocked, even in `bypassPermissions` mode. Bare-name deny rules like `Bash` remove the tool from Claude's context before this evaluation begins, so only scoped rules like `Bash(rm *)` are checked at this step.
   </Step>
 
   <Step title="Permission mode">
@@ -42,24 +43,25 @@ When Claude requests a tool, the SDK checks permissions in this order:
 
 This page focuses on **allow and deny rules** and **permission modes**. For the other steps:
 
-* **Hooks:** run custom code to allow, deny, or modify tool requests. See [Control execution with hooks](/en/agent-sdk/hooks).
-* **canUseTool callback:** prompt users for approval at runtime. See [Handle approvals and user input](/en/agent-sdk/user-input).
+- **Hooks:** run custom code to allow, deny, or modify tool requests. See [Control execution with hooks](/en/agent-sdk/hooks).
+- **canUseTool callback:** prompt users for approval at runtime. See [Handle approvals and user input](/en/agent-sdk/user-input).
 
 ## Allow and deny rules
 
-`allowed_tools` and `disallowed_tools` (TypeScript: `allowedTools` / `disallowedTools`) add entries to the allow and deny rule lists in the evaluation flow above. They control whether a tool call is approved, not whether the tool is available to Claude.
+`allowed_tools` and `disallowed_tools` (TypeScript: `allowedTools` / `disallowedTools`) add entries to the allow and deny rule lists in the evaluation flow above. Allow rules only affect approval: a tool not listed in `allowed_tools` is still available to Claude and falls through to the permission mode. Deny rules behave differently depending on whether they name a tool or scope a pattern within one.
 
-| Option                           | Effect                                                                                                                           |
-| :------------------------------- | :------------------------------------------------------------------------------------------------------------------------------- |
-| `allowed_tools=["Read", "Grep"]` | `Read` and `Grep` are auto-approved. Tools not listed here still exist and fall through to the permission mode and `canUseTool`. |
-| `disallowed_tools=["Bash"]`      | `Bash` is always denied. Deny rules are checked first and hold in every permission mode, including `bypassPermissions`.          |
+| Option                            | Effect                                                                                                                                                                    |
+| :-------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `allowed_tools=["Read", "Grep"]`  | `Read` and `Grep` are auto-approved. Tools not listed here still exist and fall through to the permission mode and `canUseTool`.                                          |
+| `disallowed_tools=["Bash"]`       | The `Bash` tool definition is removed from the request. Claude does not see the tool and cannot attempt it.                                                               |
+| `disallowed_tools=["Bash(rm *)"]` | `Bash` stays available. Calls matching `rm *` are denied in every permission mode, including `bypassPermissions`. Other `Bash` calls fall through to the permission mode. |
 
 For a locked-down agent, pair `allowedTools` with `permissionMode: "dontAsk"`. Listed tools are approved; anything else is denied outright instead of prompting:
 
 ```typescript theme={null}
 const options = {
   allowedTools: ["Read", "Glob", "Grep"],
-  permissionMode: "dontAsk"
+  permissionMode: "dontAsk",
 };
 ```
 
@@ -137,6 +139,7 @@ You can set the permission mode once when starting a query, or change it dynamic
       main();
       ```
     </CodeGroup>
+
   </Tab>
 
   <Tab title="During streaming">
@@ -193,6 +196,7 @@ You can set the permission mode once when starting a query, or change it dynamic
       main();
       ```
     </CodeGroup>
+
   </Tab>
 </Tabs>
 
@@ -204,8 +208,8 @@ Auto-approves file operations so Claude can edit code without prompting. Other t
 
 **Auto-approved operations:**
 
-* File edits (Edit, Write tools)
-* Filesystem commands: `mkdir`, `touch`, `rm`, `rmdir`, `mv`, `cp`, `sed`
+- File edits (Edit, Write tools)
+- Filesystem commands: `mkdir`, `touch`, `rm`, `rmdir`, `mv`, `cp`, `sed`
 
 Both apply only to paths inside the working directory or `additionalDirectories`. Paths outside that scope and writes to protected paths still prompt.
 
@@ -224,7 +228,7 @@ Auto-approves all tool uses without prompts. Hooks still execute and can block o
 <Warning>
   Use with extreme caution. Claude has full system access in this mode. Only use in controlled environments where you trust all possible operations.
 
-  `allowed_tools` does not constrain this mode. Every tool is approved, not just the ones you listed. Deny rules (`disallowed_tools`), explicit `ask` rules, and hooks are evaluated before the mode check and can still block a tool.
+`allowed_tools` does not constrain this mode. Every tool is approved, not just the ones you listed. Deny rules (`disallowed_tools`), explicit `ask` rules, and hooks are evaluated before the mode check and can still block a tool.
 </Warning>
 
 #### Plan mode (`plan`)
@@ -237,6 +241,6 @@ Restricts Claude to read-only tools. Claude can read files and run read-only she
 
 For the other steps in the permission evaluation flow:
 
-* [Handle approvals and user input](/en/agent-sdk/user-input): interactive approval prompts and clarifying questions
-* [Hooks guide](/en/agent-sdk/hooks): run custom code at key points in the agent lifecycle
-* [Permission rules](/en/settings#permission-settings): declarative allow/deny rules in `settings.json`
+- [Handle approvals and user input](/en/agent-sdk/user-input): interactive approval prompts and clarifying questions
+- [Hooks guide](/en/agent-sdk/hooks): run custom code at key points in the agent lifecycle
+- [Permission rules](/en/settings#permission-settings): declarative allow/deny rules in `settings.json`

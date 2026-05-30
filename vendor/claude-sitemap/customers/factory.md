@@ -1,8 +1,10 @@
+# Factory is building Droids for software engineering with Claude
+
 Factory uses Claude to power autonomous droids that streamline software development for enterprises, saving customers over 500,000 engineering hours and millions of dollars across each step of the software development lifecycle.
 
--   550,000 hours of development time saved across customers
--   Reduced development cycle time 20%
--   3x reduction in code churn
+- 550,000 hours of development time saved across customers
+- Reduced development cycle time 20%
+- 3x reduction in code churn
 
 ## Automating labor-intensive coding tasks
 
@@ -42,7 +44,7 @@ This focus allows Factory to create AI systems that can handle the immense compl
 
 ![App screen on software development lifecycle](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf052265a78e80bf13e87_3e39cb8e8af6fc486c545c94caeb5cc3889cf5b0-1920x1080.jpeg)
 
-Factory’s commitment to advancing the state of the art in AI-powered software development is evident in their recent [technical report](https://www.factory.ai/news/code-droid-technical-report), where their Code Droid—which is powered in part by Claude—delivers state of the art performance on software engineering benchmarks.
+Factory’s commitment to advancing the state of the art in AI-powered software development is evident in their recent technical report, where their Code Droid—which is powered in part by Claude—delivers state of the art performance on software engineering benchmarks.
 
 ## Looking to the future
 

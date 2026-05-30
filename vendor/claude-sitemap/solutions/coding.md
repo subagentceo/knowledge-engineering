@@ -1,3 +1,5 @@
+# The best AI for developers
+
 I'll investigate the auth error. Let me look at the relevant files.
 
 ‍
@@ -22,11 +24,11 @@ Error detected: "401 Unauthorized: Token expired"
 
 Root cause:
 
-\* Token refresh mechanism not handling expired tokens correctly
+- Token refresh mechanism not handling expired tokens correctly
 
-\* Refresh token missing from request header
+- Refresh token missing from request header
 
-\* Improper error handling for 401 responses
+- Improper error handling for 401 responses
 
 ‍
 
@@ -38,11 +40,11 @@ Testing the fix...
 
 ‍
 
-\* Login successful ✓
+- Login successful ✓
 
-\* Token refresh working ✓
+- Token refresh working ✓
 
-\* Proper redirection on expired tokens ✓
+- Proper redirection on expired tokens ✓
 
 ‍
 

@@ -1,4 +1,4 @@
-## Create
+## Create Agent
 
 `BetaManagedAgentsAgent beta().agents().create(AgentCreateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,11 +9,9 @@ Create Agent
 ### Parameters
 
 - `AgentCreateParams params`
-
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -62,16 +60,20 @@ Create Agent
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
   - `Model model`
 
     Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control
-
     - `enum BetaManagedAgentsModel:`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
       - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
         Frontier intelligence for long-running agents and coding
@@ -111,53 +113,15 @@ Create Agent
     - `class BetaManagedAgentsModelConfigParams:`
 
       An object that defines additional configuration control over model use
-
       - `BetaManagedAgentsModel id`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-        - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `CLAUDE_OPUS_4_6("claude-opus-4-6")`
-
-          Most intelligent model for building agents and coding
-
-        - `CLAUDE_SONNET_4_6("claude-sonnet-4-6")`
-
-          Best combination of speed and intelligence
-
-        - `CLAUDE_HAIKU_4_5("claude-haiku-4-5")`
-
-          Fastest model with near-frontier intelligence
-
-        - `CLAUDE_HAIKU_4_5_20251001("claude-haiku-4-5-20251001")`
-
-          Fastest model with near-frontier intelligence
-
-        - `CLAUDE_OPUS_4_5("claude-opus-4-5")`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `CLAUDE_OPUS_4_5_20251101("claude-opus-4-5-20251101")`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `CLAUDE_SONNET_4_5("claude-sonnet-4-5")`
-
-          High-performance model for agents and coding
-
-        - `CLAUDE_SONNET_4_5_20250929("claude-sonnet-4-5-20250929")`
-
-          High-performance model for agents and coding
-
       - `Optional<Speed> speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `STANDARD("standard")`
 
         - `FAST("fast")`
@@ -173,13 +137,11 @@ Create Agent
   - `Optional<List<BetaManagedAgentsUrlMcpServerParams>> mcpServers`
 
     MCP servers this agent connects to. Maximum 20. Names must be unique within the array.
-
     - `String name`
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
     - `Type type`
-
       - `URL("url")`
 
     - `String url`
@@ -197,17 +159,14 @@ Create Agent
   - `Optional<List<BetaManagedAgentsSkillParams>> skills`
 
     Skills available to the agent. Maximum 20.
-
     - `class BetaManagedAgentsAnthropicSkillParams:`
 
       An Anthropic-managed skill.
-
       - `String skillId`
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
       - `Type type`
-
         - `ANTHROPIC("anthropic")`
 
       - `Optional<String> version`
@@ -217,13 +176,11 @@ Create Agent
     - `class BetaManagedAgentsCustomSkillParams:`
 
       A user-created custom skill.
-
       - `String skillId`
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
       - `Type type`
-
         - `CUSTOM("custom")`
 
       - `Optional<String> version`
@@ -237,23 +194,18 @@ Create Agent
   - `Optional<List<Tool>> tools`
 
     Tool configurations available to the agent. Maximum of 128 tools across all toolsets allowed.
-
     - `class BetaManagedAgentsAgentToolset20260401Params:`
 
       Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
-
       - `Type type`
-
         - `AGENT_TOOLSET_20260401("agent_toolset_20260401")`
 
       - `Optional<List<BetaManagedAgentsAgentToolConfigParams>> configs`
 
         Per-tool configuration overrides.
-
         - `Name name`
 
           Built-in agent tool identifier.
-
           - `BASH("bash")`
 
           - `EDIT("edit")`
@@ -277,27 +229,21 @@ Create Agent
         - `Optional<PermissionPolicy> permissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
             - `Type type`
-
               - `ALWAYS_ALLOW("always_allow")`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
-
             - `Type type`
-
               - `ALWAYS_ASK("always_ask")`
 
       - `Optional<BetaManagedAgentsAgentToolsetDefaultConfigParams> defaultConfig`
 
         Default configuration for all tools in a toolset.
-
         - `Optional<Boolean> enabled`
 
           Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
@@ -305,39 +251,27 @@ Create Agent
         - `Optional<PermissionPolicy> permissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `Type type`
-
-              - `ALWAYS_ALLOW("always_allow")`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `Type type`
-
-              - `ALWAYS_ASK("always_ask")`
-
     - `class BetaManagedAgentsMcpToolsetParams:`
 
       Configuration for tools from an MCP server defined in `mcp_servers`.
-
       - `String mcpServerName`
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
       - `Type type`
-
         - `MCP_TOOLSET("mcp_toolset")`
 
       - `Optional<List<BetaManagedAgentsMcpToolConfigParams>> configs`
 
         Per-tool configuration overrides.
-
         - `String name`
 
           Name of the MCP tool to configure. 1-128 characters.
@@ -349,27 +283,17 @@ Create Agent
         - `Optional<PermissionPolicy> permissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `Type type`
-
-              - `ALWAYS_ALLOW("always_allow")`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `Type type`
-
-              - `ALWAYS_ASK("always_ask")`
-
       - `Optional<BetaManagedAgentsMcpToolsetDefaultConfigParams> defaultConfig`
 
         Default configuration for all tools from an MCP server.
-
         - `Optional<Boolean> enabled`
 
           Whether tools are enabled by default. Defaults to true if not specified.
@@ -377,27 +301,17 @@ Create Agent
         - `Optional<PermissionPolicy> permissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `Type type`
-
-              - `ALWAYS_ALLOW("always_allow")`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `Type type`
-
-              - `ALWAYS_ASK("always_ask")`
-
     - `class BetaManagedAgentsCustomToolParams:`
 
       A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
-
       - `String description`
 
         Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
@@ -405,7 +319,6 @@ Create Agent
       - `BetaManagedAgentsCustomToolInputSchema inputSchema`
 
         JSON Schema for custom tool input parameters.
-
         - `Optional<Properties> properties`
 
           JSON Schema properties defining the tool's input parameters.
@@ -417,7 +330,6 @@ Create Agent
         - `Optional<Type> type`
 
           Must be 'object' for tool input schemas.
-
           - `OBJECT("object")`
 
       - `String name`
@@ -425,7 +337,6 @@ Create Agent
         Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
       - `Type type`
-
         - `CUSTOM("custom")`
 
 ### Returns
@@ -433,7 +344,6 @@ Create Agent
 - `class BetaManagedAgentsAgent:`
 
   A Managed Agents `agent`.
-
   - `String id`
 
   - `Optional<LocalDateTime> archivedAt`
@@ -447,11 +357,9 @@ Create Agent
   - `Optional<String> description`
 
   - `List<BetaManagedAgentsMcpServerUrlDefinition> mcpServers`
-
     - `String name`
 
     - `Type type`
-
       - `URL("url")`
 
     - `String url`
@@ -461,13 +369,11 @@ Create Agent
   - `BetaManagedAgentsModelConfig model`
 
     Model identifier and configuration.
-
     - `BetaManagedAgentsModel id`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
       - `CLAUDE_OPUS_4_7("claude-opus-4-7")`
 
         Frontier intelligence for long-running agents and coding
@@ -507,7 +413,6 @@ Create Agent
     - `Optional<Speed> speed`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
       - `STANDARD("standard")`
 
       - `FAST("fast")`
@@ -515,35 +420,28 @@ Create Agent
   - `Optional<BetaManagedAgentsMultiagent> multiagent`
 
     Resolved coordinator topology with a concrete agent roster.
-
     - `List<BetaManagedAgentsAgentReference> agents`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
-
       - `String id`
 
       - `Type type`
-
         - `AGENT("agent")`
 
       - `long version`
 
     - `Type type`
-
       - `COORDINATOR("coordinator")`
 
   - `String name`
 
   - `List<Skill> skills`
-
     - `class BetaManagedAgentsAnthropicSkill:`
 
       A resolved Anthropic-managed skill.
-
       - `String skillId`
 
       - `Type type`
-
         - `ANTHROPIC("anthropic")`
 
       - `String version`
@@ -551,11 +449,9 @@ Create Agent
     - `class BetaManagedAgentsCustomSkill:`
 
       A resolved user-created custom skill.
-
       - `String skillId`
 
       - `Type type`
-
         - `CUSTOM("custom")`
 
       - `String version`
@@ -563,17 +459,13 @@ Create Agent
   - `Optional<String> system`
 
   - `List<Tool> tools`
-
     - `class BetaManagedAgentsAgentToolset20260401:`
-
       - `List<BetaManagedAgentsAgentToolConfig> configs`
-
         - `boolean enabled`
 
         - `Name name`
 
           Built-in agent tool identifier.
-
           - `BASH("bash")`
 
           - `EDIT("edit")`
@@ -593,57 +485,39 @@ Create Agent
         - `PermissionPolicy permissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
             - `Type type`
-
               - `ALWAYS_ALLOW("always_allow")`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
-
             - `Type type`
-
               - `ALWAYS_ASK("always_ask")`
 
       - `BetaManagedAgentsAgentToolsetDefaultConfig defaultConfig`
 
         Resolved default configuration for agent tools.
-
         - `boolean enabled`
 
         - `PermissionPolicy permissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `Type type`
-
-              - `ALWAYS_ALLOW("always_allow")`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `Type type`
-
-              - `ALWAYS_ASK("always_ask")`
-
       - `Type type`
-
         - `AGENT_TOOLSET_20260401("agent_toolset_20260401")`
 
     - `class BetaManagedAgentsMcpToolset:`
-
       - `List<BetaManagedAgentsMcpToolConfig> configs`
-
         - `boolean enabled`
 
         - `String name`
@@ -651,65 +525,43 @@ Create Agent
         - `PermissionPolicy permissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `Type type`
-
-              - `ALWAYS_ALLOW("always_allow")`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `Type type`
-
-              - `ALWAYS_ASK("always_ask")`
-
       - `BetaManagedAgentsMcpToolsetDefaultConfig defaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
-
         - `boolean enabled`
 
         - `PermissionPolicy permissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `Type type`
-
-              - `ALWAYS_ALLOW("always_allow")`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `Type type`
-
-              - `ALWAYS_ASK("always_ask")`
-
       - `String mcpServerName`
 
       - `Type type`
-
         - `MCP_TOOLSET("mcp_toolset")`
 
     - `class BetaManagedAgentsCustomTool:`
 
       A custom tool as returned in API responses.
-
       - `String description`
 
       - `BetaManagedAgentsCustomToolInputSchema inputSchema`
 
         JSON Schema for custom tool input parameters.
-
         - `Optional<Properties> properties`
 
           JSON Schema properties defining the tool's input parameters.
@@ -721,17 +573,14 @@ Create Agent
         - `Optional<Type> type`
 
           Must be 'object' for tool input schemas.
-
           - `OBJECT("object")`
 
       - `String name`
 
       - `Type type`
-
         - `CUSTOM("custom")`
 
   - `Type type`
-
     - `AGENT("agent")`
 
   - `LocalDateTime updatedAt`
@@ -765,5 +614,77 @@ public final class Main {
             .build();
         BetaManagedAgentsAgent betaManagedAgentsAgent = client.beta().agents().create(params);
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "agent_011CZkYpogX7uDKUyvBTophP",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "A general-purpose starter agent.",
+  "mcp_servers": [
+    {
+      "name": "example-mcp",
+      "type": "url",
+      "url": "https://example-server.modelcontextprotocol.io/sse"
+    }
+  ],
+  "metadata": {
+    "foo": "bar"
+  },
+  "model": {
+    "id": "claude-sonnet-4-6",
+    "speed": "standard"
+  },
+  "multiagent": {
+    "agents": [
+      {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "type": "agent",
+        "version": 1
+      }
+    ],
+    "type": "coordinator"
+  },
+  "name": "My First Agent",
+  "skills": [
+    {
+      "skill_id": "xlsx",
+      "type": "anthropic",
+      "version": "1"
+    },
+    {
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "type": "custom",
+      "version": "2"
+    }
+  ],
+  "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
+  "tools": [
+    {
+      "configs": [
+        {
+          "enabled": true,
+          "name": "bash",
+          "permission_policy": {
+            "type": "always_allow"
+          }
+        }
+      ],
+      "default_config": {
+        "enabled": true,
+        "permission_policy": {
+          "type": "always_ask"
+        }
+      },
+      "type": "agent_toolset_20260401"
+    }
+  ],
+  "type": "agent",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "version": 1
 }
 ```

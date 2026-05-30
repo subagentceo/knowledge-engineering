@@ -1,3 +1,5 @@
+# Carta
+
 Access cap table and investor data directly to your AI workflow. Cap table customers can pull cap table ownership, 409A valuations, and stakeholder details. Model pro-forma rounds and analyze exit scenarios. For investors, access investment metrics, fund performance, accounting data, and company financials instantly. Ask questions, run scenarios, and uncover insights without context switching—your Carta data remains secure and integrated.
 
 You can use Carta to:

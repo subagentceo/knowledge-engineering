@@ -1,4 +1,6 @@
-**_Update:_** _Web search is now available globally on all Claude plans. (May 27, 2025)_
+# Claude can now search the web
+
+***Update:*** *Web search is now available globally on all Claude plans. (May 27, 2025)*
 
 You can now use Claude to search the internet to provide more up-to-date and relevant responses. With web search, Claude has access to the latest events and information, boosting its accuracy on tasks that benefit from the most recent data.
 
@@ -8,11 +10,11 @@ When Claude incorporates information from the web into its responses, it provide
 
 Popular ways to use Claude with web search:
 
--   **Sales teams** can transform account planning and drive higher win rates through informed conversations with prospects by analyzing industry trends to learn key initiatives and pain points.
--   **Financial analysts** can assess current market data, earnings reports, and industry trends to make better investment decisions and inform financial model assumptions.
--   **Researchers** can build stronger grant proposals and literature reviews by searching across primary sources on the web, spotting emerging trends and identifying gaps in the current literature.
--   **Shoppers** can compare product features, prices, and reviews across multiple sources to make more informed purchase decisions.
+- **Sales teams** can transform account planning and drive higher win rates through informed conversations with prospects by analyzing industry trends to learn key initiatives and pain points.
+- **Financial analysts** can assess current market data, earnings reports, and industry trends to make better investment decisions and inform financial model assumptions.
+- **Researchers** can build stronger grant proposals and literature reviews by searching across primary sources on the web, spotting emerging trends and identifying gaps in the current literature.
+- **Shoppers** can compare product features, prices, and reviews across multiple sources to make more informed purchase decisions.
 
 ## Getting started
 
-Web search is available now in feature preview for all paid Claude users in the United States. Support for users on our free plan and more countries is coming soon. To get started, toggle on web search in your [profile settings](https://claude.ai/redirect/website.v1.511b92f9-8255-4545-abf4-9817c96cb7d2/settings/profile#feature-preview) and start a conversation with Claude 3.7 Sonnet. When applicable, Claude will search the web to inform its response.
+Web search is available now in feature preview for all paid Claude users in the United States. Support for users on our free plan and more countries is coming soon. To get started, toggle on web search in your profile settings and start a conversation with Claude 3.7 Sonnet. When applicable, Claude will search the web to inform its response.

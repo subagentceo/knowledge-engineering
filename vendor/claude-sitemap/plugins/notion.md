@@ -1,3 +1,5 @@
+# Notion
+
 The Notion plugin brings your team's workspace directly into Claude Code. Search across your entire Notion workspace, retrieve pages and databases, create new documents, update existing content, and manage database rows—all without leaving your development environment.
 
 The plugin includes four specialized skills from the Notion Cookbook: Knowledge Capture for organizing information, Meeting Intelligence for processing meeting notes, Research Documentation for structuring research findings, and Spec to Implementation for turning specifications into actionable tasks.

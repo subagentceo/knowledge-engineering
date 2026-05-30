@@ -38,13 +38,13 @@ Once you confirm you have access, follow the installation instructions in our **
 
 2. When prompted during setup or first use, select a login method.
 
-  1. If you're already logged in to Claude Code via a different account, run /login to select a different login method.
+3. If you're already logged in to Claude Code via a different account, run /login to select a different login method.
 
-3. Select “Claude account with subscription” to be routed to an OAuth prompt.
+4. Select “Claude account with subscription” to be routed to an OAuth prompt.
 
-4. Select your Team or Enterprise plan and click “Authorize.”
+5. Select your Team or Enterprise plan and click “Authorize.”
 
-5. Your premium seat subscription will be linked to Claude Code.
+6. Your premium seat subscription will be linked to Claude Code.
 
 ### Having trouble using your Team or Enterprise account to access Claude Code?
 
@@ -64,4 +64,4 @@ If you're not seeing the option to authenticate with your preferred account, fol
 
 If your organization is on a **usage-based Enterprise plan** (including self-serve Enterprise), there are no per-seat usage limits—usage is based on consumption and billed at API rates. See **[How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)** for details on how usage billing works.
 
-If your organization is on a **Team plan** or a **seat-based Enterprise plan**, you can enable extra usage to allow team members to continue working with Claude and Claude Code after reaching their included usage limits. See **[Extra usage for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-extra-usage-for-team-and-seat-based-enterprise-plans)** for more information.
+If your organization is on a Team plan or a seat-based Enterprise plan, you can enable usage credits to allow team members to continue working with Claude, Cowork, and Claude Code after reaching their included usage limits. For more information, see **[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-)**.

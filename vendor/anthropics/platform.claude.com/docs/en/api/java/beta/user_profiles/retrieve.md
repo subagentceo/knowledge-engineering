@@ -1,4 +1,4 @@
-## Retrieve
+## Get User Profile
 
 `BetaUserProfile beta().userProfiles().retrieve(UserProfileRetrieveParamsparams = UserProfileRetrieveParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,13 +9,11 @@ Get User Profile
 ### Parameters
 
 - `UserProfileRetrieveParams params`
-
   - `Optional<String> userProfileId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -64,10 +62,15 @@ Get User Profile
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaUserProfile:`
-
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -83,7 +86,6 @@ Get User Profile
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -93,11 +95,9 @@ Get User Profile
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `Status status`
 
       Status of the trust grant.
-
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -107,7 +107,6 @@ Get User Profile
   - `Type type`
 
     Object type. Always `user_profile`.
-
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`
@@ -140,5 +139,25 @@ public final class Main {
 
         BetaUserProfile betaUserProfile = client.beta().userProfiles().retrieve("uprof_011CZkZCu8hGbp5mYRQgUmz9");
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
 }
 ```

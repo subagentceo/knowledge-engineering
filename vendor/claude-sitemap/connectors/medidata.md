@@ -1,3 +1,5 @@
+# Medidata
+
 The Medidata connector provides two tools for Medidata users: Platform Help and Predictive Site Ranking. Platform Help allows users to query Medidata's platform documentation. Predictive Site Ranking allows users to rank candidate study sites based on indication, past performance, and a variety of contexts.
 
 You can use the Medidata connector to:

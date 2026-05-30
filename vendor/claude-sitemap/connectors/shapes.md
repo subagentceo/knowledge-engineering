@@ -1,3 +1,5 @@
+# Shapes
+
 Shapes MCP connects Claude directly to your live HR data. Ask about headcount, attrition risk, comp gaps, time off and more. Now get instant answers without switching tools. Your existing Shapes permissions carry through to every conversation, so everyone only sees what they're already allowed to. Connect in minutes, no engineering required.
 
 You can use Shapes to:

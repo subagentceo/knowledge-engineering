@@ -1,4 +1,6 @@
-AI models are only as good as the context provided to them. AI assistants like [Claude](https://claude.ai) can answer questions and perform an impressive range of tasks, but if they can't access the data or tools they need, they're limited in what they can do for you. You typically solve this by copying and pasting context from one tab to another, whether it's editing a document in Google Drive, replying to a thread in Slack, or updating code in an IDE. This process is slow, manual, and risks leaving out important context.
+# What is Model Context Protocol? Connect AI to your world
+
+AI models are only as good as the context provided to them. AI assistants like Claude can answer questions and perform an impressive range of tasks, but if they can't access the data or tools they need, they're limited in what they can do for you. You typically solve this by copying and pasting context from one tab to another, whether it's editing a document in Google Drive, replying to a thread in Slack, or updating code in an IDE. This process is slow, manual, and risks leaving out important context.
 
 The **Model Context Protocol (MCP)** offers a solution that is open and widely available across all AI apps and assistants. In this article, you'll learn what MCP is, how it works and why it matters, and who it's for. You'll see examples of MCP in action and understand how you can start using or building with MCP today.
 
@@ -62,7 +64,7 @@ Enterprises can drive internal adoption of AI tools and applications more effect
 
 MCP provides end-users with seamless connectivity between their favorite AI assistants and work tools. It makes it easier to automate tasks and avoid copying and pasting across tabs. In short, MCP gives AI greater access and connectivity to your world.
 
-In [Claude](https://claude.ai), you can instantly connect to MCP Servers, known as [**Connectors**](https://claude.com/partners/mcp). This provides you with a straightforward way to connect Claude to your favorite work apps.
+In Claude, you can instantly connect to MCP Servers, known as **Connectors**. This provides you with a straightforward way to connect Claude to your favorite work apps.
 
 ## Connectors (MCP) in action
 
@@ -84,15 +86,15 @@ The Figma Connector allows Claude to access designs within Figma. This lets Clau
 
 Claude Connectors include integrations for:
 
--   **Notion** for workspace documentation
--   **Linear** for issue tracking
--   **Stripe** for payment data
--   **Canva** and **Figma** for design assistance
--   **Hubspot** for automating CRM tasks
--   **Sentry** for error tracking
--   ...and many more
+- **Notion** for workspace documentation
+- **Linear** for issue tracking
+- **Stripe** for payment data
+- **Canva** and **Figma** for design assistance
+- **Hubspot** for automating CRM tasks
+- **Sentry** for error tracking
+- ...and many more
 
-Each connector takes just a few seconds to configure to become part of Claude's working context. Outside of Claude, there is an ecosystem of MCP servers on the [open-source MCP Registry](https://modelcontextprotocol.io).
+Each connector takes just a few seconds to configure to become part of Claude's working context. Outside of Claude, there is an ecosystem of MCP servers on the open-source MCP Registry.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e948c50eec666207cdd811_2.png)
 
@@ -102,14 +104,14 @@ Two paths exist based on your needs.
 
 ### Connectors in Claude
 
-[Connectors](https://claude.com/partners/mcp) are pre-built, giving Claude instant access to tools, databases, and applications, and providing you with a new set of capabilities. Open [Claude](https://claude.ai/directory), browse available connectors, and click to add them.
+Connectors are pre-built, giving Claude instant access to tools, databases, and applications, and providing you with a new set of capabilities. Open Claude, browse available connectors, and click to add them.
 
 ### Build custom MCP connections
 
-MCP is open-source, meaning that anyone can adopt MCP to connect AI to applications. The [Model Context Protocol documentation](https://modelcontextprotocol.io) walks through how to build with MCP.
+MCP is open-source, meaning that anyone can adopt MCP to connect AI to applications. The Model Context Protocol documentation walks through how to build with MCP.
 
 ## Getting started
 
 If you want to try MCP, start by browsing for a Claude Connector you can immediately start using with Claude.
 
-If an existing MCP server doesn't already exist, creating your own takes some work, but isn't too complex if you know TypeScript or Python. The [Model Context Protocol quickstart](https://modelcontextprotocol.io/quickstart) has working examples you can modify for your needs.
+If an existing MCP server doesn't already exist, creating your own takes some work, but isn't too complex if you know TypeScript or Python. The Model Context Protocol quickstart has working examples you can modify for your needs.

@@ -20,7 +20,7 @@ Web search expands Claude's knowledge with real-time data, helping you make bett
 
 An Owner or Primary Owner must first enable web search for the entire workspace. This can be found in **[Admin settings > Capabilities](https://claude.ai/admin-settings/capabilities)**:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1778914800&amp;signature=167de3e5718534e99484f3a2673eb8179f7b9527bf7dd0ce21fce176adc7c346&amp;req=diAkFMl9n4deXfMW1HO4zetvxbqzGcpYUJIbgsqS2%2BOERm9t3q62I1gIkmEd%0AxKIllV%2FPQUetQ3b3VT0%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2032032614/ad907328c4d9a26ee4bd9ca27a52/CleanShot+2026-02-05+at+09_01_42%402x.png?expires=1778914800&signature=167de3e5718534e99484f3a2673eb8179f7b9527bf7dd0ce21fce176adc7c346&req=diAkFMl9n4deXfMW1HO4zetvxbqzGcpYUJIbgsqS2%2BOERm9t3q62I1gIkmEd%0AxKIllV%2FPQUetQ3b3VT0%3D%0A)
 
 Once this is enabled at the workspace level, any member of the organization can switch it on while starting a chat by clicking the “+” button in the lower left corner of the chat window and selecting “Web search." Users can toggle this off for chats that don’t require web search capabilities.
 
@@ -48,11 +48,11 @@ When Claude searches the web:
 
 3. Claude provides a conversational response that includes:
 
-  - Direct citations to sources
+- Direct citations to sources
 
-  - Source links for further reading
+- Source links for further reading
 
-  - Relevant quotes when appropriate
+- Relevant quotes when appropriate
 
 ### Web fetch and direct links
 
@@ -106,17 +106,17 @@ You can re-enable it anytime you need current information.
 
 2. **Specify in your prompt:**
 
-  - If you want to ensure that Claude uses web search, include "Search the web" or "Use web search" in your prompt to Claude.
+- If you want to ensure that Claude uses web search, include "Search the web" or "Use web search" in your prompt to Claude.
 
-  - You can also instruct Claude not to use web search in the prompt.
+- You can also instruct Claude not to use web search in the prompt.
 
 3. **Request multiple sources**: Claude can gather and synthesize information from various sources to give you a comprehensive view.
 
 4. **Verify important information**: While Claude strives for accuracy:
 
-  - Cross-reference cited sources to understand the full picture.
+- Cross-reference cited sources to understand the full picture.
 
-  - Use authoritative sources for critical decisions.
+- Use authoritative sources for critical decisions.
 
 ## Limitations
 

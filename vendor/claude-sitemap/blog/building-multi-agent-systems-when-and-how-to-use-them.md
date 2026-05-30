@@ -1,9 +1,11 @@
+# Building multi-agent systems: When and how to use them
+
 A multi-agent system is an architecture where multiple LLM instances run with separate conversation contexts, coordinated through code. Multiple coordination patterns exist (agent swarms, capability-based systems, and message bus architectures), but this article focuses on the orchestrator-subagent pattern: a hierarchical model where a lead agent spawns and manages specialized subagents for specific subtasks. This pattern offers a straightforward coordination model and is a good starting point for teams new to multi-agent systems. We'll explore other patterns in detail in our next article.
 
 Today, multi-agent systems are often applied in situations where a single agent would perform better, though this calculus continues to evolve as models improve. At Anthropic, we’ve seen teams invest months building elaborate multi-agent architectures only to discover that improved prompting on a single agent achieved equivalent results.
 
-After building multi-agent systems and working with teams deploying them in production, we've identified three situations where multiple agents consistently outperform a single agent: when context pollution degrades performance, when tasks can run in parallel, and when specialization improves tool selection or task focus. Outside these situations, the coordination costs typically exceed the benefits.  
-  
+After building multi-agent systems and working with teams deploying them in production, we've identified three situations where multiple agents consistently outperform a single agent: when context pollution degrades performance, when tasks can run in parallel, and when specialization improves tool selection or task focus. Outside these situations, the coordination costs typically exceed the benefits.
+
 In this article, we share how to recognize single-agent limits, identify the three scenarios where multi-agent systems excel, and avoid common implementation mistakes. 
 
 ## The case for starting with a single agent
@@ -76,7 +78,7 @@ class SupportAgent:
             order_summary = OrderLookupAgent().lookup_order(order_id)
             # Inject compact summary, not full context
             context = f"Order {order_id}: {order_summary['status']}, purchased {order_summary['date']}"
-        
+
         # Main agent context stays clean
         messages = [
             {"role": "user", "content": f"{context}\n\nUser issue: {user_message}"}
@@ -97,7 +99,7 @@ Context isolation is most effective when subtasks generate high context volume (
 
 Running multiple agents in parallel allows you to explore a larger search space than a single agent can cover. This pattern has proven particularly valuable for search and research tasks.
 
-Our [Research feature](https://www.anthropic.com/engineering/multi-agent-research-system) uses this approach. A lead agent analyzes a query and spawns multiple subagents to investigate different facets in parallel. Each subagent searches independently, then returns distilled findings. Multi-agent search has shown substantial accuracy improvements over single-agent approaches by allowing exploration across larger information spaces.
+Our Research feature uses this approach. A lead agent analyzes a query and spawns multiple subagents to investigate different facets in parallel. Each subagent searches independently, then returns distilled findings. Multi-agent search has shown substantial accuracy improvements over single-agent approaches by allowing exploration across larger information spaces.
 
 The core implementation decomposes a question into independent facets, runs subagents concurrently, then synthesizes the results.
 
@@ -110,14 +112,14 @@ client = AsyncAnthropic()
 async def research_topic(query: str) -> dict:
     # Lead agent breaks query into research facets
     facets = await lead_agent.decompose_query(query)
-    
+
     # Spawn subagents to research each facet in parallel
     tasks = [
-        research_subagent(facet) 
+        research_subagent(facet)
         for facet in facets
     ]
     results = await asyncio.gather(*tasks)
-    
+
     # Lead agent synthesizes findings
     return await lead_agent.synthesize(results)
 
@@ -143,7 +145,7 @@ The primary benefit of parallelization is thoroughness, not speed. When you need
 
 Different tasks sometimes benefit from different tool sets, system prompts, or domains of expertise. Rather than providing a single agent with access to dozens of tools, specialized agents with focused toolsets matched to their responsibilities can improve reliability.
 
-#### **Tool set specialization**
+#### Tool set specialization
 
 When an agent has access to too many tools, performance suffers. Three signals indicate tool specialization would help:
 
@@ -151,11 +153,11 @@ When an agent has access to too many tools, performance suffers. Three signals i
 2.  **Domain confusion.** When tools span multiple unrelated domains (database operations, API calls, file system operations), the agent confuses which domain applies to a given task.
 3.  **Degraded performance.** Adding new tools degrades performance on existing tasks, suggesting the agent has reached its capacity for tool management.
 
-#### **System prompt specialization**
+#### System prompt specialization
 
 Different tasks sometimes require different personas, constraints, or instructions that conflict when combined. A customer support agent needs to be empathetic and patient; a code review agent needs to be precise and critical. A compliance-checking agent needs rigid rule-following; a brainstorming agent needs creative flexibility. When a single agent must switch between conflicting behavioral modes, separating into specialized agents with tailored system prompts produces more consistent results.
 
-#### **Domain expertise specialization**
+#### Domain expertise specialization
 
 Some tasks benefit from deep domain context that would overwhelm a generalist agent. A legal analysis agent might need extensive context about case law and regulatory frameworks. A medical research agent might need specialized knowledge about clinical trial methodology. Rather than loading all domain context into a single agent, specialized agents can carry focused expertise relevant to their specific responsibilities.
 
@@ -169,8 +171,8 @@ client = Anthropic()
 # Specialized agents with focused toolsets and tailored prompts
 class CRMAgent:
     """Handles customer relationship management operations"""
-    system_prompt = """You are a CRM specialist. You manage contacts, 
-    opportunities, and account records. Always verify record ownership 
+    system_prompt = """You are a CRM specialist. You manage contacts,
+    opportunities, and account records. Always verify record ownership
     before updates and maintain data integrity across related records."""
     tools = [
         crm_get_contacts,
@@ -180,8 +182,8 @@ class CRMAgent:
 
 class MarketingAgent:
     """Handles marketing automation operations"""
-    system_prompt = """You are a marketing automation specialist. You 
-    manage campaigns, lead scoring, and email sequences. Prioritize 
+    system_prompt = """You are a marketing automation specialist. You
+    manage campaigns, lead scoring, and email sequences. Prioritize
     data hygiene and respect contact preferences."""
     tools = [
         marketing_get_campaigns,
@@ -213,9 +215,9 @@ This pattern mirrors effective professional collaboration, where specialists wit
 
 Beyond the general framework, certain concrete signals suggest that single-agent patterns have been outgrown:
 
-**Approaching context limits.**If an agent routinely uses large amounts of context and performance is degrading, context pressure may be the bottleneck. Note that recent advances in context management ([such as compaction](https://platform.claude.com/cookbook/tool-use-automatic-context-compaction)) are reducing this limitation, allowing single agents to maintain effective memory across much longer horizons.
+**Approaching context limits.**If an agent routinely uses large amounts of context and performance is degrading, context pressure may be the bottleneck. Note that recent advances in context management (such as compaction) are reducing this limitation, allowing single agents to maintain effective memory across much longer horizons.
 
-**Managing many tools.** When an agent has 15-20+ tools, the model spends significant context and attention understanding its options. Before adopting a multi-agent architecture, consider using the [Tool Search Tool](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/tool-search-tool), which lets Claude dynamically discover tools on-demand rather than loading all definitions upfront. This can [reduce token usage by up to 85%](https://www.anthropic.com/engineering/advanced-tool-use) while improving tool selection accuracy.
+**Managing many tools.** When an agent has 15-20+ tools, the model spends significant context and attention understanding its options. Before adopting a multi-agent architecture, consider using the Tool Search Tool, which lets Claude dynamically discover tools on-demand rather than loading all definitions upfront. This can reduce token usage by up to 85% while improving tool selection accuracy.
 
 **Parallelizable subtasks.** When tasks naturally decompose into independent pieces (research across multiple sources, tests for multiple components), parallel subagents can provide substantial speedups.
 
@@ -235,15 +237,15 @@ This principle emerges from observing failure modes in multi-agent systems. When
 
 **Effective decomposition boundaries include:**
 
--   **Independent research paths.** Investigating "market trends in Asia" versus "market trends in Europe" can proceed in parallel with no shared context.
--   **Separate components with clean interfaces.** With a well-defined API contract, frontend and backend work can proceed in parallel.
--   **Blackbox verification.** A verifier that only needs to run tests and report results does not require implementation context.
+- **Independent research paths.** Investigating "market trends in Asia" versus "market trends in Europe" can proceed in parallel with no shared context.
+- **Separate components with clean interfaces.** With a well-defined API contract, frontend and backend work can proceed in parallel.
+- **Blackbox verification.** A verifier that only needs to run tests and report results does not require implementation context.
 
 **Problematic decomposition boundaries include:**
 
--   **Sequential phases of the same work.** Planning, implementation, and testing of the same feature share too much context.
--   **Tightly coupled components.** Components requiring constant back-and-forth belong in the same agent.
--   **Work requiring shared state.** Agents that would need to frequently synchronize understanding should remain together.
+- **Sequential phases of the same work.** Planning, implementation, and testing of the same feature share too much context.
+- **Tightly coupled components.** Components requiring constant back-and-forth belong in the same agent.
+- **Work requiring shared state.** Agents that would need to frequently synchronize understanding should remain together.
 
 ## The verification subagent pattern
 
@@ -318,12 +320,12 @@ def implement_with_verification(requirements: str, max_attempts: int = 3):
             requirements,
             result['files_changed']
         )
-        
+
         if verification['passed']:
             return result
-        
+
         requirements += f"\n\nPrevious attempt failed: {verification['issues']}"
-    
+
     raise Exception(f"Failed verification after {max_attempts} attempts")
 ```
 
@@ -331,10 +333,10 @@ def implement_with_verification(requirements: str, max_attempts: int = 3):
 
 Verification subagents are effective for:
 
--   **Quality assurance.** Running test suites, linting code, validating outputs against schemas.
--   **Compliance checking.** Verifying documents meet policy requirements, checking outputs against rules.
--   **Output validation.** Confirming generated content meets specifications before delivery.
--   **Factual verification.** Having a separate agent verify claims or citations in generated content.
+- **Quality assurance.** Running test suites, linting code, validating outputs against schemas.
+- **Compliance checking.** Verifying documents meet policy requirements, checking outputs against rules.
+- **Output validation.** Confirming generated content meets specifications before delivery.
+- **Factual verification.** Having a separate agent verify claims or citations in generated content.
 
 ### The early victory problem
 
@@ -342,12 +344,12 @@ The most significant failure mode for verification subagents is marking outputs 
 
 Mitigation strategies include:
 
--   **Concrete criteria.** Specify "Run the full test suite and report all failures" rather than "make sure it works."
--   **Comprehensive checks.** Require the verifier to test multiple scenarios and edge cases.
--   **Negative tests.** Direct the verifier to attempt inputs that should fail and confirm they do.
--   **Explicit instructions.** The instruction "You MUST run the complete test suite before marking as passed" is essential. Without explicit requirements for comprehensive validation, verification agents take shortcuts.
+- **Concrete criteria.** Specify "Run the full test suite and report all failures" rather than "make sure it works."
+- **Comprehensive checks.** Require the verifier to test multiple scenarios and edge cases.
+- **Negative tests.** Direct the verifier to attempt inputs that should fail and confirm they do.
+- **Explicit instructions.** The instruction "You MUST run the complete test suite before marking as passed" is essential. Without explicit requirements for comprehensive validation, verification agents take shortcuts.
 
-## Moving forward 
+## Moving forward
 
 Multi-agent systems are powerful, but not universally appropriate. Before adding the complexity of multiple coordinated agents, confirm that:
 
@@ -357,7 +359,7 @@ Multi-agent systems are powerful, but not universally appropriate. Before adding
 
 Our advice? Start with the simplest approach that works, and add complexity only when evidence supports it.
 
-_This is the first in a series of posts on multi-agent systems. For more on single-agent patterns, see_ [_Building effective agents_](https://www.anthropic.com/engineering/building-effective-agents)_. For context management strategies, see_ [_Effective context engineering for AI agents_](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)_. For a deep dive into how we built our multi-agent research system, see_ [_How we built our multi-agent research system_](https://www.anthropic.com/engineering/multi-agent-research-system)_._
+_This is the first in a series of posts on multi-agent systems. For more on single-agent patterns, see_ _Building effective agents\_\_. For context management strategies, see_ _Effective context engineering for AI agents\_\_. For a deep dive into how we built our multi-agent research system, see_ _How we built our multi-agent research system\_\_._
 
 ## Acknowledgements
 

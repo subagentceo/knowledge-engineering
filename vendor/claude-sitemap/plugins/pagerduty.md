@@ -1,3 +1,5 @@
+# PagerDuty Pre-Commit Risk Score
+
 Assess pre-commit risk by correlating PagerDuty incident history with your current code changes. The `/risk-score` command maps your repo to a PagerDuty service, checks for active incidents, analyzes 90 days of incident history, and identifies correlations between areas you're changing and areas that have caused past incidents.
 
 Outputs a structured risk assessment with a 0-5 score, incident context, structural risk signals, and actionable recommendations. Requires a PagerDuty API key.

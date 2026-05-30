@@ -1,3 +1,5 @@
+# Airtable
+
 Bring operational data and context into the flow of your Claude conversations. You can ask questions, create and update records, and analyze your data—all through conversation. Use the data in Airtable as input to the work you're doing in Claude, like building a landing page using content you've organized in Airtable. Make quick updates to Airtable without leaving the chat. Airtable for Claude is ideal anytime you need quick access to structured internal data to inform your conversation.
 
 You can use Airtable to:

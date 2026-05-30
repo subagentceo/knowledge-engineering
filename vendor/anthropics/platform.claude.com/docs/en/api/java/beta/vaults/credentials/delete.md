@@ -1,4 +1,4 @@
-## Delete
+## Delete Credential
 
 `BetaManagedAgentsDeletedCredential beta().vaults().credentials().delete(CredentialDeleteParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,7 +9,6 @@ Delete Credential
 ### Parameters
 
 - `CredentialDeleteParams params`
-
   - `String vaultId`
 
   - `Optional<String> credentialId`
@@ -17,7 +16,6 @@ Delete Credential
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -66,18 +64,22 @@ Delete Credential
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaManagedAgentsDeletedCredential:`
 
   Confirmation of a deleted credential.
-
   - `String id`
 
     Unique identifier of the deleted credential.
 
   - `Type type`
-
     - `VAULT_CREDENTIAL_DELETED("vault_credential_deleted")`
 
 ### Example
@@ -102,5 +104,14 @@ public final class Main {
             .build();
         BetaManagedAgentsDeletedCredential betaManagedAgentsDeletedCredential = client.beta().vaults().credentials().delete(params);
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "type": "vault_credential_deleted"
 }
 ```

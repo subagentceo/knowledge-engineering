@@ -1,4 +1,4 @@
-## List
+## List Session Threads
 
 `beta.sessions.threads.list(session_id, **kwargs) -> PageCursor<BetaManagedAgentsSessionThread>`
 
@@ -21,11 +21,9 @@ List Session Threads
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -74,12 +72,17 @@ List Session Threads
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaManagedAgentsSessionThread`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
-
   - `id: String`
 
     Unique identifier for this thread.
@@ -87,17 +90,14 @@ List Session Threads
   - `agent: BetaManagedAgentsSessionThreadAgent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
     - `id: String`
 
     - `description: String`
 
     - `mcp_servers: Array[BetaManagedAgentsMCPServerURLDefinition]`
-
       - `name: String`
 
       - `type: :url`
-
         - `:url`
 
       - `url: String`
@@ -105,19 +105,16 @@ List Session Threads
     - `model: BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
-
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-        - `:"claude-opus-4-7" | :"claude-opus-4-6" | :"claude-sonnet-4-6" | 6 more`
+        - `BetaManagedAgentsModel = :"claude-opus-4-7" | :"claude-opus-4-6" | :"claude-sonnet-4-6" | 6 more`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
           - `:"claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -154,12 +151,11 @@ List Session Threads
 
             High-performance model for agents and coding
 
-        - `String`
+        - `String = String`
 
       - `speed: :standard | :fast`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `:standard`
 
         - `:fast`
@@ -167,15 +163,12 @@ List Session Threads
     - `name: String`
 
     - `skills: Array[BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill]`
-
       - `class BetaManagedAgentsAnthropicSkill`
 
         A resolved Anthropic-managed skill.
-
         - `skill_id: String`
 
         - `type: :anthropic`
-
           - `:anthropic`
 
         - `version: String`
@@ -183,11 +176,9 @@ List Session Threads
       - `class BetaManagedAgentsCustomSkill`
 
         A resolved user-created custom skill.
-
         - `skill_id: String`
 
         - `type: :custom`
-
           - `:custom`
 
         - `version: String`
@@ -195,17 +186,13 @@ List Session Threads
     - `system_: String`
 
     - `tools: Array[BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool]`
-
       - `class BetaManagedAgentsAgentToolset20260401`
-
         - `configs: Array[BetaManagedAgentsAgentToolConfig]`
-
           - `enabled: bool`
 
           - `name: :bash | :edit | :read | 5 more`
 
             Built-in agent tool identifier.
-
             - `:bash`
 
             - `:edit`
@@ -225,57 +212,39 @@ List Session Threads
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
               - `type: :always_allow`
-
                 - `:always_allow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
-
               - `type: :always_ask`
-
                 - `:always_ask`
 
         - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `enabled: bool`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: :always_allow`
-
-                - `:always_allow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: :always_ask`
-
-                - `:always_ask`
-
         - `type: :agent_toolset_20260401`
-
           - `:agent_toolset_20260401`
 
       - `class BetaManagedAgentsMCPToolset`
-
         - `configs: Array[BetaManagedAgentsMCPToolConfig]`
-
           - `enabled: bool`
 
           - `name: String`
@@ -283,65 +252,43 @@ List Session Threads
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: :always_allow`
-
-                - `:always_allow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: :always_ask`
-
-                - `:always_ask`
-
         - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `enabled: bool`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: :always_allow`
-
-                - `:always_allow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: :always_ask`
-
-                - `:always_ask`
-
         - `mcp_server_name: String`
 
         - `type: :mcp_toolset`
-
           - `:mcp_toolset`
 
       - `class BetaManagedAgentsCustomTool`
 
         A custom tool as returned in API responses.
-
         - `description: String`
 
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `properties: Hash[Symbol, untyped]`
 
             JSON Schema properties defining the tool's input parameters.
@@ -353,17 +300,14 @@ List Session Threads
           - `type: :object`
 
             Must be 'object' for tool input schemas.
-
             - `:object`
 
         - `name: String`
 
         - `type: :custom`
-
           - `:custom`
 
     - `type: :agent`
-
       - `:agent`
 
     - `version: Integer`
@@ -387,7 +331,6 @@ List Session Threads
   - `stats: BetaManagedAgentsSessionThreadStats`
 
     Timing statistics for a session thread.
-
     - `active_seconds: Float`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -403,7 +346,6 @@ List Session Threads
   - `status: BetaManagedAgentsSessionThreadStatus`
 
     SessionThreadStatus enum
-
     - `:running`
 
     - `:idle`
@@ -413,7 +355,6 @@ List Session Threads
     - `:terminated`
 
   - `type: :session_thread`
-
     - `:session_thread`
 
   - `updated_at: Time`
@@ -423,11 +364,9 @@ List Session Threads
   - `usage: BetaManagedAgentsSessionThreadUsage`
 
     Cumulative token usage for a session thread across all turns.
-
     - `cache_creation: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `ephemeral_1h_input_tokens: Integer`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -458,4 +397,84 @@ anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 page = anthropic.beta.sessions.threads.list("sesn_011CZkZAtmR3yMPDzynEDxu7")
 
 puts(page)
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+      "agent": {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "description": "A focused research subagent.",
+        "mcp_servers": [
+          {
+            "name": "example-mcp",
+            "type": "url",
+            "url": "https://example-server.modelcontextprotocol.io/sse"
+          }
+        ],
+        "model": {
+          "id": "claude-sonnet-4-6",
+          "speed": "standard"
+        },
+        "name": "Researcher",
+        "skills": [
+          {
+            "skill_id": "xlsx",
+            "type": "anthropic",
+            "version": "1"
+          }
+        ],
+        "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+        "tools": [
+          {
+            "configs": [
+              {
+                "enabled": true,
+                "name": "bash",
+                "permission_policy": {
+                  "type": "always_allow"
+                }
+              }
+            ],
+            "default_config": {
+              "enabled": true,
+              "permission_policy": {
+                "type": "always_ask"
+              }
+            },
+            "type": "agent_toolset_20260401"
+          }
+        ],
+        "type": "agent",
+        "version": 1
+      },
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "parent_thread_id": null,
+      "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+      "stats": {
+        "active_seconds": 0,
+        "duration_seconds": 0,
+        "startup_seconds": 0
+      },
+      "status": "idle",
+      "type": "session_thread",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
 ```

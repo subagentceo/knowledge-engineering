@@ -1,14 +1,16 @@
+# TELUS boosts workplace innovation with Claude
+
 TELUS, a leading communications technology company headquartered in Canada, is empowering team members by integrating Claude into everyday workflows — unleashing unprecedented levels of experimentation, creativity and productivity across the organization.
 
 "In just a couple of years, we've transformed how 57,000 team members work — with teams creating over 13,000 custom AI solutions and engineering shipping code 30% faster. Our partnership with Anthropic has been invaluable. Their commitment to building reliable, ethical AI aligns perfectly with our vision for democratizing AI access while maintaining trust and safety," said Jaime Tatis, Chief AI Officer, TELUS.
 
 Key AI results at TELUS:
 
--   **13,000+** custom AI solutions created by team members across all departments
--   **57,000** team members actively using generative AI to boost their work
--   Time savings of **40 minutes** per AI interaction by completing work faster, with **500,000+** hours saved to date
--   **47** large-scale GenAI solutions that have already driven over **$90 million** in benefits to-date
--   Engineering teams are shipping code **30% faster**
+- **13,000+** custom AI solutions created by team members across all departments
+- **57,000** team members actively using generative AI to boost their work
+- Time savings of **40 minutes** per AI interaction by completing work faster, with **500,000+** hours saved to date
+- **47** large-scale GenAI solutions that have already driven over **$90 million** in benefits to-date
+- Engineering teams are shipping code **30% faster**
 
 ## Solving the enterprise complexity challenge
 
@@ -18,17 +20,17 @@ As a company serving 20 million global customers across telecommunications, heal
 
 ## Building Fuel iX
 
-Rather than simply adopting publicly-available AI tools when GenAI first came to market, TELUS built [Fuel iX](https://www.fuelix.ai/) — a proprietary generative AI platform that has become the backbone of the company's AI transformation. Fuel iX was designed with a "choice-first" philosophy, providing a secure and flexible environment for team members to access and leverage the choice of cutting-edge AI models for different tasks, including Claude models developed by Anthropic.
+Rather than simply adopting publicly-available AI tools when GenAI first came to market, TELUS built Fuel iX — a proprietary generative AI platform that has become the backbone of the company's AI transformation. Fuel iX was designed with a "choice-first" philosophy, providing a secure and flexible environment for team members to access and leverage the choice of cutting-edge AI models for different tasks, including Claude models developed by Anthropic.
 
 “When TELUS gave our team access to multiple AI models through Fuel iX, Claude became the overwhelming choice," said Watts. "The platform processes 100 billion tokens monthly, and Claude is the preferred model for some of our most complex and creative tasks."
 
-Fuel iX's internal success was so remarkable that TELUS made it available to customers as well. TELUS's GenAI Customer Support tool, powered by Fuel iX, became the world's first to achieve ISO 31700-1 [Privacy by Design certification](https://www.telus.com/en/about/news-and-events/media-releases/telus-genai-customer-support-tool-becomes-worlds-first-to-achieve-privacy-by-design-certification), reflecting TELUS' commitment to building AI solutions that prioritize data protection and user trust from the ground up.
+Fuel iX's internal success was so remarkable that TELUS made it available to customers as well. TELUS's GenAI Customer Support tool, powered by Fuel iX, became the world's first to achieve ISO 31700-1 Privacy by Design certification, reflecting TELUS' commitment to building AI solutions that prioritize data protection and user trust from the ground up.
 
 ## Why TELUS chose Claude to power innovation
 
 Claude's appeal came from its seamless integration into existing workflows and its strong instruction-following capabilities. Developers could use Claude within their preferred tools like GitHub Copilot, Cline and VS Code. "Developers don't want to abandon the tools they already love and switch to something completely new. Claude enhances these existing tools, making them more powerful without disrupting the creative process," Watts explained.
 
-As a global leader in the ethical and human-centric use of AI, TELUS is proud to partner with other organizations that approach technology with a similar philosophy. Like TELUS, Anthropic understands that success can only be achieved by embedding responsibility into data architecture, governance, and workflows. Earlier this year, both TELUS and Anthropic were among the first in the world to submit to the [Hiroshima AI Process (HAIP) Reporting Framework](https://transparency.oecd.ai/), sharing proven approaches and best practices for safe and trustworthy AI development in alignment with the G7 AI Code of Conduct.
+As a global leader in the ethical and human-centric use of AI, TELUS is proud to partner with other organizations that approach technology with a similar philosophy. Like TELUS, Anthropic understands that success can only be achieved by embedding responsibility into data architecture, governance, and workflows. Earlier this year, both TELUS and Anthropic were among the first in the world to submit to the Hiroshima AI Process (HAIP) Reporting Framework, sharing proven approaches and best practices for safe and trustworthy AI development in alignment with the G7 AI Code of Conduct.
 
 ## From code assistance to custom AI solutions
 

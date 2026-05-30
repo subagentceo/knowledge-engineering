@@ -1,10 +1,12 @@
+# How Anthropic's legal team cut review times from days to hours with Claude
+
 There's a comically anachronistic vintage payphone on Mark Pike's desk at Anthropic. Tap a "legal challenge coin" against it—yes, really—and it rings. An AI bot answers, figures out what you need, and routes you to the right attorney.
 
 Mark built it. He doesn't know how to code.
 
 "I wouldn't say what I'm doing is learning to code," says Mark, a product lawyer at Anthropic. "I partner with Claude to tackle certain projects that involve coding, but I am not the one coding. I'm just very good at troubleshooting."
 
-## **The problem: Drowning in tactical work**
+## The problem: Drowning in tactical work
 
 Before Claude, Mark's day looked like any other in-house lawyer's. Responding to  compliance documents and customer questionnaires. Drafting and updating terms of service and privacy policies. Reviewing blog posts and email copy in the hours before a launch.
 
@@ -18,11 +20,11 @@ The list was long. Marketing review turnaround that stretched for days. Contract
 
 "The goal was to turn the legal team from 'the department of no' into cross-functional thought partners," Mark explains. "When legal teams get excited about AI, we stop being the blocker for wider adoption. Other teams see what we're doing and they realize they can do it too."
 
-## **The solutions: Four workflows in action**
+## The solutions: Four workflows in action
 
 Over the course of several months and lots of experimentation, some of the legal team's biggest pain points have evolved into repeatable workflows.
 
-### **Marketing review workflow**
+### Marketing review workflow
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6933cb87c77bc5806f6cce36_f995b27a.png)
 
@@ -38,7 +40,7 @@ When content does get submitted for formal review, it's triaged to the right law
 
 "I still read the blog post. I'm still reviewing the work," Mark notes. "But this is helping us move with more speed."
 
-### **Contract redlining tool**
+### Contract redlining tool
 
 Comparing contract versions and suggesting fallback language is time-consuming work.
 
@@ -46,9 +48,9 @@ Claude now compares document versions in tools like Google Docs and Office 365, 
 
 "Contract redlining is the use case everybody expects from AI," Mark says. "And Claude's really good at it – it saves us hours of manual comparison."
 
-Mark and his colleagues also write [Skills](https://www.claude.com/blog/skills) – specialized instructions and best practices stored in files Claude reads depending on the task –  to further streamline the review of specific types of documents, from NDAs to third-party vendor agreements. 
+Mark and his colleagues also write Skills – specialized instructions and best practices stored in files Claude reads depending on the task –  to further streamline the review of specific types of documents, from NDAs to third-party vendor agreements. 
 
-### **Outside business activity review**
+### Outside business activity review
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6933cb87c77bc5806f6cce33_d4c84677.jpeg)
 
@@ -60,15 +62,15 @@ Their Claude-powered workflow has employees fill out a form with their departmen
 
 "It used to be that you'd have to interview employees with a bit of back-and-forth to figure out the details and what conflicts might exist. With this workflow, Claude reads the form, asks for more information if it needs to, and suggests an outcome," Mark explains. "Then it goes to our queue with a recommendation."
 
-### **Privacy impact assessments (PIAs)**
+### Privacy impact assessments (PIAs)
 
-Writing privacy impact assessments from scratch was tedious, even when they followed similar patterns. The team now uses [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) servers to connect Claude to a Google Drive folder of previous PIAs and a Skill to instruct Claude on format and concerns.
+Writing privacy impact assessments from scratch was tedious, even when they followed similar patterns. The team now uses MCP (Model Context Protocol) servers to connect Claude to a Google Drive folder of previous PIAs and a Skill to instruct Claude on format and concerns.
 
 For instance, a lawyer might ask Claude to write a new PIA based on a folder of previous ones.
 
 "Claude is so good at reading that context and using that skill to create a new template and help me move on with my day,” Mark says. 
 
-## **Best practices for using Claude for legal work**
+## Best practices for using Claude for legal work
 
 Mark's experience offers practical guidance for lawyers and legal professionals adopting AI. 
 
@@ -86,7 +88,7 @@ AI can still hallucinate. Always verify citations and outputs. Use AI for the fi
 
 **Use Skills for consistency and voice**
 
-[Skills](https://www.anthropic.com/news/skills) are files containing instructions, scripts, and resources that Claude loads dynamically when relevant to a task. They package expertise into reusable workflows that make Claude better at specialized tasks.
+Skills are files containing instructions, scripts, and resources that Claude loads dynamically when relevant to a task. They package expertise into reusable workflows that make Claude better at specialized tasks.
 
 Mark uses Skills in two ways. First, for workflow consistency: his marketing review skill contains the legal team's guidance, helping Claude identify issues and coach marketers on how to fix them before submitting to legal.
 
@@ -98,10 +100,10 @@ Different skills serve different specialties: employment, commercial, privacy, c
 
 MCP allows you to pull information from other systems into Claude. The Anthropic legal team uses MCP to connect Claude to Google Drive, JIRA tickets, Slack messages, and Google Calendar. Pulling in all this information means surfacing the right context at the right time.
 
-## **The bigger picture**
+## The bigger picture
 
 Mark envisions a future where new lawyers inherit their team's accumulated knowledge through prompt libraries and skills. Instead of reading through old memos to learn the house style, a new hire could invoke a skill that teaches Claude how to write like the team's product lawyer or format board minutes the way the corporate group prefers.
 
 "We're not replacing lawyers," he says. "We're pushing out the frontier of what's possible. We're empowering them with the skills and tools they need to get their best work done."
 
-_Get started with_ [_Claude for Enterprise_](https://www.claude.com/pricing/enterprise) _today. Stay tuned for more stories in the "How Anthropic uses Claude" series._
+_Get started with_ _Claude for Enterprise_ _today. Stay tuned for more stories in the "How Anthropic uses Claude" series._

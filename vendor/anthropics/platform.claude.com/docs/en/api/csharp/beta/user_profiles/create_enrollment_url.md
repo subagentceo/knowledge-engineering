@@ -9,7 +9,6 @@ Create Enrollment URL
 ### Parameters
 
 - `UserProfileCreateEnrollmentUrlParams parameters`
-
   - `required string userProfileID`
 
     Path parameter user_profile_id
@@ -17,7 +16,6 @@ Create Enrollment URL
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -66,10 +64,15 @@ Create Enrollment URL
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaUserProfileEnrollmentUrl:`
-
   - `required DateTimeOffset ExpiresAt`
 
     A timestamp in RFC 3339 format
@@ -77,7 +80,6 @@ Create Enrollment URL
   - `required Type Type`
 
     Object type. Always `enrollment_url`.
-
     - `"enrollment_url"EnrollmentUrl`
 
   - `required string Url`
@@ -95,4 +97,14 @@ UserProfileCreateEnrollmentUrlParams parameters = new()
 var betaUserProfileEnrollmentUrl = await client.Beta.UserProfiles.CreateEnrollmentUrl(parameters);
 
 Console.WriteLine(betaUserProfileEnrollmentUrl);
+```
+
+#### Response
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
 ```

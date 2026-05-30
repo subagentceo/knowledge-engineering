@@ -20,9 +20,9 @@ You have full access to:
 
 3. In the support messenger:
 
-  - Search help resources
+- Search help resources
 
-  - Chat with Fin, our AI support bot
+- Chat with Fin, our AI support bot
 
 4. Click “Send us a message” to start chatting with Fin.
 
@@ -42,9 +42,9 @@ You have full access to:
 
 4. In the support messenger:
 
-  - Search help resources
+- Search help resources
 
-  - Chat with Fin, our AI support bot
+- Chat with Fin, our AI support bot
 
 5. Click “Send us a message” to start chatting with Fin.
 
@@ -84,9 +84,9 @@ To get support:
 
 4. Use the support messenger to:
 
-  - Search help resources.
+- Search help resources.
 
-  - Chat with Fin, our AI support bot.
+- Chat with Fin, our AI support bot.
 
 ## Unable to log in?
 

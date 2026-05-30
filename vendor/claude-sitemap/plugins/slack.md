@@ -1,3 +1,5 @@
+# Slack
+
 The Slack plugin connects Claude Cowork directly to your Slack workspace through the official Slack MCP server. Surface insights from live conversations, synthesize channel activity, and draft structured updates directly within your team's collaboration environment. Analyze discussions, identify key themes, and turn Slack context into shared, actionable communication without leaving your workflow.
 
 Key capabilities include generating channel summaries and digests, surfacing discussions, drafting announcements and standups, and composing and editing messages to be sent to Slack. By embedding Slack-native search and messaging intelligence, the plugin transforms Slack into the interactive layer where agent insights become team-visible work.

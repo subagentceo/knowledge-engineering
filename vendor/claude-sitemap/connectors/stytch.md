@@ -1,7 +1,9 @@
+# Stytch
+
 The Stytch connector enables Claude to programmatically manage your Stytch Project like Redirect URLs, Email Templates, and more.
 
-You can use the Stytch connector to:  
-  
+You can use the Stytch connector to:
+
 Set up new projects with authentication:  
 "Create a new Stytch consumer project and configure redirect URLs for my web application callback"
 

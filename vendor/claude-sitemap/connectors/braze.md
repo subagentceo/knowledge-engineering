@@ -1,3 +1,5 @@
+# Braze
+
 Connect Claude directly to Braze to read aggregated data such as Canvas and Campaign analytics, custom attributes, segments, and more.
 
 You can use Braze to:

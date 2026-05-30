@@ -1,3 +1,5 @@
+# Making Claude Cowork ready for enterprise
+
 Claude Cowork is now generally available on all paid plans. Within companies, Claude Cowork has become a key part of how teams operate: handling tasks, drafting project deliverables, and keeping teams up to date. 
 
 Today, we’re introducing organization controls to help teams deploy Claude Cowork company-wide:  role-based access controls for Enterprise, group spend limits, expanded OpenTelemetry observability, and usage analytics for admins to see Claude Cowork adoption. 
@@ -26,4 +28,4 @@ Deploying agents with Claude Cowork’s capabilities across an organization requ
 
 ## How organizations use Claude Cowork
 
-[Zapier](https://claude.com/customers/zapier-cowork-qa) connected Cowork to their org database, Slack, and Jira to surface engineering bottlenecks—getting back a dashboard, team-by-team analyses, and a prioritized roadmap that Product and Design Ops then copied for themselves. [Jamf](https://claude.com/customers/jamf) turned a seven-facet performance review into a 45-minute guided self-evaluation, then built similar workflows for vendor reviews and incident response. [Airtree](https://claude.com/customers/airtree), a venture firm, built a board prep workflow that pulls from a portfolio company's Drive, Slack updates, and competitor news, cross-referenced against the previous prep.
+Zapier connected Cowork to their org database, Slack, and Jira to surface engineering bottlenecks—getting back a dashboard, team-by-team analyses, and a prioritized roadmap that Product and Design Ops then copied for themselves. Jamf turned a seven-facet performance review into a 45-minute guided self-evaluation, then built similar workflows for vendor reviews and incident response. Airtree, a venture firm, built a board prep workflow that pulls from a portfolio company's Drive, Slack updates, and competitor news, cross-referenced against the previous prep.

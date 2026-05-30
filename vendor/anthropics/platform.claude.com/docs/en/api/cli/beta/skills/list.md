@@ -1,4 +1,4 @@
-## List
+## List Skills
 
 `$ ant beta:skills list`
 
@@ -25,9 +25,8 @@ List Skills
   Query param: Filter skills by source.
 
   If provided, only skills from the specified source will be returned:
-
-  * `"custom"`: only return user-created skills
-  * `"anthropic"`: only return Anthropic-created skills
+  - `"custom"`: only return user-created skills
+  - `"anthropic"`: only return Anthropic-created skills
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -36,11 +35,9 @@ List Skills
 ### Returns
 
 - `BetaListSkillsResponse: object { data, has_more, next_page }`
-
   - `data: array of object { id, created_at, display_title, 4 more }`
 
     List of skills.
-
     - `id: string`
 
       Unique identifier for the skill.
@@ -68,9 +65,8 @@ List Skills
       Source of the skill.
 
       This may be one of the following values:
-
-      * `"custom"`: the skill was created by a user
-      * `"anthropic"`: the skill was created by Anthropic
+      - `"custom"`: the skill was created by a user
+      - `"anthropic"`: the skill was created by Anthropic
 
     - `type: string`
 
@@ -99,4 +95,24 @@ List Skills
 ```cli
 ant beta:skills list \
   --api-key my-anthropic-api-key
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_title": "My Custom Skill",
+      "latest_version": "1759178010641129",
+      "source": "custom",
+      "type": "type",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
 ```

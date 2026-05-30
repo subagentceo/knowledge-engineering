@@ -1,4 +1,6 @@
-[Shopify](https://www.shopify.com/) powers commerce for millions of businesses worldwide, from first-time entrepreneurs to enterprise brands. The platform makes it simple for anyone to start, run, and grow a business through online stores, brick-and-mortar locations, and everything in between.
+# How Shopify uses Anthropic’s Claude on Google Cloud’s Vertex AI to supercharge Sidekick
+
+Shopify powers commerce for millions of businesses worldwide, from first-time entrepreneurs to enterprise brands. The platform makes it simple for anyone to start, run, and grow a business through online stores, brick-and-mortar locations, and everything in between.
 
 They built Sidekick, an AI-enabled commerce assistant, to make it easier for merchants of all sizes to get more done faster. Sidekick draws on comprehensive Shopify knowledge, context, and data to provide highly personalized support across a wide range of tasks. It uses conversational AI with advanced reasoning capabilities to bring expert-level commercial guidance.
 
@@ -8,7 +10,7 @@ Claude's advanced reasoning capabilities paired with Google Cloud's infrastructu
 
 ## The merchant support challenge
 
-Shopify serves everyone from first-time business owners launching their first store to enterprises managing complex operations. Each group arrives with unique backgrounds and challenges. Some need guidance beginning with basic setup, while others need the ability to run sophisticated analytics queries that typically require deep knowledge of Shopify's query language ([ShopifyQL](https://shopify.dev/docs/api/shopifyql)).
+Shopify serves everyone from first-time business owners launching their first store to enterprises managing complex operations. Each group arrives with unique backgrounds and challenges. Some need guidance beginning with basic setup, while others need the ability to run sophisticated analytics queries that typically require deep knowledge of Shopify's query language (ShopifyQL).
 
 These diverse needs require technology that can meet merchants where they are. "A lot of merchants would have to really learn how to use ShopifyQL and get pretty deep into it to get insights they needed," McNamara explained. This created a significant barrier between merchants and the data-driven decisions that could transform their businesses. That’s where Sidekick comes in.
 
@@ -16,11 +18,11 @@ These diverse needs require technology that can meet merchants where they are. "
 
 Sidekick acts as an always-available partner that helps merchants succeed:
 
--   Translates natural language into complex ShopifyQL analytics queries, combining multiple data sources for contextual insights
--   Guides new merchants from store setup through SEO optimization to their first sale
--   Provides sophisticated multi-step reasoning that pulls in product information, analytics, and business context
--   Maintains conversation quality while executing multiple tool calls per interaction to get merchants the best answer
--   Scales expertise across millions of merchants without compromising response quality
+- Translates natural language into complex ShopifyQL analytics queries, combining multiple data sources for contextual insights
+- Guides new merchants from store setup through SEO optimization to their first sale
+- Provides sophisticated multi-step reasoning that pulls in product information, analytics, and business context
+- Maintains conversation quality while executing multiple tool calls per interaction to get merchants the best answer
+- Scales expertise across millions of merchants without compromising response quality
 
 ## Sidekick transforms merchant empowerment
 
@@ -40,9 +42,9 @@ Sidekick has fundamentally changed how merchants run and scale their businesses
 
 For millions of merchants worldwide, Sidekick represents more than technological progress—it's the trusted partner they never had, available any time to help them build their business.
 
-## How Shopify uses Claude Code reflexively 
+## How Shopify uses Claude Code reflexively
 
-While Sidekick transforms the merchant experience, Claude Code is a key driver shaping  how Shopify employees build and deploy internal tools. The entire organization has [embraced reflexive AI usage](https://x.com/tobi/status/1909251946235437514?lang=en), with engineers and non-engineers alike creating sophisticated applications in minutes rather than days.
+While Sidekick transforms the merchant experience, Claude Code is a key driver shaping  how Shopify employees build and deploy internal tools. The entire organization has embraced reflexive AI usage, with engineers and non-engineers alike creating sophisticated applications in minutes rather than days.
 
 "Claude Code has transformed how we build internal tools at Shopify," McNamara explained. "It's pretty heavily used across the company because it integrates directly with our platform for standing up tools. The speed is just crazy—I can build things so much faster now." This integration has helped democratize tool creation across the company—employees who aren't front-end developers can now build professional interfaces and workflows that previously required specialized expertise.
 

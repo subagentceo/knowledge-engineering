@@ -1,3 +1,5 @@
+# Astronomer Data Agents
+
 A comprehensive data engineering toolkit for Apache Airflow and Astronomer. This plugin equips Claude with 22+ specialized skills spanning the full data pipeline lifecycle — from authoring DAGs with best practices, to debugging pipeline failures, tracing data lineage, profiling warehouse tables, and managing local and cloud deployments. It includes an Airflow MCP server providing full REST API integration for DAG management, triggering, task logs, and system health monitoring.
 
 Key capabilities include a structured DAG authoring workflow with validation checkpoints, deep failure diagnosis with root cause analysis, upstream and downstream data lineage tracing (including column-level lineage), table profiling with data quality scoring, and a guided Airflow 2-to-3 migration path powered by automated Ruff linting rules. The plugin also integrates with dbt via Cosmos for analytics engineering workflows, and supports 25+ warehouse backends including Snowflake, BigQuery, and PostgreSQL.
@@ -6,9 +8,9 @@ The plugin provides an `af` CLI tool for terminal-based Airflow interaction, ena
 
 **How to use:** Skills are invoked automatically based on your prompts, or you can trigger them directly. Try prompts like:
 
--   "Write a DAG that loads CSV files from S3 into Snowflake on a daily schedule"
--   "Debug why my etl\_pipeline DAG failed last night"
--   "Trace where the orders\_fact table gets its data from"
--   "Profile the customers table and check data quality"
--   "Migrate my Airflow 2 DAGs to Airflow 3"
--   "Set up a new Astro project and deploy it locally"
+- "Write a DAG that loads CSV files from S3 into Snowflake on a daily schedule"
+- "Debug why my etl_pipeline DAG failed last night"
+- "Trace where the orders_fact table gets its data from"
+- "Profile the customers table and check data quality"
+- "Migrate my Airflow 2 DAGs to Airflow 3"
+- "Set up a new Astro project and deploy it locally"

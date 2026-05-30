@@ -1,12 +1,14 @@
+# Working with Claude Opus 4.7
+
 ## What Claude Opus 4.7 does well and how to use it
 
 Claude Opus 4.7 is the model to reach for when the work is substantial and worth getting right. Learn what it's best at, how it handles reasoning and effort, and when it's the right model for the job — with examples to follow along.
 
-### 1\. Follows instructions more closely
+### 1. Follows instructions more closely
 
 Models differ in how strictly they follow instructions or how ‘steerable’ they are. Opus 4.7 is likely to take your instructions more literally than Opus 4.6 did. This means you should think about what you need to emphasize or include within your prompt. 
 
-**What this means for you:** Write your directions once and clearly. And re-read any instructions Claude already has from you, including [Project instructions](https://support.claude.com/en/articles/9517075-what-are-projects) or [scheduled task](https://support.claude.com/en/articles/13854387-schedule-recurring-tasks-in-claude-cowork) prompts. Certain instructions like "_be brief_" or "_skip the obvious parts_" may now be followed more precisely.
+**What this means for you:** Write your directions once and clearly. And re-read any instructions Claude already has from you, including Project instructions or scheduled task prompts. Certain instructions like "_be brief_" or "_skip the obvious parts_" may now be followed more precisely.
 
 ‍
 
@@ -14,7 +16,7 @@ Models differ in how strictly they follow instructions or how ‘steerable’ th
 
 Opus 4.7 follows instructions more literally than earlier models.
 
-### 2\. Reads images at full resolution
+### 2. Reads images at full resolution
 
 Opus 4.7 reads images at higher resolution than prior models, which means small details come through more clearly: chart labels, values in a busy table, fine print in a screenshot. This applies anywhere you give Claude an image: a claude.ai chat, a Cowork task, Claude in Chrome reading the page in front of you.
 
@@ -26,9 +28,9 @@ Opus 4.7 reads images at higher resolution than prior models, which means small 
 
 Images are read at higher resolution. Small text — axis labels, table cells, footnotes — is legible without cropping or upscaling first.
 
-### 3\. Thinks through problems at the right depth
+### 3. Thinks through problems at the right depth
 
-With Opus 4.6,  [extended thinking](https://support.claude.com/en/articles/10574485-using-extended-thinking) was a toggle you managed: turn it on for hard tasks, off for quick stuff. If you left it on, every question paid the thinking tax whether it needed to or not. Now, with Opus 4.7, extended thinking becomes [**adaptive thinking**](https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking). This means that when the toggle is on, Claude makes the decision on how much to think per question. It answers simple things immediately and takes the time on hard ones.
+With Opus 4.6,  extended thinking was a toggle you managed: turn it on for hard tasks, off for quick stuff. If you left it on, every question paid the thinking tax whether it needed to or not. Now, with Opus 4.7, extended thinking becomes **adaptive thinking**. This means that when the toggle is on, Claude makes the decision on how much to think per question. It answers simple things immediately and takes the time on hard ones.
 
 **What this means for you:** You can leave Extended thinking on and stop managing it. Simple questions come back faster than they did on Opus 4.6 with thinking on; hard questions still get the depth. You get both without choosing.
 
@@ -38,9 +40,9 @@ With Opus 4.6,  [extended thinking](https://support.claude.com/en/articles/1057
 
 With Extended thinking on, Opus 4.7 decides per question how much to think. Simple questions finish fast; harder ones get more time automatically.
 
-### 4\. Better at document and spreadsheet work
+### 4. Better at document and spreadsheet work
 
-Opus 4.7 is stronger at producing and reviewing its own work on office tasks, so the files it returns are more complete and correct on the first pass. Whether it's redlining a Word doc, building a slide deck, or working through a spreadsheet, it's more likely to spot its own layout and formula mistakes before outputting the file. That cuts down the rounds of back-and-forth it takes to reach something usable.  
+Opus 4.7 is stronger at producing and reviewing its own work on office tasks, so the files it returns are more complete and correct on the first pass. Whether it's redlining a Word doc, building a slide deck, or working through a spreadsheet, it's more likely to spot its own layout and formula mistakes before outputting the file. That cuts down the rounds of back-and-forth it takes to reach something usable.
 
 **What this means for you:** Choose Opus 4.7 when you're asking Claude to create office files. You'll get a draft you can open and continue working in rather than one you have to rebuild. This applies to file creation in claude.ai Chat and Cowork, and to Claude in Excel and Claude in PowerPoint.
 
@@ -50,7 +52,7 @@ Opus 4.7 is stronger at producing and reviewing its own work on office tasks, so
 
 Office files — spreadsheets, docs, slides — come back more complete on the first pass.
 
-### 5\. More selective about searching the web and using connectors
+### 5. More selective about searching the web and using connectors
 
 Claude has tools it can use mid-task: web search for current information, files you've attached or put in a Project, and connectors like Google Drive and Slack. On any given question it decides whether to use them or to answer from what it already has.
 
@@ -68,7 +70,7 @@ If the answer should come from somewhere specific — Drive, Slack, the web — 
 
 Opus 4.7 makes good use of the context you've already given Claude — so it's worth setting up once.
 
--   **On claude.ai** — turn on [Memory](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory), put ongoing work in a [Project](https://support.claude.com/en/articles/9517075-what-are-projects) with its source files and custom instructions, and add [connectors](https://support.claude.com/en/articles/11176164-use-connectors) plus [web search](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) so Claude can pull from your tools when you ask.
--   In **Cowork** — point a [Project](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-cowork) at a real folder, set per-project instructions, and enable [connectors](https://support.claude.com/en/articles/13837440-use-plugins-in-cowork), [browser access through Claude in Chrome](https://claude.com/resources/tutorials/simplify-your-browsing-experience-with-claude-for-chrome) so tasks can navigate your browser, and [scheduled tasks](https://support.claude.com/en/articles/13947068-assign-tasks-to-claude-from-anywhere-in-cowork) so recurring work can read from your sources and run on its own.
--   **Across devices** — install the [mobile app](https://claude.com/download) and use Dispatch to send work to Cowork when you're away from your desk → See how to  [Send work to Claude with Dispatch](https://claude.com/resources/tutorials/dispatch-in-claude-cowork).
--   In **Excel and PowerPoint** — install [Claude in Excel](https://claude.com/claude-for-excel) and [Claude in PowerPoint](https://claude.com/claude-for-powerpoint) to work directly inside your files.
+- **On claude.ai** — turn on Memory, put ongoing work in a Project with its source files and custom instructions, and add connectors plus web search so Claude can pull from your tools when you ask.
+- In **Cowork** — point a Project at a real folder, set per-project instructions, and enable connectors, browser access through Claude in Chrome so tasks can navigate your browser, and scheduled tasks so recurring work can read from your sources and run on its own.
+- **Across devices** — install the mobile app and use Dispatch to send work to Cowork when you're away from your desk → See how to  Send work to Claude with Dispatch.
+- In **Excel and PowerPoint** — install Claude in Excel and Claude in PowerPoint to work directly inside your files.

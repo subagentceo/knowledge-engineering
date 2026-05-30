@@ -1,10 +1,12 @@
+# Sendbird delivers reliable, enterprise-grade AI customer service with Claude
+
 Sendbird uses Claude to power AI customer support agents that enable companies to automate high-volume support conversations while maintaining accuracy, reliability, and compliance for their 4,000+ global customers.
 
 With Claude, Sendbird:
 
--   Extends the capabilities of a platform that powers 7 billion+ monthly conversations across 6 billion users worldwide
--   Increased competitive win rate of selling their [AI-enabled platform](https://sendbird.com/ai-agent) from 30% to 90% in head-to-head evaluations
--   Enables enterprise clients like Lotte Homeshopping to redirect 30-40% of human inquiries to AI agents
+- Extends the capabilities of a platform that powers 7 billion+ monthly conversations across 6 billion users worldwide
+- Increased competitive win rate of selling their AI-enabled platform from 30% to 90% in head-to-head evaluations
+- Enables enterprise clients like Lotte Homeshopping to redirect 30-40% of human inquiries to AI agents
 
 ## Transforming customer support with reliable AI
 
@@ -28,9 +30,9 @@ Claude demonstrated superior performance without requiring extensive prompt engi
 
 Sendbird uses Claude to create AI agents that handle enterprise customer communications at scale. These agents serve as the frontline support system across multiple channels, delivering key advantages:
 
--   Reliable instruction following that virtually eliminates the hallucinations common with other AI models
--   Natural, conversational interactions that maintain consistent brand voice across mobile, web, SMS, email, and WhatsApp
--   Enterprise-grade security through AWS integration that meets strict compliance requirements
+- Reliable instruction following that virtually eliminates the hallucinations common with other AI models
+- Natural, conversational interactions that maintain consistent brand voice across mobile, web, SMS, email, and WhatsApp
+- Enterprise-grade security through AWS integration that meets strict compliance requirements
 
 The platform excels at processing complex information during live conversations. Ku says, "Claude analyzes large amounts of unstructured data in real-time. It can process hundreds of pages of technical documentation and immediately determine if uploaded materials meet compliance standards—all while maintaining the conversation flow."
 

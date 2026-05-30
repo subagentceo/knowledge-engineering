@@ -1,11 +1,13 @@
+# Super Teacher offers elementary schools a personalized AI Tutor with Claude
+
 Super Teacher, a rapidly growing AI tutoring platform for elementary schools, uses Claude to power their platform development and educational content creation, enabling teachers to provide personalized instruction in classrooms and unlimited private tutoring at home for young students across the US.
 
 With Claude, Super Teacher:
 
--   Makes engineering and content teams 2x more productive
--   Automates 80% of initial development work for software components
--   Reduces development time from weeks to hours for many of their projects
--   Creates and maintains over 1,000 lessons across dozens of subjects from pre-K to 5th grade
+- Makes engineering and content teams 2x more productive
+- Automates 80% of initial development work for software components
+- Reduces development time from weeks to hours for many of their projects
+- Creates and maintains over 1,000 lessons across dozens of subjects from pre-K to 5th grade
 
 ## Meeting the challenges of AI-powered education
 

@@ -1,12 +1,14 @@
+# How Anthropic's cybersecurity team built a threat detection platform with Claude Code
+
 For her entire career, Jackie Bow imagined tools that could tap into the context that actually matters—not just logs and alerts, but the Slack conversations, internal docs, and institutional knowledge that tell you whether something is a real threat or just noise—without needing humans to take the load of combing through the data manually.
 
 When she joined Anthropic, she finally got the chance to build them—with Claude as her collaborator. Jackie leads Anthropic's Detection Platform Engineering team, which focuses on defensive cybersecurity: detecting threats and responding to potential breaches rather than probing for vulnerabilities. The work involves monitoring systems for suspicious activity, triaging security alerts, and investigating anomalies before they become incidents.
 
-For a company building increasingly capable AI models, this work is foundational. [Anthropic's Responsible Scaling Policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy) ties product releases directly to security commitments, meaning Bow's team helps determine what the company can safely ship.
+For a company building increasingly capable AI models, this work is foundational. Anthropic's Responsible Scaling Policy ties product releases directly to security commitments, meaning Bow's team helps determine what the company can safely ship.
 
 "I feel like it's the golden age of the security engineer," says Bow, who serves as Technical Lead for Anthropic's Detection Platform Engineering team. "I can finally build the tools I always wished I had."
 
-## **The problem: Drowning in data and alerts**
+## The problem: Drowning in data and alerts
 
 Security leaders know the pattern all too well.
 
@@ -24,7 +26,7 @@ As the company grows, so does the attack surface, and so do the demands on the s
 
 "We can't scale to meet the needs of Anthropic without augmenting with something like Claude," Jackie says.
 
-## **The solution: Claude Looks Up Evidence (CLUE)**
+## The solution: Claude Looks Up Evidence (CLUE)
 
 Over several months, Bow's team built CLUE, a detection and response platform that reimagines how security teams investigate threats. Rather than adding another dashboard to the stack, CLUE provides a natural language interface powered by Claude that connects directly to Anthropic's internal systems via tool use.
 
@@ -36,7 +38,7 @@ The moment that shifted her perception came when she asked Claude Code to add a 
 
 "That was when I realized I'm not bound by my own technical limitations anymore. I can build whatever I can think of," she says.
 
-### **CLUE Triage**
+### CLUE Triage
 
 When alerts flow in, CLUE Triage performs the first-pass triage before a human analyst ever sees them. Claude uses tools to enrich each alert with additional context from across Anthropic's systems, including Slack messages, internal documentation, code repositories, and data warehouses. It assigns dispositions: false positive, true positive, malicious, or expected behavior. Each alert receives a confidence score so analysts know where to focus their attention.
 
@@ -44,7 +46,7 @@ This enrichment step solves a problem any security analyst recognizes: alerts ar
 
 "That internal context is the missing piece that really helps alerts be contextualized for your environment," Jackie explains.
 
-### **CLUE Investigate**
+### CLUE Investigate
 
 With CLUE, security analysts can now query all security-critical logs using natural language. Want to know "What are all the failed logins for this system over the past day?" Just ask CLUE, and Claude executes the necessary SQL queries.
 
@@ -54,13 +56,13 @@ The numbers bear this out. Across investigations, CLUE averages 25 tool calls an
 
 The real differentiator, however, is internal context. CLUE connects directly to Anthropic's systems via tools, giving Claude access to institutional knowledge that external security platforms would never be able to access. When an alert fires, Claude can check Slack to see if the team discussed planned maintenance. It can query the data warehouse to understand baseline behavior. It can examine code repositories to understand what a service actually does.
 
-### **Data governance review**
+### Data governance review
 
 The team demonstrated CLUE's capabilities with a common data governance scenario: checking whether three contractors had accessed any documents they shouldn't have over the past two months.
 
 According to Bow, this type of investigation would typically take at least half a day of manual work, including querying access logs, cross-referencing permissions, and reviewing document classifications. With CLUE, Claude reads the request, formulates a plan, and generates verbose queries that abstract the technical complexity. The investigation is over in minutes, producing a summary and recommendations with full transparency into every query run.
 
-## **Measuring the impact**
+## Measuring the impact
 
 When the team set out to build CLUE, they wanted to understand not just whether it felt faster, but whether they could quantify the results.
 
@@ -72,9 +74,9 @@ When the team set out to build CLUE, they wanted to understand not just whether 
 
 **What they're still learning to measure**: Accuracy is harder to quantify than speed. The team reviews CLUE's dispositions and tracks disagreements, but they're still building the feedback loops to understand how often Claude catches something analysts would have missed—and vice versa. The transcripts help: every investigation can be audited for exactly what Claude examined and how it reached its conclusions.
 
-## **Where we're headed: letting Claude investigate like Claude**
+## Where we're headed: letting Claude investigate like Claude
 
-There's a concept in AI research called "[the bitter lesson](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)"—the observation that encoding human-specific reasoning into models consistently underperforms compared to giving models general capabilities and letting them find their own approaches. Bow and her team have been thinking about what this means for detection and response.
+There's a concept in AI research called "the bitter lesson"—the observation that encoding human-specific reasoning into models consistently underperforms compared to giving models general capabilities and letting them find their own approaches. Bow and her team have been thinking about what this means for detection and response.
 
 "Early in CLUE's development, the team debated how much to constrain Claude's investigation paths," says Bow. "The SOAR-era instinct said: build playbooks, define every step, make the process deterministic. But we kept noticing something. When we gave Claude latitude to explore—access to tools and a goal, rather than a rigid sequence—it often took investigation paths we wouldn't have prescribed. Sometimes those paths surfaced context we'd have missed."
 
@@ -90,7 +92,7 @@ The key is giving Claude boundaries (what tools it can use, what data it can acc
 
 _Check out our best practices for preparing your security program for AI-accelerated offense._
 
-_Get started with_ [_Claude Code_](https://www.anthropic.com/claude-code) _today. Stay tuned for more stories in the "How Anthropic uses Claude" series._
+_Get started with_ _Claude Code_ _today. Stay tuned for more stories in the "How Anthropic uses Claude" series._
 
 _\*These results were generated using Claude Sonnet and Opus models._
 

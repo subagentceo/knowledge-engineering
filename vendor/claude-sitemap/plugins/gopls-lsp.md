@@ -1,3 +1,5 @@
+# Go LSP (gopls)
+
 Integrates gopls, the official Go language server, into Claude Code for enhanced Go development. This plugin provides intelligent code navigation, real-time diagnostics, code completion, and automated refactoring for Go projects.
 
 Key features include jump-to-definition, find references, comprehensive autocompletion, static code analysis, vulnerability checking, and modernization suggestions. The plugin supports Go modules, multi-module workspaces, and GOPATH modes.

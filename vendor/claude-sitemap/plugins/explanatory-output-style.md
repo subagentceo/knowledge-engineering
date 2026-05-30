@@ -1,3 +1,5 @@
+# Explanatory Output Style
+
 This plugin adds educational insights about implementation choices and codebase patterns to Claude's responses. It recreates the functionality of the deprecated "Explanatory" output style as a session hook that activates automatically when you start a new session.
 
 When enabled, Claude will provide 2-3 key educational points about your codebase as you work, formatted in a distinctive insight box. These insights focus on implementation choices specific to your codebase, pattern conventions, and design trade-offs — not generic programming concepts.
@@ -6,5 +8,5 @@ When enabled, Claude will provide 2-3 key educational points about your codebase
 
 **Example output format:**  
 `★ Insight ─────────────────────────────────────`  
-\[2-3 key educational points about the code\]  
+[2-3 key educational points about the code]  
 `─────────────────────────────────────────────────`

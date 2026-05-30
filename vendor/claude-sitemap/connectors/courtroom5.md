@@ -1,3 +1,5 @@
+# Courtroom5
+
 Courtroom5 provides legal guidance to the 80% of civil litigants who appear in court without an attorney. Three jurisdiction-aware tools cover serious civil matters across all 50 US states: a case intake assessment that identifies viable claims and first steps; a deadline calculator that returns precise procedural deadlines and miss-consequences by state and court level; and next-step guidance for users mid-litigation.
 
 You can use Courtroom5 to:

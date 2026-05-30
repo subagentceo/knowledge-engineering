@@ -1,3 +1,5 @@
+# Adobe Marketing Agent
+
 Adobe Marketing Agent for Claude Enterprise lets you interact with Adobe using natural language. Ask questions, get insights, and take action without leaving your workflow. It understands your intent and connects with Adobe solutions like Real-Time CDP, Journey Optimizer, and Customer Journey Analytics to deliver answers that help teams move faster and work smarter.
 
 You can use Adobe Marketing Agent to:

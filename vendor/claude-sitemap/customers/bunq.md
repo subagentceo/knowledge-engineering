@@ -1,14 +1,16 @@
-[bunq](https://www.bunq.com) is Europe's second-largest neobank, built to serve people and businesses with an international lifestyle. Founded in 2012 by Ali Niknam, bunq empowers 20 million users across Europe to spend, save, budget, and invest through a single user-friendly app.
+# bunq builds intelligent banking assistant Finn with Claude
+
+bunq is Europe's second-largest neobank, built to serve people and businesses with an international lifestyle. Founded in 2012 by Ali Niknam, bunq empowers 20 million users across Europe to spend, save, budget, and invest through a single user-friendly app.
 
 bunq selected Claude after extensive A/B testing showed it consistently excelled at the complex planning capabilities their support scenarios require. Failed payment investigations, for instance, require checking cards, accounts, balances, and transactions in precise sequences. Claude demonstrated superior ability to reason through these multi-step problems while maintaining the precision needed for their agentic workflows. "When we benchmarked the best models, Claude came out on top," explains bunq's Machine Learning Engineering Lead.
 
 With Claude, bunq:
 
--   Investigates complex banking issues autonomously, planning and executing multi-step investigations for failed payments, transaction disputes, and account issues
--   Processes documents instantly using image recognition to handle receipts and verify documents automatically
--   Enables real-time multilingual support as the first bank to launch speech-to-speech AI translation, allowing users to speak with support agents in their native language
--   Powers rapid onboarding by automating verification processes that enable 5-minute account opening
--   Generates precise structured outputs like error-free JSON essential for backend automations
+- Investigates complex banking issues autonomously, planning and executing multi-step investigations for failed payments, transaction disputes, and account issues
+- Processes documents instantly using image recognition to handle receipts and verify documents automatically
+- Enables real-time multilingual support as the first bank to launch speech-to-speech AI translation, allowing users to speak with support agents in their native language
+- Powers rapid onboarding by automating verification processes that enable 5-minute account opening
+- Generates precise structured outputs like error-free JSON essential for backend automations
 
 ## The problem: Complex banking queries at massive scale
 
@@ -16,7 +18,7 @@ Banking support isn't simple. A single failed payment query might require checki
 
 bunq needed more than a chatbot. They needed an intelligent system that could reason through complex, multi-step investigations while producing the precise structured outputs their automations required. A single JSON formatting error could break entire workflows. The challenge was finding an AI model that combined sophisticated reasoning with absolute precision.
 
-## **Building an intelligent banking assistant**
+## Building an intelligent banking assistant
 
 "From the very beginning, our goal with AI has been simple: make life easy for our users," says bunq's Machine Learning Engineering Lead. "To do that at scale, we built agentic workflows where AI works hand-in-hand with code to solve problems."
 
@@ -26,7 +28,7 @@ In 2024, bunq became the first bank to launch real-time speech-to-speech AI tran
 
 The implementation was remarkably swift. Thanks to bunq's in-house LLM router—which manages different models, providers, and configurations—adding Claude took just days. "Our internal benchmarks and LLM router made it easy to test and integrate quickly," the team notes. "The Anthropic team was always on hand to support us, from optimizing prompts to scaling up capacity."
 
-## **The outcome: approximately 80% automation with instant account access**
+## The outcome: approximately 80% automation with instant account access
 
 The results demonstrate significant improvements across all metrics. With Claude's advanced reasoning, bunq's automated resolution rate improved by 8%, bringing their total automation to over 80% of all support tickets. Users get faster, more reliable answers without waiting in queues or navigating complex phone trees.
 

@@ -1,3 +1,5 @@
+# Common Room
+
 Embed complete buyer intelligence directly within Claude. Research accounts and contacts, surface buying signals, and browse activity history - all through natural language. Build prospect lists of net-new companies by industry, size, tech stack, or location. Filter and sort contacts by segment, role, lead score, or website visits. Every result is grounded in real context, real prioritization, and real revenue opportunity directly from your CRM fields, scores, enrichment, and signals - so you always know what's actually happening in your accounts.
 
 You can use the Common Room Connector for:
@@ -6,7 +8,7 @@ You can use the Common Room Connector for:
 "Tell me about Datadog and create a plan on how to approach the account"
 
 **Contact Lookup:**  
-"Research [\[email protected\]](/cdn-cgi/l/email-protection) using Common Room"
+"Research [email protected] using Common Room"
 
 **Prospect:**  
 "Find SaaS companies in the US using Snowflake with 200–1000 employees"

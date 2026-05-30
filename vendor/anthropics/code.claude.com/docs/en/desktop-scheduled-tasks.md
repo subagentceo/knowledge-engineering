@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -53,11 +54,11 @@ You can also create a task by describing what you want in any session. For examp
 
 Pick a preset from the Schedule control:
 
-* **Manual**: no schedule, only runs when you click **Run now**. Useful for saving a prompt you trigger on demand
-* **Hourly**: runs every hour
-* **Daily**: shows a time picker, defaults to 9:00 AM local time
-* **Weekdays**: same as Daily but skips Saturday and Sunday
-* **Weekly**: shows a time picker and a day picker
+- **Manual**: no schedule, only runs when you click **Run now**. Useful for saving a prompt you trigger on demand
+- **Hourly**: runs every hour
+- **Daily**: shows a time picker, defaults to 9:00 AM local time
+- **Weekdays**: same as Daily but skips Saturday and Sunday
+- **Weekly**: shows a time picker and a day picker
 
 For intervals the picker doesn't offer, such as every 15 minutes, the first of each month, or a single run at a specific future time, ask Claude in any Desktop session to set the schedule. Use plain language; for example, "schedule a task to run all the tests every 6 hours."
 
@@ -85,12 +86,12 @@ To avoid stalls, click **Run now** after creating a task, watch for permission p
 
 Click a task in the **Routines** list to open its detail page. From here you can:
 
-* **Run now**: start the task immediately without waiting for the next scheduled time
-* **Status**: toggle between Active and Paused to pause or resume scheduled runs without deleting the task
-* **Edit**: change the instructions, schedule, folder, or other settings
-* **Review history**: see every past run, including skipped runs. Hover a skipped entry to see why: your computer was asleep, the previous run was still in progress, or other scheduled tasks were already running. Click **Show more** to load older entries.
-* **Review allowed permissions**: see and revoke saved tool approvals for this task from the **Always allowed** panel
-* **Delete**: remove the task and archive all sessions it created. An **Also delete files on disk** checkbox appears in the confirmation dialog; check it to also remove the task's `SKILL.md` file and associated data from `~/.claude/scheduled-tasks/`.
+- **Run now**: start the task immediately without waiting for the next scheduled time
+- **Status**: toggle between Active and Paused to pause or resume scheduled runs without deleting the task
+- **Edit**: change the instructions, schedule, folder, or other settings
+- **Review history**: see every past run, including skipped runs. Hover a skipped entry to see why: your computer was asleep, the previous run was still in progress, or other scheduled tasks were already running. Click **Show more** to load older entries.
+- **Review allowed permissions**: see and revoke saved tool approvals for this task from the **Always allowed** panel
+- **Delete**: remove the task and archive all sessions it created. An **Also delete files on disk** checkbox appears in the confirmation dialog; check it to also remove the task's `SKILL.md` file and associated data from `~/.claude/scheduled-tasks/`.
 
 You can also list, create, edit, and pause tasks by asking Claude in any Desktop session. For example, "pause my dependency-audit task" or "show me my scheduled tasks." To delete a task, use the **Delete** button on its detail page.
 
@@ -100,7 +101,7 @@ To edit a task's prompt on disk, open `~/.claude/scheduled-tasks/<task-name>/SKI
 
 ## Related resources
 
-* [Routines](/en/routines): run tasks on Anthropic-managed infrastructure on a schedule, via API call, or in response to GitHub events, even when your computer is off
-* [Run prompts on a schedule](/en/scheduled-tasks): session-scoped scheduling with `/loop` in the CLI
-* [Claude Code GitHub Actions](/en/github-actions): run Claude on a schedule in CI instead of on your machine
-* [Use Claude Code Desktop](/en/desktop): the full Desktop app guide
+- [Routines](/en/routines): run tasks on Anthropic-managed infrastructure on a schedule, via API call, or in response to GitHub events, even when your computer is off
+- [Run prompts on a schedule](/en/scheduled-tasks): session-scoped scheduling with `/loop` in the CLI
+- [Claude Code GitHub Actions](/en/github-actions): run Claude on a schedule in CI instead of on your machine
+- [Use Claude Code Desktop](/en/desktop): the full Desktop app guide

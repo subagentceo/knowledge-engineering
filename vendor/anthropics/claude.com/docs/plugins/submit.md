@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -34,10 +35,10 @@ For example, a sales plugin might bundle a CRM connector, a skill that teaches C
 
 Plugins can include any combination of:
 
-* **Skills** — Task-specific instructions that Claude activates dynamically based on context
-* **MCP connectors** — Connections to external tools and data sources. Plugins can contain any MCP, including remote MCPs, local MCPs, and MCPBs. The MCP configuration within a plugin is highly customizable.
-* **Slash commands** — User-invoked commands for triggering specific workflows
-* **Sub-agents** — Custom agent definitions for delegating complex work
+- **Skills** — Task-specific instructions that Claude activates dynamically based on context
+- **MCP connectors** — Connections to external tools and data sources. Plugins can contain any MCP, including remote MCPs, local MCPs, and MCPBs. The MCP configuration within a plugin is highly customizable.
+- **Slash commands** — User-invoked commands for triggering specific workflows
+- **Sub-agents** — Custom agent definitions for delegating complex work
 
 ### Guiding Claude through MCP setup
 
@@ -51,8 +52,8 @@ While a plugin can include any MCP of any kind in its `.mcp.json` definition, we
 
 All plugins in the directory must comply with:
 
-* [Anthropic Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms)
-* [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
+- [Anthropic Software Directory Terms](https://support.claude.com/en/articles/13145338-anthropic-software-directory-terms)
+- [Anthropic Software Directory Policy](https://support.claude.com/en/articles/13145358-anthropic-software-directory-policy)
 
 ## Security
 
@@ -60,10 +61,10 @@ Each plugin in the directory includes a link to where you can review its content
 
 Best practices when using community plugins:
 
-* Review the plugin's source code before installing
-* Check which MCP connectors are included and what permissions they request
-* Prefer Anthropic Verified plugins for production workflows
-* Report any suspicious activity to Anthropic
+- Review the plugin's source code before installing
+- Check which MCP connectors are included and what permissions they request
+- Prefer Anthropic Verified plugins for production workflows
+- Report any suspicious activity to Anthropic
 
 ## Submitting your plugin
 
@@ -73,8 +74,8 @@ Before submitting, run `claude plugin validate` to check formatting and structur
 
 To submit please use one of our in-app submission forms:
 
-* **Claude.ai** — [https://claude.ai/settings/plugins/submit](https://claude.ai/settings/plugins/submit)
-* **Console** — [https://platform.claude.com/plugins/submit](https://platform.claude.com/plugins/submit)
+- **Claude.ai** — [https://claude.ai/settings/plugins/submit](https://claude.ai/settings/plugins/submit)
+- **Console** — [https://platform.claude.com/plugins/submit](https://platform.claude.com/plugins/submit)
 
 After your plugin is published, updates pushed to your GitHub repo are picked up automatically—CI mirrors changes to the public marketplace and runs automated screening on each update. You do not need to re-submit the form for updates.
 

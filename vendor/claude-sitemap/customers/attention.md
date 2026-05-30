@@ -1,13 +1,15 @@
-Sales reps spend a surprising portion of their day not selling. After every call, there are CRM fields to update, follow-up emails to write, notes to log. For organizations running thousands of calls, that accumulated burden becomes a serious drag on revenue. [Attention](https://www.attention.com/) set out to change that by building a platform of AI agents that automates the full administrative layer of sales. Not just transcription, but action.
+# Attention automates sales operations and accelerates revenue with Claude
+
+Sales reps spend a surprising portion of their day not selling. After every call, there are CRM fields to update, follow-up emails to write, notes to log. For organizations running thousands of calls, that accumulated burden becomes a serious drag on revenue. Attention set out to change that by building a platform of AI agents that automates the full administrative layer of sales. Not just transcription, but action.
 
 ## With Claude, Attention achieved:
 
--   10+ hours per week saved per rep on manual tasks
--   90% of post-call administrative work automated with near-human accuracy
--   Up to 40% improvement in win rates, driven by AI outputs teams trust enough to act on in live deals
--   5x coaching efficiency improvement at AI healthcare leader Abridge
--   Core scoring pipeline integration in under two weeks
--   Engineering time shifting from output cleanup to new feature development
+- 10+ hours per week saved per rep on manual tasks
+- 90% of post-call administrative work automated with near-human accuracy
+- Up to 40% improvement in win rates, driven by AI outputs teams trust enough to act on in live deals
+- 5x coaching efficiency improvement at AI healthcare leader Abridge
+- Core scoring pipeline integration in under two weeks
+- Engineering time shifting from output cleanup to new feature development
 
 ## The challenge: Moving beyond transcription for sales calls
 

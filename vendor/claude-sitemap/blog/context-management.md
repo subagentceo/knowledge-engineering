@@ -1,6 +1,8 @@
+# Managing context on the Claude Developer Platform
+
 Today, we’re introducing new capabilities for managing your agents’ context on the Claude Developer Platform: context editing and the memory tool.
 
-With our latest model, [Claude Sonnet 4.5](https://www.anthropic.com/news/claude-sonnet-4-5), these capabilities enable developers to build AI agents capable of handling long-running tasks at higher performance and without hitting context limits or losing critical information.
+With our latest model, Claude Sonnet 4.5, these capabilities enable developers to build AI agents capable of handling long-running tasks at higher performance and without hitting context limits or losing critical information.
 
 ## Context windows have limits, but real work doesn’t
 
@@ -18,16 +20,16 @@ Claude Sonnet 4.5 enhances both capabilities with built-in context awareness—t
 
 Together, these updates create a system that improves agent performance:
 
--   Enable longer conversations by automatically removing stale tool results from context
--   Boost accuracy by saving critical information to memory—and bring that learning across successive agentic sessions
+- Enable longer conversations by automatically removing stale tool results from context
+- Boost accuracy by saving critical information to memory—and bring that learning across successive agentic sessions
 
 ## Building long-running agents
 
 Claude Sonnet 4.5 is the best model in the world for building agents. These features unlock new possibilities for long-running agents—processing entire codebases, analyzing hundreds of documents, or maintaining extensive tool interaction histories. Context management builds on this foundation, ensuring agents can leverage this expanded capacity efficiently while still handling workflows that extend beyond any fixed limit. Use cases include:
 
--   **Coding:** Context editing clears old file reads and test results while memory preserves debugging insights and architectural decisions, enabling agents to work on large codebases without losing progress.
--   **Research:** Memory stores key findings while context editing removes old search results, building knowledge bases that improve performance over time.
--   **Data processing:** Agents store intermediate results in memory while context editing clears raw data, handling workflows that would otherwise exceed token limits.
+- **Coding:** Context editing clears old file reads and test results while memory preserves debugging insights and architectural decisions, enabling agents to work on large codebases without losing progress.
+- **Research:** Memory stores key findings while context editing removes old search results, building knowledge bases that improve performance over time.
+- **Data processing:** Agents store intermediate results in memory while context editing clears raw data, handling workflows that would otherwise exceed token limits.
 
 ## Performance improvements with context management
 
@@ -37,6 +39,6 @@ In a 100-turn web search evaluation, context editing enabled agents to complete 
 
 ## Getting started
 
-These capabilities are available today in public beta on the Claude Developer Platform, natively and in Amazon Bedrock and Google Cloud’s Vertex AI. Explore the documentation for [context editing](https://docs.claude.com/en/docs/build-with-claude/context-editing) and the [memory tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/memory-tool), or visit our [cookbook](https://platform.claude.com/cookbook/tool-use-memory-cookbook) to learn more.
+These capabilities are available today in public beta on the Claude Developer Platform, natively and in Amazon Bedrock and Google Cloud’s Vertex AI. Explore the documentation for context editing and the memory tool, or visit our cookbook to learn more.
 
 _Anthropic is not affiliated with, endorsed by, or sponsored by CATAN GmbH or CATAN Studio. The CATAN trademark and game are the property of CATAN GmbH._

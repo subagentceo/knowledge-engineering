@@ -1,3 +1,5 @@
-Compiling campaign data across multiple channels into a unified view takes hours of work. Claude handles the consolidation and analysis together, processing multiple data sources to spot channel patterns, identify reallocation opportunities, and deliver actionable recommendations.  
-  
+# Analyze campaign performance
+
+Compiling campaign data across multiple channels into a unified view takes hours of work. Claude handles the consolidation and analysis together, processing multiple data sources to spot channel patterns, identify reallocation opportunities, and deliver actionable recommendations.
+
 Tell Claude to analyze your data and create Excel dashboards and Word documents. Be explicit that you need actionable recommendations for next quarter, not just historical summaries. Ask Claude to identify patterns and opportunities in the data—what's working, what's not, and where to reallocate resources.

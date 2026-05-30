@@ -1,3 +1,5 @@
+# Build customer personas
+
 Building customer personas usually means manually reviewing interviews, surveys, and support tickets to find patterns. Claude analyzes all your research data simultaneously—spotting behavioral trends across hundreds of data points that you'd miss reviewing files one by one—then builds personas based on how customers actually use your product.
 
 Tell Claude what you're trying to understand about your customers, then ask for data-driven personas with journey maps showing where people struggle.

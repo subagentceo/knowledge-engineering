@@ -1,9 +1,11 @@
+# Section helps companies navigate AI transformation with Claude
+
 Section, an AI workforce transformation company, uses Claude to help companies and individuals get proficient, confident, and effective with AI. Section uses Claude to inform and develop AI upskilling programs, advise clients on AI transformation, and power its new AI coach, ProfAI.
 
 Section’s AI transformations start with having a fully AI-powered workforce internally—and extend to integrating AI in all products and services. By partnering with Anthropic, Section has seen:
 
--   82% of team members use Claude, compared to a 5% benchmark for the overall workforce
--   50% of the team achieving at least 10% productivity gains
+- 82% of team members use Claude, compared to a 5% benchmark for the overall workforce
+- 50% of the team achieving at least 10% productivity gains
 
 ## Helping organizations build AI-powered workforces
 
@@ -29,9 +31,9 @@ This experience transformed Section's view of AI's role in business. Malmsheimer
 
 Since then Section has rolled out Claude for teams to its 25-person team. Internal use cases include:
 
--   The marketing team using Claude Projects to build a “voice of the customer” repository where they’ve uploaded survey data and market research, and work with Claude to hone the company’s positioning and ideal customer profile
--   The education team uses Claude to develop the framework and flow of presentation decks for live lectures in Section bootcamp programs
--   The leadership team uses Claude as a strategic thought partner, getting feedback on new initiatives and strategic plans
+- The marketing team using Claude Projects to build a “voice of the customer” repository where they’ve uploaded survey data and market research, and work with Claude to hone the company’s positioning and ideal customer profile
+- The education team uses Claude to develop the framework and flow of presentation decks for live lectures in Section bootcamp programs
+- The leadership team uses Claude as a strategic thought partner, getting feedback on new initiatives and strategic plans
 
 Section's use of Claude has fundamentally changed the company's operations. Malmsheimer said, "If I took it away, there would be a clear impact on our productivity and efficiency." The ROI is clear—with half the team achieving at least a 10% productivity gain.
 

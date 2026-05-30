@@ -1,4 +1,4 @@
-## MCP OAuth Validate
+## Validate Credential
 
 `$ ant beta:vaults:credentials mcp-oauth-validate`
 
@@ -25,7 +25,6 @@ Validate Credential
 - `beta_managed_agents_credential_validation: object { credential_id, has_refresh_token, mcp_probe, 5 more }`
 
   Result of live-probing a credential against its configured MCP server.
-
   - `credential_id: string`
 
     Unique identifier of the credential that was validated.
@@ -37,11 +36,9 @@ Validate Credential
   - `mcp_probe: object { http_response, method }`
 
     The failing step of an MCP validation probe.
-
     - `http_response: object { body, body_truncated, content_type, status_code }`
 
       An HTTP response captured during a credential validation probe.
-
       - `body: string`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -65,11 +62,9 @@ Validate Credential
   - `refresh: object { http_response, status }`
 
     Outcome of a refresh-token exchange attempted during credential validation.
-
     - `http_response: object { body, body_truncated, content_type, status_code }`
 
       An HTTP response captured during a credential validation probe.
-
       - `body: string`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -89,7 +84,6 @@ Validate Credential
     - `status: "succeeded" or "failed" or "connect_error" or "no_refresh_token"`
 
       Outcome of a refresh-token exchange attempted during credential validation.
-
       - `"succeeded"`
 
       - `"failed"`
@@ -101,7 +95,6 @@ Validate Credential
   - `status: "valid" or "invalid" or "unknown"`
 
     Overall verdict of a credential validation probe.
-
     - `"valid"`
 
     - `"invalid"`
@@ -109,7 +102,6 @@ Validate Credential
     - `"unknown"`
 
   - `type: "vault_credential_validation"`
-
     - `"vault_credential_validation"`
 
   - `validated_at: string`
@@ -127,4 +119,35 @@ ant beta:vaults:credentials mcp-oauth-validate \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv \
   --credential-id vcrd_011CZkZEMt8gZan2iYOQfSkw
+```
+
+#### Response
+
+```json
+{
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "has_refresh_token": true,
+  "mcp_probe": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "method": "method"
+  },
+  "refresh": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "status": "succeeded"
+  },
+  "status": "valid",
+  "type": "vault_credential_validation",
+  "validated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+}
 ```

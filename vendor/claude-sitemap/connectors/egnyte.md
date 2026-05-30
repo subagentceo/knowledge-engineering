@@ -1,7 +1,9 @@
-Securely search, retrieve, and analyze content stored in any Egnyte domain. The Egnyte Connector wraps Egnyte’s public APIs and enforces native permissions, compliance rules, and audit logging.  
-  
-You can use the Egnyte connector to:  
-  
+# Egnyte
+
+Securely search, retrieve, and analyze content stored in any Egnyte domain. The Egnyte Connector wraps Egnyte’s public APIs and enforces native permissions, compliance rules, and audit logging.
+
+You can use the Egnyte connector to:
+
 Analyze financial reports with visuals:  
 "What are the main findings in the MSFT Q4 financial data? Create a report with charts"
 

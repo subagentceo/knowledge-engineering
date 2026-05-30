@@ -1,3 +1,5 @@
+# Migration to AWS
+
 Provides a structured, five-phase workflow for migrating cloud infrastructure from Google Cloud Platform to Amazon Web Services. The plugin analyzes your existing Terraform-defined GCP resources, maps them to AWS equivalents using a re-platform strategy, estimates costs with live AWS pricing data, and produces a detailed execution plan with risk mitigation and rollback strategies.
 
 The migration workflow progresses through five phases: **Discover** (parse Terraform files to inventory GCP resources), **Clarify** (gather migration requirements via a structured questionnaire), **Design** (map each GCP service to its AWS equivalent, e.g. Cloud Run to Fargate, Cloud SQL to RDS), **Estimate** (project monthly AWS costs with ROI analysis), and **Execute** (create an implementation timeline with risk register). Progress is tracked across sessions in timestamped migration directories so you can resume where you left off.

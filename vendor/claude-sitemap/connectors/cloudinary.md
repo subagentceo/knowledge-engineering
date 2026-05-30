@@ -1,7 +1,9 @@
+# Cloudinary
+
 The Cloudinary connector enables you to upload, manage, transform, and analyze your media assets.
 
-You can use the Cloudinary connector to:  
-  
+You can use the Cloudinary connector to:
+
 Upload media:  
 "Upload an image/video from <URL/local file> to my Cloudinary account"
 

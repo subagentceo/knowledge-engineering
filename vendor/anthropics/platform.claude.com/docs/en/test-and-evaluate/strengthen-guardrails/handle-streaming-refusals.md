@@ -55,18 +55,22 @@ response=$(curl -N https://api.anthropic.com/v1/messages \
   --header "content-type: application/json" \
   --header "x-api-key: $ANTHROPIC_API_KEY" \
   --data '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "messages": [{"role": "user", "content": "Hello"}],
     "max_tokens": 1024,
     "stream": true
   }')
 
 # Check for refusal in the stream
+
 if echo "$response" | grep -q '"stop_reason":"refusal"'; then
-  echo "Response refused - resetting conversation context"
-  # Reset your conversation state here
+echo "Response refused - resetting conversation context"
+
+# Reset your conversation state here
+
 fi
-```
+
+````
 
 ```python Python hidelines={1..2}
 import anthropic
@@ -86,7 +90,7 @@ try:
     with client.messages.stream(
         max_tokens=1024,
         messages=messages + [{"role": "user", "content": "Hello"}],
-        model="claude-opus-4-7",
+        model="claude-opus-4-8",
     ) as stream:
         for event in stream:
             # Check for refusal in message delta
@@ -96,7 +100,7 @@ try:
                     break
 except Exception as e:
     print(f"Error: {e}")
-```
+````
 
 ```typescript TypeScript nocheck hidelines={1..2}
 import Anthropic from "@anthropic-ai/sdk";
@@ -113,13 +117,16 @@ function resetConversation() {
 try {
   const stream = await client.messages.stream({
     messages: [...messages, { role: "user", content: "Hello" }],
-    model: "claude-opus-4-7",
-    max_tokens: 1024
+    model: "claude-opus-4-8",
+    max_tokens: 1024,
   });
 
   for await (const event of stream) {
     // Check for refusal in message delta
-    if (event.type === "message_delta" && event.delta.stop_reason === "refusal") {
+    if (
+      event.type === "message_delta" &&
+      event.delta.stop_reason === "refusal"
+    ) {
       resetConversation();
       break;
     }
@@ -146,7 +153,7 @@ class Program
 
         var parameters = new MessageCreateParams
         {
-            Model = Model.ClaudeOpus4_7,
+            Model = Model.ClaudeOpus4_8,
             MaxTokens = 1024,
             Messages = [new() { Role = Role.User, Content = "Hello" }]
         };
@@ -198,7 +205,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	stream := client.Messages.NewStreaming(context.TODO(), anthropic.MessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 1024,
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(anthropic.NewTextBlock("Hello")),
@@ -241,7 +248,7 @@ void main() {
     AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
     MessageCreateParams params = MessageCreateParams.builder()
-        .model(Model.CLAUDE_OPUS_4_7)
+        .model(Model.CLAUDE_OPUS_4_8)
         .maxTokens(1024L)
         .addUserMessage("Hello")
         .build();
@@ -286,7 +293,7 @@ try {
         messages: [
             ['role' => 'user', 'content' => 'Hello']
         ],
-        model: 'claude-opus-4-7',
+        model: 'claude-opus-4-8',
     );
 
     foreach ($stream as $event) {
@@ -315,7 +322,7 @@ end
 
 begin
   stream = client.messages.stream(
-    model: :"claude-opus-4-7",
+    model: :"claude-opus-4-8",
     max_tokens: 1024,
     messages: [{ role: "user", content: "Hello" }]
   )
@@ -330,17 +337,18 @@ rescue => e
   puts "Error: #{e.message}"
 end
 ```
+
 </CodeGroup>
 
 ## Current refusal types
 
 The API currently handles refusals in three different ways:
 
-| Refusal Type | Response Format | When It Occurs |
-|-------------|----------------|----------------|
-| Streaming classifier refusals | **`stop_reason`: `refusal`** | During streaming when content violates policies |
-| API input and copyright validation | 400 error codes | When input fails validation checks |
-| Model-generated refusals | Standard text responses | When the model itself decides to refuse |
+| Refusal Type                       | Response Format              | When It Occurs                                  |
+| ---------------------------------- | ---------------------------- | ----------------------------------------------- |
+| Streaming classifier refusals      | **`stop_reason`: `refusal`** | During streaming when content violates policies |
+| API input and copyright validation | 400 error codes              | When input fails validation checks              |
+| Model-generated refusals           | Standard text responses      | When the model itself decides to refuse         |
 
 <Note>
 Future API versions will expand the **`stop_reason`: `refusal`** pattern to unify refusal handling across all types.

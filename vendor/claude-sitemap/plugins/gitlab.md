@@ -1,3 +1,5 @@
+# GitLab
+
 Connect Claude Code directly to your GitLab instance for seamless DevOps integration. This plugin provides full access to GitLab's comprehensive platform, enabling you to manage repositories, work with merge requests, monitor CI/CD pipelines, track issues, and edit wiki documentation—all from within your Claude Code workflow.
 
 Key capabilities include browsing and managing Git repositories, creating and reviewing merge requests, viewing pipeline status and job logs, managing project issues and milestones, and working with project wikis. The integration uses GitLab's official MCP API for reliable, native access to the platform.

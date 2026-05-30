@@ -8,8 +8,23 @@ This page covers parallel tool calls: when Claude calls multiple tools in one tu
 
 By default, Claude may use multiple tools to answer a user query. You can disable this behavior by:
 
-- Setting `disable_parallel_tool_use=true` when tool_choice type is `auto`, which ensures that Claude uses **at most one** tool
-- Setting `disable_parallel_tool_use=true` when tool_choice type is `any` or `tool`, which ensures that Claude uses **exactly one** tool
+- Setting `disable_parallel_tool_use=true` when `tool_choice` type is `auto`, which ensures that Claude uses **at most one** tool
+- Setting `disable_parallel_tool_use=true` when `tool_choice` type is `any` or `tool`, which ensures that Claude uses **exactly one** tool
+
+## Execution semantics
+
+Tool calls in a single assistant turn are unordered. You can run them concurrently (`Promise.all`, `asyncio.gather`), sequentially, or in any order. Claude doesn't assume one call in the batch has completed before another. Claude issues dependent calls across separate turns.
+
+Claude might occasionally batch calls that turn out to depend on each other (for example, a create followed by an update of the same resource). You don't need to detect this in advance: dispatch all the calls, and if one fails because of a missing prerequisite, return the natural error message in a `tool_result` with `is_error: true`. Claude recognizes the dependency and reissues the call after the prerequisite completes.
+
+```json
+{
+  "type": "tool_result",
+  "tool_use_id": "toolu_02",
+  "is_error": true,
+  "content": "cat: report.md: No such file or directory"
+}
+```
 
 ## Worked example
 
@@ -28,105 +43,115 @@ import os
 from anthropic import Anthropic
 
 # Initialize client
+
 client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
 # Define tools
+
 tools = [
-    {
-        "name": "get_weather",
-        "description": "Get the current weather in a given location",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "location": {
-                    "type": "string",
-                    "description": "The city and state, e.g. San Francisco, CA",
-                }
-            },
-            "required": ["location"],
-        },
-    },
-    {
-        "name": "get_time",
-        "description": "Get the current time in a given timezone",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "timezone": {
-                    "type": "string",
-                    "description": "The timezone, e.g. America/New_York",
-                }
-            },
-            "required": ["timezone"],
-        },
-    },
+{
+"name": "get_weather",
+"description": "Get the current weather in a given location",
+"input_schema": {
+"type": "object",
+"properties": {
+"location": {
+"type": "string",
+"description": "The city and state, e.g. San Francisco, CA",
+}
+},
+"required": ["location"],
+},
+},
+{
+"name": "get_time",
+"description": "Get the current time in a given timezone",
+"input_schema": {
+"type": "object",
+"properties": {
+"timezone": {
+"type": "string",
+"description": "The timezone, e.g. America/New_York",
+}
+},
+"required": ["timezone"],
+},
+},
 ]
 
 # Test conversation with parallel tool calls
+
 messages = [
-    {
-        "role": "user",
-        "content": "What's the weather in SF and NYC, and what time is it there?",
-    }
+{
+"role": "user",
+"content": "What's the weather in SF and NYC, and what time is it there?",
+}
 ]
 
 # Make initial request
+
 print("Requesting parallel tool calls...")
 response = client.messages.create(
-    model="claude-opus-4-7", max_tokens=1024, messages=messages, tools=tools
+model="claude-opus-4-8", max_tokens=1024, messages=messages, tools=tools
 )
 
 # Check for parallel tool calls
+
 tool_uses = [block for block in response.content if block.type == "tool_use"]
 print(f"\n✓ Claude made {len(tool_uses)} tool calls")
 
 if len(tool_uses) > 1:
-    print("✓ Parallel tool calls detected!")
-    for tool in tool_uses:
-        print(f"  - {tool.name}: {tool.input}")
+print("✓ Parallel tool calls detected!")
+for tool in tool_uses:
+print(f" - {tool.name}: {tool.input}")
 else:
-    print("✗ No parallel tool calls detected")
+print("✗ No parallel tool calls detected")
 
 # Simulate tool execution and format results correctly
+
 tool_results = []
 for tool_use in tool_uses:
-    if tool_use.name == "get_weather":
-        if "San Francisco" in str(tool_use.input):
-            result = "San Francisco: 68°F, partly cloudy"
-        else:
-            result = "New York: 45°F, clear skies"
-    else:  # get_time
-        if "Los_Angeles" in str(tool_use.input):
-            result = "2:30 PM PST"
-        else:
-            result = "5:30 PM EST"
+if tool_use.name == "get_weather":
+if "San Francisco" in str(tool_use.input):
+result = "San Francisco: 68°F, partly cloudy"
+else:
+result = "New York: 45°F, clear skies"
+else: # get_time
+if "Los_Angeles" in str(tool_use.input):
+result = "2:30 PM PST"
+else:
+result = "5:30 PM EST"
 
     tool_results.append(
         {"type": "tool_result", "tool_use_id": tool_use.id, "content": result}
     )
 
 # Continue conversation with tool results
+
 messages.extend(
-    [
-        {"role": "assistant", "content": response.content},
-        {"role": "user", "content": tool_results},  # All results in one message!
-    ]
+[
+{"role": "assistant", "content": response.content},
+{"role": "user", "content": tool_results}, # All results in one message!
+]
 )
 
 # Get final response
+
 print("\nGetting final response...")
 final_response = client.messages.create(
-    model="claude-opus-4-7", max_tokens=1024, messages=messages, tools=tools
+model="claude-opus-4-8", max_tokens=1024, messages=messages, tools=tools
 )
 
 print(f"\nClaude's response:\n{final_response.content[0].text}")
 
 # Verify formatting
+
 print("\n--- Verification ---")
 print(f"✓ Tool results sent in single user message: {len(tool_results)} results")
 print("✓ No text before tool results in content array")
 print("✓ Conversation formatted correctly for future parallel tool use")
-```
+
+````
 
 ```typescript TypeScript hidelines={1..4}
 import Anthropic from "@anthropic-ai/sdk";
@@ -169,7 +194,7 @@ async function testParallelTools() {
   // Make initial request
   console.log("Requesting parallel tool calls...");
   const response = await client.messages.create({
-    model: "claude-opus-4-7",
+    model: "claude-opus-4-8",
     max_tokens: 1024,
     messages: [
       {
@@ -219,7 +244,7 @@ async function testParallelTools() {
   // Get final response with correct formatting
   console.log("\nGetting final response...");
   const finalResponse = await client.messages.create({
-    model: "claude-opus-4-7",
+    model: "claude-opus-4-8",
     max_tokens: 1024,
     messages: [
       {
@@ -246,7 +271,7 @@ async function testParallelTools() {
 }
 
 testParallelTools().catch(console.error);
-```
+````
 
 ```csharp C# hidelines={1..12,-2..-1}
 using System;
@@ -296,7 +321,7 @@ public class Program
         Console.WriteLine("Requesting parallel tool calls...");
         var parameters = new MessageCreateParams
         {
-            Model = Model.ClaudeOpus4_7,
+            Model = Model.ClaudeOpus4_8,
             MaxTokens = 1024,
             Messages = [new() { Role = Role.User, Content = "What's the weather in SF and NYC, and what time is it there?" }],
             Tools = tools
@@ -354,7 +379,7 @@ public class Program
         Console.WriteLine("\nGetting final response...");
         var finalParameters = new MessageCreateParams
         {
-            Model = Model.ClaudeOpus4_7,
+            Model = Model.ClaudeOpus4_8,
             MaxTokens = 1024,
             Messages = [
                 new() { Role = Role.User, Content = "What's the weather in SF and NYC, and what time is it there?" },
@@ -423,7 +448,7 @@ func main() {
 
 	fmt.Println("Requesting parallel tool calls...")
 	response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 1024,
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(anthropic.NewTextBlock("What's the weather in SF and NYC, and what time is it there?")),
@@ -494,7 +519,7 @@ func main() {
 
 	fmt.Println("\nGetting final response...")
 	finalResponse, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 1024,
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(anthropic.NewTextBlock("What's the weather in SF and NYC, and what time is it there?")),
@@ -565,7 +590,7 @@ void main() {
         .build();
 
     MessageCreateParams params = MessageCreateParams.builder()
-        .model(Model.CLAUDE_OPUS_4_7)
+        .model(Model.CLAUDE_OPUS_4_8)
         .maxTokens(1024L)
         .addTool(weatherTool)
         .addTool(timeTool)
@@ -617,7 +642,7 @@ void main() {
 
     IO.println("\nGetting final response...");
     MessageCreateParams finalParams = MessageCreateParams.builder()
-        .model(Model.CLAUDE_OPUS_4_7)
+        .model(Model.CLAUDE_OPUS_4_8)
         .maxTokens(1024L)
         .addTool(weatherTool)
         .addTool(timeTool)
@@ -682,7 +707,7 @@ $response = $client->messages->create(
     messages: [
         ['role' => 'user', 'content' => "What's the weather in SF and NYC, and what time is it there?"]
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     tools: $tools,
 );
 
@@ -725,7 +750,7 @@ $finalResponse = $client->messages->create(
         ['role' => 'assistant', 'content' => $response->content],
         ['role' => 'user', 'content' => $toolResults]
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     tools: $tools,
 );
 
@@ -775,7 +800,7 @@ tools = [
 
 puts "Requesting parallel tool calls..."
 response = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [
     { role: "user", content: "What's the weather in SF and NYC, and what time is it there?" }
@@ -813,7 +838,7 @@ end
 
 puts "\nGetting final response..."
 final_response = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [
     { role: "user", content: "What's the weather in SF and NYC, and what time is it there?" },
@@ -830,9 +855,11 @@ puts "✓ Tool results sent in single user message: #{tool_results.length} resul
 puts "✓ No text before tool results in content array"
 puts "✓ Conversation formatted correctly for future parallel tool use"
 ```
+
 </CodeGroup>
 
 This script demonstrates:
+
 - How to properly format parallel tool calls and results
 - How to verify that parallel calls are being made
 - The correct message structure that encourages future parallel tool use
@@ -847,11 +874,13 @@ While Claude 4 models have excellent parallel tool use capabilities by default, 
 <section title="System prompts for parallel tool use">
 
 For Claude 4 models, add this to your system prompt:
+
 ```text
 For maximum efficiency, whenever you need to perform multiple independent operations, invoke all relevant tools simultaneously rather than sequentially.
 ```
 
 For even stronger parallel tool use (recommended if the default isn't sufficient), use:
+
 ```text
 <use_parallel_tool_calls>
 For maximum efficiency, whenever you perform multiple independent operations, invoke all relevant tools simultaneously rather than sequentially. Prioritize calling tools in parallel whenever possible. For example, when reading 3 files, run 3 tool calls in parallel to read all 3 files into context at the same time. When running multiple read-only commands like `ls` or `list_dir`, always run all of the commands in parallel. Err on the side of maximizing parallel tool calls rather than running too many tools sequentially.
@@ -885,6 +914,7 @@ If Claude isn't making parallel tool calls when expected, check these common iss
 The most common issue is formatting tool results incorrectly in the conversation history. This "teaches" Claude to avoid parallel calls.
 
 Specifically for parallel tool use:
+
 - ❌ **Wrong**: Sending separate user messages for each tool result
 - ✅ **Correct**: All tool results must be in a single user message
 
@@ -928,6 +958,10 @@ avg_tools_per_message = (
 print(f"Average tools per message: {avg_tools_per_message}")
 # Should be > 1.0 if parallel calls are working
 ```
+
+**4. Calls in a batch appear to depend on each other**
+
+If a tool call fails because it depends on another call in the same batch, return `is_error: true` with the natural error message (you don't need to explain the dependency). Claude recovers and reissues the call. Don't switch to sequential execution; that adds latency and masks the issue. To reduce occurrences, add this to your system prompt: "Only batch tool calls that are independent of each other."
 
 ## Next steps
 

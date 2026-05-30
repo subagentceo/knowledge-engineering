@@ -1,3 +1,5 @@
+# ClickUp
+
 The ClickUp connector enables secure, real-time interaction between AI agents like Claude and your ClickUp workspace. Unlock powerful AI-driven automation by connecting your favorite AI tools directly to ClickUp tasks, docs, Chat, and more.
 
 You can use the ClickUp connector to:

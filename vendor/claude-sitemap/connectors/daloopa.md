@@ -1,7 +1,9 @@
-Supplies high quality fundamental data sourced from SEC Filings, investor presentations and any public financial documents, with hyperlinks to source document overlaying each data point. Provides a zero-hallucination foundation for any quantitative financial analysis in Claude.  
-  
-You can use the Daloopa connector to:  
-  
+# Daloopa
+
+Supplies high quality fundamental data sourced from SEC Filings, investor presentations and any public financial documents, with hyperlinks to source document overlaying each data point. Provides a zero-hallucination foundation for any quantitative financial analysis in Claude.
+
+You can use the Daloopa connector to:
+
 Build comparative dashboards:  
 "Build a comparative dashboard for MSFT, ORCL, SAP, comparing cloud ARR growth, gross dollar retention and EBIT margin for the last 3 years. Break this out by quarters and show me both the data and growth rates calculated from the data. Use Daloopa data and provide hyperlinks"
 

@@ -1,10 +1,10 @@
-# Writing an AI diligence statement 
+# Writing an AI diligence statement
 
 Create transparent, specific disclosures of AI use in your work.
 
 ## What is an AI diligence statement?
 
-An AI diligence statement is a transparent acknowledgment of AI's role in your work, paired with your commitment to taking responsibility for the final output. Think of it as the "methods section" for your AI collaboration: it explains what AI did, what you did, and how you verified the result. Learn more about Diligence and the 4D framework for AI Fluency [here](https://anthropic.skilljar.com/ai-fluency-framework-foundations).
+An AI diligence statement is a transparent acknowledgment of AI's role in your work, paired with your commitment to taking responsibility for the final output. Think of it as the "methods section" for your AI collaboration: it explains what AI did, what you did, and how you verified the result. Learn more about Diligence and the 4D framework for AI Fluency here.
 
 ‍
 
@@ -18,7 +18,7 @@ AI use in professional work is becoming common, but norms around disclosure are 
 
 ‍
 
-A good AI diligence statement does several things at once. It builds trust with your audience by showing you are thoughtful about how you use AI. It demonstrates professional judgment by documenting your verification process. It protects you by creating a clear record of your role in the final output. And it contributes to organizational learning by making AI use visible so teams can develop shared standards. For organizations to become fluent with AI, transparency is key. If it feels scary to disclose AI use, it’s unlikely the environment will be conducive to transformation.  You can learn more about the importance of diligence in [this video](https://www.youtube.com/watch?v=QbLf2zb3oPc) from our AI Fluency & Foundations course.
+A good AI diligence statement does several things at once. It builds trust with your audience by showing you are thoughtful about how you use AI. It demonstrates professional judgment by documenting your verification process. It protects you by creating a clear record of your role in the final output. And it contributes to organizational learning by making AI use visible so teams can develop shared standards. For organizations to become fluent with AI, transparency is key. If it feels scary to disclose AI use, it’s unlikely the environment will be conducive to transformation.  You can learn more about the importance of diligence in this video from our AI Fluency & Foundations course.
 
 ## Anatomy of a strong AI diligence statement
 
@@ -76,9 +76,9 @@ Leaders set the tone here. When a manager includes a diligence statement on thei
 
 A few practical steps for organizations: 
 
--   Make diligence statements part of your templates and workflows rather than an afterthought. 
--   Celebrate thorough disclosures the same way you'd celebrate thorough methods sections in research. 
--   Avoid policies that treat AI use as inherently suspect. The goal is responsible use, and responsibility requires honesty. If your culture penalizes honesty, you won't get responsibility either.
+- Make diligence statements part of your templates and workflows rather than an afterthought. 
+- Celebrate thorough disclosures the same way you'd celebrate thorough methods sections in research. 
+- Avoid policies that treat AI use as inherently suspect. The goal is responsible use, and responsibility requires honesty. If your culture penalizes honesty, you won't get responsibility either.
 
 ## Frequently asked questions about AI diligence statements
 
@@ -98,4 +98,4 @@ Writing AI diligence statements and taking full responsibility for AI’s output
 
 ‍
 
-_This tutorial is part of the AI Fluency effort at Anthropic. It was designed to help professionals develop practical, responsible approaches to AI collaboration. Learn more at_ [_Anthropic Academy_](https://anthropic.skilljar.com/ai-fluency-framework-foundations)_._
+_This tutorial is part of the AI Fluency effort at Anthropic. It was designed to help professionals develop practical, responsible approaches to AI collaboration. Learn more at_ _Anthropic Academy\_\_._

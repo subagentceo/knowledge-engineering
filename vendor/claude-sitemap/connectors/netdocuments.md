@@ -1,3 +1,5 @@
+# NetDocuments
+
 Search and retrieve documents from your NetDocuments repository directly from Claude. Ask questions, generate playbooks, and draft new documents based on your precedents — with full respect for your organization's permissions and governance policies.
 
 You can use NetDocuments to:

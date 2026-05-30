@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -44,22 +45,28 @@ import {
   RESOURCE_MIME_TYPE,
 } from "@modelcontextprotocol/ext-apps/server";
 
-registerAppResource(server, "My Widget", "ui://my-app/widget.html", {}, async () => ({
-  contents: [
-    {
-      uri: "ui://my-app/widget.html",
-      mimeType: RESOURCE_MIME_TYPE,
-      text: widgetHtml, // the bundled HTML string of your widget; see the SDK Quickstart
-      _meta: {
-        ui: {
-          prefersBorder: false,
-          // lets applyHostFonts load Anthropic Sans; see "Allow the host font origin in your CSP"
-          csp: { resourceDomains: ["https://assets.claude.ai"] },
+registerAppResource(
+  server,
+  "My Widget",
+  "ui://my-app/widget.html",
+  {},
+  async () => ({
+    contents: [
+      {
+        uri: "ui://my-app/widget.html",
+        mimeType: RESOURCE_MIME_TYPE,
+        text: widgetHtml, // the bundled HTML string of your widget; see the SDK Quickstart
+        _meta: {
+          ui: {
+            prefersBorder: false,
+            // lets applyHostFonts load Anthropic Sans; see "Allow the host font origin in your CSP"
+            csp: { resourceDomains: ["https://assets.claude.ai"] },
+          },
         },
       },
-    },
-  ],
-}));
+    ],
+  }),
+);
 ```
 
 ## Apply the host's style variables
@@ -80,11 +87,11 @@ The [`App`](https://modelcontextprotocol.github.io/ext-apps/api/classes/app.App.
 
 The SDK provides three helpers that do the DOM work for you, plus React hooks that wrap them:
 
-* [`applyDocumentTheme(theme)`](https://modelcontextprotocol.github.io/ext-apps/api/functions/app.applyDocumentTheme.html) sets `<html data-theme>` and the root `color-scheme`, so `[data-theme="dark"]` selectors and `light-dark()` values resolve correctly.
-* [`applyHostStyleVariables(variables)`](https://modelcontextprotocol.github.io/ext-apps/api/functions/app.applyHostStyleVariables.html) writes every entry in `styles.variables` onto `:root` as a CSS custom property.
-* [`applyHostFonts(fontCss)`](https://modelcontextprotocol.github.io/ext-apps/api/functions/app.applyHostFonts.html) injects the host's `@font-face` rules once.
-* [`useApp(options)`](https://modelcontextprotocol.github.io/ext-apps/api/functions/_modelcontextprotocol_ext-apps_react.useApp.html) creates and connects the `App` instance for you in React.
-* [`useHostStyles(app, hostContext)`](https://modelcontextprotocol.github.io/ext-apps/api/functions/_modelcontextprotocol_ext-apps_react.useHostStyles.html) applies all of the above and re-applies on `hostcontextchanged`.
+- [`applyDocumentTheme(theme)`](https://modelcontextprotocol.github.io/ext-apps/api/functions/app.applyDocumentTheme.html) sets `<html data-theme>` and the root `color-scheme`, so `[data-theme="dark"]` selectors and `light-dark()` values resolve correctly.
+- [`applyHostStyleVariables(variables)`](https://modelcontextprotocol.github.io/ext-apps/api/functions/app.applyHostStyleVariables.html) writes every entry in `styles.variables` onto `:root` as a CSS custom property.
+- [`applyHostFonts(fontCss)`](https://modelcontextprotocol.github.io/ext-apps/api/functions/app.applyHostFonts.html) injects the host's `@font-face` rules once.
+- [`useApp(options)`](https://modelcontextprotocol.github.io/ext-apps/api/functions/_modelcontextprotocol_ext-apps_react.useApp.html) creates and connects the `App` instance for you in React.
+- [`useHostStyles(app, hostContext)`](https://modelcontextprotocol.github.io/ext-apps/api/functions/_modelcontextprotocol_ext-apps_react.useHostStyles.html) applies all of the above and re-applies on `hostcontextchanged`.
 
 Keep the `<meta name="color-scheme">` tag from the previous section even though `applyDocumentTheme` also sets `color-scheme` at runtime. The tag covers the first paint before your script runs and prevents an opaque-backdrop flash.
 
@@ -98,35 +105,37 @@ Keep the `<meta name="color-scheme">` tag from the previous section even though 
     type McpUiHostContext,
   } from "@modelcontextprotocol/ext-apps";
 
-  function applyHostContext(ctx: Partial<McpUiHostContext>) {
-    if (ctx.theme) applyDocumentTheme(ctx.theme);
-    if (ctx.styles?.variables) applyHostStyleVariables(ctx.styles.variables);
-    if (ctx.styles?.css?.fonts) applyHostFonts(ctx.styles.css.fonts);
-  }
+function applyHostContext(ctx: Partial<McpUiHostContext>) {
+if (ctx.theme) applyDocumentTheme(ctx.theme);
+if (ctx.styles?.variables) applyHostStyleVariables(ctx.styles.variables);
+if (ctx.styles?.css?.fonts) applyHostFonts(ctx.styles.css.fonts);
+}
 
-  const app = new App({ name: "my-app", version: "1.0.0" });
+const app = new App({ name: "my-app", version: "1.0.0" });
 
-  // Updates carry only the fields that changed.
-  app.addEventListener("hostcontextchanged", (changed) => applyHostContext(changed));
+// Updates carry only the fields that changed.
+app.addEventListener("hostcontextchanged", (changed) => applyHostContext(changed));
 
-  await app.connect();
-  const initial = app.getHostContext();
-  if (initial) applyHostContext(initial);
-  ```
+await app.connect();
+const initial = app.getHostContext();
+if (initial) applyHostContext(initial);
 
-  ```tsx React theme={null}
-  import { useApp, useHostStyles } from "@modelcontextprotocol/ext-apps/react";
+````
 
-  function Widget() {
-    const { app } = useApp({
-      appInfo: { name: "my-app", version: "1.0.0" },
-      capabilities: {},
-    });
-    // Applies theme + CSS variables + fonts, and re-applies on host-context-changed.
-    useHostStyles(app, app?.getHostContext());
-    return <div className="card">…</div>;
-  }
-  ```
+```tsx React theme={null}
+import { useApp, useHostStyles } from "@modelcontextprotocol/ext-apps/react";
+
+function Widget() {
+  const { app } = useApp({
+    appInfo: { name: "my-app", version: "1.0.0" },
+    capabilities: {},
+  });
+  // Applies theme + CSS variables + fonts, and re-applies on host-context-changed.
+  useHostStyles(app, app?.getHostContext());
+  return <div className="card">…</div>;
+}
+````
+
 </CodeGroup>
 
 ### Reference the variables in your CSS
@@ -154,5 +163,5 @@ For `applyHostFonts` to load the `@font-face` files, your resource's [`_meta.ui.
 
 ## Related topics
 
-* [Design guidelines: Style variables](/connectors/building/mcp-apps/design-guidelines#style-variables) and [Visual design](/connectors/building/mcp-apps/design-guidelines#visual-design) for the full variable palette and usage guidance.
-* [SDK API reference](https://modelcontextprotocol.github.io/ext-apps/api/index.html) for `App`, `McpUiHostContext`, and `McpUiResourceMeta`.
+- [Design guidelines: Style variables](/connectors/building/mcp-apps/design-guidelines#style-variables) and [Visual design](/connectors/building/mcp-apps/design-guidelines#visual-design) for the full variable palette and usage guidance.
+- [SDK API reference](https://modelcontextprotocol.github.io/ext-apps/api/index.html) for `App`, `McpUiHostContext`, and `McpUiResourceMeta`.

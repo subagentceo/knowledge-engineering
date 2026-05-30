@@ -1,3 +1,5 @@
+# How to integrate APIs seamlessly
+
 API integration failures cost hours you can't afford. Authentication tokens expire during critical workflows, triggering 401 errors that cascade through your services. Rate limits silently throttle requests, causing timeout failures downstream. Schema changes in third-party APIs break production integrations without warning.
 
 Most teams debug the same way: code up the implementation, ship to production, then retrofit error handling after failures emerge. By the time you're parsing 429 responses and handling token refresh loops, you're already firefighting instead of building.
@@ -28,17 +30,17 @@ You can integrate AI coding assistants like Claude into your integration workflo
 
 You can work with Claude in two different ways:
 
-[**Claude.ai**](https://claude.ai) provides a free web interface where you can paste API specifications, explore authentication flows, and receive integration guidance with specific failure scenarios to prevent. Accessible from any browser, desktop, or mobile device.
+**Claude.ai** provides a free web interface where you can paste API specifications, explore authentication flows, and receive integration guidance with specific failure scenarios to prevent. Accessible from any browser, desktop, or mobile device.
 
-[**Claude Code**](https://claude.com/product/claude-code) integrates directly into your development environment as an [agentic](https://claude.com/blog/introduction-to-agentic-coding) terminal tool. It autonomously analyzes entire codebases, generates production-ready clients with comprehensive error handling, and implements authentication flows that match your existing patterns.
+**Claude Code** integrates directly into your development environment as an agentic terminal tool. It autonomously analyzes entire codebases, generates production-ready clients with comprehensive error handling, and implements authentication flows that match your existing patterns.
 
 ## Start with Claude.ai
 
 Before writing integration code or setting up testing environments, you can validate your understanding of an API's requirements and potential pitfalls. This upfront analysis helps you identify authentication flows, error scenarios, and rate limiting strategies upfront, reducing the need for post-implementation debugging. Some common integration questions you might ask Claude:
 
--   "Here's a Stripe webhook signature error. What validation steps am I missing?"
--   "Why might OAuth tokens expire during multi-step checkout flows?"
--   "Compare webhook vs polling for real-time inventory updates"
+- "Here's a Stripe webhook signature error. What validation steps am I missing?"
+- "Why might OAuth tokens expire during multi-step checkout flows?"
+- "Compare webhook vs polling for real-time inventory updates"
 
 This immediate feedback supports making informed integration decisions during development rather than discovering issues through production incidents.
 
@@ -58,7 +60,7 @@ Claude identifies patterns in specifications, highlighting specific issues: rate
 
 ## Scale up with Claude Code for complex integrations
 
-When integrations span multiple services or require comprehensive error handling across your codebase, [Claude Code](https://claude.com/product/claude-code) automatically analyzes your entire codebase, implements authentication flows, and helps users ship production-ready clients.
+When integrations span multiple services or require comprehensive error handling across your codebase, Claude Code automatically analyzes your entire codebase, implements authentication flows, and helps users ship production-ready clients.
 
 Install:
 
@@ -82,9 +84,9 @@ Claude Code analyzes API specifications, creates typed clients matching your pro
 
 Some integrations require complex authentication flows. Claude Code handles OAuth2, JWT validation, and API key rotation without hardcoded credentials:
 
--   "Build OAuth2 flow for Google Calendar with automatic token refresh"
--   "Create rotating API key system for Twilio with monitoring"
--   "Implement JWT validation for microservices"
+- "Build OAuth2 flow for Google Calendar with automatic token refresh"
+- "Create rotating API key system for Twilio with monitoring"
+- "Implement JWT validation for microservices"
 
 Claude Code can suggest implementations using environment variables and integration patterns that match your existing secret management approach.
 
@@ -92,9 +94,9 @@ Claude Code can suggest implementations using environment variables and integrat
 
 Once implemented, ask Claude to generate and run tests verifying that the integrations handle edge cases properly:
 
--   "Create tests that reproduce this rate limit scenario"
--   "Generate contract tests for schema validation”
--   "Run tests for authentication refresh during long operations"
+- "Create tests that reproduce this rate limit scenario"
+- "Generate contract tests for schema validation”
+- "Run tests for authentication refresh during long operations"
 
 ### Ship with automated workflows
 
@@ -108,8 +110,8 @@ Generates descriptive commit messages, crafts clear PR descriptions linking chan
 
 ## Choose your integration approach
 
-[**Claude.ai**](https://claude.ai): to evaluate new APIs, understand authentication requirements, or plan error handling strategies before implementation. The browser interface supports sharing integration approaches with your team or conducting research about vendor-specific API behaviors via web search functionality.
+**Claude.ai**: to evaluate new APIs, understand authentication requirements, or plan error handling strategies before implementation. The browser interface supports sharing integration approaches with your team or conducting research about vendor-specific API behaviors via web search functionality.
 
-[**Claude Code**](https://claude.com/product/claude-code): Use Claude Code when you need to generate boilerplate client code, implement complex authentication flows across multiple files, or create comprehensive test suites. The agentic terminal integration is essential for implementations that touch configuration files, environment variables, and CI/CD pipelines.
+**Claude Code**: Use Claude Code when you need to generate boilerplate client code, implement complex authentication flows across multiple files, or create comprehensive test suites. The agentic terminal integration is essential for implementations that touch configuration files, environment variables, and CI/CD pipelines.
 
-Describe the integration you're trying to build, and [Claude Code](https://claude.com/product/claude-code) generates clients with proper error handling and production-ready authentication flows.
+Describe the integration you're trying to build, and Claude Code generates clients with proper error handling and production-ready authentication flows.

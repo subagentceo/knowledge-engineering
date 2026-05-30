@@ -1,0 +1,90 @@
+Security and compliance platforms have built integrations on top of the Claude Compliance API, so your team can monitor Claude activity within the tools you already use. Integrations are available from security and compliance providers across the categories enterprises rely on, spanning DLP, SASE, data security, SIEM and security operations, identity, eDiscovery, AI security posture management, and AI observability and telemetry infrastructure.
+
+This article lists available Compliance API integrations with a link to their setup documentation. If you're a security, compliance, or IT platform that has built a Compliance API integration, **[apply here to join the program](https://forms.gle/1rkBcdwwR5bLLD82A)**.
+
+The Claude Compliance API is available to Claude Enterprise plans and Claude Platform customers.
+
+## What data you can access
+
+The Compliance API provides access to different data depending on the product:
+
+- **Claude Enterprise:**
+  - **Conversation content** including chats, uploaded files, and projects
+
+  - **Activity feed events** covering user logins, admin actions, and configuration changes
+
+- **Claude Platform:**
+  - **Activity feed events**, including admin and system events (such as member and workspace changes, API key creation, and account settings) and resource events (such as file creation, downloads, and skill changes)
+
+  - **Note:** Conversation content (prompts and model responses) is not available through the Compliance API for the Claude Platform.
+
+## How to set up an integration
+
+For Claude Enterprise customers, using an integration is straightforward:
+
+1. Enable the Compliance API in your organization settings. Learn how to **[access the Compliance API](https://support.claude.com/en/articles/13015708-access-the-compliance-api)**.
+
+2. Connect your instance to a supported security platform. Setup guides are available in the **[Available integrations section](#h_7ff9e34f8e)**.
+
+Claude activity will flow into the same dashboards and workflows your team uses for every other application.
+
+For Claude Platform, contact your Anthropic sales team. Review **[Compliance API documentation](https://platform.claude.com/docs/en/manage-claude/compliance-api)** on Claude API Docs.
+
+## Available integrations
+
+- **Cloudflare:** Cloudflare’s CASB integration provides security teams agentless visibility into posture, data, and compliance risks across their organization’s use of Claude. To set up this integration, see **[Cloudflare's setup guide](https://developers.cloudflare.com/changelog/post/2026-05-19-casb-claude-compliance-api/)**.
+
+- **Cribl:** The Claude Compliance API lets you ingest audit activity from Claude Enterprise and Claude Platform into Cribl Stream over HTTPS as a first‑class telemetry stream. It pulls user activities including authentication, chat interactions, file uploads, and administrative actions so you can normalize, enrich, mask, and route that data alongside the rest of your observability and security pipelines. To set up this integration, see **[Cribl's setup guide](https://docs.cribl.io/stream/sources-anthropic-compliance/)**.
+
+- **CrowdStrike:** CrowdStrike built an integration with Claude’s Compliance API that brings Claude activity into the Falcon platform, delivering real-time visibility, detection, and automated response through Falcon Next-Gen SIEM and CrowdStrike’s Agentic SOAR. It will further extend protection with Falcon AIDR and Falcon Shield to continuously detect, govern, and secure AI usage at scale. To set up this integration, see **[CrowdStrike's setup guide](https://marketplace.crowdstrike.com/listings/anthropic-data-connector/)**.
+
+- **Cyera:** Cyera integrates with Claude Enterprise through Claude’s Compliance API, giving security teams comprehensive visibility into conversations, files, and user activity across the platform. Every interaction is analyzed through OmniDLP and enriched with Cyera’s 95%-precision data classification and risk scoring, helping teams identify sensitive data exposure, detect risky or unsanctioned behavior, and maintain audit-ready oversight from day one. Deployment takes just minutes. **[Learn more about the integration](http://www.cyera.com/blog/cyera-and-anthropic-integrate-to-bring-real-time-ai-security-to-claude-enterprise)** and contact your Cyera Sales Rep to get started.
+
+- **Datadog:** Datadog’s Claude Compliance ingests audit logs from the Claude Platform into Datadog, giving security teams visibility into admin activity, API key lifecycle events, and authentication events across their Claude organization for SIEM and compliance use cases. To set up this integration, see **[Datadog's setup guide](https://docs.datadoghq.com/integrations/anthropic-compliance-logs/).**
+
+- **Forcepoint:** Forcepoint's solution to securely enable AI now extends to Claude Enterprise via the Claude Compliance API, ingesting every conversation, file upload, generated content and user activity into a unified AI governance dashboard. Security teams can apply existing DLP and DSPM policies across all Claude interactions, detecting sensitive data exposures, enforcing compliance, and maintaining a complete audit trail, with historical activity backfilled the moment the connector is deployed. To set up this integration, see **[Forcepoint's setup guide](https://www.forcepoint.com/use-case/securely-enable-ai)**.
+
+- **Fortinet:** The Fortinet data security posture management integration with Claude's Compliance API enables organizations to monitor and analyze user interactions within Claude Enterprise, including prompts and uploaded files, to detect potential exposure of sensitive data such as PII, PHI, CHD, and authentication data. The integration provides visibility, alerting, and auditability for AI usage, helping security teams strengthen governance, compliance, and data protection across enterprise AI workflows. To set up this integration, see **[Fortinet's setup guide](https://www.fortinet.com/content/dam/fortinet/assets/alliances/fortidata-claude-setup-guide.pdf)**.
+
+- **Geordie AI:** Geordie, the agentic security and governance platform, extends its existing coverage of the Claude suite, including Claude Code and Claude Cowork, across the full Claude Enterprise deployment surface through the Claude Compliance API. Together, this gives security and compliance teams a single, coherent view of every Claude use case and activity across the enterprise, with the visibility and controls to govern it. To set up this integration, see **[Geordie AI's setup guide](http://www.geordie.ai/resources/geordie-extends-agentic-ai-security-and-governance-coverage-through-claude-compliance-api)**.
+
+- **IBM Guardium (coming soon):** IBM Guardium helps organizations monitor data access and usage by agentic AI systems and help ensure autonomous activities remain within approved security boundaries. With ready-to-use templates, customizable policies, continuous audit workflows, and compliance reporting aligned to frameworks such as EU AI Act, AIDA, PCI, SOX, HIPAA, GDPR, and CPRA, Guardium helps security and compliance teams confidently demonstrate oversight of AI-driven activity. Learn more about **[IBM Guardium](https://www.ibm.com/products/guardium)**.
+
+- **Microsoft Purview:** Purview's integration with Claude’s Compliance API extends Purview's enterprise security and compliance coverage by surfacing insights from Claude activity feed and chat conversations, enabling scenarios within Purview Data Security Posture Management and Audit. It provides centralized visibility of activities across Claude Enterprise and Claude Platform, allowing organizations to understand how data is accessed and used across their Claude systems. Surfacing this signal within Purview helps close a critical governance gap as enterprises rapidly adopt AI across multiple platforms. The same comprehensive visibility Purview provides for Copilot and the broader Microsoft AI ecosystem, is now available for Claude Enterprise users. To set up this integration, see **[Microsoft Purview's setup guide](https://learn.microsoft.com/en-us/purview/ai-microsoft-purview)**.
+
+- **Mimecast:** Mimecast's Governance, Compliance & Insights (GCI) platform now integrates with Claude’s Compliance API to bring Claude Enterprise conversations into the same unified governance and compliance experience organizations already use for email and collaboration data, with no new interfaces or workflows required. To set up this integration, **[see Mimecast's setup guide](https://www.mimecast.com/use-cases/ai-governance/)**.
+
+- **Netskope:** Netskope's integration with Claude’s Compliance API lets organizations connect Claude Enterprise directly into the enhanced AI security features of the Netskope One platform, delivering full asset, identity, and activity visibility, robust policy enforcement, advanced data security, and comprehensive security posture management, all within the workflows security and compliance teams already rely on. **Note:** Available in private preview. To set up this integration, see **[Netskope's setup guide](https://docs.netskope.com/en/onboard-claude-for-ai-discovery/)**.
+
+- **Okta:** Okta's integration with the Claude Compliance API brings Claude usage within Okta Identity Security Posture Management, allowing security and compliance teams to contextualize Claude user activity with signals from other identity platforms, SaaS tools, and cloud providers and surface identity blind spots from one unified view. This enables organizations to continuously assess identity risk posture, detect misconfigurations and risks—such as overprivileged users, dormant accounts, and unused admin keys—remediate issues by severity, and securely deploy AI at scale. Learn more about **[Okta's integration with the Claude Compliance API](http://www.okta.com/newsroom/articles/okta-identity-security-posture-management-integrates-with-anthropics-new-compliance-api)**.
+  - **Note on availability:** This offering will soon be available in beta to select customers using Okta Identity Security Posture Management alongside either Anthropic’s Claude Enterprise or Claude Platform.
+
+- **Palo Alto Networks:** The Claude Compliance API integration enables organizations to understand what data is being shared with Claude, detect sensitive content and policy violations, identify threats and anomalous behavior, and guide users toward safer AI usage. To set up this integration, see **[Palo Alto Networks' setup guide](https://www.paloaltonetworks.com/blog/cloud-security/claude-security-integration-ai-governance)**.
+
+- **Proofpoint:** Proofpoint’s integration with Claude’s Compliance API brings security and governance together across AI interactions. Sensitive data in prompts, responses, and files is protected with DLP, AI-aware classifiers, and Insider Threat signals, while activity is captured and retained for eDiscovery, supervision, and compliance purposes. The result is comprehensive visibility, control, and retention for organizations leveraging Claude, consistent with the controls protecting the rest of their tech stack. To set up this integration, see **[Proofpoint's setup guide](https://support.nuclei.ai/hc/en-us/articles/39717913412759-Compliance-Archiving-for-Anthropic-Claude-Enterprise)**.
+
+- **RelativityOne:** RelativityOne enables legal, compliance, and security teams to collect Claude Enterprise data directly from the source via the Claude Compliance API. This includes conversation prompt and response data—such as chats, uploaded files, and projects. Collected data is automatically mapped, preserved, and processed into a reviewable format, including normalization into Relativity Short Message Format (RSMF). This ensures teams can quickly analyze conversational evidence with full context while maintaining the metadata and transparency required for defensibility. To set up this integration, see **[RelativityOne's setup guide](https://help.relativity.com/RelativityOne/Content/Collect/Data_sources/Claude.htm)**.
+
+- **ReliaQuest:** The ReliaQuest GreyMatter platform now integrates with Claude’s Compliance API, bringing Anthropic’s Claude Enterprise activity data into GreyMatter, giving security and IT teams visibility into activity logs to detect threats or unwanted behavior. To set up this integration, see **[ReliaQuest’s setup guide](https://greymatter.myreliaquest.com/resources/articles/anthropic-claude-compliance)**.
+
+- **Rubrik:** Rubrik Agent Cloud integrates with Claude’s Compliance API to help organizations control how Claude is used at work. Teams can see who is using Claude, review activity when needed, flag risky behavior, and use Rubrik SAGE to create natural-language policies that route alerts to their security tools. To set up this integration, see **[Rubrik's setup guide](https://www.rubrik.com/products/rubrik-agent-cloud)**.
+
+- **SailPoint:** The SailPoint Claude Compliance API integration streamlines identity and access management by aggregating Organizational users, groups, and roles. To set up this integration, see **[SailPoint's setup guide](https://documentation.sailpoint.com/connectors/saas/claude_enterprise/help/)**.
+
+- **Smarsh:** Smarsh Capture helps organizations monitor and retain Claude Enterprise interactions, so you can adopt and govern AI with confidence and support compliance workflows. By connecting directly to the Claude Compliance API, you gain structured access to Claude conversations, consistent complete records, and support for audit and regulatory response. This enables company-wide Claude Enterprise adoption and governance while staying ahead of evolving regulations. To set up this integration, **[see Smarsh's setup guide](https://central.smarsh.com/s/article/From-which-networks-does-cloudcapture-gather-data-from)**[.](https://central.smarsh.com/s/article/From-which-networks-does-cloudcapture-gather-data-from)
+
+- **Snyk:** This new integration gives security and compliance teams a complete inventory of their Claude Enterprise environment including models, approved MCP servers, and tool-level permissions, in the platform they already use to govern the rest of the stack. To set up this integration, see **[Snyk's setup guide](https://docs.snyk.io/integrations/cloud-ai-platforms/anthropic-claude-enterprise)**.
+
+- **Sumo Logic:** Sumo Logic’s integration with the Claude Compliance API brings Claude Enterprise activity logs and Claude platform activity logs into the Sumo Logic Intelligence Operations Platform, so teams can transform AI governance into a transparent, enterprise-ready operation that reduces risk through real-time monitoring and automated detection, investigation, and response capabilities within Sumo Logic. To set up this integration, **[see Sumo Logic's setup guide](https://www.sumologic.com/help/docs/integrations/saas-cloud/claude-compliance&sa=D&source=docs&ust=1779294282232109&usg=AOvVaw22E9YHlDqVltPZ0JbcJDYq)**.
+
+- **Tenable:** The integration with Claude’s Compliance API will leverage visibility into user interactions to detect malicious and suspicious activity. This capability allows organizations to safely adopt Claude Enterprise across the organization without losing visibility into how users engage with it. To set up this integration, see **[Tenable's setup guide](https://docs.tenable.com/early-access/ai-exposure/Content/settings/integrations/claude.htm)**.
+
+- **Theta Lake:** As enterprises deploy Claude across their workforce to unlock productivity and ROI at scale, AI interactions between AI and humans and AI agents are causing entirely new user behaviors and generating a new class of communications. Security, compliance, and legal teams need complete visibility into how Claude is being used. This integration empowers organizations to use Theta Lake’s Investigation, Analytics, and Regulatory Compliance capabilities, each of which received the tops scores in the Gartner® Critical Capabilities. To set up this integration, **[see Theta Lake's setup guide](https://docs.thetalake.com/docs/en-US/integrations/anthropic.html?Highlight=anthropic%20)**.
+
+- **Trellix:** The Trellix Claude Compliance API integration checks all chat content, artifacts, and responses against customer-defined privacy policies using their Data Security Engine and creates detection and audit events in Trellix Helix. This includes customer-specific patterns and policies that are defined for their endpoint, server, and collaboration software and applies it to Claude as well. To set up this integration, see **[Trellix's setup guide](https://www.trellix.com/platform/data-security/)**.
+
+- **Varonis:** The Compliance API integration deepens Varonis' support for Claude, enabling security and governance teams to monitor usage, investigate misuse across full sessions, and assess AI-related risk with data context. To set up this integration, see **[Varonis' setup guide](https://info.varonis.com/hubfs/documentation/varonis-atlas-anthropic-compliance-api-documentation.pdf)**.
+
+- **Wiz:** The Wiz connector for Claude’s Compliance API allows organizations to discover AI projects, models, and users while identifying security risks like elevated roles or sensitive data within knowledge bases. It maps identity relationships and tracks model usage across the enterprise by integrating via the Claude Compliance API. Learn more about **[Wiz's integration with the Claude Compliance API](https://www.wiz.io/blog/claude-wiz-integration)**.
+
+- **Zscaler:** By integrating with the Claude Compliance API, Zscaler is now able to provide deep visibility and granular control over every Claude prompt created by an enterprise user. Zscaler Data Security and DLP workflows help administrators strengthen their data protection programs through detailed analysis of organizational data and activity logs extracted from Claude. This solution enables faster enforcement actions to prevent data loss across multiple exfiltration channels. To set up this integration, see **[Zscaler's setup guide](https://www.zscaler.com/products-and-solutions/data-security)**.

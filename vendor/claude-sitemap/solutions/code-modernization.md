@@ -1,2 +1,3 @@
-Claude Code helps leading enterprises modernize legacy codebases, assisting with scalable migration while maintaining business logic integrity.[  
-](https://claude.ai/redirect/website.v1.b556e516-6b56-432f-b96b-370e6184e6ee)
+# Accelerate code modernization with Claude Code
+
+Claude Code helps leading enterprises modernize legacy codebases, assisting with scalable migration while maintaining business logic integrity.

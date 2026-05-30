@@ -1,3 +1,5 @@
+# Intuit QuickBooks
+
 Turn your business's raw financial data into clear financial insights. Analyze profitability, cash flow, and compare your performance against similar businesses in your industry and region. Generate accounting-compliant profit & loss and cash flow statements in minutes. Upload CSVs, PDFs, images, or paste transactions directly into Claude — Intuit QuickBooks will sync and analyze your personalized results as your business evolves.
 
 You can use Intuit QuickBooks to:

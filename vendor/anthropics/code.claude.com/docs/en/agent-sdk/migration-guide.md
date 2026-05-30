@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -47,7 +48,11 @@ Change all imports from `@anthropic-ai/claude-code` to `@anthropic-ai/claude-age
 import { query, tool, createSdkMcpServer } from "@anthropic-ai/claude-code";
 
 // After
-import { query, tool, createSdkMcpServer } from "@anthropic-ai/claude-agent-sdk";
+import {
+  query,
+  tool,
+  createSdkMcpServer,
+} from "@anthropic-ai/claude-agent-sdk";
 ```
 
 **4. Update package.json dependencies:**
@@ -159,48 +164,50 @@ options = ClaudeAgentOptions(model="claude-opus-4-7", permission_mode="acceptEdi
   // BEFORE (v0.0.x) - Used Claude Code's system prompt by default
   const result = query({ prompt: "Hello" });
 
-  // AFTER (v0.1.0) - Uses minimal system prompt by default
-  // To get the old behavior, explicitly request Claude Code's preset:
-  const result = query({
-    prompt: "Hello",
-    options: {
-      systemPrompt: { type: "preset", preset: "claude_code" }
-    }
-  });
+// AFTER (v0.1.0) - Uses minimal system prompt by default
+// To get the old behavior, explicitly request Claude Code's preset:
+const result = query({
+prompt: "Hello",
+options: {
+systemPrompt: { type: "preset", preset: "claude_code" }
+}
+});
 
-  // Or use a custom system prompt:
-  const result = query({
-    prompt: "Hello",
-    options: {
-      systemPrompt: "You are a helpful coding assistant"
-    }
-  });
-  ```
+// Or use a custom system prompt:
+const result = query({
+prompt: "Hello",
+options: {
+systemPrompt: "You are a helpful coding assistant"
+}
+});
 
-  ```python Python theme={null}
-  # BEFORE (v0.0.x) - Used Claude Code's system prompt by default
-  async for message in query(prompt="Hello"):
-      print(message)
+````
 
-  # AFTER (v0.1.0) - Uses minimal system prompt by default
-  # To get the old behavior, explicitly request Claude Code's preset:
-  from claude_agent_sdk import query, ClaudeAgentOptions
+```python Python theme={null}
+# BEFORE (v0.0.x) - Used Claude Code's system prompt by default
+async for message in query(prompt="Hello"):
+    print(message)
 
-  async for message in query(
-      prompt="Hello",
-      options=ClaudeAgentOptions(
-          system_prompt={"type": "preset", "preset": "claude_code"}  # Use the preset
-      ),
-  ):
-      print(message)
+# AFTER (v0.1.0) - Uses minimal system prompt by default
+# To get the old behavior, explicitly request Claude Code's preset:
+from claude_agent_sdk import query, ClaudeAgentOptions
 
-  # Or use a custom system prompt:
-  async for message in query(
-      prompt="Hello",
-      options=ClaudeAgentOptions(system_prompt="You are a helpful coding assistant"),
-  ):
-      print(message)
-  ```
+async for message in query(
+    prompt="Hello",
+    options=ClaudeAgentOptions(
+        system_prompt={"type": "preset", "preset": "claude_code"}  # Use the preset
+    ),
+):
+    print(message)
+
+# Or use a custom system prompt:
+async for message in query(
+    prompt="Hello",
+    options=ClaudeAgentOptions(system_prompt="You are a helpful coding assistant"),
+):
+    print(message)
+````
+
 </CodeGroup>
 
 **Why this changed:** Provides better control and isolation for SDK applications. You can now build agents with custom behavior without inheriting Claude Code's CLI-focused instructions.
@@ -222,33 +229,35 @@ To run isolated from filesystem settings, pass an empty array:
     }
   });
 
-  // Or load only specific sources:
-  const result = query({
-    prompt: "Hello",
-    options: {
-      settingSources: ["project"] // Only project settings
-    }
-  });
-  ```
+// Or load only specific sources:
+const result = query({
+prompt: "Hello",
+options: {
+settingSources: ["project"] // Only project settings
+}
+});
 
-  ```python Python theme={null}
-  from claude_agent_sdk import query, ClaudeAgentOptions
+````
 
-  async for message in query(
-      prompt="Hello",
-      options=ClaudeAgentOptions(setting_sources=[]),  # No filesystem settings loaded
-  ):
-      print(message)
+```python Python theme={null}
+from claude_agent_sdk import query, ClaudeAgentOptions
 
-  # Or load only specific sources:
-  async for message in query(
-      prompt="Hello",
-      options=ClaudeAgentOptions(
-          setting_sources=["project"]  # Only project settings
-      ),
-  ):
-      print(message)
-  ```
+async for message in query(
+    prompt="Hello",
+    options=ClaudeAgentOptions(setting_sources=[]),  # No filesystem settings loaded
+):
+    print(message)
+
+# Or load only specific sources:
+async for message in query(
+    prompt="Hello",
+    options=ClaudeAgentOptions(
+        setting_sources=["project"]  # Only project settings
+    ),
+):
+    print(message)
+````
+
 </CodeGroup>
 
 Isolation is especially important for CI/CD pipelines, deployed applications, test environments, and multi-tenant systems where local customizations should not leak in.
@@ -261,9 +270,9 @@ Isolation is especially important for CI/CD pipelines, deployed applications, te
 
 The Claude Code SDK was originally designed for coding tasks, but it has evolved into a powerful framework for building all types of AI agents. The new name "Claude Agent SDK" better reflects its capabilities:
 
-* Building business agents (legal assistants, finance advisors, customer support)
-* Creating specialized coding agents (SRE bots, security reviewers, code review agents)
-* Developing custom agents for any domain with tool use, MCP integration, and more
+- Building business agents (legal assistants, finance advisors, customer support)
+- Creating specialized coding agents (SRE bots, security reviewers, code review agents)
+- Developing custom agents for any domain with tool use, MCP integration, and more
 
 ## Getting Help
 
@@ -283,7 +292,7 @@ If you encounter any issues during migration:
 
 ## Next Steps
 
-* Explore the [Agent SDK Overview](/en/agent-sdk/overview) to learn about available features
-* Check out the [TypeScript SDK Reference](/en/agent-sdk/typescript) for detailed API documentation
-* Review the [Python SDK Reference](/en/agent-sdk/python) for Python-specific documentation
-* Learn about [Custom Tools](/en/agent-sdk/custom-tools) and [MCP Integration](/en/agent-sdk/mcp)
+- Explore the [Agent SDK Overview](/en/agent-sdk/overview) to learn about available features
+- Check out the [TypeScript SDK Reference](/en/agent-sdk/typescript) for detailed API documentation
+- Review the [Python SDK Reference](/en/agent-sdk/python) for Python-specific documentation
+- Learn about [Custom Tools](/en/agent-sdk/custom-tools) and [MCP Integration](/en/agent-sdk/mcp)

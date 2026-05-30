@@ -1,3 +1,5 @@
+# Product Tracking Skills
+
 A complete AI-powered workflow for product analytics instrumentation. This plugin adds seven slash-command skills and a background watchdog agent that take you from zero to fully instrumented — scanning your codebase, building a tracking plan, and generating production-ready SDK wrapper code for 25+ analytics platforms including Segment, Amplitude, Mixpanel, PostHog, and more.
 
 The skills follow a structured lifecycle: start with `/product-tracking-business-case` to generate a stakeholder-ready justification, then `/product-tracking-model-product` to scan your codebase and map your product's entities and value flows. Run `/product-tracking-audit-current-tracking` to inventory what's already instrumented, `/product-tracking-design-tracking-plan` to produce an opinionated tracking plan with explicit deltas, and `/product-tracking-generate-implementation-guide` for SDK-specific patterns. Finally, `/product-tracking-implement-tracking` generates typed wrapper functions, identity management, and integration code ready for your codebase.

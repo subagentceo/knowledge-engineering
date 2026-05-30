@@ -1,11 +1,13 @@
+# Amazon Q in Connect transforms customer service for agents and customers with Claude
+
 Amazon Connect uses Claude to power their AI-driven customer service assistant, Amazon Q in Connect, that serves two critical groups: customer service agents who need real-time support to resolve complex issues, and end-customers seeking immediate self-service across voice and digital channels.
 
 With Claude, Amazon Q in Connect:
 
--   Empowers agents with real-time AI assistance to handle complex cases
--   Provides end-customers with instant, personalized self-service options
--   Supports customer service in 61 languages without additional training
--   Helps customers like Orbit achieve 10-15% time savings on every contact
+- Empowers agents with real-time AI assistance to handle complex cases
+- Provides end-customers with instant, personalized self-service options
+- Supports customer service in 61 languages without additional training
+- Helps customers like Orbit achieve 10-15% time savings on every contact
 
 ## Meeting the needs of agents and customers
 
@@ -19,23 +21,23 @@ Amazon Q in Connect leverages Claude to enhance customer service:
 
 For Agents:
 
--   Real-time AI assistance for handling complex customer inquiries
--   Automated documentation search and relevant information surfacing
--   Suggested responses based on customer context and history
--   Recommended actions for the agent to take
+- Real-time AI assistance for handling complex customer inquiries
+- Automated documentation search and relevant information surfacing
+- Suggested responses based on customer context and history
+- Recommended actions for the agent to take
 
 For End-Customers:
 
--   Instant, conversational self-service options across multiple channels
--   Natural language understanding to disambiguate complex customer issues
--   Personalized responses and recommendations based on their history and context
--   Seamless handoff to agents when needed
+- Instant, conversational self-service options across multiple channels
+- Natural language understanding to disambiguate complex customer issues
+- Personalized responses and recommendations based on their history and context
+- Seamless handoff to agents when needed
 
 Shared Capabilities:
 
--   Real-time response analysis that automatically identifies customer intent
--   Multi-turn disambiguation that clarifies complex needs through dialogue
--   Customizable prompt templates for unique voice, policies and workflows
+- Real-time response analysis that automatically identifies customer intent
+- Multi-turn disambiguation that clarifies complex needs through dialogue
+- Customizable prompt templates for unique voice, policies and workflows
 
 ## Transforming experiences for agents and customers
 

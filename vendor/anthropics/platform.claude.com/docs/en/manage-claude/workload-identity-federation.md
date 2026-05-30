@@ -24,7 +24,7 @@ You configure three resources in the Claude Console before any workload can fede
 
 A **service account** (`svac_...`) is a named, non-human identity inside your Anthropic organization. It is the principal that a federated token acts as. Service accounts live at the organization level and become active in a workspace when you add them to that workspace's members. At exchange time, Anthropic checks that the federation rule's workspace matches one of the service account's workspace memberships; the minted token then follows that workspace's rate limits and usage attribution, the same as an API key. Unlike a human user, a service account has no email, no password, and no Console login.
 
-The key distinction from an API key: an API key *is* a credential, while a service account *has* credentials minted for it on demand. You can audit which workloads acted as which service account.
+The key distinction from an API key: an API key _is_ a credential, while a service account _has_ credentials minted for it on demand. You can audit which workloads acted as which service account.
 
 ### Federation issuers
 
@@ -47,7 +47,7 @@ A rule defines match conditions, a target, and the authorization scope and token
 
 - **Match:** The conditions an incoming JWT must satisfy. You can match on a `subject_prefix` (for example, `system:serviceaccount:prod:worker`, or with a trailing `*` for a prefix match), an exact `audience`, a map of exact claim values, a [CEL](https://cel.dev/) `condition` expression for complex logic, or any combination. At least one of `subject_prefix`, `claims`, or `condition` must be set, and all configured matchers must pass for the JWT to be accepted.
 - **Target:** The service account the matched JWT maps to.
-- **Authorization:** The OAuth `scope` granted on the minted token. At launch this is always `workspace:developer`, which grants the same access as an API key issued for that workspace (see [OAuth scopes](/docs/en/manage-claude/wif-reference#oauth-scopes)). The rule also sets `token_lifetime_seconds` (60 to 86400, default 3600).
+- **Authorization:** The OAuth `scope` granted on the minted token. The default is `workspace:developer`, which grants the same access as an API key issued for that workspace. Some products lock the scope when you create a rule from their flow; for example, the [MCP tunnels](/docs/en/agents-and-tools/mcp-tunnels/overview) create-tunnel modal creates rules scoped to `org:manage_tunnels`. See [OAuth scopes](/docs/en/manage-claude/wif-reference#oauth-scopes). The rule also sets `token_lifetime_seconds` (60 to 86400, default 3600).
 
 A single issuer can have many rules: one per team, namespace, or permission level. Rules are evaluated by ID: the client specifies which rule to use in the exchange request, and Anthropic verifies the JWT satisfies that rule's match criteria. There is no implicit rule search.
 
@@ -70,12 +70,14 @@ In the Claude Console, go to **Settings → Workload identity**.
     | CA cert PEM | Only if your IdP serves TLS from a private CA. Most managed IdPs use public CAs, so leave this blank. |
 
     The Console includes presets for AWS and Google Cloud that pre-fill the issuer URL pattern and a sensible default rule, plus a generic OIDC option for any other standards-compliant provider (such as GitHub Actions, Kubernetes service-account issuers, Microsoft Entra ID, or Okta).
+
   </Step>
 
   <Step title="Create a service account">
     Go to **Settings → Service accounts → Create service account**. Provide a name (for example, `inference-worker` or `ci-deploy`) and an optional description.
 
     This is the identity your minted tokens act as. Add the service account to each workspace it should act in from that workspace's **Members** page. The federation rule in the next step targets one workspace, and the minted token is scoped to that workspace's rate limits and usage attribution. Note the service account ID (`svac_...`).
+
   </Step>
 
   <Step title="Create a federation rule">
@@ -86,9 +88,10 @@ In the Claude Console, go to **Settings → Workload identity**.
     | Basic info | A name and optional description. Select the issuer you registered in step 1. |
     | Match | Choose **Static** for subject prefix, audience, and exact-claim matching, or **CEL** for an expression. Be as specific as your IdP's claims allow: a rule that matches too broadly grants more access than you intend. |
     | Target | Select the service account you created in step 2. |
-    | Authorization | OAuth scope (`workspace:developer` at launch; see [OAuth scopes](/docs/en/manage-claude/wif-reference#oauth-scopes)) and token lifetime in seconds. |
+    | Authorization | OAuth scope (`workspace:developer` by default, or a product-specific scope such as `org:manage_tunnels`; see [OAuth scopes](/docs/en/manage-claude/wif-reference#oauth-scopes)) and token lifetime in seconds. |
 
     Note the rule's ID (`fdrl_...`). Your workload passes this ID in every token-exchange request.
+
   </Step>
 </Steps>
 
@@ -168,20 +171,22 @@ import { identityTokenFromFile } from "@anthropic-ai/sdk/lib/credentials/identit
 
 const client = new Anthropic({
   credentials: oidcFederationProvider({
-    identityTokenProvider: identityTokenFromFile("/var/run/secrets/anthropic.com/token"),
+    identityTokenProvider: identityTokenFromFile(
+      "/var/run/secrets/anthropic.com/token",
+    ),
     federationRuleId: "fdrl_...",
     organizationId: "00000000-0000-0000-0000-000000000000",
     serviceAccountId: "svac_...",
     workspaceId: "wrkspc_...",
     baseURL: "https://api.anthropic.com",
-    fetch
-  })
+    fetch,
+  }),
 });
 
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello, Claude" }]
+  messages: [{ role: "user", content: "Hello, Claude" }],
 });
 for (const block of message.content) {
   if (block.type === "text") {

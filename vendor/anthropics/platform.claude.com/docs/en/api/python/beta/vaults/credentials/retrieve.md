@@ -1,4 +1,4 @@
-## Retrieve
+## Get Credential
 
 `beta.vaults.credentials.retrieve(strcredential_id, CredentialRetrieveParams**kwargs)  -> BetaManagedAgentsCredential`
 
@@ -15,11 +15,9 @@ Get Credential
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -68,12 +66,17 @@ Get Credential
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaManagedAgentsCredential: …`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `id: str`
 
     Unique identifier for the credential.
@@ -85,17 +88,14 @@ Get Credential
   - `auth: Auth`
 
     Authentication details for a credential.
-
     - `class BetaManagedAgentsMCPOAuthAuthResponse: …`
 
       OAuth credential details for an MCP server.
-
       - `mcp_server_url: str`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: Literal["mcp_oauth"]`
-
         - `"mcp_oauth"`
 
       - `expires_at: Optional[datetime]`
@@ -105,7 +105,6 @@ Get Credential
       - `refresh: Optional[BetaManagedAgentsMCPOAuthRefreshResponse]`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `client_id: str`
 
           OAuth client ID.
@@ -117,29 +116,22 @@ Get Credential
         - `token_endpoint_auth: TokenEndpointAuth`
 
           Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse: …`
 
             Token endpoint requires no client authentication.
-
             - `type: Literal["none"]`
-
               - `"none"`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse: …`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `type: Literal["client_secret_basic"]`
-
               - `"client_secret_basic"`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse: …`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `type: Literal["client_secret_post"]`
-
               - `"client_secret_post"`
 
         - `resource: Optional[str]`
@@ -153,13 +145,11 @@ Get Credential
     - `class BetaManagedAgentsStaticBearerAuthResponse: …`
 
       Static bearer token credential details for an MCP server.
-
       - `mcp_server_url: str`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: Literal["static_bearer"]`
-
         - `"static_bearer"`
 
   - `created_at: datetime`
@@ -171,7 +161,6 @@ Get Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: Literal["vault_credential"]`
-
     - `"vault_credential"`
 
   - `updated_at: datetime`
@@ -200,4 +189,25 @@ beta_managed_agents_credential = client.beta.vaults.credentials.retrieve(
     vault_id="vlt_011CZkZDLs7fYzm1hXNPeRjv",
 )
 print(beta_managed_agents_credential.id)
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
 ```

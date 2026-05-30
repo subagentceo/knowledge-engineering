@@ -1,1 +1,3 @@
+# 10x Genomics Cloud
+
 Launch, monitor, and manage single-cell analysis pipelines on 10x Genomics Cloud platform through conversation. Execute Cell Ranger analysis, upload data, track pipeline progress, retrieve results, and perform quality control checks—all without leaving your workflow

@@ -1,3 +1,5 @@
+# Guidepoint
+
 Embed trusted expert insights directly into your research and decision making workflows in real-time. Powered by Guidepoint's in-house team of former investment analysts, we combine institutional-grade quality with the volume needed for decision-critical work. Claude pulls verbatim excerpts from 100,000+ compliance-reviewed expert interview transcripts — with every source transcript linked inline for verifiable, trusted data.
 
 You can use Guidepoint to:

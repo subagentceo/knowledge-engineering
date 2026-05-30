@@ -1,4 +1,4 @@
-## Create
+## Create a Message Batch
 
 `client.beta.messages.batches.create(BatchCreateParamsparams, RequestOptionsoptions?): BetaMessageBatch`
 
@@ -13,11 +13,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `params: BatchCreateParams`
-
   - `requests: Array<Request>`
 
     Body param: List of requests for prompt completion. Each is an individual request to create a Message.
-
     - `custom_id: string`
 
       Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -29,7 +27,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       Messages API creation parameters for the individual request.
 
       See the [Messages API reference](https://docs.claude.com/en/api/messages) for full documentation on available parameters.
-
       - `max_tokens: number`
 
         The maximum number of tokens to generate before stopping.
@@ -38,7 +35,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-        Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
+        Different models have different maximum values for this parameter. See [models](https://docs.claude.com/en/docs/models-overview) for details.
 
       - `messages: Array<BetaMessageParam>`
 
@@ -53,16 +50,22 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Example with a single `user` message:
 
         ```json
-        [{"role": "user", "content": "Hello, Claude"}]
+        [{ "role": "user", "content": "Hello, Claude" }]
         ```
 
         Example with multiple conversational turns:
 
         ```json
         [
-          {"role": "user", "content": "Hello there."},
-          {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
-          {"role": "user", "content": "Can you explain LLMs in plain English?"},
+          { "role": "user", "content": "Hello there." },
+          {
+            "role": "assistant",
+            "content": "Hi, I'm Claude. How can I help you?"
+          },
+          {
+            "role": "user",
+            "content": "Can you explain LLMs in plain English?"
+          }
         ]
         ```
 
@@ -70,19 +73,25 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         ```json
         [
-          {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-          {"role": "assistant", "content": "The best answer is ("},
+          {
+            "role": "user",
+            "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
+          },
+          { "role": "assistant", "content": "The best answer is (" }
         ]
         ```
 
         Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
         ```json
-        {"role": "user", "content": "Hello, Claude"}
+        { "role": "user", "content": "Hello, Claude" }
         ```
 
         ```json
-        {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
+        {
+          "role": "user",
+          "content": [{ "type": "text", "text": "Hello, Claude" }]
+        }
         ```
 
         See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -90,27 +99,20 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
         There is a limit of 100,000 messages in a single request.
-
         - `content: string | Array<BetaContentBlockParam>`
-
           - `string`
 
           - `Array<BetaContentBlockParam>`
-
             - `BetaTextBlockParam`
-
               - `text: string`
 
               - `type: "text"`
-
                 - `"text"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
-
                 - `type: "ephemeral"`
-
                   - `"ephemeral"`
 
                 - `ttl?: "5m" | "1h"`
@@ -118,20 +120,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   The time-to-live for the cache control breakpoint.
 
                   This may be one the following values:
-
                   - `5m`: 5 minutes
                   - `1h`: 1 hour
 
                   Defaults to `5m`.
-
                   - `"5m"`
 
                   - `"1h"`
 
               - `citations?: Array<BetaTextCitationParam> | null`
-
                 - `BetaCitationCharLocationParam`
-
                   - `cited_text: string`
 
                   - `document_index: number`
@@ -143,11 +141,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `start_char_index: number`
 
                   - `type: "char_location"`
-
                     - `"char_location"`
 
                 - `BetaCitationPageLocationParam`
-
                   - `cited_text: string`
 
                   - `document_index: number`
@@ -159,11 +155,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `start_page_number: number`
 
                   - `type: "page_location"`
-
                     - `"page_location"`
 
                 - `BetaCitationContentBlockLocationParam`
-
                   - `cited_text: string`
 
                     The full text of the cited block range, concatenated.
@@ -185,11 +179,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     0-based index of the first cited block in the source's `content` array.
 
                   - `type: "content_block_location"`
-
                     - `"content_block_location"`
 
                 - `BetaCitationWebSearchResultLocationParam`
-
                   - `cited_text: string`
 
                   - `encrypted_index: string`
@@ -197,13 +189,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `title: string | null`
 
                   - `type: "web_search_result_location"`
-
                     - `"web_search_result_location"`
 
                   - `url: string`
 
                 - `BetaCitationSearchResultLocationParam`
-
                   - `cited_text: string`
 
                     The full text of the cited block range, concatenated.
@@ -231,19 +221,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `title: string | null`
 
                   - `type: "search_result_location"`
-
                     - `"search_result_location"`
 
             - `BetaImageBlockParam`
-
               - `source: BetaBase64ImageSource | BetaURLImageSource | BetaFileImageSource`
-
                 - `BetaBase64ImageSource`
-
                   - `data: string`
 
                   - `media_type: "image/jpeg" | "image/png" | "image/gif" | "image/webp"`
-
                     - `"image/jpeg"`
 
                     - `"image/png"`
@@ -253,339 +238,79 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `"image/webp"`
 
                   - `type: "base64"`
-
                     - `"base64"`
 
                 - `BetaURLImageSource`
-
                   - `type: "url"`
-
                     - `"url"`
 
                   - `url: string`
 
                 - `BetaFileImageSource`
-
                   - `file_id: string`
 
                   - `type: "file"`
-
                     - `"file"`
 
               - `type: "image"`
-
                 - `"image"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
             - `BetaRequestDocumentBlock`
-
               - `source: BetaBase64PDFSource | BetaPlainTextSource | BetaContentBlockSource | 2 more`
-
                 - `BetaBase64PDFSource`
-
                   - `data: string`
 
                   - `media_type: "application/pdf"`
-
                     - `"application/pdf"`
 
                   - `type: "base64"`
-
                     - `"base64"`
 
                 - `BetaPlainTextSource`
-
                   - `data: string`
 
                   - `media_type: "text/plain"`
-
                     - `"text/plain"`
 
                   - `type: "text"`
-
                     - `"text"`
 
                 - `BetaContentBlockSource`
-
                   - `content: string | Array<BetaContentBlockSourceContent>`
-
                     - `string`
 
                     - `Array<BetaContentBlockSourceContent>`
-
                       - `BetaTextBlockParam`
-
-                        - `text: string`
-
-                        - `type: "text"`
-
-                          - `"text"`
-
-                        - `cache_control?: BetaCacheControlEphemeral | null`
-
-                          Create a cache control breakpoint at this content block.
-
-                          - `type: "ephemeral"`
-
-                            - `"ephemeral"`
-
-                          - `ttl?: "5m" | "1h"`
-
-                            The time-to-live for the cache control breakpoint.
-
-                            This may be one the following values:
-
-                            - `5m`: 5 minutes
-                            - `1h`: 1 hour
-
-                            Defaults to `5m`.
-
-                            - `"5m"`
-
-                            - `"1h"`
-
-                        - `citations?: Array<BetaTextCitationParam> | null`
-
-                          - `BetaCitationCharLocationParam`
-
-                            - `cited_text: string`
-
-                            - `document_index: number`
-
-                            - `document_title: string | null`
-
-                            - `end_char_index: number`
-
-                            - `start_char_index: number`
-
-                            - `type: "char_location"`
-
-                              - `"char_location"`
-
-                          - `BetaCitationPageLocationParam`
-
-                            - `cited_text: string`
-
-                            - `document_index: number`
-
-                            - `document_title: string | null`
-
-                            - `end_page_number: number`
-
-                            - `start_page_number: number`
-
-                            - `type: "page_location"`
-
-                              - `"page_location"`
-
-                          - `BetaCitationContentBlockLocationParam`
-
-                            - `cited_text: string`
-
-                              The full text of the cited block range, concatenated.
-
-                              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                            - `document_index: number`
-
-                            - `document_title: string | null`
-
-                            - `end_block_index: number`
-
-                              Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                            - `start_block_index: number`
-
-                              0-based index of the first cited block in the source's `content` array.
-
-                            - `type: "content_block_location"`
-
-                              - `"content_block_location"`
-
-                          - `BetaCitationWebSearchResultLocationParam`
-
-                            - `cited_text: string`
-
-                            - `encrypted_index: string`
-
-                            - `title: string | null`
-
-                            - `type: "web_search_result_location"`
-
-                              - `"web_search_result_location"`
-
-                            - `url: string`
-
-                          - `BetaCitationSearchResultLocationParam`
-
-                            - `cited_text: string`
-
-                              The full text of the cited block range, concatenated.
-
-                              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                            - `end_block_index: number`
-
-                              Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                            - `search_result_index: number`
-
-                              0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                              Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                            - `source: string`
-
-                            - `start_block_index: number`
-
-                              0-based index of the first cited block in the source's `content` array.
-
-                            - `title: string | null`
-
-                            - `type: "search_result_location"`
-
-                              - `"search_result_location"`
 
                       - `BetaImageBlockParam`
 
-                        - `source: BetaBase64ImageSource | BetaURLImageSource | BetaFileImageSource`
-
-                          - `BetaBase64ImageSource`
-
-                            - `data: string`
-
-                            - `media_type: "image/jpeg" | "image/png" | "image/gif" | "image/webp"`
-
-                              - `"image/jpeg"`
-
-                              - `"image/png"`
-
-                              - `"image/gif"`
-
-                              - `"image/webp"`
-
-                            - `type: "base64"`
-
-                              - `"base64"`
-
-                          - `BetaURLImageSource`
-
-                            - `type: "url"`
-
-                              - `"url"`
-
-                            - `url: string`
-
-                          - `BetaFileImageSource`
-
-                            - `file_id: string`
-
-                            - `type: "file"`
-
-                              - `"file"`
-
-                        - `type: "image"`
-
-                          - `"image"`
-
-                        - `cache_control?: BetaCacheControlEphemeral | null`
-
-                          Create a cache control breakpoint at this content block.
-
-                          - `type: "ephemeral"`
-
-                            - `"ephemeral"`
-
-                          - `ttl?: "5m" | "1h"`
-
-                            The time-to-live for the cache control breakpoint.
-
-                            This may be one the following values:
-
-                            - `5m`: 5 minutes
-                            - `1h`: 1 hour
-
-                            Defaults to `5m`.
-
-                            - `"5m"`
-
-                            - `"1h"`
-
                   - `type: "content"`
-
                     - `"content"`
 
                 - `BetaURLPDFSource`
-
                   - `type: "url"`
-
                     - `"url"`
 
                   - `url: string`
 
                 - `BetaFileDocumentSource`
-
                   - `file_id: string`
 
                   - `type: "file"`
-
                     - `"file"`
 
               - `type: "document"`
-
                 - `"document"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
               - `citations?: BetaCitationsConfigParam | null`
-
                 - `enabled?: boolean`
 
               - `context?: string | null`
@@ -593,199 +318,45 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `title?: string | null`
 
             - `BetaSearchResultBlockParam`
-
               - `content: Array<BetaTextBlockParam>`
-
                 - `text: string`
 
                 - `type: "text"`
-
-                  - `"text"`
 
                 - `cache_control?: BetaCacheControlEphemeral | null`
 
                   Create a cache control breakpoint at this content block.
 
-                  - `type: "ephemeral"`
-
-                    - `"ephemeral"`
-
-                  - `ttl?: "5m" | "1h"`
-
-                    The time-to-live for the cache control breakpoint.
-
-                    This may be one the following values:
-
-                    - `5m`: 5 minutes
-                    - `1h`: 1 hour
-
-                    Defaults to `5m`.
-
-                    - `"5m"`
-
-                    - `"1h"`
-
                 - `citations?: Array<BetaTextCitationParam> | null`
-
-                  - `BetaCitationCharLocationParam`
-
-                    - `cited_text: string`
-
-                    - `document_index: number`
-
-                    - `document_title: string | null`
-
-                    - `end_char_index: number`
-
-                    - `start_char_index: number`
-
-                    - `type: "char_location"`
-
-                      - `"char_location"`
-
-                  - `BetaCitationPageLocationParam`
-
-                    - `cited_text: string`
-
-                    - `document_index: number`
-
-                    - `document_title: string | null`
-
-                    - `end_page_number: number`
-
-                    - `start_page_number: number`
-
-                    - `type: "page_location"`
-
-                      - `"page_location"`
-
-                  - `BetaCitationContentBlockLocationParam`
-
-                    - `cited_text: string`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `document_index: number`
-
-                    - `document_title: string | null`
-
-                    - `end_block_index: number`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `start_block_index: number`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `type: "content_block_location"`
-
-                      - `"content_block_location"`
-
-                  - `BetaCitationWebSearchResultLocationParam`
-
-                    - `cited_text: string`
-
-                    - `encrypted_index: string`
-
-                    - `title: string | null`
-
-                    - `type: "web_search_result_location"`
-
-                      - `"web_search_result_location"`
-
-                    - `url: string`
-
-                  - `BetaCitationSearchResultLocationParam`
-
-                    - `cited_text: string`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `end_block_index: number`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `search_result_index: number`
-
-                      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                      Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                    - `source: string`
-
-                    - `start_block_index: number`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `title: string | null`
-
-                    - `type: "search_result_location"`
-
-                      - `"search_result_location"`
 
               - `source: string`
 
               - `title: string`
 
               - `type: "search_result"`
-
                 - `"search_result"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
               - `citations?: BetaCitationsConfigParam`
 
-                - `enabled?: boolean`
-
             - `BetaThinkingBlockParam`
-
               - `signature: string`
 
               - `thinking: string`
 
               - `type: "thinking"`
-
                 - `"thinking"`
 
             - `BetaRedactedThinkingBlockParam`
-
               - `data: string`
 
               - `type: "redacted_thinking"`
-
                 - `"redacted_thinking"`
 
             - `BetaToolUseBlockParam`
-
               - `id: string`
 
               - `input: Record<string, unknown>`
@@ -793,811 +364,77 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `name: string`
 
               - `type: "tool_use"`
-
                 - `"tool_use"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
               - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
                 Tool invocation directly from the model.
-
                 - `BetaDirectCaller`
 
                   Tool invocation directly from the model.
-
                   - `type: "direct"`
-
                     - `"direct"`
 
                 - `BetaServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
-
                   - `tool_id: string`
 
                   - `type: "code_execution_20250825"`
-
                     - `"code_execution_20250825"`
 
                 - `BetaServerToolCaller20260120`
-
                   - `tool_id: string`
 
                   - `type: "code_execution_20260120"`
-
                     - `"code_execution_20260120"`
 
             - `BetaToolResultBlockParam`
-
               - `tool_use_id: string`
 
               - `type: "tool_result"`
-
                 - `"tool_result"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
               - `content?: string | Array<BetaTextBlockParam | BetaImageBlockParam | BetaSearchResultBlockParam | 2 more>`
-
                 - `string`
 
                 - `Array<BetaTextBlockParam | BetaImageBlockParam | BetaSearchResultBlockParam | 2 more>`
-
                   - `BetaTextBlockParam`
-
-                    - `text: string`
-
-                    - `type: "text"`
-
-                      - `"text"`
-
-                    - `cache_control?: BetaCacheControlEphemeral | null`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `type: "ephemeral"`
-
-                        - `"ephemeral"`
-
-                      - `ttl?: "5m" | "1h"`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `"5m"`
-
-                        - `"1h"`
-
-                    - `citations?: Array<BetaTextCitationParam> | null`
-
-                      - `BetaCitationCharLocationParam`
-
-                        - `cited_text: string`
-
-                        - `document_index: number`
-
-                        - `document_title: string | null`
-
-                        - `end_char_index: number`
-
-                        - `start_char_index: number`
-
-                        - `type: "char_location"`
-
-                          - `"char_location"`
-
-                      - `BetaCitationPageLocationParam`
-
-                        - `cited_text: string`
-
-                        - `document_index: number`
-
-                        - `document_title: string | null`
-
-                        - `end_page_number: number`
-
-                        - `start_page_number: number`
-
-                        - `type: "page_location"`
-
-                          - `"page_location"`
-
-                      - `BetaCitationContentBlockLocationParam`
-
-                        - `cited_text: string`
-
-                          The full text of the cited block range, concatenated.
-
-                          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                        - `document_index: number`
-
-                        - `document_title: string | null`
-
-                        - `end_block_index: number`
-
-                          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                        - `start_block_index: number`
-
-                          0-based index of the first cited block in the source's `content` array.
-
-                        - `type: "content_block_location"`
-
-                          - `"content_block_location"`
-
-                      - `BetaCitationWebSearchResultLocationParam`
-
-                        - `cited_text: string`
-
-                        - `encrypted_index: string`
-
-                        - `title: string | null`
-
-                        - `type: "web_search_result_location"`
-
-                          - `"web_search_result_location"`
-
-                        - `url: string`
-
-                      - `BetaCitationSearchResultLocationParam`
-
-                        - `cited_text: string`
-
-                          The full text of the cited block range, concatenated.
-
-                          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                        - `end_block_index: number`
-
-                          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                        - `search_result_index: number`
-
-                          0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                          Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                        - `source: string`
-
-                        - `start_block_index: number`
-
-                          0-based index of the first cited block in the source's `content` array.
-
-                        - `title: string | null`
-
-                        - `type: "search_result_location"`
-
-                          - `"search_result_location"`
 
                   - `BetaImageBlockParam`
 
-                    - `source: BetaBase64ImageSource | BetaURLImageSource | BetaFileImageSource`
-
-                      - `BetaBase64ImageSource`
-
-                        - `data: string`
-
-                        - `media_type: "image/jpeg" | "image/png" | "image/gif" | "image/webp"`
-
-                          - `"image/jpeg"`
-
-                          - `"image/png"`
-
-                          - `"image/gif"`
-
-                          - `"image/webp"`
-
-                        - `type: "base64"`
-
-                          - `"base64"`
-
-                      - `BetaURLImageSource`
-
-                        - `type: "url"`
-
-                          - `"url"`
-
-                        - `url: string`
-
-                      - `BetaFileImageSource`
-
-                        - `file_id: string`
-
-                        - `type: "file"`
-
-                          - `"file"`
-
-                    - `type: "image"`
-
-                      - `"image"`
-
-                    - `cache_control?: BetaCacheControlEphemeral | null`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `type: "ephemeral"`
-
-                        - `"ephemeral"`
-
-                      - `ttl?: "5m" | "1h"`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `"5m"`
-
-                        - `"1h"`
-
                   - `BetaSearchResultBlockParam`
 
-                    - `content: Array<BetaTextBlockParam>`
-
-                      - `text: string`
-
-                      - `type: "text"`
-
-                        - `"text"`
-
-                      - `cache_control?: BetaCacheControlEphemeral | null`
-
-                        Create a cache control breakpoint at this content block.
-
-                        - `type: "ephemeral"`
-
-                          - `"ephemeral"`
-
-                        - `ttl?: "5m" | "1h"`
-
-                          The time-to-live for the cache control breakpoint.
-
-                          This may be one the following values:
-
-                          - `5m`: 5 minutes
-                          - `1h`: 1 hour
-
-                          Defaults to `5m`.
-
-                          - `"5m"`
-
-                          - `"1h"`
-
-                      - `citations?: Array<BetaTextCitationParam> | null`
-
-                        - `BetaCitationCharLocationParam`
-
-                          - `cited_text: string`
-
-                          - `document_index: number`
-
-                          - `document_title: string | null`
-
-                          - `end_char_index: number`
-
-                          - `start_char_index: number`
-
-                          - `type: "char_location"`
-
-                            - `"char_location"`
-
-                        - `BetaCitationPageLocationParam`
-
-                          - `cited_text: string`
-
-                          - `document_index: number`
-
-                          - `document_title: string | null`
-
-                          - `end_page_number: number`
-
-                          - `start_page_number: number`
-
-                          - `type: "page_location"`
-
-                            - `"page_location"`
-
-                        - `BetaCitationContentBlockLocationParam`
-
-                          - `cited_text: string`
-
-                            The full text of the cited block range, concatenated.
-
-                            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                          - `document_index: number`
-
-                          - `document_title: string | null`
-
-                          - `end_block_index: number`
-
-                            Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                          - `start_block_index: number`
-
-                            0-based index of the first cited block in the source's `content` array.
-
-                          - `type: "content_block_location"`
-
-                            - `"content_block_location"`
-
-                        - `BetaCitationWebSearchResultLocationParam`
-
-                          - `cited_text: string`
-
-                          - `encrypted_index: string`
-
-                          - `title: string | null`
-
-                          - `type: "web_search_result_location"`
-
-                            - `"web_search_result_location"`
-
-                          - `url: string`
-
-                        - `BetaCitationSearchResultLocationParam`
-
-                          - `cited_text: string`
-
-                            The full text of the cited block range, concatenated.
-
-                            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                          - `end_block_index: number`
-
-                            Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                          - `search_result_index: number`
-
-                            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                            Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                          - `source: string`
-
-                          - `start_block_index: number`
-
-                            0-based index of the first cited block in the source's `content` array.
-
-                          - `title: string | null`
-
-                          - `type: "search_result_location"`
-
-                            - `"search_result_location"`
-
-                    - `source: string`
-
-                    - `title: string`
-
-                    - `type: "search_result"`
-
-                      - `"search_result"`
-
-                    - `cache_control?: BetaCacheControlEphemeral | null`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `type: "ephemeral"`
-
-                        - `"ephemeral"`
-
-                      - `ttl?: "5m" | "1h"`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `"5m"`
-
-                        - `"1h"`
-
-                    - `citations?: BetaCitationsConfigParam`
-
-                      - `enabled?: boolean`
-
                   - `BetaRequestDocumentBlock`
-
-                    - `source: BetaBase64PDFSource | BetaPlainTextSource | BetaContentBlockSource | 2 more`
-
-                      - `BetaBase64PDFSource`
-
-                        - `data: string`
-
-                        - `media_type: "application/pdf"`
-
-                          - `"application/pdf"`
-
-                        - `type: "base64"`
-
-                          - `"base64"`
-
-                      - `BetaPlainTextSource`
-
-                        - `data: string`
-
-                        - `media_type: "text/plain"`
-
-                          - `"text/plain"`
-
-                        - `type: "text"`
-
-                          - `"text"`
-
-                      - `BetaContentBlockSource`
-
-                        - `content: string | Array<BetaContentBlockSourceContent>`
-
-                          - `string`
-
-                          - `Array<BetaContentBlockSourceContent>`
-
-                            - `BetaTextBlockParam`
-
-                              - `text: string`
-
-                              - `type: "text"`
-
-                                - `"text"`
-
-                              - `cache_control?: BetaCacheControlEphemeral | null`
-
-                                Create a cache control breakpoint at this content block.
-
-                                - `type: "ephemeral"`
-
-                                  - `"ephemeral"`
-
-                                - `ttl?: "5m" | "1h"`
-
-                                  The time-to-live for the cache control breakpoint.
-
-                                  This may be one the following values:
-
-                                  - `5m`: 5 minutes
-                                  - `1h`: 1 hour
-
-                                  Defaults to `5m`.
-
-                                  - `"5m"`
-
-                                  - `"1h"`
-
-                              - `citations?: Array<BetaTextCitationParam> | null`
-
-                                - `BetaCitationCharLocationParam`
-
-                                  - `cited_text: string`
-
-                                  - `document_index: number`
-
-                                  - `document_title: string | null`
-
-                                  - `end_char_index: number`
-
-                                  - `start_char_index: number`
-
-                                  - `type: "char_location"`
-
-                                    - `"char_location"`
-
-                                - `BetaCitationPageLocationParam`
-
-                                  - `cited_text: string`
-
-                                  - `document_index: number`
-
-                                  - `document_title: string | null`
-
-                                  - `end_page_number: number`
-
-                                  - `start_page_number: number`
-
-                                  - `type: "page_location"`
-
-                                    - `"page_location"`
-
-                                - `BetaCitationContentBlockLocationParam`
-
-                                  - `cited_text: string`
-
-                                    The full text of the cited block range, concatenated.
-
-                                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                                  - `document_index: number`
-
-                                  - `document_title: string | null`
-
-                                  - `end_block_index: number`
-
-                                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                                  - `start_block_index: number`
-
-                                    0-based index of the first cited block in the source's `content` array.
-
-                                  - `type: "content_block_location"`
-
-                                    - `"content_block_location"`
-
-                                - `BetaCitationWebSearchResultLocationParam`
-
-                                  - `cited_text: string`
-
-                                  - `encrypted_index: string`
-
-                                  - `title: string | null`
-
-                                  - `type: "web_search_result_location"`
-
-                                    - `"web_search_result_location"`
-
-                                  - `url: string`
-
-                                - `BetaCitationSearchResultLocationParam`
-
-                                  - `cited_text: string`
-
-                                    The full text of the cited block range, concatenated.
-
-                                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                                  - `end_block_index: number`
-
-                                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                                  - `search_result_index: number`
-
-                                    0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                                    Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                                  - `source: string`
-
-                                  - `start_block_index: number`
-
-                                    0-based index of the first cited block in the source's `content` array.
-
-                                  - `title: string | null`
-
-                                  - `type: "search_result_location"`
-
-                                    - `"search_result_location"`
-
-                            - `BetaImageBlockParam`
-
-                              - `source: BetaBase64ImageSource | BetaURLImageSource | BetaFileImageSource`
-
-                                - `BetaBase64ImageSource`
-
-                                  - `data: string`
-
-                                  - `media_type: "image/jpeg" | "image/png" | "image/gif" | "image/webp"`
-
-                                    - `"image/jpeg"`
-
-                                    - `"image/png"`
-
-                                    - `"image/gif"`
-
-                                    - `"image/webp"`
-
-                                  - `type: "base64"`
-
-                                    - `"base64"`
-
-                                - `BetaURLImageSource`
-
-                                  - `type: "url"`
-
-                                    - `"url"`
-
-                                  - `url: string`
-
-                                - `BetaFileImageSource`
-
-                                  - `file_id: string`
-
-                                  - `type: "file"`
-
-                                    - `"file"`
-
-                              - `type: "image"`
-
-                                - `"image"`
-
-                              - `cache_control?: BetaCacheControlEphemeral | null`
-
-                                Create a cache control breakpoint at this content block.
-
-                                - `type: "ephemeral"`
-
-                                  - `"ephemeral"`
-
-                                - `ttl?: "5m" | "1h"`
-
-                                  The time-to-live for the cache control breakpoint.
-
-                                  This may be one the following values:
-
-                                  - `5m`: 5 minutes
-                                  - `1h`: 1 hour
-
-                                  Defaults to `5m`.
-
-                                  - `"5m"`
-
-                                  - `"1h"`
-
-                        - `type: "content"`
-
-                          - `"content"`
-
-                      - `BetaURLPDFSource`
-
-                        - `type: "url"`
-
-                          - `"url"`
-
-                        - `url: string`
-
-                      - `BetaFileDocumentSource`
-
-                        - `file_id: string`
-
-                        - `type: "file"`
-
-                          - `"file"`
-
-                    - `type: "document"`
-
-                      - `"document"`
-
-                    - `cache_control?: BetaCacheControlEphemeral | null`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `type: "ephemeral"`
-
-                        - `"ephemeral"`
-
-                      - `ttl?: "5m" | "1h"`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `"5m"`
-
-                        - `"1h"`
-
-                    - `citations?: BetaCitationsConfigParam | null`
-
-                      - `enabled?: boolean`
-
-                    - `context?: string | null`
-
-                    - `title?: string | null`
 
                   - `BetaToolReferenceBlockParam`
 
                     Tool reference block that can be included in tool_result content.
-
                     - `tool_name: string`
 
                     - `type: "tool_reference"`
-
                       - `"tool_reference"`
 
                     - `cache_control?: BetaCacheControlEphemeral | null`
 
                       Create a cache control breakpoint at this content block.
 
-                      - `type: "ephemeral"`
-
-                        - `"ephemeral"`
-
-                      - `ttl?: "5m" | "1h"`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `"5m"`
-
-                        - `"1h"`
-
               - `is_error?: boolean`
 
             - `BetaServerToolUseBlockParam`
-
               - `id: string`
 
               - `input: Record<string, unknown>`
 
               - `name: "advisor" | "web_search" | "web_fetch" | 5 more`
-
                 - `"advisor"`
 
                 - `"web_search"`
@@ -1615,74 +452,33 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `"tool_search_tool_bm25"`
 
               - `type: "server_tool_use"`
-
                 - `"server_tool_use"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
               - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
                 Tool invocation directly from the model.
-
                 - `BetaDirectCaller`
 
                   Tool invocation directly from the model.
-
-                  - `type: "direct"`
-
-                    - `"direct"`
 
                 - `BetaServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                  - `tool_id: string`
-
-                  - `type: "code_execution_20250825"`
-
-                    - `"code_execution_20250825"`
-
                 - `BetaServerToolCaller20260120`
 
-                  - `tool_id: string`
-
-                  - `type: "code_execution_20260120"`
-
-                    - `"code_execution_20260120"`
-
             - `BetaWebSearchToolResultBlockParam`
-
               - `content: BetaWebSearchToolResultBlockParamContent`
-
                 - `Array<BetaWebSearchResultBlockParam>`
-
                   - `encrypted_content: string`
 
                   - `title: string`
 
                   - `type: "web_search_result"`
-
                     - `"web_search_result"`
 
                   - `url: string`
@@ -1690,9 +486,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `page_age?: string | null`
 
                 - `BetaWebSearchToolRequestError`
-
                   - `error_code: BetaWebSearchToolResultErrorCode`
-
                     - `"invalid_tool_input"`
 
                     - `"unavailable"`
@@ -1706,81 +500,41 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `"request_too_large"`
 
                   - `type: "web_search_tool_result_error"`
-
                     - `"web_search_tool_result_error"`
 
               - `tool_use_id: string`
 
               - `type: "web_search_tool_result"`
-
                 - `"web_search_tool_result"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
               - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
                 Tool invocation directly from the model.
-
                 - `BetaDirectCaller`
 
                   Tool invocation directly from the model.
-
-                  - `type: "direct"`
-
-                    - `"direct"`
 
                 - `BetaServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                  - `tool_id: string`
-
-                  - `type: "code_execution_20250825"`
-
-                    - `"code_execution_20250825"`
-
                 - `BetaServerToolCaller20260120`
 
-                  - `tool_id: string`
-
-                  - `type: "code_execution_20260120"`
-
-                    - `"code_execution_20260120"`
-
             - `BetaWebFetchToolResultBlockParam`
-
               - `content: BetaWebFetchToolResultErrorBlockParam | BetaWebFetchBlockParam`
-
                 - `BetaWebFetchToolResultErrorBlockParam`
-
                   - `error_code: BetaWebFetchToolResultErrorCode`
-
                     - `"invalid_tool_input"`
 
                     - `"url_too_long"`
 
                     - `"url_not_allowed"`
+
+                    - `"url_not_in_prior_context"`
 
                     - `"url_not_accessible"`
 
@@ -1793,306 +547,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `"unavailable"`
 
                   - `type: "web_fetch_tool_result_error"`
-
                     - `"web_fetch_tool_result_error"`
 
                 - `BetaWebFetchBlockParam`
-
                   - `content: BetaRequestDocumentBlock`
 
-                    - `source: BetaBase64PDFSource | BetaPlainTextSource | BetaContentBlockSource | 2 more`
-
-                      - `BetaBase64PDFSource`
-
-                        - `data: string`
-
-                        - `media_type: "application/pdf"`
-
-                          - `"application/pdf"`
-
-                        - `type: "base64"`
-
-                          - `"base64"`
-
-                      - `BetaPlainTextSource`
-
-                        - `data: string`
-
-                        - `media_type: "text/plain"`
-
-                          - `"text/plain"`
-
-                        - `type: "text"`
-
-                          - `"text"`
-
-                      - `BetaContentBlockSource`
-
-                        - `content: string | Array<BetaContentBlockSourceContent>`
-
-                          - `string`
-
-                          - `Array<BetaContentBlockSourceContent>`
-
-                            - `BetaTextBlockParam`
-
-                              - `text: string`
-
-                              - `type: "text"`
-
-                                - `"text"`
-
-                              - `cache_control?: BetaCacheControlEphemeral | null`
-
-                                Create a cache control breakpoint at this content block.
-
-                                - `type: "ephemeral"`
-
-                                  - `"ephemeral"`
-
-                                - `ttl?: "5m" | "1h"`
-
-                                  The time-to-live for the cache control breakpoint.
-
-                                  This may be one the following values:
-
-                                  - `5m`: 5 minutes
-                                  - `1h`: 1 hour
-
-                                  Defaults to `5m`.
-
-                                  - `"5m"`
-
-                                  - `"1h"`
-
-                              - `citations?: Array<BetaTextCitationParam> | null`
-
-                                - `BetaCitationCharLocationParam`
-
-                                  - `cited_text: string`
-
-                                  - `document_index: number`
-
-                                  - `document_title: string | null`
-
-                                  - `end_char_index: number`
-
-                                  - `start_char_index: number`
-
-                                  - `type: "char_location"`
-
-                                    - `"char_location"`
-
-                                - `BetaCitationPageLocationParam`
-
-                                  - `cited_text: string`
-
-                                  - `document_index: number`
-
-                                  - `document_title: string | null`
-
-                                  - `end_page_number: number`
-
-                                  - `start_page_number: number`
-
-                                  - `type: "page_location"`
-
-                                    - `"page_location"`
-
-                                - `BetaCitationContentBlockLocationParam`
-
-                                  - `cited_text: string`
-
-                                    The full text of the cited block range, concatenated.
-
-                                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                                  - `document_index: number`
-
-                                  - `document_title: string | null`
-
-                                  - `end_block_index: number`
-
-                                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                                  - `start_block_index: number`
-
-                                    0-based index of the first cited block in the source's `content` array.
-
-                                  - `type: "content_block_location"`
-
-                                    - `"content_block_location"`
-
-                                - `BetaCitationWebSearchResultLocationParam`
-
-                                  - `cited_text: string`
-
-                                  - `encrypted_index: string`
-
-                                  - `title: string | null`
-
-                                  - `type: "web_search_result_location"`
-
-                                    - `"web_search_result_location"`
-
-                                  - `url: string`
-
-                                - `BetaCitationSearchResultLocationParam`
-
-                                  - `cited_text: string`
-
-                                    The full text of the cited block range, concatenated.
-
-                                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                                  - `end_block_index: number`
-
-                                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                                  - `search_result_index: number`
-
-                                    0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                                    Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                                  - `source: string`
-
-                                  - `start_block_index: number`
-
-                                    0-based index of the first cited block in the source's `content` array.
-
-                                  - `title: string | null`
-
-                                  - `type: "search_result_location"`
-
-                                    - `"search_result_location"`
-
-                            - `BetaImageBlockParam`
-
-                              - `source: BetaBase64ImageSource | BetaURLImageSource | BetaFileImageSource`
-
-                                - `BetaBase64ImageSource`
-
-                                  - `data: string`
-
-                                  - `media_type: "image/jpeg" | "image/png" | "image/gif" | "image/webp"`
-
-                                    - `"image/jpeg"`
-
-                                    - `"image/png"`
-
-                                    - `"image/gif"`
-
-                                    - `"image/webp"`
-
-                                  - `type: "base64"`
-
-                                    - `"base64"`
-
-                                - `BetaURLImageSource`
-
-                                  - `type: "url"`
-
-                                    - `"url"`
-
-                                  - `url: string`
-
-                                - `BetaFileImageSource`
-
-                                  - `file_id: string`
-
-                                  - `type: "file"`
-
-                                    - `"file"`
-
-                              - `type: "image"`
-
-                                - `"image"`
-
-                              - `cache_control?: BetaCacheControlEphemeral | null`
-
-                                Create a cache control breakpoint at this content block.
-
-                                - `type: "ephemeral"`
-
-                                  - `"ephemeral"`
-
-                                - `ttl?: "5m" | "1h"`
-
-                                  The time-to-live for the cache control breakpoint.
-
-                                  This may be one the following values:
-
-                                  - `5m`: 5 minutes
-                                  - `1h`: 1 hour
-
-                                  Defaults to `5m`.
-
-                                  - `"5m"`
-
-                                  - `"1h"`
-
-                        - `type: "content"`
-
-                          - `"content"`
-
-                      - `BetaURLPDFSource`
-
-                        - `type: "url"`
-
-                          - `"url"`
-
-                        - `url: string`
-
-                      - `BetaFileDocumentSource`
-
-                        - `file_id: string`
-
-                        - `type: "file"`
-
-                          - `"file"`
-
-                    - `type: "document"`
-
-                      - `"document"`
-
-                    - `cache_control?: BetaCacheControlEphemeral | null`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `type: "ephemeral"`
-
-                        - `"ephemeral"`
-
-                      - `ttl?: "5m" | "1h"`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `"5m"`
-
-                        - `"1h"`
-
-                    - `citations?: BetaCitationsConfigParam | null`
-
-                      - `enabled?: boolean`
-
-                    - `context?: string | null`
-
-                    - `title?: string | null`
-
                   - `type: "web_fetch_result"`
-
                     - `"web_fetch_result"`
 
                   - `url: string`
@@ -2106,70 +566,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `tool_use_id: string`
 
               - `type: "web_fetch_tool_result"`
-
                 - `"web_fetch_tool_result"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
               - `caller?: BetaDirectCaller | BetaServerToolCaller | BetaServerToolCaller20260120`
 
                 Tool invocation directly from the model.
-
                 - `BetaDirectCaller`
 
                   Tool invocation directly from the model.
-
-                  - `type: "direct"`
-
-                    - `"direct"`
 
                 - `BetaServerToolCaller`
 
                   Tool invocation generated by a server-side tool.
 
-                  - `tool_id: string`
-
-                  - `type: "code_execution_20250825"`
-
-                    - `"code_execution_20250825"`
-
                 - `BetaServerToolCaller20260120`
 
-                  - `tool_id: string`
-
-                  - `type: "code_execution_20260120"`
-
-                    - `"code_execution_20260120"`
-
             - `BetaAdvisorToolResultBlockParam`
-
               - `content: BetaAdvisorToolResultErrorParam | BetaAdvisorResultBlockParam | BetaAdvisorRedactedResultBlockParam`
-
                 - `BetaAdvisorToolResultErrorParam`
-
                   - `error_code: "max_uses_exceeded" | "prompt_too_long" | "too_many_requests" | 3 more`
-
                     - `"max_uses_exceeded"`
 
                     - `"prompt_too_long"`
@@ -2183,66 +602,41 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `"execution_time_exceeded"`
 
                   - `type: "advisor_tool_result_error"`
-
                     - `"advisor_tool_result_error"`
 
                 - `BetaAdvisorResultBlockParam`
-
                   - `text: string`
 
                   - `type: "advisor_result"`
-
                     - `"advisor_result"`
 
-                - `BetaAdvisorRedactedResultBlockParam`
+                  - `stop_reason?: string | null`
 
+                - `BetaAdvisorRedactedResultBlockParam`
                   - `encrypted_content: string`
 
                     Opaque blob produced by a prior response; must be round-tripped verbatim.
 
                   - `type: "advisor_redacted_result"`
-
                     - `"advisor_redacted_result"`
+
+                  - `stop_reason?: string | null`
 
               - `tool_use_id: string`
 
               - `type: "advisor_tool_result"`
-
                 - `"advisor_tool_result"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
             - `BetaCodeExecutionToolResultBlockParam`
-
               - `content: BetaCodeExecutionToolResultBlockParamContent`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
-
                 - `BetaCodeExecutionToolResultErrorParam`
-
                   - `error_code: BetaCodeExecutionToolResultErrorCode`
-
                     - `"invalid_tool_input"`
 
                     - `"unavailable"`
@@ -2252,17 +646,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `"execution_time_exceeded"`
 
                   - `type: "code_execution_tool_result_error"`
-
                     - `"code_execution_tool_result_error"`
 
                 - `BetaCodeExecutionResultBlockParam`
-
                   - `content: Array<BetaCodeExecutionOutputBlockParam>`
-
                     - `file_id: string`
 
                     - `type: "code_execution_output"`
-
                       - `"code_execution_output"`
 
                   - `return_code: number`
@@ -2272,20 +662,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `stdout: string`
 
                   - `type: "code_execution_result"`
-
                     - `"code_execution_result"`
 
                 - `BetaEncryptedCodeExecutionResultBlockParam`
 
                   Code execution result with encrypted stdout for PFC + web_search results.
-
                   - `content: Array<BetaCodeExecutionOutputBlockParam>`
-
                     - `file_id: string`
 
                     - `type: "code_execution_output"`
-
-                      - `"code_execution_output"`
 
                   - `encrypted_stdout: string`
 
@@ -2294,46 +679,21 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `stderr: string`
 
                   - `type: "encrypted_code_execution_result"`
-
                     - `"encrypted_code_execution_result"`
 
               - `tool_use_id: string`
 
               - `type: "code_execution_tool_result"`
-
                 - `"code_execution_tool_result"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
             - `BetaBashCodeExecutionToolResultBlockParam`
-
               - `content: BetaBashCodeExecutionToolResultErrorParam | BetaBashCodeExecutionResultBlockParam`
-
                 - `BetaBashCodeExecutionToolResultErrorParam`
-
                   - `error_code: "invalid_tool_input" | "unavailable" | "too_many_requests" | 2 more`
-
                     - `"invalid_tool_input"`
 
                     - `"unavailable"`
@@ -2345,17 +705,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `"output_file_too_large"`
 
                   - `type: "bash_code_execution_tool_result_error"`
-
                     - `"bash_code_execution_tool_result_error"`
 
                 - `BetaBashCodeExecutionResultBlockParam`
-
                   - `content: Array<BetaBashCodeExecutionOutputBlockParam>`
-
                     - `file_id: string`
 
                     - `type: "bash_code_execution_output"`
-
                       - `"bash_code_execution_output"`
 
                   - `return_code: number`
@@ -2365,46 +721,21 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `stdout: string`
 
                   - `type: "bash_code_execution_result"`
-
                     - `"bash_code_execution_result"`
 
               - `tool_use_id: string`
 
               - `type: "bash_code_execution_tool_result"`
-
                 - `"bash_code_execution_tool_result"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
             - `BetaTextEditorCodeExecutionToolResultBlockParam`
-
               - `content: BetaTextEditorCodeExecutionToolResultErrorParam | BetaTextEditorCodeExecutionViewResultBlockParam | BetaTextEditorCodeExecutionCreateResultBlockParam | BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
-
                 - `BetaTextEditorCodeExecutionToolResultErrorParam`
-
                   - `error_code: "invalid_tool_input" | "unavailable" | "too_many_requests" | 2 more`
-
                     - `"invalid_tool_input"`
 
                     - `"unavailable"`
@@ -2416,17 +747,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `"file_not_found"`
 
                   - `type: "text_editor_code_execution_tool_result_error"`
-
                     - `"text_editor_code_execution_tool_result_error"`
 
                   - `error_message?: string | null`
 
                 - `BetaTextEditorCodeExecutionViewResultBlockParam`
-
                   - `content: string`
 
                   - `file_type: "text" | "image" | "pdf"`
-
                     - `"text"`
 
                     - `"image"`
@@ -2434,7 +762,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `"pdf"`
 
                   - `type: "text_editor_code_execution_view_result"`
-
                     - `"text_editor_code_execution_view_result"`
 
                   - `num_lines?: number | null`
@@ -2444,17 +771,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `total_lines?: number | null`
 
                 - `BetaTextEditorCodeExecutionCreateResultBlockParam`
-
                   - `is_file_update: boolean`
 
                   - `type: "text_editor_code_execution_create_result"`
-
                     - `"text_editor_code_execution_create_result"`
 
                 - `BetaTextEditorCodeExecutionStrReplaceResultBlockParam`
-
                   - `type: "text_editor_code_execution_str_replace_result"`
-
                     - `"text_editor_code_execution_str_replace_result"`
 
                   - `lines?: Array<string> | null`
@@ -2470,40 +793,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `tool_use_id: string`
 
               - `type: "text_editor_code_execution_tool_result"`
-
                 - `"text_editor_code_execution_tool_result"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
             - `BetaToolSearchToolResultBlockParam`
-
               - `content: BetaToolSearchToolResultErrorParam | BetaToolSearchToolSearchResultBlockParam`
-
                 - `BetaToolSearchToolResultErrorParam`
-
                   - `error_code: "invalid_tool_input" | "unavailable" | "too_many_requests" | "execution_time_exceeded"`
-
                     - `"invalid_tool_input"`
 
                     - `"unavailable"`
@@ -2513,77 +812,31 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `"execution_time_exceeded"`
 
                   - `type: "tool_search_tool_result_error"`
-
                     - `"tool_search_tool_result_error"`
 
                 - `BetaToolSearchToolSearchResultBlockParam`
-
                   - `tool_references: Array<BetaToolReferenceBlockParam>`
-
                     - `tool_name: string`
 
                     - `type: "tool_reference"`
-
-                      - `"tool_reference"`
 
                     - `cache_control?: BetaCacheControlEphemeral | null`
 
                       Create a cache control breakpoint at this content block.
 
-                      - `type: "ephemeral"`
-
-                        - `"ephemeral"`
-
-                      - `ttl?: "5m" | "1h"`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `"5m"`
-
-                        - `"1h"`
-
                   - `type: "tool_search_tool_search_result"`
-
                     - `"tool_search_tool_search_result"`
 
               - `tool_use_id: string`
 
               - `type: "tool_search_tool_result"`
-
                 - `"tool_search_tool_result"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
             - `BetaMCPToolUseBlockParam`
-
               - `id: string`
 
               - `input: Record<string, unknown>`
@@ -2595,203 +848,35 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 The name of the MCP server
 
               - `type: "mcp_tool_use"`
-
                 - `"mcp_tool_use"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
             - `BetaRequestMCPToolResultBlockParam`
-
               - `tool_use_id: string`
 
               - `type: "mcp_tool_result"`
-
                 - `"mcp_tool_result"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
-
               - `content?: string | Array<BetaTextBlockParam>`
-
                 - `string`
 
                 - `Array<BetaTextBlockParam>`
-
                   - `text: string`
 
                   - `type: "text"`
-
-                    - `"text"`
 
                   - `cache_control?: BetaCacheControlEphemeral | null`
 
                     Create a cache control breakpoint at this content block.
 
-                    - `type: "ephemeral"`
-
-                      - `"ephemeral"`
-
-                    - `ttl?: "5m" | "1h"`
-
-                      The time-to-live for the cache control breakpoint.
-
-                      This may be one the following values:
-
-                      - `5m`: 5 minutes
-                      - `1h`: 1 hour
-
-                      Defaults to `5m`.
-
-                      - `"5m"`
-
-                      - `"1h"`
-
                   - `citations?: Array<BetaTextCitationParam> | null`
-
-                    - `BetaCitationCharLocationParam`
-
-                      - `cited_text: string`
-
-                      - `document_index: number`
-
-                      - `document_title: string | null`
-
-                      - `end_char_index: number`
-
-                      - `start_char_index: number`
-
-                      - `type: "char_location"`
-
-                        - `"char_location"`
-
-                    - `BetaCitationPageLocationParam`
-
-                      - `cited_text: string`
-
-                      - `document_index: number`
-
-                      - `document_title: string | null`
-
-                      - `end_page_number: number`
-
-                      - `start_page_number: number`
-
-                      - `type: "page_location"`
-
-                        - `"page_location"`
-
-                    - `BetaCitationContentBlockLocationParam`
-
-                      - `cited_text: string`
-
-                        The full text of the cited block range, concatenated.
-
-                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                      - `document_index: number`
-
-                      - `document_title: string | null`
-
-                      - `end_block_index: number`
-
-                        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                      - `start_block_index: number`
-
-                        0-based index of the first cited block in the source's `content` array.
-
-                      - `type: "content_block_location"`
-
-                        - `"content_block_location"`
-
-                    - `BetaCitationWebSearchResultLocationParam`
-
-                      - `cited_text: string`
-
-                      - `encrypted_index: string`
-
-                      - `title: string | null`
-
-                      - `type: "web_search_result_location"`
-
-                        - `"web_search_result_location"`
-
-                      - `url: string`
-
-                    - `BetaCitationSearchResultLocationParam`
-
-                      - `cited_text: string`
-
-                        The full text of the cited block range, concatenated.
-
-                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                      - `end_block_index: number`
-
-                        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                      - `search_result_index: number`
-
-                        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                        Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                      - `source: string`
-
-                      - `start_block_index: number`
-
-                        0-based index of the first cited block in the source's `content` array.
-
-                      - `title: string | null`
-
-                      - `type: "search_result_location"`
-
-                        - `"search_result_location"`
 
               - `is_error?: boolean`
 
@@ -2799,35 +884,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               A content block that represents a file to be uploaded to the container
               Files uploaded via this block will be available in the container's input directory.
-
               - `file_id: string`
 
               - `type: "container_upload"`
-
                 - `"container_upload"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
-
-                - `type: "ephemeral"`
-
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
 
             - `BetaCompactionBlockParam`
 
@@ -2838,55 +902,63 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               When content is None, the block represents a failed compaction. The server
               treats these as no-ops. Empty string content is not allowed.
-
-              - `content: string | null`
-
-                Summary of previously compacted content, or null if compaction failed
-
               - `type: "compaction"`
-
                 - `"compaction"`
 
               - `cache_control?: BetaCacheControlEphemeral | null`
 
                 Create a cache control breakpoint at this content block.
 
-                - `type: "ephemeral"`
+              - `content?: string | null`
 
-                  - `"ephemeral"`
-
-                - `ttl?: "5m" | "1h"`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `"5m"`
-
-                  - `"1h"`
+                Summary of previously compacted content, or null if compaction failed
 
               - `encrypted_content?: string | null`
 
                 Opaque metadata from prior compaction, to be round-tripped verbatim
 
-        - `role: "user" | "assistant"`
+            - `BetaMidConversationSystemBlockParam`
 
+              System instructions that appear mid-conversation.
+
+              Use this block to provide or update system-level instructions at a specific
+              point in the conversation, rather than only via the top-level `system` parameter.
+              - `content: Array<BetaTextBlockParam>`
+
+                System instruction text blocks.
+                - `text: string`
+
+                - `type: "text"`
+
+                - `cache_control?: BetaCacheControlEphemeral | null`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `citations?: Array<BetaTextCitationParam> | null`
+
+              - `type: "mid_conv_system"`
+                - `"mid_conv_system"`
+
+              - `cache_control?: BetaCacheControlEphemeral | null`
+
+                Create a cache control breakpoint at this content block.
+
+        - `role: "user" | "assistant" | "system"`
           - `"user"`
 
           - `"assistant"`
+
+          - `"system"`
 
       - `model: Model`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `"claude-opus-4-8" | "claude-opus-4-7" | "claude-mythos-preview" | 15 more`
+          - `"claude-opus-4-8"`
 
-        - `"claude-opus-4-7" | "claude-mythos-preview" | "claude-opus-4-6" | 14 more`
+            Frontier intelligence for long-running agents and coding
 
           - `"claude-opus-4-7"`
 
@@ -2962,33 +1034,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-        - `type: "ephemeral"`
-
-          - `"ephemeral"`
-
-        - `ttl?: "5m" | "1h"`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `"5m"`
-
-          - `"1h"`
-
       - `container?: BetaContainerParams | string | null`
 
         Container identifier for reuse across requests.
-
         - `BetaContainerParams`
 
           Container parameters with skills to be loaded.
-
           - `id?: string | null`
 
             Container id
@@ -2996,7 +1047,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `skills?: Array<BetaSkillParams> | null`
 
             List of skills to load in the container
-
             - `skill_id: string`
 
               Skill ID
@@ -3004,7 +1054,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type: "anthropic" | "custom"`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
               - `"anthropic"`
 
               - `"custom"`
@@ -3020,23 +1069,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Context management configuration.
 
         This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
-
         - `edits?: Array<BetaClearToolUses20250919Edit | BetaClearThinking20251015Edit | BetaCompact20260112Edit>`
 
           List of context management edits to apply
-
           - `BetaClearToolUses20250919Edit`
-
             - `type: "clear_tool_uses_20250919"`
-
               - `"clear_tool_uses_20250919"`
 
             - `clear_at_least?: BetaInputTokensClearAtLeast | null`
 
               Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
-
               - `type: "input_tokens"`
-
                 - `"input_tokens"`
 
               - `value: number`
@@ -3044,7 +1087,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `clear_tool_inputs?: boolean | Array<string> | null`
 
               Whether to clear all tool inputs (bool) or specific tool inputs to clear (list)
-
               - `boolean`
 
               - `Array<string>`
@@ -3056,9 +1098,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `keep?: BetaToolUsesKeep`
 
               Number of tool uses to retain in the conversation
-
               - `type: "tool_uses"`
-
                 - `"tool_uses"`
 
               - `value: number`
@@ -3066,57 +1106,42 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `trigger?: BetaInputTokensTrigger | BetaToolUsesTrigger`
 
               Condition that triggers the context management strategy
-
               - `BetaInputTokensTrigger`
-
                 - `type: "input_tokens"`
-
                   - `"input_tokens"`
 
                 - `value: number`
 
               - `BetaToolUsesTrigger`
-
                 - `type: "tool_uses"`
-
                   - `"tool_uses"`
 
                 - `value: number`
 
           - `BetaClearThinking20251015Edit`
-
             - `type: "clear_thinking_20251015"`
-
               - `"clear_thinking_20251015"`
 
             - `keep?: BetaThinkingTurns | BetaAllThinkingTurns | "all"`
 
               Number of most recent assistant turns to keep thinking blocks for. Older turns will have their thinking blocks removed.
-
               - `BetaThinkingTurns`
-
                 - `type: "thinking_turns"`
-
                   - `"thinking_turns"`
 
                 - `value: number`
 
               - `BetaAllThinkingTurns`
-
                 - `type: "all"`
-
                   - `"all"`
 
               - `"all"`
-
                 - `"all"`
 
           - `BetaCompact20260112Edit`
 
             Automatically compact older context when reaching the configured trigger threshold.
-
             - `type: "compact_20260112"`
-
               - `"compact_20260112"`
 
             - `instructions?: string | null`
@@ -3131,11 +1156,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               When to trigger compaction. Defaults to 150000 input tokens.
 
-              - `type: "input_tokens"`
+      - `diagnostics?: BetaDiagnosticsParam | null`
 
-                - `"input_tokens"`
+        Request-level diagnostics. Currently carries the previous response
+        id for prompt-cache divergence reporting.
+        - `previous_message_id?: string | null`
 
-              - `value: number`
+          The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
 
       - `inference_geo?: string | null`
 
@@ -3144,11 +1171,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `mcp_servers?: Array<BetaRequestMCPServerURLDefinition>`
 
         MCP servers to be utilized in this request
-
         - `name: string`
 
         - `type: "url"`
-
           - `"url"`
 
         - `url: string`
@@ -3156,7 +1181,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `authorization_token?: string | null`
 
         - `tool_configuration?: BetaRequestMCPServerToolConfiguration | null`
-
           - `allowed_tools?: Array<string> | null`
 
           - `enabled?: boolean | null`
@@ -3164,7 +1188,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `metadata?: BetaMetadata`
 
         An object describing metadata about the request.
-
         - `user_id?: string | null`
 
           An external identifier for the user who is associated with the request.
@@ -3174,11 +1197,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `output_config?: BetaOutputConfig`
 
         Configuration options for the model's output, such as the output format.
-
         - `effort?: "low" | "medium" | "high" | 2 more | null`
 
           All possible effort levels.
-
           - `"low"`
 
           - `"medium"`
@@ -3192,19 +1213,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `format?: BetaJSONOutputFormat | null`
 
           A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
-
           - `schema: Record<string, unknown>`
 
             The JSON schema of the format
 
           - `type: "json_schema"`
-
             - `"json_schema"`
 
         - `task_budget?: BetaTokenTaskBudget | null`
 
           User-configurable total token budget across contexts.
-
           - `total: number`
 
             Total token budget across all contexts in the session.
@@ -3212,7 +1230,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `type: "tokens"`
 
             The budget type. Currently only 'tokens' is supported.
-
             - `"tokens"`
 
           - `remaining?: number | null`
@@ -3225,20 +1242,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
 
-        - `schema: Record<string, unknown>`
-
-          The JSON schema of the format
-
-        - `type: "json_schema"`
-
-          - `"json_schema"`
-
       - `service_tier?: "auto" | "standard_only"`
 
         Determines whether to use priority capacity (if available) or standard capacity for this request.
 
         Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
-
         - `"auto"`
 
         - `"standard_only"`
@@ -3246,7 +1254,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `speed?: "standard" | "fast" | null`
 
         The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
-
         - `"standard"`
 
         - `"fast"`
@@ -3270,145 +1277,18 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         System prompt.
 
         A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
-
         - `string`
 
         - `Array<BetaTextBlockParam>`
-
           - `text: string`
 
           - `type: "text"`
-
-            - `"text"`
 
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
 
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
-
           - `citations?: Array<BetaTextCitationParam> | null`
-
-            - `BetaCitationCharLocationParam`
-
-              - `cited_text: string`
-
-              - `document_index: number`
-
-              - `document_title: string | null`
-
-              - `end_char_index: number`
-
-              - `start_char_index: number`
-
-              - `type: "char_location"`
-
-                - `"char_location"`
-
-            - `BetaCitationPageLocationParam`
-
-              - `cited_text: string`
-
-              - `document_index: number`
-
-              - `document_title: string | null`
-
-              - `end_page_number: number`
-
-              - `start_page_number: number`
-
-              - `type: "page_location"`
-
-                - `"page_location"`
-
-            - `BetaCitationContentBlockLocationParam`
-
-              - `cited_text: string`
-
-                The full text of the cited block range, concatenated.
-
-                Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-              - `document_index: number`
-
-              - `document_title: string | null`
-
-              - `end_block_index: number`
-
-                Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-              - `start_block_index: number`
-
-                0-based index of the first cited block in the source's `content` array.
-
-              - `type: "content_block_location"`
-
-                - `"content_block_location"`
-
-            - `BetaCitationWebSearchResultLocationParam`
-
-              - `cited_text: string`
-
-              - `encrypted_index: string`
-
-              - `title: string | null`
-
-              - `type: "web_search_result_location"`
-
-                - `"web_search_result_location"`
-
-              - `url: string`
-
-            - `BetaCitationSearchResultLocationParam`
-
-              - `cited_text: string`
-
-                The full text of the cited block range, concatenated.
-
-                Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-              - `end_block_index: number`
-
-                Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-              - `search_result_index: number`
-
-                0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                Counted separately from `document_index`; server-side web search results are not included in this count.
-
-              - `source: string`
-
-              - `start_block_index: number`
-
-                0-based index of the first cited block in the source's `content` array.
-
-              - `title: string | null`
-
-              - `type: "search_result_location"`
-
-                - `"search_result_location"`
 
       - `temperature?: number`
 
@@ -3425,9 +1305,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
         See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
-
         - `BetaThinkingConfigEnabled`
-
           - `budget_tokens: number`
 
             Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -3437,33 +1315,26 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
 
           - `type: "enabled"`
-
             - `"enabled"`
 
           - `display?: "summarized" | "omitted" | null`
 
             Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
             - `"summarized"`
 
             - `"omitted"`
 
         - `BetaThinkingConfigDisabled`
-
           - `type: "disabled"`
-
             - `"disabled"`
 
         - `BetaThinkingConfigAdaptive`
-
           - `type: "adaptive"`
-
             - `"adaptive"`
 
           - `display?: "summarized" | "omitted" | null`
 
             Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
             - `"summarized"`
 
             - `"omitted"`
@@ -3471,13 +1342,10 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `tool_choice?: BetaToolChoice`
 
         How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
-
         - `BetaToolChoiceAuto`
 
           The model will automatically decide whether to use tools.
-
           - `type: "auto"`
-
             - `"auto"`
 
           - `disable_parallel_tool_use?: boolean`
@@ -3489,9 +1357,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `BetaToolChoiceAny`
 
           The model will use any available tools.
-
           - `type: "any"`
-
             - `"any"`
 
           - `disable_parallel_tool_use?: boolean`
@@ -3503,13 +1369,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `BetaToolChoiceTool`
 
           The model will use the specified tool with `tool_choice.name`.
-
           - `name: string`
 
             The name of the tool to use.
 
           - `type: "tool"`
-
             - `"tool"`
 
           - `disable_parallel_tool_use?: boolean`
@@ -3521,9 +1385,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `BetaToolChoiceNone`
 
           The model will not be allowed to use tools.
-
           - `type: "none"`
-
             - `"none"`
 
       - `tools?: Array<BetaToolUnion>`
@@ -3535,10 +1397,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
         Each tool definition includes:
-
-        * `name`: Name of the tool.
-        * `description`: Optional, but strongly-recommended description of the tool.
-        * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+        - `name`: Name of the tool.
+        - `description`: Optional, but strongly-recommended description of the tool.
+        - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
         For example, if you defined `tools` as:
 
@@ -3589,17 +1450,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
         See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
-
         - `BetaTool`
-
           - `input_schema: InputSchema`
 
             [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
             This defines the shape of the `input` that your tool accepts and that the model will produce.
-
             - `type: "object"`
-
               - `"object"`
 
             - `properties?: Record<string, unknown> | null`
@@ -3613,7 +1470,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This is how the tool will be called by the model and in `tool_use` blocks.
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -3623,25 +1479,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -3664,25 +1501,20 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
           - `type?: "custom" | null`
-
             - `"custom"`
 
         - `BetaToolBash20241022`
-
           - `name: "bash"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"bash"`
 
           - `type: "bash_20241022"`
-
             - `"bash_20241022"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -3692,25 +1524,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -3723,21 +1536,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaToolBash20250124`
-
           - `name: "bash"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"bash"`
 
           - `type: "bash_20250124"`
-
             - `"bash_20250124"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -3747,25 +1556,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -3778,21 +1568,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaCodeExecutionTool20250522`
-
           - `name: "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"code_execution"`
 
           - `type: "code_execution_20250522"`
-
             - `"code_execution_20250522"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -3802,25 +1588,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -3831,21 +1598,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaCodeExecutionTool20250825`
-
           - `name: "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"code_execution"`
 
           - `type: "code_execution_20250825"`
-
             - `"code_execution_20250825"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -3855,25 +1618,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -3886,21 +1630,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `BetaCodeExecutionTool20260120`
 
           Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
           - `name: "code_execution"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"code_execution"`
 
           - `type: "code_execution_20260120"`
-
             - `"code_execution_20260120"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -3911,25 +1651,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
-
           - `defer_loading?: boolean`
 
             If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -3939,7 +1660,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaToolComputerUse20241022`
-
           - `display_height_px: number`
 
             The height of the display in pixels.
@@ -3953,15 +1673,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"computer"`
 
           - `type: "computer_20241022"`
-
             - `"computer_20241022"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -3971,25 +1688,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -4006,21 +1704,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaMemoryTool20250818`
-
           - `name: "memory"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"memory"`
 
           - `type: "memory_20250818"`
-
             - `"memory_20250818"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4030,25 +1724,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -4061,7 +1736,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaToolComputerUse20250124`
-
           - `display_height_px: number`
 
             The height of the display in pixels.
@@ -4075,15 +1749,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"computer"`
 
           - `type: "computer_20250124"`
-
             - `"computer_20250124"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4093,25 +1764,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -4128,21 +1780,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaToolTextEditor20241022`
-
           - `name: "str_replace_editor"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"str_replace_editor"`
 
           - `type: "text_editor_20241022"`
-
             - `"text_editor_20241022"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4152,25 +1800,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -4183,7 +1812,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaToolComputerUse20251124`
-
           - `display_height_px: number`
 
             The height of the display in pixels.
@@ -4197,15 +1825,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"computer"`
 
           - `type: "computer_20251124"`
-
             - `"computer_20251124"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4215,25 +1840,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -4254,21 +1860,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaToolTextEditor20250124`
-
           - `name: "str_replace_editor"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"str_replace_editor"`
 
           - `type: "text_editor_20250124"`
-
             - `"text_editor_20250124"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4278,25 +1880,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -4309,21 +1892,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaToolTextEditor20250429`
-
           - `name: "str_replace_based_edit_tool"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"str_replace_based_edit_tool"`
 
           - `type: "text_editor_20250429"`
-
             - `"text_editor_20250429"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4333,25 +1912,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -4364,21 +1924,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaToolTextEditor20250728`
-
           - `name: "str_replace_based_edit_tool"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"str_replace_based_edit_tool"`
 
           - `type: "text_editor_20250728"`
-
             - `"text_editor_20250728"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4388,25 +1944,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -4423,21 +1960,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaWebSearchTool20250305`
-
           - `name: "web_search"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"web_search"`
 
           - `type: "web_search_20250305"`
-
             - `"web_search_20250305"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4456,25 +1989,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
-
           - `defer_loading?: boolean`
 
             If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -4490,9 +2004,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `user_location?: BetaUserLocation | null`
 
             Parameters for the user's location. Used to provide more relevant search results.
-
             - `type: "approximate"`
-
               - `"approximate"`
 
             - `city?: string | null`
@@ -4512,21 +2024,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
         - `BetaWebFetchTool20250910`
-
           - `name: "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"web_fetch"`
 
           - `type: "web_fetch_20250910"`
-
             - `"web_fetch_20250910"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4545,30 +2053,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
-
           - `citations?: BetaCitationsConfigParam | null`
 
             Citations configuration for fetched documents. Citations are disabled by default.
-
-            - `enabled?: boolean`
 
           - `defer_loading?: boolean`
 
@@ -4587,21 +2074,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaWebSearchTool20260209`
-
           - `name: "web_search"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"web_search"`
 
           - `type: "web_search_20260209"`
-
             - `"web_search_20260209"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4620,25 +2103,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
-
           - `defer_loading?: boolean`
 
             If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -4655,42 +2119,18 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Parameters for the user's location. Used to provide more relevant search results.
 
-            - `type: "approximate"`
-
-              - `"approximate"`
-
-            - `city?: string | null`
-
-              The city of the user.
-
-            - `country?: string | null`
-
-              The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-            - `region?: string | null`
-
-              The region of the user.
-
-            - `timezone?: string | null`
-
-              The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
         - `BetaWebFetchTool20260209`
-
           - `name: "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"web_fetch"`
 
           - `type: "web_fetch_20260209"`
-
             - `"web_fetch_20260209"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4709,30 +2149,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
-
           - `citations?: BetaCitationsConfigParam | null`
 
             Citations configuration for fetched documents. Citations are disabled by default.
-
-            - `enabled?: boolean`
 
           - `defer_loading?: boolean`
 
@@ -4753,21 +2172,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `BetaWebFetchTool20260309`
 
           Web fetch tool with use_cache parameter for bypassing cached content.
-
           - `name: "web_fetch"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"web_fetch"`
 
           - `type: "web_fetch_20260309"`
-
             - `"web_fetch_20260309"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4786,30 +2201,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
-
           - `citations?: BetaCitationsConfigParam | null`
 
             Citations configuration for fetched documents. Citations are disabled by default.
-
-            - `enabled?: boolean`
 
           - `defer_loading?: boolean`
 
@@ -4832,99 +2226,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
         - `BetaAdvisorTool20260301`
-
           - `model: Model`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `"claude-opus-4-7" | "claude-mythos-preview" | "claude-opus-4-6" | 14 more`
-
-              - `"claude-opus-4-7"`
-
-                Frontier intelligence for long-running agents and coding
-
-              - `"claude-mythos-preview"`
-
-                New class of intelligence, strongest in coding and cybersecurity
-
-              - `"claude-opus-4-6"`
-
-                Frontier intelligence for long-running agents and coding
-
-              - `"claude-sonnet-4-6"`
-
-                Best combination of speed and intelligence
-
-              - `"claude-haiku-4-5"`
-
-                Fastest model with near-frontier intelligence
-
-              - `"claude-haiku-4-5-20251001"`
-
-                Fastest model with near-frontier intelligence
-
-              - `"claude-opus-4-5"`
-
-                Premium model combining maximum intelligence with practical performance
-
-              - `"claude-opus-4-5-20251101"`
-
-                Premium model combining maximum intelligence with practical performance
-
-              - `"claude-sonnet-4-5"`
-
-                High-performance model for agents and coding
-
-              - `"claude-sonnet-4-5-20250929"`
-
-                High-performance model for agents and coding
-
-              - `"claude-opus-4-1"`
-
-                Exceptional model for specialized complex tasks
-
-              - `"claude-opus-4-1-20250805"`
-
-                Exceptional model for specialized complex tasks
-
-              - `"claude-opus-4-0"`
-
-                Powerful model for complex tasks
-
-              - `"claude-opus-4-20250514"`
-
-                Powerful model for complex tasks
-
-              - `"claude-sonnet-4-0"`
-
-                High-performance model with extended thinking
-
-              - `"claude-sonnet-4-20250514"`
-
-                High-performance model with extended thinking
-
-              - `"claude-3-haiku-20240307"`
-
-                Fast and cost-effective model
-
-            - `(string & {})`
-
           - `name: "advisor"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"advisor"`
 
           - `type: "advisor_20260301"`
-
             - `"advisor_20260301"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -4935,47 +2253,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
-
           - `caching?: BetaCacheControlEphemeral | null`
 
             Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -4990,23 +2270,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaToolSearchToolBm25_20251119`
-
           - `name: "tool_search_tool_bm25"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"tool_search_tool_bm25"`
 
           - `type: "tool_search_tool_bm25_20251119" | "tool_search_tool_bm25"`
-
             - `"tool_search_tool_bm25_20251119"`
 
             - `"tool_search_tool_bm25"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -5016,25 +2292,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -5045,23 +2302,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `BetaToolSearchToolRegex20251119`
-
           - `name: "tool_search_tool_regex"`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `"tool_search_tool_regex"`
 
           - `type: "tool_search_tool_regex_20251119" | "tool_search_tool_regex"`
-
             - `"tool_search_tool_regex_20251119"`
 
             - `"tool_search_tool_regex"`
 
           - `allowed_callers?: Array<"direct" | "code_execution_20250825" | "code_execution_20260120">`
-
             - `"direct"`
 
             - `"code_execution_20250825"`
@@ -5071,25 +2324,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
-
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
 
           - `defer_loading?: boolean`
 
@@ -5105,42 +2339,20 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           Allows configuring enabled status and defer_loading for all tools
           from an MCP server, with optional per-tool overrides.
-
           - `mcp_server_name: string`
 
             Name of the MCP server to configure tools for
 
           - `type: "mcp_toolset"`
-
             - `"mcp_toolset"`
 
           - `cache_control?: BetaCacheControlEphemeral | null`
 
             Create a cache control breakpoint at this content block.
 
-            - `type: "ephemeral"`
-
-              - `"ephemeral"`
-
-            - `ttl?: "5m" | "1h"`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `"5m"`
-
-              - `"1h"`
-
           - `configs?: Record<string, BetaMCPToolConfig> | null`
 
             Configuration overrides for specific tools, keyed by tool name
-
             - `defer_loading?: boolean`
 
             - `enabled?: boolean`
@@ -5148,7 +2360,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `default_config?: BetaMCPToolDefaultConfig`
 
             Default configuration applied to all tools from this server
-
             - `defer_loading?: boolean`
 
             - `enabled?: boolean`
@@ -5176,11 +2387,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -5229,10 +2438,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaMessageBatch`
-
   - `id: string`
 
     Unique object identifier.
@@ -5264,7 +2478,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `processing_status: "in_progress" | "canceling" | "ended"`
 
     Processing status of the Message Batch.
-
     - `"in_progress"`
 
     - `"canceling"`
@@ -5276,7 +2489,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
     - `canceled: number`
 
       Number of requests in the Message Batch that have been canceled.
@@ -5316,30 +2528,52 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
-
     - `"message_batch"`
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 const betaMessageBatch = await client.beta.messages.batches.create({
   requests: [
     {
-      custom_id: 'my-custom-id-1',
+      custom_id: "my-custom-id-1",
       params: {
         max_tokens: 1024,
-        messages: [{ content: 'Hello, world', role: 'user' }],
-        model: 'claude-opus-4-6',
+        messages: [{ content: "Hello, world", role: "user" }],
+        model: "claude-opus-4-6",
       },
     },
   ],
 });
 
 console.log(betaMessageBatch.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
 ```

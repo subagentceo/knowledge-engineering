@@ -1,16 +1,18 @@
-[Diode Computers](https://www.diode.computer/) designs and manufactures custom circuit boards with AI. Diode’s toolchain turns circuit board design into a software problem; much like how software engineers can be more efficient with tools like Claude Code, Diode is applying the same techniques to help electrical engineers design boards that are ready to fab in hours. 
+# Making Claude a better electrical engineer
 
-Diode develops and maintains the [Zener language](https://github.com/diodeinc/pcb/blob/main/docs/pages/spec.mdx), a domain-specific language built on top of [Starlark](https://github.com/bazelbuild/starlark) for describing printed circuit board (PCB) schematics, and [pcb](https://github.com/diodeinc/pcb?tab=readme-ov-file), which uses the Zener language to provide automations on top of KiCad.
+Diode Computers designs and manufactures custom circuit boards with AI. Diode’s toolchain turns circuit board design into a software problem; much like how software engineers can be more efficient with tools like Claude Code, Diode is applying the same techniques to help electrical engineers design boards that are ready to fab in hours. 
+
+Diode develops and maintains the Zener language, a domain-specific language built on top of Starlark for describing printed circuit board (PCB) schematics, and pcb, which uses the Zener language to provide automations on top of KiCad.
 
 An important task for electrical engineers is building reference designs: when a designer wants to use a certain chip, they rely on hundreds of pages of documentation to understand what components the chip needs to be operational. A typical chip might require up to a dozen ancillary parts—resistors, capacitors, inductors, and the like—and well-structured information can be sparse for how to wire them up. 
 
 Electrical engineers already use Claude Code to auto-generate reference designs in Zener from unstructured documentation before they are reviewed. But given the novelty of the environment, which includes domain specific tooling and requires deep subject matter expertise, there is room for improvement on Claude’s agentic performance at generating reference designs, and Claude’s general understanding of this specific electrical engineering task. In the task of auto-generating reference designs, common failure modes when attempting the task include:
 
--   Missing nuances from the datasheet about how circuits should be configured
--   Misinterpreting reference schematic images
--   Misunderstanding or misusing Zener
+- Missing nuances from the datasheet about how circuits should be configured
+- Misinterpreting reference schematic images
+- Misunderstanding or misusing Zener
 
-When we uncover gaps in Claude’s capabilities on domain specific tasks requiring deep subject matter expertise, we can partner with experts in the field to teach Claude to improve on these tasks. This knowledge is encoded in the Claude models that are released publicly, so that all users of Claude models benefit, be it in Claude Code, [claude.ai](http://claude.ai), or their own Claude powered systems and applications.
+When we uncover gaps in Claude’s capabilities on domain specific tasks requiring deep subject matter expertise, we can partner with experts in the field to teach Claude to improve on these tasks. This knowledge is encoded in the Claude models that are released publicly, so that all users of Claude models benefit, be it in Claude Code, claude.ai, or their own Claude powered systems and applications.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/693b774140c56c41b9aa9611_image1.png)
 
@@ -36,8 +38,8 @@ In blind head-to-head evaluations, Diode's electrical engineers preferred Sonnet
 
 The partnership with Diode can be replicated with any company in any domain or industry where Claude is deployed in an agentic manner on tasks with clear success and failure criteria. Anthropic is constantly improving Claude to make it the best virtual collaborator across the broadest set of domains and industries. Tasks and workflows that require deep subject matter expertise and require domain specific processes, tools and workflows are great candidates for closer collaboration with Anthropic.
 
-If you are interested in partnering with Anthropic to improve future versions of Claude, [please fill out this form](https://docs.google.com/forms/d/e/1FAIpQLScs9kVDB_PRyXPueayJ0c4pKUGwFdDwrKlRPsniVXCqw0utQQ/viewform?usp=dialog) and we’ll be in touch.
+If you are interested in partnering with Anthropic to improve future versions of Claude, please fill out this form and we’ll be in touch.
 
-## Acknowledgements 
+## Acknowledgements
 
 This article was written in collaboration between Davide Asnaghi and Lenny Khazan of Diode Computers, and Connor Jennings, David Hershey and Nicholas Marwell of Anthropic.

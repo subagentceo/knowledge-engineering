@@ -2,4 +2,4 @@ Some Claude users may encounter refusals or errors with the message ‘Output bl
 
 We’re mindful that some users may encounter these refusals or errors when they aren’t intending for Claude to replicate or regurgitate anything. We know this can be frustrating, and welcome your feedback and insights as we iterate on our tooling to improve our users’ experiences with our services.
 
-Conversely, if you are receiving these messages because you *are* trying to elicit copyrighted content, we may warn you or, in cases of repeat violations, suspend or terminate your account.
+Conversely, if you are receiving these messages because you _are_ trying to elicit copyrighted content, we may warn you or, in cases of repeat violations, suspend or terminate your account.

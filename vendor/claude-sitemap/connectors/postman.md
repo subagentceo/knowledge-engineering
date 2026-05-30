@@ -1,3 +1,5 @@
+# Postman
+
 With Postman's MCP server, you can prompt AI to automate work across your Postman collections, environments, workspaces, and more.
 
 You can use Postman to:

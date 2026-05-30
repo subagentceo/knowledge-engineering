@@ -1,12 +1,14 @@
-[Fundamental Research Labs](https://fundamentalresearchlabs.com/) is a two-year-old research lab focused on building more human-like AI. Their first commercial product, Shortcut, is an AI-powered spreadsheet tool that works across Excel, Google Sheets, and a standalone web and desktop app.
+# How Shortcut uses Opus 4.6 to tackle complex spreadsheet work for enterprises
+
+Fundamental Research Labs is a two-year-old research lab focused on building more human-like AI. Their first commercial product, Shortcut, is an AI-powered spreadsheet tool that works across Excel, Google Sheets, and a standalone web and desktop app.
 
 ## With Claude, Fundamental Research Labs achieved:
 
--   Benchmark accuracy from 7.29 to 8.08 out of 10 after swapping to Opus 4.6 with no prompt changes
--   Almost half a trillion tokens processed through the platform in January 2026 
--   100,000+ users at 1,000+ companies, spanning consumers, ad agencies, hedge funds, and management consulting firms
--   Users report saving multiple hours per day on tasks like financial model buildouts, data extraction, and formula auditing
--   Multi-agent architecture running 10+ Claude sub-agents simultaneously to analyze complex multi-sheet workbooks
+- Benchmark accuracy from 7.29 to 8.08 out of 10 after swapping to Opus 4.6 with no prompt changes
+- Almost half a trillion tokens processed through the platform in January 2026 
+- 100,000+ users at 1,000+ companies, spanning consumers, ad agencies, hedge funds, and management consulting firms
+- Users report saving multiple hours per day on tasks like financial model buildouts, data extraction, and formula auditing
+- Multi-agent architecture running 10+ Claude sub-agents simultaneously to analyze complex multi-sheet workbooks
 
 ## The challenge: Making AI work for spreadsheets
 

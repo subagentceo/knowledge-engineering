@@ -1,3 +1,5 @@
+# Claude on Google Cloud’s Vertex AI: FedRAMP High and IL2 Authorized
+
 Today, we're announcing that Claude models are now authorized for FedRAMP High and IL-2 workloads through Google Cloud's Vertex AI platform.
 
 With these authorizations, federal civilian agencies and defense organizations can use Claude while meeting their strict regulatory compliance requirements, helping balance innovation and security.
@@ -10,9 +12,9 @@ Similarly, Defense contractors and agencies can use Claude within environments a
 
 With Claude, federal agencies can now:
 
--   Build AI applications and workflows while maintaining compliance with stringent security standards
--   Access the complete Claude model family, including Claude 3.7 Sonnet–our most intelligent model to date
--   Support digital transformation initiatives with frontier AI capabilities
+- Build AI applications and workflows while maintaining compliance with stringent security standards
+- Access the complete Claude model family, including Claude 3.7 Sonnet–our most intelligent model to date
+- Support digital transformation initiatives with frontier AI capabilities
 
 ### Clearing the way for government AI innovation
 
@@ -30,4 +32,4 @@ To get started with Claude in a FedRAMP High or IL2 environment:
 2.  Access Claude models through the Vertex AI Model Garden
 3.  Begin building with Claude using the Vertex AI API endpoints
 
-[Contact our team](/cdn-cgi/l/email-protection#0e7e7b6c7d6b6d4e6f607a667c617e676d206d6163) for expert guidance on integrating Claude into federal client applications while ensuring full compliance with FedRAMP and DoD security requirements.
+Contact our team for expert guidance on integrating Claude into federal client applications while ensuring full compliance with FedRAMP and DoD security requirements.

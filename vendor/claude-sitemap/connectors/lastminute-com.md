@@ -1,3 +1,5 @@
+# lastminute.com
+
 Access real-time flight and hotel data directly through Claude to search, compare, and book flights, dynamic packages (flight + hotel), and hotels across a global network of airlines and hotel suppliers.Benefit from instant price comparisons, flexible filters, and intelligent recommendations that seamlessly integrate Claude's capabilities into your travel planning. Enhance your workflow with comprehensive flight, dynamic package, and hotel search powered by lastminute.com.
 
 You can use lastminute.com to:

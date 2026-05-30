@@ -1,6 +1,6 @@
 # Versions
 
-## List
+## List Agent Versions
 
 `VersionListPageResponse Beta.Agents.Versions.List(VersionListParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -11,7 +11,6 @@ List Agent Versions
 ### Parameters
 
 - `VersionListParams parameters`
-
   - `required string agentID`
 
     Path param: Path parameter agent_id
@@ -27,7 +26,6 @@ List Agent Versions
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -76,16 +74,20 @@ List Agent Versions
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class VersionListPageResponse:`
 
   Paginated list of agent versions.
-
   - `IReadOnlyList<BetaManagedAgentsAgent> Data`
 
     Agent versions.
-
     - `required string ID`
 
     - `required DateTimeOffset? ArchivedAt`
@@ -99,11 +101,9 @@ List Agent Versions
     - `required string? Description`
 
     - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
       - `required string Name`
 
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -113,13 +113,11 @@ List Agent Versions
     - `required BetaManagedAgentsModelConfig Model`
 
       Model identifier and configuration.
-
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -159,7 +157,6 @@ List Agent Versions
       - `Speed Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -167,35 +164,28 @@ List Agent Versions
     - `required BetaManagedAgentsMultiagent? Multiagent`
 
       Resolved coordinator topology with a concrete agent roster.
-
       - `required IReadOnlyList<BetaManagedAgentsAgentReference> Agents`
 
         Agents the coordinator may spawn as session threads, each resolved to a specific version.
-
         - `required string ID`
 
         - `required Type Type`
-
           - `"agent"Agent`
 
         - `required Int Version`
 
       - `required Type Type`
-
         - `"coordinator"Coordinator`
 
     - `required string Name`
 
     - `required IReadOnlyList<Skill> Skills`
-
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
-
         - `required string SkillID`
 
         - `required Type Type`
-
           - `"anthropic"Anthropic`
 
         - `required string Version`
@@ -203,11 +193,9 @@ List Agent Versions
       - `class BetaManagedAgentsCustomSkill:`
 
         A resolved user-created custom skill.
-
         - `required string SkillID`
 
         - `required Type Type`
-
           - `"custom"Custom`
 
         - `required string Version`
@@ -215,17 +203,13 @@ List Agent Versions
     - `required string? System`
 
     - `required IReadOnlyList<Tool> Tools`
-
       - `class BetaManagedAgentsAgentToolset20260401:`
-
         - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
           - `required Boolean Enabled`
 
           - `required Name Name`
 
             Built-in agent tool identifier.
-
             - `"bash"Bash`
 
             - `"edit"Edit`
@@ -245,57 +229,39 @@ List Agent Versions
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
               - `required Type Type`
-
                 - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
-
               - `required Type Type`
-
                 - `"always_ask"AlwaysAsk`
 
         - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `required Boolean Enabled`
 
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required Type Type`
-
           - `"agent_toolset_20260401"AgentToolset20260401`
 
       - `class BetaManagedAgentsMcpToolset:`
-
         - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
           - `required Boolean Enabled`
 
           - `required string Name`
@@ -303,65 +269,43 @@ List Agent Versions
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `required Boolean Enabled`
 
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required string McpServerName`
 
         - `required Type Type`
-
           - `"mcp_toolset"McpToolset`
 
       - `class BetaManagedAgentsCustomTool:`
 
         A custom tool as returned in API responses.
-
         - `required string Description`
 
         - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
             JSON Schema properties defining the tool's input parameters.
@@ -373,17 +317,14 @@ List Agent Versions
           - `Type Type`
 
             Must be 'object' for tool input schemas.
-
             - `"object"Object`
 
         - `required string Name`
 
         - `required Type Type`
-
           - `"custom"Custom`
 
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `required DateTimeOffset UpdatedAt`
@@ -410,5 +351,82 @@ var page = await client.Beta.Agents.Versions.List(parameters);
 await foreach (var item in page.Paginate())
 {
     Console.WriteLine(item);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "agent_011CZkYpogX7uDKUyvBTophP",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "A general-purpose starter agent.",
+      "mcp_servers": [
+        {
+          "name": "example-mcp",
+          "type": "url",
+          "url": "https://example-server.modelcontextprotocol.io/sse"
+        }
+      ],
+      "metadata": {
+        "foo": "bar"
+      },
+      "model": {
+        "id": "claude-sonnet-4-6",
+        "speed": "standard"
+      },
+      "multiagent": {
+        "agents": [
+          {
+            "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+            "type": "agent",
+            "version": 1
+          }
+        ],
+        "type": "coordinator"
+      },
+      "name": "My First Agent",
+      "skills": [
+        {
+          "skill_id": "xlsx",
+          "type": "anthropic",
+          "version": "1"
+        },
+        {
+          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+          "type": "custom",
+          "version": "2"
+        }
+      ],
+      "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
+      "tools": [
+        {
+          "configs": [
+            {
+              "enabled": true,
+              "name": "bash",
+              "permission_policy": {
+                "type": "always_allow"
+              }
+            }
+          ],
+          "default_config": {
+            "enabled": true,
+            "permission_policy": {
+              "type": "always_ask"
+            }
+          },
+          "type": "agent_toolset_20260401"
+        }
+      ],
+      "type": "agent",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "version": 1
+    }
+  ],
+  "next_page": "next_page"
 }
 ```

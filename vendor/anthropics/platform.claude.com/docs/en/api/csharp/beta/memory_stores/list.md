@@ -1,4 +1,4 @@
-## List
+## List memory stores
 
 `MemoryStoreListPageResponse Beta.MemoryStores.List(MemoryStoreListParams?parameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ List memory stores
 ### Parameters
 
 - `MemoryStoreListParams parameters`
-
   - `DateTimeOffset createdAtGte`
 
     Query param: Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
@@ -33,7 +32,6 @@ List memory stores
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -82,16 +80,20 @@ List memory stores
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class MemoryStoreListPageResponse:`
 
   A page of `memory_store` results, ordered by `created_at` descending (newest first).
-
   - `IReadOnlyList<BetaManagedAgentsMemoryStore> Data`
 
     Memory stores on this page, newest first. Empty when there are no stores matching the filters.
-
     - `required string ID`
 
       Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -105,7 +107,6 @@ List memory stores
       Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
     - `required Type Type`
-
       - `"memory_store"MemoryStore`
 
     - `required DateTimeOffset UpdatedAt`
@@ -137,5 +138,27 @@ var page = await client.Beta.MemoryStores.List(parameters);
 await foreach (var item in page.Paginate())
 {
     Console.WriteLine(item);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "name": "name",
+      "type": "memory_store",
+      "updated_at": "2019-12-27T18:11:19.117Z",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "description": "description",
+      "metadata": {
+        "foo": "string"
+      }
+    }
+  ],
+  "next_page": "next_page"
 }
 ```

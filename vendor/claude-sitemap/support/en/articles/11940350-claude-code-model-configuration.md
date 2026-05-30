@@ -14,6 +14,8 @@ The simplest way to change models is to use the /model command directly within C
 
 ## Supported models
 
+- Opus 4.8, `claude-opus-4-8`
+
 - Opus 4.7, `claude-opus-4-7`
 
 - Sonnet 4.6, `claude-sonnet-4-6`
@@ -34,17 +36,19 @@ Use the `--model` flag when starting Claude Code.
 
 2. Enter the following commands (depending on the model you’d like to use for that session):
 
-  - **For Opus 4.7:** `claude --model claude-opus-4-7`
+- **For Opus 4.8**: `claude --model claude-opus-4-8`
 
-  - **For Sonnet 4.6:** `claude --model claude-sonnet-4-6`
+- **For Opus 4.7**: `claude --model claude-opus-4-7`
 
-  - **For Opus 4.6:** `claude --model claude-opus-4-6`
+- **For Sonnet 4.6**: `claude --model claude-sonnet-4-6`
 
-  - **For Opus 4.5:** `claude --model claude-opus-4-5-20251101`
+- **For Opus 4.6**: `claude --model claude-opus-4-6`
 
-  - **For Haiku 4.5:** `claude --model claude-haiku-4-5-20251001`
+- **For Opus 4.5**: `claude --model claude-opus-4-5-20251101`
 
-  - **For Sonnet 4.5:** `claude --model claude-sonnet-4-5-20250929`
+- **For Haiku 4.5:** `claude --model claude-haiku-4-5-20251001`
+
+- **For Sonnet 4.5**: `claude --model claude-sonnet-4-5-20250929`
 
 ## Change default model for all future sessions
 
@@ -57,6 +61,8 @@ Use the `--model` flag when starting Claude Code.
 **Step 2)** Add model setting to your shell config:
 
 ### For ZSH users (macOS)
+
+- Opus 4.8: `echo 'export ANTHROPIC_MODEL="claude-opus-4-8"' >> ~/.zshrc`
 
 - Opus 4.7: `echo 'export ANTHROPIC_MODEL="claude-opus-4-7"' >> ~/.zshrc`
 
@@ -71,6 +77,8 @@ Use the `--model` flag when starting Claude Code.
 - Sonnet 4.5: `echo 'export ANTHROPIC_MODEL="claude-sonnet-4-5-20250929"' >> ~/.zshrc`
 
 ### For BASH users (Linux)
+
+- Opus 4.8: `echo 'export ANTHROPIC_MODEL="claude-opus-4-8"' >> ~/.bashrc`
 
 - Opus 4.7: `echo 'export ANTHROPIC_MODEL="claude-opus-4-7"' >> ~/.bashrc`
 

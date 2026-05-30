@@ -1,4 +1,4 @@
-## List
+## List Compliance Roles
 
 **get** `/v1/compliance/organizations/{org_uuid}/roles`
 
@@ -29,7 +29,6 @@ List Compliance Roles
 - `data: array of object { id, created_at, description, 2 more }`
 
   List of roles
-
   - `id: string`
 
     Role identifier (tagged ID)
@@ -63,4 +62,22 @@ List Compliance Roles
 ```http
 curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "created_at",
+      "description": "description",
+      "name": "name",
+      "updated_at": "updated_at"
+    }
+  ],
+  "has_more": true,
+  "next_page": "next_page"
+}
 ```

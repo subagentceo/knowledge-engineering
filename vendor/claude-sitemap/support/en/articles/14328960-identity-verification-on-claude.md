@@ -54,7 +54,7 @@ We know that handing over an ID is a meaningful ask, and we've designed this pro
 
 For full details on how we handle personal data, see our **[Privacy Policy](https://www.anthropic.com/legal/privacy)**.
 
-## What we're *not* doing
+## What we're _not_ doing
 
 - **We are not using your identity data to train our models.** Verification data is used solely to confirm who you are and to meet our legal and safety obligations.
 

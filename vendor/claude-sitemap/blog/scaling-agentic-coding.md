@@ -1,3 +1,5 @@
+# How to scale agentic coding across your engineering organization
+
 The difference between successful and struggling implementations often comes down to execution. Teams that deploy agentic coding thoughtfully see meaningful improvements in development velocity and engineer satisfaction. Those that rush deployment without proper planning encounter resistance, inconsistent results, and difficulty demonstrating value.
 
 Working with engineering teams across different industries has surfaced common patterns. Successful adoption depends less on the specific tool and more on how you approach workflow changes, skill development, team dynamics, and success measurement.
@@ -32,11 +34,11 @@ Give your pilot group time to experiment with common use cases. Direct experienc
 
 Practical pilot activities include:
 
--   Creating custom slash commands for common tasks like database migrations or feature scaffolding
--   Building CLAUDE.md files that capture coding standards and project-specific context
--   Identifying repetitive workflows worth automating (boilerplate generation, test creation, dependency updates)
--   Setting up a dedicated channel for troubleshooting and knowledge sharing
--   Developing wrapper scripts for third-party tool authentication
+- Creating custom slash commands for common tasks like database migrations or feature scaffolding
+- Building CLAUDE.md files that capture coding standards and project-specific context
+- Identifying repetitive workflows worth automating (boilerplate generation, test creation, dependency updates)
+- Setting up a dedicated channel for troubleshooting and knowledge sharing
+- Developing wrapper scripts for third-party tool authentication
 
 The pilot phase should surface both opportunities and challenges before you expand access more broadly.
 

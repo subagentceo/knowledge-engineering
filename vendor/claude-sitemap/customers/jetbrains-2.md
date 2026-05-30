@@ -1,3 +1,5 @@
+# JetBrains Pioneers Multi-Agent IDE Experience with Claude Agent
+
 _Millions of developers now benefit from the Claude Agent SDK, the same underlying technology that powers Claude Code, natively inside of JetBrains_
 
 JetBrains, the company behind IntelliJ IDEA, PyCharm, and other IDEs trusted by 15+ million developers worldwide, has integrated Claude Agent as their first third-party coding agent available directly inside the IDE—no additional plugins or subscriptions required.
@@ -12,15 +14,15 @@ Since launching Junie, their first-party coding agent powered by Claude in April
 
 The integration aligns with JetBrains' philosophy of leveraging the best innovations, whether developed internally or with Anthropic, to ensure developers have access to best-in-class tools and the power of choice.
 
-## Seamless Integration 
+## Seamless Integration
 
 Claude Agent is included in the JetBrains AI subscription, at no extra cost, alongside Junie. This unified subscription model eliminates complexity while giving developers flexibility with which agent to use in their work. 
 
 Key advantages:
 
--   **Native IDE access:** Claude Agent operates directly within JetBrains' AI Chat interface, accessing IDE functionality through the JetBrains MCP server. Developers can navigate codebases, execute searches, and apply refactorings without switching contexts
--   **No deployment overhead:** No separate plugins to install, authentication flows, or standalone tools to manage
--   **Unified experience:** All AI assistance appears in a single chat interface via JetBrains AI Assistant, streamlining workflows
+- **Native IDE access:** Claude Agent operates directly within JetBrains' AI Chat interface, accessing IDE functionality through the JetBrains MCP server. Developers can navigate codebases, execute searches, and apply refactorings without switching contexts
+- **No deployment overhead:** No separate plugins to install, authentication flows, or standalone tools to manage
+- **Unified experience:** All AI assistance appears in a single chat interface via JetBrains AI Assistant, streamlining workflows
 
 ## An Open Ecosystem Vision
 
@@ -30,7 +32,7 @@ The Claude Agent integration represents JetBrains' first step toward an open AI 
 
 This approach acknowledges that different developers have different preferences and different tasks may call for different AI capabilities. By supporting multiple agents within a consistent interface, JetBrains lets developers optimize their workflows without sacrificing the integrated experience their IDEs are known for.
 
-## **Build on Claude Code’s Foundation** 
+## Build on Claude Code’s Foundation
 
 By building atop the Claude Agent SDK, JetBrains leverages the same foundational building blocks that make Claude Code effective– context management, file operations, tool calls and code execution–-all now native within the JetBrains IDEs that developers love. 
 

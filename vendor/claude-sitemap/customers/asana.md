@@ -1,10 +1,12 @@
+# Asana supercharges work management with Claude
+
 Asana, a leading enterprise work management platform, powers their Asana AI offering with Claude for its 150,000+ global customers. Their innovation continues to prove that AI is no longer just a tool, it’s a teammate that can advise teams on where to focus, action work and workflows, and adapt to how an organization works.
 
 With Asana AI, customers can:
 
--   Get AI-driven insights across teams and tools to focus on the work that matters most
--   Automate tasks and orchestrate complex workflows at scale with AI
--   Use AI that adjusts to their company’s changing needs and goals
+- Get AI-driven insights across teams and tools to focus on the work that matters most
+- Automate tasks and orchestrate complex workflows at scale with AI
+- Use AI that adjusts to their company’s changing needs and goals
 
 ## Improving work management with AI
 
@@ -26,11 +28,11 @@ By combining Claude's capabilities with the Work Graph's understanding of organi
 
 Asana AI leverages Claude for several key features, including:
 
--   **Smart workflows built with AI Studio:** Build workflows with AI agents to pass off your team’s busy work
--   **Smart goals:** Draft more effective goals and standardize them across your entire organization
--   **Smart chat**: Surface insights and recommendations across work and tools to action work faster
--   **Smart status:** Automatically draft status updates that identify risks, roadblocks, and open questions across projects, portfolios, and goals
--   **Smart summaries:** Keep up with tasks, projects, or portfolios, and gain proactive insights to stay updated on your most important initiatives
+- **Smart workflows built with AI Studio:** Build workflows with AI agents to pass off your team’s busy work
+- **Smart goals:** Draft more effective goals and standardize them across your entire organization
+- **Smart chat**: Surface insights and recommendations across work and tools to action work faster
+- **Smart status:** Automatically draft status updates that identify risks, roadblocks, and open questions across projects, portfolios, and goals
+- **Smart summaries:** Keep up with tasks, projects, or portfolios, and gain proactive insights to stay updated on your most important initiatives
 
 AI features are integrated into Asana's interface, making it easy for users to leverage Claude without disrupting their workflows.
 

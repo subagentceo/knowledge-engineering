@@ -1,4 +1,4 @@
-## Archive
+## Archive Session Thread
 
 `client.beta.sessions.threads.archive(stringthreadID, ThreadArchiveParamsparams, RequestOptionsoptions?): BetaManagedAgentsSessionThread`
 
@@ -11,7 +11,6 @@ Archive Session Thread
 - `threadID: string`
 
 - `params: ThreadArchiveParams`
-
   - `session_id: string`
 
     Path param: Path parameter session_id
@@ -19,11 +18,9 @@ Archive Session Thread
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -72,12 +69,17 @@ Archive Session Thread
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsSessionThread`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
-
   - `id: string`
 
     Unique identifier for this thread.
@@ -85,17 +87,14 @@ Archive Session Thread
   - `agent: BetaManagedAgentsSessionThreadAgent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
     - `id: string`
 
     - `description: string | null`
 
     - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
-
       - `name: string`
 
       - `type: "url"`
-
         - `"url"`
 
       - `url: string`
@@ -103,15 +102,12 @@ Archive Session Thread
     - `model: BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
-
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
-
           - `"claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -153,7 +149,6 @@ Archive Session Thread
       - `speed?: "standard" | "fast"`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"`
 
         - `"fast"`
@@ -161,15 +156,12 @@ Archive Session Thread
     - `name: string`
 
     - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
-
       - `BetaManagedAgentsAnthropicSkill`
 
         A resolved Anthropic-managed skill.
-
         - `skill_id: string`
 
         - `type: "anthropic"`
-
           - `"anthropic"`
 
         - `version: string`
@@ -177,11 +169,9 @@ Archive Session Thread
       - `BetaManagedAgentsCustomSkill`
 
         A resolved user-created custom skill.
-
         - `skill_id: string`
 
         - `type: "custom"`
-
           - `"custom"`
 
         - `version: string`
@@ -189,17 +179,13 @@ Archive Session Thread
     - `system: string | null`
 
     - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
-
       - `BetaManagedAgentsAgentToolset20260401`
-
         - `configs: Array<BetaManagedAgentsAgentToolConfig>`
-
           - `enabled: boolean`
 
           - `name: "bash" | "edit" | "read" | 5 more`
 
             Built-in agent tool identifier.
-
             - `"bash"`
 
             - `"edit"`
@@ -219,57 +205,39 @@ Archive Session Thread
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
               - `type: "always_allow"`
-
                 - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
-
               - `type: "always_ask"`
-
                 - `"always_ask"`
 
         - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `type: "agent_toolset_20260401"`
-
           - `"agent_toolset_20260401"`
 
       - `BetaManagedAgentsMCPToolset`
-
         - `configs: Array<BetaManagedAgentsMCPToolConfig>`
-
           - `enabled: boolean`
 
           - `name: string`
@@ -277,65 +245,43 @@ Archive Session Thread
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `mcp_server_name: string`
 
         - `type: "mcp_toolset"`
-
           - `"mcp_toolset"`
 
       - `BetaManagedAgentsCustomTool`
 
         A custom tool as returned in API responses.
-
         - `description: string`
 
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `properties?: Record<string, unknown> | null`
 
             JSON Schema properties defining the tool's input parameters.
@@ -347,17 +293,14 @@ Archive Session Thread
           - `type?: "object"`
 
             Must be 'object' for tool input schemas.
-
             - `"object"`
 
         - `name: string`
 
         - `type: "custom"`
-
           - `"custom"`
 
     - `type: "agent"`
-
       - `"agent"`
 
     - `version: number`
@@ -381,7 +324,6 @@ Archive Session Thread
   - `stats: BetaManagedAgentsSessionThreadStats | null`
 
     Timing statistics for a session thread.
-
     - `active_seconds?: number`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -397,7 +339,6 @@ Archive Session Thread
   - `status: BetaManagedAgentsSessionThreadStatus`
 
     SessionThreadStatus enum
-
     - `"running"`
 
     - `"idle"`
@@ -407,7 +348,6 @@ Archive Session Thread
     - `"terminated"`
 
   - `type: "session_thread"`
-
     - `"session_thread"`
 
   - `updated_at: string`
@@ -417,11 +357,9 @@ Archive Session Thread
   - `usage: BetaManagedAgentsSessionThreadUsage | null`
 
     Cumulative token usage for a session thread across all turns.
-
     - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `ephemeral_1h_input_tokens?: number`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -445,16 +383,91 @@ Archive Session Thread
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsSessionThread = await client.beta.sessions.threads.archive(
-  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
-  { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
-);
+const betaManagedAgentsSessionThread =
+  await client.beta.sessions.threads.archive("sthr_011CZkZVWa6oIjw0rgXZpnBt", {
+    session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  });
 
 console.log(betaManagedAgentsSessionThread.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "description": "A focused research subagent.",
+    "mcp_servers": [
+      {
+        "name": "example-mcp",
+        "type": "url",
+        "url": "https://example-server.modelcontextprotocol.io/sse"
+      }
+    ],
+    "model": {
+      "id": "claude-sonnet-4-6",
+      "speed": "standard"
+    },
+    "name": "Researcher",
+    "skills": [
+      {
+        "skill_id": "xlsx",
+        "type": "anthropic",
+        "version": "1"
+      }
+    ],
+    "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+    "tools": [
+      {
+        "configs": [
+          {
+            "enabled": true,
+            "name": "bash",
+            "permission_policy": {
+              "type": "always_allow"
+            }
+          }
+        ],
+        "default_config": {
+          "enabled": true,
+          "permission_policy": {
+            "type": "always_ask"
+          }
+        },
+        "type": "agent_toolset_20260401"
+      }
+    ],
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "parent_thread_id": null,
+  "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "stats": {
+    "active_seconds": 0,
+    "duration_seconds": 0,
+    "startup_seconds": 0
+  },
+  "status": "idle",
+  "type": "session_thread",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
 ```

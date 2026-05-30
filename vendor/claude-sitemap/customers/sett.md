@@ -1,12 +1,14 @@
-[Sett](http://sett.ai/) builds AI-powered playable ads—interactive mini-games used to acquire users for mobile games. The 45-person company based in Tel Aviv serves nearly 50 game studios, from mid-size publishers to top-grossing enterprise studios, helping them overcome creative fatigue and find winning ad concepts faster.
+# Sett scales gaming ad production with Claude
+
+Sett builds AI-powered playable ads—interactive mini-games used to acquire users for mobile games. The 45-person company based in Tel Aviv serves nearly 50 game studios, from mid-size publishers to top-grossing enterprise studios, helping them overcome creative fatigue and find winning ad concepts faster.
 
 ## With Claude, Sett:
 
--   Reduced playable ad production time from one week to 75 minutes
--   Cut refinement effort within their agentic system by 50%
--   Built Claude as the orchestrator agent managing their entire creative pipeline
--   Achieved creative coding that understands abstract concepts like "taste" and user appeal
--   Laid the foundation for a fully autonomous user acquisition agent
+- Reduced playable ad production time from one week to 75 minutes
+- Cut refinement effort within their agentic system by 50%
+- Built Claude as the orchestrator agent managing their entire creative pipeline
+- Achieved creative coding that understands abstract concepts like "taste" and user appeal
+- Laid the foundation for a fully autonomous user acquisition agent
 
 ## The problem
 

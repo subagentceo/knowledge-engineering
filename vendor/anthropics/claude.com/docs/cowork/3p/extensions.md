@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -249,9 +250,9 @@ To roll out a new version of a plugin:
 
 Unless restricted by an admin, end users can add their own extensions through the in-app UI:
 
-* **Plugins** — install plugins (which can bundle skills, hooks, slash commands, and sub-agents) from the Plugins settings page
-* **Connectors** — install local desktop extensions (`.mcpb`) from the Connectors settings page
-* **Local MCP servers** — add local MCP server processes from **Settings → Developer**, when enabled by the admin
+- **Plugins** — install plugins (which can bundle skills, hooks, slash commands, and sub-agents) from the Plugins settings page
+- **Connectors** — install local desktop extensions (`.mcpb`) from the Connectors settings page
+- **Local MCP servers** — add local MCP server processes from **Settings → Developer**, when enabled by the admin
 
 End users cannot add remote MCP servers; remote servers are available only via admin-provisioned `managedMcpServers` or organization plugins. User-added extensions are stored in the user's [local data directory](/cowork/3p/data-storage) and apply only to that device.
 

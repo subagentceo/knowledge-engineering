@@ -1,3 +1,5 @@
+# Shopify
+
 Shopify for Claude makes store management as easy as having a conversation. Effortlessly connect your existing store and simply chat to add products, adjust inventory across locations, create discount codes, browse recent orders, view customer details, or pull analytics on your store's performance.
 
 You can use Shopify to:

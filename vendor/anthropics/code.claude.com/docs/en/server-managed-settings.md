@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -18,9 +19,9 @@ This approach is designed for organizations that do not have device management i
 
 To use server-managed settings, you need:
 
-* Claude for Teams or Claude for Enterprise plan
-* Claude Code version 2.1.38 or later for Claude for Teams, or version 2.1.30 or later for Claude for Enterprise
-* Network access to `api.anthropic.com`
+- Claude for Teams or Claude for Enterprise plan
+- Claude Code version 2.1.38 or later for Claude for Teams, or version 2.1.30 or later for Claude for Enterprise
+- Network access to `api.anthropic.com`
 
 ## Choose between server-managed and endpoint-managed settings
 
@@ -94,6 +95,7 @@ If your devices are enrolled in an MDM or endpoint management solution, endpoint
     ```
 
     Because hooks execute shell commands, users see a [security approval dialog](#security-approval-dialogs) before they're applied. See [Configure auto mode](/en/auto-mode-config) for how the `autoMode` entries affect what the classifier blocks and important warnings about the `environment`, `allow`, `soft_deny`, and `hard_deny` fields.
+
   </Step>
 
   <Step title="Save and deploy">
@@ -109,8 +111,8 @@ To confirm that settings are being applied, ask a user to restart Claude Code. I
 
 The following roles can manage server-managed settings:
 
-* **Primary Owner**
-* **Owner**
+- **Primary Owner**
+- **Owner**
 
 Restrict access to trusted personnel, as settings changes apply to all users in the organization.
 
@@ -122,9 +124,9 @@ Most [settings keys](/en/settings#available-settings) work in any scope. A handf
 
 Server-managed settings have the following limitations:
 
-* Settings apply uniformly to all users in the organization. Per-group configurations are not yet supported.
-* [MCP server configurations](/en/mcp#managed-mcp-configuration) cannot be distributed through server-managed settings.
-* Settings restricted to OS-level policy sources, such as `policyHelper` and `wslInheritsWindowsSettings`, are not honored. Deploy them through MDM or a system `managed-settings.json` file instead.
+- Settings apply uniformly to all users in the organization. Per-group configurations are not yet supported.
+- A [`managed-mcp.json`](/en/managed-mcp) file cannot be distributed through server-managed settings. Deliver the `allowedMcpServers` and `deniedMcpServers` policy keys there instead.
+- Settings restricted to OS-level policy sources, such as `policyHelper` and `wslInheritsWindowsSettings`, are not honored. Deploy them through MDM or a system `managed-settings.json` file instead.
 
 ## Settings delivery
 
@@ -142,15 +144,15 @@ Claude Code fetches settings from Anthropic's servers at startup and polls for u
 
 **First launch without cached settings:**
 
-* Claude Code fetches settings asynchronously
-* If the fetch fails, Claude Code continues without managed settings
-* There is a brief window before settings load where restrictions are not yet enforced
+- Claude Code fetches settings asynchronously
+- If the fetch fails, Claude Code continues without managed settings
+- There is a brief window before settings load where restrictions are not yet enforced
 
 **Subsequent launches with cached settings:**
 
-* Cached settings apply immediately at startup
-* Claude Code fetches fresh settings in the background
-* Cached settings persist through network failures
+- Cached settings apply immediately at startup
+- Claude Code fetches fresh settings in the background
+- Cached settings persist through network failures
 
 Claude Code applies settings updates automatically without a restart, except for advanced settings like OpenTelemetry configuration, which require a full restart to take effect.
 
@@ -176,9 +178,9 @@ As of v2.1.139, the `claude auth` subcommands such as `claude auth login` are ex
 
 Certain settings that could pose security risks require explicit user approval before being applied:
 
-* **Shell command settings**: settings that execute shell commands
-* **Custom environment variables**: variables not in the known safe allowlist
-* **Hook configurations**: any hook definition
+- **Shell command settings**: settings that execute shell commands
+- **Custom environment variables**: variables not in the known safe allowlist
+- **Hook configurations**: any hook definition
 
 When these settings are present, users see a security dialog explaining what is being configured. Users must approve to proceed. If a user rejects the settings, Claude Code exits.
 
@@ -190,10 +192,10 @@ When these settings are present, users see a security dialog explaining what is 
 
 Server-managed settings require a direct connection to `api.anthropic.com` and are not available when using third-party model providers:
 
-* Amazon Bedrock
-* Google Vertex AI
-* Microsoft Foundry
-* Custom API endpoints via `ANTHROPIC_BASE_URL` or [LLM gateways](/en/llm-gateway)
+- Amazon Bedrock
+- Google Vertex AI
+- Microsoft Foundry
+- Custom API endpoints via `ANTHROPIC_BASE_URL` or [LLM gateways](/en/llm-gateway)
 
 ## Audit logging
 
@@ -221,7 +223,7 @@ For stronger enforcement guarantees, use [endpoint-managed settings](/en/setting
 
 Related pages for managing Claude Code configuration:
 
-* [Settings](/en/settings): complete configuration reference including all available settings
-* [Endpoint-managed settings](/en/settings#settings-files): managed settings deployed to devices by IT
-* [Authentication](/en/authentication): set up user access to Claude Code
-* [Security](/en/security): security safeguards and best practices
+- [Settings](/en/settings): complete configuration reference including all available settings
+- [Endpoint-managed settings](/en/settings#settings-files): managed settings deployed to devices by IT
+- [Authentication](/en/authentication): set up user access to Claude Code
+- [Security](/en/security): security safeguards and best practices

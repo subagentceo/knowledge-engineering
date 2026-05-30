@@ -1,9 +1,11 @@
-Connect ActiveCampaign to Claude for autonomous marketing at your fingertips. Get real-time marketing insights and then take action, instantly. With this secure connection, you can manage lists, tags, contacts, and automations just by chatting with Claude. Ask Claude to pull yesterday’s email performance, get a contact’s phone number, create a new tag, or start an automation. All of that and more, fueled by the ActiveCampaign connector.  
-  
+# ActiveCampaign
+
+Connect ActiveCampaign to Claude for autonomous marketing at your fingertips. Get real-time marketing insights and then take action, instantly. With this secure connection, you can manage lists, tags, contacts, and automations just by chatting with Claude. Ask Claude to pull yesterday’s email performance, get a contact’s phone number, create a new tag, or start an automation. All of that and more, fueled by the ActiveCampaign connector.
+
 You can use the ActiveCampaign connector to:
 
 Update contact information:  
-"Update ActiveCampaign contact [\[email protected\]](/cdn-cgi/l/email-protection#42212a23302e2b276c20302d352c02273a232f322e276c212d2f) to change their phone number to 312-555-0123"
+"Update ActiveCampaign contact [email protected] to change their phone number to 312-555-0123"
 
 Review campaign performance:  
 "List all my ActiveCampaign campaigns and their performance metrics from this month"

@@ -1,3 +1,5 @@
+# Private Equity
+
 Screen deals, run due diligence, build IC memos, and track portfolio performance for private equity workflows.
 
 You can use Private Equity to:

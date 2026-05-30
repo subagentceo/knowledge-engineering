@@ -2,31 +2,9 @@
 
 How memory and dreaming turn Claude Managed Agents into self-learning systems. This session walks through design considerations for memory architectures and how dreaming verifies and enriches memory between sessions.
 
-Details
-
-City
-
-San Francisco, USA
-
-Date
-
-May 6, 2026
-
-Time
-
-10:30AM – 11:00AM
-
-Speaker(s)
-
-Mahesh Murag
-
-Member of Technical Staff,
-
-Anthropic
-
 ## Watch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf456e463868480fc8c1e_designing-memory-systems.webp)
 
@@ -36,4 +14,4 @@ Keynotes, demos, and conversations with the teams behind Claude. Recorded at Cod
 
 Browse recordings
 
-[Learn more](/code-with-claude/san-francisco)Learn more
+Learn moreLearn more

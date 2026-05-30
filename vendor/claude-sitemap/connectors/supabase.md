@@ -1,3 +1,5 @@
+# Supabase
+
 Manage Supabase projects directly through Claude. Execute SQL queries on PostgreSQL databases, design and modify table schemas, deploy serverless edge functions, and configure user authentication. Access real-time logs for debugging, generate TypeScript types for your schema, create and apply database migrations, and manage development branches through natural language commands.
 
 You can use Supabase to:

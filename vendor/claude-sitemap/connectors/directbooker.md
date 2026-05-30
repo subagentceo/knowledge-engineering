@@ -1,3 +1,5 @@
+# DirectBooker
+
 Direct is best—for better rates and better service. DirectBooker helps you discover and compare hotels at your destination: the right neighborhood, the right vibe, the amenities you need. See real-time rates, access member prices and special packages only available when you book direct, then go straight to the hotel's official site to reserve. Pay with cash or points while keeping all your loyalty perks—points earned, elite benefits, and exclusive offers.
 
 You can use DirectBooker to:

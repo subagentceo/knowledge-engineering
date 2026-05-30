@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -57,9 +58,9 @@ Users can review and delete individual entries, or pause memory entirely (existi
 
 Inference credentials are handled according to how they're delivered:
 
-* **Managed configuration** (e.g. `inferenceGatewayApiKey`, `inferenceBedrockBearerToken`) — read from the OS preference store / registry at launch and held in memory; never written to the application-data directory.
-* **OAuth tokens** (Vertex OAuth, MCP servers with `oauth: true`) — stored in the OS keychain (macOS Keychain / Windows Credential Manager), encrypted at rest by the operating system.
-* **Credential-helper output** — held in memory for `inferenceCredentialHelperTtlSec` seconds, then discarded and re-fetched.
+- **Managed configuration** (e.g. `inferenceGatewayApiKey`, `inferenceBedrockBearerToken`) — read from the OS preference store / registry at launch and held in memory; never written to the application-data directory.
+- **OAuth tokens** (Vertex OAuth, MCP servers with `oauth: true`) — stored in the OS keychain (macOS Keychain / Windows Credential Manager), encrypted at rest by the operating system.
+- **Credential-helper output** — held in memory for `inferenceCredentialHelperTtlSec` seconds, then discarded and re-fetched.
 
 ## Removing data
 

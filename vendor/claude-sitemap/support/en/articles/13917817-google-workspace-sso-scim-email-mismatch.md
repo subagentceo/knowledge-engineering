@@ -22,12 +22,12 @@ People may experience one or more of the following when attempting to access you
 
 Google Workspace accounts have a primary email and may have multiple aliases. SCIM provisioning and SAML SSO are configured separately in the Google Admin console and can pull from different address fields:
 
-| **Google attribute** | **Typical value** | **Commonly used by** |
-| --- | --- | --- |
-| `primaryEmail` | `<test.user.one@example.com>` | Recommended for both SCIM and SAML |
-| Email aliases | `<testuser1@example.com>`, `<t.userone@example.com>` | Sometimes mapped by mistake in SCIM |
-| Custom schema fields | Custom attributes defined per org | Advanced attribute mappings |
-| Organization unit email | OU-derived address variants | Rarely, in complex org structures |
+| **Google attribute**    | **Typical value**                                    | **Commonly used by**                |
+| ----------------------- | ---------------------------------------------------- | ----------------------------------- |
+| `primaryEmail`          | `<test.user.one@example.com>`                        | Recommended for both SCIM and SAML  |
+| Email aliases           | `<testuser1@example.com>`, `<t.userone@example.com>` | Sometimes mapped by mistake in SCIM |
+| Custom schema fields    | Custom attributes defined per org                    | Advanced attribute mappings         |
+| Organization unit email | OU-derived address variants                          | Rarely, in complex org structures   |
 
 The most common mismatch: SCIM is configured to send an alias address while SAML sends the primary email (or vice versa). Since aliases and primary emails are different strings, Claude cannot match them. Claude requires an **exact string match**.
 
@@ -77,7 +77,7 @@ Google Workspace's primaryEmail is the most reliable source for both SCIM and SA
 
 ### Trigger a full re-sync
 
-**Critical — Full sync required:** An incremental sync will *not* update existing records after you change an attribute mapping. You must trigger a **full restart** of the provisioning cycle.
+**Critical — Full sync required:** An incremental sync will _not_ update existing records after you change an attribute mapping. You must trigger a **full restart** of the provisioning cycle.
 
 1. In the Google Admin console, go to the app's **Auto-provisioning** settings.
 
@@ -119,14 +119,14 @@ After correcting the attribute mapping and completing the full sync:
 
 ## Common issues
 
-| **Issue** | **Solution** |
-| --- | --- |
-| SCIM sends an alias while SAML sends the primary email | Always use `primaryEmail` for both. |
-| Name ID in SAML settings was not checked | The Name ID field determines the email sent at login. This is separate from the attribute mapping section. Check both. |
-| Custom schema field is blank for some people | Stick to standard Google attributes like `primaryEmail`. |
-| Reprovisioning doesn't trigger automatically after mapping change | You may need to manually suspend and re-enable provisioning to force a full sync. |
-| Someone's primary email changed but the old email still appears in Claude | A full re-sync is needed after primary email changes. |
-| Emails updated in SCIM but person still can't log in | Check for rogue free orgs or ghost accounts. Clear browser cookies and retry. |
+| **Issue**                                                                 | **Solution**                                                                                                           |
+| ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| SCIM sends an alias while SAML sends the primary email                    | Always use `primaryEmail` for both.                                                                                    |
+| Name ID in SAML settings was not checked                                  | The Name ID field determines the email sent at login. This is separate from the attribute mapping section. Check both. |
+| Custom schema field is blank for some people                              | Stick to standard Google attributes like `primaryEmail`.                                                               |
+| Reprovisioning doesn't trigger automatically after mapping change         | You may need to manually suspend and re-enable provisioning to force a full sync.                                      |
+| Someone's primary email changed but the old email still appears in Claude | A full re-sync is needed after primary email changes.                                                                  |
+| Emails updated in SCIM but person still can't log in                      | Check for rogue free orgs or ghost accounts. Clear browser cookies and retry.                                          |
 
 ---
 

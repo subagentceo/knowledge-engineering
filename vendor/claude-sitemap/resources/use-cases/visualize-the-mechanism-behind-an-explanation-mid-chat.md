@@ -1,3 +1,5 @@
+# Visualize the mechanism behind an explanation mid-chat
+
 Claude can build a visual as part of its answer — a diagram, a chart, something interactive — built for the question you asked and woven into the explanation around it. You drag things, click into what's still unclear, and Claude builds the next one in response. It triggers on its own when a visual would help; you can also ask for one directly. Rather than a full artifact, the diagram streams in where the text would have been, and the conversation keeps going.
 
 Here a student knows a planet speeds up near the sun but not why. Claude builds an animated trade-off they can run themselves, with buttons to go deeper into whatever's still fuzzy.

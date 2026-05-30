@@ -54,14 +54,14 @@ This means adding tools dynamically through tool search does not break your cach
 
 The cache follows a prefix hierarchy (`tools` → `system` → `messages`), so a change at one level invalidates that level and everything after it:
 
-| Change | Invalidates |
-|---|---|
-| Modifying tool definitions | Entire cache (tools, system, messages) |
-| Toggling web search or citations | System and messages caches |
-| Changing `tool_choice` | Messages cache |
-| Changing `disable_parallel_tool_use` | Messages cache |
-| Toggling images present/absent | Messages cache |
-| Changing thinking parameters | Messages cache |
+| Change                               | Invalidates                            |
+| ------------------------------------ | -------------------------------------- |
+| Modifying tool definitions           | Entire cache (tools, system, messages) |
+| Toggling web search or citations     | System and messages caches             |
+| Changing `tool_choice`               | Messages cache                         |
+| Changing `disable_parallel_tool_use` | Messages cache                         |
+| Toggling images present/absent       | Messages cache                         |
+| Changing thinking parameters         | Messages cache                         |
 
 <Note>
 If you need to vary `tool_choice` mid-conversation, consider placing cache breakpoints before the variation point.
@@ -69,16 +69,16 @@ If you need to vary `tool_choice` mid-conversation, consider placing cache break
 
 ## Per-tool interaction table
 
-| Tool | Caching considerations |
-|---|---|
-| [Web search](/docs/en/agents-and-tools/tool-use/web-search-tool) | Enabling or disabling invalidates the system and messages caches |
-| [Web fetch](/docs/en/agents-and-tools/tool-use/web-fetch-tool) | Enabling or disabling invalidates the system and messages caches |
-| [Code execution](/docs/en/agents-and-tools/tool-use/code-execution-tool) | Container state is independent of prompt cache |
-| [Tool search](/docs/en/agents-and-tools/tool-use/tool-search-tool) | Discovered tools load as `tool_reference` blocks, preserving prefix cache |
-| [Computer use](/docs/en/agents-and-tools/tool-use/computer-use-tool) | Screenshot presence affects messages cache |
-| [Text editor](/docs/en/agents-and-tools/tool-use/text-editor-tool) | Standard client tool, no special caching interaction |
-| [Bash](/docs/en/agents-and-tools/tool-use/bash-tool) | Standard client tool, no special caching interaction |
-| [Memory](/docs/en/agents-and-tools/tool-use/memory-tool) | Standard client tool, no special caching interaction |
+| Tool                                                                     | Caching considerations                                                    |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| [Web search](/docs/en/agents-and-tools/tool-use/web-search-tool)         | Enabling or disabling invalidates the system and messages caches          |
+| [Web fetch](/docs/en/agents-and-tools/tool-use/web-fetch-tool)           | Enabling or disabling invalidates the system and messages caches          |
+| [Code execution](/docs/en/agents-and-tools/tool-use/code-execution-tool) | Container state is independent of prompt cache                            |
+| [Tool search](/docs/en/agents-and-tools/tool-use/tool-search-tool)       | Discovered tools load as `tool_reference` blocks, preserving prefix cache |
+| [Computer use](/docs/en/agents-and-tools/tool-use/computer-use-tool)     | Screenshot presence affects messages cache                                |
+| [Text editor](/docs/en/agents-and-tools/tool-use/text-editor-tool)       | Standard client tool, no special caching interaction                      |
+| [Bash](/docs/en/agents-and-tools/tool-use/bash-tool)                     | Standard client tool, no special caching interaction                      |
+| [Memory](/docs/en/agents-and-tools/tool-use/memory-tool)                 | Standard client tool, no special caching interaction                      |
 
 ## Next steps
 

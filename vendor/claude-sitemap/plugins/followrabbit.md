@@ -1,17 +1,10 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    ](#)
-    
--   Installs
-    
-    1286
+# followrabbit
+
+- Install in
+
+  Claude Code
+
+- Made by
+- Installs
+
+  1297

@@ -1,10 +1,12 @@
+# Amira helps millions of students master reading with the Science of Reading and Claude
+
 Amira Learning uses Claude to power key new features of their AI reading technology, helping millions of students develop reading comprehension skills and background knowledge through individualized, conversational learning experiences.
 
 With Claude’s assistance, Amira:
 
--   Listens to and understands students with any accent or dialect. Amira has listened to more than 10 billion words read aloud worldwide.
--   Decides, in the moment, how to coach a student, providing hundreds of science-based interventions that support reading growth.
--   Implements voice-based AI dialogues and comprehension conversations for elementary students
+- Listens to and understands students with any accent or dialect. Amira has listened to more than 10 billion words read aloud worldwide.
+- Decides, in the moment, how to coach a student, providing hundreds of science-based interventions that support reading growth.
+- Implements voice-based AI dialogues and comprehension conversations for elementary students
 
 ## Advancing Comprehension: A Complex but Critical Step in Reading Development
 
@@ -26,9 +28,9 @@ Claude's leading language capabilities further distinguished it from competitors
 
 Amira uses Claude to enhance reading comprehension in several ways:
 
--   **Generating comprehension dialogues**: Claude powers experiences where Amira asks students thoughtful questions about passages they've read, focusing on skills aligned with educational and state standards.
--   **Content analysis**: Claude analyzes texts to match specific comprehension skills with appropriate passages. For example, it might select a story with a vivid and rich setting to exercise the skill of explaining the influence of the setting on the plot.
--   **Creating instructional content**: Claude generates questions, hints, and response pathways that maintain pedagogical rigor while ensuring an individualized learning experience.
+- **Generating comprehension dialogues**: Claude powers experiences where Amira asks students thoughtful questions about passages they've read, focusing on skills aligned with educational and state standards.
+- **Content analysis**: Claude analyzes texts to match specific comprehension skills with appropriate passages. For example, it might select a story with a vivid and rich setting to exercise the skill of explaining the influence of the setting on the plot.
+- **Creating instructional content**: Claude generates questions, hints, and response pathways that maintain pedagogical rigor while ensuring an individualized learning experience.
 
 “We use a closed-loop system where Amira selects from a curated set of dozens of possible responses after each student turn,” Liu explained. “These responses are pre-generated and carefully reviewed offline using Claude. This design enables dynamic and engaging interactions while maintaining strict control over educational quality and safety. Importantly, Amira never does public LLM inference during student sessions. We are fully FERPA-compliant and committed to protecting student data—we do not send identifiable information to any external machine learning services.”
 

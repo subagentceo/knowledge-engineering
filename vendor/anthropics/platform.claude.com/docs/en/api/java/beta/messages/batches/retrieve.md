@@ -1,4 +1,4 @@
-## Retrieve
+## Retrieve a Message Batch
 
 `BetaMessageBatch beta().messages().batches().retrieve(BatchRetrieveParamsparams = BatchRetrieveParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -11,7 +11,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchRetrieveParams params`
-
   - `Optional<String> messageBatchId`
 
     ID of the Message Batch.
@@ -19,7 +18,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -68,10 +66,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaMessageBatch:`
-
   - `String id`
 
     Unique object identifier.
@@ -103,7 +106,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `ProcessingStatus processingStatus`
 
     Processing status of the Message Batch.
-
     - `IN_PROGRESS("in_progress")`
 
     - `CANCELING("canceling")`
@@ -115,7 +117,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
     - `long canceled`
 
       Number of requests in the Message Batch that have been canceled.
@@ -155,7 +156,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
-
     - `MESSAGE_BATCH("message_batch")`
 
 ### Example
@@ -176,5 +176,28 @@ public final class Main {
 
         BetaMessageBatch betaMessageBatch = client.beta().messages().batches().retrieve("message_batch_id");
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
 }
 ```

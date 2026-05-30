@@ -1,4 +1,4 @@
-## Retrieve Messages
+## Get Messages Usage Report
 
 **get** `/v1/organizations/usage_report/messages`
 
@@ -22,7 +22,6 @@ Get Messages Usage Report
 - `bucket_width: optional "1d" or "1m" or "1h"`
 
   Time granularity of the response data.
-
   - `"1d"`
 
   - `"1m"`
@@ -32,7 +31,6 @@ Get Messages Usage Report
 - `context_window: optional array of "0-200k" or "200k-1M"`
 
   Restrict usage returned to the specified context window(s).
-
   - `"0-200k"`
 
   - `"200k-1M"`
@@ -44,7 +42,6 @@ Get Messages Usage Report
 - `group_by: optional array of "api_key_id" or "workspace_id" or "model" or 6 more`
 
   Group by any subset of the available options. Grouping by `speed` requires the `fast-mode-2026-02-01` beta header.
-
   - `"api_key_id"`
 
   - `"workspace_id"`
@@ -66,7 +63,6 @@ Get Messages Usage Report
 - `inference_geos: optional array of "global" or "us" or "not_available"`
 
   Restrict usage returned to the specified inference geo(s). Use `not_available` for models that do not support specifying `inference_geo`.
-
   - `"global"`
 
   - `"us"`
@@ -97,7 +93,6 @@ Get Messages Usage Report
 - `service_tiers: optional array of "standard" or "batch" or "priority" or 3 more`
 
   Restrict usage returned to the specified service tier(s).
-
   - `"standard"`
 
   - `"batch"`
@@ -114,7 +109,6 @@ Get Messages Usage Report
 
   Restrict usage returned to the specified speed(s) (Claude Code research preview).
   Requires the `fast-mode-2026-02-01` beta header.
-
   - `"standard"`
 
   - `"fast"`
@@ -133,18 +127,15 @@ Get Messages Usage Report
 
 ### Returns
 
-- `MessagesUsageReport = object { data, has_more, next_page }`
-
+- `MessagesUsageReport object { data, has_more, next_page }`
   - `data: array of object { ending_at, results, starting_at }`
-
     - `ending_at: string`
 
       End of the time bucket (exclusive) in RFC 3339 format.
 
     - `results: array of object { account_id, api_key_id, cache_creation, 10 more }`
 
-      List of usage items for this time bucket.  There may be multiple items if one or more `group_by[]` parameters are specified.
-
+      List of usage items for this time bucket. There may be multiple items if one or more `group_by[]` parameters are specified.
       - `account_id: string`
 
         ID of the user account that made the request. `null` if not grouping by account or for non-OAuth requests.
@@ -156,7 +147,6 @@ Get Messages Usage Report
       - `cache_creation: object { ephemeral_1h_input_tokens, ephemeral_5m_input_tokens }`
 
         The number of input tokens for cache creation.
-
         - `ephemeral_1h_input_tokens: number`
 
           The number of input tokens used to create the 1 hour cache entry.
@@ -172,7 +162,6 @@ Get Messages Usage Report
       - `context_window: "0-200k" or "200k-1M"`
 
         Context window used. `null` if not grouping by context window.
-
         - `"0-200k"`
 
         - `"200k-1M"`
@@ -193,7 +182,6 @@ Get Messages Usage Report
       - `server_tool_use: object { web_search_requests }`
 
         Server-side tool usage metrics.
-
         - `web_search_requests: number`
 
           The number of web search requests made.
@@ -205,7 +193,6 @@ Get Messages Usage Report
       - `service_tier: "standard" or "batch" or "priority" or 3 more`
 
         Service tier used. `null` if not grouping by service tier.
-
         - `"standard"`
 
         - `"batch"`
@@ -244,4 +231,41 @@ Get Messages Usage Report
 curl https://api.anthropic.com/v1/organizations/usage_report/messages \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "ending_at": "2025-08-02T00:00:00Z",
+      "results": [
+        {
+          "account_id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+          "api_key_id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 1000,
+            "ephemeral_5m_input_tokens": 500
+          },
+          "cache_read_input_tokens": 200,
+          "context_window": "0-200k",
+          "inference_geo": "global",
+          "model": "claude-opus-4-6",
+          "output_tokens": 500,
+          "server_tool_use": {
+            "web_search_requests": 10
+          },
+          "service_account_id": "svac_01Hk3R9TWxq7CfQak00OiVw4",
+          "service_tier": "standard",
+          "uncached_input_tokens": 1500,
+          "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+        }
+      ],
+      "starting_at": "2025-08-01T00:00:00Z"
+    }
+  ],
+  "has_more": true,
+  "next_page": "2019-12-27T18:11:19.117Z"
+}
 ```

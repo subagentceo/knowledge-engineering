@@ -28,13 +28,9 @@ When configured with Bedrock/Vertex and CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC
 
 Yes. Our setup guides for **[Bedrock](https://docs.claude.com/en/docs/claude-code/amazon-bedrock)** and **[Vertex](https://docs.claude.com/en/docs/claude-code/google-vertex-ai)** show how you can enable this. For example, in the Bedrock case you can run `aws configure` to configure the AWS CLI before adding the necessary **[configs](https://docs.claude.com/en/docs/claude-code/amazon-bedrock#3-configure-claude-code)** and running Claude Code with the Bedrock, or you can use Bedrock API keys, which is a new feature from AWS that enables API keys for Bedrock usage that don’t require full AWS credentials.
 
-## Is the 1M context window available in Claude Code, and will users be warned about higher pricing?
-
-1M context, which previously required extra usage, is now included in Claude Code for Max, Team, and Enterprise users with Opus 4.6 or 4.7. Sessions using these models can use the full 1M context window automatically, meaning fewer compactions and more of the conversation kept intact.
-
 ## How can we deploy Claude Code with custom environment variables and permissions across our organization?
 
-Create wrapper scripts that set environment variables before running Claude Code. For permissions, use .claude/settings.json files with allow/deny lists. Note that wildcard patterns (*) don't always match as expected - test permissions thoroughly. Enterprise teams often inject standardized Claude.md files for consistent configurations.
+Create wrapper scripts that set environment variables before running Claude Code. For permissions, use .claude/settings.json files with allow/deny lists. Note that wildcard patterns (\*) don't always match as expected - test permissions thoroughly. Enterprise teams often inject standardized Claude.md files for consistent configurations.
 
 ## Does Claude Code have public code filtering or attribution capabilities on the roadmap?
 
@@ -66,11 +62,11 @@ Currently, Claude.md files are the primary mechanism. IT teams can inject standa
 
 ## How do permissions work in Claude Code, and why aren’t my allow lists being respected?
 
-Permissions use pattern matching in .claude/settings.json or settings.local.json. Wildcard syntax can be tricky - "Bash(atlassian-api:*)" should work but may need exact command matching. Use "Yes, and don't ask again for similar commands" to build up permissions incrementally. Check both global (~/.claude/settings.json) and local settings files.
+Permissions use pattern matching in .claude/settings.json or settings.local.json. Wildcard syntax can be tricky - "Bash(atlassian-api:\*)" should work but may need exact command matching. Use "Yes, and don't ask again for similar commands" to build up permissions incrementally. Check both global (~/.claude/settings.json) and local settings files.
 
 ## Does Claude Code index my entire codebase or use a vector database to store information about my codebase?
 
-No. Claude Code has access to a system prompt and a series of tools that it can use to navigate your codebase on command. For example, if Claude Code needs to understand something about your codebase, it will use a search tool to search through your codebase and read files on command. We find that this is more effective and flexible than full codebase indexing: Claude Code is *really* good at knowing how to sift through a codebase to gather context it needs on the fly!
+No. Claude Code has access to a system prompt and a series of tools that it can use to navigate your codebase on command. For example, if Claude Code needs to understand something about your codebase, it will use a search tool to search through your codebase and read files on command. We find that this is more effective and flexible than full codebase indexing: Claude Code is _really_ good at knowing how to sift through a codebase to gather context it needs on the fly!
 
 ## Can Claude Code integrate with CI/CD, version control, and observability platforms?
 

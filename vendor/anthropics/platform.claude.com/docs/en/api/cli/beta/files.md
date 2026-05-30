@@ -1,6 +1,6 @@
 # Files
 
-## Upload
+## Upload File
 
 `$ ant beta:files upload`
 
@@ -21,7 +21,6 @@ Upload File
 ### Returns
 
 - `file_metadata: object { id, created_at, filename, 5 more }`
-
   - `id: string`
 
     Unique object identifier.
@@ -57,7 +56,6 @@ Upload File
   - `scope: optional object { id, type }`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -74,7 +72,25 @@ ant beta:files upload \
   --file 'Example data'
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## List Files
 
 `$ ant beta:files list`
 
@@ -109,11 +125,9 @@ List Files
 ### Returns
 
 - `BetaFileListResponse: object { data, first_id, has_more, last_id }`
-
   - `data: array of FileMetadata`
 
     List of file metadata objects.
-
     - `id: string`
 
       Unique object identifier.
@@ -149,7 +163,6 @@ List Files
     - `scope: optional object { id, type }`
 
       The scope of this file, indicating the context in which it was created (e.g., a session).
-
       - `id: string`
 
         The ID of the scoping resource (e.g., the session ID).
@@ -177,7 +190,32 @@ ant beta:files list \
   --api-key my-anthropic-api-key
 ```
 
-## Download
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "created_at": "2025-04-15T18:37:24.100435Z",
+      "filename": "document.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 102400,
+      "type": "file",
+      "downloadable": false,
+      "scope": {
+        "id": "id",
+        "type": "session"
+      }
+    }
+  ],
+  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "has_more": true,
+  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
+}
+```
+
+## Download File
 
 `$ ant beta:files download`
 
@@ -207,7 +245,7 @@ ant beta:files download \
   --file-id file_id
 ```
 
-## Retrieve Metadata
+## Get File Metadata
 
 `$ ant beta:files retrieve-metadata`
 
@@ -228,7 +266,6 @@ Get File Metadata
 ### Returns
 
 - `file_metadata: object { id, created_at, filename, 5 more }`
-
   - `id: string`
 
     Unique object identifier.
@@ -264,7 +301,6 @@ Get File Metadata
   - `scope: optional object { id, type }`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -281,7 +317,25 @@ ant beta:files retrieve-metadata \
   --file-id file_id
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## Delete File
 
 `$ ant beta:files delete`
 
@@ -302,7 +356,6 @@ Delete File
 ### Returns
 
 - `deleted_file: object { id, type }`
-
   - `id: string`
 
     ID of the deleted file.
@@ -312,7 +365,6 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `"file_deleted"`
 
 ### Example
@@ -323,12 +375,20 @@ ant beta:files delete \
   --file-id file_id
 ```
 
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "type": "file_deleted"
+}
+```
+
 ## Domain Types
 
 ### Beta File Scope
 
 - `beta_file_scope: object { id, type }`
-
   - `id: string`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -340,7 +400,6 @@ ant beta:files delete \
 ### Deleted File
 
 - `deleted_file: object { id, type }`
-
   - `id: string`
 
     ID of the deleted file.
@@ -350,13 +409,11 @@ ant beta:files delete \
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `"file_deleted"`
 
 ### File Metadata
 
 - `file_metadata: object { id, created_at, filename, 5 more }`
-
   - `id: string`
 
     Unique object identifier.
@@ -392,7 +449,6 @@ ant beta:files delete \
   - `scope: optional object { id, type }`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).

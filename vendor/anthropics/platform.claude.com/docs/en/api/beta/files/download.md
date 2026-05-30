@@ -1,4 +1,4 @@
-## Download
+## Download File
 
 **get** `/v1/files/{file_id}/content`
 
@@ -15,11 +15,9 @@ Download File
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -67,6 +65,12 @@ Download File
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
 
 ### Example
 

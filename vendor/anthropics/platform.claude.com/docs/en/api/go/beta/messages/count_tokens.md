@@ -1,4 +1,4 @@
-## Count Tokens
+## Count tokens in a Message
 
 `client.Beta.Messages.CountTokens(ctx, params) (*BetaMessageTokensCount, error)`
 
@@ -13,7 +13,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 ### Parameters
 
 - `params BetaMessageCountTokensParams`
-
   - `Messages param.Field[[]BetaMessageParamResp]`
 
     Body param: Input messages.
@@ -27,16 +26,16 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     Example with a single `user` message:
 
     ```json
-    [{"role": "user", "content": "Hello, Claude"}]
+    [{ "role": "user", "content": "Hello, Claude" }]
     ```
 
     Example with multiple conversational turns:
 
     ```json
     [
-      {"role": "user", "content": "Hello there."},
-      {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
-      {"role": "user", "content": "Can you explain LLMs in plain English?"},
+      { "role": "user", "content": "Hello there." },
+      { "role": "assistant", "content": "Hi, I'm Claude. How can I help you?" },
+      { "role": "user", "content": "Can you explain LLMs in plain English?" }
     ]
     ```
 
@@ -44,19 +43,22 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
     ```json
     [
-      {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-      {"role": "assistant", "content": "The best answer is ("},
+      {
+        "role": "user",
+        "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
+      },
+      { "role": "assistant", "content": "The best answer is (" }
     ]
     ```
 
     Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
     ```json
-    {"role": "user", "content": "Hello, Claude"}
+    { "role": "user", "content": "Hello, Claude" }
     ```
 
     ```json
-    {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
+    { "role": "user", "content": [{ "type": "text", "text": "Hello, Claude" }] }
     ```
 
     See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -64,25 +66,18 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
     There is a limit of 100,000 messages in a single request.
-
     - `Content []BetaContentBlockParamUnionResp`
-
       - `[]BetaContentBlockParamUnionResp`
-
         - `type BetaTextBlockParamResp struct{…}`
-
           - `Text string`
 
           - `Type Text`
-
             - `const TextText Text = "text"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
             - `Type Ephemeral`
-
               - `const EphemeralEphemeral Ephemeral = "ephemeral"`
 
             - `TTL BetaCacheControlEphemeralTTL`
@@ -90,20 +85,16 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               The time-to-live for the cache control breakpoint.
 
               This may be one the following values:
-
               - `5m`: 5 minutes
               - `1h`: 1 hour
 
               Defaults to `5m`.
-
               - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
 
               - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `Citations []BetaTextCitationParamUnionResp`
-
             - `type BetaCitationCharLocationParamResp struct{…}`
-
               - `CitedText string`
 
               - `DocumentIndex int64`
@@ -115,11 +106,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `StartCharIndex int64`
 
               - `Type CharLocation`
-
                 - `const CharLocationCharLocation CharLocation = "char_location"`
 
             - `type BetaCitationPageLocationParamResp struct{…}`
-
               - `CitedText string`
 
               - `DocumentIndex int64`
@@ -131,11 +120,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `StartPageNumber int64`
 
               - `Type PageLocation`
-
                 - `const PageLocationPageLocation PageLocation = "page_location"`
 
             - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
               - `CitedText string`
 
                 The full text of the cited block range, concatenated.
@@ -157,11 +144,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
                 0-based index of the first cited block in the source's `content` array.
 
               - `Type ContentBlockLocation`
-
                 - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
 
             - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
               - `CitedText string`
 
               - `EncryptedIndex string`
@@ -169,13 +154,11 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `Title string`
 
               - `Type WebSearchResultLocation`
-
                 - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
 
               - `URL string`
 
             - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
               - `CitedText string`
 
                 The full text of the cited block range, concatenated.
@@ -203,19 +186,14 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `Title string`
 
               - `Type SearchResultLocation`
-
                 - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
         - `type BetaImageBlockParamResp struct{…}`
-
           - `Source BetaImageBlockParamSourceUnionResp`
-
             - `type BetaBase64ImageSource struct{…}`
-
               - `Data string`
 
               - `MediaType BetaBase64ImageSourceMediaType`
-
                 - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
 
                 - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
@@ -225,339 +203,79 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
                 - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
 
               - `Type Base64`
-
                 - `const Base64Base64 Base64 = "base64"`
 
             - `type BetaURLImageSource struct{…}`
-
               - `Type URL`
-
                 - `const URLURL URL = "url"`
 
               - `URL string`
 
             - `type BetaFileImageSource struct{…}`
-
               - `FileID string`
 
               - `Type File`
-
                 - `const FileFile File = "file"`
 
           - `Type Image`
-
             - `const ImageImage Image = "image"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
         - `type BetaRequestDocumentBlock struct{…}`
-
           - `Source BetaRequestDocumentBlockSourceUnion`
-
             - `type BetaBase64PDFSource struct{…}`
-
               - `Data string`
 
               - `MediaType ApplicationPDF`
-
                 - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
 
               - `Type Base64`
-
                 - `const Base64Base64 Base64 = "base64"`
 
             - `type BetaPlainTextSource struct{…}`
-
               - `Data string`
 
               - `MediaType TextPlain`
-
                 - `const TextPlainTextPlain TextPlain = "text/plain"`
 
               - `Type Text`
-
                 - `const TextText Text = "text"`
 
             - `type BetaContentBlockSource struct{…}`
-
               - `Content BetaContentBlockSourceContentUnion`
-
                 - `string`
 
                 - `[]BetaContentBlockSourceContentUnion`
-
                   - `type BetaTextBlockParamResp struct{…}`
-
-                    - `Text string`
-
-                    - `Type Text`
-
-                      - `const TextText Text = "text"`
-
-                    - `CacheControl BetaCacheControlEphemeral`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `Type Ephemeral`
-
-                        - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                      - `TTL BetaCacheControlEphemeralTTL`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                    - `Citations []BetaTextCitationParamUnionResp`
-
-                      - `type BetaCitationCharLocationParamResp struct{…}`
-
-                        - `CitedText string`
-
-                        - `DocumentIndex int64`
-
-                        - `DocumentTitle string`
-
-                        - `EndCharIndex int64`
-
-                        - `StartCharIndex int64`
-
-                        - `Type CharLocation`
-
-                          - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                      - `type BetaCitationPageLocationParamResp struct{…}`
-
-                        - `CitedText string`
-
-                        - `DocumentIndex int64`
-
-                        - `DocumentTitle string`
-
-                        - `EndPageNumber int64`
-
-                        - `StartPageNumber int64`
-
-                        - `Type PageLocation`
-
-                          - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                      - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                        - `CitedText string`
-
-                          The full text of the cited block range, concatenated.
-
-                          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                        - `DocumentIndex int64`
-
-                        - `DocumentTitle string`
-
-                        - `EndBlockIndex int64`
-
-                          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                        - `StartBlockIndex int64`
-
-                          0-based index of the first cited block in the source's `content` array.
-
-                        - `Type ContentBlockLocation`
-
-                          - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                      - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                        - `CitedText string`
-
-                        - `EncryptedIndex string`
-
-                        - `Title string`
-
-                        - `Type WebSearchResultLocation`
-
-                          - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                        - `URL string`
-
-                      - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                        - `CitedText string`
-
-                          The full text of the cited block range, concatenated.
-
-                          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                        - `EndBlockIndex int64`
-
-                          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                        - `SearchResultIndex int64`
-
-                          0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                          Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                        - `Source string`
-
-                        - `StartBlockIndex int64`
-
-                          0-based index of the first cited block in the source's `content` array.
-
-                        - `Title string`
-
-                        - `Type SearchResultLocation`
-
-                          - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
                   - `type BetaImageBlockParamResp struct{…}`
 
-                    - `Source BetaImageBlockParamSourceUnionResp`
-
-                      - `type BetaBase64ImageSource struct{…}`
-
-                        - `Data string`
-
-                        - `MediaType BetaBase64ImageSourceMediaType`
-
-                          - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
-
-                          - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
-
-                          - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
-
-                          - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
-
-                        - `Type Base64`
-
-                          - `const Base64Base64 Base64 = "base64"`
-
-                      - `type BetaURLImageSource struct{…}`
-
-                        - `Type URL`
-
-                          - `const URLURL URL = "url"`
-
-                        - `URL string`
-
-                      - `type BetaFileImageSource struct{…}`
-
-                        - `FileID string`
-
-                        - `Type File`
-
-                          - `const FileFile File = "file"`
-
-                    - `Type Image`
-
-                      - `const ImageImage Image = "image"`
-
-                    - `CacheControl BetaCacheControlEphemeral`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `Type Ephemeral`
-
-                        - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                      - `TTL BetaCacheControlEphemeralTTL`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `Type Content`
-
                 - `const ContentContent Content = "content"`
 
             - `type BetaURLPDFSource struct{…}`
-
               - `Type URL`
-
                 - `const URLURL URL = "url"`
 
               - `URL string`
 
             - `type BetaFileDocumentSource struct{…}`
-
               - `FileID string`
 
               - `Type File`
-
                 - `const FileFile File = "file"`
 
           - `Type Document`
-
             - `const DocumentDocument Document = "document"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Citations BetaCitationsConfigParamResp`
-
             - `Enabled bool`
 
           - `Context string`
@@ -565,199 +283,45 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `Title string`
 
         - `type BetaSearchResultBlockParamResp struct{…}`
-
           - `Content []BetaTextBlockParamResp`
-
             - `Text string`
 
             - `Type Text`
-
-              - `const TextText Text = "text"`
 
             - `CacheControl BetaCacheControlEphemeral`
 
               Create a cache control breakpoint at this content block.
 
-              - `Type Ephemeral`
-
-                - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-              - `TTL BetaCacheControlEphemeralTTL`
-
-                The time-to-live for the cache control breakpoint.
-
-                This may be one the following values:
-
-                - `5m`: 5 minutes
-                - `1h`: 1 hour
-
-                Defaults to `5m`.
-
-                - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
             - `Citations []BetaTextCitationParamUnionResp`
-
-              - `type BetaCitationCharLocationParamResp struct{…}`
-
-                - `CitedText string`
-
-                - `DocumentIndex int64`
-
-                - `DocumentTitle string`
-
-                - `EndCharIndex int64`
-
-                - `StartCharIndex int64`
-
-                - `Type CharLocation`
-
-                  - `const CharLocationCharLocation CharLocation = "char_location"`
-
-              - `type BetaCitationPageLocationParamResp struct{…}`
-
-                - `CitedText string`
-
-                - `DocumentIndex int64`
-
-                - `DocumentTitle string`
-
-                - `EndPageNumber int64`
-
-                - `StartPageNumber int64`
-
-                - `Type PageLocation`
-
-                  - `const PageLocationPageLocation PageLocation = "page_location"`
-
-              - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                - `CitedText string`
-
-                  The full text of the cited block range, concatenated.
-
-                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                - `DocumentIndex int64`
-
-                - `DocumentTitle string`
-
-                - `EndBlockIndex int64`
-
-                  Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                - `StartBlockIndex int64`
-
-                  0-based index of the first cited block in the source's `content` array.
-
-                - `Type ContentBlockLocation`
-
-                  - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-              - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                - `CitedText string`
-
-                - `EncryptedIndex string`
-
-                - `Title string`
-
-                - `Type WebSearchResultLocation`
-
-                  - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                - `URL string`
-
-              - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                - `CitedText string`
-
-                  The full text of the cited block range, concatenated.
-
-                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                - `EndBlockIndex int64`
-
-                  Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                - `SearchResultIndex int64`
-
-                  0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                  Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                - `Source string`
-
-                - `StartBlockIndex int64`
-
-                  0-based index of the first cited block in the source's `content` array.
-
-                - `Title string`
-
-                - `Type SearchResultLocation`
-
-                  - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
           - `Source string`
 
           - `Title string`
 
           - `Type SearchResult`
-
             - `const SearchResultSearchResult SearchResult = "search_result"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Citations BetaCitationsConfigParamResp`
 
-            - `Enabled bool`
-
         - `type BetaThinkingBlockParamResp struct{…}`
-
           - `Signature string`
 
           - `Thinking string`
 
           - `Type Thinking`
-
             - `const ThinkingThinking Thinking = "thinking"`
 
         - `type BetaRedactedThinkingBlockParamResp struct{…}`
-
           - `Data string`
 
           - `Type RedactedThinking`
-
             - `const RedactedThinkingRedactedThinking RedactedThinking = "redacted_thinking"`
 
         - `type BetaToolUseBlockParamResp struct{…}`
-
           - `ID string`
 
           - `Input map[string, any]`
@@ -765,809 +329,75 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `Name string`
 
           - `Type ToolUse`
-
             - `const ToolUseToolUse ToolUse = "tool_use"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Caller BetaToolUseBlockParamCallerUnionResp`
 
             Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
-
               - `Type Direct`
-
                 - `const DirectDirect Direct = "direct"`
 
             - `type BetaServerToolCaller struct{…}`
 
               Tool invocation generated by a server-side tool.
-
               - `ToolID string`
 
               - `Type CodeExecution20250825`
-
                 - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
 
             - `type BetaServerToolCaller20260120 struct{…}`
-
               - `ToolID string`
 
               - `Type CodeExecution20260120`
-
                 - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
         - `type BetaToolResultBlockParamResp struct{…}`
-
           - `ToolUseID string`
 
           - `Type ToolResult`
-
             - `const ToolResultToolResult ToolResult = "tool_result"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Content []BetaToolResultBlockParamContentUnionResp`
-
             - `[]BetaToolResultBlockParamContentUnionResp`
-
               - `type BetaTextBlockParamResp struct{…}`
-
-                - `Text string`
-
-                - `Type Text`
-
-                  - `const TextText Text = "text"`
-
-                - `CacheControl BetaCacheControlEphemeral`
-
-                  Create a cache control breakpoint at this content block.
-
-                  - `Type Ephemeral`
-
-                    - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                  - `TTL BetaCacheControlEphemeralTTL`
-
-                    The time-to-live for the cache control breakpoint.
-
-                    This may be one the following values:
-
-                    - `5m`: 5 minutes
-                    - `1h`: 1 hour
-
-                    Defaults to `5m`.
-
-                    - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                    - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                - `Citations []BetaTextCitationParamUnionResp`
-
-                  - `type BetaCitationCharLocationParamResp struct{…}`
-
-                    - `CitedText string`
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndCharIndex int64`
-
-                    - `StartCharIndex int64`
-
-                    - `Type CharLocation`
-
-                      - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                  - `type BetaCitationPageLocationParamResp struct{…}`
-
-                    - `CitedText string`
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndPageNumber int64`
-
-                    - `StartPageNumber int64`
-
-                    - `Type PageLocation`
-
-                      - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                  - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                    - `CitedText string`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndBlockIndex int64`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `StartBlockIndex int64`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `Type ContentBlockLocation`
-
-                      - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                  - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                    - `CitedText string`
-
-                    - `EncryptedIndex string`
-
-                    - `Title string`
-
-                    - `Type WebSearchResultLocation`
-
-                      - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                    - `URL string`
-
-                  - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                    - `CitedText string`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `EndBlockIndex int64`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `SearchResultIndex int64`
-
-                      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                      Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                    - `Source string`
-
-                    - `StartBlockIndex int64`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `Title string`
-
-                    - `Type SearchResultLocation`
-
-                      - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
               - `type BetaImageBlockParamResp struct{…}`
 
-                - `Source BetaImageBlockParamSourceUnionResp`
-
-                  - `type BetaBase64ImageSource struct{…}`
-
-                    - `Data string`
-
-                    - `MediaType BetaBase64ImageSourceMediaType`
-
-                      - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
-
-                      - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
-
-                      - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
-
-                      - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
-
-                    - `Type Base64`
-
-                      - `const Base64Base64 Base64 = "base64"`
-
-                  - `type BetaURLImageSource struct{…}`
-
-                    - `Type URL`
-
-                      - `const URLURL URL = "url"`
-
-                    - `URL string`
-
-                  - `type BetaFileImageSource struct{…}`
-
-                    - `FileID string`
-
-                    - `Type File`
-
-                      - `const FileFile File = "file"`
-
-                - `Type Image`
-
-                  - `const ImageImage Image = "image"`
-
-                - `CacheControl BetaCacheControlEphemeral`
-
-                  Create a cache control breakpoint at this content block.
-
-                  - `Type Ephemeral`
-
-                    - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                  - `TTL BetaCacheControlEphemeralTTL`
-
-                    The time-to-live for the cache control breakpoint.
-
-                    This may be one the following values:
-
-                    - `5m`: 5 minutes
-                    - `1h`: 1 hour
-
-                    Defaults to `5m`.
-
-                    - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                    - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `type BetaSearchResultBlockParamResp struct{…}`
 
-                - `Content []BetaTextBlockParamResp`
-
-                  - `Text string`
-
-                  - `Type Text`
-
-                    - `const TextText Text = "text"`
-
-                  - `CacheControl BetaCacheControlEphemeral`
-
-                    Create a cache control breakpoint at this content block.
-
-                    - `Type Ephemeral`
-
-                      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                    - `TTL BetaCacheControlEphemeralTTL`
-
-                      The time-to-live for the cache control breakpoint.
-
-                      This may be one the following values:
-
-                      - `5m`: 5 minutes
-                      - `1h`: 1 hour
-
-                      Defaults to `5m`.
-
-                      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                  - `Citations []BetaTextCitationParamUnionResp`
-
-                    - `type BetaCitationCharLocationParamResp struct{…}`
-
-                      - `CitedText string`
-
-                      - `DocumentIndex int64`
-
-                      - `DocumentTitle string`
-
-                      - `EndCharIndex int64`
-
-                      - `StartCharIndex int64`
-
-                      - `Type CharLocation`
-
-                        - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                    - `type BetaCitationPageLocationParamResp struct{…}`
-
-                      - `CitedText string`
-
-                      - `DocumentIndex int64`
-
-                      - `DocumentTitle string`
-
-                      - `EndPageNumber int64`
-
-                      - `StartPageNumber int64`
-
-                      - `Type PageLocation`
-
-                        - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                    - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                      - `CitedText string`
-
-                        The full text of the cited block range, concatenated.
-
-                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                      - `DocumentIndex int64`
-
-                      - `DocumentTitle string`
-
-                      - `EndBlockIndex int64`
-
-                        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                      - `StartBlockIndex int64`
-
-                        0-based index of the first cited block in the source's `content` array.
-
-                      - `Type ContentBlockLocation`
-
-                        - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                    - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                      - `CitedText string`
-
-                      - `EncryptedIndex string`
-
-                      - `Title string`
-
-                      - `Type WebSearchResultLocation`
-
-                        - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                      - `URL string`
-
-                    - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                      - `CitedText string`
-
-                        The full text of the cited block range, concatenated.
-
-                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                      - `EndBlockIndex int64`
-
-                        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                      - `SearchResultIndex int64`
-
-                        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                        Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                      - `Source string`
-
-                      - `StartBlockIndex int64`
-
-                        0-based index of the first cited block in the source's `content` array.
-
-                      - `Title string`
-
-                      - `Type SearchResultLocation`
-
-                        - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
-
-                - `Source string`
-
-                - `Title string`
-
-                - `Type SearchResult`
-
-                  - `const SearchResultSearchResult SearchResult = "search_result"`
-
-                - `CacheControl BetaCacheControlEphemeral`
-
-                  Create a cache control breakpoint at this content block.
-
-                  - `Type Ephemeral`
-
-                    - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                  - `TTL BetaCacheControlEphemeralTTL`
-
-                    The time-to-live for the cache control breakpoint.
-
-                    This may be one the following values:
-
-                    - `5m`: 5 minutes
-                    - `1h`: 1 hour
-
-                    Defaults to `5m`.
-
-                    - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                    - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                - `Citations BetaCitationsConfigParamResp`
-
-                  - `Enabled bool`
-
               - `type BetaRequestDocumentBlock struct{…}`
-
-                - `Source BetaRequestDocumentBlockSourceUnion`
-
-                  - `type BetaBase64PDFSource struct{…}`
-
-                    - `Data string`
-
-                    - `MediaType ApplicationPDF`
-
-                      - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
-
-                    - `Type Base64`
-
-                      - `const Base64Base64 Base64 = "base64"`
-
-                  - `type BetaPlainTextSource struct{…}`
-
-                    - `Data string`
-
-                    - `MediaType TextPlain`
-
-                      - `const TextPlainTextPlain TextPlain = "text/plain"`
-
-                    - `Type Text`
-
-                      - `const TextText Text = "text"`
-
-                  - `type BetaContentBlockSource struct{…}`
-
-                    - `Content BetaContentBlockSourceContentUnion`
-
-                      - `string`
-
-                      - `[]BetaContentBlockSourceContentUnion`
-
-                        - `type BetaTextBlockParamResp struct{…}`
-
-                          - `Text string`
-
-                          - `Type Text`
-
-                            - `const TextText Text = "text"`
-
-                          - `CacheControl BetaCacheControlEphemeral`
-
-                            Create a cache control breakpoint at this content block.
-
-                            - `Type Ephemeral`
-
-                              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                            - `TTL BetaCacheControlEphemeralTTL`
-
-                              The time-to-live for the cache control breakpoint.
-
-                              This may be one the following values:
-
-                              - `5m`: 5 minutes
-                              - `1h`: 1 hour
-
-                              Defaults to `5m`.
-
-                              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                          - `Citations []BetaTextCitationParamUnionResp`
-
-                            - `type BetaCitationCharLocationParamResp struct{…}`
-
-                              - `CitedText string`
-
-                              - `DocumentIndex int64`
-
-                              - `DocumentTitle string`
-
-                              - `EndCharIndex int64`
-
-                              - `StartCharIndex int64`
-
-                              - `Type CharLocation`
-
-                                - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                            - `type BetaCitationPageLocationParamResp struct{…}`
-
-                              - `CitedText string`
-
-                              - `DocumentIndex int64`
-
-                              - `DocumentTitle string`
-
-                              - `EndPageNumber int64`
-
-                              - `StartPageNumber int64`
-
-                              - `Type PageLocation`
-
-                                - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                            - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                              - `CitedText string`
-
-                                The full text of the cited block range, concatenated.
-
-                                Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                              - `DocumentIndex int64`
-
-                              - `DocumentTitle string`
-
-                              - `EndBlockIndex int64`
-
-                                Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                              - `StartBlockIndex int64`
-
-                                0-based index of the first cited block in the source's `content` array.
-
-                              - `Type ContentBlockLocation`
-
-                                - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                            - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                              - `CitedText string`
-
-                              - `EncryptedIndex string`
-
-                              - `Title string`
-
-                              - `Type WebSearchResultLocation`
-
-                                - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                              - `URL string`
-
-                            - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                              - `CitedText string`
-
-                                The full text of the cited block range, concatenated.
-
-                                Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                              - `EndBlockIndex int64`
-
-                                Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                              - `SearchResultIndex int64`
-
-                                0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                                Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                              - `Source string`
-
-                              - `StartBlockIndex int64`
-
-                                0-based index of the first cited block in the source's `content` array.
-
-                              - `Title string`
-
-                              - `Type SearchResultLocation`
-
-                                - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
-
-                        - `type BetaImageBlockParamResp struct{…}`
-
-                          - `Source BetaImageBlockParamSourceUnionResp`
-
-                            - `type BetaBase64ImageSource struct{…}`
-
-                              - `Data string`
-
-                              - `MediaType BetaBase64ImageSourceMediaType`
-
-                                - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
-
-                                - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
-
-                                - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
-
-                                - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
-
-                              - `Type Base64`
-
-                                - `const Base64Base64 Base64 = "base64"`
-
-                            - `type BetaURLImageSource struct{…}`
-
-                              - `Type URL`
-
-                                - `const URLURL URL = "url"`
-
-                              - `URL string`
-
-                            - `type BetaFileImageSource struct{…}`
-
-                              - `FileID string`
-
-                              - `Type File`
-
-                                - `const FileFile File = "file"`
-
-                          - `Type Image`
-
-                            - `const ImageImage Image = "image"`
-
-                          - `CacheControl BetaCacheControlEphemeral`
-
-                            Create a cache control breakpoint at this content block.
-
-                            - `Type Ephemeral`
-
-                              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                            - `TTL BetaCacheControlEphemeralTTL`
-
-                              The time-to-live for the cache control breakpoint.
-
-                              This may be one the following values:
-
-                              - `5m`: 5 minutes
-                              - `1h`: 1 hour
-
-                              Defaults to `5m`.
-
-                              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                    - `Type Content`
-
-                      - `const ContentContent Content = "content"`
-
-                  - `type BetaURLPDFSource struct{…}`
-
-                    - `Type URL`
-
-                      - `const URLURL URL = "url"`
-
-                    - `URL string`
-
-                  - `type BetaFileDocumentSource struct{…}`
-
-                    - `FileID string`
-
-                    - `Type File`
-
-                      - `const FileFile File = "file"`
-
-                - `Type Document`
-
-                  - `const DocumentDocument Document = "document"`
-
-                - `CacheControl BetaCacheControlEphemeral`
-
-                  Create a cache control breakpoint at this content block.
-
-                  - `Type Ephemeral`
-
-                    - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                  - `TTL BetaCacheControlEphemeralTTL`
-
-                    The time-to-live for the cache control breakpoint.
-
-                    This may be one the following values:
-
-                    - `5m`: 5 minutes
-                    - `1h`: 1 hour
-
-                    Defaults to `5m`.
-
-                    - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                    - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                - `Citations BetaCitationsConfigParamResp`
-
-                  - `Enabled bool`
-
-                - `Context string`
-
-                - `Title string`
 
               - `type BetaToolReferenceBlockParamResp struct{…}`
 
                 Tool reference block that can be included in tool_result content.
-
                 - `ToolName string`
 
                 - `Type ToolReference`
-
                   - `const ToolReferenceToolReference ToolReference = "tool_reference"`
 
                 - `CacheControl BetaCacheControlEphemeral`
 
                   Create a cache control breakpoint at this content block.
 
-                  - `Type Ephemeral`
-
-                    - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                  - `TTL BetaCacheControlEphemeralTTL`
-
-                    The time-to-live for the cache control breakpoint.
-
-                    This may be one the following values:
-
-                    - `5m`: 5 minutes
-                    - `1h`: 1 hour
-
-                    Defaults to `5m`.
-
-                    - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                    - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `IsError bool`
 
         - `type BetaServerToolUseBlockParamResp struct{…}`
-
           - `ID string`
 
           - `Input map[string, any]`
 
           - `Name BetaServerToolUseBlockParamName`
-
             - `const BetaServerToolUseBlockParamNameAdvisor BetaServerToolUseBlockParamName = "advisor"`
 
             - `const BetaServerToolUseBlockParamNameWebSearch BetaServerToolUseBlockParamName = "web_search"`
@@ -1585,74 +415,33 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             - `const BetaServerToolUseBlockParamNameToolSearchToolBm25 BetaServerToolUseBlockParamName = "tool_search_tool_bm25"`
 
           - `Type ServerToolUse`
-
             - `const ServerToolUseServerToolUse ServerToolUse = "server_tool_use"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Caller BetaServerToolUseBlockParamCallerUnionResp`
 
             Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
-
-              - `Type Direct`
-
-                - `const DirectDirect Direct = "direct"`
 
             - `type BetaServerToolCaller struct{…}`
 
               Tool invocation generated by a server-side tool.
 
-              - `ToolID string`
-
-              - `Type CodeExecution20250825`
-
-                - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
             - `type BetaServerToolCaller20260120 struct{…}`
 
-              - `ToolID string`
-
-              - `Type CodeExecution20260120`
-
-                - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
         - `type BetaWebSearchToolResultBlockParamResp struct{…}`
-
           - `Content BetaWebSearchToolResultBlockParamContentUnionResp`
-
             - `[]BetaWebSearchResultBlockParamResp`
-
               - `EncryptedContent string`
 
               - `Title string`
 
               - `Type WebSearchResult`
-
                 - `const WebSearchResultWebSearchResult WebSearchResult = "web_search_result"`
 
               - `URL string`
@@ -1660,9 +449,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `PageAge string`
 
             - `type BetaWebSearchToolRequestError struct{…}`
-
               - `ErrorCode BetaWebSearchToolResultErrorCode`
-
                 - `const BetaWebSearchToolResultErrorCodeInvalidToolInput BetaWebSearchToolResultErrorCode = "invalid_tool_input"`
 
                 - `const BetaWebSearchToolResultErrorCodeUnavailable BetaWebSearchToolResultErrorCode = "unavailable"`
@@ -1676,81 +463,41 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
                 - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
 
               - `Type WebSearchToolResultError`
-
                 - `const WebSearchToolResultErrorWebSearchToolResultError WebSearchToolResultError = "web_search_tool_result_error"`
 
           - `ToolUseID string`
 
           - `Type WebSearchToolResult`
-
             - `const WebSearchToolResultWebSearchToolResult WebSearchToolResult = "web_search_tool_result"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Caller BetaWebSearchToolResultBlockParamCallerUnionResp`
 
             Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
-
-              - `Type Direct`
-
-                - `const DirectDirect Direct = "direct"`
 
             - `type BetaServerToolCaller struct{…}`
 
               Tool invocation generated by a server-side tool.
 
-              - `ToolID string`
-
-              - `Type CodeExecution20250825`
-
-                - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
             - `type BetaServerToolCaller20260120 struct{…}`
 
-              - `ToolID string`
-
-              - `Type CodeExecution20260120`
-
-                - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
         - `type BetaWebFetchToolResultBlockParamResp struct{…}`
-
           - `Content BetaWebFetchToolResultBlockParamContentUnionResp`
-
             - `type BetaWebFetchToolResultErrorBlockParamResp struct{…}`
-
               - `ErrorCode BetaWebFetchToolResultErrorCode`
-
                 - `const BetaWebFetchToolResultErrorCodeInvalidToolInput BetaWebFetchToolResultErrorCode = "invalid_tool_input"`
 
                 - `const BetaWebFetchToolResultErrorCodeURLTooLong BetaWebFetchToolResultErrorCode = "url_too_long"`
 
                 - `const BetaWebFetchToolResultErrorCodeURLNotAllowed BetaWebFetchToolResultErrorCode = "url_not_allowed"`
+
+                - `const BetaWebFetchToolResultErrorCodeURLNotInPriorContext BetaWebFetchToolResultErrorCode = "url_not_in_prior_context"`
 
                 - `const BetaWebFetchToolResultErrorCodeURLNotAccessible BetaWebFetchToolResultErrorCode = "url_not_accessible"`
 
@@ -1763,306 +510,12 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
                 - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
 
               - `Type WebFetchToolResultError`
-
                 - `const WebFetchToolResultErrorWebFetchToolResultError WebFetchToolResultError = "web_fetch_tool_result_error"`
 
             - `type BetaWebFetchBlockParamResp struct{…}`
-
               - `Content BetaRequestDocumentBlock`
 
-                - `Source BetaRequestDocumentBlockSourceUnion`
-
-                  - `type BetaBase64PDFSource struct{…}`
-
-                    - `Data string`
-
-                    - `MediaType ApplicationPDF`
-
-                      - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
-
-                    - `Type Base64`
-
-                      - `const Base64Base64 Base64 = "base64"`
-
-                  - `type BetaPlainTextSource struct{…}`
-
-                    - `Data string`
-
-                    - `MediaType TextPlain`
-
-                      - `const TextPlainTextPlain TextPlain = "text/plain"`
-
-                    - `Type Text`
-
-                      - `const TextText Text = "text"`
-
-                  - `type BetaContentBlockSource struct{…}`
-
-                    - `Content BetaContentBlockSourceContentUnion`
-
-                      - `string`
-
-                      - `[]BetaContentBlockSourceContentUnion`
-
-                        - `type BetaTextBlockParamResp struct{…}`
-
-                          - `Text string`
-
-                          - `Type Text`
-
-                            - `const TextText Text = "text"`
-
-                          - `CacheControl BetaCacheControlEphemeral`
-
-                            Create a cache control breakpoint at this content block.
-
-                            - `Type Ephemeral`
-
-                              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                            - `TTL BetaCacheControlEphemeralTTL`
-
-                              The time-to-live for the cache control breakpoint.
-
-                              This may be one the following values:
-
-                              - `5m`: 5 minutes
-                              - `1h`: 1 hour
-
-                              Defaults to `5m`.
-
-                              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                          - `Citations []BetaTextCitationParamUnionResp`
-
-                            - `type BetaCitationCharLocationParamResp struct{…}`
-
-                              - `CitedText string`
-
-                              - `DocumentIndex int64`
-
-                              - `DocumentTitle string`
-
-                              - `EndCharIndex int64`
-
-                              - `StartCharIndex int64`
-
-                              - `Type CharLocation`
-
-                                - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                            - `type BetaCitationPageLocationParamResp struct{…}`
-
-                              - `CitedText string`
-
-                              - `DocumentIndex int64`
-
-                              - `DocumentTitle string`
-
-                              - `EndPageNumber int64`
-
-                              - `StartPageNumber int64`
-
-                              - `Type PageLocation`
-
-                                - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                            - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                              - `CitedText string`
-
-                                The full text of the cited block range, concatenated.
-
-                                Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                              - `DocumentIndex int64`
-
-                              - `DocumentTitle string`
-
-                              - `EndBlockIndex int64`
-
-                                Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                              - `StartBlockIndex int64`
-
-                                0-based index of the first cited block in the source's `content` array.
-
-                              - `Type ContentBlockLocation`
-
-                                - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                            - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                              - `CitedText string`
-
-                              - `EncryptedIndex string`
-
-                              - `Title string`
-
-                              - `Type WebSearchResultLocation`
-
-                                - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                              - `URL string`
-
-                            - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                              - `CitedText string`
-
-                                The full text of the cited block range, concatenated.
-
-                                Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                              - `EndBlockIndex int64`
-
-                                Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                              - `SearchResultIndex int64`
-
-                                0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                                Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                              - `Source string`
-
-                              - `StartBlockIndex int64`
-
-                                0-based index of the first cited block in the source's `content` array.
-
-                              - `Title string`
-
-                              - `Type SearchResultLocation`
-
-                                - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
-
-                        - `type BetaImageBlockParamResp struct{…}`
-
-                          - `Source BetaImageBlockParamSourceUnionResp`
-
-                            - `type BetaBase64ImageSource struct{…}`
-
-                              - `Data string`
-
-                              - `MediaType BetaBase64ImageSourceMediaType`
-
-                                - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
-
-                                - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
-
-                                - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
-
-                                - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
-
-                              - `Type Base64`
-
-                                - `const Base64Base64 Base64 = "base64"`
-
-                            - `type BetaURLImageSource struct{…}`
-
-                              - `Type URL`
-
-                                - `const URLURL URL = "url"`
-
-                              - `URL string`
-
-                            - `type BetaFileImageSource struct{…}`
-
-                              - `FileID string`
-
-                              - `Type File`
-
-                                - `const FileFile File = "file"`
-
-                          - `Type Image`
-
-                            - `const ImageImage Image = "image"`
-
-                          - `CacheControl BetaCacheControlEphemeral`
-
-                            Create a cache control breakpoint at this content block.
-
-                            - `Type Ephemeral`
-
-                              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                            - `TTL BetaCacheControlEphemeralTTL`
-
-                              The time-to-live for the cache control breakpoint.
-
-                              This may be one the following values:
-
-                              - `5m`: 5 minutes
-                              - `1h`: 1 hour
-
-                              Defaults to `5m`.
-
-                              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                    - `Type Content`
-
-                      - `const ContentContent Content = "content"`
-
-                  - `type BetaURLPDFSource struct{…}`
-
-                    - `Type URL`
-
-                      - `const URLURL URL = "url"`
-
-                    - `URL string`
-
-                  - `type BetaFileDocumentSource struct{…}`
-
-                    - `FileID string`
-
-                    - `Type File`
-
-                      - `const FileFile File = "file"`
-
-                - `Type Document`
-
-                  - `const DocumentDocument Document = "document"`
-
-                - `CacheControl BetaCacheControlEphemeral`
-
-                  Create a cache control breakpoint at this content block.
-
-                  - `Type Ephemeral`
-
-                    - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                  - `TTL BetaCacheControlEphemeralTTL`
-
-                    The time-to-live for the cache control breakpoint.
-
-                    This may be one the following values:
-
-                    - `5m`: 5 minutes
-                    - `1h`: 1 hour
-
-                    Defaults to `5m`.
-
-                    - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                    - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                - `Citations BetaCitationsConfigParamResp`
-
-                  - `Enabled bool`
-
-                - `Context string`
-
-                - `Title string`
-
               - `Type WebFetchResult`
-
                 - `const WebFetchResultWebFetchResult WebFetchResult = "web_fetch_result"`
 
               - `URL string`
@@ -2076,70 +529,29 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `ToolUseID string`
 
           - `Type WebFetchToolResult`
-
             - `const WebFetchToolResultWebFetchToolResult WebFetchToolResult = "web_fetch_tool_result"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Caller BetaWebFetchToolResultBlockParamCallerUnionResp`
 
             Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
-
-              - `Type Direct`
-
-                - `const DirectDirect Direct = "direct"`
 
             - `type BetaServerToolCaller struct{…}`
 
               Tool invocation generated by a server-side tool.
 
-              - `ToolID string`
-
-              - `Type CodeExecution20250825`
-
-                - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
             - `type BetaServerToolCaller20260120 struct{…}`
 
-              - `ToolID string`
-
-              - `Type CodeExecution20260120`
-
-                - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
         - `type BetaAdvisorToolResultBlockParamResp struct{…}`
-
           - `Content BetaAdvisorToolResultBlockParamContentUnionResp`
-
             - `type BetaAdvisorToolResultErrorParamResp struct{…}`
-
               - `ErrorCode BetaAdvisorToolResultErrorParamErrorCode`
-
                 - `const BetaAdvisorToolResultErrorParamErrorCodeMaxUsesExceeded BetaAdvisorToolResultErrorParamErrorCode = "max_uses_exceeded"`
 
                 - `const BetaAdvisorToolResultErrorParamErrorCodePromptTooLong BetaAdvisorToolResultErrorParamErrorCode = "prompt_too_long"`
@@ -2153,66 +565,41 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
                 - `const BetaAdvisorToolResultErrorParamErrorCodeExecutionTimeExceeded BetaAdvisorToolResultErrorParamErrorCode = "execution_time_exceeded"`
 
               - `Type AdvisorToolResultError`
-
                 - `const AdvisorToolResultErrorAdvisorToolResultError AdvisorToolResultError = "advisor_tool_result_error"`
 
             - `type BetaAdvisorResultBlockParamResp struct{…}`
-
               - `Text string`
 
               - `Type AdvisorResult`
-
                 - `const AdvisorResultAdvisorResult AdvisorResult = "advisor_result"`
 
-            - `type BetaAdvisorRedactedResultBlockParamResp struct{…}`
+              - `StopReason string`
 
+            - `type BetaAdvisorRedactedResultBlockParamResp struct{…}`
               - `EncryptedContent string`
 
                 Opaque blob produced by a prior response; must be round-tripped verbatim.
 
               - `Type AdvisorRedactedResult`
-
                 - `const AdvisorRedactedResultAdvisorRedactedResult AdvisorRedactedResult = "advisor_redacted_result"`
+
+              - `StopReason string`
 
           - `ToolUseID string`
 
           - `Type AdvisorToolResult`
-
             - `const AdvisorToolResultAdvisorToolResult AdvisorToolResult = "advisor_tool_result"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
         - `type BetaCodeExecutionToolResultBlockParamResp struct{…}`
-
           - `Content BetaCodeExecutionToolResultBlockParamContentUnionResp`
 
             Code execution result with encrypted stdout for PFC + web_search results.
-
             - `type BetaCodeExecutionToolResultErrorParamResp struct{…}`
-
               - `ErrorCode BetaCodeExecutionToolResultErrorCode`
-
                 - `const BetaCodeExecutionToolResultErrorCodeInvalidToolInput BetaCodeExecutionToolResultErrorCode = "invalid_tool_input"`
 
                 - `const BetaCodeExecutionToolResultErrorCodeUnavailable BetaCodeExecutionToolResultErrorCode = "unavailable"`
@@ -2222,17 +609,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
                 - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
               - `Type CodeExecutionToolResultError`
-
                 - `const CodeExecutionToolResultErrorCodeExecutionToolResultError CodeExecutionToolResultError = "code_execution_tool_result_error"`
 
             - `type BetaCodeExecutionResultBlockParamResp struct{…}`
-
               - `Content []BetaCodeExecutionOutputBlockParamResp`
-
                 - `FileID string`
 
                 - `Type CodeExecutionOutput`
-
                   - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
               - `ReturnCode int64`
@@ -2242,20 +625,15 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `Stdout string`
 
               - `Type CodeExecutionResult`
-
                 - `const CodeExecutionResultCodeExecutionResult CodeExecutionResult = "code_execution_result"`
 
             - `type BetaEncryptedCodeExecutionResultBlockParamResp struct{…}`
 
               Code execution result with encrypted stdout for PFC + web_search results.
-
               - `Content []BetaCodeExecutionOutputBlockParamResp`
-
                 - `FileID string`
 
                 - `Type CodeExecutionOutput`
-
-                  - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
               - `EncryptedStdout string`
 
@@ -2264,46 +642,21 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `Stderr string`
 
               - `Type EncryptedCodeExecutionResult`
-
                 - `const EncryptedCodeExecutionResultEncryptedCodeExecutionResult EncryptedCodeExecutionResult = "encrypted_code_execution_result"`
 
           - `ToolUseID string`
 
           - `Type CodeExecutionToolResult`
-
             - `const CodeExecutionToolResultCodeExecutionToolResult CodeExecutionToolResult = "code_execution_tool_result"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
         - `type BetaBashCodeExecutionToolResultBlockParamResp struct{…}`
-
           - `Content BetaBashCodeExecutionToolResultBlockParamContentUnionResp`
-
             - `type BetaBashCodeExecutionToolResultErrorParamResp struct{…}`
-
               - `ErrorCode BetaBashCodeExecutionToolResultErrorParamErrorCode`
-
                 - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeInvalidToolInput BetaBashCodeExecutionToolResultErrorParamErrorCode = "invalid_tool_input"`
 
                 - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeUnavailable BetaBashCodeExecutionToolResultErrorParamErrorCode = "unavailable"`
@@ -2315,17 +668,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
                 - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorParamErrorCode = "output_file_too_large"`
 
               - `Type BashCodeExecutionToolResultError`
-
                 - `const BashCodeExecutionToolResultErrorBashCodeExecutionToolResultError BashCodeExecutionToolResultError = "bash_code_execution_tool_result_error"`
 
             - `type BetaBashCodeExecutionResultBlockParamResp struct{…}`
-
               - `Content []BetaBashCodeExecutionOutputBlockParamResp`
-
                 - `FileID string`
 
                 - `Type BashCodeExecutionOutput`
-
                   - `const BashCodeExecutionOutputBashCodeExecutionOutput BashCodeExecutionOutput = "bash_code_execution_output"`
 
               - `ReturnCode int64`
@@ -2335,46 +684,21 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `Stdout string`
 
               - `Type BashCodeExecutionResult`
-
                 - `const BashCodeExecutionResultBashCodeExecutionResult BashCodeExecutionResult = "bash_code_execution_result"`
 
           - `ToolUseID string`
 
           - `Type BashCodeExecutionToolResult`
-
             - `const BashCodeExecutionToolResultBashCodeExecutionToolResult BashCodeExecutionToolResult = "bash_code_execution_tool_result"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
         - `type BetaTextEditorCodeExecutionToolResultBlockParamResp struct{…}`
-
           - `Content BetaTextEditorCodeExecutionToolResultBlockParamContentUnionResp`
-
             - `type BetaTextEditorCodeExecutionToolResultErrorParamResp struct{…}`
-
               - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorParamErrorCode`
-
                 - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeInvalidToolInput BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "invalid_tool_input"`
 
                 - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeUnavailable BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "unavailable"`
@@ -2386,17 +710,14 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
                 - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeFileNotFound BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "file_not_found"`
 
               - `Type TextEditorCodeExecutionToolResultError`
-
                 - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
 
               - `ErrorMessage string`
 
             - `type BetaTextEditorCodeExecutionViewResultBlockParamResp struct{…}`
-
               - `Content string`
 
               - `FileType BetaTextEditorCodeExecutionViewResultBlockParamFileType`
-
                 - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypeText BetaTextEditorCodeExecutionViewResultBlockParamFileType = "text"`
 
                 - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypeImage BetaTextEditorCodeExecutionViewResultBlockParamFileType = "image"`
@@ -2404,7 +725,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
                 - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypePDF BetaTextEditorCodeExecutionViewResultBlockParamFileType = "pdf"`
 
               - `Type TextEditorCodeExecutionViewResult`
-
                 - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
 
               - `NumLines int64`
@@ -2414,17 +734,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
               - `TotalLines int64`
 
             - `type BetaTextEditorCodeExecutionCreateResultBlockParamResp struct{…}`
-
               - `IsFileUpdate bool`
 
               - `Type TextEditorCodeExecutionCreateResult`
-
                 - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
 
             - `type BetaTextEditorCodeExecutionStrReplaceResultBlockParamResp struct{…}`
-
               - `Type TextEditorCodeExecutionStrReplaceResult`
-
                 - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
 
               - `Lines []string`
@@ -2440,40 +756,16 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           - `ToolUseID string`
 
           - `Type TextEditorCodeExecutionToolResult`
-
             - `const TextEditorCodeExecutionToolResultTextEditorCodeExecutionToolResult TextEditorCodeExecutionToolResult = "text_editor_code_execution_tool_result"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
         - `type BetaToolSearchToolResultBlockParamResp struct{…}`
-
           - `Content BetaToolSearchToolResultBlockParamContentUnionResp`
-
             - `type BetaToolSearchToolResultErrorParamResp struct{…}`
-
               - `ErrorCode BetaToolSearchToolResultErrorParamErrorCode`
-
                 - `const BetaToolSearchToolResultErrorParamErrorCodeInvalidToolInput BetaToolSearchToolResultErrorParamErrorCode = "invalid_tool_input"`
 
                 - `const BetaToolSearchToolResultErrorParamErrorCodeUnavailable BetaToolSearchToolResultErrorParamErrorCode = "unavailable"`
@@ -2483,77 +775,31 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
                 - `const BetaToolSearchToolResultErrorParamErrorCodeExecutionTimeExceeded BetaToolSearchToolResultErrorParamErrorCode = "execution_time_exceeded"`
 
               - `Type ToolSearchToolResultError`
-
                 - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
 
             - `type BetaToolSearchToolSearchResultBlockParamResp struct{…}`
-
               - `ToolReferences []BetaToolReferenceBlockParamResp`
-
                 - `ToolName string`
 
                 - `Type ToolReference`
-
-                  - `const ToolReferenceToolReference ToolReference = "tool_reference"`
 
                 - `CacheControl BetaCacheControlEphemeral`
 
                   Create a cache control breakpoint at this content block.
 
-                  - `Type Ephemeral`
-
-                    - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                  - `TTL BetaCacheControlEphemeralTTL`
-
-                    The time-to-live for the cache control breakpoint.
-
-                    This may be one the following values:
-
-                    - `5m`: 5 minutes
-                    - `1h`: 1 hour
-
-                    Defaults to `5m`.
-
-                    - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                    - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `Type ToolSearchToolSearchResult`
-
                 - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
 
           - `ToolUseID string`
 
           - `Type ToolSearchToolResult`
-
             - `const ToolSearchToolResultToolSearchToolResult ToolSearchToolResult = "tool_search_tool_result"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
         - `type BetaMCPToolUseBlockParamResp struct{…}`
-
           - `ID string`
 
           - `Input map[string, any]`
@@ -2565,203 +811,35 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
             The name of the MCP server
 
           - `Type MCPToolUse`
-
             - `const MCPToolUseMCPToolUse MCPToolUse = "mcp_tool_use"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
         - `type BetaRequestMCPToolResultBlockParamResp struct{…}`
-
           - `ToolUseID string`
 
           - `Type MCPToolResult`
-
             - `const MCPToolResultMCPToolResult MCPToolResult = "mcp_tool_result"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Content BetaRequestMCPToolResultBlockParamContentUnionResp`
-
             - `string`
 
             - `[]BetaTextBlockParamResp`
-
               - `Text string`
 
               - `Type Text`
-
-                - `const TextText Text = "text"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `Citations []BetaTextCitationParamUnionResp`
-
-                - `type BetaCitationCharLocationParamResp struct{…}`
-
-                  - `CitedText string`
-
-                  - `DocumentIndex int64`
-
-                  - `DocumentTitle string`
-
-                  - `EndCharIndex int64`
-
-                  - `StartCharIndex int64`
-
-                  - `Type CharLocation`
-
-                    - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                - `type BetaCitationPageLocationParamResp struct{…}`
-
-                  - `CitedText string`
-
-                  - `DocumentIndex int64`
-
-                  - `DocumentTitle string`
-
-                  - `EndPageNumber int64`
-
-                  - `StartPageNumber int64`
-
-                  - `Type PageLocation`
-
-                    - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                  - `CitedText string`
-
-                    The full text of the cited block range, concatenated.
-
-                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                  - `DocumentIndex int64`
-
-                  - `DocumentTitle string`
-
-                  - `EndBlockIndex int64`
-
-                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                  - `StartBlockIndex int64`
-
-                    0-based index of the first cited block in the source's `content` array.
-
-                  - `Type ContentBlockLocation`
-
-                    - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                  - `CitedText string`
-
-                  - `EncryptedIndex string`
-
-                  - `Title string`
-
-                  - `Type WebSearchResultLocation`
-
-                    - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                  - `URL string`
-
-                - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                  - `CitedText string`
-
-                    The full text of the cited block range, concatenated.
-
-                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                  - `EndBlockIndex int64`
-
-                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                  - `SearchResultIndex int64`
-
-                    0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                    Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                  - `Source string`
-
-                  - `StartBlockIndex int64`
-
-                    0-based index of the first cited block in the source's `content` array.
-
-                  - `Title string`
-
-                  - `Type SearchResultLocation`
-
-                    - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
           - `IsError bool`
 
@@ -2769,35 +847,14 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           A content block that represents a file to be uploaded to the container
           Files uploaded via this block will be available in the container's input directory.
-
           - `FileID string`
 
           - `Type ContainerUpload`
-
             - `const ContainerUploadContainerUpload ContainerUpload = "container_upload"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
         - `type BetaCompactionBlockParamResp struct{…}`
 
@@ -2808,47 +865,53 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
           When content is None, the block represents a failed compaction. The server
           treats these as no-ops. Empty string content is not allowed.
-
-          - `Content string`
-
-            Summary of previously compacted content, or null if compaction failed
-
           - `Type Compaction`
-
             - `const CompactionCompaction Compaction = "compaction"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
+          - `Content string`
 
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+            Summary of previously compacted content, or null if compaction failed
 
           - `EncryptedContent string`
 
             Opaque metadata from prior compaction, to be round-tripped verbatim
 
-    - `Role BetaMessageParamRole`
+        - `type BetaMidConversationSystemBlockParamResp struct{…}`
 
+          System instructions that appear mid-conversation.
+
+          Use this block to provide or update system-level instructions at a specific
+          point in the conversation, rather than only via the top-level `system` parameter.
+          - `Content []BetaTextBlockParamResp`
+
+            System instruction text blocks.
+            - `Text string`
+
+            - `Type Text`
+
+            - `CacheControl BetaCacheControlEphemeral`
+
+              Create a cache control breakpoint at this content block.
+
+            - `Citations []BetaTextCitationParamUnionResp`
+
+          - `Type MidConvSystem`
+            - `const MidConvSystemMidConvSystem MidConvSystem = "mid_conv_system"`
+
+          - `CacheControl BetaCacheControlEphemeral`
+
+            Create a cache control breakpoint at this content block.
+
+    - `Role BetaMessageParamRole`
       - `const BetaMessageParamRoleUser BetaMessageParamRole = "user"`
 
       - `const BetaMessageParamRoleAssistant BetaMessageParamRole = "assistant"`
+
+      - `const BetaMessageParamRoleSystem BetaMessageParamRole = "system"`
 
   - `Model param.Field[Model]`
 
@@ -2869,11 +932,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   - `MCPServers param.Field[[]BetaRequestMCPServerURLDefinition]`
 
     Body param: MCP servers to be utilized in this request
-
     - `Name string`
 
     - `Type URL`
-
       - `const URLURL URL = "url"`
 
     - `URL string`
@@ -2881,7 +942,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     - `AuthorizationToken string`
 
     - `ToolConfiguration BetaRequestMCPServerToolConfiguration`
-
       - `AllowedTools []string`
 
       - `Enabled bool`
@@ -2899,7 +959,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   - `Speed param.Field[BetaMessageCountTokensParamsSpeed]`
 
     Body param: The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
-
     - `const BetaMessageCountTokensParamsSpeedStandard BetaMessageCountTokensParamsSpeed = "standard"`
 
     - `const BetaMessageCountTokensParamsSpeedFast BetaMessageCountTokensParamsSpeed = "fast"`
@@ -2909,145 +968,18 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     Body param: System prompt.
 
     A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
-
     - `string`
 
     - `type BetaMessageCountTokensParamsSystemArray []BetaTextBlockParamResp`
-
       - `Text string`
 
       - `Type Text`
-
-        - `const TextText Text = "text"`
 
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `Citations []BetaTextCitationParamUnionResp`
-
-        - `type BetaCitationCharLocationParamResp struct{…}`
-
-          - `CitedText string`
-
-          - `DocumentIndex int64`
-
-          - `DocumentTitle string`
-
-          - `EndCharIndex int64`
-
-          - `StartCharIndex int64`
-
-          - `Type CharLocation`
-
-            - `const CharLocationCharLocation CharLocation = "char_location"`
-
-        - `type BetaCitationPageLocationParamResp struct{…}`
-
-          - `CitedText string`
-
-          - `DocumentIndex int64`
-
-          - `DocumentTitle string`
-
-          - `EndPageNumber int64`
-
-          - `StartPageNumber int64`
-
-          - `Type PageLocation`
-
-            - `const PageLocationPageLocation PageLocation = "page_location"`
-
-        - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-          - `CitedText string`
-
-            The full text of the cited block range, concatenated.
-
-            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-          - `DocumentIndex int64`
-
-          - `DocumentTitle string`
-
-          - `EndBlockIndex int64`
-
-            Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-          - `StartBlockIndex int64`
-
-            0-based index of the first cited block in the source's `content` array.
-
-          - `Type ContentBlockLocation`
-
-            - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-        - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-          - `CitedText string`
-
-          - `EncryptedIndex string`
-
-          - `Title string`
-
-          - `Type WebSearchResultLocation`
-
-            - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-          - `URL string`
-
-        - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-          - `CitedText string`
-
-            The full text of the cited block range, concatenated.
-
-            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-          - `EndBlockIndex int64`
-
-            Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-          - `SearchResultIndex int64`
-
-            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-            Counted separately from `document_index`; server-side web search results are not included in this count.
-
-          - `Source string`
-
-          - `StartBlockIndex int64`
-
-            0-based index of the first cited block in the source's `content` array.
-
-          - `Title string`
-
-          - `Type SearchResultLocation`
-
-            - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
   - `Thinking param.Field[BetaThinkingConfigParamUnionResp]`
 
@@ -3070,10 +1002,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
     Each tool definition includes:
-
-    * `name`: Name of the tool.
-    * `description`: Optional, but strongly-recommended description of the tool.
-    * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+    - `name`: Name of the tool.
+    - `description`: Optional, but strongly-recommended description of the tool.
+    - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
     For example, if you defined `tools` as:
 
@@ -3124,17 +1055,13 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
     See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
-
     - `type BetaTool struct{…}`
-
       - `InputSchema BetaToolInputSchema`
 
         [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
         This defines the shape of the `input` that your tool accepts and that the model will produce.
-
         - `Type Object`
-
           - `const ObjectObject Object = "object"`
 
         - `Properties map[string, any]`
@@ -3148,7 +1075,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         This is how the tool will be called by the model and in `tool_use` blocks.
 
       - `AllowedCallers []string`
-
         - `const BetaToolAllowedCallerDirect BetaToolAllowedCaller = "direct"`
 
         - `const BetaToolAllowedCallerCodeExecution20250825 BetaToolAllowedCaller = "code_execution_20250825"`
@@ -3158,25 +1084,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3199,25 +1106,20 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
       - `Type BetaToolType`
-
         - `const BetaToolTypeCustom BetaToolType = "custom"`
 
     - `type BetaToolBash20241022 struct{…}`
-
       - `Name Bash`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const BashBash Bash = "bash"`
 
       - `Type Bash20241022`
-
         - `const Bash20241022Bash20241022 Bash20241022 = "bash_20241022"`
 
       - `AllowedCallers []string`
-
         - `const BetaToolBash20241022AllowedCallerDirect BetaToolBash20241022AllowedCaller = "direct"`
 
         - `const BetaToolBash20241022AllowedCallerCodeExecution20250825 BetaToolBash20241022AllowedCaller = "code_execution_20250825"`
@@ -3227,25 +1129,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3258,21 +1141,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaToolBash20250124 struct{…}`
-
       - `Name Bash`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const BashBash Bash = "bash"`
 
       - `Type Bash20250124`
-
         - `const Bash20250124Bash20250124 Bash20250124 = "bash_20250124"`
 
       - `AllowedCallers []string`
-
         - `const BetaToolBash20250124AllowedCallerDirect BetaToolBash20250124AllowedCaller = "direct"`
 
         - `const BetaToolBash20250124AllowedCallerCodeExecution20250825 BetaToolBash20250124AllowedCaller = "code_execution_20250825"`
@@ -3282,25 +1161,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3313,21 +1173,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaCodeExecutionTool20250522 struct{…}`
-
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
 
       - `Type CodeExecution20250522`
-
         - `const CodeExecution20250522CodeExecution20250522 CodeExecution20250522 = "code_execution_20250522"`
 
       - `AllowedCallers []string`
-
         - `const BetaCodeExecutionTool20250522AllowedCallerDirect BetaCodeExecutionTool20250522AllowedCaller = "direct"`
 
         - `const BetaCodeExecutionTool20250522AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20250522AllowedCaller = "code_execution_20250825"`
@@ -3338,25 +1194,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         Create a cache control breakpoint at this content block.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `DeferLoading bool`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -3366,21 +1203,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaCodeExecutionTool20250825 struct{…}`
-
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
 
       - `Type CodeExecution20250825`
-
         - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
 
       - `AllowedCallers []string`
-
         - `const BetaCodeExecutionTool20250825AllowedCallerDirect BetaCodeExecutionTool20250825AllowedCaller = "direct"`
 
         - `const BetaCodeExecutionTool20250825AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20250825AllowedCaller = "code_execution_20250825"`
@@ -3390,25 +1223,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3421,21 +1235,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     - `type BetaCodeExecutionTool20260120 struct{…}`
 
       Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
       - `Name CodeExecution`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
 
       - `Type CodeExecution20260120`
-
         - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
       - `AllowedCallers []string`
-
         - `const BetaCodeExecutionTool20260120AllowedCallerDirect BetaCodeExecutionTool20260120AllowedCaller = "direct"`
 
         - `const BetaCodeExecutionTool20260120AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20260120AllowedCaller = "code_execution_20250825"`
@@ -3446,25 +1256,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         Create a cache control breakpoint at this content block.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `DeferLoading bool`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -3474,7 +1265,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaToolComputerUse20241022 struct{…}`
-
       - `DisplayHeightPx int64`
 
         The height of the display in pixels.
@@ -3488,15 +1278,12 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const ComputerComputer Computer = "computer"`
 
       - `Type Computer20241022`
-
         - `const Computer20241022Computer20241022 Computer20241022 = "computer_20241022"`
 
       - `AllowedCallers []string`
-
         - `const BetaToolComputerUse20241022AllowedCallerDirect BetaToolComputerUse20241022AllowedCaller = "direct"`
 
         - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20250825 BetaToolComputerUse20241022AllowedCaller = "code_execution_20250825"`
@@ -3506,25 +1293,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3541,21 +1309,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaMemoryTool20250818 struct{…}`
-
       - `Name Memory`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const MemoryMemory Memory = "memory"`
 
       - `Type Memory20250818`
-
         - `const Memory20250818Memory20250818 Memory20250818 = "memory_20250818"`
 
       - `AllowedCallers []string`
-
         - `const BetaMemoryTool20250818AllowedCallerDirect BetaMemoryTool20250818AllowedCaller = "direct"`
 
         - `const BetaMemoryTool20250818AllowedCallerCodeExecution20250825 BetaMemoryTool20250818AllowedCaller = "code_execution_20250825"`
@@ -3565,25 +1329,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3596,7 +1341,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaToolComputerUse20250124 struct{…}`
-
       - `DisplayHeightPx int64`
 
         The height of the display in pixels.
@@ -3610,15 +1354,12 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const ComputerComputer Computer = "computer"`
 
       - `Type Computer20250124`
-
         - `const Computer20250124Computer20250124 Computer20250124 = "computer_20250124"`
 
       - `AllowedCallers []string`
-
         - `const BetaToolComputerUse20250124AllowedCallerDirect BetaToolComputerUse20250124AllowedCaller = "direct"`
 
         - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20250825 BetaToolComputerUse20250124AllowedCaller = "code_execution_20250825"`
@@ -3628,25 +1369,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3663,21 +1385,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaToolTextEditor20241022 struct{…}`
-
       - `Name StrReplaceEditor`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const StrReplaceEditorStrReplaceEditor StrReplaceEditor = "str_replace_editor"`
 
       - `Type TextEditor20241022`
-
         - `const TextEditor20241022TextEditor20241022 TextEditor20241022 = "text_editor_20241022"`
 
       - `AllowedCallers []string`
-
         - `const BetaToolTextEditor20241022AllowedCallerDirect BetaToolTextEditor20241022AllowedCaller = "direct"`
 
         - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20250825 BetaToolTextEditor20241022AllowedCaller = "code_execution_20250825"`
@@ -3687,25 +1405,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3718,7 +1417,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaToolComputerUse20251124 struct{…}`
-
       - `DisplayHeightPx int64`
 
         The height of the display in pixels.
@@ -3732,15 +1430,12 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const ComputerComputer Computer = "computer"`
 
       - `Type Computer20251124`
-
         - `const Computer20251124Computer20251124 Computer20251124 = "computer_20251124"`
 
       - `AllowedCallers []string`
-
         - `const BetaToolComputerUse20251124AllowedCallerDirect BetaToolComputerUse20251124AllowedCaller = "direct"`
 
         - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20250825 BetaToolComputerUse20251124AllowedCaller = "code_execution_20250825"`
@@ -3750,25 +1445,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3789,21 +1465,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaToolTextEditor20250124 struct{…}`
-
       - `Name StrReplaceEditor`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const StrReplaceEditorStrReplaceEditor StrReplaceEditor = "str_replace_editor"`
 
       - `Type TextEditor20250124`
-
         - `const TextEditor20250124TextEditor20250124 TextEditor20250124 = "text_editor_20250124"`
 
       - `AllowedCallers []string`
-
         - `const BetaToolTextEditor20250124AllowedCallerDirect BetaToolTextEditor20250124AllowedCaller = "direct"`
 
         - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20250825 BetaToolTextEditor20250124AllowedCaller = "code_execution_20250825"`
@@ -3813,25 +1485,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3844,21 +1497,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaToolTextEditor20250429 struct{…}`
-
       - `Name StrReplaceBasedEditTool`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const StrReplaceBasedEditToolStrReplaceBasedEditTool StrReplaceBasedEditTool = "str_replace_based_edit_tool"`
 
       - `Type TextEditor20250429`
-
         - `const TextEditor20250429TextEditor20250429 TextEditor20250429 = "text_editor_20250429"`
 
       - `AllowedCallers []string`
-
         - `const BetaToolTextEditor20250429AllowedCallerDirect BetaToolTextEditor20250429AllowedCaller = "direct"`
 
         - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20250825 BetaToolTextEditor20250429AllowedCaller = "code_execution_20250825"`
@@ -3868,25 +1517,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3899,21 +1529,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaToolTextEditor20250728 struct{…}`
-
       - `Name StrReplaceBasedEditTool`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const StrReplaceBasedEditToolStrReplaceBasedEditTool StrReplaceBasedEditTool = "str_replace_based_edit_tool"`
 
       - `Type TextEditor20250728`
-
         - `const TextEditor20250728TextEditor20250728 TextEditor20250728 = "text_editor_20250728"`
 
       - `AllowedCallers []string`
-
         - `const BetaToolTextEditor20250728AllowedCallerDirect BetaToolTextEditor20250728AllowedCaller = "direct"`
 
         - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20250825 BetaToolTextEditor20250728AllowedCaller = "code_execution_20250825"`
@@ -3923,25 +1549,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -3958,21 +1565,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaWebSearchTool20250305 struct{…}`
-
       - `Name WebSearch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const WebSearchWebSearch WebSearch = "web_search"`
 
       - `Type WebSearch20250305`
-
         - `const WebSearch20250305WebSearch20250305 WebSearch20250305 = "web_search_20250305"`
 
       - `AllowedCallers []string`
-
         - `const BetaWebSearchTool20250305AllowedCallerDirect BetaWebSearchTool20250305AllowedCaller = "direct"`
 
         - `const BetaWebSearchTool20250305AllowedCallerCodeExecution20250825 BetaWebSearchTool20250305AllowedCaller = "code_execution_20250825"`
@@ -3991,25 +1594,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         Create a cache control breakpoint at this content block.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `DeferLoading bool`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -4025,9 +1609,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `UserLocation BetaUserLocation`
 
         Parameters for the user's location. Used to provide more relevant search results.
-
         - `Type Approximate`
-
           - `const ApproximateApproximate Approximate = "approximate"`
 
         - `City string`
@@ -4047,21 +1629,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
           The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
     - `type BetaWebFetchTool20250910 struct{…}`
-
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const WebFetchWebFetch WebFetch = "web_fetch"`
 
       - `Type WebFetch20250910`
-
         - `const WebFetch20250910WebFetch20250910 WebFetch20250910 = "web_fetch_20250910"`
 
       - `AllowedCallers []string`
-
         - `const BetaWebFetchTool20250910AllowedCallerDirect BetaWebFetchTool20250910AllowedCaller = "direct"`
 
         - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20250825 BetaWebFetchTool20250910AllowedCaller = "code_execution_20250825"`
@@ -4080,30 +1658,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         Create a cache control breakpoint at this content block.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `Citations BetaCitationsConfigParamResp`
 
         Citations configuration for fetched documents. Citations are disabled by default.
-
-        - `Enabled bool`
 
       - `DeferLoading bool`
 
@@ -4122,21 +1679,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaWebSearchTool20260209 struct{…}`
-
       - `Name WebSearch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const WebSearchWebSearch WebSearch = "web_search"`
 
       - `Type WebSearch20260209`
-
         - `const WebSearch20260209WebSearch20260209 WebSearch20260209 = "web_search_20260209"`
 
       - `AllowedCallers []string`
-
         - `const BetaWebSearchTool20260209AllowedCallerDirect BetaWebSearchTool20260209AllowedCaller = "direct"`
 
         - `const BetaWebSearchTool20260209AllowedCallerCodeExecution20250825 BetaWebSearchTool20260209AllowedCaller = "code_execution_20250825"`
@@ -4155,25 +1708,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         Create a cache control breakpoint at this content block.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `DeferLoading bool`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -4190,42 +1724,18 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         Parameters for the user's location. Used to provide more relevant search results.
 
-        - `Type Approximate`
-
-          - `const ApproximateApproximate Approximate = "approximate"`
-
-        - `City string`
-
-          The city of the user.
-
-        - `Country string`
-
-          The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-        - `Region string`
-
-          The region of the user.
-
-        - `Timezone string`
-
-          The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
     - `type BetaWebFetchTool20260209 struct{…}`
-
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const WebFetchWebFetch WebFetch = "web_fetch"`
 
       - `Type WebFetch20260209`
-
         - `const WebFetch20260209WebFetch20260209 WebFetch20260209 = "web_fetch_20260209"`
 
       - `AllowedCallers []string`
-
         - `const BetaWebFetchTool20260209AllowedCallerDirect BetaWebFetchTool20260209AllowedCaller = "direct"`
 
         - `const BetaWebFetchTool20260209AllowedCallerCodeExecution20250825 BetaWebFetchTool20260209AllowedCaller = "code_execution_20250825"`
@@ -4244,30 +1754,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         Create a cache control breakpoint at this content block.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `Citations BetaCitationsConfigParamResp`
 
         Citations configuration for fetched documents. Citations are disabled by default.
-
-        - `Enabled bool`
 
       - `DeferLoading bool`
 
@@ -4288,21 +1777,17 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
     - `type BetaWebFetchTool20260309 struct{…}`
 
       Web fetch tool with use_cache parameter for bypassing cached content.
-
       - `Name WebFetch`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const WebFetchWebFetch WebFetch = "web_fetch"`
 
       - `Type WebFetch20260309`
-
         - `const WebFetch20260309WebFetch20260309 WebFetch20260309 = "web_fetch_20260309"`
 
       - `AllowedCallers []string`
-
         - `const BetaWebFetchTool20260309AllowedCallerDirect BetaWebFetchTool20260309AllowedCaller = "direct"`
 
         - `const BetaWebFetchTool20260309AllowedCallerCodeExecution20250825 BetaWebFetchTool20260309AllowedCaller = "code_execution_20250825"`
@@ -4321,30 +1806,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         Create a cache control breakpoint at this content block.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `Citations BetaCitationsConfigParamResp`
 
         Citations configuration for fetched documents. Citations are disabled by default.
-
-        - `Enabled bool`
 
       - `DeferLoading bool`
 
@@ -4367,18 +1831,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
     - `type BetaAdvisorTool20260301 struct{…}`
-
       - `Model Model`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `type Model string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+            Frontier intelligence for long-running agents and coding
 
           - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
 
@@ -4455,15 +1920,12 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const AdvisorAdvisor Advisor = "advisor"`
 
       - `Type Advisor20260301`
-
         - `const Advisor20260301Advisor20260301 Advisor20260301 = "advisor_20260301"`
 
       - `AllowedCallers []string`
-
         - `const BetaAdvisorTool20260301AllowedCallerDirect BetaAdvisorTool20260301AllowedCaller = "direct"`
 
         - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20250825 BetaAdvisorTool20260301AllowedCaller = "code_execution_20250825"`
@@ -4474,47 +1936,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         Create a cache control breakpoint at this content block.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `Caching BetaCacheControlEphemeral`
 
         Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -4529,23 +1953,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaToolSearchToolBm25_20251119 struct{…}`
-
       - `Name ToolSearchToolBm25`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const ToolSearchToolBm25ToolSearchToolBm25 ToolSearchToolBm25 = "tool_search_tool_bm25"`
 
       - `Type BetaToolSearchToolBm25_20251119Type`
-
         - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
 
         - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
 
       - `AllowedCallers []string`
-
         - `const BetaToolSearchToolBm25_20251119AllowedCallerDirect BetaToolSearchToolBm25_20251119AllowedCaller = "direct"`
 
         - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20250825"`
@@ -4556,25 +1976,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
         Create a cache control breakpoint at this content block.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `DeferLoading bool`
 
         If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -4584,23 +1985,19 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
         When true, guarantees schema validation on tool names and inputs
 
     - `type BetaToolSearchToolRegex20251119 struct{…}`
-
       - `Name ToolSearchToolRegex`
 
         Name of the tool.
 
         This is how the tool will be called by the model and in `tool_use` blocks.
-
         - `const ToolSearchToolRegexToolSearchToolRegex ToolSearchToolRegex = "tool_search_tool_regex"`
 
       - `Type BetaToolSearchToolRegex20251119Type`
-
         - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
 
         - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
 
       - `AllowedCallers []string`
-
         - `const BetaToolSearchToolRegex20251119AllowedCallerDirect BetaToolSearchToolRegex20251119AllowedCaller = "direct"`
 
         - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20250825"`
@@ -4610,25 +2007,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
-
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
       - `DeferLoading bool`
 
@@ -4644,42 +2022,20 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       Allows configuring enabled status and defer_loading for all tools
       from an MCP server, with optional per-tool overrides.
-
       - `MCPServerName string`
 
         Name of the MCP server to configure tools for
 
       - `Type MCPToolset`
-
         - `const MCPToolsetMCPToolset MCPToolset = "mcp_toolset"`
 
       - `CacheControl BetaCacheControlEphemeral`
 
         Create a cache control breakpoint at this content block.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `Configs map[string, BetaMCPToolConfig]`
 
         Configuration overrides for specific tools, keyed by tool name
-
         - `DeferLoading bool`
 
         - `Enabled bool`
@@ -4687,7 +2043,6 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
       - `DefaultConfig BetaMCPToolDefaultConfig`
 
         Default configuration applied to all tools from this server
-
         - `DeferLoading bool`
 
         - `Enabled bool`
@@ -4695,11 +2050,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -4748,14 +2101,18 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaMessageTokensCount struct{…}`
-
   - `ContextManagement BetaCountTokensContextManagementResponse`
 
     Information about context management applied to the message.
-
     - `OriginalInputTokens int64`
 
       The original token count before context management was applied
@@ -4796,5 +2153,16 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", betaMessageTokensCount.ContextManagement)
+}
+```
+
+#### Response
+
+```json
+{
+  "context_management": {
+    "original_input_tokens": 0
+  },
+  "input_tokens": 2095
 }
 ```

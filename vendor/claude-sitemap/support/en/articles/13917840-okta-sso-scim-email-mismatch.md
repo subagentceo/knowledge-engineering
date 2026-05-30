@@ -22,11 +22,11 @@ People may experience one or more of the following when attempting to access you
 
 Okta user profiles contain multiple fields that represent identity. SCIM provisioning (under **Provisioning → To App**) and SAML/OIDC SSO (under **Sign On**) are configured independently.
 
-| **Okta attribute** | **Typical value** | **Commonly used by** |
-| --- | --- | --- |
-| `user.login` | `testuser1` or <testuser1@example.com> | Default SCIM userName mapping; sometimes NameID |
-| `user.email` | <test.user.one@example.com> | SAML/OIDC email claim (recommended) |
-| `appuser.email` | App-level override of user email | Custom app-level attribute mapping |
+| **Okta attribute** | **Typical value**                      | **Commonly used by**                            |
+| ------------------ | -------------------------------------- | ----------------------------------------------- |
+| `user.login`       | `testuser1` or <testuser1@example.com> | Default SCIM userName mapping; sometimes NameID |
+| `user.email`       | <test.user.one@example.com>            | SAML/OIDC email claim (recommended)             |
+| `appuser.email`    | App-level override of user email       | Custom app-level attribute mapping              |
 
 A common mismatch: SCIM uses `user.login` while SAML sends `user.email`. Claude requires an exact string match.
 
@@ -120,14 +120,14 @@ After completing the fix and any cleanup:
 
 ## Common issues
 
-| **Issue** | **Solution** |
-| --- | --- |
-| Admin updates SAML claims but forgets SCIM attribute mappings (or vice versa) | Both must be updated. SCIM mappings under **Provisioning → To App**; SAML claims under **Sign On → SAML Settings**. |
-| `user.login` contains a username (not email) for some people | Switch both to `user.email` and verify email fields are populated for everyone. |
-| Incremental sync runs but emails don't update | **Force Sync** or **Push Users** is required after an attribute mapping change. |
-| App-level profile attribute (`appuser.email`) differs from user profile (`user.email`) | Check if app-level attribute mappings override user profile values. |
-| Emails updated but person still can't log in | Look for rogue free orgs or ghost accounts. Clear browser cookies and retry. Contact Support if it persists. |
-| OIDC and SAML apps are separate Okta apps for Claude | Some organizations configure both. Ensure attribute alignment in both apps. |
+| **Issue**                                                                              | **Solution**                                                                                                        |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Admin updates SAML claims but forgets SCIM attribute mappings (or vice versa)          | Both must be updated. SCIM mappings under **Provisioning → To App**; SAML claims under **Sign On → SAML Settings**. |
+| `user.login` contains a username (not email) for some people                           | Switch both to `user.email` and verify email fields are populated for everyone.                                     |
+| Incremental sync runs but emails don't update                                          | **Force Sync** or **Push Users** is required after an attribute mapping change.                                     |
+| App-level profile attribute (`appuser.email`) differs from user profile (`user.email`) | Check if app-level attribute mappings override user profile values.                                                 |
+| Emails updated but person still can't log in                                           | Look for rogue free orgs or ghost accounts. Clear browser cookies and retry. Contact Support if it persists.        |
+| OIDC and SAML apps are separate Okta apps for Claude                                   | Some organizations configure both. Ensure attribute alignment in both apps.                                         |
 
 ---
 

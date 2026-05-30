@@ -1,4 +1,4 @@
-## Retrieve
+## Get Workspace
 
 **get** `/v1/organizations/workspaces/{workspace_id}`
 
@@ -12,8 +12,7 @@ Get Workspace
 
 ### Returns
 
-- `Workspace = object { id, archived_at, created_at, 4 more }`
-
+- `Workspace object { id, archived_at, created_at, 5 more }`
   - `id: string`
 
     ID of the Workspace.
@@ -29,15 +28,12 @@ Get Workspace
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
-
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+      - `array of string`
 
-      - `UnionMember0 = array of string`
-
-      - `UnionMember1 = "unrestricted"`
-
+      - `"unrestricted"`
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -56,12 +52,15 @@ Get Workspace
 
     Name of the Workspace.
 
+  - `tags: map[string]`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
   - `type: "workspace"`
 
     Object type.
 
     For Workspaces, this is always `"workspace"`.
-
     - `"workspace"`
 
 ### Example
@@ -70,4 +69,26 @@ Get Workspace
 curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "default_inference_geo",
+    "workspace_geo": "workspace_geo"
+  },
+  "display_color": "#6C5BB9",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
 ```

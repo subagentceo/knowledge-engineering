@@ -1,12 +1,14 @@
+# CodeWords enables non-technical users to build workflow automations with Claude
+
 CodeWords is an AI  workflow automation platform, built by Agemo, that enables non-technical users to create automations through conversational AI chat. The company serves non-technical professionals in operations, marketing, and administrative roles at startups and small businesses, as well as solopreneurs and freelancers who need powerful automation tools.
 
 With Claude, CodeWords:
 
--   Increased first-session success rates from 43% to 92% for non-technical users building workflows
--   Reduced build time for complex automations from 25 minutes to 6 minutes
--   Cut simple automation build time from 11 minutes to 115 seconds
--   Enabled non-technical users to create automations for complex use cases such as multi-source knowledge aggregators combining multiple integrations such as Jira, internal documentation, Salesforce, and Supabase
--   Self-improves by reviewing product usage and suggest updates to its own context
+- Increased first-session success rates from 43% to 92% for non-technical users building workflows
+- Reduced build time for complex automations from 25 minutes to 6 minutes
+- Cut simple automation build time from 11 minutes to 115 seconds
+- Enabled non-technical users to create automations for complex use cases such as multi-source knowledge aggregators combining multiple integrations such as Jira, internal documentation, Salesforce, and Supabase
+- Self-improves by reviewing product usage and suggest updates to its own context
 
 ## Automation platforms still require technical expertise
 

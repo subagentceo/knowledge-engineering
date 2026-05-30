@@ -49,13 +49,13 @@ Skills integrate identically in the Messages API regardless of source. You speci
 
 **You can use Skills from two sources:**
 
-| Aspect | Anthropic Skills | Custom Skills |
-|--------|------------------|---------------|
-| **Type value** | `anthropic` | `custom` |
-| **Skill IDs** | Short names: `pptx`, `xlsx`, `docx`, `pdf` | Generated: `skill_01AbCdEfGhIjKlMnOpQrStUv` |
-| **Version format** | Date-based: `20251013` or `latest` | Epoch timestamp: `1759178010641129` or `latest` |
-| **Management** | Pre-built and maintained by Anthropic | Upload and manage through the [Skills API](/docs/en/api/skills/create-skill) |
-| **Availability** | Available to all users | Private to your workspace |
+| Aspect             | Anthropic Skills                           | Custom Skills                                                                |
+| ------------------ | ------------------------------------------ | ---------------------------------------------------------------------------- |
+| **Type value**     | `anthropic`                                | `custom`                                                                     |
+| **Skill IDs**      | Short names: `pptx`, `xlsx`, `docx`, `pdf` | Generated: `skill_01AbCdEfGhIjKlMnOpQrStUv`                                  |
+| **Version format** | Date-based: `20251013` or `latest`         | Epoch timestamp: `1759178010641129` or `latest`                              |
+| **Management**     | Pre-built and maintained by Anthropic      | Upload and manage through the [Skills API](/docs/en/api/skills/create-skill) |
+| **Availability**   | Available to all users                     | Private to your workspace                                                    |
 
 Both skill sources are returned by the [List Skills endpoint](/docs/en/api/skills/list-skills) (use the `source` parameter to filter). The integration shape and execution environment are identical. The only difference is where the Skills come from and how they're managed.
 
@@ -88,7 +88,7 @@ curl https://api.anthropic.com/v1/messages \
   -H "anthropic-beta: code-execution-2025-08-25,skills-2025-10-02" \
   -H "content-type: application/json" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 4096,
     "container": {
       "skills": [
@@ -114,7 +114,7 @@ curl https://api.anthropic.com/v1/messages \
 ant beta:messages create \
   --beta code-execution-2025-08-25 \
   --beta skills-2025-10-02 <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   skills:
@@ -136,7 +136,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 response = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     betas=["code-execution-2025-08-25", "skills-2025-10-02"],
     container={
@@ -155,7 +155,7 @@ import Anthropic from "@anthropic-ai/sdk";
 const client = new Anthropic();
 
 const response = await client.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -163,22 +163,22 @@ const response = await client.beta.messages.create({
       {
         type: "anthropic",
         skill_id: "pptx",
-        version: "latest"
-      }
-    ]
+        version: "latest",
+      },
+    ],
   },
   messages: [
     {
       role: "user",
-      content: "Create a presentation about renewable energy"
-    }
+      content: "Create a presentation about renewable energy",
+    },
   ],
   tools: [
     {
       type: "code_execution_20250825",
-      name: "code_execution"
-    }
-  ]
+      name: "code_execution",
+    },
+  ],
 });
 ```
 
@@ -196,7 +196,7 @@ public class Program
 
         var parameters = new MessageCreateParams
         {
-            Model = Model.ClaudeOpus4_7,
+            Model = Model.ClaudeOpus4_8,
             MaxTokens = 4096,
             Betas = new[] { "code-execution-2025-08-25", "skills-2025-10-02" },
             Container = new BetaContainerParams
@@ -250,7 +250,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas: []anthropic.AnthropicBeta{
 			"code-execution-2025-08-25",
@@ -295,7 +295,7 @@ public class Main {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
         MessageCreateParams params = MessageCreateParams.builder()
-            .model("claude-opus-4-7")
+            .model("claude-opus-4-8")
             .maxTokens(4096L)
             .addBeta("code-execution-2025-08-25")
             .addBeta("skills-2025-10-02")
@@ -328,7 +328,7 @@ $message = $client->beta->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Create a presentation about renewable energy']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
     container: [
         'skills' => [
@@ -353,7 +353,7 @@ require "anthropic"
 client = Anthropic::Client.new
 
 message = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -374,6 +374,7 @@ message = client.beta.messages.create(
 )
 puts message
 ```
+
 </CodeGroup>
 
 ### Downloading generated files
@@ -381,6 +382,7 @@ puts message
 When Skills create documents (Excel, PowerPoint, PDF, Word), they return `file_id` attributes in the response. You must use the Files API to download these files.
 
 **How it works:**
+
 1. Skills create files during code execution
 2. Response includes `file_id` for each created file
 3. Use Files API to download the actual file content
@@ -399,7 +401,7 @@ RESPONSE=$(curl https://api.anthropic.com/v1/messages \
   -H "anthropic-beta: code-execution-2025-08-25,skills-2025-10-02" \
   -H "content-type: application/json" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 4096,
     "container": {
       "skills": [
@@ -444,7 +446,7 @@ FILE_ID=$(ant beta:messages create \
   --beta skills-2025-10-02 \
   --transform 'content.#.content.content.#.file_id|@flatten|0' \
   --raw-output <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   skills:
@@ -480,7 +482,7 @@ client = anthropic.Anthropic()
 
 # Step 1: Use a Skill to create a file
 response = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     betas=["code-execution-2025-08-25", "skills-2025-10-02"],
     container={
@@ -527,19 +529,19 @@ const client = new Anthropic();
 
 // Step 1: Use a Skill to create a file
 const response = await client.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
-    skills: [{ type: "anthropic", skill_id: "xlsx", version: "latest" }]
+    skills: [{ type: "anthropic", skill_id: "xlsx", version: "latest" }],
   },
   messages: [
     {
       role: "user",
-      content: "Create an Excel file with a simple budget spreadsheet"
-    }
+      content: "Create an Excel file with a simple budget spreadsheet",
+    },
   ],
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
 });
 
 // Step 2: Extract file IDs from the response
@@ -566,7 +568,10 @@ for (const fileId of extractFileIds(response)) {
   const fileContent = await client.beta.files.download(fileId);
 
   // Step 4: Save to disk
-  await fs.writeFile(fileMetadata.filename, Buffer.from(await fileContent.arrayBuffer()));
+  await fs.writeFile(
+    fileMetadata.filename,
+    Buffer.from(await fileContent.arrayBuffer()),
+  );
   console.log(`Downloaded: ${fileMetadata.filename}`);
 }
 ```
@@ -590,7 +595,7 @@ class Program
         // Step 1: Use a Skill to create a file
         var parameters = new MessageCreateParams
         {
-            Model = "claude-opus-4-7",
+            Model = "claude-opus-4-8",
             MaxTokens = 4096,
             Betas = new[] { "code-execution-2025-08-25", "skills-2025-10-02" },
             Container = new BetaContainer
@@ -683,7 +688,7 @@ func main() {
 
 	// Step 1: Use a Skill to create a file
 	response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas:     []anthropic.AnthropicBeta{"code-execution-2025-08-25", anthropic.AnthropicBetaSkills2025_10_02},
 		Container: anthropic.BetaMessageNewParamsContainerUnion{
@@ -773,7 +778,7 @@ public class SkillsFileDownload {
 
         // Step 1: Use a Skill to create a file
         MessageCreateParams params = MessageCreateParams.builder()
-            .model("claude-opus-4-7")
+            .model("claude-opus-4-8")
             .maxTokens(4096L)
             .addBeta("code-execution-2025-08-25")
             .addBeta("skills-2025-10-02")
@@ -830,7 +835,7 @@ $response = $client->beta->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Create an Excel file with a simple budget spreadsheet']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
     container: [
         'skills' => [
@@ -878,7 +883,7 @@ client = Anthropic::Client.new
 
 # Step 1: Use a Skill to create a file
 response = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -934,17 +939,20 @@ curl "https://api.anthropic.com/v1/files/$FILE_ID" \
   -H "anthropic-beta: files-api-2025-04-14"
 
 # List all files
+
 curl "https://api.anthropic.com/v1/files" \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-beta: files-api-2025-04-14"
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "anthropic-version: 2023-06-01" \
+ -H "anthropic-beta: files-api-2025-04-14"
 
 # Delete a file
+
 curl -X DELETE "https://api.anthropic.com/v1/files/$FILE_ID" \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-beta: files-api-2025-04-14"
-```
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "anthropic-version: 2023-06-01" \
+ -H "anthropic-beta: files-api-2025-04-14"
+
+````
 
 ```bash CLI nocheck
 # Get file metadata
@@ -962,7 +970,7 @@ ant beta:files list \
 
 # Delete a file
 ant beta:files delete --file-id "$FILE_ID" >/dev/null
-```
+````
 
 ```python Python nocheck hidelines={1..2}
 import anthropic
@@ -990,7 +998,9 @@ const fileId = "file_011CNha8iCJcU1wXNR6q4V8w";
 
 // Get file metadata
 const fileInfo = await client.beta.files.retrieveMetadata(fileId);
-console.log(`Filename: ${fileInfo.filename}, Size: ${fileInfo.size_bytes} bytes`);
+console.log(
+  `Filename: ${fileInfo.filename}, Size: ${fileInfo.size_bytes} bytes`,
+);
 
 // List all files
 const files = await client.beta.files.list();
@@ -1137,6 +1147,7 @@ end
 # Delete a file
 client.beta.files.delete(file_id)
 ```
+
 </CodeGroup>
 
 <Note>
@@ -1153,7 +1164,7 @@ Reuse the same container across multiple messages by specifying the container ID
 CONTAINER_ID=$(ant beta:messages create \
   --beta code-execution-2025-08-25 --beta skills-2025-10-02 \
   --transform container.id --raw-output <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   skills:
@@ -1167,30 +1178,32 @@ YAML
 )
 
 # Continue conversation with same container
+
 ant beta:messages create \
-  --beta code-execution-2025-08-25 --beta skills-2025-10-02 <<YAML
-model: claude-opus-4-7
+ --beta code-execution-2025-08-25 --beta skills-2025-10-02 <<YAML
+model: claude-opus-4-8
 max_tokens: 4096
 container:
-  id: $CONTAINER_ID  # Reuse container
-  skills:
-    - {type: anthropic, skill_id: xlsx, version: latest}
+id: $CONTAINER_ID # Reuse container
+skills: - {type: anthropic, skill_id: xlsx, version: latest}
 messages:
-  - role: user
-    content: Analyze this sales data
-  - role: assistant
-    content: []  # content blocks from the first response
-  - role: user
-    content: What was the total revenue?
-tools:
-  - {type: code_execution_20250825, name: code_execution}
-YAML
-```
+
+- role: user
+  content: Analyze this sales data
+- role: assistant
+  content: [] # content blocks from the first response
+- role: user
+  content: What was the total revenue?
+  tools:
+- {type: code_execution_20250825, name: code_execution}
+  YAML
+
+````
 
 ```python Python
 # First request creates container
 response1 = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     betas=["code-execution-2025-08-25", "skills-2025-10-02"],
     container={
@@ -1208,7 +1221,7 @@ messages = [
 ]
 
 response2 = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     betas=["code-execution-2025-08-25", "skills-2025-10-02"],
     container={
@@ -1218,19 +1231,19 @@ response2 = client.beta.messages.create(
     messages=messages,
     tools=[{"type": "code_execution_20250825", "name": "code_execution"}],
 )
-```
+````
 
 ```typescript TypeScript
 // First request creates container
 const response1 = await client.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
-    skills: [{ type: "anthropic", skill_id: "xlsx", version: "latest" }]
+    skills: [{ type: "anthropic", skill_id: "xlsx", version: "latest" }],
   },
   messages: [{ role: "user", content: "Analyze this sales data" }],
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
 });
 
 // Continue conversation with same container
@@ -1238,21 +1251,22 @@ const messages: Anthropic.Beta.Messages.BetaMessageParam[] = [
   { role: "user", content: "Analyze this sales data" },
   {
     role: "assistant",
-    content: response1.content as Anthropic.Beta.Messages.BetaContentBlockParam[]
+    content:
+      response1.content as Anthropic.Beta.Messages.BetaContentBlockParam[],
   },
-  { role: "user", content: "What was the total revenue?" }
+  { role: "user", content: "What was the total revenue?" },
 ];
 
 const response2 = await client.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
     id: response1.container!.id, // Reuse container
-    skills: [{ type: "anthropic", skill_id: "xlsx", version: "latest" }]
+    skills: [{ type: "anthropic", skill_id: "xlsx", version: "latest" }],
   },
   messages,
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
 });
 ```
 
@@ -1270,7 +1284,7 @@ public class Program
 
         var parameters1 = new MessageCreateParams
         {
-            Model = "claude-opus-4-7",
+            Model = "claude-opus-4-8",
             MaxTokens = 4096,
             Betas = new[] { "code-execution-2025-08-25", "skills-2025-10-02" },
             Container = new BetaContainerParams
@@ -1307,7 +1321,7 @@ public class Program
 
         var parameters2 = new MessageCreateParams
         {
-            Model = "claude-opus-4-7",
+            Model = "claude-opus-4-8",
             MaxTokens = 4096,
             Betas = new[] { "code-execution-2025-08-25", "skills-2025-10-02" },
             Container = new BetaContainerParams
@@ -1360,7 +1374,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response1, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas:     []anthropic.AnthropicBeta{"code-execution-2025-08-25", anthropic.AnthropicBetaSkills2025_10_02},
 		Container: anthropic.BetaMessageNewParamsContainerUnion{
@@ -1386,7 +1400,7 @@ func main() {
 	}
 
 	response2, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas:     []anthropic.AnthropicBeta{"code-execution-2025-08-25", anthropic.AnthropicBetaSkills2025_10_02},
 		Container: anthropic.BetaMessageNewParamsContainerUnion{
@@ -1423,7 +1437,7 @@ public class ContainerReuse {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
         MessageCreateParams params1 = MessageCreateParams.builder()
-            .model("claude-opus-4-7")
+            .model("claude-opus-4-8")
             .maxTokens(4096L)
             .addBeta("code-execution-2025-08-25")
             .addBeta("skills-2025-10-02")
@@ -1441,7 +1455,7 @@ public class ContainerReuse {
         BetaMessage response1 = client.beta().messages().create(params1);
 
         MessageCreateParams params2 = MessageCreateParams.builder()
-            .model("claude-opus-4-7")
+            .model("claude-opus-4-8")
             .maxTokens(4096L)
             .addBeta("code-execution-2025-08-25")
             .addBeta("skills-2025-10-02")
@@ -1477,7 +1491,7 @@ $response1 = $client->beta->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Analyze this sales data']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
     container: [
         'skills' => [
@@ -1498,7 +1512,7 @@ $messages = [
 $response2 = $client->beta->messages->create(
     maxTokens: 4096,
     messages: $messages,
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
     container: [
         'id' => $response1->container->id,
@@ -1520,7 +1534,7 @@ require "anthropic"
 client = Anthropic::Client.new
 
 response1 = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -1541,7 +1555,7 @@ messages = [
 ]
 
 response2 = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -1558,6 +1572,7 @@ response2 = client.beta.messages.create(
 
 puts response2
 ```
+
 </CodeGroup>
 
 ### Long-running operations
@@ -1574,7 +1589,7 @@ RESPONSE=$(curl https://api.anthropic.com/v1/messages \
   -H "anthropic-beta: code-execution-2025-08-25,skills-2025-10-02" \
   -H "content-type: application/json" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 4096,
     "container": {
       "skills": [
@@ -1607,7 +1622,7 @@ while [ "$STOP_REASON" = "pause_turn" ]; do
     -H "anthropic-beta: code-execution-2025-08-25,skills-2025-10-02" \
     -H "content-type: application/json" \
     -d "{
-      \"model\": \"claude-opus-4-7\",
+      \"model\": \"claude-opus-4-8\",
       \"max_tokens\": 4096,
       \"container\": {
         \"id\": \"$CONTAINER_ID\",
@@ -1636,7 +1651,7 @@ ant beta:messages create \
   --beta code-execution-2025-08-25 \
   --beta skills-2025-10-02 \
  > "$RESP" <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   skills:
@@ -1663,7 +1678,7 @@ for _ in {1..10}; do
     --beta code-execution-2025-08-25 \
     --beta skills-2025-10-02 \
  > "$RESP" <<YAML
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   id: $CONTAINER_ID
@@ -1685,7 +1700,7 @@ messages = [{"role": "user", "content": "Process this large dataset"}]
 max_retries = 10
 
 response = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     betas=["code-execution-2025-08-25", "skills-2025-10-02"],
     container={
@@ -1708,7 +1723,7 @@ for i in range(max_retries):
 
     messages.append({"role": "assistant", "content": response.content})
     response = client.beta.messages.create(
-        model="claude-opus-4-7",
+        model="claude-opus-4-8",
         max_tokens=4096,
         betas=["code-execution-2025-08-25", "skills-2025-10-02"],
         container={
@@ -1731,19 +1746,25 @@ import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic();
 const messages: Anthropic.Beta.Messages.BetaMessageParam[] = [
-  { role: "user", content: "Process this large dataset" }
+  { role: "user", content: "Process this large dataset" },
 ];
 const maxRetries = 10;
 
 let response = await client.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
-    skills: [{ type: "custom", skill_id: "skill_01AbCdEfGhIjKlMnOpQrStUv", version: "latest" }]
+    skills: [
+      {
+        type: "custom",
+        skill_id: "skill_01AbCdEfGhIjKlMnOpQrStUv",
+        version: "latest",
+      },
+    ],
   },
   messages,
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
 });
 
 // Handle pause_turn for long operations
@@ -1754,20 +1775,25 @@ for (let i = 0; i < maxRetries; i++) {
 
   messages.push({
     role: "assistant" as const,
-    content: response.content as Anthropic.Beta.Messages.BetaContentBlockParam[]
+    content:
+      response.content as Anthropic.Beta.Messages.BetaContentBlockParam[],
   });
   response = await client.beta.messages.create({
-    model: "claude-opus-4-7",
+    model: "claude-opus-4-8",
     max_tokens: 4096,
     betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
     container: {
       id: response.container!.id,
       skills: [
-        { type: "custom", skill_id: "skill_01AbCdEfGhIjKlMnOpQrStUv", version: "latest" }
-      ]
+        {
+          type: "custom",
+          skill_id: "skill_01AbCdEfGhIjKlMnOpQrStUv",
+          version: "latest",
+        },
+      ],
     },
     messages,
-    tools: [{ type: "code_execution_20250825", name: "code_execution" }]
+    tools: [{ type: "code_execution_20250825", name: "code_execution" }],
   });
 }
 ```
@@ -1786,7 +1812,7 @@ int maxRetries = 10;
 
 var response = await client.Beta.Messages.Create(new MessageCreateParams
 {
-    Model = "claude-opus-4-7",
+    Model = "claude-opus-4-8",
     MaxTokens = 4096,
     Betas = ["code-execution-2025-08-25", "skills-2025-10-02"],
     Container = new BetaContainerParams
@@ -1815,7 +1841,7 @@ for (int i = 0; i < maxRetries; i++)
 
     response = await client.Beta.Messages.Create(new MessageCreateParams
     {
-        Model = "claude-opus-4-7",
+        Model = "claude-opus-4-8",
         MaxTokens = 4096,
         Betas = ["code-execution-2025-08-25", "skills-2025-10-02"],
         Container = new BetaContainerParams
@@ -1856,7 +1882,7 @@ func main() {
 	maxRetries := 10
 
 	response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas:     []anthropic.AnthropicBeta{"code-execution-2025-08-25", anthropic.AnthropicBetaSkills2025_10_02},
 		Container: anthropic.BetaMessageNewParamsContainerUnion{
@@ -1887,7 +1913,7 @@ func main() {
 		messages = append(messages, response.ToParam())
 
 		response, err = client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-			Model:     "claude-opus-4-7",
+			Model:     "claude-opus-4-8",
 			MaxTokens: 4096,
 			Betas:     []anthropic.AnthropicBeta{"code-execution-2025-08-25", anthropic.AnthropicBetaSkills2025_10_02},
 			Container: anthropic.BetaMessageNewParamsContainerUnion{
@@ -1935,7 +1961,7 @@ public class Main {
 
         BetaMessage response = client.beta().messages().create(
             MessageCreateParams.builder()
-                .model("claude-opus-4-7")
+                .model("claude-opus-4-8")
                 .maxTokens(4096L)
                 .addBeta("code-execution-2025-08-25")
                 .addBeta("skills-2025-10-02")
@@ -1960,7 +1986,7 @@ public class Main {
 
             response = client.beta().messages().create(
                 MessageCreateParams.builder()
-                    .model("claude-opus-4-7")
+                    .model("claude-opus-4-8")
                     .maxTokens(4096L)
                     .addBeta("code-execution-2025-08-25")
                     .addBeta("skills-2025-10-02")
@@ -1995,7 +2021,7 @@ $maxRetries = 10;
 $response = $client->beta->messages->create(
     maxTokens: 4096,
     messages: $messages,
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
     container: [
         'skills' => [
@@ -2019,7 +2045,7 @@ for ($i = 0; $i < $maxRetries; $i++) {
     $response = $client->beta->messages->create(
         maxTokens: 4096,
         messages: $messages,
-        model: 'claude-opus-4-7',
+        model: 'claude-opus-4-8',
         betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
         container: [
             'id' => $response->container->id,
@@ -2047,7 +2073,7 @@ messages = [
 max_retries = 10
 
 response = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -2069,7 +2095,7 @@ max_retries.times do
   messages << { role: "assistant", content: response.content }
 
   response = client.beta.messages.create(
-    model: "claude-opus-4-7",
+    model: "claude-opus-4-8",
     max_tokens: 4096,
     betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
     container: {
@@ -2087,6 +2113,7 @@ max_retries.times do
   )
 end
 ```
+
 </CodeGroup>
 
 <Note>
@@ -2106,7 +2133,7 @@ curl https://api.anthropic.com/v1/messages \
   -H "anthropic-beta: code-execution-2025-08-25,skills-2025-10-02" \
   -H "content-type: application/json" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 4096,
     "container": {
       "skills": [
@@ -2142,7 +2169,7 @@ curl https://api.anthropic.com/v1/messages \
 ant beta:messages create \
   --beta code-execution-2025-08-25 \
   --beta skills-2025-10-02 <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   skills:
@@ -2166,7 +2193,7 @@ YAML
 
 ```python Python nocheck
 response = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     betas=["code-execution-2025-08-25", "skills-2025-10-02"],
     container={
@@ -2189,7 +2216,7 @@ response = client.beta.messages.create(
 
 ```typescript TypeScript nocheck
 const response = await client.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -2197,32 +2224,32 @@ const response = await client.beta.messages.create({
       {
         type: "anthropic",
         skill_id: "xlsx",
-        version: "latest"
+        version: "latest",
       },
       {
         type: "anthropic",
         skill_id: "pptx",
-        version: "latest"
+        version: "latest",
       },
       {
         type: "custom",
         skill_id: "skill_01AbCdEfGhIjKlMnOpQrStUv",
-        version: "latest"
-      }
-    ]
+        version: "latest",
+      },
+    ],
   },
   messages: [
     {
       role: "user",
-      content: "Analyze sales data and create a presentation"
-    }
+      content: "Analyze sales data and create a presentation",
+    },
   ],
   tools: [
     {
       type: "code_execution_20250825",
-      name: "code_execution"
-    }
-  ]
+      name: "code_execution",
+    },
+  ],
 });
 ```
 
@@ -2240,7 +2267,7 @@ public class Program
 
         var parameters = new MessageCreateParams
         {
-            Model = "claude-opus-4-7",
+            Model = "claude-opus-4-8",
             MaxTokens = 4096,
             Betas = new[] { "code-execution-2025-08-25", "skills-2025-10-02" },
             Container = new BetaContainerParams
@@ -2306,7 +2333,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas: []anthropic.AnthropicBeta{
 			"code-execution-2025-08-25",
@@ -2362,7 +2389,7 @@ public class SkillsExample {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
         MessageCreateParams params = MessageCreateParams.builder()
-            .model("claude-opus-4-7")
+            .model("claude-opus-4-8")
             .maxTokens(4096L)
             .addBeta("code-execution-2025-08-25")
             .addBeta("skills-2025-10-02")
@@ -2407,7 +2434,7 @@ $message = $client->beta->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Analyze sales data and create a presentation']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
     container: [
         'skills' => [
@@ -2442,7 +2469,7 @@ require "anthropic"
 client = Anthropic::Client.new
 
 message = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -2473,6 +2500,7 @@ message = client.beta.messages.create(
 )
 puts message
 ```
+
 </CodeGroup>
 
 ---
@@ -2561,22 +2589,31 @@ const client = new Anthropic();
 // Option 1: Using a zip file
 const skillFromZip = await client.beta.skills.create({
   display_title: "Financial Analysis",
-  files: [await toFile(fs.createReadStream("financial_analysis_skill.zip"), "skill.zip")]
+  files: [
+    await toFile(
+      fs.createReadStream("financial_analysis_skill.zip"),
+      "skill.zip",
+    ),
+  ],
 });
 
 // Option 2: Using individual file objects
 const skill = await client.beta.skills.create({
   display_title: "Financial Analysis",
   files: [
-    await toFile(fs.createReadStream("financial_skill/SKILL.md"), "financial_skill/SKILL.md", {
-      type: "text/markdown"
-    }),
+    await toFile(
+      fs.createReadStream("financial_skill/SKILL.md"),
+      "financial_skill/SKILL.md",
+      {
+        type: "text/markdown",
+      },
+    ),
     await toFile(
       fs.createReadStream("financial_skill/analyze.py"),
       "financial_skill/analyze.py",
-      { type: "text/x-python" }
-    )
-  ]
+      { type: "text/x-python" },
+    ),
+  ],
 });
 
 console.log(`Created skill: ${skill.id}`);
@@ -2772,9 +2809,11 @@ skill = client.beta.skills.create(
 puts "Created skill: #{skill.id}"
 puts "Latest version: #{skill.latest_version}"
 ```
+
 </CodeGroup>
 
 **Requirements:**
+
 - Must include a SKILL.md file at the top level
 - All files must specify a common root directory in their paths
 - Total upload size must be under 30&nbsp;MB
@@ -2797,11 +2836,13 @@ curl "https://api.anthropic.com/v1/skills" \
   -H "anthropic-beta: skills-2025-10-02"
 
 # List only custom Skills
+
 curl "https://api.anthropic.com/v1/skills?source=custom" \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-beta: skills-2025-10-02"
-```
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "anthropic-version: 2023-06-01" \
+ -H "anthropic-beta: skills-2025-10-02"
+
+````
 
 ```bash CLI
 # List all Skills
@@ -2809,7 +2850,7 @@ ant beta:skills list
 
 # List only custom Skills
 ant beta:skills list --source custom
-```
+````
 
 ```python Python
 # List all Skills
@@ -2832,7 +2873,7 @@ for (const skill of skills.data) {
 
 // List only custom Skills
 const customSkills = await client.beta.skills.list({
-  source: "custom"
+  source: "custom",
 });
 ```
 
@@ -2967,6 +3008,7 @@ custom_skills = client.beta.skills.list(
   source: "custom"
 )
 ```
+
 </CodeGroup>
 
 See the [List Skills API reference](/docs/en/api/skills/list-skills) for pagination and filtering options.
@@ -2998,7 +3040,9 @@ print(f"Created: {skill.created_at}")
 ```
 
 ```typescript TypeScript nocheck
-const skill = await client.beta.skills.retrieve("skill_01AbCdEfGhIjKlMnOpQrStUv");
+const skill = await client.beta.skills.retrieve(
+  "skill_01AbCdEfGhIjKlMnOpQrStUv",
+);
 
 console.log(`Skill: ${skill.display_title}`);
 console.log(`Latest version: ${skill.latest_version}`);
@@ -3100,6 +3144,7 @@ puts "Skill: #{skill.display_title}"
 puts "Latest version: #{skill.latest_version}"
 puts "Created: #{skill.created_at}"
 ```
+
 </CodeGroup>
 
 ### Deleting a Skill
@@ -3152,10 +3197,15 @@ import Anthropic from "@anthropic-ai/sdk";
 const client = new Anthropic();
 
 // Step 1: Delete all versions
-const versions = await client.beta.skills.versions.list("skill_01AbCdEfGhIjKlMnOpQrStUv");
+const versions = await client.beta.skills.versions.list(
+  "skill_01AbCdEfGhIjKlMnOpQrStUv",
+);
 
 for (const version of versions.data) {
-  await client.beta.skills.versions.delete("skill_01AbCdEfGhIjKlMnOpQrStUv", version.version);
+  await client.beta.skills.versions.delete(
+    "skill_01AbCdEfGhIjKlMnOpQrStUv",
+    version.version,
+  );
 }
 
 // Step 2: Delete the Skill
@@ -3307,6 +3357,7 @@ end
 # Step 2: Delete the Skill
 client.beta.skills.delete("skill_01AbCdEfGhIjKlMnOpQrStUv")
 ```
+
 </CodeGroup>
 
 Attempting to delete a Skill with existing versions returns a 400 error.
@@ -3316,11 +3367,13 @@ Attempting to delete a Skill with existing versions returns a 400 error.
 Skills support versioning to manage updates safely:
 
 **Anthropic Skills:**
+
 - Versions use date format: `20251013`
 - New versions released as updates are made
 - Specify exact versions for stability
 
 **Custom Skills:**
+
 - Auto-generated epoch timestamps: `1759178010641129`
 - Use `"latest"` to always get the most recent version
 - Create new versions when updating Skill files
@@ -3344,7 +3397,7 @@ curl https://api.anthropic.com/v1/messages \
   -H "anthropic-beta: code-execution-2025-08-25,skills-2025-10-02" \
   -H "content-type: application/json" \
   -d "{
-    \"model\": \"claude-opus-4-7\",
+    \"model\": \"claude-opus-4-8\",
     \"max_tokens\": 4096,
     \"container\": {
       \"skills\": [{
@@ -3364,7 +3417,7 @@ curl https://api.anthropic.com/v1/messages \
   -H "anthropic-beta: code-execution-2025-08-25,skills-2025-10-02" \
   -H "content-type: application/json" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 4096,
     "container": {
       "skills": [{
@@ -3389,7 +3442,7 @@ VERSION_NUMBER=$(ant beta:skills:versions create \
 ant beta:messages create \
   --beta code-execution-2025-08-25 \
   --beta skills-2025-10-02 <<YAML
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   skills:
@@ -3408,7 +3461,7 @@ YAML
 ant beta:messages create \
   --beta code-execution-2025-08-25 \
   --beta skills-2025-10-02 <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   skills:
@@ -3435,7 +3488,7 @@ new_version = client.beta.skills.versions.create(
 
 # Use specific version
 response = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     betas=["code-execution-2025-08-25", "skills-2025-10-02"],
     container={
@@ -3453,7 +3506,7 @@ response = client.beta.messages.create(
 
 # Use latest version
 response = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     betas=["code-execution-2025-08-25", "skills-2025-10-02"],
     container={
@@ -3477,13 +3530,16 @@ import fs from "fs";
 const client = new Anthropic();
 
 // Create a new version using a zip file
-const newVersion = await client.beta.skills.versions.create("skill_01AbCdEfGhIjKlMnOpQrStUv", {
-  files: [fs.createReadStream("updated_skill.zip")]
-});
+const newVersion = await client.beta.skills.versions.create(
+  "skill_01AbCdEfGhIjKlMnOpQrStUv",
+  {
+    files: [fs.createReadStream("updated_skill.zip")],
+  },
+);
 
 // Use specific version
 const specificVersionResponse = await client.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -3491,17 +3547,17 @@ const specificVersionResponse = await client.beta.messages.create({
       {
         type: "custom",
         skill_id: "skill_01AbCdEfGhIjKlMnOpQrStUv",
-        version: newVersion.version
-      }
-    ]
+        version: newVersion.version,
+      },
+    ],
   },
   messages: [{ role: "user", content: "Use updated Skill" }],
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
 });
 
 // Use latest version
 const latestVersionResponse = await client.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -3509,12 +3565,12 @@ const latestVersionResponse = await client.beta.messages.create({
       {
         type: "custom",
         skill_id: "skill_01AbCdEfGhIjKlMnOpQrStUv",
-        version: "latest"
-      }
-    ]
+        version: "latest",
+      },
+    ],
   },
   messages: [{ role: "user", content: "Use latest Skill version" }],
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
 });
 ```
 
@@ -3549,7 +3605,7 @@ class Program
         // Use specific version
         var specificVersionParams = new MessageCreateParams
         {
-            Model = "claude-opus-4-7",
+            Model = "claude-opus-4-8",
             MaxTokens = 4096,
             Betas = ["code-execution-2025-08-25", "skills-2025-10-02"],
             Container = new()
@@ -3577,7 +3633,7 @@ class Program
         // Use latest version
         var latestVersionParams = new MessageCreateParams
         {
-            Model = "claude-opus-4-7",
+            Model = "claude-opus-4-8",
             MaxTokens = 4096,
             Betas = ["code-execution-2025-08-25", "skills-2025-10-02"],
             Container = new()
@@ -3638,7 +3694,7 @@ func main() {
 
 	// Use specific version
 	response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas:     []anthropic.AnthropicBeta{"code-execution-2025-08-25", anthropic.AnthropicBetaSkills2025_10_02},
 		Container: anthropic.BetaMessageNewParamsContainerUnion{
@@ -3666,7 +3722,7 @@ func main() {
 
 	// Use latest version
 	latestResponse, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas:     []anthropic.AnthropicBeta{"code-execution-2025-08-25", anthropic.AnthropicBetaSkills2025_10_02},
 		Container: anthropic.BetaMessageNewParamsContainerUnion{
@@ -3728,7 +3784,7 @@ public class SkillVersioning {
 
         // Use specific version
         MessageCreateParams specificVersionParams = MessageCreateParams.builder()
-            .model("claude-opus-4-7")
+            .model("claude-opus-4-8")
             .maxTokens(4096L)
             .addBeta("code-execution-2025-08-25")
             .addBeta("skills-2025-10-02")
@@ -3748,7 +3804,7 @@ public class SkillVersioning {
 
         // Use latest version
         MessageCreateParams latestVersionParams = MessageCreateParams.builder()
-            .model("claude-opus-4-7")
+            .model("claude-opus-4-8")
             .maxTokens(4096L)
             .addBeta("code-execution-2025-08-25")
             .addBeta("skills-2025-10-02")
@@ -3786,7 +3842,7 @@ $newVersion = $client->beta->skills->versions->create(
 $response = $client->beta->messages->create(
     maxTokens: 4096,
     messages: [['role' => 'user', 'content' => 'Use updated Skill']],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
     container: [
         'skills' => [[
@@ -3803,7 +3859,7 @@ echo $response;
 $latestResponse = $client->beta->messages->create(
     maxTokens: 4096,
     messages: [['role' => 'user', 'content' => 'Use latest Skill version']],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
     container: [
         'skills' => [[
@@ -3830,7 +3886,7 @@ new_version = client.beta.skills.versions.create(
 
 # Use specific version
 response = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -3847,7 +3903,7 @@ puts response
 
 # Use latest version
 latest_response = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -3862,6 +3918,7 @@ latest_response = client.beta.messages.create(
 )
 puts latest_response
 ```
+
 </CodeGroup>
 
 See the [Create Skill Version API reference](/docs/en/api/skills/create-skill-version) for complete details.
@@ -3886,16 +3943,19 @@ The progressive disclosure architecture ensures efficient context usage: Claude 
 ### Organizational Skills
 
 **Brand & Communications**
+
 - Apply company-specific formatting (colors, fonts, layouts) to documents
 - Generate communications following organizational templates
 - Ensure consistent brand guidelines across all outputs
 
 **Project Management**
+
 - Structure notes with company-specific formats (OKRs, decision logs)
 - Generate tasks following team conventions
 - Create standardized meeting recaps and status updates
 
 **Business Operations**
+
 - Create company-standard reports, proposals, and analyses
 - Execute company-specific analytical procedures
 - Generate financial models following organizational templates
@@ -3903,16 +3963,19 @@ The progressive disclosure architecture ensures efficient context usage: Claude 
 ### Personal Skills
 
 **Content Creation**
+
 - Custom document templates
 - Specialized formatting and styling
 - Domain-specific content generation
 
 **Data Analysis**
+
 - Custom data processing pipelines
 - Specialized visualization templates
 - Industry-specific analytical methods
 
 **Development & Automation**
+
 - Code generation templates
 - Testing frameworks
 - Deployment workflows
@@ -3941,7 +4004,7 @@ curl https://api.anthropic.com/v1/messages \
   -H "anthropic-beta: code-execution-2025-08-25,skills-2025-10-02" \
   -H "content-type: application/json" \
   -d "{
-    \"model\": \"claude-opus-4-7\",
+    \"model\": \"claude-opus-4-8\",
     \"max_tokens\": 4096,
     \"container\": {
       \"skills\": [
@@ -3979,7 +4042,7 @@ DCF_SKILL_ID=$(ant beta:skills create \
 ant beta:messages create \
   --beta code-execution-2025-08-25 \
   --beta skills-2025-10-02 <<YAML
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   skills:
@@ -4009,7 +4072,7 @@ dcf_skill = client.beta.skills.create(
 
 # Use with Excel to create financial model
 response = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     betas=["code-execution-2025-08-25", "skills-2025-10-02"],
     container={
@@ -4038,27 +4101,28 @@ const client = new Anthropic();
 
 const dcfSkill = await client.beta.skills.create({
   display_title: "DCF Analysis",
-  files: [await toFile(fs.createReadStream("dcf_skill.zip"), "skill.zip")]
+  files: [await toFile(fs.createReadStream("dcf_skill.zip"), "skill.zip")],
 });
 
 // Use with Excel to create financial model
 const response = await client.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
     skills: [
       { type: "anthropic", skill_id: "xlsx", version: "latest" },
-      { type: "custom", skill_id: dcfSkill.id, version: "latest" }
-    ]
+      { type: "custom", skill_id: dcfSkill.id, version: "latest" },
+    ],
   },
   messages: [
     {
       role: "user",
-      content: "Build a DCF valuation model for a SaaS company with the attached financials"
-    }
+      content:
+        "Build a DCF valuation model for a SaaS company with the attached financials",
+    },
   ],
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
 });
 console.log(response);
 ```
@@ -4088,7 +4152,7 @@ var dcfSkill = await client.Beta.Skills.Create(new SkillCreateParams
 // Use with Excel to create financial model
 var parameters = new MessageCreateParams
 {
-    Model = Model.ClaudeOpus4_7,
+    Model = Model.ClaudeOpus4_8,
     MaxTokens = 4096,
     Betas = new[] { "code-execution-2025-08-25", "skills-2025-10-02" },
     Container = new BetaContainerParams
@@ -4150,7 +4214,7 @@ func main() {
 
 	// Use with Excel to create financial model
 	response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas: []anthropic.AnthropicBeta{
 			"code-execution-2025-08-25",
@@ -4205,7 +4269,7 @@ public class CustomSkillExample {
 
         // Use with Excel Skill to create financial model
         MessageCreateParams params = MessageCreateParams.builder()
-            .model("claude-opus-4-7")
+            .model("claude-opus-4-8")
             .maxTokens(4096L)
             .addBeta("code-execution-2025-08-25")
             .addBeta("skills-2025-10-02")
@@ -4249,7 +4313,7 @@ $message = $client->beta->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Build a DCF valuation model for a SaaS company with the attached financials']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
     container: [
         'skills' => [
@@ -4279,7 +4343,7 @@ dcf_skill = client.beta.skills.create(
 
 # Use with Excel to create financial model
 response = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
   container: {
@@ -4295,6 +4359,7 @@ response = client.beta.messages.create(
 )
 puts response
 ```
+
 </CodeGroup>
 
 ---
@@ -4302,6 +4367,7 @@ puts response
 ## Limits and constraints
 
 ### Request limits
+
 - **Maximum Skills per request:** 8
 - **Maximum Skill upload size:** 30&nbsp;MB (all files combined)
 - **YAML frontmatter requirements:**
@@ -4309,7 +4375,9 @@ puts response
   - `description`: Maximum 1024 characters, non-empty, no XML tags
 
 ### Environment constraints
+
 Skills run in the code execution container with these limitations:
+
 - **No network access:** Cannot make external API calls
 - **No runtime package installation:** Only pre-installed packages available
 - **Isolated environment:** Containers are isolated; a fresh container is created unless you specify an existing container ID
@@ -4325,11 +4393,13 @@ See [Code execution tool](/docs/en/agents-and-tools/tool-use/code-execution-tool
 Combine Skills when tasks involve multiple document types or domains:
 
 **Good use cases:**
+
 - Data analysis (Excel) + presentation creation (PowerPoint)
 - Report generation (Word) + export to PDF
 - Custom domain logic + document generation
 
 **Avoid:**
+
 - Including unused Skills (impacts performance)
 
 ### Version management strategy
@@ -4377,7 +4447,7 @@ curl https://api.anthropic.com/v1/messages \
   -H "anthropic-beta: code-execution-2025-08-25,skills-2025-10-02,prompt-caching-2024-07-31" \
   -H "content-type: application/json" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 4096,
     "container": {
       "skills": [
@@ -4389,24 +4459,26 @@ curl https://api.anthropic.com/v1/messages \
   }'
 
 # Adding/removing Skills breaks cache
+
 curl https://api.anthropic.com/v1/messages \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-beta: code-execution-2025-08-25,skills-2025-10-02,prompt-caching-2024-07-31" \
-  -H "content-type: application/json" \
-  -d '{
-    "model": "claude-opus-4-7",
-    "max_tokens": 4096,
-    "container": {
-      "skills": [
-        {"type": "anthropic", "skill_id": "xlsx", "version": "latest"},
-        {"type": "anthropic", "skill_id": "pptx", "version": "latest"}
-      ]
-    },
-    "messages": [{"role": "user", "content": "Create a presentation"}],
-    "tools": [{"type": "code_execution_20250825", "name": "code_execution"}]
-  }'
-```
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "anthropic-version: 2023-06-01" \
+ -H "anthropic-beta: code-execution-2025-08-25,skills-2025-10-02,prompt-caching-2024-07-31" \
+ -H "content-type: application/json" \
+ -d '{
+"model": "claude-opus-4-8",
+"max_tokens": 4096,
+"container": {
+"skills": [
+{"type": "anthropic", "skill_id": "xlsx", "version": "latest"},
+{"type": "anthropic", "skill_id": "pptx", "version": "latest"}
+]
+},
+"messages": [{"role": "user", "content": "Create a presentation"}],
+"tools": [{"type": "code_execution_20250825", "name": "code_execution"}]
+}'
+
+````
 
 ```bash CLI
 # First request creates cache
@@ -4414,7 +4486,7 @@ ant beta:messages create \
   --beta code-execution-2025-08-25 \
   --beta skills-2025-10-02 \
   --beta prompt-caching-2024-07-31 <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   skills:
@@ -4434,7 +4506,7 @@ ant beta:messages create \
   --beta code-execution-2025-08-25 \
   --beta skills-2025-10-02 \
   --beta prompt-caching-2024-07-31 <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   skills:
@@ -4451,12 +4523,12 @@ tools:
   - type: code_execution_20250825
     name: code_execution
 YAML
-```
+````
 
 ```python Python
 # First request creates cache
 response1 = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     betas=[
         "code-execution-2025-08-25",
@@ -4472,7 +4544,7 @@ response1 = client.beta.messages.create(
 
 # Adding/removing Skills breaks cache
 response2 = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     betas=[
         "code-execution-2025-08-25",
@@ -4497,29 +4569,37 @@ response2 = client.beta.messages.create(
 ```typescript TypeScript
 // First request creates cache
 const response1 = await client.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
-  betas: ["code-execution-2025-08-25", "skills-2025-10-02", "prompt-caching-2024-07-31"],
+  betas: [
+    "code-execution-2025-08-25",
+    "skills-2025-10-02",
+    "prompt-caching-2024-07-31",
+  ],
   container: {
-    skills: [{ type: "anthropic", skill_id: "xlsx", version: "latest" }]
+    skills: [{ type: "anthropic", skill_id: "xlsx", version: "latest" }],
   },
   messages: [{ role: "user", content: "Analyze sales data" }],
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
 });
 
 // Adding/removing Skills breaks cache
 const response2 = await client.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
-  betas: ["code-execution-2025-08-25", "skills-2025-10-02", "prompt-caching-2024-07-31"],
+  betas: [
+    "code-execution-2025-08-25",
+    "skills-2025-10-02",
+    "prompt-caching-2024-07-31",
+  ],
   container: {
     skills: [
       { type: "anthropic", skill_id: "xlsx", version: "latest" },
-      { type: "anthropic", skill_id: "pptx", version: "latest" } // Cache miss
-    ]
+      { type: "anthropic", skill_id: "pptx", version: "latest" }, // Cache miss
+    ],
   },
   messages: [{ role: "user", content: "Create a presentation" }],
-  tools: [{ type: "code_execution_20250825", name: "code_execution" }]
+  tools: [{ type: "code_execution_20250825", name: "code_execution" }],
 });
 ```
 
@@ -4534,7 +4614,7 @@ var client = new AnthropicClient();
 // First request creates cache
 var parameters1 = new MessageCreateParams
 {
-    Model = Model.ClaudeOpus4_7,
+    Model = Model.ClaudeOpus4_8,
     MaxTokens = 4096,
     Betas = new[] { "code-execution-2025-08-25", "skills-2025-10-02", "prompt-caching-2024-07-31" },
     Container = new BetaContainer
@@ -4553,7 +4633,7 @@ Console.WriteLine(response1);
 // Adding/removing Skills breaks cache
 var parameters2 = new MessageCreateParams
 {
-    Model = Model.ClaudeOpus4_7,
+    Model = Model.ClaudeOpus4_8,
     MaxTokens = 4096,
     Betas = new[] { "code-execution-2025-08-25", "skills-2025-10-02", "prompt-caching-2024-07-31" },
     Container = new BetaContainer
@@ -4587,7 +4667,7 @@ func main() {
 
 	// First request creates cache
 	response1, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas: []anthropic.AnthropicBeta{
 			"code-execution-2025-08-25",
@@ -4619,7 +4699,7 @@ func main() {
 
 	// Adding/removing Skills breaks cache
 	response2, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas: []anthropic.AnthropicBeta{
 			"code-execution-2025-08-25",
@@ -4672,7 +4752,7 @@ public class SkillsCaching {
 
         // First request creates cache
         MessageCreateParams params1 = MessageCreateParams.builder()
-            .model("claude-opus-4-7")
+            .model("claude-opus-4-8")
             .maxTokens(4096L)
             .addBeta("code-execution-2025-08-25")
             .addBeta("skills-2025-10-02")
@@ -4695,7 +4775,7 @@ public class SkillsCaching {
 
         // Adding/removing Skills breaks cache
         MessageCreateParams params2 = MessageCreateParams.builder()
-            .model("claude-opus-4-7")
+            .model("claude-opus-4-8")
             .maxTokens(4096L)
             .addBeta("code-execution-2025-08-25")
             .addBeta("skills-2025-10-02")
@@ -4737,7 +4817,7 @@ $response1 = $client->beta->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Analyze sales data']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     betas: [
         'code-execution-2025-08-25',
         'skills-2025-10-02',
@@ -4760,7 +4840,7 @@ $response2 = $client->beta->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Create a presentation']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     betas: [
         'code-execution-2025-08-25',
         'skills-2025-10-02',
@@ -4786,7 +4866,7 @@ client = Anthropic::Client.new
 
 # First request creates cache
 response1 = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: [
     "code-execution-2025-08-25",
@@ -4803,7 +4883,7 @@ puts response1
 
 # Adding/removing Skills breaks cache
 response2 = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   betas: [
     "code-execution-2025-08-25",
@@ -4821,6 +4901,7 @@ response2 = client.beta.messages.create(
 )
 puts response2
 ```
+
 </CodeGroup>
 
 For best caching performance, keep your Skills list consistent across requests.
@@ -4836,7 +4917,7 @@ if ! RESULT=$(ant beta:messages create \
   --beta code-execution-2025-08-25 \
   --beta skills-2025-10-02 \
   --transform-error error.message --format-error yaml 2>&1 <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container:
   skills:
@@ -4871,7 +4952,7 @@ client = anthropic.Anthropic()
 
 try:
     response = client.beta.messages.create(
-        model="claude-opus-4-7",
+        model="claude-opus-4-8",
         max_tokens=4096,
         betas=["code-execution-2025-08-25", "skills-2025-10-02"],
         container={
@@ -4897,20 +4978,27 @@ except anthropic.BadRequestError as e:
 ```typescript TypeScript nocheck
 try {
   const response = await client.beta.messages.create({
-    model: "claude-opus-4-7",
+    model: "claude-opus-4-8",
     max_tokens: 4096,
     betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
     container: {
       skills: [
-        { type: "custom", skill_id: "skill_01AbCdEfGhIjKlMnOpQrStUv", version: "latest" }
-      ]
+        {
+          type: "custom",
+          skill_id: "skill_01AbCdEfGhIjKlMnOpQrStUv",
+          version: "latest",
+        },
+      ],
     },
     messages: [{ role: "user", content: "Process data" }],
-    tools: [{ type: "code_execution_20250825", name: "code_execution" }]
+    tools: [{ type: "code_execution_20250825", name: "code_execution" }],
   });
   console.log(response);
 } catch (error) {
-  if (error instanceof Anthropic.BadRequestError && error.message.includes("skill")) {
+  if (
+    error instanceof Anthropic.BadRequestError &&
+    error.message.includes("skill")
+  ) {
     console.error(`Skill error: ${error.message}`);
     // Handle skill-specific errors
   } else {
@@ -4935,7 +5023,7 @@ class Program
         {
             var parameters = new MessageCreateParams
             {
-                Model = "claude-opus-4-7",
+                Model = "claude-opus-4-8",
                 MaxTokens = 4096,
                 Betas = ["code-execution-2025-08-25", "skills-2025-10-02"],
                 Container = new BetaContainerParams
@@ -4980,7 +5068,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 4096,
 		Betas:     []anthropic.AnthropicBeta{"code-execution-2025-08-25", anthropic.AnthropicBetaSkills2025_10_02},
 		Container: anthropic.BetaMessageNewParamsContainerUnion{
@@ -5029,7 +5117,7 @@ public class SkillErrorHandling {
 
         try {
             MessageCreateParams params = MessageCreateParams.builder()
-                .model("claude-opus-4-7")
+                .model("claude-opus-4-8")
                 .maxTokens(4096L)
                 .addBeta("code-execution-2025-08-25")
                 .addBeta("skills-2025-10-02")
@@ -5070,7 +5158,7 @@ try {
         messages: [
             ['role' => 'user', 'content' => 'Process data']
         ],
-        model: 'claude-opus-4-7',
+        model: 'claude-opus-4-8',
         betas: ['code-execution-2025-08-25', 'skills-2025-10-02'],
         container: [
             'skills' => [
@@ -5102,7 +5190,7 @@ client = Anthropic::Client.new
 
 begin
   response = client.beta.messages.create(
-    model: "claude-opus-4-7",
+    model: "claude-opus-4-8",
     max_tokens: 4096,
     betas: ["code-execution-2025-08-25", "skills-2025-10-02"],
     container: {
@@ -5125,6 +5213,7 @@ rescue Anthropic::Errors::BadRequestError => e
   end
 end
 ```
+
 </CodeGroup>
 
 ---

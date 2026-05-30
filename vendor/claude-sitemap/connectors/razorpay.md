@@ -1,3 +1,5 @@
+# Razorpay
+
 Access your Razorpay merchant data directly from Claude. Query payments, orders, refunds, and settlements instantly through natural conversation. Track QR code transactions, monitor payment links, review payout history, and generate settlement reconciliation reports—all without leaving your AI workflow. Transform Claude into your intelligent merchant dashboard that retrieves real-time business insights, helping you understand payment trends and reconcile transactions faster, with less friction.
 
 You can use Razorpay to:
@@ -12,4 +14,4 @@ You can use Razorpay to:
 "Fetch my settlement reconciliation report for December 2024"
 
 **Analyze QR Code Performance:**  
-"How many payments were collected on QR code qr\_ABC123?"
+"How many payments were collected on QR code qr_ABC123?"

@@ -1,10 +1,12 @@
+# WRTN pioneers AI entertainment and storytelling across Asia with Claude
+
 WRTN, a leading consumer AI aggregator in South Korea and Japan, uses Claude to power natural, engaging character interactions and creative storytelling for millions of users across Asia.
 
 With Claude, WRTN:
 
--   Serves 4.5 million monthly active users
--   Provides AI interactions in traditional Korean across entertainment, companionship, and productivity use cases
--   Is rapidly closing the gap with larger competitors in the Asian market
+- Serves 4.5 million monthly active users
+- Provides AI interactions in traditional Korean across entertainment, companionship, and productivity use cases
+- Is rapidly closing the gap with larger competitors in the Asian market
 
 ## Meeting the need for accessible AI
 

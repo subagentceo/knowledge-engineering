@@ -1,3 +1,5 @@
+# Structured outputs on the Claude Developer Platform
+
 **_Update:_** _Now generally available (GA) natively on the Claude Developer Platform and in Amazon Bedrock for Claude Sonnet 4.5, Opus 4.5, and Haiku 4.5. GA adds support for more complex schemas. (Feb 4, 2026)_
 
 **_Update:_** _Now available on Claude Haiku 4.5—supported on the Claude Developer Platform, natively and in Microsoft Foundry. (Dec 4, 2025)_
@@ -10,9 +12,9 @@ With structured outputs, developers can eliminate schema-related parsing errors 
 
 For developers building applications and agents in production, a single error in data formatting can cause cascading failures. Structured outputs solves this by guaranteeing your response matches the exact structure you define, without any impact to model performance. This makes Claude dependable for applications and agents where accuracy is critical, including:
 
--   **Data extraction** when downstream systems rely on error-free, consistent formats.
--   **Multi-agent architectures** where consistent communication between agents is critical for a performant, stable experience.
--   **Complex search tools** where multiple search fields must be filled in accurately and conform to specific patterns.
+- **Data extraction** when downstream systems rely on error-free, consistent formats.
+- **Multi-agent architectures** where consistent communication between agents is critical for a performant, stable experience.
+- **Complex search tools** where multiple search fields must be filled in accurately and conform to specific patterns.
 
 Structured outputs can be used two ways: with JSON or tools. When used with JSON, you provide your schema definition in the API request. For tools, you define your tool specifications, and Claude's output conforms to those tool definitions automatically.
 
@@ -26,4 +28,4 @@ OpenRouter provides 4M+ developers access to all major AI models through a singl
 
 ### Getting started
 
-Structured outputs is now available in public beta for Sonnet 4.5 and Opus 4.1 on the Claude Developer Platform, with support for Haiku 4.5 coming soon. Explore our [documentation](https://docs.claude.com/en/docs/build-with-claude/structured-outputs) for supported JSON schema types, implementation examples, and best practices.
+Structured outputs is now available in public beta for Sonnet 4.5 and Opus 4.1 on the Claude Developer Platform, with support for Haiku 4.5 coming soon. Explore our documentation for supported JSON schema types, implementation examples, and best practices.

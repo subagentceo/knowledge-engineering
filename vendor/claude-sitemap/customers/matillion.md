@@ -1,22 +1,24 @@
-[Matillion](https://www.matillion.com) is a data integration platform that helps data teams build and manage pipelines for AI and analytics. Thousands of enterprises including Cisco, London Stock Exchange Group, and Slack use Matillion for insights, operational analytics, and machine learning applications.
+# Matillion reduces data pipeline creation from 40 hours to 1 with Claude-powered AI assistant
+
+Matillion is a data integration platform that helps data teams build and manage pipelines for AI and analytics. Thousands of enterprises including Cisco, London Stock Exchange Group, and Slack use Matillion for insights, operational analytics, and machine learning applications.
 
 With Claude, Matillion:
 
--   Creates data pipelines through natural language: users describe what they need in plain English, and Maia builds production-ready pipelines
--   Translates legacy codebases automatically: migrates existing ETL processes without manual recreation
--   Performs autonomous data operations: handles everything from sampling data to optimizing transformations at machine speed
--   Enables self-service for non-engineers: business analysts can now build data infrastructure that previously required specialized expertise
--   Maintains and optimizes existing pipelines: continuously improves performance and adapts to changing requirements
+- Creates data pipelines through natural language: users describe what they need in plain English, and Maia builds production-ready pipelines
+- Translates legacy codebases automatically: migrates existing ETL processes without manual recreation
+- Performs autonomous data operations: handles everything from sampling data to optimizing transformations at machine speed
+- Enables self-service for non-engineers: business analysts can now build data infrastructure that previously required specialized expertise
+- Maintains and optimizes existing pipelines: continuously improves performance and adapts to changing requirements
 
 ## Selecting the right foundation model
 
-Matillion chose Claude after 18 months of testing across multiple model providers. Their evaluation framework measured three critical capabilities: understanding proprietary domain-specific languages, multi-step reasoning for complex data operations, and reliable tool-calling decisions.Claude consistently outperformed other models across all metrics. Specifically:  
-  
+Matillion chose Claude after 18 months of testing across multiple model providers. Their evaluation framework measured three critical capabilities: understanding proprietary domain-specific languages, multi-step reasoning for complex data operations, and reliable tool-calling decisions.Claude consistently outperformed other models across all metrics. Specifically:
+
 **• Strong reasoning and tool-calling:** Claude demonstrated sophisticated ability to select the right tools and sequence complex operations—critical for autonomous data pipeline management  
 **• Reliability:** Stable performance across model versions meant Matillion could upgrade to newer Claude releases without re-engineering their entire prompt architecture   
 **• No training required:** Claude understood Matillion's proprietary YAML-based Data Pipeline Language (DPL) immediately, despite having no public training data  
-**• Consistent behavior:** The team found they never had to "fight" the model to achieve desired outcomes  
-  
+**• Consistent behavior:** The team found they never had to "fight" the model to achieve desired outcomes
+
 "The decision to choose Claude was entirely data-driven," explains Julian Wiffen, Chief of AI and Data Science at Matillion. "We tested multiple models side by side, and Claude consistently delivered the best results for both accuracy and reliability."
 
 ## The challenge: Data teams drowning in backlogs
@@ -31,8 +33,8 @@ The transformation began when Matillion found that their proprietary Data Pipeli
 
 Matillion built a sophisticated testing framework using three LLMs in concert—one running Maia, another playing the role of tester, and a third acting as judge to verify outcomes. This framework let them measure performance tangibly: tracking time taken, tool selection accuracy, and token consumption across scenario sets.
 
-The evolution from simple auto-documentation to full agentic capabilities took two years, but the results justify the investment. Maia can now access almost the complete functionality of the Data Productivity Cloud through tool calls, performing operations that challenge even expert data engineers.  
-  
+The evolution from simple auto-documentation to full agentic capabilities took two years, but the results justify the investment. Maia can now access almost the complete functionality of the Data Productivity Cloud through tool calls, performing operations that challenge even expert data engineers.
+
 **“**Maia handles everything from legacy ETL migrations to building production-ready pipelines at machine speed, with logic quality we can trust,” said Ammad Baig, Director of Enterprise Data & AI Services at Precision Medicine Group. “It's fundamentally accelerating our workflow while reducing manual overhead.”
 
 ## The outcome: Redefining data team productivity

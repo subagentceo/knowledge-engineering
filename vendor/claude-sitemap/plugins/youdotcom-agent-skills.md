@@ -1,1 +1,3 @@
+# youdotcom-agent-skills
+
 You.com agent skills for web search, research with citations, and content extraction. Guided integrations for Vercel AI SDK, Claude Agent SDK, OpenAI Agents SDK, crewAI, LangChain, Microsoft Teams.ai, direct REST API, and bash CLI.

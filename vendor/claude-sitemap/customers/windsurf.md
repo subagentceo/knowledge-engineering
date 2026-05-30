@@ -1,12 +1,14 @@
+# Windsurf enables collaborative software development agents with Claude
+
 Windsurf, a leading AI coding platform, uses Claude to power their revolutionary AI-native IDE (Integrated Development Environment) and Cascade, an intelligent AI coding assistant that helps developers write better code faster.
 
 With Claude, Windsurf:
 
--   Reached hundreds of thousands of users within their first few weeks of launch
--   Achieved high user retention with daily active users
--   Processes over 100M tokens per minute
--   Powers reasoning and planning capabilities in their Cascade agent
--   Helped companies use AI to write nearly half of their code
+- Reached hundreds of thousands of users within their first few weeks of launch
+- Achieved high user retention with daily active users
+- Processes over 100M tokens per minute
+- Powers reasoning and planning capabilities in their Cascade agent
+- Helped companies use AI to write nearly half of their code
 
 ## Making development more powerful and accessible
 

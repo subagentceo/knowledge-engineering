@@ -1,21 +1,14 @@
--   Anthropic Verified
-    
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Anthropic
-    
-    ](#)
-    
--   Installs
-    
-    101
+# cwc-makers
+
+- Anthropic Verified
+- Install in
+
+  Claude Code
+
+- Made by
+
+  Anthropic
+
+- Installs
+
+  310

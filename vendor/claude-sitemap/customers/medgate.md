@@ -1,11 +1,13 @@
-[Medgate](https://www.medgate.ch), one of Europe's largest telemedicine providers, connects 2.5 million patients to doctors remotely across Switzerland and Germany—handling approximately 3,000 consultations daily during peak winter periods. The company operates critical healthcare infrastructure that requires both agility and absolute dependability. Working with [OWT](https://www.owt.swiss/en/)—a Swisscom company and Switzerland's leading technology consultancy—Medgate deployed Claude Code in a three-month pilot with four teams and approximately 15 engineers, and has since decided to roll it out across the organization.
+# Medgate accelerates healthcare innovation with Claude Code
+
+Medgate, one of Europe's largest telemedicine providers, connects 2.5 million patients to doctors remotely across Switzerland and Germany—handling approximately 3,000 consultations daily during peak winter periods. The company operates critical healthcare infrastructure that requires both agility and absolute dependability. Working with OWT—a Swisscom company and Switzerland's leading technology consultancy—Medgate deployed Claude Code in a three-month pilot with four teams and approximately 15 engineers, and has since decided to roll it out across the organization.
 
 ## With Claude Code during the pilot phase, Medgate achieved:
 
--   Up to 80% faster test case development
--   50-99% reduction in delivery time for some development features
--   90% faster bug resolution through automated root cause analysis
--   50% improvement in code quality with AI-enhanced PR reviews
+- Up to 80% faster test case development
+- 50-99% reduction in delivery time for some development features
+- 90% faster bug resolution through automated root cause analysis
+- 50% improvement in code quality with AI-enhanced PR reviews
 
 ## The challenge
 

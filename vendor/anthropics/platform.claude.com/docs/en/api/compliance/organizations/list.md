@@ -1,4 +1,4 @@
-## List
+## List organizations
 
 **get** `/v1/compliance/organizations`
 
@@ -17,7 +17,6 @@ response would exceed 1,000 organizations.
 - `data: array of object { created_at, name, uuid }`
 
   List of organizations sorted by creation date, ascending
-
   - `created_at: string`
 
     Organization creation time (RFC 3339 format)
@@ -35,4 +34,18 @@ response would exceed 1,000 organizations.
 ```http
 curl https://api.anthropic.com/v1/compliance/organizations \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "created_at": "created_at",
+      "name": "name",
+      "uuid": "uuid"
+    }
+  ]
+}
 ```

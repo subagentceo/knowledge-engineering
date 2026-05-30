@@ -1,12 +1,14 @@
+# Pelanor delivers instant cloud cost insights with Claude
+
 Pelanor, an AI-powered FinOps platform, uses Claude to help enterprises instantly understand their cloud spending through real-time natural language conversations instead of manual analysis.
 
 ## With Claude, Pelanor:
 
--   Achieved 10x customer growth in 6 months (from 5 to 50 customers)
--   Shipped features that drive 40-50% of new business
--   Delivers cost insights in seconds that previously took weeks of analysis
--   Enables cost attribution down to individual customers, features, and code changes
--   Launched Agent Composer for creating custom cost monitoring in plain English
+- Achieved 10x customer growth in 6 months (from 5 to 50 customers)
+- Shipped features that drive 40-50% of new business
+- Delivers cost insights in seconds that previously took weeks of analysis
+- Enables cost attribution down to individual customers, features, and code changes
+- Launched Agent Composer for creating custom cost monitoring in plain English
 
 ## When cloud costs become impossible to understand
 
@@ -18,7 +20,7 @@ This leaves finance teams making budget decisions blind, engineers deploying cod
 
 After evaluating multiple AI models, Pelanor selected Claude as the foundation for their platform. Claude 3 Opus demonstrated superior performance in instruction following, schema comprehension, optimal tool usage, and integration with structured enterprise workflows compared to other leading models. Since then, Pelanor has continued to adopt Anthropic’s most advanced releases, including Claude 4 Opus, to stay ahead as the platform scales.
 
-The team has integrated Claude throughout their operations. Since launch, they have been using [Claude.ai](http://claude.ai) across the organization and seeing universal adoption of Claude Code across their development team within days of release.
+The team has integrated Claude throughout their operations. Since launch, they have been using Claude.ai across the organization and seeing universal adoption of Claude Code across their development team within days of release.
 
 ## Turning cost data into conversational insights
 

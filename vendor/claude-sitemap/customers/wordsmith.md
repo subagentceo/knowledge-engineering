@@ -1,14 +1,16 @@
-[Wordsmith](https://wordsmith.ai) builds AI-powered legal technology specifically for in-house legal teams, helping them service their organizations more effectively through contract review, agreement drafting, and seamless system integration. Founded by CEO Ross McNairn, a former lawyer turned CTO, the company serves thousands of legal teams from Fortune 500 companies to leading technology firms.
+# Wordsmith uses Claude to transform legal operations from 4-day bottlenecks to 4-minute workflows
+
+Wordsmith builds AI-powered legal technology specifically for in-house legal teams, helping them service their organizations more effectively through contract review, agreement drafting, and seamless system integration. Founded by CEO Ross McNairn, a former lawyer turned CTO, the company serves thousands of legal teams from Fortune 500 companies to leading technology firms.
 
 Wordsmith chose Claude after comprehensive evaluation across 40 different use case categories. The platform scored approximately 30% better than alternatives in their legal evaluation suite—a massive change when they typically saw single-digit improvements. Beyond technical performance, Claude's trustworthy brand proved critical for risk-conscious legal departments, making it "a much easier sell" according to McNairn.
 
 With Claude, Wordsmith:
 
--   **Transforms days into minutes**: Processes 400-page contract bundles with 300-point compliance checks in 4-5 minutes
--   **Produces professional legal documents**: Creates properly structured agreements that understand the blueprint of good legal writing
--   **Maintains jurisdiction compliance**: Ensures data remains ephemeral and jurisdiction-locked for EU and US requirements
--   **Accelerates development**: Powers engineering workflows with 20-30% velocity improvements through Claude Code
--   **Enables instant legal guidance**: Provides immediate, accurate responses when legal teams aren't available
+- **Transforms days into minutes**: Processes 400-page contract bundles with 300-point compliance checks in 4-5 minutes
+- **Produces professional legal documents**: Creates properly structured agreements that understand the blueprint of good legal writing
+- **Maintains jurisdiction compliance**: Ensures data remains ephemeral and jurisdiction-locked for EU and US requirements
+- **Accelerates development**: Powers engineering workflows with 20-30% velocity improvements through Claude Code
+- **Enables instant legal guidance**: Provides immediate, accurate responses when legal teams aren't available
 
 ## The impossible balancing act
 

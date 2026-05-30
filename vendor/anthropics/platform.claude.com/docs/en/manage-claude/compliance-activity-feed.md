@@ -5,13 +5,19 @@ Retrieve, filter, and paginate your organization's Compliance API Activity Feed.
 ---
 
 <Note>
-  The Compliance API is available only on the Claude Enterprise plan and must be enabled before use. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
+  The Compliance API is enabled on request. Claude Enterprise organizations have access to the full API; Claude Console organizations have access to the [Activity Feed](/docs/en/manage-claude/compliance-activity-feed) only. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
+</Note>
+:
+    same wording, but "Activity Feed (this page)" as plain text so this page
+    doesn't link to itself. Keep in sync with content/en/_snippets/compliance-api-availability.mdx. */}
+<Note>
+  The Compliance API is enabled on request. Claude Enterprise organizations have access to the full API; Claude Console organizations have access to the Activity Feed (this page) only. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
 </Note>
 
 <Check>
   **Required scope:** `read:compliance_activities` on the Compliance Access Key or Admin API key.
 
-  Both Compliance Access Keys (`sk-ant-api01-...`) carrying this scope and Admin API keys (`sk-ant-admin01-...`) can call the Activity Feed. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access) for the conditions under which each key type carries the scope.
+Both Compliance Access Keys (`sk-ant-api01-...`) carrying this scope and Admin API keys (`sk-ant-admin01-...`) can call the Activity Feed. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access) for the conditions under which each key type carries the scope.
 </Check>
 
 The Activity Feed records every authentication, chat, file, project, administrative, and platform action that occurs in your organization, in reverse chronological order. Activities are queryable within 1 minute of occurring and are retained for 6 years.
@@ -75,11 +81,11 @@ Activities are returned newest first, with ties in `created_at` broken by activi
 
 The Compliance API uses two pagination schemes depending on the endpoint family:
 
-| Endpoint family | Sort order | Scheme | Parameters |
-| :---- | :---- | :---- | :---- |
-| Activities | Newest first | Cursor | `after_id`, `before_id` (returned as `first_id`, `last_id`) |
-| Chats and chat messages | Oldest first | Cursor | `after_id`, `before_id` (returned as `first_id`, `last_id`) |
-| Projects, project attachments, users, roles, role permissions, groups, group members | Endpoint-specific | Page token | `page` (returned as `next_page`) |
+| Endpoint family                                                                      | Sort order        | Scheme     | Parameters                                                  |
+| :----------------------------------------------------------------------------------- | :---------------- | :--------- | :---------------------------------------------------------- |
+| Activities                                                                           | Newest first      | Cursor     | `after_id`, `before_id` (returned as `first_id`, `last_id`) |
+| Chats and chat messages                                                              | Oldest first      | Cursor     | `after_id`, `before_id` (returned as `first_id`, `last_id`) |
+| Projects, project attachments, users, roles, role permissions, groups, group members | Endpoint-specific | Page token | `page` (returned as `next_page`)                            |
 
 Organizations and files do not paginate: [List organizations](/docs/en/manage-claude/compliance-org-data#list-organizations) returns all results in one response, and files are retrieved individually by ID.
 
@@ -109,12 +115,14 @@ last_id=$(curl --fail-with-body -sS \
   --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" | jq -er '.last_id')
 
 # Pass the cursor back unchanged to fetch the next (older) page.
+
 curl --fail-with-body -sS -G \
-  "https://api.anthropic.com/v1/compliance/activities" \
-  --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" \
+ "https://api.anthropic.com/v1/compliance/activities" \
+ --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" \
   --data-urlencode "limit=2" \
   --data-urlencode "after_id=${last_id}"
-```
+
+````
 </CodeGroup>
 
 A production **backfill** loop pages through older activities by driving iteration off `has_more` and `last_id`:
@@ -135,36 +143,36 @@ loop:
     cursor = page.last_id
   if not page.has_more: break
 persist(cursor)
-```
+````
 
 ## Understand the Activity object
 
 Every entry in `data` is an Activity with this top-level shape:
 
-| Field | Type | Description |
-| :---- | :---- | :---- |
-| `id` | string | Unique identifier for the activity. |
-| `created_at` | RFC 3339 string | When the activity occurred. |
-| `organization_id` | string or null | Organization where the activity occurred, or `null` for events not tied to an organization (sign-in, sign-out, Compliance API calls). |
-| `organization_uuid` | string or null | Same scoping as `organization_id`, expressed as a UUID. |
-| `actor` | Actor union | Who or what performed the activity. See the following actor table. |
-| `type` | string | The activity type, for example `claude_chat_created`. |
-| _additional fields_ | varies | Type-specific fields, for example `claude_chat_id` on chat events or `filename` on file events. See [Query compliance activities](/docs/en/api/compliance/activities/list) in the API reference for the per-type field list. |
+| Field               | Type            | Description                                                                                                                                                                                                                  |
+| :------------------ | :-------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                | string          | Unique identifier for the activity.                                                                                                                                                                                          |
+| `created_at`        | RFC 3339 string | When the activity occurred.                                                                                                                                                                                                  |
+| `organization_id`   | string or null  | Organization where the activity occurred, or `null` for events not tied to an organization (sign-in, sign-out, Compliance API calls).                                                                                        |
+| `organization_uuid` | string or null  | Same scoping as `organization_id`, expressed as a UUID.                                                                                                                                                                      |
+| `actor`             | Actor union     | Who or what performed the activity. See the following actor table.                                                                                                                                                           |
+| `type`              | string          | The activity type, for example `claude_chat_created`.                                                                                                                                                                        |
+| _additional fields_ | varies          | Type-specific fields, for example `claude_chat_id` on chat events or `filename` on file events. See [Query compliance activities](/docs/en/api/compliance/activities/list) in the API reference for the per-type field list. |
 
 The `actor` field is a discriminated union. The `type` discriminator tells you which other fields are present:
 
-| `actor.type` | When it appears | Key fields |
-| :---- | :---- | :---- |
-| `user_actor` | A signed-in claude.ai or Claude Console user took the action. | `email_address`, `user_id`, `ip_address`, `user_agent` |
-| `api_actor` | A request called the Claude API or the Compliance API with a customer-issued API key. Compliance API calls produce this actor type for both Compliance Access Keys and Admin API keys. | `api_key_id`, `ip_address`, `user_agent` |
-| `admin_api_key_actor` | An organization admin used an Admin API key to manage users, invites, workspaces, or API keys. | `admin_api_key_id` |
-| `unauthenticated_user_actor` | An action occurred before sign-in completed, for example `sso_login_initiated`. | `unauthenticated_email_address`, `ip_address`, `user_agent` |
-| `anthropic_actor` | Anthropic acted on the organization, for example through internal tooling. | `email_address` (always `null`; present for shape consistency with `user_actor`, since Anthropic operators are not represented by individual email) |
-| `scim_directory_sync_actor` | An identity provider (such as Okta, Microsoft Entra ID, or JumpCloud) pushed a change through SCIM directory sync. | `workos_event_id`, `directory_id`, `idp_connection_type` (nullable; for example `OktaSCIMV2`, `AzureSCIMV2`) |
+| `actor.type`                 | When it appears                                                                                                                                                                        | Key fields                                                                                                                                          |
+| :--------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `user_actor`                 | A signed-in claude.ai or Claude Console user took the action.                                                                                                                          | `email_address`, `user_id`, `ip_address`, `user_agent`                                                                                              |
+| `api_actor`                  | A request called the Claude API or the Compliance API with a customer-issued API key. Compliance API calls produce this actor type for both Compliance Access Keys and Admin API keys. | `api_key_id`, `ip_address`, `user_agent`                                                                                                            |
+| `admin_api_key_actor`        | An organization admin used an Admin API key to manage users, invites, workspaces, or API keys.                                                                                         | `admin_api_key_id`                                                                                                                                  |
+| `unauthenticated_user_actor` | An action occurred before sign-in completed, for example `sso_login_initiated`.                                                                                                        | `unauthenticated_email_address`, `ip_address`, `user_agent`                                                                                         |
+| `anthropic_actor`            | Anthropic acted on the organization, for example through internal tooling.                                                                                                             | `email_address` (always `null`; present for shape consistency with `user_actor`, since Anthropic operators are not represented by individual email) |
+| `scim_directory_sync_actor`  | An identity provider (such as Okta, Microsoft Entra ID, or JumpCloud) pushed a change through SCIM directory sync.                                                                     | `workos_event_id`, `directory_id`, `idp_connection_type` (nullable; for example `OktaSCIMV2`, `AzureSCIMV2`)                                        |
 
 <Note>
-  **Build forward-compatible parsers.** Pass through unrecognized `type` and
-  `actor.type` values, and ignore fields your parser does not expect, so your
+  **Build forward-compatible handlers.** Pass through unrecognized `type` and
+  `actor.type` values, and ignore fields your handler does not expect, so your
   integration keeps working when new activity types ship.
 </Note>
 

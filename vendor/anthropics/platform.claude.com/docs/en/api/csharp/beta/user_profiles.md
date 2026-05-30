@@ -1,6 +1,6 @@
 # User Profiles
 
-## Create
+## Create User Profile
 
 `BetaUserProfile Beta.UserProfiles.Create(UserProfileCreateParams?parameters, CancellationTokencancellationToken = default)`
 
@@ -11,7 +11,6 @@ Create User Profile
 ### Parameters
 
 - `UserProfileCreateParams parameters`
-
   - `string? externalID`
 
     Body param: Platform's own identifier for this user. Not enforced unique. Maximum 255 characters.
@@ -27,7 +26,6 @@ Create User Profile
   - `Relationship relationship`
 
     Body param: How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"External`
 
     - `"resold"Resold`
@@ -37,7 +35,6 @@ Create User Profile
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -86,10 +83,15 @@ Create User Profile
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaUserProfile:`
-
   - `required string ID`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -105,7 +107,6 @@ Create User Profile
   - `required Relationship Relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"External`
 
     - `"resold"Resold`
@@ -115,11 +116,9 @@ Create User Profile
   - `required IReadOnlyDictionary<string, BetaUserProfileTrustGrant> TrustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `required Status Status`
 
       Status of the trust grant.
-
       - `"active"Active`
 
       - `"pending"Pending`
@@ -129,7 +128,6 @@ Create User Profile
   - `required Type Type`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"UserProfile`
 
   - `required DateTimeOffset UpdatedAt`
@@ -154,7 +152,27 @@ var betaUserProfile = await client.Beta.UserProfiles.Create(parameters);
 Console.WriteLine(betaUserProfile);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## List User Profiles
 
 `UserProfileListPageResponse Beta.UserProfiles.List(UserProfileListParams?parameters, CancellationTokencancellationToken = default)`
 
@@ -165,7 +183,6 @@ List User Profiles
 ### Parameters
 
 - `UserProfileListParams parameters`
-
   - `Int limit`
 
     Query param: Query parameter for limit
@@ -173,7 +190,6 @@ List User Profiles
   - `Order order`
 
     Query param: Query parameter for order
-
     - `"asc"Asc`
 
     - `"desc"Desc`
@@ -185,7 +201,6 @@ List User Profiles
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -234,14 +249,18 @@ List User Profiles
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class UserProfileListPageResponse:`
-
   - `required IReadOnlyList<BetaUserProfile> Data`
 
     User profiles on this page.
-
     - `required string ID`
 
       Unique identifier for this user profile, prefixed `uprof_`.
@@ -257,7 +276,6 @@ List User Profiles
     - `required Relationship Relationship`
 
       How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
       - `"external"External`
 
       - `"resold"Resold`
@@ -267,11 +285,9 @@ List User Profiles
     - `required IReadOnlyDictionary<string, BetaUserProfileTrustGrant> TrustGrants`
 
       Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
       - `required Status Status`
 
         Status of the trust grant.
-
         - `"active"Active`
 
         - `"pending"Pending`
@@ -281,7 +297,6 @@ List User Profiles
     - `required Type Type`
 
       Object type. Always `user_profile`.
-
       - `"user_profile"UserProfile`
 
     - `required DateTimeOffset UpdatedAt`
@@ -312,7 +327,32 @@ await foreach (var item in page.Paginate())
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {},
+      "relationship": "external",
+      "trust_grants": {
+        "cyber": {
+          "status": "active"
+        }
+      },
+      "type": "user_profile",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "external_id": "user_12345",
+      "name": "Example User"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get User Profile
 
 `BetaUserProfile Beta.UserProfiles.Retrieve(UserProfileRetrieveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -323,7 +363,6 @@ Get User Profile
 ### Parameters
 
 - `UserProfileRetrieveParams parameters`
-
   - `required string userProfileID`
 
     Path parameter user_profile_id
@@ -331,7 +370,6 @@ Get User Profile
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -380,10 +418,15 @@ Get User Profile
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaUserProfile:`
-
   - `required string ID`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -399,7 +442,6 @@ Get User Profile
   - `required Relationship Relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"External`
 
     - `"resold"Resold`
@@ -409,11 +451,9 @@ Get User Profile
   - `required IReadOnlyDictionary<string, BetaUserProfileTrustGrant> TrustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `required Status Status`
 
       Status of the trust grant.
-
       - `"active"Active`
 
       - `"pending"Pending`
@@ -423,7 +463,6 @@ Get User Profile
   - `required Type Type`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"UserProfile`
 
   - `required DateTimeOffset UpdatedAt`
@@ -451,7 +490,27 @@ var betaUserProfile = await client.Beta.UserProfiles.Retrieve(parameters);
 Console.WriteLine(betaUserProfile);
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## Update User Profile
 
 `BetaUserProfile Beta.UserProfiles.Update(UserProfileUpdateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -462,7 +521,6 @@ Update User Profile
 ### Parameters
 
 - `UserProfileUpdateParams parameters`
-
   - `required string userProfileID`
 
     Path param: Path parameter user_profile_id
@@ -482,7 +540,6 @@ Update User Profile
   - `Relationship? relationship`
 
     Body param: How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"External`
 
     - `"resold"Resold`
@@ -492,7 +549,6 @@ Update User Profile
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -541,10 +597,15 @@ Update User Profile
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaUserProfile:`
-
   - `required string ID`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -560,7 +621,6 @@ Update User Profile
   - `required Relationship Relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"External`
 
     - `"resold"Resold`
@@ -570,11 +630,9 @@ Update User Profile
   - `required IReadOnlyDictionary<string, BetaUserProfileTrustGrant> TrustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `required Status Status`
 
       Status of the trust grant.
-
       - `"active"Active`
 
       - `"pending"Pending`
@@ -584,7 +642,6 @@ Update User Profile
   - `required Type Type`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"UserProfile`
 
   - `required DateTimeOffset UpdatedAt`
@@ -612,6 +669,26 @@ var betaUserProfile = await client.Beta.UserProfiles.Update(parameters);
 Console.WriteLine(betaUserProfile);
 ```
 
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
 ## Create Enrollment URL
 
 `BetaUserProfileEnrollmentUrl Beta.UserProfiles.CreateEnrollmentUrl(UserProfileCreateEnrollmentUrlParamsparameters, CancellationTokencancellationToken = default)`
@@ -623,7 +700,6 @@ Create Enrollment URL
 ### Parameters
 
 - `UserProfileCreateEnrollmentUrlParams parameters`
-
   - `required string userProfileID`
 
     Path parameter user_profile_id
@@ -631,7 +707,6 @@ Create Enrollment URL
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -680,10 +755,15 @@ Create Enrollment URL
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaUserProfileEnrollmentUrl:`
-
   - `required DateTimeOffset ExpiresAt`
 
     A timestamp in RFC 3339 format
@@ -691,7 +771,6 @@ Create Enrollment URL
   - `required Type Type`
 
     Object type. Always `enrollment_url`.
-
     - `"enrollment_url"EnrollmentUrl`
 
   - `required string Url`
@@ -711,12 +790,21 @@ var betaUserProfileEnrollmentUrl = await client.Beta.UserProfiles.CreateEnrollme
 Console.WriteLine(betaUserProfileEnrollmentUrl);
 ```
 
+#### Response
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
+```
+
 ## Domain Types
 
 ### Beta User Profile
 
 - `class BetaUserProfile:`
-
   - `required string ID`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -732,7 +820,6 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
   - `required Relationship Relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"External`
 
     - `"resold"Resold`
@@ -742,11 +829,9 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
   - `required IReadOnlyDictionary<string, BetaUserProfileTrustGrant> TrustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `required Status Status`
 
       Status of the trust grant.
-
       - `"active"Active`
 
       - `"pending"Pending`
@@ -756,7 +841,6 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
   - `required Type Type`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"UserProfile`
 
   - `required DateTimeOffset UpdatedAt`
@@ -774,7 +858,6 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 ### Beta User Profile Enrollment URL
 
 - `class BetaUserProfileEnrollmentUrl:`
-
   - `required DateTimeOffset ExpiresAt`
 
     A timestamp in RFC 3339 format
@@ -782,7 +865,6 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
   - `required Type Type`
 
     Object type. Always `enrollment_url`.
-
     - `"enrollment_url"EnrollmentUrl`
 
   - `required string Url`
@@ -792,11 +874,9 @@ Console.WriteLine(betaUserProfileEnrollmentUrl);
 ### Beta User Profile Trust Grant
 
 - `class BetaUserProfileTrustGrant:`
-
   - `required Status Status`
 
     Status of the trust grant.
-
     - `"active"Active`
 
     - `"pending"Pending`

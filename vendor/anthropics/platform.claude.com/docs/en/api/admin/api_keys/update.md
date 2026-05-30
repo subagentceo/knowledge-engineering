@@ -1,4 +1,4 @@
-## Update
+## Update API Key
 
 **post** `/v1/organizations/api_keys/{api_key_id}`
 
@@ -19,7 +19,6 @@ Update API Key
 - `status: optional "active" or "inactive" or "archived"`
 
   Status of the API key.
-
   - `"active"`
 
   - `"inactive"`
@@ -28,8 +27,7 @@ Update API Key
 
 ### Returns
 
-- `APIKey = object { id, created_at, created_by, 6 more }`
-
+- `APIKey object { id, created_at, created_by, 6 more }`
   - `id: string`
 
     ID of the API key.
@@ -41,7 +39,6 @@ Update API Key
   - `created_by: object { id, type }`
 
     The ID and type of the actor that created the API key.
-
     - `id: string`
 
       ID of the actor that created the object.
@@ -65,7 +62,6 @@ Update API Key
   - `status: "active" or "inactive" or "archived" or "expired"`
 
     Status of the API key.
-
     - `"active"`
 
     - `"inactive"`
@@ -79,7 +75,6 @@ Update API Key
     Object type.
 
     For API Keys, this is always `"api_key"`.
-
     - `"api_key"`
 
   - `workspace_id: string`
@@ -94,4 +89,23 @@ curl https://api.anthropic.com/v1/organizations/api_keys/$API_KEY_ID \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
     -d '{}'
+```
+
+#### Response
+
+```json
+{
+  "id": "apikey_01Rj2N8SVvo6BePZj99NhmiT",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "created_by": {
+    "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+    "type": "user"
+  },
+  "expires_at": "2024-10-30T23:58:27.427722Z",
+  "name": "Developer Key",
+  "partial_key_hint": "sk-ant-api03-R2D...igAA",
+  "status": "active",
+  "type": "api_key",
+  "workspace_id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ"
+}
 ```

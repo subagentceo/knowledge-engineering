@@ -1,3 +1,5 @@
+# Privacy.com
+
 Create new Merchant-Locked and Single-Use virtual cards, manage card settings in bulk, and track your spending patterns directly from Claude. Leverage an AI-powered virtual card agent that helps you make changes programmatically and at scale—giving you deeper control over your payments with features like spend limits, card pausing, and closing.
 
 You can use Privacy.com to:

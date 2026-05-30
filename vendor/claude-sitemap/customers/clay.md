@@ -1,8 +1,10 @@
+# Clay generates personalized sales outreach at scale with Claude
+
 Clay, a platform for RevOps and growth teams, uses Claude to meet user demand for high quality, cost-effective AI-powered sales outreach. Within weeks of adding Claude to their platform, Claude 3 Haiku became a top choice model for Clay customers to identify leads, enrich data, and generate highly personalized sales messaging.
 
--   Hundreds of hours saved with automated data collection
--   Improved performance in generating copy and creative messaging
--   Increased user satisfaction and engagement
+- Hundreds of hours saved with automated data collection
+- Improved performance in generating copy and creative messaging
+- Increased user satisfaction and engagement
 
 ## Empowering sales teams with AI-driven personalization
 
@@ -32,9 +34,9 @@ Integrating Claude into Clay's product suite was straightforward, according to s
 
 Clay has also found internal use cases for Claude:
 
--   Market landscape categorization: Parsing Slack messages for URLs of various relevant tools, scraping info with Claygent, and using Claude to categorize this into a Notion database
--   Data collection and resource optimization: Saving hundreds of hours with automated gathering of 10-K URLs, LinkedIn profile summaries, and contact research (podcasts, events, panels) using Claygent + Claude
--   Feedback insights: Categorizing and tagging feedback for product analysis
+- Market landscape categorization: Parsing Slack messages for URLs of various relevant tools, scraping info with Claygent, and using Claude to categorize this into a Notion database
+- Data collection and resource optimization: Saving hundreds of hours with automated gathering of 10-K URLs, LinkedIn profile summaries, and contact research (podcasts, events, panels) using Claygent + Claude
+- Feedback insights: Categorizing and tagging feedback for product analysis
 
 Tekriwal says, "retaining and categorizing data accurately is a major challenge. Manual processes are time-consuming and prone to human error, with accuracy rates often between 50-70% even with incentives for quality." He emphasizes that AI is better for these repetitive tasks, allowing humans to focus on more complex, creative work.
 

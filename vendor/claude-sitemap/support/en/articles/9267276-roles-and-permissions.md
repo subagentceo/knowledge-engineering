@@ -18,69 +18,67 @@ To learn more, refer to the following articles:
 
 ## Billing
 
-|  | User | Admin | Owner | Primary Owner |
-| --- | --- | --- | --- | --- |
-| View/pay for invoices |  |  | ✅ | ✅ |
-| Add/modify billing methods |  |  | ✅ | ✅ |
-| Provision new seats |  |  |  | ✅ |
+|                            | User | Admin | Owner | Primary Owner |
+| -------------------------- | ---- | ----- | ----- | ------------- |
+| View/pay for invoices      |      |       | ✅    | ✅            |
+| Add/modify billing methods |      |       | ✅    | ✅            |
+| Provision new seats        |      |       |       | ✅            |
 
 ## Chat Controls
 
-|  | User | Admin | Owner | Primary Owner |
-| --- | --- | --- | --- | --- |
-| Create and modify chats | ✅ | ✅ | ✅ | ✅ |
-| Use projects | ✅ | ✅ | ✅ | ✅ |
+|                         | User | Admin | Owner | Primary Owner |
+| ----------------------- | ---- | ----- | ----- | ------------- |
+| Create and modify chats | ✅   | ✅    | ✅    | ✅            |
+| Use projects            | ✅   | ✅    | ✅    | ✅            |
 
 ## Features and Integrations
 
-|  | User | Admin | Owner | Primary Owner |
-| --- | --- | --- | --- | --- |
-| Enable native integrations |  |  | ✅ | ✅ |
-| Enable custom integrations |  |  | ✅ | ✅ |
-| Enable capabilities |  |  | ✅ | ✅ |
-| Enable public projects |  |  | ✅ | ✅ |
+|                            | User | Admin | Owner | Primary Owner |
+| -------------------------- | ---- | ----- | ----- | ------------- |
+| Enable native integrations |      |       | ✅    | ✅            |
+| Enable custom integrations |      |       | ✅    | ✅            |
+| Enable capabilities        |      |       | ✅    | ✅            |
+| Enable public projects     |      |       | ✅    | ✅            |
 
 ## Membership Management
 
-|  | User | Admin | Owner | Primary Owner |
-| --- | --- | --- | --- | --- |
-| Invite new members |  | ✅ | ✅ | ✅ |
-| Remove members/cancel invitations |  | ✅ | ✅ | ✅ |
-| Invite/remove new Admins/Owners |  |  | ✅ | ✅ |
-| Modify roles |  |  | ✅ | ✅ |
+|                                   | User | Admin | Owner | Primary Owner |
+| --------------------------------- | ---- | ----- | ----- | ------------- |
+| Invite new members                |      | ✅    | ✅    | ✅            |
+| Remove members/cancel invitations |      | ✅    | ✅    | ✅            |
+| Invite/remove new Admins/Owners   |      |       | ✅    | ✅            |
+| Modify roles                      |      |       | ✅    | ✅            |
 
 ## Prioritized Support Routing (Enterprise plan only)
 
-|  | User | Admin | Owner | Primary Owner |
-| --- | --- | --- | --- | --- |
-| Prioritized Support routing |  |  | ✅ | ✅ |
-
-**Note:** If you are logged in to a Primary Owner or Owner account on an Enterprise plan, you can also submit a request through the [Enterprise Support form](https://claude.ai/support/enterprise).
+|                             | User | Admin | Owner | Primary Owner |
+| --------------------------- | ---- | ----- | ----- | ------------- |
+| Prioritized Support routing |      |       | ✅    | ✅            |
 
 ## Security and Data Controls (Team and Enterprise plans)
 
-|  | User | Admin | Owner | Primary Owner |
-| --- | --- | --- | --- | --- |
-| Request data exports |  |  |  | ✅ |
-| Request Primary Ownership transfers |  |  |  | ✅ |
+|                                     | User | Admin | Owner | Primary Owner |
+| ----------------------------------- | ---- | ----- | ----- | ------------- |
+| Request data exports                |      |       |       | ✅            |
+| Request Primary Ownership transfers |      |       |       | ✅            |
 
 ## Security and Data Controls (Enterprise plan only)
 
-|  | User | Admin | Owner | Primary Owner |
-| --- | --- | --- | --- | --- |
-| Manage SSO / auth |  |  | ✅ | ✅ |
-| Request audit logs |  |  | ✅ | ✅ |
-| Manage data retention controls |  |  | ✅ | ✅ |
-| Manage<br>feedback settings |  |  | ✅ | ✅ |
+|                                | User | Admin | Owner | Primary Owner |
+| ------------------------------ | ---- | ----- | ----- | ------------- |
+| Manage SSO / auth              |      |       | ✅    | ✅            |
+| Request audit logs             |      |       | ✅    | ✅            |
+| Manage data retention controls |      |       | ✅    | ✅            |
+| Manage<br>feedback settings    |      |       | ✅    | ✅            |
 
 ## Usage Analytics (Enterprise plans)
 
-|  | User | Admin | Owner | Primary Owner |
-| --- | --- | --- | --- | --- |
-| View usage analytics |  | ✅ | ✅ | ✅ |
+|                      | User | Admin | Owner | Primary Owner |
+| -------------------- | ---- | ----- | ----- | ------------- |
+| View usage analytics |      | ✅    | ✅    | ✅            |
 
 ## Usage Analytics (Team plans)
 
-|  | User | Admin | Owner | Primary Owner |
-| --- | --- | --- | --- | --- |
-| View usage analytics |  |  | ✅ | ✅ |
+|                      | User | Admin | Owner | Primary Owner |
+| -------------------- | ---- | ----- | ----- | ------------- |
+| View usage analytics |      |       | ✅    | ✅            |

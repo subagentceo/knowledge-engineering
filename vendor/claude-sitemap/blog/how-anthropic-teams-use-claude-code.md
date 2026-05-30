@@ -1,4 +1,6 @@
-Agentic coding tools like [Claude Code](https://www.anthropic.com/claude-code) help developers accelerate workflows, automate repetitive tasks, and tackle complex programming projects. As the field evolves, we're learning about new applications everyday from users, including our own employees.
+# How Anthropic teams use Claude Code
+
+Agentic coding tools like Claude Code help developers accelerate workflows, automate repetitive tasks, and tackle complex programming projects. As the field evolves, we're learning about new applications everyday from users, including our own employees.
 
 To learn more, we sat down with employees across Anthropic to understand how they use Claude Code at work.
 
@@ -8,15 +10,15 @@ The pattern became clear: agentic coding isn't just accelerating traditional dev
 
 Here’s what we learned.
 
-### **Codebase navigation and understanding**
+### Codebase navigation and understanding
 
 Teams across the company use Claude Code to help new hires and even long-time employees get up to speed on our codebases.
 
-New data scientists on our Infrastructure team feed Claude Code their entire codebase to get productive quickly. Claude reads the codebase’s [CLAUDE.md](http://claude.md) files, identifies relevant ones, explains data pipeline dependencies, and shows which upstream sources feed into dashboards, replacing traditional data catalog tools.
+New data scientists on our Infrastructure team feed Claude Code their entire codebase to get productive quickly. Claude reads the codebase’s CLAUDE.md files, identifies relevant ones, explains data pipeline dependencies, and shows which upstream sources feed into dashboards, replacing traditional data catalog tools.
 
 Our Product Engineering team refers to Claude Code as their "first stop" for any programming task. They ask it to identify which files to examine for bug fixes, features, or analysis, eliminating the time-consuming process of manually gathering context before building new features.
 
-### **Testing and code review**
+### Testing and code review
 
 Agentic coding tools are particularly popular for their ability to automate two critical but tedious programming tasks: writing unit tests and reviewing code.
 
@@ -26,7 +28,7 @@ The Security Engineering team transformed their workflow from "design doc → ja
 
 Agentic coding can also be used to translate tests into other programming languages. For instance, when the Inference team needs to test functionality in unfamiliar languages like Rust, they explain what they want to test and Claude writes the logic in the native language of the codebase.
 
-### **Debugging and troubleshooting**
+### Debugging and troubleshooting
 
 Production issues demand quick resolution, but trying to reason about unfamiliar code under pressure often leads to delays. For many teams at the company, Claude Code accelerates diagnosis and fixes by analyzing stack traces, documentation, and system behavior in real-time.
 
@@ -36,7 +38,7 @@ With Claude Code, the Product Engineering team gained confidence to tackle bugs 
 
 In one instance, when Kubernetes clusters stopped scheduling pods, the Data Infrastructure team used Claude Code to diagnose the issue. They fed it dashboard screenshots, and Claude guided them menu-by-menu through Google Cloud's UI until they found pod IP address exhaustion. Claude then provided the exact commands to create a new IP pool and add it to the cluster, saving them 20 minutes of valuable time during a system outage.
 
-### **Prototyping and feature development**
+### Prototyping and feature development
 
 Building new features traditionally requires deep technical knowledge and significant time investment. Claude Code enables rapid prototyping and even full application development, letting teams validate ideas quickly regardless of their programming expertise.
 
@@ -46,7 +48,7 @@ With Claude Code, the Product Design team discovered an unexpected use: mapping 
 
 Despite not being fluent in TypeScript, data scientists use Claude Code to build entire React applications for visualizing RL model performance. After one-shot prompting in a sandbox environment, the tool writes entire TypeScript visualizations from scratch without understanding the code themselves. Given the simplicity of the task, if the first prompt isn’t sufficient, they’ll make slight tweaks and try again.
 
-### **Documentation and knowledge management**
+### Documentation and knowledge management
 
 Technical documentation often sits scattered across wikis, code comments, and team members' heads. Claude Code consolidates this knowledge via MCP and CLAUDE.md files into accessible formats, making expertise available to everyone who needs it.
 
@@ -54,7 +56,7 @@ Inference team members without ML backgrounds depend on Claude to explain model-
 
 The Security Engineering team has Claude ingest multiple documentation sources to create markdown runbooks and troubleshooting guides. These condensed documents become context for debugging real production issues, which is often more efficient than searching through full knowledge bases.
 
-### **Automation and workflow optimization**
+### Automation and workflow optimization
 
 Agentic coding tools help teams build custom automation that would traditionally require dedicated developer resources or expensive software.
 
@@ -64,7 +66,7 @@ They also developed a Figma plugin that identifies frames and programmatically g
 
 In a particularly unique use case, the Legal team created prototype "phone tree" systems to help team members connect with the right lawyer at Anthropic, demonstrating how departments can build custom tools without traditional development resources.
 
-### **Unlocking new possibilities with Claude Code**
+### Unlocking new possibilities with Claude Code
 
 These stories reveal a pattern: Claude Code works best when you focus on the human workflows that it can augment. The most successful teams treat Claude Code as a thought partner rather than a code generator.
 

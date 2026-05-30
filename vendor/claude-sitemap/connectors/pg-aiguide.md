@@ -1,3 +1,5 @@
+# pg-aiguide
+
 Give your agent Postgres skills and documentation. Helps AI coding tools generate better PostgreSQL code.
 
 You can use pg-aiguide to:

@@ -1,12 +1,17 @@
-Cash App brings local food ordering into the AI era. Discover nearby sellers, browse menus with calories and allergen info, customize orders, and complete checkout — all conversationally. Combine it with your other tools: check your calendar for meeting times, log meals to your health app, or find options that fit your dietary goals.
+# Order by Cash App
 
-You can use Cash App to:
+Order by Cash App brings local food ordering into Claude. Discover nearby restaurants, compare menus, customize your order, and check out, all in the conversation. On clients that support it, an interactive ordering view opens right in chat.
 
-**Find local food:**  
-"What are the best-rated taco spots near downtown that take Cash App?"
+You can use Order by Cash App to:
 
-**Order with chat:**  
-"Build me a lunch order from the nearest sandwich shop — turkey club, no tomato"
+**Find nearby restaurants:**  
+"Find pickup spots near 1455 Market St in San Francisco"
 
-**Browse a menu:**  
-"Show me the full menu and prices for the pho place on Valencia"
+**Compare menus:**  
+"Compare the burrito options and prices at the three closest taquerias"
+
+**Open the ordering view:**  
+"Open ordering for the Shake Shack on Mission Street"
+
+**Build a cart:**  
+"Add a regular latte and a blueberry muffin to my cart and show me the checkout link"

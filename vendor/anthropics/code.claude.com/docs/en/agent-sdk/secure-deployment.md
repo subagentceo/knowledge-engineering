@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -24,10 +25,10 @@ Defense in depth is still good practice though. For example, if an agent process
 
 Claude Code includes several security features that address common concerns. See the [security documentation](/en/security) for full details.
 
-* **Permissions system**: Every tool and bash command can be configured to allow, block, or prompt the user for approval. Use glob patterns to create rules like "allow all npm commands" or "block any command with sudo". Organizations can set policies that apply across all users. See [permissions](/en/permissions).
-* **Command parsing for permissions**: Before executing bash commands, Claude Code parses them into an AST and matches the result against your permission rules. Commands that cannot be parsed cleanly, or that do not match an allow rule, require explicit approval. A small set of constructs such as `eval` always require approval regardless of allow rules. This is a permission gate, not a sandbox; it does not infer whether a command is dangerous from its target path or effects.
-* **Web search summarization**: Search results are summarized rather than passing raw content directly into the context, reducing the risk of prompt injection from malicious web content.
-* **Sandbox mode**: Bash commands can run in a sandboxed environment that restricts filesystem and network access. See the [sandboxing documentation](/en/sandboxing) for details.
+- **Permissions system**: Every tool and bash command can be configured to allow, block, or prompt the user for approval. Use glob patterns to create rules like "allow all npm commands" or "block any command with sudo". Organizations can set policies that apply across all users. See [permissions](/en/permissions).
+- **Command parsing for permissions**: Before executing bash commands, Claude Code parses them into an AST and matches the result against your permission rules. Commands that cannot be parsed cleanly, or that do not match an allow rule, require explicit approval. A small set of constructs such as `eval` always require approval regardless of allow rules. This is a permission gate, not a sandbox; it does not infer whether a command is dangerous from its target path or effects.
+- **Web search summarization**: Search results are summarized rather than passing raw content directly into the context, reducing the risk of prompt injection from malicious web content.
+- **Sandbox mode**: Bash commands can run in a sandboxed environment that restricts filesystem and network access. See the [sandboxing documentation](/en/sandboxing) for details.
 
 ## Security principles
 
@@ -54,10 +55,10 @@ When needed, you can restrict the agent to only the capabilities required for it
 
 For high-security environments, layering multiple controls provides additional protection. Options include:
 
-* Container isolation
-* Network restrictions
-* Filesystem controls
-* Request validation at a proxy
+- Container isolation
+- Network restrictions
+- Filesystem controls
+- Request validation at a proxy
 
 The right combination depends on your threat model and operational requirements.
 
@@ -84,9 +85,9 @@ The main advantage is simplicity: no Docker configuration, container images, or 
 
 **How it works:**
 
-* **Filesystem**: Uses OS primitives (`bubblewrap` on Linux, `sandbox-exec` on macOS) to restrict read/write access to configured paths
-* **Network**: Removes network namespace (Linux) or uses Seatbelt profiles (macOS) to route network traffic through a built-in proxy
-* **Configuration**: JSON-based allowlists for domains and filesystem paths
+- **Filesystem**: Uses OS primitives (`bubblewrap` on Linux, `sandbox-exec` on macOS) to restrict read/write access to configured paths
+- **Network**: Removes network namespace (Linux) or uses Seatbelt profiles (macOS) to route network traffic through a built-in proxy
+- **Configuration**: JSON-based allowlists for domains and filesystem paths
 
 **Setup:**
 
@@ -229,7 +230,7 @@ This pattern has several benefits:
 
 Claude Code supports two methods for routing sampling requests through a proxy:
 
-**Option 1: ANTHROPIC\_BASE\_URL (simple but only for sampling API requests)**
+**Option 1: ANTHROPIC_BASE_URL (simple but only for sampling API requests)**
 
 ```bash theme={null}
 export ANTHROPIC_BASE_URL="http://localhost:8080"
@@ -237,7 +238,7 @@ export ANTHROPIC_BASE_URL="http://localhost:8080"
 
 This tells Claude Code and the Agent SDK to send sampling requests to your proxy instead of the Claude API directly. Your proxy receives plaintext HTTP requests, can inspect and modify them (including injecting credentials), then forwards to the real API.
 
-**Option 2: HTTP\_PROXY / HTTPS\_PROXY (system-wide)**
+**Option 2: HTTP_PROXY / HTTPS_PROXY (system-wide)**
 
 ```bash theme={null}
 export HTTP_PROXY="http://localhost:8080"
@@ -250,10 +251,10 @@ Claude Code and the Agent SDK respect these standard environment variables, rout
 
 You can build your own proxy or use an existing one:
 
-* [Envoy Proxy](https://www.envoyproxy.io/): production-grade proxy with `credential_injector` filter for adding auth headers
-* [mitmproxy](https://mitmproxy.org/): TLS-terminating proxy for inspecting and modifying HTTPS traffic
-* [Squid](http://www.squid-cache.org/): caching proxy with access control lists
-* [LiteLLM](https://github.com/BerriAI/litellm): LLM gateway with credential injection and rate limiting
+- [Envoy Proxy](https://www.envoyproxy.io/): production-grade proxy with `credential_injector` filter for adding auth headers
+- [mitmproxy](https://mitmproxy.org/): TLS-terminating proxy for inspecting and modifying HTTPS traffic
+- [Squid](http://www.squid-cache.org/): caching proxy with access control lists
+- [LiteLLM](https://github.com/BerriAI/litellm): LLM gateway with credential injection and rate limiting
 
 ### Credentials for other services
 
@@ -267,8 +268,8 @@ For example, a git MCP server could accept commands from the agent but forward t
 
 Advantages:
 
-* **No TLS interception**: The external service makes authenticated requests directly
-* **Credentials stay outside**: The agent only sees the tool interface, not the underlying credentials
+- **No TLS interception**: The external service makes authenticated requests directly
+- **Credentials stay outside**: The agent only sees the tool interface, not the underlying credentials
 
 #### Traffic forwarding
 
@@ -305,20 +306,20 @@ docker run -v /path/to/code:/workspace:ro agent-image
 <Warning>
   Even read-only access to a code directory can expose credentials. Common files to exclude or sanitize before mounting:
 
-  | File                                                    | Risk                                  |
-  | ------------------------------------------------------- | ------------------------------------- |
-  | `.env`, `.env.local`                                    | API keys, database passwords, secrets |
-  | `~/.git-credentials`                                    | Git passwords/tokens in plaintext     |
-  | `~/.aws/credentials`                                    | AWS access keys                       |
-  | `~/.config/gcloud/application_default_credentials.json` | Google Cloud ADC tokens               |
-  | `~/.azure/`                                             | Azure CLI credentials                 |
-  | `~/.docker/config.json`                                 | Docker registry auth tokens           |
-  | `~/.kube/config`                                        | Kubernetes cluster credentials        |
-  | `.npmrc`, `.pypirc`                                     | Package registry tokens               |
-  | `*-service-account.json`                                | GCP service account keys              |
-  | `*.pem`, `*.key`                                        | Private keys                          |
+| File                                                    | Risk                                  |
+| ------------------------------------------------------- | ------------------------------------- |
+| `.env`, `.env.local`                                    | API keys, database passwords, secrets |
+| `~/.git-credentials`                                    | Git passwords/tokens in plaintext     |
+| `~/.aws/credentials`                                    | AWS access keys                       |
+| `~/.config/gcloud/application_default_credentials.json` | Google Cloud ADC tokens               |
+| `~/.azure/`                                             | Azure CLI credentials                 |
+| `~/.docker/config.json`                                 | Docker registry auth tokens           |
+| `~/.kube/config`                                        | Kubernetes cluster credentials        |
+| `.npmrc`, `.pypirc`                                     | Package registry tokens               |
+| `*-service-account.json`                                | GCP service account keys              |
+| `*.pem`, `*.key`                                        | Private keys                          |
 
-  Consider copying only the source files needed, or using `.dockerignore`-style filtering.
+Consider copying only the source files needed, or using `.dockerignore`-style filtering.
 </Warning>
 
 ### Writable locations
@@ -339,12 +340,12 @@ If you want to review changes before persisting them, an overlay filesystem lets
 
 ## Further reading
 
-* [Claude Code security documentation](/en/security)
-* [Hosting the Agent SDK](/en/agent-sdk/hosting)
-* [Handling permissions](/en/agent-sdk/permissions)
-* [Sandbox runtime](https://github.com/anthropic-experimental/sandbox-runtime)
-* [The Lethal Trifecta for AI Agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)
-* [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
-* [Docker Security Best Practices](https://docs.docker.com/engine/security/)
-* [gVisor Documentation](https://gvisor.dev/docs/)
-* [Firecracker Documentation](https://firecracker-microvm.github.io/)
+- [Claude Code security documentation](/en/security)
+- [Hosting the Agent SDK](/en/agent-sdk/hosting)
+- [Handling permissions](/en/agent-sdk/permissions)
+- [Sandbox runtime](https://github.com/anthropic-experimental/sandbox-runtime)
+- [The Lethal Trifecta for AI Agents](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)
+- [OWASP Top 10 for LLM Applications](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+- [Docker Security Best Practices](https://docs.docker.com/engine/security/)
+- [gVisor Documentation](https://gvisor.dev/docs/)
+- [Firecracker Documentation](https://firecracker-microvm.github.io/)

@@ -1,3 +1,5 @@
+# How Parcha built a universal customer diligence agent in two weeks with Claude Agent SDK
+
 _"The world's leading fintechs and banks use Parcha to scale their customer due diligence processes with AI. But one of the challenges we've always faced is how to scale our product to capture all the unique workflows of every fintech or bank, which has limited the types of customers we could serve. By adding the Agent SDK to our platform, our product can now adapt to each of our customers' unique needs on the fly, without the need to use a complex workflow editor, which means we can unlock more use cases and customers than ever before."_
 
 —Miguel Rios Berrios, CTO
@@ -6,9 +8,9 @@ Parcha empowers banks and fintechs to onboard customers efficiently with stronge
 
 ## With Claude, Parcha:
 
--   Builds generalizable customer due diligence agents that pass rigorous model governance evaluations while meeting the unique needs of every customer
--   Enables the product to serve more types of customers through dynamic workflow adaptation
--   Develops fully agentic open-source intelligence research capabilities in just two weeks
+- Builds generalizable customer due diligence agents that pass rigorous model governance evaluations while meeting the unique needs of every customer
+- Enables the product to serve more types of customers through dynamic workflow adaptation
+- Develops fully agentic open-source intelligence research capabilities in just two weeks
 
 ## The problem
 

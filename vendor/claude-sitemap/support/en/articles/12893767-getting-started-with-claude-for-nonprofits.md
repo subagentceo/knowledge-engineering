@@ -10,10 +10,10 @@ Organizations can access Claude for Nonprofits features and pricing through the 
 
 **Team plan pricing**
 
-| **Seat type** | **Price** | **What's included** |
-| --- | --- | --- |
-| Standard | $8 per user per month, billed monthly | Base features, usage limits, Claude Code and Cowork access |
-| Premium | $40 per user per month, billed monthly | Everything in Standard, plus higher usage limits |
+| **Seat type** | **Price**                              | **What's included**                                        |
+| ------------- | -------------------------------------- | ---------------------------------------------------------- |
+| Standard      | $8 per user per month, billed monthly  | Base features, usage limits, Claude Code and Cowork access |
+| Premium       | $40 per user per month, billed monthly | Everything in Standard, plus higher usage limits           |
 
 At the discounted price, Claude for Nonprofits includes access to Claude Opus 4.6, Sonnet 4.6, and Haiku 4.5. Opus 4.6 delivers the highest intelligence for the most complex tasks. Sonnet 4.6 is best suited to sophisticated tasks like grant writing and program analysis, while Haiku 4.5 offers near-frontier performance at much faster speed. Claude Code and Cowork are included with every seat.
 
@@ -89,17 +89,17 @@ At this time, the following organizations are not eligible:
 
 1. Validate your nonprofit organization status through the [Goodstack form](https://validate.poweredbypercent.com/anthropic):
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859550134/3415c95777759fcd2fa1f2c452a9/7a6e1fc2-94e9-4dc5-90aa-b72ef769a934?expires=1778914800&amp;signature=0a2c3aae2162bb1bdd63bce868de4f26981fffcd6185bfdff2de7b6e10047dd6&amp;req=dSgiH8x7nYBcXfMW1HO4zdZi8V9QxzrpauxJI2ssEtfTzqK2bTdVVEVjGTER%0AwTFH%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859550134/3415c95777759fcd2fa1f2c452a9/7a6e1fc2-94e9-4dc5-90aa-b72ef769a934?expires=1780164900&signature=400babd2be540b523437ecd15a4e8c313fb634c7a990f0c0401ca4107b238634&req=dSgiH8x7nYBcXfMW1HO4zdZi%2FldYwDroauxJI2ssEteNarCrZoWTzoGWF5ms%0AKeVk%0A)
 
 2. If you match our nonprofit eligibility criteria, you should receive an email from Anthropic confirming your eligibility.
 
 3. Follow the link in the email to sign up on this page using your Goodstack verified email address. You must sign up using the email you verified with Goodstack.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859550858/a8e7833485a9306ef355ede135d9/0a6664d1-a09c-4790-86ec-d1d6d71cd5b5?expires=1778914800&amp;signature=5908099e5e47945231a7a4191529fdb96fe8f8668efe6e5ad4ab3ad9d49f3f13&amp;req=dSgiH8x7nYlaUfMW1HO4zUHP%2FKd5k3AtKfBwVdbHuxmFnedkPbwc%2FlJLwWj7%0AvA3n%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859550858/a8e7833485a9306ef355ede135d9/0a6664d1-a09c-4790-86ec-d1d6d71cd5b5?expires=1780164900&signature=4908547d5df8a048df0da91edd3e9fe69b1d9c345089fa56cc464919a1c2521a&req=dSgiH8x7nYlaUfMW1HO4zUHP869xlHAsKfBwVdbHuxmGDmeUjAOPSwexxs59%0AWOCV%0A)
 
 4. Click ‘With my team’ and fill in your details to set up your Team plan account:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859551642/ca5be89a4c185449daf6152097ad/cc2254e9-fe79-449c-92c0-f5acc91e1f03?expires=1778914800&amp;signature=94da9e77b6802603284aca327566c6bc00b229c9ace7d1a8ce39549907e162c1&amp;req=dSgiH8x7nIdbW%2FMW1HO4zbZSFBQbQF%2Brrg0IMwuRgisXWAP%2FjIpoOjBxNRvG%0ATXlj%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859551642/ca5be89a4c185449daf6152097ad/cc2254e9-fe79-449c-92c0-f5acc91e1f03?expires=1780164900&signature=6a552731128658d693c1b2a2bc7326d909168df6a47a1438bccbb6bf23d52f27&req=dSgiH8x7nIdbW%2FMW1HO4zbZSGxwTR1%2Bqrg0IMwuRgis4uGHSjuO5zEcU6A2E%0AnYOT%0A)
 
 ### How long will the nonprofit discount apply to my organization?
 
@@ -115,15 +115,15 @@ If you already have a paid Team plan account on your nonprofit organization emai
 
 1. Cancel your plan by navigating to [Admin settings > Billing](https://claude.ai/admin-settings/billing) and clicking “Cancel.”
 
-  1. Note that only organization Owners and Primary Owners have this ability.
+1. Note that only organization Owners and Primary Owners have this ability.
 
-2. Wait until the current subscription expires.
+1. Wait until the current subscription expires.
 
-  1. If you're on an annual plan, [reach out our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support) with your organization name, nonprofit verification status, and current subscription details for assistance with switching to nonprofit pricing.
+1. If you're on an annual plan, [reach out our Support team](https://support.claude.com/en/articles/9015913-how-to-get-support) with your organization name, nonprofit verification status, and current subscription details for assistance with switching to nonprofit pricing.
 
-3. Verify your nonprofit status via [Goodstack](https://validate.poweredbypercent.com/anthropic).
+1. Verify your nonprofit status via [Goodstack](https://validate.poweredbypercent.com/anthropic).
 
-4. Once verified, follow the email instructions to re-subscribe with your verified email address.
+1. Once verified, follow the email instructions to re-subscribe with your verified email address.
 
 **Note:** Your existing Team plan account data will be retained after canceling, so resubscribing with the same email address will restore that data.
 
@@ -165,15 +165,15 @@ Because we do not have a way to proactively apply Sales tax exemption, when sett
 
 1. Once logged into your account, click on your profile and select “Get help”:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859539953/597e1f19c60656e83c1837bb8f58/378309b4-8aac-4ca0-8e5a-8dbaad5421fa?expires=1778914800&amp;signature=1544b7664f36331da90eee2d108612e03c03814718ae029f194e9ae29a32b228&amp;req=dSgiH8x9lIhaWvMW1HO4zXOOyv7Lw368euk4zq7weKAcV%2FUaJJKnZ4fN0hz9%0APzU0%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859539953/597e1f19c60656e83c1837bb8f58/378309b4-8aac-4ca0-8e5a-8dbaad5421fa?expires=1780164900&signature=1826b3ef4bac231cbfa7363d795f657ae9c7bfad8c99169b1727cf081011ede8&req=dSgiH8x9lIhaWvMW1HO4zXOOxfbDxH69euk4zq7weKAe7AS8JHcaDhlYGLET%0A0qjD%0A)
 
 2. Next under “Messages”, click “Send us a message":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859540669/dea0231fbbeb497049cd83fbbb0c/f18b8af9-1621-45cf-8961-55aad08561eb?expires=1778914800&amp;signature=e36b649eada8b9e3d8ff9ed5fb8f2e0a2fed97d2bdf509ce531b97af01702349&amp;req=dSgiH8x6nYdZUPMW1HO4zQgqkWtovFUg8Dcdz%2Fuy4lYL6mHyjk8%2BH09l2NyP%0A9SzQ%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859540669/dea0231fbbeb497049cd83fbbb0c/f18b8af9-1621-45cf-8961-55aad08561eb?expires=1780164900&signature=1f66dc064b1f07d359b74de47940ae2800e8138f61ecf9d8e646e3d2cef44c2b&req=dSgiH8x6nYdZUPMW1HO4zQgqnmNgu1Uh8Dcdz%2Fuy4lYvJqlgHgO4tBvTRGXz%0AA9f2%0A)
 
 3. Accept the conditions:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859541804/ce534de604e9de751f9a0133e40d/ccd6ddf2-4912-4e13-9820-b8e39e31e6aa?expires=1778914800&amp;signature=73f2c1f404a6ad2e338474d59f277c7ab0e76305da779bcc78ffd66873bfdf7f&amp;req=dSgiH8x6nIlfXfMW1HO4zS9v2pw60wuoRUfBF6HehmSJ3PdeNcYIDt1l6hJR%0AvG%2Bz%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1859541804/ce534de604e9de751f9a0133e40d/ccd6ddf2-4912-4e13-9820-b8e39e31e6aa?expires=1780164900&signature=69896fad662ccfda9a436c35d24026a76089c4dd0a1ba08981aa48a106106695&req=dSgiH8x6nIlfXfMW1HO4zS9v1ZQy1AupRUfBF6HehmSZ%2FGQi1Cnwyw%2BjIfeJ%0AIoU5%0A)
 
 4. Send a message saying something along the lines of “I was charged tax, but am tax exempt. I would like to submit my Sales tax exemption certificate for upload.”
 
@@ -181,11 +181,11 @@ Because we do not have a way to proactively apply Sales tax exemption, when sett
 
 6. Support will respond to your message letting you know that they’ve received your certificate and that it has been forwarded to our Billing team for review.
 
-  1. If you’re reaching out on behalf of your organization, please ensure the Owner or Admin on the account is CC’d to the thread
+7. If you’re reaching out on behalf of your organization, please ensure the Owner or Admin on the account is CC’d to the thread
 
-7. If the Billing team confirms that the certificate is valid, your Sales tax exemption will be applied, and tax accrued for previous invoices within the last 45 days will be refunded to the original payment method. Additionally, **you will not be charged Sales tax on future invoices.**
+8. If the Billing team confirms that the certificate is valid, your Sales tax exemption will be applied, and tax accrued for previous invoices within the last 45 days will be refunded to the original payment method. Additionally, **you will not be charged Sales tax on future invoices.**
 
-  1. If you notice that tax is still being charged going forward, reach back out via Get Help for Support to investigate further.
+9. If you notice that tax is still being charged going forward, reach back out via Get Help for Support to investigate further.
 
 ### What kind of support and training do you provide?
 

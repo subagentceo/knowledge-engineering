@@ -1,6 +1,8 @@
-**_Update:_** _Now available on Team and Enterprise plans. (July 31, 2025)_
+# Build and share AI-powered apps with Claude
 
-**_Update:_** _Upload PDFs, images, and more into your artifact. (July 17, 2025)_
+***Update:*** *Now available on Team and Enterprise plans. (July 31, 2025)*
+
+***Update:*** *Upload PDFs, images, and more into your artifact. (July 17, 2025)*
 
 ‍
 
@@ -12,10 +14,10 @@ Here’s what we built: Claude can now create artifacts that interact with Claud
 
 When someone uses your Claude-powered app:
 
--   They authenticate with their existing Claude account
--   Their API usage counts against _their_ subscription, not yours
--   You pay nothing for their usage
--   No one needs to manage API keys
+- They authenticate with their existing Claude account
+- Their API usage counts against _their_ subscription, not yours
+- You pay nothing for their usage
+- No one needs to manage API keys
 
 Claude writes real code that orchestrates complex AI functionality. You can see it, modify it, and share it freely.
 
@@ -23,11 +25,11 @@ Claude writes real code that orchestrates complex AI functionality. You can see 
 
 Early users have already used interactive artifacts to build:
 
--   **AI-powered games** with NPCs that remember conversations and adapt to player choices
--   **Learning tools** that adjust to individual skill levels and provide personalized tutoring
--   **Data analysis apps** where users upload CSVs and ask follow-up questions in natural language
--   **Writing assistants** that help with everything from scripts to technical documentation
--   **Agent workflows** that orchestrate multiple Claude calls for complex tasks
+- **AI-powered games** with NPCs that remember conversations and adapt to player choices
+- **Learning tools** that adjust to individual skill levels and provide personalized tutoring
+- **Data analysis apps** where users upload CSVs and ask follow-up questions in natural language
+- **Writing assistants** that help with everything from scripts to technical documentation
+- **Agent workflows** that orchestrate multiple Claude calls for complex tasks
 
 ### Getting started
 
@@ -37,14 +39,14 @@ As you work together, Claude can debug and improve its own code based on your fe
 
 **What you can do:**
 
--   Use a Claude API within your artifacts
--   Process files and create rich UIs with React
--   See, fork, and customize any artifact
+- Use a Claude API within your artifacts
+- Process files and create rich UIs with React
+- See, fork, and customize any artifact
 
 **Current limitations:**
 
--   No external API calls (yet)
--   No persistent storage
--   Limited to a text-based completion API
+- No external API calls (yet)
+- No persistent storage
+- Limited to a text-based completion API
 
 This capability is available in beta to Free, Pro, and Max plan users.

@@ -30,9 +30,9 @@ Your new Workspace will now appear in the list of Workspaces.
 
 3. You can modify the following settings:
 
-  - Workspace Name
+- Workspace Name
 
-  - Color
+- Color
 
 4. After making your changes, click "Save" to apply them.
 
@@ -70,23 +70,22 @@ Click the trash can icon next to the member to remove them from your Workspace.
 
 3. To create a new API key for this Workspace:
 
-  - Click "Create Key"
+- Click "Create Key"
 
-  - Give the key a descriptive name
+- Give the key a descriptive name
 
-  - Click "Create Key"
+- Click "Create Key"
 
 4. To revoke an existing API key:
 
-  - Find the key in the list
+- Find the key in the list
 
-  - Click the ellipsis next to it
+- Click the ellipsis next to it
 
-  - Select "Disable API Key" or “Delete API Key”
+- Select "Disable API Key" or “Delete API Key”
+  - **Note:** Deleting an API key is a permanent action and cannot be undone.
 
-    - **Note:** Deleting an API key is a permanent action and cannot be undone.
-
-  - Confirm the action
+- Confirm the action
 
 **Note:** API keys are tied to the Workspace they're created in and cannot be moved between Workspaces.
 
@@ -110,11 +109,10 @@ Click the trash can icon next to the member to remove them from your Workspace.
 
 3. Choose one of the following:
 
-  - Select “Change Limit” to set a specific spend limit for this Workspace.
+- Select “Change Limit” to set a specific spend limit for this Workspace.
+  - **Note:** You can only set a spend limit that is lower than your organization’s limit. If unset, your spend limit defaults to the organization’s limit.
 
-    - **Note:** You can only set a spend limit that is lower than your organization’s limit. If unset, your spend limit defaults to the organization’s limit.
-
-  - Select “Add notification” to set up an email notification when the Workspace spend reaches a specific amount.
+- Select “Add notification” to set up an email notification when the Workspace spend reaches a specific amount.
 
 ## Viewing Workspace Usage and Costs
 

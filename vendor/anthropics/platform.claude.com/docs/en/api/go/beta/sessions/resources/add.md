@@ -1,4 +1,4 @@
-## Add
+## Add Session Resource
 
 `client.Beta.Sessions.Resources.Add(ctx, sessionID, params) (*BetaManagedAgentsFileResource, error)`
 
@@ -11,7 +11,6 @@ Add Session Resource
 - `sessionID string`
 
 - `params BetaSessionResourceAddParams`
-
   - `BetaManagedAgentsFileResourceParams param.Field[BetaManagedAgentsFileResourceParamsResp]`
 
     Body param: Mount a file uploaded via the Files API into the session.
@@ -19,11 +18,9 @@ Add Session Resource
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -72,10 +69,15 @@ Add Session Resource
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaManagedAgentsFileResource struct{…}`
-
   - `ID string`
 
   - `CreatedAt Time`
@@ -87,7 +89,6 @@ Add Session Resource
   - `MountPath string`
 
   - `Type BetaManagedAgentsFileResourceType`
-
     - `const BetaManagedAgentsFileResourceTypeFile BetaManagedAgentsFileResourceType = "file"`
 
   - `UpdatedAt Time`
@@ -125,5 +126,18 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", betaManagedAgentsFileResource.ID)
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "created_at": "2026-03-15T10:00:00Z",
+  "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "mount_path": "/uploads/receipt.pdf",
+  "type": "file",
+  "updated_at": "2026-03-15T10:00:00Z"
 }
 ```

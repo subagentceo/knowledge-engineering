@@ -1,9 +1,11 @@
-Create, track, and manage Bitly links and QR Codes directly from Claude without switching contexts. Access 27 comprehensive tools spanning link creation, analytics, organizational management, and more—making this the most complete link management connector available in any AI assistant.  
-  
+# Bitly
+
+Create, track, and manage Bitly links and QR Codes directly from Claude without switching contexts. Access 27 comprehensive tools spanning link creation, analytics, organizational management, and more—making this the most complete link management connector available in any AI assistant.
+
 You can use the Bitly connector to:
 
 Create Short Links:  
-"Shorten [https://shop.example.com/spring-sale](https://shop.example.com/spring-sale) with title 'Spring Sale 2024' and tags 'spring', 'sale', and 'email-campaign'"
+"Shorten https://shop.example.com/spring-sale with title 'Spring Sale 2024' and tags 'spring', 'sale', and 'email-campaign'"
 
 Generate QR Codes:  
 "Create a QR code for my spring sale link called 'Spring Sale Print' in PNG format"

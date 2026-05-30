@@ -1,3 +1,5 @@
+# Wealth Management
+
 Prepare client reviews, build financial plans, generate investment proposals, and optimize portfolios for wealth management workflows.
 
 You can use Wealth Management to:

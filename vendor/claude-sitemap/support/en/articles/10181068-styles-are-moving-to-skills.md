@@ -1,0 +1,47 @@
+Styles in Claude are becoming skills. This article explains what's changing, how your existing styles will be handled, and what to do if you used one of the default styles.
+
+## What's changing
+
+**Your custom styles will become skills.** Any custom styles you've created will be migrated to skills automatically. You don't need to take any action—your styles will be available as skills in your account when the migration runs. If you have more than 30 skills after the migration, the overflow skills will be disabled to prevent your prompt from bloating.
+
+**Most default styles are being removed.** The Concise, Explanatory, and Formal default styles will no longer be available after the migration. The Learning style is being preserved as a skill (see **[The Learning skill](#h_87710ea950)** below).
+
+**The styles menu will be removed.** Once the migration is complete, the styles menu will no longer appear in Claude. Until that point, your existing styles remain available alongside the new skills, so you can switch over at your own pace.
+
+## Using your migrated style
+
+To activate one of your migrated styles in a conversation, type a slash command in the chat input using this format: `/{style-name}-style`
+
+When your custom styles are migrated to skills, the style names are automatically converted into commands by:
+
+- Switching letters to lowercase
+
+- Replacing spaces with hyphens
+
+- Removing punctuation, emoji, and accent marks
+
+- Adding -style to the end
+
+If the resulting command runs past the length limit, it's trimmed. If two of your styles would otherwise produce the same command, a number will be added to one of them.
+
+For example, if you had a custom style named “concise pirate,” you'd type "/concise-pirate-style" to apply it.
+
+## The Learning skill
+
+Learning, formerly a default style, is now available as a skill. To use it, add the Learning skill from the skills marketplace and activate it in any conversation.
+
+1. Navigate to **[Customize > Skills](http://claude.ai/customize/skills)**.
+
+2. Click the “+” button to add a skill.
+
+3. Select “Browse skills” to open the directory.
+
+4. Search for the “Learning” skill.
+
+5. Click “+” or “Install” to add it.
+
+## Update your instructions instead
+
+If you'd rather not use skills, you can describe the same response behavior in your instructions for Claude. Instructions apply to all your conversations and can describe the same tone, format, and approach guidance you would have set with a style.
+
+Learn more about **[Claude's personalization features](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features)**.

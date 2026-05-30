@@ -1,6 +1,6 @@
 # Organizations
 
-## List
+## List organizations
 
 **get** `/v1/compliance/organizations`
 
@@ -19,7 +19,6 @@ response would exceed 1,000 organizations.
 - `data: array of object { created_at, name, uuid }`
 
   List of organizations sorted by creation date, ascending
-
   - `created_at: string`
 
     Organization creation time (RFC 3339 format)
@@ -39,18 +38,30 @@ curl https://api.anthropic.com/v1/compliance/organizations \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "created_at": "created_at",
+      "name": "name",
+      "uuid": "uuid"
+    }
+  ]
+}
+```
+
 ## Domain Types
 
 ### Organization List Response
 
-- `OrganizationListResponse = object { data }`
+- `OrganizationListResponse object { data }`
 
   List of organizations under a parent organization.
-
   - `data: array of object { created_at, name, uuid }`
 
     List of organizations sorted by creation date, ascending
-
     - `created_at: string`
 
       Organization creation time (RFC 3339 format)
@@ -65,7 +76,7 @@ curl https://api.anthropic.com/v1/compliance/organizations \
 
 # Users
 
-## List
+## List organization users
 
 **get** `/v1/compliance/organizations/{org_uuid}/users`
 
@@ -96,10 +107,9 @@ List of user members with pagination info
 
 ### Returns
 
-- `data: array of object { id, created_at, email, full_name }`
+- `data: array of object { id, created_at, email, 2 more }`
 
-  List of current organization members sorted by account creation date ascending
-
+  List of current organization members sorted by organization join date ascending
   - `id: string`
 
     User identifier (tagged ID)
@@ -115,6 +125,27 @@ List of user members with pagination info
   - `full_name: string`
 
     User's current full name
+
+  - `organization_role: "admin" or "billing" or "claude_code_user" or 6 more`
+
+    User's built-in role within the organization. This is distinct from any custom RBAC roles that may also be assigned.
+    - `"admin"`
+
+    - `"billing"`
+
+    - `"claude_code_user"`
+
+    - `"developer"`
+
+    - `"managed"`
+
+    - `"membership_admin"`
+
+    - `"owner"`
+
+    - `"primary_owner"`
+
+    - `"user"`
 
 - `has_more: boolean`
 
@@ -131,14 +162,31 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/users \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "email": "email",
+      "full_name": "full_name",
+      "organization_role": "admin"
+    }
+  ],
+  "has_more": true,
+  "next_page": "next_page"
+}
+```
+
 ## Domain Types
 
 ### User List Response
 
-- `UserListResponse = object { id, created_at, email, full_name }`
+- `UserListResponse object { id, created_at, email, 2 more }`
 
   User member information for compliance responses.
-
   - `id: string`
 
     User identifier (tagged ID)
@@ -155,9 +203,30 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/users \
 
     User's current full name
 
+  - `organization_role: "admin" or "billing" or "claude_code_user" or 6 more`
+
+    User's built-in role within the organization. This is distinct from any custom RBAC roles that may also be assigned.
+    - `"admin"`
+
+    - `"billing"`
+
+    - `"claude_code_user"`
+
+    - `"developer"`
+
+    - `"managed"`
+
+    - `"membership_admin"`
+
+    - `"owner"`
+
+    - `"primary_owner"`
+
+    - `"user"`
+
 # Roles
 
-## List
+## List Compliance Roles
 
 **get** `/v1/compliance/organizations/{org_uuid}/roles`
 
@@ -188,7 +257,6 @@ List Compliance Roles
 - `data: array of object { id, created_at, description, 2 more }`
 
   List of roles
-
   - `id: string`
 
     Role identifier (tagged ID)
@@ -224,7 +292,25 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "created_at",
+      "description": "description",
+      "name": "name",
+      "updated_at": "updated_at"
+    }
+  ],
+  "has_more": true,
+  "next_page": "next_page"
+}
+```
+
+## Get Compliance Role
 
 **get** `/v1/compliance/organizations/{org_uuid}/roles/{role_id}`
 
@@ -273,14 +359,25 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "created_at",
+  "description": "description",
+  "name": "name",
+  "updated_at": "updated_at"
+}
+```
+
 ## Domain Types
 
 ### Role List Response
 
-- `RoleListResponse = object { id, created_at, description, 2 more }`
+- `RoleListResponse object { id, created_at, description, 2 more }`
 
   Role information for compliance responses.
-
   - `id: string`
 
     Role identifier (tagged ID)
@@ -303,10 +400,9 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 
 ### Role Retrieve Response
 
-- `RoleRetrieveResponse = object { id, created_at, description, 2 more }`
+- `RoleRetrieveResponse object { id, created_at, description, 2 more }`
 
   Role information for compliance responses.
-
   - `id: string`
 
     Role identifier (tagged ID)
@@ -329,7 +425,7 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
 
 # Permissions
 
-## List
+## List Compliance Role Permissions
 
 **get** `/v1/compliance/organizations/{org_uuid}/roles/{role_id}/permissions`
 
@@ -364,7 +460,6 @@ List Compliance Role Permissions
 - `data: array of object { action, resource_id, resource_type }`
 
   List of permissions
-
   - `action: string`
 
     Action permitted on the resource
@@ -392,14 +487,29 @@ curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "action": "action",
+      "resource_id": "resource_id",
+      "resource_type": "resource_type"
+    }
+  ],
+  "has_more": true,
+  "next_page": "next_page"
+}
+```
+
 ## Domain Types
 
 ### Permission List Response
 
-- `PermissionListResponse = object { action, resource_id, resource_type }`
+- `PermissionListResponse object { action, resource_id, resource_type }`
 
   Permission granted by a role.
-
   - `action: string`
 
     Action permitted on the resource

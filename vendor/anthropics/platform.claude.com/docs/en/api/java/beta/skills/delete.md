@@ -1,4 +1,4 @@
-## Delete
+## Delete Skill
 
 `SkillDeleteResponse beta().skills().delete(SkillDeleteParamsparams = SkillDeleteParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,7 +9,6 @@ Delete Skill
 ### Parameters
 
 - `SkillDeleteParams params`
-
   - `Optional<String> skillId`
 
     Unique identifier for the skill.
@@ -19,7 +18,6 @@ Delete Skill
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -68,10 +66,15 @@ Delete Skill
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class SkillDeleteResponse:`
-
   - `String id`
 
     Unique identifier for the skill.
@@ -102,5 +105,14 @@ public final class Main {
 
         SkillDeleteResponse skill = client.beta().skills().delete("skill_id");
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type"
 }
 ```

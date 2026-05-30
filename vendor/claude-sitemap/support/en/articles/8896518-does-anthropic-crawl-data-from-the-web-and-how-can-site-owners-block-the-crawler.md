@@ -1,20 +1,20 @@
 As per industry standard, Anthropic uses a variety of robots to gather data from the public web for model development, to search the web, and to retrieve web content at users’ direction. Anthropic uses different robots to enable website owner transparency and choice. Below is information on the three robots that Anthropic uses and how to set your site preferences to enable those you want to access your content and limit those you don’t.
 
-| **Bot** | **Use** | **What happens when you disable it** |
-| --- | --- | --- |
-| ClaudeBot | ClaudeBot helps enhance the utility and safety of our generative AI models by collecting web content that could potentially contribute to their training. | When a site restricts ClaudeBot access, it signals that the site's future materials should be excluded from our AI model training datasets. |
-| Claude-User | Claude-User supports Claude AI users. When individuals ask questions to Claude, it may access websites using a Claude-User agent. | Claude-User allows site owners to control which sites can be accessed through these user-initiated requests. Disabling Claude-User on your site prevents our system from retrieving your content in response to a user query, which may reduce your site's visibility for user-directed web search. |
-| Claude-SearchBot | Claude-SearchBot navigates the web to improve search result quality for users. It analyzes online content specifically to enhance the relevance and accuracy of search responses. | Disabling Claude-SearchBot on your site prevents our system from indexing your content for search optimization, which may reduce your site's visibility and accuracy in user search results. |
+| **Bot**          | **Use**                                                                                                                                                                           | **What happens when you disable it**                                                                                                                                                                                                                                                                |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ClaudeBot        | ClaudeBot helps enhance the utility and safety of our generative AI models by collecting web content that could potentially contribute to their training.                         | When a site restricts ClaudeBot access, it signals that the site's future materials should be excluded from our AI model training datasets.                                                                                                                                                         |
+| Claude-User      | Claude-User supports Claude AI users. When individuals ask questions to Claude, it may access websites using a Claude-User agent.                                                 | Claude-User allows site owners to control which sites can be accessed through these user-initiated requests. Disabling Claude-User on your site prevents our system from retrieving your content in response to a user query, which may reduce your site's visibility for user-directed web search. |
+| Claude-SearchBot | Claude-SearchBot navigates the web to improve search result quality for users. It analyzes online content specifically to enhance the relevance and accuracy of search responses. | Disabling Claude-SearchBot on your site prevents our system from indexing your content for search optimization, which may reduce your site's visibility and accuracy in user search results.                                                                                                        |
 
 As part of our mission to build safe and reliable frontier systems and advance the field of responsible AI development, we’re sharing the principles by which we collect data as well as instructions on how to opt out of our crawling going forward:
 
-- Our collection of data should be *transparent*. Anthropic uses the Bots described above to access web content.
+- Our collection of data should be _transparent_. Anthropic uses the Bots described above to access web content.
 
-- Our crawling should *not* *be* *intrusive or disruptive*. We aim for minimal disruption by being thoughtful about how quickly we crawl the same domains and respecting Crawl-delay where appropriate.
+- Our crawling should _not_ _be_ _intrusive or disruptive_. We aim for minimal disruption by being thoughtful about how quickly we crawl the same domains and respecting Crawl-delay where appropriate.
 
-- Anthropic’s Bots *respect “do not crawl”* signals by honoring industry standard directives in robots.txt.
+- Anthropic’s Bots _respect “do not crawl”_ signals by honoring industry standard directives in robots.txt.
 
-- Anthropic’s Bots *respect anti-circumvention technologies* (e.g., we will not attempt to bypass CAPTCHAs for the sites we crawl.)
+- Anthropic’s Bots _respect anti-circumvention technologies_ (e.g., we will not attempt to bypass CAPTCHAs for the sites we crawl.)
 
 To limit crawling activity, we support the non-standard Crawl-delay extension to robots.txt. An example of this might be:
 

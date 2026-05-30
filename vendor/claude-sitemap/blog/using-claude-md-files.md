@@ -1,10 +1,12 @@
+# Using CLAUDE.md files: Customizing Claude Code for your codebase
+
 If you use AI coding agents, you face the same challenge: how do you give them enough context to understand your architecture, conventions, and workflows without repeating yourself?
 
 The problem compounds as your codebase grows. Complex module relationships, domain-specific patterns, and team conventions don't surface easily. You end up explaining the same architectural decisions, testing requirements, and code style preferences at the start of every conversation.
 
-[CLAUDE.md](https://www.anthropic.com/engineering/claude-code-best-practices) files solve this by giving Claude persistent context about your project. Think of it as a configuration file that Claude automatically incorporates into every conversation, ensuring it always knows your project structure, coding standards, and preferred workflows.
+CLAUDE.md files solve this by giving Claude persistent context about your project. Think of it as a configuration file that Claude automatically incorporates into every conversation, ensuring it always knows your project structure, coding standards, and preferred workflows.
 
-In this article, we walk through how to structure your [CLAUDE.md](http://claude.md), share best practices, and tips for using them to get the most out of Claude Code. 
+In this article, we walk through how to structure your CLAUDE.md, share best practices, and tips for using them to get the most out of Claude Code. 
 
 ## What is a CLAUDE.md file?
 
@@ -34,14 +36,17 @@ FastAPI REST API for user authentication and profiles. Uses SQLAlchemy for datab
 - PEP 8 with 100 character lines
 
 ## Common Commands
+
 ```bash
 uvicorn app.main:app --reload  # dev server
 pytest tests/ -v               # run tests
 ```
+````
 
 ## Notes
 
 All routes use `/api/v1` prefix. JWT tokens expire after 24 hours.
+
 ````
 
 A well-configured CLAUDE.md transforms how Claude works with your specific project. The file serves multiple purposes: providing architectural context, establishing workflows, and connecting Claude to your development tools. Each addition should solve a real problem you have encountered, not theoretical concerns about what Claude might need.
@@ -50,7 +55,7 @@ This file can document common bash commands, core utilities, code style guidelin
 
 Your CLAUDE.md file becomes part of Claude's system prompt. Every conversation starts with this context already loaded, eliminating the need to explain basic project information repeatedly.
 
-## **Getting started with /init**
+## Getting started with /init
 
 Creating a CLAUDE.md from scratch can feel daunting, especially in an unfamiliar codebase. 
 
@@ -62,7 +67,7 @@ Run `/init` in any Claude Code session:
 cd your-project
 claude
 /init
-```
+````
 
 Claude examines your codebase—reading package files, existing documentation, configuration files, and code structure—then generates a CLAUDE.md tailored to your project. The generated file typically includes build commands, test instructions, key directories, and coding conventions it detected.
 
@@ -72,10 +77,10 @@ You can also use `/init` on existing projects that already have a CLAUDE.md. Cla
 
 After running `/init`, consider these next steps:
 
--   Review the generated content for accuracy
--   Add workflow instructions Claude couldn't infer (branch naming conventions, deployment processes, code review requirements)
--   Remove generic guidance that doesn't apply to your project
--   Commit the file to version control so your team benefits
+- Review the generated content for accuracy
+- Add workflow instructions Claude couldn't infer (branch naming conventions, deployment processes, code review requirements)
+- Remove generic guidance that doesn't apply to your project
+- Commit the file to version control so your team benefits
 
 The `/init` command works well for getting oriented quickly, but the real value comes from iterating on the generated file over time. As you work with Claude Code, use the `#` key to add instructions you find yourself repeating—these additions accumulate into a CLAUDE.md that genuinely reflects how your team works.
 
@@ -94,12 +99,12 @@ A simple tree output showing key directories helps Claude understand where diffe
 ```markdown
 main.py
 ├── logs
-│   ├── application.log
+│ ├── application.log
 ├── modules
-│   ├── cli.py
-│   ├── logging_utils.py
-│   ├── media_handler.py
-│   ├── player.py
+│ ├── cli.py
+│ ├── logging_utils.py
+│ ├── media_handler.py
+│ ├── player.py
 ```
 
 Include information about your main dependencies, architectural patterns, and any non-standard organizational choices. If you use domain-driven design, microservices, or specific frameworks, document that. Claude uses this map to make better decisions about where to find code and where to make changes.
@@ -116,17 +121,18 @@ For example, if you have a Slack MCP server configured for your organization and
 
 ```markdown
 ### Slack MCP
+
 - Posts to #dev-notifications channel only
 - Use for deployment notifications and build failures
 - Do not use for individual PR updates (those go through GitHub webhooks)
 - Rate limited to 10 messages per hour
 ```
 
-Learn more about MCP [fundamentals and best practices](https://www.anthropic.com/engineering/building-effective-mcp-servers).
+Learn more about MCP fundamentals and best practices.
 
-For more information on setting permissions for Claude Code, see settings.json documentation at [code.claude.com](https://code.claude.com/docs/en/settings).
+For more information on setting permissions for Claude Code, see settings.json documentation at code.claude.com.
 
-### **Define standard workflows**
+### Define standard workflows
 
 Having Claude jump straight into code changes without planning creates rework. Claude might implement a solution that misses requirements, choose the wrong architectural approach, or make changes that break existing functionality.
 
@@ -142,17 +148,17 @@ Specific workflows might include explore-plan-code-commit for features, test-dri
 An example workflow instruction might be: 
 
 ```markdown
-1) Before modifying code in the following locations: X, Y, Z
-	- Consider how it might affect A, B, C
-	- Construct an implementation plan
-	- Develop a test plan that will validate the following functions...
+1. Before modifying code in the following locations: X, Y, Z
+   - Consider how it might affect A, B, C
+   - Construct an implementation plan
+   - Develop a test plan that will validate the following functions...
 ```
 
-## ‍**Additional tips for working with Claude Code** 
+## ‍Additional tips for working with Claude Code
 
 Beyond configuring your CLAUDE.md file, three additional techniques improve how you work with Claude Code.
 
-### **Keep context fresh**
+### Keep context fresh
 
 Working with Claude Code over time accumulates irrelevant context. File contents from earlier tasks, command outputs that no longer matter, and tangential conversations fill Claude's context window. As the signal-to-noise ratio drops, Claude struggles to maintain focus on the current task.
 
@@ -160,15 +166,15 @@ Use `/clear` between distinct tasks to reset the context window. This removes ac
 
 When you finish debugging authentication and switch to implementing a new API endpoint, clear the context. The authentication details no longer matter and distract from the new work.
 
-### **Use subagents for distinct phases**
+### Use subagents for distinct phases
 
 Long conversations accumulate context that interferes with new tasks. You've debugged a complex authentication flow, and now you need a security review of that same code. The debugging details color Claude's security analysis, potentially causing it to overlook issues or focus on already-resolved concerns.
 
-Tell Claude to use a [subagent](https://code.claude.com/docs/en/sub-agents) for distinct phases of work. Subagents maintain isolated context, preventing information from earlier tasks from interfering with new analysis. After implementing a payment processor, instruct Claude to "use a sub-agent to perform a security review of that code" rather than continuing in the same conversation.
+Tell Claude to use a subagent for distinct phases of work. Subagents maintain isolated context, preventing information from earlier tasks from interfering with new analysis. After implementing a payment processor, instruct Claude to "use a sub-agent to perform a security review of that code" rather than continuing in the same conversation.
 
 Subagents work best for multistep workflows where each phase requires different perspectives. Implementation needs architectural context and feature requirements; security review needs fresh eyes focused solely on vulnerabilities. Context separation keeps both analyses sharp.
 
-### **Create custom commands**
+### Create custom commands
 
 Repetitive prompts waste time. You find yourself typing "review this code for security issues" or "analyze this for performance problems" over and over. Each time you need to remember the exact phrasing that gets good results.
 
@@ -176,7 +182,7 @@ Custom slash commands store these as markdown files in your `.claude/commands/` 
 
 For example, `performance-optimization.md` might look like this:
 
-````markdown
+```markdown
 # Performance Optimization
 
 Analyze the provided code for performance bottlenecks and optimization opportunities. Conduct a thorough review covering:
@@ -184,6 +190,7 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 ## Areas to Analyze
 
 ### Database & Data Access
+
 - N+1 query problems and missing eager loading
 - Lack of database indexes on frequently queried columns
 - Inefficient joins or subqueries
@@ -192,6 +199,7 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - Connection pooling issues
 
 ### Algorithm Efficiency
+
 - Time complexity issues (O(n²) or worse when better exists)
 - Nested loops that could be optimized
 - Redundant calculations or repeated work
@@ -199,6 +207,7 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - Missing memoization or dynamic programming opportunities
 
 ### Memory Management
+
 - Memory leaks or retained references
 - Loading entire datasets when streaming is possible
 - Excessive object instantiation in loops
@@ -206,6 +215,7 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - Missing garbage collection opportunities
 
 ### Async & Concurrency
+
 - Blocking I/O operations that should be async
 - Sequential operations that could run in parallel
 - Missing Promise.all() or concurrent execution patterns
@@ -213,6 +223,7 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - Unoptimized worker thread usage
 
 ### Network & I/O
+
 - Excessive API calls (missing request batching)
 - No response caching strategy
 - Large payloads without compression
@@ -220,6 +231,7 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - Lack of connection reuse
 
 ### Frontend Performance
+
 - Render-blocking JavaScript or CSS
 - Missing code splitting or lazy loading
 - Unoptimized images or assets
@@ -228,6 +240,7 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 - No debouncing/throttling on expensive operations
 
 ### Caching
+
 - Missing HTTP caching headers
 - No application-level caching layer
 - Absence of memoization for pure functions
@@ -236,6 +249,7 @@ Analyze the provided code for performance bottlenecks and optimization opportuni
 ## Output Format
 
 For each issue identified:
+
 1. **Issue**: Describe the performance problem
 2. **Location**: Specify file/function/line numbers
 3. **Impact**: Rate severity (Critical/High/Medium/Low) and explain expected performance degradation
@@ -245,15 +259,19 @@ For each issue identified:
 7. **Expected Improvement**: Quantify performance gains if measurable
 
 If code is well-optimized:
+
 - Confirm optimization status
 - List performance best practices properly implemented
 - Note any minor improvements possible
 
 **Code to review:**
 ```
+
 $ARGUMENTS
+
 ```
-````
+
+```
 
 You don't need to write custom command files manually. Ask Claude to create them for you:
 
@@ -263,15 +281,15 @@ Create a custom slash command called /performance-optimization that analyzes cod
 
 Claude will write the markdown file to `.claude/commands/performance-optimization.md`, and the command will be available immediately.
 
-## **Start simple, expand deliberately**
+## Start simple, expand deliberately
 
 It's tempting to create a comprehensive CLAUDE.md right away. Resist that urge.
 
-CLAUDE.md is added to Claude Code's context every time, so from a [context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) and [prompt engineering](https://www.anthropic.com/engineering/prompt-engineering-overview) standpoint, keep it concise. One option: break up information into separate markdown files and reference them inside the CLAUDE.md file.
+CLAUDE.md is added to Claude Code's context every time, so from a context engineering and prompt engineering standpoint, keep it concise. One option: break up information into separate markdown files and reference them inside the CLAUDE.md file.
 
 Don't include sensitive information, API keys, credentials, database connection strings, or detailed security vulnerability information—especially if you commit to version control. Since CLAUDE.md becomes part of Claude's system prompt, treat it as documentation that could be shared publicly.
 
-## **Make CLAUDE.md work for you**
+## Make CLAUDE.md work for you
 
 CLAUDE.md files turn Claude Code from a general-purpose assistant into a tool configured specifically for your codebase. Start simple with basic project structure and build documentation, then expand based on actual friction points in your workflow.
 
@@ -279,4 +297,4 @@ The most effective CLAUDE.md files solve real problems: they document the comman
 
 Treat customization as an ongoing practice rather than a one-time setup task. Projects change, teams learn better patterns, and new tools enter your workflow. A well-maintained CLAUDE.md evolves with your codebase, continuously reducing the friction of working with AI assistance on complex software.
 
-**_Get started with_** [**_Claude Code_**](https://www.claude.com/product/claude-code) **_today._**
+**_Get started with_** **_Claude Code_** **_today._**

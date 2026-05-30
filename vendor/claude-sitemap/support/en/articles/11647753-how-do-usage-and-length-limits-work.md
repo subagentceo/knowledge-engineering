@@ -12,11 +12,10 @@ Note that your usage of all different Claude product surfaces (claude.ai, Claude
 
 There are a couple of different ways to increase your usage depending on your plan:
 
-- If you’re using a paid plan, including Pro, Max, Team, or seat-based Enterprise plans, see these articles for details about purchasing extra usage:
+- If you're using a paid plan, including Pro, Max, Team, or seat-based Enterprise plans, see these articles for details about purchasing usage credits:
+  - **[Manage usage credits for paid Claude plans](https://support.claude.com/en/articles/12429409-)**
 
-  - **[Extra usage for paid Claude plans](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans)**
-
-  - **[Extra usage for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-extra-usage-for-team-and-seat-based-enterprise-plans)**
+  - **[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-)**
 
 - If your organization has a usage-based Enterprise plan, your usage is based on consumption. See this article for additional information: **[How am I billed for my Enterprise plan?](https://support.claude.com/en/articles/11526368-how-am-i-billed-for-my-enterprise-plan)**
 
@@ -56,6 +55,6 @@ While you can't increase the fixed context window size for your plan, you can us
 
 ## Key differences
 
-The main distinction is that usage limits control *how much* you can use Claude across all your conversations, while length limits control *how long* any single conversation can become. Usage limits are about quantity over time, while length limits are about the depth and complexity of individual conversations.
+The main distinction is that usage limits control _how much_ you can use Claude across all your conversations, while length limits control _how long_ any single conversation can become. Usage limits are about quantity over time, while length limits are about the depth and complexity of individual conversations.
 
-If you hit your usage limit, you'll need to wait for it to reset, upgrade your plan, or purchase extra usage. If you hit a length limit, you can start a new conversation or use **[features like projects](https://support.claude.com/en/articles/9517075-what-are-projects)** to work with larger amounts of information more efficiently.
+If you hit your usage limit, you'll need to wait for it to reset, upgrade your plan, or purchase usage credits. If you hit a length limit, you can start a new conversation or use **[features like projects](https://support.claude.com/en/articles/9517075-what-are-projects)** to work with larger amounts of information more efficiently.

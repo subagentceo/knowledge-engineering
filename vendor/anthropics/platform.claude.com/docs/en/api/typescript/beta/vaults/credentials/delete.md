@@ -1,4 +1,4 @@
-## Delete
+## Delete Credential
 
 `client.beta.vaults.credentials.delete(stringcredentialID, CredentialDeleteParamsparams, RequestOptionsoptions?): BetaManagedAgentsDeletedCredential`
 
@@ -11,7 +11,6 @@ Delete Credential
 - `credentialID: string`
 
 - `params: CredentialDeleteParams`
-
   - `vault_id: string`
 
     Path param: Path parameter vault_id
@@ -19,11 +18,9 @@ Delete Credential
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -72,33 +69,46 @@ Delete Credential
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsDeletedCredential`
 
   Confirmation of a deleted credential.
-
   - `id: string`
 
     Unique identifier of the deleted credential.
 
   - `type: "vault_credential_deleted"`
-
     - `"vault_credential_deleted"`
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsDeletedCredential = await client.beta.vaults.credentials.delete(
-  'vcrd_011CZkZEMt8gZan2iYOQfSkw',
-  { vault_id: 'vlt_011CZkZDLs7fYzm1hXNPeRjv' },
-);
+const betaManagedAgentsDeletedCredential =
+  await client.beta.vaults.credentials.delete("vcrd_011CZkZEMt8gZan2iYOQfSkw", {
+    vault_id: "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  });
 
 console.log(betaManagedAgentsDeletedCredential.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "type": "vault_credential_deleted"
+}
 ```

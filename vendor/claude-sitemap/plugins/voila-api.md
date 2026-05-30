@@ -1,3 +1,5 @@
+# Voila API
+
 A definitive integration guide for the Voila API by The Despatch Company. This plugin equips Claude with comprehensive knowledge of Voila's REST API schemas, shipment workflows, and courier management capabilities — covering shipment creation, real-time tracking, manifesting, collections, webhooks, and pricing. It supports three shipping workflows: Smart Shipping (automatic courier selection), Manual Selection, and Bulk Asynchronous processing.
 
 Includes detailed endpoint documentation across nine categories: authentication, couriers, labeling, tracking, smart shipping, pricing and services, webhooks, utilities, and third-party integrations with platforms like Sorted, Peoplevox, Mintsoft, Veeqo, and JD. Bundled Node.js and Python scripts let you query live courier data and field requirements directly.

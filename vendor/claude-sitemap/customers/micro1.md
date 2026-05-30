@@ -1,11 +1,13 @@
+# micro1 transforms technical recruiting with Claude
+
 micro1 uses Claude to conduct thousands of AI-powered technical interviews daily, helping companies evaluate global talent while providing candidates with an unbiased, lower pressure interview experience.
 
 With Claude, micro1:
 
--   Conducts over 3,000 AI interviews per day
--   Reduces recruitment costs by 85% compared to traditional methods
--   Achieves 5x higher human interview pass rates
--   Enables teams like Legal Soft to maintain 10,000 monthly interviews with 64% less staff time
+- Conducts over 3,000 AI interviews per day
+- Reduces recruitment costs by 85% compared to traditional methods
+- Achieves 5x higher human interview pass rates
+- Enables teams like Legal Soft to maintain 10,000 monthly interviews with 64% less staff time
 
 ## The challenge of transforming technical recruitment
 
@@ -27,11 +29,11 @@ Finally, Claude's ethical foundation aligned with micro1’s values. Sydney Levi
 
 micro1's platform uses Claude to:
 
--   Evaluate technical skills through dynamic conversations
--   Provide consistent, unbiased assessments
--   Create anxiety-free interview experiences
--   Generate comprehensive interview reports
--   Enable 24/7 candidate evaluation across time zones
+- Evaluate technical skills through dynamic conversations
+- Provide consistent, unbiased assessments
+- Create anxiety-free interview experiences
+- Generate comprehensive interview reports
+- Enable 24/7 candidate evaluation across time zones
 
 ## Transforming companies through efficient, unbiased technical hiring
 

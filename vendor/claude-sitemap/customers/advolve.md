@@ -1,11 +1,13 @@
+# Advolve automates digital marketing with Claude
+
 Advolve, a B2B Service-as-a-Software company, uses Claude as the central orchestrator of their AI platform to automate the entire digital customer acquisition process, enabling companies to achieve human-level performance in managing multi-million dollar advertising budgets.
 
 With Claude, Advolve is able to:
 
--   Reduce operational work time by 90%
--   Increase customer return on ad spend (ROAS) by 15%
--   Project 10x revenue for 2025
--   Manage millions of ads simultaneously
+- Reduce operational work time by 90%
+- Increase customer return on ad spend (ROAS) by 15%
+- Project 10x revenue for 2025
+- Manage millions of ads simultaneously
 
 ## Building an AI-native approach to digital marketing
 
@@ -19,21 +21,21 @@ After evaluating multiple AI models, Advolve chose Claude for its superior capab
 
 The decision centered on Claude's:
 
--   Advanced code generation for complex technical implementations
--   Consistent reliability with lower hallucination rates
--   Superior performance in technical validation tasks
--   Comprehensive documentation and implementation support
--   Sophisticated multi-platform workflow orchestration
+- Advanced code generation for complex technical implementations
+- Consistent reliability with lower hallucination rates
+- Superior performance in technical validation tasks
+- Comprehensive documentation and implementation support
+- Sophisticated multi-platform workflow orchestration
 
 ## How Claude powers intelligent advertising
 
 Claude’s reasoning capabilities help Advolve with:
 
--   End-to-end workflow automation across advertising platforms
--   Real-time data validation and process integrity checks
--   Dynamic budget allocation and optimization
--   Multi-platform content generation and deployment
--   Complex decision-making for campaign management
+- End-to-end workflow automation across advertising platforms
+- Real-time data validation and process integrity checks
+- Dynamic budget allocation and optimization
+- Multi-platform content generation and deployment
+- Complex decision-making for campaign management
 
 "Since Claude powers our platform’s central reasoning, we can efficiently manage millions of advertisements simultaneously due to its processing speed," said Sobreira. "The integration was straightforward, allowing us to focus immediately on building our specialized workflows and features."
 

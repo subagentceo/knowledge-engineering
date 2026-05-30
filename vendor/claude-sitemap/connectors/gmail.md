@@ -1,3 +1,5 @@
+# Gmail
+
 Connect Gmail to Claude so it can search your emails, surface the information you need, and draft replies — without manually copying or forwarding anything. Claude retrieves the minimum information needed to answer your question, provides citations linking back to the original emails, and can help you compose drafts directly.
 
 You can use Gmail to:

@@ -1,4 +1,4 @@
-## Retrieve
+## Get Environment
 
 `BetaEnvironment Beta.Environments.Retrieve(EnvironmentRetrieveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,13 +9,11 @@ Retrieve a specific environment by ID.
 ### Parameters
 
 - `EnvironmentRetrieveParams parameters`
-
   - `required string environmentID`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -64,93 +62,102 @@ Retrieve a specific environment by ID.
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
-
   - `required string ID`
 
-    Environment identifier (e.g., 'env_...')
+    Environment identifier (e.g., 'env\_...')
 
   - `required string? ArchivedAt`
 
     RFC 3339 timestamp when environment was archived, or null if not archived
 
-  - `required BetaCloudConfig Config`
+  - `required Config Config`
 
-    `cloud` environment configuration.
+    Environment configuration (either Anthropic Cloud or self-hosted)
+    - `class BetaCloudConfig:`
 
-    - `required Networking Networking`
+      `cloud` environment configuration.
+      - `required Networking Networking`
 
-      Network configuration policy.
+        Network configuration policy.
+        - `class BetaUnrestrictedNetwork:`
 
-      - `class BetaUnrestrictedNetwork:`
+          Unrestricted network access.
+          - `JsonElement Type "unrestricted"constant`
 
-        Unrestricted network access.
+            Network policy type
 
-        - `JsonElement Type "unrestricted"constant`
+        - `class BetaLimitedNetwork:`
 
-          Network policy type
+          Limited network access.
+          - `required Boolean AllowMcpServers`
 
-      - `class BetaLimitedNetwork:`
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
 
-        Limited network access.
+          - `required Boolean AllowPackageManagers`
 
-        - `required Boolean AllowMcpServers`
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
 
-          Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+          - `required IReadOnlyList<string> AllowedHosts`
 
-        - `required Boolean AllowPackageManagers`
+            Specifies domains the container can reach.
 
-          Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+          - `JsonElement Type "limited"constant`
 
-        - `required IReadOnlyList<string> AllowedHosts`
+            Network policy type
 
-          Specifies domains the container can reach.
+      - `required BetaPackages Packages`
 
-        - `JsonElement Type "limited"constant`
+        Package manager configuration.
+        - `required IReadOnlyList<string> Apt`
 
-          Network policy type
+          Ubuntu/Debian packages to install
 
-    - `required BetaPackages Packages`
+        - `required IReadOnlyList<string> Cargo`
 
-      Package manager configuration.
+          Rust packages to install
 
-      - `required IReadOnlyList<string> Apt`
+        - `required IReadOnlyList<string> Gem`
 
-        Ubuntu/Debian packages to install
+          Ruby packages to install
 
-      - `required IReadOnlyList<string> Cargo`
+        - `required IReadOnlyList<string> Go`
 
-        Rust packages to install
+          Go packages to install
 
-      - `required IReadOnlyList<string> Gem`
+        - `required IReadOnlyList<string> Npm`
 
-        Ruby packages to install
+          Node.js packages to install
 
-      - `required IReadOnlyList<string> Go`
+        - `required IReadOnlyList<string> Pip`
 
-        Go packages to install
+          Python packages to install
 
-      - `required IReadOnlyList<string> Npm`
+        - `Type Type`
 
-        Node.js packages to install
+          Package configuration type
+          - `"packages"Packages`
 
-      - `required IReadOnlyList<string> Pip`
+      - `JsonElement Type "cloud"constant`
 
-        Python packages to install
+        Environment type
 
-      - `Type Type`
+    - `class BetaSelfHostedConfig:`
 
-        Package configuration type
+      Configuration for self-hosted environments.
+      - `JsonElement Type "self_hosted"constant`
 
-        - `"packages"Packages`
-
-    - `JsonElement Type "cloud"constant`
-
-      Environment type
+        Environment type
 
   - `required string CreatedAt`
 
@@ -176,6 +183,13 @@ Retrieve a specific environment by ID.
 
     RFC 3339 timestamp when environment was last updated
 
+  - `Scope Scope`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+    - `"organization"Organization`
+
+    - `"account"Account`
+
 ### Example
 
 ```csharp
@@ -187,4 +201,38 @@ EnvironmentRetrieveParams parameters = new()
 var betaEnvironment = await client.Beta.Environments.Retrieve(parameters);
 
 Console.WriteLine(betaEnvironment);
+```
+
+#### Response
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": ["api.example.com"],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": ["string"],
+      "cargo": ["string"],
+      "gem": ["string"],
+      "go": ["string"],
+      "npm": ["string"],
+      "pip": ["pandas", "numpy"],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
 ```

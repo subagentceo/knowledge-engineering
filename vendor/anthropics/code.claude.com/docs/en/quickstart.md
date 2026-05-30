@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -12,10 +13,10 @@ This quickstart guide will have you using AI-powered coding assistance in a few 
 
 Make sure you have:
 
-* A terminal or command prompt open
-  * If you've never used the terminal before, check out the [terminal guide](/en/terminal-guide)
-* A code project to work with
-* A [Claude subscription](https://claude.com/pricing?utm_source=claude_code\&utm_medium=docs\&utm_content=quickstart_prereq) (Pro, Max, Team, or Enterprise), [Claude Console](https://console.anthropic.com/) account, or access through a [supported cloud provider](/en/third-party-integrations)
+- A terminal or command prompt open
+  - If you've never used the terminal before, check out the [terminal guide](/en/terminal-guide)
+- A code project to work with
+- A [Claude subscription](https://claude.com/pricing?utm_source=claude_code&utm_medium=docs&utm_content=quickstart_prereq) (Pro, Max, Team, or Enterprise), [Claude Console](https://console.anthropic.com/) account, or access through a [supported cloud provider](/en/third-party-integrations)
 
 <Note>
   This guide covers the terminal CLI. Claude Code is also available on the [web](https://claude.ai/code), as a [desktop app](/en/desktop), in [VS Code](/en/vs-code) and [JetBrains IDEs](/en/jetbrains), in [Slack](/en/slack), and in CI/CD with [GitHub Actions](/en/github-actions) and [GitLab](/en/gitlab-ci-cd). See [all interfaces](/en/overview#use-claude-code-everywhere).
@@ -52,6 +53,7 @@ To install Claude Code, use one of the following methods:
     <Info>
       Native installations automatically update in the background to keep you on the latest version.
     </Info>
+
   </Tab>
 
   <Tab title="Homebrew">
@@ -64,6 +66,7 @@ To install Claude Code, use one of the following methods:
     <Info>
       Homebrew installations do not auto-update. Run `brew upgrade claude-code` or `brew upgrade claude-code@latest`, depending on which cask you installed, to get the latest features and security fixes.
     </Info>
+
   </Tab>
 
   <Tab title="WinGet">
@@ -74,6 +77,7 @@ To install Claude Code, use one of the following methods:
     <Info>
       WinGet installations do not auto-update. Run `winget upgrade Anthropic.ClaudeCode` periodically to get the latest features and security fixes.
     </Info>
+
   </Tab>
 </Tabs>
 
@@ -81,25 +85,25 @@ You can also install with [apt, dnf, or apk](/en/setup#install-with-linux-packag
 
 ## Step 2: Log in to your account
 
-Claude Code requires an account to use. When you start an interactive session with the `claude` command, you'll need to log in:
+Claude Code requires an account to use. Start an interactive session with the `claude` command and you'll be prompted to log in on first use:
 
 ```bash theme={null}
 claude
-# You'll be prompted to log in on first use
 ```
 
-```bash theme={null}
+For Claude subscription or Console accounts, follow the prompts to complete authentication in your browser. To switch accounts later or re-authenticate, type `/login` inside the running session:
+
+```text theme={null}
 /login
-# Follow the prompts to log in with your account
 ```
 
 You can log in using any of these account types:
 
-* [Claude Pro, Max, Team, or Enterprise](https://claude.com/pricing?utm_source=claude_code\&utm_medium=docs\&utm_content=quickstart_login) (recommended)
-* [Claude Console](https://console.anthropic.com/) (API access with pre-paid credits). On first login, a "Claude Code" workspace is automatically created in the Console for centralized cost tracking.
-* [Amazon Bedrock, Google Vertex AI, or Microsoft Foundry](/en/third-party-integrations) (enterprise cloud providers)
+- [Claude Pro, Max, Team, or Enterprise](https://claude.com/pricing?utm_source=claude_code&utm_medium=docs&utm_content=quickstart_login) (recommended)
+- [Claude Console](https://console.anthropic.com/) (API access with pre-paid credits). On first login, a "Claude Code" workspace is automatically created in the Console for centralized cost tracking.
+- [Amazon Bedrock, Google Vertex AI, or Microsoft Foundry](/en/third-party-integrations) (enterprise cloud providers)
 
-Once logged in, your credentials are stored and you won't need to log in again. To switch accounts later, use the `/login` command.
+Once logged in, your credentials are stored and you won't need to log in again.
 
 ## Step 3: Start your first session
 
@@ -219,10 +223,10 @@ there's a bug where users can submit empty forms - fix it
 
 Claude Code will:
 
-* Locate the relevant code
-* Understand the context
-* Implement a solution
-* Run tests if available
+- Locate the relevant code
+- Understand the context
+- Implement a solution
+- Run tests if available
 
 ## Step 8: Test out other common workflows
 
@@ -282,6 +286,7 @@ For more, see [best practices](/en/best-practices) and [common workflows](/en/co
     Instead of: "fix the bug"
 
     Try: "fix the login bug where users see a blank screen after entering wrong credentials"
+
   </Accordion>
 
   <Accordion title="Use step-by-step instructions">
@@ -292,6 +297,7 @@ For more, see [best practices](/en/best-practices) and [common workflows](/en/co
     2. create an API endpoint to get and update user profiles
     3. build a webpage that allows users to see and edit their information
     ```
+
   </Accordion>
 
   <Accordion title="Let Claude explore first">
@@ -304,13 +310,14 @@ For more, see [best practices](/en/best-practices) and [common workflows](/en/co
     ```text theme={null}
     build a dashboard showing products that are most frequently returned by our UK customers
     ```
+
   </Accordion>
 
   <Accordion title="Save time with shortcuts">
-    * Press `?` to see all available keyboard shortcuts
+    * Type `/` to see all commands and skills
     * Use Tab for command completion
     * Press ↑ for command history
-    * Type `/` to see all commands and skills
+    * Press `Shift+Tab` to cycle permission modes
   </Accordion>
 </AccordionGroup>
 
@@ -338,6 +345,6 @@ Now that you've learned the basics, explore more advanced features:
 
 ## Getting help
 
-* **In Claude Code**: Type `/help` or ask "how do I..."
-* **Documentation**: You're here! Browse other guides
-* **Community**: Join our [Discord](https://www.anthropic.com/discord) for tips and support
+- **In Claude Code**: Type `/help` or ask "how do I..."
+- **Documentation**: You're here! Browse other guides
+- **Community**: Join our [Discord](https://www.anthropic.com/discord) for tips and support

@@ -1,4 +1,4 @@
-*This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see* *[here](https://privacy.claude.com/en/collections/10663362-consumers).*
+_This article is about our commercial products such as Claude for Work and the Anthropic API. For our consumer products such as Claude Free, Pro, Max and when accounts from those plans use Claude Code, see_ _[here](https://privacy.claude.com/en/collections/10663362-consumers)._
 
 Anthropic is committed to the safety and security of our users' information and maintains the following compliance credentials:
 

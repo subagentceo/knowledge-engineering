@@ -1,3 +1,5 @@
+# Mercury
+
 Check your balance, download statements, search, analyze, and graph transactions, and understand Cards directly from Claude. Mercury brings your finances into your AI tools.
 
 You can use Mercury to:

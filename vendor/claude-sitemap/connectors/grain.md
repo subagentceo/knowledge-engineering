@@ -1,9 +1,20 @@
-Grain records and transcribes your meetings across Google Meet, Zoom, Microsoft Teams, and Webex—generating transcripts, notes, action items, coaching scorecards, and more. The Grain MCP connector gives Claude direct access to your meeting library, transcripts, notes, and CRM deal data.
+# Grain
+
+Grain captures and transcribes your meetings where you have them: Meet, Zoom, Teams, Slack, and more. Grain builds an AI Meeting Data Layer of transcripts, notes, and enriched context that Claude uses to power your work.
 
 You can use Grain to:
 
-**Ask a question:**  
-"What can you help me do with Grain?"
+**Work across meetings:**  
+"Draft a proposal for AcmeCo using context from every call we've had with them."
 
-**Explore your data:**  
-"Summarize the most recent activity in Grain."
+**Spot patterns:**  
+"What pain points came up most across our user interviews this month?"
+
+**Get up to speed:**  
+"Summarize the team meetings I missed this week and flag anything I should weigh in on."
+
+**Create clips for sharing:**  
+"Find and clip recent moments where customers pushed back on pricing to share with sales."
+
+**Organize meetings into a project:**  
+"Create a project for AcmeCo with every meeting we've had with them so I can prep for our QBR."

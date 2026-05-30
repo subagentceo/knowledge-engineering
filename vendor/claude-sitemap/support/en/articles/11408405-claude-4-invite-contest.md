@@ -7,7 +7,6 @@ Selected participants who successfully refer new users are entered into a drawin
 - **Four months of Max plan** for Claude apps (valued at $400)
 
 - For current Max plan users: you’ll receive a $100 off coupon applied for four months.
-
   - Max 5x users: You will receive four months of Max plan, completely free.
 
   - Max 20x users: You will receive a $100 off coupon that will be applied for four months. You will still be responsible for $100/month if you want to remain on the 20x usage level.
@@ -38,11 +37,11 @@ See [Introducing the Max Plan](https://www.anthropic.com/news/max-plan) to learn
 
 3. **Earn entries**: You receive one entry for each new user who:
 
-  - Signs up with Claude using your link.
+- Signs up with Claude using your link.
 
-  - Sends at least one message to Claude.
+- Sends at least one message to Claude.
 
-  - Entries accumulate for the entire 10-day duration of the contest. Maximum of 100 entries per use.
+- Entries accumulate for the entire 10-day duration of the contest. Maximum of 100 entries per use.
 
 4. **Win rewards**: The more successful referrals you have, the better your chances of receiving four months of Max plan access.
 

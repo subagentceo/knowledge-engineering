@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -42,6 +43,6 @@ Security architecture, threat-model, and data-flow documentation for Cowork and 
 
 Anthropic manages our security program through HackerOne. [Use this form to report vulnerabilities](https://hackerone.com/4f1f16ba-10d3-4d09-9ecc-c721aad90f24/embedded_submissions/new).
 
-***
+---
 
 © Anthropic PBC. All rights reserved. Use is subject to applicable Anthropic Terms of Service.

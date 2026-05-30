@@ -1,3 +1,5 @@
+# See your theory of change in chat with Claude
+
 Most nonprofits have a theory of change somewhere, either implicit in how the team talks about the work or drawn up once for a funder and rarely revisited. The boxes in a logic model are usually easy to fill in. What's harder, and where programs tend to fall apart, are the arrows between those boxes, because each arrow rests on assumptions that rarely get written down. Claude can draw the whole chain inline as you describe your program, making every arrow clickable so you see what each link is actually assuming, and the act of clicking through them is often the first time those assumptions get stated plainly.
 
 Here a program officer runs a youth mentoring program and wants to see where the logic might be thin before the next evaluation conversation. Claude draws the chain from inputs to graduation rates, and clicking any arrow surfaces what has to be true for that step to hold.

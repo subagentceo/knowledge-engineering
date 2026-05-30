@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -53,6 +54,7 @@ Launch Claude Desktop. **Do not sign in or create an Anthropic account** — sta
 
     1. Go to **Help → Troubleshooting → Enable Developer Mode** to reveal the Developer menu.
     2. Then go to **Developer → Configure third-party inference** to open the configuration window.
+
   </Tab>
 
   <Tab title="Windows">
@@ -60,6 +62,7 @@ Launch Claude Desktop. **Do not sign in or create an Anthropic account** — sta
 
     1. Go to **Help → Troubleshooting → Enable Developer Mode** to reveal the Developer menu.
     2. Then go to **Developer → Configure third-party inference** to open the configuration window.
+
   </Tab>
 </Tabs>
 
@@ -154,6 +157,7 @@ The window is organized into seven sections in the left sidebar. Work through th
         </ul>
       </td>
     </tr>
+
   </tbody>
 </table>
 
@@ -176,8 +180,8 @@ Once your configuration tests successfully, click **Export** and choose a format
 
 The two actions in the configuration window do different things:
 
-* **Apply locally** writes the selected configuration to your own machine's Claude settings and relaunches the app, so you can test it end to end before deploying it.
-* **Export** writes a `.mobileconfig` or `.reg` file and leaves your local settings untouched.
+- **Apply locally** writes the selected configuration to your own machine's Claude settings and relaunches the app, so you can test it end to end before deploying it.
+- **Export** writes a `.mobileconfig` or `.reg` file and leaves your local settings untouched.
 
 #### Creating profiles for multiple user groups
 
@@ -185,10 +189,10 @@ Many organizations deploy distinct configurations to different populations: for 
 
 The configuration window can hold multiple named configurations. Use the picker in the top-right of the window:
 
-* **New configuration** creates an empty configuration.
-* **Duplicate** copies the current configuration as a starting point for a variant.
-* **Rename** and **Delete** manage the list.
-* **Reveal in Finder** opens the on-disk location where saved configurations are stored.
+- **New configuration** creates an empty configuration.
+- **Duplicate** copies the current configuration as a starting point for a variant.
+- **Rename** and **Delete** manage the list.
+- **Reveal in Finder** opens the on-disk location where saved configurations are stored.
 
 Selecting a configuration in the picker loads it for editing; the **applied** badge marks the one currently active on your machine. **Apply locally** and **Export** each act on whichever configuration is selected, so you can test each one locally and export them independently.
 
@@ -213,6 +217,7 @@ Push the exported configuration through your MDM. The app reads from these locat
     | Local (user)       | `~/Library/Application Support/Claude-3p/configLibrary/`                   | Lowest     |
 
     A `.mobileconfig` profile delivered by MDM lands in the Managed Preferences locations automatically. Both managed paths are read; where a key appears in both, the per-user value wins.
+
   </Tab>
 
   <Tab title="Windows">
@@ -223,6 +228,7 @@ Push the exported configuration through your MDM. The app reads from these locat
     | Local (user)   | `%LOCALAPPDATA%\Claude-3p\configLibrary\` | Lowest     |
 
     A Group Policy Object or Intune configuration profile writes to the registry policy paths. Both hives are read; where a key appears in both, the machine (`HKLM`) value wins.
+
   </Tab>
 </Tabs>
 
@@ -257,10 +263,10 @@ On any configured device, open Claude Desktop and go to **Help → Troubleshooti
 
 If the app shows the standard claude.ai sign-in screen instead of Cowork, the configuration was not read. Common causes:
 
-* `inferenceProvider` is missing, misspelled, or set to an unrecognized value
-* The configuration was applied while the app was running (fully quit and relaunch)
-* The configuration was written to the local config file but you're checking the managed location (or vice versa)
-* A required key for the chosen provider is missing; check **Help → Troubleshooting** or the application log at `~/Library/Logs/Claude/main.log` (macOS) / `%APPDATA%\Claude\logs\main.log` (Windows)
+- `inferenceProvider` is missing, misspelled, or set to an unrecognized value
+- The configuration was applied while the app was running (fully quit and relaunch)
+- The configuration was written to the local config file but you're checking the managed location (or vice versa)
+- A required key for the chosen provider is missing; check **Help → Troubleshooting** or the application log at `~/Library/Logs/Claude/main.log` (macOS) / `%APPDATA%\Claude\logs\main.log` (Windows)
 
 ## Troubleshooting
 
@@ -284,8 +290,8 @@ The agent helper is a signed binary that Claude Desktop installs under its user-
 
 The helper is Developer ID signed and notarized:
 
-* Team ID: `Q6L2SF6YDW` (Anthropic PBC)
-* Signing ID: `com.anthropic.claude-code`
+- Team ID: `Q6L2SF6YDW` (Anthropic PBC)
+- Signing ID: `com.anthropic.claude-code`
 
 For Santa, a `TEAMID` allow rule for `Q6L2SF6YDW` covers the helper across version updates. Standard (non-3P) installs use `~/Library/Application Support/Claude/` with the same subpath.
 
@@ -301,7 +307,7 @@ The helper is Authenticode-signed with publisher `Anthropic, PBC`. For Defender 
 
 By default, Claude Desktop checks Anthropic's update server and applies updates automatically. In 3P deployments you can:
 
-* **Leave auto-update enabled** (recommended) so fixes reach users without IT intervention. Use `autoUpdaterEnforcementHours` to bound how long users can defer a pending update.
-* **Disable auto-update** (`disableAutoUpdates`) and redistribute new builds through your MDM on your own cadence. This is required for air-gapped environments but means your IT team owns the update pipeline.
+- **Leave auto-update enabled** (recommended) so fixes reach users without IT intervention. Use `autoUpdaterEnforcementHours` to bound how long users can defer a pending update.
+- **Disable auto-update** (`disableAutoUpdates`) and redistribute new builds through your MDM on your own cadence. This is required for air-gapped environments but means your IT team owns the update pipeline.
 
 See [Telemetry and egress](/cowork/3p/telemetry) for the network paths the updater uses.

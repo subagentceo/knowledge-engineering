@@ -18,21 +18,21 @@ Use two powerful AI products in one simple subscription.
 
 1. **Ensure you have an active Pro or Max plan subscription**
 
-  - If you're not already subscribed, upgrade at **[claude.ai/upgrade](https://claude.ai/upgrade)**
+- If you're not already subscribed, upgrade at **[claude.ai/upgrade](https://claude.ai/upgrade)**
 
 2. **Install Claude Code**
 
-  - Visit the **[Claude Code page in our Claude Docs](https://code.claude.com/docs/en/quickstart#step-1-install-claude-code)** to download and install Claude Code.
+- Visit the **[Claude Code page in our Claude Docs](https://code.claude.com/docs/en/quickstart#step-1-install-claude-code)** to download and install Claude Code.
 
-  - Follow the installation instructions for your operating system.
+- Follow the installation instructions for your operating system.
 
 3. **Authenticate with your Claude credentials**
 
-  - When prompted during setup or first use, log in with the same credentials you use for Claude.
+- When prompted during setup or first use, log in with the same credentials you use for Claude.
 
-  - This will connect your Pro or Max plan subscription to Claude Code.
+- This will connect your Pro or Max plan subscription to Claude Code.
 
-  - If you're already logged in to Claude Code via Claude Console PAYG, run /login from within Claude Code to switch to your subscription plan.
+- If you're already logged in to Claude Code via Claude Console PAYG, run /login from within Claude Code to switch to your subscription plan.
 
 ### Having trouble using your Pro or Max plan to access Claude Code?
 
@@ -60,7 +60,7 @@ When you reach your usage limits, you can select from a few options based on you
 
 - Consider upgrading to the Max 5x plan if you consistently hit limits and need more capacity for larger repositories.
 
-- **[Enable extra usage](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)** to continue using Claude with your Pro plan after hitting the included usage limit.
+- **[Enable usage credits](https://support.claude.com/en/articles/12429409-)** to continue using Claude with your Pro plan after hitting the included usage limit.
 
 - You will have the flexibility to switch to **[pay-as-you-go usage](https://support.claude.com/en/articles/8114526-how-will-i-be-billed-for-claude-api-use)** with a Claude Console account for intensive coding sprints.
 
@@ -70,7 +70,7 @@ When you reach your usage limits, you can select from a few options based on you
 
 - If you're on the Max 5x plan, consider upgrading to the Max 20x plan if you consistently hit limits.
 
-- **[Enable extra usage](https://support.claude.com/en/articles/12429409-extra-usage-for-max-20x-plans)** to continue using Claude with your Max plan after hitting the included usage limit.
+- **[Enable usage credits](https://support.claude.com/en/articles/12429409-)** to continue using Claude with your Max plan after hitting the included usage limit.
 
 - You will have the flexibility to switch to **[pay-as-you-go usage](https://support.claude.com/en/articles/8114526-how-will-i-be-billed-for-claude-api-use)** with a Claude Console account for intensive coding sprints.
 

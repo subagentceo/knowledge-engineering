@@ -1,3 +1,5 @@
+# Fix software bugs faster with Claude
+
 Debugging code is time-consuming and tedious. And the hardest part isn't usually fixing the bug itself; it’s understanding why your code broke in the first place.
 
 Your test suite fails, but the error message points to a symptom, not the cause. A user reports unexpected behavior that traces back to code from three sprints ago. The real issue might be hiding in some dependency you forgot existed. Each bug pulls you out of flow state into detective mode, hunting through logs and stack traces when you'd rather be building.
@@ -36,20 +38,20 @@ Thorough analysis can identify root causes, but modern deployment means dozens o
 
 Developers of all skill levels can integrate AI coding assistants like Claude into their debugging workflows for immediate error analysis. You can collaborate with Claude to debug in two different ways:
 
--   [**Claude.ai**](https://claude.ai): Free web interface. Paste stack traces, describe bugs, get quick analysis with specific hypotheses and investigation paths. Any browser, desktop, or mobile.
--   [**Claude Code**](https://claude.com/product/claude-code): Command line tool for [agentic coding](https://claude.com/blog/introduction-to-agentic-coding). Unlike traditional assistants that wait for your next instruction, Claude Code autonomously works through multi-step debugging workflows reading error traces, analyzing code across files, running diagnostic tests, and implementing fixes while you focus on other tasks. 
+- **Claude.ai**: Free web interface. Paste stack traces, describe bugs, get quick analysis with specific hypotheses and investigation paths. Any browser, desktop, or mobile.
+- **Claude Code**: Command line tool for agentic coding. Unlike traditional assistants that wait for your next instruction, Claude Code autonomously works through multi-step debugging workflows reading error traces, analyzing code across files, running diagnostic tests, and implementing fixes while you focus on other tasks. 
 
 ## Start with Claude.ai
 
-Before diving deep into your codebase, use [Claude.ai](https://claude.ai) to quickly analyze error patterns and generate investigation hypotheses. The web interface lets you paste stack traces, describe symptoms, and get immediate feedback. This first-pass analysis helps you understand what to look for before committing to time-intensive debugging approaches. Common debugging questions developers ask Claude:
+Before diving deep into your codebase, use Claude.ai to quickly analyze error patterns and generate investigation hypotheses. The web interface lets you paste stack traces, describe symptoms, and get immediate feedback. This first-pass analysis helps you understand what to look for before committing to time-intensive debugging approaches. Common debugging questions developers ask Claude:
 
--   "Here's a test failure from CI. What could be causing it?"
--   "Why might this Redux selector return undefined sometimes?"
--   "Compare our debounce and throttle helpers—which is safer?"
+- "Here's a test failure from CI. What could be causing it?"
+- "Why might this Redux selector return undefined sometimes?"
+- "Compare our debounce and throttle helpers—which is safer?"
 
 These questions help you quickly validate theories, identify blind spots in your investigation, and prioritize which debugging approaches to try first. 
 
-### **Identify failure modes early**
+### Identify failure modes early
 
 Before diving into code, Claude helps you think through potential issues systematically. Ask Claude to identify scenarios that trigger specific errors: timeouts, rate limiting, missing fields.
 
@@ -65,7 +67,7 @@ Claude identifies patterns in error data, highlighting the specific service, con
 
 ## Scale up with Claude Code for complex investigations
 
-When bugs span your entire codebase, [Claude Code](https://claude.com/product/claude-code) acts as an autonomous debugging partner. Unlike traditional coding assistants that wait for instructions, Claude Code can independently explore your project, following debugging trails across files, and executing the investigative workflow a seasoned developer would take, all while you focus on other tasks.
+When bugs span your entire codebase, Claude Code acts as an autonomous debugging partner. Unlike traditional coding assistants that wait for instructions, Claude Code can independently explore your project, following debugging trails across files, and executing the investigative workflow a seasoned developer would take, all while you focus on other tasks.
 
 Install:
 
@@ -91,9 +93,9 @@ Some bugs require structured reasoning rather than direct debugging.
 
 Try:
 
--   "Think through concurrency issues if two users trigger checkout simultaneously"
--   "What breaks if we shorten token expiry from 24 hours to 15 minutes?"
--   "Help me reason through a safe refactor for our session handler"
+- "Think through concurrency issues if two users trigger checkout simultaneously"
+- "What breaks if we shorten token expiry from 24 hours to 15 minutes?"
+- "Help me reason through a safe refactor for our session handler"
 
 Claude breaks down problems systematically, identifies race conditions, and suggests mitigation strategies.
 
@@ -111,9 +113,9 @@ Every edit is local, permissioned, and reversible. By default, Claude Code reque
 
 Claude Code generates and runs tests verifying the bug is resolved and surrounding behavior remains stable:
 
--   Write a test that reproduces this bug
--   Generate integration tests for this fix
--   Run the test suite and show me what changed
+- Write a test that reproduces this bug
+- Generate integration tests for this fix
+- Run the test suite and show me what changed
 
 ### Ship with automated workflows
 
@@ -137,9 +139,9 @@ Ramp uses Claude Code to accelerate delivery across hundreds of services.
 
 Results:
 
--   **1M+ lines of AI-suggested code** in 30 days
--   **80% reduction in incident triage time**
--   **50% weekly active usage** across engineering teams
+- **1M+ lines of AI-suggested code** in 30 days
+- **80% reduction in incident triage time**
+- **50% weekly active usage** across engineering teams
 
 "When we discovered Claude Code, our teams immediately recognized its potential and integrated it into our workflows," says Austin Ray, Senior Software Engineer.
 

@@ -162,7 +162,7 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
 
     <CodeGroup>
 
-    
+
 
     ```bash cURL nocheck
     JWT=$(cat "$ANTHROPIC_IDENTITY_TOKEN_FILE")
@@ -192,7 +192,7 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
       }' | jq -r '.content[0].text'
     ```
 
-    
+
 
     ```python Python nocheck
     import anthropic
@@ -210,7 +210,7 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
     print(message.content[0].text)
     ```
 
-    
+
 
     ```typescript TypeScript nocheck
     import Anthropic from "@anthropic-ai/sdk";
@@ -232,7 +232,7 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
     }
     ```
 
-    
+
 
     ```go Go nocheck hidelines={1..10,-1}
     package main
@@ -264,7 +264,7 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
     }
     ```
 
-    
+
 
     ```java Java nocheck hidelines={1..6,-1}
     import com.anthropic.client.AnthropicClient;
@@ -285,7 +285,7 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
     }
     ```
 
-    
+
 
     ```csharp C# nocheck hidelines={1..3}
     using Anthropic.Models.Messages;
@@ -310,7 +310,7 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
     }
     ```
 
-    
+
 
     ```bash CLI nocheck
     # Reads the JWT-SVID that spiffe-helper writes to
@@ -322,7 +322,7 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
       --message '{role: user, content: "Hello, Claude"}'
     ```
 
-    
+
 
     ```php PHP nocheck hidelines={1..3}
     <?php
@@ -343,7 +343,7 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
     echo $message->content[0]->text, PHP_EOL;
     ```
 
-    
+
 
     ```ruby Ruby nocheck
     require "anthropic"
@@ -362,15 +362,15 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
     ```
 
     </CodeGroup>
+
   </Tab>
 
   <Tab title="Callable via the SPIFFE Workload API">
     Workloads that link a SPIFFE Workload API client directly can skip spiffe-helper and pass the SDK a callable that fetches a fresh JWT-SVID from the agent socket. The SDK invokes the callable before each token exchange, so the workload always presents an unexpired SVID. Go ([go-spiffe](https://github.com/spiffe/go-spiffe)) and Python ([py-spiffe](https://github.com/HewlettPackard/py-spiffe)) have mature Workload API clients.
 
-    
     <CodeGroup>
 
-    
+
 
     ```go Go nocheck hidelines={1..14,-1}
     package main
@@ -427,7 +427,7 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
     }
     ```
 
-    
+
 
     ```python Python nocheck
     import os
@@ -469,6 +469,7 @@ The Anthropic SDKs can either read the JWT-SVID from the file that spiffe-helper
     <Note>
     For other languages, fetch the JWT-SVID with your runtime's SPIFFE Workload API client (or shell out to `spire-agent api fetch jwt`), write it to a file, and set `ANTHROPIC_IDENTITY_TOKEN_FILE` to that path as in the file-based tab.
     </Note>
+
   </Tab>
 </Tabs>
 

@@ -1,8 +1,10 @@
+# Fastly Agent Toolkit
+
 A collection of six specialized skills that give your coding agent deep knowledge of the Fastly edge cloud platform. Covers the full Fastly development lifecycle — from writing and linting VCL, to running Compute applications locally, to managing services, caching, security, and deployment via the Fastly CLI and API.
 
 The toolkit includes skills for: **Fastly platform** knowledge (services, caching, WAF, TLS, DDoS, purging, and API usage), **Fastly CLI** operations, **Falco** (VCL linting, testing, simulation, and formatting), **Viceroy** (local WASM-based Compute execution and testing for Rust projects), **Fastlike** (Go-based local Compute execution), and **XVCL** (a VCL transpiler with metaprogramming features like loops, constants, and macros).
 
-Each skill provides curated reference documentation that the agent consults when working on Fastly projects, helping it avoid common pitfalls like VCL scope violations, incorrect Vary header placement, missing local\_server configuration, and deprecated syntax.
+Each skill provides curated reference documentation that the agent consults when working on Fastly projects, helping it avoid common pitfalls like VCL scope violations, incorrect Vary header placement, missing local_server configuration, and deprecated syntax.
 
 ### How to use
 

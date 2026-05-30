@@ -1,3 +1,5 @@
+# Qodo Skills
+
 Qodo Skills brings shift-left code review capabilities into your development workflow. It connects Claude Code to the Qodo platform, letting you fetch and enforce repository-specific coding rules before you commit, and resolve Qodo PR review issues directly from your terminal. Rules are organized by severity—ERROR (mandatory), WARNING (recommended), and RECOMMENDATION (optional)—and are scoped hierarchically across organization, repository, and path levels.
 
 The plugin includes two core skills: **get-qodo-rules** fetches your team's coding standards from the Qodo API and applies them during code generation, refactoring, and review tasks. **qodo-pr-resolver** pulls Qodo review comments from open pull requests and lets you fix issues interactively or in batch mode, with automatic commits and PR summary comments. It supports GitHub, GitLab, Bitbucket, and Azure DevOps.

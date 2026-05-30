@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -75,6 +76,6 @@ To archive, open the project's menu in the sidebar and choose **Archive**.
 
 ## Related
 
-* [Run tasks in the background with Dispatch](/cowork/guide/dispatch) to run work inside a project without watching each step
-* [Install plugins](/cowork/guide/plugins) to extend what Claude can do in a project's sessions
-* [Cowork overview](/cowork/overview) for how projects relate to sessions and Dispatch
+- [Run tasks in the background with Dispatch](/cowork/guide/dispatch) to run work inside a project without watching each step
+- [Install plugins](/cowork/guide/plugins) to extend what Claude can do in a project's sessions
+- [Cowork overview](/cowork/overview) for how projects relate to sessions and Dispatch

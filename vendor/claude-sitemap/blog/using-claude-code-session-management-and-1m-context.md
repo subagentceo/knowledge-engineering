@@ -1,12 +1,14 @@
+# Using Claude Code: session management and 1M context
+
 We released **`/usage`**, a new slash command to help you understand your usage with Claude Code. This feature was informed by a number of conversations with customers. 
 
 What came up again and again in these calls is that there is a lot of variance in how users manage their sessions, especially with our new update to 1 million context in Claude Code.
 
-Do you only use one session or two sessions that you keep open in a terminal? Do you start a new session with every prompt? When do you use [compact](https://platform.claude.com/docs/en/build-with-claude/compaction), rewind or [subagents](https://code.claude.com/docs/en/sub-agents)? What causes a bad compact or bad session?
+Do you only use one session or two sessions that you keep open in a terminal? Do you start a new session with every prompt? When do you use compact, rewind or subagents? What causes a bad compact or bad session?
 
-There’s a surprising amount of detail here that can really shape your experience with [Claude Code](https://code.claude.com/docs/en/overview) and almost all of it comes from [managing your context window](https://code.claude.com/docs/en/how-claude-code-works).
+There’s a surprising amount of detail here that can really shape your experience with Claude Code and almost all of it comes from managing your context window.
 
-## **A quick primer on context, compaction and context rot**
+## A quick primer on context, compaction and context rot
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e02238a3e7e9532cb643de_image6.png)
 
@@ -18,21 +20,21 @@ Context windows are a hard cutoff, so when you’re nearing the end of the conte
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e02297f13357d9b32d8312_image5.png)
 
-## **Every turn as a branching point**
+## Every turn as a branching point
 
 Say you've just asked Claude to do something and it's finished—you’ve now got some information in context (tool calls, tool outputs, your instructions) and you have a surprising number of options for what to do next:
 
--   **Continue** — send another message in the same session
--   **`/rewind` (esc esc)** — jump back to a previous message and try again from there
--   **`/clear`** — start a new session, usually with a brief you've distilled from what you just learned
--   **Compact** — summarize the session so far and keep going on top of the summary
--   **Subagents** — delegate the next chunk of work to an agent with its own clean context, and only pull its result back in
+- **Continue** — send another message in the same session
+- **`/rewind` (esc esc)** — jump back to a previous message and try again from there
+- **`/clear`** — start a new session, usually with a brief you've distilled from what you just learned
+- **Compact** — summarize the session so far and keep going on top of the summary
+- **Subagents** — delegate the next chunk of work to an agent with its own clean context, and only pull its result back in
 
 While the most natural course is just to continue, the other four options exist to help manage your context.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e022cf45e7f9c9d025756d_image3.png)
 
-## **When to start a new session**
+## When to start a new session
 
 When do you keep a long running session vs starting a new one? Our general rule of thumb is when you start a new task, you should also start a new session.
 
@@ -40,7 +42,7 @@ While 1M context windows mean that you can now do longer tasks more reliably, fo
 
 Sometimes you may do related tasks where some of the context is still necessary, but not always. For example, writing the documentation for a feature you just implemented. While you could start a new session, Claude would have to reread the files that you just implemented, which would be slower and more expensive.
 
-## **Rewinding instead of correcting**
+## Rewinding instead of correcting
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0234c97977d4944bea810_image4.png)
 
@@ -50,7 +52,7 @@ Rewind is often the better approach to correction. For example, Claude reads fiv
 
 You can also use _“summarize from here”_ or the `/rewind` slash command to have Claude summarize its learnings and create a handoff message, kind of like a message to the previous iteration of Claude from its future self that tried something and it didn’t work.
 
-## **Compacting vs. launching a fresh session**
+## Compacting vs. launching a fresh session
 
 Once a session gets long, you have two ways to shed extraneous context: `/compact` or `/clear` (and start fresh). They feel similar but behave very differently.
 
@@ -60,7 +62,7 @@ Once a session gets long, you have two ways to shed extraneous context: `/compac
 
 With `/clear` _you_ write down what matters ("we're refactoring the auth middleware, the constraint is X, the files that matter are A and B, we've ruled out approach Y") and start clean. It's more work, but the resulting context is what you decided was relevant. 
 
-## **What causes a bad autocompact?**
+## What causes a bad autocompact?
 
 If you run a lot of long-running sessions, you might have noticed times in which compacting might be particularly bad. In this case we’ve often found that bad compacts can happen when the model can’t predict the direction your work is going. 
 
@@ -70,21 +72,21 @@ But because the session was focused on debugging, the other warning might have b
 
 This is particularly difficult, because due to context rot, the model is at its least intelligent point when compacting.  With one million context, you have more time to /compact proactively with a description of what you want to do. 
 
-## **Subagents and fresh context windows**
+## Subagents and fresh context windows
 
-[Subagents](https://claude.com/blog/subagents-in-claude-code) tend to work well when you know in advance that a chunk of work will produce a lot of intermediate output you won't need again.
+Subagents tend to work well when you know in advance that a chunk of work will produce a lot of intermediate output you won't need again.
 
 When Claude spawns a subagent via the Agent tool, that subagent gets its own fresh context window. It can do as much work as it needs to, and then synthesize its results so only the final report comes back to the parent.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0241044643c5402b312a9_image2.png)
 
-The mental test we use at Anthropic: _will I need this tool output again, or just the conclusion?_ 
+The mental test we use at Anthropic: *will I need this tool output again, or just the conclusion?* 
 
 While Claude Code will automatically call subagents, you may want to tell it to explicitly do this. For example, you may want to tell it to:
 
--   “Spin up a subagent to verify the result of this work based on the following spec file”
--   “Spin off a subagent to read through this other codebase and summarize how it implemented the auth flow, then implement it yourself in the same way”
--   “Spin off a subagent to write the docs on this feature based on my git changes”
+- “Spin up a subagent to verify the result of this work based on the following spec file”
+- “Spin off a subagent to read through this other codebase and summarize how it implemented the auth flow, then implement it yourself in the same way”
+- “Spin off a subagent to write the docs on this feature based on my git changes”
 
 **Putting it together**
 
@@ -130,7 +132,7 @@ We look forward to seeing what you build. 
 
 ‍
 
-_Get started with_ [_Claude Code_](https://code.claude.com/docs/en/overview) _today._
+_Get started with_ _Claude Code_ _today._
 
 **_About the author:_** _Thariq Shihipar is a member of technical staff at Anthropic, working on Claude Code._
 

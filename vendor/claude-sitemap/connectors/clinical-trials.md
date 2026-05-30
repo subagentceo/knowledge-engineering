@@ -1,3 +1,5 @@
+# Clinical Trials
+
 The Clinical Trials connector gives Claude access to ClinicalTrials.gov, the NIH/NLM registry of FDA-regulated clinical studies conducted worldwide. Search for trials by condition, eligibility criteria, sponsor, or investigator. Analyze endpoints, find recruiting studies, and identify experienced research sites for clinical development planning.
 
 You can use the Clinical Trials connector to:

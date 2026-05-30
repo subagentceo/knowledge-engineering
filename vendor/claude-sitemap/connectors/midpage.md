@@ -1,3 +1,5 @@
+# Midpage Legal Research
+
 Connect Claude to a database of case law. With the Midpage MCP, Claude can conduct complex legal research, review opinions, and craft high quality work product. Everything is hyperlinked to real sources for easy verification.
 
 You can use Midpage Legal Research to:

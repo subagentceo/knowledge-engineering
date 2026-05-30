@@ -1,4 +1,4 @@
-## Create
+## Create a Text Completion
 
 **post** `/v1/complete`
 
@@ -13,11 +13,9 @@ Future models and features will not be compatible with Text Completions. See our
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -66,6 +64,12 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Body Parameters
 
 - `max_tokens_to_sample: number`
@@ -79,12 +83,14 @@ Future models and features will not be compatible with Text Completions. See our
   The model that will complete your prompt.
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-  - `UnionMember0 = "claude-opus-4-7" or "claude-mythos-preview" or "claude-opus-4-6" or 14 more`
+  - `"claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+    - `"claude-opus-4-8"`
+
+      Frontier intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
@@ -154,7 +160,7 @@ Future models and features will not be compatible with Text Completions. See our
 
       Fast and cost-effective model
 
-  - `UnionMember1 = string`
+  - `string`
 
 - `prompt: string`
 
@@ -168,9 +174,9 @@ Future models and features will not be compatible with Text Completions. See our
 
   ```
   "
-  
+
   Human: {userQuestion}
-  
+
   Assistant:"
   ```
 
@@ -179,7 +185,6 @@ Future models and features will not be compatible with Text Completions. See our
 - `metadata: optional Metadata`
 
   An object describing metadata about the request.
-
   - `user_id: optional string`
 
     An external identifier for the user who is associated with the request.
@@ -226,8 +231,7 @@ Future models and features will not be compatible with Text Completions. See our
 
 ### Returns
 
-- `Completion = object { id, completion, model, 2 more }`
-
+- `Completion object { id, completion, model, 2 more }`
   - `id: string`
 
     Unique object identifier.
@@ -243,12 +247,14 @@ Future models and features will not be compatible with Text Completions. See our
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-    - `UnionMember0 = "claude-opus-4-7" or "claude-mythos-preview" or "claude-opus-4-6" or 14 more`
+    - `"claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `"claude-opus-4-8"`
+
+        Frontier intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
@@ -318,23 +324,21 @@ Future models and features will not be compatible with Text Completions. See our
 
         Fast and cost-effective model
 
-    - `UnionMember1 = string`
+    - `string`
 
   - `stop_reason: string`
 
     The reason that we stopped.
 
     This may be one the following values:
-
-    * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
-    * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
+    - `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
+    - `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
   - `type: "completion"`
 
     Object type.
 
     For Text Completions, this is always `"completion"`.
-
     - `"completion"`
 
 ### Example
@@ -353,4 +357,16 @@ curl https://api.anthropic.com/v1/complete \
           "top_k": 5,
           "top_p": 0.7
         }'
+```
+
+#### Response
+
+```json
+{
+  "id": "compl_018CKm6gsux7P8yMcwZbeCPw",
+  "completion": " Hello! My name is Claude.",
+  "model": "claude-2.1",
+  "stop_reason": "stop_sequence",
+  "type": "completion"
+}
 ```

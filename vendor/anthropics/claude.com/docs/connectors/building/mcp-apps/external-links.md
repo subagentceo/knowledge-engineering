@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -39,15 +40,15 @@ example-app
 
 These destinations open immediately:
 
-* `https://example.com/pricing`
-* `https://docs.example.com/getting-started?ref=claude`
-* `example-app://open/project/123`
+- `https://example.com/pricing`
+- `https://docs.example.com/getting-started?ref=claude`
+- `example-app://open/project/123`
 
 These destinations still show the confirmation modal:
 
-* `https://blog.example.com` (subdomain not listed)
-* `http://example.com` (not HTTPS)
-* `https://example.com.attacker.net` (different hostname)
+- `https://blog.example.com` (subdomain not listed)
+- `http://example.com` (not HTTPS)
+- `https://example.com.attacker.net` (different hostname)
 
 ### Restrictions on custom schemes
 
@@ -67,8 +68,8 @@ If your app sends `ui/open-link` without a preceding gesture (programmatically, 
 
 Even with an allowlist configured, your app should remain usable when the modal appears:
 
-* Custom and local connectors always show the modal. Your app may run outside the directory during development or in self-hosted deployments.
-* Destinations not on your allowlist, or added since your last published directory update, show the modal.
-* Requests without user activation show the modal.
+- Custom and local connectors always show the modal. Your app may run outside the directory during development or in self-hosted deployments.
+- Destinations not on your allowlist, or added since your last published directory update, show the modal.
+- Requests without user activation show the modal.
 
 Provide enough context in your UI that the destination URL shown in the modal is recognizable to the user.

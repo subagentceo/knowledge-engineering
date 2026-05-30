@@ -1,4 +1,6 @@
-Since [launching Skills in October](https://claude.com/blog/skills), we've seen strong interest from developers who want Claude to follow specific workflows consistently, power users automating repeatable tasks like document creation or research processes, teams looking to standardize how Claude operates across their organization, and MCP connector builders pairing their integrations with reliable workflows.
+# A complete guide to building skills for Claude
+
+Since launching Skills in October, we've seen strong interest from developers who want Claude to follow specific workflows consistently, power users automating repeatable tasks like document creation or research processes, teams looking to standardize how Claude operates across their organization, and MCP connector builders pairing their integrations with reliable workflows.
 
 The common thread: people want more detailed guidance on building effective skills—whether for standalone workflows or MCP-enhanced integrations—from planning and structure to testing and distribution.
 
@@ -6,18 +8,18 @@ We put together this guide to fill that gap. It covers everything from technical
 
 **What you'll learn:**
 
--   Technical requirements and best practices for skill structure
--   Patterns for standalone skills and MCP-enhanced workflows
--   Patterns that have worked across different use cases
--   How to test, iterate, and distribute your skills
+- Technical requirements and best practices for skill structure
+- Patterns for standalone skills and MCP-enhanced workflows
+- Patterns that have worked across different use cases
+- How to test, iterate, and distribute your skills
 
 If you know the top 2-3 workflows you want to automate, expect about 15-30 minutes to build and test your first working skill using the skill-creator.
 
 **Who this is for:**
 
--   Developers who want Claude to follow specific workflows consistently
--   MCP connector builders adding workflow knowledge to their integrations
--   Power users automating repeatable tasks
--   Teams looking to standardize how Claude works across their organization
+- Developers who want Claude to follow specific workflows consistently
+- MCP connector builders adding workflow knowledge to their integrations
+- Power users automating repeatable tasks
+- Teams looking to standardize how Claude works across their organization
 
-Download the guide [here](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf?hsLang=en).
+Download the guide here.

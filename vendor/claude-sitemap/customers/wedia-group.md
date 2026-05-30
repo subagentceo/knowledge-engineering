@@ -1,10 +1,12 @@
+# Wedia Group advances digital asset management with Claude
+
 Wedia Group, a leading provider of digital asset management (DAM) solutions, uses Claude to transform how their customers organize, search, and utilize their visual content. Wedia powers their platform with Claude in Amazon Bedrock to improve metadata generation, multilingual support, and overall user experience for its clients.
 
 With Claude, Wedia saw:
 
--   Ability to process 20,000-30,000 new images per month
--   Reduction in image metadata tagging time
--   Support for 20+ languages in image descriptions
+- Ability to process 20,000-30,000 new images per month
+- Reduction in image metadata tagging time
+- Support for 20+ languages in image descriptions
 
 ## The challenge: Organizing vast libraries of visual content
 

@@ -1,3 +1,5 @@
+# Harvey
+
 Bring Harvey's legal intelligence into Claude. The Harvey MCP server supports general legal inquiries, analysis over Vault projects, and research questions for select knowledge sources. The server also exposes discovery tools to list available Vault projects and knowledge sources, so you always know what is available for access.
 
 You can use Harvey to:

@@ -1,4 +1,4 @@
-## Retrieve
+## Get Environment
 
 `$ ant beta:environments retrieve`
 
@@ -16,91 +16,94 @@ Retrieve a specific environment by ID.
 
 ### Returns
 
-- `beta_environment: object { id, archived_at, config, 6 more }`
+- `beta_environment: object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
-
   - `id: string`
 
-    Environment identifier (e.g., 'env_...')
+    Environment identifier (e.g., 'env\_...')
 
   - `archived_at: string`
 
     RFC 3339 timestamp when environment was archived, or null if not archived
 
-  - `config: object { networking, packages, type }`
+  - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
-    `cloud` environment configuration.
+    Environment configuration (either Anthropic Cloud or self-hosted)
+    - `beta_cloud_config: object { networking, packages, type }`
 
-    - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
+      `cloud` environment configuration.
+      - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
-      Network configuration policy.
+        Network configuration policy.
+        - `beta_unrestricted_network: object { type }`
 
-      - `beta_unrestricted_network: object { type }`
+          Unrestricted network access.
+          - `type: "unrestricted"`
 
-        Unrestricted network access.
+            Network policy type
 
-        - `type: "unrestricted"`
+        - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
-          Network policy type
+          Limited network access.
+          - `allow_mcp_servers: boolean`
 
-      - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
 
-        Limited network access.
+          - `allow_package_managers: boolean`
 
-        - `allow_mcp_servers: boolean`
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
 
-          Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+          - `allowed_hosts: array of string`
 
-        - `allow_package_managers: boolean`
+            Specifies domains the container can reach.
 
-          Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+          - `type: "limited"`
 
-        - `allowed_hosts: array of string`
+            Network policy type
 
-          Specifies domains the container can reach.
+      - `packages: object { apt, cargo, gem, 4 more }`
 
-        - `type: "limited"`
+        Package manager configuration.
+        - `apt: array of string`
 
-          Network policy type
+          Ubuntu/Debian packages to install
 
-    - `packages: object { apt, cargo, gem, 4 more }`
+        - `cargo: array of string`
 
-      Package manager configuration.
+          Rust packages to install
 
-      - `apt: array of string`
+        - `gem: array of string`
 
-        Ubuntu/Debian packages to install
+          Ruby packages to install
 
-      - `cargo: array of string`
+        - `go: array of string`
 
-        Rust packages to install
+          Go packages to install
 
-      - `gem: array of string`
+        - `npm: array of string`
 
-        Ruby packages to install
+          Node.js packages to install
 
-      - `go: array of string`
+        - `pip: array of string`
 
-        Go packages to install
+          Python packages to install
 
-      - `npm: array of string`
+        - `type: optional "packages"`
 
-        Node.js packages to install
+          Package configuration type
+          - `"packages"`
 
-      - `pip: array of string`
+      - `type: "cloud"`
 
-        Python packages to install
+        Environment type
 
-      - `type: optional "packages"`
+    - `beta_self_hosted_config: object { type }`
 
-        Package configuration type
+      Configuration for self-hosted environments.
+      - `type: "self_hosted"`
 
-        - `"packages"`
-
-    - `type: "cloud"`
-
-      Environment type
+        Environment type
 
   - `created_at: string`
 
@@ -126,10 +129,51 @@ Retrieve a specific environment by ID.
 
     RFC 3339 timestamp when environment was last updated
 
+  - `scope: optional "organization" or "account"`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+    - `"organization"`
+
+    - `"account"`
+
 ### Example
 
 ```cli
 ant beta:environments retrieve \
   --api-key my-anthropic-api-key \
   --environment-id env_011CZkZ9X2dpNyB7HsEFoRfW
+```
+
+#### Response
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": ["api.example.com"],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": ["string"],
+      "cargo": ["string"],
+      "gem": ["string"],
+      "go": ["string"],
+      "npm": ["string"],
+      "pip": ["pandas", "numpy"],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
 ```

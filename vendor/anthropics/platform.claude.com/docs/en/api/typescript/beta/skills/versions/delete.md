@@ -1,4 +1,4 @@
-## Delete
+## Delete Skill Version
 
 `client.beta.skills.versions.delete(stringversion, VersionDeleteParamsparams, RequestOptionsoptions?): VersionDeleteResponse`
 
@@ -15,7 +15,6 @@ Delete Skill Version
   Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 - `params: VersionDeleteParams`
-
   - `skill_id: string`
 
     Path param: Unique identifier for the skill.
@@ -25,11 +24,9 @@ Delete Skill Version
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -78,10 +75,15 @@ Delete Skill Version
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `VersionDeleteResponse`
-
   - `id: string`
 
     Version identifier for the skill.
@@ -97,13 +99,24 @@ Delete Skill Version
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const version = await client.beta.skills.versions.delete('version', { skill_id: 'skill_id' });
+const version = await client.beta.skills.versions.delete("version", {
+  skill_id: "skill_id",
+});
 
 console.log(version.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "1759178010641129",
+  "type": "type"
+}
 ```

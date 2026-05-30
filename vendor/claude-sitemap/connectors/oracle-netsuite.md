@@ -1,7 +1,9 @@
+# Oracle NetSuite
+
 A flexible and scalable way to connect Claude to NetSuite and use AI to query and analyze NetSuite data.
 
-You can use the NetSuite connector to:  
-  
+You can use the NetSuite connector to:
+
 Query sales data:  
 "How much did American Meats Inc buy from us in August?"
 

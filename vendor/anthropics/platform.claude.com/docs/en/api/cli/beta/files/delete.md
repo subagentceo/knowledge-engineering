@@ -1,4 +1,4 @@
-## Delete
+## Delete File
 
 `$ ant beta:files delete`
 
@@ -19,7 +19,6 @@ Delete File
 ### Returns
 
 - `deleted_file: object { id, type }`
-
   - `id: string`
 
     ID of the deleted file.
@@ -29,7 +28,6 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `"file_deleted"`
 
 ### Example
@@ -38,4 +36,13 @@ Delete File
 ant beta:files delete \
   --api-key my-anthropic-api-key \
   --file-id file_id
+```
+
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "type": "file_deleted"
+}
 ```

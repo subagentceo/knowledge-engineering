@@ -1,4 +1,4 @@
-## Delete
+## Delete a memory store
 
 `beta.memory_stores.delete(strmemory_store_id, MemoryStoreDeleteParams**kwargs)  -> BetaManagedAgentsDeletedMemoryStore`
 
@@ -13,11 +13,9 @@ Delete a memory store
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -66,18 +64,22 @@ Delete a memory store
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaManagedAgentsDeletedMemoryStore: …`
 
   Confirmation that a `memory_store` was deleted.
-
   - `id: str`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `type: Literal["memory_store_deleted"]`
-
     - `"memory_store_deleted"`
 
 ### Example
@@ -93,4 +95,13 @@ beta_managed_agents_deleted_memory_store = client.beta.memory_stores.delete(
     memory_store_id="memory_store_id",
 )
 print(beta_managed_agents_deleted_memory_store.id)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "memory_store_deleted"
+}
 ```

@@ -1,7 +1,9 @@
-Enable users to search company databases, analyze employee headcount trends, track hiring and attrition rates, explore corporate structures, and benchmark workforce metrics across industries.  
-  
-You can use the Aura connector to do:  
-  
+# Aura
+
+Enable users to search company databases, analyze employee headcount trends, track hiring and attrition rates, explore corporate structures, and benchmark workforce metrics across industries.
+
+You can use the Aura connector to do:
+
 Investment Due Diligence:  
 "Analyze Salesforce’s workforce growth over the past 12 months. Break down their employee distribution by department and compare their hiring velocity to other major SaaS companies like HubSpot and Zendesk."  
 ‍

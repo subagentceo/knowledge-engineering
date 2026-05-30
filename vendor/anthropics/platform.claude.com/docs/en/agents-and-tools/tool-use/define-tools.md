@@ -18,11 +18,11 @@ If using Claude with tool use and extended thinking, refer to the [extended thin
 
 Client tools (both Anthropic-schema and user-defined) are specified in the `tools` top-level parameter of the API request. Each tool definition includes:
 
-| Parameter      | Description                                                                                         |
-| :------------- | :-------------------------------------------------------------------------------------------------- |
-| `name`         | The name of the tool. Must match the regex `^[a-zA-Z0-9_-]{1,64}$`.                                 |
-| `description`  | A detailed plaintext description of what the tool does, when it should be used, and how it behaves. |
-| `input_schema` | A [JSON Schema](https://json-schema.org/) object defining the expected parameters for the tool.     |
+| Parameter        | Description                                                                                                                                                  |
+| :--------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`           | The name of the tool. Must match the regex `^[a-zA-Z0-9_-]{1,64}$`.                                                                                          |
+| `description`    | A detailed plaintext description of what the tool does, when it should be used, and how it behaves.                                                          |
+| `input_schema`   | A [JSON Schema](https://json-schema.org/) object defining the expected parameters for the tool.                                                              |
 | `input_examples` | (Optional) An array of example input objects to help Claude understand how to use the tool. See [Providing tool use examples](#providing-tool-use-examples). |
 
 For the full set of optional properties available on any tool definition, including `cache_control`, `strict`, `defer_loading`, and `allowed_callers`, see the [Tool reference](/docs/en/agents-and-tools/tool-use/tool-reference#tool-definition-properties).
@@ -139,9 +139,51 @@ You can provide concrete examples of valid tool inputs to help Claude understand
 Add an optional `input_examples` field to your tool definition with an array of example input objects. Each example must be valid according to the tool's `input_schema`:
 
 <CodeGroup>
+```bash cURL
+curl -sS https://api.anthropic.com/v1/messages \
+  -H "content-type: application/json" \
+  -H "x-api-key: $ANTHROPIC_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -d @- <<'EOF'
+{
+  "model": "claude-opus-4-8",
+  "max_tokens": 1024,
+  "tools": [
+    {
+      "name": "get_weather",
+      "description": "Get the current weather in a given location",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "description": "The city and state, e.g. San Francisco, CA"
+          },
+          "unit": {
+            "type": "string",
+            "enum": ["celsius", "fahrenheit"],
+            "description": "The unit of temperature"
+          }
+        },
+        "required": ["location"]
+      },
+      "input_examples": [
+        {"location": "San Francisco, CA", "unit": "fahrenheit"},
+        {"location": "Tokyo, Japan", "unit": "celsius"},
+        {"location": "New York, NY"}
+      ]
+    }
+  ],
+  "messages": [
+    {"role": "user", "content": "What's the weather like in San Francisco?"}
+  ]
+}
+EOF
+```
+
 ```bash CLI
 ant messages create <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 1024
 tools:
   - name: get_weather
@@ -175,7 +217,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 response = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=1024,
     tools=[
         {
@@ -217,7 +259,7 @@ import Anthropic from "@anthropic-ai/sdk";
 const client = new Anthropic();
 
 const response = await client.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   tools: [
     {
@@ -228,33 +270,35 @@ const response = await client.messages.create({
         properties: {
           location: {
             type: "string",
-            description: "The city and state, e.g. San Francisco, CA"
+            description: "The city and state, e.g. San Francisco, CA",
           },
           unit: {
             type: "string",
             enum: ["celsius", "fahrenheit"],
-            description: "The unit of temperature"
-          }
+            description: "The unit of temperature",
+          },
         },
-        required: ["location"]
+        required: ["location"],
       },
       input_examples: [
         {
           location: "San Francisco, CA",
-          unit: "fahrenheit"
+          unit: "fahrenheit",
         },
         {
           location: "Tokyo, Japan",
-          unit: "celsius"
+          unit: "celsius",
         },
         {
-          location: "New York, NY"
+          location: "New York, NY",
           // Demonstrates that 'unit' is optional
-        }
-      ]
-    }
+        },
+      ],
+    },
   ],
-  messages: [{ role: "user", content: "What's the weather like in San Francisco?" }]
+  messages: [
+    { role: "user", content: "What's the weather like in San Francisco?" },
+  ],
 });
 
 console.log(response);
@@ -272,7 +316,7 @@ AnthropicClient client = new();
 
 var parameters = new MessageCreateParams
 {
-    Model = Model.ClaudeOpus4_7,
+    Model = Model.ClaudeOpus4_8,
     MaxTokens = 1024,
     Tools = [
         new ToolUnion(new Tool()
@@ -331,7 +375,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 1024,
 		Tools: []anthropic.ToolUnionParam{
 			{OfTool: &anthropic.ToolParam{
@@ -392,7 +436,7 @@ void main() {
     AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
     MessageCreateParams params = MessageCreateParams.builder()
-        .model(Model.CLAUDE_OPUS_4_7)
+        .model(Model.CLAUDE_OPUS_4_8)
         .maxTokens(1024L)
         .addTool(Tool.builder()
             .name("get_weather")
@@ -445,7 +489,7 @@ $message = $client->messages->create(
     messages: [
         ['role' => 'user', 'content' => "What's the weather like in San Francisco?"]
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     tools: [
         [
             'name' => 'get_weather',
@@ -489,7 +533,7 @@ require "anthropic"
 client = Anthropic::Client.new
 
 message = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   tools: [
     {
@@ -531,6 +575,7 @@ message = client.messages.create(
 )
 puts message
 ```
+
 </CodeGroup>
 
 Examples are included in the prompt alongside your tool schema, showing Claude concrete patterns for well-formed tool calls. This helps Claude understand when to include optional parameters, what formats to use, and how to structure complex inputs.

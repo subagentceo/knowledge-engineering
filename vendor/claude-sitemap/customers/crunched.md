@@ -1,11 +1,13 @@
-[Crunched](https://www.usecrunched.com/) is an AI Excel analyst built for Excel power users, serving management consulting, investment banking, private equity, and investment firms. 
+# Crunched transforms Excel modeling for investors and advisors with Claude
+
+Crunched is an AI Excel analyst built for Excel power users, serving management consulting, investment banking, private equity, and investment firms. 
 
 ## With Claude, Crunched:
 
--   Delivers up to 50% time savings across Excel modeling tasks for investor and advisor workflows, by leveraging Sonnet and Opus 4.5
--   Error-checks models of any size, catching linking mistakes, logical flaws, and finance-specific methodology errors
--   Enables autonomous model building and template linking that delivers up to 10x speed improvements on complex workflows
--   Integrates data from PDFs, images, web sources, third party financial data providers, and customer-specific databases
+- Delivers up to 50% time savings across Excel modeling tasks for investor and advisor workflows, by leveraging Sonnet and Opus 4.5
+- Error-checks models of any size, catching linking mistakes, logical flaws, and finance-specific methodology errors
+- Enables autonomous model building and template linking that delivers up to 10x speed improvements on complex workflows
+- Integrates data from PDFs, images, web sources, third party financial data providers, and customer-specific databases
 
 ## The problem
 

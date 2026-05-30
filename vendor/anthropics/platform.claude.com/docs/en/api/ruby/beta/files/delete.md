@@ -1,4 +1,4 @@
-## Delete
+## Delete File
 
 `beta.files.delete(file_id, **kwargs) -> DeletedFile`
 
@@ -15,11 +15,9 @@ Delete File
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -68,10 +66,15 @@ Delete File
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class DeletedFile`
-
   - `id: String`
 
     ID of the deleted file.
@@ -81,7 +84,6 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `:file_deleted`
 
 ### Example
@@ -94,4 +96,13 @@ anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 deleted_file = anthropic.beta.files.delete("file_id")
 
 puts(deleted_file)
+```
+
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "type": "file_deleted"
+}
 ```

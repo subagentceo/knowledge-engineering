@@ -1,4 +1,4 @@
-## Delete
+## Delete a memory
 
 `beta.memory_stores.memories.delete(memory_id, **kwargs) -> BetaManagedAgentsDeletedMemory`
 
@@ -19,11 +19,9 @@ Delete a memory
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -72,18 +70,22 @@ Delete a memory
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaManagedAgentsDeletedMemory`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
-
   - `id: String`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `type: :memory_deleted`
-
     - `:memory_deleted`
 
 ### Example
@@ -96,4 +98,13 @@ anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 beta_managed_agents_deleted_memory = anthropic.beta.memory_stores.memories.delete("memory_id", memory_store_id: "memory_store_id")
 
 puts(beta_managed_agents_deleted_memory)
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "memory_deleted"
+}
 ```

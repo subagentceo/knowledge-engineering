@@ -1,3 +1,5 @@
+# MotherDuck
+
 Connect AI assistants to your MotherDuck data warehouse. Explore, visualize, and manage data using natural language–no SQL skills required. Create Dives: interactive visualizations that let you save and share answers with your team, staying up-to-date with your latest data. Works with real-world data without requiring semantic models or pre-configuration. Your AI assistant acts like a data analyst, exploring, validating, analyzing, and visualizing data iteratively to answer your questions.
 
 You can use MotherDuck to:

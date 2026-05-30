@@ -1,3 +1,5 @@
+# Clarity AI
+
 Assess how investment funds may be classified under the European Commission's proposed SFDR 2.0 framework — directly from Claude. Search funds by name, ISIN, or CUSIP and get simulated Article classifications based on Clarity AI's regulatory disclosure data and proprietary modelling of the November 2025 proposal. Ideal for ESG analysts, portfolio managers, and compliance teams preparing for the regulatory transition before final rules are published. This is a live tool that will evolve as we learn more from ongoing EU discussions and guidance.
 
 You can use Clarity AI to:

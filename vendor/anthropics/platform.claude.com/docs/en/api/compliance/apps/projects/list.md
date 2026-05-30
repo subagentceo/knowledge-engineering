@@ -1,4 +1,4 @@
-## List
+## List projects
 
 **get** `/v1/compliance/apps/projects`
 
@@ -8,7 +8,6 @@ are sorted chronologically (time ascending) by created_at.
 ### Query Parameters
 
 - `created_at: optional object { gt, gte, lt, lte }`
-
   - `gt: optional string`
 
     Filter projects created after this time (RFC 3339 format)
@@ -47,10 +46,9 @@ are sorted chronologically (time ascending) by created_at.
 
 ### Returns
 
-- `data: array of object { id, created_at, is_private, 4 more }`
+- `data: array of object { id, created_at, deleted_at, 6 more }`
 
   List of projects sorted by creation date ascending
-
   - `id: string`
 
     Project identifier (tagged ID)
@@ -58,6 +56,10 @@ are sorted chronologically (time ascending) by created_at.
   - `created_at: string`
 
     Project creation timestamp
+
+  - `deleted_at: string`
+
+    Timestamp when the project was deleted by an end user, or null otherwise
 
   - `is_private: boolean`
 
@@ -71,6 +73,10 @@ are sorted chronologically (time ascending) by created_at.
 
     Organization identifier (tagged ID)
 
+  - `organization_uuid: string`
+
+    Organization UUID this project belongs to
+
   - `updated_at: string`
 
     Project last update timestamp
@@ -78,7 +84,6 @@ are sorted chronologically (time ascending) by created_at.
   - `user: object { id, email_address }`
 
     User information for project creator.
-
     - `id: string`
 
       User identifier (tagged ID)
@@ -100,4 +105,28 @@ are sorted chronologically (time ascending) by created_at.
 ```http
 curl https://api.anthropic.com/v1/compliance/apps/projects \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "claude_proj_abc123",
+      "name": "Q4 Product Planning",
+      "created_at": "2025-06-01T10:00:00Z",
+      "updated_at": "2025-06-15T14:30:00Z",
+      "is_private": true,
+      "organization_id": "org_abc123",
+      "organization_uuid": "abc12345-6789-0abc-def0-123456789abc",
+      "user": {
+        "id": "user_xyz456",
+        "email_address": "user@example.com"
+      }
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_eyJjcmVhdGVkX2F0IjoiMjAyNS0wNi0wMVQxMDowMDowMFoiLCJ1dWlkIjoiYWJjMTIzIn0="
+}
 ```

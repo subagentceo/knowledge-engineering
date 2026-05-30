@@ -1,3 +1,5 @@
+# CMS Coverage
+
 The CMS Coverage connector gives Claude access to Medicare Part B coverage policies from the CMS Coverage Database, including National Coverage Determinations (NCDs) and Local Coverage Determinations (LCDs). Check coverage criteria for medical services, review documentation requirements for prior authorization, and stay current on policy changes that affect your practice.
 
 You can use the CMS Coverage connector to:
@@ -8,6 +10,6 @@ You can use the CMS Coverage connector to:
 
 **Stay Current on Policy Changes:** "Have there been any Medicare coverage changes in the last month that affect my practice?"
 
-**Review Local Coverage Policies:** "What are the LCD requirements for continuous glucose monitoring in my region?"  
-  
-Disclaimer: This server may return data governed by third-party license agreements, including those available [here](https://api.coverage.cms.gov/v1/metadata/license-agreement/). By connecting to this server, you understand and agree to abide by any applicable agreements.
+**Review Local Coverage Policies:** "What are the LCD requirements for continuous glucose monitoring in my region?"
+
+Disclaimer: This server may return data governed by third-party license agreements, including those available here. By connecting to this server, you understand and agree to abide by any applicable agreements.

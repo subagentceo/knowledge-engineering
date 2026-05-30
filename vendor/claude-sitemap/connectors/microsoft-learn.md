@@ -1,3 +1,5 @@
+# Microsoft Learn
+
 The Microsoft Learn MCP Server enables clients like GitHub Copilot and other AI agents to bring trusted and up-to-date information directly from Microsoft's official documentation. It is a remote MCP server that uses streamable http. It allows to search through documentation, fetch a complete article, and search through code samples.
 
 You can use Microsoft Learn to:

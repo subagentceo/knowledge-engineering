@@ -1,11 +1,13 @@
-[Lyft](https://www.lyft.com/), a global mobility platform across six continents and thousands of cities, handles customer support interactions that range from simple fare questions to complex issues. The company's support team is one of the only teams at Lyft that directly interface with customers, a critically important task to the company's mission of serving and connecting riders and drivers.
+# Lyft reduces customer support time by 87% with Claude
+
+Lyft, a global mobility platform across six continents and thousands of cities, handles customer support interactions that range from simple fare questions to complex issues. The company's support team is one of the only teams at Lyft that directly interface with customers, a critically important task to the company's mission of serving and connecting riders and drivers.
 
 ## With Claude, Lyft:
 
--   Enabled agents to focus on complex issues requiring human care and empathy
--   Built an AI assistant that maintains Lyft's brand personality while resolving issues in seconds
--   Reduced customer support resolution time by over 87%
--   Improved decision-making accuracy by over 30%
+- Enabled agents to focus on complex issues requiring human care and empathy
+- Built an AI assistant that maintains Lyft's brand personality while resolving issues in seconds
+- Reduced customer support resolution time by over 87%
+- Improved decision-making accuracy by over 30%
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/6993ee609fe7b87e10a427d5_resized%20Anthropic_x_Lyft_Thumbnail_v03%201.png)
 

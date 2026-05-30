@@ -6,9 +6,9 @@ The Analytics API is available on Enterprise plans. Primary Owners can generate 
 
 All three options give you different views into your organization's data:
 
-The **Analytics dashboard** (accessed via **[Analytics](https://claude.ai/analytics/activity)**) shows visualized usage data in the product. It's the right tool for day-to-day monitoring when you don't need to integrate data elsewhere.
+The **Analytics dashboard** (accessed via **[Analytics](https://claude.ai/analytics/activity)**) shows visualized usage data in the product. It's the right tool for day-to-day monitoring when you don't need to integrate data elsewhere. You can also leverage the analytics chat feature to ask questions of the underlying data.
 
-The **Analytics API** returns the same aggregated metrics, but programmatically — so you can pull them into BI tools, map them against org charts, automate reporting workflows, and reconcile cost data against internal records. Engagement and adoption data is aggregated per organization, per day. Usage and cost data is available with finer-grained per-user and time-bucketed breakdowns.
+The **Analytics API** returns the more comprehensive, aggregated metrics, but programmatically. You can pull them into BI tools, map them against org charts, automate reporting workflows, and reconcile cost data against internal records. Engagement and adoption data is aggregated per organization, per day. Usage and cost data is available with finer-grained per-user and time-bucketed breakdowns.
 
 The **Compliance API** is for governance and auditing use cases. It gives you access to individual user actions, raw activity events, and conversation content. If you need aggregated engagement metrics for dashboards, rather than raw events for auditing, use the Analytics API.
 
@@ -28,9 +28,17 @@ Follow these steps:
 
 4. Use the key with the `x-api-key` header in your requests.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053687376/dac20c85f3d3fcab64c98fee0d1c/c0af2448-7bfb-4d10-b474-025cb4f04f59?expires=1778914800&amp;signature=03d069630f994e1551c8e8f875158834681131e783f5b65af30c1ec794cb4bde&amp;req=diAiFc92moJYX%2FMW1HO4zUxhx6VM26%2BH2G8yJDINvfRAQFTBd8GiBte94egu%0AYRzzTIceaNooTmduLfI%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2053687376/dac20c85f3d3fcab64c98fee0d1c/c0af2448-7bfb-4d10-b474-025cb4f04f59?expires=1780164900&signature=bf6d42f6eb00bf071f5abf2bbdaaee327cd977791a1b4f106c98e85e020a0ccf&req=diAiFc92moJYX%2FMW1HO4zUxhyK1E3K%2BG2G8yJDINvfTPXzbUlKxzX%2F1kJgSa%0AgDCQMOeNBkYbICdeJz8%3D%0A)
 
 For full authentication details, endpoint references, and code examples, refer to our **[Claude Enterprise Analytics API reference guide](https://support.claude.com/en/articles/13703965-claude-enterprise-analytics-api-reference-guide)**.
+
+## Partner solutions
+
+Leading observability platforms offer ready-to-use integrations for monitoring your Claude API usage and cost, without writing custom code. These integrations provide dashboards, alerting, and analytics to help you manage your API usage effectively.
+
+- [Datadog](https://docs.datadoghq.com/integrations/anthropic/)
+
+- [CloudZero](https://docs.cloudzero.com/docs/connections-anthropic)
 
 ---
 
@@ -54,9 +62,9 @@ These endpoints return aggregated engagement metrics, per organization, per day.
 
 ### Usage and cost
 
-**Note:** Cost and usage endpoints apply to usage-based Enterprise plans. For seat-based Enterprise plans, these endpoints will reflect extra usage only.
+**Note:** Cost and usage endpoints apply to usage-based Enterprise plans. For seat-based Enterprise plans, these endpoints will reflect usage credits only.
 
-These endpoints (available now in beta) return token usage and USD cost data across Claude surfaces. Use them to track usage between monthly invoices, reconcile Anthropic billing against internal cost centers, and inform spend limits based on actual user behavior.
+These endpoints return token usage and USD cost data across Claude surfaces. Use them to track usage between monthly invoices, reconcile Anthropic billing against internal cost centers, and inform spend limits based on actual user behavior.
 
 - **Per-user token usage:** Users ranked by token usage across a date range, with optional breakdowns by product, model, context window, inference region, or speed.
 
@@ -67,6 +75,8 @@ These endpoints (available now in beta) return token usage and USD cost data acr
 - **Cost over time:** USD cost bucketed by minute, hour, or day, with the same grouping options plus cost type and token type.
 
 Data is refreshed every four hours, and may take up to 24 hours. Values can be revised for up to 30 days as late events reconcile, so for invoicing-grade totals, query dates at least 30 days in the past.
+
+**Note:** The cost and usage endpoints of the Analytics API export include both discounted price and list price.
 
 ---
 

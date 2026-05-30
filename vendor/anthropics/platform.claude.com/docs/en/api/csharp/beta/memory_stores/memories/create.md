@@ -1,4 +1,4 @@
-## Create
+## Create a memory
 
 `BetaManagedAgentsMemory Beta.MemoryStores.Memories.Create(MemoryCreateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Create a memory
 ### Parameters
 
 - `MemoryCreateParams parameters`
-
   - `required string memoryStoreID`
 
     Path param: Path parameter memory_store_id
@@ -29,7 +28,6 @@ Create a memory
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -78,12 +76,17 @@ Create a memory
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsMemory:`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
   - `required string ID`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -113,7 +116,6 @@ Create a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `required Type Type`
-
     - `"memory"Memory`
 
   - `required DateTimeOffset UpdatedAt`
@@ -137,4 +139,21 @@ MemoryCreateParams parameters = new()
 var betaManagedAgentsMemory = await client.Beta.MemoryStores.Memories.Create(parameters);
 
 Console.WriteLine(betaManagedAgentsMemory);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
 ```

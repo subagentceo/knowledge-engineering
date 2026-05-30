@@ -1,10 +1,12 @@
+# Figma
+
 Pull in Figma context and generate high-quality code that aligns with your codebase and design intent. Use the connector to retrieve code resources from Figma Design or Make files, turn your ideas into production apps, and visualize flows as diagrams in FigJam.
 
 You can use Figma in Claude to:  
 ‍  
 Map your flows with diagrams:  
-Turn your prompts into flow charts, Gantt charts, or diagrams in FigJam  
-  
+Turn your prompts into flow charts, Gantt charts, or diagrams in FigJam
+
 Implement designs as websites:  
 "Help me implement my Figma design as a website in HTML and CSS"
 

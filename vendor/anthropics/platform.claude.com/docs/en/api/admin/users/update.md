@@ -1,4 +1,4 @@
-## Update
+## Update User
 
 **post** `/v1/organizations/users/{user_id}`
 
@@ -15,7 +15,6 @@ Update User
 - `role: "user" or "developer" or "billing" or "claude_code_user"`
 
   New role for the User. Cannot be "admin".
-
   - `"user"`
 
   - `"developer"`
@@ -26,8 +25,7 @@ Update User
 
 ### Returns
 
-- `User = object { id, added_at, email, 3 more }`
-
+- `User object { id, added_at, email, 3 more }`
   - `id: string`
 
     ID of the User.
@@ -47,7 +45,6 @@ Update User
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
-
     - `"user"`
 
     - `"developer"`
@@ -63,7 +60,6 @@ Update User
     Object type.
 
     For Users, this is always `"user"`.
-
     - `"user"`
 
 ### Example
@@ -76,4 +72,17 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -d '{
           "role": "user"
         }'
+```
+
+#### Response
+
+```json
+{
+  "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "added_at": "2024-10-30T23:58:27.427722Z",
+  "email": "user@emaildomain.com",
+  "name": "Jane Doe",
+  "role": "user",
+  "type": "user"
+}
 ```

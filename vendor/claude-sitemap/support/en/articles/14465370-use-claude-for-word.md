@@ -68,7 +68,7 @@ For IT administrators deploying to multiple people:
 
 **Step 2: Access Microsoft 365 Admin Center**
 
-1. Navigate to **https://admin.microsoft.com**
+1. Navigate to **<https://admin.microsoft.com>**
 
 2. Sign in with your admin credentials.
 
@@ -333,10 +333,6 @@ While we continue to develop our offerings and improve safety measures to reduce
 ---
 
 ## Frequently asked questions
-
-### Which models are available when using Claude for Word?
-
-You can switch between Opus 4.7, Opus 4.6, and Sonnet 4.6 when using Claude for Word.
 
 ### Does Claude understand legal and financial document conventions?
 

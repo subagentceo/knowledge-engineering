@@ -1,3 +1,5 @@
+# Lloyd by The L Suite
+
 Connect with the collective knowledge of 5,000+ inhouse counsel in The L Suite community — cited & sourced — including 2,000+ annual discussion threads, 300+ playbooks, 3,000 shared documents/artifacts, 2,000+ hours of video content, 10,000 unbiased pieces of outside counsel and vendor feedback. Members Only.
 
 You can use Lloyd to:

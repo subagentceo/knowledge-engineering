@@ -1,10 +1,12 @@
+# Token-saving updates on the Anthropic API
+
 We've made several updates to the Anthropic API that let developers significantly increase throughput and reduce token usage with Claude 3.7 Sonnet. These include: cache-aware rate limits, simpler prompt caching, and token-efficient tool use.
 
 Together, these updates will help you process more requests within your existing rate limits and reduce costs with minimal code changes.
 
 ### Increase your throughput with prompt caching
 
-[Prompt caching](https://www.anthropic.com/news/prompt-caching) allows developers to store and reuse frequently accessed context between API calls. This lets Claude maintain knowledge of large documents, instructions, or examples without sending the same information with each request—reducing costs by up to 90% and latency by up to 85% for long prompts. We’ve released two improvements to prompt caching for Claude 3.7 Sonnet that work together to help you scale more efficiently.
+Prompt caching allows developers to store and reuse frequently accessed context between API calls. This lets Claude maintain knowledge of large documents, instructions, or examples without sending the same information with each request—reducing costs by up to 90% and latency by up to 85% for long prompts. We’ve released two improvements to prompt caching for Claude 3.7 Sonnet that work together to help you scale more efficiently.
 
 #### Cache-aware rate limits
 
@@ -14,11 +16,11 @@ Prompt cache read tokens no longer count against your Input Tokens Per Minute (I
 
 This makes Claude 3.7 Sonnet particularly powerful for applications that benefit from extensive context while requiring high throughput, such as:
 
--   Document analysis platforms that need to maintain large knowledge bases in context
--   Coding assistants that reference extensive codebases
--   Customer support systems that leverage detailed product documentation
+- Document analysis platforms that need to maintain large knowledge bases in context
+- Coding assistants that reference extensive codebases
+- Customer support systems that leverage detailed product documentation
 
-[Cache-aware ITPM limits](https://docs.anthropic.com/en/api/rate-limits#rate-limits) are available for Claude 3.7 Sonnet on the Anthropic API.
+Cache-aware ITPM limits are available for Claude 3.7 Sonnet on the Anthropic API.
 
 #### Simpler cache management
 
@@ -28,23 +30,23 @@ You no longer need to manually track and specify which cached segments to use as
 
 ![A comparison of prompt caching with and without automatic use of the largest cached prefix.](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e95d966762a4d6d9643288_e82adfbb319b8970e1e7aefa2a284f0c201463b4-1920x1054.png)
 
-This feature is available on the Anthropic API and Google Cloud’s Vertex AI. Explore our [documentation](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching) to learn more.
+This feature is available on the Anthropic API and Google Cloud’s Vertex AI. Explore our documentation to learn more.
 
 ### Token-efficient tool use
 
-Claude is already capable of interacting with external client-side tools and functions. This update lets you equip Claude with your own custom tools to perform tasks—like extracting structured data from unstructured text or automating simple tasks via APIs. Claude 3.7 Sonnet now supports [calling tools in a token-efficient manner](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/token-efficient-tool-use), reducing output token consumption by up to 70%. On average, early users have seen a reduction of 14%.
+Claude is already capable of interacting with external client-side tools and functions. This update lets you equip Claude with your own custom tools to perform tasks—like extracting structured data from unstructured text or automating simple tasks via APIs. Claude 3.7 Sonnet now supports calling tools in a token-efficient manner, reducing output token consumption by up to 70%. On average, early users have seen a reduction of 14%.
 
 To use this feature, simply add the beta header _token-efficient-tools-2025-02-19_ to a tool use request with Claude 3.7 Sonnet. If you are using the SDK, ensure that you are using the beta SDK with _anthropic.beta.messages_.
 
 Token-efficient tool use is currently available in beta on the Anthropic API, Amazon Bedrock, and Google Cloud’s Vertex AI.
 
-#### Text\_editor tool
+#### Text_editor tool
 
-We also introduced a new _text\_editor_ tool, designed for applications where users collaborate with Claude on documents. With the new tool, Claude can make targeted edits to specific portions of text within source code, documents, or research reports. This reduces token consumption and latency, all while increasing accuracy.
+We also introduced a new _text_editor_ tool, designed for applications where users collaborate with Claude on documents. With the new tool, Claude can make targeted edits to specific portions of text within source code, documents, or research reports. This reduces token consumption and latency, all while increasing accuracy.
 
 Developers can easily implement this tool in their applications by providing it in their API requests and handling the tool use responses.
 
-The _text\_editor_ tool is available on the Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI. See our [documentation](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/text-editor-tool) to get started.
+The _text_editor_ tool is available on the Anthropic API, Amazon Bedrock, and Google Cloud's Vertex AI. See our documentation to get started.
 
 ### Customer Spotlight: Cognition
 
@@ -56,6 +58,6 @@ Early users, like Cognition, are leveraging these updates to improve token effic
 
 These features are available today to all Anthropic API customers. You can implement them immediately with minimal code changes:
 
-1.  **Take advantage of cache-aware rate limits:** Use [prompt caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching) with Claude 3.7 Sonnet.
+1.  **Take advantage of cache-aware rate limits:** Use prompt caching with Claude 3.7 Sonnet.
 2.  **Implement token-efficient tool use:** Add the beta header _token-efficient-tools-2025-02-19_ to your requests and start saving tokens.
-3.  **Try the _text\_editor_ tool:** Integrate it into your applications for more efficient document editing workflows.
+3.  **Try the _text_editor_ tool:** Integrate it into your applications for more efficient document editing workflows.

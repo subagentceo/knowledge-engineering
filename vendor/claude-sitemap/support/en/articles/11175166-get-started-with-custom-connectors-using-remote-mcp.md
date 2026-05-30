@@ -42,7 +42,7 @@ Even though Cowork and Claude Desktop run on your computer, remote connectors ar
 
 ## Add a custom connector
 
-**Note:**  While anyone can build and host connectors using remote MCP, only Owners can add them to Team and Enterprise plans. Once a connector has been added to a Team or Enterprise organization, users individually connect to and enable that connector. This ensures that Claude can only access tools and data that the individual user has access to.
+**Note:** While anyone can build and host connectors using remote MCP, only Owners can add them to Team and Enterprise plans. Once a connector has been added to a Team or Enterprise organization, users individually connect to and enable that connector. This ensures that Claude can only access tools and data that the individual user has access to.
 
 ### For Team and Enterprise plans
 
@@ -96,13 +96,13 @@ You can remove a custom connector by following these steps:
 
 1. Navigate to **[Customize > Connectors](https://claude.ai/customize/connectors)**
 
-  1. Team and Enterprise Owners can do this on their organization's behalf in **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**
+1. Team and Enterprise Owners can do this on their organization's behalf in **[Organization settings > Connectors](https://claude.ai/admin-settings/connectors)**
 
-2. Locate the "Connectors" section.
+1. Locate the "Connectors" section.
 
-3. Click "Remove" or select the three dots next to the connector you'd like to remove.
+1. Click "Remove" or select the three dots next to the connector you'd like to remove.
 
-4. Follow the prompts to remove.
+1. Follow the prompts to remove.
 
 If you're hoping to edit a custom connector, you'll need to remove it first, then re-add it using the updated details.
 

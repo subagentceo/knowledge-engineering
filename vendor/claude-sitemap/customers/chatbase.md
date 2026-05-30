@@ -1,11 +1,13 @@
+# Chatbase helps companies deliver instant, personalized customer support with Claude
+
 Chatbase uses Claude for AI-driven customer service, helping businesses provide instant, personalized support across web chat, WhatsApp, Slack, and Instagram. Their platform enables customer service teams to automate routine inquiries while maintaining their brand voice and professional standards, transforming customer engagement.
 
 With Claude, Chatbase:
 
--   Supports B2B and B2C companies, from startups to enterprises like PWC
--   Tripled user adoption
--   Provides support across multiple languages and regions, with 60-70% of customers in US/Canada and a growing presence in Brazil
--   Enables seamless customer support across web chat, WhatsApp, Instagram, and Slack
+- Supports B2B and B2C companies, from startups to enterprises like PWC
+- Tripled user adoption
+- Provides support across multiple languages and regions, with 60-70% of customers in US/Canada and a growing presence in Brazil
+- Enables seamless customer support across web chat, WhatsApp, Instagram, and Slack
 
 ## Building an AI-first customer support platform
 

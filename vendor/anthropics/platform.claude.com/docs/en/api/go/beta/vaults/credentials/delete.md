@@ -1,4 +1,4 @@
-## Delete
+## Delete Credential
 
 `client.Beta.Vaults.Credentials.Delete(ctx, credentialID, params) (*BetaManagedAgentsDeletedCredential, error)`
 
@@ -11,7 +11,6 @@ Delete Credential
 - `credentialID string`
 
 - `params BetaVaultCredentialDeleteParams`
-
   - `VaultID param.Field[string]`
 
     Path param: Path parameter vault_id
@@ -19,11 +18,9 @@ Delete Credential
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -72,18 +69,22 @@ Delete Credential
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaManagedAgentsDeletedCredential struct{…}`
 
   Confirmation of a deleted credential.
-
   - `ID string`
 
     Unique identifier of the deleted credential.
 
   - `Type BetaManagedAgentsDeletedCredentialType`
-
     - `const BetaManagedAgentsDeletedCredentialTypeVaultCredentialDeleted BetaManagedAgentsDeletedCredentialType = "vault_credential_deleted"`
 
 ### Example
@@ -114,5 +115,14 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", betaManagedAgentsDeletedCredential.ID)
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "type": "vault_credential_deleted"
 }
 ```

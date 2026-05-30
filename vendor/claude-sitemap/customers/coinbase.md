@@ -1,12 +1,14 @@
+# Coinbase enhances customer support and operational efficiency with Claude
+
 Coinbase, a leading cryptocurrency exchange, uses Claude to power its AI-driven customer support chatbot, agent assist tool, and help center search. This enhances customer experiences and improves operational efficiency across its platform, supporting over 100 geographies and $226 billion in quarterly trading volume.
 
 With Claude, Coinbase saw:
 
--   Increase in automation rate for their customer-facing chatbot
--   Reduced customer service handling time
--   Significant improvements in search relevance for their AI-powered help center
--   Ability to handle thousands of messages per hour
--   Support for several million users
+- Increase in automation rate for their customer-facing chatbot
+- Reduced customer service handling time
+- Significant improvements in search relevance for their AI-powered help center
+- Ability to handle thousands of messages per hour
+- Support for several million users
 
 ## Addressing scalability and consistency in crypto customer support
 
@@ -28,9 +30,9 @@ Before releasing their conversational AI system, Coinbase engaged in several col
 
 Coinbase integrated Claude into three key systems:
 
--   Customer support chatbot: An agentic system using Claude for query rephrasing, response generation, and output styling, with robust financial compliance guardrails.
--   Agent assist tool: Helps human agents draft responses, explain procedures, and access relevant information. Mahadevan noted, "It's highly efficient to not spend time or effort refining responses in multiple languages for the customer."
--   Help center search: Uses Claude to enhance result relevance and generate concise answers, leveraging Coinbase's existing knowledge bases and customer data.
+- Customer support chatbot: An agentic system using Claude for query rephrasing, response generation, and output styling, with robust financial compliance guardrails.
+- Agent assist tool: Helps human agents draft responses, explain procedures, and access relevant information. Mahadevan noted, "It's highly efficient to not spend time or effort refining responses in multiple languages for the customer."
+- Help center search: Uses Claude to enhance result relevance and generate concise answers, leveraging Coinbase's existing knowledge bases and customer data.
 
 Coinbase also created CB-GPT (Coinbase GPT), an internal platform for building AI-powered applications for rapid experimentation and development. Mahadevan reports, "We've built over 35 to 50 applications." CB-GPT allows teams to quickly prototype and launch new AI use cases, supporting the company's vision of providing AI assistance for all employees and customers.
 

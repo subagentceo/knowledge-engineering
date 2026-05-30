@@ -1,3 +1,5 @@
+# Guru
+
 Guru connects Claude to your company's trusted knowledge layer, so every AI answer is grounded in verified, permission-aware information—not outdated docs or hallucinations. It links Claude to the same governed context your teams use, ensuring consistent, cited, and explainable responses. With built-in verification and lineage, Guru makes it easy for Claude to deliver answers you can trust across every workflow.
 
 You can use Guru to:

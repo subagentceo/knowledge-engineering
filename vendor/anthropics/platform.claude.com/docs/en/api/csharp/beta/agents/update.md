@@ -1,4 +1,4 @@
-## Update
+## Update Agent
 
 `BetaManagedAgentsAgent Beta.Agents.Update(AgentUpdateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Update Agent
 ### Parameters
 
 - `AgentUpdateParams parameters`
-
   - `required string agentID`
 
     Path param: Path parameter agent_id
@@ -25,13 +24,11 @@ Update Agent
   - `IReadOnlyList<BetaManagedAgentsUrlMcpServerParams>? mcpServers`
 
     Body param: MCP servers. Full replacement. Omit to preserve; send empty array or null to clear. Names must be unique. Maximum 20.
-
     - `required string Name`
 
       Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
 
     - `required Type Type`
-
       - `"url"Url`
 
     - `required string Url`
@@ -45,13 +42,11 @@ Update Agent
   - `Model model`
 
     Body param: Model identifier. Accepts the [model string](https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison), e.g. `claude-opus-4-6`, or a `model_config` object for additional configuration control. Omit to preserve. Cannot be cleared.
-
     - `enum BetaManagedAgentsModel:`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
       - `"claude-opus-4-7"ClaudeOpus4_7`
 
         Frontier intelligence for long-running agents and coding
@@ -91,13 +86,11 @@ Update Agent
     - `class BetaManagedAgentsModelConfigParams:`
 
       An object that defines additional configuration control over model use
-
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -137,7 +130,6 @@ Update Agent
       - `Speed? Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -153,17 +145,14 @@ Update Agent
   - `IReadOnlyList<BetaManagedAgentsSkillParams>? skills`
 
     Body param: Skills. Full replacement. Omit to preserve; send empty array or null to clear. Maximum 20.
-
     - `class BetaManagedAgentsAnthropicSkillParams:`
 
       An Anthropic-managed skill.
-
       - `required string SkillID`
 
         Identifier of the Anthropic skill (e.g., "xlsx").
 
       - `required Type Type`
-
         - `"anthropic"Anthropic`
 
       - `string? Version`
@@ -173,13 +162,11 @@ Update Agent
     - `class BetaManagedAgentsCustomSkillParams:`
 
       A user-created custom skill.
-
       - `required string SkillID`
 
         Tagged ID of the custom skill (e.g., "skill_01XJ5...").
 
       - `required Type Type`
-
         - `"custom"Custom`
 
       - `string? Version`
@@ -193,23 +180,18 @@ Update Agent
   - `IReadOnlyList<Tool>? tools`
 
     Body param: Tool configurations available to the agent. Full replacement. Omit to preserve; send empty array or null to clear. Maximum of 128 tools across all toolsets allowed.
-
     - `class BetaManagedAgentsAgentToolset20260401Params:`
 
       Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
-
       - `required Type Type`
-
         - `"agent_toolset_20260401"AgentToolset20260401`
 
       - `IReadOnlyList<BetaManagedAgentsAgentToolConfigParams> Configs`
 
         Per-tool configuration overrides.
-
         - `required Name Name`
 
           Built-in agent tool identifier.
-
           - `"bash"Bash`
 
           - `"edit"Edit`
@@ -233,27 +215,21 @@ Update Agent
         - `PermissionPolicy? PermissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
             - `required Type Type`
-
               - `"always_allow"AlwaysAllow`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
-
             - `required Type Type`
-
               - `"always_ask"AlwaysAsk`
 
       - `BetaManagedAgentsAgentToolsetDefaultConfigParams? DefaultConfig`
 
         Default configuration for all tools in a toolset.
-
         - `Boolean? Enabled`
 
           Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
@@ -261,39 +237,27 @@ Update Agent
         - `PermissionPolicy? PermissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
     - `class BetaManagedAgentsMcpToolsetParams:`
 
       Configuration for tools from an MCP server defined in `mcp_servers`.
-
       - `required string McpServerName`
 
         Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
       - `required Type Type`
-
         - `"mcp_toolset"McpToolset`
 
       - `IReadOnlyList<BetaManagedAgentsMcpToolConfigParams> Configs`
 
         Per-tool configuration overrides.
-
         - `required string Name`
 
           Name of the MCP tool to configure. 1-128 characters.
@@ -305,27 +269,17 @@ Update Agent
         - `PermissionPolicy? PermissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
       - `BetaManagedAgentsMcpToolsetDefaultConfigParams? DefaultConfig`
 
         Default configuration for all tools from an MCP server.
-
         - `Boolean? Enabled`
 
           Whether tools are enabled by default. Defaults to true if not specified.
@@ -333,27 +287,17 @@ Update Agent
         - `PermissionPolicy? PermissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
     - `class BetaManagedAgentsCustomToolParams:`
 
       A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
-
       - `required string Description`
 
         Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
@@ -361,7 +305,6 @@ Update Agent
       - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
         JSON Schema for custom tool input parameters.
-
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
           JSON Schema properties defining the tool's input parameters.
@@ -373,7 +316,6 @@ Update Agent
         - `Type Type`
 
           Must be 'object' for tool input schemas.
-
           - `"object"Object`
 
       - `required string Name`
@@ -381,13 +323,11 @@ Update Agent
         Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
 
       - `required Type Type`
-
         - `"custom"Custom`
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -436,12 +376,17 @@ Update Agent
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsAgent:`
 
   A Managed Agents `agent`.
-
   - `required string ID`
 
   - `required DateTimeOffset? ArchivedAt`
@@ -455,11 +400,9 @@ Update Agent
   - `required string? Description`
 
   - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
     - `required string Name`
 
     - `required Type Type`
-
       - `"url"Url`
 
     - `required string Url`
@@ -469,13 +412,11 @@ Update Agent
   - `required BetaManagedAgentsModelConfig Model`
 
     Model identifier and configuration.
-
     - `required BetaManagedAgentsModel ID`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
       - `"claude-opus-4-7"ClaudeOpus4_7`
 
         Frontier intelligence for long-running agents and coding
@@ -515,7 +456,6 @@ Update Agent
     - `Speed Speed`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
       - `"standard"Standard`
 
       - `"fast"Fast`
@@ -523,35 +463,28 @@ Update Agent
   - `required BetaManagedAgentsMultiagent? Multiagent`
 
     Resolved coordinator topology with a concrete agent roster.
-
     - `required IReadOnlyList<BetaManagedAgentsAgentReference> Agents`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
-
       - `required string ID`
 
       - `required Type Type`
-
         - `"agent"Agent`
 
       - `required Int Version`
 
     - `required Type Type`
-
       - `"coordinator"Coordinator`
 
   - `required string Name`
 
   - `required IReadOnlyList<Skill> Skills`
-
     - `class BetaManagedAgentsAnthropicSkill:`
 
       A resolved Anthropic-managed skill.
-
       - `required string SkillID`
 
       - `required Type Type`
-
         - `"anthropic"Anthropic`
 
       - `required string Version`
@@ -559,11 +492,9 @@ Update Agent
     - `class BetaManagedAgentsCustomSkill:`
 
       A resolved user-created custom skill.
-
       - `required string SkillID`
 
       - `required Type Type`
-
         - `"custom"Custom`
 
       - `required string Version`
@@ -571,17 +502,13 @@ Update Agent
   - `required string? System`
 
   - `required IReadOnlyList<Tool> Tools`
-
     - `class BetaManagedAgentsAgentToolset20260401:`
-
       - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
         - `required Boolean Enabled`
 
         - `required Name Name`
 
           Built-in agent tool identifier.
-
           - `"bash"Bash`
 
           - `"edit"Edit`
@@ -601,57 +528,39 @@ Update Agent
         - `required PermissionPolicy PermissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
             - `required Type Type`
-
               - `"always_allow"AlwaysAllow`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
-
             - `required Type Type`
-
               - `"always_ask"AlwaysAsk`
 
       - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
         Resolved default configuration for agent tools.
-
         - `required Boolean Enabled`
 
         - `required PermissionPolicy PermissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
       - `required Type Type`
-
         - `"agent_toolset_20260401"AgentToolset20260401`
 
     - `class BetaManagedAgentsMcpToolset:`
-
       - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
         - `required Boolean Enabled`
 
         - `required string Name`
@@ -659,65 +568,43 @@ Update Agent
         - `required PermissionPolicy PermissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
       - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
-
         - `required Boolean Enabled`
 
         - `required PermissionPolicy PermissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
       - `required string McpServerName`
 
       - `required Type Type`
-
         - `"mcp_toolset"McpToolset`
 
     - `class BetaManagedAgentsCustomTool:`
 
       A custom tool as returned in API responses.
-
       - `required string Description`
 
       - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
         JSON Schema for custom tool input parameters.
-
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
           JSON Schema properties defining the tool's input parameters.
@@ -729,17 +616,14 @@ Update Agent
         - `Type Type`
 
           Must be 'object' for tool input schemas.
-
           - `"object"Object`
 
       - `required string Name`
 
       - `required Type Type`
-
         - `"custom"Custom`
 
   - `required Type Type`
-
     - `"agent"Agent`
 
   - `required DateTimeOffset UpdatedAt`
@@ -762,4 +646,76 @@ AgentUpdateParams parameters = new()
 var betaManagedAgentsAgent = await client.Beta.Agents.Update(parameters);
 
 Console.WriteLine(betaManagedAgentsAgent);
+```
+
+#### Response
+
+```json
+{
+  "id": "agent_011CZkYpogX7uDKUyvBTophP",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "A general-purpose starter agent.",
+  "mcp_servers": [
+    {
+      "name": "example-mcp",
+      "type": "url",
+      "url": "https://example-server.modelcontextprotocol.io/sse"
+    }
+  ],
+  "metadata": {
+    "foo": "bar"
+  },
+  "model": {
+    "id": "claude-sonnet-4-6",
+    "speed": "standard"
+  },
+  "multiagent": {
+    "agents": [
+      {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "type": "agent",
+        "version": 1
+      }
+    ],
+    "type": "coordinator"
+  },
+  "name": "My First Agent",
+  "skills": [
+    {
+      "skill_id": "xlsx",
+      "type": "anthropic",
+      "version": "1"
+    },
+    {
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "type": "custom",
+      "version": "2"
+    }
+  ],
+  "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
+  "tools": [
+    {
+      "configs": [
+        {
+          "enabled": true,
+          "name": "bash",
+          "permission_policy": {
+            "type": "always_allow"
+          }
+        }
+      ],
+      "default_config": {
+        "enabled": true,
+        "permission_policy": {
+          "type": "always_ask"
+        }
+      },
+      "type": "agent_toolset_20260401"
+    }
+  ],
+  "type": "agent",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "version": 1
+}
 ```

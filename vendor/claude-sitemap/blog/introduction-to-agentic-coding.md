@@ -1,3 +1,5 @@
+# Introduction to agentic coding
+
 AI-assisted coding has evolved rapidly over the last few years. Tools that once suggested the next line now predict entire functions by analyzing patterns in your code.
 
 The latest evolution takes this further: instead of predicting what you'll type next, these systems autonomously execute multi-step development tasks by reading files across your codebase, running tests, and iterating until your goal is complete.
@@ -44,7 +46,7 @@ This autonomous workflow transforms development from "write code, run tests, rea
 
 ## Agentic coding with Claude Code
 
-[**Claude Code**](https://claude.com/product/claude-code) brings agentic capabilities to your terminal environment. Unlike browser-based tools requiring constant code copying or IDE extensions analyzing only visible files, Claude Code operates directly within your project directory with full access to your codebase.
+**Claude Code** brings agentic capabilities to your terminal environment. Unlike browser-based tools requiring constant code copying or IDE extensions analyzing only visible files, Claude Code operates directly within your project directory with full access to your codebase.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e957237e0e3c2bd4694735_CLI.png)
 
@@ -84,26 +86,26 @@ You can extend these capabilities further by connecting Model Context Protocol (
 
 ### Rakuten's seven-hour autonomous implementation
 
-[Rakuten's](https://www.claude.com/customers/rakuten) engineering team challenged Claude Code's agentic capabilities with implementing a specific activation vector extraction method in vLLM, an open-source library containing 12.5 million lines of code across Python, C++, and CUDA. Claude Code completed the entire implementation in seven hours of sustained autonomous work.
+Rakuten's engineering team challenged Claude Code's agentic capabilities with implementing a specific activation vector extraction method in vLLM, an open-source library containing 12.5 million lines of code across Python, C++, and CUDA. Claude Code completed the entire implementation in seven hours of sustained autonomous work.
 
 > "I didn't write any code during those seven hours, I just provided occasional guidance"  
 
-\- Kenta Naruse, Machine Learning Engineer at Rakuten
+- Kenta Naruse, Machine Learning Engineer at Rakuten
 
 The final implementation achieved 99.9% numerical accuracy compared to the reference method, demonstrating the system's ability to understand complex, multi-language codebases, plan implementation approaches for sophisticated algorithms, and deliver production-quality results.
 
 **Rakuten's transformation metrics:**
 
--   **79% faster** feature delivery (24 days → 5 days)
--   **7-hour** autonomous implementations with minimal human intervention
--   **99.9%** accuracy on complex algorithmic refactoring
--   **5x** parallel task execution capacity for engineering teams
+- **79% faster** feature delivery (24 days → 5 days)
+- **7-hour** autonomous implementations with minimal human intervention
+- **99.9%** accuracy on complex algorithmic refactoring
+- **5x** parallel task execution capacity for engineering teams
 
 As Yusuke Kaji, General Manager of AI for Business at Rakuten, explained: "You can have five tasks running in parallel by delegating four to Claude Code while focusing on the remaining one."
 
 ## Getting started with Claude Code
 
-After installing [Claude Code](https://claude.com/product/claude-code) with npm, navigate to a project directory and start a session:
+After installing Claude Code with npm, navigate to a project directory and start a session:
 
 ```bash
 claude
@@ -141,9 +143,9 @@ Claude Code analyzes your entire codebase, identifies specific ORM patterns caus
 
 As you work with Claude Code, you develop intuition for which tasks benefit most from autonomous execution versus tasks better handled with traditional development tools. Some immediate applications that provide quick wins include:
 
--   **Test automation** for your uncovered code paths
--   **Documentation generation** for your legacy systems
--   **Routine refactoring** of your technical debt
--   **Feature implementation** for well-understood requirements
+- **Test automation** for your uncovered code paths
+- **Documentation generation** for your legacy systems
+- **Routine refactoring** of your technical debt
+- **Feature implementation** for well-understood requirements
 
-Each interaction provides an opportunity to learn how Claude Code approaches problems within your specific codebase. Get started with [Claude Code](https://claude.com/product/claude-code) or visit our [docs](https://docs.claude.com/en/docs/claude-code/overview) to learn more.
+Each interaction provides an opportunity to learn how Claude Code approaches problems within your specific codebase. Get started with Claude Code or visit our docs to learn more.

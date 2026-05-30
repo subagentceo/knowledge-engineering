@@ -1,3 +1,5 @@
+# Clerk
+
 Add Clerk authentication to your app directly through Claude. Access up-to-date SDK snippets and implementation patterns for sign-in flows, session management, and route protection. Build multi-tenant B2B apps with organizations and role-based access, configure waitlists and early access flows, and implement billing. Get framework-specific examples for Next.js, React, Expo, and more through natural language prompts.
 
 You can use Clerk to:

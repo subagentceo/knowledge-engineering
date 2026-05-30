@@ -1,6 +1,6 @@
 # User Profiles
 
-## Create
+## Create User Profile
 
 `client.beta.userProfiles.create(UserProfileCreateParamsparams, RequestOptionsoptions?): BetaUserProfile`
 
@@ -11,7 +11,6 @@ Create User Profile
 ### Parameters
 
 - `params: UserProfileCreateParams`
-
   - `external_id?: string | null`
 
     Body param: Platform's own identifier for this user. Not enforced unique. Maximum 255 characters.
@@ -27,7 +26,6 @@ Create User Profile
   - `relationship?: "external" | "resold" | "internal"`
 
     Body param: How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -37,11 +35,9 @@ Create User Profile
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -90,10 +86,15 @@ Create User Profile
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaUserProfile`
-
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -109,7 +110,6 @@ Create User Profile
   - `relationship: "external" | "resold" | "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -119,11 +119,9 @@ Create User Profile
   - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" | "pending" | "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -133,7 +131,6 @@ Create User Profile
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -151,10 +148,10 @@ Create User Profile
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 const betaUserProfile = await client.beta.userProfiles.create();
@@ -162,7 +159,27 @@ const betaUserProfile = await client.beta.userProfiles.create();
 console.log(betaUserProfile.id);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## List User Profiles
 
 `client.beta.userProfiles.list(UserProfileListParamsparams?, RequestOptionsoptions?): PageCursor<BetaUserProfile>`
 
@@ -173,7 +190,6 @@ List User Profiles
 ### Parameters
 
 - `params: UserProfileListParams`
-
   - `limit?: number`
 
     Query param: Query parameter for limit
@@ -181,7 +197,6 @@ List User Profiles
   - `order?: "asc" | "desc"`
 
     Query param: Query parameter for order
-
     - `"asc"`
 
     - `"desc"`
@@ -193,11 +208,9 @@ List User Profiles
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -246,10 +259,15 @@ List User Profiles
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaUserProfile`
-
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -265,7 +283,6 @@ List User Profiles
   - `relationship: "external" | "resold" | "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -275,11 +292,9 @@ List User Profiles
   - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" | "pending" | "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -289,7 +304,6 @@ List User Profiles
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -307,10 +321,10 @@ List User Profiles
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
@@ -319,7 +333,32 @@ for await (const betaUserProfile of client.beta.userProfiles.list()) {
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {},
+      "relationship": "external",
+      "trust_grants": {
+        "cyber": {
+          "status": "active"
+        }
+      },
+      "type": "user_profile",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "external_id": "user_12345",
+      "name": "Example User"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get User Profile
 
 `client.beta.userProfiles.retrieve(stringuserProfileID, UserProfileRetrieveParamsparams?, RequestOptionsoptions?): BetaUserProfile`
 
@@ -332,15 +371,12 @@ Get User Profile
 - `userProfileID: string`
 
 - `params: UserProfileRetrieveParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -389,10 +425,15 @@ Get User Profile
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaUserProfile`
-
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -408,7 +449,6 @@ Get User Profile
   - `relationship: "external" | "resold" | "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -418,11 +458,9 @@ Get User Profile
   - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" | "pending" | "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -432,7 +470,6 @@ Get User Profile
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -450,18 +487,40 @@ Get User Profile
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaUserProfile = await client.beta.userProfiles.retrieve('uprof_011CZkZCu8hGbp5mYRQgUmz9');
+const betaUserProfile = await client.beta.userProfiles.retrieve(
+  "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+);
 
 console.log(betaUserProfile.id);
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## Update User Profile
 
 `client.beta.userProfiles.update(stringuserProfileID, UserProfileUpdateParamsparams, RequestOptionsoptions?): BetaUserProfile`
 
@@ -474,7 +533,6 @@ Update User Profile
 - `userProfileID: string`
 
 - `params: UserProfileUpdateParams`
-
   - `external_id?: string | null`
 
     Body param: If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters.
@@ -490,7 +548,6 @@ Update User Profile
   - `relationship?: "external" | "resold" | "internal" | null`
 
     Body param: How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -500,11 +557,9 @@ Update User Profile
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -553,10 +608,15 @@ Update User Profile
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaUserProfile`
-
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -572,7 +632,6 @@ Update User Profile
   - `relationship: "external" | "resold" | "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -582,11 +641,9 @@ Update User Profile
   - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" | "pending" | "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -596,7 +653,6 @@ Update User Profile
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -614,15 +670,37 @@ Update User Profile
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaUserProfile = await client.beta.userProfiles.update('uprof_011CZkZCu8hGbp5mYRQgUmz9');
+const betaUserProfile = await client.beta.userProfiles.update(
+  "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+);
 
 console.log(betaUserProfile.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
 ```
 
 ## Create Enrollment URL
@@ -638,15 +716,12 @@ Create Enrollment URL
 - `userProfileID: string`
 
 - `params: UserProfileCreateEnrollmentURLParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -695,10 +770,15 @@ Create Enrollment URL
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaUserProfileEnrollmentURL`
-
   - `expires_at: string`
 
     A timestamp in RFC 3339 format
@@ -706,7 +786,6 @@ Create Enrollment URL
   - `type: "enrollment_url"`
 
     Object type. Always `enrollment_url`.
-
     - `"enrollment_url"`
 
   - `url: string`
@@ -716,17 +795,28 @@ Create Enrollment URL
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaUserProfileEnrollmentURL = await client.beta.userProfiles.createEnrollmentURL(
-  'uprof_011CZkZCu8hGbp5mYRQgUmz9',
-);
+const betaUserProfileEnrollmentURL =
+  await client.beta.userProfiles.createEnrollmentURL(
+    "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  );
 
 console.log(betaUserProfileEnrollmentURL.expires_at);
+```
+
+#### Response
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
 ```
 
 ## Domain Types
@@ -734,7 +824,6 @@ console.log(betaUserProfileEnrollmentURL.expires_at);
 ### Beta User Profile
 
 - `BetaUserProfile`
-
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -750,7 +839,6 @@ console.log(betaUserProfileEnrollmentURL.expires_at);
   - `relationship: "external" | "resold" | "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -760,11 +848,9 @@ console.log(betaUserProfileEnrollmentURL.expires_at);
   - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" | "pending" | "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -774,7 +860,6 @@ console.log(betaUserProfileEnrollmentURL.expires_at);
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -792,7 +877,6 @@ console.log(betaUserProfileEnrollmentURL.expires_at);
 ### Beta User Profile Enrollment URL
 
 - `BetaUserProfileEnrollmentURL`
-
   - `expires_at: string`
 
     A timestamp in RFC 3339 format
@@ -800,7 +884,6 @@ console.log(betaUserProfileEnrollmentURL.expires_at);
   - `type: "enrollment_url"`
 
     Object type. Always `enrollment_url`.
-
     - `"enrollment_url"`
 
   - `url: string`
@@ -810,11 +893,9 @@ console.log(betaUserProfileEnrollmentURL.expires_at);
 ### Beta User Profile Trust Grant
 
 - `BetaUserProfileTrustGrant`
-
   - `status: "active" | "pending" | "rejected"`
 
     Status of the trust grant.
-
     - `"active"`
 
     - `"pending"`

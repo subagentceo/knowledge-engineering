@@ -1,4 +1,4 @@
-## Update
+## Update User Profile
 
 `beta.user_profiles.update(user_profile_id, **kwargs) -> BetaUserProfile`
 
@@ -25,7 +25,6 @@ Update User Profile
 - `relationship: :external | :resold | :internal`
 
   How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
   - `:external`
 
   - `:resold`
@@ -35,11 +34,9 @@ Update User Profile
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -88,10 +85,15 @@ Update User Profile
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaUserProfile`
-
   - `id: String`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -107,7 +109,6 @@ Update User Profile
   - `relationship: :external | :resold | :internal`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `:external`
 
     - `:resold`
@@ -117,11 +118,9 @@ Update User Profile
   - `trust_grants: Hash[Symbol, BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: :active | :pending | :rejected`
 
       Status of the trust grant.
-
       - `:active`
 
       - `:pending`
@@ -131,7 +130,6 @@ Update User Profile
   - `type: :user_profile`
 
     Object type. Always `user_profile`.
-
     - `:user_profile`
 
   - `updated_at: Time`
@@ -156,4 +154,24 @@ anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 beta_user_profile = anthropic.beta.user_profiles.update("uprof_011CZkZCu8hGbp5mYRQgUmz9")
 
 puts(beta_user_profile)
+```
+
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
 ```

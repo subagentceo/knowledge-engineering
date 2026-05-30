@@ -1,11 +1,13 @@
+# CodeRabbit revolutionizes code review with Claude
+
 CodeRabbit uses Claude to transform code review processes for development teams, enabling them to ship higher quality code faster while maintaining rigorous standards through AI-powered analysis and feedback.
 
 With Claude, CodeRabbit:
 
--   Delivers 86% faster code delivery, from days to hours
--   Reduces code review issues by over 60%
--   Reports 70% implementation rate of AI-powered fixes
--   Processes millions of pull requests monthly, enabling unified quality assurance and automated security checks.
+- Delivers 86% faster code delivery, from days to hours
+- Reduces code review issues by over 60%
+- Reports 70% implementation rate of AI-powered fixes
+- Processes millions of pull requests monthly, enabling unified quality assurance and automated security checks.
 
 ## The challenge of maintaining code quality at scale
 
@@ -25,11 +27,11 @@ The integration process was smooth, thanks to Anthropic's modern SDK architectur
 
 CodeRabbit leverages Claude to deliver:
 
--   Real-time code reviews with contextual feedback during development
--   Instant understanding of complex code changes through clear summaries
--   Impact assessments that help teams grasp architectural implications
--   Early error and bug detection with improvement suggestions
--   Unified quality assurance combining linting and security tools
+- Real-time code reviews with contextual feedback during development
+- Instant understanding of complex code changes through clear summaries
+- Impact assessments that help teams grasp architectural implications
+- Early error and bug detection with improvement suggestions
+- Unified quality assurance combining linting and security tools
 
 ![CodeRabbit product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05833ab21433fa60bce_4c76226ebc18ca36136fe6d4b32cd622f9427ee3-1920x925.png)
 

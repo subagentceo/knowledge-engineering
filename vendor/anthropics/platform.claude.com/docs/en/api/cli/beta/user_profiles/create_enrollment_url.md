@@ -19,7 +19,6 @@ Create Enrollment URL
 ### Returns
 
 - `beta_user_profile_enrollment_url: object { expires_at, type, url }`
-
   - `expires_at: string`
 
     A timestamp in RFC 3339 format
@@ -27,7 +26,6 @@ Create Enrollment URL
   - `type: "enrollment_url"`
 
     Object type. Always `enrollment_url`.
-
     - `"enrollment_url"`
 
   - `url: string`
@@ -40,4 +38,14 @@ Create Enrollment URL
 ant beta:user-profiles create-enrollment-url \
   --api-key my-anthropic-api-key \
   --user-profile-id uprof_011CZkZCu8hGbp5mYRQgUmz9
+```
+
+#### Response
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
 ```

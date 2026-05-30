@@ -1,3 +1,5 @@
+# Smartsheet
+
 Make Smartsheet a native part of your AI workflow. Ask Claude to analyze project timelines, create graphs to summarize your sheet information, all through conversation. The Smartsheet connector eliminates manual data entry and repetitive updates, letting you focus on decisions while Claude handles the details. Transform how you manage projects with AI that understands your Smartsheet data and can act on it.
 
 You can use Smartsheet to:

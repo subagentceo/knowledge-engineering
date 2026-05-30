@@ -12,13 +12,13 @@ To set your instructions:
 
 3. Under "Instructions for Claude," describe your instructions, such as:
 
-  - Your preferred approaches or methods
+- Your preferred approaches or methods
 
-  - Common terms or concepts you use
+- Common terms or concepts you use
 
-  - Typical scenarios you encounter
+- Typical scenarios you encounter
 
-  - General communication instructions
+- General communication instructions
 
 Any instructions you add here will be applied to all of your conversations with Claude.
 
@@ -42,23 +42,25 @@ Use project instructions when you want to:
 
 Project instructions are particularly useful when you're working on focused tasks or need Claude to maintain consistent context across multiple conversations within the same project.
 
-For detailed information on using projects, see our article on [creating and managing projects](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects).
+For detailed information on using projects, see our article on **[creating and managing projects](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects)**.
 
 ---
 
-## Styles
+## Skills
 
-Styles customize how Claude communicates with you. Unlike profile instructions and project instructions which provide context and guidance, styles focus specifically on how Claude formats and delivers its responses.
+**Note:** Styles are moving to skills. If you previously used a default style or created custom styles, see **[styles are moving to skills](https://support.claude.com/en/articles/10181068-styles-are-moving-to-skills)**.
 
-Use styles when you want to:
+Skills add specific behaviors or capabilities to your conversations with Claude. They can customize how Claude communicates, apply specialized expertise, or define repeatable behaviors you activate on demand.
 
-- Adjust the tone and format of Claude's responses.
+Use skills when you want to:
 
-- Switch between different communication styles (e.g., concise for quick answers, explanatory for learning).
+- Adjust the tone and format of Claude's responses
 
-- Create custom communication patterns based on your own writing.
+- Apply communication patterns based on your own writing or preferences
 
-For detailed information on using styles, see our article on [configuring and using styles](https://support.claude.com/en/articles/10181068-configuring-and-using-styles).
+- Add specialized capabilities for particular tasks or topics
+
+For more information, see **[What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)**
 
 ---
 

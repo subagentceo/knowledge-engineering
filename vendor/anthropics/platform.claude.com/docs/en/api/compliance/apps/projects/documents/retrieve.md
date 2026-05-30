@@ -1,4 +1,4 @@
-## Retrieve
+## Get project document content
 
 **get** `/v1/compliance/apps/projects/documents/{document_id}`
 
@@ -38,7 +38,6 @@ Project document information including content and metadata
 - `user: object { id, email_address }`
 
   User information for project creator.
-
   - `id: string`
 
     User identifier (tagged ID)
@@ -52,4 +51,19 @@ Project document information including content and metadata
 ```http
 curl https://api.anthropic.com/v1/compliance/apps/projects/documents/$DOCUMENT_ID \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "content": "content",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "filename": "filename",
+  "user": {
+    "id": "id",
+    "email_address": "email_address"
+  }
+}
 ```

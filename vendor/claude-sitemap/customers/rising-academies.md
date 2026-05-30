@@ -1,10 +1,12 @@
+# Rising Academies’ chatbot tutors reach 150,000+ students across Sub-Saharan Africa with Claude
+
 Working with communities across Sub-Saharan Africa, Rising Academies has developed two mobile-based educational tools using Claude: Rori, a virtual math tutor for students, and Tari, a newly launched support system for teachers. These tools complement existing educational systems by providing additional learning resources through widely-used mobile platforms.
 
 With these tools, Rising Academies has:
 
--   Already reached over 150,000 students, with a large number of students using Rori across Ghana, Sierra Leone, Nigeria, Kenya and Rwanda.
--   Achieved a 0.3 standard deviation effect size in learning outcomes, equivalent to accelerating a year's worth of learning
--   Provided teachers with 24/7 access to curriculum support and subject matter expertise
+- Already reached over 150,000 students, with a large number of students using Rori across Ghana, Sierra Leone, Nigeria, Kenya and Rwanda.
+- Achieved a 0.3 standard deviation effect size in learning outcomes, equivalent to accelerating a year's worth of learning
+- Provided teachers with 24/7 access to curriculum support and subject matter expertise
 
 ## Creating accessible education solutions through widely available mobile technology
 
@@ -20,16 +22,16 @@ Rising Academies has built two educational tools that utilize Claude; Rori for s
 
 Rori is a student-facing math tutor that uses a mix of pre-written lesson plans and dynamically generated conversations to help students learn mathematics. Claude helps students by
 
--   **Intelligent answer interpretation**: Claude evaluates open-ended responses, recognizing correct answers despite varied formatting. This approach accommodates diverse ways students express their thoughts and solutions, making the learning experience more effective than traditional multiple choice formats.
--   **Smart question handling**: When students ask off-topic questions, Claude uses retrieval augmented generation (RAG) to maintain appropriate and educational interactions, redirecting the conversation back to learning objectives.
--   **Soft skill development**: Claude powers discussions about learning mindset, normalizing mistakes in the learning process, and supporting goal-setting. The system incorporates strict safety guardrails specifically designed to protect young users throughout these interactions.
+- **Intelligent answer interpretation**: Claude evaluates open-ended responses, recognizing correct answers despite varied formatting. This approach accommodates diverse ways students express their thoughts and solutions, making the learning experience more effective than traditional multiple choice formats.
+- **Smart question handling**: When students ask off-topic questions, Claude uses retrieval augmented generation (RAG) to maintain appropriate and educational interactions, redirecting the conversation back to learning objectives.
+- **Soft skill development**: Claude powers discussions about learning mindset, normalizing mistakes in the learning process, and supporting goal-setting. The system incorporates strict safety guardrails specifically designed to protect young users throughout these interactions.
 
 Tari is a teacher support tool where almost all the interactions are powered by Claude:
 
--   Proactively initiates conversations with teachers about lesson planning
--   Offers private subject knowledge support without risking teachers' professional standing
--   Maintains conversations across multiple messages, checking in when users don't respond
--   Provides an AI-native experience with 95% of interactions through Claude
+- Proactively initiates conversations with teachers about lesson planning
+- Offers private subject knowledge support without risking teachers' professional standing
+- Maintains conversations across multiple messages, checking in when users don't respond
+- Provides an AI-native experience with 95% of interactions through Claude
 
 Both platforms use WhatsApp to reach users on basic smartphones without requiring downloads or banking access. "WhatsApp is the main communication platform in Sub-Saharan Africa," explains Henkel. "Many phone users can't access app stores without credit cards or formal banking."
 

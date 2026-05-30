@@ -1,4 +1,4 @@
-## Delete
+## Delete Credential
 
 `beta.vaults.credentials.delete(strcredential_id, CredentialDeleteParams**kwargs)  -> BetaManagedAgentsDeletedCredential`
 
@@ -15,11 +15,9 @@ Delete Credential
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -68,18 +66,22 @@ Delete Credential
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaManagedAgentsDeletedCredential: …`
 
   Confirmation of a deleted credential.
-
   - `id: str`
 
     Unique identifier of the deleted credential.
 
   - `type: Literal["vault_credential_deleted"]`
-
     - `"vault_credential_deleted"`
 
 ### Example
@@ -96,4 +98,13 @@ beta_managed_agents_deleted_credential = client.beta.vaults.credentials.delete(
     vault_id="vlt_011CZkZDLs7fYzm1hXNPeRjv",
 )
 print(beta_managed_agents_deleted_credential.id)
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "type": "vault_credential_deleted"
+}
 ```

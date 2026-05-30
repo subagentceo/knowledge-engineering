@@ -1,3 +1,5 @@
+# Data Engineering
+
 A comprehensive data engineering plugin that brings warehouse exploration, pipeline authoring, and Apache Airflow management directly into your coding workflow. It provides over 30 specialized skills spanning DAG development, data analysis, dbt integration, data lineage tracing, and Airflow deployment — plus an MCP server for full Airflow REST API access. An integrated `af` CLI tool lets you interact with Airflow instances from your terminal to list DAGs, trigger runs, diagnose failures, and manage connections.
 
 Query your data warehouse to answer business questions using natural language, profile tables, check data freshness, and trace upstream or downstream lineage across your pipelines. The plugin caches discovered patterns and table-to-concept mappings so repeated analysis gets faster over time.

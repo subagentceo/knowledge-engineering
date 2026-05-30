@@ -1,4 +1,6 @@
-**_Update:_** _Now available in Amazon Bedrock. (June 30, 2025)_
+# Introducing Citations on the Anthropic API
+
+***Update:*** *Now available in Amazon Bedrock. (June 30, 2025)*
 
 Today, we're launching Citations, a new API feature that lets Claude ground its answers in source documents. Claude can now provide detailed references to the exact sentences and passages it uses to generate responses, leading to more verifiable, trustworthy outputs.
 
@@ -16,9 +18,9 @@ Previously, developers relied on complex prompts that instruct Claude to include
 
 With Citations, developers can create AI solutions that offer enhanced accountability across use cases like:
 
--   Document summarization: Generate concise summaries of long documents, like case files, with each key point linked back to its original source.
--   Complex Q&A: Provide detailed answers to user queries across a large corpus of documents, like financial statements, with each response element traced back to specific sections of relevant texts.
--   Customer support: Create support systems that can answer complex queries by referencing multiple product manuals, FAQs, and support tickets, always citing the exact source of information.
+- Document summarization: Generate concise summaries of long documents, like case files, with each key point linked back to its original source.
+- Complex Q&A: Provide detailed answers to user queries across a large corpus of documents, like financial statements, with each response element traced back to specific sections of relevant texts.
+- Customer support: Create support systems that can answer complex queries by referencing multiple product manuals, FAQs, and support tickets, always citing the exact source of information.
 
 ### How it works
 
@@ -46,4 +48,4 @@ Endex uses Claude to power an Autonomous Agent for financial firms.
 
 ### Get started
 
-Citations is now available for the new Claude 3.5 Sonnet and Claude 3.5 Haiku. To start using Citations, explore our [documentation](https://docs.anthropic.com/en/docs/build-with-claude/citations).
+Citations is now available for the new Claude 3.5 Sonnet and Claude 3.5 Haiku. To start using Citations, explore our documentation.

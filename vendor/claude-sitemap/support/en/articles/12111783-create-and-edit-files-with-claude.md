@@ -46,7 +46,7 @@ These capabilities make it easy to produce professional documents by simply chat
 
 To give Claude access to external data sources, toggle **Allow network egress** on:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1778914800&amp;signature=2abe5db8ab29f838d3fcefaf7695ddbd3959e6feaa9b7bd9b5fbbc3cca9683f7&amp;req=diAiEs55mYFfXPMW1HO4zYFJxAVMDZ3GPQVowIiib2lMPxO73C8eOEg%2F4iZq%0APTCiO4Y%2Bn1buqDh6P44%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2054774005/25bcfffba6c249cd128d6c3f6d52/CleanShot+2026-02-11+at+16_34_47%402x.png?expires=1780164900&signature=71fba936da940b62cf0616e009acb3dc14d712f35c941b2934ba3fc3ad0458f9&req=diAiEs55mYFfXPMW1HO4zYFJyw1ECp3HPQVowIiib2mFrWgRmBzC7hCkqUIx%0AP4%2B9Q0Z3pCZOuM%2FrJ2E%3D%0A)
 
 ### Enabling on Claude Mobile
 
@@ -64,11 +64,11 @@ Team and Enterprise organization owners can control network access settings in *
 
 - **Allow network egress to package managers and specific domains:** Claude can access package managers plus additional domains you specify. Add domains individually to whitelist specific resources your organization needs:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1778914800&amp;signature=abd334b92e1d1cec6463b6a850fa096d243e3b4585db2573b39e8567ad395625&amp;req=dScvH8B6mIJZW%2FMW1HO4zXJcCWVKlC1DpMW6Iph6YZf2zOXGqF7b6szOAVj2%0A2SEjNdULmju%2BWz6zKX4%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945362/ad72504d5429960f369b8b91b43c/86f06c0e-6eaa-4574-a4cb-2c38b273613a?expires=1780164900&signature=6d9287f36b40dc7e6a2e3ddf93bb94fbed59a3bd381509a95c9d815a246191fe&req=dScvH8B6mIJZW%2FMW1HO4zXJcBm1Cky1CpMW6Iph6YZe%2BANj1GGHh%2BH2bOaRz%0AoCCiRgrU9ixUF1y3Mw0%3D%0A)
 
 **All domains:** Claude has full internet access except for domains on Anthropic's legal blocklist. While this provides maximum flexibility for file creation and analysis tasks, it’s also the riskiest option. Please review the **[security considerations below](#h_0ee9d698a1)** before enabling “All domains”:
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1778914800&amp;signature=e485a6c51735edc1b0709b12908d570a6730edd62794653e2dab6a9ac88d7957&amp;req=dScvH8B6mIJZWPMW1HO4zdnsdxyb7zuqqgKIA6CM1tpE3SbehbZb%2FYkDFq1Z%0ALyE90DhjpDnJ3mK3FrY%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1789945361/e3188cb8edb9ca7c303615da6378/f1c99a7d-5956-48d5-9ec7-b7ae6c8c3d28?expires=1780164900&signature=0dd1c61dddbd2621a3c27f82977d5f1f50ec0058788074740df649b717ed3784&req=dScvH8B6mIJZWPMW1HO4zdnseBST6DurqgKIA6CM1trYxi9FUMq8jOGnuGSD%0ADVCsJM%2B4ZY1kBwdmfv4%3D%0A)
 
 ---
 
@@ -240,6 +240,7 @@ Generate spreadsheets with working formulas and calculations by describing your 
 Create a monthly budget tracker with income, expenses categories, and
 automatic calculations for savings.
 ```
+
 Claude will produce an Excel file with proper formulas, formatting, and even charts to visualize your data.
 
 ### Generate a professional report
@@ -250,6 +251,7 @@ Combine data analysis with document creation by providing your information and r
 Create a quarterly sales report using this CSV data, including trend
 analysis and recommendations.
 ```
+
 Claude will analyze your data and produce a formatted Word document or PDF with charts, insights, and professional formatting.
 
 ### Convert between file formats
@@ -259,11 +261,13 @@ Change any document from one format to another while preserving or enhancing the
 ```
 Convert this Word document to a presentation.
 ```
+
 or
 
 ```
 Explain this Excel spreadsheet in a Word report with commentary.
 ```
+
 Claude can even support workflows requiring multiple file format conversions. For instance, you could upload a CSV file and prompt Claude to create a financial model, write a memo summarizing it, and generate a PowerPoint to share the results.
 
 ### Extract and analyze PDF data
@@ -274,6 +278,7 @@ Upload a PDF containing tables or forms and ask Claude to extract the informatio
 Extract all the data from this PDF into an Excel spreadsheet and create a
 summary chart.
 ```
+
 Claude will pull the data, organize it in spreadsheet format, and add visualizations for quick insights.
 
 ### Perform complex analyses

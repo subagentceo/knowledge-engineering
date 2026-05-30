@@ -1,3 +1,5 @@
+# ChEMBL
+
 The ChEMBL connector gives Claude access to the ChEMBL Database, a manually curated resource of bioactive drug-like compounds with quantitative binding and functional data against biological targets. Search for compounds by name or structure, retrieve bioactivity data (IC50, EC50, Ki values), find drug targets and mechanisms of action, access ADMET properties, and discover approved drugs by indication.
 
 You can use the ChEMBL connector to:

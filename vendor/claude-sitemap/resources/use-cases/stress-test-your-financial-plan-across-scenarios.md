@@ -1,3 +1,5 @@
+# Stress-test your financial plan across scenarios
+
 Opus 4.6 synthesizes across your full set of financial documents before building anything. It connects variables that most calculators treat independently — tax brackets, withdrawal sequences, Social Security timing — and reasons through how they cascade over decades.
 
-Describe your situation and what you want to understand. Your financial documents, covered in the next section, provide the detail. Opus 4.6 determines the approach, runs the analysis, and produces working spreadsheets and scenario explorers. From there, you can keep working in [Claude in Excel](https://claude.com/claude-for-excel).
+Describe your situation and what you want to understand. Your financial documents, covered in the next section, provide the detail. Opus 4.6 determines the approach, runs the analysis, and produces working spreadsheets and scenario explorers. From there, you can keep working in Claude in Excel.

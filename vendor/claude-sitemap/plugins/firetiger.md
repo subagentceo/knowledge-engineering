@@ -1,3 +1,5 @@
+# Firetiger
+
 Firetiger brings autonomous observability workflows directly into Claude Code. Connect to Firetiger's MCP-powered platform to monitor your applications, investigate production issues, and query telemetry data — all without leaving your editor. The plugin provides six slash commands covering the full observability lifecycle from setup and instrumentation to active monitoring and incident investigation.
 
 Get started quickly with `/firetiger:setup`, which auto-detects your stack (Vercel, AWS, GCP, Cloudflare), connects integrations, instruments your code with OpenTelemetry, and creates a monitoring agent — all in one guided flow. Use `/firetiger:instrument` to add OpenTelemetry instrumentation to Node.js, Python, Go, or Rust projects with framework-specific templates and automatic credential management.

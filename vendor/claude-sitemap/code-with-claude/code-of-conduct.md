@@ -1,8 +1,10 @@
+# Code of Conduct — Code w/ Claude 2026
+
 San Francisco · London · Tokyo
 
 All attendees, speakers, sponsors, and volunteers at Code with Claude ("Conference") must agree to abide by this Code of Conduct, which Anthropic will enforce throughout the Conference. We expect everyone to work together to help ensure a safe, inclusive, and productive environment for all participants.
 
-Need help? Contact the Conference team at [\[email protected\]](/cdn-cgi/l/email-protection) or find a member of Conference staff at the registration desk. We’re here to help.
+Need help? Contact the Conference team at [email protected] or find a member of Conference staff at the registration desk. We’re here to help.
 
 ### Our Commitment
 
@@ -12,28 +14,28 @@ We do not tolerate harassment in any form. Sexual language and imagery is not ap
 
 ### Unacceptable Behavior
 
--   The following behaviors are considered unacceptable at Code with Claude:
--   Offensive verbal or written comments related to any of the characteristics listed above
--   Lewd, sexually explicit, or obscene language, gestures, or imagery in public spaces
--   Deliberate intimidation, stalking, or following
--   Harassing photography or recording of any attendee without consent
--   Sustained disruption of sessions, workshops, or other Conference activities
--   Unwelcome physical contact or unwelcome sexual attention of any kind
--   Clothing or behavior that is provocative, offensive, or unsuitable for a professional environment
--   Destruction or vandalization of personal property, venue property, or Conference materials
--   Possession of any illegal substance
--   Possession of open alcohol containers outside designated areas, or being excessively intoxicated
--   Smoking or vaping in areas not designated for that purpose
--   Any unlawful act or behavior that violates venue rules or instructions from Conference staff
--   Unauthorized photography, recording, or streaming of sessions marked as confidential
+- The following behaviors are considered unacceptable at Code with Claude:
+- Offensive verbal or written comments related to any of the characteristics listed above
+- Lewd, sexually explicit, or obscene language, gestures, or imagery in public spaces
+- Deliberate intimidation, stalking, or following
+- Harassing photography or recording of any attendee without consent
+- Sustained disruption of sessions, workshops, or other Conference activities
+- Unwelcome physical contact or unwelcome sexual attention of any kind
+- Clothing or behavior that is provocative, offensive, or unsuitable for a professional environment
+- Destruction or vandalization of personal property, venue property, or Conference materials
+- Possession of any illegal substance
+- Possession of open alcohol containers outside designated areas, or being excessively intoxicated
+- Smoking or vaping in areas not designated for that purpose
+- Any unlawful act or behavior that violates venue rules or instructions from Conference staff
+- Unauthorized photography, recording, or streaming of sessions marked as confidential
 
 ### Expected Behavior
 
--   All Conference participants are expected to:
--   Treat all participants with respect and consideration, refraining from discriminatory or otherwise inappropriate behavior and speech
--   Be mindful of your surroundings and your fellow participants; alert Conference staff if you notice a dangerous situation or if you or someone else is in distress
--   Comply with all requests from Conference staff and venue personnel
--   Respect the intellectual property and confidentiality designations of all sessions and materials
+- All Conference participants are expected to:
+- Treat all participants with respect and consideration, refraining from discriminatory or otherwise inappropriate behavior and speech
+- Be mindful of your surroundings and your fellow participants; alert Conference staff if you notice a dangerous situation or if you or someone else is in distress
+- Comply with all requests from Conference staff and venue personnel
+- Respect the intellectual property and confidentiality designations of all sessions and materials
 
 ### Reporting
 
@@ -41,24 +43,24 @@ If someone makes you or anyone else feel unsafe or unwelcome, please report it t
 
 If you experience or witness a life-threatening emergency, contact local authorities immediately:
 
--   United States (San Francisco): 911
--   United Kingdom (London): 999
--   Japan (Tokyo): 110 (police) / 119 (ambulance and fire)
+- United States (San Francisco): 911
+- United Kingdom (London): 999
+- Japan (Tokyo): 110 (police) / 119 (ambulance and fire)
 
 Code of Conduct violations reduce the value and safety of the Conference for everyone. You can make a report personally or anonymously.
 
 If you witness a violation and feel comfortable doing so, you may let the person know that their behavior is inappropriate and ask them to stop. If the behavior continues, or if you are uncomfortable speaking directly:
 
--   Contact Conference staff as soon as possible, in person at the registration desk or by email at [\[email protected\]](/cdn-cgi/l/email-protection)
--   A staff member will immediately address the issue and take appropriate further action
+- Contact Conference staff as soon as possible, in person at the registration desk or by email at [email protected]
+- A staff member will immediately address the issue and take appropriate further action
 
 When taking a personal report, our staff will ensure you are safe and cannot be overheard. We may involve other Conference staff to ensure your report is handled properly. Once you are safe, we will ask you to tell us what happened. We will handle your report as respectfully as possible. You are welcome to bring someone with you for support. You will not be asked to confront anyone, and we will not disclose your identity to the individual involved or to other attendees.
 
 Our team can assist you to:
 
--   Contact venue security, local law enforcement, or local support services
--   Provide an escort or other assistance to help you feel safe for the remainder of the Conference
--   We value your presence and appreciate your attendance at Code with Claude.
+- Contact venue security, local law enforcement, or local support services
+- Provide an escort or other assistance to help you feel safe for the remainder of the Conference
+- We value your presence and appreciate your attendance at Code with Claude.
 
 ### Sponsor Obligations
 
@@ -82,25 +84,25 @@ Certain sessions will be designated as confidential or no-recording. These sessi
 
 ### Contact
 
-For questions about this Code of Conduct or to report a concern, contact us at [\[email protected\]](/cdn-cgi/l/email-protection#91f2fef5f4e6f8e5f9f2fdf0e4f5f4d1e3f4f6e2e7f2bff2fefc).
+For questions about this Code of Conduct or to report a concern, contact us at [email protected].
 
 This Code of Conduct forms part of the Code with Claude Terms & Conditions. Capitalized terms not defined herein have the meanings given to them in the Terms & Conditions.
 
 ### Prohbited items
 
--   Weapons of any kind, including replicas
--   Firearms or any device designed to launch a projectile
--   Explosives, fireworks, or hazardous materials
--   Stun guns, Tasers, mace, pepper spray, or similar devices
--   Illegal substances or drug-related items
--   Alcohol not purchased or served by the venue
--   Aerosol containers such as spray paint or air horns
--   Laser pointers or laser-equipped devices
--   Signs, banners, flags, handouts, or materials intended for demonstration or distribution
--   Adhesives, including glue or bonding agents
--   Handcuffs, zip ties, chains, or other restraint-type items
--   Megaphones, portable speakers, horns, whistles, or other noise-making devices
--   Drones or unmanned aircraft
--   Bicycles, skateboards, skates, or motorized recreational devices (accessibility mobility devices are permitted)
--   Inflatable items such as balloons or beach balls
--   Clothing or items displaying offensive language or images.
+- Weapons of any kind, including replicas
+- Firearms or any device designed to launch a projectile
+- Explosives, fireworks, or hazardous materials
+- Stun guns, Tasers, mace, pepper spray, or similar devices
+- Illegal substances or drug-related items
+- Alcohol not purchased or served by the venue
+- Aerosol containers such as spray paint or air horns
+- Laser pointers or laser-equipped devices
+- Signs, banners, flags, handouts, or materials intended for demonstration or distribution
+- Adhesives, including glue or bonding agents
+- Handcuffs, zip ties, chains, or other restraint-type items
+- Megaphones, portable speakers, horns, whistles, or other noise-making devices
+- Drones or unmanned aircraft
+- Bicycles, skateboards, skates, or motorized recreational devices (accessibility mobility devices are permitted)
+- Inflatable items such as balloons or beach balls
+- Clothing or items displaying offensive language or images.

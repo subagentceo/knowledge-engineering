@@ -1,6 +1,6 @@
 # Versions
 
-## Create
+## Create Skill Version
 
 `client.Beta.Skills.Versions.New(ctx, skillID, params) (*BetaSkillVersionNewResponse, error)`
 
@@ -17,7 +17,6 @@ Create Skill Version
   The format and length of IDs may change over time.
 
 - `params BetaSkillVersionNewParams`
-
   - `Files param.Field[[]Reader]`
 
     Body param: Files to upload for the skill.
@@ -27,11 +26,9 @@ Create Skill Version
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -80,10 +77,15 @@ Create Skill Version
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaSkillVersionNewResponse struct{…}`
-
   - `ID string`
 
     Unique identifier for the skill version.
@@ -159,7 +161,22 @@ func main() {
 }
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## List Skill Versions
 
 `client.Beta.Skills.Versions.List(ctx, skillID, params) (*PageCursor[BetaSkillVersionListResponse], error)`
 
@@ -176,7 +193,6 @@ List Skill Versions
   The format and length of IDs may change over time.
 
 - `params BetaSkillVersionListParams`
-
   - `Limit param.Field[int64]`
 
     Query param: Number of items to return per page.
@@ -190,11 +206,9 @@ List Skill Versions
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -243,10 +257,15 @@ List Skill Versions
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaSkillVersionListResponse struct{…}`
-
   - `ID string`
 
     Unique identifier for the skill version.
@@ -322,13 +341,34 @@ func main() {
 }
 ```
 
-## Retrieve
+#### Response
 
-`client.Beta.Skills.Versions.Get(ctx, version, params) (*BetaSkillVersionGetResponse, error)`
+```json
+{
+  "data": [
+    {
+      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "description": "A custom skill for doing something useful",
+      "directory": "my-skill",
+      "name": "my-skill",
+      "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "type": "type",
+      "version": "1759178010641129"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
 
-**get** `/v1/skills/{skill_id}/versions/{version}`
+## Download Skill Version Content
 
-Get Skill Version
+`client.Beta.Skills.Versions.Download(ctx, version, params) (*Response, error)`
+
+**get** `/v1/skills/{skill_id}/versions/{version}/content`
+
+Download a skill version's content as a zip archive.
 
 ### Parameters
 
@@ -338,8 +378,7 @@ Get Skill Version
 
   Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
-- `params BetaSkillVersionGetParams`
-
+- `params BetaSkillVersionDownloadParams`
   - `SkillID param.Field[string]`
 
     Path param: Unique identifier for the skill.
@@ -349,11 +388,9 @@ Get Skill Version
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -402,10 +439,133 @@ Get Skill Version
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
+### Returns
+
+- `type BetaSkillVersionDownloadResponse interface{…}`
+
+### Example
+
+```go
+package main
+
+import (
+  "context"
+  "fmt"
+
+  "github.com/anthropics/anthropic-sdk-go"
+  "github.com/anthropics/anthropic-sdk-go/option"
+)
+
+func main() {
+  client := anthropic.NewClient(
+    option.WithAPIKey("my-anthropic-api-key"),
+  )
+  response, err := client.Beta.Skills.Versions.Download(
+    context.TODO(),
+    "version",
+    anthropic.BetaSkillVersionDownloadParams{
+      SkillID: "skill_id",
+    },
+  )
+  if err != nil {
+    panic(err.Error())
+  }
+  fmt.Printf("%+v\n", response)
+}
+```
+
+## Get Skill Version
+
+`client.Beta.Skills.Versions.Get(ctx, version, params) (*BetaSkillVersionGetResponse, error)`
+
+**get** `/v1/skills/{skill_id}/versions/{version}`
+
+Get Skill Version
+
+### Parameters
+
+- `version string`
+
+  Version identifier for the skill.
+
+  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+- `params BetaSkillVersionGetParams`
+  - `SkillID param.Field[string]`
+
+    Path param: Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `Betas param.Field[[]AnthropicBeta]`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+    - `string`
+
+    - `type AnthropicBeta string`
+      - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
+
+      - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
+
+      - `const AnthropicBetaComputerUse2024_10_22 AnthropicBeta = "computer-use-2024-10-22"`
+
+      - `const AnthropicBetaComputerUse2025_01_24 AnthropicBeta = "computer-use-2025-01-24"`
+
+      - `const AnthropicBetaPDFs2024_09_25 AnthropicBeta = "pdfs-2024-09-25"`
+
+      - `const AnthropicBetaTokenCounting2024_11_01 AnthropicBeta = "token-counting-2024-11-01"`
+
+      - `const AnthropicBetaTokenEfficientTools2025_02_19 AnthropicBeta = "token-efficient-tools-2025-02-19"`
+
+      - `const AnthropicBetaOutput128k2025_02_19 AnthropicBeta = "output-128k-2025-02-19"`
+
+      - `const AnthropicBetaFilesAPI2025_04_14 AnthropicBeta = "files-api-2025-04-14"`
+
+      - `const AnthropicBetaMCPClient2025_04_04 AnthropicBeta = "mcp-client-2025-04-04"`
+
+      - `const AnthropicBetaMCPClient2025_11_20 AnthropicBeta = "mcp-client-2025-11-20"`
+
+      - `const AnthropicBetaDevFullThinking2025_05_14 AnthropicBeta = "dev-full-thinking-2025-05-14"`
+
+      - `const AnthropicBetaInterleavedThinking2025_05_14 AnthropicBeta = "interleaved-thinking-2025-05-14"`
+
+      - `const AnthropicBetaCodeExecution2025_05_22 AnthropicBeta = "code-execution-2025-05-22"`
+
+      - `const AnthropicBetaExtendedCacheTTL2025_04_11 AnthropicBeta = "extended-cache-ttl-2025-04-11"`
+
+      - `const AnthropicBetaContext1m2025_08_07 AnthropicBeta = "context-1m-2025-08-07"`
+
+      - `const AnthropicBetaContextManagement2025_06_27 AnthropicBeta = "context-management-2025-06-27"`
+
+      - `const AnthropicBetaModelContextWindowExceeded2025_08_26 AnthropicBeta = "model-context-window-exceeded-2025-08-26"`
+
+      - `const AnthropicBetaSkills2025_10_02 AnthropicBeta = "skills-2025-10-02"`
+
+      - `const AnthropicBetaFastMode2026_02_01 AnthropicBeta = "fast-mode-2026-02-01"`
+
+      - `const AnthropicBetaOutput300k2026_03_24 AnthropicBeta = "output-300k-2026-03-24"`
+
+      - `const AnthropicBetaUserProfiles2026_03_24 AnthropicBeta = "user-profiles-2026-03-24"`
+
+      - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
+
+      - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaSkillVersionGetResponse struct{…}`
-
   - `ID string`
 
     Unique identifier for the skill version.
@@ -481,7 +641,22 @@ func main() {
 }
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## Delete Skill Version
 
 `client.Beta.Skills.Versions.Delete(ctx, version, params) (*BetaSkillVersionDeleteResponse, error)`
 
@@ -498,7 +673,6 @@ Delete Skill Version
   Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 - `params BetaSkillVersionDeleteParams`
-
   - `SkillID param.Field[string]`
 
     Path param: Unique identifier for the skill.
@@ -508,11 +682,9 @@ Delete Skill Version
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -561,10 +733,15 @@ Delete Skill Version
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaSkillVersionDeleteResponse struct{…}`
-
   - `ID string`
 
     Version identifier for the skill.
@@ -605,5 +782,14 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", version.ID)
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "1759178010641129",
+  "type": "type"
 }
 ```

@@ -1,3 +1,5 @@
+# Equity Research
+
 Analyze earnings, generate investment ideas, and draft initiating coverage reports using structured equity research workflows.
 
 You can use Equity Research to:

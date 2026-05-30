@@ -1,3 +1,5 @@
+# Data
+
 Data transforms Claude into a data analyst collaborator. Explore datasets, write optimized SQL for any dialect, build publication-quality visualizations, and create interactive dashboards — all in one plugin.
 
 Connect your data warehouse (Snowflake, Databricks, BigQuery, or any SQL-compatible database) and Claude will query directly, explore schemas, and iterate on analyses end-to-end. Without a connection, paste SQL results or upload CSV/Excel files for analysis.

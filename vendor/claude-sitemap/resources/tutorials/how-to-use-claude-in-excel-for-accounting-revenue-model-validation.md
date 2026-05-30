@@ -1,14 +1,16 @@
-[Claude in Excel](https://support.claude.com/en/articles/12650343-claude-in-excel) works directly inside your spreadsheet through a sidebar, reading your data and making changes through conversation. In this tutorial, you'll see how an accountant uses Claude to validate an ASC 606 revenue recognition model—the kind of multi-tab workbook you might inherit during an audit or acquire in a transaction.
+# How to use Claude in Excel for accounting: Revenue model validation
+
+Claude in Excel works directly inside your spreadsheet through a sidebar, reading your data and making changes through conversation. In this tutorial, you'll see how an accountant uses Claude to validate an ASC 606 revenue recognition model—the kind of multi-tab workbook you might inherit during an audit or acquire in a transaction.
 
 ## What you'll learn
 
-**Understand workbooks you didn't build** — Ask Claude to explain how tabs connect. It reads every sheet first, then maps the structure—how schedules tie together, where data flows, what feeds into what.  
+**Understand workbooks you didn't build** — Ask Claude to explain how tabs connect. It reads every sheet first, then maps the structure—how schedules tie together, where data flows, what feeds into what.
 
-**Surface errors and inconsistencies** — Claude catches reconciliation gaps, duplicate entries, and missing data across multiple sheets. Instead of clicking through tabs yourself, you see everything it found upfront—and choose what to tackle first.  
+**Surface errors and inconsistencies** — Claude catches reconciliation gaps, duplicate entries, and missing data across multiple sheets. Instead of clicking through tabs yourself, you see everything it found upfront—and choose what to tackle first.
 
-**Fix issues with confirmation** — When Claude finds a problem, it shows you what's wrong, explains the recommended fix, and waits for your go-ahead. You stay in control of what changes.  
+**Fix issues with confirmation** — When Claude finds a problem, it shows you what's wrong, explains the recommended fix, and waits for your go-ahead. You stay in control of what changes.
 
-**Add columns and formatting through conversation**  — Describe what you need—status indicators, legends, new calculations—and Claude builds it. It learns patterns from your existing data and applies them consistently.  
+**Add columns and formatting through conversation**  — Describe what you need—status indicators, legends, new calculations—and Claude builds it. It learns patterns from your existing data and applies them consistently.
 
 **Create charts by describing them** — Tell Claude what visualization you need. It creates helper tables when necessary, builds the chart, and will rebuild if the first version isn't right.
 
@@ -77,11 +79,11 @@ This tutorial shows one use case: validating an ASC 606 revenue model with recon
 
 **Get started:**
 
--   Install [Claude in Excel](https://appsource.microsoft.com/en-us/product/office/WA200009404) from Microsoft AppSource
--   Open it with **Ctrl+Option+C** (Mac) or **Ctrl+Alt+C** (Windows)
--   Start with "Walk me through this model" on any spreadsheet you've inherited
+- Install Claude in Excel from Microsoft AppSource
+- Open it with **Ctrl+Option+C** (Mac) or **Ctrl+Alt+C** (Windows)
+- Start with "Walk me through this model" on any spreadsheet you've inherited
 
 **Learn more:**
 
--   [Claude in Excel help article](https://support.claude.com/en/articles/12650343-claude-in-excel)
--   [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+- Claude in Excel help article
+- What is the Max plan?

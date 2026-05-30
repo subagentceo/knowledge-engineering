@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -6,7 +7,7 @@
 
 > Let users call public tools immediately and defer OAuth until a protected tool is actually invoked.
 
-Not every tool on an MCP server needs the user's identity. A product catalog can be browsed anonymously; an order history cannot. **Lazy authentication** (sometimes called *mixed auth*) lets a single server expose both: unauthenticated clients can connect, list tools, and call public ones, and the server only challenges for credentials when a protected tool is invoked. The challenge follows the [MCP authorization specification](https://modelcontextprotocol.io/specification/latest/basic/authorization).
+Not every tool on an MCP server needs the user's identity. A product catalog can be browsed anonymously; an order history cannot. **Lazy authentication** (sometimes called _mixed auth_) lets a single server expose both: unauthenticated clients can connect, list tools, and call public ones, and the server only challenges for credentials when a protected tool is invoked. The challenge follows the [MCP authorization specification](https://modelcontextprotocol.io/specification/latest/basic/authorization).
 
 In Claude, the challenge surfaces as an inline **Connect** card in the conversation. The user authenticates in a popup, Claude retries the same tool call automatically with the new token, and the turn continues — no context is lost.
 
@@ -20,12 +21,12 @@ It must fail the **HTTP request** with `401 Unauthorized` and a [`WWW-Authentica
 
 ```http theme={null}
 HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Bearer error="invalid_token", resource_metadata="https://example.com/.well-known/oauth-protected-resource/mcp"
+WWW-Authenticate: Bearer error="invalid_token", resource_metadata="https://example.com/.well-known/oauth-protected-resource/mcp", scope="orders:read"
 
 {"error":"invalid_token","error_description":"Authentication required for this tool"}
 ```
 
-The body is advisory; the `401` status and `WWW-Authenticate` header carry the protocol signal.
+The body is advisory; the `401` status and `WWW-Authenticate` header carry the protocol signal. The optional `scope` parameter tells Claude which scopes to request during authorization — include the minimum your protected tools need. If you omit it, Claude requests the scopes your protected resource metadata advertises in `scopes_supported` (plus `offline_access` if your authorization server metadata lists it), which can produce an over-broad consent prompt.
 
 It must **not** return a successful HTTP response wrapping a tool error:
 
@@ -70,7 +71,8 @@ function callsProtectedTool(body: unknown): boolean {
 const WWW_AUTHENTICATE =
   `Bearer error="invalid_token", ` +
   `error_description="Authentication required for this tool", ` +
-  `resource_metadata="${BASE_URL}/.well-known/oauth-protected-resource/mcp"`;
+  `resource_metadata="${BASE_URL}/.well-known/oauth-protected-resource/mcp", ` +
+  `scope="orders:read"`;
 
 async function handleMcpPost(req: Request, res: Response): Promise<void> {
   const token = extractBearer(req);
@@ -79,13 +81,10 @@ async function handleMcpPost(req: Request, res: Response): Promise<void> {
   // Lazy-auth gate: fail with 401 BEFORE the MCP layer sees the request.
   // initialize, tools/list, and public tool calls fall through.
   if (!authed && callsProtectedTool(req.body)) {
-    res
-      .status(401)
-      .set("WWW-Authenticate", WWW_AUTHENTICATE)
-      .json({
-        error: "invalid_token",
-        error_description: "Authentication required for this tool",
-      });
+    res.status(401).set("WWW-Authenticate", WWW_AUTHENTICATE).json({
+      error: "invalid_token",
+      error_description: "Authentication required for this tool",
+    });
     return;
   }
 
@@ -166,7 +165,7 @@ function authorizationServerMetadata() {
 With CIMD the `client_id` is itself an HTTPS URL that dereferences to the client's OAuth registration metadata. There is no per-client database and no `POST /register` round-trip: at `/authorize`, the server fetches the `client_id` URL, verifies the document is self-referential (its `client_id` field equals the URL it was served from), and checks the requested `redirect_uri` against the document's `redirect_uris`. Because the document is self-asserted, the consent screen must display the **host of the `client_id` URL** (not the `client_name` field) as the relying party, and the listed `redirect_uris` should be required to be same-origin with the `client_id` URL.
 
 <Note>
-  Claude attempts CIMD when the authorization-server metadata includes `client_id_metadata_document_supported: true`. Also include `"none"` in `token_endpoint_auth_methods_supported`: a URL-identified client is public by definition, so the token endpoint must accept [PKCE](https://datatracker.ietf.org/doc/html/rfc7636)-only requests without a client secret. If `client_id_metadata_document_supported` is absent, Claude falls back to looking for a `registration_endpoint`.
+  Claude selects CIMD only when the authorization-server metadata advertises **both** `client_id_metadata_document_supported: true` **and** `"none"` in `token_endpoint_auth_methods_supported`. The second is required because Claude's CIMD client authenticates as a public client (`token_endpoint_auth_method: "none"`), so the token endpoint must accept [PKCE](https://datatracker.ietf.org/doc/html/rfc7636)-only requests without a client secret. If either property is missing, Claude falls back to looking for a `registration_endpoint`.
 </Note>
 
 For native clients, compare loopback IP `redirect_uri` values (`http://127.0.0.1/…`, `http://[::1]/…`) with the **port ignored**, per [RFC 8252 section 7.3](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3) — native apps bind an ephemeral port at runtime. RFC 8252 section 8.3 discourages `http://localhost/…`, but Claude Code declares it in its CIMD and binds an ephemeral port at runtime, so apply the same port-agnostic match to `localhost` for compatibility. The sample's `redirectUriAllowed()` helper shows the comparison.
@@ -182,6 +181,7 @@ For native clients, compare loopback IP `redirect_uri` values (`http://127.0.0.1
     ```
 
     The server listens on `http://localhost:3000/mcp`.
+
   </Step>
 
   <Step title="Call a public tool without auth: 200">
@@ -202,12 +202,14 @@ For native clients, compare loopback IP `redirect_uri` values (`http://127.0.0.1
     ```
 
     Note the `WWW-Authenticate` header in the response.
+
   </Step>
 
   <Step title="Add it as a custom connector in Claude">
     Claude reaches custom connectors from Anthropic's infrastructure, so `localhost` is not reachable directly. Expose the server over a public HTTPS tunnel (for example, `cloudflared tunnel --url http://localhost:3000` or `ngrok http 3000`), then in **Settings → Connectors → Add custom connector** enter the tunnel's `/mcp` URL. See [Testing your connector](/connectors/building/testing) for details.
 
     Ask Claude to list products (no prompt), then ask for your orders — the inline **Connect** card appears, and after authenticating the same call completes.
+
   </Step>
 </Steps>
 
@@ -215,7 +217,7 @@ The sample's README includes a longer `curl` walkthrough that drives the stub `/
 
 ## Adapting to your server
 
-* List your protected tools in `PROTECTED_TOOLS`.
-* Replace `isTokenValid()` with real verification: JWT signature, `iss` matches your authorization server, `aud` equals the `resource` value you advertise in the PRM, and `exp`; or [RFC 7662](https://datatracker.ietf.org/doc/html/rfc7662) token introspection against your IdP.
-* Point `authorization_servers` in the PRM at your real issuer and delete the stub `/authorize` and `/token` handlers. Keep `client_id_metadata_document_supported: true` in your issuer's metadata if you want registration-free onboarding for Claude clients.
-* If your server uses stateful Streamable HTTP sessions, the gate still belongs in the `POST /mcp` handler, before `transport.handleRequest`.
+- List your protected tools in `PROTECTED_TOOLS`.
+- Replace `isTokenValid()` with real verification: JWT signature, `iss` matches your authorization server, `aud` equals the `resource` value you advertise in the PRM, and `exp`; or [RFC 7662](https://datatracker.ietf.org/doc/html/rfc7662) token introspection against your IdP.
+- Point `authorization_servers` in the PRM at your real issuer and delete the stub `/authorize` and `/token` handlers. Keep `client_id_metadata_document_supported: true` in your issuer's metadata if you want registration-free onboarding for Claude clients.
+- If your server uses stateful Streamable HTTP sessions, the gate still belongs in the `POST /mcp` handler, before `transport.handleRequest`.

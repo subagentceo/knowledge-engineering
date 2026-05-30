@@ -10,7 +10,7 @@ The connector operates as a **secure proxy**, and your Microsoft 365 documents, 
 
 ### Access can be fully restricted
 
-The connector provides **multiple layers of access control** to address your security requirements. For detailed information on administration of the Microsoft 365 Connector see **[Enabling and using the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-enabling-and-using-the-microsoft-365-connector)**.
+The connector provides **multiple layers of access control** to address your security requirements. For detailed information on administration of the Microsoft 365 connector, see **[Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-)**.
 
 **1. Microsoft Entra tenant requirement**
 
@@ -26,13 +26,13 @@ Second, after the Owner enables the connector, a Microsoft Entra Global Administ
 
 You can selectively disable specific capabilities via Microsoft Entra Admin Center. For example:
 
-| **To restrict** | **Action** | **Effect** |
-| --- | --- | --- |
-| All access | Disable connector in Claude organization settings | Complete shutdown |
-| SharePoint only | Revoke Sites.Read.All permission in Entra | Blocks SharePoint |
-| Email access | Revoke Mail.Read permission in Entra | Blocks Outlook |
-| Teams chat | Revoke Chat.Read permission in Entra | Blocks Teams |
-| OneDrive files | Revoke Files.Read and/or Files.Read.All | Blocks reading files from OneDrive |
+| **To restrict** | **Action**                                        | **Effect**                         |
+| --------------- | ------------------------------------------------- | ---------------------------------- |
+| All access      | Disable connector in Claude organization settings | Complete shutdown                  |
+| SharePoint only | Revoke Sites.Read.All permission in Entra         | Blocks SharePoint                  |
+| Email access    | Revoke Mail.Read permission in Entra              | Blocks Outlook                     |
+| Teams chat      | Revoke Chat.Read permission in Entra              | Blocks Teams                       |
+| OneDrive files  | Revoke Files.Read and/or Files.Read.All           | Blocks reading files from OneDrive |
 
 Changes take effect immediately for all people in your organization. People can also choose to disable capabilities during a chat by selectively toggling off the connector's tools.
 
@@ -54,7 +54,7 @@ The connector fully supports your existing Entra (Azure AD) policies:
 
 - Users can only access Microsoft 365 data **they already have permission** for
 
-- SharePoint search requires Sites.Read.All permission. Site-specific permissioning (using *.Selected permissions) is not supported because the underlying search is tenant-wide.
+- SharePoint search requires Sites.Read.All permission. Site-specific permissioning (using \*.Selected permissions) is not supported because the underlying search is tenant-wide.
 
 - Users cannot bypass SharePoint sharing settings or folder permissions
 
@@ -110,83 +110,81 @@ The connector fully supports your existing Entra (Azure AD) policies:
 
 The connector provides **read-only** access to:
 
-| **Tool** | **Description** | **Required permission** |
-| --- | --- | --- |
-| sharepoint_search | Search SharePoint documents and pages | Sites.Read.All |
-| sharepoint_folder_search | Find SharePoint folders by name | Sites.Read.All |
-| outlook_email_search | Search email with sender/date filters | Mail.Read |
-| outlook_calendar_search | Search calendar events | Calendars.Read |
-| find_meeting_availability | Find available meeting times | Calendars.Read |
-| chat_message_search | Search Teams chat messages | Chat.Read |
-| read_resource | Read files, emails, or chat by URI | Varies by resource type |
+| **Tool**                    | **Description**                       | **Required permission** |
+| --------------------------- | ------------------------------------- | ----------------------- |
+| `sharepoint_search`         | Search SharePoint documents and pages | Sites.Read.All          |
+| `sharepoint_folder_search`  | Find SharePoint folders by name       | Sites.Read.All          |
+| `outlook_email_search`      | Search email with sender/date filters | Mail.Read               |
+| `outlook_calendar_search`   | Search calendar events                | Calendars.Read          |
+| `find_meeting_availability` | Find available meeting times          | Calendars.Read          |
+| `chat_message_search`       | Search Teams chat messages            | Chat.Read               |
+| `read_resource`             | Read files, emails, or chat by URI    | Varies by resource type |
 
 ## Permissions list
 
 **Basic permissions**
 
-- [User.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#userread) - Sign in and read user profile (basic requirement)
+- **[User.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#userread)** - Sign in and read user profile (basic requirement)
 
 **Mail permissions**
 
-- [Mail.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#mailread) - Read user mail (required for email tools/resources)
+- **[Mail.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#mailread)** - Read user mail (required for email tools/resources)
 
-- [Mail.ReadBasic](https://learn.microsoft.com/en-us/graph/permissions-reference#mailreadbasic) - Read user mail metadata (alternative for limited functionality)
+- **[Mail.ReadBasic](https://learn.microsoft.com/en-us/graph/permissions-reference#mailreadbasic)** - Read user mail metadata (alternative for limited functionality)
 
-- [Mail.Read.Shared](https://learn.microsoft.com/en-us/graph/permissions-reference#mailreadshared) - Read user and shared mail
+- **[Mail.Read.Shared](https://learn.microsoft.com/en-us/graph/permissions-reference#mailreadshared)** - Read user and shared mail
 
-- [MailboxFolder.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#mail-permissions) - Read a user's mailbox folders
+- **[MailboxFolder.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#mail-permissions)** - Read a user's mailbox folders
 
-- [MailboxItem.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#mail-permissions) - Read a user's mailbox items
+- **[MailboxItem.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#mail-permissions)** - Read a user's mailbox items
 
 **Calendar permissions**
 
-- [Calendars.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsread) - Read user calendars and events
+- **[Calendars.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsread)** - Read user calendars and events
 
-- [Calendars.Read.Shared](https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsreadshared) - Read calendars user can access, including shared
+- **[Calendars.Read.Shared](https://learn.microsoft.com/en-us/graph/permissions-reference#calendarsreadshared)** - Read calendars user can access, including shared
 
 **User directory**
 
-- [User.ReadBasic.All](https://learn.microsoft.com/en-us/graph/permissions-reference#userreadbasicall) - Read basic profiles of all users (for meeting availability)
+- **[User.ReadBasic.All](https://learn.microsoft.com/en-us/graph/permissions-reference#userreadbasicall)** - Read basic profiles of all users (for meeting availability)
 
 **Chat permissions**
 
-- [Chat.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#chatread) - Read user chat messages
+- **[Chat.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#chatread)** - Read user chat messages
 
-- [Chat.ReadBasic](https://learn.microsoft.com/en-us/graph/permissions-reference#chatreadbasic) - Read user chat metadata (alternative for limited functionality)
+- **[Chat.ReadBasic](https://learn.microsoft.com/en-us/graph/permissions-reference#chatreadbasic)** - Read user chat metadata (alternative for limited functionality)
 
-- [ChatMember.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#chatmemberread) - Read the members of chats
+- **[ChatMember.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#chatmemberread)** - Read the members of chats
 
-- [ChatMessage.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#chatmessageread) - Read user chat messages (more specific than Chat.Read)
+- **[ChatMessage.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#chatmessageread)** - Read user chat messages (more specific than Chat.Read)
 
 **Channel permissions**
 
-- [Channel.ReadBasic.All](https://learn.microsoft.com/en-us/graph/permissions-reference#channelreadbasicall) - Read the names and descriptions of channels
+- **[Channel.ReadBasic.All](https://learn.microsoft.com/en-us/graph/permissions-reference#channelreadbasicall)** - Read the names and descriptions of channels
 
-- [ChannelMessage.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#channelmessagereadall) - Read channel messages
+- **[ChannelMessage.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#channelmessagereadall)** - Read channel messages
 
 **Meeting permissions**
 
-- [OnlineMeetings.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingsread) - Read online meetings
+- **[OnlineMeetings.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingsread)** - Read online meetings
 
-- [OnlineMeetingTranscript.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingtranscriptreadall) - Read meeting transcripts
+- **[OnlineMeetingTranscript.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingtranscriptreadall)** - Read meeting transcripts
 
-- [OnlineMeetingAiInsight.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingaiinsightread) - Read all AI Insights for online meetings
+- **[OnlineMeetingAiInsight.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingaiinsightread)** - Read all AI Insights for online meetings
 
-- [OnlineMeetingArtifact.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingartifactreadall) - Read user's online meeting artifacts
+- **[OnlineMeetingArtifact.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingartifactreadall)** - Read user's online meeting artifacts
 
-- [OnlineMeetingRecording.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingrecordingreadall) - Read all recordings of online meetings
+- **[OnlineMeetingRecording.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#onlinemeetingrecordingreadall)** - Read all recordings of online meetings
 
 **Files permissions**
 
-- [Files.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#filesread) - Read user files
+- **[Files.Read](https://learn.microsoft.com/en-us/graph/permissions-reference#filesread)** - Read user files
 
-- [Files.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#filesreadall) - Read all files user can access
+- **[Files.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#filesreadall)** - Read all files user can access
 
 **Sites permissions**
 
-- [Sites.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesreadall) - Read items in all site collections
-
-- [Sites.Selected](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesselected) – Manages application access at the site collection level, providing access to a specific site collection
+- **[Sites.Read.All](https://learn.microsoft.com/en-us/graph/permissions-reference#sitesreadall)** - Read items in all site collections
 
 ## Current limitations
 
@@ -254,6 +252,8 @@ Anthropic has the following certifications:
 
 ## Additional resources
 
-- Claude Help Center: **[Enabling and using the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-enabling-and-using-the-microsoft-365-connector)**
+- **[Set up the Microsoft 365 connector](https://support.claude.com/en/articles/12542951-)**
+
+- **[Connect Claude to Microsoft 365](https://support.claude.com/en/articles/12542951-)**
 
 - **[Overview of Microsoft Graph permissions: Delegated permissions](https://learn.microsoft.com/en-us/graph/permissions-overview?tabs=http#delegated-permissions)**

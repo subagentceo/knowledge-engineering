@@ -1,6 +1,6 @@
 # Files
 
-## Upload
+## Upload File
 
 `beta.files.upload(FileUploadParams**kwargs)  -> FileMetadata`
 
@@ -17,11 +17,9 @@ Upload File
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -70,10 +68,15 @@ Upload File
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class FileMetadata: …`
-
   - `id: str`
 
     Unique object identifier.
@@ -101,7 +104,6 @@ Upload File
     Object type.
 
     For files, this is always `"file"`.
-
     - `"file"`
 
   - `downloadable: Optional[bool]`
@@ -111,7 +113,6 @@ Upload File
   - `scope: Optional[BetaFileScope]`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: str`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -119,7 +120,6 @@ Upload File
     - `type: Literal["session"]`
 
       The type of scope (e.g., `"session"`).
-
       - `"session"`
 
 ### Example
@@ -137,7 +137,25 @@ file_metadata = client.beta.files.upload(
 print(file_metadata.id)
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## List Files
 
 `beta.files.list(FileListParams**kwargs)  -> SyncPage[FileMetadata]`
 
@@ -168,11 +186,9 @@ List Files
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -221,10 +237,15 @@ List Files
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class FileMetadata: …`
-
   - `id: str`
 
     Unique object identifier.
@@ -252,7 +273,6 @@ List Files
     Object type.
 
     For files, this is always `"file"`.
-
     - `"file"`
 
   - `downloadable: Optional[bool]`
@@ -262,7 +282,6 @@ List Files
   - `scope: Optional[BetaFileScope]`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: str`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -270,7 +289,6 @@ List Files
     - `type: Literal["session"]`
 
       The type of scope (e.g., `"session"`).
-
       - `"session"`
 
 ### Example
@@ -287,7 +305,32 @@ page = page.data[0]
 print(page.id)
 ```
 
-## Download
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "created_at": "2025-04-15T18:37:24.100435Z",
+      "filename": "document.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 102400,
+      "type": "file",
+      "downloadable": false,
+      "scope": {
+        "id": "id",
+        "type": "session"
+      }
+    }
+  ],
+  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "has_more": true,
+  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
+}
+```
+
+## Download File
 
 `beta.files.download(strfile_id, FileDownloadParams**kwargs)  -> BinaryResponseContent`
 
@@ -304,11 +347,9 @@ Download File
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -356,6 +397,12 @@ Download File
     - `"advisor-tool-2026-03-01"`
 
     - `"managed-agents-2026-04-01"`
+
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
 
 ### Returns
 
@@ -378,7 +425,7 @@ content = response.read()
 print(content)
 ```
 
-## Retrieve Metadata
+## Get File Metadata
 
 `beta.files.retrieve_metadata(strfile_id, FileRetrieveMetadataParams**kwargs)  -> FileMetadata`
 
@@ -395,11 +442,9 @@ Get File Metadata
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -448,10 +493,15 @@ Get File Metadata
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class FileMetadata: …`
-
   - `id: str`
 
     Unique object identifier.
@@ -479,7 +529,6 @@ Get File Metadata
     Object type.
 
     For files, this is always `"file"`.
-
     - `"file"`
 
   - `downloadable: Optional[bool]`
@@ -489,7 +538,6 @@ Get File Metadata
   - `scope: Optional[BetaFileScope]`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: str`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -497,7 +545,6 @@ Get File Metadata
     - `type: Literal["session"]`
 
       The type of scope (e.g., `"session"`).
-
       - `"session"`
 
 ### Example
@@ -515,7 +562,25 @@ file_metadata = client.beta.files.retrieve_metadata(
 print(file_metadata.id)
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## Delete File
 
 `beta.files.delete(strfile_id, FileDeleteParams**kwargs)  -> DeletedFile`
 
@@ -532,11 +597,9 @@ Delete File
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -585,10 +648,15 @@ Delete File
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class DeletedFile: …`
-
   - `id: str`
 
     ID of the deleted file.
@@ -598,7 +666,6 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `"file_deleted"`
 
 ### Example
@@ -616,12 +683,20 @@ deleted_file = client.beta.files.delete(
 print(deleted_file.id)
 ```
 
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "type": "file_deleted"
+}
+```
+
 ## Domain Types
 
 ### Beta File Scope
 
 - `class BetaFileScope: …`
-
   - `id: str`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -629,13 +704,11 @@ print(deleted_file.id)
   - `type: Literal["session"]`
 
     The type of scope (e.g., `"session"`).
-
     - `"session"`
 
 ### Deleted File
 
 - `class DeletedFile: …`
-
   - `id: str`
 
     ID of the deleted file.
@@ -645,13 +718,11 @@ print(deleted_file.id)
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `"file_deleted"`
 
 ### File Metadata
 
 - `class FileMetadata: …`
-
   - `id: str`
 
     Unique object identifier.
@@ -679,7 +750,6 @@ print(deleted_file.id)
     Object type.
 
     For files, this is always `"file"`.
-
     - `"file"`
 
   - `downloadable: Optional[bool]`
@@ -689,7 +759,6 @@ print(deleted_file.id)
   - `scope: Optional[BetaFileScope]`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: str`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -697,5 +766,4 @@ print(deleted_file.id)
     - `type: Literal["session"]`
 
       The type of scope (e.g., `"session"`).
-
       - `"session"`

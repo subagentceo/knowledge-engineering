@@ -1,6 +1,8 @@
+# Using the Scholar Gateway Connector in Claude
+
 The Scholar Gateway by Wiley integration provides authenticated access to the most relevant snippets of scientific research papers to utilize within Claude. This article explains how to set up and use the Scholar Gateway integration with Claude to accelerate your research workflows.
 
-The Scholar Gateway integration relies upon Claude's ability to [use remote connectors](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
+The Scholar Gateway integration relies upon Claude's ability to use remote connectors.
 
 ## What this integration provides
 
@@ -18,10 +20,10 @@ This enables you to verify that claims are backed with sourced research — ensu
 
 ## Who can access the Scholar Gateway integration
 
--   Existing subscribers to Wiley journals will need to upgrade their subscription following a trial period to allow AI access.
--   New subscribers will need to subscribe subject to a trial period.
+- Existing subscribers to Wiley journals will need to upgrade their subscription following a trial period to allow AI access.
+- New subscribers will need to subscribe subject to a trial period.
 
-More details on accessing the integration can be found in [Wiley’s MCP Server Documentation](https://docs.scholargateway.ai/).
+More details on accessing the integration can be found in Wiley’s MCP Server Documentation.
 
 ## Setting up the Scholar Gateway integration
 
@@ -38,7 +40,7 @@ More details on accessing the integration can be found in [Wiley’s MCP Server 
 2.  Click “Connect”
 3.  Follow the instructions to authenticate with your Wiley account
 
-Learn about [finding and connecting tools](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
+Learn about finding and connecting tools.
 
 **For Claude Code Users**
 
@@ -47,9 +49,9 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 3.  Restart Claude Code
 4.  Verify that the server is connected with `/mcp`
 
-Technical details of the Scholar Gateway integration can be found in [Wiley’s MCP Server Documentation](https://docs.scholargateway.ai/).
+Technical details of the Scholar Gateway integration can be found in Wiley’s MCP Server Documentation.
 
 ## Common use cases
 
--   Enhanced literature review when planning experiments and research plans, to efficiently identify, summarize, and evaluate relevant literature as individual articles or in aggregation, enabling new ways of doing research and delivering reliable and cited insights in seconds.​
--   Information on latest research in a certain field of medicine or pharmaceuticals.
+- Enhanced literature review when planning experiments and research plans, to efficiently identify, summarize, and evaluate relevant literature as individual articles or in aggregation, enabling new ways of doing research and delivering reliable and cited insights in seconds.​
+- Information on latest research in a certain field of medicine or pharmaceuticals.

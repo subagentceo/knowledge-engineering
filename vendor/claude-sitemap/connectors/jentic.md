@@ -1,3 +1,5 @@
+# Jentic
+
 Jentic connects Claude to 1,500+ APIs through a single MCP server. Credentials never touch your prompts — Jentic's managed vault handles auth centrally. Just-In-Time Tooling means agents fetch only the tools they need, keeping context lean and reasoning accurate.
 
 You can use Jentic to:

@@ -4,10 +4,10 @@ Organization instructions allow administrators to define custom instructions tha
 
 Claude supports two levels of instructions. Understanding how they interact helps administrators and users get the most out of both.
 
-| **Level** | **Set by** | **Scope** | **Visibility** |
-| --- | --- | --- | --- |
-| Organization instructions | Administrators | All users, all conversations | Only administrators can view or edit |
-| Individual user instructions | Each user | That user's conversations only | Only that user can view or edit |
+| **Level**                    | **Set by**     | **Scope**                      | **Visibility**                       |
+| ---------------------------- | -------------- | ------------------------------ | ------------------------------------ |
+| Organization instructions    | Administrators | All users, all conversations   | Only administrators can view or edit |
+| Individual user instructions | Each user      | That user's conversations only | Only that user can view or edit      |
 
 When both are set, organization preferences take precedence. If a user preference directly contradicts an organization preference, Claude will strongly favor the organization-level instruction. For example, if an organization preference says "Always respond in formal English" but a user preference says "Use casual tone," Claude will respond formally.
 

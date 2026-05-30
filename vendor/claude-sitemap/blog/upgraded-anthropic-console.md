@@ -1,6 +1,8 @@
+# Get to production faster with the upgraded Anthropic Console
+
 We've redesigned the Anthropic Console to serve as one place to build, test, and iterate on your AI deployment with Claude and your teammates.
 
-Developers can now share prompts to collaborate with teammates directly in the [Anthropic Console](https://console.anthropic.com/). We've also added support for our latest model, Claude 3.7 Sonnet, and the ability to control the extended thinking budget.
+Developers can now share prompts to collaborate with teammates directly in the Anthropic Console. We've also added support for our latest model, Claude 3.7 Sonnet, and the ability to control the extended thinking budget.
 
 ### Build reliable AI applications
 
@@ -32,7 +34,7 @@ Shareable prompts in the Anthropic Console now provide a centralized way to deve
 
 ### Optimize prompts for extended thinking
 
-[Claude 3.7 Sonnet](https://www.anthropic.com/news/claude-3-7-sonnet), our latest and most intelligent model to date, can produce near-instant responses or extended, step-by-step thinking that is made visible to the user.
+Claude 3.7 Sonnet, our latest and most intelligent model to date, can produce near-instant responses or extended, step-by-step thinking that is made visible to the user.
 
 ![A screenshot with ](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68e95d932c1c4f9aaa7bc96d_ad56b8a20dc4a3ac223ff8003c7e795ef64a5f97-3840x2160.jpeg)
 
@@ -40,4 +42,4 @@ While prompting generally works the same with extended thinking enabled, we've m
 
 ### Get started
 
-The upgraded Anthropic Console is now available to all users. [Log in](https://console.anthropic.com/) to get started or explore our [documentation](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) to learn more.
+The upgraded Anthropic Console is now available to all users. Log in to get started or explore our documentation to learn more.

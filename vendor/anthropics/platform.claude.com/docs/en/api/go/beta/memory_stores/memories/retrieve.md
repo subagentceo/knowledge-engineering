@@ -1,4 +1,4 @@
-## Retrieve
+## Retrieve a memory
 
 `client.Beta.MemoryStores.Memories.Get(ctx, memoryID, params) (*BetaManagedAgentsMemory, error)`
 
@@ -11,7 +11,6 @@ Retrieve a memory
 - `memoryID string`
 
 - `params BetaMemoryStoreMemoryGetParams`
-
   - `MemoryStoreID param.Field[string]`
 
     Path param: Path parameter memory_store_id
@@ -23,11 +22,9 @@ Retrieve a memory
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -76,12 +73,17 @@ Retrieve a memory
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaManagedAgentsMemory struct{…}`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
   - `ID string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -111,7 +113,6 @@ Retrieve a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `Type BetaManagedAgentsMemoryType`
-
     - `const BetaManagedAgentsMemoryTypeMemory BetaManagedAgentsMemoryType = "memory"`
 
   - `UpdatedAt Time`
@@ -150,5 +151,22 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", betaManagedAgentsMemory.ID)
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
 }
 ```

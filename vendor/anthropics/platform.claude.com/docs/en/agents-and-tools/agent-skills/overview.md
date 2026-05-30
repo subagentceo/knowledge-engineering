@@ -13,6 +13,7 @@ This feature is **not** eligible for [Zero Data Retention (ZDR)](/docs/en/build-
 Skills are reusable, filesystem-based resources that provide Claude with domain-specific expertise: workflows, context, and best practices that transform general-purpose agents into specialists. Unlike prompts (conversation-level instructions for one-off tasks), Skills load on-demand and eliminate the need to repeatedly provide the same guidance across multiple conversations.
 
 **Key benefits**:
+
 - **Specialize Claude**: Tailor capabilities for domain-specific tasks
 - **Reduce repetition**: Create once, use automatically
 - **Compose capabilities**: Combine Skills to build complex workflows
@@ -102,11 +103,11 @@ pdf-skill/
 
 Claude accesses these files only when referenced. The filesystem model means each content type has different strengths: instructions for flexible guidance, code for reliability, resources for factual lookup.
 
-| Level | When Loaded | Token Cost | Content |
-|-------|------------|------------|---------|
-| **Level 1: Metadata** | Always (at startup) | ~100 tokens per Skill | `name` and `description` from YAML frontmatter |
-| **Level 2: Instructions** | When Skill is triggered | Under 5k tokens | SKILL.md body with instructions and guidance |
-| **Level 3+: Resources** | As needed | Effectively unlimited | Bundled files executed via bash without loading contents into context |
+| Level                     | When Loaded             | Token Cost            | Content                                                               |
+| ------------------------- | ----------------------- | --------------------- | --------------------------------------------------------------------- |
+| **Level 1: Metadata**     | Always (at startup)     | ~100 tokens per Skill | `name` and `description` from YAML frontmatter                        |
+| **Level 2: Instructions** | When Skill is triggered | Under 5k tokens       | SKILL.md body with instructions and guidance                          |
+| **Level 3+: Resources**   | As needed               | Effectively unlimited | Bundled files executed via bash without loading contents into context |
 
 Progressive disclosure ensures only relevant content occupies the context window at any given time.
 
@@ -143,6 +144,7 @@ Here's how Claude loads and uses a PDF processing skill:
 ![Skills loading into context window - showing the progressive loading of skill metadata and content](/docs/images/agent-skills-context-window.png)
 
 The diagram shows:
+
 1. Default state with system prompt and skill metadata pre-loaded
 2. Claude triggers the skill by reading SKILL.md via bash
 3. Claude optionally reads additional bundled files like FORMS.md as needed
@@ -163,6 +165,7 @@ Claude Platform on AWS and Microsoft Foundry inherit the same Skills behavior as
 The Claude API supports both pre-built Agent Skills and custom Skills. Both work identically: specify the relevant `skill_id` in the `container` parameter along with the code execution tool.
 
 **Prerequisites**: Using Skills via the API requires three beta headers:
+
 - `code-execution-2025-08-25` - Skills run in the code execution container
 - `skills-2025-10-02` - Enables Skills functionality
 - `files-api-2025-04-14` - Required for uploading/downloading files to/from the container
@@ -190,6 +193,7 @@ To learn more, see [Use Skills in Claude Code](https://code.claude.com/docs/en/s
 **Custom Skills**: Upload your own Skills as zip files through Settings > Features. Available on Pro, Max, Team, and Enterprise plans with code execution enabled. Custom Skills are individual to each user; they are not shared organization-wide and cannot be centrally managed by admins.
 
 To learn more about using Skills in claude.ai, see the following resources in the Claude Help Center:
+
 - [What are Skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
 - [Using Skills in Claude](https://support.claude.com/en/articles/12512180-using-skills-in-claude)
 - [How to create custom Skills](https://support.claude.com/en/articles/12512198-creating-custom-skills)
@@ -219,12 +223,14 @@ description: Brief description of what this Skill does and when to use it
 **Field requirements**:
 
 `name`:
+
 - Maximum 64 characters
 - Must contain only lowercase letters, numbers, and hyphens
 - Cannot contain XML tags
 - Cannot contain reserved words: "anthropic", "claude"
 
 `description`:
+
 - Must be non-empty
 - Maximum 1024 characters
 - Cannot contain XML tags
@@ -240,6 +246,7 @@ If you must use a Skill from an untrusted or unknown source, exercise extreme ca
 </Warning>
 
 **Key security considerations**:
+
 - **Audit thoroughly**: Review all files bundled in the Skill: SKILL.md, scripts, images, and other resources. Look for unusual patterns like unexpected network calls, file access patterns, or operations that don't match the Skill's stated purpose
 - **External sources are risky**: Skills that fetch data from external URLs pose particular risk, as fetched content may contain malicious instructions. Even trustworthy Skills can be compromised if their external dependencies change over time
 - **Tool misuse**: Malicious Skills can invoke tools (file operations, bash commands, code execution) in harmful ways
@@ -292,6 +299,7 @@ You'll need to manage and upload Skills separately for each surface where you wa
 ### Sharing scope
 
 Skills have different sharing models depending on where you use them:
+
 - **claude.ai**: Individual user only; each team member must upload separately
 - **Claude API**: Workspace-wide; all workspace members can access uploaded Skills
 - **Claude Code**: Personal (`~/.claude/skills/`) or project-based (`.claude/skills/`); can also be shared via Claude Code Plugins
@@ -302,15 +310,15 @@ claude.ai does not support centralized admin management or org-wide distribution
 
 The exact runtime environment available to your skill depends on the product surface where you use it.
 
- - **claude.ai**:
-    - **Varying network access**: Depending on user/admin settings, Skills may have full, partial, or no network access. For more details, see the [Create and Edit Files](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_6b7e833898) support article.
+- **claude.ai**:
+  - **Varying network access**: Depending on user/admin settings, Skills may have full, partial, or no network access. For more details, see the [Create and Edit Files](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_6b7e833898) support article.
 - **Claude API**:
-    - **No network access**: Skills cannot make external API calls or access the internet
-    - **No runtime package installation**: Only pre-installed packages are available. You cannot install new packages during execution.
-    - **Pre-configured dependencies only**: Check the [code execution tool documentation](/docs/en/agents-and-tools/tool-use/code-execution-tool) for the list of available packages
+  - **No network access**: Skills cannot make external API calls or access the internet
+  - **No runtime package installation**: Only pre-installed packages are available. You cannot install new packages during execution.
+  - **Pre-configured dependencies only**: Check the [code execution tool documentation](/docs/en/agents-and-tools/tool-use/code-execution-tool) for the list of available packages
 - **Claude Code**:
-    - **Full network access**: Skills have the same network access as any other program on the user's computer
-    - **Global package installation discouraged**: Skills should only install packages locally in order to avoid interfering with the user's computer
+  - **Full network access**: Skills have the same network access as any other program on the user's computer
+  - **Global package installation discouraged**: Skills should only install packages locally in order to avoid interfering with the user's computer
 
 Plan your Skills to work within these constraints.
 
