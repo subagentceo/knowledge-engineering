@@ -67,38 +67,51 @@ in-repo distilled form (`src/course-plugins/claude-api/`).
 
 ---
 
-## §2 — The knowledge-work LANE abstraction — DESIGN
+## §2 — The knowledge-work LANE abstraction — SHIPPED (engineering + data) / scaffolded (rest)
 
-**Today** there are two implicit lanes: code (corpus-viewer) and npm/docs
-(knowledge-agent). The operator's `knowledge-work-plugins` domains are a *third
-tier* that sits ABOVE both: knowledge *work*, not just knowledge *retrieval*.
+**Today** there were two implicit lanes: code (corpus-viewer) and npm/docs
+(knowledge-agent). The `knowledge-work-plugins` domains are a *third tier* ABOVE
+both: knowledge *work*, not just *retrieval*. This is now built —
+`src/agent/knowledge-agent/lanes.ts`, grounded in the real clone at
+`third_party/anthropics-knowledge-work-plugins/`.
 
-**The abstraction:** a `Lane` = { a fleet of `SubagentSpec`s, a skill set, a set
-of output schemas, a default DAG shape }. The steer loop is lane-agnostic — it
-already takes `specFor`/`seedFor`/`schemaFor` as injected resolvers, so a new
-lane is *data*, not a code change.
+**The abstraction (shipped):** a `Lane` = { `fleet: SubagentSpec[]`, `skills`,
+`verifierSkill`, `schemaRefs`, `scripts: LaneScript[]`, `pluginPath` }. The steer
+loop is lane-agnostic — `laneResolvers(lane)` builds the `specFor`/`seedFor` it
+takes, so a domain is *data*, not a code change. The `lanes.test.ts` proof drives
+a DAG through `ENGINEERING_LANE`'s resolvers → `all-done`.
 
-Map each `knowledge-work-plugins` domain to a lane:
+Each domain maps to its REAL plugin (skill names are the actual `skills/<name>`
+dirs in the clone, verified on disk by a test):
 
-| Domain (knowledge-work-plugins) | Lane fleet (SubagentSpecs)                         | Output schema |
-| ------------------------------- | -------------------------------------------------- | ------------- |
-| `productivity`                  | planner + summarizer + scheduler                   | `TaskPlan`    |
-| `product-management`            | spec-writer + prioritizer + verifier               | `PRD` / `RICE`|
-| `enterprise-search`             | retriever (MCP) + ranker + synthesizer             | `KnowledgeAnswer` (reuse!) |
-| `engineering`                   | code-reviewer + simplifier (§1 plugins)            | `VerifyVerdict` (reuse!) |
-| `design`                        | critique + variant-generator + judge panel         | `DesignVerdict` |
-| `data`                          | query-writer + validator (runs against alloydb)    | `DataResult`  |
-| `cowork-plugin-management`      | the meta-lane: builds the OTHER lanes' plugins     | `.plugin` file |
+| Domain | Real skills (count) | Verifier skill | Scripts today |
+| ------ | ------------------- | -------------- | ------------- |
+| `engineering` ✅ | architecture, code-review, debug, deploy-checklist, documentation, incident-response, standup, system-design, tech-debt, testing-strategy (10) | `code-review` (its SKILL.md *is* a structured reviewer) | run-tests + typecheck (pre-verify gates) |
+| `data` ✅ | analyze, build-dashboard, create-viz, data-context-extractor, data-visualization, explore-data, sql-queries, statistical-analysis, validate-data, write-query (10) | `validate-data` | `package_data_skill.py` (the one real script in the clone) |
+| `productivity` | memory-management, task-management, start, update (+dashboard.html) | `task-management` | — |
+| `product-management` | competitive-brief, metrics-review, product-brainstorming, roadmap-update, sprint-planning, stakeholder-update, synthesize-research, write-spec | `metrics-review` | — |
+| `enterprise-search` | digest, knowledge-synthesis, search, search-strategy, source-management | `knowledge-synthesis` | — |
+| `design` | accessibility-review, design-critique, design-handoff, design-system, research-synthesis, user-research, ux-copy | `design-critique` | — |
+| `cowork-plugin-management` | cowork-plugin-customizer, create-cowork-plugin | `create-cowork-plugin` | — |
 
-`enterprise-search` and `engineering` already reuse existing schemas — proof the
-abstraction is right. `cowork-plugin-management` is the self-improvement lane: it
-runs the `create-cowork-plugin` workflow as a steered DAG, so the chassis can
-*author new lanes for itself*.
+`cowork-plugin-management` is the self-improvement lane: it runs the real
+`create-cowork-plugin` workflow as a steered DAG, so the chassis can *author new
+lanes for itself*.
 
-The DAG shape generalizes the verifier-fail pattern: every domain is
-**produce → verify → (retry|done)**, with a domain-specific judge. `design` wants
-a *panel* (N judges, majority gate) rather than one verifier — a parameter on the
-loop (`verifiers: SubagentSpec[]`, gate = majority), not a new loop.
+**Skills carry scripts — the deterministic gate (operator insight, shipped).**
+The real `data` and `bio-research` skills bundle `scripts/` trees (Python). A
+`LaneScript` with `stage: "pre-verify"` runs BETWEEN model dispatches: after a
+producer returns but before the model-verifier is spent, the loop runs the script
+(e.g. `run-tests.ts`, `tsc --noEmit`, a SQL `EXPLAIN` validator). A non-zero exit
+is a deterministic `fail` — it rejects the producer for free, reserving the
+expensive model-verifier for outputs that already pass the cheap mechanical gate.
+This is the in-code analogue of "don't ask the model what the test runner can
+tell you." (Wiring the script execution into the loop body is the next step;
+the `LaneScript` contract + the gate semantics are defined now.)
+
+The DAG generalizes produce → **[script gate]** → verify → (retry|done), with a
+domain-specific verifier skill. `design` wants a *panel* (N judges, majority
+gate) — a loop parameter (`verifiers: SubagentSpec[]`), not a new loop.
 
 ---
 
