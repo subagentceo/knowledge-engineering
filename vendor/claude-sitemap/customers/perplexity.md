@@ -1,18 +1,20 @@
+# Perplexity delivers factual and relevant answers with Claude
+
 Perplexity, a conversational answer engine, uses the Claude model family to deliver factual and relevant search results to users. By employing various models—Claude 3.5 Sonnet, Claude 3 Opus, and Claude 3 Haiku—Perplexity optimizes cost, performance, and accuracy for both its free and paid users.
 
--   2x faster response times with Claude 3.5 Sonnet
--   2x more accurate results with Claude 3 Opus
--   <3 seconds for Claude 3 Haiku to read dense research
+- 2x faster response times with Claude 3.5 Sonnet
+- 2x more accurate results with Claude 3 Opus
+- <3 seconds for Claude 3 Haiku to read dense research
 
-## **Using Claude to help generate answers**
+## Using Claude to help generate answers
 
 Perplexity is on a mission to change the way that we seek and discover information online using generative artificial intelligence. Founded in 2022, the startup integrates LLMs with information on the internet to provide users with comprehensive and contextually relevant answers to their queries. These responses include citations to help users verify the factuality of the chatbot’s sourcing.
 
 The team at Perplexity strives to provide the best possible AI-powered search experience for its users while also balancing cost and performance. Since its launch, Perplexity has offered Claude models for users to power their searches. As new Claude models come to market, Perplexity has quickly updated its AI workflows to integrate the latest models, including Claude 3.5 Sonnet.
 
-With the capabilities of Claude 3.5 Sonnet, Claude 3 Opus, and Claude 3 Haiku, their team has been able to add new features and functionality to their platform without compromising on cost.  
+With the capabilities of Claude 3.5 Sonnet, Claude 3 Opus, and Claude 3 Haiku, their team has been able to add new features and functionality to their platform without compromising on cost.
 
-## **Improving accuracy and performance**
+## Improving accuracy and performance
 
 Perplexity’s infrastructure is built on AWS. They use AWS for core foundational cloud services like databases and container services, as well as the infrastructure for AI development via Amazon Bedrock. Perplexity uses Amazon Bedrock to serve Claude models on both the free and paid versions of its search engine, alongside Perplexity’s internally developed LLMs. Claude plays a pivotal role in helping their platform deliver an amazing user experience with relevant, concise answers.
 
@@ -22,7 +24,7 @@ For paid users, Perplexity offers a choice between Claude 3 Opus and Claude 3.5 
 
 “Claude has consistently demonstrated a remarkable capacity for reasoning and provides well-balanced answers,” says Aarash Heydari, infrastructure engineer at Perplexity. “Our users like the tone in which Claude delivers responses. We’ve customized Claude so that we can align these outputs with our ideal vision of how an answer should be presented. But even out of the box, the answers from Claude 3 Opus are excellent, and our users are happy with them.”
 
-## **Looking to the future**
+## Looking to the future
 
 Using the family of Claude models, Perplexity can continue to provide users with a search experience that is accurate, comprehensive, and trustworthy. “Our goal is to consistently deliver an exceptional question-answering service to our users,” says Heydari. “By integrating Anthropic’s most advanced Claude models with our RAG system, we’ve found a winning formula that helps us meet the needs of our free and paid users.”
 

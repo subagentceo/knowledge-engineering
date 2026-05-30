@@ -1,6 +1,6 @@
 # Threads
 
-## List
+## List Session Threads
 
 `client.beta.sessions.threads.list(stringsessionID, ThreadListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsSessionThread>`
 
@@ -13,7 +13,6 @@ List Session Threads
 - `sessionID: string`
 
 - `params: ThreadListParams`
-
   - `limit?: number`
 
     Query param: Maximum results per page. Defaults to 1000.
@@ -25,11 +24,9 @@ List Session Threads
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -78,12 +75,17 @@ List Session Threads
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsSessionThread`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
-
   - `id: string`
 
     Unique identifier for this thread.
@@ -91,17 +93,14 @@ List Session Threads
   - `agent: BetaManagedAgentsSessionThreadAgent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
     - `id: string`
 
     - `description: string | null`
 
     - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
-
       - `name: string`
 
       - `type: "url"`
-
         - `"url"`
 
       - `url: string`
@@ -109,15 +108,12 @@ List Session Threads
     - `model: BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
-
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
-
           - `"claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -159,7 +155,6 @@ List Session Threads
       - `speed?: "standard" | "fast"`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"`
 
         - `"fast"`
@@ -167,15 +162,12 @@ List Session Threads
     - `name: string`
 
     - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
-
       - `BetaManagedAgentsAnthropicSkill`
 
         A resolved Anthropic-managed skill.
-
         - `skill_id: string`
 
         - `type: "anthropic"`
-
           - `"anthropic"`
 
         - `version: string`
@@ -183,11 +175,9 @@ List Session Threads
       - `BetaManagedAgentsCustomSkill`
 
         A resolved user-created custom skill.
-
         - `skill_id: string`
 
         - `type: "custom"`
-
           - `"custom"`
 
         - `version: string`
@@ -195,17 +185,13 @@ List Session Threads
     - `system: string | null`
 
     - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
-
       - `BetaManagedAgentsAgentToolset20260401`
-
         - `configs: Array<BetaManagedAgentsAgentToolConfig>`
-
           - `enabled: boolean`
 
           - `name: "bash" | "edit" | "read" | 5 more`
 
             Built-in agent tool identifier.
-
             - `"bash"`
 
             - `"edit"`
@@ -225,57 +211,39 @@ List Session Threads
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
               - `type: "always_allow"`
-
                 - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
-
               - `type: "always_ask"`
-
                 - `"always_ask"`
 
         - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `type: "agent_toolset_20260401"`
-
           - `"agent_toolset_20260401"`
 
       - `BetaManagedAgentsMCPToolset`
-
         - `configs: Array<BetaManagedAgentsMCPToolConfig>`
-
           - `enabled: boolean`
 
           - `name: string`
@@ -283,65 +251,43 @@ List Session Threads
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `mcp_server_name: string`
 
         - `type: "mcp_toolset"`
-
           - `"mcp_toolset"`
 
       - `BetaManagedAgentsCustomTool`
 
         A custom tool as returned in API responses.
-
         - `description: string`
 
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `properties?: Record<string, unknown> | null`
 
             JSON Schema properties defining the tool's input parameters.
@@ -353,17 +299,14 @@ List Session Threads
           - `type?: "object"`
 
             Must be 'object' for tool input schemas.
-
             - `"object"`
 
         - `name: string`
 
         - `type: "custom"`
-
           - `"custom"`
 
     - `type: "agent"`
-
       - `"agent"`
 
     - `version: number`
@@ -387,7 +330,6 @@ List Session Threads
   - `stats: BetaManagedAgentsSessionThreadStats | null`
 
     Timing statistics for a session thread.
-
     - `active_seconds?: number`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -403,7 +345,6 @@ List Session Threads
   - `status: BetaManagedAgentsSessionThreadStatus`
 
     SessionThreadStatus enum
-
     - `"running"`
 
     - `"idle"`
@@ -413,7 +354,6 @@ List Session Threads
     - `"terminated"`
 
   - `type: "session_thread"`
-
     - `"session_thread"`
 
   - `updated_at: string`
@@ -423,11 +363,9 @@ List Session Threads
   - `usage: BetaManagedAgentsSessionThreadUsage | null`
 
     Cumulative token usage for a session thread across all turns.
-
     - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `ephemeral_1h_input_tokens?: number`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -451,21 +389,101 @@ List Session Threads
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
 for await (const betaManagedAgentsSessionThread of client.beta.sessions.threads.list(
-  'sesn_011CZkZAtmR3yMPDzynEDxu7',
+  "sesn_011CZkZAtmR3yMPDzynEDxu7",
 )) {
   console.log(betaManagedAgentsSessionThread.id);
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+      "agent": {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "description": "A focused research subagent.",
+        "mcp_servers": [
+          {
+            "name": "example-mcp",
+            "type": "url",
+            "url": "https://example-server.modelcontextprotocol.io/sse"
+          }
+        ],
+        "model": {
+          "id": "claude-sonnet-4-6",
+          "speed": "standard"
+        },
+        "name": "Researcher",
+        "skills": [
+          {
+            "skill_id": "xlsx",
+            "type": "anthropic",
+            "version": "1"
+          }
+        ],
+        "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+        "tools": [
+          {
+            "configs": [
+              {
+                "enabled": true,
+                "name": "bash",
+                "permission_policy": {
+                  "type": "always_allow"
+                }
+              }
+            ],
+            "default_config": {
+              "enabled": true,
+              "permission_policy": {
+                "type": "always_ask"
+              }
+            },
+            "type": "agent_toolset_20260401"
+          }
+        ],
+        "type": "agent",
+        "version": 1
+      },
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "parent_thread_id": null,
+      "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+      "stats": {
+        "active_seconds": 0,
+        "duration_seconds": 0,
+        "startup_seconds": 0
+      },
+      "status": "idle",
+      "type": "session_thread",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Session Thread
 
 `client.beta.sessions.threads.retrieve(stringthreadID, ThreadRetrieveParamsparams, RequestOptionsoptions?): BetaManagedAgentsSessionThread`
 
@@ -478,7 +496,6 @@ Get Session Thread
 - `threadID: string`
 
 - `params: ThreadRetrieveParams`
-
   - `session_id: string`
 
     Path param: Path parameter session_id
@@ -486,11 +503,9 @@ Get Session Thread
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -539,12 +554,17 @@ Get Session Thread
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsSessionThread`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
-
   - `id: string`
 
     Unique identifier for this thread.
@@ -552,17 +572,14 @@ Get Session Thread
   - `agent: BetaManagedAgentsSessionThreadAgent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
     - `id: string`
 
     - `description: string | null`
 
     - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
-
       - `name: string`
 
       - `type: "url"`
-
         - `"url"`
 
       - `url: string`
@@ -570,15 +587,12 @@ Get Session Thread
     - `model: BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
-
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
-
           - `"claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -620,7 +634,6 @@ Get Session Thread
       - `speed?: "standard" | "fast"`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"`
 
         - `"fast"`
@@ -628,15 +641,12 @@ Get Session Thread
     - `name: string`
 
     - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
-
       - `BetaManagedAgentsAnthropicSkill`
 
         A resolved Anthropic-managed skill.
-
         - `skill_id: string`
 
         - `type: "anthropic"`
-
           - `"anthropic"`
 
         - `version: string`
@@ -644,11 +654,9 @@ Get Session Thread
       - `BetaManagedAgentsCustomSkill`
 
         A resolved user-created custom skill.
-
         - `skill_id: string`
 
         - `type: "custom"`
-
           - `"custom"`
 
         - `version: string`
@@ -656,17 +664,13 @@ Get Session Thread
     - `system: string | null`
 
     - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
-
       - `BetaManagedAgentsAgentToolset20260401`
-
         - `configs: Array<BetaManagedAgentsAgentToolConfig>`
-
           - `enabled: boolean`
 
           - `name: "bash" | "edit" | "read" | 5 more`
 
             Built-in agent tool identifier.
-
             - `"bash"`
 
             - `"edit"`
@@ -686,57 +690,39 @@ Get Session Thread
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
               - `type: "always_allow"`
-
                 - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
-
               - `type: "always_ask"`
-
                 - `"always_ask"`
 
         - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `type: "agent_toolset_20260401"`
-
           - `"agent_toolset_20260401"`
 
       - `BetaManagedAgentsMCPToolset`
-
         - `configs: Array<BetaManagedAgentsMCPToolConfig>`
-
           - `enabled: boolean`
 
           - `name: string`
@@ -744,65 +730,43 @@ Get Session Thread
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `mcp_server_name: string`
 
         - `type: "mcp_toolset"`
-
           - `"mcp_toolset"`
 
       - `BetaManagedAgentsCustomTool`
 
         A custom tool as returned in API responses.
-
         - `description: string`
 
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `properties?: Record<string, unknown> | null`
 
             JSON Schema properties defining the tool's input parameters.
@@ -814,17 +778,14 @@ Get Session Thread
           - `type?: "object"`
 
             Must be 'object' for tool input schemas.
-
             - `"object"`
 
         - `name: string`
 
         - `type: "custom"`
-
           - `"custom"`
 
     - `type: "agent"`
-
       - `"agent"`
 
     - `version: number`
@@ -848,7 +809,6 @@ Get Session Thread
   - `stats: BetaManagedAgentsSessionThreadStats | null`
 
     Timing statistics for a session thread.
-
     - `active_seconds?: number`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -864,7 +824,6 @@ Get Session Thread
   - `status: BetaManagedAgentsSessionThreadStatus`
 
     SessionThreadStatus enum
-
     - `"running"`
 
     - `"idle"`
@@ -874,7 +833,6 @@ Get Session Thread
     - `"terminated"`
 
   - `type: "session_thread"`
-
     - `"session_thread"`
 
   - `updated_at: string`
@@ -884,11 +842,9 @@ Get Session Thread
   - `usage: BetaManagedAgentsSessionThreadUsage | null`
 
     Cumulative token usage for a session thread across all turns.
-
     - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `ephemeral_1h_input_tokens?: number`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -912,21 +868,96 @@ Get Session Thread
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsSessionThread = await client.beta.sessions.threads.retrieve(
-  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
-  { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
-);
+const betaManagedAgentsSessionThread =
+  await client.beta.sessions.threads.retrieve("sthr_011CZkZVWa6oIjw0rgXZpnBt", {
+    session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  });
 
 console.log(betaManagedAgentsSessionThread.id);
 ```
 
-## Archive
+#### Response
+
+```json
+{
+  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "description": "A focused research subagent.",
+    "mcp_servers": [
+      {
+        "name": "example-mcp",
+        "type": "url",
+        "url": "https://example-server.modelcontextprotocol.io/sse"
+      }
+    ],
+    "model": {
+      "id": "claude-sonnet-4-6",
+      "speed": "standard"
+    },
+    "name": "Researcher",
+    "skills": [
+      {
+        "skill_id": "xlsx",
+        "type": "anthropic",
+        "version": "1"
+      }
+    ],
+    "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+    "tools": [
+      {
+        "configs": [
+          {
+            "enabled": true,
+            "name": "bash",
+            "permission_policy": {
+              "type": "always_allow"
+            }
+          }
+        ],
+        "default_config": {
+          "enabled": true,
+          "permission_policy": {
+            "type": "always_ask"
+          }
+        },
+        "type": "agent_toolset_20260401"
+      }
+    ],
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "parent_thread_id": null,
+  "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "stats": {
+    "active_seconds": 0,
+    "duration_seconds": 0,
+    "startup_seconds": 0
+  },
+  "status": "idle",
+  "type": "session_thread",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Archive Session Thread
 
 `client.beta.sessions.threads.archive(stringthreadID, ThreadArchiveParamsparams, RequestOptionsoptions?): BetaManagedAgentsSessionThread`
 
@@ -939,7 +970,6 @@ Archive Session Thread
 - `threadID: string`
 
 - `params: ThreadArchiveParams`
-
   - `session_id: string`
 
     Path param: Path parameter session_id
@@ -947,11 +977,9 @@ Archive Session Thread
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1000,12 +1028,17 @@ Archive Session Thread
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsSessionThread`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
-
   - `id: string`
 
     Unique identifier for this thread.
@@ -1013,17 +1046,14 @@ Archive Session Thread
   - `agent: BetaManagedAgentsSessionThreadAgent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
     - `id: string`
 
     - `description: string | null`
 
     - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
-
       - `name: string`
 
       - `type: "url"`
-
         - `"url"`
 
       - `url: string`
@@ -1031,15 +1061,12 @@ Archive Session Thread
     - `model: BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
-
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
-
           - `"claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -1081,7 +1108,6 @@ Archive Session Thread
       - `speed?: "standard" | "fast"`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"`
 
         - `"fast"`
@@ -1089,15 +1115,12 @@ Archive Session Thread
     - `name: string`
 
     - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
-
       - `BetaManagedAgentsAnthropicSkill`
 
         A resolved Anthropic-managed skill.
-
         - `skill_id: string`
 
         - `type: "anthropic"`
-
           - `"anthropic"`
 
         - `version: string`
@@ -1105,11 +1128,9 @@ Archive Session Thread
       - `BetaManagedAgentsCustomSkill`
 
         A resolved user-created custom skill.
-
         - `skill_id: string`
 
         - `type: "custom"`
-
           - `"custom"`
 
         - `version: string`
@@ -1117,17 +1138,13 @@ Archive Session Thread
     - `system: string | null`
 
     - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
-
       - `BetaManagedAgentsAgentToolset20260401`
-
         - `configs: Array<BetaManagedAgentsAgentToolConfig>`
-
           - `enabled: boolean`
 
           - `name: "bash" | "edit" | "read" | 5 more`
 
             Built-in agent tool identifier.
-
             - `"bash"`
 
             - `"edit"`
@@ -1147,57 +1164,39 @@ Archive Session Thread
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
               - `type: "always_allow"`
-
                 - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
-
               - `type: "always_ask"`
-
                 - `"always_ask"`
 
         - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `type: "agent_toolset_20260401"`
-
           - `"agent_toolset_20260401"`
 
       - `BetaManagedAgentsMCPToolset`
-
         - `configs: Array<BetaManagedAgentsMCPToolConfig>`
-
           - `enabled: boolean`
 
           - `name: string`
@@ -1205,65 +1204,43 @@ Archive Session Thread
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `mcp_server_name: string`
 
         - `type: "mcp_toolset"`
-
           - `"mcp_toolset"`
 
       - `BetaManagedAgentsCustomTool`
 
         A custom tool as returned in API responses.
-
         - `description: string`
 
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `properties?: Record<string, unknown> | null`
 
             JSON Schema properties defining the tool's input parameters.
@@ -1275,17 +1252,14 @@ Archive Session Thread
           - `type?: "object"`
 
             Must be 'object' for tool input schemas.
-
             - `"object"`
 
         - `name: string`
 
         - `type: "custom"`
-
           - `"custom"`
 
     - `type: "agent"`
-
       - `"agent"`
 
     - `version: number`
@@ -1309,7 +1283,6 @@ Archive Session Thread
   - `stats: BetaManagedAgentsSessionThreadStats | null`
 
     Timing statistics for a session thread.
-
     - `active_seconds?: number`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -1325,7 +1298,6 @@ Archive Session Thread
   - `status: BetaManagedAgentsSessionThreadStatus`
 
     SessionThreadStatus enum
-
     - `"running"`
 
     - `"idle"`
@@ -1335,7 +1307,6 @@ Archive Session Thread
     - `"terminated"`
 
   - `type: "session_thread"`
-
     - `"session_thread"`
 
   - `updated_at: string`
@@ -1345,11 +1316,9 @@ Archive Session Thread
   - `usage: BetaManagedAgentsSessionThreadUsage | null`
 
     Cumulative token usage for a session thread across all turns.
-
     - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `ephemeral_1h_input_tokens?: number`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -1373,18 +1342,93 @@ Archive Session Thread
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsSessionThread = await client.beta.sessions.threads.archive(
-  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
-  { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
-);
+const betaManagedAgentsSessionThread =
+  await client.beta.sessions.threads.archive("sthr_011CZkZVWa6oIjw0rgXZpnBt", {
+    session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  });
 
 console.log(betaManagedAgentsSessionThread.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "description": "A focused research subagent.",
+    "mcp_servers": [
+      {
+        "name": "example-mcp",
+        "type": "url",
+        "url": "https://example-server.modelcontextprotocol.io/sse"
+      }
+    ],
+    "model": {
+      "id": "claude-sonnet-4-6",
+      "speed": "standard"
+    },
+    "name": "Researcher",
+    "skills": [
+      {
+        "skill_id": "xlsx",
+        "type": "anthropic",
+        "version": "1"
+      }
+    ],
+    "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+    "tools": [
+      {
+        "configs": [
+          {
+            "enabled": true,
+            "name": "bash",
+            "permission_policy": {
+              "type": "always_allow"
+            }
+          }
+        ],
+        "default_config": {
+          "enabled": true,
+          "permission_policy": {
+            "type": "always_ask"
+          }
+        },
+        "type": "agent_toolset_20260401"
+      }
+    ],
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "parent_thread_id": null,
+  "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "stats": {
+    "active_seconds": 0,
+    "duration_seconds": 0,
+    "startup_seconds": 0
+  },
+  "status": "idle",
+  "type": "session_thread",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
 ```
 
 ## Domain Types
@@ -1394,7 +1438,6 @@ console.log(betaManagedAgentsSessionThread.id);
 - `BetaManagedAgentsSessionThread`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
-
   - `id: string`
 
     Unique identifier for this thread.
@@ -1402,17 +1445,14 @@ console.log(betaManagedAgentsSessionThread.id);
   - `agent: BetaManagedAgentsSessionThreadAgent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
     - `id: string`
 
     - `description: string | null`
 
     - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
-
       - `name: string`
 
       - `type: "url"`
-
         - `"url"`
 
       - `url: string`
@@ -1420,15 +1460,12 @@ console.log(betaManagedAgentsSessionThread.id);
     - `model: BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
-
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
-
           - `"claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -1470,7 +1507,6 @@ console.log(betaManagedAgentsSessionThread.id);
       - `speed?: "standard" | "fast"`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"`
 
         - `"fast"`
@@ -1478,15 +1514,12 @@ console.log(betaManagedAgentsSessionThread.id);
     - `name: string`
 
     - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
-
       - `BetaManagedAgentsAnthropicSkill`
 
         A resolved Anthropic-managed skill.
-
         - `skill_id: string`
 
         - `type: "anthropic"`
-
           - `"anthropic"`
 
         - `version: string`
@@ -1494,11 +1527,9 @@ console.log(betaManagedAgentsSessionThread.id);
       - `BetaManagedAgentsCustomSkill`
 
         A resolved user-created custom skill.
-
         - `skill_id: string`
 
         - `type: "custom"`
-
           - `"custom"`
 
         - `version: string`
@@ -1506,17 +1537,13 @@ console.log(betaManagedAgentsSessionThread.id);
     - `system: string | null`
 
     - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
-
       - `BetaManagedAgentsAgentToolset20260401`
-
         - `configs: Array<BetaManagedAgentsAgentToolConfig>`
-
           - `enabled: boolean`
 
           - `name: "bash" | "edit" | "read" | 5 more`
 
             Built-in agent tool identifier.
-
             - `"bash"`
 
             - `"edit"`
@@ -1536,57 +1563,39 @@ console.log(betaManagedAgentsSessionThread.id);
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
               - `type: "always_allow"`
-
                 - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
-
               - `type: "always_ask"`
-
                 - `"always_ask"`
 
         - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `type: "agent_toolset_20260401"`
-
           - `"agent_toolset_20260401"`
 
       - `BetaManagedAgentsMCPToolset`
-
         - `configs: Array<BetaManagedAgentsMCPToolConfig>`
-
           - `enabled: boolean`
 
           - `name: string`
@@ -1594,65 +1603,43 @@ console.log(betaManagedAgentsSessionThread.id);
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `enabled: boolean`
 
           - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
 
             Permission policy for tool execution.
-
             - `BetaManagedAgentsAlwaysAllowPolicy`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: "always_allow"`
-
-                - `"always_allow"`
 
             - `BetaManagedAgentsAlwaysAskPolicy`
 
               Tool calls require user confirmation before execution.
 
-              - `type: "always_ask"`
-
-                - `"always_ask"`
-
         - `mcp_server_name: string`
 
         - `type: "mcp_toolset"`
-
           - `"mcp_toolset"`
 
       - `BetaManagedAgentsCustomTool`
 
         A custom tool as returned in API responses.
-
         - `description: string`
 
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `properties?: Record<string, unknown> | null`
 
             JSON Schema properties defining the tool's input parameters.
@@ -1664,17 +1651,14 @@ console.log(betaManagedAgentsSessionThread.id);
           - `type?: "object"`
 
             Must be 'object' for tool input schemas.
-
             - `"object"`
 
         - `name: string`
 
         - `type: "custom"`
-
           - `"custom"`
 
     - `type: "agent"`
-
       - `"agent"`
 
     - `version: number`
@@ -1698,7 +1682,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `stats: BetaManagedAgentsSessionThreadStats | null`
 
     Timing statistics for a session thread.
-
     - `active_seconds?: number`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -1714,7 +1697,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `status: BetaManagedAgentsSessionThreadStatus`
 
     SessionThreadStatus enum
-
     - `"running"`
 
     - `"idle"`
@@ -1724,7 +1706,6 @@ console.log(betaManagedAgentsSessionThread.id);
     - `"terminated"`
 
   - `type: "session_thread"`
-
     - `"session_thread"`
 
   - `updated_at: string`
@@ -1734,11 +1715,9 @@ console.log(betaManagedAgentsSessionThread.id);
   - `usage: BetaManagedAgentsSessionThreadUsage | null`
 
     Cumulative token usage for a session thread across all turns.
-
     - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `ephemeral_1h_input_tokens?: number`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -1759,294 +1738,11 @@ console.log(betaManagedAgentsSessionThread.id);
 
       Total output tokens generated across all turns.
 
-### Beta Managed Agents Session Thread Agent
-
-- `BetaManagedAgentsSessionThreadAgent`
-
-  Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-  - `id: string`
-
-  - `description: string | null`
-
-  - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
-
-    - `name: string`
-
-    - `type: "url"`
-
-      - `"url"`
-
-    - `url: string`
-
-  - `model: BetaManagedAgentsModelConfig`
-
-    Model identifier and configuration.
-
-    - `id: BetaManagedAgentsModel`
-
-      The model that will power your agent.
-
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-      - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
-
-        - `"claude-opus-4-7"`
-
-          Frontier intelligence for long-running agents and coding
-
-        - `"claude-opus-4-6"`
-
-          Most intelligent model for building agents and coding
-
-        - `"claude-sonnet-4-6"`
-
-          Best combination of speed and intelligence
-
-        - `"claude-haiku-4-5"`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-haiku-4-5-20251001"`
-
-          Fastest model with near-frontier intelligence
-
-        - `"claude-opus-4-5"`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-opus-4-5-20251101"`
-
-          Premium model combining maximum intelligence with practical performance
-
-        - `"claude-sonnet-4-5"`
-
-          High-performance model for agents and coding
-
-        - `"claude-sonnet-4-5-20250929"`
-
-          High-performance model for agents and coding
-
-      - `(string & {})`
-
-    - `speed?: "standard" | "fast"`
-
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-      - `"standard"`
-
-      - `"fast"`
-
-  - `name: string`
-
-  - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
-
-    - `BetaManagedAgentsAnthropicSkill`
-
-      A resolved Anthropic-managed skill.
-
-      - `skill_id: string`
-
-      - `type: "anthropic"`
-
-        - `"anthropic"`
-
-      - `version: string`
-
-    - `BetaManagedAgentsCustomSkill`
-
-      A resolved user-created custom skill.
-
-      - `skill_id: string`
-
-      - `type: "custom"`
-
-        - `"custom"`
-
-      - `version: string`
-
-  - `system: string | null`
-
-  - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
-
-    - `BetaManagedAgentsAgentToolset20260401`
-
-      - `configs: Array<BetaManagedAgentsAgentToolConfig>`
-
-        - `enabled: boolean`
-
-        - `name: "bash" | "edit" | "read" | 5 more`
-
-          Built-in agent tool identifier.
-
-          - `"bash"`
-
-          - `"edit"`
-
-          - `"read"`
-
-          - `"write"`
-
-          - `"glob"`
-
-          - `"grep"`
-
-          - `"web_fetch"`
-
-          - `"web_search"`
-
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-          Permission policy for tool execution.
-
-          - `BetaManagedAgentsAlwaysAllowPolicy`
-
-            Tool calls are automatically approved without user confirmation.
-
-            - `type: "always_allow"`
-
-              - `"always_allow"`
-
-          - `BetaManagedAgentsAlwaysAskPolicy`
-
-            Tool calls require user confirmation before execution.
-
-            - `type: "always_ask"`
-
-              - `"always_ask"`
-
-      - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
-
-        Resolved default configuration for agent tools.
-
-        - `enabled: boolean`
-
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-          Permission policy for tool execution.
-
-          - `BetaManagedAgentsAlwaysAllowPolicy`
-
-            Tool calls are automatically approved without user confirmation.
-
-            - `type: "always_allow"`
-
-              - `"always_allow"`
-
-          - `BetaManagedAgentsAlwaysAskPolicy`
-
-            Tool calls require user confirmation before execution.
-
-            - `type: "always_ask"`
-
-              - `"always_ask"`
-
-      - `type: "agent_toolset_20260401"`
-
-        - `"agent_toolset_20260401"`
-
-    - `BetaManagedAgentsMCPToolset`
-
-      - `configs: Array<BetaManagedAgentsMCPToolConfig>`
-
-        - `enabled: boolean`
-
-        - `name: string`
-
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-          Permission policy for tool execution.
-
-          - `BetaManagedAgentsAlwaysAllowPolicy`
-
-            Tool calls are automatically approved without user confirmation.
-
-            - `type: "always_allow"`
-
-              - `"always_allow"`
-
-          - `BetaManagedAgentsAlwaysAskPolicy`
-
-            Tool calls require user confirmation before execution.
-
-            - `type: "always_ask"`
-
-              - `"always_ask"`
-
-      - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
-
-        Resolved default configuration for all tools from an MCP server.
-
-        - `enabled: boolean`
-
-        - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
-
-          Permission policy for tool execution.
-
-          - `BetaManagedAgentsAlwaysAllowPolicy`
-
-            Tool calls are automatically approved without user confirmation.
-
-            - `type: "always_allow"`
-
-              - `"always_allow"`
-
-          - `BetaManagedAgentsAlwaysAskPolicy`
-
-            Tool calls require user confirmation before execution.
-
-            - `type: "always_ask"`
-
-              - `"always_ask"`
-
-      - `mcp_server_name: string`
-
-      - `type: "mcp_toolset"`
-
-        - `"mcp_toolset"`
-
-    - `BetaManagedAgentsCustomTool`
-
-      A custom tool as returned in API responses.
-
-      - `description: string`
-
-      - `input_schema: BetaManagedAgentsCustomToolInputSchema`
-
-        JSON Schema for custom tool input parameters.
-
-        - `properties?: Record<string, unknown> | null`
-
-          JSON Schema properties defining the tool's input parameters.
-
-        - `required?: Array<string>`
-
-          List of required property names.
-
-        - `type?: "object"`
-
-          Must be 'object' for tool input schemas.
-
-          - `"object"`
-
-      - `name: string`
-
-      - `type: "custom"`
-
-        - `"custom"`
-
-  - `type: "agent"`
-
-    - `"agent"`
-
-  - `version: number`
-
 ### Beta Managed Agents Session Thread Stats
 
 - `BetaManagedAgentsSessionThreadStats`
 
   Timing statistics for a session thread.
-
   - `active_seconds?: number`
 
     Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -2064,7 +1760,6 @@ console.log(betaManagedAgentsSessionThread.id);
 - `BetaManagedAgentsSessionThreadStatus = "running" | "idle" | "rescheduling" | "terminated"`
 
   SessionThreadStatus enum
-
   - `"running"`
 
   - `"idle"`
@@ -2078,11 +1773,9 @@ console.log(betaManagedAgentsSessionThread.id);
 - `BetaManagedAgentsSessionThreadUsage`
 
   Cumulative token usage for a session thread across all turns.
-
   - `cache_creation?: BetaManagedAgentsCacheCreationUsage`
 
     Prompt-cache creation token usage broken down by cache lifetime.
-
     - `ephemeral_1h_input_tokens?: number`
 
       Tokens used to create 1-hour ephemeral cache entries.
@@ -2105,14 +1798,12 @@ console.log(betaManagedAgentsSessionThread.id);
 
 ### Beta Managed Agents Stream Session Thread Events
 
-- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 28 more`
+- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 30 more`
 
   Server-sent event in a single thread's stream.
-
   - `BetaManagedAgentsUserMessageEvent`
 
     A user message event in the session conversation.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -2120,31 +1811,25 @@ console.log(betaManagedAgentsSessionThread.id);
     - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
 
       Array of content blocks comprising the user message.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
         - `text: string`
 
           The text content.
 
         - `type: "text"`
-
           - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
-
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
           Union type for image source variants.
-
           - `BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
-
             - `data: string`
 
               Base64-encoded image data.
@@ -2154,15 +1839,12 @@ console.log(betaManagedAgentsSessionThread.id);
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `type: "base64"`
-
               - `"base64"`
 
           - `BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
-
             - `type: "url"`
-
               - `"url"`
 
             - `url: string`
@@ -2172,31 +1854,25 @@ console.log(betaManagedAgentsSessionThread.id);
           - `BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
-
             - `file_id: string`
 
               ID of a previously uploaded file.
 
             - `type: "file"`
-
               - `"file"`
 
         - `type: "image"`
-
           - `"image"`
 
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
           Union type for document source variants.
-
           - `BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
-
             - `data: string`
 
               Base64-encoded document data.
@@ -2206,13 +1882,11 @@ console.log(betaManagedAgentsSessionThread.id);
               MIME type of the document (e.g., "application/pdf").
 
             - `type: "base64"`
-
               - `"base64"`
 
           - `BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
-
             - `data: string`
 
               The plain text content.
@@ -2220,19 +1894,15 @@ console.log(betaManagedAgentsSessionThread.id);
             - `media_type: "text/plain"`
 
               MIME type of the text content. Must be "text/plain".
-
               - `"text/plain"`
 
             - `type: "text"`
-
               - `"text"`
 
           - `BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
-
             - `type: "url"`
-
               - `"url"`
 
             - `url: string`
@@ -2242,17 +1912,14 @@ console.log(betaManagedAgentsSessionThread.id);
           - `BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
-
             - `file_id: string`
 
               ID of a previously uploaded file.
 
             - `type: "file"`
-
               - `"file"`
 
         - `type: "document"`
-
           - `"document"`
 
         - `context?: string | null`
@@ -2264,7 +1931,6 @@ console.log(betaManagedAgentsSessionThread.id);
           The title of the document.
 
     - `type: "user.message"`
-
       - `"user.message"`
 
     - `processed_at?: string | null`
@@ -2274,13 +1940,11 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsUserInterruptEvent`
 
     An interrupt event that pauses agent execution and returns control to the user.
-
     - `id: string`
 
       Unique identifier for this event.
 
     - `type: "user.interrupt"`
-
       - `"user.interrupt"`
 
     - `processed_at?: string | null`
@@ -2294,7 +1958,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsUserToolConfirmationEvent`
 
     A tool confirmation event that approves or denies a pending tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -2302,7 +1965,6 @@ console.log(betaManagedAgentsSessionThread.id);
     - `result: "allow" | "deny"`
 
       UserToolConfirmationResult enum
-
       - `"allow"`
 
       - `"deny"`
@@ -2312,7 +1974,6 @@ console.log(betaManagedAgentsSessionThread.id);
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: "user.tool_confirmation"`
-
       - `"user.tool_confirmation"`
 
     - `deny_message?: string | null`
@@ -2330,7 +1991,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsUserCustomToolResultEvent`
 
     Event sent by the client providing the result of a custom tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -2340,154 +2000,53 @@ console.log(betaManagedAgentsSessionThread.id);
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: "user.custom_tool_result"`
-
       - `"user.custom_tool_result"`
 
-    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
 
       The result content returned by the tool.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+      - `BetaManagedAgentsSearchResultBlock`
 
-          Union type for document source variants.
+        A block containing a web search result.
+        - `citations: BetaManagedAgentsSearchResultCitations`
 
-          - `BetaManagedAgentsBase64DocumentSource`
+          Citation settings for a search result.
+          - `enabled: boolean`
 
-            Base64-encoded document data.
+            Whether citations are enabled for this search result.
 
-            - `data: string`
+        - `content: Array<BetaManagedAgentsSearchResultContent>`
 
-              Base64-encoded document data.
+          Array of text content blocks from the search result.
+          - `text: string`
 
-            - `media_type: string`
+            The text content.
 
-              MIME type of the document (e.g., "application/pdf").
+          - `type: "text"`
+            - `"text"`
 
-            - `type: "base64"`
+        - `source: string`
 
-              - `"base64"`
+          The URL source of the search result.
 
-          - `BetaManagedAgentsPlainTextDocumentSource`
+        - `title: string`
 
-            Plain text document content.
+          The title of the search result.
 
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
+        - `type: "search_result"`
+          - `"search_result"`
 
     - `is_error?: boolean | null`
 
@@ -2504,7 +2063,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsAgentCustomToolUseEvent`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -2522,7 +2080,6 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "agent.custom_tool_use"`
-
       - `"agent.custom_tool_use"`
 
     - `session_thread_id?: string | null`
@@ -2532,7 +2089,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsAgentMessageEvent`
 
     An agent response event in the session conversation.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -2540,27 +2096,22 @@ console.log(betaManagedAgentsSessionThread.id);
     - `content: Array<BetaManagedAgentsTextBlock>`
 
       Array of text blocks comprising the agent response.
-
       - `text: string`
 
         The text content.
 
       - `type: "text"`
 
-        - `"text"`
-
     - `processed_at: string`
 
       A timestamp in RFC 3339 format
 
     - `type: "agent.message"`
-
       - `"agent.message"`
 
   - `BetaManagedAgentsAgentThinkingEvent`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -2570,13 +2121,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "agent.thinking"`
-
       - `"agent.thinking"`
 
   - `BetaManagedAgentsAgentMCPToolUseEvent`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -2598,13 +2147,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "agent.mcp_tool_use"`
-
       - `"agent.mcp_tool_use"`
 
     - `evaluated_permission?: "allow" | "ask" | "deny"`
 
       AgentEvaluatedPermission enum
-
       - `"allow"`
 
       - `"ask"`
@@ -2618,7 +2165,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsAgentMCPToolResultEvent`
 
     Event representing the result of an MCP tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -2632,154 +2178,26 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "agent.mcp_tool_result"`
-
       - `"agent.mcp_tool_result"`
 
-    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
 
       The result content returned by the tool.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+      - `BetaManagedAgentsSearchResultBlock`
 
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `is_error?: boolean | null`
 
@@ -2788,7 +2206,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsAgentToolUseEvent`
 
     Event emitted when the agent invokes a built-in agent tool.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -2806,13 +2223,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "agent.tool_use"`
-
       - `"agent.tool_use"`
 
     - `evaluated_permission?: "allow" | "ask" | "deny"`
 
       AgentEvaluatedPermission enum
-
       - `"allow"`
 
       - `"ask"`
@@ -2826,7 +2241,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsAgentToolResultEvent`
 
     Event representing the result of an agent tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -2840,154 +2254,26 @@ console.log(betaManagedAgentsSessionThread.id);
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `type: "agent.tool_result"`
-
       - `"agent.tool_result"`
 
-    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
 
       The result content returned by the tool.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+      - `BetaManagedAgentsSearchResultBlock`
 
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `is_error?: boolean | null`
 
@@ -2996,7 +2282,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3004,148 +2289,17 @@ console.log(betaManagedAgentsSessionThread.id);
     - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
 
       Message content blocks.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
 
     - `from_session_thread_id: string`
 
@@ -3156,7 +2310,6 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "agent.thread_message_received"`
-
       - `"agent.thread_message_received"`
 
     - `from_agent_name?: string | null`
@@ -3166,7 +2319,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsAgentThreadMessageSentEvent`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3174,148 +2326,17 @@ console.log(betaManagedAgentsSessionThread.id);
     - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
 
       Message content blocks.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
 
     - `processed_at: string`
 
@@ -3326,7 +2347,6 @@ console.log(betaManagedAgentsSessionThread.id);
       Public `sthr_` ID of the thread the message was sent to.
 
     - `type: "agent.thread_message_sent"`
-
       - `"agent.thread_message_sent"`
 
     - `to_agent_name?: string | null`
@@ -3336,7 +2356,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsAgentThreadContextCompactedEvent`
 
     Indicates that context compaction (summarization) occurred during the session.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3346,13 +2365,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "agent.thread_context_compacted"`
-
       - `"agent.thread_context_compacted"`
 
   - `BetaManagedAgentsSessionErrorEvent`
 
     An error event indicating a problem occurred during session execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3360,11 +2377,9 @@ console.log(betaManagedAgentsSessionThread.id);
     - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 4 more`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `BetaManagedAgentsUnknownError`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
         - `message: string`
 
           Human-readable error description.
@@ -3372,39 +2387,30 @@ console.log(betaManagedAgentsSessionThread.id);
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
             - `type: "retrying"`
-
               - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
             - `type: "exhausted"`
-
               - `"exhausted"`
 
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
             - `type: "terminal"`
-
               - `"terminal"`
 
         - `type: "unknown_error"`
-
           - `"unknown_error"`
 
       - `BetaManagedAgentsModelOverloadedError`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
-
         - `message: string`
 
           Human-readable error description.
@@ -3412,39 +2418,24 @@ console.log(betaManagedAgentsSessionThread.id);
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "model_overloaded_error"`
-
           - `"model_overloaded_error"`
 
       - `BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
-
         - `message: string`
 
           Human-readable error description.
@@ -3452,39 +2443,24 @@ console.log(betaManagedAgentsSessionThread.id);
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "model_rate_limited_error"`
-
           - `"model_rate_limited_error"`
 
       - `BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
-
         - `message: string`
 
           Human-readable error description.
@@ -3492,39 +2468,24 @@ console.log(betaManagedAgentsSessionThread.id);
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "model_request_failed_error"`
-
           - `"model_request_failed_error"`
 
       - `BetaManagedAgentsMCPConnectionFailedError`
 
         Failed to connect to an MCP server.
-
         - `mcp_server_name: string`
 
           Name of the MCP server that failed to connect.
@@ -3536,39 +2497,24 @@ console.log(betaManagedAgentsSessionThread.id);
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "mcp_connection_failed_error"`
-
           - `"mcp_connection_failed_error"`
 
       - `BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
-
         - `mcp_server_name: string`
 
           Name of the MCP server that failed authentication.
@@ -3580,39 +2526,24 @@ console.log(betaManagedAgentsSessionThread.id);
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "mcp_authentication_failed_error"`
-
           - `"mcp_authentication_failed_error"`
 
       - `BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
         - `message: string`
 
           Human-readable error description.
@@ -3620,33 +2551,19 @@ console.log(betaManagedAgentsSessionThread.id);
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "billing_error"`
-
           - `"billing_error"`
 
     - `processed_at: string`
@@ -3654,13 +2571,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "session.error"`
-
       - `"session.error"`
 
   - `BetaManagedAgentsSessionStatusRescheduledEvent`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3670,13 +2585,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "session.status_rescheduled"`
-
       - `"session.status_rescheduled"`
 
   - `BetaManagedAgentsSessionStatusRunningEvent`
 
     Indicates the session is actively running and the agent is working.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3686,13 +2599,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "session.status_running"`
-
       - `"session.status_running"`
 
   - `BetaManagedAgentsSessionStatusIdleEvent`
 
     Indicates the agent has paused and is awaiting user input.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3704,43 +2615,34 @@ console.log(betaManagedAgentsSessionThread.id);
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `type: "end_turn"`
-
           - `"end_turn"`
 
       - `BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
         - `event_ids: Array<string>`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
         - `type: "requires_action"`
-
           - `"requires_action"`
 
       - `BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
         - `type: "retries_exhausted"`
-
           - `"retries_exhausted"`
 
     - `type: "session.status_idle"`
-
       - `"session.status_idle"`
 
   - `BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3750,13 +2652,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "session.status_terminated"`
-
       - `"session.status_terminated"`
 
   - `BetaManagedAgentsSessionThreadCreatedEvent`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3774,13 +2674,11 @@ console.log(betaManagedAgentsSessionThread.id);
       Public `sthr_` ID of the newly created thread.
 
     - `type: "session.thread_created"`
-
       - `"session.thread_created"`
 
   - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     Emitted when an outcome evaluation cycle begins.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3798,13 +2696,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "span.outcome_evaluation_start"`
-
       - `"span.outcome_evaluation_start"`
 
   - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3834,13 +2730,11 @@ console.log(betaManagedAgentsSessionThread.id);
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `type: "span.outcome_evaluation_end"`
-
       - `"span.outcome_evaluation_end"`
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
       Token usage for a single model request.
-
       - `cache_creation_input_tokens: number`
 
         Tokens used to create prompt cache in this request.
@@ -3860,7 +2754,6 @@ console.log(betaManagedAgentsSessionThread.id);
       - `speed?: "standard" | "fast" | null`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"`
 
         - `"fast"`
@@ -3868,7 +2761,6 @@ console.log(betaManagedAgentsSessionThread.id);
   - `BetaManagedAgentsSpanModelRequestStartEvent`
 
     Emitted when a model request is initiated by the agent.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3878,13 +2770,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "span.model_request_start"`
-
       - `"span.model_request_start"`
 
   - `BetaManagedAgentsSpanModelRequestEndEvent`
 
     Emitted when a model request completes.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3901,42 +2791,16 @@ console.log(betaManagedAgentsSessionThread.id);
 
       Token usage for a single model request.
 
-      - `cache_creation_input_tokens: number`
-
-        Tokens used to create prompt cache in this request.
-
-      - `cache_read_input_tokens: number`
-
-        Tokens read from prompt cache in this request.
-
-      - `input_tokens: number`
-
-        Input tokens consumed by this request.
-
-      - `output_tokens: number`
-
-        Output tokens generated by this request.
-
-      - `speed?: "standard" | "fast" | null`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"`
-
-        - `"fast"`
-
     - `processed_at: string`
 
       A timestamp in RFC 3339 format
 
     - `type: "span.model_request_end"`
-
       - `"span.model_request_end"`
 
   - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3954,13 +2818,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "span.outcome_evaluation_ongoing"`
-
       - `"span.outcome_evaluation_ongoing"`
 
   - `BetaManagedAgentsUserDefineOutcomeEvent`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -3984,39 +2846,32 @@ console.log(betaManagedAgentsSessionThread.id);
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
       Rubric for grading the quality of an outcome.
-
       - `BetaManagedAgentsFileRubric`
 
         Rubric referenced by a file uploaded via the Files API.
-
         - `file_id: string`
 
           ID of the rubric file.
 
         - `type: "file"`
-
           - `"file"`
 
       - `BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
-
         - `content: string`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
         - `type: "text"`
-
           - `"text"`
 
     - `type: "user.define_outcome"`
-
       - `"user.define_outcome"`
 
   - `BetaManagedAgentsSessionDeletedEvent`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4026,13 +2881,11 @@ console.log(betaManagedAgentsSessionThread.id);
       A timestamp in RFC 3339 format
 
     - `type: "session.deleted"`
-
       - `"session.deleted"`
 
   - `BetaManagedAgentsSessionThreadStatusRunningEvent`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4047,16 +2900,14 @@ console.log(betaManagedAgentsSessionThread.id);
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that started running.
+      Public sthr\_ ID of the thread that started running.
 
     - `type: "session.thread_status_running"`
-
       - `"session.thread_status_running"`
 
   - `BetaManagedAgentsSessionThreadStatusIdleEvent`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4071,48 +2922,29 @@ console.log(betaManagedAgentsSessionThread.id);
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that went idle.
+      Public sthr\_ ID of the thread that went idle.
 
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
-
-        - `type: "end_turn"`
-
-          - `"end_turn"`
 
       - `BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-        - `event_ids: Array<string>`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: "requires_action"`
-
-          - `"requires_action"`
-
       - `BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
-        - `type: "retries_exhausted"`
-
-          - `"retries_exhausted"`
-
     - `type: "session.thread_status_idle"`
-
       - `"session.thread_status_idle"`
 
   - `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4127,16 +2959,59 @@ console.log(betaManagedAgentsSessionThread.id);
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that terminated.
+      Public sthr\_ ID of the thread that terminated.
 
     - `type: "session.thread_status_terminated"`
-
       - `"session.thread_status_terminated"`
+
+  - `BetaManagedAgentsUserToolResultEvent`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.tool_result"`
+      - `"user.tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4151,15 +3026,308 @@ console.log(betaManagedAgentsSessionThread.id);
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that is retrying.
+      Public sthr\_ ID of the thread that is retrying.
 
     - `type: "session.thread_status_rescheduled"`
-
       - `"session.thread_status_rescheduled"`
+
+  - `BetaManagedAgentsSessionUpdatedEvent`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.updated"`
+      - `"session.updated"`
+
+    - `agent?: BetaManagedAgentsSessionAgent | null`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      - `id: string`
+
+      - `description: string | null`
+
+      - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+        - `name: string`
+
+        - `type: "url"`
+          - `"url"`
+
+        - `url: string`
+
+      - `model: BetaManagedAgentsModelConfig`
+
+        Model identifier and configuration.
+        - `id: BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
+            - `"claude-opus-4-7"`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"`
+
+              Most intelligent model for building agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-opus-4-5-20251101"`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `(string & {})`
+
+        - `speed?: "standard" | "fast"`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          - `"standard"`
+
+          - `"fast"`
+
+      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator | null`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+        - `agents: Array<BetaManagedAgentsSessionThreadAgent>`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+          - `id: string`
+
+          - `description: string | null`
+
+          - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+            - `name: string`
+
+            - `type: "url"`
+
+            - `url: string`
+
+          - `model: BetaManagedAgentsModelConfig`
+
+            Model identifier and configuration.
+
+          - `name: string`
+
+          - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+            - `BetaManagedAgentsAnthropicSkill`
+
+              A resolved Anthropic-managed skill.
+              - `skill_id: string`
+
+              - `type: "anthropic"`
+                - `"anthropic"`
+
+              - `version: string`
+
+            - `BetaManagedAgentsCustomSkill`
+
+              A resolved user-created custom skill.
+              - `skill_id: string`
+
+              - `type: "custom"`
+                - `"custom"`
+
+              - `version: string`
+
+          - `system: string | null`
+
+          - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+            - `BetaManagedAgentsAgentToolset20260401`
+              - `configs: Array<BetaManagedAgentsAgentToolConfig>`
+                - `enabled: boolean`
+
+                - `name: "bash" | "edit" | "read" | 5 more`
+
+                  Built-in agent tool identifier.
+                  - `"bash"`
+
+                  - `"edit"`
+
+                  - `"read"`
+
+                  - `"write"`
+
+                  - `"glob"`
+
+                  - `"grep"`
+
+                  - `"web_fetch"`
+
+                  - `"web_search"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+                    - `type: "always_allow"`
+                      - `"always_allow"`
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+                    - `type: "always_ask"`
+                      - `"always_ask"`
+
+              - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                Resolved default configuration for agent tools.
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `type: "agent_toolset_20260401"`
+                - `"agent_toolset_20260401"`
+
+            - `BetaManagedAgentsMCPToolset`
+              - `configs: Array<BetaManagedAgentsMCPToolConfig>`
+                - `enabled: boolean`
+
+                - `name: string`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `mcp_server_name: string`
+
+              - `type: "mcp_toolset"`
+                - `"mcp_toolset"`
+
+            - `BetaManagedAgentsCustomTool`
+
+              A custom tool as returned in API responses.
+              - `description: string`
+
+              - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+                JSON Schema for custom tool input parameters.
+                - `properties?: Record<string, unknown> | null`
+
+                  JSON Schema properties defining the tool's input parameters.
+
+                - `required?: Array<string>`
+
+                  List of required property names.
+
+                - `type?: "object"`
+
+                  Must be 'object' for tool input schemas.
+                  - `"object"`
+
+              - `name: string`
+
+              - `type: "custom"`
+                - `"custom"`
+
+          - `type: "agent"`
+            - `"agent"`
+
+          - `version: number`
+
+        - `type: "coordinator"`
+          - `"coordinator"`
+
+      - `name: string`
+
+      - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+        - `BetaManagedAgentsAnthropicSkill`
+
+          A resolved Anthropic-managed skill.
+
+        - `BetaManagedAgentsCustomSkill`
+
+          A resolved user-created custom skill.
+
+      - `system: string | null`
+
+      - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+        - `BetaManagedAgentsAgentToolset20260401`
+
+        - `BetaManagedAgentsMCPToolset`
+
+        - `BetaManagedAgentsCustomTool`
+
+          A custom tool as returned in API responses.
+
+      - `type: "agent"`
+        - `"agent"`
+
+      - `version: number`
+
+    - `metadata?: Record<string, string>`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `title?: string | null`
+
+      The session's new title. Present only when the update changed it.
 
 # Events
 
-## List
+## List Session Thread Events
 
 `client.beta.sessions.threads.events.list(stringthreadID, EventListParamsparams, RequestOptionsoptions?): PageCursor<BetaManagedAgentsSessionEvent>`
 
@@ -4172,7 +3340,6 @@ List Session Thread Events
 - `threadID: string`
 
 - `params: EventListParams`
-
   - `session_id: string`
 
     Path param: Path parameter session_id
@@ -4188,11 +3355,9 @@ List Session Thread Events
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -4241,16 +3406,20 @@ List Session Thread Events
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 28 more`
+- `BetaManagedAgentsSessionEvent = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 30 more`
 
   Union type for all event types in a session.
-
   - `BetaManagedAgentsUserMessageEvent`
 
     A user message event in the session conversation.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4258,31 +3427,25 @@ List Session Thread Events
     - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
 
       Array of content blocks comprising the user message.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
         - `text: string`
 
           The text content.
 
         - `type: "text"`
-
           - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
-
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
           Union type for image source variants.
-
           - `BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
-
             - `data: string`
 
               Base64-encoded image data.
@@ -4292,15 +3455,12 @@ List Session Thread Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `type: "base64"`
-
               - `"base64"`
 
           - `BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
-
             - `type: "url"`
-
               - `"url"`
 
             - `url: string`
@@ -4310,31 +3470,25 @@ List Session Thread Events
           - `BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
-
             - `file_id: string`
 
               ID of a previously uploaded file.
 
             - `type: "file"`
-
               - `"file"`
 
         - `type: "image"`
-
           - `"image"`
 
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
           Union type for document source variants.
-
           - `BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
-
             - `data: string`
 
               Base64-encoded document data.
@@ -4344,13 +3498,11 @@ List Session Thread Events
               MIME type of the document (e.g., "application/pdf").
 
             - `type: "base64"`
-
               - `"base64"`
 
           - `BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
-
             - `data: string`
 
               The plain text content.
@@ -4358,19 +3510,15 @@ List Session Thread Events
             - `media_type: "text/plain"`
 
               MIME type of the text content. Must be "text/plain".
-
               - `"text/plain"`
 
             - `type: "text"`
-
               - `"text"`
 
           - `BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
-
             - `type: "url"`
-
               - `"url"`
 
             - `url: string`
@@ -4380,17 +3528,14 @@ List Session Thread Events
           - `BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
-
             - `file_id: string`
 
               ID of a previously uploaded file.
 
             - `type: "file"`
-
               - `"file"`
 
         - `type: "document"`
-
           - `"document"`
 
         - `context?: string | null`
@@ -4402,7 +3547,6 @@ List Session Thread Events
           The title of the document.
 
     - `type: "user.message"`
-
       - `"user.message"`
 
     - `processed_at?: string | null`
@@ -4412,13 +3556,11 @@ List Session Thread Events
   - `BetaManagedAgentsUserInterruptEvent`
 
     An interrupt event that pauses agent execution and returns control to the user.
-
     - `id: string`
 
       Unique identifier for this event.
 
     - `type: "user.interrupt"`
-
       - `"user.interrupt"`
 
     - `processed_at?: string | null`
@@ -4432,7 +3574,6 @@ List Session Thread Events
   - `BetaManagedAgentsUserToolConfirmationEvent`
 
     A tool confirmation event that approves or denies a pending tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4440,7 +3581,6 @@ List Session Thread Events
     - `result: "allow" | "deny"`
 
       UserToolConfirmationResult enum
-
       - `"allow"`
 
       - `"deny"`
@@ -4450,7 +3590,6 @@ List Session Thread Events
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: "user.tool_confirmation"`
-
       - `"user.tool_confirmation"`
 
     - `deny_message?: string | null`
@@ -4468,7 +3607,6 @@ List Session Thread Events
   - `BetaManagedAgentsUserCustomToolResultEvent`
 
     Event sent by the client providing the result of a custom tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4478,154 +3616,53 @@ List Session Thread Events
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: "user.custom_tool_result"`
-
       - `"user.custom_tool_result"`
 
-    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
 
       The result content returned by the tool.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+      - `BetaManagedAgentsSearchResultBlock`
 
-          Union type for document source variants.
+        A block containing a web search result.
+        - `citations: BetaManagedAgentsSearchResultCitations`
 
-          - `BetaManagedAgentsBase64DocumentSource`
+          Citation settings for a search result.
+          - `enabled: boolean`
 
-            Base64-encoded document data.
+            Whether citations are enabled for this search result.
 
-            - `data: string`
+        - `content: Array<BetaManagedAgentsSearchResultContent>`
 
-              Base64-encoded document data.
+          Array of text content blocks from the search result.
+          - `text: string`
 
-            - `media_type: string`
+            The text content.
 
-              MIME type of the document (e.g., "application/pdf").
+          - `type: "text"`
+            - `"text"`
 
-            - `type: "base64"`
+        - `source: string`
 
-              - `"base64"`
+          The URL source of the search result.
 
-          - `BetaManagedAgentsPlainTextDocumentSource`
+        - `title: string`
 
-            Plain text document content.
+          The title of the search result.
 
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
+        - `type: "search_result"`
+          - `"search_result"`
 
     - `is_error?: boolean | null`
 
@@ -4642,7 +3679,6 @@ List Session Thread Events
   - `BetaManagedAgentsAgentCustomToolUseEvent`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4660,7 +3696,6 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.custom_tool_use"`
-
       - `"agent.custom_tool_use"`
 
     - `session_thread_id?: string | null`
@@ -4670,7 +3705,6 @@ List Session Thread Events
   - `BetaManagedAgentsAgentMessageEvent`
 
     An agent response event in the session conversation.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4678,27 +3712,22 @@ List Session Thread Events
     - `content: Array<BetaManagedAgentsTextBlock>`
 
       Array of text blocks comprising the agent response.
-
       - `text: string`
 
         The text content.
 
       - `type: "text"`
 
-        - `"text"`
-
     - `processed_at: string`
 
       A timestamp in RFC 3339 format
 
     - `type: "agent.message"`
-
       - `"agent.message"`
 
   - `BetaManagedAgentsAgentThinkingEvent`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4708,13 +3737,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.thinking"`
-
       - `"agent.thinking"`
 
   - `BetaManagedAgentsAgentMCPToolUseEvent`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4736,13 +3763,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.mcp_tool_use"`
-
       - `"agent.mcp_tool_use"`
 
     - `evaluated_permission?: "allow" | "ask" | "deny"`
 
       AgentEvaluatedPermission enum
-
       - `"allow"`
 
       - `"ask"`
@@ -4756,7 +3781,6 @@ List Session Thread Events
   - `BetaManagedAgentsAgentMCPToolResultEvent`
 
     Event representing the result of an MCP tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4770,154 +3794,26 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.mcp_tool_result"`
-
       - `"agent.mcp_tool_result"`
 
-    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
 
       The result content returned by the tool.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+      - `BetaManagedAgentsSearchResultBlock`
 
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `is_error?: boolean | null`
 
@@ -4926,7 +3822,6 @@ List Session Thread Events
   - `BetaManagedAgentsAgentToolUseEvent`
 
     Event emitted when the agent invokes a built-in agent tool.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4944,13 +3839,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.tool_use"`
-
       - `"agent.tool_use"`
 
     - `evaluated_permission?: "allow" | "ask" | "deny"`
 
       AgentEvaluatedPermission enum
-
       - `"allow"`
 
       - `"ask"`
@@ -4964,7 +3857,6 @@ List Session Thread Events
   - `BetaManagedAgentsAgentToolResultEvent`
 
     Event representing the result of an agent tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -4978,154 +3870,26 @@ List Session Thread Events
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `type: "agent.tool_result"`
-
       - `"agent.tool_result"`
 
-    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
 
       The result content returned by the tool.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+      - `BetaManagedAgentsSearchResultBlock`
 
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `is_error?: boolean | null`
 
@@ -5134,7 +3898,6 @@ List Session Thread Events
   - `BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -5142,148 +3905,17 @@ List Session Thread Events
     - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
 
       Message content blocks.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
 
     - `from_session_thread_id: string`
 
@@ -5294,7 +3926,6 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.thread_message_received"`
-
       - `"agent.thread_message_received"`
 
     - `from_agent_name?: string | null`
@@ -5304,7 +3935,6 @@ List Session Thread Events
   - `BetaManagedAgentsAgentThreadMessageSentEvent`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -5312,148 +3942,17 @@ List Session Thread Events
     - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
 
       Message content blocks.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
 
     - `processed_at: string`
 
@@ -5464,7 +3963,6 @@ List Session Thread Events
       Public `sthr_` ID of the thread the message was sent to.
 
     - `type: "agent.thread_message_sent"`
-
       - `"agent.thread_message_sent"`
 
     - `to_agent_name?: string | null`
@@ -5474,7 +3972,6 @@ List Session Thread Events
   - `BetaManagedAgentsAgentThreadContextCompactedEvent`
 
     Indicates that context compaction (summarization) occurred during the session.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -5484,13 +3981,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.thread_context_compacted"`
-
       - `"agent.thread_context_compacted"`
 
   - `BetaManagedAgentsSessionErrorEvent`
 
     An error event indicating a problem occurred during session execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -5498,11 +3993,9 @@ List Session Thread Events
     - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 4 more`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `BetaManagedAgentsUnknownError`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
         - `message: string`
 
           Human-readable error description.
@@ -5510,39 +4003,30 @@ List Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
             - `type: "retrying"`
-
               - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
             - `type: "exhausted"`
-
               - `"exhausted"`
 
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
             - `type: "terminal"`
-
               - `"terminal"`
 
         - `type: "unknown_error"`
-
           - `"unknown_error"`
 
       - `BetaManagedAgentsModelOverloadedError`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
-
         - `message: string`
 
           Human-readable error description.
@@ -5550,39 +4034,24 @@ List Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "model_overloaded_error"`
-
           - `"model_overloaded_error"`
 
       - `BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
-
         - `message: string`
 
           Human-readable error description.
@@ -5590,39 +4059,24 @@ List Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "model_rate_limited_error"`
-
           - `"model_rate_limited_error"`
 
       - `BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
-
         - `message: string`
 
           Human-readable error description.
@@ -5630,39 +4084,24 @@ List Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "model_request_failed_error"`
-
           - `"model_request_failed_error"`
 
       - `BetaManagedAgentsMCPConnectionFailedError`
 
         Failed to connect to an MCP server.
-
         - `mcp_server_name: string`
 
           Name of the MCP server that failed to connect.
@@ -5674,39 +4113,24 @@ List Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "mcp_connection_failed_error"`
-
           - `"mcp_connection_failed_error"`
 
       - `BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
-
         - `mcp_server_name: string`
 
           Name of the MCP server that failed authentication.
@@ -5718,39 +4142,24 @@ List Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "mcp_authentication_failed_error"`
-
           - `"mcp_authentication_failed_error"`
 
       - `BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
         - `message: string`
 
           Human-readable error description.
@@ -5758,33 +4167,19 @@ List Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "billing_error"`
-
           - `"billing_error"`
 
     - `processed_at: string`
@@ -5792,13 +4187,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "session.error"`
-
       - `"session.error"`
 
   - `BetaManagedAgentsSessionStatusRescheduledEvent`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -5808,13 +4201,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "session.status_rescheduled"`
-
       - `"session.status_rescheduled"`
 
   - `BetaManagedAgentsSessionStatusRunningEvent`
 
     Indicates the session is actively running and the agent is working.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -5824,13 +4215,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "session.status_running"`
-
       - `"session.status_running"`
 
   - `BetaManagedAgentsSessionStatusIdleEvent`
 
     Indicates the agent has paused and is awaiting user input.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -5842,43 +4231,34 @@ List Session Thread Events
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `type: "end_turn"`
-
           - `"end_turn"`
 
       - `BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
         - `event_ids: Array<string>`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
         - `type: "requires_action"`
-
           - `"requires_action"`
 
       - `BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
         - `type: "retries_exhausted"`
-
           - `"retries_exhausted"`
 
     - `type: "session.status_idle"`
-
       - `"session.status_idle"`
 
   - `BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -5888,13 +4268,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "session.status_terminated"`
-
       - `"session.status_terminated"`
 
   - `BetaManagedAgentsSessionThreadCreatedEvent`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -5912,13 +4290,11 @@ List Session Thread Events
       Public `sthr_` ID of the newly created thread.
 
     - `type: "session.thread_created"`
-
       - `"session.thread_created"`
 
   - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     Emitted when an outcome evaluation cycle begins.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -5936,13 +4312,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "span.outcome_evaluation_start"`
-
       - `"span.outcome_evaluation_start"`
 
   - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -5972,13 +4346,11 @@ List Session Thread Events
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `type: "span.outcome_evaluation_end"`
-
       - `"span.outcome_evaluation_end"`
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
       Token usage for a single model request.
-
       - `cache_creation_input_tokens: number`
 
         Tokens used to create prompt cache in this request.
@@ -5998,7 +4370,6 @@ List Session Thread Events
       - `speed?: "standard" | "fast" | null`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"`
 
         - `"fast"`
@@ -6006,7 +4377,6 @@ List Session Thread Events
   - `BetaManagedAgentsSpanModelRequestStartEvent`
 
     Emitted when a model request is initiated by the agent.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6016,13 +4386,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "span.model_request_start"`
-
       - `"span.model_request_start"`
 
   - `BetaManagedAgentsSpanModelRequestEndEvent`
 
     Emitted when a model request completes.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6039,42 +4407,16 @@ List Session Thread Events
 
       Token usage for a single model request.
 
-      - `cache_creation_input_tokens: number`
-
-        Tokens used to create prompt cache in this request.
-
-      - `cache_read_input_tokens: number`
-
-        Tokens read from prompt cache in this request.
-
-      - `input_tokens: number`
-
-        Input tokens consumed by this request.
-
-      - `output_tokens: number`
-
-        Output tokens generated by this request.
-
-      - `speed?: "standard" | "fast" | null`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"`
-
-        - `"fast"`
-
     - `processed_at: string`
 
       A timestamp in RFC 3339 format
 
     - `type: "span.model_request_end"`
-
       - `"span.model_request_end"`
 
   - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6092,13 +4434,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "span.outcome_evaluation_ongoing"`
-
       - `"span.outcome_evaluation_ongoing"`
 
   - `BetaManagedAgentsUserDefineOutcomeEvent`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6122,39 +4462,32 @@ List Session Thread Events
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
       Rubric for grading the quality of an outcome.
-
       - `BetaManagedAgentsFileRubric`
 
         Rubric referenced by a file uploaded via the Files API.
-
         - `file_id: string`
 
           ID of the rubric file.
 
         - `type: "file"`
-
           - `"file"`
 
       - `BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
-
         - `content: string`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
         - `type: "text"`
-
           - `"text"`
 
     - `type: "user.define_outcome"`
-
       - `"user.define_outcome"`
 
   - `BetaManagedAgentsSessionDeletedEvent`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6164,13 +4497,11 @@ List Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "session.deleted"`
-
       - `"session.deleted"`
 
   - `BetaManagedAgentsSessionThreadStatusRunningEvent`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6185,16 +4516,14 @@ List Session Thread Events
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that started running.
+      Public sthr\_ ID of the thread that started running.
 
     - `type: "session.thread_status_running"`
-
       - `"session.thread_status_running"`
 
   - `BetaManagedAgentsSessionThreadStatusIdleEvent`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6209,48 +4538,29 @@ List Session Thread Events
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that went idle.
+      Public sthr\_ ID of the thread that went idle.
 
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
-
-        - `type: "end_turn"`
-
-          - `"end_turn"`
 
       - `BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-        - `event_ids: Array<string>`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: "requires_action"`
-
-          - `"requires_action"`
-
       - `BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
-        - `type: "retries_exhausted"`
-
-          - `"retries_exhausted"`
-
     - `type: "session.thread_status_idle"`
-
       - `"session.thread_status_idle"`
 
   - `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6265,16 +4575,59 @@ List Session Thread Events
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that terminated.
+      Public sthr\_ ID of the thread that terminated.
 
     - `type: "session.thread_status_terminated"`
-
       - `"session.thread_status_terminated"`
+
+  - `BetaManagedAgentsUserToolResultEvent`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.tool_result"`
+      - `"user.tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6289,31 +4642,345 @@ List Session Thread Events
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that is retrying.
+      Public sthr\_ ID of the thread that is retrying.
 
     - `type: "session.thread_status_rescheduled"`
-
       - `"session.thread_status_rescheduled"`
+
+  - `BetaManagedAgentsSessionUpdatedEvent`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.updated"`
+      - `"session.updated"`
+
+    - `agent?: BetaManagedAgentsSessionAgent | null`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      - `id: string`
+
+      - `description: string | null`
+
+      - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+        - `name: string`
+
+        - `type: "url"`
+          - `"url"`
+
+        - `url: string`
+
+      - `model: BetaManagedAgentsModelConfig`
+
+        Model identifier and configuration.
+        - `id: BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
+            - `"claude-opus-4-7"`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"`
+
+              Most intelligent model for building agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-opus-4-5-20251101"`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `(string & {})`
+
+        - `speed?: "standard" | "fast"`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          - `"standard"`
+
+          - `"fast"`
+
+      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator | null`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+        - `agents: Array<BetaManagedAgentsSessionThreadAgent>`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+          - `id: string`
+
+          - `description: string | null`
+
+          - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+            - `name: string`
+
+            - `type: "url"`
+
+            - `url: string`
+
+          - `model: BetaManagedAgentsModelConfig`
+
+            Model identifier and configuration.
+
+          - `name: string`
+
+          - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+            - `BetaManagedAgentsAnthropicSkill`
+
+              A resolved Anthropic-managed skill.
+              - `skill_id: string`
+
+              - `type: "anthropic"`
+                - `"anthropic"`
+
+              - `version: string`
+
+            - `BetaManagedAgentsCustomSkill`
+
+              A resolved user-created custom skill.
+              - `skill_id: string`
+
+              - `type: "custom"`
+                - `"custom"`
+
+              - `version: string`
+
+          - `system: string | null`
+
+          - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+            - `BetaManagedAgentsAgentToolset20260401`
+              - `configs: Array<BetaManagedAgentsAgentToolConfig>`
+                - `enabled: boolean`
+
+                - `name: "bash" | "edit" | "read" | 5 more`
+
+                  Built-in agent tool identifier.
+                  - `"bash"`
+
+                  - `"edit"`
+
+                  - `"read"`
+
+                  - `"write"`
+
+                  - `"glob"`
+
+                  - `"grep"`
+
+                  - `"web_fetch"`
+
+                  - `"web_search"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+                    - `type: "always_allow"`
+                      - `"always_allow"`
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+                    - `type: "always_ask"`
+                      - `"always_ask"`
+
+              - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                Resolved default configuration for agent tools.
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `type: "agent_toolset_20260401"`
+                - `"agent_toolset_20260401"`
+
+            - `BetaManagedAgentsMCPToolset`
+              - `configs: Array<BetaManagedAgentsMCPToolConfig>`
+                - `enabled: boolean`
+
+                - `name: string`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `mcp_server_name: string`
+
+              - `type: "mcp_toolset"`
+                - `"mcp_toolset"`
+
+            - `BetaManagedAgentsCustomTool`
+
+              A custom tool as returned in API responses.
+              - `description: string`
+
+              - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+                JSON Schema for custom tool input parameters.
+                - `properties?: Record<string, unknown> | null`
+
+                  JSON Schema properties defining the tool's input parameters.
+
+                - `required?: Array<string>`
+
+                  List of required property names.
+
+                - `type?: "object"`
+
+                  Must be 'object' for tool input schemas.
+                  - `"object"`
+
+              - `name: string`
+
+              - `type: "custom"`
+                - `"custom"`
+
+          - `type: "agent"`
+            - `"agent"`
+
+          - `version: number`
+
+        - `type: "coordinator"`
+          - `"coordinator"`
+
+      - `name: string`
+
+      - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+        - `BetaManagedAgentsAnthropicSkill`
+
+          A resolved Anthropic-managed skill.
+
+        - `BetaManagedAgentsCustomSkill`
+
+          A resolved user-created custom skill.
+
+      - `system: string | null`
+
+      - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+        - `BetaManagedAgentsAgentToolset20260401`
+
+        - `BetaManagedAgentsMCPToolset`
+
+        - `BetaManagedAgentsCustomTool`
+
+          A custom tool as returned in API responses.
+
+      - `type: "agent"`
+        - `"agent"`
+
+      - `version: number`
+
+    - `metadata?: Record<string, string>`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `title?: string | null`
+
+      The session's new title. Present only when the update changed it.
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
 for await (const betaManagedAgentsSessionEvent of client.beta.sessions.threads.events.list(
-  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
-  { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
+  "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  { session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7" },
 )) {
   console.log(betaManagedAgentsSessionEvent);
 }
 ```
 
-## Stream
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message",
+      "processed_at": "2026-03-15T10:00:00Z"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Stream Session Thread Events
 
 `client.beta.sessions.threads.events.stream(stringthreadID, EventStreamParamsparams, RequestOptionsoptions?): BetaManagedAgentsStreamSessionThreadEvents | Stream<BetaManagedAgentsStreamSessionThreadEvents>`
 
@@ -6326,7 +4993,6 @@ Stream Session Thread Events
 - `threadID: string`
 
 - `params: EventStreamParams`
-
   - `session_id: string`
 
     Path param: Path parameter session_id
@@ -6334,11 +5000,9 @@ Stream Session Thread Events
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -6387,16 +5051,20 @@ Stream Session Thread Events
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 28 more`
+- `BetaManagedAgentsStreamSessionThreadEvents = BetaManagedAgentsUserMessageEvent | BetaManagedAgentsUserInterruptEvent | BetaManagedAgentsUserToolConfirmationEvent | 30 more`
 
   Server-sent event in a single thread's stream.
-
   - `BetaManagedAgentsUserMessageEvent`
 
     A user message event in the session conversation.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6404,31 +5072,25 @@ Stream Session Thread Events
     - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
 
       Array of content blocks comprising the user message.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
         - `text: string`
 
           The text content.
 
         - `type: "text"`
-
           - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
-
         - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
 
           Union type for image source variants.
-
           - `BetaManagedAgentsBase64ImageSource`
 
             Base64-encoded image data.
-
             - `data: string`
 
               Base64-encoded image data.
@@ -6438,15 +5100,12 @@ Stream Session Thread Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `type: "base64"`
-
               - `"base64"`
 
           - `BetaManagedAgentsURLImageSource`
 
             Image referenced by URL.
-
             - `type: "url"`
-
               - `"url"`
 
             - `url: string`
@@ -6456,31 +5115,25 @@ Stream Session Thread Events
           - `BetaManagedAgentsFileImageSource`
 
             Image referenced by file ID.
-
             - `file_id: string`
 
               ID of a previously uploaded file.
 
             - `type: "file"`
-
               - `"file"`
 
         - `type: "image"`
-
           - `"image"`
 
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
         - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
 
           Union type for document source variants.
-
           - `BetaManagedAgentsBase64DocumentSource`
 
             Base64-encoded document data.
-
             - `data: string`
 
               Base64-encoded document data.
@@ -6490,13 +5143,11 @@ Stream Session Thread Events
               MIME type of the document (e.g., "application/pdf").
 
             - `type: "base64"`
-
               - `"base64"`
 
           - `BetaManagedAgentsPlainTextDocumentSource`
 
             Plain text document content.
-
             - `data: string`
 
               The plain text content.
@@ -6504,19 +5155,15 @@ Stream Session Thread Events
             - `media_type: "text/plain"`
 
               MIME type of the text content. Must be "text/plain".
-
               - `"text/plain"`
 
             - `type: "text"`
-
               - `"text"`
 
           - `BetaManagedAgentsURLDocumentSource`
 
             Document referenced by URL.
-
             - `type: "url"`
-
               - `"url"`
 
             - `url: string`
@@ -6526,17 +5173,14 @@ Stream Session Thread Events
           - `BetaManagedAgentsFileDocumentSource`
 
             Document referenced by file ID.
-
             - `file_id: string`
 
               ID of a previously uploaded file.
 
             - `type: "file"`
-
               - `"file"`
 
         - `type: "document"`
-
           - `"document"`
 
         - `context?: string | null`
@@ -6548,7 +5192,6 @@ Stream Session Thread Events
           The title of the document.
 
     - `type: "user.message"`
-
       - `"user.message"`
 
     - `processed_at?: string | null`
@@ -6558,13 +5201,11 @@ Stream Session Thread Events
   - `BetaManagedAgentsUserInterruptEvent`
 
     An interrupt event that pauses agent execution and returns control to the user.
-
     - `id: string`
 
       Unique identifier for this event.
 
     - `type: "user.interrupt"`
-
       - `"user.interrupt"`
 
     - `processed_at?: string | null`
@@ -6578,7 +5219,6 @@ Stream Session Thread Events
   - `BetaManagedAgentsUserToolConfirmationEvent`
 
     A tool confirmation event that approves or denies a pending tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6586,7 +5226,6 @@ Stream Session Thread Events
     - `result: "allow" | "deny"`
 
       UserToolConfirmationResult enum
-
       - `"allow"`
 
       - `"deny"`
@@ -6596,7 +5235,6 @@ Stream Session Thread Events
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: "user.tool_confirmation"`
-
       - `"user.tool_confirmation"`
 
     - `deny_message?: string | null`
@@ -6614,7 +5252,6 @@ Stream Session Thread Events
   - `BetaManagedAgentsUserCustomToolResultEvent`
 
     Event sent by the client providing the result of a custom tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6624,154 +5261,53 @@ Stream Session Thread Events
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `type: "user.custom_tool_result"`
-
       - `"user.custom_tool_result"`
 
-    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
 
       The result content returned by the tool.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+      - `BetaManagedAgentsSearchResultBlock`
 
-          Union type for document source variants.
+        A block containing a web search result.
+        - `citations: BetaManagedAgentsSearchResultCitations`
 
-          - `BetaManagedAgentsBase64DocumentSource`
+          Citation settings for a search result.
+          - `enabled: boolean`
 
-            Base64-encoded document data.
+            Whether citations are enabled for this search result.
 
-            - `data: string`
+        - `content: Array<BetaManagedAgentsSearchResultContent>`
 
-              Base64-encoded document data.
+          Array of text content blocks from the search result.
+          - `text: string`
 
-            - `media_type: string`
+            The text content.
 
-              MIME type of the document (e.g., "application/pdf").
+          - `type: "text"`
+            - `"text"`
 
-            - `type: "base64"`
+        - `source: string`
 
-              - `"base64"`
+          The URL source of the search result.
 
-          - `BetaManagedAgentsPlainTextDocumentSource`
+        - `title: string`
 
-            Plain text document content.
+          The title of the search result.
 
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
+        - `type: "search_result"`
+          - `"search_result"`
 
     - `is_error?: boolean | null`
 
@@ -6788,7 +5324,6 @@ Stream Session Thread Events
   - `BetaManagedAgentsAgentCustomToolUseEvent`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6806,7 +5341,6 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.custom_tool_use"`
-
       - `"agent.custom_tool_use"`
 
     - `session_thread_id?: string | null`
@@ -6816,7 +5350,6 @@ Stream Session Thread Events
   - `BetaManagedAgentsAgentMessageEvent`
 
     An agent response event in the session conversation.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6824,27 +5357,22 @@ Stream Session Thread Events
     - `content: Array<BetaManagedAgentsTextBlock>`
 
       Array of text blocks comprising the agent response.
-
       - `text: string`
 
         The text content.
 
       - `type: "text"`
 
-        - `"text"`
-
     - `processed_at: string`
 
       A timestamp in RFC 3339 format
 
     - `type: "agent.message"`
-
       - `"agent.message"`
 
   - `BetaManagedAgentsAgentThinkingEvent`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6854,13 +5382,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.thinking"`
-
       - `"agent.thinking"`
 
   - `BetaManagedAgentsAgentMCPToolUseEvent`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6882,13 +5408,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.mcp_tool_use"`
-
       - `"agent.mcp_tool_use"`
 
     - `evaluated_permission?: "allow" | "ask" | "deny"`
 
       AgentEvaluatedPermission enum
-
       - `"allow"`
 
       - `"ask"`
@@ -6902,7 +5426,6 @@ Stream Session Thread Events
   - `BetaManagedAgentsAgentMCPToolResultEvent`
 
     Event representing the result of an MCP tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -6916,154 +5439,26 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.mcp_tool_result"`
-
       - `"agent.mcp_tool_result"`
 
-    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
 
       The result content returned by the tool.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+      - `BetaManagedAgentsSearchResultBlock`
 
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `is_error?: boolean | null`
 
@@ -7072,7 +5467,6 @@ Stream Session Thread Events
   - `BetaManagedAgentsAgentToolUseEvent`
 
     Event emitted when the agent invokes a built-in agent tool.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -7090,13 +5484,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.tool_use"`
-
       - `"agent.tool_use"`
 
     - `evaluated_permission?: "allow" | "ask" | "deny"`
 
       AgentEvaluatedPermission enum
-
       - `"allow"`
 
       - `"ask"`
@@ -7110,7 +5502,6 @@ Stream Session Thread Events
   - `BetaManagedAgentsAgentToolResultEvent`
 
     Event representing the result of an agent tool execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -7124,154 +5515,26 @@ Stream Session Thread Events
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `type: "agent.tool_result"`
-
       - `"agent.tool_result"`
 
-    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
 
       The result content returned by the tool.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
+      - `BetaManagedAgentsSearchResultBlock`
 
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `is_error?: boolean | null`
 
@@ -7280,7 +5543,6 @@ Stream Session Thread Events
   - `BetaManagedAgentsAgentThreadMessageReceivedEvent`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -7288,148 +5550,17 @@ Stream Session Thread Events
     - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
 
       Message content blocks.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
 
     - `from_session_thread_id: string`
 
@@ -7440,7 +5571,6 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.thread_message_received"`
-
       - `"agent.thread_message_received"`
 
     - `from_agent_name?: string | null`
@@ -7450,7 +5580,6 @@ Stream Session Thread Events
   - `BetaManagedAgentsAgentThreadMessageSentEvent`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -7458,148 +5587,17 @@ Stream Session Thread Events
     - `content: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock>`
 
       Message content blocks.
-
       - `BetaManagedAgentsTextBlock`
 
         Regular text content.
-
-        - `text: string`
-
-          The text content.
-
-        - `type: "text"`
-
-          - `"text"`
 
       - `BetaManagedAgentsImageBlock`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `source: BetaManagedAgentsBase64ImageSource | BetaManagedAgentsURLImageSource | BetaManagedAgentsFileImageSource`
-
-          Union type for image source variants.
-
-          - `BetaManagedAgentsBase64ImageSource`
-
-            Base64-encoded image data.
-
-            - `data: string`
-
-              Base64-encoded image data.
-
-            - `media_type: string`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsURLImageSource`
-
-            Image referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the image to fetch.
-
-          - `BetaManagedAgentsFileImageSource`
-
-            Image referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "image"`
-
-          - `"image"`
-
       - `BetaManagedAgentsDocumentBlock`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `source: BetaManagedAgentsBase64DocumentSource | BetaManagedAgentsPlainTextDocumentSource | BetaManagedAgentsURLDocumentSource | BetaManagedAgentsFileDocumentSource`
-
-          Union type for document source variants.
-
-          - `BetaManagedAgentsBase64DocumentSource`
-
-            Base64-encoded document data.
-
-            - `data: string`
-
-              Base64-encoded document data.
-
-            - `media_type: string`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `type: "base64"`
-
-              - `"base64"`
-
-          - `BetaManagedAgentsPlainTextDocumentSource`
-
-            Plain text document content.
-
-            - `data: string`
-
-              The plain text content.
-
-            - `media_type: "text/plain"`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"`
-
-            - `type: "text"`
-
-              - `"text"`
-
-          - `BetaManagedAgentsURLDocumentSource`
-
-            Document referenced by URL.
-
-            - `type: "url"`
-
-              - `"url"`
-
-            - `url: string`
-
-              URL of the document to fetch.
-
-          - `BetaManagedAgentsFileDocumentSource`
-
-            Document referenced by file ID.
-
-            - `file_id: string`
-
-              ID of a previously uploaded file.
-
-            - `type: "file"`
-
-              - `"file"`
-
-        - `type: "document"`
-
-          - `"document"`
-
-        - `context?: string | null`
-
-          Additional context about the document for the model.
-
-        - `title?: string | null`
-
-          The title of the document.
 
     - `processed_at: string`
 
@@ -7610,7 +5608,6 @@ Stream Session Thread Events
       Public `sthr_` ID of the thread the message was sent to.
 
     - `type: "agent.thread_message_sent"`
-
       - `"agent.thread_message_sent"`
 
     - `to_agent_name?: string | null`
@@ -7620,7 +5617,6 @@ Stream Session Thread Events
   - `BetaManagedAgentsAgentThreadContextCompactedEvent`
 
     Indicates that context compaction (summarization) occurred during the session.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -7630,13 +5626,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "agent.thread_context_compacted"`
-
       - `"agent.thread_context_compacted"`
 
   - `BetaManagedAgentsSessionErrorEvent`
 
     An error event indicating a problem occurred during session execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -7644,11 +5638,9 @@ Stream Session Thread Events
     - `error: BetaManagedAgentsUnknownError | BetaManagedAgentsModelOverloadedError | BetaManagedAgentsModelRateLimitedError | 4 more`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `BetaManagedAgentsUnknownError`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
         - `message: string`
 
           Human-readable error description.
@@ -7656,39 +5648,30 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
             - `type: "retrying"`
-
               - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
             - `type: "exhausted"`
-
               - `"exhausted"`
 
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
             - `type: "terminal"`
-
               - `"terminal"`
 
         - `type: "unknown_error"`
-
           - `"unknown_error"`
 
       - `BetaManagedAgentsModelOverloadedError`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
-
         - `message: string`
 
           Human-readable error description.
@@ -7696,39 +5679,24 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "model_overloaded_error"`
-
           - `"model_overloaded_error"`
 
       - `BetaManagedAgentsModelRateLimitedError`
 
         The model request was rate-limited.
-
         - `message: string`
 
           Human-readable error description.
@@ -7736,39 +5704,24 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "model_rate_limited_error"`
-
           - `"model_rate_limited_error"`
 
       - `BetaManagedAgentsModelRequestFailedError`
 
         A model request failed for a reason other than overload or rate-limiting.
-
         - `message: string`
 
           Human-readable error description.
@@ -7776,39 +5729,24 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "model_request_failed_error"`
-
           - `"model_request_failed_error"`
 
       - `BetaManagedAgentsMCPConnectionFailedError`
 
         Failed to connect to an MCP server.
-
         - `mcp_server_name: string`
 
           Name of the MCP server that failed to connect.
@@ -7820,39 +5758,24 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "mcp_connection_failed_error"`
-
           - `"mcp_connection_failed_error"`
 
       - `BetaManagedAgentsMCPAuthenticationFailedError`
 
         Authentication to an MCP server failed.
-
         - `mcp_server_name: string`
 
           Name of the MCP server that failed authentication.
@@ -7864,39 +5787,24 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "mcp_authentication_failed_error"`
-
           - `"mcp_authentication_failed_error"`
 
       - `BetaManagedAgentsBillingError`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
         - `message: string`
 
           Human-readable error description.
@@ -7904,33 +5812,19 @@ Stream Session Thread Events
         - `retry_status: BetaManagedAgentsRetryStatusRetrying | BetaManagedAgentsRetryStatusExhausted | BetaManagedAgentsRetryStatusTerminal`
 
           What the client should do next in response to this error.
-
           - `BetaManagedAgentsRetryStatusRetrying`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `type: "retrying"`
-
-              - `"retrying"`
 
           - `BetaManagedAgentsRetryStatusExhausted`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `type: "exhausted"`
-
-              - `"exhausted"`
-
           - `BetaManagedAgentsRetryStatusTerminal`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `type: "terminal"`
-
-              - `"terminal"`
-
         - `type: "billing_error"`
-
           - `"billing_error"`
 
     - `processed_at: string`
@@ -7938,13 +5832,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "session.error"`
-
       - `"session.error"`
 
   - `BetaManagedAgentsSessionStatusRescheduledEvent`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -7954,13 +5846,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "session.status_rescheduled"`
-
       - `"session.status_rescheduled"`
 
   - `BetaManagedAgentsSessionStatusRunningEvent`
 
     Indicates the session is actively running and the agent is working.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -7970,13 +5860,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "session.status_running"`
-
       - `"session.status_running"`
 
   - `BetaManagedAgentsSessionStatusIdleEvent`
 
     Indicates the agent has paused and is awaiting user input.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -7988,43 +5876,34 @@ Stream Session Thread Events
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `type: "end_turn"`
-
           - `"end_turn"`
 
       - `BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
         - `event_ids: Array<string>`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
         - `type: "requires_action"`
-
           - `"requires_action"`
 
       - `BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
         - `type: "retries_exhausted"`
-
           - `"retries_exhausted"`
 
     - `type: "session.status_idle"`
-
       - `"session.status_idle"`
 
   - `BetaManagedAgentsSessionStatusTerminatedEvent`
 
     Indicates the session has terminated, either due to an error or completion.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8034,13 +5913,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "session.status_terminated"`
-
       - `"session.status_terminated"`
 
   - `BetaManagedAgentsSessionThreadCreatedEvent`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8058,13 +5935,11 @@ Stream Session Thread Events
       Public `sthr_` ID of the newly created thread.
 
     - `type: "session.thread_created"`
-
       - `"session.thread_created"`
 
   - `BetaManagedAgentsSpanOutcomeEvaluationStartEvent`
 
     Emitted when an outcome evaluation cycle begins.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8082,13 +5957,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "span.outcome_evaluation_start"`
-
       - `"span.outcome_evaluation_start"`
 
   - `BetaManagedAgentsSpanOutcomeEvaluationEndEvent`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8118,13 +5991,11 @@ Stream Session Thread Events
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `type: "span.outcome_evaluation_end"`
-
       - `"span.outcome_evaluation_end"`
 
     - `usage: BetaManagedAgentsSpanModelUsage`
 
       Token usage for a single model request.
-
       - `cache_creation_input_tokens: number`
 
         Tokens used to create prompt cache in this request.
@@ -8144,7 +6015,6 @@ Stream Session Thread Events
       - `speed?: "standard" | "fast" | null`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"`
 
         - `"fast"`
@@ -8152,7 +6022,6 @@ Stream Session Thread Events
   - `BetaManagedAgentsSpanModelRequestStartEvent`
 
     Emitted when a model request is initiated by the agent.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8162,13 +6031,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "span.model_request_start"`
-
       - `"span.model_request_start"`
 
   - `BetaManagedAgentsSpanModelRequestEndEvent`
 
     Emitted when a model request completes.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8185,42 +6052,16 @@ Stream Session Thread Events
 
       Token usage for a single model request.
 
-      - `cache_creation_input_tokens: number`
-
-        Tokens used to create prompt cache in this request.
-
-      - `cache_read_input_tokens: number`
-
-        Tokens read from prompt cache in this request.
-
-      - `input_tokens: number`
-
-        Input tokens consumed by this request.
-
-      - `output_tokens: number`
-
-        Output tokens generated by this request.
-
-      - `speed?: "standard" | "fast" | null`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"`
-
-        - `"fast"`
-
     - `processed_at: string`
 
       A timestamp in RFC 3339 format
 
     - `type: "span.model_request_end"`
-
       - `"span.model_request_end"`
 
   - `BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8238,13 +6079,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "span.outcome_evaluation_ongoing"`
-
       - `"span.outcome_evaluation_ongoing"`
 
   - `BetaManagedAgentsUserDefineOutcomeEvent`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8268,39 +6107,32 @@ Stream Session Thread Events
     - `rubric: BetaManagedAgentsFileRubric | BetaManagedAgentsTextRubric`
 
       Rubric for grading the quality of an outcome.
-
       - `BetaManagedAgentsFileRubric`
 
         Rubric referenced by a file uploaded via the Files API.
-
         - `file_id: string`
 
           ID of the rubric file.
 
         - `type: "file"`
-
           - `"file"`
 
       - `BetaManagedAgentsTextRubric`
 
         Rubric content provided inline as text.
-
         - `content: string`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
         - `type: "text"`
-
           - `"text"`
 
     - `type: "user.define_outcome"`
-
       - `"user.define_outcome"`
 
   - `BetaManagedAgentsSessionDeletedEvent`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8310,13 +6142,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `type: "session.deleted"`
-
       - `"session.deleted"`
 
   - `BetaManagedAgentsSessionThreadStatusRunningEvent`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8331,16 +6161,14 @@ Stream Session Thread Events
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that started running.
+      Public sthr\_ ID of the thread that started running.
 
     - `type: "session.thread_status_running"`
-
       - `"session.thread_status_running"`
 
   - `BetaManagedAgentsSessionThreadStatusIdleEvent`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8355,48 +6183,29 @@ Stream Session Thread Events
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that went idle.
+      Public sthr\_ ID of the thread that went idle.
 
     - `stop_reason: BetaManagedAgentsSessionEndTurn | BetaManagedAgentsSessionRequiresAction | BetaManagedAgentsSessionRetriesExhausted`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `BetaManagedAgentsSessionEndTurn`
 
         The agent completed its turn naturally and is ready for the next user message.
-
-        - `type: "end_turn"`
-
-          - `"end_turn"`
 
       - `BetaManagedAgentsSessionRequiresAction`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-        - `event_ids: Array<string>`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `type: "requires_action"`
-
-          - `"requires_action"`
-
       - `BetaManagedAgentsSessionRetriesExhausted`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
-        - `type: "retries_exhausted"`
-
-          - `"retries_exhausted"`
-
     - `type: "session.thread_status_idle"`
-
       - `"session.thread_status_idle"`
 
   - `BetaManagedAgentsSessionThreadStatusTerminatedEvent`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8411,16 +6220,59 @@ Stream Session Thread Events
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that terminated.
+      Public sthr\_ ID of the thread that terminated.
 
     - `type: "session.thread_status_terminated"`
-
       - `"session.thread_status_terminated"`
+
+  - `BetaManagedAgentsUserToolResultEvent`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `tool_use_id: string`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `type: "user.tool_result"`
+      - `"user.tool_result"`
+
+    - `content?: Array<BetaManagedAgentsTextBlock | BetaManagedAgentsImageBlock | BetaManagedAgentsDocumentBlock | BetaManagedAgentsSearchResultBlock>`
+
+      The result content returned by the tool.
+      - `BetaManagedAgentsTextBlock`
+
+        Regular text content.
+
+      - `BetaManagedAgentsImageBlock`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `BetaManagedAgentsDocumentBlock`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `BetaManagedAgentsSearchResultBlock`
+
+        A block containing a web search result.
+
+    - `is_error?: boolean | null`
+
+      Whether the tool execution resulted in an error.
+
+    - `processed_at?: string | null`
+
+      A timestamp in RFC 3339 format
+
+    - `session_thread_id?: string | null`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `BetaManagedAgentsSessionThreadStatusRescheduledEvent`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `id: string`
 
       Unique identifier for this event.
@@ -8435,25 +6287,335 @@ Stream Session Thread Events
 
     - `session_thread_id: string`
 
-      Public sthr_ ID of the thread that is retrying.
+      Public sthr\_ ID of the thread that is retrying.
 
     - `type: "session.thread_status_rescheduled"`
-
       - `"session.thread_status_rescheduled"`
+
+  - `BetaManagedAgentsSessionUpdatedEvent`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+    - `id: string`
+
+      Unique identifier for this event.
+
+    - `processed_at: string`
+
+      A timestamp in RFC 3339 format
+
+    - `type: "session.updated"`
+      - `"session.updated"`
+
+    - `agent?: BetaManagedAgentsSessionAgent | null`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      - `id: string`
+
+      - `description: string | null`
+
+      - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+        - `name: string`
+
+        - `type: "url"`
+          - `"url"`
+
+        - `url: string`
+
+      - `model: BetaManagedAgentsModelConfig`
+
+        Model identifier and configuration.
+        - `id: BetaManagedAgentsModel`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `"claude-opus-4-7" | "claude-opus-4-6" | "claude-sonnet-4-6" | 6 more`
+            - `"claude-opus-4-7"`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"`
+
+              Most intelligent model for building agents and coding
+
+            - `"claude-sonnet-4-6"`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-opus-4-5-20251101"`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-sonnet-4-5"`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"`
+
+              High-performance model for agents and coding
+
+          - `(string & {})`
+
+        - `speed?: "standard" | "fast"`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          - `"standard"`
+
+          - `"fast"`
+
+      - `multiagent: BetaManagedAgentsSessionMultiagentCoordinator | null`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+        - `agents: Array<BetaManagedAgentsSessionThreadAgent>`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+          - `id: string`
+
+          - `description: string | null`
+
+          - `mcp_servers: Array<BetaManagedAgentsMCPServerURLDefinition>`
+            - `name: string`
+
+            - `type: "url"`
+
+            - `url: string`
+
+          - `model: BetaManagedAgentsModelConfig`
+
+            Model identifier and configuration.
+
+          - `name: string`
+
+          - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+            - `BetaManagedAgentsAnthropicSkill`
+
+              A resolved Anthropic-managed skill.
+              - `skill_id: string`
+
+              - `type: "anthropic"`
+                - `"anthropic"`
+
+              - `version: string`
+
+            - `BetaManagedAgentsCustomSkill`
+
+              A resolved user-created custom skill.
+              - `skill_id: string`
+
+              - `type: "custom"`
+                - `"custom"`
+
+              - `version: string`
+
+          - `system: string | null`
+
+          - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+            - `BetaManagedAgentsAgentToolset20260401`
+              - `configs: Array<BetaManagedAgentsAgentToolConfig>`
+                - `enabled: boolean`
+
+                - `name: "bash" | "edit" | "read" | 5 more`
+
+                  Built-in agent tool identifier.
+                  - `"bash"`
+
+                  - `"edit"`
+
+                  - `"read"`
+
+                  - `"write"`
+
+                  - `"glob"`
+
+                  - `"grep"`
+
+                  - `"web_fetch"`
+
+                  - `"web_search"`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+                    - `type: "always_allow"`
+                      - `"always_allow"`
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+                    - `type: "always_ask"`
+                      - `"always_ask"`
+
+              - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
+
+                Resolved default configuration for agent tools.
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `type: "agent_toolset_20260401"`
+                - `"agent_toolset_20260401"`
+
+            - `BetaManagedAgentsMCPToolset`
+              - `configs: Array<BetaManagedAgentsMCPToolConfig>`
+                - `enabled: boolean`
+
+                - `name: string`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+                - `enabled: boolean`
+
+                - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy | BetaManagedAgentsAlwaysAskPolicy`
+
+                  Permission policy for tool execution.
+                  - `BetaManagedAgentsAlwaysAllowPolicy`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `BetaManagedAgentsAlwaysAskPolicy`
+
+                    Tool calls require user confirmation before execution.
+
+              - `mcp_server_name: string`
+
+              - `type: "mcp_toolset"`
+                - `"mcp_toolset"`
+
+            - `BetaManagedAgentsCustomTool`
+
+              A custom tool as returned in API responses.
+              - `description: string`
+
+              - `input_schema: BetaManagedAgentsCustomToolInputSchema`
+
+                JSON Schema for custom tool input parameters.
+                - `properties?: Record<string, unknown> | null`
+
+                  JSON Schema properties defining the tool's input parameters.
+
+                - `required?: Array<string>`
+
+                  List of required property names.
+
+                - `type?: "object"`
+
+                  Must be 'object' for tool input schemas.
+                  - `"object"`
+
+              - `name: string`
+
+              - `type: "custom"`
+                - `"custom"`
+
+          - `type: "agent"`
+            - `"agent"`
+
+          - `version: number`
+
+        - `type: "coordinator"`
+          - `"coordinator"`
+
+      - `name: string`
+
+      - `skills: Array<BetaManagedAgentsAnthropicSkill | BetaManagedAgentsCustomSkill>`
+        - `BetaManagedAgentsAnthropicSkill`
+
+          A resolved Anthropic-managed skill.
+
+        - `BetaManagedAgentsCustomSkill`
+
+          A resolved user-created custom skill.
+
+      - `system: string | null`
+
+      - `tools: Array<BetaManagedAgentsAgentToolset20260401 | BetaManagedAgentsMCPToolset | BetaManagedAgentsCustomTool>`
+        - `BetaManagedAgentsAgentToolset20260401`
+
+        - `BetaManagedAgentsMCPToolset`
+
+        - `BetaManagedAgentsCustomTool`
+
+          A custom tool as returned in API responses.
+
+      - `type: "agent"`
+        - `"agent"`
+
+      - `version: number`
+
+    - `metadata?: Record<string, string>`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `title?: string | null`
+
+      The session's new title. Present only when the update changed it.
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsStreamSessionThreadEvents = await client.beta.sessions.threads.events.stream(
-  'sthr_011CZkZVWa6oIjw0rgXZpnBt',
-  { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
-);
+const betaManagedAgentsStreamSessionThreadEvents =
+  await client.beta.sessions.threads.events.stream(
+    "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+    { session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7" },
+  );
 
 console.log(betaManagedAgentsStreamSessionThreadEvents);
+```
+
+#### Response
+
+```json
+{
+  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "content": [
+    {
+      "text": "Where is my order #1234?",
+      "type": "text"
+    }
+  ],
+  "type": "user.message",
+  "processed_at": "2026-03-15T10:00:00Z"
+}
 ```

@@ -1,3 +1,5 @@
+# Box
+
 Connect Claude to your content stored in Box. Enable Claude to search and access files, use AI to query documents, create or update content, extract metadata fields, and more, while enforcing existing Box security and access policies.
 
 You can use the Box connector to:

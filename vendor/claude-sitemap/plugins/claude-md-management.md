@@ -1,3 +1,5 @@
+# CLAUDE.md Management
+
 Keep your project memory fresh and effective. This plugin provides tools to audit CLAUDE.md file quality and capture session learnings, ensuring Claude always has the context it needs to work efficiently in your codebase.
 
 The **claude-md-improver** skill scans your repository for all CLAUDE.md files, evaluates them against quality criteria (commands, architecture, gotchas, conciseness), and generates a detailed quality report with scores and grades. It then proposes targeted additions based on gaps it discovers.

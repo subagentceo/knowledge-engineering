@@ -1,3 +1,5 @@
+# Wix
+
 Build, manage, and deploy Wix sites and apps with AI-assisted development. This plugin provides 16 specialized skills covering the full Wix CLI development workflow — from dashboard extensions and backend APIs to site widgets, service plugins, and CMS data collections. An intelligent orchestrator skill automatically determines the right extension type for your use case, spawns implementation sub-agents, and validates the result.
 
 The plugin includes deep knowledge of the Wix Design System (WDS) component library for building polished admin interfaces, reference-driven API discovery for Wix SDKs, and a built-in MCP server that connects to Wix's platform for direct site management, eCommerce, and CMS operations.

@@ -1,3 +1,5 @@
+# Function (beta)
+
 The Function Health connector lets members securely see a summary of their lab results, ask health questions, and access their nutrition plans. Function includes 160+ lab tests per year to monitor 1,000+ diseases, help uncover possible causes of unexplained symptoms, and create a roadmap for feeling your best. Test your heart, hormones, thyroid, liver, kidneys, toxins, nutrients, inflammation, autoimmunity, immunity and more.
 
 You can use the Function Health connector to:

@@ -1,3 +1,5 @@
+# Adspirer Ads Agent
+
 Manage advertising campaigns across Google Ads, Meta Ads, TikTok Ads, and LinkedIn Ads through natural language. Adspirer Ads Agent provides 91 tools spanning keyword research, campaign creation, performance analysis, and budget optimization — all accessible conversationally. Google Ads coverage includes search campaigns, Performance Max, asset management, and ad extensions. LinkedIn Ads tools handle sponsored content, lead generation forms, and audience targeting. Meta Ads supports image and carousel campaigns with audience management, and TikTok Ads covers in-feed campaigns and asset validation.
 
 The plugin connects to your advertising accounts via OAuth 2.1 authentication through your Adspirer account. A built-in best practices skill guides campaign creation with platform-specific workflows, budget minimums, and safety confirmations — ensuring you always confirm before spending real money.

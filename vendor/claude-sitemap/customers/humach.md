@@ -1,11 +1,13 @@
+# Humach enhances AI-powered customer experience solutions with Claude
+
 Humach, a customer experience solutions provider, uses Claude to power AI-assisted agents and digital workers that streamline customer interactions across multiple channels. By leveraging Claude in Amazon Bedrock, Humach has created a comprehensive, one-stop solution for customer experience management.
 
 With Claude, Humach delivers:
 
--   15-20% increase in operational efficiency
--   20% increase in customer support call automation
--   Improved customer satisfaction through expanded self-service knowledge
--   Increased scalability and flexibility in CX operations
+- 15-20% increase in operational efficiency
+- 20% increase in customer support call automation
+- Improved customer satisfaction through expanded self-service knowledge
+- Increased scalability and flexibility in CX operations
 
 ## Transforming digital customer interactions
 
@@ -28,11 +30,11 @@ Humach and Innovative Solutions chose Claude in Amazon Bedrock for several key r
 
 Innovative Solutions collaborated with Humach to develop a Custom Language Model (CLM) framework for Humach-specific and customer-specific interactions. This solution, powered by Claude in Amazon Bedrock, integrates various AI functionalities into Humach's mAI Pilot platform:
 
--   Digital Voice Agent: Enables natural language interactions with customers through voice channels, providing quick and accurate responses.
--   Live Agent Assistance: Helps human agents by summarizing information and providing relevant knowledge during customer interactions.
--   Custom Language Models (CLMs): Processes and indexes client-specific content, creating tailored knowledge bases for digital and human agents.
--   Sentiment Analysis: Analyzes customer interactions for insights on sentiment and satisfaction.
--   Content Classification: Categorizes and organizes large volumes of customer and business data for easy retrieval and analysis.
+- Digital Voice Agent: Enables natural language interactions with customers through voice channels, providing quick and accurate responses.
+- Live Agent Assistance: Helps human agents by summarizing information and providing relevant knowledge during customer interactions.
+- Custom Language Models (CLMs): Processes and indexes client-specific content, creating tailored knowledge bases for digital and human agents.
+- Sentiment Analysis: Analyzes customer interactions for insights on sentiment and satisfaction.
+- Content Classification: Categorizes and organizes large volumes of customer and business data for easy retrieval and analysis.
 
 This solution allows Humach to offer a fully integrated, AI-powered CX platform without relying on multiple vendors or technologies.
 

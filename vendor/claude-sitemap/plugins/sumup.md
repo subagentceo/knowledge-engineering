@@ -1,3 +1,5 @@
+# SumUp
+
 Integrate SumUp payment processing into your apps with guided implementation across terminal and online checkout flows. This plugin provides a comprehensive decision framework that helps you choose the right integration path — whether you're building in-person POS apps with card readers, embedding online checkout widgets, or orchestrating payments server-side via API. It connects to SumUp's MCP server for live API access and bundles detailed reference documentation for 18 integration types including server SDKs (Node.js, Python, Go, Java, PHP, Rust, .NET), terminal solutions (Android Reader SDK, iOS Terminal SDK, Tap to Pay, Cloud API, Payment Switch), and online options (Checkout Widget, Checkouts API, React Native SDK, Swift Checkout SDK, webhooks, and alternative payment methods).
 
 The plugin enforces SumUp's security best practices throughout development — keeping API keys server-side, preventing raw card data handling, ensuring server-to-server checkout creation, and requiring unique transaction references for duplicate prevention. Every implementation includes failure handling strategies and validation test plans.

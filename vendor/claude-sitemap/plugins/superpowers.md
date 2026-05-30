@@ -1,3 +1,5 @@
+# Superpowers
+
 Superpowers is a comprehensive skills framework that teaches Claude structured software development methodologies. It provides composable skills for test-driven development (TDD), systematic debugging, brainstorming, subagent-driven development with built-in code review, and the ability to author new skills.
 
 The plugin enforces disciplined practices like "red-green-refactor" TDD cycles where tests must fail before implementation, a four-phase debugging methodology that requires root cause investigation before any fixes, and Socratic brainstorming sessions that refine requirements before coding begins.

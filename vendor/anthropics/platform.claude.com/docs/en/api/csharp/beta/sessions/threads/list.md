@@ -1,4 +1,4 @@
-## List
+## List Session Threads
 
 `ThreadListPageResponse Beta.Sessions.Threads.List(ThreadListParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ List Session Threads
 ### Parameters
 
 - `ThreadListParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -25,7 +24,6 @@ List Session Threads
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -74,16 +72,20 @@ List Session Threads
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class ThreadListPageResponse:`
 
   Paginated list of threads within a `session`.
-
   - `IReadOnlyList<BetaManagedAgentsSessionThread> Data`
 
     Threads in the session, primary first then children in spawn order.
-
     - `required string ID`
 
       Unique identifier for this thread.
@@ -91,17 +93,14 @@ List Session Threads
     - `required BetaManagedAgentsSessionThreadAgent Agent`
 
       Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
       - `required string ID`
 
       - `required string? Description`
 
       - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
         - `required string Name`
 
         - `required Type Type`
-
           - `"url"Url`
 
         - `required string Url`
@@ -109,13 +108,11 @@ List Session Threads
       - `required BetaManagedAgentsModelConfig Model`
 
         Model identifier and configuration.
-
         - `required BetaManagedAgentsModel ID`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
           - `"claude-opus-4-7"ClaudeOpus4_7`
 
             Frontier intelligence for long-running agents and coding
@@ -155,7 +152,6 @@ List Session Threads
         - `Speed Speed`
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
           - `"standard"Standard`
 
           - `"fast"Fast`
@@ -163,15 +159,12 @@ List Session Threads
       - `required string Name`
 
       - `required IReadOnlyList<Skill> Skills`
-
         - `class BetaManagedAgentsAnthropicSkill:`
 
           A resolved Anthropic-managed skill.
-
           - `required string SkillID`
 
           - `required Type Type`
-
             - `"anthropic"Anthropic`
 
           - `required string Version`
@@ -179,11 +172,9 @@ List Session Threads
         - `class BetaManagedAgentsCustomSkill:`
 
           A resolved user-created custom skill.
-
           - `required string SkillID`
 
           - `required Type Type`
-
             - `"custom"Custom`
 
           - `required string Version`
@@ -191,17 +182,13 @@ List Session Threads
       - `required string? System`
 
       - `required IReadOnlyList<Tool> Tools`
-
         - `class BetaManagedAgentsAgentToolset20260401:`
-
           - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
             - `required Boolean Enabled`
 
             - `required Name Name`
 
               Built-in agent tool identifier.
-
               - `"bash"Bash`
 
               - `"edit"Edit`
@@ -221,57 +208,39 @@ List Session Threads
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
                 - `required Type Type`
-
                   - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
-
                 - `required Type Type`
-
                   - `"always_ask"AlwaysAsk`
 
           - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
             Resolved default configuration for agent tools.
-
             - `required Boolean Enabled`
 
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
 
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
           - `required Type Type`
-
             - `"agent_toolset_20260401"AgentToolset20260401`
 
         - `class BetaManagedAgentsMcpToolset:`
-
           - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
             - `required Boolean Enabled`
 
             - `required string Name`
@@ -279,65 +248,43 @@ List Session Threads
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
 
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
           - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
             Resolved default configuration for all tools from an MCP server.
-
             - `required Boolean Enabled`
 
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
 
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
           - `required string McpServerName`
 
           - `required Type Type`
-
             - `"mcp_toolset"McpToolset`
 
         - `class BetaManagedAgentsCustomTool:`
 
           A custom tool as returned in API responses.
-
           - `required string Description`
 
           - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
             JSON Schema for custom tool input parameters.
-
             - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
               JSON Schema properties defining the tool's input parameters.
@@ -349,17 +296,14 @@ List Session Threads
             - `Type Type`
 
               Must be 'object' for tool input schemas.
-
               - `"object"Object`
 
           - `required string Name`
 
           - `required Type Type`
-
             - `"custom"Custom`
 
       - `required Type Type`
-
         - `"agent"Agent`
 
       - `required Int Version`
@@ -383,7 +327,6 @@ List Session Threads
     - `required BetaManagedAgentsSessionThreadStats? Stats`
 
       Timing statistics for a session thread.
-
       - `Double ActiveSeconds`
 
         Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -399,7 +342,6 @@ List Session Threads
     - `required BetaManagedAgentsSessionThreadStatus Status`
 
       SessionThreadStatus enum
-
       - `"running"Running`
 
       - `"idle"Idle`
@@ -409,7 +351,6 @@ List Session Threads
       - `"terminated"Terminated`
 
     - `required Type Type`
-
       - `"session_thread"SessionThread`
 
     - `required DateTimeOffset UpdatedAt`
@@ -419,11 +360,9 @@ List Session Threads
     - `required BetaManagedAgentsSessionThreadUsage? Usage`
 
       Cumulative token usage for a session thread across all turns.
-
       - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
         Prompt-cache creation token usage broken down by cache lifetime.
-
         - `Int Ephemeral1hInputTokens`
 
           Tokens used to create 1-hour ephemeral cache entries.
@@ -460,5 +399,85 @@ var page = await client.Beta.Sessions.Threads.List(parameters);
 await foreach (var item in page.Paginate())
 {
     Console.WriteLine(item);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+      "agent": {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "description": "A focused research subagent.",
+        "mcp_servers": [
+          {
+            "name": "example-mcp",
+            "type": "url",
+            "url": "https://example-server.modelcontextprotocol.io/sse"
+          }
+        ],
+        "model": {
+          "id": "claude-sonnet-4-6",
+          "speed": "standard"
+        },
+        "name": "Researcher",
+        "skills": [
+          {
+            "skill_id": "xlsx",
+            "type": "anthropic",
+            "version": "1"
+          }
+        ],
+        "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+        "tools": [
+          {
+            "configs": [
+              {
+                "enabled": true,
+                "name": "bash",
+                "permission_policy": {
+                  "type": "always_allow"
+                }
+              }
+            ],
+            "default_config": {
+              "enabled": true,
+              "permission_policy": {
+                "type": "always_ask"
+              }
+            },
+            "type": "agent_toolset_20260401"
+          }
+        ],
+        "type": "agent",
+        "version": 1
+      },
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "parent_thread_id": null,
+      "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+      "stats": {
+        "active_seconds": 0,
+        "duration_seconds": 0,
+        "startup_seconds": 0
+      },
+      "status": "idle",
+      "type": "session_thread",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```

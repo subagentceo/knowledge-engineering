@@ -11,7 +11,7 @@ The [Admin API](/docs/en/api/admin) allows you to programmatically manage your o
 <Check>
   **The Admin API requires special access**
 
-  The Admin API requires a special Admin API key (starting with `sk-ant-admin...`) that differs from standard API keys. Only organization members with the admin role can provision Admin API keys through the Claude Console.
+The Admin API requires a special Admin API key (starting with `sk-ant-admin...`) that differs from standard API keys. Only organization members with the admin role can provision Admin API keys through the Claude Console.
 </Check>
 
 <Note>
@@ -30,6 +30,7 @@ When you use the Admin API:
    - API keys
 
 This is useful for:
+
 - Automating user onboarding/offboarding
 - Programmatically managing workspace access
 - Monitoring and managing API key usage
@@ -38,13 +39,13 @@ This is useful for:
 
 There are five organization-level roles. See more details in the [API Console roles and permissions](https://support.claude.com/en/articles/10186004-api-console-roles-and-permissions) article.
 
-| Role | Permissions |
-|------|-------------|
-| user | Can use Workbench |
+| Role             | Permissions                                                                   |
+| ---------------- | ----------------------------------------------------------------------------- |
+| user             | Can use Workbench                                                             |
 | claude_code_user | Can use Workbench and [Claude Code](https://code.claude.com/docs/en/overview) |
-| developer | Can use Workbench and manage API keys |
-| billing | Can use Workbench and manage billing details |
-| admin | Can do all of the above, plus manage users |
+| developer        | Can use Workbench and manage API keys                                         |
+| billing          | Can use Workbench and manage billing details                                  |
+| admin            | Can do all of the above, plus manage users                                    |
 
 ## Key concepts
 
@@ -60,17 +61,20 @@ curl "https://api.anthropic.com/v1/organizations/users?limit=10" \
   --header "x-api-key: $ANTHROPIC_ADMIN_KEY"
 
 # Update member role
+
 curl "https://api.anthropic.com/v1/organizations/users/{user_id}" \
-  --header "anthropic-version: 2023-06-01" \
-  --header "content-type: application/json" \
-  --header "x-api-key: $ANTHROPIC_ADMIN_KEY" \
-  --data '{"role": "developer"}'
+ --header "anthropic-version: 2023-06-01" \
+ --header "content-type: application/json" \
+ --header "x-api-key: $ANTHROPIC_ADMIN_KEY" \
+ --data '{"role": "developer"}'
 
 # Remove member
+
 curl --request DELETE "https://api.anthropic.com/v1/organizations/users/{user_id}" \
-  --header "anthropic-version: 2023-06-01" \
-  --header "x-api-key: $ANTHROPIC_ADMIN_KEY"
-```
+ --header "anthropic-version: 2023-06-01" \
+ --header "x-api-key: $ANTHROPIC_ADMIN_KEY"
+
+````
 
 </CodeGroup>
 
@@ -100,7 +104,7 @@ curl "https://api.anthropic.com/v1/organizations/invites?limit=10" \
 curl --request DELETE "https://api.anthropic.com/v1/organizations/invites/{invite_id}" \
   --header "anthropic-version: 2023-06-01" \
   --header "x-api-key: $ANTHROPIC_ADMIN_KEY"
-```
+````
 
 </CodeGroup>
 

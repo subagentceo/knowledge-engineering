@@ -1,4 +1,6 @@
-[Pendo](https://www.pendo.io/) provides product analytics and AI tools that help companies understand user behavior and act on it to drive product adoption. Over the past few months, the company has been building Novus, a product that detects and fixes usability issues in customer applications. The system runs on Claude's Agent SDK, deployed with Claude Managed Agents. We spoke with Zain Lakhani, Pendo's Chief AI Officer, about how Agent SDK powers their AI-native product. 
+# Pendo closes the gap between shipping fast and shipping well with Claude Managed Agents
+
+Pendo provides product analytics and AI tools that help companies understand user behavior and act on it to drive product adoption. Over the past few months, the company has been building Novus, a product that detects and fixes usability issues in customer applications. The system runs on Claude's Agent SDK, deployed with Claude Managed Agents. We spoke with Zain Lakhani, Pendo's Chief AI Officer, about how Agent SDK powers their AI-native product. 
 
 ## What is Pendo building with Claude?
 

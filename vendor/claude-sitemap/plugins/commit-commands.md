@@ -1,3 +1,5 @@
+# Commit Commands
+
 Streamline your git workflow with intelligent commands for committing, pushing, and creating pull requests. This plugin automates common git operations with AI-powered commit message generation that matches your repository's existing style conventions.
 
 Key features include automatic analysis of staged and unstaged changes, smart commit message generation based on recent commit history, comprehensive PR descriptions with summaries and test plan checklists, and protection against accidentally committing sensitive files like `.env`.

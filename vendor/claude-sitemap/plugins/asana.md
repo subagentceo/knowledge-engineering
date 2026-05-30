@@ -1,3 +1,5 @@
+# Asana
+
 Connect Claude Code to Asana's work management platform with 30+ powerful tools for project and task management. Create tasks, track project status, manage assignments, search across workspaces, and update goals—all through natural language commands directly in your development environment.
 
 Key capabilities include task creation and management, project tracking and status updates, user and team organization, goal updates, typeahead search, and section management. The integration uses OAuth authentication with your Asana account for secure access to your workspace data.

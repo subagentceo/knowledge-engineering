@@ -1,3 +1,5 @@
+# Attio
+
 Access your entire CRM directly from Claude. Look up contacts and companies, find decision makers, and discover email addresses. Log notes from calls and meetings, track engagement history, and create follow-up tasks with deadlines. Search and filter your pipeline by stage, funding round, role, or location. Tap into meeting intelligence — search call recordings, access transcripts, and surface key insights. Manage relationships and close deals faster without switching tools.
 
 You can use the Attio connector to:

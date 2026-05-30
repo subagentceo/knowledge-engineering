@@ -9,7 +9,6 @@ We’ve added a pre-configured “Ask Your Org” **[project](https://support.cl
 - **Guided setup:** Easy onboarding flow for connecting your work apps.
 
 - **Organization-wide availability:** Available to all members of your organization after an Owner completes the initial setup process.
-
   - Owners can control which apps are connected to the project.
 
   - Users need to authenticate with the connected apps before they can start using them.
@@ -32,19 +31,19 @@ The enterprise search project is enabled by default for all Team and Enterprise 
 
 3. If setting up the project, you’ll be prompted to connect some tools to the project.
 
-  1. You are required to choose a connector for both **Documents** and **Chat**; **Email** is recommended but optional.
+4. You are required to choose a connector for both **Documents** and **Chat**; **Email** is recommended but optional.
 
-  2. Only enabled connectors will be available in the enterprise search project.
+5. Only enabled connectors will be available in the enterprise search project.
 
-4. Click “+ Add more” to set up any other tools your team needs.
+6. Click “+ Add more” to set up any other tools your team needs.
 
-  1. Choose between “Select another MCP” to open the Connectors directory, or “+ Add custom connector”
+7. Choose between “Select another MCP” to open the Connectors directory, or “+ Add custom connector”
 
-5. Click “Next” when you’re finished.
+8. Click “Next” when you’re finished.
 
-6. On the last screen, you can edit the name of your project. The format will be “Ask [Name field],” so whatever you enter here will impact what shows on the left panel.
+9. On the last screen, you can edit the name of your project. The format will be “Ask [Name field],” so whatever you enter here will impact what shows on the left panel.
 
-7. Enter a description, then click “Finish set up.”
+10. Enter a description, then click “Finish set up.”
 
 If you decide to stop using the project after setting it up, an Owner will need to manually disable this feature organization-wide to remove it from users’ accounts:
 
@@ -66,9 +65,9 @@ The enterprise search project will be starred in your sidebar by default when th
 
 3. Authenticate with the services you want to search (Slack, Google, Microsoft 365).
 
-  1. The more connectors you enable, the more comprehensive your search results will be.
+4. The more connectors you enable, the more comprehensive your search results will be.
 
-4. Start asking Claude questions about your organization’s knowledge.
+5. Start asking Claude questions about your organization’s knowledge.
 
 ## Customize your enterprise search project
 
@@ -112,13 +111,13 @@ Claude will search your connected tools—such as SharePoint documents, Slack co
 
 ## Compare enterprise search to standard projects
 
-|  | **Projects** | **Enterprise Search** |
-| --- | --- | --- |
-| **System prompt** | Customizable by users | Managed by Anthropic (optimized for search) |
-| **Purpose** | General-purpose workspace | Specialized for organization knowledge search |
+|                     | **Projects**                   | **Enterprise Search**                         |
+| ------------------- | ------------------------------ | --------------------------------------------- |
+| **System prompt**   | Customizable by users          | Managed by Anthropic (optimized for search)   |
+| **Purpose**         | General-purpose workspace      | Specialized for organization knowledge search |
 | **Connector setup** | Manual configuration each time | Guided onboarding with recommended connectors |
-| **Availability** | User-created | Automatically provisioned for organization |
-| **Updates** | Static unless manually changed | Automatic improvements from Anthropic |
+| **Availability**    | User-created                   | Automatically provisioned for organization    |
+| **Updates**         | Static unless manually changed | Automatic improvements from Anthropic         |
 
 ## Use cases
 

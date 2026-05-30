@@ -1,11 +1,13 @@
+# tl;dv boosts revenue 500% from AI-powered meeting intelligence with Claude
+
 tl;dv, a platform specializing in meeting intelligence, revolutionized its offering by integrating Claude. This partnership transformed tl;dv from a meeting recap tool into a sophisticated AI-powered analytics engine.
 
 With Claude, tl;dv saw:
 
--   300% growth in new customer sign-ups
--   500% increase in revenue
--   20-30% decrease in monthly customer churn
--   50% faster summary generation
+- 300% growth in new customer sign-ups
+- 500% increase in revenue
+- 20-30% decrease in monthly customer churn
+- 50% faster summary generation
 
 ## The Challenge: Modernize technology and business operations for a digital world
 
@@ -49,9 +51,9 @@ The improved quality and consistency of Claude's output also allowed tl;dv to in
 
 The business impact of these improvements was substantial. These figures reflect the enhanced value users were deriving from the platform:
 
--   300% growth in sign-ups
--   500% increase in revenue
--   20-30% decrease in monthly customer churn
+- 300% growth in sign-ups
+- 500% increase in revenue
+- 20-30% decrease in monthly customer churn
 
 ## Looking to the future: Using Claude to revolutionize knowledge transfer
 

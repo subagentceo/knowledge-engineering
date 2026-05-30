@@ -1,4 +1,4 @@
-## Delete
+## Delete a Message Batch
 
 `DeletedMessageBatch Messages.Batches.Delete(BatchDeleteParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -13,7 +13,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchDeleteParams parameters`
-
   - `required string messageBatchID`
 
     ID of the Message Batch.
@@ -21,7 +20,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `class DeletedMessageBatch:`
-
   - `required string ID`
 
     ID of the Message Batch.
@@ -40,4 +38,13 @@ BatchDeleteParams parameters = new() { MessageBatchID = "message_batch_id" };
 var deletedMessageBatch = await client.Messages.Batches.Delete(parameters);
 
 Console.WriteLine(deletedMessageBatch);
+```
+
+#### Response
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "type": "message_batch_deleted"
+}
 ```

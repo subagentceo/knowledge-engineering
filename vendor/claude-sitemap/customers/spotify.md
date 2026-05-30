@@ -1,17 +1,19 @@
-[**Spotify**](https://www.spotify.com), the world's most popular audio streaming subscription service, serves more than 713 million users across 180+ markets with access to over 100 million tracks, 7 million podcast titles, and 350,000 audiobooks.
+# Spotify cuts migration time by 90% with Claude Agent SDK
+
+**Spotify**, the world's most popular audio streaming subscription service, serves more than 713 million users across 180+ markets with access to over 100 million tracks, 7 million podcast titles, and 350,000 audiobooks.
 
 ## With Claude Agent SDK, Spotify:
 
--   Saves up to 90% of engineering time on complex code migrations
--   Merged 650+ agent-generated pull requests into production per month
--   Automates fleet-wide transformations that were previously too complex to script
--   Enables hundreds of engineers to trigger autonomous code changes via Slack
+- Saves up to 90% of engineering time on complex code migrations
+- Merged 650+ agent-generated pull requests into production per month
+- Automates fleet-wide transformations that were previously too complex to script
+- Enables hundreds of engineers to trigger autonomous code changes via Slack
 
 ## The opportunity
 
 Spotify has a massive codebase that requires constant upkeep: language modernization, framework upgrades, dependency updates, and configuration changes across thousands of repositories. With the rapid adoption of AI tooling, that codebase is growing faster than ever.
 
-To tame its sprawling software ecosystem, Spotify relies on Backstage, its homegrown [internal developer portal](https://backstage.spotify.com/discover/backstage-101) (IDP). By standardizing how components are built and ensuring clear ownership, Backstage provides a more consistent, predictable engineering environment for both your developers and your tools: You can’t safely automate what you don’t understand.
+To tame its sprawling software ecosystem, Spotify relies on Backstage, its homegrown internal developer portal (IDP). By standardizing how components are built and ensuring clear ownership, Backstage provides a more consistent, predictable engineering environment for both your developers and your tools: You can’t safely automate what you don’t understand.
 
 That foundation enabled Spotify’s first major step toward large-scale, automated code changes. In 2022, the company introduced Fleet Management, a framework for applying code changes across dozens, hundreds, or thousands of repositories at once. To date, around half of Spotify's pull requests are being driven through this system.
 
@@ -21,7 +23,7 @@ Spotify needed a way to automate sophisticated code changes that traditional scr
 
 ## Claude Agent SDK enables autonomous, high-quality migrations
 
-Spotify integrated Claude Agent SDK into their Fleet Management infrastructure in July 2025 as a [background coding agent](https://engineering.atspotify.com/2025/11/spotifys-background-coding-agent-part-1) that operates autonomously from natural language prompt to merged pull request. The agent handles complex migrations that were previously challenging to automate, for example converting Java AutoValue classes to Records, managing framework upgrades with breaking changes, and making configuration updates that require codebase awareness. Before sending a pull request, the agent runs formatting, linting, builds, and tests in a verification process to ensure its changes are valid, shippable code — reducing manual review and repetitive engineering work.
+Spotify integrated Claude Agent SDK into their Fleet Management infrastructure in July 2025 as a background coding agent that operates autonomously from natural language prompt to merged pull request. The agent handles complex migrations that were previously challenging to automate, for example converting Java AutoValue classes to Records, managing framework upgrades with breaking changes, and making configuration updates that require codebase awareness. Before sending a pull request, the agent runs formatting, linting, builds, and tests in a verification process to ensure its changes are valid, shippable code — reducing manual review and repetitive engineering work.
 
 ## From text instructions to production code
 
@@ -39,7 +41,7 @@ The team selected Claude Code specifically because it proved easy to prompt, eff
 
 Hundreds of engineers now interact with the background coding agent at Spotify. The agent is already generating more than 650 monthly pull requests merged into production, saving engineers up to 90% of the time they'd spend writing migrations manually. 
 
-Platform teams are now starting to take on projects that previously were too costly and complex to undertake. One example includes a tech standardization effort enforcing explicit [context](https://grpc.github.io/grpc-java/javadoc/io/grpc/Context.html) propagation for all Java gRPC services throughout the company. This is a complex and breaking change that in many cases would take several hours and deep gRPC knowledge to implement per service. Now Claude has automated a majority of the implementation and engineers only have to review. The opportunity ahead, the team notes, is less about raw tooling and more about capability building — helping engineers learn to craft prompts that make AI a force multiplier in their workflow.
+Platform teams are now starting to take on projects that previously were too costly and complex to undertake. One example includes a tech standardization effort enforcing explicit context propagation for all Java gRPC services throughout the company. This is a complex and breaking change that in many cases would take several hours and deep gRPC knowledge to implement per service. Now Claude has automated a majority of the implementation and engineers only have to review. The opportunity ahead, the team notes, is less about raw tooling and more about capability building — helping engineers learn to craft prompts that make AI a force multiplier in their workflow.
 
 Looking ahead, deeper integration of Claude Code into Spotify’s Continuous Integration infrastructure is expected to enhance both success rates and code quality. Additionally, Spotify plans to extend the background coding agent to macOS and iOS codebases, aiming to accelerate client engineering velocity.
 

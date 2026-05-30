@@ -1,12 +1,14 @@
+# Brand.ai uses AI to make brands more human with Claude
+
 Brand.ai is transforming how global brands operate, turning years of painstaking agency work into an instant, AI-powered system that maintains brand consistency across millions of touchpoints, all while preserving the human touch that makes brands special.
 
 With Claude, brand.ai delivers transformative results:
 
--   Reduces brand compliance costs for enterprise clients from $5M to a small fraction of that amount per year
--   Enables one copywriter to manage 600 pieces of content
--   Reduces brand guideline creation and rollout from 24 months to just days
--   Accelerates agency onboarding from months to days
--   Maintains consistency across thousands of global touchpoints
+- Reduces brand compliance costs for enterprise clients from $5M to a small fraction of that amount per year
+- Enables one copywriter to manage 600 pieces of content
+- Reduces brand guideline creation and rollout from 24 months to just days
+- Accelerates agency onboarding from months to days
+- Maintains consistency across thousands of global touchpoints
 
 ## The growing crisis in brand management
 

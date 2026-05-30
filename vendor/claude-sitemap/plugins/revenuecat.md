@@ -1,3 +1,5 @@
+# RevenueCat
+
 Manage your RevenueCat in-app purchase backend directly from Claude Code. This plugin connects to the RevenueCat MCP server via OAuth, giving you full control over projects, apps, products, entitlements, offerings, and webhooks without leaving your development workflow. It supports iOS, Android, and Web platforms.
 
 The plugin includes four slash commands: `/rc:status` gives a quick overview of your project configuration with counts and health indicators for apps, products, entitlements, and offerings; `/rc:create-app` walks you through setting up an iOS or Android app with store credentials and SDK code snippets; `/rc:create-product` guides you through creating subscriptions, consumables, or one-time purchases; and `/rc:apikey` retrieves your public SDK keys with ready-to-use Swift, Kotlin, or JavaScript code.

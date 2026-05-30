@@ -1,4 +1,4 @@
-## List
+## List Compliance Role Permissions
 
 **get** `/v1/compliance/organizations/{org_uuid}/roles/{role_id}/permissions`
 
@@ -33,7 +33,6 @@ List Compliance Role Permissions
 - `data: array of object { action, resource_id, resource_type }`
 
   List of permissions
-
   - `action: string`
 
     Action permitted on the resource
@@ -59,4 +58,20 @@ List Compliance Role Permissions
 ```http
 curl https://api.anthropic.com/v1/compliance/organizations/$ORG_UUID/roles/$ROLE_ID/permissions \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "action": "action",
+      "resource_id": "resource_id",
+      "resource_type": "resource_type"
+    }
+  ],
+  "has_more": true,
+  "next_page": "next_page"
+}
 ```

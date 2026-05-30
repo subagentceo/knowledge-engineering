@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -36,11 +37,11 @@ The integration works only in private projects:
 
 | Type                 | Supported | Notes                            |
 | -------------------- | --------- | -------------------------------- |
-| Google Docs          | ✅         | Up to 10MB, text extraction only |
-| Google Sheets        | ❌         | Not currently supported          |
-| Google Slides        | ❌         | Not currently supported          |
-| Images in docs       | ❌         | Not extracted                    |
-| Comments/Suggestions | ❌         | Not extracted                    |
+| Google Docs          | ✅        | Up to 10MB, text extraction only |
+| Google Sheets        | ❌        | Not currently supported          |
+| Google Slides        | ❌        | Not currently supported          |
+| Images in docs       | ❌        | Not extracted                    |
+| Comments/Suggestions | ❌        | Not extracted                    |
 
 <Tip>
   Convert .docx files by opening in Google Docs, clicking "File," then "Save as Google Docs."
@@ -48,9 +49,9 @@ The integration works only in private projects:
 
 ## Key features
 
-* **Live sync**: Documents continue syncing with the latest Google Drive version
-* **Multiple documents**: Add multiple docs if they fit the context window
-* **Permission-based**: You can only sync documents you have permission to view
+- **Live sync**: Documents continue syncing with the latest Google Drive version
+- **Multiple documents**: Add multiple docs if they fit the context window
+- **Permission-based**: You can only sync documents you have permission to view
 
 ## Frequently asked questions
 

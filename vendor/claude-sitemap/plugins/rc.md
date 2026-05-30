@@ -1,3 +1,5 @@
+# RevenueCat
+
 Configure and manage your RevenueCat in-app purchase backend directly from Claude Code. This plugin connects to the RevenueCat MCP server via OAuth, giving you full access to manage projects, apps, products, entitlements, offerings, and webhooks without leaving your development workflow. It supports iOS, Android, and Web platforms across subscription, one-time purchase, and consumable monetization models.
 
 The plugin includes a Project Bootstrap agent that walks you through setting up a complete RevenueCat project from scratch — creating apps, products, entitlements, offerings, and packages in the correct dependency order. A Paywall Builder agent helps you generate styled paywalls that match your app's existing design system. And a Troubleshooting agent systematically diagnoses configuration issues like misconfigured products, broken entitlement connections, and webhook errors.

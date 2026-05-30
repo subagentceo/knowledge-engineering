@@ -1,6 +1,6 @@
 # User Profiles
 
-## Create
+## Create User Profile
 
 **post** `/v1/user_profiles`
 
@@ -11,11 +11,9 @@ Create User Profile
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -64,6 +62,12 @@ Create User Profile
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Body Parameters
 
 - `external_id: optional string`
@@ -81,7 +85,6 @@ Create User Profile
 - `relationship: optional "external" or "resold" or "internal"`
 
   How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
   - `"external"`
 
   - `"resold"`
@@ -90,8 +93,7 @@ Create User Profile
 
 ### Returns
 
-- `BetaUserProfile = object { id, created_at, metadata, 6 more }`
-
+- `BetaUserProfile object { id, created_at, metadata, 6 more }`
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -107,7 +109,6 @@ Create User Profile
   - `relationship: "external" or "resold" or "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -117,11 +118,9 @@ Create User Profile
   - `trust_grants: map[BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" or "pending" or "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -131,7 +130,6 @@ Create User Profile
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -160,7 +158,27 @@ curl https://api.anthropic.com/v1/user_profiles \
         }'
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## List User Profiles
 
 **get** `/v1/user_profiles`
 
@@ -175,7 +193,6 @@ List User Profiles
 - `order: optional "asc" or "desc"`
 
   Query parameter for order
-
   - `"asc"`
 
   - `"desc"`
@@ -189,11 +206,9 @@ List User Profiles
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -242,12 +257,17 @@ List User Profiles
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `data: array of BetaUserProfile`
 
   User profiles on this page.
-
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -263,7 +283,6 @@ List User Profiles
   - `relationship: "external" or "resold" or "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -273,11 +292,9 @@ List User Profiles
   - `trust_grants: map[BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" or "pending" or "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -287,7 +304,6 @@ List User Profiles
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -315,7 +331,32 @@ curl https://api.anthropic.com/v1/user_profiles \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {},
+      "relationship": "external",
+      "trust_grants": {
+        "cyber": {
+          "status": "active"
+        }
+      },
+      "type": "user_profile",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "external_id": "user_12345",
+      "name": "Example User"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get User Profile
 
 **get** `/v1/user_profiles/{user_profile_id}`
 
@@ -330,11 +371,9 @@ Get User Profile
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -383,10 +422,15 @@ Get User Profile
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `BetaUserProfile = object { id, created_at, metadata, 6 more }`
-
+- `BetaUserProfile object { id, created_at, metadata, 6 more }`
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -402,7 +446,6 @@ Get User Profile
   - `relationship: "external" or "resold" or "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -412,11 +455,9 @@ Get User Profile
   - `trust_grants: map[BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" or "pending" or "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -426,7 +467,6 @@ Get User Profile
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -450,7 +490,27 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## Update User Profile
 
 **post** `/v1/user_profiles/{user_profile_id}`
 
@@ -465,11 +525,9 @@ Update User Profile
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -518,6 +576,12 @@ Update User Profile
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Body Parameters
 
 - `external_id: optional string`
@@ -535,7 +599,6 @@ Update User Profile
 - `relationship: optional "external" or "resold" or "internal"`
 
   How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
   - `"external"`
 
   - `"resold"`
@@ -544,8 +607,7 @@ Update User Profile
 
 ### Returns
 
-- `BetaUserProfile = object { id, created_at, metadata, 6 more }`
-
+- `BetaUserProfile object { id, created_at, metadata, 6 more }`
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -561,7 +623,6 @@ Update User Profile
   - `relationship: "external" or "resold" or "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -571,11 +632,9 @@ Update User Profile
   - `trust_grants: map[BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" or "pending" or "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -585,7 +644,6 @@ Update User Profile
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -613,6 +671,26 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID \
         }'
 ```
 
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
 ## Create Enrollment URL
 
 **post** `/v1/user_profiles/{user_profile_id}/enrollment_url`
@@ -628,11 +706,9 @@ Create Enrollment URL
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -681,10 +757,15 @@ Create Enrollment URL
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `BetaUserProfileEnrollmentURL = object { expires_at, type, url }`
-
+- `BetaUserProfileEnrollmentURL object { expires_at, type, url }`
   - `expires_at: string`
 
     A timestamp in RFC 3339 format
@@ -692,7 +773,6 @@ Create Enrollment URL
   - `type: "enrollment_url"`
 
     Object type. Always `enrollment_url`.
-
     - `"enrollment_url"`
 
   - `url: string`
@@ -709,12 +789,21 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
+```
+
 ## Domain Types
 
 ### Beta User Profile
 
-- `BetaUserProfile = object { id, created_at, metadata, 6 more }`
-
+- `BetaUserProfile object { id, created_at, metadata, 6 more }`
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -730,7 +819,6 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
   - `relationship: "external" or "resold" or "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -740,11 +828,9 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
   - `trust_grants: map[BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" or "pending" or "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -754,7 +840,6 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -771,8 +856,7 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
 ### Beta User Profile Enrollment URL
 
-- `BetaUserProfileEnrollmentURL = object { expires_at, type, url }`
-
+- `BetaUserProfileEnrollmentURL object { expires_at, type, url }`
   - `expires_at: string`
 
     A timestamp in RFC 3339 format
@@ -780,7 +864,6 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
   - `type: "enrollment_url"`
 
     Object type. Always `enrollment_url`.
-
     - `"enrollment_url"`
 
   - `url: string`
@@ -789,12 +872,10 @@ curl https://api.anthropic.com/v1/user_profiles/$USER_PROFILE_ID/enrollment_url 
 
 ### Beta User Profile Trust Grant
 
-- `BetaUserProfileTrustGrant = object { status }`
-
+- `BetaUserProfileTrustGrant object { status }`
   - `status: "active" or "pending" or "rejected"`
 
     Status of the trust grant.
-
     - `"active"`
 
     - `"pending"`

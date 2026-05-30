@@ -55,7 +55,7 @@ spec:
           value: 00000000-0000-0000-0000-000000000000
         - name: ANTHROPIC_SERVICE_ACCOUNT_ID
           value: svac_...
-        - name: ANTHROPIC_WORKSPACE_ID  # required when the rule covers multiple workspaces
+        - name: ANTHROPIC_WORKSPACE_ID # required when the rule covers multiple workspaces
           value: wrkspc_...
       volumeMounts:
         - name: anthropic-token
@@ -175,7 +175,7 @@ const client = new Anthropic();
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello, Claude" }]
+  messages: [{ role: "user", content: "Hello, Claude" }],
 });
 for (const block of message.content) {
   if (block.type === "text") {

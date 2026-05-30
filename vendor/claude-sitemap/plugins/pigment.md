@@ -1,19 +1,13 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Pigment
-    
-    ](#)
-    
--   Installs
-    
-    62
+# pigment
+
+- Install in
+
+  Claude Code
+
+- Made by
+
+  Pigment
+
+- Installs
+
+  265

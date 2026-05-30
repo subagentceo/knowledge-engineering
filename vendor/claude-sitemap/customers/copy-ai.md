@@ -1,9 +1,11 @@
+# Copy.ai accelerates content creation and reduces costs with Claude
+
 Copy.ai, a leading GTM AI platform, uses Claude to help marketing teams generate high-quality content faster and more cost-effectively. By leveraging Claude's advanced language capabilities, Copy.ai enables its customers to streamline their content workflows and significantly reduce outsourcing costs.
 
--   4x increase in content output
--   75% reduction in content creation costs
--   40% of content generation powered by Claude
--   Improved brand voice consistency across content
+- 4x increase in content output
+- 75% reduction in content creation costs
+- 40% of content generation powered by Claude
+- Improved brand voice consistency across content
 
 ## Empowering marketers with AI-driven content creation
 
@@ -19,9 +21,9 @@ Copy.ai has incorporated the Claude 3 model family across most of its generative
 
 For example, Copy.ai uses Claude for the following:
 
--   Long-form content generation: Claude powers the creation of blog posts, articles, and thought leadership pieces from interview transcripts or brief outlines.
--   Brand voice adaptation: The platform uses Claude to maintain consistent brand voice across various content types and authors.
--   Research and fact-checking: Claude helps gather and incorporate relevant statistics and facts to substantiate content claims.
+- Long-form content generation: Claude powers the creation of blog posts, articles, and thought leadership pieces from interview transcripts or brief outlines.
+- Brand voice adaptation: The platform uses Claude to maintain consistent brand voice across various content types and authors.
+- Research and fact-checking: Claude helps gather and incorporate relevant statistics and facts to substantiate content claims.
 
 ![App screen from the Copy.ai platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf054aa64dfc25549ec2c_0d1bf6b6ac542a5beedde01a778a083fdaf5430e-1920x1080.jpeg)
 

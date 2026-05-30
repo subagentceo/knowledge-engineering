@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -8,12 +9,12 @@
 
 Claude Code works in any terminal without configuration. This page is for when something specific is not behaving the way you expect. Find your symptom below. If everything already feels right, you do not need this page.
 
-* [Shift+Enter submits instead of inserting a newline](#enter-multiline-prompts)
-* [Option-key shortcuts do nothing on macOS](#enable-option-key-shortcuts-on-macos)
-* [No sound or alert when Claude finishes](#get-a-terminal-bell-or-notification)
-* [You run Claude Code inside tmux](#configure-tmux)
-* [Display flickers or scrollback jumps](#switch-to-fullscreen-rendering)
-* [You want Vim keys in the prompt](#edit-prompts-with-vim-keybindings)
+- [Shift+Enter submits instead of inserting a newline](#enter-multiline-prompts)
+- [Option-key shortcuts do nothing on macOS](#enable-option-key-shortcuts-on-macos)
+- [No sound or alert when Claude finishes](#get-a-terminal-bell-or-notification)
+- [You run Claude Code inside tmux](#configure-tmux)
+- [Display flickers or scrollback jumps](#switch-to-fullscreen-rendering)
+- [You want Vim keys in the prompt](#edit-prompts-with-vim-keybindings)
 
 This page is about getting your terminal to send the right signals to Claude Code. To change which keys Claude Code itself responds to, see [keybindings](/en/keybindings) instead.
 
@@ -29,7 +30,9 @@ In most terminals you can also press Shift+Enter, but support varies by terminal
 | VS Code, Cursor, Windsurf, Alacritty, Zed                               | Run `/terminal-setup` once                  |
 | gnome-terminal, JetBrains IDEs such as PyCharm and Android Studio       | Not available; use Ctrl+J or `\` then Enter |
 
-For VS Code, Cursor, Windsurf, Alacritty, and Zed, `/terminal-setup` writes Shift+Enter and other keybindings into the terminal's configuration file. In VS Code, Cursor, and Windsurf it also sets `terminal.integrated.mouseWheelScrollSensitivity` in the editor settings for smoother scrolling in [fullscreen mode](/en/fullscreen). Existing bindings and settings are left in place; if you see a message such as `VSCode terminal Shift+Enter key binding already configured`, no change was made. Run `/terminal-setup` directly in the host terminal rather than inside tmux or screen, since it needs to write to the host terminal's configuration.
+For VS Code, Cursor, Windsurf, Alacritty, and Zed, `/terminal-setup` writes Shift+Enter and other keybindings into the terminal's configuration file. Existing bindings are left in place; if you see a message such as `VSCode terminal Shift+Enter key binding already configured`, no change was made. Run `/terminal-setup` directly in the host terminal rather than inside tmux or screen, since it needs to write to the host terminal's configuration.
+
+In VS Code, Cursor, and Windsurf, `/terminal-setup` also updates two editor settings: it sets `terminal.integrated.gpuAcceleration` to `"off"` to prevent garbled text in the integrated terminal, and it sets `terminal.integrated.mouseWheelScrollSensitivity` for smoother scrolling in [fullscreen mode](/en/fullscreen). To undo the GPU acceleration change, set it back to `"auto"` and reload the editor window.
 
 If you are running inside tmux, Shift+Enter also requires the [tmux configuration below](#configure-tmux) even when the outer terminal supports it.
 
@@ -44,12 +47,14 @@ Some Claude Code shortcuts use the Option key, such as Option+Enter for a newlin
     Open Settings → Profiles → Keyboard and check "Use Option as Meta Key".
 
     If you accepted Claude Code's first-run prompt that offered "Option+Enter for newlines and visual bell", this is already done. That prompt runs `/terminal-setup` for you, which enables Option as Meta and switches the audio bell to a visual screen flash in your Apple Terminal profile.
+
   </Tab>
 
   <Tab title="iTerm2">
     Open Settings → Profiles → Keys → General and set Left Option key and Right Option key to "Esc+".
 
     Running `/terminal-setup` in iTerm2 enables "Applications in terminal may access clipboard" under Settings → General → Selection so the `/copy` command can write to your system clipboard. The command detects iTerm2 even when run from inside tmux. Restart iTerm2 for the change to take effect.
+
   </Tab>
 
   <Tab title="VS Code">
@@ -90,7 +95,12 @@ The example below plays a system sound on macOS. The linked guide has desktop no
   "hooks": {
     "Notification": [
       {
-        "hooks": [{ "type": "command", "command": "afplay /System/Library/Sounds/Glass.aiff" }]
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
       }
     ]
   }
@@ -154,110 +164,110 @@ The reference below covers the tokens you can set in `overrides`. The interactiv
 <Accordion title="Color token reference">
   The following example combines tokens from several of the groups below: the brand accent, the plan mode border, the diff backgrounds, and the fullscreen message background.
 
-  ```json ~/.claude/themes/midnight.json theme={null}
-  {
-    "name": "Midnight",
-    "base": "dark",
-    "overrides": {
-      "claude": "#a78bfa",
-      "planMode": "#38bdf8",
-      "diffAdded": "#14532d",
-      "diffRemoved": "#7f1d1d",
-      "userMessageBackground": "#1e1b4b"
-    }
+```json ~/.claude/themes/midnight.json theme={null}
+{
+  "name": "Midnight",
+  "base": "dark",
+  "overrides": {
+    "claude": "#a78bfa",
+    "planMode": "#38bdf8",
+    "diffAdded": "#14532d",
+    "diffRemoved": "#7f1d1d",
+    "userMessageBackground": "#1e1b4b"
   }
-  ```
+}
+```
 
-  #### Text and accent colors
+#### Text and accent colors
 
-  Control the primary brand accent and the foreground text shades used throughout the interface.
+Control the primary brand accent and the foreground text shades used throughout the interface.
 
-  | Token         | Controls                                                         |
-  | :------------ | :--------------------------------------------------------------- |
-  | `claude`      | Primary brand accent, used for the spinner and assistant label   |
-  | `text`        | Default foreground text                                          |
-  | `inverseText` | Text drawn on top of a colored background, such as status badges |
-  | `inactive`    | Secondary text such as hints, timestamps, and disabled items     |
-  | `subtle`      | Faint borders and de-emphasized secondary text                   |
-  | `suggestion`  | Autocomplete suggestions and selection highlight in pickers      |
-  | `permission`  | Dialog borders, including permission prompts and pickers         |
-  | `remember`    | Memory and `CLAUDE.md` indicators                                |
+| Token         | Controls                                                         |
+| :------------ | :--------------------------------------------------------------- |
+| `claude`      | Primary brand accent, used for the spinner and assistant label   |
+| `text`        | Default foreground text                                          |
+| `inverseText` | Text drawn on top of a colored background, such as status badges |
+| `inactive`    | Secondary text such as hints, timestamps, and disabled items     |
+| `subtle`      | Faint borders and de-emphasized secondary text                   |
+| `suggestion`  | Autocomplete suggestions and selection highlight in pickers      |
+| `permission`  | Dialog borders, including permission prompts and pickers         |
+| `remember`    | Memory and `CLAUDE.md` indicators                                |
 
-  #### Status colors
+#### Status colors
 
-  Signal success, failure, and warning states across messages and indicators.
+Signal success, failure, and warning states across messages and indicators.
 
-  | Token     | Controls                                             |
-  | :-------- | :--------------------------------------------------- |
-  | `success` | Success messages and passing checks                  |
-  | `error`   | Error messages and failures                          |
-  | `warning` | Warnings, caution messages, and the auto mode border |
-  | `merged`  | Merged pull request status                           |
+| Token     | Controls                                             |
+| :-------- | :--------------------------------------------------- |
+| `success` | Success messages and passing checks                  |
+| `error`   | Error messages and failures                          |
+| `warning` | Warnings, caution messages, and the auto mode border |
+| `merged`  | Merged pull request status                           |
 
-  #### Input box and mode indicators
+#### Input box and mode indicators
 
-  Set the input box border color and the accent shown while a permission mode or indicator is active.
+Set the input box border color and the accent shown while a permission mode or indicator is active.
 
-  | Token          | Controls                                           |
-  | :------------- | :------------------------------------------------- |
-  | `promptBorder` | Input box border in the default permission mode    |
-  | `planMode`     | Plan mode accent and border                        |
-  | `autoAccept`   | Accept-edits mode accent and border                |
-  | `bashBorder`   | Input box border when entering a `!` shell command |
-  | `ide`          | IDE connection indicator                           |
-  | `fastMode`     | Fast mode indicator                                |
+| Token          | Controls                                           |
+| :------------- | :------------------------------------------------- |
+| `promptBorder` | Input box border in the default permission mode    |
+| `planMode`     | Plan mode accent and border                        |
+| `autoAccept`   | Accept-edits mode accent and border                |
+| `bashBorder`   | Input box border when entering a `!` shell command |
+| `ide`          | IDE connection indicator                           |
+| `fastMode`     | Fast mode indicator                                |
 
-  #### Diff rendering
+#### Diff rendering
 
-  Color added and removed code in file edits and reviews.
+Color added and removed code in file edits and reviews.
 
-  | Token               | Controls                                           |
-  | :------------------ | :------------------------------------------------- |
-  | `diffAdded`         | Background of added lines                          |
-  | `diffRemoved`       | Background of removed lines                        |
-  | `diffAddedDimmed`   | Background of unchanged context near added lines   |
-  | `diffRemovedDimmed` | Background of unchanged context near removed lines |
-  | `diffAddedWord`     | Word-level highlight within an added line          |
-  | `diffRemovedWord`   | Word-level highlight within a removed line         |
+| Token               | Controls                                           |
+| :------------------ | :------------------------------------------------- |
+| `diffAdded`         | Background of added lines                          |
+| `diffRemoved`       | Background of removed lines                        |
+| `diffAddedDimmed`   | Background of unchanged context near added lines   |
+| `diffRemovedDimmed` | Background of unchanged context near removed lines |
+| `diffAddedWord`     | Word-level highlight within an added line          |
+| `diffRemovedWord`   | Word-level highlight within a removed line         |
 
-  #### Fullscreen mode
+#### Fullscreen mode
 
-  Apply only in [fullscreen rendering mode](/en/fullscreen), where messages have a background fill.
+Apply only in [fullscreen rendering mode](/en/fullscreen), where messages have a background fill.
 
-  | Token                        | Controls                                                           |
-  | :--------------------------- | :----------------------------------------------------------------- |
-  | `userMessageBackground`      | Background behind your messages in the transcript                  |
-  | `userMessageBackgroundHover` | Background behind a message while hovered or expanded              |
-  | `messageActionsBackground`   | Background behind the selected message when the action bar is open |
-  | `bashMessageBackgroundColor` | Background behind `!` shell command entries in the transcript      |
-  | `memoryBackgroundColor`      | Background behind `#` memory entries in the transcript             |
-  | `selectionBg`                | Background of text selected with the mouse                         |
+| Token                        | Controls                                                           |
+| :--------------------------- | :----------------------------------------------------------------- |
+| `userMessageBackground`      | Background behind your messages in the transcript                  |
+| `userMessageBackgroundHover` | Background behind a message while hovered or expanded              |
+| `messageActionsBackground`   | Background behind the selected message when the action bar is open |
+| `bashMessageBackgroundColor` | Background behind `!` shell command entries in the transcript      |
+| `memoryBackgroundColor`      | Background behind `#` memory entries in the transcript             |
+| `selectionBg`                | Background of text selected with the mouse                         |
 
-  #### Usage meter and speaker labels
+#### Usage meter and speaker labels
 
-  Adjust the bar shown in the `/usage` view and the labels that distinguish your messages from Claude's.
+Adjust the bar shown in the `/usage` view and the labels that distinguish your messages from Claude's.
 
-  | Token              | Controls                                          |
-  | :----------------- | :------------------------------------------------ |
-  | `rate_limit_fill`  | Filled portion of the usage meter                 |
-  | `rate_limit_empty` | Unfilled portion of the usage meter               |
-  | `briefLabelYou`    | Color of the `You` label on your messages         |
-  | `briefLabelClaude` | Color of the `Claude` label on assistant messages |
+| Token              | Controls                                          |
+| :----------------- | :------------------------------------------------ |
+| `rate_limit_fill`  | Filled portion of the usage meter                 |
+| `rate_limit_empty` | Unfilled portion of the usage meter               |
+| `briefLabelYou`    | Color of the `You` label on your messages         |
+| `briefLabelClaude` | Color of the `Claude` label on assistant messages |
 
-  #### Shimmer variants and subagent colors
+#### Shimmer variants and subagent colors
 
-  Several tokens have a paired shimmer variant that supplies the lighter color used in the spinner's animated gradient. Override the shimmer alongside its base token if the animation looks mismatched.
+Several tokens have a paired shimmer variant that supplies the lighter color used in the spinner's animated gradient. Override the shimmer alongside its base token if the animation looks mismatched.
 
-  * `claude` and `claudeShimmer`
-  * `warning` and `warningShimmer`
-  * `permission` and `permissionShimmer`
-  * `promptBorder` and `promptBorderShimmer`
-  * `inactive` and `inactiveShimmer`
-  * `fastMode` and `fastModeShimmer`
+- `claude` and `claudeShimmer`
+- `warning` and `warningShimmer`
+- `permission` and `permissionShimmer`
+- `promptBorder` and `promptBorderShimmer`
+- `inactive` and `inactiveShimmer`
+- `fastMode` and `fastModeShimmer`
 
-  Each [subagent](/en/sub-agents) and parallel task is shown in one of eight named colors so you can tell them apart in the transcript. The token names follow the pattern `<color>_FOR_SUBAGENTS_ONLY`, where `<color>` is `red`, `blue`, `green`, `yellow`, `purple`, `orange`, `pink`, or `cyan`. Override these to change what each named color looks like. For example, a subagent with `color: blue` in its definition is drawn using the `blue_FOR_SUBAGENTS_ONLY` value.
+Each [subagent](/en/sub-agents) and parallel task is shown in one of eight named colors so you can tell them apart in the transcript. The token names follow the pattern `<color>_FOR_SUBAGENTS_ONLY`, where `<color>` is `red`, `blue`, `green`, `yellow`, `purple`, `orange`, `pink`, or `cyan`. Override these to change what each named color looks like. For example, a subagent with `color: blue` in its definition is drawn using the `blue_FOR_SUBAGENTS_ONLY` value.
 
-  The [`ultrathink`](/en/model-config#use-ultrathink-for-one-off-deep-reasoning) and [`ultraplan`](/en/ultraplan) keywords in the prompt input are rendered with a seven-color rainbow gradient. The token names follow the pattern `rainbow_<color>` and `rainbow_<color>_shimmer`, where `<color>` is `red`, `orange`, `yellow`, `green`, `blue`, `indigo`, or `violet`.
+The [`ultrathink`](/en/model-config#use-ultrathink-for-one-off-deep-reasoning) and [`ultraplan`](/en/ultraplan) keywords in the prompt input are rendered with a seven-color rainbow gradient. The token names follow the pattern `rainbow_<color>` and `rainbow_<color>_shimmer`, where `<color>` is `red`, `orange`, `yellow`, `green`, `blue`, `indigo`, or `violet`.
 </Accordion>
 
 ## Switch to fullscreen rendering
@@ -271,17 +281,18 @@ Run `/tui fullscreen` to switch in the current session with your conversation in
   CLAUDE_CODE_NO_FLICKER=1 claude
   ```
 
-  ```powershell PowerShell theme={null}
-  $env:CLAUDE_CODE_NO_FLICKER = "1"; claude
-  ```
+```powershell PowerShell theme={null}
+$env:CLAUDE_CODE_NO_FLICKER = "1"; claude
+```
 
-  ```json ~/.claude/settings.json theme={null}
-  {
-    "env": {
-      "CLAUDE_CODE_NO_FLICKER": "1"
-    }
+```json ~/.claude/settings.json theme={null}
+{
+  "env": {
+    "CLAUDE_CODE_NO_FLICKER": "1"
   }
-  ```
+}
+```
+
 </CodeGroup>
 
 ## Paste large content
@@ -300,8 +311,8 @@ Pressing Enter still submits your prompt in INSERT mode, unlike standard Vim. Us
 
 ## Related resources
 
-* [Interactive mode](/en/interactive-mode): full keyboard shortcut reference and the Vim key table
-* [Keybindings](/en/keybindings): remap any Claude Code shortcut, including Enter and Shift+Enter
-* [Fullscreen rendering](/en/fullscreen): details on scrolling, search, and copy in fullscreen mode
-* [Hooks guide](/en/hooks-guide): more Notification hook examples for Linux and Windows
-* [Troubleshooting](/en/troubleshooting): fixes for issues outside terminal configuration
+- [Interactive mode](/en/interactive-mode): full keyboard shortcut reference and the Vim key table
+- [Keybindings](/en/keybindings): remap any Claude Code shortcut, including Enter and Shift+Enter
+- [Fullscreen rendering](/en/fullscreen): details on scrolling, search, and copy in fullscreen mode
+- [Hooks guide](/en/hooks-guide): more Notification hook examples for Linux and Windows
+- [Troubleshooting](/en/troubleshooting): fixes for issues outside terminal configuration

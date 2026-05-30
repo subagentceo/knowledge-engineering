@@ -1,3 +1,5 @@
+# Sanity
+
 Create, query, and manage your structured content in Sanity directly from Claude. Run content audits, update documents, coordinate releases, and find anything across your projects. Or set up entirely new projects – schemas, content, and configuration – just by chatting with Claude.
 
 You can use Sanity to:

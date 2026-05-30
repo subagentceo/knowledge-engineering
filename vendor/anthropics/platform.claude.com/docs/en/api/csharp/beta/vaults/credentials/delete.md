@@ -1,4 +1,4 @@
-## Delete
+## Delete Credential
 
 `BetaManagedAgentsDeletedCredential Beta.Vaults.Credentials.Delete(CredentialDeleteParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Delete Credential
 ### Parameters
 
 - `CredentialDeleteParams parameters`
-
   - `required string vaultID`
 
     Path param: Path parameter vault_id
@@ -21,7 +20,6 @@ Delete Credential
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -70,18 +68,22 @@ Delete Credential
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsDeletedCredential:`
 
   Confirmation of a deleted credential.
-
   - `required string ID`
 
     Unique identifier of the deleted credential.
 
   - `required Type Type`
-
     - `"vault_credential_deleted"VaultCredentialDeleted`
 
 ### Example
@@ -96,4 +98,13 @@ CredentialDeleteParams parameters = new()
 var betaManagedAgentsDeletedCredential = await client.Beta.Vaults.Credentials.Delete(parameters);
 
 Console.WriteLine(betaManagedAgentsDeletedCredential);
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "type": "vault_credential_deleted"
+}
 ```

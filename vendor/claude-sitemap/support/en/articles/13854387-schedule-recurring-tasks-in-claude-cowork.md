@@ -52,7 +52,7 @@ There are two ways to create a scheduled task:
 
 9. You can explicitly confirm you want to schedule the task when prompted by Claude by clicking “Schedule":
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1778914800&amp;signature=441c83588a2e1c5ec91eb688e8ef8c258e1b44912ddb3d28ddb7e6b1e5c7c466&amp;req=diEnEsl2mIJWUPMW1HO4zeLJCU3t%2Fu6PPx%2FSrZI7l8wKMhFKzjBCSeVLh7Z3%0AJBLR%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2104085399/4dda7e6f76026fd827db0b9323a9/f20635bf-15e7-4978-a213-5b9f67e9fb9a?expires=1780164900&signature=c151cf912285f92f2ac3947e822d72911a81a7b6bec3c8ed3364df3afb403ba0&req=diEnEsl2mIJWUPMW1HO4zeLJBkXl%2Be6OPx%2FSrZI7l8wbmNyP%2Ftqil1RaQBnC%0AOTS5%0A)
 
 10. Claude will create and schedule your task, and it will be added to the “Scheduled tasks” page.
 
@@ -64,21 +64,21 @@ There are two ways to create a scheduled task:
 
 3. In the **Create scheduled task** modal, enter the following information:
 
-  1. Task name
+4. Task name
 
-  2. Description of the task
+5. Description of the task
 
-  3. The prompt describing what your task does.
+6. The prompt describing what your task does.
 
-    1. **Note:** Type "/" to include plugins and Skills.
+7. **Note:** Type "/" to include plugins and Skills.
 
-  4. How frequently the task will run (hourly, daily, weekly, on weekdays, or manually)
+8. How frequently the task will run (hourly, daily, weekly, on weekdays, or manually)
 
-  5. The model you want to use [optional]
+9. The model you want to use [optional]
 
-  6. Which folder Claude should work in [optional]
+10. Which folder Claude should work in [optional]
 
-4. Click “Save” to add a new task to the **Scheduled tasks** page.
+11. Click “Save” to add a new task to the **Scheduled tasks** page.
 
 ## Manage your scheduled tasks
 

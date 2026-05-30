@@ -1,3 +1,5 @@
+# Turn inspiration into design plans
+
 Claude can analyze images to identify design styles across your saved inspirations—pinning down the specific aesthetic so you can find matching pieces and communicate your vision to contractors. It can then search across price ranges to show you where to save and where it's worth investing.
 
 Ask Claude to identify the style in your saved images, explain what defines it, and find furniture you can actually buy. Request a spreadsheet organized by furniture type so you can compare costs, quality, and which pieces are worth investing in.

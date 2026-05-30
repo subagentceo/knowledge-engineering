@@ -1,4 +1,4 @@
-## Archive
+## Archive Credential
 
 **post** `/v1/vaults/{vault_id}/credentials/{credential_id}/archive`
 
@@ -15,11 +15,9 @@ Archive Credential
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -68,12 +66,17 @@ Archive Credential
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `BetaManagedAgentsCredential = object { id, archived_at, auth, 6 more }`
+- `BetaManagedAgentsCredential object { id, archived_at, auth, 6 more }`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `id: string`
 
     Unique identifier for the credential.
@@ -85,17 +88,14 @@ Archive Credential
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse`
 
     Authentication details for a credential.
-
-    - `BetaManagedAgentsMCPOAuthAuthResponse = object { mcp_server_url, type, expires_at, refresh }`
+    - `BetaManagedAgentsMCPOAuthAuthResponse object { mcp_server_url, type, expires_at, refresh }`
 
       OAuth credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
-
         - `"mcp_oauth"`
 
       - `expires_at: optional string`
@@ -105,7 +105,6 @@ Archive Credential
       - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `client_id: string`
 
           OAuth client ID.
@@ -117,29 +116,22 @@ Archive Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
-
-          - `BetaManagedAgentsTokenEndpointAuthNoneResponse = object { type }`
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
 
             Token endpoint requires no client authentication.
-
             - `type: "none"`
-
               - `"none"`
 
-          - `BetaManagedAgentsTokenEndpointAuthBasicResponse = object { type }`
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `type: "client_secret_basic"`
-
               - `"client_secret_basic"`
 
-          - `BetaManagedAgentsTokenEndpointAuthPostResponse = object { type }`
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `type: "client_secret_post"`
-
               - `"client_secret_post"`
 
         - `resource: optional string`
@@ -150,16 +142,14 @@ Archive Credential
 
           OAuth scope for the refresh request.
 
-    - `BetaManagedAgentsStaticBearerAuthResponse = object { mcp_server_url, type }`
+    - `BetaManagedAgentsStaticBearerAuthResponse object { mcp_server_url, type }`
 
       Static bearer token credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
-
         - `"static_bearer"`
 
   - `created_at: string`
@@ -171,7 +161,6 @@ Archive Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
-
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -194,4 +183,25 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID/ar
     -H 'anthropic-version: 2023-06-01' \
     -H 'anthropic-beta: managed-agents-2026-04-01' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
 ```

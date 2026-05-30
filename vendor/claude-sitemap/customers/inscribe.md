@@ -1,10 +1,12 @@
+# Inscribe cut time spent on fraud review 20x with Claude
+
 Inscribe uses Claude to power AI Risk Agents that automate fraud detection, document verification, and risk analysis for banks and fintechs.
 
 With Claude, Inscribe was able to:
 
--   Reduce fraud review time by 20x, from 30 minutes to 90 seconds
--   Increase output by 70x in one client example
--   Implement their new AI models in one day
+- Reduce fraud review time by 20x, from 30 minutes to 90 seconds
+- Increase output by 70x in one client example
+- Implement their new AI models in one day
 
 ## Confronting the growing challenge of financial fraud
 
@@ -22,9 +24,9 @@ The seamless integration with Inscribe's existing Amazon Web Services (AWS) infr
 
 Inscribe uses Claude to drive its suite of AI Risk Agents, automating key aspects of the risk management processes:
 
--   Fraud detection: Claude analyze patterns and anomalies in application data to flag potential fraud quickly and accurately
--   Document verification: Claude authenticates financial documents, drastically reducing manual review time.
--   Risk analysis: Claude summarizes complex financial data and provides nuanced risk assessments, enabling faster decision-making.
+- Fraud detection: Claude analyze patterns and anomalies in application data to flag potential fraud quickly and accurately
+- Document verification: Claude authenticates financial documents, drastically reducing manual review time.
+- Risk analysis: Claude summarizes complex financial data and provides nuanced risk assessments, enabling faster decision-making.
 
 The recently launched AI Fraud Analyst exemplifies these capabilities. "Our AI Fraud Analyst can detect fraud in images and PDFs, verify applicant details through KYC and KYB checks, uncover risky transactions, and provide auditable risk reports – all in about 90 seconds,” said Burke.
 

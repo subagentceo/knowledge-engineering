@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -108,7 +109,7 @@ Claude Code requires access to the following URLs. Allowlist these in your proxy
 | `claude.ai`                    | claude.ai account authentication                                                                                                  |
 | `platform.claude.com`          | Anthropic Console account authentication                                                                                          |
 | `downloads.claude.ai`          | Plugin executable downloads; native installer and native auto-updater                                                             |
-| `storage.googleapis.com`       | {/* max-version: 2.1.115 */}Native installer and native auto-updater on versions prior to 2.1.116                                 |
+| `storage.googleapis.com`       | {/_ max-version: 2.1.115 _/}Native installer and native auto-updater on versions prior to 2.1.116                                 |
 | `bridge.claudeusercontent.com` | [Claude in Chrome](/en/chrome) extension WebSocket bridge                                                                         |
 | `raw.githubusercontent.com`    | Changelog feed for [`/release-notes`](/en/commands) and the release notes shown after updating; plugin marketplace install counts |
 
@@ -124,6 +125,6 @@ For self-hosted [GitHub Enterprise Server](/en/github-enterprise-server) instanc
 
 ## Additional resources
 
-* [Claude Code settings](/en/settings)
-* [Environment variables reference](/en/env-vars)
-* [Troubleshooting guide](/en/troubleshooting)
+- [Claude Code settings](/en/settings)
+- [Environment variables reference](/en/env-vars)
+- [Troubleshooting guide](/en/troubleshooting)

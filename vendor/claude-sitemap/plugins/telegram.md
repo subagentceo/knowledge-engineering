@@ -1,17 +1,10 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    ](#)
-    
--   Installs
-    
-    75906
+# telegram
+
+- Install in
+
+  Claude Code
+
+- Made by
+- Installs
+
+  83052

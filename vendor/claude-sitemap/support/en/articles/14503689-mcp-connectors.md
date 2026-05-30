@@ -12,10 +12,10 @@ For general questions about connectors in Claude, see **[Use connectors to exten
 
 ## Browse available connectors
 
-| **Connector** | **What it does** | **Data boundary notes** |
-| --- | --- | --- |
-| Microsoft 365 | Search SharePoint, OneDrive, Outlook email and calendar, and Teams chat | All data stays in your M365 tenant; read-only |
-| **[Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)** | Real-time search of the public internet | Search queries are transmitted to a third-party search provider outside the boundary (user-approved, ZDR).<br>Every Web Search query must be manually approved by the user. |
+| **Connector**                                                                    | **What it does**                                                        | **Data boundary notes**                                                                                                                                                     |
+| -------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Microsoft 365                                                                    | Search SharePoint, OneDrive, Outlook email and calendar, and Teams chat | All data stays in your M365 tenant; read-only                                                                                                                               |
+| **[Web Search](https://support.claude.com/en/articles/14503775-mcp-web-search)** | Real-time search of the public internet                                 | Search queries are transmitted to a third-party search provider outside the boundary (user-approved, ZDR).<br>Every Web Search query must be manually approved by the user. |
 
 Organizations can also register their own MCP servers for internal systems, custom tools, or approved third-party services. See **[Custom Connectors](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp)**.
 

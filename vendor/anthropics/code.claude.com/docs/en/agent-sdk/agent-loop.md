@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -47,11 +48,11 @@ Without limits, the loop runs until Claude finishes on its own, which is fine fo
 
 As the loop runs, the SDK yields a stream of messages. Each message carries a type that tells you what stage of the loop it came from. The five core types are:
 
-* **`SystemMessage`:** session lifecycle events. The `subtype` field distinguishes them: `"init"` is the first message (session metadata), and `"compact_boundary"` fires after [compaction](#automatic-compaction). In TypeScript, the compact boundary is its own [`SDKCompactBoundaryMessage`](/en/agent-sdk/typescript#sdkcompactboundarymessage) type rather than a subtype of `SDKSystemMessage`.
-* **`AssistantMessage`:** emitted after each Claude response, including the final text-only one. Contains text content blocks and tool call blocks from that turn.
-* **`UserMessage`:** emitted after each tool execution with the tool result content sent back to Claude. Also emitted for any user inputs you stream mid-loop.
-* **`StreamEvent`:** only emitted when partial messages are enabled. Contains raw API streaming events (text deltas, tool input chunks). See [Stream responses](/en/agent-sdk/streaming-output).
-* **`ResultMessage`:** marks the end of the agent loop. Contains the final text result, token usage, cost, and session ID. Check the `subtype` field to determine whether the task succeeded or hit a limit. A small number of trailing system events, such as `prompt_suggestion`, can arrive after it, so iterate the stream to completion rather than breaking on the result. See [Handle the result](#handle-the-result).
+- **`SystemMessage`:** session lifecycle events. The `subtype` field distinguishes them: `"init"` is the first message (session metadata), and `"compact_boundary"` fires after [compaction](#automatic-compaction). In TypeScript, the compact boundary is its own [`SDKCompactBoundaryMessage`](/en/agent-sdk/typescript#sdkcompactboundarymessage) type rather than a subtype of `SDKSystemMessage`.
+- **`AssistantMessage`:** emitted after each Claude response, including the final text-only one. Contains text content blocks and tool call blocks from that turn.
+- **`UserMessage`:** emitted after each tool execution with the tool result content sent back to Claude. Also emitted for any user inputs you stream mid-loop.
+- **`StreamEvent`:** only emitted when partial messages are enabled. Contains raw API streaming events (text deltas, tool input chunks). See [Stream responses](/en/agent-sdk/streaming-output).
+- **`ResultMessage`:** marks the end of the agent loop. Contains the final text result, token usage, cost, and session ID. Check the `subtype` field to determine whether the task succeeded or hit a limit. A small number of trailing system events, such as `prompt_suggestion`, can arrive after it, so iterate the stream to completion rather than breaking on the result. See [Handle the result](#handle-the-result).
 
 These five types cover the full agent loop lifecycle in both SDKs. The TypeScript SDK also yields additional observability events (hook events, tool progress, rate limits, task notifications) that provide extra detail but are not required to drive the loop. See the [Python message types reference](/en/agent-sdk/python#message-types) and [TypeScript message types reference](/en/agent-sdk/typescript#message-types) for the complete lists.
 
@@ -59,14 +60,14 @@ These five types cover the full agent loop lifecycle in both SDKs. The TypeScrip
 
 Which messages you handle depends on what you're building:
 
-* **Final results only:** handle `ResultMessage` to get the output, cost, and whether the task succeeded or hit a limit.
-* **Progress updates:** handle `AssistantMessage` to see what Claude is doing each turn, including which tools it called.
-* **Live streaming:** enable partial messages (`include_partial_messages` in Python, `includePartialMessages` in TypeScript) to get `StreamEvent` messages in real time. See [Stream responses in real-time](/en/agent-sdk/streaming-output).
+- **Final results only:** handle `ResultMessage` to get the output, cost, and whether the task succeeded or hit a limit.
+- **Progress updates:** handle `AssistantMessage` to see what Claude is doing each turn, including which tools it called.
+- **Live streaming:** enable partial messages (`include_partial_messages` in Python, `includePartialMessages` in TypeScript) to get `StreamEvent` messages in real time. See [Stream responses in real-time](/en/agent-sdk/streaming-output).
 
 How you check message types depends on the SDK:
 
-* **Python:** check message types with `isinstance()` against classes imported from `claude_agent_sdk` (for example, `isinstance(message, ResultMessage)`).
-* **TypeScript:** check the `type` string field (for example, `message.type === "result"`). `AssistantMessage` and `UserMessage` wrap the raw API message in a `.message` field, so content blocks are at `message.message.content`, not `message.content`.
+- **Python:** check message types with `isinstance()` against classes imported from `claude_agent_sdk` (for example, `isinstance(message, ResultMessage)`).
+- **TypeScript:** check the `type` string field (for example, `message.type === "result"`). `AssistantMessage` and `UserMessage` wrap the raw API message in a `.message` field, so content blocks are at `message.message.content`, not `message.content`.
 
 <Accordion title="Example: Check message types and handle results">
   <CodeGroup>
@@ -99,6 +100,7 @@ How you check message types depends on the SDK:
       }
     }
     ```
+
   </CodeGroup>
 </Accordion>
 
@@ -110,28 +112,28 @@ Tools give your agent the ability to take action. Without tools, Claude can only
 
 The SDK includes the same tools that power Claude Code:
 
-| Category            | Tools                                            | What they do                                                                |
-| :------------------ | :----------------------------------------------- | :-------------------------------------------------------------------------- |
-| **File operations** | `Read`, `Edit`, `Write`                          | Read, modify, and create files                                              |
-| **Search**          | `Glob`, `Grep`                                   | Find files by pattern, search content with regex                            |
-| **Execution**       | `Bash`                                           | Run shell commands, scripts, git operations                                 |
-| **Web**             | `WebSearch`, `WebFetch`                          | Search the web, fetch and parse pages                                       |
-| **Discovery**       | `ToolSearch`                                     | Dynamically find and load tools on-demand instead of preloading all of them |
-| **Orchestration**   | `Agent`, `Skill`, `AskUserQuestion`, `TodoWrite` | Spawn subagents, invoke skills, ask the user, track tasks                   |
+| Category            | Tools                                                           | What they do                                                                |
+| :------------------ | :-------------------------------------------------------------- | :-------------------------------------------------------------------------- |
+| **File operations** | `Read`, `Edit`, `Write`                                         | Read, modify, and create files                                              |
+| **Search**          | `Glob`, `Grep`                                                  | Find files by pattern, search content with regex                            |
+| **Execution**       | `Bash`                                                          | Run shell commands, scripts, git operations                                 |
+| **Web**             | `WebSearch`, `WebFetch`                                         | Search the web, fetch and parse pages                                       |
+| **Discovery**       | `ToolSearch`                                                    | Dynamically find and load tools on-demand instead of preloading all of them |
+| **Orchestration**   | `Agent`, `Skill`, `AskUserQuestion`, `TaskCreate`, `TaskUpdate` | Spawn subagents, invoke skills, ask the user, track tasks                   |
 
 Beyond built-in tools, you can:
 
-* **Connect external services** with [MCP servers](/en/agent-sdk/mcp) (databases, browsers, APIs)
-* **Define custom tools** with [custom tool handlers](/en/agent-sdk/custom-tools)
-* **Load project skills** via [setting sources](/en/agent-sdk/claude-code-features) for reusable workflows
+- **Connect external services** with [MCP servers](/en/agent-sdk/mcp) (databases, browsers, APIs)
+- **Define custom tools** with [custom tool handlers](/en/agent-sdk/custom-tools)
+- **Load project skills** via [setting sources](/en/agent-sdk/claude-code-features) for reusable workflows
 
 ### Tool permissions
 
 Claude determines which tools to call based on the task, but you control whether those calls are allowed to execute. You can auto-approve specific tools, block others entirely, or require approval for everything. Three options work together to determine what runs:
 
-* **`allowed_tools` / `allowedTools`** auto-approves listed tools. A read-only agent with `["Read", "Glob", "Grep"]` in its allowed tools list runs those tools without prompting. Tools not listed are still available but require permission.
-* **`disallowed_tools` / `disallowedTools`** blocks listed tools, regardless of other settings. See [Permissions](/en/agent-sdk/permissions) for the order that rules are checked before a tool runs.
-* **`permission_mode` / `permissionMode`** controls what happens to tools that aren't covered by allow or deny rules. See [Permission mode](#permission-mode) for available modes.
+- **`allowed_tools` / `allowedTools`** auto-approves listed tools. A read-only agent with `["Read", "Glob", "Grep"]` in its allowed tools list runs those tools without prompting. Tools not listed are still available but require permission.
+- **`disallowed_tools` / `disallowedTools`** blocks listed tools, regardless of other settings. See [Permissions](/en/agent-sdk/permissions) for the order that rules are checked before a tool runs.
+- **`permission_mode` / `permissionMode`** controls what happens to tools that aren't covered by allow or deny rules. See [Permission mode](#permission-mode) for available modes.
 
 You can also scope individual tools with rules like `"Bash(npm *)"` to allow only specific commands. See [Permissions](/en/agent-sdk/permissions) for the full rule syntax.
 
@@ -221,32 +223,34 @@ Compaction replaces older messages with a summary, so specific instructions from
 
 You can customize compaction behavior in several ways:
 
-* **Summarization instructions in CLAUDE.md:** The compactor reads your CLAUDE.md like any other context, so you can include a section telling it what to preserve when summarizing. The section header is free-form (not a magic string); the compactor matches on intent.
-* **`PreCompact` hook:** Run custom logic before compaction occurs, for example to archive the full transcript. The hook receives a `trigger` field (`manual` or `auto`). See [hooks](/en/agent-sdk/hooks).
-* **Manual compaction:** Send `/compact` as a prompt string to trigger compaction on demand. (Slash commands sent this way are SDK inputs, not CLI-only shortcuts. See [slash commands in the SDK](/en/agent-sdk/slash-commands).)
+- **Summarization instructions in CLAUDE.md:** The compactor reads your CLAUDE.md like any other context, so you can include a section telling it what to preserve when summarizing. The section header is free-form (not a magic string); the compactor matches on intent.
+- **`PreCompact` hook:** Run custom logic before compaction occurs, for example to archive the full transcript. The hook receives a `trigger` field (`manual` or `auto`). See [hooks](/en/agent-sdk/hooks).
+- **Manual compaction:** Send `/compact` as a prompt string to trigger compaction on demand. Commands sent this way are SDK inputs, not CLI-only shortcuts. See [commands in the SDK](/en/agent-sdk/slash-commands).
 
 <Accordion title="Example: Summarization instructions in CLAUDE.md">
   Add a section to your project's CLAUDE.md telling the compactor what to preserve. The header name isn't special; use any clear label.
 
-  ```markdown CLAUDE.md theme={null}
-  # Summary instructions
+```markdown CLAUDE.md theme={null}
+# Summary instructions
 
-  When summarizing this conversation, always preserve:
-  - The current task objective and acceptance criteria
-  - File paths that have been read or modified
-  - Test results and error messages
-  - Decisions made and the reasoning behind them
-  ```
+When summarizing this conversation, always preserve:
+
+- The current task objective and acceptance criteria
+- File paths that have been read or modified
+- Test results and error messages
+- Decisions made and the reasoning behind them
+```
+
 </Accordion>
 
 ### Keep context efficient
 
 A few strategies for long-running agents:
 
-* **Use subagents for subtasks.** Each subagent starts with a fresh conversation (no prior message history, though it does load its own system prompt and project-level context like CLAUDE.md). It does not see the parent's turns, and only its final response returns to the parent as a tool result. The main agent's context grows by that summary, not by the full subtask transcript. See [What subagents inherit](/en/agent-sdk/subagents#what-subagents-inherit) for details.
-* **Be selective with tools.** Every tool definition takes context space. Use the `tools` field on [`AgentDefinition`](/en/agent-sdk/subagents#agentdefinition-configuration) to scope subagents to the minimum set they need.
-* **Watch MCP server costs.** [MCP tool search](/en/agent-sdk/mcp#mcp-tool-search) defers MCP tool schemas by default and loads them on demand. When tool search is off, on Vertex AI, or behind a non-first-party `ANTHROPIC_BASE_URL`, each MCP server adds all its tool schemas to every request, so a few servers with many tools can consume significant context before the agent does any work.
-* **Use lower effort for routine tasks.** Set [effort](#effort-level) to `"low"` for agents that only need to read files or list directories. This reduces token usage and cost.
+- **Use subagents for subtasks.** Each subagent starts with a fresh conversation (no prior message history, though it does load its own system prompt and project-level context like CLAUDE.md). It does not see the parent's turns, and only its final response returns to the parent as a tool result. The main agent's context grows by that summary, not by the full subtask transcript. See [What subagents inherit](/en/agent-sdk/subagents#what-subagents-inherit) for details.
+- **Be selective with tools.** Every tool definition takes context space. Use the `tools` field on [`AgentDefinition`](/en/agent-sdk/subagents#agentdefinition-configuration) to scope subagents to the minimum set they need.
+- **Watch MCP server costs.** [MCP tool search](/en/agent-sdk/mcp#mcp-tool-search) defers MCP tool schemas by default and loads them on demand. When tool search is off, on Vertex AI, or behind a non-first-party `ANTHROPIC_BASE_URL`, each MCP server adds all its tool schemas to every request, so a few servers with many tools can consume significant context before the agent does any work.
+- **Use lower effort for routine tasks.** Set [effort](#effort-level) to `"low"` for agents that only need to read files or list directories. This reduces token usage and cost.
 
 For a detailed breakdown of per-feature context costs, see [Understand context costs](/en/features-overview#understand-context-costs).
 
@@ -269,10 +273,10 @@ When the loop ends, the `ResultMessage` tells you what happened and gives you th
 | Result subtype                        | What happened                                                                    | `result` field available? |
 | :------------------------------------ | :------------------------------------------------------------------------------- | :-----------------------: |
 | `success`                             | Claude finished the task normally                                                |            Yes            |
-| `error_max_turns`                     | Hit the `maxTurns` limit before finishing                                        |             No            |
-| `error_max_budget_usd`                | Hit the `maxBudgetUsd` limit before finishing                                    |             No            |
-| `error_during_execution`              | An error interrupted the loop (for example, an API failure or cancelled request) |             No            |
-| `error_max_structured_output_retries` | Structured output validation failed after the configured retry limit             |             No            |
+| `error_max_turns`                     | Hit the `maxTurns` limit before finishing                                        |            No             |
+| `error_max_budget_usd`                | Hit the `maxBudgetUsd` limit before finishing                                    |            No             |
+| `error_during_execution`              | An error interrupted the loop (for example, an API failure or cancelled request) |            No             |
+| `error_max_structured_output_retries` | Structured output validation failed after the configured retry limit             |            No             |
 
 The `result` field (the final text output) is only present on the `success` variant, so always check the subtype before reading it. All result subtypes carry `total_cost_usd`, `usage`, `num_turns`, and `session_id` so you can track cost and resume even after errors. In Python, `total_cost_usd` and `usage` are typed as optional and may be `None` on some error paths, so guard before formatting them. See [Tracking costs and usage](/en/agent-sdk/cost-tracking) for details on interpreting the `usage` fields.
 
@@ -304,9 +308,8 @@ This example combines the key concepts from this page into a single agent that f
   import asyncio
   from claude_agent_sdk import query, ClaudeAgentOptions, ResultMessage
 
-
-  async def run_agent():
-      session_id = None
+async def run_agent():
+session_id = None
 
       async for message in query(
           prompt="Find and fix the bug causing test failures in the auth module",
@@ -341,55 +344,56 @@ This example combines the key concepts from this page into a single agent that f
               if message.total_cost_usd is not None:
                   print(f"Cost: ${message.total_cost_usd:.4f}")
 
+asyncio.run(run_agent())
 
-  asyncio.run(run_agent())
-  ```
+````
 
-  ```typescript TypeScript theme={null}
-  import { query } from "@anthropic-ai/claude-agent-sdk";
+```typescript TypeScript theme={null}
+import { query } from "@anthropic-ai/claude-agent-sdk";
 
-  let sessionId: string | undefined;
+let sessionId: string | undefined;
 
-  for await (const message of query({
-    prompt: "Find and fix the bug causing test failures in the auth module",
-    options: {
-      allowedTools: ["Read", "Edit", "Bash", "Glob", "Grep"], // Listing tools here auto-approves them (no prompting)
-      settingSources: ["project"], // Load CLAUDE.md, skills, hooks from current directory
-      maxTurns: 30, // Prevent runaway sessions
-      effort: "high" // Thorough reasoning for complex debugging
-    }
-  })) {
-    // Save the session ID to resume later if needed
-    if (message.type === "system" && message.subtype === "init") {
-      sessionId = message.session_id;
-    }
-
-    // Handle the final result
-    if (message.type === "result") {
-      if (message.subtype === "success") {
-        console.log(`Done: ${message.result}`);
-      } else if (message.subtype === "error_max_turns") {
-        // Agent ran out of turns. Resume with a higher limit.
-        console.log(`Hit turn limit. Resume session ${sessionId} to continue.`);
-      } else if (message.subtype === "error_max_budget_usd") {
-        console.log("Hit budget limit.");
-      } else {
-        console.log(`Stopped: ${message.subtype}`);
-      }
-      console.log(`Cost: $${message.total_cost_usd.toFixed(4)}`);
-    }
+for await (const message of query({
+  prompt: "Find and fix the bug causing test failures in the auth module",
+  options: {
+    allowedTools: ["Read", "Edit", "Bash", "Glob", "Grep"], // Listing tools here auto-approves them (no prompting)
+    settingSources: ["project"], // Load CLAUDE.md, skills, hooks from current directory
+    maxTurns: 30, // Prevent runaway sessions
+    effort: "high" // Thorough reasoning for complex debugging
   }
-  ```
+})) {
+  // Save the session ID to resume later if needed
+  if (message.type === "system" && message.subtype === "init") {
+    sessionId = message.session_id;
+  }
+
+  // Handle the final result
+  if (message.type === "result") {
+    if (message.subtype === "success") {
+      console.log(`Done: ${message.result}`);
+    } else if (message.subtype === "error_max_turns") {
+      // Agent ran out of turns. Resume with a higher limit.
+      console.log(`Hit turn limit. Resume session ${sessionId} to continue.`);
+    } else if (message.subtype === "error_max_budget_usd") {
+      console.log("Hit budget limit.");
+    } else {
+      console.log(`Stopped: ${message.subtype}`);
+    }
+    console.log(`Cost: $${message.total_cost_usd.toFixed(4)}`);
+  }
+}
+````
+
 </CodeGroup>
 
 ## Next steps
 
 Now that you understand the loop, here's where to go depending on what you're building:
 
-* **Haven't run an agent yet?** Start with the [quickstart](/en/agent-sdk/quickstart) to get the SDK installed and see a full example running end to end.
-* **Ready to hook into your project?** [Load CLAUDE.md, skills, and filesystem hooks](/en/agent-sdk/claude-code-features) so the agent follows your project conventions automatically.
-* **Building an interactive UI?** Enable [streaming](/en/agent-sdk/streaming-output) to show live text and tool calls as the loop runs.
-* **Need tighter control over what the agent can do?** Lock down tool access with [permissions](/en/agent-sdk/permissions), and use [hooks](/en/agent-sdk/hooks) to audit, block, or transform tool calls before they execute.
-* **Running long or expensive tasks?** Offload isolated work to [subagents](/en/agent-sdk/subagents) to keep your main context lean.
+- **Haven't run an agent yet?** Start with the [quickstart](/en/agent-sdk/quickstart) to get the SDK installed and see a full example running end to end.
+- **Ready to hook into your project?** [Load CLAUDE.md, skills, and filesystem hooks](/en/agent-sdk/claude-code-features) so the agent follows your project conventions automatically.
+- **Building an interactive UI?** Enable [streaming](/en/agent-sdk/streaming-output) to show live text and tool calls as the loop runs.
+- **Need tighter control over what the agent can do?** Lock down tool access with [permissions](/en/agent-sdk/permissions), and use [hooks](/en/agent-sdk/hooks) to audit, block, or transform tool calls before they execute.
+- **Running long or expensive tasks?** Offload isolated work to [subagents](/en/agent-sdk/subagents) to keep your main context lean.
 
 For the broader conceptual picture of the agentic loop (not SDK-specific), see [How Claude Code works](/en/how-claude-code-works).

@@ -1,4 +1,4 @@
-## List
+## List Session Threads
 
 `client.Beta.Sessions.Threads.List(ctx, sessionID, params) (*PageCursor[BetaManagedAgentsSessionThread], error)`
 
@@ -11,7 +11,6 @@ List Session Threads
 - `sessionID string`
 
 - `params BetaSessionThreadListParams`
-
   - `Limit param.Field[int64]`
 
     Query param: Maximum results per page. Defaults to 1000.
@@ -23,11 +22,9 @@ List Session Threads
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -76,12 +73,17 @@ List Session Threads
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaManagedAgentsSessionThread struct{…}`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
-
   - `ID string`
 
     Unique identifier for this thread.
@@ -89,17 +91,14 @@ List Session Threads
   - `Agent BetaManagedAgentsSessionThreadAgent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
     - `ID string`
 
     - `Description string`
 
     - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
       - `Name string`
 
       - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
         - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
 
       - `URL string`
@@ -107,19 +106,16 @@ List Session Threads
     - `Model BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
-
       - `ID BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `type BetaManagedAgentsModel string`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
           - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
             Frontier intelligence for long-running agents and coding
@@ -161,7 +157,6 @@ List Session Threads
       - `Speed BetaManagedAgentsModelConfigSpeed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
 
         - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
@@ -169,15 +164,12 @@ List Session Threads
     - `Name string`
 
     - `Skills []BetaManagedAgentsSessionThreadAgentSkillUnion`
-
       - `type BetaManagedAgentsAnthropicSkill struct{…}`
 
         A resolved Anthropic-managed skill.
-
         - `SkillID string`
 
         - `Type BetaManagedAgentsAnthropicSkillType`
-
           - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
 
         - `Version string`
@@ -185,11 +177,9 @@ List Session Threads
       - `type BetaManagedAgentsCustomSkill struct{…}`
 
         A resolved user-created custom skill.
-
         - `SkillID string`
 
         - `Type BetaManagedAgentsCustomSkillType`
-
           - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
 
         - `Version string`
@@ -197,17 +187,13 @@ List Session Threads
     - `System string`
 
     - `Tools []BetaManagedAgentsSessionThreadAgentToolUnion`
-
       - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
         - `Configs []BetaManagedAgentsAgentToolConfig`
-
           - `Enabled bool`
 
           - `Name BetaManagedAgentsAgentToolConfigName`
 
             Built-in agent tool identifier.
-
             - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
 
             - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
@@ -227,57 +213,39 @@ List Session Threads
           - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
 
             Permission policy for tool execution.
-
             - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
               Tool calls are automatically approved without user confirmation.
-
               - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
                 - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
             - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
               Tool calls require user confirmation before execution.
-
               - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
                 - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
         - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `Enabled bool`
 
           - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
 
             Permission policy for tool execution.
-
             - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
             - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
               Tool calls require user confirmation before execution.
 
-              - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
         - `Type BetaManagedAgentsAgentToolset20260401Type`
-
           - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
 
       - `type BetaManagedAgentsMCPToolset struct{…}`
-
         - `Configs []BetaManagedAgentsMCPToolConfig`
-
           - `Enabled bool`
 
           - `Name string`
@@ -285,65 +253,43 @@ List Session Threads
           - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
 
             Permission policy for tool execution.
-
             - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
             - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
               Tool calls require user confirmation before execution.
 
-              - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
         - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `Enabled bool`
 
           - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
 
             Permission policy for tool execution.
-
             - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-                - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
             - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
               Tool calls require user confirmation before execution.
 
-              - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-                - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
         - `MCPServerName string`
 
         - `Type BetaManagedAgentsMCPToolsetType`
-
           - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
 
       - `type BetaManagedAgentsCustomTool struct{…}`
 
         A custom tool as returned in API responses.
-
         - `Description string`
 
         - `InputSchema BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `Properties map[string, any]`
 
             JSON Schema properties defining the tool's input parameters.
@@ -355,17 +301,14 @@ List Session Threads
           - `Type BetaManagedAgentsCustomToolInputSchemaType`
 
             Must be 'object' for tool input schemas.
-
             - `const BetaManagedAgentsCustomToolInputSchemaTypeObject BetaManagedAgentsCustomToolInputSchemaType = "object"`
 
         - `Name string`
 
         - `Type BetaManagedAgentsCustomToolType`
-
           - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
 
     - `Type BetaManagedAgentsSessionThreadAgentType`
-
       - `const BetaManagedAgentsSessionThreadAgentTypeAgent BetaManagedAgentsSessionThreadAgentType = "agent"`
 
     - `Version int64`
@@ -389,7 +332,6 @@ List Session Threads
   - `Stats BetaManagedAgentsSessionThreadStats`
 
     Timing statistics for a session thread.
-
     - `ActiveSeconds float64`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -405,7 +347,6 @@ List Session Threads
   - `Status BetaManagedAgentsSessionThreadStatus`
 
     SessionThreadStatus enum
-
     - `const BetaManagedAgentsSessionThreadStatusRunning BetaManagedAgentsSessionThreadStatus = "running"`
 
     - `const BetaManagedAgentsSessionThreadStatusIdle BetaManagedAgentsSessionThreadStatus = "idle"`
@@ -415,7 +356,6 @@ List Session Threads
     - `const BetaManagedAgentsSessionThreadStatusTerminated BetaManagedAgentsSessionThreadStatus = "terminated"`
 
   - `Type BetaManagedAgentsSessionThreadType`
-
     - `const BetaManagedAgentsSessionThreadTypeSessionThread BetaManagedAgentsSessionThreadType = "session_thread"`
 
   - `UpdatedAt Time`
@@ -425,11 +365,9 @@ List Session Threads
   - `Usage BetaManagedAgentsSessionThreadUsage`
 
     Cumulative token usage for a session thread across all turns.
-
     - `CacheCreation BetaManagedAgentsCacheCreationUsage`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `Ephemeral1hInputTokens int64`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -478,5 +416,85 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", page)
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+      "agent": {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "description": "A focused research subagent.",
+        "mcp_servers": [
+          {
+            "name": "example-mcp",
+            "type": "url",
+            "url": "https://example-server.modelcontextprotocol.io/sse"
+          }
+        ],
+        "model": {
+          "id": "claude-sonnet-4-6",
+          "speed": "standard"
+        },
+        "name": "Researcher",
+        "skills": [
+          {
+            "skill_id": "xlsx",
+            "type": "anthropic",
+            "version": "1"
+          }
+        ],
+        "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+        "tools": [
+          {
+            "configs": [
+              {
+                "enabled": true,
+                "name": "bash",
+                "permission_policy": {
+                  "type": "always_allow"
+                }
+              }
+            ],
+            "default_config": {
+              "enabled": true,
+              "permission_policy": {
+                "type": "always_ask"
+              }
+            },
+            "type": "agent_toolset_20260401"
+          }
+        ],
+        "type": "agent",
+        "version": 1
+      },
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "parent_thread_id": null,
+      "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+      "stats": {
+        "active_seconds": 0,
+        "duration_seconds": 0,
+        "startup_seconds": 0
+      },
+      "status": "idle",
+      "type": "session_thread",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```

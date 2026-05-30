@@ -1,11 +1,13 @@
+# ASAPP brings human-level AI to customer service with Claude
+
 ASAPP leverages Claude to power AI-driven customer service solutions—enabling businesses to deliver efficient, personalized help that enhances the customer support experience.
 
 With Claude, ASAPP:
 
--   Saw a 25-40% improvement in core business metrics compared to other AI models
--   Eliminated the need for sensitive data redaction pipeline by using Claude in Amazon Bedrock
--   Enabled more natural interactions in automated customer service
--   Improved customer satisfaction through contextual conversations
+- Saw a 25-40% improvement in core business metrics compared to other AI models
+- Eliminated the need for sensitive data redaction pipeline by using Claude in Amazon Bedrock
+- Enabled more natural interactions in automated customer service
+- Improved customer satisfaction through contextual conversations
 
 ## Meeting growing customer service demands securely
 

@@ -6,14 +6,12 @@ Users with Standard seats on the Team plan can access the following:
 
 - **Increased usage:** More usage than the Pro plan per five-hour session, so every team member can get what they need from Claude.
 
-- **Option to purchase extra usage:** Prepay for extra usage, allowing team members to continue working after reaching limits.
-
-  - Read more here: **[Extra usage for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-extra-usage-for-team-and-seat-based-enterprise-plans)**
+- **Option to purchase usage credits:** Prepay for usage credits, allowing team members to continue working after reaching limits.
+  - Read more here: **[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-)**
 
 - **Admin tools and billing management:** Manage access and billing in a centralized place.
 
 - **Advanced identity and access management:**
-
   - **Single-Sign-On (SSO) and Domain Capture:** Enhance authentication security and user experience.
 
   - **Just-in-Time Provisioning (JIT):** Streamline user authentication and manage access across your organization.
@@ -23,7 +21,6 @@ Users with Standard seats on the Team plan can access the following:
 - **Spend controls:** Set spending caps at organization and individual user levels.
 
 - **Enterprise search capabilities:** Dedicated search project for unified knowledge access.
-
   - Pre-configured with optimized search instructions
 
   - Automatic provisioning for all organization members
@@ -35,7 +32,6 @@ Users with Standard seats on the Team plan can access the following:
 - **Connectors for your workplace tools:** Connect Claude to Google Drive, Gmail, Google Calendar, GitHub, Microsoft 365, and Slack to search and retrieve context from your existing documents, emails, calendars, and team communications—without manual uploads.
 
 - **Everything in Pro, including:**
-
   - Access to all available models.
 
   - Access to Claude Code to delegate coding tasks from concept to completion directly from your terminal.
@@ -108,4 +104,4 @@ This means:
 
 ### How do I increase my Team plan usage limits?
 
-Your Team plan organization can enable extra usage to allow team members on all seat types to continue working with Claude and Claude Code after reaching their included usage limits. See this article for more information: **[Extra usage for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-extra-usage-for-team-and-seat-based-enterprise-plans).**
+Your Team plan organization can enable usage credits to allow team members on all seat types to continue working with Claude, Cowork, and Claude Code after reaching their included usage limits. For more information, see **[Manage usage credits for Team and seat-based Enterprise plans](https://support.claude.com/en/articles/12005970-)**.

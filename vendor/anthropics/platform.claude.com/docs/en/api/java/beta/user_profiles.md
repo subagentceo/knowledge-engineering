@@ -1,6 +1,6 @@
 # User Profiles
 
-## Create
+## Create User Profile
 
 `BetaUserProfile beta().userProfiles().create(UserProfileCreateParamsparams = UserProfileCreateParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -11,11 +11,9 @@ Create User Profile
 ### Parameters
 
 - `UserProfileCreateParams params`
-
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -64,6 +62,12 @@ Create User Profile
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
   - `Optional<String> externalId`
 
     Platform's own identifier for this user. Not enforced unique. Maximum 255 characters.
@@ -79,7 +83,6 @@ Create User Profile
   - `Optional<Relationship> relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -89,7 +92,6 @@ Create User Profile
 ### Returns
 
 - `class BetaUserProfile:`
-
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -105,7 +107,6 @@ Create User Profile
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -115,11 +116,9 @@ Create User Profile
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `Status status`
 
       Status of the trust grant.
-
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -129,7 +128,6 @@ Create User Profile
   - `Type type`
 
     Object type. Always `user_profile`.
-
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`
@@ -165,7 +163,27 @@ public final class Main {
 }
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## List User Profiles
 
 `UserProfileListPage beta().userProfiles().list(UserProfileListParamsparams = UserProfileListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -176,7 +194,6 @@ List User Profiles
 ### Parameters
 
 - `UserProfileListParams params`
-
   - `Optional<Long> limit`
 
     Query parameter for limit
@@ -184,7 +201,6 @@ List User Profiles
   - `Optional<Order> order`
 
     Query parameter for order
-
     - `ASC("asc")`
 
     - `DESC("desc")`
@@ -196,7 +212,6 @@ List User Profiles
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -245,10 +260,15 @@ List User Profiles
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaUserProfile:`
-
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -264,7 +284,6 @@ List User Profiles
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -274,11 +293,9 @@ List User Profiles
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `Status status`
 
       Status of the trust grant.
-
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -288,7 +305,6 @@ List User Profiles
   - `Type type`
 
     Object type. Always `user_profile`.
-
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`
@@ -324,7 +340,32 @@ public final class Main {
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {},
+      "relationship": "external",
+      "trust_grants": {
+        "cyber": {
+          "status": "active"
+        }
+      },
+      "type": "user_profile",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "external_id": "user_12345",
+      "name": "Example User"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get User Profile
 
 `BetaUserProfile beta().userProfiles().retrieve(UserProfileRetrieveParamsparams = UserProfileRetrieveParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -335,13 +376,11 @@ Get User Profile
 ### Parameters
 
 - `UserProfileRetrieveParams params`
-
   - `Optional<String> userProfileId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -390,10 +429,15 @@ Get User Profile
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaUserProfile:`
-
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -409,7 +453,6 @@ Get User Profile
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -419,11 +462,9 @@ Get User Profile
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `Status status`
 
       Status of the trust grant.
-
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -433,7 +474,6 @@ Get User Profile
   - `Type type`
 
     Object type. Always `user_profile`.
-
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`
@@ -469,7 +509,27 @@ public final class Main {
 }
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## Update User Profile
 
 `BetaUserProfile beta().userProfiles().update(UserProfileUpdateParamsparams = UserProfileUpdateParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -480,13 +540,11 @@ Update User Profile
 ### Parameters
 
 - `UserProfileUpdateParams params`
-
   - `Optional<String> userProfileId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -535,6 +593,12 @@ Update User Profile
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
   - `Optional<String> externalId`
 
     If present, replaces the stored external_id. Omit to leave unchanged. Maximum 255 characters.
@@ -550,7 +614,6 @@ Update User Profile
   - `Optional<Relationship> relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -560,7 +623,6 @@ Update User Profile
 ### Returns
 
 - `class BetaUserProfile:`
-
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -576,7 +638,6 @@ Update User Profile
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -586,11 +647,9 @@ Update User Profile
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `Status status`
 
       Status of the trust grant.
-
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -600,7 +659,6 @@ Update User Profile
   - `Type type`
 
     Object type. Always `user_profile`.
-
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`
@@ -636,6 +694,26 @@ public final class Main {
 }
 ```
 
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
 ## Create Enrollment URL
 
 `BetaUserProfileEnrollmentUrl beta().userProfiles().createEnrollmentUrl(UserProfileCreateEnrollmentUrlParamsparams = UserProfileCreateEnrollmentUrlParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
@@ -647,13 +725,11 @@ Create Enrollment URL
 ### Parameters
 
 - `UserProfileCreateEnrollmentUrlParams params`
-
   - `Optional<String> userProfileId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -702,10 +778,15 @@ Create Enrollment URL
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaUserProfileEnrollmentUrl:`
-
   - `LocalDateTime expiresAt`
 
     A timestamp in RFC 3339 format
@@ -713,7 +794,6 @@ Create Enrollment URL
   - `Type type`
 
     Object type. Always `enrollment_url`.
-
     - `ENROLLMENT_URL("enrollment_url")`
 
   - `String url`
@@ -741,12 +821,21 @@ public final class Main {
 }
 ```
 
+#### Response
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
+```
+
 ## Domain Types
 
 ### Beta User Profile
 
 - `class BetaUserProfile:`
-
   - `String id`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -762,7 +851,6 @@ public final class Main {
   - `Relationship relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `EXTERNAL("external")`
 
     - `RESOLD("resold")`
@@ -772,11 +860,9 @@ public final class Main {
   - `TrustGrants trustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `Status status`
 
       Status of the trust grant.
-
       - `ACTIVE("active")`
 
       - `PENDING("pending")`
@@ -786,7 +872,6 @@ public final class Main {
   - `Type type`
 
     Object type. Always `user_profile`.
-
     - `USER_PROFILE("user_profile")`
 
   - `LocalDateTime updatedAt`
@@ -804,7 +889,6 @@ public final class Main {
 ### Beta User Profile Enrollment URL
 
 - `class BetaUserProfileEnrollmentUrl:`
-
   - `LocalDateTime expiresAt`
 
     A timestamp in RFC 3339 format
@@ -812,7 +896,6 @@ public final class Main {
   - `Type type`
 
     Object type. Always `enrollment_url`.
-
     - `ENROLLMENT_URL("enrollment_url")`
 
   - `String url`
@@ -822,11 +905,9 @@ public final class Main {
 ### Beta User Profile Trust Grant
 
 - `class BetaUserProfileTrustGrant:`
-
   - `Status status`
 
     Status of the trust grant.
-
     - `ACTIVE("active")`
 
     - `PENDING("pending")`

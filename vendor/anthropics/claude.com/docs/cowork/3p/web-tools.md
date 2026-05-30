@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -8,8 +9,8 @@
 
 Cowork includes two built-in tools for reaching the web:
 
-* **Web Search** runs a search-engine query and returns ranked results.
-* **Web Fetch** retrieves the contents of a specific URL.
+- **Web Search** runs a search-engine query and returns ranked results.
+- **Web Fetch** retrieves the contents of a specific URL.
 
 In Cowork on third-party (3P), both are subject to your configuration: search depends on your inference provider, and fetch is gated by the sandbox network allowlist.
 

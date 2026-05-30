@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -185,9 +186,9 @@ The exported events support a range of analyses:
 
 Your choice of logs backend determines the types of analyses you can perform:
 
-* **Log aggregation systems** (e.g., Elasticsearch, Loki): Full-text search and log analysis
-* **Columnar stores** (e.g., ClickHouse): Structured event analysis and complex queries
-* **Observability platforms** (e.g., Honeycomb, Datadog): Advanced querying, visualization, and alerting
+- **Log aggregation systems** (e.g., Elasticsearch, Loki): Full-text search and log analysis
+- **Columnar stores** (e.g., ClickHouse): Structured event analysis and complex queries
+- **Observability platforms** (e.g., Honeycomb, Datadog): Advanced querying, visualization, and alerting
 
 ## Service information
 
@@ -203,7 +204,7 @@ All events are exported with the following resource attributes:
 
 ## Security and privacy
 
-* Events are only exported when an admin configures the OTLP endpoint
-* User prompt content is included in events — configure your telemetry backend to filter or redact if needed
-* Tool execution events include the `tool_input` attribute with file paths, URLs, search patterns, and other arguments — configure your telemetry backend to filter or redact `tool_input` if these may contain sensitive values
-* `user.email` is included in event attributes — work with your telemetry backend to filter or redact if this is a concern
+- Events are only exported when an admin configures the OTLP endpoint
+- User prompt content is included in events — configure your telemetry backend to filter or redact if needed
+- Tool execution events include the `tool_input` attribute with file paths, URLs, search patterns, and other arguments — configure your telemetry backend to filter or redact `tool_input` if these may contain sensitive values
+- `user.email` is included in event attributes — work with your telemetry backend to filter or redact if this is a concern

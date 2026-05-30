@@ -1,3 +1,5 @@
+# FactSet AI-Ready Data
+
 Access, comprehensive financial data and analytics through AI-powered tools. Connect to FactSet global prices, fundamental analysis, earnings estimates, and research insights into Claude, to enhance your financial analysis, earning estimates and investment research with trusted, institutional-quality data.
 
 You can use FactSet AI-Ready Data for:

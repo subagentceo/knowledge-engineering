@@ -1,4 +1,4 @@
-## Create
+## Create a Text Completion
 
 `completions.create(CompletionCreateParams**kwargs)  -> Completion`
 
@@ -23,13 +23,12 @@ Future models and features will not be compatible with Text Completions. See our
   The model that will complete your prompt.
 
   See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-  - `Literal["claude-opus-4-7", "claude-mythos-preview", "claude-opus-4-6", 14 more]`
+  - `Literal["claude-opus-4-8", "claude-opus-4-7", "claude-mythos-preview", 15 more]`
 
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
+    - `claude-opus-4-8` - Frontier intelligence for long-running agents and coding
     - `claude-opus-4-7` - Frontier intelligence for long-running agents and coding
     - `claude-mythos-preview` - New class of intelligence, strongest in coding and cybersecurity
     - `claude-opus-4-6` - Frontier intelligence for long-running agents and coding
@@ -47,6 +46,10 @@ Future models and features will not be compatible with Text Completions. See our
     - `claude-sonnet-4-0` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
     - `claude-sonnet-4-20250514` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
     - `claude-3-haiku-20240307` - Deprecated: Will reach end-of-life on April 20th, 2026. Please migrate to claude-haiku-4-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+    - `"claude-opus-4-8"`
+
+      Frontier intelligence for long-running agents and coding
 
     - `"claude-opus-4-7"`
 
@@ -130,9 +133,9 @@ Future models and features will not be compatible with Text Completions. See our
 
   ```
   "
-  
+
   Human: {userQuestion}
-  
+
   Assistant:"
   ```
 
@@ -141,7 +144,6 @@ Future models and features will not be compatible with Text Completions. See our
 - `metadata: Optional[MetadataParam]`
 
   An object describing metadata about the request.
-
   - `user_id: Optional[str]`
 
     An external identifier for the user who is associated with the request.
@@ -161,7 +163,6 @@ Future models and features will not be compatible with Text Completions. See our
   Whether to incrementally stream the response using server-sent events.
 
   See [streaming](https://docs.claude.com/en/api/streaming) for details.
-
   - `false`
 
 - `temperature: Optional[float]`
@@ -191,11 +192,9 @@ Future models and features will not be compatible with Text Completions. See our
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -244,10 +243,15 @@ Future models and features will not be compatible with Text Completions. See our
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class Completion: …`
-
   - `id: str`
 
     Unique object identifier.
@@ -263,13 +267,12 @@ Future models and features will not be compatible with Text Completions. See our
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-    - `Literal["claude-opus-4-7", "claude-mythos-preview", "claude-opus-4-6", 14 more]`
+    - `Literal["claude-opus-4-8", "claude-opus-4-7", "claude-mythos-preview", 15 more]`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
+      - `claude-opus-4-8` - Frontier intelligence for long-running agents and coding
       - `claude-opus-4-7` - Frontier intelligence for long-running agents and coding
       - `claude-mythos-preview` - New class of intelligence, strongest in coding and cybersecurity
       - `claude-opus-4-6` - Frontier intelligence for long-running agents and coding
@@ -287,6 +290,10 @@ Future models and features will not be compatible with Text Completions. See our
       - `claude-sonnet-4-0` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
       - `claude-sonnet-4-20250514` - Deprecated: Will reach end-of-life on June 15th, 2026. Please migrate to a newer model. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
       - `claude-3-haiku-20240307` - Deprecated: Will reach end-of-life on April 20th, 2026. Please migrate to claude-haiku-4-5. Visit https://docs.anthropic.com/en/docs/resources/model-deprecations for more information.
+
+      - `"claude-opus-4-8"`
+
+        Frontier intelligence for long-running agents and coding
 
       - `"claude-opus-4-7"`
 
@@ -363,16 +370,14 @@ Future models and features will not be compatible with Text Completions. See our
     The reason that we stopped.
 
     This may be one the following values:
-
-    * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
-    * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
+    - `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
+    - `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
   - `type: Literal["completion"]`
 
     Object type.
 
     For Text Completions, this is always `"completion"`.
-
     - `"completion"`
 
 ### Example
@@ -390,4 +395,16 @@ for completion in client.completions.create(
     prompt="\n\nHuman: Hello, world!\n\nAssistant:",
 ):
   print(completion)
+```
+
+#### Response
+
+```json
+{
+  "id": "compl_018CKm6gsux7P8yMcwZbeCPw",
+  "completion": " Hello! My name is Claude.",
+  "model": "claude-2.1",
+  "stop_reason": "stop_sequence",
+  "type": "completion"
+}
 ```

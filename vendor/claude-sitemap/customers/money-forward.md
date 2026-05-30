@@ -1,13 +1,15 @@
-[Money Forward](https://moneyforward.com), one of Japan's largest cloud-based financial software companies, serves more than 17 million individual users and 400,000 businesses with products spanning personal finance, accounting, payroll, and invoicing. Founded in 2012, the company is evolving from digital transformation to AI transformation, with the goal of becoming Japan's leading back-office AI company.
+# Money Forward builds an AI-native engineering organization with Claude Code
+
+Money Forward, one of Japan's largest cloud-based financial software companies, serves more than 17 million individual users and 400,000 businesses with products spanning personal finance, accounting, payroll, and invoicing. Founded in 2012, the company is evolving from digital transformation to AI transformation, with the goal of becoming Japan's leading back-office AI company.
 
 ## With Claude Code, Money Forward:
 
--   Achieved 80% engineer adoption with over 70% using it as their daily driver
--   Reduced API endpoint implementation by 70%, from 2 days to 5 hours
--   Saved on average 7 hours per week per engineer according to an internal survey for early adopters
--   Compressed new developer onboarding from a week to a single day
--   Built internal tools including Sherlock for incident response and Lumos for automated Kubernetes fixes
--   Enabled a single engineer to build the entire Money Forward Cloud MCP Server in 3 months
+- Achieved 80% engineer adoption with over 70% using it as their daily driver
+- Reduced API endpoint implementation by 70%, from 2 days to 5 hours
+- Saved on average 7 hours per week per engineer according to an internal survey for early adopters
+- Compressed new developer onboarding from a week to a single day
+- Built internal tools including Sherlock for incident response and Lumos for automated Kubernetes fixes
+- Enabled a single engineer to build the entire Money Forward Cloud MCP Server in 3 months
 
 ## The problem
 
@@ -19,7 +21,7 @@ Money Forward launched MEPAR—Money Forward Engineering Productivity AI Researc
 
 Money Forward built a disciplined evaluation process within MEPAR, running trials with small groups of engineers and only rolling out tools that received strong feedback. For each trial, the team created a public channel where members could exchange thoughts and share how they were using the tools.
 
-The team built an internal template to integrate [Claude Code](https://claude.com/customers) into PR workflows based on their style guide, then tested several options side by side. Teams consistently found Claude Code's reviews to be the most useful. Developers could fix issues before human review, which elevated overall PR quality and made reviewers' jobs significantly easier.
+The team built an internal template to integrate Claude Code into PR workflows based on their style guide, then tested several options side by side. Teams consistently found Claude Code's reviews to be the most useful. Developers could fix issues before human review, which elevated overall PR quality and made reviewers' jobs significantly easier.
 
 The trial's visibility across the company meant any employee could follow along. When trial members shared their results, more than 200 engineers from teams outside the trial requested access. The adoption became bottom-up instead of top-down—engineers pulled Claude Code into their workflows because they saw their peers getting real productivity gains.
 

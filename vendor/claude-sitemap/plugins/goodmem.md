@@ -1,3 +1,5 @@
+# GoodMem
+
 GoodMem provides memory infrastructure for AI agents, enabling storage, retrieval, and semantic search over vector embeddings. The plugin exposes 41 MCP tools across 10 functional namespaces — covering embedder management, memory spaces, semantic retrieval, LLM and reranker registration, OCR, and administration. A built-in registry of 79 models (29 embedders, 34 LLMs, 16 rerankers) auto-infers provider types, endpoints, and dimensionality from a model identifier, reducing manual setup.
 
 The plugin supports two usage modes. You can perform GoodMem operations directly through natural language — Claude will invoke the underlying MCP tools to create embedders, manage memory spaces, store documents, and run semantic searches. Alternatively, you can ask Claude to generate Python scripts using the GoodMem SDK for building complete RAG pipelines and retrieval applications.

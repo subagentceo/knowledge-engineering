@@ -1,4 +1,4 @@
-## Archive
+## Archive Session Thread
 
 `beta.sessions.threads.archive(strthread_id, ThreadArchiveParams**kwargs)  -> BetaManagedAgentsSessionThread`
 
@@ -15,11 +15,9 @@ Archive Session Thread
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -68,12 +66,17 @@ Archive Session Thread
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaManagedAgentsSessionThread: …`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
-
   - `id: str`
 
     Unique identifier for this thread.
@@ -81,17 +84,14 @@ Archive Session Thread
   - `agent: BetaManagedAgentsSessionThreadAgent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
     - `id: str`
 
     - `description: Optional[str]`
 
     - `mcp_servers: List[BetaManagedAgentsMCPServerURLDefinition]`
-
       - `name: str`
 
       - `type: Literal["url"]`
-
         - `"url"`
 
       - `url: str`
@@ -99,19 +99,16 @@ Archive Session Thread
     - `model: BetaManagedAgentsModelConfig`
 
       Model identifier and configuration.
-
       - `id: BetaManagedAgentsModel`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `Literal["claude-opus-4-7", "claude-opus-4-6", "claude-sonnet-4-6", 6 more]`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
           - `claude-opus-4-7` - Frontier intelligence for long-running agents and coding
           - `claude-opus-4-6` - Most intelligent model for building agents and coding
           - `claude-sonnet-4-6` - Best combination of speed and intelligence
@@ -163,7 +160,6 @@ Archive Session Thread
       - `speed: Optional[Literal["standard", "fast"]]`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"`
 
         - `"fast"`
@@ -171,15 +167,12 @@ Archive Session Thread
     - `name: str`
 
     - `skills: List[Skill]`
-
       - `class BetaManagedAgentsAnthropicSkill: …`
 
         A resolved Anthropic-managed skill.
-
         - `skill_id: str`
 
         - `type: Literal["anthropic"]`
-
           - `"anthropic"`
 
         - `version: str`
@@ -187,11 +180,9 @@ Archive Session Thread
       - `class BetaManagedAgentsCustomSkill: …`
 
         A resolved user-created custom skill.
-
         - `skill_id: str`
 
         - `type: Literal["custom"]`
-
           - `"custom"`
 
         - `version: str`
@@ -199,17 +190,13 @@ Archive Session Thread
     - `system: Optional[str]`
 
     - `tools: List[Tool]`
-
       - `class BetaManagedAgentsAgentToolset20260401: …`
-
         - `configs: List[BetaManagedAgentsAgentToolConfig]`
-
           - `enabled: bool`
 
           - `name: Literal["bash", "edit", "read", 5 more]`
 
             Built-in agent tool identifier.
-
             - `"bash"`
 
             - `"edit"`
@@ -229,57 +216,39 @@ Archive Session Thread
           - `permission_policy: PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
               Tool calls are automatically approved without user confirmation.
-
               - `type: Literal["always_allow"]`
-
                 - `"always_allow"`
 
             - `class BetaManagedAgentsAlwaysAskPolicy: …`
 
               Tool calls require user confirmation before execution.
-
               - `type: Literal["always_ask"]`
-
                 - `"always_ask"`
 
         - `default_config: BetaManagedAgentsAgentToolsetDefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `enabled: bool`
 
           - `permission_policy: PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: Literal["always_allow"]`
-
-                - `"always_allow"`
 
             - `class BetaManagedAgentsAlwaysAskPolicy: …`
 
               Tool calls require user confirmation before execution.
 
-              - `type: Literal["always_ask"]`
-
-                - `"always_ask"`
-
         - `type: Literal["agent_toolset_20260401"]`
-
           - `"agent_toolset_20260401"`
 
       - `class BetaManagedAgentsMCPToolset: …`
-
         - `configs: List[BetaManagedAgentsMCPToolConfig]`
-
           - `enabled: bool`
 
           - `name: str`
@@ -287,65 +256,43 @@ Archive Session Thread
           - `permission_policy: PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: Literal["always_allow"]`
-
-                - `"always_allow"`
 
             - `class BetaManagedAgentsAlwaysAskPolicy: …`
 
               Tool calls require user confirmation before execution.
 
-              - `type: Literal["always_ask"]`
-
-                - `"always_ask"`
-
         - `default_config: BetaManagedAgentsMCPToolsetDefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `enabled: bool`
 
           - `permission_policy: PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy: …`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `type: Literal["always_allow"]`
-
-                - `"always_allow"`
 
             - `class BetaManagedAgentsAlwaysAskPolicy: …`
 
               Tool calls require user confirmation before execution.
 
-              - `type: Literal["always_ask"]`
-
-                - `"always_ask"`
-
         - `mcp_server_name: str`
 
         - `type: Literal["mcp_toolset"]`
-
           - `"mcp_toolset"`
 
       - `class BetaManagedAgentsCustomTool: …`
 
         A custom tool as returned in API responses.
-
         - `description: str`
 
         - `input_schema: BetaManagedAgentsCustomToolInputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `properties: Optional[Dict[str, object]]`
 
             JSON Schema properties defining the tool's input parameters.
@@ -357,17 +304,14 @@ Archive Session Thread
           - `type: Optional[Literal["object"]]`
 
             Must be 'object' for tool input schemas.
-
             - `"object"`
 
         - `name: str`
 
         - `type: Literal["custom"]`
-
           - `"custom"`
 
     - `type: Literal["agent"]`
-
       - `"agent"`
 
     - `version: int`
@@ -391,7 +335,6 @@ Archive Session Thread
   - `stats: Optional[BetaManagedAgentsSessionThreadStats]`
 
     Timing statistics for a session thread.
-
     - `active_seconds: Optional[float]`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -407,7 +350,6 @@ Archive Session Thread
   - `status: BetaManagedAgentsSessionThreadStatus`
 
     SessionThreadStatus enum
-
     - `"running"`
 
     - `"idle"`
@@ -417,7 +359,6 @@ Archive Session Thread
     - `"terminated"`
 
   - `type: Literal["session_thread"]`
-
     - `"session_thread"`
 
   - `updated_at: datetime`
@@ -427,11 +368,9 @@ Archive Session Thread
   - `usage: Optional[BetaManagedAgentsSessionThreadUsage]`
 
     Cumulative token usage for a session thread across all turns.
-
     - `cache_creation: Optional[BetaManagedAgentsCacheCreationUsage]`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `ephemeral_1h_input_tokens: Optional[int]`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -466,4 +405,79 @@ beta_managed_agents_session_thread = client.beta.sessions.threads.archive(
     session_id="sesn_011CZkZAtmR3yMPDzynEDxu7",
 )
 print(beta_managed_agents_session_thread.id)
+```
+
+#### Response
+
+```json
+{
+  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "description": "A focused research subagent.",
+    "mcp_servers": [
+      {
+        "name": "example-mcp",
+        "type": "url",
+        "url": "https://example-server.modelcontextprotocol.io/sse"
+      }
+    ],
+    "model": {
+      "id": "claude-sonnet-4-6",
+      "speed": "standard"
+    },
+    "name": "Researcher",
+    "skills": [
+      {
+        "skill_id": "xlsx",
+        "type": "anthropic",
+        "version": "1"
+      }
+    ],
+    "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+    "tools": [
+      {
+        "configs": [
+          {
+            "enabled": true,
+            "name": "bash",
+            "permission_policy": {
+              "type": "always_allow"
+            }
+          }
+        ],
+        "default_config": {
+          "enabled": true,
+          "permission_policy": {
+            "type": "always_ask"
+          }
+        },
+        "type": "agent_toolset_20260401"
+      }
+    ],
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "parent_thread_id": null,
+  "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "stats": {
+    "active_seconds": 0,
+    "duration_seconds": 0,
+    "startup_seconds": 0
+  },
+  "status": "idle",
+  "type": "session_thread",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
 ```

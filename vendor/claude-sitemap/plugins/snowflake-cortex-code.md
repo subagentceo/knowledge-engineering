@@ -1,19 +1,13 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Snowflake
-    
-    ](#)
-    
--   Installs
-    
-    373
+# Snowflake Cortex Code
+
+- Install in
+
+  Claude Code
+
+- Made by
+
+  Snowflake
+
+- Installs
+
+  808

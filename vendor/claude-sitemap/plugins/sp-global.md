@@ -1,3 +1,5 @@
+# S&P Global
+
 Plugin skills include company tear sheets, industry transaction summaries, and earnings call previews, with more coming soon. Built for financial professionals who need institutional-grade research and analysis, grounded in the data that moves markets.
 
 **Generate a company tear sheet on demand:**  

@@ -1,10 +1,12 @@
+# Lotte Homeshopping improves QA efficiency and partner satisfaction with Claude and Sendbird
+
 Lotte Homeshopping uses Claude to power Moni, their AI assistant that streamlines quality assurance processes and provides 24/7 support to partners, reducing response times and improving satisfaction across their retail network.
 
 With Claude, Lotte Homeshopping:
 
--   Processes an average of 53 partner questions daily through Moni
--   Reduced partner inquiries to QA staff by 30-40%
--   Successfully expanded from fashion to multiple product categories
+- Processes an average of 53 partner questions daily through Moni
+- Reduced partner inquiries to QA staff by 30-40%
+- Successfully expanded from fashion to multiple product categories
 
 ## Meeting the challenges of complex QA processes
 
@@ -16,9 +18,9 @@ As one of Korea's top home shopping operators, Lotte Homeshopping specializes in
 
 After evaluating numerous solutions over several months, including testing various platforms and AI providers, Lotte Homeshopping selected a combined solution: Claude, Anthropic's powerful AI model, deployed through Sendbird, a messaging platform that provides the necessary infrastructure and security. This integration allows Claude's intelligence to power their conversational experiences while Sendbird handles the messaging infrastructure, security, and delivery mechanisms. The combination offered three key strengths:
 
--   **Superior accuracy and judgment**: QA work demands a high level of judgment and accuracy when reviewing documentation and product specifications. Claude consistently demonstrated the precision Lotte Homeshopping required for their detailed quality assessment processes.
--   **Comprehensive access management**: The solution effectively handled partner access controls while ensuring complete data validation for each product, a critical requirement for their security framework.
--   **Future-proof scalability**: The platform provided clear pathways to support expanding AI services as Lotte Homeshopping grew its implementation across departments.
+- **Superior accuracy and judgment**: QA work demands a high level of judgment and accuracy when reviewing documentation and product specifications. Claude consistently demonstrated the precision Lotte Homeshopping required for their detailed quality assessment processes.
+- **Comprehensive access management**: The solution effectively handled partner access controls while ensuring complete data validation for each product, a critical requirement for their security framework.
+- **Future-proof scalability**: The platform provided clear pathways to support expanding AI services as Lotte Homeshopping grew its implementation across departments.
 
 "Unlike other AI services, Sendbird comes with built-in features like two-factor authentication and message filtering by default, allowing us to seamlessly implement the service while meeting the high-security standards required by a large enterprise like ours," said Oh Ju-young.
 
@@ -26,10 +28,10 @@ After evaluating numerous solutions over several months, including testing vario
 
 In October 2024, Lotte Homeshopping launched its AI assistant Moni, which initially focused on fashion partners before expanding to other product categories. The system leverages Claude to:
 
--   Automatically analyze and interpret guidance documents and test reports
--   Deliver consistent QA guidelines and responses across all partner interactions
--   Handle routine inquiries that previously required human specialists
--   Provide 24/7 support, eliminating delays in partner communications
+- Automatically analyze and interpret guidance documents and test reports
+- Deliver consistent QA guidelines and responses across all partner interactions
+- Handle routine inquiries that previously required human specialists
+- Provide 24/7 support, eliminating delays in partner communications
 
 ## Transforming partner experiences and operational efficiency
 

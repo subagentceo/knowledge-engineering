@@ -1,3 +1,5 @@
+# Feature Dev
+
 A structured 7-phase workflow for building features systematically. Rather than jumping into code, this plugin guides you through understanding the existing codebase, clarifying requirements, designing architecture thoughtfully, and conducting quality reviews before and after implementation.
 
 The plugin deploys three specialized agents: **code-explorer** traces execution paths and maps architecture layers to understand existing patterns; **code-architect** proposes multiple implementation approaches with clear trade-offs; and **code-reviewer** catches bugs, security issues, and convention violations with confidence-scored findings.

@@ -43,7 +43,7 @@ dream=$(curl -s https://api.anthropic.com/v1/dreams \
     { "type": "memory_store", "memory_store_id": "$store_id" },
     { "type": "sessions", "session_ids": ["$session_a", "$session_b"] }
   ],
-  "model": "claude-opus-4-7",
+  "model": "claude-opus-4-8",
   "instructions": "Focus on coding-style preferences; ignore one-off debugging notes."
 }
 EOF
@@ -52,48 +52,45 @@ dream_id=$(jq -r '.id' <<< "$dream")
 echo "$dream_id"  # drm_01...
 ````
 
-  
-````bash
+```bash
 dream_id=$(ant beta:dreams create --transform id --raw-output <<YAML
 inputs:
   - type: memory_store
     memory_store_id: $store_id
   - type: sessions
     session_ids: [$session_a, $session_b]
-model: claude-opus-4-7
+model: claude-opus-4-8
 instructions: Focus on coding-style preferences; ignore one-off debugging notes.
 YAML
 )
-````
+```
 
-  
-````python
+```python
 dream = client.beta.dreams.create(
     inputs=[
         {"type": "memory_store", "memory_store_id": store_id},
         {"type": "sessions", "session_ids": [session_a, session_b]},
     ],
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     instructions="Focus on coding-style preferences; ignore one-off debugging notes.",
 )
 print(dream.id)  # drm_01...
-````
+```
 
-  
-````typescript
+```typescript
 let dream = await client.beta.dreams.create({
   inputs: [
     { type: "memory_store", memory_store_id: storeId },
     { type: "sessions", session_ids: [sessionA, sessionB] },
   ],
-  model: "claude-opus-4-7",
-  instructions: "Focus on coding-style preferences; ignore one-off debugging notes.",
+  model: "claude-opus-4-8",
+  instructions:
+    "Focus on coding-style preferences; ignore one-off debugging notes.",
 });
 console.log(dream.id); // drm_01...
-````
+```
 
-  
-````csharp
+```csharp
 var dream = await client.Beta.Dreams.Create(new()
 {
     Inputs =
@@ -109,21 +106,20 @@ var dream = await client.Beta.Dreams.Create(new()
             SessionIds = [sessionA, sessionB],
         },
     ],
-    Model = "claude-opus-4-7",
+    Model = "claude-opus-4-8",
     Instructions = "Focus on coding-style preferences; ignore one-off debugging notes.",
 });
 Console.WriteLine(dream.ID);  // drm_01...
-````
+```
 
-  
-````go
+```go
 dream, err := client.Beta.Dreams.New(ctx, anthropic.BetaDreamNewParams{
 	Inputs: []anthropic.BetaDreamInputUnionParam{
 		anthropic.BetaDreamInputParamOfMemoryStore(storeID),
 		anthropic.BetaDreamInputParamOfSessions([]string{sessionA, sessionB}),
 	},
 	Model: anthropic.BetaDreamModelParamsUnion{
-		OfString: anthropic.String("claude-opus-4-7"),
+		OfString: anthropic.String("claude-opus-4-8"),
 	},
 	Instructions: anthropic.String("Focus on coding-style preferences; ignore one-off debugging notes."),
 })
@@ -131,50 +127,47 @@ if err != nil {
 	panic(err)
 }
 fmt.Println(dream.ID) // drm_01...
-````
+```
 
-  
-````java
+```java
 var dream = client.beta().dreams().create(
     DreamCreateParams.builder()
         .addMemoryStoreInput(storeId)
         .addSessionsInput(List.of(sessionA, sessionB))
-        .model("claude-opus-4-7")
+        .model("claude-opus-4-8")
         .instructions("Focus on coding-style preferences; ignore one-off debugging notes.")
         .build()
 );
 IO.println(dream.id());  // drm_01...
-````
+```
 
-  
-````php
+```php
 $dream = $client->beta->dreams->create(
     inputs: [
         ['type' => 'memory_store', 'memory_store_id' => $storeId],
         ['type' => 'sessions', 'session_ids' => [$sessionA, $sessionB]],
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     instructions: 'Focus on coding-style preferences; ignore one-off debugging notes.',
 );
 echo "{$dream->id}\n"; // drm_01...
-````
+```
 
-  
-````ruby
+```ruby
 dream = client.beta.dreams.create(
   inputs: [
     {type: "memory_store", memory_store_id: store_id},
     {type: "sessions", session_ids: [session_a, session_b]}
   ],
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   instructions: "Focus on coding-style preferences; ignore one-off debugging notes."
 )
 puts dream.id # drm_01...
-````
+```
 
 </CodeGroup>
 
-Dreaming inputs include the pre-existing memory store and an array of sessions. The model selected will run the dreaming pipeline; during the research preview `claude-opus-4-7` and `claude-sonnet-4-6` are supported. You can also provide additional guidance on dreaming run execution in `instructions`.
+Dreaming inputs include the pre-existing memory store and an array of sessions. The model selected will run the dreaming pipeline; during the research preview `claude-opus-4-8`, `claude-opus-4-7`, and `claude-sonnet-4-6` are supported. You can also provide additional guidance on dreaming run execution in `instructions`.
 
 The response is the full `dream` resource with `status: "pending"`:
 
@@ -188,7 +181,7 @@ The response is the full `dream` resource with `status: "pending"`:
     { "type": "sessions", "session_ids": ["sesn_01...", "sesn_02..."] }
   ],
   "outputs": [],
-  "model": { "id": "claude-opus-4-7" },
+  "model": { "id": "claude-opus-4-8" },
   "instructions": "Focus on coding-style preferences; ignore one-off debugging notes.",
   "session_id": null,
   "created_at": "2026-04-29T17:04:10Z",
@@ -227,40 +220,37 @@ while true; do
 done
 ````
 
-  
-````bash
+```bash
 ant beta:dreams retrieve --dream-id "$dream_id"
-````
+```
 
-  
-````python
+```python
 while dream.status in ("pending", "running"):
     time.sleep(10)
     dream = client.beta.dreams.retrieve(dream.id)
     print(f"status={dream.status} input_tokens={dream.usage.input_tokens}")
-````
+```
 
-  
-````typescript
+```typescript
 while (dream.status === "pending" || dream.status === "running") {
   await sleep(10_000);
   dream = await client.beta.dreams.retrieve(dream.id);
-  console.log(`status=${dream.status} input_tokens=${dream.usage.input_tokens}`);
+  console.log(
+    `status=${dream.status} input_tokens=${dream.usage.input_tokens}`,
+  );
 }
-````
+```
 
-  
-````csharp
+```csharp
 while (dream.Status.Value() is BetaDreamStatus.Pending or BetaDreamStatus.Running)
 {
     await Task.Delay(TimeSpan.FromSeconds(10));
     dream = await client.Beta.Dreams.Retrieve(dream.ID);
     Console.WriteLine($"status={dream.Status.Raw()} input_tokens={dream.Usage.InputTokens}");
 }
-````
+```
 
-  
-````go
+```go
 for dream.Status == anthropic.BetaDreamStatusPending || dream.Status == anthropic.BetaDreamStatusRunning {
 	time.Sleep(10 * time.Second)
 	dream, err = client.Beta.Dreams.Get(ctx, dream.ID, anthropic.BetaDreamGetParams{})
@@ -269,47 +259,44 @@ for dream.Status == anthropic.BetaDreamStatusPending || dream.Status == anthropi
 	}
 	fmt.Printf("status=%s input_tokens=%d\n", dream.Status, dream.Usage.InputTokens)
 }
-````
+```
 
-  
-````java
+```java
 while (dream.status().equals(BetaDreamStatus.PENDING)
         || dream.status().equals(BetaDreamStatus.RUNNING)) {
     Thread.sleep(10_000);
     dream = client.beta().dreams().retrieve(dream.id());
     IO.println("status=" + dream.status() + " input_tokens=" + dream.usage().inputTokens());
 }
-````
+```
 
-  
-````php
+```php
 while (in_array($dream->status, [BetaDreamStatus::PENDING->value, BetaDreamStatus::RUNNING->value], true)) {
     sleep(10);
     $dream = $client->beta->dreams->retrieve($dream->id);
     echo "status={$dream->status} input_tokens={$dream->usage->inputTokens}\n";
 }
-````
+```
 
-  
-````ruby
+```ruby
 while %i[pending running].include?(dream.status)
   sleep 10
   dream = client.beta.dreams.retrieve(dream.id)
   puts "status=#{dream.status} input_tokens=#{dream.usage.input_tokens}"
 end
-````
+```
 
 </CodeGroup>
 
 ### Lifecycle
 
-| `status` | Meaning |
-| --- | --- |
-| `pending` | Dream successfully created and queued.  |
-| `running` | The pipeline is processing. `usage` updates as work progresses. |
-| `completed` | Finished successfully. The `outputs[]` value is the new memory store. |
-| `failed` | Dreaming run terminated with an error. The output memory store is left as-is with whatever was written before failure. |
-| `canceled` | Dreaming run canceled. The output memory store is left as-is. |
+| `status`    | Meaning                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `pending`   | Dream successfully created and queued.                                                                                 |
+| `running`   | The pipeline is processing. `usage` updates as work progresses.                                                        |
+| `completed` | Finished successfully. The `outputs[]` value is the new memory store.                                                  |
+| `failed`    | Dreaming run terminated with an error. The output memory store is left as-is with whatever was written before failure. |
+| `canceled`  | Dreaming run canceled. The output memory store is left as-is.                                                          |
 
 ### Watch the pipeline run
 
@@ -329,22 +316,23 @@ When `status` reaches `completed`, the `memory_store` entry in `outputs[]` refer
 output_store_id=$(jq -r 'first(.outputs[] | select(.type == "memory_store")).memory_store_id' <<< "$dream")
 
 curl -s https://api.anthropic.com/v1/sessions \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
   -H "anthropic-version: 2023-06-01" \
   -H "anthropic-beta: managed-agents-2026-04-01" \
   -H "content-type: application/json" \
   --data @- <<EOF
 {
   "agent": "$agent_id",
-  "environment_id": "$environment_id",
+"environment_id": "$environment_id",
   "resources": [
     { "type": "memory_store", "memory_store_id": "$output_store_id" }
-  ]
+]
 }
 EOF
-````
 
-  
+`````
+
+
 ````bash
 output_store_id=$(ant beta:dreams retrieve --dream-id "$dream_id" --format json |
   jq -r 'first(.outputs[] | select(.type == "memory_store")).memory_store_id')
@@ -356,10 +344,9 @@ resources:
   - type: memory_store
     memory_store_id: $output_store_id
 YAML
-````
+`````
 
-  
-````python
+```python
 # After the dream ends, the output holds the rebuilt memory store
 output_store_id = next(
     output.memory_store_id for output in dream.outputs if output.type == "memory_store"
@@ -372,10 +359,9 @@ session = client.beta.sessions.create(
         {"type": "memory_store", "memory_store_id": output_store_id},
     ],
 )
-````
+```
 
-  
-````typescript
+```typescript
 // After the dream ends, the output holds the rebuilt memory store
 const output = dream.outputs.find((entry) => entry.type === "memory_store");
 const outputStoreId = output!.memory_store_id;
@@ -383,14 +369,11 @@ const outputStoreId = output!.memory_store_id;
 await client.beta.sessions.create({
   agent: agentId,
   environment_id: environmentId,
-  resources: [
-    { type: "memory_store", memory_store_id: outputStoreId },
-  ],
+  resources: [{ type: "memory_store", memory_store_id: outputStoreId }],
 });
-````
+```
 
-  
-````csharp
+```csharp
 var output = dream.Outputs.FirstOrDefault(entry => entry.Type == "memory_store");
 if (output is { MemoryStoreID: var outputStoreID })
 {
@@ -408,10 +391,9 @@ if (output is { MemoryStoreID: var outputStoreID })
         ],
     });
 }
-````
+```
 
-  
-````go
+```go
 for _, output := range dream.Outputs {
 	if output.Type != "memory_store" {
 		continue
@@ -435,10 +417,9 @@ for _, output := range dream.Outputs {
 	fmt.Println(session.ID)
 	break
 }
-````
+```
 
-  
-````java
+```java
 var output = dream.outputs().stream()
     .filter(entry -> entry.type().equals(BetaDreamOutput.Type.MEMORY_STORE))
     .findFirst();
@@ -453,10 +434,9 @@ if (output.isPresent()) {
             .build()
     );
 }
-````
+```
 
-  
-````php
+```php
 $matches = array_filter($dream->outputs, fn($output) => $output->type === 'memory_store');
 $output = $matches ? reset($matches) : null;
 if ($output !== null) {
@@ -468,10 +448,9 @@ if ($output !== null) {
         ],
     );
 }
-````
+```
 
-  
-````ruby
+```ruby
 output = dream.outputs.find { it.type == :memory_store }
 if output
   client.beta.sessions.create(
@@ -482,7 +461,7 @@ if output
     ]
   )
 end
-````
+```
 
 </CodeGroup>
 
@@ -505,48 +484,40 @@ curl -s -X POST "https://api.anthropic.com/v1/dreams/$dream_id/cancel" \
   -H "anthropic-beta: managed-agents-2026-04-01,dreaming-2026-04-21"
 ````
 
-  
-````bash
+```bash
 ant beta:dreams cancel --dream-id "$dream_id"
-````
+```
 
-  
-````python
+```python
 client.beta.dreams.cancel(dream.id)
-````
+```
 
-  
-````typescript
+```typescript
 await client.beta.dreams.cancel(dream.id);
-````
+```
 
-  
-````csharp
+```csharp
 await client.Beta.Dreams.Cancel(dream.ID);
-````
+```
 
-  
-````go
+```go
 dream, err = client.Beta.Dreams.Cancel(ctx, dream.ID, anthropic.BetaDreamCancelParams{})
 if err != nil {
 	panic(err)
 }
-````
+```
 
-  
-````java
+```java
 client.beta().dreams().cancel(dream.id());
-````
+```
 
-  
-````php
+```php
 $client->beta->dreams->cancel($dream->id);
-````
+```
 
-  
-````ruby
+```ruby
 client.beta.dreams.cancel(dream.id)
-````
+```
 
 </CodeGroup>
 
@@ -563,48 +534,40 @@ curl -s -X POST "https://api.anthropic.com/v1/dreams/$dream_id/archive" \
   -H "anthropic-beta: managed-agents-2026-04-01,dreaming-2026-04-21"
 ````
 
-  
-````bash
+```bash
 ant beta:dreams archive --dream-id "$dream_id"
-````
+```
 
-  
-````python
+```python
 client.beta.dreams.archive(dream.id)
-````
+```
 
-  
-````typescript
+```typescript
 await client.beta.dreams.archive(dream.id);
-````
+```
 
-  
-````csharp
+```csharp
 await client.Beta.Dreams.Archive(dream.ID);
-````
+```
 
-  
-````go
+```go
 dream, err = client.Beta.Dreams.Archive(ctx, dream.ID, anthropic.BetaDreamArchiveParams{})
 if err != nil {
 	panic(err)
 }
-````
+```
 
-  
-````java
+```java
 client.beta().dreams().archive(dream.id());
-````
+```
 
-  
-````php
+```php
 $client->beta->dreams->archive($dream->id);
-````
+```
 
-  
-````ruby
+```ruby
 client.beta.dreams.archive(dream.id)
-````
+```
 
 </CodeGroup>
 
@@ -623,35 +586,30 @@ curl -s "https://api.anthropic.com/v1/dreams?limit=20" \
   -H "anthropic-beta: managed-agents-2026-04-01,dreaming-2026-04-21"
 ````
 
-  
-````bash
+```bash
 ant beta:dreams list --limit 20
-````
+```
 
-  
-````python
+```python
 for listed_dream in client.beta.dreams.list(limit=20):
     print(listed_dream.id, listed_dream.status)
-````
+```
 
-  
-````typescript
+```typescript
 for await (const listedDream of client.beta.dreams.list({ limit: 20 })) {
   console.log(listedDream.id, listedDream.status);
 }
-````
+```
 
-  
-````csharp
+```csharp
 var page = await client.Beta.Dreams.List(new() { Limit = 20 });
 await foreach (var listed in page.Paginate())
 {
     Console.WriteLine($"{listed.ID} {listed.Status.Raw()}");
 }
-````
+```
 
-  
-````go
+```go
 dreams := client.Beta.Dreams.ListAutoPaging(ctx, anthropic.BetaDreamListParams{
 	Limit: anthropic.Int(20),
 })
@@ -662,30 +620,27 @@ for dreams.Next() {
 if err := dreams.Err(); err != nil {
 	panic(err)
 }
-````
+```
 
-  
-````java
+```java
 for (var listedDream : client.beta().dreams().list(
     DreamListParams.builder().limit(20).build()
 ).autoPager()) {
     IO.println(listedDream.id() + " " + listedDream.status());
 }
-````
+```
 
-  
-````php
+```php
 foreach ($client->beta->dreams->list(limit: 20)->pagingEachItem() as $dream) {
     echo "{$dream->id} {$dream->status}\n";
 }
-````
+```
 
-  
-````ruby
+```ruby
 client.beta.dreams.list(limit: 20).auto_paging_each do
   puts "#{it.id} #{it.status}"
 end
-````
+```
 
 </CodeGroup>
 
@@ -693,14 +648,14 @@ end
 
 A non-exhaustive list of possible dreaming errors is below.
 
-| `error.type` | When |
-| --- | --- |
-| `timeout` | The pipeline exceeded its runtime budget. |
-| `internal_error` | Unclassified pipeline failure. |
+| `error.type`                      | When                                                                                            |
+| --------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `timeout`                         | The pipeline exceeded its runtime budget.                                                       |
+| `internal_error`                  | Unclassified pipeline failure.                                                                  |
 | `memory_store_org_limit_exceeded` | Your organization hit its memory-store cap while the pipeline was provisioning working storage. |
-| `input_memory_store_too_large` | The input memory store exceeds the pipeline's size limit. |
-| `input_memory_store_unavailable` | The input memory store was archived or deleted after the dream was created. |
-| `input_session_unavailable` | An input session was archived or deleted after the dream was created. |
+| `input_memory_store_too_large`    | The input memory store exceeds the pipeline's size limit.                                       |
+| `input_memory_store_unavailable`  | The input memory store was archived or deleted after the dream was created.                     |
+| `input_session_unavailable`       | An input session was archived or deleted after the dream was created.                           |
 
 ## Billing
 
@@ -708,10 +663,10 @@ Dreams are billed at standard API token rates for the model you select; `usage` 
 
 ## Limits
 
-| Limit | Value |
-| --- | --- |
-| Sessions per dream | 100 |
-| `instructions` length | 4,096 characters |
-| Supported models | `claude-opus-4-7`, `claude-sonnet-4-6` |
+| Limit                 | Value                                                     |
+| --------------------- | --------------------------------------------------------- |
+| Sessions per dream    | 100                                                       |
+| `instructions` length | 4,096 characters                                          |
+| Supported models      | `claude-opus-4-8`, `claude-opus-4-7`, `claude-sonnet-4-6` |
 
 Default rate limits apply to dream creation while this feature is in beta. [Contact support](https://support.claude.com) if you need higher limits.

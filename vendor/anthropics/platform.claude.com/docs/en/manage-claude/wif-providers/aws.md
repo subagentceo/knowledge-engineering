@@ -188,8 +188,8 @@ async function getStsWebIdentityToken(): Promise<string> {
     new GetWebIdentityTokenCommand({
       Audience: ["https://api.anthropic.com"],
       SigningAlgorithm: "RS256",
-      DurationSeconds: 900
-    })
+      DurationSeconds: 900,
+    }),
   );
   return out.WebIdentityToken!;
 }
@@ -202,14 +202,14 @@ const client = new Anthropic({
     serviceAccountId: process.env.ANTHROPIC_SERVICE_ACCOUNT_ID,
     workspaceId: process.env.ANTHROPIC_WORKSPACE_ID,
     baseURL: "https://api.anthropic.com",
-    fetch
-  })
+    fetch,
+  }),
 });
 
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello from AWS" }]
+  messages: [{ role: "user", content: "Hello from AWS" }],
 });
 for (const block of message.content) {
   if (block.type === "text") {
@@ -486,6 +486,7 @@ This path additionally requires an EKS cluster with an [IAM OIDC provider enable
     ```
 
     The output looks like `https://oidc.eks.us-west-2.amazonaws.com/id/6FA42E7BFDE8549CB...`. You'll register this URL as a federation issuer in the next section.
+
   </Step>
 
   <Step title="Create the service account and project an Anthropic-audience token">
@@ -536,6 +537,7 @@ This path additionally requires an EKS cluster with an [IAM OIDC provider enable
               mountPath: /var/run/secrets/anthropic.com
               readOnly: true
     ```
+
   </Step>
 
   <Step title="Note the token's claim shape">
@@ -556,6 +558,7 @@ This path additionally requires an EKS cluster with an [IAM OIDC provider enable
     ```
 
     The `serviceAccountToken` projection sets `aud` to `https://api.anthropic.com`. The separate IRSA-injected token at `AWS_WEB_IDENTITY_TOKEN_FILE` carries `aud: sts.amazonaws.com` and is for AWS API calls, not this exchange.
+
   </Step>
 </Steps>
 
@@ -661,20 +664,22 @@ import { identityTokenFromFile } from "@anthropic-ai/sdk/lib/credentials/identit
 
 const client = new Anthropic({
   credentials: oidcFederationProvider({
-    identityTokenProvider: identityTokenFromFile(process.env.ANTHROPIC_IDENTITY_TOKEN_FILE!),
+    identityTokenProvider: identityTokenFromFile(
+      process.env.ANTHROPIC_IDENTITY_TOKEN_FILE!,
+    ),
     federationRuleId: process.env.ANTHROPIC_FEDERATION_RULE_ID!,
     organizationId: process.env.ANTHROPIC_ORGANIZATION_ID!,
     serviceAccountId: process.env.ANTHROPIC_SERVICE_ACCOUNT_ID,
     workspaceId: process.env.ANTHROPIC_WORKSPACE_ID,
     baseURL: "https://api.anthropic.com",
-    fetch
-  })
+    fetch,
+  }),
 });
 
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello from EKS" }]
+  messages: [{ role: "user", content: "Hello from EKS" }],
 });
 for (const block of message.content) {
   if (block.type === "text") {

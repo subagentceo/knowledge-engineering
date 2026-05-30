@@ -8,7 +8,7 @@ This feature works with repositories you may not have on your local machine. You
 
 Claude Code for web enables asynchronous development workflows. With Claude Code in your terminal or editor, you typically work synchronously: you make a request, wait for Claude to respond, review the changes, then make another request. Synchronous work like this gives you fine-grained control but requires your attention throughout the process. Claude Code on the web handles this differently: you can assign a larger task, let Claude work independently, and return later to review the completed work.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446157/07ec74cd46317f8278083a317841/6448f3ee-c6df-4417-8a13-90d8c2ca3d55?expires=1778914800&amp;signature=a51ae8b0aa05c9405b878f8a972e07c5168138037ecc298f59e3abf57604109b&amp;req=dScvEM16m4BaXvMW1HO4zR8%2BD1uJQ5l%2B7XrRA1YwWGuBWXsUpmtSs8Qj7HU%2F%0AQOSDUvDKFS9X0nDxdNU%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446157/07ec74cd46317f8278083a317841/6448f3ee-c6df-4417-8a13-90d8c2ca3d55?expires=1780164900&signature=6e072d3ae0862ce89139cf563f34de5c8251aa49db731e3926e108ad79e3e0c6&req=dScvEM16m4BaXvMW1HO4zR8%2BAFOBRJl%2F7XrRA1YwWGtYrcdnjVmjH9TL0DSl%0AdFDcBLhl4kKPrh37ZuY%3D%0A)
 
 You can also run multiple tasks in parallel. Since each task runs in its own isolated environment, you can have Claude working on several different issues or repositories simultaneously. Each task proceeds independently and creates its own pull request when complete. More than one task can work on the same repository at the same time.
 
@@ -16,13 +16,13 @@ You can also run multiple tasks in parallel. Since each task runs in its own iso
 
 When you start a task, Claude Code on the web creates an isolated virtual machine for your work. Your GitHub repository is cloned into this environment, which comes pre-configured with common development tools and language ecosystems.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446158/c092f1383826cb871493f74169d4/97b7cb98-5da2-438e-a920-e170b8b9790e?expires=1778914800&amp;signature=a36bb4a2608119c35b5d73a9dff6fb5ffda062db7560b66b839bc48ab6c4da15&amp;req=dScvEM16m4BaUfMW1HO4zcR0op49ju3I7DtpMiX%2FBYnhL0P5YUTZ8ojpp55q%0AFpdlpcBPYDJQcyof8qo%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446158/c092f1383826cb871493f74169d4/97b7cb98-5da2-438e-a920-e170b8b9790e?expires=1780164900&signature=726b7cfa6a13ba595927ac247c76ef713f60d6d0e70e9e42064cfa67984304b9&req=dScvEM16m4BaUfMW1HO4zcR0rZY1ie3J7DtpMiX%2FBYm0blHn29vD1%2Br%2BUHUJ%0AVx6XxlWWCm35yPU7DjE%3D%0A)
 
 Claude prepares the environment by running any setup commands you've defined in your repository's configuration. This includes installing dependencies, setting up databases, or running other initialization steps your project needs. If your task requires network access, maybe to install packages or fetch data, you can configure the level of internet access the environment has.
 
 Once the environment is ready, Claude begins working on your task. Claude reads your code, makes changes, writes tests, and runs commands to verify the work. You can monitor progress and provide guidance through the web interface if needed.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446156/83ecf0a5b98eddc9ffc9694c50f7/353589ce-b678-441d-8909-71b45fa2d065?expires=1778914800&amp;signature=159970754903aa0a87254f8b2989780ce14f541b967cda2f2b56a486ac9b8185&amp;req=dScvEM16m4BaX%2FMW1HO4zVbcQ2uK4sDGUQl3YqgIJdbStD%2BXpWp6WPgaS7dz%0AeIp9nYgD8uuFAcXHfUg%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1786446156/83ecf0a5b98eddc9ffc9694c50f7/353589ce-b678-441d-8909-71b45fa2d065?expires=1780164900&signature=b0e0a1f1dbee148ce4911e07594f834e787c41638b868b4117b4ef9363e48e75&req=dScvEM16m4BaX%2FMW1HO4zVbcTGOC5cDHUQl3YqgIJdaxlB%2BIv40EiCSrATzc%0Aj7H34ydn0lkFhaCsSh4%3D%0A)
 
 When Claude completes the task, it pushes the changes to a new branch in your GitHub repository. You receive a notification and can review the changes, then create a pull request directly from the interface. The pull request includes all of Claude's work, ready for your review and any additional changes you want to make.
 
@@ -71,6 +71,7 @@ The rate limiter should:
 
 Use a TDD approach: write comprehensive tests first, then implement the rate limiting logic to pass them.
 ```
+
 **When to use this approach:** This works well on the web because the tests give Claude clear validation criteria to work towards. You don't need to monitor Claude's progress since the tests will catch issues and guide iteration toward a working solution. The self-contained nature of the task, where Claude writes tests then makes them pass, doesn't require your input once started.
 
 **What makes this effective:** Claude can iterate on the implementation without your supervision, using test failures to identify and fix problems. The task runs longer than a simple code change, but you can let it complete in the background. When you review the pull request, both the tests and implementation are ready, and you have confidence the solution works because the tests pass.
@@ -87,6 +88,7 @@ Update CHANGELOG.md with all changes since the v2.3.0 release:
   - Categorize changes into "Added, "Changed, "Fixed", and "Removed" sections.
   - Include the commit hash for each entry.
 ```
+
 **When to use this approach:** Changelog updates are well-suited for the web because Claude can review commit history independently and format entries without guidance. The task is tedious to do manually but straightforward enough that Claude can complete it without questions about which commits to include or how to categorize them.
 
 **What makes this effective:** You can delegate the entire changelog update and review the result when complete. Claude reads through commits, extracts meaningful changes, and follows your existing changelog format.
@@ -106,6 +108,7 @@ Split it into three focused services:
 
 Ensure all tests still pass.
 ```
+
 **When to use this approach:** Refactoring with clear constraints works well on the web because you can set clear boundaries for Claude to follow. Test suites can provide validation, allowing Claude to verify the refactor didn't break any existing functionality.
 
 **What makes this effective:** The task takes time, but doesn't need your active input once the structure is defined. You can start the refactor and review the organized result later, rather than monitoring Claude as it works through the task. The clear scope means Claude is unlikely to need guidance mid-task.

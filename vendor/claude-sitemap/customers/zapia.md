@@ -1,10 +1,12 @@
-[Zapia](https://zapia.com/en) helps Latin American consumers discover products, make purchases, and get support through popular messaging apps like WhatsApp. With Claude on Google Cloud’s Vertex AI, Zapia is transforming commerce for millions across the region. Vertex AI is a fully-managed, unified AI development platform for building and using generative AI.
+# Zapia powers local commerce for millions across Latin America with Claude and Google Cloud’s Vertex AI
+
+Zapia helps Latin American consumers discover products, make purchases, and get support through popular messaging apps like WhatsApp. With Claude on Google Cloud’s Vertex AI, Zapia is transforming commerce for millions across the region. Vertex AI is a fully-managed, unified AI development platform for building and using generative AI.
 
 By using Claude on Vertex AI, Zapia:
 
--   Grew by 2.5 million users in their first year
--   Generated over 90% positive user feedback
--   Handles hundreds of thousands of messages per hour
+- Grew by 2.5 million users in their first year
+- Generated over 90% positive user feedback
+- Handles hundreds of thousands of messages per hour
 
 ## Bringing AI-powered commerce to Latin America's messaging culture
 
@@ -28,10 +30,10 @@ Vertex AI helped BrainLogic deploy and manage Claude models easily. Olloniego no
 
 Zapia uses Claude for various capabilities:
 
--   **Product discovery and recommendations:** Users can ask Zapia natural language questions about products they're interested in. Claude analyzes the query, accesses product databases, and provides personalized recommendations.
--   **Purchase assistance:** Zapia can guide users through the purchase process, answering questions and facilitating transactions directly in messaging apps.
--   **Customer support:** Claude enables Zapia to handle various customer service inquiries, only escalating to human agents when necessary.
--   **Local business search:** Users can ask Zapia to find nearby businesses or services. Claude uses BrainLogic's database of millions of Latin American business WhatsApp numbers to connect users directly.
+- **Product discovery and recommendations:** Users can ask Zapia natural language questions about products they're interested in. Claude analyzes the query, accesses product databases, and provides personalized recommendations.
+- **Purchase assistance:** Zapia can guide users through the purchase process, answering questions and facilitating transactions directly in messaging apps.
+- **Customer support:** Claude enables Zapia to handle various customer service inquiries, only escalating to human agents when necessary.
+- **Local business search:** Users can ask Zapia to find nearby businesses or services. Claude uses BrainLogic's database of millions of Latin American business WhatsApp numbers to connect users directly.
 
 Zapia can also help with many other localized tasks like schoolwork using regional curricula, and providing entertainment recommendations and news summaries.
 

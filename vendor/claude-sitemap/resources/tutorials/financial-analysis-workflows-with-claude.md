@@ -1,3 +1,5 @@
+# Financial analysis workflows with Claude
+
 This article demonstrates how to use Claude for complete financial analysis workflows, from data retrieval through final deliverables. Each workflow follows a three-phase approach: retrieving data from integrated sources, analyzing the information to generate insights, and creating professional outputs for decision-making.
 
 ## Understanding the Workflow Approach
@@ -14,8 +16,8 @@ Effective financial analysis with Claude follows a structured approach that mirr
 
 Before beginning your workflow, establish a proper workspace to maintain context and organization:
 
--   Create a project for your analysis
--   Upload any reference documents such as previous analyses or style guides
+- Create a project for your analysis
+- Upload any reference documents such as previous analyses or style guides
 
 For detailed project setup instructions, see What are projects? The examples that follow assume you have the necessary integrations enabled and have created a project workspace.
 
@@ -117,11 +119,11 @@ Generate an interactive dashboard for the portfolio review:
 
 Create an interactive artifact showing: portfolio summary with weighted returns for each period and performance versus benchmark, individual position cards showing total return, consensus rating, forward P/E, and recent earnings surprise, a waterfall chart showing each position's contribution to total portfolio return, and a scatter plot comparing YTD returns against forward P/E ratios to identify value opportunities. Include drill-down capability for each holding to see detailed performance metrics.
 
-[Artifacts can be shared](https://support.claude.com/en/articles/9547008-discovering-publishing-customizing-and-sharing-artifacts#h_264285dcf3) with other members of your organization. The interactive nature allows stakeholders to explore the data without requiring multiple static reports.
+Artifacts can be shared with other members of your organization. The interactive nature allows stakeholders to explore the data without requiring multiple static reports.
 
 ## Next Steps
 
--   Review integration guides to understand data availability for your specific use cases.
--   See [Prompting Strategies for Financial Analysis](https://support.claude.com/en/articles/12220277-prompting-strategies-for-financial-analysis) for techniques to optimize your workflows.
--   Test workflows with smaller datasets before scaling to full analyses.
--   Save successful prompt sequences as templates for recurring analyses.
+- Review integration guides to understand data availability for your specific use cases.
+- See Prompting Strategies for Financial Analysis for techniques to optimize your workflows.
+- Test workflows with smaller datasets before scaling to full analyses.
+- Save successful prompt sequences as templates for recurring analyses.

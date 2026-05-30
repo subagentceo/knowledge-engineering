@@ -1,4 +1,4 @@
-## List
+## List User Profiles
 
 `client.Beta.UserProfiles.List(ctx, params) (*PageCursor[BetaUserProfile], error)`
 
@@ -9,7 +9,6 @@ List User Profiles
 ### Parameters
 
 - `params BetaUserProfileListParams`
-
   - `Limit param.Field[int64]`
 
     Query param: Query parameter for limit
@@ -17,7 +16,6 @@ List User Profiles
   - `Order param.Field[BetaUserProfileListParamsOrder]`
 
     Query param: Query parameter for order
-
     - `const BetaUserProfileListParamsOrderAsc BetaUserProfileListParamsOrder = "asc"`
 
     - `const BetaUserProfileListParamsOrderDesc BetaUserProfileListParamsOrder = "desc"`
@@ -29,11 +27,9 @@ List User Profiles
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -82,10 +78,15 @@ List User Profiles
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaUserProfile struct{…}`
-
   - `ID string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -101,7 +102,6 @@ List User Profiles
   - `Relationship BetaUserProfileRelationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `const BetaUserProfileRelationshipExternal BetaUserProfileRelationship = "external"`
 
     - `const BetaUserProfileRelationshipResold BetaUserProfileRelationship = "resold"`
@@ -111,11 +111,9 @@ List User Profiles
   - `TrustGrants map[string, BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `Status BetaUserProfileTrustGrantStatus`
 
       Status of the trust grant.
-
       - `const BetaUserProfileTrustGrantStatusActive BetaUserProfileTrustGrantStatus = "active"`
 
       - `const BetaUserProfileTrustGrantStatusPending BetaUserProfileTrustGrantStatus = "pending"`
@@ -125,7 +123,6 @@ List User Profiles
   - `Type BetaUserProfileType`
 
     Object type. Always `user_profile`.
-
     - `const BetaUserProfileTypeUserProfile BetaUserProfileType = "user_profile"`
 
   - `UpdatedAt Time`
@@ -164,5 +161,30 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", page)
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {},
+      "relationship": "external",
+      "trust_grants": {
+        "cyber": {
+          "status": "active"
+        }
+      },
+      "type": "user_profile",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "external_id": "user_12345",
+      "name": "Example User"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```

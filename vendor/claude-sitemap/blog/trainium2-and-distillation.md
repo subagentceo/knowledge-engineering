@@ -1,6 +1,8 @@
-As part of our expanded [collaboration with AWS](https://www.anthropic.com/news/anthropic-amazon-trainium), we’ve begun optimizing Claude models to run on [AWS Trainium2](https://aws.amazon.com/ai/machine-learning/trainium/), their most advanced AI chip.
+# Claude 3.5 Haiku on AWS Trainium2 and model distillation in Amazon Bedrock
 
-To preview what’s possible with Trainium2, Claude 3.5 Haiku now supports latency-optimized inference in [Amazon Bedrock](https://aws.amazon.com/bedrock/claude/), making the model significantly faster without compromising accuracy.
+As part of our expanded collaboration with AWS, we’ve begun optimizing Claude models to run on AWS Trainium2, their most advanced AI chip.
+
+To preview what’s possible with Trainium2, Claude 3.5 Haiku now supports latency-optimized inference in Amazon Bedrock, making the model significantly faster without compromising accuracy.
 
 We’re also adding support for model distillation in Amazon Bedrock, bringing the intelligence of larger Claude models to our faster and more cost-effective models.
 
@@ -10,7 +12,7 @@ We are collaborating with AWS to build Project Rainier—an EC2 UltraCluster of 
 
 Trainium2 enables us to offer faster models in Amazon Bedrock, starting with Claude 3.5 Haiku which now supports latency-optimized inference in public preview. By enabling latency optimization, Claude 3.5 Haiku can deliver up to 60% faster inference speed—making it the ideal choice for use cases ranging from code completions to real-time content moderation and chatbots.
 
-This faster version of Claude 3.5 Haiku, powered by Trainium2, is available in the US East (Ohio) Region via [cross-region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) and is offered at $1 per million input tokens and $5 per million output tokens.
+This faster version of Claude 3.5 Haiku, powered by Trainium2, is available in the US East (Ohio) Region via cross-region inference and is offered at $1 per million input tokens and $5 per million output tokens.
 
 ### Amazon Bedrock Model Distillation
 
@@ -26,11 +28,11 @@ Unlike traditional fine-tuning, which requires developers to manually craft trai
 
 Amazon Bedrock Model Distillation automatically applies different data synthesis methods—from generating similar prompts to creating new high-quality responses based on your example prompt-response pairs.
 
-Distillation for Claude 3 Haiku in Amazon Bedrock is now available in preview. Learn more in the AWS [launch blog](https://aws.amazon.com/blogs/aws/build-faster-more-cost-efficient-highly-accurate-models-with-amazon-bedrock-model-distillation-preview/) and [documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/model-distillation.html).
+Distillation for Claude 3 Haiku in Amazon Bedrock is now available in preview. Learn more in the AWS launch blog and documentation.
 
 ### Lower prices for Claude 3.5 Haiku
 
-In addition to offering a faster version on Trainium2, customers can continue to access [Claude 3.5 Haiku](https://www.anthropic.com/claude/haiku) on the [Anthropic API](https://console.anthropic.com/workbench), [Amazon Bedrock](https://aws.amazon.com/bedrock/claude/), and [Google Cloud’s Vertex AI](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/use-claude).
+In addition to offering a faster version on Trainium2, customers can continue to access Claude 3.5 Haiku on the Anthropic API, Amazon Bedrock, and Google Cloud’s Vertex AI.
 
 To make this model even more accessible for a wide range of use cases, we’re lowering the price of Claude 3.5 Haiku to $0.80 per million input tokens and $4 per million output tokens across all platforms.
 
@@ -38,7 +40,7 @@ To make this model even more accessible for a wide range of use cases, we’re l
 
 Starting today, model distillation and the faster Claude 3.5 Haiku are available in preview in Amazon Bedrock. For developers seeking the optimal balance of price, performance, and speed, you now have expanded model options with Claude:
 
--   Claude 3.5 Haiku with latency optimization, powered by Trainium2, for general use cases
--   Claude 3 Haiku, distilled with frontier performance, for high-volume, repetitive use cases
+- Claude 3.5 Haiku with latency optimization, powered by Trainium2, for general use cases
+- Claude 3 Haiku, distilled with frontier performance, for high-volume, repetitive use cases
 
-To get started, visit the [Amazon Bedrock console](https://signin.aws.amazon.com/signup?request_type=register). We can’t wait to see what you build.
+To get started, visit the Amazon Bedrock console. We can’t wait to see what you build.

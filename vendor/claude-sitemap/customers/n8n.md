@@ -1,11 +1,13 @@
-[n8n](https://n8n.io) empowers technical teams to build, orchestrate, and deploy reliable AI workflows and agents, combining the speed of a visual builder with the flexibility of custom code. Their platform has earned more than 170,000 GitHub stars, putting it in the top 50 projects of all time, and customers span from solo founders to Fortune 100 companies.
+# n8n turns natural language into workflow automations with Claude
+
+n8n empowers technical teams to build, orchestrate, and deploy reliable AI workflows and agents, combining the speed of a visual builder with the flexibility of custom code. Their platform has earned more than 170,000 GitHub stars, putting it in the top 50 projects of all time, and customers span from solo founders to Fortune 100 companies.
 
 **With Claude, n8n:**
 
--   Built its AI Workflow Builder product on Claude in two months from concept to production, with the architecture since evolving into a multi-agent system with specialized agents managing different tasks
--   Developed a chat-based workflow creator and debugger that replaces the two-tab workflow of switching between an LLM and the n8n interface
--   Cuts 80% of the work out of building a workflow, leaving engineers to handle the final refinements
--   Built reliable function calling for complex multi-step workflow assembly, with Claude performing best among other models for precise instruction following 
+- Built its AI Workflow Builder product on Claude in two months from concept to production, with the architecture since evolving into a multi-agent system with specialized agents managing different tasks
+- Developed a chat-based workflow creator and debugger that replaces the two-tab workflow of switching between an LLM and the n8n interface
+- Cuts 80% of the work out of building a workflow, leaving engineers to handle the final refinements
+- Built reliable function calling for complex multi-step workflow assembly, with Claude performing best among other models for precise instruction following 
 
 ## The challenge: Getting a model to generate a precise structured format
 
@@ -39,7 +41,7 @@ For experienced users, the value is speed. The AI Workflow Builder delivers roug
 
 The same interface also helps users debug: when a workflow breaks, they can describe the problem and get help fixing it, rather than relying purely on  documentation or community forums. The team recently saw this play out internally when the AI Workflow Builder assembled a complex workflow for tracking engineering progress. It correctly used multiple form nodes on the first attempt, a result van Oosten attributed to the team's ongoing work on optimizing prompts for specific node types.
 
-## Future use cases 
+## Future use cases
 
 Looking ahead, the team is exploring whether building node-by-node or subgraph-by-subgraph, mirroring how experienced users actually construct automations, might offer a tighter feedback loop during the creation process. The current version presents a completed workflow at the end; a more incremental approach could let users shape it as it takes form.
 

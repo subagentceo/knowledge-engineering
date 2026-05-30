@@ -9,6 +9,7 @@ This feature is eligible for [Zero Data Retention (ZDR)](/docs/en/build-with-cla
 </Note>
 
 You can ask Claude about any text, pictures, charts, and tables in PDFs you provide. Some sample use cases:
+
 - Analyzing financial reports and understanding charts/tables
 - Extracting key information from legal documents
 - Translation assistance for documents
@@ -17,13 +18,14 @@ You can ask Claude about any text, pictures, charts, and tables in PDFs you prov
 ## Before you begin
 
 ### Check PDF requirements
+
 Claude works with any standard PDF. Ensure your request size meets these requirements:
 
-| Requirement | Limit |
-|------------|--------|
-| Maximum request size | 32&nbsp;MB ([varies by platform](/docs/en/api/overview#request-size-limits)) |
-| Maximum pages per request | 600 (100 for models with a 200k-token context window) |
-| Format | Standard PDF (no passwords/encryption) |
+| Requirement               | Limit                                                                        |
+| ------------------------- | ---------------------------------------------------------------------------- |
+| Maximum request size      | 32&nbsp;MB ([varies by platform](/docs/en/api/overview#request-size-limits)) |
+| Maximum pages per request | 600 (100 for models with a 200k-token context window)                        |
+| Format                    | Standard PDF (no passwords/encryption)                                       |
 
 Both limits are on the entire request payload, including any other content sent alongside PDFs. For large PDFs, consider uploading with the [Files API](#option-3-files-api) and referencing by `file_id` to keep request payloads small.
 
@@ -77,16 +79,21 @@ This is a known constraint with the Converse API. For applications that require 
 For non-PDF files like .csv, .xlsx, .docx, .md, or .txt files, see [Working with other file formats](/docs/en/build-with-claude/files#working-with-other-file-formats).
 </Note>
 
-***
+---
 
 ## Process PDFs with Claude
 
 ### Send your first PDF request
+
 Let's start with a simple example using the Messages API. You can provide PDFs to Claude in three ways:
 
 1. As a URL reference to a PDF hosted online
 2. As a base64-encoded PDF in `document` content blocks
 3. By a `file_id` from the [Files API](/docs/en/build-with-claude/files)
+
+<Note>
+On Amazon Bedrock and Vertex AI, only base64-encoded sources are currently available.
+</Note>
 
 #### Option 1: URL-based PDF document
 
@@ -99,7 +106,7 @@ The simplest approach is to reference a PDF directly from a URL:
       -H "x-api-key: $ANTHROPIC_API_KEY" \
       -H "anthropic-version: 2023-06-01" \
       -d '{
-        "model": "claude-opus-4-7",
+        "model": "claude-opus-4-8",
         "max_tokens": 1024,
         "messages": [{
             "role": "user",
@@ -119,7 +126,7 @@ The simplest approach is to reference a PDF directly from a URL:
     ```
     ```bash CLI
     ant messages create --transform content --format yaml <<'YAML'
-    model: claude-opus-4-7
+    model: claude-opus-4-8
     max_tokens: 1024
     messages:
       - role: user
@@ -137,7 +144,7 @@ The simplest approach is to reference a PDF directly from a URL:
 
     client = anthropic.Anthropic()
     message = client.messages.create(
-        model="claude-opus-4-7",
+        model="claude-opus-4-8",
         max_tokens=1024,
         messages=[
             {
@@ -164,7 +171,7 @@ The simplest approach is to reference a PDF directly from a URL:
     const anthropic = new Anthropic();
 
     const response = await anthropic.messages.create({
-      model: "claude-opus-4-7",
+      model: "claude-opus-4-8",
       max_tokens: 1024,
       messages: [
         {
@@ -212,7 +219,7 @@ The simplest approach is to reference a PDF directly from a URL:
 
         // Create a message with document and text content blocks
         MessageCreateParams params = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_4_7)
+          .model(Model.CLAUDE_OPUS_4_8)
           .maxTokens(1024)
           .addUserMessageOfBlockParams(
             List.of(
@@ -231,6 +238,7 @@ The simplest approach is to reference a PDF directly from a URL:
       }
     }
     ```
+
 </CodeGroup>
 
 #### Option 2: Base64-encoded PDF document
@@ -248,7 +256,7 @@ If you need to send PDFs from your local system or when a URL isn't available:
 
     # Create a JSON request file using the pdf_base64.txt content
     jq -n --rawfile PDF_BASE64 pdf_base64.txt '{
-        "model": "claude-opus-4-7",
+        "model": "claude-opus-4-8",
         "max_tokens": 1024,
         "messages": [{
             "role": "user",
@@ -278,7 +286,7 @@ If you need to send PDFs from your local system or when a URL isn't available:
     cd "$(mktemp -d)"
     curl -sSo document.pdf https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf
     ant messages create \
-      --model claude-opus-4-7 \
+      --model claude-opus-4-8 \
       --max-tokens 1024 \
       --transform content --format yaml <<'YAML'
     messages:
@@ -309,7 +317,7 @@ If you need to send PDFs from your local system or when a URL isn't available:
     # Send to Claude using base64 encoding
     client = anthropic.Anthropic()
     message = client.messages.create(
-        model="claude-opus-4-7",
+        model="claude-opus-4-8",
         max_tokens=1024,
         messages=[
             {
@@ -349,7 +357,7 @@ If you need to send PDFs from your local system or when a URL isn't available:
       // Send the API request with base64-encoded PDF
       const anthropic = new Anthropic();
       const response = await anthropic.messages.create({
-        model: "claude-opus-4-7",
+        model: "claude-opus-4-8",
         max_tokens: 1024,
         messages: [
           {
@@ -424,7 +432,7 @@ If you need to send PDFs from your local system or when a URL isn't available:
 
         // Create a message with document and text content blocks
         MessageCreateParams params = MessageCreateParams.builder()
-          .model(Model.CLAUDE_OPUS_4_7)
+          .model(Model.CLAUDE_OPUS_4_8)
           .maxTokens(1024)
           .addUserMessageOfBlockParams(
             List.of(
@@ -462,30 +470,32 @@ curl -X POST https://api.anthropic.com/v1/files \
   -F "file=@document.pdf"
 
 # Then use the returned file_id in your message
+
 curl https://api.anthropic.com/v1/messages \
-  -H "content-type: application/json" \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-beta: files-api-2025-04-14" \
-  -d '{
-    "model": "claude-opus-4-7",
-    "max_tokens": 1024,
-    "messages": [{
-      "role": "user",
-      "content": [{
-        "type": "document",
-        "source": {
-          "type": "file",
-          "file_id": "file_abc123"
-        }
-      },
-      {
-        "type": "text",
-        "text": "What are the key findings in this document?"
-      }]
-    }]
-  }'
-```
+ -H "content-type: application/json" \
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "anthropic-version: 2023-06-01" \
+ -H "anthropic-beta: files-api-2025-04-14" \
+ -d '{
+"model": "claude-opus-4-8",
+"max_tokens": 1024,
+"messages": [{
+"role": "user",
+"content": [{
+"type": "document",
+"source": {
+"type": "file",
+"file_id": "file_abc123"
+}
+},
+{
+"type": "text",
+"text": "What are the key findings in this document?"
+}]
+}]
+}'
+
+````
 
 ```bash CLI nocheck hidelines={1..2}
 cd "$(mktemp -d)"
@@ -499,7 +509,7 @@ FILE_ID=$(ant beta:files upload \
 ant beta:messages create \
   --beta files-api-2025-04-14 \
   --transform content --format yaml <<YAML
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 1024
 messages:
   - role: user
@@ -511,7 +521,7 @@ messages:
       - type: text
         text: What are the key findings in this document?
 YAML
-```
+````
 
 ```python Python nocheck hidelines={1..2}
 import anthropic
@@ -524,7 +534,7 @@ with open("document.pdf", "rb") as f:
 
 # Use the uploaded file in a message
 message = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=1024,
     betas=["files-api-2025-04-14"],
     messages=[
@@ -553,13 +563,13 @@ const anthropic = new Anthropic();
 // Upload the PDF file
 const fileUpload = await anthropic.beta.files.upload({
   file: await toFile(fs.createReadStream("document.pdf"), undefined, {
-    type: "application/pdf"
-  })
+    type: "application/pdf",
+  }),
 });
 
 // Use the uploaded file in a message
 const response = await anthropic.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   betas: ["files-api-2025-04-14"],
   messages: [
@@ -570,16 +580,16 @@ const response = await anthropic.beta.messages.create({
           type: "document",
           source: {
             type: "file",
-            file_id: fileUpload.id
-          }
+            file_id: fileUpload.id,
+          },
         },
         {
           type: "text",
-          text: "What are the key findings in this document?"
-        }
-      ]
-    }
-  ]
+          text: "What are the key findings in this document?",
+        },
+      ],
+    },
+  ],
 });
 
 console.log(response);
@@ -613,7 +623,7 @@ public class PdfFilesExample {
 
     // Use the uploaded file in a message
     MessageCreateParams params = MessageCreateParams.builder()
-      .model(Model.CLAUDE_OPUS_4_7)
+      .model(Model.CLAUDE_OPUS_4_8)
       .addBeta("files-api-2025-04-14")
       .maxTokens(1024)
       .addUserMessageOfBetaContentBlockParams(
@@ -641,40 +651,39 @@ public class PdfFilesExample {
   }
 }
 ```
+
 </CodeGroup>
 
 ### How PDF support works
+
 When you send a PDF to Claude, the following steps occur:
 <Steps>
-  <Step title="The system extracts the contents of the document.">
-    - The system converts each page of the document into an image.
-    - The text from each page is extracted and provided alongside each page's image.
-  </Step>
-  <Step title="Claude analyzes both the text and images to better understand the document.">
-    - Documents are provided as a combination of text and images for analysis.
-    - This allows users to ask for insights on visual elements of a PDF, such as charts, diagrams, and other non-textual content.
-  </Step>
-  <Step title="Claude responds, referencing the PDF's contents if relevant.">
-    Claude can reference both textual and visual content when it responds. You can further improve performance by integrating PDF support with:
-    - **Prompt caching**: To improve performance for repeated analysis.
-    - **Batch processing**: For high-volume document processing.
-    - **Tool use**: To extract specific information from documents for use as tool inputs.
-  </Step>
+<Step title="The system extracts the contents of the document."> - The system converts each page of the document into an image. - The text from each page is extracted and provided alongside each page's image.
+</Step>
+<Step title="Claude analyzes both the text and images to better understand the document."> - Documents are provided as a combination of text and images for analysis. - This allows users to ask for insights on visual elements of a PDF, such as charts, diagrams, and other non-textual content.
+</Step>
+<Step title="Claude responds, referencing the PDF's contents if relevant.">
+Claude can reference both textual and visual content when it responds. You can further improve performance by integrating PDF support with: - **Prompt caching**: To improve performance for repeated analysis. - **Batch processing**: For high-volume document processing. - **Tool use**: To extract specific information from documents for use as tool inputs.
+</Step>
 </Steps>
 
 ### Estimate your costs
+
 The token count of a PDF file depends on the total text extracted from the document as well as the number of pages:
+
 - Text token costs: Each page typically uses 1,500-3,000 tokens per page depending on content density. Standard API pricing applies with no additional PDF fees.
 - Image token costs: Since each page is converted into an image, the same [image-based cost calculations](/docs/en/build-with-claude/vision#evaluate-image-size) are applied.
 
 You can use [token counting](/docs/en/build-with-claude/token-counting) to estimate costs for your specific PDFs.
 
-***
+---
 
 ## Optimize PDF processing
 
 ### Improve performance
+
 Follow these best practices for optimal results:
+
 - Place PDFs before text in your requests
 - Use standard fonts
 - Ensure text is clear and legible
@@ -684,17 +693,20 @@ Follow these best practices for optimal results:
 - Enable prompt caching for repeated analysis
 
 ### Scale your implementation
+
 For high-volume processing, consider these approaches:
 
 #### Use prompt caching
+
 Cache PDFs to improve performance on repeated queries:
 <CodeGroup>
+
 ```bash cURL hidelines={1..2}
 cd "$(mktemp -d)"
 curl -s "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf" | base64 | tr -d '\n' > pdf_base64.txt
 # Create a JSON request file using the pdf_base64.txt content
 jq -n --rawfile PDF_BASE64 pdf_base64.txt '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 1024,
     "messages": [{
         "role": "user",
@@ -723,11 +735,12 @@ curl https://api.anthropic.com/v1/messages \
   -H "anthropic-version: 2023-06-01" \
   -d @request.json
 ```
+
 ```bash CLI hidelines={1..2}
 cd "$(mktemp -d)"
 curl -sSo document.pdf https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf
 ant messages create <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 1024
 messages:
   - role: user
@@ -759,7 +772,7 @@ writer.write(buf)
 pdf_data = base64.standard_b64encode(buf.getvalue()).decode("utf-8")
 
 message = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=1024,
     messages=[
         {
@@ -783,7 +796,7 @@ message = client.messages.create(
 
 ```typescript TypeScript nocheck
 const response = await anthropic.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [
     {
@@ -793,18 +806,18 @@ const response = await anthropic.messages.create({
           source: {
             media_type: "application/pdf",
             type: "base64",
-            data: pdfBase64
+            data: pdfBase64,
           },
-          cache_control: { type: "ephemeral" }
+          cache_control: { type: "ephemeral" },
         },
         {
           type: "text",
-          text: "Which model has the highest human preference win rates across each use-case?"
-        }
+          text: "Which model has the highest human preference win rates across each use-case?",
+        },
       ],
-      role: "user"
-    }
-  ]
+      role: "user",
+    },
+  ],
 });
 console.log(response);
 ```
@@ -835,7 +848,7 @@ public class MessagesDocumentExample {
     String pdfBase64 = new String(pdfBytes);
 
     MessageCreateParams params = MessageCreateParams.builder()
-      .model(Model.CLAUDE_OPUS_4_7)
+      .model(Model.CLAUDE_OPUS_4_8)
       .maxTokens(1024)
       .addUserMessageOfBlockParams(
         List.of(
@@ -861,11 +874,14 @@ public class MessagesDocumentExample {
   }
 }
 ```
+
 </CodeGroup>
 
 #### Process document batches
+
 Use the Message Batches API for high-volume workflows:
 <CodeGroup>
+
 ```bash cURL hidelines={1..2}
 cd "$(mktemp -d)"
 curl -s "https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf" | base64 | tr -d '\n' > pdf_base64.txt
@@ -876,7 +892,7 @@ jq -n --rawfile PDF_BASE64 pdf_base64.txt '
       {
           "custom_id": "my-first-request",
           "params": {
-              "model": "claude-opus-4-7",
+              "model": "claude-opus-4-8",
               "max_tokens": 1024,
               "messages": [
                 {
@@ -902,7 +918,7 @@ jq -n --rawfile PDF_BASE64 pdf_base64.txt '
       {
           "custom_id": "my-second-request",
           "params": {
-              "model": "claude-opus-4-7",
+              "model": "claude-opus-4-8",
               "max_tokens": 1024,
               "messages": [
                 {
@@ -936,6 +952,7 @@ curl https://api.anthropic.com/v1/messages/batches \
   -H "anthropic-version: 2023-06-01" \
   -d @request.json
 ```
+
 ```bash CLI hidelines={1..2}
 cd "$(mktemp -d)"
 curl -sSo document.pdf https://assets.anthropic.com/m/1cd9d098ac3e6467/original/Claude-3-Model-Card-October-Addendum.pdf
@@ -943,7 +960,7 @@ ant messages:batches create <<'YAML'
 requests:
   - custom_id: my-first-request
     params:
-      model: claude-opus-4-7
+      model: claude-opus-4-8
       max_tokens: 1024
       messages:
         - role: user
@@ -959,7 +976,7 @@ requests:
                 across each use-case?
   - custom_id: my-second-request
     params:
-      model: claude-opus-4-7
+      model: claude-opus-4-8
       max_tokens: 1024
       messages:
         - role: user
@@ -993,7 +1010,7 @@ message_batch = client.messages.batches.create(
         {
             "custom_id": "doc1",
             "params": {
-                "model": "claude-opus-4-7",
+                "model": "claude-opus-4-8",
                 "max_tokens": 1024,
                 "messages": [
                     {
@@ -1032,19 +1049,19 @@ const response = await anthropic.messages.batches.create({
                 source: {
                   media_type: "application/pdf",
                   type: "base64",
-                  data: pdfBase64
-                }
+                  data: pdfBase64,
+                },
               },
               {
                 type: "text",
-                text: "Which model has the highest human preference win rates across each use-case?"
-              }
+                text: "Which model has the highest human preference win rates across each use-case?",
+              },
             ],
-            role: "user"
-          }
+            role: "user",
+          },
         ],
-        model: "claude-opus-4-7"
-      }
+        model: "claude-opus-4-8",
+      },
     },
     {
       custom_id: "my-second-request",
@@ -1058,21 +1075,21 @@ const response = await anthropic.messages.batches.create({
                 source: {
                   media_type: "application/pdf",
                   type: "base64",
-                  data: pdfBase64
-                }
+                  data: pdfBase64,
+                },
               },
               {
                 type: "text",
-                text: "Extract 5 key insights from this document."
-              }
+                text: "Extract 5 key insights from this document.",
+              },
             ],
-            role: "user"
-          }
+            role: "user",
+          },
         ],
-        model: "claude-opus-4-7"
-      }
-    }
-  ]
+        model: "claude-opus-4-8",
+      },
+    },
+  ],
 });
 console.log(response);
 ```
@@ -1102,7 +1119,7 @@ public class MessagesBatchDocumentExample {
           .customId("my-first-request")
           .params(
             BatchCreateParams.Request.Params.builder()
-              .model(Model.CLAUDE_OPUS_4_7)
+              .model(Model.CLAUDE_OPUS_4_8)
               .maxTokens(1024)
               .addUserMessageOfBlockParams(
                 List.of(
@@ -1129,7 +1146,7 @@ public class MessagesBatchDocumentExample {
           .customId("my-second-request")
           .params(
             BatchCreateParams.Request.Params.builder()
-              .model(Model.CLAUDE_OPUS_4_7)
+              .model(Model.CLAUDE_OPUS_4_8)
               .maxTokens(1024)
               .addUserMessageOfBlockParams(
                 List.of(
@@ -1156,6 +1173,7 @@ public class MessagesBatchDocumentExample {
   }
 }
 ```
+
 </CodeGroup>
 
 ## Next steps
@@ -1169,11 +1187,14 @@ public class MessagesBatchDocumentExample {
     Explore practical examples of PDF processing in the cookbook recipe.
   </Card>
 
-  <Card
-    title="View API reference"
-    icon="code"
-    href="/docs/en/api/messages/create"
-  >
+<Card
+title="View API reference"
+icon="code"
+href="/docs/en/api/messages/create"
+
+>
+
     See complete API documentation for PDF support.
+
   </Card>
 </CardGroup>

@@ -1,3 +1,5 @@
+# Operations
+
 Optimize business operations — vendor management, process documentation, change management, capacity planning, and compliance tracking.
 
 You can use Operations to:

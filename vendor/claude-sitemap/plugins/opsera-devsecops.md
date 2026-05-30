@@ -1,3 +1,5 @@
+# Opsera DevSecOps
+
 AI-powered DevSecOps agent that analyzes your codebase for security vulnerabilities, architectural risks, and compliance gaps. Connects to Opsera's cloud platform via MCP to deliver risk-focused architecture analysis, vulnerability scanning with secret detection, evidence-based compliance auditing across SOC2/HIPAA/PCI-DSS/ISO 27001 frameworks, and SQL injection detection with automated fixes. Includes a pre-commit security gate that automatically scans staged changes and blocks commits with critical or high-severity issues.
 
 The plugin provides four core analysis tools — each producing detailed findings with severity ratings and actionable remediation steps. Architecture analysis examines auth routes, failure modes, and generates quantified architecture diagrams. Security scanning covers SAST, container security, infrastructure-as-code checks, and secret detection. Compliance auditing maps your codebase against regulatory frameworks and produces remediation roadmaps. SQL security discovers PII exposure, privilege escalation risks, and offers AI-powered auto-fix suggestions.

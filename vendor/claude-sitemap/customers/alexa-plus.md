@@ -1,3 +1,5 @@
+# Claude and Alexa+
+
 Today, we're announcing that Claude models are helping power Alexa+. This collaboration is part of our ongoing partnership with Amazon to deliver advanced AI technology to businesses and consumers around the world.
 
 Teams from Amazon and Anthropic worked closely throughout the past year. Our Chief Product Officer, Mike Krieger, led a team that helped Alexa+ to get the full benefits of Claude's capabilities.

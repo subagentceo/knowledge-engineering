@@ -1,4 +1,4 @@
-## List
+## List memory versions
 
 `client.Beta.MemoryStores.MemoryVersions.List(ctx, memoryStoreID, params) (*PageCursor[BetaManagedAgentsMemoryVersion], error)`
 
@@ -11,7 +11,6 @@ List memory versions
 - `memoryStoreID string`
 
 - `params BetaMemoryStoreMemoryVersionListParams`
-
   - `APIKeyID param.Field[string]`
 
     Query param: Query parameter for api_key_id
@@ -51,11 +50,9 @@ List memory versions
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -104,12 +101,17 @@ List memory versions
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaManagedAgentsMemoryVersion struct{…}`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
   - `ID string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -129,7 +131,6 @@ List memory versions
   - `Operation BetaManagedAgentsMemoryVersionOperation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
     - `const BetaManagedAgentsMemoryVersionOperationCreated BetaManagedAgentsMemoryVersionOperation = "created"`
 
     - `const BetaManagedAgentsMemoryVersionOperationModified BetaManagedAgentsMemoryVersionOperation = "modified"`
@@ -137,7 +138,6 @@ List memory versions
     - `const BetaManagedAgentsMemoryVersionOperationDeleted BetaManagedAgentsMemoryVersionOperation = "deleted"`
 
   - `Type BetaManagedAgentsMemoryVersionType`
-
     - `const BetaManagedAgentsMemoryVersionTypeMemoryVersion BetaManagedAgentsMemoryVersionType = "memory_version"`
 
   - `Content string`
@@ -155,37 +155,30 @@ List memory versions
   - `CreatedBy BetaManagedAgentsActorUnion`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
     - `type BetaManagedAgentsSessionActor struct{…}`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
       - `SessionID string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `Type BetaManagedAgentsSessionActorType`
-
         - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
 
     - `type BetaManagedAgentsAPIActor struct{…}`
 
       Attribution for a write made directly via the public API (outside of any session).
-
       - `APIKeyID string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `Type BetaManagedAgentsAPIActorType`
-
         - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
 
     - `type BetaManagedAgentsUserActor struct{…}`
 
       Attribution for a write made by a human user through the Anthropic Console.
-
       - `Type BetaManagedAgentsUserActorType`
-
         - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
 
       - `UserID string`
@@ -203,42 +196,6 @@ List memory versions
   - `RedactedBy BetaManagedAgentsActorUnion`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
-    - `type BetaManagedAgentsSessionActor struct{…}`
-
-      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `SessionID string`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `Type BetaManagedAgentsSessionActorType`
-
-        - `const BetaManagedAgentsSessionActorTypeSessionActor BetaManagedAgentsSessionActorType = "session_actor"`
-
-    - `type BetaManagedAgentsAPIActor struct{…}`
-
-      Attribution for a write made directly via the public API (outside of any session).
-
-      - `APIKeyID string`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `Type BetaManagedAgentsAPIActorType`
-
-        - `const BetaManagedAgentsAPIActorTypeAPIActor BetaManagedAgentsAPIActorType = "api_actor"`
-
-    - `type BetaManagedAgentsUserActor struct{…}`
-
-      Attribution for a write made by a human user through the Anthropic Console.
-
-      - `Type BetaManagedAgentsUserActorType`
-
-        - `const BetaManagedAgentsUserActorTypeUserActor BetaManagedAgentsUserActorType = "user_actor"`
-
-      - `UserID string`
-
-        ID of the user who performed the write (a `user_...` value).
 
 ### Example
 
@@ -268,5 +225,36 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", page)
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "memory_id": "memory_id",
+      "memory_store_id": "memory_store_id",
+      "operation": "created",
+      "type": "memory_version",
+      "content": "content",
+      "content_sha256": "content_sha256",
+      "content_size_bytes": 0,
+      "created_by": {
+        "session_id": "x",
+        "type": "session_actor"
+      },
+      "path": "path",
+      "redacted_at": "2019-12-27T18:11:19.117Z",
+      "redacted_by": {
+        "session_id": "x",
+        "type": "session_actor"
+      }
+    }
+  ],
+  "next_page": "next_page"
 }
 ```

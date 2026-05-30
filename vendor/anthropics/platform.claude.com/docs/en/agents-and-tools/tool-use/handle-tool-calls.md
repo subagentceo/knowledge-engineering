@@ -25,7 +25,7 @@ The response will have a `stop_reason` of `tool_use` and one or more `tool_use` 
 ```json JSON
 {
   "id": "msg_01Aq9w938a90dw8q",
-  "model": "claude-opus-4-7",
+  "model": "claude-opus-4-8",
   "stop_reason": "tool_use",
   "role": "assistant",
   "content": [
@@ -60,6 +60,7 @@ When you receive a tool use response for a client tool, you should:
 - In the user message containing tool results, the tool_result blocks must come FIRST in the content array. Any text must come AFTER all tool results.
 
 For example, this will cause a 400 error:
+
 ```json
 {
   "role": "user",
@@ -71,6 +72,7 @@ For example, this will cause a 400 error:
 ```
 
 This is correct:
+
 ```json
 {
   "role": "user",
@@ -246,6 +248,7 @@ To eliminate invalid tool calls entirely, use [strict tool use](/docs/en/agents-
 When server tools encounter errors (for example, network issues with Web Search), Claude will transparently handle these errors and attempt to provide an alternative response or explanation to the user. Unlike client tools, you do not need to handle `is_error` results for server tools.
 
 For web search specifically, possible error codes include:
+
 - `too_many_requests`: Rate limit exceeded
 - `invalid_input`: Invalid search query parameter
 - `max_uses_exceeded`: Maximum web search tool uses exceeded

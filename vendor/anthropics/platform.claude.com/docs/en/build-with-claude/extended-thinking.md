@@ -9,17 +9,18 @@ This feature is eligible for [Zero Data Retention (ZDR)](/docs/en/build-with-cla
 Extended thinking gives Claude enhanced reasoning capabilities for complex tasks, while providing varying levels of transparency into its step-by-step thought process before it delivers its final answer.
 
 <Note>
-For Claude Opus 4.7, use [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) (`thinking: {type: "adaptive"}`) with the [effort parameter](/docs/en/build-with-claude/effort). Manual extended thinking (`thinking: {type: "enabled", budget_tokens: N}`) is no longer supported on Claude Opus 4.7 and returns a 400 error. For Claude Opus 4.6 and Claude Sonnet 4.6, adaptive thinking is also recommended; the manual configuration is still functional on these models but is deprecated and will be removed in a future model release.
+For <NextOpus /> and Claude Opus 4.7, set `thinking: {type: "adaptive"}` to enable [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) and use the [effort parameter](/docs/en/build-with-claude/effort) to control thinking depth. On both models, manual extended thinking (`thinking: {type: "enabled", budget_tokens: N}`) is not supported and returns a 400 error. With adaptive thinking, the model decides when and how much to think based on each request, so it triggers thinking only as needed. For Claude Opus 4.6 and Claude Sonnet 4.6, adaptive thinking is also recommended; the manual configuration is still functional on these models but is deprecated and will be removed in a future model release.
 </Note>
 
 ## Supported models
 
-Manual extended thinking (`thinking: {type: "enabled", budget_tokens: N}`) is supported on all current Claude models **except Claude Opus 4.7**, where it is no longer accepted and returns a 400 error. A few models have mode-specific behavior:
+Manual extended thinking (`thinking: {type: "enabled", budget_tokens: N}`) is supported on all current Claude models **except <NextOpus /> and Claude Opus 4.7**, where it is no longer accepted and returns a 400 error. A few models have mode-specific behavior:
 
-- **Claude Opus 4.7 (`claude-opus-4-7`):** manual extended thinking is no longer supported. Use [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) (`thinking: {type: "adaptive"}`) with the [effort parameter](/docs/en/build-with-claude/effort) instead.
+- **<NextOpus /> (<NextOpusId />):** manual extended thinking is not supported and returns a 400 error. Use [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) (`thinking: {type: "adaptive"}`) with the [effort parameter](/docs/en/build-with-claude/effort) instead. The model determines whether and how much to use extended thinking based on each request.
+- **Claude Opus 4.7 (claude-opus-4-7):** manual extended thinking is no longer supported. Use [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) (`thinking: {type: "adaptive"}`) with the [effort parameter](/docs/en/build-with-claude/effort) instead.
 - **[Claude Mythos Preview](https://anthropic.com/glasswing):** [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) is the default; `thinking: {type: "enabled", budget_tokens: N}` is also accepted. `thinking: {type: "disabled"}` is not supported, and `display` defaults to `"omitted"` rather than returning thinking content. Pass `display: "summarized"` to receive summaries.
-- **Claude Opus 4.6 (`claude-opus-4-6`):** [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) recommended; manual mode (`type: "enabled"`) is deprecated but still functional.
-- **Claude Sonnet 4.6 (`claude-sonnet-4-6`):** [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) recommended; manual mode (`type: "enabled"`) with [interleaved mode](#interleaved-thinking) is deprecated but still functional.
+- **Claude Opus 4.6 (claude-opus-4-6):** [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) recommended; manual mode (`type: "enabled"`) is deprecated but still functional.
+- **Claude Sonnet 4.6 (claude-sonnet-4-6):** [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) recommended; manual mode (`type: "enabled"`) with [interleaved mode](#interleaved-thinking) is deprecated but still functional.
 
 <Note>
 Thinking behavior differs across Claude model versions. See [Differences in thinking across model versions](#differences-in-thinking-across-model-versions) for details.
@@ -122,14 +123,15 @@ const response = await client.messages.create({
   max_tokens: 16000,
   thinking: {
     type: "enabled",
-    budget_tokens: 10000
+    budget_tokens: 10000,
   },
   messages: [
     {
       role: "user",
-      content: "Are there an infinite number of prime numbers such that n mod 4 == 3?"
-    }
-  ]
+      content:
+        "Are there an infinite number of prime numbers such that n mod 4 == 3?",
+    },
+  ],
 });
 
 // The response contains summarized thinking blocks and text blocks
@@ -312,14 +314,14 @@ The `budget_tokens` parameter determines the maximum number of tokens Claude is 
 </Warning>
 
 <Note>
-[Claude Mythos Preview](https://anthropic.com/glasswing), Claude Opus 4.7, and Claude Opus 4.6 support up to 128k output tokens. Claude Sonnet 4.6 and Claude Haiku 4.5 support up to 64k. See the [models overview](/docs/en/about-claude/models/overview) for limits on legacy models. On the [Message Batches API](/docs/en/build-with-claude/batch-processing#extended-output-beta), the `output-300k-2026-03-24` [beta header](/docs/en/api/beta-headers) raises the output limit to 300k for Opus 4.7, Opus 4.6, and Sonnet 4.6.
+[Claude Mythos Preview](https://anthropic.com/glasswing), <NextOpus />, Claude Opus 4.7, and Claude Opus 4.6 support up to 128k output tokens. Claude Sonnet 4.6 and Claude Haiku 4.5 support up to 64k. See the [models overview](/docs/en/about-claude/models/overview) for limits on legacy models. On the [Message Batches API](/docs/en/build-with-claude/batch-processing#extended-output-beta), the `output-300k-2026-03-24` [beta header](/docs/en/api/beta-headers) raises the output limit to 300k for <NextOpus />, Opus 4.7, Opus 4.6, and Sonnet 4.6.
 </Note>
 
 `budget_tokens` must be set to a value less than `max_tokens`. However, when using [interleaved thinking with tools](#interleaved-thinking), you can exceed this limit as the token limit becomes your entire context window. Because `budget_tokens` must be less than `max_tokens`, extended thinking cannot be combined with `max_tokens: 0` ([cache pre-warming](/docs/en/build-with-claude/prompt-caching#pre-warming-the-cache)).
 
 ### Summarized thinking
 
-With extended thinking enabled, the Messages API for Claude 4 models returns a summary of Claude's full thinking process. Summarized thinking provides the full intelligence benefits of extended thinking, while preventing misuse. This is the default behavior on Claude 4 models when the `display` field on the thinking configuration is unset or set to `"summarized"`. On Claude Opus 4.7 and [Claude Mythos Preview](https://anthropic.com/glasswing), `display` defaults to `"omitted"` instead, so you must set `display: "summarized"` explicitly to receive summarized thinking.
+With extended thinking enabled, the Messages API for Claude 4 models returns a summary of Claude's full thinking process. Summarized thinking provides the full intelligence benefits of extended thinking, while preventing misuse. This is the default behavior on Claude 4 models when the `display` field on the thinking configuration is unset or set to `"summarized"`. On Claude Opus 4.8, Claude Opus 4.7, and [Claude Mythos Preview](https://anthropic.com/glasswing), `display` defaults to `"omitted"` instead, so you must set `display: "summarized"` explicitly to receive summarized thinking.
 
 Here are some important considerations for summarized thinking:
 
@@ -331,7 +333,7 @@ Here are some important considerations for summarized thinking:
 - Summarization is processed by a different model than the one you target in your requests. The thinking model does not see the summarized output.
 
 <Note>
-In rare cases where you need access to full thinking output for Claude 4 models, [contact our sales team](mailto:sales@anthropic.com).
+In rare cases where you need access to full thinking output for Claude 4 models, [contact Anthropic sales](mailto:sales@anthropic.com).
 </Note>
 
 ### Controlling thinking display
@@ -339,7 +341,7 @@ In rare cases where you need access to full thinking output for Claude 4 models,
 The `display` field on the thinking configuration controls how thinking content is returned in API responses. It accepts two values:
 
 - `"summarized"`: Thinking blocks contain summarized thinking text. See [Summarized thinking](#summarized-thinking) for details. This is the default on Claude Opus 4.6, Claude Sonnet 4.6, and earlier Claude 4 models.
-- `"omitted"`: Thinking blocks are returned with an empty `thinking` field. The `signature` field still carries the encrypted full thinking for multi-turn continuity (see [Thinking encryption](#thinking-encryption)). This is the default on Claude Opus 4.7 and [Claude Mythos Preview](https://anthropic.com/glasswing).
+- `"omitted"`: Thinking blocks are returned with an empty `thinking` field. The `signature` field still carries the encrypted full thinking for multi-turn continuity (see [Thinking encryption](#thinking-encryption)). This is the default on Claude Opus 4.8, Claude Opus 4.7, and [Claude Mythos Preview](https://anthropic.com/glasswing).
 
 Setting `display: "omitted"` is useful when your application doesn't surface thinking content to users. The primary benefit is **faster time-to-first-text-token when streaming:** The server skips streaming thinking tokens entirely and delivers only the signature, so the final text response begins streaming sooner.
 
@@ -432,14 +434,14 @@ const response = await client.messages.create({
   thinking: {
     type: "enabled",
     budget_tokens: 10000,
-    display: "omitted"
+    display: "omitted",
   },
   messages: [
     {
       role: "user",
-      content: "What is 27 * 453?"
-    }
-  ]
+      content: "What is 27 * 453?",
+    },
+  ],
 });
 
 for (const block of response.content) {
@@ -632,6 +634,7 @@ response.content.each do |block|
   end
 end
 ```
+
 </CodeGroup>
 
 When `display: "omitted"` is set, the response contains `thinking` blocks with an empty `thinking` field:
@@ -667,6 +670,7 @@ For more documentation on streaming via the Messages API, see [Streaming Message
 Here's how to handle streaming with thinking:
 
 <CodeGroup tryInConsole={{ userPrompt: "What is the greatest common divisor of 1071 and 462?", thinkingBudgetTokens: 10000 }}>
+
 ```bash cURL
 curl https://api.anthropic.com/v1/messages \
      --header "x-api-key: $ANTHROPIC_API_KEY" \
@@ -748,14 +752,14 @@ const stream = await client.messages.stream({
   max_tokens: 16000,
   thinking: {
     type: "enabled",
-    budget_tokens: 10000
+    budget_tokens: 10000,
   },
   messages: [
     {
       role: "user",
-      content: "What is the greatest common divisor of 1071 and 462?"
-    }
-  ]
+      content: "What is the greatest common divisor of 1071 and 462?",
+    },
+  ],
 });
 
 let thinkingStarted = false;
@@ -1029,6 +1033,7 @@ end
 </CodeGroup>
 
 Example streaming output:
+
 ```sse Output
 event: message_start
 data: {"type": "message_start", "message": {"id": "msg_01...", "type": "message", "role": "assistant", "content": [], "model": "claude-sonnet-4-6", "stop_reason": null, "stop_sequence": null}}
@@ -1110,6 +1115,7 @@ You can't toggle thinking in the middle of an assistant turn, including during t
 From the model's perspective, **tool use loops are part of the assistant turn**. An assistant turn doesn't complete until Claude finishes its full response, which may include multiple tool calls and results.
 
 For example, this sequence is all part of a **single assistant turn**:
+
 ```text
 User: "What's the weather in Paris?"
 Assistant: [thinking] + [tool_use: get_weather]
@@ -1133,6 +1139,7 @@ This means that attempting to toggle thinking mid-turn won't cause an error, but
 **Best practice**: Plan your thinking strategy at the start of each turn rather than trying to toggle mid-turn.
 
 **Example: Toggling thinking after completing a turn**
+
 ```text
 User: "What's the weather?"
 Assistant: [tool_use] (thinking disabled)
@@ -1212,10 +1219,10 @@ const weatherTool: Anthropic.Tool = {
   input_schema: {
     type: "object",
     properties: {
-      location: { type: "string" }
+      location: { type: "string" },
     },
-    required: ["location"]
-  }
+    required: ["location"],
+  },
 };
 
 // First request - Claude responds with thinking and tool request
@@ -1224,10 +1231,10 @@ const response = await client.messages.create({
   max_tokens: 16000,
   thinking: {
     type: "enabled",
-    budget_tokens: 10000
+    budget_tokens: 10000,
   },
   tools: [weatherTool],
-  messages: [{ role: "user", content: "What's the weather in Paris?" }]
+  messages: [{ role: "user", content: "What's the weather in Paris?" }],
 });
 ```
 
@@ -1466,39 +1473,42 @@ messages:
 YAML
 )
 
-TOOL_USE_ID=$(printf '%s' "$ASSISTANT_CONTENT" \
-  | grep -o 'toolu_[A-Za-z0-9]*')
+TOOL*USE_ID=$(printf '%s' "$ASSISTANT_CONTENT" \
+ | grep -o 'toolu*[A-Za-z0-9]\*')
 
 # Second turn: pass the captured blocks back as the assistant message.
+
 # The thinking block MUST accompany the tool_use block.
+
 ant messages create <<YAML
 model: claude-sonnet-4-6
 max_tokens: 16000
 thinking:
-  type: enabled
-  budget_tokens: 10000
+type: enabled
+budget_tokens: 10000
 tools:
-  - name: get_weather
-    description: Get the current weather in a given location
-    input_schema:
-      type: object
-      properties:
-        location:
-          type: string
-          description: The city and state
-      required: [location]
-messages:
-  - role: user
-    content: What's the weather in Paris?
-  - role: assistant
-    content: $ASSISTANT_CONTENT
-  - role: user
-    content:
-      - type: tool_result
-        tool_use_id: $TOOL_USE_ID
-        content: "Current temperature: 88°F"
-YAML
-```
+
+- name: get_weather
+  description: Get the current weather in a given location
+  input_schema:
+  type: object
+  properties:
+  location:
+  type: string
+  description: The city and state
+  required: [location]
+  messages:
+- role: user
+  content: What's the weather in Paris?
+- role: assistant
+  content: $ASSISTANT_CONTENT
+- role: user
+  content: - type: tool_result
+  tool_use_id: $TOOL_USE_ID
+  content: "Current temperature: 88°F"
+  YAML
+
+````
 
 ```python Python hidelines={1}
 import anthropic
@@ -1559,15 +1569,15 @@ continuation = client.messages.create(
     ],
 )
 print(continuation)
-```
+````
 
 ```typescript TypeScript nocheck
 // Extract thinking block and tool use block
 const thinkingBlock = response.content.find(
-  (block): block is Anthropic.ThinkingBlock => block.type === "thinking"
+  (block): block is Anthropic.ThinkingBlock => block.type === "thinking",
 );
 const toolUseBlock = response.content.find(
-  (block): block is Anthropic.ToolUseBlock => block.type === "tool_use"
+  (block): block is Anthropic.ToolUseBlock => block.type === "tool_use",
 );
 
 // Call your actual weather API, here is where your actual API call would go
@@ -1582,7 +1592,7 @@ if (thinkingBlock && toolUseBlock) {
     max_tokens: 16000,
     thinking: {
       type: "enabled",
-      budget_tokens: 10000
+      budget_tokens: 10000,
     },
     tools: [weatherTool],
     messages: [
@@ -1596,11 +1606,11 @@ if (thinkingBlock && toolUseBlock) {
           {
             type: "tool_result" as const,
             tool_use_id: toolUseBlock.id,
-            content: `Current temperature: ${weatherData.temperature}°F`
-          }
-        ]
-      }
-    ]
+            content: `Current temperature: ${weatherData.temperature}°F`,
+          },
+        ],
+      },
+    ],
   });
   console.log(continuation);
 }
@@ -2013,11 +2023,14 @@ When Claude invokes tools, it is pausing its construction of a response to await
 Extended thinking with tool use in Claude 4 models supports interleaved thinking, which enables Claude to think between tool calls and make more sophisticated reasoning after receiving tool results.
 
 With interleaved thinking, Claude can:
+
 - Reason about the results of a tool call before deciding what to do next
 - Chain multiple tool calls with reasoning steps in between
 - Make more nuanced decisions based on intermediate results
 
 **Model support:**
+
+- **<NextOpus />**: Interleaved thinking is automatically enabled when using [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) (the only supported thinking mode on <NextOpus />). No beta header is needed.
 - **[Claude Mythos Preview](https://anthropic.com/glasswing)**: Interleaved thinking happens automatically. Every inter-tool reasoning step moves into a thinking block instead of plain text, and thinking blocks are preserved across turns by default. No beta header is needed or supported.
 - **Claude Opus 4.7**: Interleaved thinking is automatically enabled when using [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) (the only supported thinking mode on Opus 4.7). No beta header is needed.
 - **Claude Opus 4.6**: Interleaved thinking is automatically enabled when using [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking). No beta header is needed. The `interleaved-thinking-2025-05-14` beta header is **deprecated** on Opus 4.6 and is safely ignored if included.
@@ -2025,10 +2038,11 @@ With interleaved thinking, Claude can:
 - **Other Claude 4 models** (Opus 4.5, Opus 4.1, Opus 4 (deprecated), Sonnet 4.5, Sonnet 4 (deprecated)): Add [the beta header](/docs/en/api/beta-headers) `interleaved-thinking-2025-05-14` to your API request to enable interleaved thinking.
 
 Here are some important considerations for interleaved thinking:
+
 - With interleaved thinking, the `budget_tokens` can exceed the `max_tokens` parameter, as it represents the total budget across all thinking blocks within one assistant turn.
 - Interleaved thinking is only supported for [tools used via the Messages API](/docs/en/agents-and-tools/tool-use/overview).
-- The Claude API and [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws) accept `interleaved-thinking-2025-05-14` in requests to any model without returning an error. On models that don't support interleaved thinking, the header is ignored. On Claude Opus 4.7 and Claude Opus 4.6, it's deprecated and safely ignored. On Claude Mythos Preview, it's not needed and safely ignored.
-- On partner-operated platforms (for example, [Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock) and [Vertex AI](/docs/en/build-with-claude/claude-on-vertex-ai)), if you pass `interleaved-thinking-2025-05-14` to any model aside from Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, Claude Opus 4.5, Claude Opus 4.1, Opus 4 (deprecated), Sonnet 4.5, or Sonnet 4 (deprecated), your request will fail.
+- The Claude API and [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws) accept `interleaved-thinking-2025-05-14` in requests to any model without returning an error. On models that don't support interleaved thinking, the header is ignored. On <NextOpus />, Claude Opus 4.7, and Claude Opus 4.6, it's deprecated and safely ignored. On Claude Mythos Preview, it's not needed and safely ignored.
+- On partner-operated platforms (for example, [Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock) and [Vertex AI](/docs/en/build-with-claude/claude-on-vertex-ai)), if you pass `interleaved-thinking-2025-05-14` to any model aside from <NextOpus />, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 4.6, Claude Opus 4.5, Claude Opus 4.1, Opus 4 (deprecated), Sonnet 4.5, or Sonnet 4 (deprecated), your request will fail.
 
 <section title="Tool use without interleaved thinking">
 
@@ -2087,12 +2101,14 @@ Extended thinking tasks often take longer than 5 minutes to complete. Consider u
 </Tip>
 
 **Thinking block context removal**
+
 - On earlier Opus/Sonnet models and all Haiku models, thinking blocks from previous turns are removed from context, which can affect cache breakpoints. On Opus 4.5+ and Sonnet 4.6+, they are kept by default.
 - When continuing conversations with tool use, thinking blocks are cached and count as input tokens when read from cache
 - This creates a tradeoff: while thinking blocks don't consume context window space visually, they still count toward your input token usage when cached
 - If thinking becomes disabled and you pass thinking content in the current tool use turn, the thinking content will be stripped and thinking will remain disabled for that request
 
 **Cache invalidation patterns**
+
 - Changes to thinking parameters (enabled/disabled or budget allocation) invalidate message cache breakpoints
 - [Interleaved thinking](#interleaved-thinking) amplifies cache invalidation, as thinking blocks can occur between multiple [tool calls](#extended-thinking-with-tool-use)
 - System prompts and tools remain cached despite thinking parameter changes or block removal
@@ -2115,27 +2131,35 @@ When using extended thinking with tool use, thinking blocks exhibit specific cac
 **Detailed example flow:**
 
 **Request 1:**
+
 ```text
 User: "What's the weather in Paris?"
 ```
+
 **Response 1:**
+
 ```text
 [thinking_block_1] + [tool_use block 1]
 ```
 
 **Request 2:**
+
 ```text
 User: ["What's the weather in Paris?"],
 Assistant: [thinking_block_1] + [tool_use block 1],
 User: [tool_result_1, cache=True]
 ```
+
 **Response 2:**
+
 ```text
 [thinking_block_2] + [text block 2]
 ```
+
 Request 2 writes a cache of the request content (not the response). The cache includes the original user message, the first thinking block, tool use block, and the tool result.
 
 **Request 3:**
+
 ```text
 User: ["What's the weather in Paris?"],
 Assistant: [thinking_block_1] + [tool_use block 1],
@@ -2143,7 +2167,9 @@ User: [tool_result_1, cache=True],
 Assistant: [thinking_block_2] + [text block 2],
 User: [Text response, cache=True]
 ```
+
 For Opus 4.5+ and Sonnet 4.6+, all previous thinking blocks are kept by default. For earlier Opus/Sonnet models and all Haiku models, because a non-tool-result user block was included, all previous thinking blocks are ignored and stripped from context. This request will be processed the same as:
+
 ```text
 User: ["What's the weather in Paris?"],
 Assistant: [tool_use block 1],
@@ -2153,6 +2179,7 @@ User: [Text response, cache=True]
 ```
 
 **Key points:**
+
 - This caching behavior happens automatically, even without explicit `cache_control` markers
 - This behavior is consistent whether using regular thinking or interleaved thinking
 
@@ -2165,58 +2192,68 @@ curl -s https://www.gutenberg.org/cache/epub/1342/pg1342.txt \
   | head -c 10000 > pride.txt
 
 # Emit a request body for the given thinking budget. Once CONTENT1
+
 # is populated (after the first turn), the assistant reply and a
+
 # follow-up user message are appended so the conversation grows.
+
 build_body() {
-  cat <<YAML
+cat <<YAML
 model: claude-sonnet-4-6
 max_tokens: 20000
 thinking:
-  type: enabled
-  budget_tokens: $1
+type: enabled
+budget_tokens: $1
 system:
-  - type: text
-    text: >-
-      You are an AI assistant that is tasked with literary analysis.
-      Analyze the following text carefully.
-  - type: text
-    text: "@./pride.txt"
-    cache_control:
-      type: ephemeral
-messages:
-  - role: user
-    content: Analyze the tone of this passage.
-YAML
-  if [[ -n "${CONTENT1:-}" ]]; then
-    printf '  - role: assistant\n    content: %s\n' "$CONTENT1"
-    printf '  - role: user\n'
-    printf '    content: Analyze the characters in this passage.\n'
+
+- type: text
+  text: >-
+  You are an AI assistant that is tasked with literary analysis.
+  Analyze the following text carefully.
+- type: text
+  text: "@./pride.txt"
+  cache_control:
+  type: ephemeral
+  messages:
+- role: user
+  content: Analyze the tone of this passage.
+  YAML
+  if [[-n "${CONTENT1:-}"]]; then
+  printf ' - role: assistant\n content: %s\n' "$CONTENT1"
+  printf ' - role: user\n'
+  printf ' content: Analyze the characters in this passage.\n'
   fi
-}
+  }
 
 # First request (budget 4000): establishes the cache. Capture usage
+
 # and content as two jsonl lines so the reply can be fed forward.
+
 printf 'First request - establishing cache\n'
 {
-  read -r USAGE1
-  read -r CONTENT1
+read -r USAGE1
+read -r CONTENT1
 } < <(build_body 4000 \
-  | ant messages create --transform '[usage,content]' --format jsonl)
+ | ant messages create --transform '[usage,content]' --format jsonl)
 printf 'First response usage: %s\n' "$USAGE1"
 
 # Second request: same budget, system-prompt cache hit expected.
+
 printf '\nSecond request - same thinking parameters (cache hit expected)\n'
 USAGE2=$(build_body 4000 \
   | ant messages create --transform usage --format jsonl)
 printf 'Second response usage: %s\n' "$USAGE2"
 
 # Third request: budget changed to 8000. The cached system prompt
+
 # still hits; only message-block caching is invalidated.
+
 printf '\nThird request - different thinking parameters (cache miss for messages)\n'
 USAGE3=$(build_body 8000 \
   | ant messages create --transform usage --format jsonl)
 printf 'Third response usage: %s\n' "$USAGE3"
-```
+
+````
 
 ```python Python hidelines={1}
 from anthropic import Anthropic
@@ -2303,7 +2340,7 @@ response3 = client.messages.create(
 )
 
 print(f"Third response usage: {response3.usage}")
-```
+````
 
 ```typescript TypeScript nocheck hidelines={1}
 import Anthropic from "@anthropic-ai/sdk";
@@ -2329,17 +2366,17 @@ const LARGE_TEXT = bookContent.slice(0, 10000);
 const SYSTEM_PROMPT: Anthropic.TextBlockParam[] = [
   {
     type: "text",
-    text: "You are an AI assistant that is tasked with literary analysis. Analyze the following text carefully."
+    text: "You are an AI assistant that is tasked with literary analysis. Analyze the following text carefully.",
   },
   {
     type: "text",
     text: LARGE_TEXT,
-    cache_control: { type: "ephemeral" }
-  }
+    cache_control: { type: "ephemeral" },
+  },
 ];
 
 const messages: Anthropic.MessageParam[] = [
-  { role: "user", content: "Analyze the tone of this passage." }
+  { role: "user", content: "Analyze the tone of this passage." },
 ];
 
 // First request - establish cache
@@ -2349,18 +2386,18 @@ const response1 = await client.messages.create({
   max_tokens: 20000,
   thinking: { type: "enabled", budget_tokens: 4000 },
   system: SYSTEM_PROMPT,
-  messages
+  messages,
 });
 
 console.log(`First response usage: ${JSON.stringify(response1.usage)}`);
 
 messages.push({
   role: "assistant",
-  content: response1.content
+  content: response1.content,
 });
 messages.push({
   role: "user",
-  content: "Analyze the characters in this passage."
+  content: "Analyze the characters in this passage.",
 });
 
 // Second request - same thinking parameters (cache hit expected)
@@ -2370,19 +2407,21 @@ const response2 = await client.messages.create({
   max_tokens: 20000,
   thinking: { type: "enabled", budget_tokens: 4000 },
   system: SYSTEM_PROMPT,
-  messages
+  messages,
 });
 
 console.log(`Second response usage: ${JSON.stringify(response2.usage)}`);
 
 // Third request - different thinking parameters (cache miss for messages)
-console.log("\nThird request - different thinking parameters (cache miss for messages)");
+console.log(
+  "\nThird request - different thinking parameters (cache miss for messages)",
+);
 const response3 = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 20000,
   thinking: { type: "enabled", budget_tokens: 8000 },
   system: SYSTEM_PROMPT,
-  messages
+  messages,
 });
 
 console.log(`Third response usage: ${JSON.stringify(response3.usage)}`);
@@ -2802,77 +2841,82 @@ curl -sL 'https://www.gutenberg.org/cache/epub/1342/pg1342.txt' \
   | head -c 10000 > book.txt
 
 # Call 1: thinking budget 4000, writes the cache
+
 USAGE=$(ant messages create \
-  --model claude-sonnet-4-6 --max-tokens 20000 \
-  --transform usage <<'YAML'
+ --model claude-sonnet-4-6 --max-tokens 20000 \
+ --transform usage <<'YAML'
 thinking:
-  type: enabled
-  budget_tokens: 4000
+type: enabled
+budget_tokens: 4000
 messages:
-  - role: user
-    content:
-      - type: text
-        text: "@./book.txt"
-        cache_control:
-          type: ephemeral
-      - type: text
-        text: "Give a one-sentence summary of this passage."
-YAML
-)
-printf 'Call 1 (budget 4000):\n%s\n\n' "$USAGE"
+
+- role: user
+  content: - type: text
+  text: "@./book.txt"
+  cache_control:
+  type: ephemeral - type: text
+  text: "Give a one-sentence summary of this passage."
+  YAML
+  )
+  printf 'Call 1 (budget 4000):\n%s\n\n' "$USAGE"
 
 # Call 2: same budget, conversation extended; expect cache HIT
+
 USAGE=$(ant messages create \
-  --model claude-sonnet-4-6 --max-tokens 20000 \
-  --transform usage <<'YAML'
+ --model claude-sonnet-4-6 --max-tokens 20000 \
+ --transform usage <<'YAML'
 thinking:
-  type: enabled
-  budget_tokens: 4000
+type: enabled
+budget_tokens: 4000
 messages:
-  - role: user
-    content:
-      - type: text
-        text: "@./book.txt"
-        cache_control:
-          type: ephemeral
-      - type: text
-        text: "Give a one-sentence summary of this passage."
-  - role: assistant
-    content: "It opens Pride and Prejudice with the Bennet family."
-  - role: user
-    content: "Who is the protagonist?"
-YAML
-)
-printf 'Call 2 (budget 4000):\n%s\n\n' "$USAGE"
+
+- role: user
+  content:
+  - type: text
+    text: "@./book.txt"
+    cache_control:
+    type: ephemeral
+  - type: text
+    text: "Give a one-sentence summary of this passage."
+- role: assistant
+  content: "It opens Pride and Prejudice with the Bennet family."
+- role: user
+  content: "Who is the protagonist?"
+  YAML
+  )
+  printf 'Call 2 (budget 4000):\n%s\n\n' "$USAGE"
 
 # Call 3: budget changed to 8000; cache MISS even though prefix is identical
+
 USAGE=$(ant messages create \
-  --model claude-sonnet-4-6 --max-tokens 20000 \
-  --transform usage <<'YAML'
+ --model claude-sonnet-4-6 --max-tokens 20000 \
+ --transform usage <<'YAML'
 thinking:
-  type: enabled
-  budget_tokens: 8000
+type: enabled
+budget_tokens: 8000
 messages:
-  - role: user
-    content:
-      - type: text
-        text: "@./book.txt"
-        cache_control:
-          type: ephemeral
-      - type: text
-        text: "Give a one-sentence summary of this passage."
-  - role: assistant
-    content: "It opens Pride and Prejudice with the Bennet family."
-  - role: user
-    content: "Who is the protagonist?"
-  - role: assistant
-    content: "Elizabeth Bennet is the protagonist."
-  - role: user
-    content: "What era is the story set in?"
-YAML
-)
-printf 'Call 3 (budget 8000):\n%s\n' "$USAGE"
-```
+
+- role: user
+  content:
+  - type: text
+    text: "@./book.txt"
+    cache_control:
+    type: ephemeral
+  - type: text
+    text: "Give a one-sentence summary of this passage."
+- role: assistant
+  content: "It opens Pride and Prejudice with the Bennet family."
+- role: user
+  content: "Who is the protagonist?"
+- role: assistant
+  content: "Elizabeth Bennet is the protagonist."
+- role: user
+  content: "What era is the story set in?"
+  YAML
+  )
+  printf 'Call 3 (budget 8000):\n%s\n' "$USAGE"
+
+````
 
 ```python Python hidelines={1}
 from anthropic import Anthropic
@@ -2967,7 +3011,7 @@ response3 = client.messages.create(
 )
 
 print(f"Third response usage: {response3.usage}")
-```
+````
 
 ```typescript TypeScript nocheck hidelines={1}
 import Anthropic from "@anthropic-ai/sdk";
@@ -2988,7 +3032,9 @@ async function fetchArticleContent(url: string): Promise<string> {
 
   // Clean up text (break into lines, remove whitespace)
   const lines = text.split("\n").map((line) => line.trim());
-  const chunks = lines.flatMap((line) => line.split("  ").map((phrase) => phrase.trim()));
+  const chunks = lines.flatMap((line) =>
+    line.split("  ").map((phrase) => phrase.trim()),
+  );
   text = chunks.filter((chunk) => chunk).join("\n");
 
   return text;
@@ -3006,14 +3052,14 @@ const messages: Anthropic.MessageParam[] = [
       {
         type: "text",
         text: LARGE_TEXT,
-        cache_control: { type: "ephemeral" }
+        cache_control: { type: "ephemeral" },
       },
       {
         type: "text",
-        text: "Analyze the tone of this passage."
-      }
-    ]
-  }
+        text: "Analyze the tone of this passage.",
+      },
+    ],
+  },
 ];
 
 // First request - establish cache
@@ -3022,14 +3068,14 @@ const response1 = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 20000,
   thinking: { type: "enabled", budget_tokens: 4000 },
-  messages
+  messages,
 });
 
 console.log("First response usage: ", response1.usage);
 
 messages.push(
   { role: "assistant", content: response1.content },
-  { role: "user", content: "Analyze the characters in this passage." }
+  { role: "user", content: "Analyze the characters in this passage." },
 );
 
 // Second request - same thinking parameters (cache hit expected)
@@ -3038,23 +3084,25 @@ const response2 = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 20000,
   thinking: { type: "enabled", budget_tokens: 4000 },
-  messages
+  messages,
 });
 
 console.log("Second response usage: ", response2.usage);
 
 messages.push(
   { role: "assistant", content: response2.content },
-  { role: "user", content: "Analyze the setting in this passage." }
+  { role: "user", content: "Analyze the setting in this passage." },
 );
 
 // Third request - different thinking budget (cache miss expected)
-console.log("\nThird request - different thinking budget (cache miss expected)");
+console.log(
+  "\nThird request - different thinking budget (cache miss expected)",
+);
 const response3 = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 20000,
   thinking: { type: "enabled", budget_tokens: 8000 },
-  messages
+  messages,
 });
 
 console.log("Third response usage: ", response3.usage);
@@ -3741,10 +3789,11 @@ Full thinking content is encrypted and returned in the `signature` field. This f
 <Note>
 It is only strictly necessary to send back thinking blocks when using [tools with extended thinking](/docs/en/build-with-claude/extended-thinking#extended-thinking-with-tool-use). Otherwise you can omit thinking blocks from previous turns. If you pass them back, whether the API keeps or strips them depends on the model: Opus 4.5+ and Sonnet 4.6+ keep them in context by default; earlier Opus/Sonnet models and all Haiku models strip them. See [context editing](/docs/en/build-with-claude/context-editing) to configure this.
 
-If sending back thinking blocks, we recommend passing everything back as you received it for consistency and to avoid potential issues.
+If sending back thinking blocks, pass everything back as you received it for consistency and to avoid potential issues.
 </Note>
 
 Here are some important considerations on thinking encryption:
+
 - When [streaming responses](/docs/en/build-with-claude/extended-thinking#streaming-thinking), the signature is added via a `signature_delta` inside a `content_block_delta` event just before the `content_block_stop` event.
 - `signature` values are significantly longer in Claude 4 models than in previous models.
 - The `signature` field is an opaque field and should not be interpreted or parsed.
@@ -3775,11 +3824,11 @@ If your code filters content blocks by type (for example, `block.type == "thinki
 
 The Messages API handles thinking differently across Claude model versions. The following table gives a condensed comparison:
 
-| Feature | Claude 4 models (pre-Opus 4.5) | Claude Opus 4.5 | Claude Sonnet 4.6 | Claude Opus 4.6 ([adaptive thinking](/docs/en/build-with-claude/adaptive-thinking)) | Claude Opus 4.7 ([adaptive thinking](/docs/en/build-with-claude/adaptive-thinking)) | [Claude Mythos Preview](https://anthropic.com/glasswing) ([adaptive thinking](/docs/en/build-with-claude/adaptive-thinking)) |
-|---------|-------------------------------|--------------------------|------------------|--------------------------|--------------------------|--------------------------|
-| **Thinking output** | Returns summarized thinking | Returns summarized thinking | Returns summarized thinking | Returns summarized thinking | Omitted by default; set `display: "summarized"` to receive summarized thinking | Omitted by default; set `display: "summarized"` to receive summarized thinking. Raw thinking tokens are never returned. |
-| **Interleaved thinking** | Supported with `interleaved-thinking-2025-05-14` beta header | Supported with `interleaved-thinking-2025-05-14` beta header | Supported with `interleaved-thinking-2025-05-14` beta header or automatic with [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) | Automatic with adaptive thinking (beta header deprecated and safely ignored) | Automatic with adaptive thinking (beta header deprecated and safely ignored) | Automatic with adaptive thinking (beta header not needed and safely ignored). Inter-tool reasoning moves into thinking blocks on this model. |
-| **Thinking block preservation** | Not preserved across turns | **Preserved by default** | **Preserved by default** | **Preserved by default** | **Preserved by default** | **Preserved by default.** Blocks are stripped when continuing the conversation on a model that does not support the Mythos thinking format. |
+| Feature                         | Claude 4 models (pre-Opus 4.5)                               | Claude Opus 4.5                                              | Claude Sonnet 4.6                                                                                                                                | Claude Opus 4.6 ([adaptive thinking](/docs/en/build-with-claude/adaptive-thinking)) | Claude Opus 4.7 ([adaptive thinking](/docs/en/build-with-claude/adaptive-thinking)) | <NextOpus /> ([adaptive thinking](/docs/en/build-with-claude/adaptive-thinking)) | [Claude Mythos Preview](https://anthropic.com/glasswing) ([adaptive thinking](/docs/en/build-with-claude/adaptive-thinking))                 |
+| ------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Thinking output**             | Returns summarized thinking                                  | Returns summarized thinking                                  | Returns summarized thinking                                                                                                                      | Returns summarized thinking                                                         | Omitted by default; set `display: "summarized"` to receive summarized thinking      | Omitted by default; set `display: "summarized"` to receive summarized thinking   | Omitted by default; set `display: "summarized"` to receive summarized thinking. Raw thinking tokens are never returned.                      |
+| **Interleaved thinking**        | Supported with `interleaved-thinking-2025-05-14` beta header | Supported with `interleaved-thinking-2025-05-14` beta header | Supported with `interleaved-thinking-2025-05-14` beta header or automatic with [adaptive thinking](/docs/en/build-with-claude/adaptive-thinking) | Automatic with adaptive thinking (beta header deprecated and safely ignored)        | Automatic with adaptive thinking (beta header deprecated and safely ignored)        | Automatic with adaptive thinking (beta header deprecated and safely ignored)     | Automatic with adaptive thinking (beta header not needed and safely ignored). Inter-tool reasoning moves into thinking blocks on this model. |
+| **Thinking block preservation** | Not preserved across turns                                   | **Preserved by default**                                     | **Preserved by default**                                                                                                                         | **Preserved by default**                                                            | **Preserved by default**                                                            | **Preserved by default**                                                         | **Preserved by default.** Blocks are stripped when continuing the conversation on a model that does not support the Mythos thinking format.  |
 
 ### Thinking block preservation by model
 
@@ -3805,6 +3854,7 @@ For earlier models (Claude Sonnet 4.5, Opus 4.1, etc.), thinking blocks from pre
 For complete pricing information including base rates, cache writes, cache hits, and output tokens, see the [pricing page](/docs/en/about-claude/pricing).
 
 The thinking process incurs charges for:
+
 - Tokens used during thinking (output tokens)
 - Thinking blocks from prior assistant turns kept in context: only the last turn on earlier Opus/Sonnet models and all Haiku models; all turns by default on Opus 4.5+ and Sonnet 4.6+ (input tokens)
 - Standard text output tokens
@@ -3814,12 +3864,14 @@ When extended thinking is enabled, a specialized system prompt is automatically 
 </Note>
 
 When using summarized thinking:
+
 - **Input tokens:** Tokens in your original request (excludes thinking tokens from previous turns)
 - **Output tokens (billed):** The original thinking tokens that Claude generated internally
 - **Output tokens (visible):** The summarized thinking tokens you see in the response
 - **No charge:** Tokens used to generate the summary
 
 When using `display: "omitted"`:
+
 - **Input tokens:** Tokens in your original request (same as summarized)
 - **Output tokens (billed):** The original thinking tokens that Claude generated internally (same as summarized)
 - **Output tokens (visible):** Zero thinking tokens (the `thinking` field is empty)
@@ -3828,6 +3880,22 @@ When using `display: "omitted"`:
 The billed output token count will **not** match the visible token count in the response. You are billed for the full thinking process, not the thinking content visible in the response.
 </Warning>
 
+To see how many billed output tokens were spent on internal reasoning, read `usage.output_tokens_details.thinking_tokens` in the response. This value reflects the raw reasoning the model generated (not the summarized text returned in the body) and is always less than or equal to `output_tokens`. Subtract it from `output_tokens` to approximate the non-reasoning portion of the output.
+
+```json
+{
+  "usage": {
+    "input_tokens": 25,
+    "output_tokens": 348,
+    "output_tokens_details": {
+      "thinking_tokens": 312
+    }
+  }
+}
+```
+
+`output_tokens` remains the inclusive, authoritative total used for billing. `output_tokens_details` is a read-only breakdown for observability.
+
 ## Best practices and considerations for extended thinking
 
 ### Working with thinking budgets
@@ -3835,7 +3903,7 @@ The billed output token count will **not** match the visible token count in the 
 - **Budget optimization:** The minimum budget is 1,024 tokens. Start at the minimum and increase the thinking budget incrementally to find the optimal range for your use case. Higher token counts enable more comprehensive reasoning but with diminishing returns depending on the task. Increasing the budget can improve response quality at the tradeoff of increased latency. For critical tasks, test different settings to find the optimal balance. Note that the thinking budget is a target rather than a strict limit. Actual token usage may vary based on the task.
 - **Starting points:** Start with larger thinking budgets (16k+ tokens) for complex tasks and adjust based on your needs.
 - **Large budgets:** For thinking budgets above 32k, use [batch processing](/docs/en/build-with-claude/batch-processing) to avoid networking issues. Requests pushing the model to think above 32k tokens causes long running requests that might run up against system timeouts and open connection limits.
-- **Token usage tracking:** Monitor thinking token usage to optimize costs and performance.
+- **Token usage tracking:** Monitor thinking token usage to optimize costs and performance. The `usage.output_tokens_details.thinking_tokens` field in the response reports how many of the billed output tokens were internal reasoning. When streaming, this breakdown appears only on the final `message_delta` event.
 
 ### Performance considerations
 

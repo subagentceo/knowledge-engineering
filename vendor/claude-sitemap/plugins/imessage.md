@@ -1,3 +1,5 @@
+# iMessage
+
 Bridge Claude Code to iMessage on macOS. This plugin reads your local `chat.db` directly and sends replies through AppleScript — no external servers, no tokens, fully local. With built-in access control, you decide exactly who can reach your assistant: allowlist specific contacts by phone number or Apple ID, use code-based pairing for approval, or restrict to self-chat only. Group chats are supported with configurable mention patterns so Claude only responds when addressed.
 
 Security is a core design principle. Access control mutations can only happen through direct terminal invocation, never from incoming messages, preventing prompt-injection attacks. File sending blocks config directory paths, pairing codes expire after one hour, and a static mode locks down access at boot for unattended operation.

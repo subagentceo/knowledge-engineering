@@ -1,3 +1,5 @@
+# Qlik
+
 Analyze, integrate, and take action on your data. Create analytics applications and data pipelines directly from Claude. Make Qlik your AI partner to access trusted data assets that help you take action.
 
 You can use Qlik to:

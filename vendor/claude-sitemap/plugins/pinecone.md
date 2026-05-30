@@ -1,3 +1,5 @@
+# Pinecone
+
 Integrate Pinecone vector database directly into your Claude Code workflow. This plugin provides a complete toolkit for managing vector indexes, querying data with natural language, and rapidly prototyping semantic search applications—all without leaving your editor.
 
 The MCP server gives you access to seven powerful tools: list-indexes, describe-index, describe-index-stats, search-records, create-index-for-model, upsert-records, and rerank-documents. Build RAG applications, recommendation systems, and semantic search features with full control over your vector data.

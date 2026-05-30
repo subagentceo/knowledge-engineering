@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -39,39 +40,39 @@ Once configured, Claude automatically discovers Skills from the filesystem and i
   import asyncio
   from claude_agent_sdk import query, ClaudeAgentOptions
 
-
-  async def main():
-      options = ClaudeAgentOptions(
-          cwd="/path/to/project",  # Project with .claude/skills/
-          setting_sources=["user", "project"],  # Load Skills from filesystem
-          skills="all",  # Enable every discovered Skill
-          allowed_tools=["Read", "Write", "Bash"],
-      )
+async def main():
+options = ClaudeAgentOptions(
+cwd="/path/to/project", # Project with .claude/skills/
+setting_sources=["user", "project"], # Load Skills from filesystem
+skills="all", # Enable every discovered Skill
+allowed_tools=["Read", "Write", "Bash"],
+)
 
       async for message in query(
           prompt="Help me process this PDF document", options=options
       ):
           print(message)
 
+asyncio.run(main())
 
-  asyncio.run(main())
-  ```
+````
 
-  ```typescript TypeScript theme={null}
-  import { query } from "@anthropic-ai/claude-agent-sdk";
+```typescript TypeScript theme={null}
+import { query } from "@anthropic-ai/claude-agent-sdk";
 
-  for await (const message of query({
-    prompt: "Help me process this PDF document",
-    options: {
-      cwd: "/path/to/project", // Project with .claude/skills/
-      settingSources: ["user", "project"], // Load Skills from filesystem
-      skills: "all", // Enable every discovered Skill
-      allowedTools: ["Read", "Write", "Bash"]
-    }
-  })) {
-    console.log(message);
+for await (const message of query({
+  prompt: "Help me process this PDF document",
+  options: {
+    cwd: "/path/to/project", // Project with .claude/skills/
+    settingSources: ["user", "project"], // Load Skills from filesystem
+    skills: "all", // Enable every discovered Skill
+    allowedTools: ["Read", "Write", "Bash"]
   }
-  ```
+})) {
+  console.log(message);
+}
+````
+
 </CodeGroup>
 
 To enable only specific Skills, pass their names. Names match the `name` field in `SKILL.md` or the Skill's directory name. Use `plugin:skill` for plugin-provided Skills.
@@ -81,9 +82,10 @@ To enable only specific Skills, pass their names. Names match the `name` field i
   options = ClaudeAgentOptions(skills=["pdf", "docx"])
   ```
 
-  ```typescript TypeScript theme={null}
-  const options = { skills: ["pdf", "docx"] };
-  ```
+```typescript TypeScript theme={null}
+const options = { skills: ["pdf", "docx"] };
+```
+
 </CodeGroup>
 
 The `skills` option is a context filter, not a sandbox. Unlisted Skills are hidden from the model and rejected by the Skill tool, but their files remain on disk and are reachable through Read and Bash.
@@ -92,9 +94,9 @@ The `skills` option is a context filter, not a sandbox. Unlisted Skills are hidd
 
 Skills are loaded from filesystem directories based on your `settingSources`/`setting_sources` configuration:
 
-* **Project Skills** (`.claude/skills/`): Shared with your team via git - loaded when `setting_sources` includes `"project"`
-* **User Skills** (`~/.claude/skills/`): Personal Skills across all projects - loaded when `setting_sources` includes `"user"`
-* **Plugin Skills**: Bundled with installed Claude Code plugins
+- **Project Skills** (`.claude/skills/`): Shared with your team via git - loaded when `setting_sources` includes `"project"`
+- **User Skills** (`~/.claude/skills/`): Personal Skills across all projects - loaded when `setting_sources` includes `"user"`
+- **Plugin Skills**: Bundled with installed Claude Code plugins
 
 ## Creating Skills
 
@@ -109,15 +111,15 @@ Skills are defined as directories containing a `SKILL.md` file with YAML frontma
 
 For complete guidance on creating Skills, including SKILL.md structure, multi-file Skills, and examples, see:
 
-* [Agent Skills in Claude Code](/en/skills): Complete guide with examples
-* [Agent Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices): Authoring guidelines and naming conventions
+- [Agent Skills in Claude Code](/en/skills): Complete guide with examples
+- [Agent Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices): Authoring guidelines and naming conventions
 
 ## Tool Restrictions
 
 <Note>
   The `allowed-tools` frontmatter field in SKILL.md is only supported when using Claude Code CLI directly. **It does not apply when using Skills through the SDK**.
 
-  When using the SDK, control tool access through the main `allowedTools` option in your query configuration.
+When using the SDK, control tool access through the main `allowedTools` option in your query configuration.
 </Note>
 
 To control tool access for Skills in SDK applications, use `allowedTools` to pre-approve specific tools. Without a `canUseTool` callback, anything not in the list is denied:
@@ -134,23 +136,25 @@ To control tool access for Skills in SDK applications, use `allowedTools` to pre
       allowed_tools=["Read", "Grep", "Glob"],
   )
 
-  async for message in query(prompt="Analyze the codebase structure", options=options):
-      print(message)
-  ```
+async for message in query(prompt="Analyze the codebase structure", options=options):
+print(message)
 
-  ```typescript TypeScript theme={null}
-  for await (const message of query({
-    prompt: "Analyze the codebase structure",
-    options: {
-      settingSources: ["user", "project"], // Load Skills from filesystem
-      skills: "all",
-      allowedTools: ["Read", "Grep", "Glob"],
-      permissionMode: "dontAsk" // Deny anything not in allowedTools
-    }
-  })) {
-    console.log(message);
+````
+
+```typescript TypeScript theme={null}
+for await (const message of query({
+  prompt: "Analyze the codebase structure",
+  options: {
+    settingSources: ["user", "project"], // Load Skills from filesystem
+    skills: "all",
+    allowedTools: ["Read", "Grep", "Glob"],
+    permissionMode: "dontAsk" // Deny anything not in allowedTools
   }
-  ```
+})) {
+  console.log(message);
+}
+````
+
 </CodeGroup>
 
 ## Discovering Available Skills
@@ -164,21 +168,23 @@ To see which Skills are available in your SDK application, simply ask Claude:
       skills="all",
   )
 
-  async for message in query(prompt="What Skills are available?", options=options):
-      print(message)
-  ```
+async for message in query(prompt="What Skills are available?", options=options):
+print(message)
 
-  ```typescript TypeScript theme={null}
-  for await (const message of query({
-    prompt: "What Skills are available?",
-    options: {
-      settingSources: ["user", "project"], // Load Skills from filesystem
-      skills: "all"
-    }
-  })) {
-    console.log(message);
+````
+
+```typescript TypeScript theme={null}
+for await (const message of query({
+  prompt: "What Skills are available?",
+  options: {
+    settingSources: ["user", "project"], // Load Skills from filesystem
+    skills: "all"
   }
-  ```
+})) {
+  console.log(message);
+}
+````
+
 </CodeGroup>
 
 Claude will list the available Skills based on your current working directory and installed plugins.
@@ -196,23 +202,25 @@ Test Skills by asking questions that match their descriptions:
       allowed_tools=["Read", "Bash"],
   )
 
-  async for message in query(prompt="Extract text from invoice.pdf", options=options):
-      print(message)
-  ```
+async for message in query(prompt="Extract text from invoice.pdf", options=options):
+print(message)
 
-  ```typescript TypeScript theme={null}
-  for await (const message of query({
-    prompt: "Extract text from invoice.pdf",
-    options: {
-      cwd: "/path/to/project",
-      settingSources: ["user", "project"], // Load Skills from filesystem
-      skills: "all",
-      allowedTools: ["Read", "Bash"]
-    }
-  })) {
-    console.log(message);
+````
+
+```typescript TypeScript theme={null}
+for await (const message of query({
+  prompt: "Extract text from invoice.pdf",
+  options: {
+    cwd: "/path/to/project",
+    settingSources: ["user", "project"], // Load Skills from filesystem
+    skills: "all",
+    allowedTools: ["Read", "Bash"]
   }
-  ```
+})) {
+  console.log(message);
+}
+````
+
 </CodeGroup>
 
 Claude automatically invokes the relevant Skill if the description matches your request.
@@ -228,26 +236,29 @@ Claude automatically invokes the relevant Skill if the description matches your 
   # Skills not loaded: setting_sources excludes user and project
   options = ClaudeAgentOptions(setting_sources=[], skills="all")
 
-  # Skills loaded: user and project sources included
-  options = ClaudeAgentOptions(
-      setting_sources=["user", "project"],
-      skills="all",
-  )
-  ```
+# Skills loaded: user and project sources included
 
-  ```typescript TypeScript theme={null}
-  // Skills not loaded: settingSources excludes user and project
-  const options = {
-    settingSources: [],
-    skills: "all"
-  };
+options = ClaudeAgentOptions(
+setting_sources=["user", "project"],
+skills="all",
+)
 
-  // Skills loaded: user and project sources included
-  const options = {
-    settingSources: ["user", "project"],
-    skills: "all"
-  };
-  ```
+````
+
+```typescript TypeScript theme={null}
+// Skills not loaded: settingSources excludes user and project
+const options = {
+  settingSources: [],
+  skills: "all"
+};
+
+// Skills loaded: user and project sources included
+const options = {
+  settingSources: ["user", "project"],
+  skills: "all"
+};
+````
+
 </CodeGroup>
 
 For more details on `settingSources`/`setting_sources`, see the [TypeScript SDK reference](/en/agent-sdk/typescript#settingsource) or [Python SDK reference](/en/agent-sdk/python#settingsource).
@@ -264,14 +275,15 @@ For more details on `settingSources`/`setting_sources`, see the [TypeScript SDK 
   )
   ```
 
-  ```typescript TypeScript theme={null}
-  // Ensure your cwd points to the directory containing .claude/skills/
-  const options = {
-    cwd: "/path/to/project", // .claude/skills/ here or in a parent directory
-    settingSources: ["user", "project"], // Loads skills from these sources
-    skills: "all"
-  };
-  ```
+```typescript TypeScript theme={null}
+// Ensure your cwd points to the directory containing .claude/skills/
+const options = {
+  cwd: "/path/to/project", // .claude/skills/ here or in a parent directory
+  settingSources: ["user", "project"], // Loads skills from these sources
+  skills: "all",
+};
+```
+
 </CodeGroup>
 
 See the "Using Skills with the SDK" section above for the complete pattern.
@@ -300,15 +312,15 @@ For general Skills troubleshooting (YAML syntax, debugging, etc.), see the [Clau
 
 ### Skills Guides
 
-* [Agent Skills in Claude Code](/en/skills): Complete Skills guide with creation, examples, and troubleshooting
-* [Agent Skills Overview](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview): Conceptual overview, benefits, and architecture
-* [Agent Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices): Authoring guidelines for effective Skills
-* [Agent Skills Cookbook](https://platform.claude.com/cookbook/skills-notebooks-01-skills-introduction): Example Skills and templates
+- [Agent Skills in Claude Code](/en/skills): Complete Skills guide with creation, examples, and troubleshooting
+- [Agent Skills Overview](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview): Conceptual overview, benefits, and architecture
+- [Agent Skills Best Practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices): Authoring guidelines for effective Skills
+- [Agent Skills Cookbook](https://platform.claude.com/cookbook/skills-notebooks-01-skills-introduction): Example Skills and templates
 
 ### SDK Resources
 
-* [Subagents in the SDK](/en/agent-sdk/subagents): Similar filesystem-based agents with programmatic options
-* [Slash Commands in the SDK](/en/agent-sdk/slash-commands): User-invoked commands
-* [SDK Overview](/en/agent-sdk/overview): General SDK concepts
-* [TypeScript SDK Reference](/en/agent-sdk/typescript): Complete API documentation
-* [Python SDK Reference](/en/agent-sdk/python): Complete API documentation
+- [Subagents in the SDK](/en/agent-sdk/subagents): Similar filesystem-based agents with programmatic options
+- [Slash Commands in the SDK](/en/agent-sdk/slash-commands): User-invoked commands
+- [SDK Overview](/en/agent-sdk/overview): General SDK concepts
+- [TypeScript SDK Reference](/en/agent-sdk/typescript): Complete API documentation
+- [Python SDK Reference](/en/agent-sdk/python): Complete API documentation

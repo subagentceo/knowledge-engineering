@@ -1,3 +1,5 @@
+# Eraser
+
 Generate, create, read, and update diagrams, documents and files in your Eraser workspace directly from Claude. Make Eraser a native part of your AI workflow — describe a system in natural language and have your agent generate a complete diagram, create rich technical docs from code or conversations, and manage files across your workspace. All changes are saved to your Eraser account and accessible from the app.
 
 You can use Eraser to:

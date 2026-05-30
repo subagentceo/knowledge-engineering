@@ -1,26 +1,28 @@
+**Important:** Styles have been migrated to skills. For more information on this change, refer to **[Styles are moving to skills](https://support.claude.com/en/articles/10181068-styles-are-moving-to-skills)**.
+
 Skills are folders of instructions, scripts, and resources that Claude loads dynamically to improve performance on specialized tasks. Skills teach Claude how to complete specific tasks in a repeatable way, whether that's creating documents with your company's brand guidelines, analyzing data using your organization's specific workflows, or automating personal tasks.
 
 Skills are available for users on Free, Pro, Max, Team, and Enterprise plans. This feature requires **[code execution to be enabled](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude#h_1c99382190)**. Skills are also available in beta for Claude Code users and for all API users using the code execution tool.
 
 ---
 
-## How do Skills work?
+## How do skills work?
 
-Skills improve Claude’s consistency, speed, and performance on many tasks. Skills work through progressive disclosure—Claude determines which Skills are relevant and loads the information it needs to complete that task, helping to prevent context window overload.
+Skills improve Claude’s consistency, speed, and performance on many tasks. Skills work through progressive disclosure—Claude determines which skills are relevant and loads the information it needs to complete that task, helping to prevent context window overload.
 
-When you ask Claude to complete a task, it reviews available Skills, loads relevant ones, and applies their instructions.
+When you ask Claude to complete a task, it reviews available skills, loads relevant ones, and applies their instructions.
 
 ---
 
-## Types of Skills
+## Types of skills
 
-### Anthropic Skills
+### Anthropic skills
 
-These are Skills created and maintained by Anthropic, such as enhanced document creation for Excel, Word, PowerPoint, and PDF files. Anthropic Skills are available to all users and Claude invokes them automatically when relevant.
+These are skills created and maintained by Anthropic, such as enhanced document creation for Excel, Word, PowerPoint, and PDF files. Anthropic skills are available to all users and Claude invokes them automatically when relevant.
 
-### Custom Skills
+### Custom skills
 
-These are Skills you or your organization create for specialized workflows and domain-specific tasks. Here are some potential workflows you could enable using custom Skills:
+These are skills you or your organization create for specialized workflows and domain-specific tasks. Here are some potential workflows you could enable using custom skills:
 
 - Apply brand style guidelines to documents and presentations.
 
@@ -36,7 +38,7 @@ These are Skills you or your organization create for specialized workflows and d
 
 ### Organization provisioned skills
 
-For Team and Enterprise plans, organization Owners can provision skills for all users. Skills provisioned in this way appear automatically in every team member's Skills list and can be set as enabled or disabled by default. This allows organizations to:
+For Team and Enterprise plans, organization Owners can provision skills for all users. Skills provisioned in this way appear automatically in every team member's skills list and can be set as enabled or disabled by default. This allows organizations to:
 
 - Distribute approved workflows consistently across all employees
 
@@ -44,7 +46,7 @@ For Team and Enterprise plans, organization Owners can provision skills for all 
 
 - Deploy new capabilities without requiring individual uploads
 
-Learn more about provisioning skills in **[Provision and manage Skills for your organization](https://support.claude.com/en/articles/13119606-managing-skills-as-an-admin)**.
+Learn more about provisioning skills in **[Provision and manage skills for your organization](https://support.claude.com/en/articles/13119606-managing-skills-as-an-admin)**.
 
 ### Partner skills
 
@@ -58,7 +60,7 @@ The Skills Directory features professionally-built skills from partners like Not
 
 **Organizational knowledge capture**: Package your company's workflows, best practices, and institutional knowledge for Claude to use consistently across your team.
 
-**Easy customization**: Anyone can create Skills by writing instructions in Markdown—no coding required for simple Skills, though you can attach executable scripts to custom Skills for more advanced functionality.
+**Easy customization**: Anyone can create skills by writing instructions in Markdown—no coding required for simple skills, though you can attach executable scripts to custom skills for more advanced functionality.
 
 **Centralized management for organizations:** Team and Enterprise plan Owners can provision skills organization-wide, ensuring consistent workflows across teams without requiring individual setup from each user.
 
@@ -78,7 +80,7 @@ The Agent Skills specification is published as an open standard at **[agentskill
 
 ### Skills vs. MCP (Model Context Protocol)
 
-MCP connects Claude to external services and data sources. Skills provide procedural knowledge—instructions for how to complete specific tasks or workflows. You can use both together: MCP connections give Claude access to tools, while Skills teach Claude how to use those tools effectively.
+MCP connects Claude to external services and data sources. Skills provide procedural knowledge—instructions for how to complete specific tasks or workflows. You can use both together: MCP connections give Claude access to tools, while skills teach Claude how to use those tools effectively.
 
 ### Skills vs. custom instructions
 
@@ -86,8 +88,8 @@ MCP connects Claude to external services and data sources. Skills provide proced
 
 ---
 
-## Learn more about Skills
+## Learn more about skills
 
-To discover available Skills, check out the directory by clicking "Customize" in your account and navigating to "Skills." You can click "+" then "Browse skills" to open the directory. For more information, see **[Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)**.
+To discover available skills, check out the directory by clicking "Customize" in your account and navigating to "Skills." You can click "+" then "Browse skills" to open the directory. For more information, see **[Browse skills, connectors, and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory)**.
 
-For more details about how Skills work, see **[Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)** in our Claude Docs.
+For more details about how skills work, see **[Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)** in our Claude Docs.

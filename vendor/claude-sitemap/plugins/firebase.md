@@ -1,3 +1,5 @@
+# Firebase
+
 Connect Claude Code directly to Google Firebase for seamless backend management. This plugin enables you to work with Firestore databases, manage authentication users, deploy cloud functions, configure hosting, and access storage—all without leaving your development environment.
 
 Key capabilities include Firestore document operations (get, delete, query), user authentication management, Cloud Functions log retrieval, Cloud Messaging for sending notifications, Remote Config template management, Crashlytics issue tracking, and Realtime Database read/write operations. The plugin also provides security rules validation and project configuration tools.

@@ -1,3 +1,5 @@
+# DataGrail
+
 Automate privacy operations tasks—such as data subject reporting, syncing ticket status information into other project tools, etc—using agentic workflows within Claude, transforming privacy into a connected, high-impact operational system. Built on a "No-Compromise" architecture, it ensures single-tenant isolation, human-governed actions, and zero training on customer data.
 
 You can use DataGrail to:

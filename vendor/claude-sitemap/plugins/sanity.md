@@ -1,19 +1,13 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Sanity
-    
-    ](#)
-    
--   Installs
-    
-    852
+# Sanity
+
+- Install in
+
+  Claude Code
+
+- Made by
+
+  Sanity
+
+- Installs
+
+  1230

@@ -1,11 +1,13 @@
+# Gradient Labs transforms financial services customer support with Claude
+
 Gradient Labs is transforming customer support for financial institutions by building an AI-powered platform that follows standard operating procedures with the precision and reliability required in highly regulated environments.
 
 With Claude, Gradient Labs achieves:
 
--   80-90% resolution rates for customer support automation, with customer satisfaction outcomes that are as high as 98%
--   The flexibility to automate almost 80% of tasks within customer support and operations functions
--   Profitable outcome-based pricing that enables teams to automate complex resolutions
--   An AI Agent platform safe and compliant to work in regulated banks
+- 80-90% resolution rates for customer support automation, with customer satisfaction outcomes that are as high as 98%
+- The flexibility to automate almost 80% of tasks within customer support and operations functions
+- Profitable outcome-based pricing that enables teams to automate complex resolutions
+- An AI Agent platform safe and compliant to work in regulated banks
 
 ## AI for the most demanding regulatory environments
 
@@ -23,10 +25,10 @@ Claude handles the most critical functions for Gradient Labs’ platform: unders
 
 Gradient Labs leverages Claude across several key capabilities:
 
--   **Intent classification and reasoning**: Claude analyzes customer queries and determines the appropriate response path using Gradient Labs' knowledge graph
--   **Standard operating procedure execution**: Claude follows complex multi-step processes required in financial services, determining next steps and utilizing relevant tools
--   **Response generation**: Claude creates natural, human-like responses that maintain the quality and tone required for regulated financial institutions
--   **Knowledge graph integration**: Claude understands customer queries within the context of Gradient Labs' comprehensive knowledge base to provide accurate, contextual responses
+- **Intent classification and reasoning**: Claude analyzes customer queries and determines the appropriate response path using Gradient Labs' knowledge graph
+- **Standard operating procedure execution**: Claude follows complex multi-step processes required in financial services, determining next steps and utilizing relevant tools
+- **Response generation**: Claude creates natural, human-like responses that maintain the quality and tone required for regulated financial institutions
+- **Knowledge graph integration**: Claude understands customer queries within the context of Gradient Labs' comprehensive knowledge base to provide accurate, contextual responses
 
 ## Transforming customer support quality and efficiency
 

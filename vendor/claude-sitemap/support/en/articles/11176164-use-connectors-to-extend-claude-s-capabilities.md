@@ -108,7 +108,7 @@ Once you connect to a service on Claude or Claude Desktop, it will be available 
 
 Once connected, services become available in your conversations:
 
-1. Click the “+”  button in the lower left of the chat interface (you can also type “/” to open this menu).
+1. Click the “+” button in the lower left of the chat interface (you can also type “/” to open this menu).
 
 2. Hover over “Connectors” to open the menu.
 

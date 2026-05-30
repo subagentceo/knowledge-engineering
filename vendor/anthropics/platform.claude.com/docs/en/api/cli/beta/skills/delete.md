@@ -1,4 +1,4 @@
-## Delete
+## Delete Skill
 
 `$ ant beta:skills delete`
 
@@ -21,7 +21,6 @@ Delete Skill
 ### Returns
 
 - `BetaSkillDeleteResponse: object { id, type }`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -40,4 +39,13 @@ Delete Skill
 ant beta:skills delete \
   --api-key my-anthropic-api-key \
   --skill-id skill_id
+```
+
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type"
+}
 ```

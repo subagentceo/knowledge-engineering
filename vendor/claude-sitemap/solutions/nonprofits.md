@@ -1,1 +1,3 @@
+# Accelerate the work that matters most
+
 Claude helps nonprofits turn limited resources into lasting impact. Generate grant proposals in hours, track program outcomes across hundreds of participants, and free your team to focus on serving your community.

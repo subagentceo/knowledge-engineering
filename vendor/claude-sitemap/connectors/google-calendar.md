@@ -1,3 +1,5 @@
+# Google Calendar
+
 Connect Google Calendar to Claude to schedule meetings, manage invites, and stay on top of your commitments. Claude can check availability across you and your attendees to find the best time, then create calendar invites with options like Google Meet links and conference room booking. It can also update existing events, delete them with automatic cancellation notices, and RSVP to invitations on your behalf.
 
 You can use Google Calendar to:

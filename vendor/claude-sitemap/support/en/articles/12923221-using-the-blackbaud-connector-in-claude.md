@@ -86,6 +86,7 @@ Example prompt:
 Show me the profile for Jane Smith, including her contact information and
 recent donations.
 ```
+
 **When to use:** Preparing for donor meetings, reviewing constituent relationships, or verifying contact details.
 
 **Tip:** Include the donor’s full name for more accurate results.
@@ -98,6 +99,7 @@ Example prompt:
 What are the details of John Doe’s donations over the past year? Include
 amounts, dates, and which campaigns they supported.
 ```
+
 **When to use:** Reviewing donor engagement, preparing acknowledgment letters, or analyzing giving patterns.
 
 **Works well with:** Requests spanning 1-3 years to identify trends without overwhelming detail.
@@ -110,6 +112,7 @@ Example prompt:
 Find any events titled “Annual Gala” and show me the details including
 attendance and funds raised.
 ```
+
 **When to use:** Planning future events, comparing year-over-year performance, or researching past fundraising activities.
 
 **Note:** Use specific keywords that match your event naming conventions for best results.
@@ -122,6 +125,7 @@ Example prompt:
 Draft a personalized thank-you email to Sarah Johnson for her recent $500
 donation to the Building Fund campaign.
 ```
+
 **When to use:** Following up on donations, acknowledging major gifts, or sending timely appreciation messages.
 
 **Key benefit:** Claude retrieves the donor’s information and gift details to create personalized, accurate communications.
@@ -133,6 +137,7 @@ Example prompt:
 ```
 Find all constituents named Williams in our database.
 ```
+
 **When to use:** Locating donors when you have partial name information or searching for related family members.
 
 **Tip:** Start with partial searches and narrow down results based on additional identifying information.

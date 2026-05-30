@@ -1,3 +1,5 @@
+# IBISWorld
+
 Turn Claude into your personal industry analyst, powered by IBISWorld's coverage of thousands of industries and 10 million data points. Access revenue and employment statistics, financial ratios, risk scores, cost structures, trade data, analyst-written insights, and other industry statistics. Size markets, forecast trends, and assess risk across banking, consulting, accounting, sales, and other strategic workflows without ever leaving Claude.
 
 You can use IBISWorld to:

@@ -1,10 +1,12 @@
+# SK Telecom enhances customer support for millions of Koreans with Claude in Amazon Bedrock
+
 SK Telecom, which has maintained the top position in the National Customer Satisfaction Index (NCSI) for 27 years, is leveraging Claude in Amazon Bedrock to further enhance its renowned customer service operations.
 
 With Claude, SKT achieved:
 
--   The quality rating of LLM responses by human agents in in-call assistance increased by 34%
--   The proportion of low-quality responses in the Telco fine-tuned model decreased by 68% compared to the base model
--   The response quality in post-call processing is approximately 89% of that of human agents
+- The quality rating of LLM responses by human agents in in-call assistance increased by 34%
+- The proportion of low-quality responses in the Telco fine-tuned model decreased by 68% compared to the base model
+- The response quality in post-call processing is approximately 89% of that of human agents
 
 ## Meeting the unique demands of Korean customer service
 
@@ -32,15 +34,15 @@ SKT deployed two key solutions:
 
 In-Call Assist
 
--   Provides agents with real-time document search and answers
--   Reduces cognitive burden on overwhelmed agents
--   Delivers relevant information automatically
+- Provides agents with real-time document search and answers
+- Reduces cognitive burden on overwhelmed agents
+- Delivers relevant information automatically
 
 Post-Call Processing
 
--   Automates routine post-call processing, including summarization, topic classification, to-do list generation, and sentiment analysis
--   Maintains human oversight of results
--   Streamlines workflow while ensuring quality
+- Automates routine post-call processing, including summarization, topic classification, to-do list generation, and sentiment analysis
+- Maintains human oversight of results
+- Streamlines workflow while ensuring quality
 
 ## Transforming agent and customer experiences
 

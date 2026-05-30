@@ -1,3 +1,5 @@
+# Clangd LSP
+
 Integrates clangd, the official LLVM/Clang language server, into Claude Code to provide intelligent C and C++ code assistance. Get real-time error detection, code completion, and automatic formatting for your C/C++ projects. Supports all common file extensions including .c, .h, .cpp, .cc, .cxx, .hpp, and .hxx.
 
 **Key features:** Code intelligence with IntelliSense and symbol navigation, real-time diagnostics and linting, automatic code formatting, and background indexing for improved performance on large codebases.

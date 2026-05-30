@@ -16,16 +16,18 @@ All Managed Agents API requests require the `managed-agents-2026-04-01` beta hea
 
 The agent toolset includes the following tools. All are enabled by default when you include the toolset in your agent configuration.
 
-| Tool | Name | Description |
-|---|---|---|
-| Bash | `bash` | Execute bash commands in a shell session |
-| Read | `read` | Read a file from the local filesystem |
-| Write | `write` | Write a file to the local filesystem |
-| Edit | `edit` | Perform string replacement in a file |
-| Glob | `glob` | Fast file pattern matching using glob patterns |
-| Grep | `grep` | Text search using regex patterns |
-| Web fetch | `web_fetch` | Fetch content from a URL |
-| Web search | `web_search` | Search the web for information |
+| Tool       | Name         | Description                                    |
+| ---------- | ------------ | ---------------------------------------------- |
+| Bash       | `bash`       | Execute bash commands in a shell session       |
+| Read       | `read`       | Read a file from the local filesystem          |
+| Write      | `write`      | Write a file to the local filesystem           |
+| Edit       | `edit`       | Perform string replacement in a file           |
+| Glob       | `glob`       | Fast file pattern matching using glob patterns |
+| Grep       | `grep`       | Text search using regex patterns               |
+| Web fetch  | `web_fetch`  | Fetch content from a URL                       |
+| Web search | `web_search` | Search the web for information                 |
+
+When a tool output exceeds 100K tokens, it is automatically written to a file in the sandbox. The model receives a truncated preview with the file path and can read the full content from there.
 
 ## Configuring the toolset
 
@@ -41,7 +43,7 @@ agent=$(curl -fsSL https://api.anthropic.com/v1/agents \
   -d @- <<'EOF'
 {
   "name": "Coding Assistant",
-  "model": "claude-opus-4-7",
+  "model": "claude-opus-4-8",
   "tools": [
     {
       "type": "agent_toolset_20260401",
@@ -58,7 +60,7 @@ EOF
 ```bash CLI
 ant beta:agents create <<'YAML'
 name: Coding Assistant
-model: claude-opus-4-7
+model: claude-opus-4-8
 tools:
   - type: agent_toolset_20260401
     configs:
@@ -70,7 +72,7 @@ YAML
 ```python Python
 agent = client.beta.agents.create(
     name="Coding Assistant",
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     tools=[
         {
             "type": "agent_toolset_20260401",
@@ -85,13 +87,13 @@ agent = client.beta.agents.create(
 ```typescript TypeScript
 const agent = await client.beta.agents.create({
   name: "Coding Assistant",
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   tools: [
     {
       type: "agent_toolset_20260401",
-      configs: [{ name: "web_fetch", enabled: false }]
-    }
-  ]
+      configs: [{ name: "web_fetch", enabled: false }],
+    },
+  ],
 });
 ```
 
@@ -99,7 +101,7 @@ const agent = await client.beta.agents.create({
 var agent = await client.Beta.Agents.Create(new()
 {
     Name = "Coding Assistant",
-    Model = new("claude-opus-4-7"),
+    Model = new("claude-opus-4-8"),
     Tools =
     [
         new BetaManagedAgentsAgentToolset20260401Params
@@ -118,8 +120,7 @@ var agent = await client.Beta.Agents.Create(new()
 agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 	Name: "Coding Assistant",
 	Model: anthropic.BetaManagedAgentsModelConfigParams{
-		ID:   "claude-opus-4-7",
-		Type: anthropic.BetaManagedAgentsModelConfigParamsTypeModelConfig,
+		ID: "claude-opus-4-8",
 	},
 	Tools: []anthropic.BetaAgentNewParamsToolUnion{{
 		OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
@@ -134,12 +135,13 @@ agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 if err != nil {
 	panic(err)
 }
+_ = agent
 ```
 
 ```java Java
 var agent = client.beta().agents().create(AgentCreateParams.builder()
     .name("Coding Assistant")
-    .model(BetaManagedAgentsModel.CLAUDE_OPUS_4_7)
+    .model(BetaManagedAgentsModel.CLAUDE_OPUS_4_8)
     .addTool(BetaManagedAgentsAgentToolset20260401Params.builder()
         .type(BetaManagedAgentsAgentToolset20260401Params.Type.AGENT_TOOLSET_20260401)
         .addConfig(BetaManagedAgentsAgentToolConfigParams.builder()
@@ -154,7 +156,7 @@ var agent = client.beta().agents().create(AgentCreateParams.builder()
 
 $agent = $client->beta->agents->create(
     name: 'Coding Assistant',
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     tools: [
         BetaManagedAgentsAgentToolset20260401Params::with(
             type: 'agent_toolset_20260401',
@@ -169,7 +171,7 @@ $agent = $client->beta->agents->create(
 ```ruby Ruby
 agent = client.beta.agents.create(
   name: "Coding Assistant",
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   tools: [
     {
       type: :agent_toolset_20260401,
@@ -180,6 +182,7 @@ agent = client.beta.agents.create(
   ]
 )
 ```
+
 </CodeGroup>
 
 ### Disabling specific tools
@@ -228,7 +231,7 @@ agent=$(curl -fsSL https://api.anthropic.com/v1/agents \
   -d @- <<'EOF'
 {
   "name": "Weather Agent",
-  "model": "claude-opus-4-7",
+  "model": "claude-opus-4-8",
   "tools": [
     {
       "type": "agent_toolset_20260401"
@@ -254,7 +257,7 @@ EOF
 ```bash CLI
 ant beta:agents create <<'YAML'
 name: Weather Agent
-model: claude-opus-4-7
+model: claude-opus-4-8
 tools:
   - type: agent_toolset_20260401
   - type: custom
@@ -274,7 +277,7 @@ YAML
 ```python Python
 agent = client.beta.agents.create(
     name="Weather Agent",
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     tools=[
         {
             "type": "agent_toolset_20260401",
@@ -298,7 +301,7 @@ agent = client.beta.agents.create(
 ```typescript TypeScript
 const agent = await client.beta.agents.create({
   name: "Weather Agent",
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   tools: [
     { type: "agent_toolset_20260401" },
     {
@@ -308,10 +311,10 @@ const agent = await client.beta.agents.create({
       input_schema: {
         type: "object",
         properties: { location: { type: "string", description: "City name" } },
-        required: ["location"]
-      }
-    }
-  ]
+        required: ["location"],
+      },
+    },
+  ],
 });
 ```
 
@@ -320,7 +323,7 @@ const agent = await client.beta.agents.create({
 var agent = await client.Beta.Agents.Create(new()
 {
     Name = "Weather Agent",
-    Model = new("claude-opus-4-7"),
+    Model = new("claude-opus-4-8"),
     Tools =
     [
         new BetaManagedAgentsAgentToolset20260401Params
@@ -352,8 +355,7 @@ var agent = await client.Beta.Agents.Create(new()
 agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 	Name: "Weather Agent",
 	Model: anthropic.BetaManagedAgentsModelConfigParams{
-		ID:   "claude-opus-4-7",
-		Type: anthropic.BetaManagedAgentsModelConfigParamsTypeModelConfig,
+		ID: "claude-opus-4-8",
 	},
 	Tools: []anthropic.BetaAgentNewParamsToolUnion{{
 		OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
@@ -380,12 +382,13 @@ agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 if err != nil {
 	panic(err)
 }
+_ = agent
 ```
 
 ```java Java
 var agent = client.beta().agents().create(AgentCreateParams.builder()
     .name("Weather Agent")
-    .model(BetaManagedAgentsModel.CLAUDE_OPUS_4_7)
+    .model(BetaManagedAgentsModel.CLAUDE_OPUS_4_8)
     .addTool(BetaManagedAgentsAgentToolset20260401Params.builder()
         .type(BetaManagedAgentsAgentToolset20260401Params.Type.AGENT_TOOLSET_20260401)
         .build())
@@ -412,7 +415,7 @@ use Anthropic\Beta\Agents\BetaManagedAgentsCustomToolParams;
 
 $agent = $client->beta->agents->create(
     name: 'Weather Agent',
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     tools: [
         BetaManagedAgentsAgentToolset20260401Params::with(
             type: 'agent_toolset_20260401',
@@ -434,7 +437,7 @@ $agent = $client->beta->agents->create(
 ```ruby Ruby
 agent = client.beta.agents.create(
   name: "Weather Agent",
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   tools: [
     {type: :agent_toolset_20260401},
     {
@@ -450,6 +453,7 @@ agent = client.beta.agents.create(
   ]
 )
 ```
+
 </CodeGroup>
 
 Once you've defined the tool at the agent level, the agent will invoke the tools through the course of a session. See [Session event stream](/docs/en/managed-agents/events-and-streaming#handling-custom-tool-calls) for the full flow.

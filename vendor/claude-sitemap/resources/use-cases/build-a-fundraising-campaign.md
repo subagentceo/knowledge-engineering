@@ -1,1 +1,3 @@
+# Build a fundraising campaign
+
 Claude can orchestrate an entire multi-channel fundraising campaign in one conversation. With your mission and donor data, Claude creates the strategic foundation (campaign plans, messaging frameworks, timelines) alongside the tactical execution assets (emails, social posts, thank-you templates, reporting dashboards). This means campaign materials that would take development teams weeks to coordinate get built in hours—with visual sophistication, brand consistency, and strategic depth.

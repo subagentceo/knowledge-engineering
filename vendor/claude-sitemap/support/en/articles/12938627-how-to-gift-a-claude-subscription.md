@@ -22,11 +22,11 @@ Gift subscriptions are available for most Pro and Max plan users to purchase. Fr
 
 4. Personalize your gift:
 
-  - Pick a card color
+- Pick a card color
 
-  - Add an optional message
+- Add an optional message
 
-  - Choose to send via email or generate a shareable link
+- Choose to send via email or generate a shareable link
 
 5. If sending by email, enter the recipient's name and email address.
 

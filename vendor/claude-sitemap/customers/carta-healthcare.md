@@ -1,11 +1,13 @@
-[Carta Healthcare](https://www.carta.healthcare/) began with a simple frustration at Stanford Children’s Hospital: slow, manual data collection was holding back meaningful progress. That challenge sparked a new idea to pair AI with clinical expertise, to make clinical data abstraction faster, higher quality and lower cost, what Carta refers to as “hybrid intelligence.” 
+# Carta Healthcare cuts clinical data processing time by 66% with Claude
+
+Carta Healthcare began with a simple frustration at Stanford Children’s Hospital: slow, manual data collection was holding back meaningful progress. That challenge sparked a new idea to pair AI with clinical expertise, to make clinical data abstraction faster, higher quality and lower cost, what Carta refers to as “hybrid intelligence.” 
 
 ## With Claude, Carta Healthcare:
 
--   Reduces clinical data abstraction time by up to 66% while improving data quality
--   Enabled processing of clinically complex questions that were previously impossible to automate
--   Achieve 98-99% Inter-rater Reliability (IRR) scores, which is the healthcare industry's gold standard for data quality
--   Transformed clinicians from manual data hunters into high-value validators and users of data to drive healthcare improvement
+- Reduces clinical data abstraction time by up to 66% while improving data quality
+- Enabled processing of clinically complex questions that were previously impossible to automate
+- Achieve 98-99% Inter-rater Reliability (IRR) scores, which is the healthcare industry's gold standard for data quality
+- Transformed clinicians from manual data hunters into high-value validators and users of data to drive healthcare improvement
 
 ## The problem
 

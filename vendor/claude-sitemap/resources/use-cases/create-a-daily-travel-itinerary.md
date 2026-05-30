@@ -1,3 +1,5 @@
+# Create a daily travel itinerary
+
 Claude builds an itinerary designed for day-to-day use while traveling — formatted for mobile with realistic timing, navigation tips and addresses that work with map apps, and alternatives for when your first choice is full. You get a document that works when you're on the move and deciding what to do next.
 
 Tell Claude your destination, trip length, and specific interests that go beyond generic categories—the particular experiences, neighborhoods, or styles you care about. Ask Claude to search the web for current recommendations. Include practical details like your travel pace, group size, and budget that affect scheduling decisions. Request realistic timing built around actual distances and movement throughout the day.

@@ -1,3 +1,5 @@
+# HealthEx (beta)
+
 The HealthEx connector connects Claude to your health records, securely pulling data from all your care providers into one place. Ask Claude to summarize your health, understand lab results, help prep for your next doctor's visit, and guide your daily routine.
 
 Setup takes minutes: Verify your identity using biometrics and a government ID to ensure only you are getting access to your own health data, then connect your healthcare portal logins.
@@ -11,8 +13,6 @@ You can use the HealthEx connector to:
 
 **Guide Your Daily Routine:** "What types of exercise would be best for me?"
 
-  
-HealthEx is only available in the United States on pro and max Claude accounts. See guide for connecting to HealthEx [here](http://claude.com/resources/tutorials/using-the-healthex-connector-in-claude).
+HealthEx is only available in the United States on pro and max Claude accounts. See guide for connecting to HealthEx here.
 
-  
 HealthEx is a Patient-First Privacy platform that follows the HIPAA Privacy Rule and is SOC2 compliant. Anthropic does not train its models on your HealthEx data.

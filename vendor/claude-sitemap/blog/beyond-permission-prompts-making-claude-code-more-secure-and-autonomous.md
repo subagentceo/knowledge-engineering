@@ -1,3 +1,5 @@
+# Beyond permission prompts: making Claude Code more secure and autonomous
+
 To help address this, we’ve introduced two new features in Claude Code built on top of sandboxing, both of which are designed to provide a more secure place for developers to work, while also allowing Claude to run more autonomously and with fewer permission prompts. ByThese features are examples of **native sandboxing**: defining set boundaries within which Claude can work freely, they increase security and agency..
 
 ## Our current approach to keeping users secure
@@ -21,12 +23,12 @@ It is worth noting that effective sandboxing requires _both_ filesystem and netw
 
 #### Sandboxed bash tool: safe bash execution without permission prompts
 
-Today, We're introducing a new sandbox runtime, available in research preview, that lets you define exactly which directories and network hosts your agent can access, without the overhead of spinning up and managing a container. This can be used to sandbox arbitrary processes, agents and MCP servers. It is now available as an open source research preview here:  \[Github link?\]  
-  
+Today, We're introducing a new sandbox runtime, available in research preview, that lets you define exactly which directories and network hosts your agent can access, without the overhead of spinning up and managing a container. This can be used to sandbox arbitrary processes, agents and MCP servers. It is now available as an open source research preview here:  [Github link?]
+
 In Claude Code, we use this runtime to sandbox the bash tool, which allows Claude to run commands within the defined limits you set. These commands are safer by default, they require fewer user permission prompts, so Claude can run more autonomously. If Claude tries to access something _outside_ of the sandbox, you'll be notified immediately, and can choose whether or not to allow it. 
 
-We’ve built this on top of OS level primitives such as \[Linux bubblewrap\](https://github.com/containers/bubblewrap) and MacOS seatbelt to enforce these restrictions at the OS level. They cover not just Claude Code's direct interactions, but also any scripts, programs, or subprocesses that are spawned by the command.  
-  
+We’ve built this on top of OS level primitives such as [Linux bubblewrap](https://github.com/containers/bubblewrap) and MacOS seatbelt to enforce these restrictions at the OS level. They cover not just Claude Code's direct interactions, but also any scripts, programs, or subprocesses that are spawned by the command.
+
 As described above, this sandbox enforces both:
 
 1.  **Filesystem isolation,** by allowing read and write access to the current working directory, but blocking the modification of any files outside of it. 
@@ -42,11 +44,11 @@ Sandboxing ensures that even a successful prompt injection is fully isolated, an
 
 To get started with this feature, run: `claude --sandbox`, and read more technical details about our security model here.
 
-To make it easier for other teams to build safer agents, we have open sourced \[XXX\]. We believe that other AI companies should consider adopting this technology for their own agents in order to enhance the security posture of their agents. 
+To make it easier for other teams to build safer agents, we have open sourced [XXX]. We believe that other AI companies should consider adopting this technology for their own agents in order to enhance the security posture of their agents. 
 
 #### Claude Code on the web: running Claude Code securely in the cloud
 
-Today, we're also releasing \[Claude Code on the web\](TODO: Link to docs on CCR), enabling users to run Claude Code in an isolated sandbox in the cloud. Claude Code on the web executes each Claude Code session in an isolated sandbox where it has full access to its server in a safe and secure way. We've designed this sandbox to ensure that sensitive credentials (such as git credentials or signing keys) are never inside the sandbox with Claude Codenever enter the sandbox environment. This way, even if the code running in the sandbox is compromised, the user is kept safe from further harm. 
+Today, we're also releasing [Claude Code on the web](TODO: Link to docs on CCR), enabling users to run Claude Code in an isolated sandbox in the cloud. Claude Code on the web executes each Claude Code session in an isolated sandbox where it has full access to its server in a safe and secure way. We've designed this sandbox to ensure that sensitive credentials (such as git credentials or signing keys) are never inside the sandbox with Claude Codenever enter the sandbox environment. This way, even if the code running in the sandbox is compromised, the user is kept safe from further harm. 
 
 Claude Code on the web uses a custom proxy service that transparently handles all git interactions. Inside the sandbox, the git client authenticates to this service with a custom-built scoped credential. The proxy verifies this credential and the contents of the git interaction (e.g. ensuring it is only pushing to the configured branch), then attaches the right authentication token before sending the request to GitHub. 
 
@@ -58,8 +60,8 @@ Our new sandboxed bash tool and Claude Code on the web offer substantial improve
 
 To get started with these tools:
 
-1.  Run \`claude --sandbox\` and check out \[our docs\](TODO) on how to configure this sandbox. 
-2.  Go to [claude.com/code](http://claude.ai/code) to try out Claude Code on the web.   
+1.  Run `claude --sandbox` and check out [our docs](TODO) on how to configure this sandbox. 
+2.  Go to claude.com/code to try out Claude Code on the web.   
 
 ‍
 

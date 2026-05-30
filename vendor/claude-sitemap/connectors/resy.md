@@ -1,3 +1,5 @@
+# Resy
+
 Resy makes it easy to discover and book restaurant reservations across the United States. Just share what you're looking for, and instantly browse top restaurants, check real-time availability, and secure a table in seconds. Whether it's a last-minute dinner or a special night out, Resy helps you get a seat at the places you love.
 
 You can use Resy to:

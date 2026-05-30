@@ -1,4 +1,4 @@
-## List
+## List Skills
 
 `client.beta.skills.list(SkillListParamsparams?, RequestOptionsoptions?): PageCursor<SkillListResponse>`
 
@@ -9,7 +9,6 @@ List Skills
 ### Parameters
 
 - `params: SkillListParams`
-
   - `limit?: number`
 
     Query param: Number of results to return per page.
@@ -27,18 +26,15 @@ List Skills
     Query param: Filter skills by source.
 
     If provided, only skills from the specified source will be returned:
-
-    * `"custom"`: only return user-created skills
-    * `"anthropic"`: only return Anthropic-created skills
+    - `"custom"`: only return user-created skills
+    - `"anthropic"`: only return Anthropic-created skills
 
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -87,10 +83,15 @@ List Skills
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `SkillListResponse`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -118,9 +119,8 @@ List Skills
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -135,14 +135,34 @@ List Skills
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
 for await (const skillListResponse of client.beta.skills.list()) {
   console.log(skillListResponse.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_title": "My Custom Skill",
+      "latest_version": "1759178010641129",
+      "source": "custom",
+      "type": "type",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```

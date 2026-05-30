@@ -1,3 +1,5 @@
+# Otter.ai
+
 Otter's MCP Server integrates with Otter.ai's meeting intelligence platform, enabling users to search meeting transcripts, retrieve conversation records, and extract insights. It provides tools to find meetings by date, participants, or topics, and access full transcripts, summaries, and action items. This helps teams review past discussions and prepare for meetings without leaving Claude.
 
 You can use Otter.ai to:

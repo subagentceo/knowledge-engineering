@@ -1,4 +1,4 @@
-## List
+## List Files
 
 `FileListPage beta().files().list(FileListParamsparams = FileListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,7 +9,6 @@ List Files
 ### Parameters
 
 - `FileListParams params`
-
   - `Optional<String> afterId`
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -31,7 +30,6 @@ List Files
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -80,10 +78,15 @@ List Files
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class FileMetadata:`
-
   - `String id`
 
     Unique object identifier.
@@ -111,7 +114,6 @@ List Files
     Object type.
 
     For files, this is always `"file"`.
-
     - `FILE("file")`
 
   - `Optional<Boolean> downloadable`
@@ -121,7 +123,6 @@ List Files
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `String id`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -129,7 +130,6 @@ List Files
     - `JsonValue; type "session"constant`
 
       The type of scope (e.g., `"session"`).
-
       - `SESSION("session")`
 
 ### Example
@@ -150,5 +150,30 @@ public final class Main {
 
         FileListPage page = client.beta().files().list();
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "created_at": "2025-04-15T18:37:24.100435Z",
+      "filename": "document.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 102400,
+      "type": "file",
+      "downloadable": false,
+      "scope": {
+        "id": "id",
+        "type": "session"
+      }
+    }
+  ],
+  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "has_more": true,
+  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
 }
 ```

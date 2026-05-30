@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -57,25 +58,25 @@ If you're not sure where to start, [install the CLI](/en/quickstart) and run it 
 
 ### Platforms
 
-* [CLI quickstart](/en/quickstart): install and run your first command in the terminal
-* [Desktop](/en/desktop): visual diff review, parallel sessions, computer use, and Dispatch
-* [VS Code](/en/vs-code): the Claude Code extension inside your editor
-* [JetBrains](/en/jetbrains): the extension for IntelliJ, PyCharm, and other JetBrains IDEs
-* [Claude Code on the web](/en/claude-code-on-the-web): cloud sessions that keep running when you disconnect
-* Mobile: the Claude app for [iOS](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684) and [Android](https://play.google.com/store/apps/details?id=com.anthropic.claude) for starting and monitoring tasks while away from your computer
+- [CLI quickstart](/en/quickstart): install and run your first command in the terminal
+- [Desktop](/en/desktop): visual diff review, parallel sessions, computer use, and Dispatch
+- [VS Code](/en/vs-code): the Claude Code extension inside your editor
+- [JetBrains](/en/jetbrains): the extension for IntelliJ, PyCharm, and other JetBrains IDEs
+- [Claude Code on the web](/en/claude-code-on-the-web): cloud sessions that keep running when you disconnect
+- Mobile: the Claude app for [iOS](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684) and [Android](https://play.google.com/store/apps/details?id=com.anthropic.claude) for starting and monitoring tasks while away from your computer
 
 ### Integrations
 
-* [Chrome](/en/chrome): automate browser tasks with your logged-in sessions
-* [Computer use](/en/computer-use): let Claude open apps and control your screen on macOS
-* [GitHub Actions](/en/github-actions): run Claude in your CI pipeline
-* [GitLab CI/CD](/en/gitlab-ci-cd): the same for GitLab
-* [Code Review](/en/code-review): automatic review on every pull request
-* [Slack](/en/slack): send tasks from team chat, get PRs back
+- [Chrome](/en/chrome): automate browser tasks with your logged-in sessions
+- [Computer use](/en/computer-use): let Claude open apps and control your screen on macOS
+- [GitHub Actions](/en/github-actions): run Claude in your CI pipeline
+- [GitLab CI/CD](/en/gitlab-ci-cd): the same for GitLab
+- [Code Review](/en/code-review): automatic review on every pull request
+- [Slack](/en/slack): send tasks from team chat, get PRs back
 
 ### Remote access
 
-* [Dispatch](/en/desktop#sessions-from-dispatch): message a task from your phone and it can spawn a Desktop session
-* [Remote Control](/en/remote-control): drive a running session from your phone or browser
-* [Channels](/en/channels): push events from chat apps or your own servers into a session
-* [Scheduled tasks](/en/scheduled-tasks): run prompts on a recurring schedule
+- [Dispatch](/en/desktop#sessions-from-dispatch): message a task from your phone and it can spawn a Desktop session
+- [Remote Control](/en/remote-control): drive a running session from your phone or browser
+- [Channels](/en/channels): push events from chat apps or your own servers into a session
+- [Scheduled tasks](/en/scheduled-tasks): run prompts on a recurring schedule

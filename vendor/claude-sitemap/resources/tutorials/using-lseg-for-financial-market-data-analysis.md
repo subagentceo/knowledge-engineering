@@ -1,3 +1,5 @@
+# Using LSEG for financial market data analysis
+
 The LSEG integration provides Claude with access to LSEG’s comprehensive financial market data ecosystem, spanning across asset classes and domains. This article explains how to set up and use LSEG to retrieve real-time market data, analytics, and perform complex financial calculations. The LSEG integration relies upon Claude’s ability to use remote connectors.
 
 ## What This Integration Provides
@@ -6,23 +8,23 @@ The LSEG integration provides Claude with access to LSEG’s comprehensive finan
 
 The LSEG integration enables Claude to access institutional-grade market data, analytics, and valuation tools directly into conversational AI workflows.
 
--   **FX Spot Price Calculation:** Get the latest FX spot rates for currency pairs, enabling real-time foreign exchange analysis and multi-currency calculations.**‍**
--   **FX Forward Price Calculation:** Compute tenor FX forward rates for currency pairs and display FX forward points between currency pairs for different tenors, supporting hedging strategies and forward contract analysis.**‍**
--   **Interest Rate Curve Analysis:** Calculate interest rate curves for specific curve references and access comprehensive lists of all interest rate curves maintained by LSEG for yield curve construction and rate projections.**‍**
--   **FX Forward Curve Points:** Calculate FX forward curve points using LSEG-defined forward curves with specific valuation dates, providing detailed term structure analysis for currency derivatives.**‍**
--   **Bond Pricing:** Price bonds using ISIN codes to retrieve current market valuations, yield calculations, and spread measures for fixed income analysis.**‍**
--   **Comprehensive Asset Class Coverage:** Access data and analytics across equities, fixed income, FX, commodities, and other asset classes through LSEG’s extensive database.
+- **FX Spot Price Calculation:** Get the latest FX spot rates for currency pairs, enabling real-time foreign exchange analysis and multi-currency calculations.**‍**
+- **FX Forward Price Calculation:** Compute tenor FX forward rates for currency pairs and display FX forward points between currency pairs for different tenors, supporting hedging strategies and forward contract analysis.**‍**
+- **Interest Rate Curve Analysis:** Calculate interest rate curves for specific curve references and access comprehensive lists of all interest rate curves maintained by LSEG for yield curve construction and rate projections.**‍**
+- **FX Forward Curve Points:** Calculate FX forward curve points using LSEG-defined forward curves with specific valuation dates, providing detailed term structure analysis for currency derivatives.**‍**
+- **Bond Pricing:** Price bonds using ISIN codes to retrieve current market valuations, yield calculations, and spread measures for fixed income analysis.**‍**
+- **Comprehensive Asset Class Coverage:** Access data and analytics across equities, fixed income, FX, commodities, and other asset classes through LSEG’s extensive database.
 
 ## How Claude Uses LSEG Data
 
 Claude applies LSEG’s market data to support your financial analysis.
 
--   Real-Time FX Analysis: Retrieves current spot rates and forward prices for currency pairs to analyze exchange rate movements, calculate cross-rates, and evaluate currency exposures.
--   Yield Curve Construction: Pulls interest rate curve data to build term structures, calculate forward rates, and analyze the shape of yield curves for interest rate forecasting.
--   Fixed Income Valuation: Uses bond pricing tools to value securities, compare yields across issuers, and assess credit spreads for portfolio management and trading decisions.
--   Cross-Asset Analysis: Combines data from multiple asset classes to identify relationships, correlations, and trading opportunities across markets.
--   Hedging Strategy Development: Leverages forward curve data to structure currency hedges, evaluate hedge effectiveness, and optimize hedging costs.
--   Market Data Validation: Provides authoritative pricing and reference data to verify quotes, reconcile positions, and ensure data accuracy.
+- Real-Time FX Analysis: Retrieves current spot rates and forward prices for currency pairs to analyze exchange rate movements, calculate cross-rates, and evaluate currency exposures.
+- Yield Curve Construction: Pulls interest rate curve data to build term structures, calculate forward rates, and analyze the shape of yield curves for interest rate forecasting.
+- Fixed Income Valuation: Uses bond pricing tools to value securities, compare yields across issuers, and assess credit spreads for portfolio management and trading decisions.
+- Cross-Asset Analysis: Combines data from multiple asset classes to identify relationships, correlations, and trading opportunities across markets.
+- Hedging Strategy Development: Leverages forward curve data to structure currency hedges, evaluate hedge effectiveness, and optimize hedging costs.
+- Market Data Validation: Provides authoritative pricing and reference data to verify quotes, reconcile positions, and ensure data accuracy.
 
 ## Setting Up LSEG Integration
 
@@ -30,15 +32,15 @@ Technical details of the LSEG Integration can be found in LSEG’s MCP Server Do
 
 ### For Organization Owners
 
-1.  Navigate to [Admin settings > Connectors](https://claude.ai/admin-settings/connectors).
+1.  Navigate to Admin settings > Connectors.
 2.  Scroll down and click “Add custom connector” at the bottom of the list.
-3.  Enter integration URL: [https://api.analytics.lseg.com/lfa/mcp](https://api.analytics.lseg.com/lfa/mcp)‍
+3.  Enter integration URL: https://api.analytics.lseg.com/lfa/mcp‍
 4.  Name the integration (e.g., “LSEG MCP”)
 5.  Click “Add”
 
 ### For Individual Users
 
-Learn about [finding and connecting tools](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
+Learn about finding and connecting tools.
 
 ## Common Use Cases
 
@@ -104,9 +106,9 @@ Example input prompt:
 
 ## Tips for Using LSEG
 
--   Use specific currency pair conventions (USD/EUR, GBP/USD)
--   Specify tenors clearly for forward rates (3M, 6M, 1Y)
--   Reference bonds by ISIN codes for accurate pricing
--   Define valuation dates when working with forward curves
--   Understand curve conventions (SOFR, ESTR, AONIA) for different currencies
--   Cross-reference data across tools to validate analysis
+- Use specific currency pair conventions (USD/EUR, GBP/USD)
+- Specify tenors clearly for forward rates (3M, 6M, 1Y)
+- Reference bonds by ISIN codes for accurate pricing
+- Define valuation dates when working with forward curves
+- Understand curve conventions (SOFR, ESTR, AONIA) for different currencies
+- Cross-reference data across tools to validate analysis

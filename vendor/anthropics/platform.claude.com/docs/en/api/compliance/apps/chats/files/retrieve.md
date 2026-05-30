@@ -1,4 +1,4 @@
-## Retrieve
+## Get file metadata
 
 **get** `/v1/compliance/apps/chats/files/{claude_file_id}`
 
@@ -30,6 +30,10 @@ download the bytes.
 
   Display name of the file, if set
 
+- `md5: string`
+
+  Lowercase hex MD5 of the file's preferred downloadable variant, as recorded at upload time. Null when no stored hash is available. The sibling `/content` endpoint also sets a `Content-MD5` header (base64 per RFC 1864) computed over the exact served bytes; when the two disagree, the header is authoritative.
+
 - `message_ids: array of string`
 
   Chat message IDs this file is attached to. A file can be referenced by multiple messages.
@@ -47,4 +51,18 @@ download the bytes.
 ```http
 curl https://api.anthropic.com/v1/compliance/apps/chats/files/$CLAUDE_FILE_ID \
     -H "Authorization: Bearer $ANTHROPIC_COMPLIANCE_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "id": "claude_file_xyz789",
+  "filename": "quarterly_report.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 1048576,
+  "md5": "5d41402abc4b2a76b9719d911017c592",
+  "created_at": "2024-01-15T10:30:00Z",
+  "message_ids": ["claude_chat_msg_abc123"]
+}
 ```

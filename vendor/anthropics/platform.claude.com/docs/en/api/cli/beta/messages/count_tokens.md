@@ -1,4 +1,4 @@
-## Count Tokens
+## Count tokens in a Message
 
 `$ ant beta:messages count-tokens`
 
@@ -25,16 +25,16 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   Example with a single `user` message:
 
   ```json
-  [{"role": "user", "content": "Hello, Claude"}]
+  [{ "role": "user", "content": "Hello, Claude" }]
   ```
 
   Example with multiple conversational turns:
 
   ```json
   [
-    {"role": "user", "content": "Hello there."},
-    {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
-    {"role": "user", "content": "Can you explain LLMs in plain English?"},
+    { "role": "user", "content": "Hello there." },
+    { "role": "assistant", "content": "Hi, I'm Claude. How can I help you?" },
+    { "role": "user", "content": "Can you explain LLMs in plain English?" }
   ]
   ```
 
@@ -42,19 +42,22 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   ```json
   [
-    {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-    {"role": "assistant", "content": "The best answer is ("},
+    {
+      "role": "user",
+      "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
+    },
+    { "role": "assistant", "content": "The best answer is (" }
   ]
   ```
 
   Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
   ```json
-  {"role": "user", "content": "Hello, Claude"}
+  { "role": "user", "content": "Hello, Claude" }
   ```
 
   ```json
-  {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
+  { "role": "user", "content": [{ "type": "text", "text": "Hello, Claude" }] }
   ```
 
   See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -63,7 +66,7 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 
   There is a limit of 100,000 messages in a single request.
 
-- `--model: "claude-opus-4-7" or "claude-mythos-preview" or "claude-opus-4-6" or 14 more or string`
+- `--model: "claude-opus-4-8" or "claude-opus-4-7" or "claude-mythos-preview" or 15 more or string`
 
   Body param: The model that will complete your prompt.
 
@@ -124,10 +127,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
   There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
   Each tool definition includes:
-
-  * `name`: Name of the tool.
-  * `description`: Optional, but strongly-recommended description of the tool.
-  * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+  - `name`: Name of the tool.
+  - `description`: Optional, but strongly-recommended description of the tool.
+  - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
   For example, if you defined `tools` as:
 
@@ -186,11 +188,9 @@ Learn more about token counting in our [user guide](https://docs.claude.com/en/d
 ### Returns
 
 - `beta_message_tokens_count: object { context_management, input_tokens }`
-
   - `context_management: object { original_input_tokens }`
 
     Information about context management applied to the message.
-
     - `original_input_tokens: number`
 
       The original token count before context management was applied
@@ -206,4 +206,15 @@ ant beta:messages count-tokens \
   --api-key my-anthropic-api-key \
   --message '{content: [{text: x, type: text}], role: user}' \
   --model claude-opus-4-6
+```
+
+#### Response
+
+```json
+{
+  "context_management": {
+    "original_input_tokens": 0
+  },
+  "input_tokens": 2095
+}
 ```

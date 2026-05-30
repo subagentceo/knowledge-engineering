@@ -1,11 +1,13 @@
-Brex, the modern financial platform combining global corporate cards, spend management, banking and travel, is transforming expense management by integrating AI capabilities directly into their core product offerings with Claude in [Amazon Bedrock](https://aws.amazon.com/bedrock/claude/).
+# Brex reimagines spend management with Claude in Amazon Bedrock
+
+Brex, the modern financial platform combining global corporate cards, spend management, banking and travel, is transforming expense management by integrating AI capabilities directly into their core product offerings with Claude in Amazon Bedrock.
 
 Claude helps Brex to:
 
--   Automate 75% of expense transactions, achieving a 94% compliance rate versus the industry standard of 70%
--   Save customers 169,000 hours per month on expenses and accounting through automation
--   Save $56.5 million in annual salary costs across all customers
--   Review 100% of transactions with AI-driven anomaly detection at the line-item level
+- Automate 75% of expense transactions, achieving a 94% compliance rate versus the industry standard of 70%
+- Save customers 169,000 hours per month on expenses and accounting through automation
+- Save $56.5 million in annual salary costs across all customers
+- Review 100% of transactions with AI-driven anomaly detection at the line-item level
 
 ## Rethinking expense management for AI-first experiences
 
@@ -19,7 +21,7 @@ After exploring various AI models beginning in 2023, Brex chose Claude for its t
 
 "What we've valued about Anthropic is not just their powerful models, but how they've positioned them for enterprise needs," said Horn. "When I talk with customers about AI, data privacy is always their first concern—it's the critical foundation we have to address before we can even begin discussing capabilities."
 
-Using Claude in Amazon Bedrock proved advantageous for Brex's enterprise implementation. Jin Shao, a software engineer at Brex, said, "Deploying Claude in Amazon Bedrock gives us seamless integration with our existing [Amazon Web Services (AWS) infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/) and services. Building effective AI applications requires more than just an LLM model—you need knowledge bases, prompt management systems, and robust security controls. Amazon Bedrock provides all these capabilities in one place, reducing our integration overhead."
+Using Claude in Amazon Bedrock proved advantageous for Brex's enterprise implementation. Jin Shao, a software engineer at Brex, said, "Deploying Claude in Amazon Bedrock gives us seamless integration with our existing Amazon Web Services (AWS) infrastructure and services. Building effective AI applications requires more than just an LLM model—you need knowledge bases, prompt management systems, and robust security controls. Amazon Bedrock provides all these capabilities in one place, reducing our integration overhead."
 
 The AWS environment aligns with Brex's enterprise security requirements, a key consideration with Brex growing its enterprise revenue 80% in the past year and now serving over 200 public companies Shao added, "Since we already host our services and databases on AWS, implementing Claude in Amazon Bedrock was a natural extension that maintained our security posture. This integration allows us to leverage AWS Identify and Access Management (IAM) for access control and keep all data processing within our existing security boundaries, essential for handling sensitive financial information."
 
@@ -31,10 +33,10 @@ Brex decided to rebuild their platform with AI at its core. Tim Foster, Engineer
 
 Claude powers several key capabilities in Brex's reimagined platform:
 
--   **Conversational expense submission**: Their new spender experience makes expense management nearly invisible to employees. The system analyzes contextual information like calendar events, location data, and spending patterns to automatically categorize expenses and apply compliance rules without requiring manual input. This transforms expense management from a burdensome task into a seamless background process that increases compliance while eliminating administrative work.
--   **AI-powered policy interpretation**: Finance teams can upload policy documents directly into the system instead of complex rule configurations. The AI interprets these documents intelligently, eliminating the need to translate policies into technical rules or decision trees.
--   **Intelligent expense auditing**: An AI-first workbench transforms how finance professionals review expenses by proactively grouping related expenses, flagging policy concerns, and providing explanations with recommended actions. This makes each review more meaningful and efficient.
--   **Contextual policy guidance**: The system provides employees with relevant policy information before they spend rather than flagging violations after the fact. This creates a proactive approach to compliance that reduces policy violations while improving the employee experience.
+- **Conversational expense submission**: Their new spender experience makes expense management nearly invisible to employees. The system analyzes contextual information like calendar events, location data, and spending patterns to automatically categorize expenses and apply compliance rules without requiring manual input. This transforms expense management from a burdensome task into a seamless background process that increases compliance while eliminating administrative work.
+- **AI-powered policy interpretation**: Finance teams can upload policy documents directly into the system instead of complex rule configurations. The AI interprets these documents intelligently, eliminating the need to translate policies into technical rules or decision trees.
+- **Intelligent expense auditing**: An AI-first workbench transforms how finance professionals review expenses by proactively grouping related expenses, flagging policy concerns, and providing explanations with recommended actions. This makes each review more meaningful and efficient.
+- **Contextual policy guidance**: The system provides employees with relevant policy information before they spend rather than flagging violations after the fact. This creates a proactive approach to compliance that reduces policy violations while improving the employee experience.
 
 ## Transforming finance operations through intelligent automation
 

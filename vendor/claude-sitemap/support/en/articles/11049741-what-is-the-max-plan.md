@@ -39,7 +39,6 @@ Price and plans are subject to change at Anthropic's discretion.
 - When upgrading from a lower to a higher tier, your account will be charged on a prorated basis for the remainder of your billing cycle.
 
 - When moving from an annual Pro plan to a Max plan, if the remaining balance on your annual Pro plan is greater than your Max plan price, you will receive a credit to your account for the remaining balance. This credit will be applied to future subscription costs.
-
   - To receive your credit, the billing address used to purchase your Max plan must be the same as your previous subscription’s billing address.
 
   - If your billing address has changed, you will need to cancel your Pro subscription and wait for the subscription end date before signing up for a new Max subscription with a new billing address.

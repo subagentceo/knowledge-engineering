@@ -1,3 +1,5 @@
+# Why Syracuse University gave Claude to 30,000 students, faculty, and staff
+
 Over the past two years, Jeff Rubin, Senior Vice President and Chief Digital Officer at Syracuse University, has led a rollout of Claude to every student, faculty member, and staff member at the university. Syracuse is now launching a new way for students to search for classes. Instead of keyword searches, students can ask questions in natural language and get answers that support and align with the pursuit of their career goals. The system runs on Claude Opus and queries millions of rows of enterprise data in real time.
 
 We talked to Rubin about the class search launch, what he's learned from redesigning how professors teach, and why he's optimistic about AI in education. 

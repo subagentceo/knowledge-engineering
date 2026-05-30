@@ -1,4 +1,4 @@
-## Retrieve
+## Get Vault
 
 `BetaManagedAgentsVault Beta.Vaults.Retrieve(VaultRetrieveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Get Vault
 ### Parameters
 
 - `VaultRetrieveParams parameters`
-
   - `required string vaultID`
 
     Path parameter vault_id
@@ -17,7 +16,6 @@ Get Vault
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -66,12 +64,17 @@ Get Vault
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsVault:`
 
   A vault that stores credentials for use by agents during sessions.
-
   - `required string ID`
 
     Unique identifier for the vault.
@@ -93,7 +96,6 @@ Get Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `required Type Type`
-
     - `"vault"Vault`
 
   - `required DateTimeOffset UpdatedAt`
@@ -111,4 +113,20 @@ VaultRetrieveParams parameters = new()
 var betaManagedAgentsVault = await client.Beta.Vaults.Retrieve(parameters);
 
 Console.WriteLine(betaManagedAgentsVault);
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
 ```

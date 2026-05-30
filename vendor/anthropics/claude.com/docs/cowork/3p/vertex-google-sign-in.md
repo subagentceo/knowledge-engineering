@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -10,9 +11,9 @@ By default, Cowork on 3P authenticates to Google Cloud's Vertex AI with a creden
 
 Use Google sign-in when you want:
 
-* Per-user attribution in Cloud Audit Logs instead of a single shared service account
-* IAM controlled at the user or group level rather than at the key
-* To avoid distributing and rotating long-lived service-account key files
+- Per-user attribution in Cloud Audit Logs instead of a single shared service account
+- IAM controlled at the user or group level rather than at the key
+- To avoid distributing and rotating long-lived service-account key files
 
 The sign-in experience uses a Google OAuth client that **you create in your own Google Cloud project**. Anthropic does not provide or operate an OAuth client for this flow.
 
@@ -26,9 +27,9 @@ If the stored refresh token is revoked or expires, or if you deploy a new OAuth 
 
 ## Prerequisites
 
-* A Google Cloud project with the **Vertex AI API** enabled, containing the Claude models you intend to serve
-* Admin access to that project to create an OAuth client and grant IAM roles
-* A Google Workspace organization (recommended) so the OAuth consent screen can be set to **Internal**
+- A Google Cloud project with the **Vertex AI API** enabled, containing the Claude models you intend to serve
+- Admin access to that project to create an OAuth client and grant IAM roles
+- A Google Workspace organization (recommended) so the OAuth consent screen can be set to **Internal**
 
 ## Set up Google sign-in
 
@@ -39,6 +40,7 @@ If the stored refresh token is revoked or expires, or if you deploy a new OAuth 
     If your project belongs to a Google Workspace organization, select the **Internal** user type. Internal apps are limited to users in your Workspace and do not require Google verification, regardless of which scopes they request.
 
     If the project is not in a Workspace organization, you must use the **External** user type. Because this flow requests the `https://www.googleapis.com/auth/cloud-platform` scope, Google classifies the app as using a sensitive scope, and publishing it beyond test users requires Google's OAuth verification process. For that reason, Internal is strongly recommended for enterprise deployments.
+
   </Step>
 
   <Step title="Create a Desktop OAuth client">
@@ -47,12 +49,14 @@ If the stored refresh token is revoked or expires, or if you deploy a new OAuth 
     Record the generated **Client ID** (ending in `.apps.googleusercontent.com`) and **Client secret**. For installed applications, Google does not treat the client secret as confidential; the flow is protected by PKCE and by the loopback redirect, so it is safe to distribute the secret in a managed configuration profile.
 
     You do not need to add redirect URIs. Desktop-app clients permit loopback (`http://127.0.0.1:<port>`) redirects automatically.
+
   </Step>
 
   <Step title="Grant users access to Vertex AI">
     Each signed-in user calls Vertex AI as themselves, so each user's Google identity needs permission to invoke the model.
 
     On the Vertex project, grant the **Vertex AI User** role (`roles/aiplatform.user`) to the Google Workspace group that contains your Cowork users, or to individual users. If your organization uses a narrower custom role, it must include at minimum the `aiplatform.endpoints.predict` permission.
+
   </Step>
 
   <Step title="Configure in the app">
@@ -70,6 +74,7 @@ If the stored refresh token is revoked or expires, or if you deploy a new OAuth 
     Leave **GCP credentials file path** empty — if it's set, the static credentials file takes precedence and the sign-in page is never shown.
 
     Then click **Export** to produce a `.mobileconfig` (macOS) or `.reg` (Windows) file for your MDM. See [Installation and setup](/cowork/3p/installation) for the export and deployment workflow, or the [Configuration keys](#configuration-keys) table below if you author policy by hand.
+
   </Step>
 
   <Step title="Allow network egress">
@@ -95,7 +100,7 @@ See [Using Cowork on 3P with Google Cloud's Vertex AI](/cowork/3p/vertex) for th
 
 ## Notes and limitations
 
-* **Precedence.** If `inferenceVertexCredentialsFile` is set, it is used and Google sign-in is disabled. Remove that key to switch an existing deployment to per-user sign-in.
-* **Both keys required.** If only one of `inferenceVertexOAuthClientId` or `inferenceVertexOAuthClientSecret` is set, the app logs a warning and falls back to standard Application Default Credentials discovery.
-* **Credential helper not applicable.** `inferenceCredentialHelper` is not invoked when `inferenceProvider` is `vertex`, because Vertex authentication is file-based rather than token-based. Use Google sign-in or a credentials file instead.
-* **Client rotation.** If you replace the OAuth client in Google Cloud and push the new client ID via MDM, existing users are automatically signed out and prompted to sign in again on next launch.
+- **Precedence.** If `inferenceVertexCredentialsFile` is set, it is used and Google sign-in is disabled. Remove that key to switch an existing deployment to per-user sign-in.
+- **Both keys required.** If only one of `inferenceVertexOAuthClientId` or `inferenceVertexOAuthClientSecret` is set, the app logs a warning and falls back to standard Application Default Credentials discovery.
+- **Credential helper not applicable.** `inferenceCredentialHelper` is not invoked when `inferenceProvider` is `vertex`, because Vertex authentication is file-based rather than token-based. Use Google sign-in or a credentials file instead.
+- **Client rotation.** If you replace the OAuth client in Google Cloud and push the new client ID via MDM, existing users are automatically signed out and prompted to sign in again on next launch.

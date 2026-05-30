@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -12,10 +13,10 @@ This lets you share a one-click starting point for a task: anyone with Claude Co
 
 Because a deep link is a URL, you can put one anywhere a link can go:
 
-* An incident runbook step that opens the affected service's repo with a diagnostic prompt
-* A monitoring alert or dashboard that links to an investigation prompt for a specific metric
-* A README or wiki page that opens the project with an onboarding prompt
-* A CI failure notification that pre-fills the failing job's name
+- An incident runbook step that opens the affected service's repo with a diagnostic prompt
+- A monitoring alert or dashboard that links to an investigation prompt for a specific metric
+- A README or wiki page that opens the project with an onboarding prompt
+- A CI failure notification that pre-fills the failing job's name
 
 This page covers how to [build a link](#build-a-link), [embed one in a runbook or trigger it from the shell](#examples), and [manage or disable handler registration](#registration-and-supported-platforms) on each platform.
 
@@ -83,10 +84,10 @@ Use `cwd` when everyone who clicks the link has the project at the same absolute
 
 Use `repo` when the link is shared and each person clones to a different location. Claude Code resolves the slug to a local path as follows:
 
-* Each time you run `claude` in a Git repository, that directory's filesystem path is recorded against the repository's GitHub `owner/name` slug.
-* When a deep link arrives, `repo` opens whichever matching path you used most recently. Multiple clones and worktrees are tracked separately, so it picks the one you worked in last.
-* The lookup only finds paths where you have already run Claude Code at least once.
-* The link does not change which branch is checked out. The session opens in whatever state that directory is currently in.
+- Each time you run `claude` in a Git repository, that directory's filesystem path is recorded against the repository's GitHub `owner/name` slug.
+- When a deep link arrives, `repo` opens whichever matching path you used most recently. Multiple clones and worktrees are tracked separately, so it picks the one you worked in last.
+- The lookup only finds paths where you have already run Claude Code at least once.
+- The link does not change which branch is checked out. The session opens in whatever state that directory is currently in.
 
 The launched session shows which path it picked and when that clone last fetched from the remote, so you can tell if you are looking at stale code.
 
@@ -123,6 +124,7 @@ You can also open a deep link from a shell script, alias, or automation rather t
     ```bash theme={null}
     open "claude-cli://open?repo=acme/payments&q=review%20open%20PRs"
     ```
+
   </Tab>
 
   <Tab title="Linux">
@@ -131,6 +133,7 @@ You can also open a deep link from a shell script, alias, or automation rather t
     ```bash theme={null}
     xdg-open "claude-cli://open?repo=acme/payments&q=review%20open%20PRs"
     ```
+
   </Tab>
 
   <Tab title="Windows">
@@ -145,6 +148,7 @@ You can also open a deep link from a shell script, alias, or automation rather t
     ```cmd theme={null}
     start "" "claude-cli://open?repo=acme/payments&q=review%20open%20PRs"
     ```
+
   </Tab>
 </Tabs>
 
@@ -188,5 +192,5 @@ On macOS, start `claude` in your preferred terminal once and the next deep link 
 
 These pages cover related ways to launch or extend Claude Code sessions:
 
-* [Skills](/en/skills): store a long runbook prompt as a `/skill` in the repo so the deep link's `q` parameter only has to name it
-* [Non-interactive mode](/en/headless): run Claude from a script and capture the output without opening a terminal
+- [Skills](/en/skills): store a long runbook prompt as a `/skill` in the repo so the deep link's `q` parameter only has to name it
+- [Non-interactive mode](/en/headless): run Claude from a script and capture the output without opening a terminal

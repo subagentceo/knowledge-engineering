@@ -1,6 +1,6 @@
 # Versions
 
-## Create
+## Create Skill Version
 
 `beta.skills.versions.create(skill_id, **kwargs) -> VersionCreateResponse`
 
@@ -25,11 +25,9 @@ Create Skill Version
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -78,10 +76,15 @@ Create Skill Version
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class VersionCreateResponse`
-
   - `id: String`
 
     Unique identifier for the skill version.
@@ -138,7 +141,22 @@ version = anthropic.beta.skills.versions.create("skill_id")
 puts(version)
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## List Skill Versions
 
 `beta.skills.versions.list(skill_id, **kwargs) -> PageCursor<VersionListResponse>`
 
@@ -167,11 +185,9 @@ List Skill Versions
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -220,10 +236,15 @@ List Skill Versions
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class VersionListResponse`
-
   - `id: String`
 
     Unique identifier for the skill version.
@@ -280,13 +301,34 @@ page = anthropic.beta.skills.versions.list("skill_id")
 puts(page)
 ```
 
-## Retrieve
+#### Response
 
-`beta.skills.versions.retrieve(version, **kwargs) -> VersionRetrieveResponse`
+```json
+{
+  "data": [
+    {
+      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "description": "A custom skill for doing something useful",
+      "directory": "my-skill",
+      "name": "my-skill",
+      "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "type": "type",
+      "version": "1759178010641129"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
 
-**get** `/v1/skills/{skill_id}/versions/{version}`
+## Download Skill Version Content
 
-Get Skill Version
+`beta.skills.versions.download(version, **kwargs) -> StringIO`
+
+**get** `/v1/skills/{skill_id}/versions/{version}/content`
+
+Download a skill version's content as a zip archive.
 
 ### Parameters
 
@@ -305,11 +347,9 @@ Get Skill Version
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -358,10 +398,113 @@ Get Skill Version
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
+### Returns
+
+- `StringIO`
+
+### Example
+
+```ruby
+require "anthropic"
+
+anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
+
+response = anthropic.beta.skills.versions.download("version", skill_id: "skill_id")
+
+puts(response)
+```
+
+## Get Skill Version
+
+`beta.skills.versions.retrieve(version, **kwargs) -> VersionRetrieveResponse`
+
+**get** `/v1/skills/{skill_id}/versions/{version}`
+
+Get Skill Version
+
+### Parameters
+
+- `skill_id: String`
+
+  Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+- `version: String`
+
+  Version identifier for the skill.
+
+  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+- `betas: Array[AnthropicBeta]`
+
+  Optional header to specify the beta version(s) you want to use.
+  - `String = String`
+
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
+    - `:"message-batches-2024-09-24"`
+
+    - `:"prompt-caching-2024-07-31"`
+
+    - `:"computer-use-2024-10-22"`
+
+    - `:"computer-use-2025-01-24"`
+
+    - `:"pdfs-2024-09-25"`
+
+    - `:"token-counting-2024-11-01"`
+
+    - `:"token-efficient-tools-2025-02-19"`
+
+    - `:"output-128k-2025-02-19"`
+
+    - `:"files-api-2025-04-14"`
+
+    - `:"mcp-client-2025-04-04"`
+
+    - `:"mcp-client-2025-11-20"`
+
+    - `:"dev-full-thinking-2025-05-14"`
+
+    - `:"interleaved-thinking-2025-05-14"`
+
+    - `:"code-execution-2025-05-22"`
+
+    - `:"extended-cache-ttl-2025-04-11"`
+
+    - `:"context-1m-2025-08-07"`
+
+    - `:"context-management-2025-06-27"`
+
+    - `:"model-context-window-exceeded-2025-08-26"`
+
+    - `:"skills-2025-10-02"`
+
+    - `:"fast-mode-2026-02-01"`
+
+    - `:"output-300k-2026-03-24"`
+
+    - `:"user-profiles-2026-03-24"`
+
+    - `:"advisor-tool-2026-03-01"`
+
+    - `:"managed-agents-2026-04-01"`
+
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class VersionRetrieveResponse`
-
   - `id: String`
 
     Unique identifier for the skill version.
@@ -418,7 +561,22 @@ version = anthropic.beta.skills.versions.retrieve("version", skill_id: "skill_id
 puts(version)
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## Delete Skill Version
 
 `beta.skills.versions.delete(version, **kwargs) -> VersionDeleteResponse`
 
@@ -443,11 +601,9 @@ Delete Skill Version
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -496,10 +652,15 @@ Delete Skill Version
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class VersionDeleteResponse`
-
   - `id: String`
 
     Version identifier for the skill.
@@ -524,12 +685,20 @@ version = anthropic.beta.skills.versions.delete("version", skill_id: "skill_id")
 puts(version)
 ```
 
+#### Response
+
+```json
+{
+  "id": "1759178010641129",
+  "type": "type"
+}
+```
+
 ## Domain Types
 
 ### Version Create Response
 
 - `class VersionCreateResponse`
-
   - `id: String`
 
     Unique identifier for the skill version.
@@ -577,7 +746,6 @@ puts(version)
 ### Version List Response
 
 - `class VersionListResponse`
-
   - `id: String`
 
     Unique identifier for the skill version.
@@ -625,7 +793,6 @@ puts(version)
 ### Version Retrieve Response
 
 - `class VersionRetrieveResponse`
-
   - `id: String`
 
     Unique identifier for the skill version.
@@ -673,7 +840,6 @@ puts(version)
 ### Version Delete Response
 
 - `class VersionDeleteResponse`
-
   - `id: String`
 
     Version identifier for the skill.

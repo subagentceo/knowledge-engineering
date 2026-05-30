@@ -1,3 +1,5 @@
+# See why donor retention beats acquisition, in chat with Claude
+
 Most fundraisers know that keeping a donor costs less than finding a new one, but the argument tends to stay abstract until you see the numbers compound. Claude can build a five-year donor projection with sliders for retention and acquisition, and a one-sentence note under the chart updates each time you drag to explain what the new numbers mean in plain terms. The part that usually surprises people is how much harder acquisition has to work to match even a small retention improvement, which becomes obvious after a few drags.
 
 Here a development director wants to understand the retention math well enough to make the case internally. Claude builds a five-year projection with two sliders, and dragging retention up ten points turns out to do more than doubling the acquisition spend.

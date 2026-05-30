@@ -1,3 +1,5 @@
+# ZipRecruiter
+
 Find live jobs on ZipRecruiter without leaving Claude. Search by job title, company, or location, then narrow results by salary, distance, remote or hybrid work, employment type, and date posted. After reviewing a listing, jump to ZipRecruiter to apply.
 
 You can use ZipRecruiter to:

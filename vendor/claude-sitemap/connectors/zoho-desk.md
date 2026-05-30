@@ -1,3 +1,5 @@
+# Zoho Desk
+
 Automate Zoho Desk customer support workflows with MCP tools for managing tickets, contacts, and knowledge base articles.
 
 You can use Zoho Desk to:

@@ -1,15 +1,20 @@
-Connect Lusha to Claude to find verified B2B contacts and enrich company data without leaving your chat. Claude can search for decision makers by role and company, pull verified work emails and direct dials (98% email deliverability, 85% phone accuracy), and enrich accounts with firmographics, tech stack, and funding signals. Backed by 300M+ verified contacts with GDPR, CCPA, SOC 2 Type II, and ISO 27701 compliance. Perfect for building prospect lists, researching accounts before a call, or enriching inbound leads.
+# Lusha
+
+Connect Lusha to Claude to access verified B2B contact and company data without leaving your chat. Lusha is a sales intelligence platform with 300M+ verified contacts, direct emails, phone numbers, and mobile numbers, plus actionable buyer signals used across sales, marketing, and RevOps workflows. Backed by GDPR, CCPA, SOC 2 Type II, and ISO 27701 compliance. Perfect for building prospect lists, researching accounts before a call, qualifying inbound leads, and natural language prospecting inside Claude.
 
 You can use Lusha to:
 
-**Find decision makers:**  
-"Find the VP of Engineering and Head of Product at Stripe with their work emails."
+**Find contacts and decision makers:**  
+"Find 10 VPs of RevOps at Series B SaaS companies in NYC"
 
-**Enrich an account before a call:**  
-"Give me firmographics, tech stack, and recent funding for Acme Corp."
+**Pull verified contact data:**  
+"Get the verified work email and mobile number for the Head of Marketing at Notion"
 
-**Build a prospect list:**  
-"Find 20 marketing directors at SaaS companies with 200-1000 employees in the US."
+**Enrich accounts and inbound leads:**  
+"Enrich these 25 webinar signup domains with industry, tech stack, and recent hiring signals"
 
-**Check your usage:**  
-"How many Lusha credits have I used this month?"
+**Track buyer signals:**  
+"Show me the buying signals from the last 90 days for these 15 accounts"
+
+**Find lookalike accounts:**  
+"Find 20 companies that look like these 5 customers"

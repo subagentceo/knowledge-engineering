@@ -1,12 +1,15 @@
-Access your board content and create content inside Miro from Claude. Use your teams workshops, technical specs and more in your AI workflows.
+# Miro
 
-You can use Miro to:
+Connect Claude to Miro to summarize existing boards or build new ones from scratch. Run sharper workshops, sprint planning, and product strategy sessions with Claude-generated layouts, frames, sticky notes, images, docs, diagrams, tables, and more.
 
-**Context to Code**  
-Access your teams technical specifications and documentation to help build the right solutions with your AI Assistants.
+Key use cases: 
 
-**Visualize & Document your codebase**  
-Visualize and document your code base by leveraging your AI Agent to understand your codebase and visualize it in both documents and diagrams on Miro, where you can now share it with stakeholders.
+**• Summarize and search boards:** Drop a board URL into Claude to pull out themes, decisions, and open questions from retros, planning sessions, and strategy maps. Search across every board you have access to.
 
-**Summarize workshop**  
-Summarize your teams workshop, extract next steps for your team to tackle. For example, after a retro you want to extract what are the next steps.
+**• Build new boards from scratch:** Generate ready-to-run layouts for retros, sprint planning, and product strategy with frames, sticky notes, cards, tables, docs, and images
+
+‍• **Bring research onto the canvas:** Have Claude research a topic — competitors, user feedback, market trends, prior art — and lay the findings out on a fresh board as diagrams, sticky notes, tables, docs, and images, ready to share with your team.
+
+• **Visualize complex ideas:** Turn a prompt, PR, or spec into architecture, sequence-flow, ERD, or user-journey diagrams directly on the canvas.**‍**
+
+‍• **Act on feedback agentically:** Read and resolve comments, reply in-thread, and convert scattered team discussion into a clear list of action items right on the board.

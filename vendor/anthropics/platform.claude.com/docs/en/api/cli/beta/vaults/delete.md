@@ -1,4 +1,4 @@
-## Delete
+## Delete Vault
 
 `$ ant beta:vaults delete`
 
@@ -21,13 +21,11 @@ Delete Vault
 - `beta_managed_agents_deleted_vault: object { id, type }`
 
   Confirmation of a deleted vault.
-
   - `id: string`
 
     Unique identifier of the deleted vault.
 
   - `type: "vault_deleted"`
-
     - `"vault_deleted"`
 
 ### Example
@@ -36,4 +34,13 @@ Delete Vault
 ant beta:vaults delete \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "type": "vault_deleted"
+}
 ```

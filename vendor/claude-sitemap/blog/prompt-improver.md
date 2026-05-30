@@ -1,4 +1,6 @@
-Today, we're introducing the ability to improve prompts and manage examples directly in the [Anthropic Console](https://console.anthropic.com/). These features make it easier to leverage prompt engineering best practices and build more reliable AI applications.
+# Improve your prompts in the developer console
+
+Today, we're introducing the ability to improve prompts and manage examples directly in the Anthropic Console. These features make it easier to leverage prompt engineering best practices and build more reliable AI applications.
 
 ## Better prompts for better completions
 
@@ -28,30 +30,30 @@ If your prompt doesn’t have examples, you can add them with Claude-driven exam
 
 Adding examples contributes to increased:
 
--   **Accuracy:** Reduces misinterpretation of instructions.
--   **Consistency:** Ensures desired output formatting.
--   **Performance:** Boosts Claude’s ability to handle complex tasks.
+- **Accuracy:** Reduces misinterpretation of instructions.
+- **Consistency:** Ensures desired output formatting.
+- **Performance:** Boosts Claude’s ability to handle complex tasks.
 
 ## Evaluate prompts with ideal outputs
 
-Our [prompt evaluator](https://www.anthropic.com/news/evaluate-prompts) allows you to test your prompts under various scenarios. To help benchmark and improve prompt performance, we've added an optional "ideal output" column in the Evaluations tab. This column helps users effectively and consistently grade model outputs on a 5-point scale.
+Our prompt evaluator allows you to test your prompts under various scenarios. To help benchmark and improve prompt performance, we've added an optional "ideal output" column in the Evaluations tab. This column helps users effectively and consistently grade model outputs on a 5-point scale.
 
 After testing your new prompt, you can give Claude additional feedback in the prompt improver on what’s still not working and repeat this process until you’re satisfied with the result. The prompt improver can also modify the prompt and examples based on arbitrary requests. For example you can ask Claude to change the prompt and examples to have JSON-formatted outputs instead of XML-formatted outputs.
 
 ## Customer spotlight: Kapa.ai
 
-[Kapa.ai](https://www.kapa.ai/), a technology company that turns your technical knowledge base into a production-ready AI assistant, used the prompt improver to migrate multiple critical AI workflows to Claude.
+Kapa.ai, a technology company that turns your technical knowledge base into a production-ready AI assistant, used the prompt improver to migrate multiple critical AI workflows to Claude.
 
 "Anthropic's prompt improver streamlined our migration to Claude 3.5 Sonnet and enabled us to get to production faster," said Finn Bauer, Co-Founder at Kapa.ai.
 
 ## Getting started
 
-The prompt improver, example management, and ideal outputs are available to all users in the [Anthropic Console](https://console.anthropic.com/).
+The prompt improver, example management, and ideal outputs are available to all users in the Anthropic Console.
 
-To learn more about how to improve and evaluate prompts with Claude, check out our [docs](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-improver).
+To learn more about how to improve and evaluate prompts with Claude, check out our docs.
 
 #### Footnotes
 
-\[1\] Given 500 Wikipedia articles and titles, we tested Claude 3 Haiku’s ability to match article titles to a sentence pulled from an article at random. Claude 3 Haiku’s accuracy increased by 30% in comparison to the original prompt.
+[1] Given 500 Wikipedia articles and titles, we tested Claude 3 Haiku’s ability to match article titles to a sentence pulled from an article at random. Claude 3 Haiku’s accuracy increased by 30% in comparison to the original prompt.
 
-\[2\] Given ten Wikipedia articles, Claude’s adherence to an instruction to write summaries within a specific word count range was 100% after running through the prompt improver.
+[2] Given ten Wikipedia articles, Claude’s adherence to an instruction to write summaries within a specific word count range was 100% after running through the prompt improver.

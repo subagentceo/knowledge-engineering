@@ -5,7 +5,6 @@
 - All team members must have an email address with one of your organization's allowed email domains to be invited to the account.
 
 - During sign-up, you can choose between monthly or annual billing options.
-
   - Refer to this article for more information: **[How is my Team plan bill calculated?](https://support.claude.com/en/articles/9267289-how-is-my-team-plan-bill-calculated)**
 
 - Team plans require a minimum of five members and are not intended for individual use.
@@ -23,7 +22,6 @@ If you already have a free or paid Claude account associated with your work emai
 - Team plan organizations are separate from free and paid individual Claude accounts. Data cannot be transferred between the separate instances.
 
 - If you only want to use your Team plan after upgrading, you'll need to cancel your paid subscription and/or delete your free or paid individual Claude account separately.
-
   - **[How do I cancel my paid Claude subscription?](https://support.claude.com/en/articles/8325617-how-do-i-cancel-my-paid-claude-subscription)**
 
   - **[How can I delete my Claude account?](https://support.claude.com/en/articles/9028421-how-can-i-delete-my-claude-account)**

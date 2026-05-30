@@ -1,4 +1,4 @@
-## Create
+## Create Environment
 
 `client.Beta.Environments.New(ctx, params) (*BetaEnvironment, error)`
 
@@ -9,17 +9,99 @@ Create a new environment with the specified configuration.
 ### Parameters
 
 - `params BetaEnvironmentNewParams`
-
   - `Name param.Field[string]`
 
     Body param: Human-readable name for the environment
 
-  - `Config param.Field[BetaCloudConfigParamsResp]`
+  - `Config param.Field[BetaEnvironmentNewParamsConfigUnion]`
 
-    Body param: Request params for `cloud` environment configuration.
+    Body param: Environment configuration
+    - `type BetaCloudConfigParamsResp struct{…}`
 
-    Fields default to null; on update, omitted fields preserve the
-    existing value.
+      Request params for `cloud` environment configuration.
+
+      Fields default to null; on update, omitted fields preserve the
+      existing value.
+      - `Type Cloud`
+
+        Environment type
+        - `const CloudCloud Cloud = "cloud"`
+
+      - `Networking BetaCloudConfigParamsNetworkingUnionResp`
+
+        Network configuration policy. Omit on update to preserve the existing value.
+        - `type BetaUnrestrictedNetwork struct{…}`
+
+          Unrestricted network access.
+          - `Type Unrestricted`
+
+            Network policy type
+            - `const UnrestrictedUnrestricted Unrestricted = "unrestricted"`
+
+        - `type BetaLimitedNetworkParamsResp struct{…}`
+
+          Limited network request params.
+
+          Fields default to null; on update, omitted fields preserve the
+          existing value.
+          - `Type Limited`
+
+            Network policy type
+            - `const LimitedLimited Limited = "limited"`
+
+          - `AllowMCPServers bool`
+
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array. Defaults to `false`.
+
+          - `AllowPackageManagers bool`
+
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array. Defaults to `false`.
+
+          - `AllowedHosts []string`
+
+            Specifies domains the container can reach.
+
+      - `Packages BetaPackagesParamsResp`
+
+        Specify packages (and optionally their versions) available in this environment.
+
+        When versioning, use the version semantics relevant for the package manager, e.g. for `pip` use `package==1.0.0`. You are responsible for validating the package and version exist. Unversioned installs the latest.
+        - `Apt []string`
+
+          Ubuntu/Debian packages to install
+
+        - `Cargo []string`
+
+          Rust packages to install
+
+        - `Gem []string`
+
+          Ruby packages to install
+
+        - `Go []string`
+
+          Go packages to install
+
+        - `Npm []string`
+
+          Node.js packages to install
+
+        - `Pip []string`
+
+          Python packages to install
+
+        - `Type BetaPackagesParamsType`
+
+          Package configuration type
+          - `const BetaPackagesParamsTypePackages BetaPackagesParamsType = "packages"`
+
+    - `type BetaSelfHostedConfigParamsResp struct{…}`
+
+      Request params for `self_hosted` environment configuration.
+      - `Type SelfHosted`
+
+        Environment type
+        - `const SelfHostedSelfHosted SelfHosted = "self_hosted"`
 
   - `Description param.Field[string]`
 
@@ -29,14 +111,19 @@ Create a new environment with the specified configuration.
 
     Body param: User-provided metadata key-value pairs
 
+  - `Scope param.Field[BetaEnvironmentNewParamsScope]`
+
+    Body param: The visibility scope for this environment. 'organization' makes the environment visible to all accounts. 'account' restricts visibility to the owning account only. Only applicable for self-hosted environments. If not specified, defaults based on organization type.
+    - `const BetaEnvironmentNewParamsScopeOrganization BetaEnvironmentNewParamsScope = "organization"`
+
+    - `const BetaEnvironmentNewParamsScopeAccount BetaEnvironmentNewParamsScope = "account"`
+
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -85,99 +172,106 @@ Create a new environment with the specified configuration.
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaEnvironment struct{…}`
 
   Unified Environment resource for both cloud and self-hosted environments.
-
   - `ID string`
 
-    Environment identifier (e.g., 'env_...')
+    Environment identifier (e.g., 'env\_...')
 
   - `ArchivedAt string`
 
     RFC 3339 timestamp when environment was archived, or null if not archived
 
-  - `Config BetaCloudConfig`
+  - `Config BetaEnvironmentConfigUnion`
 
-    `cloud` environment configuration.
+    Environment configuration (either Anthropic Cloud or self-hosted)
+    - `type BetaCloudConfig struct{…}`
 
-    - `Networking BetaCloudConfigNetworkingUnion`
+      `cloud` environment configuration.
+      - `Networking BetaCloudConfigNetworkingUnion`
 
-      Network configuration policy.
+        Network configuration policy.
+        - `type BetaUnrestrictedNetwork struct{…}`
 
-      - `type BetaUnrestrictedNetwork struct{…}`
+          Unrestricted network access.
+          - `Type Unrestricted`
 
-        Unrestricted network access.
+            Network policy type
+            - `const UnrestrictedUnrestricted Unrestricted = "unrestricted"`
 
-        - `Type Unrestricted`
+        - `type BetaLimitedNetwork struct{…}`
 
-          Network policy type
+          Limited network access.
+          - `AllowMCPServers bool`
 
-          - `const UnrestrictedUnrestricted Unrestricted = "unrestricted"`
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
 
-      - `type BetaLimitedNetwork struct{…}`
+          - `AllowPackageManagers bool`
 
-        Limited network access.
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
 
-        - `AllowMCPServers bool`
+          - `AllowedHosts []string`
 
-          Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+            Specifies domains the container can reach.
 
-        - `AllowPackageManagers bool`
+          - `Type Limited`
 
-          Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+            Network policy type
+            - `const LimitedLimited Limited = "limited"`
 
-        - `AllowedHosts []string`
+      - `Packages BetaPackages`
 
-          Specifies domains the container can reach.
+        Package manager configuration.
+        - `Apt []string`
 
-        - `Type Limited`
+          Ubuntu/Debian packages to install
 
-          Network policy type
+        - `Cargo []string`
 
-          - `const LimitedLimited Limited = "limited"`
+          Rust packages to install
 
-    - `Packages BetaPackages`
+        - `Gem []string`
 
-      Package manager configuration.
+          Ruby packages to install
 
-      - `Apt []string`
+        - `Go []string`
 
-        Ubuntu/Debian packages to install
+          Go packages to install
 
-      - `Cargo []string`
+        - `Npm []string`
 
-        Rust packages to install
+          Node.js packages to install
 
-      - `Gem []string`
+        - `Pip []string`
 
-        Ruby packages to install
+          Python packages to install
 
-      - `Go []string`
+        - `Type BetaPackagesType`
 
-        Go packages to install
+          Package configuration type
+          - `const BetaPackagesTypePackages BetaPackagesType = "packages"`
 
-      - `Npm []string`
+      - `Type Cloud`
 
-        Node.js packages to install
+        Environment type
+        - `const CloudCloud Cloud = "cloud"`
 
-      - `Pip []string`
+    - `type BetaSelfHostedConfig struct{…}`
 
-        Python packages to install
+      Configuration for self-hosted environments.
+      - `Type SelfHosted`
 
-      - `Type BetaPackagesType`
-
-        Package configuration type
-
-        - `const BetaPackagesTypePackages BetaPackagesType = "packages"`
-
-    - `Type Cloud`
-
-      Environment type
-
-      - `const CloudCloud Cloud = "cloud"`
+        Environment type
+        - `const SelfHostedSelfHosted SelfHosted = "self_hosted"`
 
   - `CreatedAt string`
 
@@ -198,12 +292,18 @@ Create a new environment with the specified configuration.
   - `Type Environment`
 
     The type of object (always 'environment')
-
     - `const EnvironmentEnvironment Environment = "environment"`
 
   - `UpdatedAt string`
 
     RFC 3339 timestamp when environment was last updated
+
+  - `Scope BetaEnvironmentScope`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+    - `const BetaEnvironmentScopeOrganization BetaEnvironmentScope = "organization"`
+
+    - `const BetaEnvironmentScopeAccount BetaEnvironmentScope = "account"`
 
 ### Example
 
@@ -229,5 +329,39 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", betaEnvironment.ID)
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": ["api.example.com"],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": ["string"],
+      "cargo": ["string"],
+      "gem": ["string"],
+      "go": ["string"],
+      "npm": ["string"],
+      "pip": ["pandas", "numpy"],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
 }
 ```

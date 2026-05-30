@@ -1,4 +1,4 @@
-## Upload
+## Upload File
 
 `client.beta.files.upload(FileUploadParamsparams, RequestOptionsoptions?): FileMetadata`
 
@@ -9,7 +9,6 @@ Upload File
 ### Parameters
 
 - `params: FileUploadParams`
-
   - `file: Uploadable`
 
     Body param: The file to upload
@@ -17,11 +16,9 @@ Upload File
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -70,10 +67,15 @@ Upload File
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `FileMetadata`
-
   - `id: string`
 
     Unique object identifier.
@@ -101,7 +103,6 @@ Upload File
     Object type.
 
     For files, this is always `"file"`.
-
     - `"file"`
 
   - `downloadable?: boolean`
@@ -111,7 +112,6 @@ Upload File
   - `scope?: BetaFileScope | null`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -119,20 +119,39 @@ Upload File
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
-
       - `"session"`
 
 ### Example
 
 ```typescript
-import fs from 'fs';
-import Anthropic from '@anthropic-ai/sdk';
+import fs from "fs";
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const fileMetadata = await client.beta.files.upload({ file: fs.createReadStream('path/to/file') });
+const fileMetadata = await client.beta.files.upload({
+  file: fs.createReadStream("path/to/file"),
+});
 
 console.log(fileMetadata.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
 ```

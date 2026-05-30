@@ -1,6 +1,6 @@
 # Batches
 
-## Create
+## Create a Message Batch
 
 `client.Beta.Messages.Batches.New(ctx, params) (*BetaMessageBatch, error)`
 
@@ -15,11 +15,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `params BetaMessageBatchNewParams`
-
   - `Requests param.Field[[]BetaMessageBatchNewParamsRequest]`
 
     Body param: List of requests for prompt completion. Each is an individual request to create a Message.
-
     - `CustomID string`
 
       Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -31,7 +29,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       Messages API creation parameters for the individual request.
 
       See the [Messages API reference](https://docs.claude.com/en/api/messages) for full documentation on available parameters.
-
       - `MaxTokens int64`
 
         The maximum number of tokens to generate before stopping.
@@ -40,7 +37,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         Set to `0` to populate the [prompt cache](https://docs.claude.com/en/docs/build-with-claude/prompt-caching#pre-warming-the-cache) without generating a response.
 
-        Different models have different maximum values for this parameter.  See [models](https://docs.claude.com/en/docs/models-overview) for details.
+        Different models have different maximum values for this parameter. See [models](https://docs.claude.com/en/docs/models-overview) for details.
 
       - `Messages []BetaMessageParamResp`
 
@@ -55,16 +52,22 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Example with a single `user` message:
 
         ```json
-        [{"role": "user", "content": "Hello, Claude"}]
+        [{ "role": "user", "content": "Hello, Claude" }]
         ```
 
         Example with multiple conversational turns:
 
         ```json
         [
-          {"role": "user", "content": "Hello there."},
-          {"role": "assistant", "content": "Hi, I'm Claude. How can I help you?"},
-          {"role": "user", "content": "Can you explain LLMs in plain English?"},
+          { "role": "user", "content": "Hello there." },
+          {
+            "role": "assistant",
+            "content": "Hi, I'm Claude. How can I help you?"
+          },
+          {
+            "role": "user",
+            "content": "Can you explain LLMs in plain English?"
+          }
         ]
         ```
 
@@ -72,19 +75,25 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         ```json
         [
-          {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-          {"role": "assistant", "content": "The best answer is ("},
+          {
+            "role": "user",
+            "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
+          },
+          { "role": "assistant", "content": "The best answer is (" }
         ]
         ```
 
         Each input message `content` may be either a single `string` or an array of content blocks, where each block has a specific `type`. Using a `string` for `content` is shorthand for an array of one content block of type `"text"`. The following input messages are equivalent:
 
         ```json
-        {"role": "user", "content": "Hello, Claude"}
+        { "role": "user", "content": "Hello, Claude" }
         ```
 
         ```json
-        {"role": "user", "content": [{"type": "text", "text": "Hello, Claude"}]}
+        {
+          "role": "user",
+          "content": [{ "type": "text", "text": "Hello, Claude" }]
+        }
         ```
 
         See [input examples](https://docs.claude.com/en/api/messages-examples).
@@ -92,25 +101,18 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Note that if you want to include a [system prompt](https://docs.claude.com/en/docs/system-prompts), you can use the top-level `system` parameter — there is no `"system"` role for input messages in the Messages API.
 
         There is a limit of 100,000 messages in a single request.
-
         - `Content []BetaContentBlockParamUnionResp`
-
           - `[]BetaContentBlockParamUnionResp`
-
             - `type BetaTextBlockParamResp struct{…}`
-
               - `Text string`
 
               - `Type Text`
-
                 - `const TextText Text = "text"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
-
                 - `Type Ephemeral`
-
                   - `const EphemeralEphemeral Ephemeral = "ephemeral"`
 
                 - `TTL BetaCacheControlEphemeralTTL`
@@ -118,20 +120,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   The time-to-live for the cache control breakpoint.
 
                   This may be one the following values:
-
                   - `5m`: 5 minutes
                   - `1h`: 1 hour
 
                   Defaults to `5m`.
-
                   - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
 
                   - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
               - `Citations []BetaTextCitationParamUnionResp`
-
                 - `type BetaCitationCharLocationParamResp struct{…}`
-
                   - `CitedText string`
 
                   - `DocumentIndex int64`
@@ -143,11 +141,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `StartCharIndex int64`
 
                   - `Type CharLocation`
-
                     - `const CharLocationCharLocation CharLocation = "char_location"`
 
                 - `type BetaCitationPageLocationParamResp struct{…}`
-
                   - `CitedText string`
 
                   - `DocumentIndex int64`
@@ -159,11 +155,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `StartPageNumber int64`
 
                   - `Type PageLocation`
-
                     - `const PageLocationPageLocation PageLocation = "page_location"`
 
                 - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
                   - `CitedText string`
 
                     The full text of the cited block range, concatenated.
@@ -185,11 +179,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     0-based index of the first cited block in the source's `content` array.
 
                   - `Type ContentBlockLocation`
-
                     - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
 
                 - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
                   - `CitedText string`
 
                   - `EncryptedIndex string`
@@ -197,13 +189,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `Title string`
 
                   - `Type WebSearchResultLocation`
-
                     - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
 
                   - `URL string`
 
                 - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
                   - `CitedText string`
 
                     The full text of the cited block range, concatenated.
@@ -231,19 +221,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `Title string`
 
                   - `Type SearchResultLocation`
-
                     - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
             - `type BetaImageBlockParamResp struct{…}`
-
               - `Source BetaImageBlockParamSourceUnionResp`
-
                 - `type BetaBase64ImageSource struct{…}`
-
                   - `Data string`
 
                   - `MediaType BetaBase64ImageSourceMediaType`
-
                     - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
 
                     - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
@@ -253,339 +238,79 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
 
                   - `Type Base64`
-
                     - `const Base64Base64 Base64 = "base64"`
 
                 - `type BetaURLImageSource struct{…}`
-
                   - `Type URL`
-
                     - `const URLURL URL = "url"`
 
                   - `URL string`
 
                 - `type BetaFileImageSource struct{…}`
-
                   - `FileID string`
 
                   - `Type File`
-
                     - `const FileFile File = "file"`
 
               - `Type Image`
-
                 - `const ImageImage Image = "image"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
             - `type BetaRequestDocumentBlock struct{…}`
-
               - `Source BetaRequestDocumentBlockSourceUnion`
-
                 - `type BetaBase64PDFSource struct{…}`
-
                   - `Data string`
 
                   - `MediaType ApplicationPDF`
-
                     - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
 
                   - `Type Base64`
-
                     - `const Base64Base64 Base64 = "base64"`
 
                 - `type BetaPlainTextSource struct{…}`
-
                   - `Data string`
 
                   - `MediaType TextPlain`
-
                     - `const TextPlainTextPlain TextPlain = "text/plain"`
 
                   - `Type Text`
-
                     - `const TextText Text = "text"`
 
                 - `type BetaContentBlockSource struct{…}`
-
                   - `Content BetaContentBlockSourceContentUnion`
-
                     - `string`
 
                     - `[]BetaContentBlockSourceContentUnion`
-
                       - `type BetaTextBlockParamResp struct{…}`
-
-                        - `Text string`
-
-                        - `Type Text`
-
-                          - `const TextText Text = "text"`
-
-                        - `CacheControl BetaCacheControlEphemeral`
-
-                          Create a cache control breakpoint at this content block.
-
-                          - `Type Ephemeral`
-
-                            - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                          - `TTL BetaCacheControlEphemeralTTL`
-
-                            The time-to-live for the cache control breakpoint.
-
-                            This may be one the following values:
-
-                            - `5m`: 5 minutes
-                            - `1h`: 1 hour
-
-                            Defaults to `5m`.
-
-                            - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                            - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                        - `Citations []BetaTextCitationParamUnionResp`
-
-                          - `type BetaCitationCharLocationParamResp struct{…}`
-
-                            - `CitedText string`
-
-                            - `DocumentIndex int64`
-
-                            - `DocumentTitle string`
-
-                            - `EndCharIndex int64`
-
-                            - `StartCharIndex int64`
-
-                            - `Type CharLocation`
-
-                              - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                          - `type BetaCitationPageLocationParamResp struct{…}`
-
-                            - `CitedText string`
-
-                            - `DocumentIndex int64`
-
-                            - `DocumentTitle string`
-
-                            - `EndPageNumber int64`
-
-                            - `StartPageNumber int64`
-
-                            - `Type PageLocation`
-
-                              - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                          - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                            - `CitedText string`
-
-                              The full text of the cited block range, concatenated.
-
-                              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                            - `DocumentIndex int64`
-
-                            - `DocumentTitle string`
-
-                            - `EndBlockIndex int64`
-
-                              Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                            - `StartBlockIndex int64`
-
-                              0-based index of the first cited block in the source's `content` array.
-
-                            - `Type ContentBlockLocation`
-
-                              - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                          - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                            - `CitedText string`
-
-                            - `EncryptedIndex string`
-
-                            - `Title string`
-
-                            - `Type WebSearchResultLocation`
-
-                              - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                            - `URL string`
-
-                          - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                            - `CitedText string`
-
-                              The full text of the cited block range, concatenated.
-
-                              Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                            - `EndBlockIndex int64`
-
-                              Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                              Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                            - `SearchResultIndex int64`
-
-                              0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                              Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                            - `Source string`
-
-                            - `StartBlockIndex int64`
-
-                              0-based index of the first cited block in the source's `content` array.
-
-                            - `Title string`
-
-                            - `Type SearchResultLocation`
-
-                              - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
                       - `type BetaImageBlockParamResp struct{…}`
 
-                        - `Source BetaImageBlockParamSourceUnionResp`
-
-                          - `type BetaBase64ImageSource struct{…}`
-
-                            - `Data string`
-
-                            - `MediaType BetaBase64ImageSourceMediaType`
-
-                              - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
-
-                              - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
-
-                              - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
-
-                              - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
-
-                            - `Type Base64`
-
-                              - `const Base64Base64 Base64 = "base64"`
-
-                          - `type BetaURLImageSource struct{…}`
-
-                            - `Type URL`
-
-                              - `const URLURL URL = "url"`
-
-                            - `URL string`
-
-                          - `type BetaFileImageSource struct{…}`
-
-                            - `FileID string`
-
-                            - `Type File`
-
-                              - `const FileFile File = "file"`
-
-                        - `Type Image`
-
-                          - `const ImageImage Image = "image"`
-
-                        - `CacheControl BetaCacheControlEphemeral`
-
-                          Create a cache control breakpoint at this content block.
-
-                          - `Type Ephemeral`
-
-                            - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                          - `TTL BetaCacheControlEphemeralTTL`
-
-                            The time-to-live for the cache control breakpoint.
-
-                            This may be one the following values:
-
-                            - `5m`: 5 minutes
-                            - `1h`: 1 hour
-
-                            Defaults to `5m`.
-
-                            - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                            - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
                   - `Type Content`
-
                     - `const ContentContent Content = "content"`
 
                 - `type BetaURLPDFSource struct{…}`
-
                   - `Type URL`
-
                     - `const URLURL URL = "url"`
 
                   - `URL string`
 
                 - `type BetaFileDocumentSource struct{…}`
-
                   - `FileID string`
 
                   - `Type File`
-
                     - `const FileFile File = "file"`
 
               - `Type Document`
-
                 - `const DocumentDocument Document = "document"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `Citations BetaCitationsConfigParamResp`
-
                 - `Enabled bool`
 
               - `Context string`
@@ -593,199 +318,45 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Title string`
 
             - `type BetaSearchResultBlockParamResp struct{…}`
-
               - `Content []BetaTextBlockParamResp`
-
                 - `Text string`
 
                 - `Type Text`
-
-                  - `const TextText Text = "text"`
 
                 - `CacheControl BetaCacheControlEphemeral`
 
                   Create a cache control breakpoint at this content block.
 
-                  - `Type Ephemeral`
-
-                    - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                  - `TTL BetaCacheControlEphemeralTTL`
-
-                    The time-to-live for the cache control breakpoint.
-
-                    This may be one the following values:
-
-                    - `5m`: 5 minutes
-                    - `1h`: 1 hour
-
-                    Defaults to `5m`.
-
-                    - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                    - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
                 - `Citations []BetaTextCitationParamUnionResp`
-
-                  - `type BetaCitationCharLocationParamResp struct{…}`
-
-                    - `CitedText string`
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndCharIndex int64`
-
-                    - `StartCharIndex int64`
-
-                    - `Type CharLocation`
-
-                      - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                  - `type BetaCitationPageLocationParamResp struct{…}`
-
-                    - `CitedText string`
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndPageNumber int64`
-
-                    - `StartPageNumber int64`
-
-                    - `Type PageLocation`
-
-                      - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                  - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                    - `CitedText string`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndBlockIndex int64`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `StartBlockIndex int64`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `Type ContentBlockLocation`
-
-                      - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                  - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                    - `CitedText string`
-
-                    - `EncryptedIndex string`
-
-                    - `Title string`
-
-                    - `Type WebSearchResultLocation`
-
-                      - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                    - `URL string`
-
-                  - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                    - `CitedText string`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `EndBlockIndex int64`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `SearchResultIndex int64`
-
-                      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                      Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                    - `Source string`
-
-                    - `StartBlockIndex int64`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `Title string`
-
-                    - `Type SearchResultLocation`
-
-                      - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
               - `Source string`
 
               - `Title string`
 
               - `Type SearchResult`
-
                 - `const SearchResultSearchResult SearchResult = "search_result"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `Citations BetaCitationsConfigParamResp`
 
-                - `Enabled bool`
-
             - `type BetaThinkingBlockParamResp struct{…}`
-
               - `Signature string`
 
               - `Thinking string`
 
               - `Type Thinking`
-
                 - `const ThinkingThinking Thinking = "thinking"`
 
             - `type BetaRedactedThinkingBlockParamResp struct{…}`
-
               - `Data string`
 
               - `Type RedactedThinking`
-
                 - `const RedactedThinkingRedactedThinking RedactedThinking = "redacted_thinking"`
 
             - `type BetaToolUseBlockParamResp struct{…}`
-
               - `ID string`
 
               - `Input map[string, any]`
@@ -793,809 +364,75 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Name string`
 
               - `Type ToolUse`
-
                 - `const ToolUseToolUse ToolUse = "tool_use"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `Caller BetaToolUseBlockParamCallerUnionResp`
 
                 Tool invocation directly from the model.
-
                 - `type BetaDirectCaller struct{…}`
 
                   Tool invocation directly from the model.
-
                   - `Type Direct`
-
                     - `const DirectDirect Direct = "direct"`
 
                 - `type BetaServerToolCaller struct{…}`
 
                   Tool invocation generated by a server-side tool.
-
                   - `ToolID string`
 
                   - `Type CodeExecution20250825`
-
                     - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
 
                 - `type BetaServerToolCaller20260120 struct{…}`
-
                   - `ToolID string`
 
                   - `Type CodeExecution20260120`
-
                     - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
             - `type BetaToolResultBlockParamResp struct{…}`
-
               - `ToolUseID string`
 
               - `Type ToolResult`
-
                 - `const ToolResultToolResult ToolResult = "tool_result"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `Content []BetaToolResultBlockParamContentUnionResp`
-
                 - `[]BetaToolResultBlockParamContentUnionResp`
-
                   - `type BetaTextBlockParamResp struct{…}`
-
-                    - `Text string`
-
-                    - `Type Text`
-
-                      - `const TextText Text = "text"`
-
-                    - `CacheControl BetaCacheControlEphemeral`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `Type Ephemeral`
-
-                        - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                      - `TTL BetaCacheControlEphemeralTTL`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                    - `Citations []BetaTextCitationParamUnionResp`
-
-                      - `type BetaCitationCharLocationParamResp struct{…}`
-
-                        - `CitedText string`
-
-                        - `DocumentIndex int64`
-
-                        - `DocumentTitle string`
-
-                        - `EndCharIndex int64`
-
-                        - `StartCharIndex int64`
-
-                        - `Type CharLocation`
-
-                          - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                      - `type BetaCitationPageLocationParamResp struct{…}`
-
-                        - `CitedText string`
-
-                        - `DocumentIndex int64`
-
-                        - `DocumentTitle string`
-
-                        - `EndPageNumber int64`
-
-                        - `StartPageNumber int64`
-
-                        - `Type PageLocation`
-
-                          - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                      - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                        - `CitedText string`
-
-                          The full text of the cited block range, concatenated.
-
-                          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                        - `DocumentIndex int64`
-
-                        - `DocumentTitle string`
-
-                        - `EndBlockIndex int64`
-
-                          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                        - `StartBlockIndex int64`
-
-                          0-based index of the first cited block in the source's `content` array.
-
-                        - `Type ContentBlockLocation`
-
-                          - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                      - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                        - `CitedText string`
-
-                        - `EncryptedIndex string`
-
-                        - `Title string`
-
-                        - `Type WebSearchResultLocation`
-
-                          - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                        - `URL string`
-
-                      - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                        - `CitedText string`
-
-                          The full text of the cited block range, concatenated.
-
-                          Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                        - `EndBlockIndex int64`
-
-                          Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                          Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                        - `SearchResultIndex int64`
-
-                          0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                          Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                        - `Source string`
-
-                        - `StartBlockIndex int64`
-
-                          0-based index of the first cited block in the source's `content` array.
-
-                        - `Title string`
-
-                        - `Type SearchResultLocation`
-
-                          - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
                   - `type BetaImageBlockParamResp struct{…}`
 
-                    - `Source BetaImageBlockParamSourceUnionResp`
-
-                      - `type BetaBase64ImageSource struct{…}`
-
-                        - `Data string`
-
-                        - `MediaType BetaBase64ImageSourceMediaType`
-
-                          - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
-
-                          - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
-
-                          - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
-
-                          - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
-
-                        - `Type Base64`
-
-                          - `const Base64Base64 Base64 = "base64"`
-
-                      - `type BetaURLImageSource struct{…}`
-
-                        - `Type URL`
-
-                          - `const URLURL URL = "url"`
-
-                        - `URL string`
-
-                      - `type BetaFileImageSource struct{…}`
-
-                        - `FileID string`
-
-                        - `Type File`
-
-                          - `const FileFile File = "file"`
-
-                    - `Type Image`
-
-                      - `const ImageImage Image = "image"`
-
-                    - `CacheControl BetaCacheControlEphemeral`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `Type Ephemeral`
-
-                        - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                      - `TTL BetaCacheControlEphemeralTTL`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
                   - `type BetaSearchResultBlockParamResp struct{…}`
 
-                    - `Content []BetaTextBlockParamResp`
-
-                      - `Text string`
-
-                      - `Type Text`
-
-                        - `const TextText Text = "text"`
-
-                      - `CacheControl BetaCacheControlEphemeral`
-
-                        Create a cache control breakpoint at this content block.
-
-                        - `Type Ephemeral`
-
-                          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                        - `TTL BetaCacheControlEphemeralTTL`
-
-                          The time-to-live for the cache control breakpoint.
-
-                          This may be one the following values:
-
-                          - `5m`: 5 minutes
-                          - `1h`: 1 hour
-
-                          Defaults to `5m`.
-
-                          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                      - `Citations []BetaTextCitationParamUnionResp`
-
-                        - `type BetaCitationCharLocationParamResp struct{…}`
-
-                          - `CitedText string`
-
-                          - `DocumentIndex int64`
-
-                          - `DocumentTitle string`
-
-                          - `EndCharIndex int64`
-
-                          - `StartCharIndex int64`
-
-                          - `Type CharLocation`
-
-                            - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                        - `type BetaCitationPageLocationParamResp struct{…}`
-
-                          - `CitedText string`
-
-                          - `DocumentIndex int64`
-
-                          - `DocumentTitle string`
-
-                          - `EndPageNumber int64`
-
-                          - `StartPageNumber int64`
-
-                          - `Type PageLocation`
-
-                            - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                        - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                          - `CitedText string`
-
-                            The full text of the cited block range, concatenated.
-
-                            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                          - `DocumentIndex int64`
-
-                          - `DocumentTitle string`
-
-                          - `EndBlockIndex int64`
-
-                            Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                          - `StartBlockIndex int64`
-
-                            0-based index of the first cited block in the source's `content` array.
-
-                          - `Type ContentBlockLocation`
-
-                            - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                        - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                          - `CitedText string`
-
-                          - `EncryptedIndex string`
-
-                          - `Title string`
-
-                          - `Type WebSearchResultLocation`
-
-                            - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                          - `URL string`
-
-                        - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                          - `CitedText string`
-
-                            The full text of the cited block range, concatenated.
-
-                            Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                          - `EndBlockIndex int64`
-
-                            Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                            Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                          - `SearchResultIndex int64`
-
-                            0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                            Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                          - `Source string`
-
-                          - `StartBlockIndex int64`
-
-                            0-based index of the first cited block in the source's `content` array.
-
-                          - `Title string`
-
-                          - `Type SearchResultLocation`
-
-                            - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
-
-                    - `Source string`
-
-                    - `Title string`
-
-                    - `Type SearchResult`
-
-                      - `const SearchResultSearchResult SearchResult = "search_result"`
-
-                    - `CacheControl BetaCacheControlEphemeral`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `Type Ephemeral`
-
-                        - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                      - `TTL BetaCacheControlEphemeralTTL`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                    - `Citations BetaCitationsConfigParamResp`
-
-                      - `Enabled bool`
-
                   - `type BetaRequestDocumentBlock struct{…}`
-
-                    - `Source BetaRequestDocumentBlockSourceUnion`
-
-                      - `type BetaBase64PDFSource struct{…}`
-
-                        - `Data string`
-
-                        - `MediaType ApplicationPDF`
-
-                          - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
-
-                        - `Type Base64`
-
-                          - `const Base64Base64 Base64 = "base64"`
-
-                      - `type BetaPlainTextSource struct{…}`
-
-                        - `Data string`
-
-                        - `MediaType TextPlain`
-
-                          - `const TextPlainTextPlain TextPlain = "text/plain"`
-
-                        - `Type Text`
-
-                          - `const TextText Text = "text"`
-
-                      - `type BetaContentBlockSource struct{…}`
-
-                        - `Content BetaContentBlockSourceContentUnion`
-
-                          - `string`
-
-                          - `[]BetaContentBlockSourceContentUnion`
-
-                            - `type BetaTextBlockParamResp struct{…}`
-
-                              - `Text string`
-
-                              - `Type Text`
-
-                                - `const TextText Text = "text"`
-
-                              - `CacheControl BetaCacheControlEphemeral`
-
-                                Create a cache control breakpoint at this content block.
-
-                                - `Type Ephemeral`
-
-                                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                                - `TTL BetaCacheControlEphemeralTTL`
-
-                                  The time-to-live for the cache control breakpoint.
-
-                                  This may be one the following values:
-
-                                  - `5m`: 5 minutes
-                                  - `1h`: 1 hour
-
-                                  Defaults to `5m`.
-
-                                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                              - `Citations []BetaTextCitationParamUnionResp`
-
-                                - `type BetaCitationCharLocationParamResp struct{…}`
-
-                                  - `CitedText string`
-
-                                  - `DocumentIndex int64`
-
-                                  - `DocumentTitle string`
-
-                                  - `EndCharIndex int64`
-
-                                  - `StartCharIndex int64`
-
-                                  - `Type CharLocation`
-
-                                    - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                                - `type BetaCitationPageLocationParamResp struct{…}`
-
-                                  - `CitedText string`
-
-                                  - `DocumentIndex int64`
-
-                                  - `DocumentTitle string`
-
-                                  - `EndPageNumber int64`
-
-                                  - `StartPageNumber int64`
-
-                                  - `Type PageLocation`
-
-                                    - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                                - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                                  - `CitedText string`
-
-                                    The full text of the cited block range, concatenated.
-
-                                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                                  - `DocumentIndex int64`
-
-                                  - `DocumentTitle string`
-
-                                  - `EndBlockIndex int64`
-
-                                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                                  - `StartBlockIndex int64`
-
-                                    0-based index of the first cited block in the source's `content` array.
-
-                                  - `Type ContentBlockLocation`
-
-                                    - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                                - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                                  - `CitedText string`
-
-                                  - `EncryptedIndex string`
-
-                                  - `Title string`
-
-                                  - `Type WebSearchResultLocation`
-
-                                    - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                                  - `URL string`
-
-                                - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                                  - `CitedText string`
-
-                                    The full text of the cited block range, concatenated.
-
-                                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                                  - `EndBlockIndex int64`
-
-                                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                                  - `SearchResultIndex int64`
-
-                                    0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                                    Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                                  - `Source string`
-
-                                  - `StartBlockIndex int64`
-
-                                    0-based index of the first cited block in the source's `content` array.
-
-                                  - `Title string`
-
-                                  - `Type SearchResultLocation`
-
-                                    - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
-
-                            - `type BetaImageBlockParamResp struct{…}`
-
-                              - `Source BetaImageBlockParamSourceUnionResp`
-
-                                - `type BetaBase64ImageSource struct{…}`
-
-                                  - `Data string`
-
-                                  - `MediaType BetaBase64ImageSourceMediaType`
-
-                                    - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
-
-                                    - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
-
-                                    - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
-
-                                    - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
-
-                                  - `Type Base64`
-
-                                    - `const Base64Base64 Base64 = "base64"`
-
-                                - `type BetaURLImageSource struct{…}`
-
-                                  - `Type URL`
-
-                                    - `const URLURL URL = "url"`
-
-                                  - `URL string`
-
-                                - `type BetaFileImageSource struct{…}`
-
-                                  - `FileID string`
-
-                                  - `Type File`
-
-                                    - `const FileFile File = "file"`
-
-                              - `Type Image`
-
-                                - `const ImageImage Image = "image"`
-
-                              - `CacheControl BetaCacheControlEphemeral`
-
-                                Create a cache control breakpoint at this content block.
-
-                                - `Type Ephemeral`
-
-                                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                                - `TTL BetaCacheControlEphemeralTTL`
-
-                                  The time-to-live for the cache control breakpoint.
-
-                                  This may be one the following values:
-
-                                  - `5m`: 5 minutes
-                                  - `1h`: 1 hour
-
-                                  Defaults to `5m`.
-
-                                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                        - `Type Content`
-
-                          - `const ContentContent Content = "content"`
-
-                      - `type BetaURLPDFSource struct{…}`
-
-                        - `Type URL`
-
-                          - `const URLURL URL = "url"`
-
-                        - `URL string`
-
-                      - `type BetaFileDocumentSource struct{…}`
-
-                        - `FileID string`
-
-                        - `Type File`
-
-                          - `const FileFile File = "file"`
-
-                    - `Type Document`
-
-                      - `const DocumentDocument Document = "document"`
-
-                    - `CacheControl BetaCacheControlEphemeral`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `Type Ephemeral`
-
-                        - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                      - `TTL BetaCacheControlEphemeralTTL`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                    - `Citations BetaCitationsConfigParamResp`
-
-                      - `Enabled bool`
-
-                    - `Context string`
-
-                    - `Title string`
 
                   - `type BetaToolReferenceBlockParamResp struct{…}`
 
                     Tool reference block that can be included in tool_result content.
-
                     - `ToolName string`
 
                     - `Type ToolReference`
-
                       - `const ToolReferenceToolReference ToolReference = "tool_reference"`
 
                     - `CacheControl BetaCacheControlEphemeral`
 
                       Create a cache control breakpoint at this content block.
 
-                      - `Type Ephemeral`
-
-                        - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                      - `TTL BetaCacheControlEphemeralTTL`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `IsError bool`
 
             - `type BetaServerToolUseBlockParamResp struct{…}`
-
               - `ID string`
 
               - `Input map[string, any]`
 
               - `Name BetaServerToolUseBlockParamName`
-
                 - `const BetaServerToolUseBlockParamNameAdvisor BetaServerToolUseBlockParamName = "advisor"`
 
                 - `const BetaServerToolUseBlockParamNameWebSearch BetaServerToolUseBlockParamName = "web_search"`
@@ -1613,74 +450,33 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `const BetaServerToolUseBlockParamNameToolSearchToolBm25 BetaServerToolUseBlockParamName = "tool_search_tool_bm25"`
 
               - `Type ServerToolUse`
-
                 - `const ServerToolUseServerToolUse ServerToolUse = "server_tool_use"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `Caller BetaServerToolUseBlockParamCallerUnionResp`
 
                 Tool invocation directly from the model.
-
                 - `type BetaDirectCaller struct{…}`
 
                   Tool invocation directly from the model.
-
-                  - `Type Direct`
-
-                    - `const DirectDirect Direct = "direct"`
 
                 - `type BetaServerToolCaller struct{…}`
 
                   Tool invocation generated by a server-side tool.
 
-                  - `ToolID string`
-
-                  - `Type CodeExecution20250825`
-
-                    - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
                 - `type BetaServerToolCaller20260120 struct{…}`
 
-                  - `ToolID string`
-
-                  - `Type CodeExecution20260120`
-
-                    - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
             - `type BetaWebSearchToolResultBlockParamResp struct{…}`
-
               - `Content BetaWebSearchToolResultBlockParamContentUnionResp`
-
                 - `[]BetaWebSearchResultBlockParamResp`
-
                   - `EncryptedContent string`
 
                   - `Title string`
 
                   - `Type WebSearchResult`
-
                     - `const WebSearchResultWebSearchResult WebSearchResult = "web_search_result"`
 
                   - `URL string`
@@ -1688,9 +484,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `PageAge string`
 
                 - `type BetaWebSearchToolRequestError struct{…}`
-
                   - `ErrorCode BetaWebSearchToolResultErrorCode`
-
                     - `const BetaWebSearchToolResultErrorCodeInvalidToolInput BetaWebSearchToolResultErrorCode = "invalid_tool_input"`
 
                     - `const BetaWebSearchToolResultErrorCodeUnavailable BetaWebSearchToolResultErrorCode = "unavailable"`
@@ -1704,81 +498,41 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
 
                   - `Type WebSearchToolResultError`
-
                     - `const WebSearchToolResultErrorWebSearchToolResultError WebSearchToolResultError = "web_search_tool_result_error"`
 
               - `ToolUseID string`
 
               - `Type WebSearchToolResult`
-
                 - `const WebSearchToolResultWebSearchToolResult WebSearchToolResult = "web_search_tool_result"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `Caller BetaWebSearchToolResultBlockParamCallerUnionResp`
 
                 Tool invocation directly from the model.
-
                 - `type BetaDirectCaller struct{…}`
 
                   Tool invocation directly from the model.
-
-                  - `Type Direct`
-
-                    - `const DirectDirect Direct = "direct"`
 
                 - `type BetaServerToolCaller struct{…}`
 
                   Tool invocation generated by a server-side tool.
 
-                  - `ToolID string`
-
-                  - `Type CodeExecution20250825`
-
-                    - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
                 - `type BetaServerToolCaller20260120 struct{…}`
 
-                  - `ToolID string`
-
-                  - `Type CodeExecution20260120`
-
-                    - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
             - `type BetaWebFetchToolResultBlockParamResp struct{…}`
-
               - `Content BetaWebFetchToolResultBlockParamContentUnionResp`
-
                 - `type BetaWebFetchToolResultErrorBlockParamResp struct{…}`
-
                   - `ErrorCode BetaWebFetchToolResultErrorCode`
-
                     - `const BetaWebFetchToolResultErrorCodeInvalidToolInput BetaWebFetchToolResultErrorCode = "invalid_tool_input"`
 
                     - `const BetaWebFetchToolResultErrorCodeURLTooLong BetaWebFetchToolResultErrorCode = "url_too_long"`
 
                     - `const BetaWebFetchToolResultErrorCodeURLNotAllowed BetaWebFetchToolResultErrorCode = "url_not_allowed"`
+
+                    - `const BetaWebFetchToolResultErrorCodeURLNotInPriorContext BetaWebFetchToolResultErrorCode = "url_not_in_prior_context"`
 
                     - `const BetaWebFetchToolResultErrorCodeURLNotAccessible BetaWebFetchToolResultErrorCode = "url_not_accessible"`
 
@@ -1791,306 +545,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
 
                   - `Type WebFetchToolResultError`
-
                     - `const WebFetchToolResultErrorWebFetchToolResultError WebFetchToolResultError = "web_fetch_tool_result_error"`
 
                 - `type BetaWebFetchBlockParamResp struct{…}`
-
                   - `Content BetaRequestDocumentBlock`
 
-                    - `Source BetaRequestDocumentBlockSourceUnion`
-
-                      - `type BetaBase64PDFSource struct{…}`
-
-                        - `Data string`
-
-                        - `MediaType ApplicationPDF`
-
-                          - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
-
-                        - `Type Base64`
-
-                          - `const Base64Base64 Base64 = "base64"`
-
-                      - `type BetaPlainTextSource struct{…}`
-
-                        - `Data string`
-
-                        - `MediaType TextPlain`
-
-                          - `const TextPlainTextPlain TextPlain = "text/plain"`
-
-                        - `Type Text`
-
-                          - `const TextText Text = "text"`
-
-                      - `type BetaContentBlockSource struct{…}`
-
-                        - `Content BetaContentBlockSourceContentUnion`
-
-                          - `string`
-
-                          - `[]BetaContentBlockSourceContentUnion`
-
-                            - `type BetaTextBlockParamResp struct{…}`
-
-                              - `Text string`
-
-                              - `Type Text`
-
-                                - `const TextText Text = "text"`
-
-                              - `CacheControl BetaCacheControlEphemeral`
-
-                                Create a cache control breakpoint at this content block.
-
-                                - `Type Ephemeral`
-
-                                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                                - `TTL BetaCacheControlEphemeralTTL`
-
-                                  The time-to-live for the cache control breakpoint.
-
-                                  This may be one the following values:
-
-                                  - `5m`: 5 minutes
-                                  - `1h`: 1 hour
-
-                                  Defaults to `5m`.
-
-                                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                              - `Citations []BetaTextCitationParamUnionResp`
-
-                                - `type BetaCitationCharLocationParamResp struct{…}`
-
-                                  - `CitedText string`
-
-                                  - `DocumentIndex int64`
-
-                                  - `DocumentTitle string`
-
-                                  - `EndCharIndex int64`
-
-                                  - `StartCharIndex int64`
-
-                                  - `Type CharLocation`
-
-                                    - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                                - `type BetaCitationPageLocationParamResp struct{…}`
-
-                                  - `CitedText string`
-
-                                  - `DocumentIndex int64`
-
-                                  - `DocumentTitle string`
-
-                                  - `EndPageNumber int64`
-
-                                  - `StartPageNumber int64`
-
-                                  - `Type PageLocation`
-
-                                    - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                                - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                                  - `CitedText string`
-
-                                    The full text of the cited block range, concatenated.
-
-                                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                                  - `DocumentIndex int64`
-
-                                  - `DocumentTitle string`
-
-                                  - `EndBlockIndex int64`
-
-                                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                                  - `StartBlockIndex int64`
-
-                                    0-based index of the first cited block in the source's `content` array.
-
-                                  - `Type ContentBlockLocation`
-
-                                    - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                                - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                                  - `CitedText string`
-
-                                  - `EncryptedIndex string`
-
-                                  - `Title string`
-
-                                  - `Type WebSearchResultLocation`
-
-                                    - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                                  - `URL string`
-
-                                - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                                  - `CitedText string`
-
-                                    The full text of the cited block range, concatenated.
-
-                                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                                  - `EndBlockIndex int64`
-
-                                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                                  - `SearchResultIndex int64`
-
-                                    0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                                    Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                                  - `Source string`
-
-                                  - `StartBlockIndex int64`
-
-                                    0-based index of the first cited block in the source's `content` array.
-
-                                  - `Title string`
-
-                                  - `Type SearchResultLocation`
-
-                                    - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
-
-                            - `type BetaImageBlockParamResp struct{…}`
-
-                              - `Source BetaImageBlockParamSourceUnionResp`
-
-                                - `type BetaBase64ImageSource struct{…}`
-
-                                  - `Data string`
-
-                                  - `MediaType BetaBase64ImageSourceMediaType`
-
-                                    - `const BetaBase64ImageSourceMediaTypeImageJPEG BetaBase64ImageSourceMediaType = "image/jpeg"`
-
-                                    - `const BetaBase64ImageSourceMediaTypeImagePNG BetaBase64ImageSourceMediaType = "image/png"`
-
-                                    - `const BetaBase64ImageSourceMediaTypeImageGIF BetaBase64ImageSourceMediaType = "image/gif"`
-
-                                    - `const BetaBase64ImageSourceMediaTypeImageWebP BetaBase64ImageSourceMediaType = "image/webp"`
-
-                                  - `Type Base64`
-
-                                    - `const Base64Base64 Base64 = "base64"`
-
-                                - `type BetaURLImageSource struct{…}`
-
-                                  - `Type URL`
-
-                                    - `const URLURL URL = "url"`
-
-                                  - `URL string`
-
-                                - `type BetaFileImageSource struct{…}`
-
-                                  - `FileID string`
-
-                                  - `Type File`
-
-                                    - `const FileFile File = "file"`
-
-                              - `Type Image`
-
-                                - `const ImageImage Image = "image"`
-
-                              - `CacheControl BetaCacheControlEphemeral`
-
-                                Create a cache control breakpoint at this content block.
-
-                                - `Type Ephemeral`
-
-                                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                                - `TTL BetaCacheControlEphemeralTTL`
-
-                                  The time-to-live for the cache control breakpoint.
-
-                                  This may be one the following values:
-
-                                  - `5m`: 5 minutes
-                                  - `1h`: 1 hour
-
-                                  Defaults to `5m`.
-
-                                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                        - `Type Content`
-
-                          - `const ContentContent Content = "content"`
-
-                      - `type BetaURLPDFSource struct{…}`
-
-                        - `Type URL`
-
-                          - `const URLURL URL = "url"`
-
-                        - `URL string`
-
-                      - `type BetaFileDocumentSource struct{…}`
-
-                        - `FileID string`
-
-                        - `Type File`
-
-                          - `const FileFile File = "file"`
-
-                    - `Type Document`
-
-                      - `const DocumentDocument Document = "document"`
-
-                    - `CacheControl BetaCacheControlEphemeral`
-
-                      Create a cache control breakpoint at this content block.
-
-                      - `Type Ephemeral`
-
-                        - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                      - `TTL BetaCacheControlEphemeralTTL`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
-                    - `Citations BetaCitationsConfigParamResp`
-
-                      - `Enabled bool`
-
-                    - `Context string`
-
-                    - `Title string`
-
                   - `Type WebFetchResult`
-
                     - `const WebFetchResultWebFetchResult WebFetchResult = "web_fetch_result"`
 
                   - `URL string`
@@ -2104,70 +564,29 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `ToolUseID string`
 
               - `Type WebFetchToolResult`
-
                 - `const WebFetchToolResultWebFetchToolResult WebFetchToolResult = "web_fetch_tool_result"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `Caller BetaWebFetchToolResultBlockParamCallerUnionResp`
 
                 Tool invocation directly from the model.
-
                 - `type BetaDirectCaller struct{…}`
 
                   Tool invocation directly from the model.
-
-                  - `Type Direct`
-
-                    - `const DirectDirect Direct = "direct"`
 
                 - `type BetaServerToolCaller struct{…}`
 
                   Tool invocation generated by a server-side tool.
 
-                  - `ToolID string`
-
-                  - `Type CodeExecution20250825`
-
-                    - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
                 - `type BetaServerToolCaller20260120 struct{…}`
 
-                  - `ToolID string`
-
-                  - `Type CodeExecution20260120`
-
-                    - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
             - `type BetaAdvisorToolResultBlockParamResp struct{…}`
-
               - `Content BetaAdvisorToolResultBlockParamContentUnionResp`
-
                 - `type BetaAdvisorToolResultErrorParamResp struct{…}`
-
                   - `ErrorCode BetaAdvisorToolResultErrorParamErrorCode`
-
                     - `const BetaAdvisorToolResultErrorParamErrorCodeMaxUsesExceeded BetaAdvisorToolResultErrorParamErrorCode = "max_uses_exceeded"`
 
                     - `const BetaAdvisorToolResultErrorParamErrorCodePromptTooLong BetaAdvisorToolResultErrorParamErrorCode = "prompt_too_long"`
@@ -2181,66 +600,41 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `const BetaAdvisorToolResultErrorParamErrorCodeExecutionTimeExceeded BetaAdvisorToolResultErrorParamErrorCode = "execution_time_exceeded"`
 
                   - `Type AdvisorToolResultError`
-
                     - `const AdvisorToolResultErrorAdvisorToolResultError AdvisorToolResultError = "advisor_tool_result_error"`
 
                 - `type BetaAdvisorResultBlockParamResp struct{…}`
-
                   - `Text string`
 
                   - `Type AdvisorResult`
-
                     - `const AdvisorResultAdvisorResult AdvisorResult = "advisor_result"`
 
-                - `type BetaAdvisorRedactedResultBlockParamResp struct{…}`
+                  - `StopReason string`
 
+                - `type BetaAdvisorRedactedResultBlockParamResp struct{…}`
                   - `EncryptedContent string`
 
                     Opaque blob produced by a prior response; must be round-tripped verbatim.
 
                   - `Type AdvisorRedactedResult`
-
                     - `const AdvisorRedactedResultAdvisorRedactedResult AdvisorRedactedResult = "advisor_redacted_result"`
+
+                  - `StopReason string`
 
               - `ToolUseID string`
 
               - `Type AdvisorToolResult`
-
                 - `const AdvisorToolResultAdvisorToolResult AdvisorToolResult = "advisor_tool_result"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
             - `type BetaCodeExecutionToolResultBlockParamResp struct{…}`
-
               - `Content BetaCodeExecutionToolResultBlockParamContentUnionResp`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
-
                 - `type BetaCodeExecutionToolResultErrorParamResp struct{…}`
-
                   - `ErrorCode BetaCodeExecutionToolResultErrorCode`
-
                     - `const BetaCodeExecutionToolResultErrorCodeInvalidToolInput BetaCodeExecutionToolResultErrorCode = "invalid_tool_input"`
 
                     - `const BetaCodeExecutionToolResultErrorCodeUnavailable BetaCodeExecutionToolResultErrorCode = "unavailable"`
@@ -2250,17 +644,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
                   - `Type CodeExecutionToolResultError`
-
                     - `const CodeExecutionToolResultErrorCodeExecutionToolResultError CodeExecutionToolResultError = "code_execution_tool_result_error"`
 
                 - `type BetaCodeExecutionResultBlockParamResp struct{…}`
-
                   - `Content []BetaCodeExecutionOutputBlockParamResp`
-
                     - `FileID string`
 
                     - `Type CodeExecutionOutput`
-
                       - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
                   - `ReturnCode int64`
@@ -2270,20 +660,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `Stdout string`
 
                   - `Type CodeExecutionResult`
-
                     - `const CodeExecutionResultCodeExecutionResult CodeExecutionResult = "code_execution_result"`
 
                 - `type BetaEncryptedCodeExecutionResultBlockParamResp struct{…}`
 
                   Code execution result with encrypted stdout for PFC + web_search results.
-
                   - `Content []BetaCodeExecutionOutputBlockParamResp`
-
                     - `FileID string`
 
                     - `Type CodeExecutionOutput`
-
-                      - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
                   - `EncryptedStdout string`
 
@@ -2292,46 +677,21 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `Stderr string`
 
                   - `Type EncryptedCodeExecutionResult`
-
                     - `const EncryptedCodeExecutionResultEncryptedCodeExecutionResult EncryptedCodeExecutionResult = "encrypted_code_execution_result"`
 
               - `ToolUseID string`
 
               - `Type CodeExecutionToolResult`
-
                 - `const CodeExecutionToolResultCodeExecutionToolResult CodeExecutionToolResult = "code_execution_tool_result"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
             - `type BetaBashCodeExecutionToolResultBlockParamResp struct{…}`
-
               - `Content BetaBashCodeExecutionToolResultBlockParamContentUnionResp`
-
                 - `type BetaBashCodeExecutionToolResultErrorParamResp struct{…}`
-
                   - `ErrorCode BetaBashCodeExecutionToolResultErrorParamErrorCode`
-
                     - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeInvalidToolInput BetaBashCodeExecutionToolResultErrorParamErrorCode = "invalid_tool_input"`
 
                     - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeUnavailable BetaBashCodeExecutionToolResultErrorParamErrorCode = "unavailable"`
@@ -2343,17 +703,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `const BetaBashCodeExecutionToolResultErrorParamErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorParamErrorCode = "output_file_too_large"`
 
                   - `Type BashCodeExecutionToolResultError`
-
                     - `const BashCodeExecutionToolResultErrorBashCodeExecutionToolResultError BashCodeExecutionToolResultError = "bash_code_execution_tool_result_error"`
 
                 - `type BetaBashCodeExecutionResultBlockParamResp struct{…}`
-
                   - `Content []BetaBashCodeExecutionOutputBlockParamResp`
-
                     - `FileID string`
 
                     - `Type BashCodeExecutionOutput`
-
                       - `const BashCodeExecutionOutputBashCodeExecutionOutput BashCodeExecutionOutput = "bash_code_execution_output"`
 
                   - `ReturnCode int64`
@@ -2363,46 +719,21 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `Stdout string`
 
                   - `Type BashCodeExecutionResult`
-
                     - `const BashCodeExecutionResultBashCodeExecutionResult BashCodeExecutionResult = "bash_code_execution_result"`
 
               - `ToolUseID string`
 
               - `Type BashCodeExecutionToolResult`
-
                 - `const BashCodeExecutionToolResultBashCodeExecutionToolResult BashCodeExecutionToolResult = "bash_code_execution_tool_result"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
             - `type BetaTextEditorCodeExecutionToolResultBlockParamResp struct{…}`
-
               - `Content BetaTextEditorCodeExecutionToolResultBlockParamContentUnionResp`
-
                 - `type BetaTextEditorCodeExecutionToolResultErrorParamResp struct{…}`
-
                   - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorParamErrorCode`
-
                     - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeInvalidToolInput BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "invalid_tool_input"`
 
                     - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeUnavailable BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "unavailable"`
@@ -2414,17 +745,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `const BetaTextEditorCodeExecutionToolResultErrorParamErrorCodeFileNotFound BetaTextEditorCodeExecutionToolResultErrorParamErrorCode = "file_not_found"`
 
                   - `Type TextEditorCodeExecutionToolResultError`
-
                     - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
 
                   - `ErrorMessage string`
 
                 - `type BetaTextEditorCodeExecutionViewResultBlockParamResp struct{…}`
-
                   - `Content string`
 
                   - `FileType BetaTextEditorCodeExecutionViewResultBlockParamFileType`
-
                     - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypeText BetaTextEditorCodeExecutionViewResultBlockParamFileType = "text"`
 
                     - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypeImage BetaTextEditorCodeExecutionViewResultBlockParamFileType = "image"`
@@ -2432,7 +760,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `const BetaTextEditorCodeExecutionViewResultBlockParamFileTypePDF BetaTextEditorCodeExecutionViewResultBlockParamFileType = "pdf"`
 
                   - `Type TextEditorCodeExecutionViewResult`
-
                     - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
 
                   - `NumLines int64`
@@ -2442,17 +769,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `TotalLines int64`
 
                 - `type BetaTextEditorCodeExecutionCreateResultBlockParamResp struct{…}`
-
                   - `IsFileUpdate bool`
 
                   - `Type TextEditorCodeExecutionCreateResult`
-
                     - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
 
                 - `type BetaTextEditorCodeExecutionStrReplaceResultBlockParamResp struct{…}`
-
                   - `Type TextEditorCodeExecutionStrReplaceResult`
-
                     - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
 
                   - `Lines []string`
@@ -2468,40 +791,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `ToolUseID string`
 
               - `Type TextEditorCodeExecutionToolResult`
-
                 - `const TextEditorCodeExecutionToolResultTextEditorCodeExecutionToolResult TextEditorCodeExecutionToolResult = "text_editor_code_execution_tool_result"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
             - `type BetaToolSearchToolResultBlockParamResp struct{…}`
-
               - `Content BetaToolSearchToolResultBlockParamContentUnionResp`
-
                 - `type BetaToolSearchToolResultErrorParamResp struct{…}`
-
                   - `ErrorCode BetaToolSearchToolResultErrorParamErrorCode`
-
                     - `const BetaToolSearchToolResultErrorParamErrorCodeInvalidToolInput BetaToolSearchToolResultErrorParamErrorCode = "invalid_tool_input"`
 
                     - `const BetaToolSearchToolResultErrorParamErrorCodeUnavailable BetaToolSearchToolResultErrorParamErrorCode = "unavailable"`
@@ -2511,77 +810,31 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     - `const BetaToolSearchToolResultErrorParamErrorCodeExecutionTimeExceeded BetaToolSearchToolResultErrorParamErrorCode = "execution_time_exceeded"`
 
                   - `Type ToolSearchToolResultError`
-
                     - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
 
                 - `type BetaToolSearchToolSearchResultBlockParamResp struct{…}`
-
                   - `ToolReferences []BetaToolReferenceBlockParamResp`
-
                     - `ToolName string`
 
                     - `Type ToolReference`
-
-                      - `const ToolReferenceToolReference ToolReference = "tool_reference"`
 
                     - `CacheControl BetaCacheControlEphemeral`
 
                       Create a cache control breakpoint at this content block.
 
-                      - `Type Ephemeral`
-
-                        - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                      - `TTL BetaCacheControlEphemeralTTL`
-
-                        The time-to-live for the cache control breakpoint.
-
-                        This may be one the following values:
-
-                        - `5m`: 5 minutes
-                        - `1h`: 1 hour
-
-                        Defaults to `5m`.
-
-                        - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                        - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
                   - `Type ToolSearchToolSearchResult`
-
                     - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
 
               - `ToolUseID string`
 
               - `Type ToolSearchToolResult`
-
                 - `const ToolSearchToolResultToolSearchToolResult ToolSearchToolResult = "tool_search_tool_result"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
             - `type BetaMCPToolUseBlockParamResp struct{…}`
-
               - `ID string`
 
               - `Input map[string, any]`
@@ -2593,203 +846,35 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 The name of the MCP server
 
               - `Type MCPToolUse`
-
                 - `const MCPToolUseMCPToolUse MCPToolUse = "mcp_tool_use"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
             - `type BetaRequestMCPToolResultBlockParamResp struct{…}`
-
               - `ToolUseID string`
 
               - `Type MCPToolResult`
-
                 - `const MCPToolResultMCPToolResult MCPToolResult = "mcp_tool_result"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
               - `Content BetaRequestMCPToolResultBlockParamContentUnionResp`
-
                 - `string`
 
                 - `[]BetaTextBlockParamResp`
-
                   - `Text string`
 
                   - `Type Text`
-
-                    - `const TextText Text = "text"`
 
                   - `CacheControl BetaCacheControlEphemeral`
 
                     Create a cache control breakpoint at this content block.
 
-                    - `Type Ephemeral`
-
-                      - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                    - `TTL BetaCacheControlEphemeralTTL`
-
-                      The time-to-live for the cache control breakpoint.
-
-                      This may be one the following values:
-
-                      - `5m`: 5 minutes
-                      - `1h`: 1 hour
-
-                      Defaults to `5m`.
-
-                      - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                      - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
                   - `Citations []BetaTextCitationParamUnionResp`
-
-                    - `type BetaCitationCharLocationParamResp struct{…}`
-
-                      - `CitedText string`
-
-                      - `DocumentIndex int64`
-
-                      - `DocumentTitle string`
-
-                      - `EndCharIndex int64`
-
-                      - `StartCharIndex int64`
-
-                      - `Type CharLocation`
-
-                        - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                    - `type BetaCitationPageLocationParamResp struct{…}`
-
-                      - `CitedText string`
-
-                      - `DocumentIndex int64`
-
-                      - `DocumentTitle string`
-
-                      - `EndPageNumber int64`
-
-                      - `StartPageNumber int64`
-
-                      - `Type PageLocation`
-
-                        - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                    - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-                      - `CitedText string`
-
-                        The full text of the cited block range, concatenated.
-
-                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                      - `DocumentIndex int64`
-
-                      - `DocumentTitle string`
-
-                      - `EndBlockIndex int64`
-
-                        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                      - `StartBlockIndex int64`
-
-                        0-based index of the first cited block in the source's `content` array.
-
-                      - `Type ContentBlockLocation`
-
-                        - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                    - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-                      - `CitedText string`
-
-                      - `EncryptedIndex string`
-
-                      - `Title string`
-
-                      - `Type WebSearchResultLocation`
-
-                        - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                      - `URL string`
-
-                    - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-                      - `CitedText string`
-
-                        The full text of the cited block range, concatenated.
-
-                        Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                      - `EndBlockIndex int64`
-
-                        Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                        Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                      - `SearchResultIndex int64`
-
-                        0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                        Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                      - `Source string`
-
-                      - `StartBlockIndex int64`
-
-                        0-based index of the first cited block in the source's `content` array.
-
-                      - `Title string`
-
-                      - `Type SearchResultLocation`
-
-                        - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
               - `IsError bool`
 
@@ -2797,35 +882,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               A content block that represents a file to be uploaded to the container
               Files uploaded via this block will be available in the container's input directory.
-
               - `FileID string`
 
               - `Type ContainerUpload`
-
                 - `const ContainerUploadContainerUpload ContainerUpload = "container_upload"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
-
-                - `Type Ephemeral`
-
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
             - `type BetaCompactionBlockParamResp struct{…}`
 
@@ -2836,59 +900,67 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               When content is None, the block represents a failed compaction. The server
               treats these as no-ops. Empty string content is not allowed.
-
-              - `Content string`
-
-                Summary of previously compacted content, or null if compaction failed
-
               - `Type Compaction`
-
                 - `const CompactionCompaction Compaction = "compaction"`
 
               - `CacheControl BetaCacheControlEphemeral`
 
                 Create a cache control breakpoint at this content block.
 
-                - `Type Ephemeral`
+              - `Content string`
 
-                  - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-                - `TTL BetaCacheControlEphemeralTTL`
-
-                  The time-to-live for the cache control breakpoint.
-
-                  This may be one the following values:
-
-                  - `5m`: 5 minutes
-                  - `1h`: 1 hour
-
-                  Defaults to `5m`.
-
-                  - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-                  - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
+                Summary of previously compacted content, or null if compaction failed
 
               - `EncryptedContent string`
 
                 Opaque metadata from prior compaction, to be round-tripped verbatim
 
-        - `Role BetaMessageParamRole`
+            - `type BetaMidConversationSystemBlockParamResp struct{…}`
 
+              System instructions that appear mid-conversation.
+
+              Use this block to provide or update system-level instructions at a specific
+              point in the conversation, rather than only via the top-level `system` parameter.
+              - `Content []BetaTextBlockParamResp`
+
+                System instruction text blocks.
+                - `Text string`
+
+                - `Type Text`
+
+                - `CacheControl BetaCacheControlEphemeral`
+
+                  Create a cache control breakpoint at this content block.
+
+                - `Citations []BetaTextCitationParamUnionResp`
+
+              - `Type MidConvSystem`
+                - `const MidConvSystemMidConvSystem MidConvSystem = "mid_conv_system"`
+
+              - `CacheControl BetaCacheControlEphemeral`
+
+                Create a cache control breakpoint at this content block.
+
+        - `Role BetaMessageParamRole`
           - `const BetaMessageParamRoleUser BetaMessageParamRole = "user"`
 
           - `const BetaMessageParamRoleAssistant BetaMessageParamRole = "assistant"`
+
+          - `const BetaMessageParamRoleSystem BetaMessageParamRole = "system"`
 
       - `Model Model`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `type Model string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+            Frontier intelligence for long-running agents and coding
 
           - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
 
@@ -2964,33 +1036,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         Top-level cache control automatically applies a cache_control marker to the last cacheable block in the request.
 
-        - `Type Ephemeral`
-
-          - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-        - `TTL BetaCacheControlEphemeralTTL`
-
-          The time-to-live for the cache control breakpoint.
-
-          This may be one the following values:
-
-          - `5m`: 5 minutes
-          - `1h`: 1 hour
-
-          Defaults to `5m`.
-
-          - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-          - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
       - `Container BetaMessageBatchNewParamsRequestParamsContainerUnion`
 
         Container identifier for reuse across requests.
-
         - `type BetaContainerParamsResp struct{…}`
 
           Container parameters with skills to be loaded.
-
           - `ID string`
 
             Container id
@@ -2998,7 +1049,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `Skills []BetaSkillParamsResp`
 
             List of skills to load in the container
-
             - `SkillID string`
 
               Skill ID
@@ -3006,7 +1056,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Type BetaSkillParamsType`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
               - `const BetaSkillParamsTypeAnthropic BetaSkillParamsType = "anthropic"`
 
               - `const BetaSkillParamsTypeCustom BetaSkillParamsType = "custom"`
@@ -3022,23 +1071,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Context management configuration.
 
         This allows you to control how Claude manages context across multiple requests, such as whether to clear function results or not.
-
         - `Edits []BetaContextManagementConfigEditUnion`
 
           List of context management edits to apply
-
           - `type BetaClearToolUses20250919Edit struct{…}`
-
             - `Type ClearToolUses20250919`
-
               - `const ClearToolUses20250919ClearToolUses20250919 ClearToolUses20250919 = "clear_tool_uses_20250919"`
 
             - `ClearAtLeast BetaInputTokensClearAtLeast`
 
               Minimum number of tokens that must be cleared when triggered. Context will only be modified if at least this many tokens can be removed.
-
               - `Type InputTokens`
-
                 - `const InputTokensInputTokens InputTokens = "input_tokens"`
 
               - `Value int64`
@@ -3046,7 +1089,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `ClearToolInputs BetaClearToolUses20250919EditClearToolInputsUnion`
 
               Whether to clear all tool inputs (bool) or specific tool inputs to clear (list)
-
               - `bool`
 
               - `[]string`
@@ -3058,9 +1100,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Keep BetaToolUsesKeep`
 
               Number of tool uses to retain in the conversation
-
               - `Type ToolUses`
-
                 - `const ToolUsesToolUses ToolUses = "tool_uses"`
 
               - `Value int64`
@@ -3068,57 +1108,42 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Trigger BetaClearToolUses20250919EditTriggerUnion`
 
               Condition that triggers the context management strategy
-
               - `type BetaInputTokensTrigger struct{…}`
-
                 - `Type InputTokens`
-
                   - `const InputTokensInputTokens InputTokens = "input_tokens"`
 
                 - `Value int64`
 
               - `type BetaToolUsesTrigger struct{…}`
-
                 - `Type ToolUses`
-
                   - `const ToolUsesToolUses ToolUses = "tool_uses"`
 
                 - `Value int64`
 
           - `type BetaClearThinking20251015Edit struct{…}`
-
             - `Type ClearThinking20251015`
-
               - `const ClearThinking20251015ClearThinking20251015 ClearThinking20251015 = "clear_thinking_20251015"`
 
             - `Keep BetaClearThinking20251015EditKeepUnion`
 
               Number of most recent assistant turns to keep thinking blocks for. Older turns will have their thinking blocks removed.
-
               - `type BetaThinkingTurns struct{…}`
-
                 - `Type ThinkingTurns`
-
                   - `const ThinkingTurnsThinkingTurns ThinkingTurns = "thinking_turns"`
 
                 - `Value int64`
 
               - `type BetaAllThinkingTurns struct{…}`
-
                 - `Type All`
-
                   - `const AllAll All = "all"`
 
               - `All`
-
                 - `const AllAll All = "all"`
 
           - `type BetaCompact20260112Edit struct{…}`
 
             Automatically compact older context when reaching the configured trigger threshold.
-
             - `Type Compact20260112`
-
               - `const Compact20260112Compact20260112 Compact20260112 = "compact_20260112"`
 
             - `Instructions string`
@@ -3133,11 +1158,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
               When to trigger compaction. Defaults to 150000 input tokens.
 
-              - `Type InputTokens`
+      - `Diagnostics BetaDiagnosticsParamResp`
 
-                - `const InputTokensInputTokens InputTokens = "input_tokens"`
+        Request-level diagnostics. Currently carries the previous response
+        id for prompt-cache divergence reporting.
+        - `PreviousMessageID string`
 
-              - `Value int64`
+          The `id` (`msg_...`) from this client's previous /v1/messages response. The server compares that request's prompt fingerprint against this one and returns `diagnostics.cache_miss_reason` when the prompt-cache prefix could not be reused. Pass `null` on the first turn to opt in without a prior message to compare.
 
       - `InferenceGeo string`
 
@@ -3146,11 +1173,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `MCPServers []BetaRequestMCPServerURLDefinition`
 
         MCP servers to be utilized in this request
-
         - `Name string`
 
         - `Type URL`
-
           - `const URLURL URL = "url"`
 
         - `URL string`
@@ -3158,7 +1183,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `AuthorizationToken string`
 
         - `ToolConfiguration BetaRequestMCPServerToolConfiguration`
-
           - `AllowedTools []string`
 
           - `Enabled bool`
@@ -3166,7 +1190,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `Metadata BetaMetadata`
 
         An object describing metadata about the request.
-
         - `UserID string`
 
           An external identifier for the user who is associated with the request.
@@ -3176,11 +1199,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `OutputConfig BetaOutputConfig`
 
         Configuration options for the model's output, such as the output format.
-
         - `Effort BetaOutputConfigEffort`
 
           All possible effort levels.
-
           - `const BetaOutputConfigEffortLow BetaOutputConfigEffort = "low"`
 
           - `const BetaOutputConfigEffortMedium BetaOutputConfigEffort = "medium"`
@@ -3194,19 +1215,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `Format BetaJSONOutputFormat`
 
           A schema to specify Claude's output format in responses. See [structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs)
-
           - `Schema map[string, any]`
 
             The JSON schema of the format
 
           - `Type JSONSchema`
-
             - `const JSONSchemaJSONSchema JSONSchema = "json_schema"`
 
         - `TaskBudget BetaTokenTaskBudget`
 
           User-configurable total token budget across contexts.
-
           - `Total int64`
 
             Total token budget across all contexts in the session.
@@ -3214,7 +1232,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `Type Tokens`
 
             The budget type. Currently only 'tokens' is supported.
-
             - `const TokensTokens Tokens = "tokens"`
 
           - `Remaining int64`
@@ -3227,20 +1244,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
         A schema to specify Claude's output format in responses. This parameter will be removed in a future release.
 
-        - `Schema map[string, any]`
-
-          The JSON schema of the format
-
-        - `Type JSONSchema`
-
-          - `const JSONSchemaJSONSchema JSONSchema = "json_schema"`
-
       - `ServiceTier string`
 
         Determines whether to use priority capacity (if available) or standard capacity for this request.
 
         Anthropic offers different levels of service for your API requests. See [service-tiers](https://docs.claude.com/en/api/service-tiers) for details.
-
         - `const BetaMessageBatchNewParamsRequestParamsServiceTierAuto BetaMessageBatchNewParamsRequestParamsServiceTier = "auto"`
 
         - `const BetaMessageBatchNewParamsRequestParamsServiceTierStandardOnly BetaMessageBatchNewParamsRequestParamsServiceTier = "standard_only"`
@@ -3248,7 +1256,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `Speed string`
 
         The inference speed mode for this request. `"fast"` enables high output-tokens-per-second inference.
-
         - `const BetaMessageBatchNewParamsRequestParamsSpeedStandard BetaMessageBatchNewParamsRequestParamsSpeed = "standard"`
 
         - `const BetaMessageBatchNewParamsRequestParamsSpeedFast BetaMessageBatchNewParamsRequestParamsSpeed = "fast"`
@@ -3272,143 +1279,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         System prompt.
 
         A system prompt is a way of providing context and instructions to Claude, such as specifying a particular goal or role. See our [guide to system prompts](https://docs.claude.com/en/docs/system-prompts).
-
         - `[]BetaTextBlockParam`
-
           - `Text string`
 
           - `Type Text`
-
-            - `const TextText Text = "text"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Citations []BetaTextCitationParamUnionResp`
-
-            - `type BetaCitationCharLocationParamResp struct{…}`
-
-              - `CitedText string`
-
-              - `DocumentIndex int64`
-
-              - `DocumentTitle string`
-
-              - `EndCharIndex int64`
-
-              - `StartCharIndex int64`
-
-              - `Type CharLocation`
-
-                - `const CharLocationCharLocation CharLocation = "char_location"`
-
-            - `type BetaCitationPageLocationParamResp struct{…}`
-
-              - `CitedText string`
-
-              - `DocumentIndex int64`
-
-              - `DocumentTitle string`
-
-              - `EndPageNumber int64`
-
-              - `StartPageNumber int64`
-
-              - `Type PageLocation`
-
-                - `const PageLocationPageLocation PageLocation = "page_location"`
-
-            - `type BetaCitationContentBlockLocationParamResp struct{…}`
-
-              - `CitedText string`
-
-                The full text of the cited block range, concatenated.
-
-                Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-              - `DocumentIndex int64`
-
-              - `DocumentTitle string`
-
-              - `EndBlockIndex int64`
-
-                Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-              - `StartBlockIndex int64`
-
-                0-based index of the first cited block in the source's `content` array.
-
-              - `Type ContentBlockLocation`
-
-                - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-            - `type BetaCitationWebSearchResultLocationParamResp struct{…}`
-
-              - `CitedText string`
-
-              - `EncryptedIndex string`
-
-              - `Title string`
-
-              - `Type WebSearchResultLocation`
-
-                - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-              - `URL string`
-
-            - `type BetaCitationSearchResultLocationParamResp struct{…}`
-
-              - `CitedText string`
-
-                The full text of the cited block range, concatenated.
-
-                Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-              - `EndBlockIndex int64`
-
-                Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-              - `SearchResultIndex int64`
-
-                0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                Counted separately from `document_index`; server-side web search results are not included in this count.
-
-              - `Source string`
-
-              - `StartBlockIndex int64`
-
-                0-based index of the first cited block in the source's `content` array.
-
-              - `Title string`
-
-              - `Type SearchResultLocation`
-
-                - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
       - `Temperature float64`
 
@@ -3425,9 +1305,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         When enabled, responses include `thinking` content blocks showing Claude's thinking process before the final answer. Requires a minimum budget of 1,024 tokens and counts towards your `max_tokens` limit.
 
         See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
-
         - `type BetaThinkingConfigEnabled struct{…}`
-
           - `BudgetTokens int64`
 
             Determines how many tokens Claude can use for its internal reasoning process. Larger budgets can enable more thorough analysis for complex problems, improving response quality.
@@ -3437,33 +1315,26 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             See [extended thinking](https://docs.claude.com/en/docs/build-with-claude/extended-thinking) for details.
 
           - `Type Enabled`
-
             - `const EnabledEnabled Enabled = "enabled"`
 
           - `Display BetaThinkingConfigEnabledDisplay`
 
             Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
             - `const BetaThinkingConfigEnabledDisplaySummarized BetaThinkingConfigEnabledDisplay = "summarized"`
 
             - `const BetaThinkingConfigEnabledDisplayOmitted BetaThinkingConfigEnabledDisplay = "omitted"`
 
         - `type BetaThinkingConfigDisabled struct{…}`
-
           - `Type Disabled`
-
             - `const DisabledDisabled Disabled = "disabled"`
 
         - `type BetaThinkingConfigAdaptive struct{…}`
-
           - `Type Adaptive`
-
             - `const AdaptiveAdaptive Adaptive = "adaptive"`
 
           - `Display BetaThinkingConfigAdaptiveDisplay`
 
             Controls how thinking content appears in the response. When set to `summarized`, thinking is returned normally. When set to `omitted`, thinking content is redacted but a signature is returned for multi-turn continuity. Defaults to `summarized`.
-
             - `const BetaThinkingConfigAdaptiveDisplaySummarized BetaThinkingConfigAdaptiveDisplay = "summarized"`
 
             - `const BetaThinkingConfigAdaptiveDisplayOmitted BetaThinkingConfigAdaptiveDisplay = "omitted"`
@@ -3471,13 +1342,10 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
       - `ToolChoice BetaToolChoiceUnion`
 
         How the model should use the provided tools. The model can use a specific tool, any available tool, decide by itself, or not use tools at all.
-
         - `type BetaToolChoiceAuto struct{…}`
 
           The model will automatically decide whether to use tools.
-
           - `Type Auto`
-
             - `const AutoAuto Auto = "auto"`
 
           - `DisableParallelToolUse bool`
@@ -3489,9 +1357,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `type BetaToolChoiceAny struct{…}`
 
           The model will use any available tools.
-
           - `Type Any`
-
             - `const AnyAny Any = "any"`
 
           - `DisableParallelToolUse bool`
@@ -3503,13 +1369,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `type BetaToolChoiceTool struct{…}`
 
           The model will use the specified tool with `tool_choice.name`.
-
           - `Name string`
 
             The name of the tool to use.
 
           - `Type Tool`
-
             - `const ToolTool Tool = "tool"`
 
           - `DisableParallelToolUse bool`
@@ -3521,9 +1385,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `type BetaToolChoiceNone struct{…}`
 
           The model will not be allowed to use tools.
-
           - `Type None`
-
             - `const NoneNone None = "none"`
 
       - `Tools []BetaToolUnion`
@@ -3535,10 +1397,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         There are two types of tools: **client tools** and **server tools**. The behavior described below applies to client tools. For [server tools](https://docs.claude.com/en/docs/agents-and-tools/tool-use/overview#server-tools), see their individual documentation as each has its own behavior (e.g., the [web search tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool)).
 
         Each tool definition includes:
-
-        * `name`: Name of the tool.
-        * `description`: Optional, but strongly-recommended description of the tool.
-        * `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
+        - `name`: Name of the tool.
+        - `description`: Optional, but strongly-recommended description of the tool.
+        - `input_schema`: [JSON schema](https://json-schema.org/draft/2020-12) for the tool `input` shape that the model will produce in `tool_use` output content blocks.
 
         For example, if you defined `tools` as:
 
@@ -3589,17 +1450,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         Tools can be used for workflows that include running client-side tools and functions, or more generally whenever you want the model to produce a particular JSON structure of output.
 
         See our [guide](https://docs.claude.com/en/docs/tool-use) for more details.
-
         - `type BetaTool struct{…}`
-
           - `InputSchema BetaToolInputSchema`
 
             [JSON schema](https://json-schema.org/draft/2020-12) for this tool's input.
 
             This defines the shape of the `input` that your tool accepts and that the model will produce.
-
             - `Type Object`
-
               - `const ObjectObject Object = "object"`
 
             - `Properties map[string, any]`
@@ -3613,7 +1470,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This is how the tool will be called by the model and in `tool_use` blocks.
 
           - `AllowedCallers []string`
-
             - `const BetaToolAllowedCallerDirect BetaToolAllowedCaller = "direct"`
 
             - `const BetaToolAllowedCallerCodeExecution20250825 BetaToolAllowedCaller = "code_execution_20250825"`
@@ -3623,25 +1479,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -3664,25 +1501,20 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
           - `Type BetaToolType`
-
             - `const BetaToolTypeCustom BetaToolType = "custom"`
 
         - `type BetaToolBash20241022 struct{…}`
-
           - `Name Bash`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const BashBash Bash = "bash"`
 
           - `Type Bash20241022`
-
             - `const Bash20241022Bash20241022 Bash20241022 = "bash_20241022"`
 
           - `AllowedCallers []string`
-
             - `const BetaToolBash20241022AllowedCallerDirect BetaToolBash20241022AllowedCaller = "direct"`
 
             - `const BetaToolBash20241022AllowedCallerCodeExecution20250825 BetaToolBash20241022AllowedCaller = "code_execution_20250825"`
@@ -3692,25 +1524,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -3723,21 +1536,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaToolBash20250124 struct{…}`
-
           - `Name Bash`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const BashBash Bash = "bash"`
 
           - `Type Bash20250124`
-
             - `const Bash20250124Bash20250124 Bash20250124 = "bash_20250124"`
 
           - `AllowedCallers []string`
-
             - `const BetaToolBash20250124AllowedCallerDirect BetaToolBash20250124AllowedCaller = "direct"`
 
             - `const BetaToolBash20250124AllowedCallerCodeExecution20250825 BetaToolBash20250124AllowedCaller = "code_execution_20250825"`
@@ -3747,25 +1556,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -3778,21 +1568,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaCodeExecutionTool20250522 struct{…}`
-
           - `Name CodeExecution`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
 
           - `Type CodeExecution20250522`
-
             - `const CodeExecution20250522CodeExecution20250522 CodeExecution20250522 = "code_execution_20250522"`
 
           - `AllowedCallers []string`
-
             - `const BetaCodeExecutionTool20250522AllowedCallerDirect BetaCodeExecutionTool20250522AllowedCaller = "direct"`
 
             - `const BetaCodeExecutionTool20250522AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20250522AllowedCaller = "code_execution_20250825"`
@@ -3803,25 +1589,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `DeferLoading bool`
 
             If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -3831,21 +1598,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaCodeExecutionTool20250825 struct{…}`
-
           - `Name CodeExecution`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
 
           - `Type CodeExecution20250825`
-
             - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
 
           - `AllowedCallers []string`
-
             - `const BetaCodeExecutionTool20250825AllowedCallerDirect BetaCodeExecutionTool20250825AllowedCaller = "direct"`
 
             - `const BetaCodeExecutionTool20250825AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20250825AllowedCaller = "code_execution_20250825"`
@@ -3855,25 +1618,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -3886,21 +1630,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `type BetaCodeExecutionTool20260120 struct{…}`
 
           Code execution tool with REPL state persistence (daemon mode + gVisor checkpoint).
-
           - `Name CodeExecution`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const CodeExecutionCodeExecution CodeExecution = "code_execution"`
 
           - `Type CodeExecution20260120`
-
             - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
           - `AllowedCallers []string`
-
             - `const BetaCodeExecutionTool20260120AllowedCallerDirect BetaCodeExecutionTool20260120AllowedCaller = "direct"`
 
             - `const BetaCodeExecutionTool20260120AllowedCallerCodeExecution20250825 BetaCodeExecutionTool20260120AllowedCaller = "code_execution_20250825"`
@@ -3911,25 +1651,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `DeferLoading bool`
 
             If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -3939,7 +1660,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaToolComputerUse20241022 struct{…}`
-
           - `DisplayHeightPx int64`
 
             The height of the display in pixels.
@@ -3953,15 +1673,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const ComputerComputer Computer = "computer"`
 
           - `Type Computer20241022`
-
             - `const Computer20241022Computer20241022 Computer20241022 = "computer_20241022"`
 
           - `AllowedCallers []string`
-
             - `const BetaToolComputerUse20241022AllowedCallerDirect BetaToolComputerUse20241022AllowedCaller = "direct"`
 
             - `const BetaToolComputerUse20241022AllowedCallerCodeExecution20250825 BetaToolComputerUse20241022AllowedCaller = "code_execution_20250825"`
@@ -3971,25 +1688,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -4006,21 +1704,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaMemoryTool20250818 struct{…}`
-
           - `Name Memory`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const MemoryMemory Memory = "memory"`
 
           - `Type Memory20250818`
-
             - `const Memory20250818Memory20250818 Memory20250818 = "memory_20250818"`
 
           - `AllowedCallers []string`
-
             - `const BetaMemoryTool20250818AllowedCallerDirect BetaMemoryTool20250818AllowedCaller = "direct"`
 
             - `const BetaMemoryTool20250818AllowedCallerCodeExecution20250825 BetaMemoryTool20250818AllowedCaller = "code_execution_20250825"`
@@ -4030,25 +1724,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -4061,7 +1736,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaToolComputerUse20250124 struct{…}`
-
           - `DisplayHeightPx int64`
 
             The height of the display in pixels.
@@ -4075,15 +1749,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const ComputerComputer Computer = "computer"`
 
           - `Type Computer20250124`
-
             - `const Computer20250124Computer20250124 Computer20250124 = "computer_20250124"`
 
           - `AllowedCallers []string`
-
             - `const BetaToolComputerUse20250124AllowedCallerDirect BetaToolComputerUse20250124AllowedCaller = "direct"`
 
             - `const BetaToolComputerUse20250124AllowedCallerCodeExecution20250825 BetaToolComputerUse20250124AllowedCaller = "code_execution_20250825"`
@@ -4093,25 +1764,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -4128,21 +1780,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaToolTextEditor20241022 struct{…}`
-
           - `Name StrReplaceEditor`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const StrReplaceEditorStrReplaceEditor StrReplaceEditor = "str_replace_editor"`
 
           - `Type TextEditor20241022`
-
             - `const TextEditor20241022TextEditor20241022 TextEditor20241022 = "text_editor_20241022"`
 
           - `AllowedCallers []string`
-
             - `const BetaToolTextEditor20241022AllowedCallerDirect BetaToolTextEditor20241022AllowedCaller = "direct"`
 
             - `const BetaToolTextEditor20241022AllowedCallerCodeExecution20250825 BetaToolTextEditor20241022AllowedCaller = "code_execution_20250825"`
@@ -4152,25 +1800,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -4183,7 +1812,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaToolComputerUse20251124 struct{…}`
-
           - `DisplayHeightPx int64`
 
             The height of the display in pixels.
@@ -4197,15 +1825,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const ComputerComputer Computer = "computer"`
 
           - `Type Computer20251124`
-
             - `const Computer20251124Computer20251124 Computer20251124 = "computer_20251124"`
 
           - `AllowedCallers []string`
-
             - `const BetaToolComputerUse20251124AllowedCallerDirect BetaToolComputerUse20251124AllowedCaller = "direct"`
 
             - `const BetaToolComputerUse20251124AllowedCallerCodeExecution20250825 BetaToolComputerUse20251124AllowedCaller = "code_execution_20250825"`
@@ -4215,25 +1840,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -4254,21 +1860,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaToolTextEditor20250124 struct{…}`
-
           - `Name StrReplaceEditor`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const StrReplaceEditorStrReplaceEditor StrReplaceEditor = "str_replace_editor"`
 
           - `Type TextEditor20250124`
-
             - `const TextEditor20250124TextEditor20250124 TextEditor20250124 = "text_editor_20250124"`
 
           - `AllowedCallers []string`
-
             - `const BetaToolTextEditor20250124AllowedCallerDirect BetaToolTextEditor20250124AllowedCaller = "direct"`
 
             - `const BetaToolTextEditor20250124AllowedCallerCodeExecution20250825 BetaToolTextEditor20250124AllowedCaller = "code_execution_20250825"`
@@ -4278,25 +1880,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -4309,21 +1892,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaToolTextEditor20250429 struct{…}`
-
           - `Name StrReplaceBasedEditTool`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const StrReplaceBasedEditToolStrReplaceBasedEditTool StrReplaceBasedEditTool = "str_replace_based_edit_tool"`
 
           - `Type TextEditor20250429`
-
             - `const TextEditor20250429TextEditor20250429 TextEditor20250429 = "text_editor_20250429"`
 
           - `AllowedCallers []string`
-
             - `const BetaToolTextEditor20250429AllowedCallerDirect BetaToolTextEditor20250429AllowedCaller = "direct"`
 
             - `const BetaToolTextEditor20250429AllowedCallerCodeExecution20250825 BetaToolTextEditor20250429AllowedCaller = "code_execution_20250825"`
@@ -4333,25 +1912,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -4364,21 +1924,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaToolTextEditor20250728 struct{…}`
-
           - `Name StrReplaceBasedEditTool`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const StrReplaceBasedEditToolStrReplaceBasedEditTool StrReplaceBasedEditTool = "str_replace_based_edit_tool"`
 
           - `Type TextEditor20250728`
-
             - `const TextEditor20250728TextEditor20250728 TextEditor20250728 = "text_editor_20250728"`
 
           - `AllowedCallers []string`
-
             - `const BetaToolTextEditor20250728AllowedCallerDirect BetaToolTextEditor20250728AllowedCaller = "direct"`
 
             - `const BetaToolTextEditor20250728AllowedCallerCodeExecution20250825 BetaToolTextEditor20250728AllowedCaller = "code_execution_20250825"`
@@ -4388,25 +1944,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -4423,21 +1960,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaWebSearchTool20250305 struct{…}`
-
           - `Name WebSearch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const WebSearchWebSearch WebSearch = "web_search"`
 
           - `Type WebSearch20250305`
-
             - `const WebSearch20250305WebSearch20250305 WebSearch20250305 = "web_search_20250305"`
 
           - `AllowedCallers []string`
-
             - `const BetaWebSearchTool20250305AllowedCallerDirect BetaWebSearchTool20250305AllowedCaller = "direct"`
 
             - `const BetaWebSearchTool20250305AllowedCallerCodeExecution20250825 BetaWebSearchTool20250305AllowedCaller = "code_execution_20250825"`
@@ -4456,25 +1989,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `DeferLoading bool`
 
             If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -4490,9 +2004,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `UserLocation BetaUserLocation`
 
             Parameters for the user's location. Used to provide more relevant search results.
-
             - `Type Approximate`
-
               - `const ApproximateApproximate Approximate = "approximate"`
 
             - `City string`
@@ -4512,21 +2024,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               The [IANA timezone](https://nodatime.org/TimeZones) of the user.
 
         - `type BetaWebFetchTool20250910 struct{…}`
-
           - `Name WebFetch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const WebFetchWebFetch WebFetch = "web_fetch"`
 
           - `Type WebFetch20250910`
-
             - `const WebFetch20250910WebFetch20250910 WebFetch20250910 = "web_fetch_20250910"`
 
           - `AllowedCallers []string`
-
             - `const BetaWebFetchTool20250910AllowedCallerDirect BetaWebFetchTool20250910AllowedCaller = "direct"`
 
             - `const BetaWebFetchTool20250910AllowedCallerCodeExecution20250825 BetaWebFetchTool20250910AllowedCaller = "code_execution_20250825"`
@@ -4545,30 +2053,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Citations BetaCitationsConfigParamResp`
 
             Citations configuration for fetched documents. Citations are disabled by default.
-
-            - `Enabled bool`
 
           - `DeferLoading bool`
 
@@ -4587,21 +2074,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaWebSearchTool20260209 struct{…}`
-
           - `Name WebSearch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const WebSearchWebSearch WebSearch = "web_search"`
 
           - `Type WebSearch20260209`
-
             - `const WebSearch20260209WebSearch20260209 WebSearch20260209 = "web_search_20260209"`
 
           - `AllowedCallers []string`
-
             - `const BetaWebSearchTool20260209AllowedCallerDirect BetaWebSearchTool20260209AllowedCaller = "direct"`
 
             - `const BetaWebSearchTool20260209AllowedCallerCodeExecution20250825 BetaWebSearchTool20260209AllowedCaller = "code_execution_20250825"`
@@ -4620,25 +2103,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `DeferLoading bool`
 
             If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -4655,42 +2119,18 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Parameters for the user's location. Used to provide more relevant search results.
 
-            - `Type Approximate`
-
-              - `const ApproximateApproximate Approximate = "approximate"`
-
-            - `City string`
-
-              The city of the user.
-
-            - `Country string`
-
-              The two letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) of the user.
-
-            - `Region string`
-
-              The region of the user.
-
-            - `Timezone string`
-
-              The [IANA timezone](https://nodatime.org/TimeZones) of the user.
-
         - `type BetaWebFetchTool20260209 struct{…}`
-
           - `Name WebFetch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const WebFetchWebFetch WebFetch = "web_fetch"`
 
           - `Type WebFetch20260209`
-
             - `const WebFetch20260209WebFetch20260209 WebFetch20260209 = "web_fetch_20260209"`
 
           - `AllowedCallers []string`
-
             - `const BetaWebFetchTool20260209AllowedCallerDirect BetaWebFetchTool20260209AllowedCaller = "direct"`
 
             - `const BetaWebFetchTool20260209AllowedCallerCodeExecution20250825 BetaWebFetchTool20260209AllowedCaller = "code_execution_20250825"`
@@ -4709,30 +2149,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Citations BetaCitationsConfigParamResp`
 
             Citations configuration for fetched documents. Citations are disabled by default.
-
-            - `Enabled bool`
 
           - `DeferLoading bool`
 
@@ -4753,21 +2172,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `type BetaWebFetchTool20260309 struct{…}`
 
           Web fetch tool with use_cache parameter for bypassing cached content.
-
           - `Name WebFetch`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const WebFetchWebFetch WebFetch = "web_fetch"`
 
           - `Type WebFetch20260309`
-
             - `const WebFetch20260309WebFetch20260309 WebFetch20260309 = "web_fetch_20260309"`
 
           - `AllowedCallers []string`
-
             - `const BetaWebFetchTool20260309AllowedCallerDirect BetaWebFetchTool20260309AllowedCaller = "direct"`
 
             - `const BetaWebFetchTool20260309AllowedCallerCodeExecution20250825 BetaWebFetchTool20260309AllowedCaller = "code_execution_20250825"`
@@ -4786,30 +2201,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Citations BetaCitationsConfigParamResp`
 
             Citations configuration for fetched documents. Citations are disabled by default.
-
-            - `Enabled bool`
 
           - `DeferLoading bool`
 
@@ -4832,103 +2226,23 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Whether to use cached content. Set to false to bypass the cache and fetch fresh content. Only set to false when the user explicitly requests fresh content or when fetching rapidly-changing sources.
 
         - `type BetaAdvisorTool20260301 struct{…}`
-
           - `Model Model`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `type Model string`
-
-              The model that will complete your prompt.
-
-              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-              - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
-
-                Frontier intelligence for long-running agents and coding
-
-              - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                New class of intelligence, strongest in coding and cybersecurity
-
-              - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
-
-                Frontier intelligence for long-running agents and coding
-
-              - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
-
-                Best combination of speed and intelligence
-
-              - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
-
-                Fastest model with near-frontier intelligence
-
-              - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
-
-                Fastest model with near-frontier intelligence
-
-              - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
-
-                Premium model combining maximum intelligence with practical performance
-
-              - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
-
-                Premium model combining maximum intelligence with practical performance
-
-              - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                High-performance model for agents and coding
-
-              - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                High-performance model for agents and coding
-
-              - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-                Exceptional model for specialized complex tasks
-
-              - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-                Exceptional model for specialized complex tasks
-
-              - `const ModelClaudeOpus4_0 Model = "claude-opus-4-0"`
-
-                Powerful model for complex tasks
-
-              - `const ModelClaudeOpus4_20250514 Model = "claude-opus-4-20250514"`
-
-                Powerful model for complex tasks
-
-              - `const ModelClaudeSonnet4_0 Model = "claude-sonnet-4-0"`
-
-                High-performance model with extended thinking
-
-              - `const ModelClaudeSonnet4_20250514 Model = "claude-sonnet-4-20250514"`
-
-                High-performance model with extended thinking
-
-              - `const ModelClaude_3_Haiku_20240307 Model = "claude-3-haiku-20240307"`
-
-                Fast and cost-effective model
-
-            - `string`
-
           - `Name Advisor`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const AdvisorAdvisor Advisor = "advisor"`
 
           - `Type Advisor20260301`
-
             - `const Advisor20260301Advisor20260301 Advisor20260301 = "advisor_20260301"`
 
           - `AllowedCallers []string`
-
             - `const BetaAdvisorTool20260301AllowedCallerDirect BetaAdvisorTool20260301AllowedCaller = "direct"`
 
             - `const BetaAdvisorTool20260301AllowedCallerCodeExecution20250825 BetaAdvisorTool20260301AllowedCaller = "code_execution_20250825"`
@@ -4939,47 +2253,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Caching BetaCacheControlEphemeral`
 
             Caching for the advisor's own prompt. When set, each advisor call writes a cache entry at the given TTL so subsequent calls in the same conversation read the stable prefix. When omitted, the advisor prompt is not cached.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -4994,23 +2270,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaToolSearchToolBm25_20251119 struct{…}`
-
           - `Name ToolSearchToolBm25`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const ToolSearchToolBm25ToolSearchToolBm25 ToolSearchToolBm25 = "tool_search_tool_bm25"`
 
           - `Type BetaToolSearchToolBm25_20251119Type`
-
             - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25_20251119 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25_20251119"`
 
             - `const BetaToolSearchToolBm25_20251119TypeToolSearchToolBm25 BetaToolSearchToolBm25_20251119Type = "tool_search_tool_bm25"`
 
           - `AllowedCallers []string`
-
             - `const BetaToolSearchToolBm25_20251119AllowedCallerDirect BetaToolSearchToolBm25_20251119AllowedCaller = "direct"`
 
             - `const BetaToolSearchToolBm25_20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolBm25_20251119AllowedCaller = "code_execution_20250825"`
@@ -5021,25 +2293,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `DeferLoading bool`
 
             If true, tool will not be included in initial system prompt. Only loaded when returned via tool_reference from tool search.
@@ -5049,23 +2302,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When true, guarantees schema validation on tool names and inputs
 
         - `type BetaToolSearchToolRegex20251119 struct{…}`
-
           - `Name ToolSearchToolRegex`
 
             Name of the tool.
 
             This is how the tool will be called by the model and in `tool_use` blocks.
-
             - `const ToolSearchToolRegexToolSearchToolRegex ToolSearchToolRegex = "tool_search_tool_regex"`
 
           - `Type BetaToolSearchToolRegex20251119Type`
-
             - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex20251119 BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex_20251119"`
 
             - `const BetaToolSearchToolRegex20251119TypeToolSearchToolRegex BetaToolSearchToolRegex20251119Type = "tool_search_tool_regex"`
 
           - `AllowedCallers []string`
-
             - `const BetaToolSearchToolRegex20251119AllowedCallerDirect BetaToolSearchToolRegex20251119AllowedCaller = "direct"`
 
             - `const BetaToolSearchToolRegex20251119AllowedCallerCodeExecution20250825 BetaToolSearchToolRegex20251119AllowedCaller = "code_execution_20250825"`
@@ -5075,25 +2324,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
-
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
 
           - `DeferLoading bool`
 
@@ -5109,42 +2339,20 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           Allows configuring enabled status and defer_loading for all tools
           from an MCP server, with optional per-tool overrides.
-
           - `MCPServerName string`
 
             Name of the MCP server to configure tools for
 
           - `Type MCPToolset`
-
             - `const MCPToolsetMCPToolset MCPToolset = "mcp_toolset"`
 
           - `CacheControl BetaCacheControlEphemeral`
 
             Create a cache control breakpoint at this content block.
 
-            - `Type Ephemeral`
-
-              - `const EphemeralEphemeral Ephemeral = "ephemeral"`
-
-            - `TTL BetaCacheControlEphemeralTTL`
-
-              The time-to-live for the cache control breakpoint.
-
-              This may be one the following values:
-
-              - `5m`: 5 minutes
-              - `1h`: 1 hour
-
-              Defaults to `5m`.
-
-              - `const BetaCacheControlEphemeralTTLTTL5m BetaCacheControlEphemeralTTL = "5m"`
-
-              - `const BetaCacheControlEphemeralTTLTTL1h BetaCacheControlEphemeralTTL = "1h"`
-
           - `Configs map[string, BetaMCPToolConfig]`
 
             Configuration overrides for specific tools, keyed by tool name
-
             - `DeferLoading bool`
 
             - `Enabled bool`
@@ -5152,7 +2360,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `DefaultConfig BetaMCPToolDefaultConfig`
 
             Default configuration applied to all tools from this server
-
             - `DeferLoading bool`
 
             - `Enabled bool`
@@ -5180,11 +2387,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -5233,10 +2438,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaMessageBatch struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -5268,7 +2478,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `ProcessingStatus BetaMessageBatchProcessingStatus`
 
     Processing status of the Message Batch.
-
     - `const BetaMessageBatchProcessingStatusInProgress BetaMessageBatchProcessingStatus = "in_progress"`
 
     - `const BetaMessageBatchProcessingStatusCanceling BetaMessageBatchProcessingStatus = "canceling"`
@@ -5280,7 +2489,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
     - `Canceled int64`
 
       Number of requests in the Message Batch that have been canceled.
@@ -5320,7 +2528,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
-
     - `const MessageBatchMessageBatch MessageBatch = "message_batch"`
 
 ### Example
@@ -5364,7 +2571,30 @@ func main() {
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+## Retrieve a Message Batch
 
 `client.Beta.Messages.Batches.Get(ctx, messageBatchID, query) (*BetaMessageBatch, error)`
 
@@ -5381,15 +2611,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   ID of the Message Batch.
 
 - `query BetaMessageBatchGetParams`
-
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -5438,10 +2665,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaMessageBatch struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -5473,7 +2705,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `ProcessingStatus BetaMessageBatchProcessingStatus`
 
     Processing status of the Message Batch.
-
     - `const BetaMessageBatchProcessingStatusInProgress BetaMessageBatchProcessingStatus = "in_progress"`
 
     - `const BetaMessageBatchProcessingStatusCanceling BetaMessageBatchProcessingStatus = "canceling"`
@@ -5485,7 +2716,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
     - `Canceled int64`
 
       Number of requests in the Message Batch that have been canceled.
@@ -5525,7 +2755,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
-
     - `const MessageBatchMessageBatch MessageBatch = "message_batch"`
 
 ### Example
@@ -5559,7 +2788,30 @@ func main() {
 }
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+## List Message Batches
 
 `client.Beta.Messages.Batches.List(ctx, params) (*Page[BetaMessageBatch], error)`
 
@@ -5572,7 +2824,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `params BetaMessageBatchListParams`
-
   - `AfterID param.Field[string]`
 
     Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -5590,11 +2841,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -5643,10 +2892,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaMessageBatch struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -5678,7 +2932,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `ProcessingStatus BetaMessageBatchProcessingStatus`
 
     Processing status of the Message Batch.
-
     - `const BetaMessageBatchProcessingStatusInProgress BetaMessageBatchProcessingStatus = "in_progress"`
 
     - `const BetaMessageBatchProcessingStatusCanceling BetaMessageBatchProcessingStatus = "canceling"`
@@ -5690,7 +2943,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
     - `Canceled int64`
 
       Number of requests in the Message Batch that have been canceled.
@@ -5730,7 +2982,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
-
     - `const MessageBatchMessageBatch MessageBatch = "message_batch"`
 
 ### Example
@@ -5760,7 +3011,37 @@ func main() {
 }
 ```
 
-## Cancel
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+      "archived_at": "2024-08-20T18:37:24.100435Z",
+      "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+      "created_at": "2024-08-20T18:37:24.100435Z",
+      "ended_at": "2024-08-20T18:37:24.100435Z",
+      "expires_at": "2024-08-20T18:37:24.100435Z",
+      "processing_status": "in_progress",
+      "request_counts": {
+        "canceled": 10,
+        "errored": 30,
+        "expired": 10,
+        "processing": 100,
+        "succeeded": 50
+      },
+      "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+      "type": "message_batch"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+## Cancel a Message Batch
 
 `client.Beta.Messages.Batches.Cancel(ctx, messageBatchID, body) (*BetaMessageBatch, error)`
 
@@ -5779,15 +3060,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   ID of the Message Batch.
 
 - `body BetaMessageBatchCancelParams`
-
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -5836,10 +3114,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaMessageBatch struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -5871,7 +3154,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `ProcessingStatus BetaMessageBatchProcessingStatus`
 
     Processing status of the Message Batch.
-
     - `const BetaMessageBatchProcessingStatusInProgress BetaMessageBatchProcessingStatus = "in_progress"`
 
     - `const BetaMessageBatchProcessingStatusCanceling BetaMessageBatchProcessingStatus = "canceling"`
@@ -5883,7 +3165,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
     - `Canceled int64`
 
       Number of requests in the Message Batch that have been canceled.
@@ -5923,7 +3204,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
-
     - `const MessageBatchMessageBatch MessageBatch = "message_batch"`
 
 ### Example
@@ -5957,7 +3237,30 @@ func main() {
 }
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
+```
+
+## Delete a Message Batch
 
 `client.Beta.Messages.Batches.Delete(ctx, messageBatchID, body) (*BetaDeletedMessageBatch, error)`
 
@@ -5976,15 +3279,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   ID of the Message Batch.
 
 - `body BetaMessageBatchDeleteParams`
-
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -6033,10 +3333,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaDeletedMessageBatch struct{…}`
-
   - `ID string`
 
     ID of the Message Batch.
@@ -6046,7 +3351,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
-
     - `const MessageBatchDeletedMessageBatchDeleted MessageBatchDeleted = "message_batch_deleted"`
 
 ### Example
@@ -6080,7 +3384,16 @@ func main() {
 }
 ```
 
-## Results
+#### Response
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "type": "message_batch_deleted"
+}
+```
+
+## Retrieve Message Batch results
 
 `client.Beta.Messages.Batches.Results(ctx, messageBatchID, query) (*BetaMessageBatchIndividualResponse, error)`
 
@@ -6099,15 +3412,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   ID of the Message Batch.
 
 - `query BetaMessageBatchResultsParams`
-
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -6156,12 +3466,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaMessageBatchIndividualResponse struct{…}`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
-
   - `CustomID string`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -6173,11 +3488,8 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Processing result for this request.
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
-
     - `type BetaMessageBatchSucceededResult struct{…}`
-
       - `Message BetaMessage`
-
         - `ID string`
 
           Unique object identifier.
@@ -6187,7 +3499,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
         - `Container BetaContainer`
 
           Information about the container used in the request (for the code execution tool)
-
           - `ID string`
 
             Identifier for the container used in this request
@@ -6199,7 +3510,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `Skills []BetaSkill`
 
             Skills loaded in the container
-
             - `SkillID string`
 
               Skill ID
@@ -6207,7 +3517,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Type BetaSkillType`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
               - `const BetaSkillTypeAnthropic BetaSkillType = "anthropic"`
 
               - `const BetaSkillTypeCustom BetaSkillType = "custom"`
@@ -6225,7 +3534,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Example:
 
           ```json
-          [{"type": "text", "text": "Hi, I'm Claude."}]
+          [{ "type": "text", "text": "Hi, I'm Claude." }]
           ```
 
           If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -6234,27 +3543,27 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
           ```json
           [
-            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-            {"role": "assistant", "content": "The best answer is ("}
+            {
+              "role": "user",
+              "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
+            },
+            { "role": "assistant", "content": "The best answer is (" }
           ]
           ```
 
           Then the response `content` might be:
 
           ```json
-          [{"type": "text", "text": "B)"}]
+          [{ "type": "text", "text": "B)" }]
           ```
 
           - `type BetaTextBlock struct{…}`
-
             - `Citations []BetaTextCitationUnion`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
               - `type BetaCitationCharLocation struct{…}`
-
                 - `CitedText string`
 
                 - `DocumentIndex int64`
@@ -6268,11 +3577,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `StartCharIndex int64`
 
                 - `Type CharLocation`
-
                   - `const CharLocationCharLocation CharLocation = "char_location"`
 
               - `type BetaCitationPageLocation struct{…}`
-
                 - `CitedText string`
 
                 - `DocumentIndex int64`
@@ -6286,11 +3593,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `StartPageNumber int64`
 
                 - `Type PageLocation`
-
                   - `const PageLocationPageLocation PageLocation = "page_location"`
 
               - `type BetaCitationContentBlockLocation struct{…}`
-
                 - `CitedText string`
 
                   The full text of the cited block range, concatenated.
@@ -6314,11 +3619,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   0-based index of the first cited block in the source's `content` array.
 
                 - `Type ContentBlockLocation`
-
                   - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
 
               - `type BetaCitationsWebSearchResultLocation struct{…}`
-
                 - `CitedText string`
 
                 - `EncryptedIndex string`
@@ -6326,13 +3629,11 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Title string`
 
                 - `Type WebSearchResultLocation`
-
                   - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
 
                 - `URL string`
 
               - `type BetaCitationSearchResultLocation struct{…}`
-
                 - `CitedText string`
 
                   The full text of the cited block range, concatenated.
@@ -6360,35 +3661,28 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Title string`
 
                 - `Type SearchResultLocation`
-
                   - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
             - `Text string`
 
             - `Type Text`
-
               - `const TextText Text = "text"`
 
           - `type BetaThinkingBlock struct{…}`
-
             - `Signature string`
 
             - `Thinking string`
 
             - `Type Thinking`
-
               - `const ThinkingThinking Thinking = "thinking"`
 
           - `type BetaRedactedThinkingBlock struct{…}`
-
             - `Data string`
 
             - `Type RedactedThinking`
-
               - `const RedactedThinkingRedactedThinking RedactedThinking = "redacted_thinking"`
 
           - `type BetaToolUseBlock struct{…}`
-
             - `ID string`
 
             - `Input map[string, any]`
@@ -6396,47 +3690,37 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `Name string`
 
             - `Type ToolUse`
-
               - `const ToolUseToolUse ToolUse = "tool_use"`
 
             - `Caller BetaToolUseBlockCallerUnion`
 
               Tool invocation directly from the model.
-
               - `type BetaDirectCaller struct{…}`
 
                 Tool invocation directly from the model.
-
                 - `Type Direct`
-
                   - `const DirectDirect Direct = "direct"`
 
               - `type BetaServerToolCaller struct{…}`
 
                 Tool invocation generated by a server-side tool.
-
                 - `ToolID string`
 
                 - `Type CodeExecution20250825`
-
                   - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
 
               - `type BetaServerToolCaller20260120 struct{…}`
-
                 - `ToolID string`
 
                 - `Type CodeExecution20260120`
-
                   - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
           - `type BetaServerToolUseBlock struct{…}`
-
             - `ID string`
 
             - `Input map[string, any]`
 
             - `Name BetaServerToolUseBlockName`
-
               - `const BetaServerToolUseBlockNameAdvisor BetaServerToolUseBlockName = "advisor"`
 
               - `const BetaServerToolUseBlockNameWebSearch BetaServerToolUseBlockName = "web_search"`
@@ -6454,47 +3738,25 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `const BetaServerToolUseBlockNameToolSearchToolBm25 BetaServerToolUseBlockName = "tool_search_tool_bm25"`
 
             - `Type ServerToolUse`
-
               - `const ServerToolUseServerToolUse ServerToolUse = "server_tool_use"`
 
             - `Caller BetaServerToolUseBlockCallerUnion`
 
               Tool invocation directly from the model.
-
               - `type BetaDirectCaller struct{…}`
 
                 Tool invocation directly from the model.
-
-                - `Type Direct`
-
-                  - `const DirectDirect Direct = "direct"`
 
               - `type BetaServerToolCaller struct{…}`
 
                 Tool invocation generated by a server-side tool.
 
-                - `ToolID string`
-
-                - `Type CodeExecution20250825`
-
-                  - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
               - `type BetaServerToolCaller20260120 struct{…}`
 
-                - `ToolID string`
-
-                - `Type CodeExecution20260120`
-
-                  - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
           - `type BetaWebSearchToolResultBlock struct{…}`
-
             - `Content BetaWebSearchToolResultBlockContentUnion`
-
               - `type BetaWebSearchToolResultError struct{…}`
-
                 - `ErrorCode BetaWebSearchToolResultErrorCode`
-
                   - `const BetaWebSearchToolResultErrorCodeInvalidToolInput BetaWebSearchToolResultErrorCode = "invalid_tool_input"`
 
                   - `const BetaWebSearchToolResultErrorCodeUnavailable BetaWebSearchToolResultErrorCode = "unavailable"`
@@ -6508,11 +3770,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
 
                 - `Type WebSearchToolResultError`
-
                   - `const WebSearchToolResultErrorWebSearchToolResultError WebSearchToolResultError = "web_search_tool_result_error"`
 
               - `type BetaWebSearchToolResultBlockContentArray []BetaWebSearchResultBlock`
-
                 - `EncryptedContent string`
 
                 - `PageAge string`
@@ -6520,7 +3780,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Title string`
 
                 - `Type WebSearchResult`
-
                   - `const WebSearchResultWebSearchResult WebSearchResult = "web_search_result"`
 
                 - `URL string`
@@ -6528,52 +3787,32 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `ToolUseID string`
 
             - `Type WebSearchToolResult`
-
               - `const WebSearchToolResultWebSearchToolResult WebSearchToolResult = "web_search_tool_result"`
 
             - `Caller BetaWebSearchToolResultBlockCallerUnion`
 
               Tool invocation directly from the model.
-
               - `type BetaDirectCaller struct{…}`
 
                 Tool invocation directly from the model.
-
-                - `Type Direct`
-
-                  - `const DirectDirect Direct = "direct"`
 
               - `type BetaServerToolCaller struct{…}`
 
                 Tool invocation generated by a server-side tool.
 
-                - `ToolID string`
-
-                - `Type CodeExecution20250825`
-
-                  - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
               - `type BetaServerToolCaller20260120 struct{…}`
 
-                - `ToolID string`
-
-                - `Type CodeExecution20260120`
-
-                  - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
           - `type BetaWebFetchToolResultBlock struct{…}`
-
             - `Content BetaWebFetchToolResultBlockContentUnion`
-
               - `type BetaWebFetchToolResultErrorBlock struct{…}`
-
                 - `ErrorCode BetaWebFetchToolResultErrorCode`
-
                   - `const BetaWebFetchToolResultErrorCodeInvalidToolInput BetaWebFetchToolResultErrorCode = "invalid_tool_input"`
 
                   - `const BetaWebFetchToolResultErrorCodeURLTooLong BetaWebFetchToolResultErrorCode = "url_too_long"`
 
                   - `const BetaWebFetchToolResultErrorCodeURLNotAllowed BetaWebFetchToolResultErrorCode = "url_not_allowed"`
+
+                  - `const BetaWebFetchToolResultErrorCodeURLNotInPriorContext BetaWebFetchToolResultErrorCode = "url_not_in_prior_context"`
 
                   - `const BetaWebFetchToolResultErrorCodeURLNotAccessible BetaWebFetchToolResultErrorCode = "url_not_accessible"`
 
@@ -6586,43 +3825,32 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
 
                 - `Type WebFetchToolResultError`
-
                   - `const WebFetchToolResultErrorWebFetchToolResultError WebFetchToolResultError = "web_fetch_tool_result_error"`
 
               - `type BetaWebFetchBlock struct{…}`
-
                 - `Content BetaDocumentBlock`
-
                   - `Citations BetaCitationConfig`
 
                     Citation configuration for the document
-
                     - `Enabled bool`
 
                   - `Source BetaDocumentBlockSourceUnion`
-
                     - `type BetaBase64PDFSource struct{…}`
-
                       - `Data string`
 
                       - `MediaType ApplicationPDF`
-
                         - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
 
                       - `Type Base64`
-
                         - `const Base64Base64 Base64 = "base64"`
 
                     - `type BetaPlainTextSource struct{…}`
-
                       - `Data string`
 
                       - `MediaType TextPlain`
-
                         - `const TextPlainTextPlain TextPlain = "text/plain"`
 
                       - `Type Text`
-
                         - `const TextText Text = "text"`
 
                   - `Title string`
@@ -6630,7 +3858,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                     The title of the document
 
                   - `Type Document`
-
                     - `const DocumentDocument Document = "document"`
 
                 - `RetrievedAt string`
@@ -6638,7 +3865,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   ISO 8601 timestamp when the content was retrieved
 
                 - `Type WebFetchResult`
-
                   - `const WebFetchResultWebFetchResult WebFetchResult = "web_fetch_result"`
 
                 - `URL string`
@@ -6648,47 +3874,25 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `ToolUseID string`
 
             - `Type WebFetchToolResult`
-
               - `const WebFetchToolResultWebFetchToolResult WebFetchToolResult = "web_fetch_tool_result"`
 
             - `Caller BetaWebFetchToolResultBlockCallerUnion`
 
               Tool invocation directly from the model.
-
               - `type BetaDirectCaller struct{…}`
 
                 Tool invocation directly from the model.
-
-                - `Type Direct`
-
-                  - `const DirectDirect Direct = "direct"`
 
               - `type BetaServerToolCaller struct{…}`
 
                 Tool invocation generated by a server-side tool.
 
-                - `ToolID string`
-
-                - `Type CodeExecution20250825`
-
-                  - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
               - `type BetaServerToolCaller20260120 struct{…}`
 
-                - `ToolID string`
-
-                - `Type CodeExecution20260120`
-
-                  - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
           - `type BetaAdvisorToolResultBlock struct{…}`
-
             - `Content BetaAdvisorToolResultBlockContentUnion`
-
               - `type BetaAdvisorToolResultError struct{…}`
-
                 - `ErrorCode BetaAdvisorToolResultErrorErrorCode`
-
                   - `const BetaAdvisorToolResultErrorErrorCodeMaxUsesExceeded BetaAdvisorToolResultErrorErrorCode = "max_uses_exceeded"`
 
                   - `const BetaAdvisorToolResultErrorErrorCodePromptTooLong BetaAdvisorToolResultErrorErrorCode = "prompt_too_long"`
@@ -6702,43 +3906,41 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `const BetaAdvisorToolResultErrorErrorCodeExecutionTimeExceeded BetaAdvisorToolResultErrorErrorCode = "execution_time_exceeded"`
 
                 - `Type AdvisorToolResultError`
-
                   - `const AdvisorToolResultErrorAdvisorToolResultError AdvisorToolResultError = "advisor_tool_result_error"`
 
               - `type BetaAdvisorResultBlock struct{…}`
+                - `StopReason string`
+
+                  The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
 
                 - `Text string`
 
                 - `Type AdvisorResult`
-
                   - `const AdvisorResultAdvisorResult AdvisorResult = "advisor_result"`
 
               - `type BetaAdvisorRedactedResultBlock struct{…}`
-
                 - `EncryptedContent string`
 
                   Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
 
-                - `Type AdvisorRedactedResult`
+                - `StopReason string`
 
+                  The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
+
+                - `Type AdvisorRedactedResult`
                   - `const AdvisorRedactedResultAdvisorRedactedResult AdvisorRedactedResult = "advisor_redacted_result"`
 
             - `ToolUseID string`
 
             - `Type AdvisorToolResult`
-
               - `const AdvisorToolResultAdvisorToolResult AdvisorToolResult = "advisor_tool_result"`
 
           - `type BetaCodeExecutionToolResultBlock struct{…}`
-
             - `Content BetaCodeExecutionToolResultBlockContentUnion`
 
               Code execution result with encrypted stdout for PFC + web_search results.
-
               - `type BetaCodeExecutionToolResultError struct{…}`
-
                 - `ErrorCode BetaCodeExecutionToolResultErrorCode`
-
                   - `const BetaCodeExecutionToolResultErrorCodeInvalidToolInput BetaCodeExecutionToolResultErrorCode = "invalid_tool_input"`
 
                   - `const BetaCodeExecutionToolResultErrorCodeUnavailable BetaCodeExecutionToolResultErrorCode = "unavailable"`
@@ -6748,17 +3950,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
                 - `Type CodeExecutionToolResultError`
-
                   - `const CodeExecutionToolResultErrorCodeExecutionToolResultError CodeExecutionToolResultError = "code_execution_tool_result_error"`
 
               - `type BetaCodeExecutionResultBlock struct{…}`
-
                 - `Content []BetaCodeExecutionOutputBlock`
-
                   - `FileID string`
 
                   - `Type CodeExecutionOutput`
-
                     - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
                 - `ReturnCode int64`
@@ -6768,20 +3966,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Stdout string`
 
                 - `Type CodeExecutionResult`
-
                   - `const CodeExecutionResultCodeExecutionResult CodeExecutionResult = "code_execution_result"`
 
               - `type BetaEncryptedCodeExecutionResultBlock struct{…}`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
-
                 - `Content []BetaCodeExecutionOutputBlock`
-
                   - `FileID string`
 
                   - `Type CodeExecutionOutput`
-
-                    - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
                 - `EncryptedStdout string`
 
@@ -6790,23 +3983,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Stderr string`
 
                 - `Type EncryptedCodeExecutionResult`
-
                   - `const EncryptedCodeExecutionResultEncryptedCodeExecutionResult EncryptedCodeExecutionResult = "encrypted_code_execution_result"`
 
             - `ToolUseID string`
 
             - `Type CodeExecutionToolResult`
-
               - `const CodeExecutionToolResultCodeExecutionToolResult CodeExecutionToolResult = "code_execution_tool_result"`
 
           - `type BetaBashCodeExecutionToolResultBlock struct{…}`
-
             - `Content BetaBashCodeExecutionToolResultBlockContentUnion`
-
               - `type BetaBashCodeExecutionToolResultError struct{…}`
-
                 - `ErrorCode BetaBashCodeExecutionToolResultErrorErrorCode`
-
                   - `const BetaBashCodeExecutionToolResultErrorErrorCodeInvalidToolInput BetaBashCodeExecutionToolResultErrorErrorCode = "invalid_tool_input"`
 
                   - `const BetaBashCodeExecutionToolResultErrorErrorCodeUnavailable BetaBashCodeExecutionToolResultErrorErrorCode = "unavailable"`
@@ -6818,17 +4005,13 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                   - `const BetaBashCodeExecutionToolResultErrorErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorErrorCode = "output_file_too_large"`
 
                 - `Type BashCodeExecutionToolResultError`
-
                   - `const BashCodeExecutionToolResultErrorBashCodeExecutionToolResultError BashCodeExecutionToolResultError = "bash_code_execution_tool_result_error"`
 
               - `type BetaBashCodeExecutionResultBlock struct{…}`
-
                 - `Content []BetaBashCodeExecutionOutputBlock`
-
                   - `FileID string`
 
                   - `Type BashCodeExecutionOutput`
-
                     - `const BashCodeExecutionOutputBashCodeExecutionOutput BashCodeExecutionOutput = "bash_code_execution_output"`
 
                 - `ReturnCode int64`
@@ -6838,23 +4021,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `Stdout string`
 
                 - `Type BashCodeExecutionResult`
-
                   - `const BashCodeExecutionResultBashCodeExecutionResult BashCodeExecutionResult = "bash_code_execution_result"`
 
             - `ToolUseID string`
 
             - `Type BashCodeExecutionToolResult`
-
               - `const BashCodeExecutionToolResultBashCodeExecutionToolResult BashCodeExecutionToolResult = "bash_code_execution_tool_result"`
 
           - `type BetaTextEditorCodeExecutionToolResultBlock struct{…}`
-
             - `Content BetaTextEditorCodeExecutionToolResultBlockContentUnion`
-
               - `type BetaTextEditorCodeExecutionToolResultError struct{…}`
-
                 - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorErrorCode`
-
                   - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeInvalidToolInput BetaTextEditorCodeExecutionToolResultErrorErrorCode = "invalid_tool_input"`
 
                   - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeUnavailable BetaTextEditorCodeExecutionToolResultErrorErrorCode = "unavailable"`
@@ -6868,15 +4045,12 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `ErrorMessage string`
 
                 - `Type TextEditorCodeExecutionToolResultError`
-
                   - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
 
               - `type BetaTextEditorCodeExecutionViewResultBlock struct{…}`
-
                 - `Content string`
 
                 - `FileType BetaTextEditorCodeExecutionViewResultBlockFileType`
-
                   - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeText BetaTextEditorCodeExecutionViewResultBlockFileType = "text"`
 
                   - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeImage BetaTextEditorCodeExecutionViewResultBlockFileType = "image"`
@@ -6890,19 +4064,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `TotalLines int64`
 
                 - `Type TextEditorCodeExecutionViewResult`
-
                   - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
 
               - `type BetaTextEditorCodeExecutionCreateResultBlock struct{…}`
-
                 - `IsFileUpdate bool`
 
                 - `Type TextEditorCodeExecutionCreateResult`
-
                   - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
 
               - `type BetaTextEditorCodeExecutionStrReplaceResultBlock struct{…}`
-
                 - `Lines []string`
 
                 - `NewLines int64`
@@ -6914,23 +4084,17 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `OldStart int64`
 
                 - `Type TextEditorCodeExecutionStrReplaceResult`
-
                   - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
 
             - `ToolUseID string`
 
             - `Type TextEditorCodeExecutionToolResult`
-
               - `const TextEditorCodeExecutionToolResultTextEditorCodeExecutionToolResult TextEditorCodeExecutionToolResult = "text_editor_code_execution_tool_result"`
 
           - `type BetaToolSearchToolResultBlock struct{…}`
-
             - `Content BetaToolSearchToolResultBlockContentUnion`
-
               - `type BetaToolSearchToolResultError struct{…}`
-
                 - `ErrorCode BetaToolSearchToolResultErrorErrorCode`
-
                   - `const BetaToolSearchToolResultErrorErrorCodeInvalidToolInput BetaToolSearchToolResultErrorErrorCode = "invalid_tool_input"`
 
                   - `const BetaToolSearchToolResultErrorErrorCodeUnavailable BetaToolSearchToolResultErrorErrorCode = "unavailable"`
@@ -6942,31 +4106,24 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
                 - `ErrorMessage string`
 
                 - `Type ToolSearchToolResultError`
-
                   - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
 
               - `type BetaToolSearchToolSearchResultBlock struct{…}`
-
                 - `ToolReferences []BetaToolReferenceBlock`
-
                   - `ToolName string`
 
                   - `Type ToolReference`
-
                     - `const ToolReferenceToolReference ToolReference = "tool_reference"`
 
                 - `Type ToolSearchToolSearchResult`
-
                   - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
 
             - `ToolUseID string`
 
             - `Type ToolSearchToolResult`
-
               - `const ToolSearchToolResultToolSearchToolResult ToolSearchToolResult = "tool_search_tool_result"`
 
           - `type BetaMCPToolUseBlock struct{…}`
-
             - `ID string`
 
             - `Input map[string, any]`
@@ -6980,155 +4137,36 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               The name of the MCP server
 
             - `Type MCPToolUse`
-
               - `const MCPToolUseMCPToolUse MCPToolUse = "mcp_tool_use"`
 
           - `type BetaMCPToolResultBlock struct{…}`
-
             - `Content BetaMCPToolResultBlockContentUnion`
-
               - `string`
 
               - `type BetaMCPToolResultBlockContentBetaMCPToolResultBlockContent []BetaTextBlock`
-
                 - `Citations []BetaTextCitationUnion`
 
                   Citations supporting the text block.
 
                   The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-                  - `type BetaCitationCharLocation struct{…}`
-
-                    - `CitedText string`
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndCharIndex int64`
-
-                    - `FileID string`
-
-                    - `StartCharIndex int64`
-
-                    - `Type CharLocation`
-
-                      - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                  - `type BetaCitationPageLocation struct{…}`
-
-                    - `CitedText string`
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndPageNumber int64`
-
-                    - `FileID string`
-
-                    - `StartPageNumber int64`
-
-                    - `Type PageLocation`
-
-                      - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                  - `type BetaCitationContentBlockLocation struct{…}`
-
-                    - `CitedText string`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndBlockIndex int64`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `FileID string`
-
-                    - `StartBlockIndex int64`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `Type ContentBlockLocation`
-
-                      - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                  - `type BetaCitationsWebSearchResultLocation struct{…}`
-
-                    - `CitedText string`
-
-                    - `EncryptedIndex string`
-
-                    - `Title string`
-
-                    - `Type WebSearchResultLocation`
-
-                      - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                    - `URL string`
-
-                  - `type BetaCitationSearchResultLocation struct{…}`
-
-                    - `CitedText string`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `EndBlockIndex int64`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `SearchResultIndex int64`
-
-                      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                      Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                    - `Source string`
-
-                    - `StartBlockIndex int64`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `Title string`
-
-                    - `Type SearchResultLocation`
-
-                      - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
-
                 - `Text string`
 
                 - `Type Text`
-
-                  - `const TextText Text = "text"`
 
             - `IsError bool`
 
             - `ToolUseID string`
 
             - `Type MCPToolResult`
-
               - `const MCPToolResultMCPToolResult MCPToolResult = "mcp_tool_result"`
 
           - `type BetaContainerUploadBlock struct{…}`
 
             Response model for a file uploaded to the container.
-
             - `FileID string`
 
             - `Type ContainerUpload`
-
               - `const ContainerUploadContainerUpload ContainerUpload = "container_upload"`
 
           - `type BetaCompactionBlock struct{…}`
@@ -7138,7 +4176,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             When content is None, it indicates the compaction failed to produce a valid
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
-
             - `Content string`
 
               Summary of compacted content, or null if compaction failed
@@ -7148,7 +4185,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               Opaque metadata from prior compaction, to be round-tripped verbatim
 
             - `Type Compaction`
-
               - `const CompactionCompaction Compaction = "compaction"`
 
         - `ContextManagement BetaContextManagementResponse`
@@ -7156,13 +4192,10 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Context management response.
 
           Information about context management strategies applied during the request.
-
           - `AppliedEdits []BetaContextManagementResponseAppliedEditUnion`
 
             List of context management edits that were applied.
-
             - `type BetaClearToolUses20250919EditResponse struct{…}`
-
               - `ClearedInputTokens int64`
 
                 Number of input tokens cleared by this edit.
@@ -7174,11 +4207,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Type ClearToolUses20250919`
 
                 The type of context management edit applied.
-
                 - `const ClearToolUses20250919ClearToolUses20250919 ClearToolUses20250919 = "clear_tool_uses_20250919"`
 
             - `type BetaClearThinking20251015EditResponse struct{…}`
-
               - `ClearedInputTokens int64`
 
                 Number of input tokens cleared by this edit.
@@ -7190,20 +4221,68 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Type ClearThinking20251015`
 
                 The type of context management edit applied.
-
                 - `const ClearThinking20251015ClearThinking20251015 ClearThinking20251015 = "clear_thinking_20251015"`
+
+        - `Diagnostics BetaDiagnostics`
+
+          Response envelope for request-level diagnostics. Present (possibly
+          null) whenever the caller supplied `diagnostics` on the request.
+          - `CacheMissReason BetaDiagnosticsCacheMissReasonUnion`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+            - `type BetaCacheMissModelChanged struct{…}`
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `Type ModelChanged`
+                - `const ModelChangedModelChanged ModelChanged = "model_changed"`
+
+            - `type BetaCacheMissSystemChanged struct{…}`
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `Type SystemChanged`
+                - `const SystemChangedSystemChanged SystemChanged = "system_changed"`
+
+            - `type BetaCacheMissToolsChanged struct{…}`
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `Type ToolsChanged`
+                - `const ToolsChangedToolsChanged ToolsChanged = "tools_changed"`
+
+            - `type BetaCacheMissMessagesChanged struct{…}`
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `Type MessagesChanged`
+                - `const MessagesChangedMessagesChanged MessagesChanged = "messages_changed"`
+
+            - `type BetaCacheMissPreviousMessageNotFound struct{…}`
+              - `Type PreviousMessageNotFound`
+                - `const PreviousMessageNotFoundPreviousMessageNotFound PreviousMessageNotFound = "previous_message_not_found"`
+
+            - `type BetaCacheMissUnavailable struct{…}`
+              - `Type Unavailable`
+                - `const UnavailableUnavailable Unavailable = "unavailable"`
 
         - `Model Model`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
           - `type Model string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+            - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+              Frontier intelligence for long-running agents and coding
 
             - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
 
@@ -7280,19 +4359,16 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Conversational role of the generated message.
 
           This will always be `"assistant"`.
-
           - `const AssistantAssistant Assistant = "assistant"`
 
         - `StopDetails BetaRefusalStopDetails`
 
           Structured information about a refusal.
-
           - `Category BetaRefusalStopDetailsCategory`
 
             The policy category that triggered the refusal.
 
             `null` when the refusal doesn't map to a named category.
-
             - `const BetaRefusalStopDetailsCategoryCyber BetaRefusalStopDetailsCategory = "cyber"`
 
             - `const BetaRefusalStopDetailsCategoryBio BetaRefusalStopDetailsCategory = "bio"`
@@ -7304,7 +4380,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
           - `Type Refusal`
-
             - `const RefusalRefusal Refusal = "refusal"`
 
         - `StopReason BetaStopReason`
@@ -7312,16 +4387,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           The reason that we stopped.
 
           This may be one the following values:
-
-          * `"end_turn"`: the model reached a natural stopping point
-          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          * `"tool_use"`: the model invoked one or more tools
-          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          - `"end_turn"`: the model reached a natural stopping point
+          - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          - `"tool_use"`: the model invoked one or more tools
+          - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
-
           - `const BetaStopReasonEndTurn BetaStopReason = "end_turn"`
 
           - `const BetaStopReasonMaxTokens BetaStopReason = "max_tokens"`
@@ -7349,7 +4422,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           Object type.
 
           For Messages, this is always `"message"`.
-
           - `const MessageMessage Message = "message"`
 
         - `Usage BetaUsage`
@@ -7363,11 +4435,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
-
           - `CacheCreation BetaCacheCreation`
 
             Breakdown of cached tokens by TTL
-
             - `Ephemeral1hInputTokens int64`
 
               The number of input tokens used to create the 1 hour cache entry.
@@ -7397,7 +4467,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             Per-iteration token usage breakdown.
 
             Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
-
             - Determine which iterations exceeded long context thresholds (>=200k tokens)
             - Calculate the true context window size from the last iteration
             - Understand token accumulation across server-side tool use loops
@@ -7405,18 +4474,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
             - `type BetaMessageIterationUsage struct{…}`
 
               Token usage for a sampling iteration.
-
               - `CacheCreation BetaCacheCreation`
 
                 Breakdown of cached tokens by TTL
-
-                - `Ephemeral1hInputTokens int64`
-
-                  The number of input tokens used to create the 1 hour cache entry.
-
-                - `Ephemeral5mInputTokens int64`
-
-                  The number of input tokens used to create the 5 minute cache entry.
 
               - `CacheCreationInputTokens int64`
 
@@ -7437,24 +4497,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Type Message`
 
                 Usage for a sampling iteration
-
                 - `const MessageMessage Message = "message"`
 
             - `type BetaCompactionIterationUsage struct{…}`
 
               Token usage for a compaction iteration.
-
               - `CacheCreation BetaCacheCreation`
 
                 Breakdown of cached tokens by TTL
-
-                - `Ephemeral1hInputTokens int64`
-
-                  The number of input tokens used to create the 1 hour cache entry.
-
-                - `Ephemeral5mInputTokens int64`
-
-                  The number of input tokens used to create the 5 minute cache entry.
 
               - `CacheCreationInputTokens int64`
 
@@ -7475,24 +4525,14 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Type Compaction`
 
                 Usage for a compaction iteration
-
                 - `const CompactionCompaction Compaction = "compaction"`
 
             - `type BetaAdvisorMessageIterationUsage struct{…}`
 
               Token usage for an advisor sub-inference iteration.
-
               - `CacheCreation BetaCacheCreation`
 
                 Breakdown of cached tokens by TTL
-
-                - `Ephemeral1hInputTokens int64`
-
-                  The number of input tokens used to create the 1 hour cache entry.
-
-                - `Ephemeral5mInputTokens int64`
-
-                  The number of input tokens used to create the 5 minute cache entry.
 
               - `CacheCreationInputTokens int64`
 
@@ -7512,82 +4552,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `type Model string`
-
-                  The model that will complete your prompt.
-
-                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                  - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
-
-                    Frontier intelligence for long-running agents and coding
-
-                  - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                    New class of intelligence, strongest in coding and cybersecurity
-
-                  - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
-
-                    Frontier intelligence for long-running agents and coding
-
-                  - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
-
-                    Best combination of speed and intelligence
-
-                  - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
-
-                    Fastest model with near-frontier intelligence
-
-                  - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
-
-                    Fastest model with near-frontier intelligence
-
-                  - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
-
-                    Premium model combining maximum intelligence with practical performance
-
-                  - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
-
-                    Premium model combining maximum intelligence with practical performance
-
-                  - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                    High-performance model for agents and coding
-
-                  - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                    High-performance model for agents and coding
-
-                  - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-                    Exceptional model for specialized complex tasks
-
-                  - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-                    Exceptional model for specialized complex tasks
-
-                  - `const ModelClaudeOpus4_0 Model = "claude-opus-4-0"`
-
-                    Powerful model for complex tasks
-
-                  - `const ModelClaudeOpus4_20250514 Model = "claude-opus-4-20250514"`
-
-                    Powerful model for complex tasks
-
-                  - `const ModelClaudeSonnet4_0 Model = "claude-sonnet-4-0"`
-
-                    High-performance model with extended thinking
-
-                  - `const ModelClaudeSonnet4_20250514 Model = "claude-sonnet-4-20250514"`
-
-                    High-performance model with extended thinking
-
-                  - `const ModelClaude_3_Haiku_20240307 Model = "claude-3-haiku-20240307"`
-
-                    Fast and cost-effective model
-
-                - `string`
-
               - `OutputTokens int64`
 
                 The number of output tokens which were used.
@@ -7595,17 +4559,34 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
               - `Type AdvisorMessage`
 
                 Usage for an advisor sub-inference iteration
-
                 - `const AdvisorMessageAdvisorMessage AdvisorMessage = "advisor_message"`
 
           - `OutputTokens int64`
 
             The number of output tokens which were used.
 
+          - `OutputTokensDetails BetaUsageOutputTokensDetails`
+
+            Breakdown of output tokens by category.
+
+            `output_tokens` remains the inclusive, authoritative total used for billing.
+            This object provides a read-only decomposition for observability — for example,
+            how many of the billed output tokens were spent on internal reasoning that may
+            have been summarized before being returned to you.
+            - `ThinkingTokens int64`
+
+              Number of output tokens the model generated as internal reasoning, including
+              the thinking-block delimiter tokens.
+
+              Reflects the raw reasoning the model produced, not the (possibly shorter)
+              summarized thinking text returned in the response body. Computed by
+              re-tokenizing the raw reasoning text, so it may differ from the model's exact
+              generation count by a small number of tokens. Always ≤ `output_tokens`;
+              `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
           - `ServerToolUse BetaServerToolUsage`
 
             The number of server tool requests.
-
             - `WebFetchRequests int64`
 
               The number of web fetch tool requests.
@@ -7617,7 +4598,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `ServiceTier BetaUsageServiceTier`
 
             If the request used the priority, standard, or batch tier.
-
             - `const BetaUsageServiceTierStandard BetaUsageServiceTier = "standard"`
 
             - `const BetaUsageServiceTierPriority BetaUsageServiceTier = "priority"`
@@ -7627,113 +4607,84 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
           - `Speed BetaUsageSpeed`
 
             The inference speed mode used for this request.
-
             - `const BetaUsageSpeedStandard BetaUsageSpeed = "standard"`
 
             - `const BetaUsageSpeedFast BetaUsageSpeed = "fast"`
 
       - `Type Succeeded`
-
         - `const SucceededSucceeded Succeeded = "succeeded"`
 
     - `type BetaMessageBatchErroredResult struct{…}`
-
       - `Error BetaErrorResponse`
-
         - `Error BetaErrorUnion`
-
           - `type BetaInvalidRequestError struct{…}`
-
             - `Message string`
 
             - `Type InvalidRequestError`
-
               - `const InvalidRequestErrorInvalidRequestError InvalidRequestError = "invalid_request_error"`
 
           - `type BetaAuthenticationError struct{…}`
-
             - `Message string`
 
             - `Type AuthenticationError`
-
               - `const AuthenticationErrorAuthenticationError AuthenticationError = "authentication_error"`
 
           - `type BetaBillingError struct{…}`
-
             - `Message string`
 
             - `Type BillingError`
-
               - `const BillingErrorBillingError BillingError = "billing_error"`
 
           - `type BetaPermissionError struct{…}`
-
             - `Message string`
 
             - `Type PermissionError`
-
               - `const PermissionErrorPermissionError PermissionError = "permission_error"`
 
           - `type BetaNotFoundError struct{…}`
-
             - `Message string`
 
             - `Type NotFoundError`
-
               - `const NotFoundErrorNotFoundError NotFoundError = "not_found_error"`
 
           - `type BetaRateLimitError struct{…}`
-
             - `Message string`
 
             - `Type RateLimitError`
-
               - `const RateLimitErrorRateLimitError RateLimitError = "rate_limit_error"`
 
           - `type BetaGatewayTimeoutError struct{…}`
-
             - `Message string`
 
             - `Type TimeoutError`
-
               - `const TimeoutErrorTimeoutError TimeoutError = "timeout_error"`
 
           - `type BetaAPIError struct{…}`
-
             - `Message string`
 
             - `Type APIError`
-
               - `const APIErrorAPIError APIError = "api_error"`
 
           - `type BetaOverloadedError struct{…}`
-
             - `Message string`
 
             - `Type OverloadedError`
-
               - `const OverloadedErrorOverloadedError OverloadedError = "overloaded_error"`
 
         - `RequestID string`
 
         - `Type Error`
-
           - `const ErrorError Error = "error"`
 
       - `Type Errored`
-
         - `const ErroredErrored Errored = "errored"`
 
     - `type BetaMessageBatchCanceledResult struct{…}`
-
       - `Type Canceled`
-
         - `const CanceledCanceled Canceled = "canceled"`
 
     - `type BetaMessageBatchExpiredResult struct{…}`
-
       - `Type Expired`
-
         - `const ExpiredExpired Expired = "expired"`
 
 ### Example
@@ -7775,7 +4726,6 @@ func main() {
 ### Beta Deleted Message Batch
 
 - `type BetaDeletedMessageBatch struct{…}`
-
   - `ID string`
 
     ID of the Message Batch.
@@ -7785,13 +4735,11 @@ func main() {
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
-
     - `const MessageBatchDeletedMessageBatchDeleted MessageBatchDeleted = "message_batch_deleted"`
 
 ### Beta Message Batch
 
 - `type BetaMessageBatch struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -7823,7 +4771,6 @@ func main() {
   - `ProcessingStatus BetaMessageBatchProcessingStatus`
 
     Processing status of the Message Batch.
-
     - `const BetaMessageBatchProcessingStatusInProgress BetaMessageBatchProcessingStatus = "in_progress"`
 
     - `const BetaMessageBatchProcessingStatusCanceling BetaMessageBatchProcessingStatus = "canceling"`
@@ -7835,7 +4782,6 @@ func main() {
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
     - `Canceled int64`
 
       Number of requests in the Message Batch that have been canceled.
@@ -7875,113 +4821,85 @@ func main() {
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
-
     - `const MessageBatchMessageBatch MessageBatch = "message_batch"`
 
 ### Beta Message Batch Canceled Result
 
 - `type BetaMessageBatchCanceledResult struct{…}`
-
   - `Type Canceled`
-
     - `const CanceledCanceled Canceled = "canceled"`
 
 ### Beta Message Batch Errored Result
 
 - `type BetaMessageBatchErroredResult struct{…}`
-
   - `Error BetaErrorResponse`
-
     - `Error BetaErrorUnion`
-
       - `type BetaInvalidRequestError struct{…}`
-
         - `Message string`
 
         - `Type InvalidRequestError`
-
           - `const InvalidRequestErrorInvalidRequestError InvalidRequestError = "invalid_request_error"`
 
       - `type BetaAuthenticationError struct{…}`
-
         - `Message string`
 
         - `Type AuthenticationError`
-
           - `const AuthenticationErrorAuthenticationError AuthenticationError = "authentication_error"`
 
       - `type BetaBillingError struct{…}`
-
         - `Message string`
 
         - `Type BillingError`
-
           - `const BillingErrorBillingError BillingError = "billing_error"`
 
       - `type BetaPermissionError struct{…}`
-
         - `Message string`
 
         - `Type PermissionError`
-
           - `const PermissionErrorPermissionError PermissionError = "permission_error"`
 
       - `type BetaNotFoundError struct{…}`
-
         - `Message string`
 
         - `Type NotFoundError`
-
           - `const NotFoundErrorNotFoundError NotFoundError = "not_found_error"`
 
       - `type BetaRateLimitError struct{…}`
-
         - `Message string`
 
         - `Type RateLimitError`
-
           - `const RateLimitErrorRateLimitError RateLimitError = "rate_limit_error"`
 
       - `type BetaGatewayTimeoutError struct{…}`
-
         - `Message string`
 
         - `Type TimeoutError`
-
           - `const TimeoutErrorTimeoutError TimeoutError = "timeout_error"`
 
       - `type BetaAPIError struct{…}`
-
         - `Message string`
 
         - `Type APIError`
-
           - `const APIErrorAPIError APIError = "api_error"`
 
       - `type BetaOverloadedError struct{…}`
-
         - `Message string`
 
         - `Type OverloadedError`
-
           - `const OverloadedErrorOverloadedError OverloadedError = "overloaded_error"`
 
     - `RequestID string`
 
     - `Type Error`
-
       - `const ErrorError Error = "error"`
 
   - `Type Errored`
-
     - `const ErroredErrored Errored = "errored"`
 
 ### Beta Message Batch Expired Result
 
 - `type BetaMessageBatchExpiredResult struct{…}`
-
   - `Type Expired`
-
     - `const ExpiredExpired Expired = "expired"`
 
 ### Beta Message Batch Individual Response
@@ -7989,7 +4907,6 @@ func main() {
 - `type BetaMessageBatchIndividualResponse struct{…}`
 
   This is a single line in the response `.jsonl` file and does not represent the response as a whole.
-
   - `CustomID string`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -8001,11 +4918,8 @@ func main() {
     Processing result for this request.
 
     Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
-
     - `type BetaMessageBatchSucceededResult struct{…}`
-
       - `Message BetaMessage`
-
         - `ID string`
 
           Unique object identifier.
@@ -8015,7 +4929,6 @@ func main() {
         - `Container BetaContainer`
 
           Information about the container used in the request (for the code execution tool)
-
           - `ID string`
 
             Identifier for the container used in this request
@@ -8027,7 +4940,6 @@ func main() {
           - `Skills []BetaSkill`
 
             Skills loaded in the container
-
             - `SkillID string`
 
               Skill ID
@@ -8035,7 +4947,6 @@ func main() {
             - `Type BetaSkillType`
 
               Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
               - `const BetaSkillTypeAnthropic BetaSkillType = "anthropic"`
 
               - `const BetaSkillTypeCustom BetaSkillType = "custom"`
@@ -8053,7 +4964,7 @@ func main() {
           Example:
 
           ```json
-          [{"type": "text", "text": "Hi, I'm Claude."}]
+          [{ "type": "text", "text": "Hi, I'm Claude." }]
           ```
 
           If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -8062,27 +4973,27 @@ func main() {
 
           ```json
           [
-            {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-            {"role": "assistant", "content": "The best answer is ("}
+            {
+              "role": "user",
+              "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
+            },
+            { "role": "assistant", "content": "The best answer is (" }
           ]
           ```
 
           Then the response `content` might be:
 
           ```json
-          [{"type": "text", "text": "B)"}]
+          [{ "type": "text", "text": "B)" }]
           ```
 
           - `type BetaTextBlock struct{…}`
-
             - `Citations []BetaTextCitationUnion`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
               - `type BetaCitationCharLocation struct{…}`
-
                 - `CitedText string`
 
                 - `DocumentIndex int64`
@@ -8096,11 +5007,9 @@ func main() {
                 - `StartCharIndex int64`
 
                 - `Type CharLocation`
-
                   - `const CharLocationCharLocation CharLocation = "char_location"`
 
               - `type BetaCitationPageLocation struct{…}`
-
                 - `CitedText string`
 
                 - `DocumentIndex int64`
@@ -8114,11 +5023,9 @@ func main() {
                 - `StartPageNumber int64`
 
                 - `Type PageLocation`
-
                   - `const PageLocationPageLocation PageLocation = "page_location"`
 
               - `type BetaCitationContentBlockLocation struct{…}`
-
                 - `CitedText string`
 
                   The full text of the cited block range, concatenated.
@@ -8142,11 +5049,9 @@ func main() {
                   0-based index of the first cited block in the source's `content` array.
 
                 - `Type ContentBlockLocation`
-
                   - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
 
               - `type BetaCitationsWebSearchResultLocation struct{…}`
-
                 - `CitedText string`
 
                 - `EncryptedIndex string`
@@ -8154,13 +5059,11 @@ func main() {
                 - `Title string`
 
                 - `Type WebSearchResultLocation`
-
                   - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
 
                 - `URL string`
 
               - `type BetaCitationSearchResultLocation struct{…}`
-
                 - `CitedText string`
 
                   The full text of the cited block range, concatenated.
@@ -8188,35 +5091,28 @@ func main() {
                 - `Title string`
 
                 - `Type SearchResultLocation`
-
                   - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
             - `Text string`
 
             - `Type Text`
-
               - `const TextText Text = "text"`
 
           - `type BetaThinkingBlock struct{…}`
-
             - `Signature string`
 
             - `Thinking string`
 
             - `Type Thinking`
-
               - `const ThinkingThinking Thinking = "thinking"`
 
           - `type BetaRedactedThinkingBlock struct{…}`
-
             - `Data string`
 
             - `Type RedactedThinking`
-
               - `const RedactedThinkingRedactedThinking RedactedThinking = "redacted_thinking"`
 
           - `type BetaToolUseBlock struct{…}`
-
             - `ID string`
 
             - `Input map[string, any]`
@@ -8224,47 +5120,37 @@ func main() {
             - `Name string`
 
             - `Type ToolUse`
-
               - `const ToolUseToolUse ToolUse = "tool_use"`
 
             - `Caller BetaToolUseBlockCallerUnion`
 
               Tool invocation directly from the model.
-
               - `type BetaDirectCaller struct{…}`
 
                 Tool invocation directly from the model.
-
                 - `Type Direct`
-
                   - `const DirectDirect Direct = "direct"`
 
               - `type BetaServerToolCaller struct{…}`
 
                 Tool invocation generated by a server-side tool.
-
                 - `ToolID string`
 
                 - `Type CodeExecution20250825`
-
                   - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
 
               - `type BetaServerToolCaller20260120 struct{…}`
-
                 - `ToolID string`
 
                 - `Type CodeExecution20260120`
-
                   - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
           - `type BetaServerToolUseBlock struct{…}`
-
             - `ID string`
 
             - `Input map[string, any]`
 
             - `Name BetaServerToolUseBlockName`
-
               - `const BetaServerToolUseBlockNameAdvisor BetaServerToolUseBlockName = "advisor"`
 
               - `const BetaServerToolUseBlockNameWebSearch BetaServerToolUseBlockName = "web_search"`
@@ -8282,47 +5168,25 @@ func main() {
               - `const BetaServerToolUseBlockNameToolSearchToolBm25 BetaServerToolUseBlockName = "tool_search_tool_bm25"`
 
             - `Type ServerToolUse`
-
               - `const ServerToolUseServerToolUse ServerToolUse = "server_tool_use"`
 
             - `Caller BetaServerToolUseBlockCallerUnion`
 
               Tool invocation directly from the model.
-
               - `type BetaDirectCaller struct{…}`
 
                 Tool invocation directly from the model.
-
-                - `Type Direct`
-
-                  - `const DirectDirect Direct = "direct"`
 
               - `type BetaServerToolCaller struct{…}`
 
                 Tool invocation generated by a server-side tool.
 
-                - `ToolID string`
-
-                - `Type CodeExecution20250825`
-
-                  - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
               - `type BetaServerToolCaller20260120 struct{…}`
 
-                - `ToolID string`
-
-                - `Type CodeExecution20260120`
-
-                  - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
           - `type BetaWebSearchToolResultBlock struct{…}`
-
             - `Content BetaWebSearchToolResultBlockContentUnion`
-
               - `type BetaWebSearchToolResultError struct{…}`
-
                 - `ErrorCode BetaWebSearchToolResultErrorCode`
-
                   - `const BetaWebSearchToolResultErrorCodeInvalidToolInput BetaWebSearchToolResultErrorCode = "invalid_tool_input"`
 
                   - `const BetaWebSearchToolResultErrorCodeUnavailable BetaWebSearchToolResultErrorCode = "unavailable"`
@@ -8336,11 +5200,9 @@ func main() {
                   - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
 
                 - `Type WebSearchToolResultError`
-
                   - `const WebSearchToolResultErrorWebSearchToolResultError WebSearchToolResultError = "web_search_tool_result_error"`
 
               - `type BetaWebSearchToolResultBlockContentArray []BetaWebSearchResultBlock`
-
                 - `EncryptedContent string`
 
                 - `PageAge string`
@@ -8348,7 +5210,6 @@ func main() {
                 - `Title string`
 
                 - `Type WebSearchResult`
-
                   - `const WebSearchResultWebSearchResult WebSearchResult = "web_search_result"`
 
                 - `URL string`
@@ -8356,52 +5217,32 @@ func main() {
             - `ToolUseID string`
 
             - `Type WebSearchToolResult`
-
               - `const WebSearchToolResultWebSearchToolResult WebSearchToolResult = "web_search_tool_result"`
 
             - `Caller BetaWebSearchToolResultBlockCallerUnion`
 
               Tool invocation directly from the model.
-
               - `type BetaDirectCaller struct{…}`
 
                 Tool invocation directly from the model.
-
-                - `Type Direct`
-
-                  - `const DirectDirect Direct = "direct"`
 
               - `type BetaServerToolCaller struct{…}`
 
                 Tool invocation generated by a server-side tool.
 
-                - `ToolID string`
-
-                - `Type CodeExecution20250825`
-
-                  - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
               - `type BetaServerToolCaller20260120 struct{…}`
 
-                - `ToolID string`
-
-                - `Type CodeExecution20260120`
-
-                  - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
           - `type BetaWebFetchToolResultBlock struct{…}`
-
             - `Content BetaWebFetchToolResultBlockContentUnion`
-
               - `type BetaWebFetchToolResultErrorBlock struct{…}`
-
                 - `ErrorCode BetaWebFetchToolResultErrorCode`
-
                   - `const BetaWebFetchToolResultErrorCodeInvalidToolInput BetaWebFetchToolResultErrorCode = "invalid_tool_input"`
 
                   - `const BetaWebFetchToolResultErrorCodeURLTooLong BetaWebFetchToolResultErrorCode = "url_too_long"`
 
                   - `const BetaWebFetchToolResultErrorCodeURLNotAllowed BetaWebFetchToolResultErrorCode = "url_not_allowed"`
+
+                  - `const BetaWebFetchToolResultErrorCodeURLNotInPriorContext BetaWebFetchToolResultErrorCode = "url_not_in_prior_context"`
 
                   - `const BetaWebFetchToolResultErrorCodeURLNotAccessible BetaWebFetchToolResultErrorCode = "url_not_accessible"`
 
@@ -8414,43 +5255,32 @@ func main() {
                   - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
 
                 - `Type WebFetchToolResultError`
-
                   - `const WebFetchToolResultErrorWebFetchToolResultError WebFetchToolResultError = "web_fetch_tool_result_error"`
 
               - `type BetaWebFetchBlock struct{…}`
-
                 - `Content BetaDocumentBlock`
-
                   - `Citations BetaCitationConfig`
 
                     Citation configuration for the document
-
                     - `Enabled bool`
 
                   - `Source BetaDocumentBlockSourceUnion`
-
                     - `type BetaBase64PDFSource struct{…}`
-
                       - `Data string`
 
                       - `MediaType ApplicationPDF`
-
                         - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
 
                       - `Type Base64`
-
                         - `const Base64Base64 Base64 = "base64"`
 
                     - `type BetaPlainTextSource struct{…}`
-
                       - `Data string`
 
                       - `MediaType TextPlain`
-
                         - `const TextPlainTextPlain TextPlain = "text/plain"`
 
                       - `Type Text`
-
                         - `const TextText Text = "text"`
 
                   - `Title string`
@@ -8458,7 +5288,6 @@ func main() {
                     The title of the document
 
                   - `Type Document`
-
                     - `const DocumentDocument Document = "document"`
 
                 - `RetrievedAt string`
@@ -8466,7 +5295,6 @@ func main() {
                   ISO 8601 timestamp when the content was retrieved
 
                 - `Type WebFetchResult`
-
                   - `const WebFetchResultWebFetchResult WebFetchResult = "web_fetch_result"`
 
                 - `URL string`
@@ -8476,47 +5304,25 @@ func main() {
             - `ToolUseID string`
 
             - `Type WebFetchToolResult`
-
               - `const WebFetchToolResultWebFetchToolResult WebFetchToolResult = "web_fetch_tool_result"`
 
             - `Caller BetaWebFetchToolResultBlockCallerUnion`
 
               Tool invocation directly from the model.
-
               - `type BetaDirectCaller struct{…}`
 
                 Tool invocation directly from the model.
-
-                - `Type Direct`
-
-                  - `const DirectDirect Direct = "direct"`
 
               - `type BetaServerToolCaller struct{…}`
 
                 Tool invocation generated by a server-side tool.
 
-                - `ToolID string`
-
-                - `Type CodeExecution20250825`
-
-                  - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
               - `type BetaServerToolCaller20260120 struct{…}`
 
-                - `ToolID string`
-
-                - `Type CodeExecution20260120`
-
-                  - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
           - `type BetaAdvisorToolResultBlock struct{…}`
-
             - `Content BetaAdvisorToolResultBlockContentUnion`
-
               - `type BetaAdvisorToolResultError struct{…}`
-
                 - `ErrorCode BetaAdvisorToolResultErrorErrorCode`
-
                   - `const BetaAdvisorToolResultErrorErrorCodeMaxUsesExceeded BetaAdvisorToolResultErrorErrorCode = "max_uses_exceeded"`
 
                   - `const BetaAdvisorToolResultErrorErrorCodePromptTooLong BetaAdvisorToolResultErrorErrorCode = "prompt_too_long"`
@@ -8530,43 +5336,41 @@ func main() {
                   - `const BetaAdvisorToolResultErrorErrorCodeExecutionTimeExceeded BetaAdvisorToolResultErrorErrorCode = "execution_time_exceeded"`
 
                 - `Type AdvisorToolResultError`
-
                   - `const AdvisorToolResultErrorAdvisorToolResultError AdvisorToolResultError = "advisor_tool_result_error"`
 
               - `type BetaAdvisorResultBlock struct{…}`
+                - `StopReason string`
+
+                  The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
 
                 - `Text string`
 
                 - `Type AdvisorResult`
-
                   - `const AdvisorResultAdvisorResult AdvisorResult = "advisor_result"`
 
               - `type BetaAdvisorRedactedResultBlock struct{…}`
-
                 - `EncryptedContent string`
 
                   Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
 
-                - `Type AdvisorRedactedResult`
+                - `StopReason string`
 
+                  The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
+
+                - `Type AdvisorRedactedResult`
                   - `const AdvisorRedactedResultAdvisorRedactedResult AdvisorRedactedResult = "advisor_redacted_result"`
 
             - `ToolUseID string`
 
             - `Type AdvisorToolResult`
-
               - `const AdvisorToolResultAdvisorToolResult AdvisorToolResult = "advisor_tool_result"`
 
           - `type BetaCodeExecutionToolResultBlock struct{…}`
-
             - `Content BetaCodeExecutionToolResultBlockContentUnion`
 
               Code execution result with encrypted stdout for PFC + web_search results.
-
               - `type BetaCodeExecutionToolResultError struct{…}`
-
                 - `ErrorCode BetaCodeExecutionToolResultErrorCode`
-
                   - `const BetaCodeExecutionToolResultErrorCodeInvalidToolInput BetaCodeExecutionToolResultErrorCode = "invalid_tool_input"`
 
                   - `const BetaCodeExecutionToolResultErrorCodeUnavailable BetaCodeExecutionToolResultErrorCode = "unavailable"`
@@ -8576,17 +5380,13 @@ func main() {
                   - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
                 - `Type CodeExecutionToolResultError`
-
                   - `const CodeExecutionToolResultErrorCodeExecutionToolResultError CodeExecutionToolResultError = "code_execution_tool_result_error"`
 
               - `type BetaCodeExecutionResultBlock struct{…}`
-
                 - `Content []BetaCodeExecutionOutputBlock`
-
                   - `FileID string`
 
                   - `Type CodeExecutionOutput`
-
                     - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
                 - `ReturnCode int64`
@@ -8596,20 +5396,15 @@ func main() {
                 - `Stdout string`
 
                 - `Type CodeExecutionResult`
-
                   - `const CodeExecutionResultCodeExecutionResult CodeExecutionResult = "code_execution_result"`
 
               - `type BetaEncryptedCodeExecutionResultBlock struct{…}`
 
                 Code execution result with encrypted stdout for PFC + web_search results.
-
                 - `Content []BetaCodeExecutionOutputBlock`
-
                   - `FileID string`
 
                   - `Type CodeExecutionOutput`
-
-                    - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
                 - `EncryptedStdout string`
 
@@ -8618,23 +5413,17 @@ func main() {
                 - `Stderr string`
 
                 - `Type EncryptedCodeExecutionResult`
-
                   - `const EncryptedCodeExecutionResultEncryptedCodeExecutionResult EncryptedCodeExecutionResult = "encrypted_code_execution_result"`
 
             - `ToolUseID string`
 
             - `Type CodeExecutionToolResult`
-
               - `const CodeExecutionToolResultCodeExecutionToolResult CodeExecutionToolResult = "code_execution_tool_result"`
 
           - `type BetaBashCodeExecutionToolResultBlock struct{…}`
-
             - `Content BetaBashCodeExecutionToolResultBlockContentUnion`
-
               - `type BetaBashCodeExecutionToolResultError struct{…}`
-
                 - `ErrorCode BetaBashCodeExecutionToolResultErrorErrorCode`
-
                   - `const BetaBashCodeExecutionToolResultErrorErrorCodeInvalidToolInput BetaBashCodeExecutionToolResultErrorErrorCode = "invalid_tool_input"`
 
                   - `const BetaBashCodeExecutionToolResultErrorErrorCodeUnavailable BetaBashCodeExecutionToolResultErrorErrorCode = "unavailable"`
@@ -8646,17 +5435,13 @@ func main() {
                   - `const BetaBashCodeExecutionToolResultErrorErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorErrorCode = "output_file_too_large"`
 
                 - `Type BashCodeExecutionToolResultError`
-
                   - `const BashCodeExecutionToolResultErrorBashCodeExecutionToolResultError BashCodeExecutionToolResultError = "bash_code_execution_tool_result_error"`
 
               - `type BetaBashCodeExecutionResultBlock struct{…}`
-
                 - `Content []BetaBashCodeExecutionOutputBlock`
-
                   - `FileID string`
 
                   - `Type BashCodeExecutionOutput`
-
                     - `const BashCodeExecutionOutputBashCodeExecutionOutput BashCodeExecutionOutput = "bash_code_execution_output"`
 
                 - `ReturnCode int64`
@@ -8666,23 +5451,17 @@ func main() {
                 - `Stdout string`
 
                 - `Type BashCodeExecutionResult`
-
                   - `const BashCodeExecutionResultBashCodeExecutionResult BashCodeExecutionResult = "bash_code_execution_result"`
 
             - `ToolUseID string`
 
             - `Type BashCodeExecutionToolResult`
-
               - `const BashCodeExecutionToolResultBashCodeExecutionToolResult BashCodeExecutionToolResult = "bash_code_execution_tool_result"`
 
           - `type BetaTextEditorCodeExecutionToolResultBlock struct{…}`
-
             - `Content BetaTextEditorCodeExecutionToolResultBlockContentUnion`
-
               - `type BetaTextEditorCodeExecutionToolResultError struct{…}`
-
                 - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorErrorCode`
-
                   - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeInvalidToolInput BetaTextEditorCodeExecutionToolResultErrorErrorCode = "invalid_tool_input"`
 
                   - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeUnavailable BetaTextEditorCodeExecutionToolResultErrorErrorCode = "unavailable"`
@@ -8696,15 +5475,12 @@ func main() {
                 - `ErrorMessage string`
 
                 - `Type TextEditorCodeExecutionToolResultError`
-
                   - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
 
               - `type BetaTextEditorCodeExecutionViewResultBlock struct{…}`
-
                 - `Content string`
 
                 - `FileType BetaTextEditorCodeExecutionViewResultBlockFileType`
-
                   - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeText BetaTextEditorCodeExecutionViewResultBlockFileType = "text"`
 
                   - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeImage BetaTextEditorCodeExecutionViewResultBlockFileType = "image"`
@@ -8718,19 +5494,15 @@ func main() {
                 - `TotalLines int64`
 
                 - `Type TextEditorCodeExecutionViewResult`
-
                   - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
 
               - `type BetaTextEditorCodeExecutionCreateResultBlock struct{…}`
-
                 - `IsFileUpdate bool`
 
                 - `Type TextEditorCodeExecutionCreateResult`
-
                   - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
 
               - `type BetaTextEditorCodeExecutionStrReplaceResultBlock struct{…}`
-
                 - `Lines []string`
 
                 - `NewLines int64`
@@ -8742,23 +5514,17 @@ func main() {
                 - `OldStart int64`
 
                 - `Type TextEditorCodeExecutionStrReplaceResult`
-
                   - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
 
             - `ToolUseID string`
 
             - `Type TextEditorCodeExecutionToolResult`
-
               - `const TextEditorCodeExecutionToolResultTextEditorCodeExecutionToolResult TextEditorCodeExecutionToolResult = "text_editor_code_execution_tool_result"`
 
           - `type BetaToolSearchToolResultBlock struct{…}`
-
             - `Content BetaToolSearchToolResultBlockContentUnion`
-
               - `type BetaToolSearchToolResultError struct{…}`
-
                 - `ErrorCode BetaToolSearchToolResultErrorErrorCode`
-
                   - `const BetaToolSearchToolResultErrorErrorCodeInvalidToolInput BetaToolSearchToolResultErrorErrorCode = "invalid_tool_input"`
 
                   - `const BetaToolSearchToolResultErrorErrorCodeUnavailable BetaToolSearchToolResultErrorErrorCode = "unavailable"`
@@ -8770,31 +5536,24 @@ func main() {
                 - `ErrorMessage string`
 
                 - `Type ToolSearchToolResultError`
-
                   - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
 
               - `type BetaToolSearchToolSearchResultBlock struct{…}`
-
                 - `ToolReferences []BetaToolReferenceBlock`
-
                   - `ToolName string`
 
                   - `Type ToolReference`
-
                     - `const ToolReferenceToolReference ToolReference = "tool_reference"`
 
                 - `Type ToolSearchToolSearchResult`
-
                   - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
 
             - `ToolUseID string`
 
             - `Type ToolSearchToolResult`
-
               - `const ToolSearchToolResultToolSearchToolResult ToolSearchToolResult = "tool_search_tool_result"`
 
           - `type BetaMCPToolUseBlock struct{…}`
-
             - `ID string`
 
             - `Input map[string, any]`
@@ -8808,155 +5567,36 @@ func main() {
               The name of the MCP server
 
             - `Type MCPToolUse`
-
               - `const MCPToolUseMCPToolUse MCPToolUse = "mcp_tool_use"`
 
           - `type BetaMCPToolResultBlock struct{…}`
-
             - `Content BetaMCPToolResultBlockContentUnion`
-
               - `string`
 
               - `type BetaMCPToolResultBlockContentBetaMCPToolResultBlockContent []BetaTextBlock`
-
                 - `Citations []BetaTextCitationUnion`
 
                   Citations supporting the text block.
 
                   The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-                  - `type BetaCitationCharLocation struct{…}`
-
-                    - `CitedText string`
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndCharIndex int64`
-
-                    - `FileID string`
-
-                    - `StartCharIndex int64`
-
-                    - `Type CharLocation`
-
-                      - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                  - `type BetaCitationPageLocation struct{…}`
-
-                    - `CitedText string`
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndPageNumber int64`
-
-                    - `FileID string`
-
-                    - `StartPageNumber int64`
-
-                    - `Type PageLocation`
-
-                      - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                  - `type BetaCitationContentBlockLocation struct{…}`
-
-                    - `CitedText string`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `DocumentIndex int64`
-
-                    - `DocumentTitle string`
-
-                    - `EndBlockIndex int64`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `FileID string`
-
-                    - `StartBlockIndex int64`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `Type ContentBlockLocation`
-
-                      - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                  - `type BetaCitationsWebSearchResultLocation struct{…}`
-
-                    - `CitedText string`
-
-                    - `EncryptedIndex string`
-
-                    - `Title string`
-
-                    - `Type WebSearchResultLocation`
-
-                      - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                    - `URL string`
-
-                  - `type BetaCitationSearchResultLocation struct{…}`
-
-                    - `CitedText string`
-
-                      The full text of the cited block range, concatenated.
-
-                      Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                    - `EndBlockIndex int64`
-
-                      Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                      Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                    - `SearchResultIndex int64`
-
-                      0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                      Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                    - `Source string`
-
-                    - `StartBlockIndex int64`
-
-                      0-based index of the first cited block in the source's `content` array.
-
-                    - `Title string`
-
-                    - `Type SearchResultLocation`
-
-                      - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
-
                 - `Text string`
 
                 - `Type Text`
-
-                  - `const TextText Text = "text"`
 
             - `IsError bool`
 
             - `ToolUseID string`
 
             - `Type MCPToolResult`
-
               - `const MCPToolResultMCPToolResult MCPToolResult = "mcp_tool_result"`
 
           - `type BetaContainerUploadBlock struct{…}`
 
             Response model for a file uploaded to the container.
-
             - `FileID string`
 
             - `Type ContainerUpload`
-
               - `const ContainerUploadContainerUpload ContainerUpload = "container_upload"`
 
           - `type BetaCompactionBlock struct{…}`
@@ -8966,7 +5606,6 @@ func main() {
             When content is None, it indicates the compaction failed to produce a valid
             summary (e.g., malformed output from the model). Clients may round-trip
             compaction blocks with null content; the server treats them as no-ops.
-
             - `Content string`
 
               Summary of compacted content, or null if compaction failed
@@ -8976,7 +5615,6 @@ func main() {
               Opaque metadata from prior compaction, to be round-tripped verbatim
 
             - `Type Compaction`
-
               - `const CompactionCompaction Compaction = "compaction"`
 
         - `ContextManagement BetaContextManagementResponse`
@@ -8984,13 +5622,10 @@ func main() {
           Context management response.
 
           Information about context management strategies applied during the request.
-
           - `AppliedEdits []BetaContextManagementResponseAppliedEditUnion`
 
             List of context management edits that were applied.
-
             - `type BetaClearToolUses20250919EditResponse struct{…}`
-
               - `ClearedInputTokens int64`
 
                 Number of input tokens cleared by this edit.
@@ -9002,11 +5637,9 @@ func main() {
               - `Type ClearToolUses20250919`
 
                 The type of context management edit applied.
-
                 - `const ClearToolUses20250919ClearToolUses20250919 ClearToolUses20250919 = "clear_tool_uses_20250919"`
 
             - `type BetaClearThinking20251015EditResponse struct{…}`
-
               - `ClearedInputTokens int64`
 
                 Number of input tokens cleared by this edit.
@@ -9018,20 +5651,68 @@ func main() {
               - `Type ClearThinking20251015`
 
                 The type of context management edit applied.
-
                 - `const ClearThinking20251015ClearThinking20251015 ClearThinking20251015 = "clear_thinking_20251015"`
+
+        - `Diagnostics BetaDiagnostics`
+
+          Response envelope for request-level diagnostics. Present (possibly
+          null) whenever the caller supplied `diagnostics` on the request.
+          - `CacheMissReason BetaDiagnosticsCacheMissReasonUnion`
+
+            Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+            - `type BetaCacheMissModelChanged struct{…}`
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `Type ModelChanged`
+                - `const ModelChangedModelChanged ModelChanged = "model_changed"`
+
+            - `type BetaCacheMissSystemChanged struct{…}`
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `Type SystemChanged`
+                - `const SystemChangedSystemChanged SystemChanged = "system_changed"`
+
+            - `type BetaCacheMissToolsChanged struct{…}`
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `Type ToolsChanged`
+                - `const ToolsChangedToolsChanged ToolsChanged = "tools_changed"`
+
+            - `type BetaCacheMissMessagesChanged struct{…}`
+              - `CacheMissedInputTokens int64`
+
+                Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+              - `Type MessagesChanged`
+                - `const MessagesChangedMessagesChanged MessagesChanged = "messages_changed"`
+
+            - `type BetaCacheMissPreviousMessageNotFound struct{…}`
+              - `Type PreviousMessageNotFound`
+                - `const PreviousMessageNotFoundPreviousMessageNotFound PreviousMessageNotFound = "previous_message_not_found"`
+
+            - `type BetaCacheMissUnavailable struct{…}`
+              - `Type Unavailable`
+                - `const UnavailableUnavailable Unavailable = "unavailable"`
 
         - `Model Model`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
           - `type Model string`
 
             The model that will complete your prompt.
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+            - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+              Frontier intelligence for long-running agents and coding
 
             - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
 
@@ -9108,19 +5789,16 @@ func main() {
           Conversational role of the generated message.
 
           This will always be `"assistant"`.
-
           - `const AssistantAssistant Assistant = "assistant"`
 
         - `StopDetails BetaRefusalStopDetails`
 
           Structured information about a refusal.
-
           - `Category BetaRefusalStopDetailsCategory`
 
             The policy category that triggered the refusal.
 
             `null` when the refusal doesn't map to a named category.
-
             - `const BetaRefusalStopDetailsCategoryCyber BetaRefusalStopDetailsCategory = "cyber"`
 
             - `const BetaRefusalStopDetailsCategoryBio BetaRefusalStopDetailsCategory = "bio"`
@@ -9132,7 +5810,6 @@ func main() {
             This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
           - `Type Refusal`
-
             - `const RefusalRefusal Refusal = "refusal"`
 
         - `StopReason BetaStopReason`
@@ -9140,16 +5817,14 @@ func main() {
           The reason that we stopped.
 
           This may be one the following values:
-
-          * `"end_turn"`: the model reached a natural stopping point
-          * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-          * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-          * `"tool_use"`: the model invoked one or more tools
-          * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-          * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+          - `"end_turn"`: the model reached a natural stopping point
+          - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+          - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+          - `"tool_use"`: the model invoked one or more tools
+          - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+          - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
           In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
-
           - `const BetaStopReasonEndTurn BetaStopReason = "end_turn"`
 
           - `const BetaStopReasonMaxTokens BetaStopReason = "max_tokens"`
@@ -9177,7 +5852,6 @@ func main() {
           Object type.
 
           For Messages, this is always `"message"`.
-
           - `const MessageMessage Message = "message"`
 
         - `Usage BetaUsage`
@@ -9191,11 +5865,9 @@ func main() {
           For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
           Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
-
           - `CacheCreation BetaCacheCreation`
 
             Breakdown of cached tokens by TTL
-
             - `Ephemeral1hInputTokens int64`
 
               The number of input tokens used to create the 1 hour cache entry.
@@ -9225,7 +5897,6 @@ func main() {
             Per-iteration token usage breakdown.
 
             Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
-
             - Determine which iterations exceeded long context thresholds (>=200k tokens)
             - Calculate the true context window size from the last iteration
             - Understand token accumulation across server-side tool use loops
@@ -9233,18 +5904,9 @@ func main() {
             - `type BetaMessageIterationUsage struct{…}`
 
               Token usage for a sampling iteration.
-
               - `CacheCreation BetaCacheCreation`
 
                 Breakdown of cached tokens by TTL
-
-                - `Ephemeral1hInputTokens int64`
-
-                  The number of input tokens used to create the 1 hour cache entry.
-
-                - `Ephemeral5mInputTokens int64`
-
-                  The number of input tokens used to create the 5 minute cache entry.
 
               - `CacheCreationInputTokens int64`
 
@@ -9265,24 +5927,14 @@ func main() {
               - `Type Message`
 
                 Usage for a sampling iteration
-
                 - `const MessageMessage Message = "message"`
 
             - `type BetaCompactionIterationUsage struct{…}`
 
               Token usage for a compaction iteration.
-
               - `CacheCreation BetaCacheCreation`
 
                 Breakdown of cached tokens by TTL
-
-                - `Ephemeral1hInputTokens int64`
-
-                  The number of input tokens used to create the 1 hour cache entry.
-
-                - `Ephemeral5mInputTokens int64`
-
-                  The number of input tokens used to create the 5 minute cache entry.
 
               - `CacheCreationInputTokens int64`
 
@@ -9303,24 +5955,14 @@ func main() {
               - `Type Compaction`
 
                 Usage for a compaction iteration
-
                 - `const CompactionCompaction Compaction = "compaction"`
 
             - `type BetaAdvisorMessageIterationUsage struct{…}`
 
               Token usage for an advisor sub-inference iteration.
-
               - `CacheCreation BetaCacheCreation`
 
                 Breakdown of cached tokens by TTL
-
-                - `Ephemeral1hInputTokens int64`
-
-                  The number of input tokens used to create the 1 hour cache entry.
-
-                - `Ephemeral5mInputTokens int64`
-
-                  The number of input tokens used to create the 5 minute cache entry.
 
               - `CacheCreationInputTokens int64`
 
@@ -9340,82 +5982,6 @@ func main() {
 
                 See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-                - `type Model string`
-
-                  The model that will complete your prompt.
-
-                  See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                  - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
-
-                    Frontier intelligence for long-running agents and coding
-
-                  - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                    New class of intelligence, strongest in coding and cybersecurity
-
-                  - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
-
-                    Frontier intelligence for long-running agents and coding
-
-                  - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
-
-                    Best combination of speed and intelligence
-
-                  - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
-
-                    Fastest model with near-frontier intelligence
-
-                  - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
-
-                    Fastest model with near-frontier intelligence
-
-                  - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
-
-                    Premium model combining maximum intelligence with practical performance
-
-                  - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
-
-                    Premium model combining maximum intelligence with practical performance
-
-                  - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                    High-performance model for agents and coding
-
-                  - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                    High-performance model for agents and coding
-
-                  - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-                    Exceptional model for specialized complex tasks
-
-                  - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-                    Exceptional model for specialized complex tasks
-
-                  - `const ModelClaudeOpus4_0 Model = "claude-opus-4-0"`
-
-                    Powerful model for complex tasks
-
-                  - `const ModelClaudeOpus4_20250514 Model = "claude-opus-4-20250514"`
-
-                    Powerful model for complex tasks
-
-                  - `const ModelClaudeSonnet4_0 Model = "claude-sonnet-4-0"`
-
-                    High-performance model with extended thinking
-
-                  - `const ModelClaudeSonnet4_20250514 Model = "claude-sonnet-4-20250514"`
-
-                    High-performance model with extended thinking
-
-                  - `const ModelClaude_3_Haiku_20240307 Model = "claude-3-haiku-20240307"`
-
-                    Fast and cost-effective model
-
-                - `string`
-
               - `OutputTokens int64`
 
                 The number of output tokens which were used.
@@ -9423,17 +5989,34 @@ func main() {
               - `Type AdvisorMessage`
 
                 Usage for an advisor sub-inference iteration
-
                 - `const AdvisorMessageAdvisorMessage AdvisorMessage = "advisor_message"`
 
           - `OutputTokens int64`
 
             The number of output tokens which were used.
 
+          - `OutputTokensDetails BetaUsageOutputTokensDetails`
+
+            Breakdown of output tokens by category.
+
+            `output_tokens` remains the inclusive, authoritative total used for billing.
+            This object provides a read-only decomposition for observability — for example,
+            how many of the billed output tokens were spent on internal reasoning that may
+            have been summarized before being returned to you.
+            - `ThinkingTokens int64`
+
+              Number of output tokens the model generated as internal reasoning, including
+              the thinking-block delimiter tokens.
+
+              Reflects the raw reasoning the model produced, not the (possibly shorter)
+              summarized thinking text returned in the response body. Computed by
+              re-tokenizing the raw reasoning text, so it may differ from the model's exact
+              generation count by a small number of tokens. Always ≤ `output_tokens`;
+              `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
           - `ServerToolUse BetaServerToolUsage`
 
             The number of server tool requests.
-
             - `WebFetchRequests int64`
 
               The number of web fetch tool requests.
@@ -9445,7 +6028,6 @@ func main() {
           - `ServiceTier BetaUsageServiceTier`
 
             If the request used the priority, standard, or batch tier.
-
             - `const BetaUsageServiceTierStandard BetaUsageServiceTier = "standard"`
 
             - `const BetaUsageServiceTierPriority BetaUsageServiceTier = "priority"`
@@ -9455,119 +6037,89 @@ func main() {
           - `Speed BetaUsageSpeed`
 
             The inference speed mode used for this request.
-
             - `const BetaUsageSpeedStandard BetaUsageSpeed = "standard"`
 
             - `const BetaUsageSpeedFast BetaUsageSpeed = "fast"`
 
       - `Type Succeeded`
-
         - `const SucceededSucceeded Succeeded = "succeeded"`
 
     - `type BetaMessageBatchErroredResult struct{…}`
-
       - `Error BetaErrorResponse`
-
         - `Error BetaErrorUnion`
-
           - `type BetaInvalidRequestError struct{…}`
-
             - `Message string`
 
             - `Type InvalidRequestError`
-
               - `const InvalidRequestErrorInvalidRequestError InvalidRequestError = "invalid_request_error"`
 
           - `type BetaAuthenticationError struct{…}`
-
             - `Message string`
 
             - `Type AuthenticationError`
-
               - `const AuthenticationErrorAuthenticationError AuthenticationError = "authentication_error"`
 
           - `type BetaBillingError struct{…}`
-
             - `Message string`
 
             - `Type BillingError`
-
               - `const BillingErrorBillingError BillingError = "billing_error"`
 
           - `type BetaPermissionError struct{…}`
-
             - `Message string`
 
             - `Type PermissionError`
-
               - `const PermissionErrorPermissionError PermissionError = "permission_error"`
 
           - `type BetaNotFoundError struct{…}`
-
             - `Message string`
 
             - `Type NotFoundError`
-
               - `const NotFoundErrorNotFoundError NotFoundError = "not_found_error"`
 
           - `type BetaRateLimitError struct{…}`
-
             - `Message string`
 
             - `Type RateLimitError`
-
               - `const RateLimitErrorRateLimitError RateLimitError = "rate_limit_error"`
 
           - `type BetaGatewayTimeoutError struct{…}`
-
             - `Message string`
 
             - `Type TimeoutError`
-
               - `const TimeoutErrorTimeoutError TimeoutError = "timeout_error"`
 
           - `type BetaAPIError struct{…}`
-
             - `Message string`
 
             - `Type APIError`
-
               - `const APIErrorAPIError APIError = "api_error"`
 
           - `type BetaOverloadedError struct{…}`
-
             - `Message string`
 
             - `Type OverloadedError`
-
               - `const OverloadedErrorOverloadedError OverloadedError = "overloaded_error"`
 
         - `RequestID string`
 
         - `Type Error`
-
           - `const ErrorError Error = "error"`
 
       - `Type Errored`
-
         - `const ErroredErrored Errored = "errored"`
 
     - `type BetaMessageBatchCanceledResult struct{…}`
-
       - `Type Canceled`
-
         - `const CanceledCanceled Canceled = "canceled"`
 
     - `type BetaMessageBatchExpiredResult struct{…}`
-
       - `Type Expired`
-
         - `const ExpiredExpired Expired = "expired"`
 
 ### Beta Message Batch Request Counts
 
 - `type BetaMessageBatchRequestCounts struct{…}`
-
   - `Canceled int64`
 
     Number of requests in the Message Batch that have been canceled.
@@ -9603,11 +6155,8 @@ func main() {
   Processing result for this request.
 
   Contains a Message output if processing was successful, an error response if processing failed, or the reason why processing was not attempted, such as cancellation or expiration.
-
   - `type BetaMessageBatchSucceededResult struct{…}`
-
     - `Message BetaMessage`
-
       - `ID string`
 
         Unique object identifier.
@@ -9617,7 +6166,6 @@ func main() {
       - `Container BetaContainer`
 
         Information about the container used in the request (for the code execution tool)
-
         - `ID string`
 
           Identifier for the container used in this request
@@ -9629,7 +6177,6 @@ func main() {
         - `Skills []BetaSkill`
 
           Skills loaded in the container
-
           - `SkillID string`
 
             Skill ID
@@ -9637,7 +6184,6 @@ func main() {
           - `Type BetaSkillType`
 
             Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
             - `const BetaSkillTypeAnthropic BetaSkillType = "anthropic"`
 
             - `const BetaSkillTypeCustom BetaSkillType = "custom"`
@@ -9655,7 +6201,7 @@ func main() {
         Example:
 
         ```json
-        [{"type": "text", "text": "Hi, I'm Claude."}]
+        [{ "type": "text", "text": "Hi, I'm Claude." }]
         ```
 
         If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -9664,27 +6210,27 @@ func main() {
 
         ```json
         [
-          {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-          {"role": "assistant", "content": "The best answer is ("}
+          {
+            "role": "user",
+            "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
+          },
+          { "role": "assistant", "content": "The best answer is (" }
         ]
         ```
 
         Then the response `content` might be:
 
         ```json
-        [{"type": "text", "text": "B)"}]
+        [{ "type": "text", "text": "B)" }]
         ```
 
         - `type BetaTextBlock struct{…}`
-
           - `Citations []BetaTextCitationUnion`
 
             Citations supporting the text block.
 
             The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
             - `type BetaCitationCharLocation struct{…}`
-
               - `CitedText string`
 
               - `DocumentIndex int64`
@@ -9698,11 +6244,9 @@ func main() {
               - `StartCharIndex int64`
 
               - `Type CharLocation`
-
                 - `const CharLocationCharLocation CharLocation = "char_location"`
 
             - `type BetaCitationPageLocation struct{…}`
-
               - `CitedText string`
 
               - `DocumentIndex int64`
@@ -9716,11 +6260,9 @@ func main() {
               - `StartPageNumber int64`
 
               - `Type PageLocation`
-
                 - `const PageLocationPageLocation PageLocation = "page_location"`
 
             - `type BetaCitationContentBlockLocation struct{…}`
-
               - `CitedText string`
 
                 The full text of the cited block range, concatenated.
@@ -9744,11 +6286,9 @@ func main() {
                 0-based index of the first cited block in the source's `content` array.
 
               - `Type ContentBlockLocation`
-
                 - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
 
             - `type BetaCitationsWebSearchResultLocation struct{…}`
-
               - `CitedText string`
 
               - `EncryptedIndex string`
@@ -9756,13 +6296,11 @@ func main() {
               - `Title string`
 
               - `Type WebSearchResultLocation`
-
                 - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
 
               - `URL string`
 
             - `type BetaCitationSearchResultLocation struct{…}`
-
               - `CitedText string`
 
                 The full text of the cited block range, concatenated.
@@ -9790,35 +6328,28 @@ func main() {
               - `Title string`
 
               - `Type SearchResultLocation`
-
                 - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
           - `Text string`
 
           - `Type Text`
-
             - `const TextText Text = "text"`
 
         - `type BetaThinkingBlock struct{…}`
-
           - `Signature string`
 
           - `Thinking string`
 
           - `Type Thinking`
-
             - `const ThinkingThinking Thinking = "thinking"`
 
         - `type BetaRedactedThinkingBlock struct{…}`
-
           - `Data string`
 
           - `Type RedactedThinking`
-
             - `const RedactedThinkingRedactedThinking RedactedThinking = "redacted_thinking"`
 
         - `type BetaToolUseBlock struct{…}`
-
           - `ID string`
 
           - `Input map[string, any]`
@@ -9826,47 +6357,37 @@ func main() {
           - `Name string`
 
           - `Type ToolUse`
-
             - `const ToolUseToolUse ToolUse = "tool_use"`
 
           - `Caller BetaToolUseBlockCallerUnion`
 
             Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
-
               - `Type Direct`
-
                 - `const DirectDirect Direct = "direct"`
 
             - `type BetaServerToolCaller struct{…}`
 
               Tool invocation generated by a server-side tool.
-
               - `ToolID string`
 
               - `Type CodeExecution20250825`
-
                 - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
 
             - `type BetaServerToolCaller20260120 struct{…}`
-
               - `ToolID string`
 
               - `Type CodeExecution20260120`
-
                 - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
         - `type BetaServerToolUseBlock struct{…}`
-
           - `ID string`
 
           - `Input map[string, any]`
 
           - `Name BetaServerToolUseBlockName`
-
             - `const BetaServerToolUseBlockNameAdvisor BetaServerToolUseBlockName = "advisor"`
 
             - `const BetaServerToolUseBlockNameWebSearch BetaServerToolUseBlockName = "web_search"`
@@ -9884,47 +6405,25 @@ func main() {
             - `const BetaServerToolUseBlockNameToolSearchToolBm25 BetaServerToolUseBlockName = "tool_search_tool_bm25"`
 
           - `Type ServerToolUse`
-
             - `const ServerToolUseServerToolUse ServerToolUse = "server_tool_use"`
 
           - `Caller BetaServerToolUseBlockCallerUnion`
 
             Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
-
-              - `Type Direct`
-
-                - `const DirectDirect Direct = "direct"`
 
             - `type BetaServerToolCaller struct{…}`
 
               Tool invocation generated by a server-side tool.
 
-              - `ToolID string`
-
-              - `Type CodeExecution20250825`
-
-                - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
             - `type BetaServerToolCaller20260120 struct{…}`
 
-              - `ToolID string`
-
-              - `Type CodeExecution20260120`
-
-                - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
         - `type BetaWebSearchToolResultBlock struct{…}`
-
           - `Content BetaWebSearchToolResultBlockContentUnion`
-
             - `type BetaWebSearchToolResultError struct{…}`
-
               - `ErrorCode BetaWebSearchToolResultErrorCode`
-
                 - `const BetaWebSearchToolResultErrorCodeInvalidToolInput BetaWebSearchToolResultErrorCode = "invalid_tool_input"`
 
                 - `const BetaWebSearchToolResultErrorCodeUnavailable BetaWebSearchToolResultErrorCode = "unavailable"`
@@ -9938,11 +6437,9 @@ func main() {
                 - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
 
               - `Type WebSearchToolResultError`
-
                 - `const WebSearchToolResultErrorWebSearchToolResultError WebSearchToolResultError = "web_search_tool_result_error"`
 
             - `type BetaWebSearchToolResultBlockContentArray []BetaWebSearchResultBlock`
-
               - `EncryptedContent string`
 
               - `PageAge string`
@@ -9950,7 +6447,6 @@ func main() {
               - `Title string`
 
               - `Type WebSearchResult`
-
                 - `const WebSearchResultWebSearchResult WebSearchResult = "web_search_result"`
 
               - `URL string`
@@ -9958,52 +6454,32 @@ func main() {
           - `ToolUseID string`
 
           - `Type WebSearchToolResult`
-
             - `const WebSearchToolResultWebSearchToolResult WebSearchToolResult = "web_search_tool_result"`
 
           - `Caller BetaWebSearchToolResultBlockCallerUnion`
 
             Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
-
-              - `Type Direct`
-
-                - `const DirectDirect Direct = "direct"`
 
             - `type BetaServerToolCaller struct{…}`
 
               Tool invocation generated by a server-side tool.
 
-              - `ToolID string`
-
-              - `Type CodeExecution20250825`
-
-                - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
             - `type BetaServerToolCaller20260120 struct{…}`
 
-              - `ToolID string`
-
-              - `Type CodeExecution20260120`
-
-                - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
         - `type BetaWebFetchToolResultBlock struct{…}`
-
           - `Content BetaWebFetchToolResultBlockContentUnion`
-
             - `type BetaWebFetchToolResultErrorBlock struct{…}`
-
               - `ErrorCode BetaWebFetchToolResultErrorCode`
-
                 - `const BetaWebFetchToolResultErrorCodeInvalidToolInput BetaWebFetchToolResultErrorCode = "invalid_tool_input"`
 
                 - `const BetaWebFetchToolResultErrorCodeURLTooLong BetaWebFetchToolResultErrorCode = "url_too_long"`
 
                 - `const BetaWebFetchToolResultErrorCodeURLNotAllowed BetaWebFetchToolResultErrorCode = "url_not_allowed"`
+
+                - `const BetaWebFetchToolResultErrorCodeURLNotInPriorContext BetaWebFetchToolResultErrorCode = "url_not_in_prior_context"`
 
                 - `const BetaWebFetchToolResultErrorCodeURLNotAccessible BetaWebFetchToolResultErrorCode = "url_not_accessible"`
 
@@ -10016,43 +6492,32 @@ func main() {
                 - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
 
               - `Type WebFetchToolResultError`
-
                 - `const WebFetchToolResultErrorWebFetchToolResultError WebFetchToolResultError = "web_fetch_tool_result_error"`
 
             - `type BetaWebFetchBlock struct{…}`
-
               - `Content BetaDocumentBlock`
-
                 - `Citations BetaCitationConfig`
 
                   Citation configuration for the document
-
                   - `Enabled bool`
 
                 - `Source BetaDocumentBlockSourceUnion`
-
                   - `type BetaBase64PDFSource struct{…}`
-
                     - `Data string`
 
                     - `MediaType ApplicationPDF`
-
                       - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
 
                     - `Type Base64`
-
                       - `const Base64Base64 Base64 = "base64"`
 
                   - `type BetaPlainTextSource struct{…}`
-
                     - `Data string`
 
                     - `MediaType TextPlain`
-
                       - `const TextPlainTextPlain TextPlain = "text/plain"`
 
                     - `Type Text`
-
                       - `const TextText Text = "text"`
 
                 - `Title string`
@@ -10060,7 +6525,6 @@ func main() {
                   The title of the document
 
                 - `Type Document`
-
                   - `const DocumentDocument Document = "document"`
 
               - `RetrievedAt string`
@@ -10068,7 +6532,6 @@ func main() {
                 ISO 8601 timestamp when the content was retrieved
 
               - `Type WebFetchResult`
-
                 - `const WebFetchResultWebFetchResult WebFetchResult = "web_fetch_result"`
 
               - `URL string`
@@ -10078,47 +6541,25 @@ func main() {
           - `ToolUseID string`
 
           - `Type WebFetchToolResult`
-
             - `const WebFetchToolResultWebFetchToolResult WebFetchToolResult = "web_fetch_tool_result"`
 
           - `Caller BetaWebFetchToolResultBlockCallerUnion`
 
             Tool invocation directly from the model.
-
             - `type BetaDirectCaller struct{…}`
 
               Tool invocation directly from the model.
-
-              - `Type Direct`
-
-                - `const DirectDirect Direct = "direct"`
 
             - `type BetaServerToolCaller struct{…}`
 
               Tool invocation generated by a server-side tool.
 
-              - `ToolID string`
-
-              - `Type CodeExecution20250825`
-
-                - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
             - `type BetaServerToolCaller20260120 struct{…}`
 
-              - `ToolID string`
-
-              - `Type CodeExecution20260120`
-
-                - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
         - `type BetaAdvisorToolResultBlock struct{…}`
-
           - `Content BetaAdvisorToolResultBlockContentUnion`
-
             - `type BetaAdvisorToolResultError struct{…}`
-
               - `ErrorCode BetaAdvisorToolResultErrorErrorCode`
-
                 - `const BetaAdvisorToolResultErrorErrorCodeMaxUsesExceeded BetaAdvisorToolResultErrorErrorCode = "max_uses_exceeded"`
 
                 - `const BetaAdvisorToolResultErrorErrorCodePromptTooLong BetaAdvisorToolResultErrorErrorCode = "prompt_too_long"`
@@ -10132,43 +6573,41 @@ func main() {
                 - `const BetaAdvisorToolResultErrorErrorCodeExecutionTimeExceeded BetaAdvisorToolResultErrorErrorCode = "execution_time_exceeded"`
 
               - `Type AdvisorToolResultError`
-
                 - `const AdvisorToolResultErrorAdvisorToolResultError AdvisorToolResultError = "advisor_tool_result_error"`
 
             - `type BetaAdvisorResultBlock struct{…}`
+              - `StopReason string`
+
+                The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
 
               - `Text string`
 
               - `Type AdvisorResult`
-
                 - `const AdvisorResultAdvisorResult AdvisorResult = "advisor_result"`
 
             - `type BetaAdvisorRedactedResultBlock struct{…}`
-
               - `EncryptedContent string`
 
                 Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
 
-              - `Type AdvisorRedactedResult`
+              - `StopReason string`
 
+                The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
+
+              - `Type AdvisorRedactedResult`
                 - `const AdvisorRedactedResultAdvisorRedactedResult AdvisorRedactedResult = "advisor_redacted_result"`
 
           - `ToolUseID string`
 
           - `Type AdvisorToolResult`
-
             - `const AdvisorToolResultAdvisorToolResult AdvisorToolResult = "advisor_tool_result"`
 
         - `type BetaCodeExecutionToolResultBlock struct{…}`
-
           - `Content BetaCodeExecutionToolResultBlockContentUnion`
 
             Code execution result with encrypted stdout for PFC + web_search results.
-
             - `type BetaCodeExecutionToolResultError struct{…}`
-
               - `ErrorCode BetaCodeExecutionToolResultErrorCode`
-
                 - `const BetaCodeExecutionToolResultErrorCodeInvalidToolInput BetaCodeExecutionToolResultErrorCode = "invalid_tool_input"`
 
                 - `const BetaCodeExecutionToolResultErrorCodeUnavailable BetaCodeExecutionToolResultErrorCode = "unavailable"`
@@ -10178,17 +6617,13 @@ func main() {
                 - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
               - `Type CodeExecutionToolResultError`
-
                 - `const CodeExecutionToolResultErrorCodeExecutionToolResultError CodeExecutionToolResultError = "code_execution_tool_result_error"`
 
             - `type BetaCodeExecutionResultBlock struct{…}`
-
               - `Content []BetaCodeExecutionOutputBlock`
-
                 - `FileID string`
 
                 - `Type CodeExecutionOutput`
-
                   - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
               - `ReturnCode int64`
@@ -10198,20 +6633,15 @@ func main() {
               - `Stdout string`
 
               - `Type CodeExecutionResult`
-
                 - `const CodeExecutionResultCodeExecutionResult CodeExecutionResult = "code_execution_result"`
 
             - `type BetaEncryptedCodeExecutionResultBlock struct{…}`
 
               Code execution result with encrypted stdout for PFC + web_search results.
-
               - `Content []BetaCodeExecutionOutputBlock`
-
                 - `FileID string`
 
                 - `Type CodeExecutionOutput`
-
-                  - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
               - `EncryptedStdout string`
 
@@ -10220,23 +6650,17 @@ func main() {
               - `Stderr string`
 
               - `Type EncryptedCodeExecutionResult`
-
                 - `const EncryptedCodeExecutionResultEncryptedCodeExecutionResult EncryptedCodeExecutionResult = "encrypted_code_execution_result"`
 
           - `ToolUseID string`
 
           - `Type CodeExecutionToolResult`
-
             - `const CodeExecutionToolResultCodeExecutionToolResult CodeExecutionToolResult = "code_execution_tool_result"`
 
         - `type BetaBashCodeExecutionToolResultBlock struct{…}`
-
           - `Content BetaBashCodeExecutionToolResultBlockContentUnion`
-
             - `type BetaBashCodeExecutionToolResultError struct{…}`
-
               - `ErrorCode BetaBashCodeExecutionToolResultErrorErrorCode`
-
                 - `const BetaBashCodeExecutionToolResultErrorErrorCodeInvalidToolInput BetaBashCodeExecutionToolResultErrorErrorCode = "invalid_tool_input"`
 
                 - `const BetaBashCodeExecutionToolResultErrorErrorCodeUnavailable BetaBashCodeExecutionToolResultErrorErrorCode = "unavailable"`
@@ -10248,17 +6672,13 @@ func main() {
                 - `const BetaBashCodeExecutionToolResultErrorErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorErrorCode = "output_file_too_large"`
 
               - `Type BashCodeExecutionToolResultError`
-
                 - `const BashCodeExecutionToolResultErrorBashCodeExecutionToolResultError BashCodeExecutionToolResultError = "bash_code_execution_tool_result_error"`
 
             - `type BetaBashCodeExecutionResultBlock struct{…}`
-
               - `Content []BetaBashCodeExecutionOutputBlock`
-
                 - `FileID string`
 
                 - `Type BashCodeExecutionOutput`
-
                   - `const BashCodeExecutionOutputBashCodeExecutionOutput BashCodeExecutionOutput = "bash_code_execution_output"`
 
               - `ReturnCode int64`
@@ -10268,23 +6688,17 @@ func main() {
               - `Stdout string`
 
               - `Type BashCodeExecutionResult`
-
                 - `const BashCodeExecutionResultBashCodeExecutionResult BashCodeExecutionResult = "bash_code_execution_result"`
 
           - `ToolUseID string`
 
           - `Type BashCodeExecutionToolResult`
-
             - `const BashCodeExecutionToolResultBashCodeExecutionToolResult BashCodeExecutionToolResult = "bash_code_execution_tool_result"`
 
         - `type BetaTextEditorCodeExecutionToolResultBlock struct{…}`
-
           - `Content BetaTextEditorCodeExecutionToolResultBlockContentUnion`
-
             - `type BetaTextEditorCodeExecutionToolResultError struct{…}`
-
               - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorErrorCode`
-
                 - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeInvalidToolInput BetaTextEditorCodeExecutionToolResultErrorErrorCode = "invalid_tool_input"`
 
                 - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeUnavailable BetaTextEditorCodeExecutionToolResultErrorErrorCode = "unavailable"`
@@ -10298,15 +6712,12 @@ func main() {
               - `ErrorMessage string`
 
               - `Type TextEditorCodeExecutionToolResultError`
-
                 - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
 
             - `type BetaTextEditorCodeExecutionViewResultBlock struct{…}`
-
               - `Content string`
 
               - `FileType BetaTextEditorCodeExecutionViewResultBlockFileType`
-
                 - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeText BetaTextEditorCodeExecutionViewResultBlockFileType = "text"`
 
                 - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeImage BetaTextEditorCodeExecutionViewResultBlockFileType = "image"`
@@ -10320,19 +6731,15 @@ func main() {
               - `TotalLines int64`
 
               - `Type TextEditorCodeExecutionViewResult`
-
                 - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
 
             - `type BetaTextEditorCodeExecutionCreateResultBlock struct{…}`
-
               - `IsFileUpdate bool`
 
               - `Type TextEditorCodeExecutionCreateResult`
-
                 - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
 
             - `type BetaTextEditorCodeExecutionStrReplaceResultBlock struct{…}`
-
               - `Lines []string`
 
               - `NewLines int64`
@@ -10344,23 +6751,17 @@ func main() {
               - `OldStart int64`
 
               - `Type TextEditorCodeExecutionStrReplaceResult`
-
                 - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
 
           - `ToolUseID string`
 
           - `Type TextEditorCodeExecutionToolResult`
-
             - `const TextEditorCodeExecutionToolResultTextEditorCodeExecutionToolResult TextEditorCodeExecutionToolResult = "text_editor_code_execution_tool_result"`
 
         - `type BetaToolSearchToolResultBlock struct{…}`
-
           - `Content BetaToolSearchToolResultBlockContentUnion`
-
             - `type BetaToolSearchToolResultError struct{…}`
-
               - `ErrorCode BetaToolSearchToolResultErrorErrorCode`
-
                 - `const BetaToolSearchToolResultErrorErrorCodeInvalidToolInput BetaToolSearchToolResultErrorErrorCode = "invalid_tool_input"`
 
                 - `const BetaToolSearchToolResultErrorErrorCodeUnavailable BetaToolSearchToolResultErrorErrorCode = "unavailable"`
@@ -10372,31 +6773,24 @@ func main() {
               - `ErrorMessage string`
 
               - `Type ToolSearchToolResultError`
-
                 - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
 
             - `type BetaToolSearchToolSearchResultBlock struct{…}`
-
               - `ToolReferences []BetaToolReferenceBlock`
-
                 - `ToolName string`
 
                 - `Type ToolReference`
-
                   - `const ToolReferenceToolReference ToolReference = "tool_reference"`
 
               - `Type ToolSearchToolSearchResult`
-
                 - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
 
           - `ToolUseID string`
 
           - `Type ToolSearchToolResult`
-
             - `const ToolSearchToolResultToolSearchToolResult ToolSearchToolResult = "tool_search_tool_result"`
 
         - `type BetaMCPToolUseBlock struct{…}`
-
           - `ID string`
 
           - `Input map[string, any]`
@@ -10410,155 +6804,36 @@ func main() {
             The name of the MCP server
 
           - `Type MCPToolUse`
-
             - `const MCPToolUseMCPToolUse MCPToolUse = "mcp_tool_use"`
 
         - `type BetaMCPToolResultBlock struct{…}`
-
           - `Content BetaMCPToolResultBlockContentUnion`
-
             - `string`
 
             - `type BetaMCPToolResultBlockContentBetaMCPToolResultBlockContent []BetaTextBlock`
-
               - `Citations []BetaTextCitationUnion`
 
                 Citations supporting the text block.
 
                 The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-                - `type BetaCitationCharLocation struct{…}`
-
-                  - `CitedText string`
-
-                  - `DocumentIndex int64`
-
-                  - `DocumentTitle string`
-
-                  - `EndCharIndex int64`
-
-                  - `FileID string`
-
-                  - `StartCharIndex int64`
-
-                  - `Type CharLocation`
-
-                    - `const CharLocationCharLocation CharLocation = "char_location"`
-
-                - `type BetaCitationPageLocation struct{…}`
-
-                  - `CitedText string`
-
-                  - `DocumentIndex int64`
-
-                  - `DocumentTitle string`
-
-                  - `EndPageNumber int64`
-
-                  - `FileID string`
-
-                  - `StartPageNumber int64`
-
-                  - `Type PageLocation`
-
-                    - `const PageLocationPageLocation PageLocation = "page_location"`
-
-                - `type BetaCitationContentBlockLocation struct{…}`
-
-                  - `CitedText string`
-
-                    The full text of the cited block range, concatenated.
-
-                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                  - `DocumentIndex int64`
-
-                  - `DocumentTitle string`
-
-                  - `EndBlockIndex int64`
-
-                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                  - `FileID string`
-
-                  - `StartBlockIndex int64`
-
-                    0-based index of the first cited block in the source's `content` array.
-
-                  - `Type ContentBlockLocation`
-
-                    - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-                - `type BetaCitationsWebSearchResultLocation struct{…}`
-
-                  - `CitedText string`
-
-                  - `EncryptedIndex string`
-
-                  - `Title string`
-
-                  - `Type WebSearchResultLocation`
-
-                    - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                  - `URL string`
-
-                - `type BetaCitationSearchResultLocation struct{…}`
-
-                  - `CitedText string`
-
-                    The full text of the cited block range, concatenated.
-
-                    Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                  - `EndBlockIndex int64`
-
-                    Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                    Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                  - `SearchResultIndex int64`
-
-                    0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                    Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                  - `Source string`
-
-                  - `StartBlockIndex int64`
-
-                    0-based index of the first cited block in the source's `content` array.
-
-                  - `Title string`
-
-                  - `Type SearchResultLocation`
-
-                    - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
-
               - `Text string`
 
               - `Type Text`
-
-                - `const TextText Text = "text"`
 
           - `IsError bool`
 
           - `ToolUseID string`
 
           - `Type MCPToolResult`
-
             - `const MCPToolResultMCPToolResult MCPToolResult = "mcp_tool_result"`
 
         - `type BetaContainerUploadBlock struct{…}`
 
           Response model for a file uploaded to the container.
-
           - `FileID string`
 
           - `Type ContainerUpload`
-
             - `const ContainerUploadContainerUpload ContainerUpload = "container_upload"`
 
         - `type BetaCompactionBlock struct{…}`
@@ -10568,7 +6843,6 @@ func main() {
           When content is None, it indicates the compaction failed to produce a valid
           summary (e.g., malformed output from the model). Clients may round-trip
           compaction blocks with null content; the server treats them as no-ops.
-
           - `Content string`
 
             Summary of compacted content, or null if compaction failed
@@ -10578,7 +6852,6 @@ func main() {
             Opaque metadata from prior compaction, to be round-tripped verbatim
 
           - `Type Compaction`
-
             - `const CompactionCompaction Compaction = "compaction"`
 
       - `ContextManagement BetaContextManagementResponse`
@@ -10586,13 +6859,10 @@ func main() {
         Context management response.
 
         Information about context management strategies applied during the request.
-
         - `AppliedEdits []BetaContextManagementResponseAppliedEditUnion`
 
           List of context management edits that were applied.
-
           - `type BetaClearToolUses20250919EditResponse struct{…}`
-
             - `ClearedInputTokens int64`
 
               Number of input tokens cleared by this edit.
@@ -10604,11 +6874,9 @@ func main() {
             - `Type ClearToolUses20250919`
 
               The type of context management edit applied.
-
               - `const ClearToolUses20250919ClearToolUses20250919 ClearToolUses20250919 = "clear_tool_uses_20250919"`
 
           - `type BetaClearThinking20251015EditResponse struct{…}`
-
             - `ClearedInputTokens int64`
 
               Number of input tokens cleared by this edit.
@@ -10620,20 +6888,68 @@ func main() {
             - `Type ClearThinking20251015`
 
               The type of context management edit applied.
-
               - `const ClearThinking20251015ClearThinking20251015 ClearThinking20251015 = "clear_thinking_20251015"`
+
+      - `Diagnostics BetaDiagnostics`
+
+        Response envelope for request-level diagnostics. Present (possibly
+        null) whenever the caller supplied `diagnostics` on the request.
+        - `CacheMissReason BetaDiagnosticsCacheMissReasonUnion`
+
+          Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+          - `type BetaCacheMissModelChanged struct{…}`
+            - `CacheMissedInputTokens int64`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `Type ModelChanged`
+              - `const ModelChangedModelChanged ModelChanged = "model_changed"`
+
+          - `type BetaCacheMissSystemChanged struct{…}`
+            - `CacheMissedInputTokens int64`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `Type SystemChanged`
+              - `const SystemChangedSystemChanged SystemChanged = "system_changed"`
+
+          - `type BetaCacheMissToolsChanged struct{…}`
+            - `CacheMissedInputTokens int64`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `Type ToolsChanged`
+              - `const ToolsChangedToolsChanged ToolsChanged = "tools_changed"`
+
+          - `type BetaCacheMissMessagesChanged struct{…}`
+            - `CacheMissedInputTokens int64`
+
+              Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+            - `Type MessagesChanged`
+              - `const MessagesChangedMessagesChanged MessagesChanged = "messages_changed"`
+
+          - `type BetaCacheMissPreviousMessageNotFound struct{…}`
+            - `Type PreviousMessageNotFound`
+              - `const PreviousMessageNotFoundPreviousMessageNotFound PreviousMessageNotFound = "previous_message_not_found"`
+
+          - `type BetaCacheMissUnavailable struct{…}`
+            - `Type Unavailable`
+              - `const UnavailableUnavailable Unavailable = "unavailable"`
 
       - `Model Model`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `type Model string`
 
           The model that will complete your prompt.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+            Frontier intelligence for long-running agents and coding
 
           - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
 
@@ -10710,19 +7026,16 @@ func main() {
         Conversational role of the generated message.
 
         This will always be `"assistant"`.
-
         - `const AssistantAssistant Assistant = "assistant"`
 
       - `StopDetails BetaRefusalStopDetails`
 
         Structured information about a refusal.
-
         - `Category BetaRefusalStopDetailsCategory`
 
           The policy category that triggered the refusal.
 
           `null` when the refusal doesn't map to a named category.
-
           - `const BetaRefusalStopDetailsCategoryCyber BetaRefusalStopDetailsCategory = "cyber"`
 
           - `const BetaRefusalStopDetailsCategoryBio BetaRefusalStopDetailsCategory = "bio"`
@@ -10734,7 +7047,6 @@ func main() {
           This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
         - `Type Refusal`
-
           - `const RefusalRefusal Refusal = "refusal"`
 
       - `StopReason BetaStopReason`
@@ -10742,16 +7054,14 @@ func main() {
         The reason that we stopped.
 
         This may be one the following values:
-
-        * `"end_turn"`: the model reached a natural stopping point
-        * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-        * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-        * `"tool_use"`: the model invoked one or more tools
-        * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-        * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+        - `"end_turn"`: the model reached a natural stopping point
+        - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+        - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+        - `"tool_use"`: the model invoked one or more tools
+        - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+        - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
         In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
-
         - `const BetaStopReasonEndTurn BetaStopReason = "end_turn"`
 
         - `const BetaStopReasonMaxTokens BetaStopReason = "max_tokens"`
@@ -10779,7 +7089,6 @@ func main() {
         Object type.
 
         For Messages, this is always `"message"`.
-
         - `const MessageMessage Message = "message"`
 
       - `Usage BetaUsage`
@@ -10793,11 +7102,9 @@ func main() {
         For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
         Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
-
         - `CacheCreation BetaCacheCreation`
 
           Breakdown of cached tokens by TTL
-
           - `Ephemeral1hInputTokens int64`
 
             The number of input tokens used to create the 1 hour cache entry.
@@ -10827,7 +7134,6 @@ func main() {
           Per-iteration token usage breakdown.
 
           Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
-
           - Determine which iterations exceeded long context thresholds (>=200k tokens)
           - Calculate the true context window size from the last iteration
           - Understand token accumulation across server-side tool use loops
@@ -10835,18 +7141,9 @@ func main() {
           - `type BetaMessageIterationUsage struct{…}`
 
             Token usage for a sampling iteration.
-
             - `CacheCreation BetaCacheCreation`
 
               Breakdown of cached tokens by TTL
-
-              - `Ephemeral1hInputTokens int64`
-
-                The number of input tokens used to create the 1 hour cache entry.
-
-              - `Ephemeral5mInputTokens int64`
-
-                The number of input tokens used to create the 5 minute cache entry.
 
             - `CacheCreationInputTokens int64`
 
@@ -10867,24 +7164,14 @@ func main() {
             - `Type Message`
 
               Usage for a sampling iteration
-
               - `const MessageMessage Message = "message"`
 
           - `type BetaCompactionIterationUsage struct{…}`
 
             Token usage for a compaction iteration.
-
             - `CacheCreation BetaCacheCreation`
 
               Breakdown of cached tokens by TTL
-
-              - `Ephemeral1hInputTokens int64`
-
-                The number of input tokens used to create the 1 hour cache entry.
-
-              - `Ephemeral5mInputTokens int64`
-
-                The number of input tokens used to create the 5 minute cache entry.
 
             - `CacheCreationInputTokens int64`
 
@@ -10905,24 +7192,14 @@ func main() {
             - `Type Compaction`
 
               Usage for a compaction iteration
-
               - `const CompactionCompaction Compaction = "compaction"`
 
           - `type BetaAdvisorMessageIterationUsage struct{…}`
 
             Token usage for an advisor sub-inference iteration.
-
             - `CacheCreation BetaCacheCreation`
 
               Breakdown of cached tokens by TTL
-
-              - `Ephemeral1hInputTokens int64`
-
-                The number of input tokens used to create the 1 hour cache entry.
-
-              - `Ephemeral5mInputTokens int64`
-
-                The number of input tokens used to create the 5 minute cache entry.
 
             - `CacheCreationInputTokens int64`
 
@@ -10942,82 +7219,6 @@ func main() {
 
               See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-              - `type Model string`
-
-                The model that will complete your prompt.
-
-                See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-                - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
-
-                  Frontier intelligence for long-running agents and coding
-
-                - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                  New class of intelligence, strongest in coding and cybersecurity
-
-                - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
-
-                  Frontier intelligence for long-running agents and coding
-
-                - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
-
-                  Best combination of speed and intelligence
-
-                - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
-
-                  Fastest model with near-frontier intelligence
-
-                - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
-
-                  Fastest model with near-frontier intelligence
-
-                - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
-
-                  Premium model combining maximum intelligence with practical performance
-
-                - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
-
-                  Premium model combining maximum intelligence with practical performance
-
-                - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                  High-performance model for agents and coding
-
-                - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                  High-performance model for agents and coding
-
-                - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-                  Exceptional model for specialized complex tasks
-
-                - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-                  Exceptional model for specialized complex tasks
-
-                - `const ModelClaudeOpus4_0 Model = "claude-opus-4-0"`
-
-                  Powerful model for complex tasks
-
-                - `const ModelClaudeOpus4_20250514 Model = "claude-opus-4-20250514"`
-
-                  Powerful model for complex tasks
-
-                - `const ModelClaudeSonnet4_0 Model = "claude-sonnet-4-0"`
-
-                  High-performance model with extended thinking
-
-                - `const ModelClaudeSonnet4_20250514 Model = "claude-sonnet-4-20250514"`
-
-                  High-performance model with extended thinking
-
-                - `const ModelClaude_3_Haiku_20240307 Model = "claude-3-haiku-20240307"`
-
-                  Fast and cost-effective model
-
-              - `string`
-
             - `OutputTokens int64`
 
               The number of output tokens which were used.
@@ -11025,17 +7226,34 @@ func main() {
             - `Type AdvisorMessage`
 
               Usage for an advisor sub-inference iteration
-
               - `const AdvisorMessageAdvisorMessage AdvisorMessage = "advisor_message"`
 
         - `OutputTokens int64`
 
           The number of output tokens which were used.
 
+        - `OutputTokensDetails BetaUsageOutputTokensDetails`
+
+          Breakdown of output tokens by category.
+
+          `output_tokens` remains the inclusive, authoritative total used for billing.
+          This object provides a read-only decomposition for observability — for example,
+          how many of the billed output tokens were spent on internal reasoning that may
+          have been summarized before being returned to you.
+          - `ThinkingTokens int64`
+
+            Number of output tokens the model generated as internal reasoning, including
+            the thinking-block delimiter tokens.
+
+            Reflects the raw reasoning the model produced, not the (possibly shorter)
+            summarized thinking text returned in the response body. Computed by
+            re-tokenizing the raw reasoning text, so it may differ from the model's exact
+            generation count by a small number of tokens. Always ≤ `output_tokens`;
+            `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
         - `ServerToolUse BetaServerToolUsage`
 
           The number of server tool requests.
-
           - `WebFetchRequests int64`
 
             The number of web fetch tool requests.
@@ -11047,7 +7265,6 @@ func main() {
         - `ServiceTier BetaUsageServiceTier`
 
           If the request used the priority, standard, or batch tier.
-
           - `const BetaUsageServiceTierStandard BetaUsageServiceTier = "standard"`
 
           - `const BetaUsageServiceTierPriority BetaUsageServiceTier = "priority"`
@@ -11057,121 +7274,90 @@ func main() {
         - `Speed BetaUsageSpeed`
 
           The inference speed mode used for this request.
-
           - `const BetaUsageSpeedStandard BetaUsageSpeed = "standard"`
 
           - `const BetaUsageSpeedFast BetaUsageSpeed = "fast"`
 
     - `Type Succeeded`
-
       - `const SucceededSucceeded Succeeded = "succeeded"`
 
   - `type BetaMessageBatchErroredResult struct{…}`
-
     - `Error BetaErrorResponse`
-
       - `Error BetaErrorUnion`
-
         - `type BetaInvalidRequestError struct{…}`
-
           - `Message string`
 
           - `Type InvalidRequestError`
-
             - `const InvalidRequestErrorInvalidRequestError InvalidRequestError = "invalid_request_error"`
 
         - `type BetaAuthenticationError struct{…}`
-
           - `Message string`
 
           - `Type AuthenticationError`
-
             - `const AuthenticationErrorAuthenticationError AuthenticationError = "authentication_error"`
 
         - `type BetaBillingError struct{…}`
-
           - `Message string`
 
           - `Type BillingError`
-
             - `const BillingErrorBillingError BillingError = "billing_error"`
 
         - `type BetaPermissionError struct{…}`
-
           - `Message string`
 
           - `Type PermissionError`
-
             - `const PermissionErrorPermissionError PermissionError = "permission_error"`
 
         - `type BetaNotFoundError struct{…}`
-
           - `Message string`
 
           - `Type NotFoundError`
-
             - `const NotFoundErrorNotFoundError NotFoundError = "not_found_error"`
 
         - `type BetaRateLimitError struct{…}`
-
           - `Message string`
 
           - `Type RateLimitError`
-
             - `const RateLimitErrorRateLimitError RateLimitError = "rate_limit_error"`
 
         - `type BetaGatewayTimeoutError struct{…}`
-
           - `Message string`
 
           - `Type TimeoutError`
-
             - `const TimeoutErrorTimeoutError TimeoutError = "timeout_error"`
 
         - `type BetaAPIError struct{…}`
-
           - `Message string`
 
           - `Type APIError`
-
             - `const APIErrorAPIError APIError = "api_error"`
 
         - `type BetaOverloadedError struct{…}`
-
           - `Message string`
 
           - `Type OverloadedError`
-
             - `const OverloadedErrorOverloadedError OverloadedError = "overloaded_error"`
 
       - `RequestID string`
 
       - `Type Error`
-
         - `const ErrorError Error = "error"`
 
     - `Type Errored`
-
       - `const ErroredErrored Errored = "errored"`
 
   - `type BetaMessageBatchCanceledResult struct{…}`
-
     - `Type Canceled`
-
       - `const CanceledCanceled Canceled = "canceled"`
 
   - `type BetaMessageBatchExpiredResult struct{…}`
-
     - `Type Expired`
-
       - `const ExpiredExpired Expired = "expired"`
 
 ### Beta Message Batch Succeeded Result
 
 - `type BetaMessageBatchSucceededResult struct{…}`
-
   - `Message BetaMessage`
-
     - `ID string`
 
       Unique object identifier.
@@ -11181,7 +7367,6 @@ func main() {
     - `Container BetaContainer`
 
       Information about the container used in the request (for the code execution tool)
-
       - `ID string`
 
         Identifier for the container used in this request
@@ -11193,7 +7378,6 @@ func main() {
       - `Skills []BetaSkill`
 
         Skills loaded in the container
-
         - `SkillID string`
 
           Skill ID
@@ -11201,7 +7385,6 @@ func main() {
         - `Type BetaSkillType`
 
           Type of skill - either 'anthropic' (built-in) or 'custom' (user-defined)
-
           - `const BetaSkillTypeAnthropic BetaSkillType = "anthropic"`
 
           - `const BetaSkillTypeCustom BetaSkillType = "custom"`
@@ -11219,7 +7402,7 @@ func main() {
       Example:
 
       ```json
-      [{"type": "text", "text": "Hi, I'm Claude."}]
+      [{ "type": "text", "text": "Hi, I'm Claude." }]
       ```
 
       If the request input `messages` ended with an `assistant` turn, then the response `content` will continue directly from that last turn. You can use this to constrain the model's output.
@@ -11228,27 +7411,27 @@ func main() {
 
       ```json
       [
-        {"role": "user", "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"},
-        {"role": "assistant", "content": "The best answer is ("}
+        {
+          "role": "user",
+          "content": "What's the Greek name for Sun? (A) Sol (B) Helios (C) Sun"
+        },
+        { "role": "assistant", "content": "The best answer is (" }
       ]
       ```
 
       Then the response `content` might be:
 
       ```json
-      [{"type": "text", "text": "B)"}]
+      [{ "type": "text", "text": "B)" }]
       ```
 
       - `type BetaTextBlock struct{…}`
-
         - `Citations []BetaTextCitationUnion`
 
           Citations supporting the text block.
 
           The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
-
           - `type BetaCitationCharLocation struct{…}`
-
             - `CitedText string`
 
             - `DocumentIndex int64`
@@ -11262,11 +7445,9 @@ func main() {
             - `StartCharIndex int64`
 
             - `Type CharLocation`
-
               - `const CharLocationCharLocation CharLocation = "char_location"`
 
           - `type BetaCitationPageLocation struct{…}`
-
             - `CitedText string`
 
             - `DocumentIndex int64`
@@ -11280,11 +7461,9 @@ func main() {
             - `StartPageNumber int64`
 
             - `Type PageLocation`
-
               - `const PageLocationPageLocation PageLocation = "page_location"`
 
           - `type BetaCitationContentBlockLocation struct{…}`
-
             - `CitedText string`
 
               The full text of the cited block range, concatenated.
@@ -11308,11 +7487,9 @@ func main() {
               0-based index of the first cited block in the source's `content` array.
 
             - `Type ContentBlockLocation`
-
               - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
 
           - `type BetaCitationsWebSearchResultLocation struct{…}`
-
             - `CitedText string`
 
             - `EncryptedIndex string`
@@ -11320,13 +7497,11 @@ func main() {
             - `Title string`
 
             - `Type WebSearchResultLocation`
-
               - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
 
             - `URL string`
 
           - `type BetaCitationSearchResultLocation struct{…}`
-
             - `CitedText string`
 
               The full text of the cited block range, concatenated.
@@ -11354,35 +7529,28 @@ func main() {
             - `Title string`
 
             - `Type SearchResultLocation`
-
               - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
 
         - `Text string`
 
         - `Type Text`
-
           - `const TextText Text = "text"`
 
       - `type BetaThinkingBlock struct{…}`
-
         - `Signature string`
 
         - `Thinking string`
 
         - `Type Thinking`
-
           - `const ThinkingThinking Thinking = "thinking"`
 
       - `type BetaRedactedThinkingBlock struct{…}`
-
         - `Data string`
 
         - `Type RedactedThinking`
-
           - `const RedactedThinkingRedactedThinking RedactedThinking = "redacted_thinking"`
 
       - `type BetaToolUseBlock struct{…}`
-
         - `ID string`
 
         - `Input map[string, any]`
@@ -11390,47 +7558,37 @@ func main() {
         - `Name string`
 
         - `Type ToolUse`
-
           - `const ToolUseToolUse ToolUse = "tool_use"`
 
         - `Caller BetaToolUseBlockCallerUnion`
 
           Tool invocation directly from the model.
-
           - `type BetaDirectCaller struct{…}`
 
             Tool invocation directly from the model.
-
             - `Type Direct`
-
               - `const DirectDirect Direct = "direct"`
 
           - `type BetaServerToolCaller struct{…}`
 
             Tool invocation generated by a server-side tool.
-
             - `ToolID string`
 
             - `Type CodeExecution20250825`
-
               - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
 
           - `type BetaServerToolCaller20260120 struct{…}`
-
             - `ToolID string`
 
             - `Type CodeExecution20260120`
-
               - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
 
       - `type BetaServerToolUseBlock struct{…}`
-
         - `ID string`
 
         - `Input map[string, any]`
 
         - `Name BetaServerToolUseBlockName`
-
           - `const BetaServerToolUseBlockNameAdvisor BetaServerToolUseBlockName = "advisor"`
 
           - `const BetaServerToolUseBlockNameWebSearch BetaServerToolUseBlockName = "web_search"`
@@ -11448,47 +7606,25 @@ func main() {
           - `const BetaServerToolUseBlockNameToolSearchToolBm25 BetaServerToolUseBlockName = "tool_search_tool_bm25"`
 
         - `Type ServerToolUse`
-
           - `const ServerToolUseServerToolUse ServerToolUse = "server_tool_use"`
 
         - `Caller BetaServerToolUseBlockCallerUnion`
 
           Tool invocation directly from the model.
-
           - `type BetaDirectCaller struct{…}`
 
             Tool invocation directly from the model.
-
-            - `Type Direct`
-
-              - `const DirectDirect Direct = "direct"`
 
           - `type BetaServerToolCaller struct{…}`
 
             Tool invocation generated by a server-side tool.
 
-            - `ToolID string`
-
-            - `Type CodeExecution20250825`
-
-              - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
           - `type BetaServerToolCaller20260120 struct{…}`
 
-            - `ToolID string`
-
-            - `Type CodeExecution20260120`
-
-              - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
       - `type BetaWebSearchToolResultBlock struct{…}`
-
         - `Content BetaWebSearchToolResultBlockContentUnion`
-
           - `type BetaWebSearchToolResultError struct{…}`
-
             - `ErrorCode BetaWebSearchToolResultErrorCode`
-
               - `const BetaWebSearchToolResultErrorCodeInvalidToolInput BetaWebSearchToolResultErrorCode = "invalid_tool_input"`
 
               - `const BetaWebSearchToolResultErrorCodeUnavailable BetaWebSearchToolResultErrorCode = "unavailable"`
@@ -11502,11 +7638,9 @@ func main() {
               - `const BetaWebSearchToolResultErrorCodeRequestTooLarge BetaWebSearchToolResultErrorCode = "request_too_large"`
 
             - `Type WebSearchToolResultError`
-
               - `const WebSearchToolResultErrorWebSearchToolResultError WebSearchToolResultError = "web_search_tool_result_error"`
 
           - `type BetaWebSearchToolResultBlockContentArray []BetaWebSearchResultBlock`
-
             - `EncryptedContent string`
 
             - `PageAge string`
@@ -11514,7 +7648,6 @@ func main() {
             - `Title string`
 
             - `Type WebSearchResult`
-
               - `const WebSearchResultWebSearchResult WebSearchResult = "web_search_result"`
 
             - `URL string`
@@ -11522,52 +7655,32 @@ func main() {
         - `ToolUseID string`
 
         - `Type WebSearchToolResult`
-
           - `const WebSearchToolResultWebSearchToolResult WebSearchToolResult = "web_search_tool_result"`
 
         - `Caller BetaWebSearchToolResultBlockCallerUnion`
 
           Tool invocation directly from the model.
-
           - `type BetaDirectCaller struct{…}`
 
             Tool invocation directly from the model.
-
-            - `Type Direct`
-
-              - `const DirectDirect Direct = "direct"`
 
           - `type BetaServerToolCaller struct{…}`
 
             Tool invocation generated by a server-side tool.
 
-            - `ToolID string`
-
-            - `Type CodeExecution20250825`
-
-              - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
           - `type BetaServerToolCaller20260120 struct{…}`
 
-            - `ToolID string`
-
-            - `Type CodeExecution20260120`
-
-              - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
       - `type BetaWebFetchToolResultBlock struct{…}`
-
         - `Content BetaWebFetchToolResultBlockContentUnion`
-
           - `type BetaWebFetchToolResultErrorBlock struct{…}`
-
             - `ErrorCode BetaWebFetchToolResultErrorCode`
-
               - `const BetaWebFetchToolResultErrorCodeInvalidToolInput BetaWebFetchToolResultErrorCode = "invalid_tool_input"`
 
               - `const BetaWebFetchToolResultErrorCodeURLTooLong BetaWebFetchToolResultErrorCode = "url_too_long"`
 
               - `const BetaWebFetchToolResultErrorCodeURLNotAllowed BetaWebFetchToolResultErrorCode = "url_not_allowed"`
+
+              - `const BetaWebFetchToolResultErrorCodeURLNotInPriorContext BetaWebFetchToolResultErrorCode = "url_not_in_prior_context"`
 
               - `const BetaWebFetchToolResultErrorCodeURLNotAccessible BetaWebFetchToolResultErrorCode = "url_not_accessible"`
 
@@ -11580,43 +7693,32 @@ func main() {
               - `const BetaWebFetchToolResultErrorCodeUnavailable BetaWebFetchToolResultErrorCode = "unavailable"`
 
             - `Type WebFetchToolResultError`
-
               - `const WebFetchToolResultErrorWebFetchToolResultError WebFetchToolResultError = "web_fetch_tool_result_error"`
 
           - `type BetaWebFetchBlock struct{…}`
-
             - `Content BetaDocumentBlock`
-
               - `Citations BetaCitationConfig`
 
                 Citation configuration for the document
-
                 - `Enabled bool`
 
               - `Source BetaDocumentBlockSourceUnion`
-
                 - `type BetaBase64PDFSource struct{…}`
-
                   - `Data string`
 
                   - `MediaType ApplicationPDF`
-
                     - `const ApplicationPDFApplicationPDF ApplicationPDF = "application/pdf"`
 
                   - `Type Base64`
-
                     - `const Base64Base64 Base64 = "base64"`
 
                 - `type BetaPlainTextSource struct{…}`
-
                   - `Data string`
 
                   - `MediaType TextPlain`
-
                     - `const TextPlainTextPlain TextPlain = "text/plain"`
 
                   - `Type Text`
-
                     - `const TextText Text = "text"`
 
               - `Title string`
@@ -11624,7 +7726,6 @@ func main() {
                 The title of the document
 
               - `Type Document`
-
                 - `const DocumentDocument Document = "document"`
 
             - `RetrievedAt string`
@@ -11632,7 +7733,6 @@ func main() {
               ISO 8601 timestamp when the content was retrieved
 
             - `Type WebFetchResult`
-
               - `const WebFetchResultWebFetchResult WebFetchResult = "web_fetch_result"`
 
             - `URL string`
@@ -11642,47 +7742,25 @@ func main() {
         - `ToolUseID string`
 
         - `Type WebFetchToolResult`
-
           - `const WebFetchToolResultWebFetchToolResult WebFetchToolResult = "web_fetch_tool_result"`
 
         - `Caller BetaWebFetchToolResultBlockCallerUnion`
 
           Tool invocation directly from the model.
-
           - `type BetaDirectCaller struct{…}`
 
             Tool invocation directly from the model.
-
-            - `Type Direct`
-
-              - `const DirectDirect Direct = "direct"`
 
           - `type BetaServerToolCaller struct{…}`
 
             Tool invocation generated by a server-side tool.
 
-            - `ToolID string`
-
-            - `Type CodeExecution20250825`
-
-              - `const CodeExecution20250825CodeExecution20250825 CodeExecution20250825 = "code_execution_20250825"`
-
           - `type BetaServerToolCaller20260120 struct{…}`
 
-            - `ToolID string`
-
-            - `Type CodeExecution20260120`
-
-              - `const CodeExecution20260120CodeExecution20260120 CodeExecution20260120 = "code_execution_20260120"`
-
       - `type BetaAdvisorToolResultBlock struct{…}`
-
         - `Content BetaAdvisorToolResultBlockContentUnion`
-
           - `type BetaAdvisorToolResultError struct{…}`
-
             - `ErrorCode BetaAdvisorToolResultErrorErrorCode`
-
               - `const BetaAdvisorToolResultErrorErrorCodeMaxUsesExceeded BetaAdvisorToolResultErrorErrorCode = "max_uses_exceeded"`
 
               - `const BetaAdvisorToolResultErrorErrorCodePromptTooLong BetaAdvisorToolResultErrorErrorCode = "prompt_too_long"`
@@ -11696,43 +7774,41 @@ func main() {
               - `const BetaAdvisorToolResultErrorErrorCodeExecutionTimeExceeded BetaAdvisorToolResultErrorErrorCode = "execution_time_exceeded"`
 
             - `Type AdvisorToolResultError`
-
               - `const AdvisorToolResultErrorAdvisorToolResultError AdvisorToolResultError = "advisor_tool_result_error"`
 
           - `type BetaAdvisorResultBlock struct{…}`
+            - `StopReason string`
+
+              The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`). `max_tokens` indicates the advisor's output was truncated at the tool's `max_tokens` value or the advisor model's policy cap.
 
             - `Text string`
 
             - `Type AdvisorResult`
-
               - `const AdvisorResultAdvisorResult AdvisorResult = "advisor_result"`
 
           - `type BetaAdvisorRedactedResultBlock struct{…}`
-
             - `EncryptedContent string`
 
               Opaque blob containing the advisor's output. Round-trip verbatim; do not inspect or modify.
 
-            - `Type AdvisorRedactedResult`
+            - `StopReason string`
 
+              The advisor sub-inference's stop reason (same values as the top-level message `stop_reason`).
+
+            - `Type AdvisorRedactedResult`
               - `const AdvisorRedactedResultAdvisorRedactedResult AdvisorRedactedResult = "advisor_redacted_result"`
 
         - `ToolUseID string`
 
         - `Type AdvisorToolResult`
-
           - `const AdvisorToolResultAdvisorToolResult AdvisorToolResult = "advisor_tool_result"`
 
       - `type BetaCodeExecutionToolResultBlock struct{…}`
-
         - `Content BetaCodeExecutionToolResultBlockContentUnion`
 
           Code execution result with encrypted stdout for PFC + web_search results.
-
           - `type BetaCodeExecutionToolResultError struct{…}`
-
             - `ErrorCode BetaCodeExecutionToolResultErrorCode`
-
               - `const BetaCodeExecutionToolResultErrorCodeInvalidToolInput BetaCodeExecutionToolResultErrorCode = "invalid_tool_input"`
 
               - `const BetaCodeExecutionToolResultErrorCodeUnavailable BetaCodeExecutionToolResultErrorCode = "unavailable"`
@@ -11742,17 +7818,13 @@ func main() {
               - `const BetaCodeExecutionToolResultErrorCodeExecutionTimeExceeded BetaCodeExecutionToolResultErrorCode = "execution_time_exceeded"`
 
             - `Type CodeExecutionToolResultError`
-
               - `const CodeExecutionToolResultErrorCodeExecutionToolResultError CodeExecutionToolResultError = "code_execution_tool_result_error"`
 
           - `type BetaCodeExecutionResultBlock struct{…}`
-
             - `Content []BetaCodeExecutionOutputBlock`
-
               - `FileID string`
 
               - `Type CodeExecutionOutput`
-
                 - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
             - `ReturnCode int64`
@@ -11762,20 +7834,15 @@ func main() {
             - `Stdout string`
 
             - `Type CodeExecutionResult`
-
               - `const CodeExecutionResultCodeExecutionResult CodeExecutionResult = "code_execution_result"`
 
           - `type BetaEncryptedCodeExecutionResultBlock struct{…}`
 
             Code execution result with encrypted stdout for PFC + web_search results.
-
             - `Content []BetaCodeExecutionOutputBlock`
-
               - `FileID string`
 
               - `Type CodeExecutionOutput`
-
-                - `const CodeExecutionOutputCodeExecutionOutput CodeExecutionOutput = "code_execution_output"`
 
             - `EncryptedStdout string`
 
@@ -11784,23 +7851,17 @@ func main() {
             - `Stderr string`
 
             - `Type EncryptedCodeExecutionResult`
-
               - `const EncryptedCodeExecutionResultEncryptedCodeExecutionResult EncryptedCodeExecutionResult = "encrypted_code_execution_result"`
 
         - `ToolUseID string`
 
         - `Type CodeExecutionToolResult`
-
           - `const CodeExecutionToolResultCodeExecutionToolResult CodeExecutionToolResult = "code_execution_tool_result"`
 
       - `type BetaBashCodeExecutionToolResultBlock struct{…}`
-
         - `Content BetaBashCodeExecutionToolResultBlockContentUnion`
-
           - `type BetaBashCodeExecutionToolResultError struct{…}`
-
             - `ErrorCode BetaBashCodeExecutionToolResultErrorErrorCode`
-
               - `const BetaBashCodeExecutionToolResultErrorErrorCodeInvalidToolInput BetaBashCodeExecutionToolResultErrorErrorCode = "invalid_tool_input"`
 
               - `const BetaBashCodeExecutionToolResultErrorErrorCodeUnavailable BetaBashCodeExecutionToolResultErrorErrorCode = "unavailable"`
@@ -11812,17 +7873,13 @@ func main() {
               - `const BetaBashCodeExecutionToolResultErrorErrorCodeOutputFileTooLarge BetaBashCodeExecutionToolResultErrorErrorCode = "output_file_too_large"`
 
             - `Type BashCodeExecutionToolResultError`
-
               - `const BashCodeExecutionToolResultErrorBashCodeExecutionToolResultError BashCodeExecutionToolResultError = "bash_code_execution_tool_result_error"`
 
           - `type BetaBashCodeExecutionResultBlock struct{…}`
-
             - `Content []BetaBashCodeExecutionOutputBlock`
-
               - `FileID string`
 
               - `Type BashCodeExecutionOutput`
-
                 - `const BashCodeExecutionOutputBashCodeExecutionOutput BashCodeExecutionOutput = "bash_code_execution_output"`
 
             - `ReturnCode int64`
@@ -11832,23 +7889,17 @@ func main() {
             - `Stdout string`
 
             - `Type BashCodeExecutionResult`
-
               - `const BashCodeExecutionResultBashCodeExecutionResult BashCodeExecutionResult = "bash_code_execution_result"`
 
         - `ToolUseID string`
 
         - `Type BashCodeExecutionToolResult`
-
           - `const BashCodeExecutionToolResultBashCodeExecutionToolResult BashCodeExecutionToolResult = "bash_code_execution_tool_result"`
 
       - `type BetaTextEditorCodeExecutionToolResultBlock struct{…}`
-
         - `Content BetaTextEditorCodeExecutionToolResultBlockContentUnion`
-
           - `type BetaTextEditorCodeExecutionToolResultError struct{…}`
-
             - `ErrorCode BetaTextEditorCodeExecutionToolResultErrorErrorCode`
-
               - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeInvalidToolInput BetaTextEditorCodeExecutionToolResultErrorErrorCode = "invalid_tool_input"`
 
               - `const BetaTextEditorCodeExecutionToolResultErrorErrorCodeUnavailable BetaTextEditorCodeExecutionToolResultErrorErrorCode = "unavailable"`
@@ -11862,15 +7913,12 @@ func main() {
             - `ErrorMessage string`
 
             - `Type TextEditorCodeExecutionToolResultError`
-
               - `const TextEditorCodeExecutionToolResultErrorTextEditorCodeExecutionToolResultError TextEditorCodeExecutionToolResultError = "text_editor_code_execution_tool_result_error"`
 
           - `type BetaTextEditorCodeExecutionViewResultBlock struct{…}`
-
             - `Content string`
 
             - `FileType BetaTextEditorCodeExecutionViewResultBlockFileType`
-
               - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeText BetaTextEditorCodeExecutionViewResultBlockFileType = "text"`
 
               - `const BetaTextEditorCodeExecutionViewResultBlockFileTypeImage BetaTextEditorCodeExecutionViewResultBlockFileType = "image"`
@@ -11884,19 +7932,15 @@ func main() {
             - `TotalLines int64`
 
             - `Type TextEditorCodeExecutionViewResult`
-
               - `const TextEditorCodeExecutionViewResultTextEditorCodeExecutionViewResult TextEditorCodeExecutionViewResult = "text_editor_code_execution_view_result"`
 
           - `type BetaTextEditorCodeExecutionCreateResultBlock struct{…}`
-
             - `IsFileUpdate bool`
 
             - `Type TextEditorCodeExecutionCreateResult`
-
               - `const TextEditorCodeExecutionCreateResultTextEditorCodeExecutionCreateResult TextEditorCodeExecutionCreateResult = "text_editor_code_execution_create_result"`
 
           - `type BetaTextEditorCodeExecutionStrReplaceResultBlock struct{…}`
-
             - `Lines []string`
 
             - `NewLines int64`
@@ -11908,23 +7952,17 @@ func main() {
             - `OldStart int64`
 
             - `Type TextEditorCodeExecutionStrReplaceResult`
-
               - `const TextEditorCodeExecutionStrReplaceResultTextEditorCodeExecutionStrReplaceResult TextEditorCodeExecutionStrReplaceResult = "text_editor_code_execution_str_replace_result"`
 
         - `ToolUseID string`
 
         - `Type TextEditorCodeExecutionToolResult`
-
           - `const TextEditorCodeExecutionToolResultTextEditorCodeExecutionToolResult TextEditorCodeExecutionToolResult = "text_editor_code_execution_tool_result"`
 
       - `type BetaToolSearchToolResultBlock struct{…}`
-
         - `Content BetaToolSearchToolResultBlockContentUnion`
-
           - `type BetaToolSearchToolResultError struct{…}`
-
             - `ErrorCode BetaToolSearchToolResultErrorErrorCode`
-
               - `const BetaToolSearchToolResultErrorErrorCodeInvalidToolInput BetaToolSearchToolResultErrorErrorCode = "invalid_tool_input"`
 
               - `const BetaToolSearchToolResultErrorErrorCodeUnavailable BetaToolSearchToolResultErrorErrorCode = "unavailable"`
@@ -11936,31 +7974,24 @@ func main() {
             - `ErrorMessage string`
 
             - `Type ToolSearchToolResultError`
-
               - `const ToolSearchToolResultErrorToolSearchToolResultError ToolSearchToolResultError = "tool_search_tool_result_error"`
 
           - `type BetaToolSearchToolSearchResultBlock struct{…}`
-
             - `ToolReferences []BetaToolReferenceBlock`
-
               - `ToolName string`
 
               - `Type ToolReference`
-
                 - `const ToolReferenceToolReference ToolReference = "tool_reference"`
 
             - `Type ToolSearchToolSearchResult`
-
               - `const ToolSearchToolSearchResultToolSearchToolSearchResult ToolSearchToolSearchResult = "tool_search_tool_search_result"`
 
         - `ToolUseID string`
 
         - `Type ToolSearchToolResult`
-
           - `const ToolSearchToolResultToolSearchToolResult ToolSearchToolResult = "tool_search_tool_result"`
 
       - `type BetaMCPToolUseBlock struct{…}`
-
         - `ID string`
 
         - `Input map[string, any]`
@@ -11974,155 +8005,36 @@ func main() {
           The name of the MCP server
 
         - `Type MCPToolUse`
-
           - `const MCPToolUseMCPToolUse MCPToolUse = "mcp_tool_use"`
 
       - `type BetaMCPToolResultBlock struct{…}`
-
         - `Content BetaMCPToolResultBlockContentUnion`
-
           - `string`
 
           - `type BetaMCPToolResultBlockContentBetaMCPToolResultBlockContent []BetaTextBlock`
-
             - `Citations []BetaTextCitationUnion`
 
               Citations supporting the text block.
 
               The type of citation returned will depend on the type of document being cited. Citing a PDF results in `page_location`, plain text results in `char_location`, and content document results in `content_block_location`.
 
-              - `type BetaCitationCharLocation struct{…}`
-
-                - `CitedText string`
-
-                - `DocumentIndex int64`
-
-                - `DocumentTitle string`
-
-                - `EndCharIndex int64`
-
-                - `FileID string`
-
-                - `StartCharIndex int64`
-
-                - `Type CharLocation`
-
-                  - `const CharLocationCharLocation CharLocation = "char_location"`
-
-              - `type BetaCitationPageLocation struct{…}`
-
-                - `CitedText string`
-
-                - `DocumentIndex int64`
-
-                - `DocumentTitle string`
-
-                - `EndPageNumber int64`
-
-                - `FileID string`
-
-                - `StartPageNumber int64`
-
-                - `Type PageLocation`
-
-                  - `const PageLocationPageLocation PageLocation = "page_location"`
-
-              - `type BetaCitationContentBlockLocation struct{…}`
-
-                - `CitedText string`
-
-                  The full text of the cited block range, concatenated.
-
-                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                - `DocumentIndex int64`
-
-                - `DocumentTitle string`
-
-                - `EndBlockIndex int64`
-
-                  Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                - `FileID string`
-
-                - `StartBlockIndex int64`
-
-                  0-based index of the first cited block in the source's `content` array.
-
-                - `Type ContentBlockLocation`
-
-                  - `const ContentBlockLocationContentBlockLocation ContentBlockLocation = "content_block_location"`
-
-              - `type BetaCitationsWebSearchResultLocation struct{…}`
-
-                - `CitedText string`
-
-                - `EncryptedIndex string`
-
-                - `Title string`
-
-                - `Type WebSearchResultLocation`
-
-                  - `const WebSearchResultLocationWebSearchResultLocation WebSearchResultLocation = "web_search_result_location"`
-
-                - `URL string`
-
-              - `type BetaCitationSearchResultLocation struct{…}`
-
-                - `CitedText string`
-
-                  The full text of the cited block range, concatenated.
-
-                  Always equals the contents of `content[start_block_index:end_block_index]` joined together. The text block is the minimal citable unit; this field is never a substring of a single block. Not counted toward output tokens, and not counted toward input tokens when sent back in subsequent turns.
-
-                - `EndBlockIndex int64`
-
-                  Exclusive 0-based end index of the cited block range in the source's `content` array.
-
-                  Always greater than `start_block_index`; a single-block citation has `end_block_index = start_block_index + 1`.
-
-                - `SearchResultIndex int64`
-
-                  0-based index of the cited search result among all `search_result` content blocks in the request, in the order they appear across messages and tool results.
-
-                  Counted separately from `document_index`; server-side web search results are not included in this count.
-
-                - `Source string`
-
-                - `StartBlockIndex int64`
-
-                  0-based index of the first cited block in the source's `content` array.
-
-                - `Title string`
-
-                - `Type SearchResultLocation`
-
-                  - `const SearchResultLocationSearchResultLocation SearchResultLocation = "search_result_location"`
-
             - `Text string`
 
             - `Type Text`
-
-              - `const TextText Text = "text"`
 
         - `IsError bool`
 
         - `ToolUseID string`
 
         - `Type MCPToolResult`
-
           - `const MCPToolResultMCPToolResult MCPToolResult = "mcp_tool_result"`
 
       - `type BetaContainerUploadBlock struct{…}`
 
         Response model for a file uploaded to the container.
-
         - `FileID string`
 
         - `Type ContainerUpload`
-
           - `const ContainerUploadContainerUpload ContainerUpload = "container_upload"`
 
       - `type BetaCompactionBlock struct{…}`
@@ -12132,7 +8044,6 @@ func main() {
         When content is None, it indicates the compaction failed to produce a valid
         summary (e.g., malformed output from the model). Clients may round-trip
         compaction blocks with null content; the server treats them as no-ops.
-
         - `Content string`
 
           Summary of compacted content, or null if compaction failed
@@ -12142,7 +8053,6 @@ func main() {
           Opaque metadata from prior compaction, to be round-tripped verbatim
 
         - `Type Compaction`
-
           - `const CompactionCompaction Compaction = "compaction"`
 
     - `ContextManagement BetaContextManagementResponse`
@@ -12150,13 +8060,10 @@ func main() {
       Context management response.
 
       Information about context management strategies applied during the request.
-
       - `AppliedEdits []BetaContextManagementResponseAppliedEditUnion`
 
         List of context management edits that were applied.
-
         - `type BetaClearToolUses20250919EditResponse struct{…}`
-
           - `ClearedInputTokens int64`
 
             Number of input tokens cleared by this edit.
@@ -12168,11 +8075,9 @@ func main() {
           - `Type ClearToolUses20250919`
 
             The type of context management edit applied.
-
             - `const ClearToolUses20250919ClearToolUses20250919 ClearToolUses20250919 = "clear_tool_uses_20250919"`
 
         - `type BetaClearThinking20251015EditResponse struct{…}`
-
           - `ClearedInputTokens int64`
 
             Number of input tokens cleared by this edit.
@@ -12184,20 +8089,68 @@ func main() {
           - `Type ClearThinking20251015`
 
             The type of context management edit applied.
-
             - `const ClearThinking20251015ClearThinking20251015 ClearThinking20251015 = "clear_thinking_20251015"`
+
+    - `Diagnostics BetaDiagnostics`
+
+      Response envelope for request-level diagnostics. Present (possibly
+      null) whenever the caller supplied `diagnostics` on the request.
+      - `CacheMissReason BetaDiagnosticsCacheMissReasonUnion`
+
+        Explains why the prompt cache could not fully reuse the prefix from the request identified by `diagnostics.previous_message_id`. `null` means diagnosis is still pending — the response was serialized before the background comparison completed.
+        - `type BetaCacheMissModelChanged struct{…}`
+          - `CacheMissedInputTokens int64`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `Type ModelChanged`
+            - `const ModelChangedModelChanged ModelChanged = "model_changed"`
+
+        - `type BetaCacheMissSystemChanged struct{…}`
+          - `CacheMissedInputTokens int64`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `Type SystemChanged`
+            - `const SystemChangedSystemChanged SystemChanged = "system_changed"`
+
+        - `type BetaCacheMissToolsChanged struct{…}`
+          - `CacheMissedInputTokens int64`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `Type ToolsChanged`
+            - `const ToolsChangedToolsChanged ToolsChanged = "tools_changed"`
+
+        - `type BetaCacheMissMessagesChanged struct{…}`
+          - `CacheMissedInputTokens int64`
+
+            Approximate number of input tokens that would have been read from cache had the prefix matched the previous request.
+
+          - `Type MessagesChanged`
+            - `const MessagesChangedMessagesChanged MessagesChanged = "messages_changed"`
+
+        - `type BetaCacheMissPreviousMessageNotFound struct{…}`
+          - `Type PreviousMessageNotFound`
+            - `const PreviousMessageNotFoundPreviousMessageNotFound PreviousMessageNotFound = "previous_message_not_found"`
+
+        - `type BetaCacheMissUnavailable struct{…}`
+          - `Type Unavailable`
+            - `const UnavailableUnavailable Unavailable = "unavailable"`
 
     - `Model Model`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
       - `type Model string`
 
         The model that will complete your prompt.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+          Frontier intelligence for long-running agents and coding
 
         - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
 
@@ -12274,19 +8227,16 @@ func main() {
       Conversational role of the generated message.
 
       This will always be `"assistant"`.
-
       - `const AssistantAssistant Assistant = "assistant"`
 
     - `StopDetails BetaRefusalStopDetails`
 
       Structured information about a refusal.
-
       - `Category BetaRefusalStopDetailsCategory`
 
         The policy category that triggered the refusal.
 
         `null` when the refusal doesn't map to a named category.
-
         - `const BetaRefusalStopDetailsCategoryCyber BetaRefusalStopDetailsCategory = "cyber"`
 
         - `const BetaRefusalStopDetailsCategoryBio BetaRefusalStopDetailsCategory = "bio"`
@@ -12298,7 +8248,6 @@ func main() {
         This text is not guaranteed to be stable. `null` when no explanation is available for the category.
 
       - `Type Refusal`
-
         - `const RefusalRefusal Refusal = "refusal"`
 
     - `StopReason BetaStopReason`
@@ -12306,16 +8255,14 @@ func main() {
       The reason that we stopped.
 
       This may be one the following values:
-
-      * `"end_turn"`: the model reached a natural stopping point
-      * `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
-      * `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
-      * `"tool_use"`: the model invoked one or more tools
-      * `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
-      * `"refusal"`: when streaming classifiers intervene to handle potential policy violations
+      - `"end_turn"`: the model reached a natural stopping point
+      - `"max_tokens"`: we exceeded the requested `max_tokens` or the model's maximum
+      - `"stop_sequence"`: one of your provided custom `stop_sequences` was generated
+      - `"tool_use"`: the model invoked one or more tools
+      - `"pause_turn"`: we paused a long-running turn. You may provide the response back as-is in a subsequent request to let the model continue.
+      - `"refusal"`: when streaming classifiers intervene to handle potential policy violations
 
       In non-streaming mode this value is always non-null. In streaming mode, it is null in the `message_start` event and non-null otherwise.
-
       - `const BetaStopReasonEndTurn BetaStopReason = "end_turn"`
 
       - `const BetaStopReasonMaxTokens BetaStopReason = "max_tokens"`
@@ -12343,7 +8290,6 @@ func main() {
       Object type.
 
       For Messages, this is always `"message"`.
-
       - `const MessageMessage Message = "message"`
 
     - `Usage BetaUsage`
@@ -12357,11 +8303,9 @@ func main() {
       For example, `output_tokens` will be non-zero, even for an empty string response from Claude.
 
       Total input tokens in a request is the summation of `input_tokens`, `cache_creation_input_tokens`, and `cache_read_input_tokens`.
-
       - `CacheCreation BetaCacheCreation`
 
         Breakdown of cached tokens by TTL
-
         - `Ephemeral1hInputTokens int64`
 
           The number of input tokens used to create the 1 hour cache entry.
@@ -12391,7 +8335,6 @@ func main() {
         Per-iteration token usage breakdown.
 
         Each entry represents one sampling iteration, with its own input/output token counts and cache statistics. This allows you to:
-
         - Determine which iterations exceeded long context thresholds (>=200k tokens)
         - Calculate the true context window size from the last iteration
         - Understand token accumulation across server-side tool use loops
@@ -12399,18 +8342,9 @@ func main() {
         - `type BetaMessageIterationUsage struct{…}`
 
           Token usage for a sampling iteration.
-
           - `CacheCreation BetaCacheCreation`
 
             Breakdown of cached tokens by TTL
-
-            - `Ephemeral1hInputTokens int64`
-
-              The number of input tokens used to create the 1 hour cache entry.
-
-            - `Ephemeral5mInputTokens int64`
-
-              The number of input tokens used to create the 5 minute cache entry.
 
           - `CacheCreationInputTokens int64`
 
@@ -12431,24 +8365,14 @@ func main() {
           - `Type Message`
 
             Usage for a sampling iteration
-
             - `const MessageMessage Message = "message"`
 
         - `type BetaCompactionIterationUsage struct{…}`
 
           Token usage for a compaction iteration.
-
           - `CacheCreation BetaCacheCreation`
 
             Breakdown of cached tokens by TTL
-
-            - `Ephemeral1hInputTokens int64`
-
-              The number of input tokens used to create the 1 hour cache entry.
-
-            - `Ephemeral5mInputTokens int64`
-
-              The number of input tokens used to create the 5 minute cache entry.
 
           - `CacheCreationInputTokens int64`
 
@@ -12469,24 +8393,14 @@ func main() {
           - `Type Compaction`
 
             Usage for a compaction iteration
-
             - `const CompactionCompaction Compaction = "compaction"`
 
         - `type BetaAdvisorMessageIterationUsage struct{…}`
 
           Token usage for an advisor sub-inference iteration.
-
           - `CacheCreation BetaCacheCreation`
 
             Breakdown of cached tokens by TTL
-
-            - `Ephemeral1hInputTokens int64`
-
-              The number of input tokens used to create the 1 hour cache entry.
-
-            - `Ephemeral5mInputTokens int64`
-
-              The number of input tokens used to create the 5 minute cache entry.
 
           - `CacheCreationInputTokens int64`
 
@@ -12506,82 +8420,6 @@ func main() {
 
             See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
 
-            - `type Model string`
-
-              The model that will complete your prompt.
-
-              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-              - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
-
-                Frontier intelligence for long-running agents and coding
-
-              - `const ModelClaudeMythosPreview Model = "claude-mythos-preview"`
-
-                New class of intelligence, strongest in coding and cybersecurity
-
-              - `const ModelClaudeOpus4_6 Model = "claude-opus-4-6"`
-
-                Frontier intelligence for long-running agents and coding
-
-              - `const ModelClaudeSonnet4_6 Model = "claude-sonnet-4-6"`
-
-                Best combination of speed and intelligence
-
-              - `const ModelClaudeHaiku4_5 Model = "claude-haiku-4-5"`
-
-                Fastest model with near-frontier intelligence
-
-              - `const ModelClaudeHaiku4_5_20251001 Model = "claude-haiku-4-5-20251001"`
-
-                Fastest model with near-frontier intelligence
-
-              - `const ModelClaudeOpus4_5 Model = "claude-opus-4-5"`
-
-                Premium model combining maximum intelligence with practical performance
-
-              - `const ModelClaudeOpus4_5_20251101 Model = "claude-opus-4-5-20251101"`
-
-                Premium model combining maximum intelligence with practical performance
-
-              - `const ModelClaudeSonnet4_5 Model = "claude-sonnet-4-5"`
-
-                High-performance model for agents and coding
-
-              - `const ModelClaudeSonnet4_5_20250929 Model = "claude-sonnet-4-5-20250929"`
-
-                High-performance model for agents and coding
-
-              - `const ModelClaudeOpus4_1 Model = "claude-opus-4-1"`
-
-                Exceptional model for specialized complex tasks
-
-              - `const ModelClaudeOpus4_1_20250805 Model = "claude-opus-4-1-20250805"`
-
-                Exceptional model for specialized complex tasks
-
-              - `const ModelClaudeOpus4_0 Model = "claude-opus-4-0"`
-
-                Powerful model for complex tasks
-
-              - `const ModelClaudeOpus4_20250514 Model = "claude-opus-4-20250514"`
-
-                Powerful model for complex tasks
-
-              - `const ModelClaudeSonnet4_0 Model = "claude-sonnet-4-0"`
-
-                High-performance model with extended thinking
-
-              - `const ModelClaudeSonnet4_20250514 Model = "claude-sonnet-4-20250514"`
-
-                High-performance model with extended thinking
-
-              - `const ModelClaude_3_Haiku_20240307 Model = "claude-3-haiku-20240307"`
-
-                Fast and cost-effective model
-
-            - `string`
-
           - `OutputTokens int64`
 
             The number of output tokens which were used.
@@ -12589,17 +8427,34 @@ func main() {
           - `Type AdvisorMessage`
 
             Usage for an advisor sub-inference iteration
-
             - `const AdvisorMessageAdvisorMessage AdvisorMessage = "advisor_message"`
 
       - `OutputTokens int64`
 
         The number of output tokens which were used.
 
+      - `OutputTokensDetails BetaUsageOutputTokensDetails`
+
+        Breakdown of output tokens by category.
+
+        `output_tokens` remains the inclusive, authoritative total used for billing.
+        This object provides a read-only decomposition for observability — for example,
+        how many of the billed output tokens were spent on internal reasoning that may
+        have been summarized before being returned to you.
+        - `ThinkingTokens int64`
+
+          Number of output tokens the model generated as internal reasoning, including
+          the thinking-block delimiter tokens.
+
+          Reflects the raw reasoning the model produced, not the (possibly shorter)
+          summarized thinking text returned in the response body. Computed by
+          re-tokenizing the raw reasoning text, so it may differ from the model's exact
+          generation count by a small number of tokens. Always ≤ `output_tokens`;
+          `output_tokens - thinking_tokens` approximates the non-reasoning output.
+
       - `ServerToolUse BetaServerToolUsage`
 
         The number of server tool requests.
-
         - `WebFetchRequests int64`
 
           The number of web fetch tool requests.
@@ -12611,7 +8466,6 @@ func main() {
       - `ServiceTier BetaUsageServiceTier`
 
         If the request used the priority, standard, or batch tier.
-
         - `const BetaUsageServiceTierStandard BetaUsageServiceTier = "standard"`
 
         - `const BetaUsageServiceTierPriority BetaUsageServiceTier = "priority"`
@@ -12621,11 +8475,9 @@ func main() {
       - `Speed BetaUsageSpeed`
 
         The inference speed mode used for this request.
-
         - `const BetaUsageSpeedStandard BetaUsageSpeed = "standard"`
 
         - `const BetaUsageSpeedFast BetaUsageSpeed = "fast"`
 
   - `Type Succeeded`
-
     - `const SucceededSucceeded Succeeded = "succeeded"`

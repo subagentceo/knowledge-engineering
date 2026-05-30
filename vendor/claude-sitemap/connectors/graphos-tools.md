@@ -1,3 +1,5 @@
+# GraphOS MCP Tools
+
 Apollo GraphOS Tools is a hosted MCP server that gives AI coding agents direct access to Apollo's official documentation and the Apollo Connectors specification. It provides three tools: Docs Search lets agents query across Apollo's documentation to find relevant guides, examples, and best practices for GraphQL, GraphOS, schema design, and deployment. Docs Read retrieves the full Markdown content of any documentation page so agents can provide complete, detailed guidance. Connectors Spec gives agents access to the official Apollo Connectors specification for creating and modifying REST-to-GraphQL integrations.
 
 You can use GraphOS MCP Tools to:

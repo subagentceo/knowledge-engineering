@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -28,10 +29,10 @@ deployment. End users see the same interface regardless.
 
 All paths need:
 
-* Claude for Excel, PowerPoint, Word, or Outlook installed from
+- Claude for Excel, PowerPoint, Word, or Outlook installed from
   Microsoft AppSource or via admin deployment.
-* Microsoft 365 with Entra ID for admin consent and token issuance.
-* For Outlook: Microsoft Graph admin consent for `Mail.ReadWrite`,
+- Microsoft 365 with Entra ID for admin consent and token issuance.
+- For Outlook: Microsoft Graph admin consent for `Mail.ReadWrite`,
   `Calendars.Read`, `User.Read`, and `offline_access`, granted via
   Anthropic's app or your own Entra app registration.
 
@@ -131,13 +132,13 @@ Then, from inside Claude, run the setup wizard:
 
 The wizard walks you through the path you chose:
 
-* **LLM gateway**: collects the gateway URL and token, determines the
+- **LLM gateway**: collects the gateway URL and token, determines the
   API format, generates the manifest, handles Azure admin consent.
-* **Bedrock direct**: creates the IAM OIDC identity provider and role,
+- **Bedrock direct**: creates the IAM OIDC identity provider and role,
   generates the manifest, handles Azure admin consent.
-* **Vertex AI direct**: walks through Google OAuth client creation,
+- **Vertex AI direct**: walks through Google OAuth client creation,
   generates the manifest, handles Azure admin consent.
-* **Foundry direct**: captures `azure_resource_name` and
+- **Foundry direct**: captures `azure_resource_name` and
   `azure_api_key`, then generates the manifest.
 
 When complete, the add-in is ready for tenant-wide deployment.

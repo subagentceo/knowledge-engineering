@@ -1,4 +1,4 @@
-## Update
+## Update Credential
 
 **post** `/v1/vaults/{vault_id}/credentials/{credential_id}`
 
@@ -15,11 +15,9 @@ Update Credential
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -68,18 +66,21 @@ Update Credential
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Body Parameters
 
 - `auth: optional BetaManagedAgentsMCPOAuthUpdateParams or BetaManagedAgentsStaticBearerUpdateParams`
 
   Updated authentication details for a credential.
-
-  - `BetaManagedAgentsMCPOAuthUpdateParams = object { type, access_token, expires_at, refresh }`
+  - `BetaManagedAgentsMCPOAuthUpdateParams object { type, access_token, expires_at, refresh }`
 
     Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
-
     - `type: "mcp_oauth"`
-
       - `"mcp_oauth"`
 
     - `access_token: optional string`
@@ -93,7 +94,6 @@ Update Credential
     - `refresh: optional BetaManagedAgentsMCPOAuthRefreshUpdateParams`
 
       Parameters for updating OAuth refresh token configuration.
-
       - `refresh_token: optional string`
 
         Updated OAuth refresh token.
@@ -105,37 +105,30 @@ Update Credential
       - `token_endpoint_auth: optional BetaManagedAgentsTokenEndpointAuthBasicUpdateParam or BetaManagedAgentsTokenEndpointAuthPostUpdateParam`
 
         Updated HTTP Basic authentication parameters for the token endpoint.
-
-        - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam = object { type, client_secret }`
+        - `BetaManagedAgentsTokenEndpointAuthBasicUpdateParam object { type, client_secret }`
 
           Updated HTTP Basic authentication parameters for the token endpoint.
-
           - `type: "client_secret_basic"`
-
             - `"client_secret_basic"`
 
           - `client_secret: optional string`
 
             Updated OAuth client secret.
 
-        - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam = object { type, client_secret }`
+        - `BetaManagedAgentsTokenEndpointAuthPostUpdateParam object { type, client_secret }`
 
           Updated POST body authentication parameters for the token endpoint.
-
           - `type: "client_secret_post"`
-
             - `"client_secret_post"`
 
           - `client_secret: optional string`
 
             Updated OAuth client secret.
 
-  - `BetaManagedAgentsStaticBearerUpdateParams = object { type, token }`
+  - `BetaManagedAgentsStaticBearerUpdateParams object { type, token }`
 
     Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
-
     - `type: "static_bearer"`
-
       - `"static_bearer"`
 
     - `token: optional string`
@@ -152,10 +145,9 @@ Update Credential
 
 ### Returns
 
-- `BetaManagedAgentsCredential = object { id, archived_at, auth, 6 more }`
+- `BetaManagedAgentsCredential object { id, archived_at, auth, 6 more }`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `id: string`
 
     Unique identifier for the credential.
@@ -167,17 +159,14 @@ Update Credential
   - `auth: BetaManagedAgentsMCPOAuthAuthResponse or BetaManagedAgentsStaticBearerAuthResponse`
 
     Authentication details for a credential.
-
-    - `BetaManagedAgentsMCPOAuthAuthResponse = object { mcp_server_url, type, expires_at, refresh }`
+    - `BetaManagedAgentsMCPOAuthAuthResponse object { mcp_server_url, type, expires_at, refresh }`
 
       OAuth credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "mcp_oauth"`
-
         - `"mcp_oauth"`
 
       - `expires_at: optional string`
@@ -187,7 +176,6 @@ Update Credential
       - `refresh: optional BetaManagedAgentsMCPOAuthRefreshResponse`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `client_id: string`
 
           OAuth client ID.
@@ -199,29 +187,22 @@ Update Credential
         - `token_endpoint_auth: BetaManagedAgentsTokenEndpointAuthNoneResponse or BetaManagedAgentsTokenEndpointAuthBasicResponse or BetaManagedAgentsTokenEndpointAuthPostResponse`
 
           Token endpoint requires no client authentication.
-
-          - `BetaManagedAgentsTokenEndpointAuthNoneResponse = object { type }`
+          - `BetaManagedAgentsTokenEndpointAuthNoneResponse object { type }`
 
             Token endpoint requires no client authentication.
-
             - `type: "none"`
-
               - `"none"`
 
-          - `BetaManagedAgentsTokenEndpointAuthBasicResponse = object { type }`
+          - `BetaManagedAgentsTokenEndpointAuthBasicResponse object { type }`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `type: "client_secret_basic"`
-
               - `"client_secret_basic"`
 
-          - `BetaManagedAgentsTokenEndpointAuthPostResponse = object { type }`
+          - `BetaManagedAgentsTokenEndpointAuthPostResponse object { type }`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `type: "client_secret_post"`
-
               - `"client_secret_post"`
 
         - `resource: optional string`
@@ -232,16 +213,14 @@ Update Credential
 
           OAuth scope for the refresh request.
 
-    - `BetaManagedAgentsStaticBearerAuthResponse = object { mcp_server_url, type }`
+    - `BetaManagedAgentsStaticBearerAuthResponse object { mcp_server_url, type }`
 
       Static bearer token credential details for an MCP server.
-
       - `mcp_server_url: string`
 
         URL of the MCP server this credential authenticates against.
 
       - `type: "static_bearer"`
-
         - `"static_bearer"`
 
   - `created_at: string`
@@ -253,7 +232,6 @@ Update Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `type: "vault_credential"`
-
     - `"vault_credential"`
 
   - `updated_at: string`
@@ -282,4 +260,25 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID/credentials/$CREDENTIAL_ID \
             "environment": "production"
           }
         }'
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
 ```

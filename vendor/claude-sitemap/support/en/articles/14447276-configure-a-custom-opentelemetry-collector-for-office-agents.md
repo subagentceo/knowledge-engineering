@@ -26,10 +26,10 @@ Setup differs depending on how your organization authenticates with Claude.
 
 An organization administrator sets the collector endpoint in the Claude.ai admin console under **[Organization settings > Office agents](https://claude.ai/admin-settings/office-agents)**. The setting applies organization-wide.
 
-| **Setting** | **Description** |
-| --- | --- |
-| `otlp_endpoint` | Base URL of your OTLP collector. The add-in appends /v1/traces. HTTPS strongly recommended. |
-| `otlp_headers` | Optional authentication headers, formatted per the OpenTelemetry spec: key1=value1,key2=value2 |
+| **Setting**     | **Description**                                                                                |
+| --------------- | ---------------------------------------------------------------------------------------------- |
+| `otlp_endpoint` | Base URL of your OTLP collector. The add-in appends /v1/traces. HTTPS strongly recommended.    |
+| `otlp_headers`  | Optional authentication headers, formatted per the OpenTelemetry spec: key1=value1,key2=value2 |
 
 The protocol must be HTTP-based OTLP. gRPC is rejected at configuration time.
 
@@ -39,10 +39,10 @@ For deployments that authenticate against your own model provider rather than Cl
 
 **Recommended:** Use the **[claude-in-office plugin](https://github.com/anthropics/financial-services-plugins/tree/main/claude-in-office)** for Claude Code. It walks you through generating the manifest, registering Entra extension attributes, and standing up a bootstrap endpoint with `otlp_endpoint` and `otlp_headers` pre-wired. The three channels below are documented for reference and manual setup.
 
-| **Key** | **Format** | **Description** |
-| --- | --- | --- |
-| `otlp_endpoint` | HTTPS URL | Base URL of your OTLP collector. The add-in strips any trailing slash and appends /v1/traces. |
-| `otlp_headers` | key1=value1,key2=value2 | Optional authentication headers. Same format as the OpenTelemetry OTEL_EXPORTER_OTLP_HEADERS environment variable. |
+| **Key**         | **Format**              | **Description**                                                                                                    |
+| --------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `otlp_endpoint` | HTTPS URL               | Base URL of your OTLP collector. The add-in strips any trailing slash and appends /v1/traces.                      |
+| `otlp_headers`  | key1=value1,key2=value2 | Optional authentication headers. Same format as the OpenTelemetry OTEL_EXPORTER_OTLP_HEADERS environment variable. |
 
 If `otlp_endpoint` is unset or empty, no custom collector is configured and the add-in falls back to default behavior.
 
@@ -62,10 +62,10 @@ For per-user configuration, register the keys as Entra ID directory extension at
 
 The claim names in the issued ID token follow Azure's directory extension format:
 
-| **Claim** | **Maps to** |
-| --- | --- |
+| **Claim**            | **Maps to**   |
+| -------------------- | ------------- |
 | `extn.otlp_endpoint` | otlp_endpoint |
-| `extn.otlp_headers` | otlp_headers |
+| `extn.otlp_headers`  | otlp_headers  |
 
 Set these per-user with a Graph PATCH against the user object. Azure encodes directory extension values as single-element arrays in the ID token; the add-in unwraps them automatically. This channel requires `entra_sso=1` in the manifest URL parameters to enable NAA token acquisition.
 
@@ -79,6 +79,7 @@ If your deployment uses a bootstrap endpoint (a JSON endpoint your organization 
   "otlp_headers": "Authorization=Bearer <token>"
 }
 ```
+
 The bootstrap endpoint URL itself is configured via `bootstrap_url` in either the manifest URL parameters or an Entra `extn.bootstrap_url` claim. If an Entra ID token was acquired, it is passed to the bootstrap endpoint as a Bearer authorization header so your endpoint can authenticate the user before returning per-user configuration.
 
 **Precedence**
@@ -103,10 +104,10 @@ The core audit payload is identical in both modes. Direct provider deployments l
 
 Every span includes two labels identifying which Office application and platform generated it. Use these as your primary dimensions for filtering and dashboards.
 
-| **Label** | **Values** |
-| --- | --- |
+| **Label**       | **Values**                                                    |
+| --------------- | ------------------------------------------------------------- |
 | `agent.surface` | sheet (Excel), doc (Word), slide (PowerPoint), mail (Outlook) |
-| `agent.vendor` | m (Microsoft) |
+| `agent.vendor`  | m (Microsoft)                                                 |
 
 ---
 
@@ -122,62 +123,62 @@ For direct provider deployments, user identity should be correlated via `session
 
 These attributes appear on every span:
 
-| **Attribute** | **Description** |
-| --- | --- |
-| `service.name` | Fixed value: office-agent |
-| `service.version` | Fixed value: 1.0.0 |
-| `git.sha` | Build commit identifier |
+| **Attribute**     | **Description**           |
+| ----------------- | ------------------------- |
+| `service.name`    | Fixed value: office-agent |
+| `service.version` | Fixed value: 1.0.0        |
+| `git.sha`         | Build commit identifier   |
 
 ### agent.query (root span)
 
 One span per user turn. This is the root of the span tree and carries session identity, document context, and MCP server status. SpanKind: INTERNAL.
 
-| **Attribute** | **Description** |
-| --- | --- |
-| `agent.surface` | sheet \| doc \| slide \| mail |
-| `agent.vendor` | m |
-| `user.message [content]` | The user's prompt (first 4000 characters) |
-| `session.id` | Opaque session identifier |
-| `user.email [claude.ai-only]` | User's email address |
-| `user.bucket [claude.ai-only]` | Deterministic hash bucket (SHA-256 of email, mod 30) |
-| `user.account_uuid [claude.ai-only]` | Claude account UUID |
-| `document.url [content]` | URL of the open Office document |
-| `organization.id [claude.ai-only]` | Claude organization UUID |
-| `org.rate_limit_tier [claude.ai-only]` | Claude subscription tier |
-| `org.type [claude.ai-only]` | Claude organization type |
-| `agent.selected_model` | Model selected by the user for this session |
-| `office.platform` | PC \| Mac \| OfficeOnline \| iOS \| Android \| Universal |
-| `office.version` | Office build number |
-| `mcp.configured_count [claude.ai-only]` | Number of MCP servers configured |
-| `mcp.connected_count [claude.ai-only]` | Number of MCP servers successfully connected |
-| `mcp.failed_count [claude.ai-only]` | Number of MCP servers that failed to connect |
-| `mcp.fetch_status [claude.ai-only]` | success \| error \| timeout \| no_auth \| not_attempted |
-| `mcp.fetch_duration_ms [claude.ai-only]` | MCP registry fetch duration |
-| `mcp.fetch_http_status [claude.ai-only]` | MCP registry fetch HTTP status code |
-| `mcp.servers [content] [claude.ai-only]` | Serialized MCP server details (names, tool counts, error messages) |
-| `file.upload.count [claude.ai-only]` | Number of files attached to this turn |
-| `file.upload.total_bytes [claude.ai-only]` | Total bytes uploaded |
-| `file.upload.image_count [claude.ai-only]` | Number of image attachments |
-| `file.upload.document_count [claude.ai-only]` | Number of document attachments |
-| `file.upload.other_count [claude.ai-only]` | Number of other attachments |
-| `error.name` | Exception class name (present on failure) |
-| `agent.query_phase` | Phase at which the query failed (present on failure) |
+| **Attribute**                                 | **Description**                                                    |
+| --------------------------------------------- | ------------------------------------------------------------------ |
+| `agent.surface`                               | sheet \| doc \| slide \| mail                                      |
+| `agent.vendor`                                | m                                                                  |
+| `user.message [content]`                      | The user's prompt (first 4000 characters)                          |
+| `session.id`                                  | Opaque session identifier                                          |
+| `user.email [claude.ai-only]`                 | User's email address                                               |
+| `user.bucket [claude.ai-only]`                | Deterministic hash bucket (SHA-256 of email, mod 30)               |
+| `user.account_uuid [claude.ai-only]`          | Claude account UUID                                                |
+| `document.url [content]`                      | URL of the open Office document                                    |
+| `organization.id [claude.ai-only]`            | Claude organization UUID                                           |
+| `org.rate_limit_tier [claude.ai-only]`        | Claude subscription tier                                           |
+| `org.type [claude.ai-only]`                   | Claude organization type                                           |
+| `agent.selected_model`                        | Model selected by the user for this session                        |
+| `office.platform`                             | PC \| Mac \| OfficeOnline \| iOS \| Android \| Universal           |
+| `office.version`                              | Office build number                                                |
+| `mcp.configured_count [claude.ai-only]`       | Number of MCP servers configured                                   |
+| `mcp.connected_count [claude.ai-only]`        | Number of MCP servers successfully connected                       |
+| `mcp.failed_count [claude.ai-only]`           | Number of MCP servers that failed to connect                       |
+| `mcp.fetch_status [claude.ai-only]`           | success \| error \| timeout \| no_auth \| not_attempted            |
+| `mcp.fetch_duration_ms [claude.ai-only]`      | MCP registry fetch duration                                        |
+| `mcp.fetch_http_status [claude.ai-only]`      | MCP registry fetch HTTP status code                                |
+| `mcp.servers [content] [claude.ai-only]`      | Serialized MCP server details (names, tool counts, error messages) |
+| `file.upload.count [claude.ai-only]`          | Number of files attached to this turn                              |
+| `file.upload.total_bytes [claude.ai-only]`    | Total bytes uploaded                                               |
+| `file.upload.image_count [claude.ai-only]`    | Number of image attachments                                        |
+| `file.upload.document_count [claude.ai-only]` | Number of document attachments                                     |
+| `file.upload.other_count [claude.ai-only]`    | Number of other attachments                                        |
+| `error.name`                                  | Exception class name (present on failure)                          |
+| `agent.query_phase`                           | Phase at which the query failed (present on failure)               |
 
 ### agent.stream
 
 One span per API call to Claude, as a child of the query span. SpanKind: CLIENT.
 
-| **Attribute** | **Description** |
-| --- | --- |
-| `model` | Model ID used for this call |
-| `max_tokens` | Maximum output tokens requested |
-| `agent.message_count` | Number of messages in the conversation at stream start |
-| `input_tokens` | Input tokens billed (from API response) |
-| `output_tokens` | Output tokens billed (from API response) |
-| `cache_read_tokens` | Tokens served from prompt cache |
-| `cache_creation_tokens` | Tokens written to prompt cache |
-| `stop_reason` | end_turn \| tool_use \| max_tokens \| etc. |
-| `request_id` | Anthropic API request-id header, usable for support correlation |
+| **Attribute**           | **Description**                                                 |
+| ----------------------- | --------------------------------------------------------------- |
+| `model`                 | Model ID used for this call                                     |
+| `max_tokens`            | Maximum output tokens requested                                 |
+| `agent.message_count`   | Number of messages in the conversation at stream start          |
+| `input_tokens`          | Input tokens billed (from API response)                         |
+| `output_tokens`         | Output tokens billed (from API response)                        |
+| `cache_read_tokens`     | Tokens served from prompt cache                                 |
+| `cache_creation_tokens` | Tokens written to prompt cache                                  |
+| `stop_reason`           | end_turn \| tool_use \| max_tokens \| etc.                      |
+| `request_id`            | Anthropic API request-id header, usable for support correlation |
 
 **Note on prompt caching:** The add-in requests prompt caching unconditionally. The `cache_read_tokens` and `cache_creation_tokens` attributes are set from the provider's API response and are omitted when the response doesn't include them. Prompt caching is available for Claude Platform; as of this writing, Amazon Bedrock and Google Vertex AI don't yet return these fields through the client the add-in uses. When support lands on your provider, these attributes will begin appearing automatically.
 
@@ -185,22 +186,22 @@ One span per API call to Claude, as a child of the query span. SpanKind: CLIENT.
 
 One span per tool call, as a child of the stream span. SpanKind: INTERNAL. This is the primary record of what actions the model took against the document.
 
-| **Attribute** | **Description** |
-| --- | --- |
-| `tool_name` | Tool identifier (e.g. get_cell_ranges, execute_office_js, edit_slide_xml) |
-| `tool.id` | Unique ID of this tool invocation |
-| `tool.caller` | server \| client |
-| `tool.owner` | first_party \| mcp \| server |
-| `tool.read_write` | read \| write \| read_write |
-| `tool.accept_decision` | manual \| auto_accept \| deferred |
-| `tool.input [content]` | Serialized tool input (first 4000 characters) |
-| `tool.success` | Boolean |
-| `tool.output [content]` | Serialized tool output (first 4000 characters) |
-| `tool.output_chars` | Full output length in characters (use to detect truncation) |
-| `tool.error_type` | Error classification (present on failure) |
-| `sheet.cells_read` | Cells read (sheet surface only) |
-| `sheet.cells_written` | Cells written (sheet surface only) |
-| `sheet.cells_copied` | Cells copied (sheet surface only) |
+| **Attribute**           | **Description**                                                           |
+| ----------------------- | ------------------------------------------------------------------------- |
+| `tool_name`             | Tool identifier (e.g. get_cell_ranges, execute_office_js, edit_slide_xml) |
+| `tool.id`               | Unique ID of this tool invocation                                         |
+| `tool.caller`           | server \| client                                                          |
+| `tool.owner`            | first_party \| mcp \| server                                              |
+| `tool.read_write`       | read \| write \| read_write                                               |
+| `tool.accept_decision`  | manual \| auto_accept \| deferred                                         |
+| `tool.input [content]`  | Serialized tool input (first 4000 characters)                             |
+| `tool.success`          | Boolean                                                                   |
+| `tool.output [content]` | Serialized tool output (first 4000 characters)                            |
+| `tool.output_chars`     | Full output length in characters (use to detect truncation)               |
+| `tool.error_type`       | Error classification (present on failure)                                 |
+| `sheet.cells_read`      | Cells read (sheet surface only)                                           |
+| `sheet.cells_written`   | Cells written (sheet surface only)                                        |
+| `sheet.cells_copied`    | Cells copied (sheet surface only)                                         |
 
 **Note:** The `tool.accept_decision` attribute records how the permission decision was made: `manual` (the user approved this specific action), `auto_accept` (the user had previously granted standing approval), or `deferred` (the action was queued for later review). Use this to audit approval patterns across your organization.
 
@@ -208,13 +209,13 @@ One span per tool call, as a child of the stream span. SpanKind: INTERNAL. This 
 
 One span per conversation auto-summarization, fired when context approaches the window limit. SpanKind: CLIENT.
 
-| **Attribute** | **Description** |
-| --- | --- |
-| `compaction.pre_tokens` | Token count before summarization |
-| `compaction.post_tokens` | Token count after summarization |
-| `compaction.tokens_saved` | Delta |
-| `compaction.success` | Boolean |
-| `compaction.trigger` | Currently always reactive |
+| **Attribute**             | **Description**                  |
+| ------------------------- | -------------------------------- |
+| `compaction.pre_tokens`   | Token count before summarization |
+| `compaction.post_tokens`  | Token count after summarization  |
+| `compaction.tokens_saved` | Delta                            |
+| `compaction.success`      | Boolean                          |
+| `compaction.trigger`      | Currently always reactive        |
 
 This span also carries `agent.surface`, `agent.vendor`, `session.id`, `user.email [claude.ai-only]`, `user.bucket [claude.ai-only]`, `office.platform`, and `office.version`, duplicated from the root span so you can query compaction events independently.
 
@@ -222,13 +223,13 @@ This span also carries `agent.surface`, `agent.vendor`, `session.id`, `user.emai
 
 One span per individual file upload, as a child of the query span. SpanKind: CLIENT. This span type only appears when users sign in with a Claude.ai account. File upload isn't available on direct provider deployments.
 
-| **Attribute** | **Description** |
-| --- | --- |
-| `file.upload.filename [content]` | Original filename |
-| `file.upload.size_bytes` | File size |
-| `file.upload.mime_type` | MIME type |
-| `file.upload.file_id` | Anthropic Files API identifier |
-| `file.upload.success` | Boolean |
+| **Attribute**                    | **Description**                |
+| -------------------------------- | ------------------------------ |
+| `file.upload.filename [content]` | Original filename              |
+| `file.upload.size_bytes`         | File size                      |
+| `file.upload.mime_type`          | MIME type                      |
+| `file.upload.file_id`            | Anthropic Files API identifier |
+| `file.upload.success`            | Boolean                        |
 
 ---
 

@@ -308,10 +308,6 @@ While we continue to develop our offerings and improve safety measures to reduce
 
 ## Frequently asked questions
 
-### Which models are available when using Claude for PowerPoint?
-
-You can switch between Opus 4.7, Opus 4.6, and Sonnet 4.6 when using Claude for PowerPoint.
-
 ### Does Claude understand my template?
 
 Yes. Claude reads the slide master, layouts, fonts, and color scheme in your deck and uses them when generating or editing slides. It aims to maintain template compliance, though you should always review output for complex templates.

@@ -1,3 +1,5 @@
+# Pigment
+
 Analyze data from your Pigment workspace without leaving Claude. Query metrics, surface insights, generate forecasts, and create reports. All requests respect your existing permissions and access controls. Ideal for finance teams, analysts, and planners who need quick insights from their planning data to make informed decisions.
 
 You can use Pigment to:

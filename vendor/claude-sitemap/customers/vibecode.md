@@ -1,25 +1,26 @@
-[**Vibecode**](http://vibecodeapp.com) is a platform that teaches people how to design, build, and publish production-ready apps entirely from their phone through natural conversation with Claude, without writing a single line of code.
+# Vibecode accelerates mobile app development with Claude
+
+**Vibecode** is a platform that teaches people how to design, build, and publish production-ready apps entirely from their phone through natural conversation with Claude, without writing a single line of code.
 
 ## With Claude, Vibecode:
 
--   Created the first mobile-native app builder, eliminating the need for computers or coding knowledge
--   Reduced average app development cost from $50,000 to $100
--   Compressed app development timelines from months to under one hour
--   Enabled software development 100% via mobile app—no desktop required
+- Created the first mobile-native app builder, eliminating the need for computers or coding knowledge
+- Reduced average app development cost from $50,000 to $100
+- Compressed app development timelines from months to under one hour
+- Enabled software development 100% via mobile app—no desktop required
 
 ## The challenge
 
 The vast majority of people have never written a line of code. Mobile development is even more specialized. Traditional mobile apps require significant investment—$10,000 to $50,000 or more—and months of work with development teams, making custom software unrealistic for many small business owners, creators, and entrepreneurs.
 
-Vibecode's mission is to change that and democratize mobile app development by meeting users where they already are. "Most SMB owners run their business on their phone,” said Riley Brown, Vibecode co-founder and an early adopter of vibecoding. “It's most convenient for them to build apps on their phone." CEO and co-founder Ansh Nanda added: "For humans, 80% of their attention is on mobile. Building for mobile was obvious."  
-  
+Vibecode's mission is to change that and democratize mobile app development by meeting users where they already are. "Most SMB owners run their business on their phone,” said Riley Brown, Vibecode co-founder and an early adopter of vibecoding. “It's most convenient for them to build apps on their phone." CEO and co-founder Ansh Nanda added: "For humans, 80% of their attention is on mobile. Building for mobile was obvious."
 
 ## Selecting Claude as the engine for mobile app creation
 
 Vibecode's journey with Anthropic began when the founding team observed early Claude models (Sonnet 3.5 through 3.7) generating high-quality web applications. If Claude could build for the web, they reasoned, it should be able to build for mobile too.
 
-The team needed a model that could reliably produce clean React Native code, handle complex backend systems, and orchestrate multi-file projects—all while maintaining consistency on mobile devices. Claude's capabilities in code generation, multi-file reasoning, tool use, and agentic workflows made it the choice for production-quality mobile app development.   
-  
+The team needed a model that could reliably produce clean React Native code, handle complex backend systems, and orchestrate multi-file projects—all while maintaining consistency on mobile devices. Claude's capabilities in code generation, multi-file reasoning, tool use, and agentic workflows made it the choice for production-quality mobile app development. 
+
 After evaluating other leading AI models, the choice was clear. "Claude has consistently been the best AI model that we've used,” Brown said. “It's not really close. Claude has always been the best for us, and we use it as the default model within the Vibecode app. Without it, people wouldn't be able to build apps directly on their phone."
 
 ## Vibecode uses Claude to power end-to-end app creation
@@ -36,7 +37,7 @@ Users have built wellness apps, internal business tools, AI-powered applications
 
 The platform has also cultivated a community where users share their creations, learn from each other, and push the boundaries of what's possible with mobile-native development.
 
-Looking ahead, [Claude Managed Agents](https://claude.com/blog/claude-managed-agents) further accelerates Vibecode’s accessibility. "Before Claude Managed Agents, users would have to manually run LLMs in sandboxes, manage their lifecycle, equip them with appropriate tools, and oversee their execution — a process that could take weeks or months to set up," Nanda said. "Now, with a few lines of code, users can spin up that same infrastructure at least 10x quicker than before." He expects the shift to drive a new wave of AI-native applications built by developers and vibe coders alike.
+Looking ahead, Claude Managed Agents further accelerates Vibecode’s accessibility. "Before Claude Managed Agents, users would have to manually run LLMs in sandboxes, manage their lifecycle, equip them with appropriate tools, and oversee their execution — a process that could take weeks or months to set up," Nanda said. "Now, with a few lines of code, users can spin up that same infrastructure at least 10x quicker than before." He expects the shift to drive a new wave of AI-native applications built by developers and vibe coders alike.
 
 Vibecode is also enabling users to create agentic apps with Claude Agent SDK — applications with AI capabilities built directly into them. "We don't want people to just be able to build apps with AI," Nanda said. "We want people to push the edges of possibility and actually create agentic apps. We believe vibe coders will be pushing the boundary with what is possible, not just creating simple applications."
 

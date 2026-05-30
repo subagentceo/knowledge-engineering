@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -16,10 +17,10 @@ You'll need a GitHub repository to [get started](#connect-github-and-create-an-e
 
 Claude Code on the web works well for:
 
-* **Parallel tasks**: run several independent tasks at once, each in its own session and branch, without managing multiple worktrees
-* **Repos you don't have locally**: Claude clones the repo fresh every session, so you don't need it checked out
-* **Tasks that don't need frequent steering**: submit a well-defined task, do something else, and review the result when Claude is done
-* **Code questions and exploration**: understand a codebase or trace how a feature is implemented without a local checkout
+- **Parallel tasks**: run several independent tasks at once, each in its own session and branch, without managing multiple worktrees
+- **Repos you don't have locally**: Claude clones the repo fresh every session, so you don't need it checked out
+- **Tasks that don't need frequent steering**: submit a well-defined task, do something else, and review the result when Claude is done
+- **Code questions and exploration**: understand a codebase or trace how a feature is implemented without a local checkout
 
 For work that needs your local config, tools, or environment, running Claude Code locally or using [Remote Control](/en/remote-control) is a better fit.
 
@@ -74,6 +75,7 @@ Setup is a one-time process. If you already use the GitHub CLI, you can [do this
     * **Setup script**: an optional Bash script that runs before Claude Code launches. Use it to install system tools the cloud VM doesn't include, like `apt install -y gh`. The result is [cached](/en/claude-code-on-the-web#environment-caching), so the script doesn't re-run on every session. See [Setup scripts](/en/claude-code-on-the-web#setup-scripts) for examples and debugging tips.
 
     For a first project, leave the defaults and click **Create environment**. You can [edit it later or create additional environments](/en/claude-code-on-the-web#configure-your-environment) for different projects.
+
   </Step>
 </Steps>
 
@@ -92,6 +94,7 @@ If you already use the GitHub CLI (`gh`), you can set up Claude Code on the web 
     ```bash theme={null}
     gh auth login
     ```
+
   </Step>
 
   <Step title="Sign in to Claude">
@@ -106,6 +109,7 @@ If you already use the GitHub CLI (`gh`), you can set up Claude Code on the web 
     ```
 
     This syncs your `gh` token to your Claude account. If you don't have a cloud environment yet, `/web-setup` creates one with Trusted network access and no setup script. You can [edit the environment or add variables](/en/claude-code-on-the-web#configure-your-environment) afterward. Once `/web-setup` completes, you can start cloud sessions from your terminal with [`--remote`](/en/claude-code-on-the-web#from-terminal-to-web) or set up recurring tasks with [`/schedule`](/en/routines).
+
   </Step>
 </Steps>
 
@@ -130,6 +134,7 @@ With GitHub connected and an environment created, you're ready to submit tasks.
     * Describe the expected behavior, not just the symptom
 
     Claude clones the repositories, runs your setup script if configured, and starts working. Each task gets its own session and its own branch, so you don't need to wait for one to finish before starting another.
+
   </Step>
 </Steps>
 
@@ -176,7 +181,7 @@ When Claude finishes, review the changes, leave feedback on specific lines, and 
 
 ### No repositories appear after connecting GitHub
 
-The Claude GitHub App needs explicit access to each repository you want to use. On github.com, open **Settings → Applications → Claude → Configure** and verify your repo is listed under **Repository access**. Private repositories need the same authorization as public ones.
+A cloud session can use any repository the connected GitHub account can see, regardless of which repositories the Claude GitHub App is installed on. If a repository is missing, verify the connected GitHub account has access to it on GitHub. If you also want [Auto-fix](/en/claude-code-on-the-web#auto-fix-pull-requests) for a repository, install the App on it: on github.com, open **Settings → Applications → Claude → Configure** and verify the repository is listed under **Repository access**. Private repositories need the same authorization as public ones.
 
 ### The page only shows a GitHub login button
 
@@ -194,15 +199,15 @@ If you typed it inside Claude Code and still see the error, your CLI is older th
 
 ### "Could not create a cloud environment" or "No cloud environment available" when using `--remote` or ultraplan
 
-Remote-session features create a default cloud environment automatically if you don't have one. If you see "Could not create a cloud environment", automatic creation failed. {/* max-version: 2.1.100 */}If you see "No cloud environment available", your CLI predates automatic creation. In either case, run `/web-setup` in the Claude Code CLI to create one manually, or visit [claude.ai/code](https://claude.ai/code) and follow the **Create your environment** step above.
+Remote-session features create a default cloud environment automatically if you don't have one. If you see "Could not create a cloud environment", automatic creation failed. {/_ max-version: 2.1.100 _/}If you see "No cloud environment available", your CLI predates automatic creation. In either case, run `/web-setup` in the Claude Code CLI to create one manually, or visit [claude.ai/code](https://claude.ai/code) and follow the **Create your environment** step above.
 
 ### Setup script failed
 
 The setup script exited with a non-zero status, which blocks the session from starting. Common causes:
 
-* A package install failed because the registry isn't in your [network access level](/en/claude-code-on-the-web#access-levels). `Trusted` covers most package managers; `None` blocks them all.
-* The script references a file or path that doesn't exist in a fresh clone.
-* A command that works locally needs a different invocation on Ubuntu.
+- A package install failed because the registry isn't in your [network access level](/en/claude-code-on-the-web#access-levels). `Trusted` covers most package managers; `None` blocks them all.
+- The script references a file or path that doesn't exist in a fresh clone.
+- A command that works locally needs a different invocation on Ubuntu.
 
 To debug, add `set -x` at the top of the script to see which command failed. For non-critical commands, append `|| true` so they don't block session start.
 
@@ -212,9 +217,9 @@ If new sessions stall on the setup script step or fail with a generic container 
 
 To fix this, trim the script so it reliably finishes in under five minutes:
 
-* Run independent installs in parallel with `&` and a final `wait` instead of running them serially.
-* Move the largest downloads out of the setup script and into a [SessionStart hook](/en/claude-code-on-the-web#setup-scripts-vs-sessionstart-hooks) that launches them in the background, so the session becomes usable while they finish.
-* Remove long retry sleeps from the setup script, since a stalled retry loop counts against the budget.
+- Run independent installs in parallel with `&` and a final `wait` instead of running them serially.
+- Move the largest downloads out of the setup script and into a [SessionStart hook](/en/claude-code-on-the-web#setup-scripts-vs-sessionstart-hooks) that launches them in the background, so the session becomes usable while they finish.
+- Remove long retry sleeps from the setup script, since a stalled retry loop counts against the budget.
 
 ### Session keeps running after closing the tab
 
@@ -224,7 +229,7 @@ This is by design. Closing the tab or navigating away doesn't stop the session. 
 
 Now that you can submit and review tasks, these pages cover what comes next: starting cloud sessions from your terminal, scheduling recurring work, and giving Claude standing instructions.
 
-* [Use Claude Code on the web](/en/claude-code-on-the-web): the full reference, including teleporting sessions to your terminal, setup scripts, environment variables, and network config
-* [Routines](/en/routines): automate work on a schedule, via API call, or in response to GitHub events
-* [CLAUDE.md](/en/memory): give Claude persistent instructions and context that load at the start of every session
-* Install the Claude mobile app for [iOS](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684) or [Android](https://play.google.com/store/apps/details?id=com.anthropic.claude) to monitor sessions from your phone. From the Claude Code CLI, `/mobile` shows a QR code.
+- [Use Claude Code on the web](/en/claude-code-on-the-web): the full reference, including teleporting sessions to your terminal, setup scripts, environment variables, and network config
+- [Routines](/en/routines): automate work on a schedule, via API call, or in response to GitHub events
+- [CLAUDE.md](/en/memory): give Claude persistent instructions and context that load at the start of every session
+- Install the Claude mobile app for [iOS](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684) or [Android](https://play.google.com/store/apps/details?id=com.anthropic.claude) to monitor sessions from your phone. From the Claude Code CLI, `/mobile` shows a QR code.

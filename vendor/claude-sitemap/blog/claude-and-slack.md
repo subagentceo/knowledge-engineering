@@ -1,3 +1,5 @@
+# Claude and Slack
+
 **_Update:_** _The Slack connector is now available for Claude Pro and Max subscribers. (January 26, 2026)_
 
 We're introducing two ways to use Claude with Slack. Add Claude directly to your Slack workspace, or connect Slack to the Claude apps so Claude can search and reference relevant Slack messages during conversations.
@@ -12,9 +14,9 @@ Claude only searches public and private Slack channels you have access to. When 
 
 There are three ways to use Claude in Slack:
 
--   **Direct messages**: Start a private conversation with @Claude for one-on-one assistance with research, writing, or analysis.
--   **AI assistant panel**: Click the Claude icon in Slack's AI assistant header from any channel to access Claude without interrupting ongoing conversations.
--   **Thread participation**: Add Claude to any thread by mentioning @Claude. Claude will draft a response based on the conversation context, which you can review before sharing.
+- **Direct messages**: Start a private conversation with @Claude for one-on-one assistance with research, writing, or analysis.
+- **AI assistant panel**: Click the Claude icon in Slack's AI assistant header from any channel to access Claude without interrupting ongoing conversations.
+- **Thread participation**: Add Claude to any thread by mentioning @Claude. Claude will draft a response based on the conversation context, which you can review before sharing.
 
 ### Connecting Slack to Claude
 
@@ -22,10 +24,10 @@ When you connect Slack to Claude, Claude searches your workspace's channels, dir
 
 Claude helps you prepare for meetings by pulling relevant Slack discussions, gathering project updates from multiple channels, or finding action items buried in team conversations. Use it for:
 
--   **Meeting preparation:** Review Slack discussions, pull relevant documents, and create briefings with recent updates and key decisions
--   **Project coordination:** Search across channels to gather status updates, identify blockers, and summarize progress
--   **Onboarding support:** Help new team members understand ongoing projects by reviewing channel history, shared documents, and related email threads
--   **Create documentation:** Formalize team discussions into documentation, pulling context from conversations and relevant background materials
+- **Meeting preparation:** Review Slack discussions, pull relevant documents, and create briefings with recent updates and key decisions
+- **Project coordination:** Search across channels to gather status updates, identify blockers, and summarize progress
+- **Onboarding support:** Help new team members understand ongoing projects by reviewing channel history, shared documents, and related email threads
+- **Create documentation:** Formalize team discussions into documentation, pulling context from conversations and relevant background materials
 
 This integration represents a significant step toward more intelligent, AI-powered workflows:
 
@@ -41,4 +43,4 @@ In Slack, Claude only accesses channels and conversations you have permission to
 
 Claude in Slack is available today through the Slack Marketplace for teams on paid Slack plans. Workspace administrators must first approve the Claude app before individual users can authenticate with their Claude account.
 
-The Slack connector is available for Claude Team and Enterprise plan customers who have installed Claude in the Slack app. Admins must first enable the [connector](https://claude.ai/directory/597f662f-36de-437e-836e-5a81013cbfbe) for their organization before users can set it up in the “Connectors” tab of their Claude settings.
+The Slack connector is available for Claude Team and Enterprise plan customers who have installed Claude in the Slack app. Admins must first enable the connector for their organization before users can set it up in the “Connectors” tab of their Claude settings.

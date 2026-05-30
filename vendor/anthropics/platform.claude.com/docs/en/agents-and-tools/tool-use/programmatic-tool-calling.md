@@ -22,13 +22,14 @@ This feature is **not** eligible for [Zero Data Retention (ZDR)](/docs/en/build-
 
 Programmatic tool calling requires `code_execution_20260120`, which is supported on the following models:
 
-| Model |
-|-------|
-| Claude Opus 4.7 (`claude-opus-4-7`) |
-| Claude Opus 4.6 (`claude-opus-4-6`) |
-| Claude Sonnet 4.6 (`claude-sonnet-4-6`) |
-| Claude Opus 4.5 (`claude-opus-4-5-20251101`) |
-| Claude Sonnet 4.5 (`claude-sonnet-4-5-20250929`) |
+| Model                                          |
+| ---------------------------------------------- |
+| Claude Opus 4.8 (claude-opus-4-8)              |
+| Claude Opus 4.7 (claude-opus-4-7)              |
+| Claude Opus 4.6 (claude-opus-4-6)              |
+| Claude Sonnet 4.6 (claude-sonnet-4-6)          |
+| Claude Opus 4.5 (claude-opus-4-5-20251101)     |
+| Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) |
 
 For the full code execution tool version matrix, see the [code execution tool model compatibility table](/docs/en/agents-and-tools/tool-use/code-execution-tool#model-compatibility). Programmatic tool calling is available on the Claude API, [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws), and [Microsoft Foundry](/docs/en/build-with-claude/claude-in-microsoft-foundry). It is not currently available on Amazon Bedrock or Vertex AI.
 
@@ -43,7 +44,7 @@ curl https://api.anthropic.com/v1/messages \
     --header "anthropic-version: 2023-06-01" \
     --header "content-type: application/json" \
     --data '{
-        "model": "claude-opus-4-7",
+        "model": "claude-opus-4-8",
         "max_tokens": 4096,
         "messages": [
             {
@@ -77,7 +78,7 @@ curl https://api.anthropic.com/v1/messages \
 
 ```bash CLI
 ant messages create <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 messages:
   - role: user
@@ -110,7 +111,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 response = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     messages=[
         {
@@ -145,19 +146,19 @@ const client = new Anthropic();
 
 async function main() {
   const response = await client.messages.create({
-    model: "claude-opus-4-7",
+    model: "claude-opus-4-8",
     max_tokens: 4096,
     messages: [
       {
         role: "user",
         content:
-          "Query sales data for the West, East, and Central regions, then tell me which region had the highest revenue"
-      }
+          "Query sales data for the West, East, and Central regions, then tell me which region had the highest revenue",
+      },
     ],
     tools: [
       {
         type: "code_execution_20260120",
-        name: "code_execution"
+        name: "code_execution",
       },
       {
         name: "query_database",
@@ -168,14 +169,14 @@ async function main() {
           properties: {
             sql: {
               type: "string",
-              description: "SQL query to execute"
-            }
+              description: "SQL query to execute",
+            },
           },
-          required: ["sql"]
+          required: ["sql"],
         },
-        allowed_callers: ["code_execution_20260120"]
-      }
-    ]
+        allowed_callers: ["code_execution_20260120"],
+      },
+    ],
   });
 
   console.log(response);
@@ -200,7 +201,7 @@ class Program
 
         var parameters = new MessageCreateParams
         {
-            Model = Model.ClaudeOpus4_7,
+            Model = Model.ClaudeOpus4_8,
             MaxTokens = 4096,
             Messages = [
                 new() {
@@ -248,7 +249,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 4096,
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(anthropic.NewTextBlock("Query sales data for the West, East, and Central regions, then tell me which region had the highest revenue")),
@@ -295,7 +296,7 @@ public class Main {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
         MessageCreateParams params = MessageCreateParams.builder()
-            .model("claude-opus-4-7")
+            .model("claude-opus-4-8")
             .maxTokens(4096L)
             .addUserMessage("Query sales data for the West, East, and Central regions, then tell me which region had the highest revenue")
             .addTool(CodeExecutionTool20260120.builder().build())
@@ -333,7 +334,7 @@ $message = $client->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Query sales data for the West, East, and Central regions, then tell me which region had the highest revenue'],
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     tools: [
         [
             'type' => 'code_execution_20260120',
@@ -366,7 +367,7 @@ require "anthropic"
 client = Anthropic::Client.new
 
 message = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   messages: [
     {
@@ -399,6 +400,7 @@ message = client.messages.create(
 
 puts message
 ```
+
 </CodeGroup>
 
 ## How programmatic tool calling works
@@ -412,6 +414,7 @@ When you configure a tool to be callable from code execution and Claude decides 
 5. Once all code execution completes, Claude receives the final output and continues working on the task
 
 This approach is particularly useful for:
+
 - **Large data processing:** Filter or aggregate tool results before they reach Claude's context
 - **Multi-step workflows:** Save tokens and latency by calling tools serially or in a loop without sampling Claude in-between tool calls
 - **Conditional logic:** Make decisions based on intermediate tool results
@@ -440,6 +443,7 @@ The `allowed_callers` field specifies which contexts can invoke a tool:
 ```
 
 **Possible values:**
+
 - `["direct"]` - Only Claude can call this tool directly (default if omitted)
 - `["code_execution_20260120"]` - Only callable from within code execution
 - `["direct", "code_execution_20260120"]` - Callable both directly and from code execution
@@ -453,6 +457,7 @@ Choose either `["direct"]` or `["code_execution_20260120"]` for each tool rather
 Every tool use block includes a `caller` field indicating how it was invoked:
 
 **Direct invocation (traditional tool use):**
+
 ```json
 {
   "type": "tool_use",
@@ -464,6 +469,7 @@ Every tool use block includes a `caller` field indicating how it was invoked:
 ```
 
 **Programmatic invocation:**
+
 ```json
 {
   "type": "tool_use",
@@ -553,7 +559,7 @@ Include the full conversation history plus your tool result:
 
 ```bash CLI nocheck
 ant messages create <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 4096
 container: container_xyz789
 messages:
@@ -591,7 +597,7 @@ YAML
 
 ```python Python nocheck
 response = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=4096,
     container="container_xyz789",  # Reuse the container
     messages=[
@@ -643,24 +649,27 @@ print(response)
 
 ```typescript TypeScript nocheck
 const response = await client.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   container: "container_xyz789", // Reuse the container
   messages: [
     {
       role: "user",
       content:
-        "Query customer purchase history from the last quarter and identify our top 5 customers by revenue"
+        "Query customer purchase history from the last quarter and identify our top 5 customers by revenue",
     },
     {
       role: "assistant",
       content: [
-        { type: "text", text: "I'll query the purchase history and analyze the results." },
+        {
+          type: "text",
+          text: "I'll query the purchase history and analyze the results.",
+        },
         {
           type: "server_tool_use",
           id: "srvtoolu_abc123",
           name: "code_execution",
-          input: { code: "..." }
+          input: { code: "..." },
         },
         {
           type: "tool_use",
@@ -669,10 +678,10 @@ const response = await client.messages.create({
           input: { sql: "<sql>" },
           caller: {
             type: "code_execution_20260120",
-            tool_id: "srvtoolu_abc123"
-          }
-        }
-      ]
+            tool_id: "srvtoolu_abc123",
+          },
+        },
+      ],
     },
     {
       role: "user",
@@ -681,14 +690,14 @@ const response = await client.messages.create({
           type: "tool_result",
           tool_use_id: "toolu_def456",
           content:
-            '[{"customer_id": "C1", "revenue": 45000}, {"customer_id": "C2", "revenue": 38000}, ...]'
-        }
-      ]
-    }
+            '[{"customer_id": "C1", "revenue": 45000}, {"customer_id": "C2", "revenue": 38000}, ...]',
+        },
+      ],
+    },
   ],
   tools: [
     /* ... */
-  ]
+  ],
 });
 
 console.log(response);
@@ -708,7 +717,7 @@ class Program
 
         var parameters = new MessageCreateParams
         {
-            Model = Model.ClaudeOpus4_7,
+            Model = Model.ClaudeOpus4_8,
             MaxTokens = 4096,
             Container = "container_xyz789",
             Messages =
@@ -780,7 +789,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 4096,
 		Container: anthropic.MessageNewParamsContainerUnion{
 			OfString: anthropic.String("container_xyz789"),
@@ -854,7 +863,7 @@ public class ContainerReuse {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
         MessageCreateParams params = MessageCreateParams.builder()
-            .model(Model.CLAUDE_OPUS_4_7)
+            .model(Model.CLAUDE_OPUS_4_8)
             .maxTokens(4096L)
             .container("container_xyz789")
             .addUserMessage("Query customer purchase history from the last quarter and identify our top 5 customers by revenue")
@@ -943,7 +952,7 @@ $message = $client->messages->create(
             ],
         ],
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     container: 'container_xyz789',
     tools: [],
 );
@@ -957,7 +966,7 @@ require "anthropic"
 client = Anthropic::Client.new
 
 message = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 4096,
   container: "container_xyz789",
   messages: [
@@ -1007,6 +1016,7 @@ message = client.messages.create(
 )
 puts message
 ```
+
 </CodeGroup>
 
 ### Step 4: Next tool call or completion
@@ -1067,6 +1077,7 @@ _ = _claude_code
 ```
 
 This pattern:
+
 - Reduces model round-trips from N (one per region) to 1
 - Processes large result sets programmatically before returning to Claude
 - Saves tokens by only returning aggregated conclusions instead of raw data
@@ -1201,10 +1212,10 @@ When all tool calls are satisfied and code completes:
 
 ### Common errors
 
-| Error | Description | Solution |
-|-------|-------------|----------|
-| `invalid_tool_input` | Tool input doesn't match schema | Validate your tool's input_schema |
-| `tool_not_allowed` | Tool doesn't allow the requested caller type | Check `allowed_callers` includes the right contexts |
+| Error                | Description                                  | Solution                                            |
+| -------------------- | -------------------------------------------- | --------------------------------------------------- |
+| `invalid_tool_input` | Tool input doesn't match schema              | Validate your tool's input_schema                   |
+| `tool_not_allowed`   | Tool doesn't allow the requested caller type | Check `allowed_callers` includes the right contexts |
 
 ### Container expiration during tool call
 
@@ -1225,6 +1236,7 @@ If your tool takes too long to respond, the code execution receives a `TimeoutEr
 ```
 
 To prevent timeouts:
+
 - Monitor the `expires_at` field in responses
 - Implement timeouts for your tool execution
 - Consider breaking long operations into smaller chunks
@@ -1336,6 +1348,7 @@ Token counting for programmatic tool calls: Tool results from programmatic invoc
 ### When to use programmatic calling
 
 **Good use cases:**
+
 - Processing large datasets where you only need aggregates or summaries
 - Multi-step workflows with 3+ dependent tool calls
 - Operations requiring filtering, sorting, or transformation of tool results
@@ -1343,6 +1356,7 @@ Token counting for programmatic tool calls: Tool results from programmatic invoc
 - Parallel operations across many items (e.g., checking 50 endpoints)
 
 **Less ideal use cases:**
+
 - Single tool calls with simple responses
 - Tools that need immediate user feedback
 - Very fast operations where code execution overhead would outweigh the benefit
@@ -1357,14 +1371,17 @@ Token counting for programmatic tool calls: Tool results from programmatic invoc
 ### Common issues
 
 **"Tool not allowed" error**
+
 - Verify your tool definition includes `"allowed_callers": ["code_execution_20260120"]`
 
 **Container expiration**
+
 - Ensure you respond to tool calls before the container idles out (4.5 minutes of inactivity; 30-day hard maximum)
 - Monitor the `expires_at` field in responses
 - Consider implementing faster tool execution
 
 **Tool result not parsed correctly**
+
 - Ensure your tool returns string data that Claude can deserialize
 - Provide clear output format documentation in your tool description
 
@@ -1394,10 +1411,12 @@ Programmatic tool calling is a generalizable pattern that can also be implemente
 Provide Claude with a code execution tool and describe what functions are available in that environment. When Claude invokes the tool with code, your application executes it locally where those functions are defined.
 
 **Advantages:**
+
 - Simple to implement with minimal re-architecting
 - Full control over the environment and instructions
 
 **Disadvantages:**
+
 - Executes untrusted code outside of a sandbox
 - Tool invocations can be vectors for code injection
 
@@ -1408,10 +1427,12 @@ Provide Claude with a code execution tool and describe what functions are availa
 Same approach from Claude's perspective, but code runs in a sandboxed container with security restrictions (e.g., no network egress). If your tools require external resources, you'll need a protocol for executing tool calls outside the sandbox.
 
 **Advantages:**
+
 - Safe programmatic tool calling on your own infrastructure
 - Full control over the execution environment
 
 **Disadvantages:**
+
 - Complex to build and maintain
 - Requires managing both infrastructure and inter-process communication
 
@@ -1422,6 +1443,7 @@ Same approach from Claude's perspective, but code runs in a sandboxed container 
 Anthropic's programmatic tool calling is a managed version of sandboxed execution with an opinionated Python environment tuned for Claude. Anthropic handles container management, code execution, and secure tool invocation communication.
 
 **Advantages:**
+
 - Safe and secure by default
 - Easy to enable with minimal configuration
 - Environment and instructions optimized for Claude

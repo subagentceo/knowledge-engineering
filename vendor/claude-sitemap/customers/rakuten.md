@@ -1,11 +1,13 @@
-[Rakuten](http://rakuten.com/), a leading Japanese technology company, is using Claude Code to transform software development, enabling their engineering teams to automate coding tasks that accelerate time to market while reliably powering AI features for millions of customers.
+# Rakuten accelerates development with Claude Code
+
+Rakuten, a leading Japanese technology company, is using Claude Code to transform software development, enabling their engineering teams to automate coding tasks that accelerate time to market while reliably powering AI features for millions of customers.
 
 Key results with Claude Code:
 
--   Achieved 7 hours of sustained autonomous coding on a complex open-source refactoring project
--   Reduced time to market for new features by 79% (from 24 days to 5 days)
--   Delivered 99.9% accuracy on complex code modifications
--   Deployed [Claude Managed Agents](https://claude.com/blog/claude-managed-agents) across product, sales, marketing, finance within one week
+- Achieved 7 hours of sustained autonomous coding on a complex open-source refactoring project
+- Reduced time to market for new features by 79% (from 24 days to 5 days)
+- Delivered 99.9% accuracy on complex code modifications
+- Deployed Claude Managed Agents across product, sales, marketing, finance within one week
 
 ## Empowering every team to innovate at speed
 

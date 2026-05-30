@@ -1,4 +1,4 @@
-## List
+## List Vaults
 
 `VaultListPageResponse Beta.Vaults.List(VaultListParams?parameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ List Vaults
 ### Parameters
 
 - `VaultListParams parameters`
-
   - `Boolean includeArchived`
 
     Query param: Whether to include archived vaults in the results.
@@ -25,7 +24,6 @@ List Vaults
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -74,16 +72,20 @@ List Vaults
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class VaultListPageResponse:`
 
   Response containing a paginated list of vaults.
-
   - `IReadOnlyList<BetaManagedAgentsVault> Data`
 
     List of vaults.
-
     - `required string ID`
 
       Unique identifier for the vault.
@@ -105,7 +107,6 @@ List Vaults
       Arbitrary key-value metadata attached to the vault.
 
     - `required Type Type`
-
       - `"vault"Vault`
 
     - `required DateTimeOffset UpdatedAt`
@@ -125,5 +126,26 @@ var page = await client.Beta.Vaults.List(parameters);
 await foreach (var item in page.Paginate())
 {
     Console.WriteLine(item);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "display_name": "Example vault",
+      "metadata": {
+        "environment": "production"
+      },
+      "type": "vault",
+      "updated_at": "2026-03-15T10:00:00Z"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```

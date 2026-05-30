@@ -1,4 +1,4 @@
-## Update
+## Update Agent
 
 `$ ant beta:agents update`
 
@@ -61,7 +61,6 @@ Update Agent
 - `beta_managed_agents_agent: object { id, archived_at, created_at, 12 more }`
 
   A Managed Agents `agent`.
-
   - `id: string`
 
   - `archived_at: string`
@@ -75,11 +74,9 @@ Update Agent
   - `description: string`
 
   - `mcp_servers: array of BetaManagedAgentsMCPServerURLDefinition`
-
     - `name: string`
 
     - `type: "url"`
-
       - `"url"`
 
     - `url: string`
@@ -89,13 +86,11 @@ Update Agent
   - `model: object { id, speed }`
 
     Model identifier and configuration.
-
     - `id: "claude-opus-4-7" or "claude-opus-4-6" or "claude-sonnet-4-6" or 6 more or string`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
       - `"claude-opus-4-7"`
 
         Frontier intelligence for long-running agents and coding
@@ -135,7 +130,6 @@ Update Agent
     - `speed: optional "standard" or "fast"`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
       - `"standard"`
 
       - `"fast"`
@@ -143,35 +137,28 @@ Update Agent
   - `multiagent: object { agents, type }`
 
     Resolved coordinator topology with a concrete agent roster.
-
     - `agents: array of BetaManagedAgentsAgentReference`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
-
       - `id: string`
 
       - `type: "agent"`
-
         - `"agent"`
 
       - `version: number`
 
     - `type: "coordinator"`
-
       - `"coordinator"`
 
   - `name: string`
 
   - `skills: array of BetaManagedAgentsAnthropicSkill or BetaManagedAgentsCustomSkill`
-
     - `beta_managed_agents_anthropic_skill: object { skill_id, type, version }`
 
       A resolved Anthropic-managed skill.
-
       - `skill_id: string`
 
       - `type: "anthropic"`
-
         - `"anthropic"`
 
       - `version: string`
@@ -179,11 +166,9 @@ Update Agent
     - `beta_managed_agents_custom_skill: object { skill_id, type, version }`
 
       A resolved user-created custom skill.
-
       - `skill_id: string`
 
       - `type: "custom"`
-
         - `"custom"`
 
       - `version: string`
@@ -191,17 +176,13 @@ Update Agent
   - `system: string`
 
   - `tools: array of BetaManagedAgentsAgentToolset20260401 or BetaManagedAgentsMCPToolset or BetaManagedAgentsCustomTool`
-
     - `beta_managed_agents_agent_toolset20260401: object { configs, default_config, type }`
-
       - `configs: array of BetaManagedAgentsAgentToolConfig`
-
         - `enabled: boolean`
 
         - `name: "bash" or "edit" or "read" or 5 more`
 
           Built-in agent tool identifier.
-
           - `"bash"`
 
           - `"edit"`
@@ -221,57 +202,39 @@ Update Agent
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
-
           - `beta_managed_agents_always_allow_policy: object { type }`
 
             Tool calls are automatically approved without user confirmation.
-
             - `type: "always_allow"`
-
               - `"always_allow"`
 
           - `beta_managed_agents_always_ask_policy: object { type }`
 
             Tool calls require user confirmation before execution.
-
             - `type: "always_ask"`
-
               - `"always_ask"`
 
       - `default_config: object { enabled, permission_policy }`
 
         Resolved default configuration for agent tools.
-
         - `enabled: boolean`
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
-
           - `beta_managed_agents_always_allow_policy: object { type }`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `type: "always_allow"`
-
-              - `"always_allow"`
 
           - `beta_managed_agents_always_ask_policy: object { type }`
 
             Tool calls require user confirmation before execution.
 
-            - `type: "always_ask"`
-
-              - `"always_ask"`
-
       - `type: "agent_toolset_20260401"`
-
         - `"agent_toolset_20260401"`
 
     - `beta_managed_agents_mcp_toolset: object { configs, default_config, mcp_server_name, type }`
-
       - `configs: array of BetaManagedAgentsMCPToolConfig`
-
         - `enabled: boolean`
 
         - `name: string`
@@ -279,65 +242,43 @@ Update Agent
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
-
           - `beta_managed_agents_always_allow_policy: object { type }`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `type: "always_allow"`
-
-              - `"always_allow"`
 
           - `beta_managed_agents_always_ask_policy: object { type }`
 
             Tool calls require user confirmation before execution.
 
-            - `type: "always_ask"`
-
-              - `"always_ask"`
-
       - `default_config: object { enabled, permission_policy }`
 
         Resolved default configuration for all tools from an MCP server.
-
         - `enabled: boolean`
 
         - `permission_policy: BetaManagedAgentsAlwaysAllowPolicy or BetaManagedAgentsAlwaysAskPolicy`
 
           Permission policy for tool execution.
-
           - `beta_managed_agents_always_allow_policy: object { type }`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `type: "always_allow"`
-
-              - `"always_allow"`
 
           - `beta_managed_agents_always_ask_policy: object { type }`
 
             Tool calls require user confirmation before execution.
 
-            - `type: "always_ask"`
-
-              - `"always_ask"`
-
       - `mcp_server_name: string`
 
       - `type: "mcp_toolset"`
-
         - `"mcp_toolset"`
 
     - `beta_managed_agents_custom_tool: object { description, input_schema, name, type }`
 
       A custom tool as returned in API responses.
-
       - `description: string`
 
       - `input_schema: object { properties, required, type }`
 
         JSON Schema for custom tool input parameters.
-
         - `properties: optional map[unknown]`
 
           JSON Schema properties defining the tool's input parameters.
@@ -349,17 +290,14 @@ Update Agent
         - `type: optional "object"`
 
           Must be 'object' for tool input schemas.
-
           - `"object"`
 
       - `name: string`
 
       - `type: "custom"`
-
         - `"custom"`
 
   - `type: "agent"`
-
     - `"agent"`
 
   - `updated_at: string`
@@ -377,4 +315,76 @@ ant beta:agents update \
   --api-key my-anthropic-api-key \
   --agent-id agent_011CZkYpogX7uDKUyvBTophP \
   --version 1
+```
+
+#### Response
+
+```json
+{
+  "id": "agent_011CZkYpogX7uDKUyvBTophP",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "A general-purpose starter agent.",
+  "mcp_servers": [
+    {
+      "name": "example-mcp",
+      "type": "url",
+      "url": "https://example-server.modelcontextprotocol.io/sse"
+    }
+  ],
+  "metadata": {
+    "foo": "bar"
+  },
+  "model": {
+    "id": "claude-sonnet-4-6",
+    "speed": "standard"
+  },
+  "multiagent": {
+    "agents": [
+      {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "type": "agent",
+        "version": 1
+      }
+    ],
+    "type": "coordinator"
+  },
+  "name": "My First Agent",
+  "skills": [
+    {
+      "skill_id": "xlsx",
+      "type": "anthropic",
+      "version": "1"
+    },
+    {
+      "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+      "type": "custom",
+      "version": "2"
+    }
+  ],
+  "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
+  "tools": [
+    {
+      "configs": [
+        {
+          "enabled": true,
+          "name": "bash",
+          "permission_policy": {
+            "type": "always_allow"
+          }
+        }
+      ],
+      "default_config": {
+        "enabled": true,
+        "permission_policy": {
+          "type": "always_ask"
+        }
+      },
+      "type": "agent_toolset_20260401"
+    }
+  ],
+  "type": "agent",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "version": 1
+}
 ```

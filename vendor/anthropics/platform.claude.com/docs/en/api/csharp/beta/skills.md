@@ -1,6 +1,6 @@
 # Skills
 
-## Create
+## Create Skill
 
 `SkillCreateResponse Beta.Skills.Create(SkillCreateParams?parameters, CancellationTokencancellationToken = default)`
 
@@ -11,7 +11,6 @@ Create Skill
 ### Parameters
 
 - `SkillCreateParams parameters`
-
   - `string? displayTitle`
 
     Body param: Display title for the skill.
@@ -27,7 +26,6 @@ Create Skill
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -76,10 +74,15 @@ Create Skill
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class SkillCreateResponse:`
-
   - `required string ID`
 
     Unique identifier for the skill.
@@ -107,9 +110,8 @@ Create Skill
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `required string Type`
 
@@ -131,7 +133,21 @@ var skill = await client.Beta.Skills.Create(parameters);
 Console.WriteLine(skill);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_title": "My Custom Skill",
+  "latest_version": "1759178010641129",
+  "source": "custom",
+  "type": "type",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## List Skills
 
 `SkillListPageResponse Beta.Skills.List(SkillListParams?parameters, CancellationTokencancellationToken = default)`
 
@@ -142,7 +158,6 @@ List Skills
 ### Parameters
 
 - `SkillListParams parameters`
-
   - `Long limit`
 
     Query param: Number of results to return per page.
@@ -160,14 +175,12 @@ List Skills
     Query param: Filter skills by source.
 
     If provided, only skills from the specified source will be returned:
-
-    * `"custom"`: only return user-created skills
-    * `"anthropic"`: only return Anthropic-created skills
+    - `"custom"`: only return user-created skills
+    - `"anthropic"`: only return Anthropic-created skills
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -216,14 +229,18 @@ List Skills
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class SkillListPageResponse:`
-
   - `required IReadOnlyList<SkillListResponse> Data`
 
     List of skills.
-
     - `required string ID`
 
       Unique identifier for the skill.
@@ -251,9 +268,8 @@ List Skills
       Source of the skill.
 
       This may be one of the following values:
-
-      * `"custom"`: the skill was created by a user
-      * `"anthropic"`: the skill was created by Anthropic
+      - `"custom"`: the skill was created by a user
+      - `"anthropic"`: the skill was created by Anthropic
 
     - `required string Type`
 
@@ -289,7 +305,27 @@ await foreach (var item in page.Paginate())
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_title": "My Custom Skill",
+      "latest_version": "1759178010641129",
+      "source": "custom",
+      "type": "type",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Skill
 
 `SkillRetrieveResponse Beta.Skills.Retrieve(SkillRetrieveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -300,7 +336,6 @@ Get Skill
 ### Parameters
 
 - `SkillRetrieveParams parameters`
-
   - `required string skillID`
 
     Unique identifier for the skill.
@@ -310,7 +345,6 @@ Get Skill
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -359,10 +393,15 @@ Get Skill
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class SkillRetrieveResponse:`
-
   - `required string ID`
 
     Unique identifier for the skill.
@@ -390,9 +429,8 @@ Get Skill
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `required string Type`
 
@@ -414,7 +452,21 @@ var skill = await client.Beta.Skills.Retrieve(parameters);
 Console.WriteLine(skill);
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_title": "My Custom Skill",
+  "latest_version": "1759178010641129",
+  "source": "custom",
+  "type": "type",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## Delete Skill
 
 `SkillDeleteResponse Beta.Skills.Delete(SkillDeleteParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -425,7 +477,6 @@ Delete Skill
 ### Parameters
 
 - `SkillDeleteParams parameters`
-
   - `required string skillID`
 
     Unique identifier for the skill.
@@ -435,7 +486,6 @@ Delete Skill
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -484,10 +534,15 @@ Delete Skill
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class SkillDeleteResponse:`
-
   - `required string ID`
 
     Unique identifier for the skill.
@@ -510,9 +565,18 @@ var skill = await client.Beta.Skills.Delete(parameters);
 Console.WriteLine(skill);
 ```
 
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type"
+}
+```
+
 # Versions
 
-## Create
+## Create Skill Version
 
 `VersionCreateResponse Beta.Skills.Versions.Create(VersionCreateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -523,7 +587,6 @@ Create Skill Version
 ### Parameters
 
 - `VersionCreateParams parameters`
-
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -539,7 +602,6 @@ Create Skill Version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -588,10 +650,15 @@ Create Skill Version
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class VersionCreateResponse:`
-
   - `required string ID`
 
     Unique identifier for the skill version.
@@ -646,7 +713,22 @@ var version = await client.Beta.Skills.Versions.Create(parameters);
 Console.WriteLine(version);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## List Skill Versions
 
 `VersionListPageResponse Beta.Skills.Versions.List(VersionListParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -657,7 +739,6 @@ List Skill Versions
 ### Parameters
 
 - `VersionListParams parameters`
-
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -677,7 +758,6 @@ List Skill Versions
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -726,14 +806,18 @@ List Skill Versions
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class VersionListPageResponse:`
-
   - `required IReadOnlyList<VersionListResponse> Data`
 
     List of skill versions.
-
     - `required string ID`
 
       Unique identifier for the skill version.
@@ -798,18 +882,38 @@ await foreach (var item in page.Paginate())
 }
 ```
 
-## Retrieve
+#### Response
 
-`VersionRetrieveResponse Beta.Skills.Versions.Retrieve(VersionRetrieveParamsparameters, CancellationTokencancellationToken = default)`
+```json
+{
+  "data": [
+    {
+      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "description": "A custom skill for doing something useful",
+      "directory": "my-skill",
+      "name": "my-skill",
+      "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "type": "type",
+      "version": "1759178010641129"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
 
-**get** `/v1/skills/{skill_id}/versions/{version}`
+## Download Skill Version Content
 
-Get Skill Version
+`HttpResponse Beta.Skills.Versions.Download(VersionDownloadParamsparameters, CancellationTokencancellationToken = default)`
+
+**get** `/v1/skills/{skill_id}/versions/{version}/content`
+
+Download a skill version's content as a zip archive.
 
 ### Parameters
 
-- `VersionRetrieveParams parameters`
-
+- `VersionDownloadParams parameters`
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -825,7 +929,6 @@ Get Skill Version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -874,10 +977,109 @@ Get Skill Version
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
+### Example
+
+```csharp
+VersionDownloadParams parameters = new()
+{
+    SkillID = "skill_id",
+    Version = "version",
+};
+
+var response = await client.Beta.Skills.Versions.Download(parameters);
+
+Console.WriteLine(response);
+```
+
+## Get Skill Version
+
+`VersionRetrieveResponse Beta.Skills.Versions.Retrieve(VersionRetrieveParamsparameters, CancellationTokencancellationToken = default)`
+
+**get** `/v1/skills/{skill_id}/versions/{version}`
+
+Get Skill Version
+
+### Parameters
+
+- `VersionRetrieveParams parameters`
+  - `required string skillID`
+
+    Path param: Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `required string version`
+
+    Path param: Version identifier for the skill.
+
+    Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+  - `IReadOnlyList<AnthropicBeta> betas`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+    - `"message-batches-2024-09-24"MessageBatches2024_09_24`
+
+    - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
+
+    - `"computer-use-2024-10-22"ComputerUse2024_10_22`
+
+    - `"computer-use-2025-01-24"ComputerUse2025_01_24`
+
+    - `"pdfs-2024-09-25"Pdfs2024_09_25`
+
+    - `"token-counting-2024-11-01"TokenCounting2024_11_01`
+
+    - `"token-efficient-tools-2025-02-19"TokenEfficientTools2025_02_19`
+
+    - `"output-128k-2025-02-19"Output128k2025_02_19`
+
+    - `"files-api-2025-04-14"FilesApi2025_04_14`
+
+    - `"mcp-client-2025-04-04"McpClient2025_04_04`
+
+    - `"mcp-client-2025-11-20"McpClient2025_11_20`
+
+    - `"dev-full-thinking-2025-05-14"DevFullThinking2025_05_14`
+
+    - `"interleaved-thinking-2025-05-14"InterleavedThinking2025_05_14`
+
+    - `"code-execution-2025-05-22"CodeExecution2025_05_22`
+
+    - `"extended-cache-ttl-2025-04-11"ExtendedCacheTtl2025_04_11`
+
+    - `"context-1m-2025-08-07"Context1m2025_08_07`
+
+    - `"context-management-2025-06-27"ContextManagement2025_06_27`
+
+    - `"model-context-window-exceeded-2025-08-26"ModelContextWindowExceeded2025_08_26`
+
+    - `"skills-2025-10-02"Skills2025_10_02`
+
+    - `"fast-mode-2026-02-01"FastMode2026_02_01`
+
+    - `"output-300k-2026-03-24"Output300k2026_03_24`
+
+    - `"user-profiles-2026-03-24"UserProfiles2026_03_24`
+
+    - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
+
+    - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
+
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class VersionRetrieveResponse:`
-
   - `required string ID`
 
     Unique identifier for the skill version.
@@ -936,7 +1138,22 @@ var version = await client.Beta.Skills.Versions.Retrieve(parameters);
 Console.WriteLine(version);
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## Delete Skill Version
 
 `VersionDeleteResponse Beta.Skills.Versions.Delete(VersionDeleteParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -947,7 +1164,6 @@ Delete Skill Version
 ### Parameters
 
 - `VersionDeleteParams parameters`
-
   - `required string skillID`
 
     Path param: Unique identifier for the skill.
@@ -963,7 +1179,6 @@ Delete Skill Version
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1012,10 +1227,15 @@ Delete Skill Version
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class VersionDeleteResponse:`
-
   - `required string ID`
 
     Version identifier for the skill.
@@ -1040,4 +1260,13 @@ VersionDeleteParams parameters = new()
 var version = await client.Beta.Skills.Versions.Delete(parameters);
 
 Console.WriteLine(version);
+```
+
+#### Response
+
+```json
+{
+  "id": "1759178010641129",
+  "type": "type"
+}
 ```

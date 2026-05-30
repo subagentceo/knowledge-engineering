@@ -1,6 +1,6 @@
 # Users
 
-## Retrieve
+## Get User
 
 **get** `/v1/organizations/users/{user_id}`
 
@@ -14,8 +14,7 @@ Get User
 
 ### Returns
 
-- `User = object { id, added_at, email, 3 more }`
-
+- `User object { id, added_at, email, 3 more }`
   - `id: string`
 
     ID of the User.
@@ -35,7 +34,6 @@ Get User
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
-
     - `"user"`
 
     - `"developer"`
@@ -51,7 +49,6 @@ Get User
     Object type.
 
     For Users, this is always `"user"`.
-
     - `"user"`
 
 ### Example
@@ -62,7 +59,20 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "added_at": "2024-10-30T23:58:27.427722Z",
+  "email": "user@emaildomain.com",
+  "name": "Jane Doe",
+  "role": "user",
+  "type": "user"
+}
+```
+
+## List Users
 
 **get** `/v1/organizations/users`
 
@@ -91,7 +101,6 @@ List Users
 ### Returns
 
 - `data: array of User`
-
   - `id: string`
 
     ID of the User.
@@ -111,7 +120,6 @@ List Users
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
-
     - `"user"`
 
     - `"developer"`
@@ -127,7 +135,6 @@ List Users
     Object type.
 
     For Users, this is always `"user"`.
-
     - `"user"`
 
 - `first_id: string`
@@ -150,7 +157,27 @@ curl https://api.anthropic.com/v1/organizations/users \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+      "added_at": "2024-10-30T23:58:27.427722Z",
+      "email": "user@emaildomain.com",
+      "name": "Jane Doe",
+      "role": "user",
+      "type": "user"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+## Update User
 
 **post** `/v1/organizations/users/{user_id}`
 
@@ -167,7 +194,6 @@ Update User
 - `role: "user" or "developer" or "billing" or "claude_code_user"`
 
   New role for the User. Cannot be "admin".
-
   - `"user"`
 
   - `"developer"`
@@ -178,8 +204,7 @@ Update User
 
 ### Returns
 
-- `User = object { id, added_at, email, 3 more }`
-
+- `User object { id, added_at, email, 3 more }`
   - `id: string`
 
     ID of the User.
@@ -199,7 +224,6 @@ Update User
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
-
     - `"user"`
 
     - `"developer"`
@@ -215,7 +239,6 @@ Update User
     Object type.
 
     For Users, this is always `"user"`.
-
     - `"user"`
 
 ### Example
@@ -230,7 +253,20 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
         }'
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "added_at": "2024-10-30T23:58:27.427722Z",
+  "email": "user@emaildomain.com",
+  "name": "Jane Doe",
+  "role": "user",
+  "type": "user"
+}
+```
+
+## Remove User
 
 **delete** `/v1/organizations/users/{user_id}`
 
@@ -253,7 +289,6 @@ Remove User
   Deleted object type.
 
   For Users, this is always `"user_deleted"`.
-
   - `"user_deleted"`
 
 ### Example
@@ -265,12 +300,20 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "id": "user_01WCz1FkmYMm4gnmykNKUu3Q",
+  "type": "user_deleted"
+}
+```
+
 ## Domain Types
 
 ### User
 
-- `User = object { id, added_at, email, 3 more }`
-
+- `User object { id, added_at, email, 3 more }`
   - `id: string`
 
     ID of the User.
@@ -290,7 +333,6 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
-
     - `"user"`
 
     - `"developer"`
@@ -306,13 +348,11 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     Object type.
 
     For Users, this is always `"user"`.
-
     - `"user"`
 
 ### User Delete Response
 
-- `UserDeleteResponse = object { id, type }`
-
+- `UserDeleteResponse object { id, type }`
   - `id: string`
 
     ID of the User.
@@ -322,5 +362,4 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
     Deleted object type.
 
     For Users, this is always `"user_deleted"`.
-
     - `"user_deleted"`

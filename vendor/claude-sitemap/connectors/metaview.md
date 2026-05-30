@@ -1,3 +1,5 @@
+# Metaview
+
 Bring Metaview's hiring intelligence into Claude. Search, analyze, and extract insights from your recruiting data. Query conversations, source candidates, and start outreach. Use Claude alongside Metaview's AI agents to turn every conversation and signal into faster, better hiring decisions.
 
 You can use Metaview to:

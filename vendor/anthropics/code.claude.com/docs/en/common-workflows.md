@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -10,18 +11,20 @@ This page collects short recipes for everyday development. For higher-level guid
 
 This page covers:
 
-* [Prompt recipes](#prompt-recipes) for exploring code, fixing bugs, refactoring, testing, PRs, and documentation
-* [Resume previous conversations](#resume-previous-conversations) so a task can span multiple sittings
-* [Run parallel sessions with worktrees](#run-parallel-sessions-with-worktrees) so concurrent edits don't collide
-* [Plan before editing](#plan-before-editing) to review changes before they touch disk
-* [Delegate research to subagents](#delegate-research-to-subagents) to keep your main context clean
-* [Pipe Claude into scripts](#pipe-claude-into-scripts) for CI and batch processing
+- [Prompt recipes](#prompt-recipes) for exploring code, fixing bugs, refactoring, testing, PRs, and documentation
+- [Resume previous conversations](#resume-previous-conversations) so a task can span multiple sittings
+- [Run parallel sessions with worktrees](#run-parallel-sessions-with-worktrees) so concurrent edits don't collide
+- [Plan before editing](#plan-before-editing) to review changes before they touch disk
+- [Delegate research to subagents](#delegate-research-to-subagents) to keep your main context clean
+- [Pipe Claude into scripts](#pipe-claude-into-scripts) for CI and batch processing
 
 ## Prompt recipes
 
 These are prompt patterns for everyday tasks like exploring unfamiliar code, debugging, refactoring, writing tests, and creating PRs. Each works in any Claude Code surface; adapt the wording to your project.
 
 ### Understand new codebases
+
+For configuring Claude Code in a monorepo or large codebase, see [Monorepos and large repos](/en/large-codebases).
 
 #### Get a quick codebase overview
 
@@ -58,16 +61,17 @@ Suppose you've just joined a new project and need to understand its structure qu
     ```text theme={null}
     how is authentication handled?
     ```
+
   </Step>
 </Steps>
 
 <Tip>
   Tips:
 
-  * Start with broad questions, then narrow down to specific areas
-  * Ask about coding conventions and patterns used in the project
-  * Request a glossary of project-specific terms
-</Tip>
+- Start with broad questions, then narrow down to specific areas
+- Ask about coding conventions and patterns used in the project
+- Request a glossary of project-specific terms
+  </Tip>
 
 #### Find relevant code
 
@@ -96,12 +100,12 @@ Suppose you need to locate code related to a specific feature or functionality.
 <Tip>
   Tips:
 
-  * Be specific about what you're looking for
-  * Use domain language from the project
-  * Install a [code intelligence plugin](/en/discover-plugins#code-intelligence) for your language to give Claude precise "go to definition" and "find references" navigation
-</Tip>
+- Be specific about what you're looking for
+- Use domain language from the project
+- Install a [code intelligence plugin](/en/discover-plugins#code-intelligence) for your language to give Claude precise "go to definition" and "find references" navigation
+  </Tip>
 
-***
+---
 
 ### Fix bugs efficiently
 
@@ -130,12 +134,12 @@ Suppose you've encountered an error message and need to find and fix its source.
 <Tip>
   Tips:
 
-  * Tell Claude the command to reproduce the issue and get a stack trace
-  * Mention any steps to reproduce the error
-  * Let Claude know if the error is intermittent or consistent
-</Tip>
+- Tell Claude the command to reproduce the issue and get a stack trace
+- Mention any steps to reproduce the error
+- Let Claude know if the error is intermittent or consistent
+  </Tip>
 
-***
+---
 
 ### Refactor code
 
@@ -170,12 +174,12 @@ Suppose you need to update old code to use modern patterns and practices.
 <Tip>
   Tips:
 
-  * Ask Claude to explain the benefits of the modern approach
-  * Request that changes maintain backward compatibility when needed
-  * Do refactoring in small, testable increments
-</Tip>
+- Ask Claude to explain the benefits of the modern approach
+- Request that changes maintain backward compatibility when needed
+- Do refactoring in small, testable increments
+  </Tip>
 
-***
+---
 
 ### Work with tests
 
@@ -211,7 +215,7 @@ Claude can generate tests that follow your project's existing patterns and conve
 
 For comprehensive coverage, ask Claude to identify edge cases you might have missed. Claude can analyze your code paths and suggest tests for error conditions, boundary values, and unexpected inputs that are easy to overlook.
 
-***
+---
 
 ### Create pull requests
 
@@ -276,12 +280,12 @@ Suppose you need to add or update documentation for your code.
 <Tip>
   Tips:
 
-  * Specify the documentation style you want (JSDoc, docstrings, etc.)
-  * Ask for examples in the documentation
-  * Request documentation for public APIs, interfaces, and complex logic
-</Tip>
+- Specify the documentation style you want (JSDoc, docstrings, etc.)
+- Ask for examples in the documentation
+- Request documentation for public APIs, interfaces, and complex logic
+  </Tip>
 
-***
+---
 
 ### Work in notes and non-code folders
 
@@ -289,7 +293,7 @@ Claude Code works in any directory. Run it inside a notes vault, a documentation
 
 The `.claude/` directory and `CLAUDE.md` sit alongside other tools' config directories without conflict. Claude reads files fresh on each tool call, so it sees edits you make in another application the next time it reads that file.
 
-***
+---
 
 ### Work with images
 
@@ -302,6 +306,7 @@ Suppose you need to work with images in your codebase, and you want Claude's hel
     1. Drag and drop an image into the Claude Code window
     2. Copy an image and paste it into the CLI with ctrl+v (Do not use cmd+v)
     3. Provide an image path to Claude. E.g., "Analyze this image: /path/to/your/image.png"
+
   </Step>
 
   <Step title="Ask Claude to analyze the image">
@@ -316,6 +321,7 @@ Suppose you need to work with images in your codebase, and you want Claude's hel
     ```text theme={null}
     Are there any problematic elements in this diagram?
     ```
+
   </Step>
 
   <Step title="Use images for context">
@@ -326,6 +332,7 @@ Suppose you need to work with images in your codebase, and you want Claude's hel
     ```text theme={null}
     This is our current database schema. How should we modify it for the new feature?
     ```
+
   </Step>
 
   <Step title="Get code suggestions from visual content">
@@ -336,20 +343,21 @@ Suppose you need to work with images in your codebase, and you want Claude's hel
     ```text theme={null}
     What HTML structure would recreate this component?
     ```
+
   </Step>
 </Steps>
 
 <Tip>
   Tips:
 
-  * Use images when text descriptions would be unclear or cumbersome
-  * Include screenshots of errors, UI designs, or diagrams for better context
-  * You can work with multiple images in a conversation
-  * Image analysis works with diagrams, screenshots, mockups, and more
-  * When Claude references images (for example, `[Image #1]`), `Cmd+Click` (Mac) or `Ctrl+Click` (Windows/Linux) the link to open the image in your default viewer
-</Tip>
+- Use images when text descriptions would be unclear or cumbersome
+- Include screenshots of errors, UI designs, or diagrams for better context
+- You can work with multiple images in a conversation
+- Image analysis works with diagrams, screenshots, mockups, and more
+- When Claude references images (for example, `[Image #1]`), `Cmd+Click` (Mac) or `Ctrl+Click` (Windows/Linux) the link to open the image in your default viewer
+  </Tip>
 
-***
+---
 
 ### Reference files and directories
 
@@ -362,6 +370,7 @@ Use @ to quickly include files or directories without waiting for Claude to read
     ```
 
     This includes the full content of the file in the conversation.
+
   </Step>
 
   <Step title="Reference a directory">
@@ -370,6 +379,7 @@ Use @ to quickly include files or directories without waiting for Claude to read
     ```
 
     This provides a directory listing with file information.
+
   </Step>
 
   <Step title="Reference MCP resources">
@@ -378,19 +388,20 @@ Use @ to quickly include files or directories without waiting for Claude to read
     ```
 
     This fetches data from connected MCP servers using the format @server:resource. See [MCP resources](/en/mcp#use-mcp-resources) for details.
+
   </Step>
 </Steps>
 
 <Tip>
   Tips:
 
-  * File paths can be relative or absolute
-  * @ file references add `CLAUDE.md` in the file's directory and parent directories to context
-  * Directory references show file listings, not contents
-  * You can reference multiple files in a single message (for example, "@file1.js and @file2.js")
-</Tip>
+- File paths can be relative or absolute
+- @ file references add `CLAUDE.md` in the file's directory and parent directories to context
+- Directory references show file listings, not contents
+- You can reference multiple files in a single message (for example, "@file1.js and @file2.js")
+  </Tip>
 
-***
+---
 
 ### Run Claude on a schedule
 
@@ -409,7 +420,7 @@ Pick a scheduling option based on where you want the task to run:
   When writing prompts for scheduled tasks, be explicit about what success looks like and what to do with results. The task runs autonomously, so it can't ask clarifying questions. For example: "Review open PRs labeled `needs-review`, leave inline comments on any issues, and post a summary in the `#eng-reviews` Slack channel."
 </Tip>
 
-***
+---
 
 ### Ask Claude about its capabilities
 
@@ -448,12 +459,12 @@ what are the limitations of Claude Code?
 <Tip>
   Tips:
 
-  * Claude always has access to the latest Claude Code documentation, regardless of the version you're using
-  * Ask specific questions to get detailed answers
-  * Claude can explain complex features like MCP integration, enterprise configurations, and advanced workflows
-</Tip>
+- Claude always has access to the latest Claude Code documentation, regardless of the version you're using
+- Ask specific questions to get detailed answers
+- Claude can explain complex features like MCP integration, enterprise configurations, and advanced workflows
+  </Tip>
 
-***
+---
 
 ## Resume previous conversations
 

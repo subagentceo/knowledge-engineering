@@ -4,10 +4,10 @@ Anthropic's Claude models are available through [Vertex AI](https://cloud.google
 
 ---
 
-The Vertex API for accessing Claude is nearly-identical to the [Messages API](/docs/en/api/messages/create) and supports all of the same options, with two key differences:
+The Vertex API for accessing Claude is nearly identical to the [Messages API](/docs/en/api/messages/create), with two key differences in request format:
 
-* In Vertex, `model` is not passed in the request body. Instead, it is specified in the Google Cloud endpoint URL.
-* In Vertex, `anthropic_version` is passed in the request body (rather than as a header), and must be set to the value `vertex-2023-10-16`.
+- In Vertex, `model` is not passed in the request body. Instead, it is specified in the Google Cloud endpoint URL.
+- In Vertex, `anthropic_version` is passed in the request body (rather than as a header), and must be set to the value `vertex-2023-10-16`.
 
 Vertex is also supported by Anthropic's official [client SDKs](/docs/en/api/client-sdks). This guide walks you through making a request to Claude on Vertex AI using one of Anthropic's client SDKs.
 
@@ -45,14 +45,14 @@ go get github.com/anthropics/anthropic-sdk-go
 <Tab title="Java">
 <CodeGroup>
 ```groovy Gradle
-implementation("com.anthropic:anthropic-java-vertex:2.30.0")
+implementation("com.anthropic:anthropic-java-vertex:2.35.0")
 ```
 
 ```xml Maven
 <dependency>
     <groupId>com.anthropic</groupId>
     <artifactId>anthropic-java-vertex</artifactId>
-    <version>2.30.0</version>
+    <version>2.35.0</version>
 </dependency>
 ```
 
@@ -71,7 +71,7 @@ public class BasicMessage {
             .build();
 
         MessageCreateParams params = MessageCreateParams.builder()
-            .model(Model.CLAUDE_OPUS_4_7)
+            .model(Model.CLAUDE_OPUS_4_8)
             .maxTokens(1024L)
             .addUserMessage("What is the capital of France?")
             .build();
@@ -83,6 +83,7 @@ public class BasicMessage {
     }
 }
 ```
+
 </CodeGroup>
 </Tab>
 
@@ -111,19 +112,24 @@ Note that Anthropic model availability varies by region. Search for "Claude" in 
 
 Lifecycle terms (Deprecated, Retired) are defined in [Model deprecations](/docs/en/about-claude/model-deprecations); a "Retiring" annotation gives the platform's announced retirement date. The dates in the following table are the **Vertex AI** schedule, which Google Cloud sets independently. A model's lifecycle status and dates here can differ from the Anthropic-operated schedule on the Model deprecations page.
 
-| Model                          | Vertex AI API model ID |
-| ------------------------------ | ------------------------ |
-| Claude Opus 4.7                    | claude-opus-4-7 |
-| Claude Opus 4.6                  | claude-opus-4-6 |
-| Claude Sonnet 4.6              | claude-sonnet-4-6 |
-| Claude Sonnet 4.5              | claude-sonnet-4-5@20250929 |
-| Claude Sonnet 4 <br /><small>Deprecated. Retiring September 14, 2026.</small> | claude-sonnet-4@20250514 |
-| Claude Sonnet 3.7 <br /><small>Retired May 11, 2026.</small> | claude-3-7-sonnet@20250219 |
-| Claude Opus 4.5                | claude-opus-4-5@20251101 |
-| Claude Opus 4.1                | claude-opus-4-1@20250805 |
-| Claude Opus 4 <br /><small>Deprecated. Retiring September 14, 2026.</small> | claude-opus-4@20250514   |
-| Claude Haiku 4.5               | claude-haiku-4-5@20251001 |
-| Claude Haiku 3.5 <br /><small>Deprecated. Retiring July 5, 2026.</small> | claude-3-5-haiku@20241022 |
+| Model                                                                         | Vertex AI API model ID     |
+| ----------------------------------------------------------------------------- | -------------------------- |
+| Claude Opus 4.8                                                               | claude-opus-4-8            |
+| Claude Opus 4.7                                                               | claude-opus-4-7            |
+| Claude Opus 4.6                                                               | claude-opus-4-6            |
+| Claude Sonnet 4.6                                                             | claude-sonnet-4-6          |
+| Claude Sonnet 4.5                                                             | claude-sonnet-4-5@20250929 |
+| Claude Sonnet 4 <br /><small>Deprecated. Retiring September 14, 2026.</small> | claude-sonnet-4@20250514   |
+| Claude Sonnet 3.7 <br /><small>Retired May 11, 2026.</small>                  | claude-3-7-sonnet@20250219 |
+| Claude Opus 4.5                                                               | claude-opus-4-5@20251101   |
+| Claude Opus 4.1                                                               | claude-opus-4-1@20250805   |
+| Claude Opus 4 <br /><small>Deprecated. Retiring September 14, 2026.</small>   | claude-opus-4@20250514     |
+| Claude Haiku 4.5                                                              | claude-haiku-4-5@20251001  |
+| Claude Haiku 3.5 <br /><small>Deprecated. Retiring July 5, 2026.</small>      | claude-3-5-haiku@20241022  |
+
+<Tip>
+Upgrading to a newer Claude model? In Claude Code, run `/claude-api migrate` to apply model ID swaps and breaking parameter changes across your codebase. The skill detects which cloud platform your code targets and adjusts model ID formats and feature changes for that platform. See [Migrating to a newer Claude model](/docs/en/agents-and-tools/agent-skills/claude-api-skill#migrating-to-a-newer-claude-model).
+</Tip>
 
 ### Making requests
 
@@ -132,214 +138,211 @@ Before running requests you may need to run `gcloud auth application-default log
 The following examples show how to generate text from Claude on Vertex AI:
 <CodeGroup>
 
-  
-  ```bash cURL nocheck
-  MODEL_ID=claude-opus-4-7
-  LOCATION=global
-  PROJECT_ID=MY_PROJECT_ID
+```bash cURL nocheck
+MODEL_ID=claude-opus-4-8
+LOCATION=global
+PROJECT_ID=MY_PROJECT_ID
 
-  curl \
-  -X POST \
-  -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-  -H "Content-Type: application/json" \
-  https://$LOCATION-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/anthropic/models/${MODEL_ID}:streamRawPredict -d \
-  '{
-    "anthropic_version": "vertex-2023-10-16",
-    "messages": [{
-      "role": "user",
-      "content": "Hey Claude!"
-    }],
-    "max_tokens": 100
-  }'
-  ```
+curl \
+-X POST \
+-H "Authorization: Bearer $(gcloud auth print-access-token)" \
+-H "Content-Type: application/json" \
+https://$LOCATION-aiplatform.googleapis.com/v1/projects/${PROJECT_ID}/locations/${LOCATION}/publishers/anthropic/models/${MODEL_ID}:streamRawPredict -d \
+'{
+  "anthropic_version": "vertex-2023-10-16",
+  "messages": [{
+    "role": "user",
+    "content": "Hey Claude!"
+  }],
+  "max_tokens": 100
+}'
+```
 
-  ```bash CLI
-  # The ant CLI does not support Vertex AI.
-  ```
+```bash CLI
+# The ant CLI does not support Vertex AI.
+```
 
-  
-  ```python Python nocheck
-  from anthropic import AnthropicVertex
+```python Python nocheck
+from anthropic import AnthropicVertex
 
-  project_id = "MY_PROJECT_ID"
-  region = "global"
+project_id = "MY_PROJECT_ID"
+region = "global"
 
-  client = AnthropicVertex(project_id=project_id, region=region)
+client = AnthropicVertex(project_id=project_id, region=region)
 
-  message = client.messages.create(
-      model="claude-opus-4-7",
-      max_tokens=100,
-      messages=[
-          {
-              "role": "user",
-              "content": "Hey Claude!",
-          }
-      ],
-  )
-  print(message)
-  ```
-
-  
-  ```typescript TypeScript nocheck
-  import { AnthropicVertex } from "@anthropic-ai/vertex-sdk";
-
-  const projectId = "MY_PROJECT_ID";
-  const region = "global";
-
-  // Goes through the standard `google-auth-library` flow.
-  const client = new AnthropicVertex({
-    projectId,
-    region
-  });
-
-  async function main() {
-    const result = await client.messages.create({
-      model: "claude-opus-4-7",
-      max_tokens: 100,
-      messages: [
+message = client.messages.create(
+    model="claude-opus-4-8",
+    max_tokens=100,
+    messages=[
         {
-          role: "user",
-          content: "Hey Claude!"
+            "role": "user",
+            "content": "Hey Claude!",
         }
-      ]
-    });
-    console.log(JSON.stringify(result, null, 2));
-  }
+    ],
+)
+print(message)
+```
 
-  main();
-  ```
+```typescript TypeScript nocheck
+import { AnthropicVertex } from "@anthropic-ai/vertex-sdk";
 
-  
-  ```csharp C# nocheck
-  using Anthropic;
-  using Anthropic.Models.Messages;
-  using Anthropic.Vertex;
+const projectId = "MY_PROJECT_ID";
+const region = "global";
 
-  var projectId = "MY_PROJECT_ID";
-  var region = "global";
+// Goes through the standard `google-auth-library` flow.
+const client = new AnthropicVertex({
+  projectId,
+  region,
+});
 
-  var client = new AnthropicClient
-  {
-      Backend = new VertexBackend(projectId, region)
-  };
-
-  var parameters = new MessageCreateParams
-  {
-      Model = Model.ClaudeOpus4_7,
-      MaxTokens = 100,
-      Messages = [new() { Role = Role.User, Content = "Hey Claude!" }]
-  };
-
-  var message = await client.Messages.Create(parameters);
-  Console.WriteLine(message);
-  ```
-
-  
-  ```go Go nocheck hidelines={1..2,10..11,-1}
-  package main
-
-  import (
-  	"context"
-  	"fmt"
-
-  	"github.com/anthropics/anthropic-sdk-go"
-  	"github.com/anthropics/anthropic-sdk-go/vertex"
-  )
-
-  func main() {
-  	// Uses default Google Cloud credentials
-  	client := anthropic.NewClient(
-  		vertex.WithGoogleAuth(context.Background(), "global", "MY_PROJECT_ID"),
-  	)
-
-  	message, err := client.Messages.New(context.Background(), anthropic.MessageNewParams{
-  		Model:     "claude-opus-4-7",
-  		MaxTokens: 100,
-  		Messages: []anthropic.MessageParam{
-  			anthropic.NewUserMessage(anthropic.NewTextBlock("Hey Claude!")),
-  		},
-  	})
-  	if err != nil {
-  		panic(err)
-  	}
-  	fmt.Printf("%+v\n", message)
-  }
-  ```
-
-  
-  ```java Java nocheck hidelines={6..9,-2..}
-  import com.anthropic.client.AnthropicClient;
-  import com.anthropic.client.okhttp.AnthropicOkHttpClient;
-  import com.anthropic.models.messages.Message;
-  import com.anthropic.models.messages.MessageCreateParams;
-  import com.anthropic.vertex.backends.VertexBackend;
-
-  public class VertexExample {
-
-    public static void main(String[] args) {
-      // Uses default Google Cloud credentials
-      AnthropicClient client = AnthropicOkHttpClient.builder()
-        .backend(VertexBackend.fromEnv())
-        .build();
-
-      Message message = client
-        .messages()
-        .create(
-          MessageCreateParams.builder()
-            .model("claude-opus-4-7")
-            .maxTokens(100)
-            .addUserMessage("Hey Claude!")
-            .build()
-        );
-
-      System.out.println(message);
-    }
-  }
-  ```
-
-  
-  ```php PHP nocheck
-  <?php
-
-  use Anthropic\Vertex;
-
-  $client = Vertex\Client::fromEnvironment(
-      location: 'global',
-      projectId: 'MY_PROJECT_ID',
-  );
-
-  $message = $client->messages->create(
-      maxTokens: 100,
-      messages: [
-          ['role' => 'user', 'content' => 'Hey Claude!']
-      ],
-      model: 'claude-opus-4-7',
-  );
-  echo $message->content[0]->text;
-  ```
-
-  
-  ```ruby Ruby nocheck
-  require "anthropic"
-
-  client = Anthropic::VertexClient.new(
-    region: "global",
-    project_id: "MY_PROJECT_ID"
-  )
-
-  message = client.messages.create(
-    model: "claude-opus-4-7",
+async function main() {
+  const result = await client.messages.create({
+    model: "claude-opus-4-8",
     max_tokens: 100,
-    messages: [{role: "user", content: "Hey Claude!"}]
-  )
+    messages: [
+      {
+        role: "user",
+        content: "Hey Claude!",
+      },
+    ],
+  });
+  console.log(JSON.stringify(result, null, 2));
+}
 
-  puts message.content.first.text
-  ```
+main();
+```
+
+```csharp C# nocheck
+using Anthropic;
+using Anthropic.Models.Messages;
+using Anthropic.Vertex;
+
+var projectId = "MY_PROJECT_ID";
+var region = "global";
+
+var client = new AnthropicClient
+{
+    Backend = new VertexBackend(projectId, region)
+};
+
+var parameters = new MessageCreateParams
+{
+    Model = Model.ClaudeOpus4_8,
+    MaxTokens = 100,
+    Messages = [new() { Role = Role.User, Content = "Hey Claude!" }]
+};
+
+var message = await client.Messages.Create(parameters);
+Console.WriteLine(message);
+```
+
+```go Go nocheck hidelines={1..2,10..11,-1}
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/anthropics/anthropic-sdk-go"
+	"github.com/anthropics/anthropic-sdk-go/vertex"
+)
+
+func main() {
+	// Uses default Google Cloud credentials
+	client := anthropic.NewClient(
+		vertex.WithGoogleAuth(context.Background(), "global", "MY_PROJECT_ID"),
+	)
+
+	message, err := client.Messages.New(context.Background(), anthropic.MessageNewParams{
+		Model:     "claude-opus-4-8",
+		MaxTokens: 100,
+		Messages: []anthropic.MessageParam{
+			anthropic.NewUserMessage(anthropic.NewTextBlock("Hey Claude!")),
+		},
+	})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf("%+v\n", message)
+}
+```
+
+```java Java nocheck hidelines={6..9,-2..}
+import com.anthropic.client.AnthropicClient;
+import com.anthropic.client.okhttp.AnthropicOkHttpClient;
+import com.anthropic.models.messages.Message;
+import com.anthropic.models.messages.MessageCreateParams;
+import com.anthropic.vertex.backends.VertexBackend;
+
+public class VertexExample {
+
+  public static void main(String[] args) {
+    // Uses default Google Cloud credentials
+    AnthropicClient client = AnthropicOkHttpClient.builder()
+      .backend(VertexBackend.fromEnv())
+      .build();
+
+    Message message = client
+      .messages()
+      .create(
+        MessageCreateParams.builder()
+          .model("claude-opus-4-8")
+          .maxTokens(100)
+          .addUserMessage("Hey Claude!")
+          .build()
+      );
+
+    System.out.println(message);
+  }
+}
+```
+
+```php PHP nocheck
+<?php
+
+use Anthropic\Vertex;
+
+$client = Vertex\Client::fromEnvironment(
+    location: 'global',
+    projectId: 'MY_PROJECT_ID',
+);
+
+$message = $client->messages->create(
+    maxTokens: 100,
+    messages: [
+        ['role' => 'user', 'content' => 'Hey Claude!']
+    ],
+    model: 'claude-opus-4-8',
+);
+echo $message->content[0]->text;
+```
+
+```ruby Ruby nocheck
+require "anthropic"
+
+client = Anthropic::VertexClient.new(
+  region: "global",
+  project_id: "MY_PROJECT_ID"
+)
+
+message = client.messages.create(
+  model: "claude-opus-4-8",
+  max_tokens: 100,
+  messages: [{role: "user", content: "Hey Claude!"}]
+)
+
+puts message.content.first.text
+```
+
 </CodeGroup>
 
 See the [client SDKs](/docs/en/api/client-sdks) and the official [Vertex AI docs](https://cloud.google.com/vertex-ai/docs) for more details.
 
 Claude is also available through [Amazon Bedrock](/docs/en/build-with-claude/claude-in-amazon-bedrock), [Claude Platform on AWS](/docs/en/build-with-claude/claude-platform-on-aws), and [Microsoft Foundry](/docs/en/build-with-claude/claude-in-microsoft-foundry).
+
+## Data retention
+
+Data handling for this offering is governed by Google Cloud Vertex AI. For details, see [Vertex AI and zero data retention](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance).
 
 ## Activity logging
 
@@ -352,11 +355,30 @@ Turning on this service does not give Google or Anthropic any access to your con
 </Note>
 
 ## Feature support
-For all currently supported features on Vertex AI, see [API features overview](/docs/en/build-with-claude/overview).
+
+For the full feature list with Vertex AI availability, see [Features overview](/docs/en/build-with-claude/overview).
+
+### Supported feature highlights
+
+- [Messages API](/docs/en/api/messages/create)
+- [Prompt caching](/docs/en/build-with-claude/prompt-caching)
+- [Extended thinking](/docs/en/build-with-claude/extended-thinking)
+- [Tool use](/docs/en/agents-and-tools/tool-use/overview), including the [Bash tool](/docs/en/agents-and-tools/tool-use/bash-tool), [Computer use tool](/docs/en/agents-and-tools/tool-use/computer-use-tool), [Memory tool](/docs/en/agents-and-tools/tool-use/memory-tool), and [Text editor tool](/docs/en/agents-and-tools/tool-use/text-editor-tool)
+- [Web search tool](/docs/en/agents-and-tools/tool-use/web-search-tool)
+- [Citations](/docs/en/build-with-claude/citations)
+- [Structured outputs](/docs/en/build-with-claude/structured-outputs)
+
+### Features not supported
+
+- Input sources (URL sources for images and documents, Files API)
+- Server-side tools (code execution, web fetch, advisor)
+- Agent infrastructure (Agent Skills, MCP connector, programmatic tool calling)
+- API endpoints (Message Batches, Models, Admin, Compliance, Usage and Cost)
+- Claude Managed Agents
 
 ### Context window
 
-Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6 have a [1M-token context window](/docs/en/build-with-claude/context-windows) on Vertex AI. Other Claude models, including Sonnet 4.5 and Sonnet 4 (deprecated), have a 200k-token context window.
+Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, and Claude Sonnet 4.6 have a [1M-token context window](/docs/en/build-with-claude/context-windows) on Vertex AI. Other Claude models, including Sonnet 4.5 and Sonnet 4 (deprecated), have a 200k-token context window.
 
 Vertex AI limits request payloads to 30 MB. When sending large documents or many images, you may reach this limit before the token limit.
 
@@ -377,6 +399,7 @@ This applies to Claude Sonnet 4.5 and future models only. Older models (Claude S
 ### When to use each option
 
 **Global endpoints (recommended):**
+
 - Provide maximum availability and uptime
 - Dynamically route requests to regions with available capacity
 - No pricing premium
@@ -384,12 +407,14 @@ This applies to Claude Sonnet 4.5 and future models only. Older models (Claude S
 - Only supports pay-as-you-go traffic (provisioned throughput requires regional endpoints)
 
 **Multi-region endpoints:**
+
 - Dynamically route requests across regions within a geographic area (currently `us` and `eu`)
 - Useful when you need data residency within a broad geography but want higher availability than a single region
 - 10% pricing premium over global endpoints
 - Only supports pay-as-you-go traffic (provisioned throughput requires regional endpoints)
 
 **Regional endpoints:**
+
 - Route traffic through specific geographic regions
 - Required for single-region data residency, strict compliance mandates, or provisioned throughput
 - Support both pay-as-you-go and provisioned throughput
@@ -416,7 +441,7 @@ region = "global"
 client = AnthropicVertex(project_id=project_id, region=region)
 
 message = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=100,
     messages=[
         {
@@ -436,18 +461,18 @@ const region = "global";
 
 const client = new AnthropicVertex({
   projectId,
-  region
+  region,
 });
 
 const result = await client.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 100,
   messages: [
     {
       role: "user",
-      content: "Hey Claude!"
-    }
-  ]
+      content: "Hey Claude!",
+    },
+  ],
 });
 ```
 
@@ -466,7 +491,7 @@ var client = new AnthropicClient
 
 var parameters = new MessageCreateParams
 {
-    Model = Model.ClaudeOpus4_7,
+    Model = Model.ClaudeOpus4_8,
     MaxTokens = 100,
     Messages = [new() { Role = Role.User, Content = "Hey Claude!" }]
 };
@@ -492,7 +517,7 @@ func main() {
 	)
 
 	message, _ := client.Messages.New(context.Background(), anthropic.MessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 100,
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(anthropic.NewTextBlock("Hey Claude!")),
@@ -523,7 +548,7 @@ void main() {
         .messages()
         .create(
             MessageCreateParams.builder()
-                .model("claude-opus-4-7")
+                .model("claude-opus-4-8")
                 .maxTokens(100)
                 .addUserMessage("Hey Claude!")
                 .build()
@@ -548,7 +573,7 @@ $message = $client->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Hey Claude!']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
 );
 
 echo $message->content[0]->text;
@@ -563,13 +588,14 @@ client = Anthropic::VertexClient.new(
 )
 
 message = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 100,
   messages: [{role: "user", content: "Hey Claude!"}]
 )
 
 puts message.content.first.text
 ```
+
 </CodeGroup>
 
 **Using multi-region endpoints:**
@@ -591,7 +617,7 @@ region = "us"  # Multi-region identifier: "us" or "eu"
 client = AnthropicVertex(project_id=project_id, region=region)
 
 message = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=100,
     messages=[
         {
@@ -611,18 +637,18 @@ const region = "us"; // Multi-region identifier: "us" or "eu"
 
 const client = new AnthropicVertex({
   projectId,
-  region
+  region,
 });
 
 const result = await client.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 100,
   messages: [
     {
       role: "user",
-      content: "Hey Claude!"
-    }
-  ]
+      content: "Hey Claude!",
+    },
+  ],
 });
 ```
 
@@ -641,7 +667,7 @@ var client = new AnthropicClient
 
 var parameters = new MessageCreateParams
 {
-    Model = Model.ClaudeOpus4_7,
+    Model = Model.ClaudeOpus4_8,
     MaxTokens = 100,
     Messages = [new() { Role = Role.User, Content = "Hey Claude!" }]
 };
@@ -667,7 +693,7 @@ func main() {
 	)
 
 	message, _ := client.Messages.New(context.Background(), anthropic.MessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 100,
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(anthropic.NewTextBlock("Hey Claude!")),
@@ -698,7 +724,7 @@ void main() {
         .messages()
         .create(
             MessageCreateParams.builder()
-                .model("claude-opus-4-7")
+                .model("claude-opus-4-8")
                 .maxTokens(100)
                 .addUserMessage("Hey Claude!")
                 .build()
@@ -723,7 +749,7 @@ $message = $client->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Hey Claude!']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
 );
 echo $message->content[0]->text;
 ```
@@ -737,13 +763,14 @@ client = Anthropic::VertexClient.new(
 )
 
 message = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 100,
   messages: [{role: "user", content: "Hey Claude!"}]
 )
 
 puts message.content.first.text
 ```
+
 </CodeGroup>
 
 **Using regional endpoints:**
@@ -765,7 +792,7 @@ region = "us-east1"  # Specify a specific region
 client = AnthropicVertex(project_id=project_id, region=region)
 
 message = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=100,
     messages=[
         {
@@ -785,18 +812,18 @@ const region = "us-east1"; // Specify a specific region
 
 const client = new AnthropicVertex({
   projectId,
-  region
+  region,
 });
 
 const result = await client.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 100,
   messages: [
     {
       role: "user",
-      content: "Hey Claude!"
-    }
-  ]
+      content: "Hey Claude!",
+    },
+  ],
 });
 ```
 
@@ -815,7 +842,7 @@ AnthropicClient client = new()
 
 var parameters = new MessageCreateParams
 {
-    Model = Model.ClaudeOpus4_7,
+    Model = Model.ClaudeOpus4_8,
     MaxTokens = 100,
     Messages = [new() { Role = Role.User, Content = "Hey Claude!" }]
 };
@@ -841,7 +868,7 @@ func main() {
 	)
 
 	message, _ := client.Messages.New(context.Background(), anthropic.MessageNewParams{
-		Model:     "claude-opus-4-7",
+		Model:     "claude-opus-4-8",
 		MaxTokens: 100,
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(anthropic.NewTextBlock("Hey Claude!")),
@@ -872,7 +899,7 @@ void main() {
         .messages()
         .create(
             MessageCreateParams.builder()
-                .model("claude-opus-4-7")
+                .model("claude-opus-4-8")
                 .maxTokens(100)
                 .addUserMessage("Hey Claude!")
                 .build()
@@ -897,7 +924,7 @@ $message = $client->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Hey Claude!']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
 );
 echo $message->content[0]->text;
 ```
@@ -911,13 +938,14 @@ client = Anthropic::VertexClient.new(
 )
 
 message = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 100,
   messages: [{role: "user", content: "Hey Claude!"}]
 )
 
 puts message.content.first.text
 ```
+
 </CodeGroup>
 
 <Note>

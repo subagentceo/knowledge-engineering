@@ -1,6 +1,6 @@
 # Completions
 
-## Create
+## Create a Text Completion
 
 `client.Completions.New(ctx, params) (*Completion, error)`
 
@@ -15,7 +15,6 @@ Future models and features will not be compatible with Text Completions. See our
 ### Parameters
 
 - `params CompletionNewParams`
-
   - `MaxTokensToSample param.Field[int64]`
 
     Body param: The maximum number of tokens to generate before stopping.
@@ -40,9 +39,9 @@ Future models and features will not be compatible with Text Completions. See our
 
     ```
     "
-    
+
     Human: {userQuestion}
-    
+
     Assistant:"
     ```
 
@@ -89,11 +88,9 @@ Future models and features will not be compatible with Text Completions. See our
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -142,10 +139,15 @@ Future models and features will not be compatible with Text Completions. See our
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type Completion struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -161,12 +163,14 @@ Future models and features will not be compatible with Text Completions. See our
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
     - `type Model string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+        Frontier intelligence for long-running agents and coding
 
       - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
 
@@ -243,16 +247,14 @@ Future models and features will not be compatible with Text Completions. See our
     The reason that we stopped.
 
     This may be one the following values:
-
-    * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
-    * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
+    - `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
+    - `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
   - `Type Completion`
 
     Object type.
 
     For Text Completions, this is always `"completion"`.
-
     - `const CompletionCompletion Completion = "completion"`
 
 ### Example
@@ -274,7 +276,7 @@ func main() {
   )
   completion, err := client.Completions.New(context.TODO(), anthropic.CompletionNewParams{
     MaxTokensToSample: 256,
-    Model: anthropic.ModelClaudeOpus4_7,
+    Model: anthropic.ModelClaudeOpus4_8,
     Prompt: "\n\nHuman: Hello, world!\n\nAssistant:",
   })
   if err != nil {
@@ -284,12 +286,23 @@ func main() {
 }
 ```
 
+#### Response
+
+```json
+{
+  "id": "compl_018CKm6gsux7P8yMcwZbeCPw",
+  "completion": " Hello! My name is Claude.",
+  "model": "claude-2.1",
+  "stop_reason": "stop_sequence",
+  "type": "completion"
+}
+```
+
 ## Domain Types
 
 ### Completion
 
 - `type Completion struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -305,12 +318,14 @@ func main() {
     The model that will complete your prompt.
 
     See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
     - `type Model string`
 
       The model that will complete your prompt.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+      - `const ModelClaudeOpus4_8 Model = "claude-opus-4-8"`
+
+        Frontier intelligence for long-running agents and coding
 
       - `const ModelClaudeOpus4_7 Model = "claude-opus-4-7"`
 
@@ -387,14 +402,12 @@ func main() {
     The reason that we stopped.
 
     This may be one the following values:
-
-    * `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
-    * `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
+    - `"stop_sequence"`: we reached a stop sequence — either provided by you via the `stop_sequences` parameter, or a stop sequence built into the model
+    - `"max_tokens"`: we exceeded `max_tokens_to_sample` or the model's maximum
 
   - `Type Completion`
 
     Object type.
 
     For Text Completions, this is always `"completion"`.
-
     - `const CompletionCompletion Completion = "completion"`

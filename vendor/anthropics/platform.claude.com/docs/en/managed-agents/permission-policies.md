@@ -12,14 +12,15 @@ All Managed Agents API requests require the `managed-agents-2026-04-01` beta hea
 
 ## Permission policy types
 
-| Policy | Behavior |
-| --- | --- |
-| `always_allow` | The tool executes automatically with no confirmation. |
-| `always_ask` | The session pauses and waits for your approval before executing. See [Respond to confirmation requests](#respond-to-confirmation-requests) for the event flow. |
+| Policy         | Behavior                                                                                                                                                       |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `always_allow` | The tool executes automatically with no confirmation.                                                                                                          |
+| `always_ask`   | The session pauses and waits for your approval before executing. See [Respond to confirmation requests](#respond-to-confirmation-requests) for the event flow. |
 
 ## Set a policy for a toolset
 
 ### Agent toolset permissions
+
 When creating an agent, you may optionally apply a policy to every tool in `agent_toolset_20260401` using `default_config.permission_policy`:
 
 <CodeGroup defaultLanguage="CLI">
@@ -31,7 +32,7 @@ agent=$(curl -fsSL https://api.anthropic.com/v1/agents \
   -H "content-type: application/json" \
   -d '{
     "name": "Coding Assistant",
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "tools": [
       {
         "type": "agent_toolset_20260401",
@@ -46,7 +47,7 @@ agent=$(curl -fsSL https://api.anthropic.com/v1/agents \
 ```bash CLI
 ant beta:agents create <<'YAML'
 name: Coding Assistant
-model: claude-opus-4-7
+model: claude-opus-4-8
 tools:
   - type: agent_toolset_20260401
     default_config:
@@ -58,7 +59,7 @@ YAML
 ```python Python
 agent = client.beta.agents.create(
     name="Coding Assistant",
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     tools=[
         {
             "type": "agent_toolset_20260401",
@@ -73,15 +74,15 @@ agent = client.beta.agents.create(
 ```typescript TypeScript
 const agent = await client.beta.agents.create({
   name: "Coding Assistant",
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   tools: [
     {
       type: "agent_toolset_20260401",
       default_config: {
-        permission_policy: { type: "always_ask" }
-      }
-    }
-  ]
+        permission_policy: { type: "always_ask" },
+      },
+    },
+  ],
 });
 ```
 
@@ -89,7 +90,7 @@ const agent = await client.beta.agents.create({
 var agent = await client.Beta.Agents.Create(new()
 {
     Name = "Coding Assistant",
-    Model = new("claude-opus-4-7"),
+    Model = new("claude-opus-4-8"),
     Tools =
     [
         new BetaManagedAgentsAgentToolset20260401Params
@@ -108,8 +109,7 @@ var agent = await client.Beta.Agents.Create(new()
 agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 	Name: "Coding Assistant",
 	Model: anthropic.BetaManagedAgentsModelConfigParams{
-		ID:   "claude-opus-4-7",
-		Type: anthropic.BetaManagedAgentsModelConfigParamsTypeModelConfig,
+		ID: "claude-opus-4-8",
 	},
 	Tools: []anthropic.BetaAgentNewParamsToolUnion{{
 		OfAgentToolset20260401: &anthropic.BetaManagedAgentsAgentToolset20260401Params{
@@ -127,13 +127,14 @@ agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 if err != nil {
 	panic(err)
 }
+_ = agent
 ```
 
 ```java Java
 var agent = client.beta().agents().create(
     AgentCreateParams.builder()
         .name("Coding Assistant")
-        .model(BetaManagedAgentsModel.CLAUDE_OPUS_4_7)
+        .model(BetaManagedAgentsModel.CLAUDE_OPUS_4_8)
         .addTool(
             BetaManagedAgentsAgentToolset20260401Params.builder()
                 .type(BetaManagedAgentsAgentToolset20260401Params.Type.AGENT_TOOLSET_20260401)
@@ -155,7 +156,7 @@ var agent = client.beta().agents().create(
 ```php PHP
 $agent = $client->beta->agents->create(
     name: 'Coding Assistant',
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     tools: [
         BetaManagedAgentsAgentToolset20260401Params::with(
             type: 'agent_toolset_20260401',
@@ -170,7 +171,7 @@ $agent = $client->beta->agents->create(
 ```ruby Ruby
 agent = client.beta.agents.create(
   name: "Coding Assistant",
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   tools: [
     {
       type: "agent_toolset_20260401",
@@ -181,6 +182,7 @@ agent = client.beta.agents.create(
   ]
 )
 ```
+
 </CodeGroup>
 
 `default_config` is an optional setting. If you omit it, the agent toolset will be enabled with the default permission policy, `always_allow`.
@@ -202,7 +204,7 @@ agent=$(curl -fsSL https://api.anthropic.com/v1/agents \
   -H "content-type: application/json" \
   -d '{
     "name": "Dev Assistant",
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "mcp_servers": [
       {"type": "url", "name": "github", "url": "https://mcp.example.com/github"}
     ],
@@ -222,7 +224,7 @@ agent=$(curl -fsSL https://api.anthropic.com/v1/agents \
 ```bash CLI
 ant beta:agents create <<'YAML'
 name: Dev Assistant
-model: claude-opus-4-7
+model: claude-opus-4-8
 mcp_servers:
   - type: url
     name: github
@@ -240,7 +242,7 @@ YAML
 ```python Python
 agent = client.beta.agents.create(
     name="Dev Assistant",
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     mcp_servers=[
         {"type": "url", "name": "github", "url": "https://mcp.example.com/github"},
     ],
@@ -260,18 +262,20 @@ agent = client.beta.agents.create(
 ```typescript TypeScript
 const agent = await client.beta.agents.create({
   name: "Dev Assistant",
-  model: "claude-opus-4-7",
-  mcp_servers: [{ type: "url", name: "github", url: "https://mcp.example.com/github" }],
+  model: "claude-opus-4-8",
+  mcp_servers: [
+    { type: "url", name: "github", url: "https://mcp.example.com/github" },
+  ],
   tools: [
     { type: "agent_toolset_20260401" },
     {
       type: "mcp_toolset",
       mcp_server_name: "github",
       default_config: {
-        permission_policy: { type: "always_allow" }
-      }
-    }
-  ]
+        permission_policy: { type: "always_allow" },
+      },
+    },
+  ],
 });
 ```
 
@@ -279,7 +283,7 @@ const agent = await client.beta.agents.create({
 var agent = await client.Beta.Agents.Create(new()
 {
     Name = "Dev Assistant",
-    Model = new("claude-opus-4-7"),
+    Model = new("claude-opus-4-8"),
     McpServers =
     [
         new() { Type = "url", Name = "github", Url = "https://mcp.example.com/github" },
@@ -307,11 +311,10 @@ var agent = await client.Beta.Agents.Create(new()
 agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 	Name: "Dev Assistant",
 	Model: anthropic.BetaManagedAgentsModelConfigParams{
-		ID:   "claude-opus-4-7",
-		Type: anthropic.BetaManagedAgentsModelConfigParamsTypeModelConfig,
+		ID: "claude-opus-4-8",
 	},
-	MCPServers: []anthropic.BetaManagedAgentsUrlmcpServerParams{{
-		Type: anthropic.BetaManagedAgentsUrlmcpServerParamsTypeURL,
+	MCPServers: []anthropic.BetaManagedAgentsURLMCPServerParams{{
+		Type: anthropic.BetaManagedAgentsURLMCPServerParamsTypeURL,
 		Name: "github",
 		URL:  "https://mcp.example.com/github",
 	}},
@@ -339,16 +342,17 @@ agent, err := client.Beta.Agents.New(ctx, anthropic.BetaAgentNewParams{
 if err != nil {
 	panic(err)
 }
+_ = agent
 ```
 
 ```java Java
 var agent = client.beta().agents().create(
     AgentCreateParams.builder()
         .name("Dev Assistant")
-        .model(BetaManagedAgentsModel.CLAUDE_OPUS_4_7)
+        .model(BetaManagedAgentsModel.CLAUDE_OPUS_4_8)
         .addMcpServer(
-            BetaManagedAgentsUrlmcpServerParams.builder()
-                .type(BetaManagedAgentsUrlmcpServerParams.Type.URL)
+            BetaManagedAgentsUrlMcpServerParams.builder()
+                .type(BetaManagedAgentsUrlMcpServerParams.Type.URL)
                 .name("github")
                 .url("https://mcp.example.com/github")
                 .build()
@@ -380,13 +384,13 @@ var agent = client.beta().agents().create(
 ```php PHP
 use Anthropic\Beta\Agents\BetaManagedAgentsMCPToolsetDefaultConfigParams;
 use Anthropic\Beta\Agents\BetaManagedAgentsMCPToolsetParams;
-use Anthropic\Beta\Agents\BetaManagedAgentsUrlmcpServerParams;
+use Anthropic\Beta\Agents\BetaManagedAgentsURLMCPServerParams;
 
 $agent = $client->beta->agents->create(
     name: 'Dev Assistant',
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     mcpServers: [
-        BetaManagedAgentsUrlmcpServerParams::with(
+        BetaManagedAgentsURLMCPServerParams::with(
             type: 'url',
             name: 'github',
             url: 'https://mcp.example.com/github',
@@ -410,7 +414,7 @@ $agent = $client->beta->agents->create(
 ```ruby Ruby
 agent = client.beta.agents.create(
   name: "Dev Assistant",
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   mcp_servers: [
     {type: "url", name: "github", url: "https://mcp.example.com/github"}
   ],
@@ -426,6 +430,7 @@ agent = client.beta.agents.create(
   ]
 )
 ```
+
 </CodeGroup>
 
 ## Override an individual tool policy
@@ -486,15 +491,15 @@ const tools = [
   {
     type: "agent_toolset_20260401",
     default_config: {
-      permission_policy: { type: "always_allow" }
+      permission_policy: { type: "always_allow" },
     },
     configs: [
       {
         name: "bash",
-        permission_policy: { type: "always_ask" }
-      }
-    ]
-  }
+        permission_policy: { type: "always_ask" },
+      },
+    ],
+  },
 ] satisfies Anthropic.Beta.AgentCreateParams["tools"];
 ```
 
@@ -607,6 +612,7 @@ tools = [
   }
 ]
 ```
+
 </CodeGroup>
 
 ## Respond to confirmation requests
@@ -639,8 +645,9 @@ curl -fsSL "https://api.anthropic.com/v1/sessions/$SESSION_ID/events" \
   }'
 
 # Or deny it with an explanation
+
 curl -fsSL "https://api.anthropic.com/v1/sessions/$SESSION_ID/events" \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
   -H "anthropic-version: 2023-06-01" \
   -H "anthropic-beta: managed-agents-2026-04-01" \
   -H "content-type: application/json" \
@@ -649,12 +656,13 @@ curl -fsSL "https://api.anthropic.com/v1/sessions/$SESSION_ID/events" \
       {
         "type": "user.tool_confirmation",
         "tool_use_id": "'$MCP_TOOL_USE_EVENT_ID'",
-        "result": "deny",
-        "deny_message": "Don'\''t create issues in the production project. Use the staging project."
-      }
-    ]
-  }'
-```
+"result": "deny",
+"deny_message": "Don'\''t create issues in the production project. Use the staging project."
+}
+]
+}'
+
+````
 
 ```bash CLI nocheck
 # Allow the tool to execute
@@ -667,7 +675,7 @@ ant beta:sessions:events send \
   --session-id "$SESSION_ID" \
   --event "{type: user.tool_confirmation, tool_use_id: $MCP_TOOL_USE_EVENT_ID, result: deny,
     deny_message: Don't create issues in the production project. Use the staging project.}"
-```
+````
 
 ```python Python
 # Allow the tool to execute
@@ -703,9 +711,9 @@ await client.beta.sessions.events.send(session.id, {
     {
       type: "user.tool_confirmation",
       tool_use_id: agent_tool_use_event.id,
-      result: "allow"
-    }
-  ]
+      result: "allow",
+    },
+  ],
 });
 
 // Or deny it with an explanation
@@ -715,9 +723,10 @@ await client.beta.sessions.events.send(session.id, {
       type: "user.tool_confirmation",
       tool_use_id: mcp_tool_use_event.id,
       result: "deny",
-      deny_message: "Don't create issues in the production project. Use the staging project."
-    }
-  ]
+      deny_message:
+        "Don't create issues in the production project. Use the staging project.",
+    },
+  ],
 });
 ```
 
@@ -755,7 +764,7 @@ await client.Beta.Sessions.Events.Send(session.ID, new()
 ```go Go
 // Allow the tool to execute
 _, err = client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
-	Events: []anthropic.SendEventsParamsUnion{{
+	Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
 		OfUserToolConfirmation: &anthropic.BetaManagedAgentsUserToolConfirmationEventParams{
 			Type:      anthropic.BetaManagedAgentsUserToolConfirmationEventParamsTypeUserToolConfirmation,
 			ToolUseID: agentToolUseEvent.ID,
@@ -769,7 +778,7 @@ if err != nil {
 
 // Or deny it with an explanation
 _, err = client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
-	Events: []anthropic.SendEventsParamsUnion{{
+	Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
 		OfUserToolConfirmation: &anthropic.BetaManagedAgentsUserToolConfirmationEventParams{
 			Type:        anthropic.BetaManagedAgentsUserToolConfirmationEventParamsTypeUserToolConfirmation,
 			ToolUseID:   mcpToolUseEvent.ID,
@@ -869,6 +878,7 @@ client.beta.sessions.events.send_(
   ]
 )
 ```
+
 </CodeGroup>
 
 ## Custom tools

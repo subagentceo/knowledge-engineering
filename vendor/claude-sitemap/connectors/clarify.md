@@ -1,3 +1,5 @@
+# Clarify
+
 Retrieve, create, and update records using natural language. Analyze your sales pipeline, create tasks and lists automatically, and generate insights—all through conversation. Query deals, companies, people, and meetings without switching apps. Your Clarify data is retrieved in real-time, and permissions are respected. Stop clicking through interfaces. Just ask what you need.
 
 You can use Clarify to:

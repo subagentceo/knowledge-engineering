@@ -1,6 +1,6 @@
 # Versions
 
-## List
+## List Agent Versions
 
 `client.Beta.Agents.Versions.List(ctx, agentID, params) (*PageCursor[BetaManagedAgentsAgent], error)`
 
@@ -13,7 +13,6 @@ List Agent Versions
 - `agentID string`
 
 - `params BetaAgentVersionListParams`
-
   - `Limit param.Field[int64]`
 
     Query param: Maximum results per page. Default 20, maximum 100.
@@ -25,11 +24,9 @@ List Agent Versions
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -78,12 +75,17 @@ List Agent Versions
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaManagedAgentsAgent struct{…}`
 
   A Managed Agents `agent`.
-
   - `ID string`
 
   - `ArchivedAt Time`
@@ -97,11 +99,9 @@ List Agent Versions
   - `Description string`
 
   - `MCPServers []BetaManagedAgentsMCPServerURLDefinition`
-
     - `Name string`
 
     - `Type BetaManagedAgentsMCPServerURLDefinitionType`
-
       - `const BetaManagedAgentsMCPServerURLDefinitionTypeURL BetaManagedAgentsMCPServerURLDefinitionType = "url"`
 
     - `URL string`
@@ -111,19 +111,16 @@ List Agent Versions
   - `Model BetaManagedAgentsModelConfig`
 
     Model identifier and configuration.
-
     - `ID BetaManagedAgentsModel`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
       - `type BetaManagedAgentsModel string`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `const BetaManagedAgentsModelClaudeOpus4_7 BetaManagedAgentsModel = "claude-opus-4-7"`
 
           Frontier intelligence for long-running agents and coding
@@ -165,7 +162,6 @@ List Agent Versions
     - `Speed BetaManagedAgentsModelConfigSpeed`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
       - `const BetaManagedAgentsModelConfigSpeedStandard BetaManagedAgentsModelConfigSpeed = "standard"`
 
       - `const BetaManagedAgentsModelConfigSpeedFast BetaManagedAgentsModelConfigSpeed = "fast"`
@@ -173,35 +169,28 @@ List Agent Versions
   - `Multiagent BetaManagedAgentsMultiagent`
 
     Resolved coordinator topology with a concrete agent roster.
-
     - `Agents []BetaManagedAgentsAgentReference`
 
       Agents the coordinator may spawn as session threads, each resolved to a specific version.
-
       - `ID string`
 
       - `Type BetaManagedAgentsAgentReferenceType`
-
         - `const BetaManagedAgentsAgentReferenceTypeAgent BetaManagedAgentsAgentReferenceType = "agent"`
 
       - `Version int64`
 
     - `Type BetaManagedAgentsMultiagentType`
-
       - `const BetaManagedAgentsMultiagentTypeCoordinator BetaManagedAgentsMultiagentType = "coordinator"`
 
   - `Name string`
 
   - `Skills []BetaManagedAgentsAgentSkillUnion`
-
     - `type BetaManagedAgentsAnthropicSkill struct{…}`
 
       A resolved Anthropic-managed skill.
-
       - `SkillID string`
 
       - `Type BetaManagedAgentsAnthropicSkillType`
-
         - `const BetaManagedAgentsAnthropicSkillTypeAnthropic BetaManagedAgentsAnthropicSkillType = "anthropic"`
 
       - `Version string`
@@ -209,11 +198,9 @@ List Agent Versions
     - `type BetaManagedAgentsCustomSkill struct{…}`
 
       A resolved user-created custom skill.
-
       - `SkillID string`
 
       - `Type BetaManagedAgentsCustomSkillType`
-
         - `const BetaManagedAgentsCustomSkillTypeCustom BetaManagedAgentsCustomSkillType = "custom"`
 
       - `Version string`
@@ -221,17 +208,13 @@ List Agent Versions
   - `System string`
 
   - `Tools []BetaManagedAgentsAgentToolUnion`
-
     - `type BetaManagedAgentsAgentToolset20260401 struct{…}`
-
       - `Configs []BetaManagedAgentsAgentToolConfig`
-
         - `Enabled bool`
 
         - `Name BetaManagedAgentsAgentToolConfigName`
 
           Built-in agent tool identifier.
-
           - `const BetaManagedAgentsAgentToolConfigNameBash BetaManagedAgentsAgentToolConfigName = "bash"`
 
           - `const BetaManagedAgentsAgentToolConfigNameEdit BetaManagedAgentsAgentToolConfigName = "edit"`
@@ -251,57 +234,39 @@ List Agent Versions
         - `PermissionPolicy BetaManagedAgentsAgentToolConfigPermissionPolicyUnion`
 
           Permission policy for tool execution.
-
           - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
             Tool calls are automatically approved without user confirmation.
-
             - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
               - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
           - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
             Tool calls require user confirmation before execution.
-
             - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
               - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
 
       - `DefaultConfig BetaManagedAgentsAgentToolsetDefaultConfig`
 
         Resolved default configuration for agent tools.
-
         - `Enabled bool`
 
         - `PermissionPolicy BetaManagedAgentsAgentToolsetDefaultConfigPermissionPolicyUnion`
 
           Permission policy for tool execution.
-
           - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-              - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
           - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
             Tool calls require user confirmation before execution.
 
-            - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-              - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
       - `Type BetaManagedAgentsAgentToolset20260401Type`
-
         - `const BetaManagedAgentsAgentToolset20260401TypeAgentToolset20260401 BetaManagedAgentsAgentToolset20260401Type = "agent_toolset_20260401"`
 
     - `type BetaManagedAgentsMCPToolset struct{…}`
-
       - `Configs []BetaManagedAgentsMCPToolConfig`
-
         - `Enabled bool`
 
         - `Name string`
@@ -309,65 +274,43 @@ List Agent Versions
         - `PermissionPolicy BetaManagedAgentsMCPToolConfigPermissionPolicyUnion`
 
           Permission policy for tool execution.
-
           - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-              - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
           - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
             Tool calls require user confirmation before execution.
 
-            - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-              - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
       - `DefaultConfig BetaManagedAgentsMCPToolsetDefaultConfig`
 
         Resolved default configuration for all tools from an MCP server.
-
         - `Enabled bool`
 
         - `PermissionPolicy BetaManagedAgentsMCPToolsetDefaultConfigPermissionPolicyUnion`
 
           Permission policy for tool execution.
-
           - `type BetaManagedAgentsAlwaysAllowPolicy struct{…}`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `Type BetaManagedAgentsAlwaysAllowPolicyType`
-
-              - `const BetaManagedAgentsAlwaysAllowPolicyTypeAlwaysAllow BetaManagedAgentsAlwaysAllowPolicyType = "always_allow"`
 
           - `type BetaManagedAgentsAlwaysAskPolicy struct{…}`
 
             Tool calls require user confirmation before execution.
 
-            - `Type BetaManagedAgentsAlwaysAskPolicyType`
-
-              - `const BetaManagedAgentsAlwaysAskPolicyTypeAlwaysAsk BetaManagedAgentsAlwaysAskPolicyType = "always_ask"`
-
       - `MCPServerName string`
 
       - `Type BetaManagedAgentsMCPToolsetType`
-
         - `const BetaManagedAgentsMCPToolsetTypeMCPToolset BetaManagedAgentsMCPToolsetType = "mcp_toolset"`
 
     - `type BetaManagedAgentsCustomTool struct{…}`
 
       A custom tool as returned in API responses.
-
       - `Description string`
 
       - `InputSchema BetaManagedAgentsCustomToolInputSchema`
 
         JSON Schema for custom tool input parameters.
-
         - `Properties map[string, any]`
 
           JSON Schema properties defining the tool's input parameters.
@@ -379,17 +322,14 @@ List Agent Versions
         - `Type BetaManagedAgentsCustomToolInputSchemaType`
 
           Must be 'object' for tool input schemas.
-
           - `const BetaManagedAgentsCustomToolInputSchemaTypeObject BetaManagedAgentsCustomToolInputSchemaType = "object"`
 
       - `Name string`
 
       - `Type BetaManagedAgentsCustomToolType`
-
         - `const BetaManagedAgentsCustomToolTypeCustom BetaManagedAgentsCustomToolType = "custom"`
 
   - `Type BetaManagedAgentsAgentType`
-
     - `const BetaManagedAgentsAgentTypeAgent BetaManagedAgentsAgentType = "agent"`
 
   - `UpdatedAt Time`
@@ -428,5 +368,82 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", page)
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "agent_011CZkYpogX7uDKUyvBTophP",
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "A general-purpose starter agent.",
+      "mcp_servers": [
+        {
+          "name": "example-mcp",
+          "type": "url",
+          "url": "https://example-server.modelcontextprotocol.io/sse"
+        }
+      ],
+      "metadata": {
+        "foo": "bar"
+      },
+      "model": {
+        "id": "claude-sonnet-4-6",
+        "speed": "standard"
+      },
+      "multiagent": {
+        "agents": [
+          {
+            "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+            "type": "agent",
+            "version": 1
+          }
+        ],
+        "type": "coordinator"
+      },
+      "name": "My First Agent",
+      "skills": [
+        {
+          "skill_id": "xlsx",
+          "type": "anthropic",
+          "version": "1"
+        },
+        {
+          "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+          "type": "custom",
+          "version": "2"
+        }
+      ],
+      "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
+      "tools": [
+        {
+          "configs": [
+            {
+              "enabled": true,
+              "name": "bash",
+              "permission_policy": {
+                "type": "always_allow"
+              }
+            }
+          ],
+          "default_config": {
+            "enabled": true,
+            "permission_policy": {
+              "type": "always_ask"
+            }
+          },
+          "type": "agent_toolset_20260401"
+        }
+      ],
+      "type": "agent",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "version": 1
+    }
+  ],
+  "next_page": "next_page"
 }
 ```

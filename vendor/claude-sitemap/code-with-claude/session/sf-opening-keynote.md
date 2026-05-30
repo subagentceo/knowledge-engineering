@@ -1,60 +1,8 @@
 # Opening keynote
 
-Details
-
-City
-
-San Francisco, USA
-
-Date
-
-May 6, 2026
-
-Time
-
-09:00AM – 10:00AM
-
-Speaker(s)
-
-Ami Vora
-
-Chief Product Officer,
-
-Anthropic
-
-Dianne Penn
-
-Head of Product, Research,
-
-Anthropic
-
-Angela Jiang
-
-Head of Product, Claude Platform,
-
-Anthropic
-
-Katelyn Lesse
-
-Head of Engineering, Claude Platform,
-
-Anthropic
-
-Cat Wu
-
-Head of Product, Claude Code,
-
-Anthropic
-
-Boris Cherny
-
-Head of Claude Code,
-
-Anthropic
-
 ## Watch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9dc8f3f45396c2541ce1_opening-keynote.webp)
 
@@ -64,4 +12,4 @@ Keynotes, demos, and conversations with the teams behind Claude. Recorded at Cod
 
 Browse recordings
 
-[Learn more](/code-with-claude/san-francisco)Learn more
+Learn moreLearn more

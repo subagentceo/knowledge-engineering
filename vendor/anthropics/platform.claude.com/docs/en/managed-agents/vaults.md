@@ -18,7 +18,7 @@ All Managed Agents API requests require the `managed-agents-2026-04-01` beta hea
 Vaults and credentials are workspace-scoped, meaning anyone with API key access can use them for authorizing an agent to complete a task. To revoke access, delete the vault or credential.
 </Warning>
 
-A vault is the collection of `credentials` associated with an end-user. Give it a `display_name` and optionally tag it with `metadata` so you can map it back to your own user records.
+A vault is the collection of `credentials` associated with an end user. Give it a `display_name` and optionally tag it with `metadata` so you can map it back to your own user records.
 
 <CodeGroup defaultLanguage="CLI">
   
@@ -38,44 +38,39 @@ EOF
 echo "$vault_id"  # "vlt_01ABC..."
 ````
 
-  
-````bash
+```bash
 VAULT_ID=$(ant beta:vaults create \
   --display-name "Alice" \
   --metadata '{external_user_id: usr_abc123}' \
   --transform id --raw-output)
-````
+```
 
-  
-````python
+```python
 vault = client.beta.vaults.create(
     display_name="Alice",
     metadata={"external_user_id": "usr_abc123"},
 )
 print(vault.id)  # "vlt_01ABC..."
-````
+```
 
-  
-````typescript
+```typescript
 const vault = await client.beta.vaults.create({
   display_name: "Alice",
   metadata: { external_user_id: "usr_abc123" },
 });
 console.log(vault.id); // "vlt_01ABC..."
-````
+```
 
-  
-````csharp
+```csharp
 var vault = await client.Beta.Vaults.Create(new()
 {
     DisplayName = "Alice",
     Metadata = new Dictionary<string, string> { ["external_user_id"] = "usr_abc123" },
 });
 Console.WriteLine(vault.ID); // "vlt_01ABC..."
-````
+```
 
-  
-````go
+```go
 vault, err := client.Beta.Vaults.New(ctx, anthropic.BetaVaultNewParams{
 	DisplayName: "Alice",
 	Metadata:    map[string]string{"external_user_id": "usr_abc123"},
@@ -84,10 +79,9 @@ if err != nil {
 	panic(err)
 }
 fmt.Println(vault.ID) // "vlt_01ABC..."
-````
+```
 
-  
-````java
+```java
 var vault = client.beta().vaults().create(VaultCreateParams.builder()
     .displayName("Alice")
     .metadata(VaultCreateParams.Metadata.builder()
@@ -95,25 +89,23 @@ var vault = client.beta().vaults().create(VaultCreateParams.builder()
         .build())
     .build());
 IO.println(vault.id()); // "vlt_01ABC..."
-````
+```
 
-  
-````php
+```php
 $vault = $client->beta->vaults->create(
     displayName: 'Alice',
     metadata: ['external_user_id' => 'usr_abc123'],
 );
 echo $vault->id . "\n"; // "vlt_01ABC..."
-````
+```
 
-  
-````ruby
+```ruby
 vault = client.beta.vaults.create(
   display_name: "Alice",
   metadata: {external_user_id: "usr_abc123"}
 )
 puts vault.id # "vlt_01ABC..."
-````
+```
 
 </CodeGroup>
 
@@ -141,8 +133,9 @@ Each credential binds to a single `mcp_server_url`. When the agent connects to a
 Use `mcp_oauth` when the MCP server uses OAuth 2.0. If you supply a `refresh` block, Anthropic refreshes the access token on your behalf when it expires.
 
 The `refresh.token_endpoint_auth.type` field indicates how to authenticate the refresh call:
+
 - `none`: public client
-- `client_secret_basic`: HTTP Basic auth with the client secret
+- `client_secret_basic`: HTTP Basic authentication with the client secret
 - `client_secret_post`: client secret in the POST body
 
 <CodeGroup defaultLanguage="CLI">
@@ -174,8 +167,7 @@ EOF
 )
 ````
 
-  
-````bash
+```bash
 CREDENTIAL_ID=$(ant beta:vaults:credentials create \
   --vault-id "$VAULT_ID" \
   --display-name "Alice's Slack" \
@@ -195,10 +187,9 @@ auth:
       client_secret: abc123...
 EOF
 )
-````
+```
 
-  
-````python
+```python
 credential = client.beta.vaults.credentials.create(
     vault_id=vault.id,
     display_name="Alice's Slack",
@@ -216,10 +207,9 @@ credential = client.beta.vaults.credentials.create(
         },
     },
 )
-````
+```
 
-  
-````typescript
+```typescript
 const credential = await client.beta.vaults.credentials.create(vault.id, {
   display_name: "Alice's Slack",
   auth: {
@@ -239,10 +229,9 @@ const credential = await client.beta.vaults.credentials.create(vault.id, {
     },
   },
 });
-````
+```
 
-  
-````csharp
+```csharp
 var credential = await client.Beta.Vaults.Credentials.Create(vault.ID, new()
 {
     DisplayName = "Alice's Slack",
@@ -266,10 +255,9 @@ var credential = await client.Beta.Vaults.Credentials.Create(vault.ID, new()
         },
     },
 });
-````
+```
 
-  
-````go
+```go
 credential, err := client.Beta.Vaults.Credentials.New(ctx, vault.ID, anthropic.BetaVaultCredentialNewParams{
 	DisplayName: anthropic.String("Alice's Slack"),
 	Auth: anthropic.BetaVaultCredentialNewParamsAuthUnion{
@@ -296,10 +284,9 @@ credential, err := client.Beta.Vaults.Credentials.New(ctx, vault.ID, anthropic.B
 if err != nil {
 	panic(err)
 }
-````
+```
 
-  
-````java
+```java
 var credential = client.beta().vaults().credentials().create(vault.id(),
     CredentialCreateParams.builder()
         .displayName("Alice's Slack")
@@ -317,10 +304,9 @@ var credential = client.beta().vaults().credentials().create(vault.id(),
                 .build())
             .build())
         .build());
-````
+```
 
-  
-````php
+```php
 $credential = $client->beta->vaults->credentials->create(
     vaultID: $vault->id,
     displayName: "Alice's Slack",
@@ -341,10 +327,9 @@ $credential = $client->beta->vaults->credentials->create(
         ],
     ],
 );
-````
+```
 
-  
-````ruby
+```ruby
 credential = client.beta.vaults.credentials.create(
   vault.id,
   display_name: "Alice's Slack",
@@ -365,7 +350,7 @@ credential = client.beta.vaults.credentials.create(
     }
   }
 )
-````
+```
 
 </CodeGroup>
 
@@ -392,8 +377,7 @@ curl --fail-with-body -sS "https://api.anthropic.com/v1/vaults/$vault_id/credent
   }'
 ````
 
-  
-````bash
+```bash
 ant beta:vaults:credentials create --vault-id "$VAULT_ID" <<'YAML'
 display_name: Linear API key
 auth:
@@ -401,10 +385,9 @@ auth:
   mcp_server_url: https://mcp.linear.app/mcp
   token: lin_api_your_linear_key
 YAML
-````
+```
 
-  
-````python
+```python
 bearer_credential = client.beta.vaults.credentials.create(
     vault_id=vault.id,
     display_name="Linear API key",
@@ -414,22 +397,20 @@ bearer_credential = client.beta.vaults.credentials.create(
         "token": "lin_api_your_linear_key",
     },
 )
-````
+```
 
-  
-````typescript
+```typescript
 const bearerCredential = await client.beta.vaults.credentials.create(vault.id, {
   display_name: "Linear API key",
   auth: {
     type: "static_bearer",
     mcp_server_url: "https://mcp.linear.app/mcp",
-    token: "lin_api_your_linear_key"
-  }
+    token: "lin_api_your_linear_key",
+  },
 });
-````
+```
 
-  
-````csharp
+```csharp
 var bearerCredential = await client.Beta.Vaults.Credentials.Create(vault.ID, new()
 {
     DisplayName = "Linear API key",
@@ -440,10 +421,9 @@ var bearerCredential = await client.Beta.Vaults.Credentials.Create(vault.ID, new
         Token = "lin_api_your_linear_key",
     },
 });
-````
+```
 
-  
-````go
+```go
 bearerCredential, err := client.Beta.Vaults.Credentials.New(ctx, vault.ID, anthropic.BetaVaultCredentialNewParams{
 	DisplayName: anthropic.String("Linear API key"),
 	Auth: anthropic.BetaVaultCredentialNewParamsAuthUnion{
@@ -458,10 +438,9 @@ if err != nil {
 	panic(err)
 }
 _ = bearerCredential
-````
+```
 
-  
-````java
+```java
 var bearerCredential = client.beta().vaults().credentials().create(vault.id(),
     CredentialCreateParams.builder()
         .displayName("Linear API key")
@@ -471,10 +450,9 @@ var bearerCredential = client.beta().vaults().credentials().create(vault.id(),
             .token("lin_api_your_linear_key")
             .build())
         .build());
-````
+```
 
-  
-````php
+```php
 $bearerCredential = $client->beta->vaults->credentials->create(
     vaultID: $vault->id,
     displayName: 'Linear API key',
@@ -484,10 +462,9 @@ $bearerCredential = $client->beta->vaults->credentials->create(
         'token' => 'lin_api_your_linear_key',
     ],
 );
-````
+```
 
-  
-````ruby
+```ruby
 bearer_credential = client.beta.vaults.credentials.create(
   vault.id,
   display_name: "Linear API key",
@@ -497,7 +474,7 @@ bearer_credential = client.beta.vaults.credentials.create(
     token: "lin_api_your_linear_key"
   }
 )
-````
+```
 
 </CodeGroup>
 
@@ -508,13 +485,13 @@ bearer_credential = client.beta.vaults.credentials.create(
 Secret fields (`token`, `access_token`, `refresh_token`, `client_secret`) are write-only. They are never returned in API responses.
 </Warning>
 
-Credentials are stored as provided and are not validated until session runtime. A bad token surfaces as an MCP auth error during the session, which is emitted but does not block the session from continuing.
+Credentials are stored as provided and are not validated until session runtime. A bad token surfaces as an MCP authentication error during the session, which is emitted but does not block the session from continuing.
 
 Constraints:
 
 - **One active credential per `mcp_server_url` per vault.** Creating a second credential for the same URL returns a 409.
 - **`mcp_server_url` is immutable.** To point at a different server, archive this credential and create a new one.
-- **Maximum 20 credentials per vault.** This matches the maximum amount of MCP servers per agent.
+- **Maximum 20 credentials per vault.** This matches the maximum number of MCP servers per agent.
 
 ## Reference the vault at session creation
 
@@ -539,38 +516,34 @@ EOF
 )
 ````
 
-  
-````bash
+```bash
 SESSION_ID=$(ant beta:sessions create \
   --agent "$AGENT_ID" \
   --environment-id "$ENVIRONMENT_ID" \
   --vault-id "$VAULT_ID" \
   --title "Alice's Slack digest" \
   --transform id --raw-output)
-````
+```
 
-  
-````python
+```python
 session = client.beta.sessions.create(
     agent=agent.id,
     environment_id=environment.id,
     vault_ids=[vault.id],
     title="Alice's Slack digest",
 )
-````
+```
 
-  
-````typescript
+```typescript
 const session = await client.beta.sessions.create({
   agent: agent.id,
   environment_id: environment.id,
   vault_ids: [vault.id],
   title: "Alice's Slack digest",
 });
-````
+```
 
-  
-````csharp
+```csharp
 var session = await client.Beta.Sessions.Create(new()
 {
     Agent = agent.ID,
@@ -578,10 +551,9 @@ var session = await client.Beta.Sessions.Create(new()
     VaultIds = [vault.ID],
     Title = "Alice's Slack digest",
 });
-````
+```
 
-  
-````go
+```go
 session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 	Agent: anthropic.BetaSessionNewParamsAgentUnion{
 		OfString: anthropic.String(agent.ID),
@@ -593,65 +565,64 @@ session, err := client.Beta.Sessions.New(ctx, anthropic.BetaSessionNewParams{
 if err != nil {
 	panic(err)
 }
-````
+```
 
-  
-````java
+```java
 var session = client.beta().sessions().create(SessionCreateParams.builder()
     .agent(agent.id())
     .environmentId(environment.id())
     .vaultIds(List.of(vault.id()))
     .title("Alice's Slack digest")
     .build());
-````
+```
 
-  
-````php
+```php
 $session = $client->beta->sessions->create(
     agent: $agent->id,
     environmentID: $environment->id,
     vaultIDs: [$vault->id],
     title: "Alice's Slack digest",
 );
-````
+```
 
-  
-````ruby
+```ruby
 session = client.beta.sessions.create(
   agent: agent.id,
   environment_id: environment.id,
   vault_ids: [vault.id],
   title: "Alice's Slack digest"
 )
-````
+```
 
 </CodeGroup>
 
 Runtime behavior:
+
 - When a vault has no credential for the MCP server, the connection is attempted unauthenticated and produces an error if the server requires authentication.
 - When multiple vaults cover the MCP server, the first vault with a match wins.
+- In [multiagent sessions](/docs/en/managed-agents/multi-agent), vault credentials apply to every thread. An agent whose own definition declares the matching MCP server authenticates with these credentials. See [Connect agents to MCP servers](/docs/en/managed-agents/multi-agent#connect-agents-to-mcp-servers).
 
 ## Credential refresh
 
 Credentials are re-resolved periodically, both during a session and during the vault lifecycle. This ensures that credential rotation, archival, or deletion propagates to running sessions without a restart.
 
-To be notified if a credential is archived, deleted, or fails to refresh you can subscribe to the vault and credential [webhooks](/docs/en/managed-agents/webhooks) associated with those lifecycle changes.
+To be notified if a credential is archived, deleted, or fails to refresh, you can subscribe to the vault and credential [webhooks](/docs/en/managed-agents/webhooks) associated with those lifecycle changes.
 
-| Event | Trigger |
-| ----- | ------- |
-| `vault.archived` | Vault archived. A `vault_credential.archived` event is also emitted for each underlying credential. |
-| `vault.deleted` | Vault deleted. A `vault_credential.deleted` event is also emitted for each underlying credential. |
-| `vault_credential.archived` | Credential archived, either directly or as a result of vault archival. |
-| `vault_credential.deleted` | Credential deleted, either directly or as a result of vault deletion. |
-| `vault_credential.refresh_failed` | A `mcp_oauth` credential cannot be refreshed (invalid refresh token, or irrecoverable error from the OAuth server). |
+| Event                             | Trigger                                                                                                              |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `vault.archived`                  | Vault archived. A `vault_credential.archived` event is also emitted for each underlying credential.                  |
+| `vault.deleted`                   | Vault deleted. A `vault_credential.deleted` event is also emitted for each underlying credential.                    |
+| `vault_credential.archived`       | Credential archived, either directly or as a result of vault archival.                                               |
+| `vault_credential.deleted`        | Credential deleted, either directly or as a result of vault deletion.                                                |
+| `vault_credential.refresh_failed` | An `mcp_oauth` credential cannot be refreshed (invalid refresh token, or irrecoverable error from the OAuth server). |
 
 <Note>
-This is a non-exhaustive list of webhooks; visit the [webhooks documentation](/docs/en/managed-agents/webhooks) for a complete list.
+This is a non-exhaustive list of webhooks; see [Subscribe to webhooks](/docs/en/managed-agents/webhooks) for the complete list.
 </Note>
 
 ### Diagnose an OAuth refresh failure
 
-To diagnose why a refresh failed, use the `/mcp_oauth_validate` endpoint. This enables you to determine how to handle the failure, which is distinct by error type.
+To diagnose why a refresh failed, use the `/mcp_oauth_validate` endpoint. This allows you to determine how to handle the failure, which is distinct by error type.
 
 The top-level `status` tells you what to do next:
 
@@ -659,13 +630,13 @@ The top-level `status` tells you what to do next:
 - `invalid`: the grant is gone or the OAuth server rejected the refresh with a 4xx. Prompt the end user to re-authorize.
 - `unknown`: a transient error (5xx, 429, or network failure). Wait and retry.
 
-````bash
+```bash
 curl --fail-with-body -sS -X POST \
   "https://api.anthropic.com/v1/vaults/$vault_id/credentials/$credential_id/mcp_oauth_validate?beta=true" \
   -H "x-api-key: $ANTHROPIC_API_KEY" \
   -H "anthropic-version: 2023-06-01" \
   -H "anthropic-beta: managed-agents-2026-04-01"
-````
+```
 
 The response is a `vault_credential_validation` object. `mcp_probe` includes the failed MCP handshake step; `refresh` includes the outcome of the attempted refresh.
 
@@ -718,8 +689,7 @@ curl --fail-with-body -sS \
 EOF
 ````
 
-  
-````bash
+```bash
 ant beta:vaults:credentials update \
   --vault-id "$VAULT_ID" \
   --credential-id "$CREDENTIAL_ID" <<'EOF'
@@ -730,10 +700,9 @@ auth:
   refresh:
     refresh_token: xoxe-1-new-...
 EOF
-````
+```
 
-  
-````python
+```python
 client.beta.vaults.credentials.update(
     credential.id,
     vault_id=vault.id,
@@ -744,10 +713,9 @@ client.beta.vaults.credentials.update(
         "refresh": {"refresh_token": "xoxe-1-new-..."},
     },
 )
-````
+```
 
-  
-````typescript
+```typescript
 await client.beta.vaults.credentials.update(credential.id, {
   vault_id: vault.id,
   auth: {
@@ -759,10 +727,9 @@ await client.beta.vaults.credentials.update(credential.id, {
     },
   },
 });
-````
+```
 
-  
-````csharp
+```csharp
 await client.Beta.Vaults.Credentials.Update(credential.ID, new()
 {
     VaultID = vault.ID,
@@ -774,10 +741,9 @@ await client.Beta.Vaults.Credentials.Update(credential.ID, new()
         Refresh = new() { RefreshToken = "xoxe-1-new-..." },
     },
 });
-````
+```
 
-  
-````go
+```go
 _, err = client.Beta.Vaults.Credentials.Update(ctx, credential.ID, anthropic.BetaVaultCredentialUpdateParams{
 	VaultID: vault.ID,
 	Auth: anthropic.BetaVaultCredentialUpdateParamsAuthUnion{
@@ -794,10 +760,9 @@ _, err = client.Beta.Vaults.Credentials.Update(ctx, credential.ID, anthropic.Bet
 if err != nil {
 	panic(err)
 }
-````
+```
 
-  
-````java
+```java
 client.beta().vaults().credentials().update(credential.id(),
     CredentialUpdateParams.builder()
         .vaultId(vault.id())
@@ -810,10 +775,9 @@ client.beta().vaults().credentials().update(credential.id(),
                 .build())
             .build())
         .build());
-````
+```
 
-  
-````php
+```php
 $client->beta->vaults->credentials->update(
     $credential->id,
     vaultID: $vault->id,
@@ -824,10 +788,9 @@ $client->beta->vaults->credentials->update(
         'refresh' => ['refresh_token' => 'xoxe-1-new-...'],
     ],
 );
-````
+```
 
-  
-````ruby
+```ruby
 client.beta.vaults.credentials.update(
   credential.id,
   vault_id: vault.id,
@@ -838,7 +801,7 @@ client.beta.vaults.credentials.update(
     refresh: {refresh_token: "xoxe-1-new-..."}
   }
 )
-````
+```
 
 </CodeGroup>
 

@@ -1,4 +1,6 @@
-[Claude in Excel](https://support.claude.com/en/articles/12650343-claude-in-excel) brings Claude directly into your spreadsheet workflow. It appears as a sidebar that can read your entire workbook—every tab, every formula, every relationship between cells—and help you understand, fix, and extend what's there.
+# How to use Claude in Excel for HR: Headcount planning
+
+Claude in Excel brings Claude directly into your spreadsheet workflow. It appears as a sidebar that can read your entire workbook—every tab, every formula, every relationship between cells—and help you understand, fix, and extend what's there.
 
 This tutorial walks through an HR headcount planning model: four tabs, formulas linking everywhere, and errors that need fixing. You'll see how to use plain language to get Claude to map a workbook you've inherited, trace and fix formula errors, run what-if scenarios, and build new calculations that reference data across sheets.
 
@@ -86,13 +88,13 @@ When Claude builds a new calculated column, it writes actual Excel formulas that
 
 ## Get started
 
--   Install [Claude in Excel](https://appsource.microsoft.com/en-us/product/office/WA200009404) from the Microsoft AppSource
--   Open it with **Ctrl+Option+C** (Mac) or **Ctrl+Alt+C** (Windows)
--   Start with "Walk me through this workbook" on any spreadsheet you've inherited
+- Install Claude in Excel from the Microsoft AppSource
+- Open it with **Ctrl+Option+C** (Mac) or **Ctrl+Alt+C** (Windows)
+- Start with "Walk me through this workbook" on any spreadsheet you've inherited
 
 Claude in Excel is available in beta on Max, Team, and Enterprise plans.
 
 **Learn more:**
 
--   [Claude in Excel help article](https://support.claude.com/en/articles/12650343-claude-in-excel)
--   [What is the Max plan?](https://support.claude.com/en/articles/11049741-what-is-the-max-plan)
+- Claude in Excel help article
+- What is the Max plan?

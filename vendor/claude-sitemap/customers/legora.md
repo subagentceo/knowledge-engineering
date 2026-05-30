@@ -1,10 +1,12 @@
+# Legora helps lawyers work more efficiently with Claude
+
 Legora builds AI-powered legal technology that helps law firms and in-house legal teams work more efficiently. Legora uses Claude throughout their platform to power assistant tools, document review, and intelligent workflows.
 
 **With Claude, Legora:**
 
--   Offers flexible agentic workflows across their entire legal platform
--   Accelerates development speed using Claude Code
--   Enables lawyers to focus on quality and efficiency rather than routine tasks
+- Offers flexible agentic workflows across their entire legal platform
+- Accelerates development speed using Claude Code
+- Enables lawyers to focus on quality and efficiency rather than routine tasks
 
 ## Legal teams need AI that keeps pace with their evolving practice
 
@@ -26,9 +28,9 @@ This intelligence translates directly into Legora's ability to build more sophis
 
 Legora has integrated Claude throughout their entire legal technology stack, creating a comprehensive AI system that adapts to how lawyers actually work:
 
--   **Assistant tools** that help lawyers quickly find relevant information and draft documents
--   **Tabular review** capabilities for analyzing structured legal data
--   **Agentic workflows** that adapt to different practice areas and case types
+- **Assistant tools** that help lawyers quickly find relevant information and draft documents
+- **Tabular review** capabilities for analyzing structured legal data
+- **Agentic workflows** that adapt to different practice areas and case types
 
 Legora's deep expertise in AI meant they could move quickly with their Claude implementation. "We are very familiar with AI implementation, so we were up and running with Claude in no time at all," Junestrand noted. This rapid deployment allowed them to start enhancing their platform immediately, getting new capabilities into lawyers' hands faster.
 

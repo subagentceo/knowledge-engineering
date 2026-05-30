@@ -1,10 +1,12 @@
+# Charm Industrial accelerates carbon removal operations with Claude
+
 Charm Industrial uses Claude to transform their carbon removal operations, from accelerating scientific research to automating verification processes critical to reversing climate change.
 
 With Claude, Charm Industrial:
 
--   Reduced carbon credit verification time from 3-6 months to just days
--   Accelerated geological site research and permitting processes
--   Automated marketing operations through AI agents
+- Reduced carbon credit verification time from 3-6 months to just days
+- Accelerated geological site research and permitting processes
+- Automated marketing operations through AI agents
 
 ## Managing massive data complexity in carbon removal
 
@@ -40,9 +42,9 @@ This acceleration benefits Charm's customers too. Major corporations purchasing 
 
 Charm also integrated Claude across their operations through several key implementations:
 
--   **Accelerated research and development**: Charm's chemistry lab uses Claude to design experiments and analyze results faster. For geological research, Claude assembles fragmented data from state and county databases to identify potential carbon storage sites, dramatically reducing the time needed to evaluate new sites and prepare permitting documentation.
--   **Field operations support**: Charm has integrated Claude into Slack, giving field operators instant access to operational knowledge. Workers can query safety protocols, maintenance procedures, and technical specifications directly where they work.
--   **Marketing automation**: Charm uses marketing operations agents powered by Claude to manage marketing backlogs, generate blog post drafts, and support outbound communications, automating tasks that previously required dedicated staff time.
+- **Accelerated research and development**: Charm's chemistry lab uses Claude to design experiments and analyze results faster. For geological research, Claude assembles fragmented data from state and county databases to identify potential carbon storage sites, dramatically reducing the time needed to evaluate new sites and prepare permitting documentation.
+- **Field operations support**: Charm has integrated Claude into Slack, giving field operators instant access to operational knowledge. Workers can query safety protocols, maintenance procedures, and technical specifications directly where they work.
+- **Marketing automation**: Charm uses marketing operations agents powered by Claude to manage marketing backlogs, generate blog post drafts, and support outbound communications, automating tasks that previously required dedicated staff time.
 
 Importantly, Claude helps Charm's team focus on their core mission.
 

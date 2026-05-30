@@ -1,4 +1,6 @@
-[Skyline](https://skyline.ms/home/software/Skyline/wiki-page.view?name=team), the open source protein analysis software maintained by principal developer Brendan MacLean at the University of Washington's MacCoss Lab, has been in active development since 2008. Skyline helps researchers detect and quantify proteins in things like blood plasma and tissue, which is vital for biomarker discovery, disease research, and drug development. The MacCoss Lab codebase contains 700,000+ lines of C#, maintained for 17 years by a small team running 200,000+ automated nightly tests.
+# Onboarding Claude Code like a new developer: Lessons from 17 years of development
+
+Skyline, the open source protein analysis software maintained by principal developer Brendan MacLean at the University of Washington's MacCoss Lab, has been in active development since 2008. Skyline helps researchers detect and quantify proteins in things like blood plasma and tissue, which is vital for biomarker discovery, disease research, and drug development. The MacCoss Lab codebase contains 700,000+ lines of C#, maintained for 17 years by a small team running 200,000+ automated nightly tests.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ef9d6a1af11e710950d666_e16f087b.png)
 
@@ -24,9 +26,9 @@ That was the same experience Brendan faced onboarding new developers, which gave
 
 "I could introduce Claude through Claude Code to my large project as I would a trainee developer: by explaining enough to achieve a successful limited project and produce improved context for the next iteration," Brendan says. 
 
-He moved all AI context into its own repository, [pwiz-ai](https://github.com/ProteoWizard/pwiz-ai), kept separate from the codebase so it applies across all branches and time points. The `CLAUDE.md` file at the root handles environment setup and points Claude to the relevant documentation: think of it as the ‘lay of the land,’ not the expertise itself. 
+He moved all AI context into its own repository, pwiz-ai, kept separate from the codebase so it applies across all branches and time points. The `CLAUDE.md` file at the root handles environment setup and points Claude to the relevant documentation: think of it as the ‘lay of the land,’ not the expertise itself. 
 
-The expertise lives in [skills,](https://agentskills.io/home) an open format for giving agents capabilities and expertise. His `debugging` skill, for example, is designed to pull Claude out of what he calls "guess and test" mode, pushing it toward root cause analysis before attempting any fix. Skills can be triggered manually or automatically; Brendan tunes his most critical ones with explicit conditions—the `debugging` skill description reads "ALWAYS load when investigating bugs, failures, or unexpected behavior." 
+The expertise lives in skills, an open format for giving agents capabilities and expertise. His `debugging` skill, for example, is designed to pull Claude out of what he calls "guess and test" mode, pushing it toward root cause analysis before attempting any fix. Skills can be triggered manually or automatically; Brendan tunes his most critical ones with explicit conditions—the `debugging` skill description reads "ALWAYS load when investigating bugs, failures, or unexpected behavior." 
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69ef9d6a1af11e710950d669_24e72102.png)
 
@@ -70,7 +72,7 @@ Based on 17 years of onboarding developers and more than a year of applying the 
 
 **Context is your best friend**
 
-The to-do lists and plans Claude generates don't persist across sessions. [Context](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) is what persists, and it has to be maintained deliberately. This is the part most developers skip, and it's why most developer success plateaus.
+The to-do lists and plans Claude generates don't persist across sessions. Context is what persists, and it has to be maintained deliberately. This is the part most developers skip, and it's why most developer success plateaus.
 
 "Understand that Claude can't learn without you recording ‘context.’ Don't expect magic,” says Brendan. “Invest in building and maintaining your context layer. And treat it like any other project artifact: version it, grow it, maintain it.”
 
@@ -78,13 +80,13 @@ Brendan keeps the AI context in a separate repository because it grows at a diff
 
 **Invest in building your skill library**
 
-Use [skills](https://claude.ai/skills) to encode domain knowledge any Claude instance can load. Brendan's skills follow a "reference do not embed" principle: each skill points into a central documentation knowledgebase rather than duplicating content, keeping them lightweight and easy to maintain. 
+Use skills to encode domain knowledge any Claude instance can load. Brendan's skills follow a "reference do not embed" principle: each skill points into a central documentation knowledgebase rather than duplicating content, keeping them lightweight and easy to maintain. 
 
 His most-used include: a `skyline-development` skill that orients Claude to the project and its documentation; a `version-control` skill that encodes project-specific commit and PR conventions; and a `debugging` skill designed to pull Claude out of "guess and test" mode, pushing it toward root cause analysis before attempting any fix.
 
 **Use MCP integrations when data access is key  
 **  
-Build [MCP integrations](https://anthropic.com/engineering/mcp) where Claude needs access to real data: test results, exception reports, support threads. 
+Build MCP integrations where Claude needs access to real data: test results, exception reports, support threads. 
 
 For open source projects, building and maintaining a context layer carries particular weight. There's no onboarding budget, no institutional memory beyond what gets written down, no guarantee that any contributor will still be around next year. Context, once built, is available to every contributor and persists across the project's lifetime in a way that human institutional knowledge never does. The `pwiz-ai` repository is itself an open source artifact—context that belongs to the project, not any one contributor, and outlasts everyone who built it.
 

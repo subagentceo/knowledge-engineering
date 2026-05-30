@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -76,6 +77,7 @@ Use this as your standard org-wide rollout message. It covers what Claude Code i
     P.S. Prefer your editor? There is a VS Code extension and a JetBrains
     plugin. Same agent, no terminal required.
     ```
+
   </Tab>
 
   <Tab title="Slack or Teams">
@@ -101,6 +103,7 @@ Use this as your standard org-wide rollout message. It covers what Claude Code i
 
     Questions → this thread. [Owner] is on point.
     ```
+
   </Tab>
 </Tabs>
 
@@ -137,6 +140,7 @@ This version is deliberately stripped to one ask: install it and run it on one r
     - [Exec Name]
       [Title]
     ```
+
   </Tab>
 
   <Tab title="Slack or Teams">
@@ -152,6 +156,7 @@ This version is deliberately stripped to one ask: install it and run it on one r
 
     That's it. Questions → #claude-code.
     ```
+
   </Tab>
 </Tabs>
 
@@ -204,18 +209,18 @@ Copy the message body from each block directly into Slack or Teams. Replace `[br
 **Choosing the right model**
 
 ```markdown theme={null}
-🎯 *Tip: Match the model to the moment*
+🎯 _Tip: Match the model to the moment_
 
 Using Opus to fix a typo burns compute. Using Haiku for a 12-file refactor
 is asking for a re-do.
 
 Claude Code runs on the same models as the Claude app, and you can switch
-mid-session. *Sonnet* is the workhorse default for everyday feature work,
-bugs, tests, and reviews. Reach for *Opus* on large refactors, gnarly
-debugging, or anything high-stakes. Drop to *Haiku* for quick questions,
+mid-session. _Sonnet_ is the workhorse default for everyday feature work,
+bugs, tests, and reviews. Reach for _Opus_ on large refactors, gnarly
+debugging, or anything high-stakes. Drop to _Haiku_ for quick questions,
 formatting, and mechanical edits where speed wins.
 
-*Try it now:* type `/model` and pick Sonnet if you haven't already. It is
+_Try it now:_ type `/model` and pick Sonnet if you haven't already. It is
 the right default for most tasks.
 
 📖 Model configuration → https://code.claude.com/docs/en/model-config
@@ -230,19 +235,19 @@ the right default for most tasks.
 **Quick wins to try first**
 
 ```markdown theme={null}
-🚀 *Tip: Three things to try in your first 10 minutes*
+🚀 _Tip: Three things to try in your first 10 minutes_
 
 Installed Claude Code but not sure what to actually ask it? Start with the
 stuff that has been bugging you all week.
 
-  - Fix something annoying: "the test in [file] is flaky, figure out why"
-  - Get oriented in code you didn't write: "walk me through how [module] works"
-  - Sanity-check before you push: "look at my working diff and tell me what
-    looks risky"
+- Fix something annoying: "the test in [file] is flaky, figure out why"
+- Get oriented in code you didn't write: "walk me through how [module] works"
+- Sanity-check before you push: "look at my working diff and tell me what
+  looks risky"
 
 None of these need setup. Just `cd` into your repo and run `claude`.
 
-*Try it now:* pick the bug you have been avoiding and paste the error
+_Try it now:_ pick the bug you have been avoiding and paste the error
 message in.
 
 📖 Quickstart → https://code.claude.com/docs/en/quickstart
@@ -253,7 +258,7 @@ message in.
 **`/init` and CLAUDE.md**
 
 ```markdown theme={null}
-📁 *Tip: Stop re-explaining your repo every session*
+📁 _Tip: Stop re-explaining your repo every session_
 
 Telling Claude "we use pnpm, not npm" for the fifth time? There is a
 one-time fix.
@@ -263,7 +268,7 @@ CLAUDE.md file with your build commands, architecture, and conventions.
 Every future session in that repo starts from this file automatically. Keep
 it under two screens. It is a cheat sheet, not documentation.
 
-*Try it now:* open your main repo, run `claude`, type `/init`. Thirty
+_Try it now:_ open your main repo, run `claude`, type `/init`. Thirty
 seconds, pays off every session after.
 
 📖 CLAUDE.md and project memory → https://code.claude.com/docs/en/memory
@@ -272,7 +277,7 @@ seconds, pays off every session after.
 **@-references**
 
 ```markdown theme={null}
-📎 *Tip: Stop pasting file contents into the chat*
+📎 _Tip: Stop pasting file contents into the chat_
 
 Copying 200 lines of a component into your prompt so Claude can "see" it?
 You don't have to.
@@ -283,7 +288,7 @@ Works for whole directories too.
 > the styles in @src/components/Button.tsx look off, check against
 > @docs/design-system.md
 
-*Try it now:* type `@` then Tab. Autocomplete shows you every file in reach.
+_Try it now:_ type `@` then Tab. Autocomplete shows you every file in reach.
 
 📖 Referencing files → https://code.claude.com/docs/en/common-workflows
 ```
@@ -293,18 +298,18 @@ Works for whole directories too.
 **Permission modes**
 
 ```markdown theme={null}
-🛡️ *Tip: One keystroke between "look but don't touch" and "just do it"*
+🛡️ _Tip: One keystroke between "look but don't touch" and "just do it"_
 
 Sometimes you want Claude to ask before every edit. Sometimes you just want
 it to ship. You shouldn't have to pick one forever.
 
-*Shift+Tab* cycles through how much leash Claude gets: *default* asks before
-risky stuff, *acceptEdits* lets file edits and common filesystem commands
-flow through while still checking before other shell commands, and *plan*
+_Shift+Tab_ cycles through how much leash Claude gets: _default_ asks before
+risky stuff, _acceptEdits_ lets file edits and common filesystem commands
+flow through while still checking before other shell commands, and _plan_
 proposes changes for your approval before anything is touched. Plan mode is
 the trust-builder, so start there for anything touching multiple files.
 
-*Try it now:* on your next refactor, hit Shift+Tab until you see "plan",
+_Try it now:_ on your next refactor, hit Shift+Tab until you see "plan",
 then describe the change. You'll get a full proposal before a single file
 moves.
 
@@ -314,7 +319,7 @@ moves.
 **Checkpointing and `/rewind`**
 
 ```markdown theme={null}
-⏪ *Tip: There is an undo button for the whole conversation*
+⏪ _Tip: There is an undo button for the whole conversation_
 
 Claude went down the wrong path three turns ago and now you're untangling
 it? You don't have to fix forward.
@@ -323,7 +328,7 @@ it? You don't have to fix forward.
 file changes Claude made along the way. Checkpointing is automatic; you
 don't set anything up.
 
-*Try it now:* press *Esc* twice to open the rewind menu, or type `/rewind`.
+_Try it now:_ press _Esc_ twice to open the rewind menu, or type `/rewind`.
 Pick the point before things went sideways.
 
 📖 Checkpointing → https://code.claude.com/docs/en/checkpointing
@@ -334,7 +339,7 @@ Pick the point before things went sideways.
 **MCP connectors**
 
 ```markdown theme={null}
-🔌 *Tip: Let Claude read your issue tracker so you don't have to paste tickets*
+🔌 _Tip: Let Claude read your issue tracker so you don't have to paste tickets_
 
 Copy-pasting Jira tickets into the terminal feels like a step backward.
 It is.
@@ -344,7 +349,7 @@ Jira, Linear, or whatever tracker you use. Then "what's the top-priority
 issue assigned to me?" and "go ahead and fix it" happen in the same
 conversation.
 
-*Try it now:* ask Claude "set up an MCP connector for [GitHub/Jira/Linear]
+_Try it now:_ ask Claude "set up an MCP connector for [GitHub/Jira/Linear]
 in this repo". It will write the config for you.
 
 📖 MCP connectors → https://code.claude.com/docs/en/mcp
@@ -355,7 +360,7 @@ in this repo". It will write the config for you.
 **Skills**
 
 ```markdown theme={null}
-⚡ *Tip: Turn that prompt you keep retyping into a command*
+⚡ _Tip: Turn that prompt you keep retyping into a command_
 
 Typed "summarize what I worked on today from git log, format it for standup"
 three times this week? That's a slash command waiting to happen.
@@ -364,7 +369,7 @@ A SKILL.md file in `.claude/skills/<name>/` becomes a reusable prompt; type
 `/name` to run it. Make one the second time you type a multi-step prompt
 you've typed before. Easiest path: ask Claude to make it for you.
 
-*Try it now:* type "make me a /standup skill that summarizes what I worked
+_Try it now:_ type "make me a /standup skill that summarizes what I worked
 on today from git log", then run `/standup` tomorrow morning.
 
 📖 Skills → https://code.claude.com/docs/en/skills
@@ -373,7 +378,7 @@ on today from git log", then run `/standup` tomorrow morning.
 **Hooks**
 
 ```markdown theme={null}
-🔔 *Tip: Get pinged when your refactor finishes*
+🔔 _Tip: Get pinged when your refactor finishes_
 
 Sitting at your desk watching Claude work through a long task? You've got
 better things to do for those eight minutes.
@@ -382,7 +387,7 @@ Hooks are shell commands that fire on Claude Code events. A Stop hook that
 sends a desktop notification means you can kick off a long refactor, walk
 away, and get pinged the moment it's done.
 
-*Try it now:* ask Claude "add a Stop hook that sends a desktop notification
+_Try it now:_ ask Claude "add a Stop hook that sends a desktop notification
 when you finish". It will write the script and wire it up.
 
 📖 Hooks guide → https://code.claude.com/docs/en/hooks-guide
@@ -393,16 +398,16 @@ when you finish". It will write the script and wire it up.
 **Screenshots and images**
 
 ```markdown theme={null}
-📸 *Tip: Stop describing the error dialog. Just show it.*
+📸 _Tip: Stop describing the error dialog. Just show it._
 
 Typing out "there's a red box that says something about a null reference
 and it's pointing at line 47-ish"? Screenshot it.
 
 Drag a screenshot straight into the terminal and Claude sees it: error
-dialogs, UI mockups, whiteboard photos, Figma exports. *Ctrl+V* pastes from
+dialogs, UI mockups, whiteboard photos, Figma exports. _Ctrl+V_ pastes from
 clipboard (use Ctrl+V on macOS too, not Cmd+V).
 
-*Try it now:* next time something visual breaks, screenshot it and paste it
+_Try it now:_ next time something visual breaks, screenshot it and paste it
 right into the prompt. Then just type "what's wrong here?"
 
 📖 Working with images → https://code.claude.com/docs/en/common-workflows
@@ -411,7 +416,7 @@ right into the prompt. Then just type "what's wrong here?"
 **Git workflows**
 
 ```markdown theme={null}
-🌿 *Tip: Hand off the whole git ceremony*
+🌿 _Tip: Hand off the whole git ceremony_
 
 The fix took 5 minutes. The commit message, branch, and PR description
 took 15. That ratio is wrong.
@@ -421,7 +426,7 @@ branches, PRs with proper summaries. One ask: "fix the off-by-one, commit
 with a conventional commit message, and open a PR." Reviewing someone
 else's work? Paste the PR URL and ask Claude to walk you through the diff.
 
-*Try it now:* after your next fix, instead of switching to your git client,
+_Try it now:_ after your next fix, instead of switching to your git client,
 just type "commit this with a good message and open a PR".
 
 📖 Creating pull requests → https://code.claude.com/docs/en/common-workflows
@@ -432,7 +437,7 @@ just type "commit this with a good message and open a PR".
 **Plugins**
 
 ```markdown theme={null}
-📦 *Tip: Someone probably already built that skill*
+📦 _Tip: Someone probably already built that skill_
 
 About to spend an hour building a `/deploy` command? Check if it
 already exists.
@@ -441,7 +446,7 @@ Skills get bundled and shared as plugins. `/plugin` browses what's
 available and installs in one step. Five minutes of browsing can save an
 hour of building.
 
-*Try it now:* type `/plugin` and scroll through. You'll find at least one
+_Try it now:_ type `/plugin` and scroll through. You'll find at least one
 thing you didn't know you wanted.
 
 📖 Plugins → https://code.claude.com/docs/en/plugins
@@ -452,7 +457,7 @@ thing you didn't know you wanted.
 **Security architecture**
 
 ```markdown theme={null}
-🔐 *Tip: The answer to "is this safe?" for the next time you're asked*
+🔐 _Tip: The answer to "is this safe?" for the next time you're asked_
 
 Someone on your team is going to ask "wait, where does my code go?"
 Here's the short version you can paste.
@@ -463,7 +468,7 @@ directly to Anthropic's API, with no third-party servers, and supports
 optional OS-level sandboxing for shell commands. Under our Enterprise plan,
 Anthropic does not use your code or prompts to train its models.
 
-*Try it now:* save these two links for the next time the question comes up.
+_Try it now:_ save these two links for the next time the question comes up.
 They answer most security-review questions.
 
 📖 https://code.claude.com/docs/en/security
@@ -473,18 +478,18 @@ They answer most security-review questions.
 **Best practices**
 
 ```markdown theme={null}
-✅ *Tip: The 4 habits that separate "tried it once" from "use it daily"*
+✅ _Tip: The 4 habits that separate "tried it once" from "use it daily"_
 
 Most people who bounce off Claude Code skipped one of these. Most people
 who stick did all four in week one.
 
-  - Start in plan mode for anything touching multiple files
-  - Run /init early; context compounds
-  - Review diffs before committing; Claude can be confidently wrong
-  - Verify changes that touch critical paths; treat it like a sharp
-    junior, not an oracle
+- Start in plan mode for anything touching multiple files
+- Run /init early; context compounds
+- Review diffs before committing; Claude can be confidently wrong
+- Verify changes that touch critical paths; treat it like a sharp
+  junior, not an oracle
 
-*Try it now:* if you've only done one or two of these, pick the one you're
+_Try it now:_ if you've only done one or two of these, pick the one you're
 missing and do it on your next task. Post what changed in #claude-code.
 
 📖 Best practices → https://code.claude.com/docs/en/best-practices

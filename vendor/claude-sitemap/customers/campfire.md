@@ -1,11 +1,13 @@
+# Campfire accelerates accounting with Claude
+
 Campfire, a modern accounting software provider for high-growth tech companies, uses Claude to automate complex accounting tasks and reduce monthly close times. Their Claude-powered platform includes invoicing, billing, revenue accounting, financial statements, and AI-powered conversational reporting.
 
 With Claude, Campfire achieved:
 
--   3-day monthly reduction in customer close time
--   90% reduction in bank reconciliation time
--   50% reduction in reporting time
--   Streamlined integration of data analysis and automated task execution
+- 3-day monthly reduction in customer close time
+- 90% reduction in bank reconciliation time
+- 50% reduction in reporting time
+- Streamlined integration of data analysis and automated task execution
 
 ## Making accounting work strategic not tedious
 
@@ -15,15 +17,15 @@ Traditional accounting software had reached its limits with rule-based automatio
 
 After evaluating multiple AI models, Campfire selected Claude for three key advantages. First, Claude demonstrated superior performance in their internal benchmarks. Second, Anthropic provided crucial technical support and implementation blueprints that accelerated product development. Finally, Anthropic's established trust in the industry was essential for Campfire's security-conscious accounting and finance customers.
 
-The engineering team at Campfire, led by CTO Paul Nichols, leveraged Claude's financial "recipes" API framework for rapid deployment. "Our engineering team found a lot of value in Anthropic's ‘[cookbook](https://github.com/anthropics)’ to build AI into our product," said John Glasgow, CEO and Founder of Campfire. This framework enabled Campfire to optimize their roadmap to save the largest number of customers the most amount of time.
+The engineering team at Campfire, led by CTO Paul Nichols, leveraged Claude's financial "recipes" API framework for rapid deployment. "Our engineering team found a lot of value in Anthropic's ‘cookbook’ to build AI into our product," said John Glasgow, CEO and Founder of Campfire. This framework enabled Campfire to optimize their roadmap to save the largest number of customers the most amount of time.
 
 ## How Claude transforms accounting workflows
 
 Campfire integrated Claude to power key capabilities in their platform:
 
--   Ember AI chat interface enables natural language queries of financial data, audit support, and flux analyses with detailed commentary. Ember explains logic and reasoning, shows its work, and provides source data—a critical requirement for accounting professionals.
--   Automated bank reconciliation that parses bank statements and identifies discrepancies.
--   Intelligent data integration merges external data with Campfire records for tasks like budget vs. actual analysis.
+- Ember AI chat interface enables natural language queries of financial data, audit support, and flux analyses with detailed commentary. Ember explains logic and reasoning, shows its work, and provides source data—a critical requirement for accounting professionals.
+- Automated bank reconciliation that parses bank statements and identifies discrepancies.
+- Intelligent data integration merges external data with Campfire records for tasks like budget vs. actual analysis.
 
 ## Delivering measurable impact for accounting teams
 

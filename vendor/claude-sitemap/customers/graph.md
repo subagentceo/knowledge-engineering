@@ -1,10 +1,12 @@
-LaunchNotes leverages [Claude in Amazon Bedrock](https://aws.amazon.com/bedrock/claude/) not only to power key capabilities in its core product management platform, but also as the foundation of Graph, its new developer productivity solution for engineering teams. Graph combines data from GitHub, Jira, and Linear with Claude's analysis to help R&D teams understand the context behind their development metrics.
+# LaunchNotes pioneers next-gen engineering team productivity with Claude in Amazon Bedrock
+
+LaunchNotes leverages Claude in Amazon Bedrock not only to power key capabilities in its core product management platform, but also as the foundation of Graph, its new developer productivity solution for engineering teams. Graph combines data from GitHub, Jira, and Linear with Claude's analysis to help R&D teams understand the context behind their development metrics.
 
 Teams using Graph with Claude in Amazon Bedrock have achieved:
 
--   5x faster incident identification for site reliability engineering (SRE) teams
--   50% reduction in meeting time through personalized, automated updates
--   Generation of customized release notes and technical docs in seconds
+- 5x faster incident identification for site reliability engineering (SRE) teams
+- 50% reduction in meeting time through personalized, automated updates
+- Generation of customized release notes and technical docs in seconds
 
 ## Meeting the challenge of scaled engineering management
 
@@ -20,7 +22,7 @@ LaunchNotes' journey with Claude began in their core product announcements platf
 
 Implementing Claude in Amazon Bedrock provided crucial advantages. "What we value most about Bedrock is the straightforward access to the Anthropic foundational models while keeping our customers' data within our control," said Davis. "This means we can focus on building a great user experience while ensuring our data privacy and security are sound."
 
-Amazon Bedrock's deep integration with [Amazon Web Services (AWS) infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/) proved particularly valuable as LaunchNotes scaled. "Bedrock has enabled deeper integrations with our database and search infrastructure allowing us to scale real-time updates more efficiently," said Davis. "Cross-region inference has allowed us to maintain true high availability. Additionally, our teams have been building systems in AWS for years. Bedrock allows them to build with these new capabilities with confidence."
+Amazon Bedrock's deep integration with Amazon Web Services (AWS) infrastructure proved particularly valuable as LaunchNotes scaled. "Bedrock has enabled deeper integrations with our database and search infrastructure allowing us to scale real-time updates more efficiently," said Davis. "Cross-region inference has allowed us to maintain true high availability. Additionally, our teams have been building systems in AWS for years. Bedrock allows them to build with these new capabilities with confidence."
 
 ## How Claude powers intelligent engineering management
 
@@ -28,18 +30,18 @@ LaunchNotes' new product, Graph, uses Claude to transform engineering data into 
 
 The core LaunchNotes product uses Claude to power three key features:
 
--   Embedded AI writing assistant that can turn any PRD or tech spec into a marketing-grade announcement in seconds
--   Direct Jira integration for automated announcement creation from any epic or set of issues
--   Loom video transcription and announcement synthesis
+- Embedded AI writing assistant that can turn any PRD or tech spec into a marketing-grade announcement in seconds
+- Direct Jira integration for automated announcement creation from any epic or set of issues
+- Loom video transcription and announcement synthesis
 
 ## Transforming team effectiveness through AI-powered insights
 
 LaunchNotes helps engineering leaders maintain effective oversight as their teams expand. Graph delivers immediate impact across multiple workflows:
 
--   Reduces incident identification time by up to 5x for SRE teams
--   Cuts stand-up meeting time by 50% through automated updates
--   Generates tailored, up-to-date release notes in seconds
--   Provides shared context for team meetings without manual preparation
+- Reduces incident identification time by up to 5x for SRE teams
+- Cuts stand-up meeting time by 50% through automated updates
+- Generates tailored, up-to-date release notes in seconds
+- Provides shared context for team meetings without manual preparation
 
 "Our goal is to help engineering managers anticipate and prevent problems before they escalate," said Davis. "Graph transforms hours of manual analysis into instant insights."
 

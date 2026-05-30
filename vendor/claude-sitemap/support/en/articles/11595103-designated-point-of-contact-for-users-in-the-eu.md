@@ -1,8 +1,8 @@
 Users in the EU can open a support inquiry from this page via the chat tool, which serves as our single point of contact for EU users under the DSA.
 
-Follow these [instructions](https://support.anthropic.com/en/articles/9015913-how-to-get-support) to get support.
+Follow these **[instructions](https://support.claude.com/en/articles/9015913-how-to-get-support)** to get support.
 
-## **European Union Monthly Active Recipients**
+## European Union monthly active recipients
 
 In accordance with our obligations under Article 24(2) of the DSA, Anthropic publishes information on the average ‘monthly active recipients’ of our online services in the European Union, calculated over a six-month period.
 ​

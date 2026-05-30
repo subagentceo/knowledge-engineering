@@ -1,3 +1,5 @@
+# Granola
+
 Connect Claude to your meeting history. Ask questions about your work and use your conversation context to get things done.
 
 You can use Granola to:

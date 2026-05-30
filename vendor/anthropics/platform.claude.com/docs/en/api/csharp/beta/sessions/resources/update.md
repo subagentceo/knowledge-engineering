@@ -1,4 +1,4 @@
-## Update
+## Update Session Resource
 
 `ResourceUpdateResponse Beta.Sessions.Resources.Update(ResourceUpdateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Update Session Resource
 ### Parameters
 
 - `ResourceUpdateParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -25,7 +24,6 @@ Update Session Resource
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -74,14 +72,18 @@ Update Session Resource
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class ResourceUpdateResponse: A class that can be one of several variants.union`
 
   The updated session resource.
-
   - `class BetaManagedAgentsGitHubRepositoryResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -91,7 +93,6 @@ Update Session Resource
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"github_repository"GitHubRepository`
 
     - `required DateTimeOffset UpdatedAt`
@@ -101,29 +102,23 @@ Update Session Resource
     - `required string Url`
 
     - `Checkout? Checkout`
-
       - `class BetaManagedAgentsBranchCheckout:`
-
         - `required string Name`
 
           Branch name to check out.
 
         - `required Type Type`
-
           - `"branch"Branch`
 
       - `class BetaManagedAgentsCommitCheckout:`
-
         - `required string Sha`
 
           Full commit SHA to check out.
 
         - `required Type Type`
-
           - `"commit"Commit`
 
   - `class BetaManagedAgentsFileResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -135,7 +130,6 @@ Update Session Resource
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"file"File`
 
     - `required DateTimeOffset UpdatedAt`
@@ -145,19 +139,16 @@ Update Session Resource
   - `class BetaManagedAgentsMemoryStoreResource:`
 
     A memory store attached to an agent session.
-
     - `required string MemoryStoreID`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `required Type Type`
-
       - `"memory_store"MemoryStore`
 
     - `Access? Access`
 
       Access mode for an attached memory store.
-
       - `"read_write"ReadWrite`
 
       - `"read_only"ReadOnly`
@@ -191,4 +182,21 @@ ResourceUpdateParams parameters = new()
 var resource = await client.Beta.Sessions.Resources.Update(parameters);
 
 Console.WriteLine(resource);
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "created_at": "2026-03-15T10:00:00Z",
+  "mount_path": "/workspace/example-repo",
+  "type": "github_repository",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "url": "https://github.com/example-org/example-repo",
+  "checkout": {
+    "name": "main",
+    "type": "branch"
+  }
+}
 ```

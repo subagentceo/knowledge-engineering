@@ -1,4 +1,4 @@
-## Create
+## Create Invite
 
 **post** `/v1/organizations/invites`
 
@@ -13,7 +13,6 @@ Create Invite
 - `role: "user" or "developer" or "billing" or "claude_code_user"`
 
   Role for the invited User. Cannot be "admin".
-
   - `"user"`
 
   - `"developer"`
@@ -24,8 +23,7 @@ Create Invite
 
 ### Returns
 
-- `Invite = object { id, email, expires_at, 4 more }`
-
+- `Invite object { id, email, expires_at, 4 more }`
   - `id: string`
 
     ID of the Invite.
@@ -45,7 +43,6 @@ Create Invite
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
-
     - `"user"`
 
     - `"developer"`
@@ -59,7 +56,6 @@ Create Invite
   - `status: "accepted" or "expired" or "deleted" or "pending"`
 
     Status of the Invite.
-
     - `"accepted"`
 
     - `"expired"`
@@ -73,7 +69,6 @@ Create Invite
     Object type.
 
     For Invites, this is always `"invite"`.
-
     - `"invite"`
 
 ### Example
@@ -87,4 +82,18 @@ curl https://api.anthropic.com/v1/organizations/invites \
           "email": "user@emaildomain.com",
           "role": "user"
         }'
+```
+
+#### Response
+
+```json
+{
+  "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
+  "email": "user@emaildomain.com",
+  "expires_at": "2024-11-20T23:58:27.427722Z",
+  "invited_at": "2024-10-30T23:58:27.427722Z",
+  "role": "user",
+  "status": "pending",
+  "type": "invite"
+}
 ```

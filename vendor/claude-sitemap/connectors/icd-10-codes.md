@@ -1,3 +1,5 @@
+# ICD-10 Codes
+
 The ICD-10 Codes connector gives Claude access to the complete ICD-10-CM (diagnosis) and ICD-10-PCS (procedure) code sets for medical classification and billing.
 
 You can use the ICD-10 Codes connector to:

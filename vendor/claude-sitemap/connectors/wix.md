@@ -1,3 +1,5 @@
+# Wix
+
 Wix provides users with the ability to manage their account's websites and apps (Stores, Bookings, Blog, etc.). In addition, Wix also helps developers create new sites using Wix Headless, the Wix Design system, and more.
 
 You can use Wix to:

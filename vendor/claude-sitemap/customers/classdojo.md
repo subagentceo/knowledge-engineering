@@ -1,11 +1,13 @@
+# ClassDojo saves teachers time with Claude
+
 ClassDojo transforms education by using Claude to power AI teaching assistants that help teachers focus on what matters most: teaching children.
 
 **With Claude, ClassDojo:**
 
--   Reaches 45 million kids, families, and teachers in 180 countries
--   Helps teachers in 90% of US elementary schools save hours each week on instructional content, behavior management, and administrative work
--   Enables class roster setup in seconds instead of 20-30 minutes
--   Processes entire school directories instantly, matching and updating existing records
+- Reaches 45 million kids, families, and teachers in 180 countries
+- Helps teachers in 90% of US elementary schools save hours each week on instructional content, behavior management, and administrative work
+- Enables class roster setup in seconds instead of 20-30 minutes
+- Processes entire school directories instantly, matching and updating existing records
 
 ## Combating classroom exhaustion
 

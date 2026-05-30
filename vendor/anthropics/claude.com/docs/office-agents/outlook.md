@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -21,16 +22,16 @@ consultants tracking multiple client threads.
 
 With Claude for Outlook, you can:
 
-* Triage your unread inbox into what needs you, what Claude can handle,
+- Triage your unread inbox into what needs you, what Claude can handle,
   and what is noise.
-* Draft replies, reply-alls, and forwards in your voice, landed unsent in
+- Draft replies, reply-alls, and forwards in your voice, landed unsent in
   Outlook's compose pane.
-* Summarize long threads into decisions made, open items, and who owes
+- Summarize long threads into decisions made, open items, and who owes
   what, with per-email citations.
-* Read `.docx` and `.xlsx` attachments inline without opening them.
-* Find meeting times across attendees and draft invites into Outlook's
+- Read `.docx` and `.xlsx` attachments inline without opening them.
+- Find meeting times across attendees and draft invites into Outlook's
   native appointment form.
-* Prep for your next meeting with a one-page brief of recent threads and
+- Prep for your next meeting with a one-page brief of recent threads and
   attached documents.
 
 ## Get started with Claude for Outlook
@@ -39,10 +40,10 @@ With Claude for Outlook, you can:
 
 Claude for Outlook runs on the following Outlook clients.
 
-* Outlook on the web
-* Outlook on Windows, both new Outlook and classic Outlook, with a
+- Outlook on the web
+- Outlook on Windows, both new Outlook and classic Outlook, with a
   Microsoft 365 subscription
-* Outlook on Mac with a Microsoft 365 subscription
+- Outlook on Mac with a Microsoft 365 subscription
 
 The following are not supported: Outlook 2016 and 2019 perpetual or
 volume-licensed editions, Outlook on iOS, Outlook on Android, and
@@ -224,9 +225,9 @@ documents, arrive pre-drafted.
 
 Prompts to try:
 
-* "What needs me?"
-* "Draft replies for everything you can handle"
-* "Archive all the calendar responses and newsletters"
+- "What needs me?"
+- "Draft replies for everything you can handle"
+- "Archive all the calendar responses and newsletters"
 
 ## Draft replies in your voice
 
@@ -240,9 +241,9 @@ anyone who was not on the thread.
 
 Prompts to try:
 
-* "Reply to this and agree to the extension, push back on the fee"
-* "Reply-all thanking everyone and confirming Thursday works"
-* "Forward this to Dana with a two-line summary"
+- "Reply to this and agree to the extension, push back on the fee"
+- "Reply-all thanking everyone and confirming Thursday works"
+- "Forward this to Dana with a two-line summary"
 
 ## Summarize long threads
 
@@ -253,8 +254,8 @@ citation opens that message in Outlook.
 
 Prompts to try:
 
-* "What's been decided and what's still open?"
-* "Who owes what on this thread?"
+- "What's been decided and what's still open?"
+- "Who owes what on this thread?"
 
 ## Read attachments inline
 
@@ -267,8 +268,8 @@ sidebar instead.
 
 Prompts to try:
 
-* "Summarize the attached memo"
-* "What's in the spreadsheet on this email?"
+- "Summarize the attached memo"
+- "What's in the spreadsheet on this email?"
 
 ## Search your mailbox
 
@@ -278,8 +279,8 @@ you can verify every answer against the original email.
 
 Prompts to try:
 
-* "When did we last discuss the cap with Fernwood?"
-* "Find the email where Dana sent the revised term sheet"
+- "When did we last discuss the cap with Fernwood?"
+- "Find the email where Dana sent the revised term sheet"
 
 ## Find time and create events
 
@@ -290,8 +291,8 @@ and agenda for you to review and send.
 
 Prompts to try:
 
-* "Find 30 minutes with Dana and the Fernwood team next week"
-* "Block Thursday afternoon for deep work"
+- "Find 30 minutes with Dana and the Fernwood team next week"
+- "Block Thursday afternoon for deep work"
 
 ## Prep for meetings
 
@@ -301,8 +302,8 @@ open items and what each person last said.
 
 Prompts to try:
 
-* "Prep me for my 2pm"
-* "What's open with Dana before our call?"
+- "Prep me for my 2pm"
+- "What's open with Dana before our call?"
 
 ## Work across M365 apps
 
@@ -380,21 +381,21 @@ working with email from external or untrusted senders.
 
 As a beta feature, Claude for Outlook is not recommended for:
 
-* Unattended sending. Claude never sends mail or invites on its own; every
+- Unattended sending. Claude never sends mail or invites on its own; every
   draft lands unsent for your review.
-* Client-facing or counterparty correspondence without reading the draft
+- Client-facing or counterparty correspondence without reading the draft
   first.
-* Replacing your judgment on which emails matter or how to handle a
+- Replacing your judgment on which emails matter or how to handle a
   relationship.
-* Mailboxes containing privileged or regulated data without appropriate
+- Mailboxes containing privileged or regulated data without appropriate
   organizational controls.
 
 To use Claude for Outlook safely and effectively:
 
-* Review drafted replies and invites before sending, especially recipient
+- Review drafted replies and invites before sending, especially recipient
   lists.
-* Verify thread summaries against the cited source emails for high-stakes
+- Verify thread summaries against the cited source emails for high-stakes
   conversations.
-* Apply appropriate Microsoft 365 permissions and Conditional Access
+- Apply appropriate Microsoft 365 permissions and Conditional Access
   policies for the add-in.
-* Maintain human oversight for anything leaving your organization.
+- Maintain human oversight for anything leaving your organization.

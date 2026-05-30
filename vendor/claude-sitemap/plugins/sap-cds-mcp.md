@@ -1,19 +1,13 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    SAP SE
-    
-    ](#)
-    
--   Installs
-    
-    4
+# sap-cds-mcp
+
+- Install in
+
+  Claude Code
+
+- Made by
+
+  SAP SE
+
+- Installs
+
+  228

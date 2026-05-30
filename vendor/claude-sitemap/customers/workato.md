@@ -1,12 +1,14 @@
-[**Workato**](https://www.workato.com) is a leader in agentic orchestration, connecting AI agents across 14,000+ enterprise applications through 1,200+ connectors and custom integration tools, with 900,000+ pre-built workflows for rapid deployment. This enables organizations to deploy trusted AI agents that transform operations across their entire business.
+# Workato connects enterprise AI agents to business systems with Claude
+
+**Workato** is a leader in agentic orchestration, connecting AI agents across 14,000+ enterprise applications through 1,200+ connectors and custom integration tools, with 900,000+ pre-built workflows for rapid deployment. This enables organizations to deploy trusted AI agents that transform operations across their entire business.
 
 ## With Claude, Workato:
 
--   Provides 100+ fully managed MCP server templates connecting Claude to enterprise systems like Salesforce, NetSuite, and Workday
--   Enables sales, IT, finance, and HR teams to connect AI agents to business data with enterprise-grade governance
--   Powers SaaS platforms to make their products agent-ready for thousands of customers
--   Saw customers create 800+ MCP servers in 8 months, with adoption accelerating rapidly
--   Drove significant efficiency gains through internal deployment, with sales teams reducing deal preparation time by 75%
+- Provides 100+ fully managed MCP server templates connecting Claude to enterprise systems like Salesforce, NetSuite, and Workday
+- Enables sales, IT, finance, and HR teams to connect AI agents to business data with enterprise-grade governance
+- Powers SaaS platforms to make their products agent-ready for thousands of customers
+- Saw customers create 800+ MCP servers in 8 months, with adoption accelerating rapidly
+- Drove significant efficiency gains through internal deployment, with sales teams reducing deal preparation time by 75%
 
 ## The problem
 
@@ -16,7 +18,7 @@ The governance challenge is particularly acute for enterprises. Organizations ne
 
 SaaS platforms face parallel challenges. Building agent connectivity infrastructure diverts engineering resources from core product work, while supporting multiple AI providers requires constant adaptation. The result: projects with real business value getting stuck in pilots, unable to move into production.
 
-## Choosing Claude 
+## Choosing Claude
 
 The selection of Claude as the foundation for these workflows was driven by performance and trust. "We've found Claude to be exceptional at maintaining context across complex workflows," said Adam Seligman, Workato's Chief Technology Officer. "It's one of the few models we trust to handle sensitive, enterprise-grade actions safely—especially with financial approval and working with our Workato Enterprise MCP servers."
 

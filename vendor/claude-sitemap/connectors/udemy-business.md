@@ -1,3 +1,5 @@
+# Udemy Business
+
 Udemy Business brings comprehensive AI-powered skills development directly into Claude. Employees discover and access expertly curated courses via personalized search and recommendations. This enables just-in-time learning in the flow of work with enterprise-grade security and scalability.
 
 You can use Udemy Business to:

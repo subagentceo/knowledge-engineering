@@ -1,4 +1,4 @@
-## Add
+## Add Session Resource
 
 `BetaManagedAgentsFileResource beta().sessions().resources().add(ResourceAddParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,13 +9,11 @@ Add Session Resource
 ### Parameters
 
 - `ResourceAddParams params`
-
   - `Optional<String> sessionId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -64,6 +62,12 @@ Add Session Resource
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
   - `BetaManagedAgentsFileResourceParams betaManagedAgentsFileResourceParams`
 
     Mount a file uploaded via the Files API into the session.
@@ -71,7 +75,6 @@ Add Session Resource
 ### Returns
 
 - `class BetaManagedAgentsFileResource:`
-
   - `String id`
 
   - `LocalDateTime createdAt`
@@ -83,7 +86,6 @@ Add Session Resource
   - `String mountPath`
 
   - `Type type`
-
     - `FILE("file")`
 
   - `LocalDateTime updatedAt`
@@ -116,5 +118,18 @@ public final class Main {
             .build();
         BetaManagedAgentsFileResource betaManagedAgentsFileResource = client.beta().sessions().resources().add(params);
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "created_at": "2026-03-15T10:00:00Z",
+  "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "mount_path": "/uploads/receipt.pdf",
+  "type": "file",
+  "updated_at": "2026-03-15T10:00:00Z"
 }
 ```

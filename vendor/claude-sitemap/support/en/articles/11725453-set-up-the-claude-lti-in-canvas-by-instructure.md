@@ -8,27 +8,27 @@ This article provides information on how to enable the Claude LTI integration in
 
 3. Enter the following:
 
-  1. **Key Name:** Claude LTI
+4. **Key Name:** Claude LTI
 
-  2. **Description:** Enter a short description for the Canva LTI 1.3 app
+5. **Description:** Enter a short description for the Canva LTI 1.3 app
 
-  3. **Redirect URIs:** <https://claude.ai/lti/launch>
+6. **Redirect URIs:** <https://claude.ai/lti/launch>
 
-  4. **Title:** Claude LTI
+7. **Title:** Claude LTI
 
-  5. **Target Link URI:** <https://claude.ai/lti/launch>
+8. **Target Link URI:** <https://claude.ai/lti/launch>
 
-  6. **OpenID Connect Initiation Url:** <https://claude.ai/api/lti/login>
+9. **OpenID Connect Initiation Url:** <https://claude.ai/api/lti/login>
 
-  7. **JWK method:** <https://claude.ai/api/lti/keys>
+10. **JWK method:** <https://claude.ai/api/lti/keys>
 
-4. Under **Additional Settings**, toggle Privacy Level to **Public**.
+11. Under **Additional Settings**, toggle Privacy Level to **Public**.
 
-5. Under **Placements**, we recommend removing the defaults and adding "Course Navigation" and "Assignment Edit" as the options.
+12. Under **Placements**, we recommend removing the defaults and adding "Course Navigation" and "Assignment Edit" as the options.
 
-6. Click "Save."
+13. Click "Save."
 
-7. Toggle the state to **On**.
+14. Toggle the state to **On**.
 
 ## Installing Claude LTI as an App
 
@@ -42,7 +42,7 @@ This article provides information on how to enable the Claude LTI integration in
 
 5. Click "Install" and refresh the course page.
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1611422430/c8e0875feac1f2c7cb033be74fc9/AD_4nXfLU_bui3EXcCjQ0qm70HD97neqjGayKeDer_t76utlci8gZSUjYRhw6ZSOlDdqSEcwXBzd_shAh7pQEJ-8OoE0O21DM5coOgxmO_WD5hlwiuwtS2iYXcTavhIRyQT5zKFWvfn3NA?expires=1778914800&amp;signature=951a63dd6c55d391b7da9f5b8a8b83648e61e4797d5283ea6a7c65612388791a&amp;req=dSYmF818n4VcWfMW1HO4zTEDZeMXmveJEv2ojHLMylYBixTG4FafFxEUgC8y%0ACPtF%2Bq0DSgBBSDU0GhY%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1611422430/c8e0875feac1f2c7cb033be74fc9/AD_4nXfLU_bui3EXcCjQ0qm70HD97neqjGayKeDer_t76utlci8gZSUjYRhw6ZSOlDdqSEcwXBzd_shAh7pQEJ-8OoE0O21DM5coOgxmO_WD5hlwiuwtS2iYXcTavhIRyQT5zKFWvfn3NA?expires=1780164900&signature=84043e6850f7a57b68d5409a2e65c20ec807e0410dcb1ff85c5f9f4dca67f459&req=dSYmF818n4VcWfMW1HO4zTEDausfnfeIEv2ojHLMylbwYnAoSe%2BOzweBZ7iT%0AGWKOVqAA3BDBxAv2d7c%3D%0A)
 
 ## Turn on the Claude LTI Integration in Claude for Education organization settings
 
@@ -54,13 +54,13 @@ This article provides information on how to enable the Claude LTI integration in
 
 4. In the settings modal that pops up, input the required information to enable the integration
 
-  1. **Canvas Domain**
+5. **Canvas Domain**
 
-  2. **Client ID** (found in Canvas Admin -> Developer Keys)
+6. **Client ID** (found in Canvas Admin -> Developer Keys)
 
-  3. **Deployment ID** (found in Canvas Admin -> Settings -> Apps -> View App Configurations -> Claude LTI Settings Button -> Deployment ID)
+7. **Deployment ID** (found in Canvas Admin -> Settings -> Apps -> View App Configurations -> Claude LTI Settings Button -> Deployment ID)
 
-5. Click "Save Changes." The integration should now show as enabled.
+8. Click "Save Changes." The integration should now show as enabled.
 
 ## Questions
 

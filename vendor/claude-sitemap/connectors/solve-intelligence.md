@@ -1,3 +1,5 @@
+# Solve Intelligence
+
 Connect to Solve Intelligence for patent workflows directly in Claude. Search across patent and non-patent literature, legal texts and case law, SEP technical standards, and the open web. Ask Claude to find prior art or infringing products, conduct legal research, map claims to standards, and analyse or draft patent documents.
 
 You can use Solve Intelligence for:

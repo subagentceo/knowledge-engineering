@@ -1,6 +1,6 @@
 # Rate Limits
 
-## List
+## List Workspace Rate Limits
 
 **get** `/v1/organizations/workspaces/{workspace_id}/rate_limits`
 
@@ -21,7 +21,6 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
 - `group_type: optional "model_group" or "batch" or "token_count" or 3 more`
 
   Filter by group type.
-
   - `"model_group"`
 
   - `"batch"`
@@ -43,11 +42,9 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
 - `data: array of object { group_type, limits, models, type }`
 
   Rate-limit entries for the workspace, one per group that has at least one override.
-
   - `group_type: "model_group" or "batch" or "token_count" or 3 more`
 
     The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
-
     - `"model_group"`
 
     - `"batch"`
@@ -63,7 +60,6 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
   - `limits: array of object { org_limit, type, value }`
 
     The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
-
     - `org_limit: number`
 
       The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
@@ -83,7 +79,6 @@ are not listed; use `GET /v1/organizations/rate_limits` to see those.
   - `type: "workspace_rate_limit"`
 
     Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
-
     - `"workspace_rate_limit"`
 
 - `next_page: string`
@@ -98,20 +93,39 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_li
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
 ```
 
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "group_type": "model_group",
+      "limits": [
+        {
+          "org_limit": 0,
+          "type": "type",
+          "value": 0
+        }
+      ],
+      "models": ["string"],
+      "type": "workspace_rate_limit"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
 ## Domain Types
 
 ### Rate Limit List Response
 
-- `RateLimitListResponse = object { data, next_page }`
-
+- `RateLimitListResponse object { data, next_page }`
   - `data: array of object { group_type, limits, models, type }`
 
     Rate-limit entries for the workspace, one per group that has at least one override.
-
     - `group_type: "model_group" or "batch" or "token_count" or 3 more`
 
       The kind of rate-limit group this entry represents. `model_group` entries apply to a family of models (listed in `models`); other values apply to an API-surface category and have `models` set to `null`.
-
       - `"model_group"`
 
       - `"batch"`
@@ -127,7 +141,6 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_li
     - `limits: array of object { org_limit, type, value }`
 
       The limiter values overridden for this group in this workspace. Limiter types without a workspace override are omitted and inherit the organization value.
-
       - `org_limit: number`
 
         The organization-level value for the same limiter type, for reference. `null` when the organization has no limit configured for this limiter type.
@@ -147,7 +160,6 @@ curl https://api.anthropic.com/v1/organizations/workspaces/$WORKSPACE_ID/rate_li
     - `type: "workspace_rate_limit"`
 
       Object type. Always `workspace_rate_limit` for workspace rate-limit entries.
-
       - `"workspace_rate_limit"`
 
   - `next_page: string`

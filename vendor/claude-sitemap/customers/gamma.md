@@ -1,4 +1,6 @@
-[Gamma](https://gamma.app/), an AI-powered presentation platform, went viral after launching in March 2023—but the team was concerned about quality and costs as they scaled. Claude helped Gamma lower costs while increasing user satisfaction by 30% and free-to-paid conversions by 20%.
+# Gamma helps teams create polished presentations with Claude
+
+Gamma, an AI-powered presentation platform, went viral after launching in March 2023—but the team was concerned about quality and costs as they scaled. Claude helped Gamma lower costs while increasing user satisfaction by 30% and free-to-paid conversions by 20%.
 
 ## A viral launch powered by generative AI
 
@@ -6,7 +8,7 @@ Gamma was founded in 2020 to help invent a new way for people to share ideas. In
 
 Fast forward to 2022, and the widespread availability of image generators and large language models put the team on a new path. “We were in between product-market fit,” Jon explains. “People liked our product, there was clearly promise, but it was missing that really strong hook that gave people a reason to abandon something they were really familiar with to use it.”
 
-Generative AI became that hook. Gamma launched their app with a [video](https://www.youtube.com/watch?v=r9VOYJM6nZc) that quickly went viral. “Ever since then, it’s been a runaway train,” Jon says. Users immediately loved Gamma for two main use cases: generating presentations from scratch and iterating on slide content and design.
+Generative AI became that hook. Gamma launched their app with a video that quickly went viral. “Ever since then, it’s been a runaway train,” Jon says. Users immediately loved Gamma for two main use cases: generating presentations from scratch and iterating on slide content and design.
 
 ![App screen from Gamma platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05700f0e68a1b608908_28bf834aca6299bd34add845729396d0cf2b6df2-2880x1620.jpeg)
 

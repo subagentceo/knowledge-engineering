@@ -1,3 +1,5 @@
+# Using MT Newswires for real-Time financial news
+
 The MT Newswires integration provides Claude with access to a premium real-time financial news service delivering original, unbiased multi-asset class market intelligence. This article explains how to set up and use MT Newswires to monitor breaking news and stay informed about market-moving events. The MT Newswires integration relies upon Claude’s ability to use remote connectors.
 
 ## What This Integration Provides
@@ -6,27 +8,27 @@ The MT Newswires integration provides Claude with access to a premium real-time 
 
 The MT Newswires integration enables Claude to access premium real-time financial news and market intelligence covering multi-asset class markets.
 
--   **Real-Time Financial News Feeds:** Access live breaking news and corporate updates with original reporting covering 45,000+ securities globally. Claude retrieves the latest market-moving news as it happens.
+- **Real-Time Financial News Feeds:** Access live breaking news and corporate updates with original reporting covering 45,000+ securities globally. Claude retrieves the latest market-moving news as it happens.
 
--   **Company-Specific News and Announcements:** Search for and monitor news related to specific companies or securities, including corporate actions, earnings announcements, and material events that impact market prices.
+- **Company-Specific News and Announcements:** Search for and monitor news related to specific companies or securities, including corporate actions, earnings announcements, and material events that impact market prices.
 
--   **Multi-Asset Class Coverage:** Access curated financial news across equities, fixed income, commodities, currencies, and other asset classes, providing comprehensive market coverage for diverse investment strategies.
+- **Multi-Asset Class Coverage:** Access curated financial news across equities, fixed income, commodities, currencies, and other asset classes, providing comprehensive market coverage for diverse investment strategies.
 
--   **Original Reporting:** Benefit from 28,000+ original stories per month, providing unique insights and analysis not available through aggregated news sources. MT Newswires maintains editorial independence and produces unbiased market intelligence.
+- **Original Reporting:** Benefit from 28,000+ original stories per month, providing unique insights and analysis not available through aggregated news sources. MT Newswires maintains editorial independence and produces unbiased market intelligence.
 
--   **Noise-Free Content:** Receive curated, relevant financial news filtered to focus on material market events and company developments, reducing information overload and allowing Claude to surface the most important updates for your needs.
+- **Noise-Free Content:** Receive curated, relevant financial news filtered to focus on material market events and company developments, reducing information overload and allowing Claude to surface the most important updates for your needs.
 
 ## How Claude Uses MT Newswires Data
 
 Claude applies real-time financial news from MT Newswires to support your market analysis and investment research.
 
--   **Real-Time Market Monitoring:** Claude continuously monitors breaking financial news and alerts you to market-moving events affecting specific securities, sectors, or portfolios you’re tracking.
+- **Real-Time Market Monitoring:** Claude continuously monitors breaking financial news and alerts you to market-moving events affecting specific securities, sectors, or portfolios you’re tracking.
 
--   **Trading Application News Feeds:** Integrate current news directly into trading workflows, providing context for price movements and helping identify trading opportunities based on breaking developments.
+- **Trading Application News Feeds:** Integrate current news directly into trading workflows, providing context for price movements and helping identify trading opportunities based on breaking developments.
 
--   **Research Platform Content:** Access original financial journalism and analysis to supplement investment research, providing additional perspectives on companies, industries, and market trends beyond traditional data sources.
+- **Research Platform Content:** Access original financial journalism and analysis to supplement investment research, providing additional perspectives on companies, industries, and market trends beyond traditional data sources.
 
--   **Multi-Asset Intelligence:** Access comprehensive news coverage across asset classes to support diversified investment strategies, from equity research to fixed income analysis and commodity market insights.
+- **Multi-Asset Intelligence:** Access comprehensive news coverage across asset classes to support diversified investment strategies, from equity research to fixed income analysis and commodity market insights.
 
 ## Setting Up MT Newswires Integration
 
@@ -34,7 +36,7 @@ Claude applies real-time financial news from MT Newswires to support your market
 
 You will need to contact MT Newswires to get access to the MCP server.
 
-1.  Navigate to [Admin settings > Connectors](https://claude.ai/admin-settings/connectors).
+1.  Navigate to Admin settings > Connectors.
 
 1.  Scroll down and click “Add custom connector” at the bottom of the list.
 
@@ -46,7 +48,7 @@ You will need to contact MT Newswires to get access to the MCP server.
 
 ### For Individual Users
 
-Learn about [finding and connecting tools](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
+Learn about finding and connecting tools.
 
 ## Common Use Cases
 
@@ -102,18 +104,18 @@ Set up monitoring for breaking news related to Federal Reserve policy announceme
 
 ## Tips for Using MT Newswires
 
--   Specify time windows for news searches (past hour, day, week) to focus on relevant updates
+- Specify time windows for news searches (past hour, day, week) to focus on relevant updates
 
--   Use specific ticker symbols or company names for targeted news retrieval
+- Use specific ticker symbols or company names for targeted news retrieval
 
--   Request news summaries for quick overviews or detailed analysis for in-depth research
+- Request news summaries for quick overviews or detailed analysis for in-depth research
 
--   Combine MT Newswires with other financial data integrations for comprehensive analysis
+- Combine MT Newswires with other financial data integrations for comprehensive analysis
 
--   Set up regular monitoring for portfolio holdings or watchlist securities
+- Set up regular monitoring for portfolio holdings or watchlist securities
 
--   Consider news freshness - MT Newswires provides real-time updates as events unfold
+- Consider news freshness - MT Newswires provides real-time updates as events unfold
 
--   Focus on material events and filter out noise by requesting curated, relevant news only
+- Focus on material events and filter out noise by requesting curated, relevant news only
 
 ‍

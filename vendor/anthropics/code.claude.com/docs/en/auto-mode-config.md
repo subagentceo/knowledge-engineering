@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -9,7 +10,7 @@
 [Auto mode](/en/permission-modes#eliminate-prompts-with-auto-mode) lets Claude Code run without permission prompts by routing each tool call through a classifier that blocks anything irreversible, destructive, or aimed outside your environment. Use the `autoMode` settings block to tell that classifier which repos, buckets, and domains your organization trusts, so it stops blocking routine internal operations.
 
 <Note>
-  Auto mode is available on Max, Team, Enterprise, and API plans through the Anthropic API. It is not available on Pro or on Bedrock, Vertex, or Foundry. If Claude Code reports auto mode as unavailable for your account, check the [full requirements](/en/permission-modes#eliminate-prompts-with-auto-mode), which also cover the supported models and admin enablement on Team and Enterprise plans.
+  Auto mode is available to all users on the Anthropic API. It is not available on Bedrock, Vertex, or Foundry. If Claude Code reports auto mode as unavailable for your account, check the [full requirements](/en/permission-modes#eliminate-prompts-with-auto-mode), which also cover the supported models and admin enablement on Team and Enterprise plans.
 </Note>
 
 Out of the box, the classifier trusts only the working directory and the current repo's configured remotes. Actions like pushing to your company's source-control org or writing to a team cloud bucket are blocked until you add them to `autoMode.environment`.
@@ -18,11 +19,11 @@ For how to enable auto mode and what it blocks by default, see [Permission modes
 
 This page covers how to:
 
-* [Choose where to set rules](#where-the-classifier-reads-configuration) across CLAUDE.md, user settings, and managed settings
-* [Define trusted infrastructure](#define-trusted-infrastructure) with `autoMode.environment`
-* [Override the block and allow rules](#override-the-block-and-allow-rules) when the defaults don't fit your pipeline
-* [Inspect your effective config](#inspect-the-defaults-and-your-effective-config) with the `claude auto-mode` subcommands
-* [Review denials](#review-denials) so you know what to add next
+- [Choose where to set rules](#where-the-classifier-reads-configuration) across CLAUDE.md, user settings, and managed settings
+- [Define trusted infrastructure](#define-trusted-infrastructure) with `autoMode.environment`
+- [Override the block and allow rules](#override-the-block-and-allow-rules) when the defaults don't fit your pipeline
+- [Inspect your effective config](#inspect-the-defaults-and-your-effective-config) with the `claude auto-mode` subcommands
+- [Review denials](#review-denials) so you know what to add next
 
 ## Where the classifier reads configuration
 
@@ -67,12 +68,12 @@ The default environment list trusts the working repo and its configured remotes.
 
 Entries are prose, not regex or tool patterns. The classifier reads them as natural-language rules. Write them the way you would describe your infrastructure to a new engineer. A thorough environment section covers:
 
-* **Organization**: your company name and what Claude Code is primarily used for, like software development, infrastructure automation, or data engineering
-* **Source control**: every GitHub, GitLab, or Bitbucket org your developers push to
-* **Cloud providers and trusted buckets**: bucket names or prefixes that Claude should be able to read from and write to
-* **Trusted internal domains**: hostnames for APIs, dashboards, and services inside your network, like `*.internal.example.com`
-* **Key internal services**: CI, artifact registries, internal package indexes, incident tooling
-* **Additional context**: regulated-industry constraints, multi-tenant infrastructure, or compliance requirements that affect what the classifier should treat as risky
+- **Organization**: your company name and what Claude Code is primarily used for, like software development, infrastructure automation, or data engineering
+- **Source control**: every GitHub, GitLab, or Bitbucket org your developers push to
+- **Cloud providers and trusted buckets**: bucket names or prefixes that Claude should be able to read from and write to
+- **Trusted internal domains**: hostnames for APIs, dashboards, and services inside your network, like `*.internal.example.com`
+- **Key internal services**: CI, artifact registries, internal package indexes, incident tooling
+- **Additional context**: regulated-industry constraints, multi-tenant infrastructure, or compliance requirements that affect what the classifier should treat as risky
 
 A useful starting template: fill in the bracketed fields and remove any lines that don't apply.
 
@@ -103,10 +104,10 @@ Three additional fields let you replace the classifier's built-in rule lists: `a
 
 Inside the classifier, precedence works in four tiers:
 
-* `hard_deny` rules block unconditionally. User intent and `allow` exceptions do not apply.
-* `soft_deny` rules block next. User intent and `allow` exceptions can override these.
-* `allow` rules then override matching `soft_deny` rules as exceptions.
-* Explicit user intent overrides the remaining soft blocks: if the user's message directly and specifically describes the exact action Claude is about to take, the classifier allows it even when a `soft_deny` rule matches.
+- `hard_deny` rules block unconditionally. User intent and `allow` exceptions do not apply.
+- `soft_deny` rules block next. User intent and `allow` exceptions can override these.
+- `allow` rules then override matching `soft_deny` rules as exceptions.
+- Explicit user intent overrides the remaining soft blocks: if the user's message directly and specifically describes the exact action Claude is about to take, the classifier allows it even when a `soft_deny` rule matches.
 
 General requests don't count as explicit intent. Asking Claude to "clean up the repo" does not authorize force-pushing, but asking Claude to "force-push this branch" does.
 
@@ -138,7 +139,7 @@ To loosen, add to `allow` when the classifier repeatedly flags a routine pattern
 ```
 
 <Danger>
-  Setting any of `environment`, `allow`, `soft_deny`, or `hard_deny` without `"$defaults"` replaces the entire default list for that section. A `soft_deny` array without `"$defaults"` discards every built-in soft block rule, including force push, `curl | bash`, and production deploys. A `hard_deny` array without `"$defaults"` discards the built-in data exfiltration and safety-check bypass rules.
+  Setting any of `environment`, `allow`, `soft_deny`, or `hard_deny` without `"$defaults"` replaces the entire default list for that section. A `soft_deny` array without `"$defaults"` discards every built-in soft block rule, including force push, `curl | bash`, and production deploys. A `hard_deny` array without `"$defaults"` discards the built-in data exfiltration and auto-mode bypass rules.
 </Danger>
 
 Each section is evaluated independently, so setting `environment` alone leaves the default `allow`, `soft_deny`, and `hard_deny` lists intact. Only omit `"$defaults"` when you intend to take full ownership of the list. To do that safely, run `claude auto-mode defaults` to print the built-in rules, copy them into your settings file, then review each rule against your own pipeline and risk tolerance.
@@ -177,7 +178,7 @@ To react to denials programmatically, use the [`PermissionDenied` hook](/en/hook
 
 ## See also
 
-* [Permission modes](/en/permission-modes#eliminate-prompts-with-auto-mode): what auto mode is, what it blocks by default, and how to enable it
-* [Managed settings](/en/server-managed-settings): deploy `autoMode` configuration across your organization
-* [Permissions](/en/permissions): allow, ask, and deny rules that apply before the classifier runs
-* [Settings](/en/settings): the full settings reference, including the `autoMode` key
+- [Permission modes](/en/permission-modes#eliminate-prompts-with-auto-mode): what auto mode is, what it blocks by default, and how to enable it
+- [Managed settings](/en/server-managed-settings): deploy `autoMode` configuration across your organization
+- [Permissions](/en/permissions): allow, ask, and deny rules that apply before the classifier runs
+- [Settings](/en/settings): the full settings reference, including the `autoMode` key

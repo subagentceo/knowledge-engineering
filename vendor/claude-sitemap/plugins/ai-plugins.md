@@ -1,3 +1,5 @@
+# Endor Labs
+
 Endor Labs AI Plugins brings application security scanning directly into your development workflow. It automates the installation, authentication, and configuration of **endorctl**, the Endor Labs CLI, so you can scan, prioritize, and fix security risks across your software supply chain without leaving your coding environment. The plugin supports macOS (Intel/ARM), Linux, and Windows, and handles authentication via browser-based OAuth or API key credentials.
 
 The plugin's setup skill walks through the full onboarding flow — checking for an existing endorctl installation, downloading it automatically if missing, collecting your Endor Labs namespace, authenticating, and running security scans. It fetches current scan options from Endor Labs documentation to ensure you always have the latest flags and capabilities available. Special handling is included for multi-tenant environments and non-interactive sessions.

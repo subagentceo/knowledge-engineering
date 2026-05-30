@@ -1,16 +1,18 @@
+# Assembled transforms support operations with Claude
+
 Assembled relies on Claude for Assist, their omnichannel AI agent and copilot. Their holistic support operations platform enables industry leaders like Brooks, Warner Brothers, Robinhood, and Stripe to deliver great support at scale, coordinating humans in partnership with AI agents.
 
 With Claude, Assembled Assist:
 
--   Increased customer satisfaction by 20% while decreasing support spend
--   Achieved over 50% reduction in escalations
--   Improved cases solved per hour by more than 30%
--   Automated over 50% of cases while maintaining 90%+ customer satisfaction
--   Switched to Claude in 20 minutes during a critical outage
+- Increased customer satisfaction by 20% while decreasing support spend
+- Achieved over 50% reduction in escalations
+- Improved cases solved per hour by more than 30%
+- Automated over 50% of cases while maintaining 90%+ customer satisfaction
+- Switched to Claude in 20 minutes during a critical outage
 
 ## Meeting modern support challenges with AI
 
-Modern support teams face a challenge: how to deliver personalized, high-quality service at massive scale. The founders of Assembled encountered this challenge firsthand while building support systems at Stripe. "In the early days of Stripe, Patrick & John \[Collison\] would have people over to their apartment to do support tickets on rotation," said John Wang, co-founder at Assembled. "There's this perception that support is a cost center—yet every great company starts with this type of customer obsession. We've found over the years that it's a uniquely difficult problem to scale great support, as a business succeeds and gets more complex."
+Modern support teams face a challenge: how to deliver personalized, high-quality service at massive scale. The founders of Assembled encountered this challenge firsthand while building support systems at Stripe. "In the early days of Stripe, Patrick & John [Collison] would have people over to their apartment to do support tickets on rotation," said John Wang, co-founder at Assembled. "There's this perception that support is a cost center—yet every great company starts with this type of customer obsession. We've found over the years that it's a uniquely difficult problem to scale great support, as a business succeeds and gets more complex."
 
 Assembled recognized that truly effective support requires thoughtful coordination between AI and human agents, while many competitors focus solely on automation and deflection. Wang notes, "A lot of new players are oversimplifying the support problem. They throw AI agents in the mix and think that will solve everything. We deeply understand the inner workings of customer support. Instead of deflecting low value, low complexity work, we've focused on building systems to better resolve so-called Tier 2+ complexity issues—issues that require analysis, actions, and empathy. Some of these issues can be automated end-to-end, and others involve giving human agents AI superpowers. Whatever it takes to result in a great customer experience.” Assembled’s deep understanding of support operations led them to build a product that goes beyond simple automation. Instead of replacing human agents, Assembled Assist coordinates AI and human efforts to deliver better customer experiences while reducing costs and complexity.
 
@@ -26,11 +28,11 @@ The team leveraged a sophisticated evaluation system to measure AI model perform
 
 Assembled Assist uses Claude to enhance support through:
 
--   Dynamic ticket categorization using meta-prompting that adapts to each customer's unique taxonomy
--   Intelligent routing between AI and human agents based on case complexity and customer sentiment
--   Multi-model architecture enabling seamless failover during outages
--   Real-time response generation and enhancement
--   Secure failover architecture for enterprise reliability
+- Dynamic ticket categorization using meta-prompting that adapts to each customer's unique taxonomy
+- Intelligent routing between AI and human agents based on case complexity and customer sentiment
+- Multi-model architecture enabling seamless failover during outages
+- Real-time response generation and enhancement
+- Secure failover architecture for enterprise reliability
 
 ## Transforming support for leading brands
 
@@ -38,9 +40,9 @@ Assembled's impact goes beyond automation metrics—they're fundamentally changi
 
 Their approach has gained traction with industry leaders. For these companies, maintaining high-quality support while scaling globally isn't just about efficiency—it's crucial for brand reputation and customer loyalty.
 
--   **A leading consumer software company**: In just the first two weeks of using Assembled Assist, they saw material improvement in both average handle time per case and CSAT. They plan on automating at least 25% of all support tickets as part of a company-wide growth push.
--   **Thrasio**: Automates over 50% of support tickets with Assembled Assist, which led to nearly $2m in cost savings and a 50% decrease in full resolution time.
--   **Honeylove**: Saw massive productivity and efficiency benefits after just 5 months using Assembled Assist – solves per hour increased by 54%, escalations decreased by 20%, and CSAT for AI-powered responses increased by 18%.
+- **A leading consumer software company**: In just the first two weeks of using Assembled Assist, they saw material improvement in both average handle time per case and CSAT. They plan on automating at least 25% of all support tickets as part of a company-wide growth push.
+- **Thrasio**: Automates over 50% of support tickets with Assembled Assist, which led to nearly $2m in cost savings and a 50% decrease in full resolution time.
+- **Honeylove**: Saw massive productivity and efficiency benefits after just 5 months using Assembled Assist – solves per hour increased by 54%, escalations decreased by 20%, and CSAT for AI-powered responses increased by 18%.
 
 ## Building the future of AI-enhanced support
 

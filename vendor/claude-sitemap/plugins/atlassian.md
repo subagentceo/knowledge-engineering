@@ -1,3 +1,5 @@
+# Atlassian
+
 Connect Claude Code to your Atlassian Cloud products including Jira, Confluence, and Compass. Search across your organization's knowledge base, create and manage issues, generate status reports, and automate common workflows—all through natural language commands. The integration uses OAuth 2.1 authentication and respects your existing Jira and Confluence permissions.
 
 Key capabilities include searching and summarizing content across Jira, Compass, and Confluence, creating issues and pages via natural language, and automating workflows like converting meeting notes into Jira tickets or turning specification documents into organized backlogs with proper Epic hierarchies.

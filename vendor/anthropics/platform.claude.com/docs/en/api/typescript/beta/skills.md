@@ -1,6 +1,6 @@
 # Skills
 
-## Create
+## Create Skill
 
 `client.beta.skills.create(SkillCreateParamsparams?, RequestOptionsoptions?): SkillCreateResponse`
 
@@ -11,7 +11,6 @@ Create Skill
 ### Parameters
 
 - `params: SkillCreateParams`
-
   - `display_title?: string | null`
 
     Body param: Display title for the skill.
@@ -27,11 +26,9 @@ Create Skill
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -80,10 +77,15 @@ Create Skill
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `SkillCreateResponse`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -111,9 +113,8 @@ Create Skill
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -128,10 +129,10 @@ Create Skill
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 const skill = await client.beta.skills.create();
@@ -139,7 +140,21 @@ const skill = await client.beta.skills.create();
 console.log(skill.id);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_title": "My Custom Skill",
+  "latest_version": "1759178010641129",
+  "source": "custom",
+  "type": "type",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## List Skills
 
 `client.beta.skills.list(SkillListParamsparams?, RequestOptionsoptions?): PageCursor<SkillListResponse>`
 
@@ -150,7 +165,6 @@ List Skills
 ### Parameters
 
 - `params: SkillListParams`
-
   - `limit?: number`
 
     Query param: Number of results to return per page.
@@ -168,18 +182,15 @@ List Skills
     Query param: Filter skills by source.
 
     If provided, only skills from the specified source will be returned:
-
-    * `"custom"`: only return user-created skills
-    * `"anthropic"`: only return Anthropic-created skills
+    - `"custom"`: only return user-created skills
+    - `"anthropic"`: only return Anthropic-created skills
 
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -228,10 +239,15 @@ List Skills
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `SkillListResponse`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -259,9 +275,8 @@ List Skills
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -276,10 +291,10 @@ List Skills
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
@@ -288,7 +303,27 @@ for await (const skillListResponse of client.beta.skills.list()) {
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_title": "My Custom Skill",
+      "latest_version": "1759178010641129",
+      "source": "custom",
+      "type": "type",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Skill
 
 `client.beta.skills.retrieve(stringskillID, SkillRetrieveParamsparams?, RequestOptionsoptions?): SkillRetrieveResponse`
 
@@ -305,15 +340,12 @@ Get Skill
   The format and length of IDs may change over time.
 
 - `params: SkillRetrieveParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -362,10 +394,15 @@ Get Skill
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `SkillRetrieveResponse`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -393,9 +430,8 @@ Get Skill
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -410,18 +446,32 @@ Get Skill
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const skill = await client.beta.skills.retrieve('skill_id');
+const skill = await client.beta.skills.retrieve("skill_id");
 
 console.log(skill.id);
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_title": "My Custom Skill",
+  "latest_version": "1759178010641129",
+  "source": "custom",
+  "type": "type",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## Delete Skill
 
 `client.beta.skills.delete(stringskillID, SkillDeleteParamsparams?, RequestOptionsoptions?): SkillDeleteResponse`
 
@@ -438,15 +488,12 @@ Delete Skill
   The format and length of IDs may change over time.
 
 - `params: SkillDeleteParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -495,10 +542,15 @@ Delete Skill
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `SkillDeleteResponse`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -514,15 +566,24 @@ Delete Skill
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const skill = await client.beta.skills.delete('skill_id');
+const skill = await client.beta.skills.delete("skill_id");
 
 console.log(skill.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type"
+}
 ```
 
 ## Domain Types
@@ -530,7 +591,6 @@ console.log(skill.id);
 ### Skill Create Response
 
 - `SkillCreateResponse`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -558,9 +618,8 @@ console.log(skill.id);
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -575,7 +634,6 @@ console.log(skill.id);
 ### Skill List Response
 
 - `SkillListResponse`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -603,9 +661,8 @@ console.log(skill.id);
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -620,7 +677,6 @@ console.log(skill.id);
 ### Skill Retrieve Response
 
 - `SkillRetrieveResponse`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -648,9 +704,8 @@ console.log(skill.id);
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -665,7 +720,6 @@ console.log(skill.id);
 ### Skill Delete Response
 
 - `SkillDeleteResponse`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -680,7 +734,7 @@ console.log(skill.id);
 
 # Versions
 
-## Create
+## Create Skill Version
 
 `client.beta.skills.versions.create(stringskillID, VersionCreateParamsparams?, RequestOptionsoptions?): VersionCreateResponse`
 
@@ -697,7 +751,6 @@ Create Skill Version
   The format and length of IDs may change over time.
 
 - `params: VersionCreateParams`
-
   - `files?: Array<Uploadable> | null`
 
     Body param: Files to upload for the skill.
@@ -707,11 +760,9 @@ Create Skill Version
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -760,10 +811,15 @@ Create Skill Version
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `VersionCreateResponse`
-
   - `id: string`
 
     Unique identifier for the skill version.
@@ -811,18 +867,33 @@ Create Skill Version
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const version = await client.beta.skills.versions.create('skill_id');
+const version = await client.beta.skills.versions.create("skill_id");
 
 console.log(version.id);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## List Skill Versions
 
 `client.beta.skills.versions.list(stringskillID, VersionListParamsparams?, RequestOptionsoptions?): PageCursor<VersionListResponse>`
 
@@ -839,7 +910,6 @@ List Skill Versions
   The format and length of IDs may change over time.
 
 - `params: VersionListParams`
-
   - `limit?: number | null`
 
     Query param: Number of items to return per page.
@@ -853,11 +923,9 @@ List Skill Versions
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -906,10 +974,15 @@ List Skill Versions
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `VersionListResponse`
-
   - `id: string`
 
     Unique identifier for the skill version.
@@ -957,19 +1030,148 @@ List Skill Versions
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
-for await (const versionListResponse of client.beta.skills.versions.list('skill_id')) {
+for await (const versionListResponse of client.beta.skills.versions.list(
+  "skill_id",
+)) {
   console.log(versionListResponse.id);
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "description": "A custom skill for doing something useful",
+      "directory": "my-skill",
+      "name": "my-skill",
+      "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "type": "type",
+      "version": "1759178010641129"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Download Skill Version Content
+
+`client.beta.skills.versions.download(stringversion, VersionDownloadParamsparams, RequestOptionsoptions?): Response`
+
+**get** `/v1/skills/{skill_id}/versions/{version}/content`
+
+Download a skill version's content as a zip archive.
+
+### Parameters
+
+- `version: string`
+
+  Version identifier for the skill.
+
+  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+- `params: VersionDownloadParams`
+  - `skill_id: string`
+
+    Path param: Unique identifier for the skill.
+
+    The format and length of IDs may change over time.
+
+  - `betas?: Array<AnthropicBeta>`
+
+    Header param: Optional header to specify the beta version(s) you want to use.
+    - `(string & {})`
+
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
+      - `"message-batches-2024-09-24"`
+
+      - `"prompt-caching-2024-07-31"`
+
+      - `"computer-use-2024-10-22"`
+
+      - `"computer-use-2025-01-24"`
+
+      - `"pdfs-2024-09-25"`
+
+      - `"token-counting-2024-11-01"`
+
+      - `"token-efficient-tools-2025-02-19"`
+
+      - `"output-128k-2025-02-19"`
+
+      - `"files-api-2025-04-14"`
+
+      - `"mcp-client-2025-04-04"`
+
+      - `"mcp-client-2025-11-20"`
+
+      - `"dev-full-thinking-2025-05-14"`
+
+      - `"interleaved-thinking-2025-05-14"`
+
+      - `"code-execution-2025-05-22"`
+
+      - `"extended-cache-ttl-2025-04-11"`
+
+      - `"context-1m-2025-08-07"`
+
+      - `"context-management-2025-06-27"`
+
+      - `"model-context-window-exceeded-2025-08-26"`
+
+      - `"skills-2025-10-02"`
+
+      - `"fast-mode-2026-02-01"`
+
+      - `"output-300k-2026-03-24"`
+
+      - `"user-profiles-2026-03-24"`
+
+      - `"advisor-tool-2026-03-01"`
+
+      - `"managed-agents-2026-04-01"`
+
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
+### Returns
+
+- `unnamed_schema_3 = Response`
+
+### Example
+
+```typescript
+import Anthropic from "@anthropic-ai/sdk";
+
+const client = new Anthropic({
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+});
+
+const response = await client.beta.skills.versions.download("version", {
+  skill_id: "skill_id",
+});
+
+console.log(response);
+
+const content = await response.blob();
+console.log(content);
+```
+
+## Get Skill Version
 
 `client.beta.skills.versions.retrieve(stringversion, VersionRetrieveParamsparams, RequestOptionsoptions?): VersionRetrieveResponse`
 
@@ -986,7 +1188,6 @@ Get Skill Version
   Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 - `params: VersionRetrieveParams`
-
   - `skill_id: string`
 
     Path param: Unique identifier for the skill.
@@ -996,11 +1197,9 @@ Get Skill Version
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1049,10 +1248,15 @@ Get Skill Version
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `VersionRetrieveResponse`
-
   - `id: string`
 
     Unique identifier for the skill version.
@@ -1100,18 +1304,35 @@ Get Skill Version
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const version = await client.beta.skills.versions.retrieve('version', { skill_id: 'skill_id' });
+const version = await client.beta.skills.versions.retrieve("version", {
+  skill_id: "skill_id",
+});
 
 console.log(version.id);
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## Delete Skill Version
 
 `client.beta.skills.versions.delete(stringversion, VersionDeleteParamsparams, RequestOptionsoptions?): VersionDeleteResponse`
 
@@ -1128,7 +1349,6 @@ Delete Skill Version
   Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
 
 - `params: VersionDeleteParams`
-
   - `skill_id: string`
 
     Path param: Unique identifier for the skill.
@@ -1138,11 +1358,9 @@ Delete Skill Version
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1191,10 +1409,15 @@ Delete Skill Version
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `VersionDeleteResponse`
-
   - `id: string`
 
     Version identifier for the skill.
@@ -1210,15 +1433,26 @@ Delete Skill Version
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const version = await client.beta.skills.versions.delete('version', { skill_id: 'skill_id' });
+const version = await client.beta.skills.versions.delete("version", {
+  skill_id: "skill_id",
+});
 
 console.log(version.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "1759178010641129",
+  "type": "type"
+}
 ```
 
 ## Domain Types
@@ -1226,7 +1460,6 @@ console.log(version.id);
 ### Version Create Response
 
 - `VersionCreateResponse`
-
   - `id: string`
 
     Unique identifier for the skill version.
@@ -1274,7 +1507,6 @@ console.log(version.id);
 ### Version List Response
 
 - `VersionListResponse`
-
   - `id: string`
 
     Unique identifier for the skill version.
@@ -1322,7 +1554,6 @@ console.log(version.id);
 ### Version Retrieve Response
 
 - `VersionRetrieveResponse`
-
   - `id: string`
 
     Unique identifier for the skill version.
@@ -1370,7 +1601,6 @@ console.log(version.id);
 ### Version Delete Response
 
 - `VersionDeleteResponse`
-
   - `id: string`
 
     Version identifier for the skill.

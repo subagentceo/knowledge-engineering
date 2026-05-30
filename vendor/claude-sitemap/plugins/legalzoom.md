@@ -1,3 +1,5 @@
+# LegalZoom
+
 AI-powered legal assistance for business and personal needs. The LegalZoom plugin provides contract review with automated risk assessment, identifies critical clauses and potential issues using a RED/YELLOW/GREEN risk framework, and connects you to LegalZoom's network of licensed attorneys when professional expertise is needed. All AI-generated analysis includes confidence scores and clear disclaimers that it does not constitute legal advice.
 
 The `/review-contract` command analyzes contracts in PDF, DOCX, or pasted text. It classifies the agreement type, extracts the governing jurisdiction, and evaluates key provisions — liability, IP, confidentiality, payment terms, and more — flagging clauses that need negotiation and recommending attorney review when warranted.

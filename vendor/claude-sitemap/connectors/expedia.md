@@ -1,3 +1,5 @@
+# Expedia
+
 Discover and search flights and hotels worldwide. Get real-time pricing and availability to plan your perfect trip.
 
 You can use Expedia to:

@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -18,18 +19,23 @@ To run Claude in your own CI infrastructure instead of this managed service, see
 
 This page covers:
 
-* [How reviews work](#how-reviews-work)
-* [Setup](#set-up-code-review)
-* [Triggering reviews manually](#manually-trigger-reviews) with `@claude review` and `@claude review once`
-* [Customizing reviews](#customize-reviews) with `CLAUDE.md` and `REVIEW.md`
-* [Pricing](#pricing)
-* [Troubleshooting](#troubleshooting) failed runs and missing comments
+- [How reviews work](#how-reviews-work)
+- [Setup](#set-up-code-review)
+- [Triggering reviews manually](#manually-trigger-reviews) with `@claude review` and `@claude review once`
+- [Customizing reviews](#customize-reviews) with `CLAUDE.md` and `REVIEW.md`
+- [Pricing](#pricing)
+- [Troubleshooting](#troubleshooting) failed runs and missing comments
+- [Reviewing a diff locally](#review-a-diff-locally) with the `/code-review` command
+
+<Note>
+  To review a diff locally in your terminal without installing the GitHub App, run the `/code-review` command in any Claude Code session. See [Review a diff locally](#review-a-diff-locally).
+</Note>
 
 ## How reviews work
 
 Once an admin [enables Code Review](#set-up-code-review) for your organization, reviews trigger when a PR opens, on every push, or when manually requested, depending on the repository's configured behavior. Commenting `@claude review` [starts reviews on a PR](#manually-trigger-reviews) in any mode.
 
-When a review runs, multiple agents analyze the diff and surrounding code in parallel on Anthropic infrastructure. Each agent looks for a different class of issue, then a verification step checks candidates against actual code behavior to filter out false positives. The results are deduplicated, ranked by severity, and posted as inline comments on the specific lines where issues were found, with a summary in the review body. If no issues are found, Claude posts a short confirmation comment on the PR.
+When a review runs, multiple agents analyze the diff and surrounding code in parallel on Anthropic infrastructure. Each agent looks for a different class of issue, then a verification step checks candidates against actual code behavior to filter out false positives. The results are deduplicated, ranked by severity, and posted as inline comments on the specific lines where issues were found, with a summary in the review body. If no issues are found, Code Review updates the GitHub check run to show that no issues were detected. Claude may also post a short confirmation comment on the PR.
 
 Reviews scale in cost with PR size and complexity, completing in 20 minutes on average. Admins can monitor review activity and spend via the [analytics dashboard](#view-usage).
 
@@ -96,6 +102,7 @@ An admin enables Code Review once for the organization and selects which reposit
     * **Pull requests**: read and write
 
     Code Review uses read access to contents and write access to pull requests. The broader permission set also supports [GitHub Actions](/en/github-actions) if you enable that later.
+
   </Step>
 
   <Step title="Select repositories">
@@ -110,6 +117,7 @@ An admin enables Code Review once for the organization and selects which reposit
     * **Manual**: reviews start only when someone [comments `@claude review` or `@claude review once` on a PR](#manually-trigger-reviews); `@claude review` also subscribes the PR to reviews on subsequent pushes
 
     Reviewing on every push runs the most reviews and costs the most. Manual mode is useful for high-traffic repos where you want to opt specific PRs into review, or to only start reviewing your PRs once they're ready.
+
   </Step>
 </Steps>
 
@@ -130,10 +138,10 @@ Use `@claude review once` when you want feedback on the current state of a PR bu
 
 For either command to trigger a review:
 
-* Post it as a top-level PR comment, not an inline comment on a diff line
-* Put the command at the start of the comment, with `once` on the same line if you're using the one-shot form
-* You must have owner, member, or collaborator access to the repository
-* The PR must be open
+- Post it as a top-level PR comment, not an inline comment on a diff line
+- Put the command at the start of the comment, with `once` on the same line if you're using the one-shot form
+- You must have owner, member, or collaborator access to the repository
+- The PR must be open
 
 Unlike automatic triggers, manual triggers run on draft PRs, since an explicit request signals you want the review now regardless of draft status.
 
@@ -143,8 +151,8 @@ If a review is already running on that PR, the request is queued until the in-pr
 
 Code Review reads two files from your repository to guide what it flags. They differ in how strongly they influence the review:
 
-* **`CLAUDE.md`**: shared project instructions that Claude Code uses for all tasks, not just reviews. Code Review reads it as project context and flags newly introduced violations as nits.
-* **`REVIEW.md`**: review-only instructions, injected directly into every agent in the review pipeline as highest priority. Use it to change what gets flagged, at what severity, and how findings are reported.
+- **`CLAUDE.md`**: shared project instructions that Claude Code uses for all tasks, not just reviews. Code Review reads it as project context and flags newly introduced violations as nits.
+- **`REVIEW.md`**: review-only instructions, injected directly into every agent in the review pipeline as highest priority. Use it to change what gets flagged, at what severity, and how findings are reported.
 
 ### CLAUDE.md
 
@@ -232,13 +240,13 @@ The repositories table in admin settings also shows average cost per review for 
 
 ## Pricing
 
-Code Review is billed based on token usage. Each review averages \$15-25 in cost, scaling with PR size, codebase complexity, and how many issues require verification. Code Review usage is billed separately through [extra usage](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) and does not count against your plan's included usage.
+Code Review is billed based on token usage. Each review averages \$15-25 in cost, scaling with PR size, codebase complexity, and how many issues require verification. Code Review usage is billed separately through [usage credits](https://support.claude.com/en/articles/12429409-extra-usage-for-paid-claude-plans) and does not count against your plan's included usage.
 
 The review trigger you choose affects total cost:
 
-* **Once after PR creation**: runs once per PR
-* **After every push**: runs on each push, multiplying cost by the number of pushes
-* **Manual**: no reviews until someone comments `@claude review` on a PR
+- **Once after PR creation**: runs once per PR
+- **After every push**: runs on each push, multiplying cost by the number of pushes
+- **Manual**: no reviews until someone comments `@claude review` on a PR
 
 In any mode, commenting `@claude review` [opts the PR into push-triggered reviews](#manually-trigger-reviews), so additional cost accrues per push after that comment. To run a single review without subscribing to future pushes, comment `@claude review once` instead.
 
@@ -266,16 +274,26 @@ When your organization's monthly spend cap is reached, Code Review posts a singl
 
 If the check run title says issues were found but you don't see inline review comments on the diff, look in these other locations where findings are surfaced:
 
-* **Check run Details**: click **Details** next to the Claude Code Review check in the Checks tab. The severity table lists every finding with its file, line, and summary regardless of whether the inline comment was accepted.
-* **Files changed annotations**: open the **Files changed** tab on the PR. Findings render as annotations attached directly to the diff lines, separate from review comments.
-* **Review body**: if you pushed to the PR while a review was running, some findings may reference lines that no longer exist in the current diff. Those appear under an **Additional findings** heading in the review body text rather than as inline comments.
+- **Check run Details**: click **Details** next to the Claude Code Review check in the Checks tab. The severity table lists every finding with its file, line, and summary regardless of whether the inline comment was accepted.
+- **Files changed annotations**: open the **Files changed** tab on the PR. Findings render as annotations attached directly to the diff lines, separate from review comments.
+- **Review body**: if you pushed to the PR while a review was running, some findings may reference lines that no longer exist in the current diff. Those appear under an **Additional findings** heading in the review body text rather than as inline comments.
+
+## Review a diff locally
+
+The [`/code-review` command](/en/commands) reviews a diff in your terminal without installing the GitHub App. Run it in any Claude Code session: it reports correctness bugs and {/_ min-version: 2.1.151 _/}reuse, simplification, and efficiency cleanups in the current diff. Pass `--comment` to post findings as inline PR comments, or `--fix` to apply the findings to your working tree after the review.
+
+Lower [effort levels](/en/model-config#adjust-effort-level) return fewer, higher-confidence findings, while `high` through `max` give broader coverage and may include uncertain findings. Without an effort argument, the review uses the session's current effort. Pass a path or PR reference to review a specific target instead of the current diff.
+
+`/code-review ultra --fix` runs the deeper [ultrareview](/en/ultrareview) in the cloud, then applies its findings to your working tree when they arrive back in your session.
+
+The command was named `/simplify` before v2.1.147, when it applied fixes by default. {/_ min-version: 2.1.154 _/}From v2.1.154, `/simplify` runs a separate cleanup-only review that applies fixes without hunting for bugs. If you scripted `/simplify` for bug-finding, switch to `/code-review --fix`, which is unchanged.
 
 ## Related resources
 
 Code Review is designed to work alongside the rest of Claude Code. If you want to run reviews locally before opening a PR, need a self-hosted setup, or want to go deeper on how `CLAUDE.md` shapes Claude's behavior across tools, these pages are good next stops:
 
-* [Plugins](/en/discover-plugins): browse the plugin marketplace, including a `code-review` plugin for running on-demand reviews locally before pushing
-* [GitHub Actions](/en/github-actions): run Claude in your own GitHub Actions workflows for custom automation beyond code review
-* [GitLab CI/CD](/en/gitlab-ci-cd): self-hosted Claude integration for GitLab pipelines
-* [Memory](/en/memory): how `CLAUDE.md` files work across Claude Code
-* [Analytics](/en/analytics): track Claude Code usage beyond code review
+- [Commands](/en/commands): run `/code-review` in a local Claude Code session to check a diff before pushing
+- [GitHub Actions](/en/github-actions): run Claude in your own GitHub Actions workflows for custom automation beyond code review
+- [GitLab CI/CD](/en/gitlab-ci-cd): self-hosted Claude integration for GitLab pipelines
+- [Memory](/en/memory): how `CLAUDE.md` files work across Claude Code
+- [Analytics](/en/analytics): track Claude Code usage beyond code review

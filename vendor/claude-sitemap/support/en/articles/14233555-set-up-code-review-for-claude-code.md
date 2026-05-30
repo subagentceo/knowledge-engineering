@@ -2,7 +2,7 @@ Code Review analyzes your GitHub pull requests and posts findings as inline comm
 
 This article covers how to enable Code Review, configure review triggers, customize what gets flagged, and troubleshoot common setup issues.
 
-**Note:** Code Review is in research preview and available on Team and Enterprise plans. It isn’t available for organizations with zero data retention enabled. Code Review usage is billed separately through extra usage and doesn’t count against your plan’s included usage.
+**Note:** Code Review is in research preview and available on Team and Enterprise plans. It isn’t available for organizations with zero data retention enabled. Code Review usage is billed separately through usage credits and doesn’t count against your plan’s included usage.
 
 ---
 
@@ -18,11 +18,11 @@ Reviews scale in cost with PR size and complexity, completing in 20 minutes on a
 
 Each finding is tagged with a severity level:
 
-| **Marker** | **Severity** | **Meaning** |
-| --- | --- | --- |
-| 🔴 | Normal | A bug that should be fixed before merging |
-| 🟡 | Nit | A minor issue, worth fixing but not blocking |
-| 🟣 | Pre-existing | A bug that exists in the codebase but wasn’t introduced by this PR |
+| **Marker** | **Severity** | **Meaning**                                                        |
+| ---------- | ------------ | ------------------------------------------------------------------ |
+| 🔴         | Normal       | A bug that should be fixed before merging                          |
+| 🟡         | Nit          | A minor issue, worth fixing but not blocking                       |
+| 🟣         | Pre-existing | A bug that exists in the codebase but wasn’t introduced by this PR |
 
 Findings include a collapsible extended reasoning section you can expand to see why Claude flagged the issue and how it verified the problem.
 
@@ -114,7 +114,7 @@ Claude auto-discovers REVIEW.md at the repository root. No configuration is need
 
 Code Review is billed based on token usage. Each review averages $15–25 in cost, scaling with PR size, codebase complexity, and how many issues require verification.
 
-Code Review usage is billed separately through extra usage and doesn’t count against your plan’s included usage. The review trigger you choose affects total cost:
+Code Review usage is billed separately through usage credits and doesn’t count against your plan’s included usage. The review trigger you choose affects total cost:
 
 - **Once after PR creation** runs once per PR.
 

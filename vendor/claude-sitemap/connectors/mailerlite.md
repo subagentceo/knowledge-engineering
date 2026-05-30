@@ -1,3 +1,5 @@
+# MailerLite
+
 Connect Claude with MailerLite to create your very own email assistant. Use it to build email, analyze campaign performance, manage subscribers, and more, all with natural language prompts.
 
 You can use MailerLite to:

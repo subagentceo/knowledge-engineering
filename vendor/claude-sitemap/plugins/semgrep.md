@@ -1,3 +1,5 @@
+# Semgrep
+
 Semgrep catches security vulnerabilities in real-time as Claude writes code. The plugin integrates Semgrep's static analysis engine directly into your Claude Code workflow, automatically scanning files after every edit for issues like injection flaws, hardcoded secrets, and insecure patterns — then guiding Claude to produce secure code from the start.
 
 At session start and with each prompt, Semgrep injects secure coding defaults so Claude follows security best practices by default. After every file write or edit, a post-tool hook automatically runs a Semgrep scan on the changed code, catching vulnerabilities before they make it into your codebase. This provides a continuous security feedback loop without any manual intervention.

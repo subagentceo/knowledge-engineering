@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -52,6 +53,7 @@ These steps are performed once per AWS organization, regardless of which authent
     ```
 
     Set the permission set's **Session duration** to between 8 and 12 hours. This value controls how long a user can run Cowork before needing to sign in to AWS again.
+
   </Step>
 
   <Step title="Federate Identity Center to your IdP (optional)">
@@ -69,6 +71,7 @@ These steps are performed once per AWS organization, regardless of which authent
     * **Identity Center region**: the region where Identity Center is enabled, which may differ from your Bedrock region
     * **AWS account ID**: the 12-digit ID of the account where you enabled Bedrock
     * **Permission set name**: the name you gave the permission set above
+
   </Step>
 </Steps>
 
@@ -114,15 +117,15 @@ With AWS set up and devices prepared, open the in-app configuration window (**De
 | Field                | Bearer token         | In-app AWS sign-in                       | Named profile          |
 | -------------------- | -------------------- | ---------------------------------------- | ---------------------- |
 | AWS region           | e.g. `us-west-2`     | e.g. `us-west-2`                         | e.g. `us-west-2`       |
-| AWS bearer token     | your Bedrock API key | *leave empty*                            | *leave empty*          |
-| Bedrock base URL     | *optional*           | *optional*                               | *optional*             |
-| AWS profile name     | *leave empty*        | *leave empty*                            | `claude-cowork`        |
-| AWS config directory | *leave empty*        | *leave empty*                            | *only if not `~/.aws`* |
-| AWS SSO start URL    | *leave empty*        | `https://d-xxxxxxxxxx.awsapps.com/start` | *leave empty*          |
-| AWS SSO region       | *leave empty*        | e.g. `us-east-1`                         | *leave empty*          |
-| AWS SSO account ID   | *leave empty*        | `123456789012`                           | *leave empty*          |
-| AWS SSO role name    | *leave empty*        | `BedrockInference`                       | *leave empty*          |
-| Bedrock service tier | *optional*           | *optional*                               | *optional*             |
+| AWS bearer token     | your Bedrock API key | _leave empty_                            | _leave empty_          |
+| Bedrock base URL     | _optional_           | _optional_                               | _optional_             |
+| AWS profile name     | _leave empty_        | _leave empty_                            | `claude-cowork`        |
+| AWS config directory | _leave empty_        | _leave empty_                            | _only if not `~/.aws`_ |
+| AWS SSO start URL    | _leave empty_        | `https://d-xxxxxxxxxx.awsapps.com/start` | _leave empty_          |
+| AWS SSO region       | _leave empty_        | e.g. `us-east-1`                         | _leave empty_          |
+| AWS SSO account ID   | _leave empty_        | `123456789012`                           | _leave empty_          |
+| AWS SSO role name    | _leave empty_        | `BedrockInference`                       | _leave empty_          |
+| Bedrock service tier | _optional_           | _optional_                               | _optional_             |
 
 Under **Identity & models**, add at least one **Model list** entry using the Bedrock inference-profile ID, for example `us.anthropic.claude-sonnet-4-20250514-v1:0`.
 

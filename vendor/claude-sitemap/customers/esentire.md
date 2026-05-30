@@ -1,12 +1,14 @@
+# How eSentire runs expert-level threat investigations at scale with Claude
+
 eSentire is a managed detection and response (MDR) provider that protects millions of endpoints across thousands of customers worldwide. Its Atlas platform uses Claude to run autonomous threat investigations, analyzing signals across endpoint, identity, network, and cloud telemetry to catch and contain attacks in minutes.
 
 ## With Claude, eSentire achieved:
 
--   99.96% ransomware containment before any file encryption, more than double the industry average of 44%
--   Over 120,000 autonomous investigations across its full customer base in 12 months, each averaging 44 tool calls across endpoint, identity, network, and cloud telemetry
--   Above 90% alignment with top SOC experts in continuous production evaluation, matching or exceeding human analyst performance
--   6-minute average agentic investigation, where the industry median attacker dwell time is 11 days
--   41% more confirmed attacks detected per customer after deploying agentic investigations, with overall alert volume down 11%
+- 99.96% ransomware containment before any file encryption, more than double the industry average of 44%
+- Over 120,000 autonomous investigations across its full customer base in 12 months, each averaging 44 tool calls across endpoint, identity, network, and cloud telemetry
+- Above 90% alignment with top SOC experts in continuous production evaluation, matching or exceeding human analyst performance
+- 6-minute average agentic investigation, where the industry median attacker dwell time is 11 days
+- 41% more confirmed attacks detected per customer after deploying agentic investigations, with overall alert volume down 11%
 
 ## The challenge: Matching attacker speed without sacrificing depth
 
@@ -40,10 +42,10 @@ eSentire measures this rigor through continuous production evaluation: senior SO
 
 Across 12 months of production, the results are concrete. Of nearly 10,000 escalated incidents across more than 1,400 customers: 
 
--   31% were blocked before execution, 
--   18% were attempted attacks that failed, 
--   36% were identity compromises detected and remediated before attackers accessed business data, and 
--   14% were device compromises where the SOC detected activity, isolated the host, and drove remediation.
+- 31% were blocked before execution, 
+- 18% were attempted attacks that failed, 
+- 36% were identity compromises detected and remediated before attackers accessed business data, and 
+- 14% were device compromises where the SOC detected activity, isolated the host, and drove remediation.
 
 Across nearly two million protected endpoints, attackers achieved lateral movement to a second device in fewer than 0.5% of incidents. Ransomware encrypted files in less than 0.04%. Every one of those cases was detected. The question was never whether the attack was found, but how fast it could be stopped. For context, the global median attacker dwell time is 11 days, and only 44% of ransomware attacks industry-wide are stopped before encryption.
 

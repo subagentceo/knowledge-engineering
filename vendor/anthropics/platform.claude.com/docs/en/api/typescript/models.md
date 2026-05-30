@@ -1,6 +1,6 @@
 # Models
 
-## List
+## List Models
 
 `client.models.list(ModelListParamsparams?, RequestOptionsoptions?): Page<ModelInfo>`
 
@@ -13,7 +13,6 @@ The Models API response can be used to determine which models are available for 
 ### Parameters
 
 - `params: ModelListParams`
-
   - `after_id?: string`
 
     Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -31,11 +30,9 @@ The Models API response can be used to determine which models are available for 
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -84,10 +81,15 @@ The Models API response can be used to determine which models are available for 
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `ModelInfo`
-
   - `id: string`
 
     Unique model identifier.
@@ -95,11 +97,9 @@ The Models API response can be used to determine which models are available for 
   - `capabilities: ModelCapabilities | null`
 
     Model capability information.
-
     - `batch: CapabilitySupport`
 
       Whether the model supports the Batch API.
-
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -108,45 +108,24 @@ The Models API response can be used to determine which models are available for 
 
       Whether the model supports citation generation.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `code_execution: CapabilitySupport`
 
       Whether the model supports code execution tools.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `context_management: ContextManagementCapability`
 
       Context management support and available strategies.
-
       - `clear_thinking_20251015: CapabilitySupport | null`
 
         Indicates whether a capability is supported.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `clear_tool_uses_20250919: CapabilitySupport | null`
 
         Indicates whether a capability is supported.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
       - `compact_20260112: CapabilitySupport | null`
 
         Indicates whether a capability is supported.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `supported: boolean`
 
@@ -155,38 +134,21 @@ The Models API response can be used to determine which models are available for 
     - `effort: EffortCapability`
 
       Effort (reasoning_effort) support and available levels.
-
       - `high: CapabilitySupport`
 
         Whether the model supports high effort level.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `low: CapabilitySupport`
 
         Whether the model supports low effort level.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
       - `max: CapabilitySupport`
 
         Whether the model supports max effort level.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
       - `medium: CapabilitySupport`
 
         Whether the model supports medium effort level.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `supported: boolean`
 
@@ -196,38 +158,21 @@ The Models API response can be used to determine which models are available for 
 
         Indicates whether a capability is supported.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
     - `image_input: CapabilitySupport`
 
       Whether the model accepts image content blocks.
-
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
 
     - `pdf_input: CapabilitySupport`
 
       Whether the model accepts PDF content blocks.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `structured_outputs: CapabilitySupport`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `thinking: ThinkingCapability`
 
       Thinking capability and supported type configurations.
-
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -235,22 +180,13 @@ The Models API response can be used to determine which models are available for 
       - `types: ThinkingTypes`
 
         Supported thinking type configurations.
-
         - `adaptive: CapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
 
-          - `supported: boolean`
-
-            Whether this capability is supported by the model.
-
         - `enabled: CapabilitySupport`
 
           Whether the model supports thinking with type 'enabled'.
-
-          - `supported: boolean`
-
-            Whether this capability is supported by the model.
 
   - `created_at: string`
 
@@ -273,16 +209,15 @@ The Models API response can be used to determine which models are available for 
     Object type.
 
     For Models, this is always `"model"`.
-
     - `"model"`
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
@@ -291,7 +226,88 @@ for await (const modelInfo of client.models.list()) {
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "claude-opus-4-6",
+      "capabilities": {
+        "batch": {
+          "supported": true
+        },
+        "citations": {
+          "supported": true
+        },
+        "code_execution": {
+          "supported": true
+        },
+        "context_management": {
+          "clear_thinking_20251015": {
+            "supported": true
+          },
+          "clear_tool_uses_20250919": {
+            "supported": true
+          },
+          "compact_20260112": {
+            "supported": true
+          },
+          "supported": true
+        },
+        "effort": {
+          "high": {
+            "supported": true
+          },
+          "low": {
+            "supported": true
+          },
+          "max": {
+            "supported": true
+          },
+          "medium": {
+            "supported": true
+          },
+          "supported": true,
+          "xhigh": {
+            "supported": true
+          }
+        },
+        "image_input": {
+          "supported": true
+        },
+        "pdf_input": {
+          "supported": true
+        },
+        "structured_outputs": {
+          "supported": true
+        },
+        "thinking": {
+          "supported": true,
+          "types": {
+            "adaptive": {
+              "supported": true
+            },
+            "enabled": {
+              "supported": true
+            }
+          }
+        }
+      },
+      "created_at": "2026-02-04T00:00:00Z",
+      "display_name": "Claude Opus 4.6",
+      "max_input_tokens": 0,
+      "max_tokens": 0,
+      "type": "model"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+## Get a Model
 
 `client.models.retrieve(stringmodelID, ModelRetrieveParamsparams?, RequestOptionsoptions?): ModelInfo`
 
@@ -308,15 +324,12 @@ The Models API response can be used to determine information about a specific mo
   Model identifier or alias.
 
 - `params: ModelRetrieveParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -365,10 +378,15 @@ The Models API response can be used to determine information about a specific mo
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `ModelInfo`
-
   - `id: string`
 
     Unique model identifier.
@@ -376,11 +394,9 @@ The Models API response can be used to determine information about a specific mo
   - `capabilities: ModelCapabilities | null`
 
     Model capability information.
-
     - `batch: CapabilitySupport`
 
       Whether the model supports the Batch API.
-
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -389,45 +405,24 @@ The Models API response can be used to determine information about a specific mo
 
       Whether the model supports citation generation.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `code_execution: CapabilitySupport`
 
       Whether the model supports code execution tools.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `context_management: ContextManagementCapability`
 
       Context management support and available strategies.
-
       - `clear_thinking_20251015: CapabilitySupport | null`
 
         Indicates whether a capability is supported.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `clear_tool_uses_20250919: CapabilitySupport | null`
 
         Indicates whether a capability is supported.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
       - `compact_20260112: CapabilitySupport | null`
 
         Indicates whether a capability is supported.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `supported: boolean`
 
@@ -436,38 +431,21 @@ The Models API response can be used to determine information about a specific mo
     - `effort: EffortCapability`
 
       Effort (reasoning_effort) support and available levels.
-
       - `high: CapabilitySupport`
 
         Whether the model supports high effort level.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `low: CapabilitySupport`
 
         Whether the model supports low effort level.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
       - `max: CapabilitySupport`
 
         Whether the model supports max effort level.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
       - `medium: CapabilitySupport`
 
         Whether the model supports medium effort level.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `supported: boolean`
 
@@ -477,38 +455,21 @@ The Models API response can be used to determine information about a specific mo
 
         Indicates whether a capability is supported.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
     - `image_input: CapabilitySupport`
 
       Whether the model accepts image content blocks.
-
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
 
     - `pdf_input: CapabilitySupport`
 
       Whether the model accepts PDF content blocks.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `structured_outputs: CapabilitySupport`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `thinking: ThinkingCapability`
 
       Thinking capability and supported type configurations.
-
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -516,22 +477,13 @@ The Models API response can be used to determine information about a specific mo
       - `types: ThinkingTypes`
 
         Supported thinking type configurations.
-
         - `adaptive: CapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
 
-          - `supported: boolean`
-
-            Whether this capability is supported by the model.
-
         - `enabled: CapabilitySupport`
 
           Whether the model supports thinking with type 'enabled'.
-
-          - `supported: boolean`
-
-            Whether this capability is supported by the model.
 
   - `created_at: string`
 
@@ -554,21 +506,94 @@ The Models API response can be used to determine information about a specific mo
     Object type.
 
     For Models, this is always `"model"`.
-
     - `"model"`
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const modelInfo = await client.models.retrieve('model_id');
+const modelInfo = await client.models.retrieve("model_id");
 
 console.log(modelInfo.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "claude-opus-4-6",
+  "capabilities": {
+    "batch": {
+      "supported": true
+    },
+    "citations": {
+      "supported": true
+    },
+    "code_execution": {
+      "supported": true
+    },
+    "context_management": {
+      "clear_thinking_20251015": {
+        "supported": true
+      },
+      "clear_tool_uses_20250919": {
+        "supported": true
+      },
+      "compact_20260112": {
+        "supported": true
+      },
+      "supported": true
+    },
+    "effort": {
+      "high": {
+        "supported": true
+      },
+      "low": {
+        "supported": true
+      },
+      "max": {
+        "supported": true
+      },
+      "medium": {
+        "supported": true
+      },
+      "supported": true,
+      "xhigh": {
+        "supported": true
+      }
+    },
+    "image_input": {
+      "supported": true
+    },
+    "pdf_input": {
+      "supported": true
+    },
+    "structured_outputs": {
+      "supported": true
+    },
+    "thinking": {
+      "supported": true,
+      "types": {
+        "adaptive": {
+          "supported": true
+        },
+        "enabled": {
+          "supported": true
+        }
+      }
+    }
+  },
+  "created_at": "2026-02-04T00:00:00Z",
+  "display_name": "Claude Opus 4.6",
+  "max_input_tokens": 0,
+  "max_tokens": 0,
+  "type": "model"
+}
 ```
 
 ## Domain Types
@@ -578,7 +603,6 @@ console.log(modelInfo.id);
 - `CapabilitySupport`
 
   Indicates whether a capability is supported.
-
   - `supported: boolean`
 
     Whether this capability is supported by the model.
@@ -588,11 +612,9 @@ console.log(modelInfo.id);
 - `ContextManagementCapability`
 
   Context management capability details.
-
   - `clear_thinking_20251015: CapabilitySupport | null`
 
     Indicates whether a capability is supported.
-
     - `supported: boolean`
 
       Whether this capability is supported by the model.
@@ -601,17 +623,9 @@ console.log(modelInfo.id);
 
     Indicates whether a capability is supported.
 
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.
-
   - `compact_20260112: CapabilitySupport | null`
 
     Indicates whether a capability is supported.
-
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.
 
   - `supported: boolean`
 
@@ -622,11 +636,9 @@ console.log(modelInfo.id);
 - `EffortCapability`
 
   Effort (reasoning_effort) capability details.
-
   - `high: CapabilitySupport`
 
     Whether the model supports high effort level.
-
     - `supported: boolean`
 
       Whether this capability is supported by the model.
@@ -635,25 +647,13 @@ console.log(modelInfo.id);
 
     Whether the model supports low effort level.
 
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.
-
   - `max: CapabilitySupport`
 
     Whether the model supports max effort level.
 
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.
-
   - `medium: CapabilitySupport`
 
     Whether the model supports medium effort level.
-
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.
 
   - `supported: boolean`
 
@@ -663,20 +663,14 @@ console.log(modelInfo.id);
 
     Indicates whether a capability is supported.
 
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.
-
 ### Model Capabilities
 
 - `ModelCapabilities`
 
   Model capability information.
-
   - `batch: CapabilitySupport`
 
     Whether the model supports the Batch API.
-
     - `supported: boolean`
 
       Whether this capability is supported by the model.
@@ -685,45 +679,24 @@ console.log(modelInfo.id);
 
     Whether the model supports citation generation.
 
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.
-
   - `code_execution: CapabilitySupport`
 
     Whether the model supports code execution tools.
 
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.
-
   - `context_management: ContextManagementCapability`
 
     Context management support and available strategies.
-
     - `clear_thinking_20251015: CapabilitySupport | null`
 
       Indicates whether a capability is supported.
-
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
 
     - `clear_tool_uses_20250919: CapabilitySupport | null`
 
       Indicates whether a capability is supported.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `compact_20260112: CapabilitySupport | null`
 
       Indicates whether a capability is supported.
-
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
 
     - `supported: boolean`
 
@@ -732,38 +705,21 @@ console.log(modelInfo.id);
   - `effort: EffortCapability`
 
     Effort (reasoning_effort) support and available levels.
-
     - `high: CapabilitySupport`
 
       Whether the model supports high effort level.
-
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
 
     - `low: CapabilitySupport`
 
       Whether the model supports low effort level.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `max: CapabilitySupport`
 
       Whether the model supports max effort level.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `medium: CapabilitySupport`
 
       Whether the model supports medium effort level.
-
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
 
     - `supported: boolean`
 
@@ -773,38 +729,21 @@ console.log(modelInfo.id);
 
       Indicates whether a capability is supported.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
   - `image_input: CapabilitySupport`
 
     Whether the model accepts image content blocks.
-
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.
 
   - `pdf_input: CapabilitySupport`
 
     Whether the model accepts PDF content blocks.
 
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.
-
   - `structured_outputs: CapabilitySupport`
 
     Whether the model supports structured output / JSON mode / strict tool schemas.
 
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.
-
   - `thinking: ThinkingCapability`
 
     Thinking capability and supported type configurations.
-
     - `supported: boolean`
 
       Whether this capability is supported by the model.
@@ -812,27 +751,17 @@ console.log(modelInfo.id);
     - `types: ThinkingTypes`
 
       Supported thinking type configurations.
-
       - `adaptive: CapabilitySupport`
 
         Whether the model supports thinking with type 'adaptive' (auto).
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `enabled: CapabilitySupport`
 
         Whether the model supports thinking with type 'enabled'.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
 ### Model Info
 
 - `ModelInfo`
-
   - `id: string`
 
     Unique model identifier.
@@ -840,11 +769,9 @@ console.log(modelInfo.id);
   - `capabilities: ModelCapabilities | null`
 
     Model capability information.
-
     - `batch: CapabilitySupport`
 
       Whether the model supports the Batch API.
-
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -853,45 +780,24 @@ console.log(modelInfo.id);
 
       Whether the model supports citation generation.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `code_execution: CapabilitySupport`
 
       Whether the model supports code execution tools.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `context_management: ContextManagementCapability`
 
       Context management support and available strategies.
-
       - `clear_thinking_20251015: CapabilitySupport | null`
 
         Indicates whether a capability is supported.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `clear_tool_uses_20250919: CapabilitySupport | null`
 
         Indicates whether a capability is supported.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
       - `compact_20260112: CapabilitySupport | null`
 
         Indicates whether a capability is supported.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `supported: boolean`
 
@@ -900,38 +806,21 @@ console.log(modelInfo.id);
     - `effort: EffortCapability`
 
       Effort (reasoning_effort) support and available levels.
-
       - `high: CapabilitySupport`
 
         Whether the model supports high effort level.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `low: CapabilitySupport`
 
         Whether the model supports low effort level.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
       - `max: CapabilitySupport`
 
         Whether the model supports max effort level.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
       - `medium: CapabilitySupport`
 
         Whether the model supports medium effort level.
-
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
 
       - `supported: boolean`
 
@@ -941,38 +830,21 @@ console.log(modelInfo.id);
 
         Indicates whether a capability is supported.
 
-        - `supported: boolean`
-
-          Whether this capability is supported by the model.
-
     - `image_input: CapabilitySupport`
 
       Whether the model accepts image content blocks.
-
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
 
     - `pdf_input: CapabilitySupport`
 
       Whether the model accepts PDF content blocks.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `structured_outputs: CapabilitySupport`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
     - `thinking: ThinkingCapability`
 
       Thinking capability and supported type configurations.
-
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -980,22 +852,13 @@ console.log(modelInfo.id);
       - `types: ThinkingTypes`
 
         Supported thinking type configurations.
-
         - `adaptive: CapabilitySupport`
 
           Whether the model supports thinking with type 'adaptive' (auto).
 
-          - `supported: boolean`
-
-            Whether this capability is supported by the model.
-
         - `enabled: CapabilitySupport`
 
           Whether the model supports thinking with type 'enabled'.
-
-          - `supported: boolean`
-
-            Whether this capability is supported by the model.
 
   - `created_at: string`
 
@@ -1018,7 +881,6 @@ console.log(modelInfo.id);
     Object type.
 
     For Models, this is always `"model"`.
-
     - `"model"`
 
 ### Thinking Capability
@@ -1026,7 +888,6 @@ console.log(modelInfo.id);
 - `ThinkingCapability`
 
   Thinking capability details.
-
   - `supported: boolean`
 
     Whether this capability is supported by the model.
@@ -1034,11 +895,9 @@ console.log(modelInfo.id);
   - `types: ThinkingTypes`
 
     Supported thinking type configurations.
-
     - `adaptive: CapabilitySupport`
 
       Whether the model supports thinking with type 'adaptive' (auto).
-
       - `supported: boolean`
 
         Whether this capability is supported by the model.
@@ -1047,20 +906,14 @@ console.log(modelInfo.id);
 
       Whether the model supports thinking with type 'enabled'.
 
-      - `supported: boolean`
-
-        Whether this capability is supported by the model.
-
 ### Thinking Types
 
 - `ThinkingTypes`
 
   Supported thinking type configurations.
-
   - `adaptive: CapabilitySupport`
 
     Whether the model supports thinking with type 'adaptive' (auto).
-
     - `supported: boolean`
 
       Whether this capability is supported by the model.
@@ -1068,7 +921,3 @@ console.log(modelInfo.id);
   - `enabled: CapabilitySupport`
 
     Whether the model supports thinking with type 'enabled'.
-
-    - `supported: boolean`
-
-      Whether this capability is supported by the model.

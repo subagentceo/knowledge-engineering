@@ -1,6 +1,8 @@
+# Improving frontend design through Skills
+
 You might notice that when you ask an LLM to build a landing page without guidance, it will almost always conform to Inter fonts, purple gradients on white backgrounds, and minimal animations. 
 
-The issue?  [Distributional convergence.](https://en.wikipedia.org/wiki/Convergence_of_random_variables) During sampling, models predict tokens based on statistical patterns in training data. Safe design choices–those that work universally and offend no one–dominate web training data. Without direction, Claude samples from this high-probability center.
+The issue?  Distributional convergence. During sampling, models predict tokens based on statistical patterns in training data. Safe design choices–those that work universally and offend no one–dominate web training data. Without direction, Claude samples from this high-probability center.
 
 For developers building customer-facing products, this generic aesthetic undermines brand identity and makes AI-generated interfaces immediately recognizable—and dismissible.
 
@@ -12,21 +14,21 @@ But this creates a practical challenge: the more specialized the task, the more 
 
 You could pack all this into a system prompt, but then every request–debugging Python, analyzing data, writing emails–carries frontend design context. The question becomes: how do you provide Claude with domain-specific guidance exactly when needed, without permanent context overhead for unrelated tasks?
 
-## **Skills: dynamic context loading**
+## Skills: dynamic context loading
 
-This is precisely what [Skills](https://www.anthropic.com/news/skills) were designed for: delivering specialized context on demand without permanent overhead. A skill is a document (often markdown) containing instructions, constraints, and domain knowledge, stored in a designated directory that Claude can access through simple file-reading tools. Claude can leverage these skills to dynamically load in information it needs at runtime, progressively enhancing its context instead of loading everything upfront. 
+This is precisely what Skills were designed for: delivering specialized context on demand without permanent overhead. A skill is a document (often markdown) containing instructions, constraints, and domain knowledge, stored in a designated directory that Claude can access through simple file-reading tools. Claude can leverage these skills to dynamically load in information it needs at runtime, progressively enhancing its context instead of loading everything upfront. 
 
 When equipped with these skills and the necessary tools to read them, Claude can autonomously identify and load relevant skills based on the task at hand. For instance, when asked to build a landing page or create a React component, Claude can load a frontend design skill and apply its instructions just-in-time. This is the essential mental model: skills are prompts and contextual resources that activate on demand, providing specialized guidance for specific task types without incurring permanent context overhead.
 
-This allows developers to reap the benefits of Claude’s steerability without overloading the context window by stuffing disparate instructions across many tasks into the system prompt. As we’ve [previously explained,](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) too many tokens in the context window can result in degradation of performance, so keeping the contents of the context window lean and focused is extremely important for eliciting the best performance from the model. Skills solve for this by making effective prompts reusable and contextual.
+This allows developers to reap the benefits of Claude’s steerability without overloading the context window by stuffing disparate instructions across many tasks into the system prompt. As we’ve previously explained, too many tokens in the context window can result in degradation of performance, so keeping the contents of the context window lean and focused is extremely important for eliciting the best performance from the model. Skills solve for this by making effective prompts reusable and contextual.
 
-## **Prompting for better frontend output**
+## Prompting for better frontend output
 
 We can unlock significantly better UI generations from Claude, without permanent context overhead, by creating a frontend design skill.  The core insight is to think about frontend design the way a frontend engineer would. The more you can map aesthetic improvements to implementable frontend code, the better Claude can execute.
 
-Leveraging this insight, we identified several areas where targeted prompting works well: typography, animations, background effects, and themes. These all translate cleanly to code that Claude can write. Implementing this in your prompts does not require detailed technical instructions, just using targeted language that engages the model to think more critically about these design axes is enough to elicit stronger outputs. This maps closely with the guidance we provided in our [context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) blog article, about prompting the model at the right altitude, avoiding the two extremes of low-altitude hardcoded logic like specifying exact hex codes and vague high-altitude guidance that assumes shared context.
+Leveraging this insight, we identified several areas where targeted prompting works well: typography, animations, background effects, and themes. These all translate cleanly to code that Claude can write. Implementing this in your prompts does not require detailed technical instructions, just using targeted language that engages the model to think more critically about these design axes is enough to elicit stronger outputs. This maps closely with the guidance we provided in our context engineering blog article, about prompting the model at the right altitude, avoiding the two extremes of low-altitude hardcoded logic like specifying exact hex codes and vague high-altitude guidance that assumes shared context.
 
-### **Typography**
+### Typography
 
 To see this in action, let's start by viewing typography as one dimension we can influence via prompting. The prompt below specifically steers Claude to use more interesting fonts:
 
@@ -64,18 +66,17 @@ Interestingly, the mandate to use more interesting fonts seems to encourage the 
 
 Typography alone leads to significant improvement, but fonts are just one dimension. What about cohesive aesthetics across the entire interface? 
 
-### **Themes**
+### Themes
 
 Another dimension we can prompt for is designs inspired by well-known themes and aesthetics. Claude has a rich understanding of popular themes; we can use this to communicate the specific aesthetics we want our frontend to embody. Here’s an example:
 
 ```javascript
 <always_use_rpg_theme>
-Always design with RPG aesthetic:
-- Fantasy-inspired color palettes with rich, dramatic tones
-- Ornate borders and decorative frame elements
-- Parchment textures, leather-bound styling, and weathered materials
-- Epic, adventurous atmosphere with dramatic lighting
-- Medieval-inspired serif typography with embellished headers
+  Always design with RPG aesthetic: - Fantasy-inspired color palettes with rich,
+  dramatic tones - Ornate borders and decorative frame elements - Parchment
+  textures, leather-bound styling, and weathered materials - Epic, adventurous
+  atmosphere with dramatic lighting - Medieval-inspired serif typography with
+  embellished headers
 </always_use_rpg_theme>
 ```
 
@@ -85,7 +86,7 @@ This produces the following RPG-themed UI:
 
 Typography and themes show targeted prompting works. But manually specifying each dimension is tedious. What if we could combine all these improvements into one reusable asset?
 
-### **A general-purpose prompt**
+### A general-purpose prompt
 
 The same principle extends to other design dimensions: prompting for motion (animations and micro-interactions) adds polish that static designs lack, while guiding the model toward more interesting background choices creates depth and visual interest. This is where a comprehensive skill shines.
 
@@ -93,7 +94,7 @@ Bringing this all together, we developed a ~400 token prompt – compact enough 
 
 ```plaintext
 <frontend_aesthetics>
-You tend to converge toward generic, "on distribution" outputs. In frontend design,this creates what users call the "AI slop" aesthetic. Avoid this: make creative,distinctive frontends that surprise and delight. 
+You tend to converge toward generic, "on distribution" outputs. In frontend design,this creates what users call the "AI slop" aesthetic. Avoid this: make creative,distinctive frontends that surprise and delight.
 
 Focus on:
 - Typography: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics.
@@ -115,7 +116,7 @@ In the example above, we start by giving Claude general context on the problem a
 
 We also include additional guidance at the end to prevent Claude from converging to a different local maximum. Even with explicit instructions to avoid certain patterns, the model can default to other common choices (like Space Grotesk for typography). The final reminder to "think outside the box" reinforces creative variation.
 
-### **Impact on frontend design**
+### Impact on frontend design
 
 With this skill active, Claude's output improves across several types of frontend designs, including: 
 
@@ -151,15 +152,15 @@ AI-generated admin dashboard with standard UI components with minimal visual hie
 
 AI-generated admin dashboard with bold typography, cohesive dark theme, and purposeful motion, using the same prompt in addition to the frontend skill.
 
-## **Improving artifact quality in** [**claude.ai**](http://claude.ai) **with Skills**
+## Improving artifact quality in claude.ai with Skills
 
-Design taste isn't the only limitation. Claude also faces architectural constraints when building artifacts. [Artifacts](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) are interactive, editable content (like code or documents) that Claude creates and displays alongside your chat.
+Design taste isn't the only limitation. Claude also faces architectural constraints when building artifacts. Artifacts are interactive, editable content (like code or documents) that Claude creates and displays alongside your chat.
 
-In addition to the issue with design taste explored above, Claude has another default behavior that limits its ability to generate fantastic frontend artifacts in [claude.ai](http://claude.ai). Currently, when asked to create a frontend, Claude just builds a single HTML file with CSS and JS. This is because Claude understands that frontends must be single HTML files to be properly rendered as artifacts.
+In addition to the issue with design taste explored above, Claude has another default behavior that limits its ability to generate fantastic frontend artifacts in claude.ai. Currently, when asked to create a frontend, Claude just builds a single HTML file with CSS and JS. This is because Claude understands that frontends must be single HTML files to be properly rendered as artifacts.
 
 In the same way you’d expect a human developer to only be able to create very basic frontends if they could only write HTML/CSS/JS in a single file, we hypothesized that Claude would be able to generate more impressive frontend artifacts if we gave it instructions to use richer tooling.
 
-This led us to create a [web-artifacts-builder skill](https://github.com/anthropics/skills/blob/main/web-artifacts-builder/SKILL.md) which leverages Claude’s ability to [use a computer](https://www.claude.com/blog/create-files) and guides Claude to build artifacts using multiple files and modern web technologies like [React](https://react.dev/), [Tailwind CSS](https://tailwindcss.com/) and [shadcn/ui](https://ui.shadcn.com/). Under the hood, the skill exposes scripts that (1) help Claude efficiently set up a basic React repo and (2) bundle everything into a single file using [Parcel](https://parceljs.org/) to meet the single-HTML-file requirement after it is done editing. This is one of the core benefits of skills - by giving Claude access to scripts to execute boilerplate actions, Claude is able to minimize token usage while increasing reliability and performance.
+This led us to create a web-artifacts-builder skill which leverages Claude’s ability to use a computer and guides Claude to build artifacts using multiple files and modern web technologies like React, Tailwind CSS and shadcn/ui. Under the hood, the skill exposes scripts that (1) help Claude efficiently set up a basic React repo and (2) bundle everything into a single file using Parcel to meet the single-HTML-file requirement after it is done editing. This is one of the core benefits of skills - by giving Claude access to scripts to execute boilerplate actions, Claude is able to minimize token usage while increasing reliability and performance.
 
 With the web-artifacts-builder skill, Claude could leverage shadcn/ui's form components and Tailwind's responsive grid system to create a more comprehensive artifact.
 
@@ -189,9 +190,9 @@ With the skill, Claude generated an app that was more featureful out of the box.
 
 ‍
 
-To try out this new skill in [Claude.ai](http://claude.ai), simply enable the skill and then ask Claude to “use the web-artifacts-builder skill” when building artifacts.
+To try out this new skill in Claude.ai, simply enable the skill and then ask Claude to “use the web-artifacts-builder skill” when building artifacts.
 
-## **Optimizing Claude’s frontend design capabilities with Skills**
+## Optimizing Claude’s frontend design capabilities with Skills
 
 This frontend design skill demonstrates a broader principle about language model capabilities: models often have the ability to do more than they express by default. Claude has strong design understanding, but distributional convergence obscures it without guidance. While you could add these instructions to your system prompt, this entails that every request carries frontend design context, even when this knowledge isn’t relevant to the task at hand. Instead, using Skills transforms Claude from a tool that needs constant guidance into one that brings domain expertise to every task. 
 
@@ -199,9 +200,9 @@ Skills are also highly customizable – you can create your own tailored to your
 
 This pattern extends beyond frontend work. Any domain where Claude produces generic outputs despite having more expansive understanding is a candidate for Skill development. The method is consistent: identify convergent defaults, provide concrete alternatives, structure guidance at the right altitude, and make it reusable through Skills.
 
-For frontend development, this means Claude can generate distinctive interfaces without per-request prompt engineering. To get started, explore our [frontend design cookbook](https://github.com/anthropics/claude-cookbooks/blob/main/coding/prompting_for_frontend_aesthetics.ipynb) or try out our [new frontend design plugin in Claude Code](https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design).
+For frontend development, this means Claude can generate distinctive interfaces without per-request prompt engineering. To get started, explore our frontend design cookbook or try out our new frontend design plugin in Claude Code.
 
-**Feeling inspired? To create your own frontend skills, check out our** [**skill-creator**](https://github.com/anthropics/skills/tree/main/skill-creator)**.**
+**Feeling inspired? To create your own frontend skills, check out our** **skill-creator\*\***.\*\*
 
 ‍
 

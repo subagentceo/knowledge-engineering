@@ -1,21 +1,14 @@
--   Anthropic Verified
-    
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Anthropic
-    
-    ](#)
-    
--   Installs
-    
-    4462
+# session-report
+
+- Anthropic Verified
+- Install in
+
+  Claude Code
+
+- Made by
+
+  Anthropic
+
+- Installs
+
+  6530

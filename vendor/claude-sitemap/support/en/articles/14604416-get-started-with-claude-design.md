@@ -1,4 +1,4 @@
-Claude Design by Anthropic Labs lets you create designs, interactive prototypes, presentations, and more by having a conversation with Claude. This guide walks you through creating your first project, iterating on designs, and getting the most out of the tool.
+**[Claude Design](http://claude.ai/design)** by Anthropic Labs lets you create designs, interactive prototypes, presentations, and more by having a conversation with Claude. This guide walks you through creating your first project, iterating on designs, and getting the most out of the tool.
 
 Claude Design by Anthropic Labs is now available in research preview to Pro, Max, Team, and Enterprise plans. This capability is default off for Enterprise plans.
 
@@ -115,12 +115,11 @@ Use the “Export” button in the upper right corner when viewing your project 
 - Export as standalone HTML
 
 - Handoff to Claude Code
-
   - Send to local coding agent
 
   - Send to Claude Code Web
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1778914800&amp;signature=63a604e0c4d9cc2468eb0817b4ac130782a667c6857fd5dcd1319bc89ae66e6b&amp;req=diIvEcx%2FnYhaW%2FMW1HO4zQFD7iRTmml8nfz9ljnuyXSGehiwbPVfKWxHGIK%2B%0AQek9k803xBxBq%2BlpXMU%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/2287510952/553a03eec5cea7b9eff53b473552/6dc33363-38b1-444e-96bb-f8218b588173?expires=1780164900&signature=f15993eaac5a80fceb6bc6a19787aeb2445237e1cedf0cce2ddb6361596cfce0&req=diIvEcx%2FnYhaW%2FMW1HO4zQFD4SxbnWl9nfz9ljnuyXTdAq0yyBwl%2FUTqvqNR%0AjtYOhPUjS1mixixWq3g%3D%0A)
 
 You can also share projects within your organization using a shareable link. Sharing options include view-only, comment, and edit access.
 

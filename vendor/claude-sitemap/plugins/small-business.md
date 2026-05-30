@@ -1,3 +1,5 @@
+# Small Business
+
 Small Business gives you pre-built workflows for running the whole business — payroll planning, month-end close, weekly briefs, growth campaigns, contract review, and CRM hygiene. Just describe what you need in plain English and a router picks the right workflow. You approve every step that touches money or customers.
 
 Use `/plan-payroll` to forecast cash and chase overdue invoices, `/close-month` to reconcile and write the P&L narrative, `/run-campaign` for an end-to-end growth campaign with Canva assets, and `/monday-brief` for a start-of-week snapshot of cash, sales, pipeline, and your top three to-dos.

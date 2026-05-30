@@ -1,12 +1,14 @@
+# Doctolib accelerates developer productivity with Claude Code
+
 Since 2013, Doctolib has been transforming healthcare across Europe, serving 420,000 health professionals and 90 million patients. The platform provides practitioners with an operating system that streamlines workflows through electronic health records, diagnostic support, prescription management, and AI-powered clinical solutions. Patient management tools handle scheduling, teleconsultation, and practice operations. For patients, Doctolib simplifies access to care with secure, proactive health management.
 
 **With Claude Code, Doctolib:**
 
--   Maintains technical documentation automatically with every code change
--   Onboards engineers to unfamiliar codebases in days instead of weeks
--   Reviews pull requests instantly without waiting for team availability
--   Migrated their entire visual regression testing tool in hours rather than weeks
--   Tackles technical debt systematically through reusable prompts and automated CI workflows
+- Maintains technical documentation automatically with every code change
+- Onboards engineers to unfamiliar codebases in days instead of weeks
+- Reviews pull requests instantly without waiting for team availability
+- Migrated their entire visual regression testing tool in hours rather than weeks
+- Tackles technical debt systematically through reusable prompts and automated CI workflows
 
 ## The problem
 

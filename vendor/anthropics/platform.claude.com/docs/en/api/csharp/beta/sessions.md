@@ -1,6 +1,6 @@
 # Sessions
 
-## Create
+## Create Session
 
 `BetaManagedAgentsSession Beta.Sessions.Create(SessionCreateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -11,23 +11,19 @@ Create Session
 ### Parameters
 
 - `SessionCreateParams parameters`
-
   - `required Agent agent`
 
     Body param: Agent identifier. Accepts the `agent` ID string, which pins the latest version for the session, or an `agent` object with both id and version specified.
-
     - `string`
 
     - `class BetaManagedAgentsAgentParams:`
 
       Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
-
       - `required string ID`
 
         The `agent` ID.
 
       - `required Type Type`
-
         - `"agent"Agent`
 
       - `Int Version`
@@ -45,17 +41,14 @@ Create Session
   - `IReadOnlyList<Resource> resources`
 
     Body param: Resources (e.g. repositories, files) to mount into the session's container.
-
     - `class BetaManagedAgentsGitHubRepositoryResourceParams:`
 
       Mount a GitHub repository into the session's container.
-
       - `required string AuthorizationToken`
 
         GitHub authorization token used to clone the repository.
 
       - `required Type Type`
-
         - `"github_repository"GitHubRepository`
 
       - `required string Url`
@@ -65,25 +58,20 @@ Create Session
       - `Checkout? Checkout`
 
         Branch or commit to check out. Defaults to the repository's default branch.
-
         - `class BetaManagedAgentsBranchCheckout:`
-
           - `required string Name`
 
             Branch name to check out.
 
           - `required Type Type`
-
             - `"branch"Branch`
 
         - `class BetaManagedAgentsCommitCheckout:`
-
           - `required string Sha`
 
             Full commit SHA to check out.
 
           - `required Type Type`
-
             - `"commit"Commit`
 
       - `string? MountPath`
@@ -93,13 +81,11 @@ Create Session
     - `class BetaManagedAgentsFileResourceParams:`
 
       Mount a file uploaded via the Files API into the session.
-
       - `required string FileID`
 
         ID of a previously uploaded file.
 
       - `required Type Type`
-
         - `"file"File`
 
       - `string? MountPath`
@@ -109,19 +95,16 @@ Create Session
     - `class BetaManagedAgentsMemoryStoreResourceParam:`
 
       Parameters for attaching a memory store to an agent session.
-
       - `required string MemoryStoreID`
 
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
       - `required Type Type`
-
         - `"memory_store"MemoryStore`
 
       - `Access? Access`
 
         Access mode for an attached memory store.
-
         - `"read_write"ReadWrite`
 
         - `"read_only"ReadOnly`
@@ -141,7 +124,6 @@ Create Session
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -190,28 +172,30 @@ Create Session
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsSession:`
 
   A Managed Agents `session`.
-
   - `required string ID`
 
   - `required BetaManagedAgentsSessionAgent Agent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
     - `required string ID`
 
     - `required string? Description`
 
     - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
       - `required string Name`
 
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -219,13 +203,11 @@ Create Session
     - `required BetaManagedAgentsModelConfig Model`
 
       Model identifier and configuration.
-
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -265,7 +247,6 @@ Create Session
       - `Speed Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -273,22 +254,17 @@ Create Session
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
       Resolved coordinator topology with full agent definitions for each roster member.
-
       - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
-
         - `required string ID`
 
         - `required string? Description`
 
         - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
           - `required string Name`
 
           - `required Type Type`
-
-            - `"url"Url`
 
           - `required string Url`
 
@@ -296,68 +272,15 @@ Create Session
 
           Model identifier and configuration.
 
-          - `required BetaManagedAgentsModel ID`
-
-            The model that will power your agent.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-            - `"claude-opus-4-7"ClaudeOpus4_7`
-
-              Frontier intelligence for long-running agents and coding
-
-            - `"claude-opus-4-6"ClaudeOpus4_6`
-
-              Most intelligent model for building agents and coding
-
-            - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-              Best combination of speed and intelligence
-
-            - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-opus-4-5"ClaudeOpus4_5`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-              High-performance model for agents and coding
-
-          - `Speed Speed`
-
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-            - `"standard"Standard`
-
-            - `"fast"Fast`
-
         - `required string Name`
 
         - `required IReadOnlyList<Skill> Skills`
-
           - `class BetaManagedAgentsAnthropicSkill:`
 
             A resolved Anthropic-managed skill.
-
             - `required string SkillID`
 
             - `required Type Type`
-
               - `"anthropic"Anthropic`
 
             - `required string Version`
@@ -365,11 +288,9 @@ Create Session
           - `class BetaManagedAgentsCustomSkill:`
 
             A resolved user-created custom skill.
-
             - `required string SkillID`
 
             - `required Type Type`
-
               - `"custom"Custom`
 
             - `required string Version`
@@ -377,17 +298,13 @@ Create Session
         - `required string? System`
 
         - `required IReadOnlyList<Tool> Tools`
-
           - `class BetaManagedAgentsAgentToolset20260401:`
-
             - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
               - `required Boolean Enabled`
 
               - `required Name Name`
 
                 Built-in agent tool identifier.
-
                 - `"bash"Bash`
 
                 - `"edit"Edit`
@@ -407,57 +324,39 @@ Create Session
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
                   - `required Type Type`
-
                     - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
-
                   - `required Type Type`
-
                     - `"always_ask"AlwaysAsk`
 
             - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for agent tools.
-
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required Type Type`
-
               - `"agent_toolset_20260401"AgentToolset20260401`
 
           - `class BetaManagedAgentsMcpToolset:`
-
             - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
               - `required Boolean Enabled`
 
               - `required string Name`
@@ -465,65 +364,43 @@ Create Session
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for all tools from an MCP server.
-
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required string McpServerName`
 
             - `required Type Type`
-
               - `"mcp_toolset"McpToolset`
 
           - `class BetaManagedAgentsCustomTool:`
 
             A custom tool as returned in API responses.
-
             - `required string Description`
 
             - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
               JSON Schema for custom tool input parameters.
-
               - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
                 JSON Schema properties defining the tool's input parameters.
@@ -535,225 +412,44 @@ Create Session
               - `Type Type`
 
                 Must be 'object' for tool input schemas.
-
                 - `"object"Object`
 
             - `required string Name`
 
             - `required Type Type`
-
               - `"custom"Custom`
 
         - `required Type Type`
-
           - `"agent"Agent`
 
         - `required Int Version`
 
       - `required Type Type`
-
         - `"coordinator"Coordinator`
 
     - `required string Name`
 
     - `required IReadOnlyList<Skill> Skills`
-
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
-
-        - `required string SkillID`
-
-        - `required Type Type`
-
-          - `"anthropic"Anthropic`
-
-        - `required string Version`
 
       - `class BetaManagedAgentsCustomSkill:`
 
         A resolved user-created custom skill.
 
-        - `required string SkillID`
-
-        - `required Type Type`
-
-          - `"custom"Custom`
-
-        - `required string Version`
-
     - `required string? System`
 
     - `required IReadOnlyList<Tool> Tools`
-
       - `class BetaManagedAgentsAgentToolset20260401:`
 
-        - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
-          - `required Boolean Enabled`
-
-          - `required Name Name`
-
-            Built-in agent tool identifier.
-
-            - `"bash"Bash`
-
-            - `"edit"Edit`
-
-            - `"read"Read`
-
-            - `"write"Write`
-
-            - `"glob"Glob`
-
-            - `"grep"Grep`
-
-            - `"web_fetch"WebFetch`
-
-            - `"web_search"WebSearch`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
-
-          Resolved default configuration for agent tools.
-
-          - `required Boolean Enabled`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required Type Type`
-
-          - `"agent_toolset_20260401"AgentToolset20260401`
-
       - `class BetaManagedAgentsMcpToolset:`
-
-        - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
-          - `required Boolean Enabled`
-
-          - `required string Name`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
-
-          Resolved default configuration for all tools from an MCP server.
-
-          - `required Boolean Enabled`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required string McpServerName`
-
-        - `required Type Type`
-
-          - `"mcp_toolset"McpToolset`
 
       - `class BetaManagedAgentsCustomTool:`
 
         A custom tool as returned in API responses.
 
-        - `required string Description`
-
-        - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
-
-          JSON Schema for custom tool input parameters.
-
-          - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-            JSON Schema properties defining the tool's input parameters.
-
-          - `IReadOnlyList<string> Required`
-
-            List of required property names.
-
-          - `Type Type`
-
-            Must be 'object' for tool input schemas.
-
-            - `"object"Object`
-
-        - `required string Name`
-
-        - `required Type Type`
-
-          - `"custom"Custom`
-
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `required Int Version`
@@ -773,7 +469,6 @@ Create Session
   - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
-
     - `required DateTimeOffset? CompletedAt`
 
       A timestamp in RFC 3339 format
@@ -792,20 +487,17 @@ Create Session
 
     - `required string OutcomeID`
 
-      Server-generated outc_ ID for this outcome.
+      Server-generated outc\_ ID for this outcome.
 
     - `required string Result`
 
-      Current evaluation state. 'pending' before the agent begins work; 'running' while producing or revising; 'evaluating' while the grader scores; 'satisfied'/'max_iterations_reached'/'failed'/'interrupted' are terminal.
+      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `required Type Type`
-
       - `"outcome_evaluation"OutcomeEvaluation`
 
   - `required IReadOnlyList<BetaManagedAgentsSessionResource> Resources`
-
     - `class BetaManagedAgentsGitHubRepositoryResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -815,7 +507,6 @@ Create Session
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"github_repository"GitHubRepository`
 
       - `required DateTimeOffset UpdatedAt`
@@ -825,29 +516,23 @@ Create Session
       - `required string Url`
 
       - `Checkout? Checkout`
-
         - `class BetaManagedAgentsBranchCheckout:`
-
           - `required string Name`
 
             Branch name to check out.
 
           - `required Type Type`
-
             - `"branch"Branch`
 
         - `class BetaManagedAgentsCommitCheckout:`
-
           - `required string Sha`
 
             Full commit SHA to check out.
 
           - `required Type Type`
-
             - `"commit"Commit`
 
     - `class BetaManagedAgentsFileResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -859,7 +544,6 @@ Create Session
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"file"File`
 
       - `required DateTimeOffset UpdatedAt`
@@ -869,19 +553,16 @@ Create Session
     - `class BetaManagedAgentsMemoryStoreResource:`
 
       A memory store attached to an agent session.
-
       - `required string MemoryStoreID`
 
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
       - `required Type Type`
-
         - `"memory_store"MemoryStore`
 
       - `Access? Access`
 
         Access mode for an attached memory store.
-
         - `"read_write"ReadWrite`
 
         - `"read_only"ReadOnly`
@@ -905,7 +586,6 @@ Create Session
   - `required BetaManagedAgentsSessionStats Stats`
 
     Timing statistics for a session.
-
     - `Double ActiveSeconds`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -917,7 +597,6 @@ Create Session
   - `required Status Status`
 
     SessionStatus enum
-
     - `"rescheduling"Rescheduling`
 
     - `"running"Running`
@@ -929,7 +608,6 @@ Create Session
   - `required string? Title`
 
   - `required Type Type`
-
     - `"session"Session`
 
   - `required DateTimeOffset UpdatedAt`
@@ -939,11 +617,9 @@ Create Session
   - `required BetaManagedAgentsSessionUsage Usage`
 
     Cumulative token usage for a session across all turns.
-
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `Int Ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -982,7 +658,172 @@ var betaManagedAgentsSession = await client.Beta.Sessions.Create(parameters);
 Console.WriteLine(betaManagedAgentsSession);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "description": "A general-purpose starter agent.",
+    "mcp_servers": [
+      {
+        "name": "example-mcp",
+        "type": "url",
+        "url": "https://example-server.modelcontextprotocol.io/sse"
+      }
+    ],
+    "model": {
+      "id": "claude-sonnet-4-6",
+      "speed": "standard"
+    },
+    "multiagent": {
+      "agents": [
+        {
+          "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+          "description": "A focused research subagent.",
+          "mcp_servers": [
+            {
+              "name": "example-mcp",
+              "type": "url",
+              "url": "https://example-server.modelcontextprotocol.io/sse"
+            }
+          ],
+          "model": {
+            "id": "claude-sonnet-4-6",
+            "speed": "standard"
+          },
+          "name": "Researcher",
+          "skills": [
+            {
+              "skill_id": "xlsx",
+              "type": "anthropic",
+              "version": "1"
+            }
+          ],
+          "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+          "tools": [
+            {
+              "configs": [
+                {
+                  "enabled": true,
+                  "name": "bash",
+                  "permission_policy": {
+                    "type": "always_allow"
+                  }
+                }
+              ],
+              "default_config": {
+                "enabled": true,
+                "permission_policy": {
+                  "type": "always_ask"
+                }
+              },
+              "type": "agent_toolset_20260401"
+            }
+          ],
+          "type": "agent",
+          "version": 1
+        }
+      ],
+      "type": "coordinator"
+    },
+    "name": "My First Agent",
+    "skills": [
+      {
+        "skill_id": "xlsx",
+        "type": "anthropic",
+        "version": "1"
+      },
+      {
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "type": "custom",
+        "version": "2"
+      }
+    ],
+    "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
+    "tools": [
+      {
+        "configs": [
+          {
+            "enabled": true,
+            "name": "bash",
+            "permission_policy": {
+              "type": "always_allow"
+            }
+          }
+        ],
+        "default_config": {
+          "enabled": true,
+          "permission_policy": {
+            "type": "always_ask"
+          }
+        },
+        "type": "agent_toolset_20260401"
+      }
+    ],
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "metadata": {},
+  "outcome_evaluations": [
+    {
+      "completed_at": "2026-03-15T10:02:31Z",
+      "description": "Produce a 2-page summary as summary.md",
+      "explanation": "All five sections present with inline citations.",
+      "iteration": 0,
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "result": "satisfied",
+      "type": "outcome_evaluation"
+    }
+  ],
+  "resources": [
+    {
+      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+      "created_at": "2026-03-15T10:00:00Z",
+      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "mount_path": "/uploads/receipt.pdf",
+      "type": "file",
+      "updated_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "created_at": "2026-03-15T10:00:00Z",
+      "mount_path": "/workspace/example-repo",
+      "type": "github_repository",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "url": "https://github.com/example-org/example-repo",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      }
+    }
+  ],
+  "stats": {
+    "active_seconds": 0,
+    "duration_seconds": 0
+  },
+  "status": "idle",
+  "title": "Order #1234 inquiry",
+  "type": "session",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+}
+```
+
+## List Sessions
 
 `SessionListPageResponse Beta.Sessions.List(SessionListParams?parameters, CancellationTokencancellationToken = default)`
 
@@ -993,7 +834,6 @@ List Sessions
 ### Parameters
 
 - `SessionListParams parameters`
-
   - `string agentID`
 
     Query param: Filter sessions created with this agent ID.
@@ -1033,7 +873,6 @@ List Sessions
   - `Order order`
 
     Query param: Sort direction for results, ordered by created_at. Defaults to desc (newest first).
-
     - `"asc"Asc`
 
     - `"desc"Desc`
@@ -1045,7 +884,6 @@ List Sessions
   - `IReadOnlyList<Status> statuses`
 
     Query param: Filter by session status. Repeat the parameter to match any of multiple statuses.
-
     - `"rescheduling"Rescheduling`
 
     - `"running"Running`
@@ -1057,7 +895,6 @@ List Sessions
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1106,32 +943,33 @@ List Sessions
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class SessionListPageResponse:`
 
   Paginated list of sessions.
-
   - `IReadOnlyList<BetaManagedAgentsSession> Data`
 
     List of sessions.
-
     - `required string ID`
 
     - `required BetaManagedAgentsSessionAgent Agent`
 
       Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
       - `required string ID`
 
       - `required string? Description`
 
       - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
         - `required string Name`
 
         - `required Type Type`
-
           - `"url"Url`
 
         - `required string Url`
@@ -1139,13 +977,11 @@ List Sessions
       - `required BetaManagedAgentsModelConfig Model`
 
         Model identifier and configuration.
-
         - `required BetaManagedAgentsModel ID`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
           - `"claude-opus-4-7"ClaudeOpus4_7`
 
             Frontier intelligence for long-running agents and coding
@@ -1185,7 +1021,6 @@ List Sessions
         - `Speed Speed`
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
           - `"standard"Standard`
 
           - `"fast"Fast`
@@ -1193,22 +1028,17 @@ List Sessions
       - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
         Resolved coordinator topology with full agent definitions for each roster member.
-
         - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
 
           Full `agent` definitions the coordinator may spawn as session threads.
-
           - `required string ID`
 
           - `required string? Description`
 
           - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
             - `required string Name`
 
             - `required Type Type`
-
-              - `"url"Url`
 
             - `required string Url`
 
@@ -1216,68 +1046,15 @@ List Sessions
 
             Model identifier and configuration.
 
-            - `required BetaManagedAgentsModel ID`
-
-              The model that will power your agent.
-
-              See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-              - `"claude-opus-4-7"ClaudeOpus4_7`
-
-                Frontier intelligence for long-running agents and coding
-
-              - `"claude-opus-4-6"ClaudeOpus4_6`
-
-                Most intelligent model for building agents and coding
-
-              - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-                Best combination of speed and intelligence
-
-              - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-                Fastest model with near-frontier intelligence
-
-              - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-                Fastest model with near-frontier intelligence
-
-              - `"claude-opus-4-5"ClaudeOpus4_5`
-
-                Premium model combining maximum intelligence with practical performance
-
-              - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-                Premium model combining maximum intelligence with practical performance
-
-              - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-                High-performance model for agents and coding
-
-              - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-                High-performance model for agents and coding
-
-            - `Speed Speed`
-
-              Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-              - `"standard"Standard`
-
-              - `"fast"Fast`
-
           - `required string Name`
 
           - `required IReadOnlyList<Skill> Skills`
-
             - `class BetaManagedAgentsAnthropicSkill:`
 
               A resolved Anthropic-managed skill.
-
               - `required string SkillID`
 
               - `required Type Type`
-
                 - `"anthropic"Anthropic`
 
               - `required string Version`
@@ -1285,11 +1062,9 @@ List Sessions
             - `class BetaManagedAgentsCustomSkill:`
 
               A resolved user-created custom skill.
-
               - `required string SkillID`
 
               - `required Type Type`
-
                 - `"custom"Custom`
 
               - `required string Version`
@@ -1297,17 +1072,13 @@ List Sessions
           - `required string? System`
 
           - `required IReadOnlyList<Tool> Tools`
-
             - `class BetaManagedAgentsAgentToolset20260401:`
-
               - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
                 - `required Boolean Enabled`
 
                 - `required Name Name`
 
                   Built-in agent tool identifier.
-
                   - `"bash"Bash`
 
                   - `"edit"Edit`
@@ -1327,57 +1098,39 @@ List Sessions
                 - `required PermissionPolicy PermissionPolicy`
 
                   Permission policy for tool execution.
-
                   - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                     Tool calls are automatically approved without user confirmation.
-
                     - `required Type Type`
-
                       - `"always_allow"AlwaysAllow`
 
                   - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                     Tool calls require user confirmation before execution.
-
                     - `required Type Type`
-
                       - `"always_ask"AlwaysAsk`
 
               - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
                 Resolved default configuration for agent tools.
-
                 - `required Boolean Enabled`
 
                 - `required PermissionPolicy PermissionPolicy`
 
                   Permission policy for tool execution.
-
                   - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                     Tool calls are automatically approved without user confirmation.
-
-                    - `required Type Type`
-
-                      - `"always_allow"AlwaysAllow`
 
                   - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                     Tool calls require user confirmation before execution.
 
-                    - `required Type Type`
-
-                      - `"always_ask"AlwaysAsk`
-
               - `required Type Type`
-
                 - `"agent_toolset_20260401"AgentToolset20260401`
 
             - `class BetaManagedAgentsMcpToolset:`
-
               - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
                 - `required Boolean Enabled`
 
                 - `required string Name`
@@ -1385,65 +1138,43 @@ List Sessions
                 - `required PermissionPolicy PermissionPolicy`
 
                   Permission policy for tool execution.
-
                   - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                     Tool calls are automatically approved without user confirmation.
-
-                    - `required Type Type`
-
-                      - `"always_allow"AlwaysAllow`
 
                   - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                     Tool calls require user confirmation before execution.
 
-                    - `required Type Type`
-
-                      - `"always_ask"AlwaysAsk`
-
               - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
                 Resolved default configuration for all tools from an MCP server.
-
                 - `required Boolean Enabled`
 
                 - `required PermissionPolicy PermissionPolicy`
 
                   Permission policy for tool execution.
-
                   - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                     Tool calls are automatically approved without user confirmation.
-
-                    - `required Type Type`
-
-                      - `"always_allow"AlwaysAllow`
 
                   - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                     Tool calls require user confirmation before execution.
 
-                    - `required Type Type`
-
-                      - `"always_ask"AlwaysAsk`
-
               - `required string McpServerName`
 
               - `required Type Type`
-
                 - `"mcp_toolset"McpToolset`
 
             - `class BetaManagedAgentsCustomTool:`
 
               A custom tool as returned in API responses.
-
               - `required string Description`
 
               - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
                 JSON Schema for custom tool input parameters.
-
                 - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
                   JSON Schema properties defining the tool's input parameters.
@@ -1455,225 +1186,44 @@ List Sessions
                 - `Type Type`
 
                   Must be 'object' for tool input schemas.
-
                   - `"object"Object`
 
               - `required string Name`
 
               - `required Type Type`
-
                 - `"custom"Custom`
 
           - `required Type Type`
-
             - `"agent"Agent`
 
           - `required Int Version`
 
         - `required Type Type`
-
           - `"coordinator"Coordinator`
 
       - `required string Name`
 
       - `required IReadOnlyList<Skill> Skills`
-
         - `class BetaManagedAgentsAnthropicSkill:`
 
           A resolved Anthropic-managed skill.
-
-          - `required string SkillID`
-
-          - `required Type Type`
-
-            - `"anthropic"Anthropic`
-
-          - `required string Version`
 
         - `class BetaManagedAgentsCustomSkill:`
 
           A resolved user-created custom skill.
 
-          - `required string SkillID`
-
-          - `required Type Type`
-
-            - `"custom"Custom`
-
-          - `required string Version`
-
       - `required string? System`
 
       - `required IReadOnlyList<Tool> Tools`
-
         - `class BetaManagedAgentsAgentToolset20260401:`
 
-          - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
-            - `required Boolean Enabled`
-
-            - `required Name Name`
-
-              Built-in agent tool identifier.
-
-              - `"bash"Bash`
-
-              - `"edit"Edit`
-
-              - `"read"Read`
-
-              - `"write"Write`
-
-              - `"glob"Glob`
-
-              - `"grep"Grep`
-
-              - `"web_fetch"WebFetch`
-
-              - `"web_search"WebSearch`
-
-            - `required PermissionPolicy PermissionPolicy`
-
-              Permission policy for tool execution.
-
-              - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
-
-              - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                Tool calls require user confirmation before execution.
-
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
-          - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
-
-            Resolved default configuration for agent tools.
-
-            - `required Boolean Enabled`
-
-            - `required PermissionPolicy PermissionPolicy`
-
-              Permission policy for tool execution.
-
-              - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
-
-              - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                Tool calls require user confirmation before execution.
-
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
-          - `required Type Type`
-
-            - `"agent_toolset_20260401"AgentToolset20260401`
-
         - `class BetaManagedAgentsMcpToolset:`
-
-          - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
-            - `required Boolean Enabled`
-
-            - `required string Name`
-
-            - `required PermissionPolicy PermissionPolicy`
-
-              Permission policy for tool execution.
-
-              - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
-
-              - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                Tool calls require user confirmation before execution.
-
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
-          - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
-
-            Resolved default configuration for all tools from an MCP server.
-
-            - `required Boolean Enabled`
-
-            - `required PermissionPolicy PermissionPolicy`
-
-              Permission policy for tool execution.
-
-              - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-                Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
-
-              - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-                Tool calls require user confirmation before execution.
-
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
-          - `required string McpServerName`
-
-          - `required Type Type`
-
-            - `"mcp_toolset"McpToolset`
 
         - `class BetaManagedAgentsCustomTool:`
 
           A custom tool as returned in API responses.
 
-          - `required string Description`
-
-          - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
-
-            JSON Schema for custom tool input parameters.
-
-            - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-              JSON Schema properties defining the tool's input parameters.
-
-            - `IReadOnlyList<string> Required`
-
-              List of required property names.
-
-            - `Type Type`
-
-              Must be 'object' for tool input schemas.
-
-              - `"object"Object`
-
-          - `required string Name`
-
-          - `required Type Type`
-
-            - `"custom"Custom`
-
       - `required Type Type`
-
         - `"agent"Agent`
 
       - `required Int Version`
@@ -1693,7 +1243,6 @@ List Sessions
     - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
       Per-outcome evaluation state. One entry per define_outcome event sent to the session.
-
       - `required DateTimeOffset? CompletedAt`
 
         A timestamp in RFC 3339 format
@@ -1712,20 +1261,17 @@ List Sessions
 
       - `required string OutcomeID`
 
-        Server-generated outc_ ID for this outcome.
+        Server-generated outc\_ ID for this outcome.
 
       - `required string Result`
 
-        Current evaluation state. 'pending' before the agent begins work; 'running' while producing or revising; 'evaluating' while the grader scores; 'satisfied'/'max_iterations_reached'/'failed'/'interrupted' are terminal.
+        Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
       - `required Type Type`
-
         - `"outcome_evaluation"OutcomeEvaluation`
 
     - `required IReadOnlyList<BetaManagedAgentsSessionResource> Resources`
-
       - `class BetaManagedAgentsGitHubRepositoryResource:`
-
         - `required string ID`
 
         - `required DateTimeOffset CreatedAt`
@@ -1735,7 +1281,6 @@ List Sessions
         - `required string MountPath`
 
         - `required Type Type`
-
           - `"github_repository"GitHubRepository`
 
         - `required DateTimeOffset UpdatedAt`
@@ -1745,29 +1290,23 @@ List Sessions
         - `required string Url`
 
         - `Checkout? Checkout`
-
           - `class BetaManagedAgentsBranchCheckout:`
-
             - `required string Name`
 
               Branch name to check out.
 
             - `required Type Type`
-
               - `"branch"Branch`
 
           - `class BetaManagedAgentsCommitCheckout:`
-
             - `required string Sha`
 
               Full commit SHA to check out.
 
             - `required Type Type`
-
               - `"commit"Commit`
 
       - `class BetaManagedAgentsFileResource:`
-
         - `required string ID`
 
         - `required DateTimeOffset CreatedAt`
@@ -1779,7 +1318,6 @@ List Sessions
         - `required string MountPath`
 
         - `required Type Type`
-
           - `"file"File`
 
         - `required DateTimeOffset UpdatedAt`
@@ -1789,19 +1327,16 @@ List Sessions
       - `class BetaManagedAgentsMemoryStoreResource:`
 
         A memory store attached to an agent session.
-
         - `required string MemoryStoreID`
 
-          The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+          The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
         - `required Type Type`
-
           - `"memory_store"MemoryStore`
 
         - `Access? Access`
 
           Access mode for an attached memory store.
-
           - `"read_write"ReadWrite`
 
           - `"read_only"ReadOnly`
@@ -1825,7 +1360,6 @@ List Sessions
     - `required BetaManagedAgentsSessionStats Stats`
 
       Timing statistics for a session.
-
       - `Double ActiveSeconds`
 
         Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -1837,7 +1371,6 @@ List Sessions
     - `required Status Status`
 
       SessionStatus enum
-
       - `"rescheduling"Rescheduling`
 
       - `"running"Running`
@@ -1849,7 +1382,6 @@ List Sessions
     - `required string? Title`
 
     - `required Type Type`
-
       - `"session"Session`
 
     - `required DateTimeOffset UpdatedAt`
@@ -1859,11 +1391,9 @@ List Sessions
     - `required BetaManagedAgentsSessionUsage Usage`
 
       Cumulative token usage for a session across all turns.
-
       - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
         Prompt-cache creation token usage broken down by cache lifetime.
-
         - `Int Ephemeral1hInputTokens`
 
           Tokens used to create 1-hour ephemeral cache entries.
@@ -1904,7 +1434,177 @@ await foreach (var item in page.Paginate())
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+      "agent": {
+        "id": "agent_011CZkYpogX7uDKUyvBTophP",
+        "description": "A general-purpose starter agent.",
+        "mcp_servers": [
+          {
+            "name": "example-mcp",
+            "type": "url",
+            "url": "https://example-server.modelcontextprotocol.io/sse"
+          }
+        ],
+        "model": {
+          "id": "claude-sonnet-4-6",
+          "speed": "standard"
+        },
+        "multiagent": {
+          "agents": [
+            {
+              "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+              "description": "A focused research subagent.",
+              "mcp_servers": [
+                {
+                  "name": "example-mcp",
+                  "type": "url",
+                  "url": "https://example-server.modelcontextprotocol.io/sse"
+                }
+              ],
+              "model": {
+                "id": "claude-sonnet-4-6",
+                "speed": "standard"
+              },
+              "name": "Researcher",
+              "skills": [
+                {
+                  "skill_id": "xlsx",
+                  "type": "anthropic",
+                  "version": "1"
+                }
+              ],
+              "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+              "tools": [
+                {
+                  "configs": [
+                    {
+                      "enabled": true,
+                      "name": "bash",
+                      "permission_policy": {
+                        "type": "always_allow"
+                      }
+                    }
+                  ],
+                  "default_config": {
+                    "enabled": true,
+                    "permission_policy": {
+                      "type": "always_ask"
+                    }
+                  },
+                  "type": "agent_toolset_20260401"
+                }
+              ],
+              "type": "agent",
+              "version": 1
+            }
+          ],
+          "type": "coordinator"
+        },
+        "name": "My First Agent",
+        "skills": [
+          {
+            "skill_id": "xlsx",
+            "type": "anthropic",
+            "version": "1"
+          },
+          {
+            "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+            "type": "custom",
+            "version": "2"
+          }
+        ],
+        "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
+        "tools": [
+          {
+            "configs": [
+              {
+                "enabled": true,
+                "name": "bash",
+                "permission_policy": {
+                  "type": "always_allow"
+                }
+              }
+            ],
+            "default_config": {
+              "enabled": true,
+              "permission_policy": {
+                "type": "always_ask"
+              }
+            },
+            "type": "agent_toolset_20260401"
+          }
+        ],
+        "type": "agent",
+        "version": 1
+      },
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+      "metadata": {},
+      "outcome_evaluations": [
+        {
+          "completed_at": "2026-03-15T10:02:31Z",
+          "description": "Produce a 2-page summary as summary.md",
+          "explanation": "All five sections present with inline citations.",
+          "iteration": 0,
+          "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+          "result": "satisfied",
+          "type": "outcome_evaluation"
+        }
+      ],
+      "resources": [
+        {
+          "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+          "created_at": "2026-03-15T10:00:00Z",
+          "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+          "mount_path": "/uploads/receipt.pdf",
+          "type": "file",
+          "updated_at": "2026-03-15T10:00:00Z"
+        },
+        {
+          "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+          "created_at": "2026-03-15T10:00:00Z",
+          "mount_path": "/workspace/example-repo",
+          "type": "github_repository",
+          "updated_at": "2026-03-15T10:00:00Z",
+          "url": "https://github.com/example-org/example-repo",
+          "checkout": {
+            "name": "main",
+            "type": "branch"
+          }
+        }
+      ],
+      "stats": {
+        "active_seconds": 0,
+        "duration_seconds": 0
+      },
+      "status": "idle",
+      "title": "Order #1234 inquiry",
+      "type": "session",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      },
+      "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Session
 
 `BetaManagedAgentsSession Beta.Sessions.Retrieve(SessionRetrieveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -1915,7 +1615,6 @@ Get Session
 ### Parameters
 
 - `SessionRetrieveParams parameters`
-
   - `required string sessionID`
 
     Path parameter session_id
@@ -1923,7 +1622,6 @@ Get Session
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -1972,28 +1670,30 @@ Get Session
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsSession:`
 
   A Managed Agents `session`.
-
   - `required string ID`
 
   - `required BetaManagedAgentsSessionAgent Agent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
     - `required string ID`
 
     - `required string? Description`
 
     - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
       - `required string Name`
 
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -2001,13 +1701,11 @@ Get Session
     - `required BetaManagedAgentsModelConfig Model`
 
       Model identifier and configuration.
-
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -2047,7 +1745,6 @@ Get Session
       - `Speed Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -2055,22 +1752,17 @@ Get Session
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
       Resolved coordinator topology with full agent definitions for each roster member.
-
       - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
-
         - `required string ID`
 
         - `required string? Description`
 
         - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
           - `required string Name`
 
           - `required Type Type`
-
-            - `"url"Url`
 
           - `required string Url`
 
@@ -2078,68 +1770,15 @@ Get Session
 
           Model identifier and configuration.
 
-          - `required BetaManagedAgentsModel ID`
-
-            The model that will power your agent.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-            - `"claude-opus-4-7"ClaudeOpus4_7`
-
-              Frontier intelligence for long-running agents and coding
-
-            - `"claude-opus-4-6"ClaudeOpus4_6`
-
-              Most intelligent model for building agents and coding
-
-            - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-              Best combination of speed and intelligence
-
-            - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-opus-4-5"ClaudeOpus4_5`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-              High-performance model for agents and coding
-
-          - `Speed Speed`
-
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-            - `"standard"Standard`
-
-            - `"fast"Fast`
-
         - `required string Name`
 
         - `required IReadOnlyList<Skill> Skills`
-
           - `class BetaManagedAgentsAnthropicSkill:`
 
             A resolved Anthropic-managed skill.
-
             - `required string SkillID`
 
             - `required Type Type`
-
               - `"anthropic"Anthropic`
 
             - `required string Version`
@@ -2147,11 +1786,9 @@ Get Session
           - `class BetaManagedAgentsCustomSkill:`
 
             A resolved user-created custom skill.
-
             - `required string SkillID`
 
             - `required Type Type`
-
               - `"custom"Custom`
 
             - `required string Version`
@@ -2159,17 +1796,13 @@ Get Session
         - `required string? System`
 
         - `required IReadOnlyList<Tool> Tools`
-
           - `class BetaManagedAgentsAgentToolset20260401:`
-
             - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
               - `required Boolean Enabled`
 
               - `required Name Name`
 
                 Built-in agent tool identifier.
-
                 - `"bash"Bash`
 
                 - `"edit"Edit`
@@ -2189,57 +1822,39 @@ Get Session
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
                   - `required Type Type`
-
                     - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
-
                   - `required Type Type`
-
                     - `"always_ask"AlwaysAsk`
 
             - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for agent tools.
-
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required Type Type`
-
               - `"agent_toolset_20260401"AgentToolset20260401`
 
           - `class BetaManagedAgentsMcpToolset:`
-
             - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
               - `required Boolean Enabled`
 
               - `required string Name`
@@ -2247,65 +1862,43 @@ Get Session
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for all tools from an MCP server.
-
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required string McpServerName`
 
             - `required Type Type`
-
               - `"mcp_toolset"McpToolset`
 
           - `class BetaManagedAgentsCustomTool:`
 
             A custom tool as returned in API responses.
-
             - `required string Description`
 
             - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
               JSON Schema for custom tool input parameters.
-
               - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
                 JSON Schema properties defining the tool's input parameters.
@@ -2317,225 +1910,44 @@ Get Session
               - `Type Type`
 
                 Must be 'object' for tool input schemas.
-
                 - `"object"Object`
 
             - `required string Name`
 
             - `required Type Type`
-
               - `"custom"Custom`
 
         - `required Type Type`
-
           - `"agent"Agent`
 
         - `required Int Version`
 
       - `required Type Type`
-
         - `"coordinator"Coordinator`
 
     - `required string Name`
 
     - `required IReadOnlyList<Skill> Skills`
-
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
-
-        - `required string SkillID`
-
-        - `required Type Type`
-
-          - `"anthropic"Anthropic`
-
-        - `required string Version`
 
       - `class BetaManagedAgentsCustomSkill:`
 
         A resolved user-created custom skill.
 
-        - `required string SkillID`
-
-        - `required Type Type`
-
-          - `"custom"Custom`
-
-        - `required string Version`
-
     - `required string? System`
 
     - `required IReadOnlyList<Tool> Tools`
-
       - `class BetaManagedAgentsAgentToolset20260401:`
 
-        - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
-          - `required Boolean Enabled`
-
-          - `required Name Name`
-
-            Built-in agent tool identifier.
-
-            - `"bash"Bash`
-
-            - `"edit"Edit`
-
-            - `"read"Read`
-
-            - `"write"Write`
-
-            - `"glob"Glob`
-
-            - `"grep"Grep`
-
-            - `"web_fetch"WebFetch`
-
-            - `"web_search"WebSearch`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
-
-          Resolved default configuration for agent tools.
-
-          - `required Boolean Enabled`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required Type Type`
-
-          - `"agent_toolset_20260401"AgentToolset20260401`
-
       - `class BetaManagedAgentsMcpToolset:`
-
-        - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
-          - `required Boolean Enabled`
-
-          - `required string Name`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
-
-          Resolved default configuration for all tools from an MCP server.
-
-          - `required Boolean Enabled`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required string McpServerName`
-
-        - `required Type Type`
-
-          - `"mcp_toolset"McpToolset`
 
       - `class BetaManagedAgentsCustomTool:`
 
         A custom tool as returned in API responses.
 
-        - `required string Description`
-
-        - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
-
-          JSON Schema for custom tool input parameters.
-
-          - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-            JSON Schema properties defining the tool's input parameters.
-
-          - `IReadOnlyList<string> Required`
-
-            List of required property names.
-
-          - `Type Type`
-
-            Must be 'object' for tool input schemas.
-
-            - `"object"Object`
-
-        - `required string Name`
-
-        - `required Type Type`
-
-          - `"custom"Custom`
-
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `required Int Version`
@@ -2555,7 +1967,6 @@ Get Session
   - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
-
     - `required DateTimeOffset? CompletedAt`
 
       A timestamp in RFC 3339 format
@@ -2574,20 +1985,17 @@ Get Session
 
     - `required string OutcomeID`
 
-      Server-generated outc_ ID for this outcome.
+      Server-generated outc\_ ID for this outcome.
 
     - `required string Result`
 
-      Current evaluation state. 'pending' before the agent begins work; 'running' while producing or revising; 'evaluating' while the grader scores; 'satisfied'/'max_iterations_reached'/'failed'/'interrupted' are terminal.
+      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `required Type Type`
-
       - `"outcome_evaluation"OutcomeEvaluation`
 
   - `required IReadOnlyList<BetaManagedAgentsSessionResource> Resources`
-
     - `class BetaManagedAgentsGitHubRepositoryResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -2597,7 +2005,6 @@ Get Session
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"github_repository"GitHubRepository`
 
       - `required DateTimeOffset UpdatedAt`
@@ -2607,29 +2014,23 @@ Get Session
       - `required string Url`
 
       - `Checkout? Checkout`
-
         - `class BetaManagedAgentsBranchCheckout:`
-
           - `required string Name`
 
             Branch name to check out.
 
           - `required Type Type`
-
             - `"branch"Branch`
 
         - `class BetaManagedAgentsCommitCheckout:`
-
           - `required string Sha`
 
             Full commit SHA to check out.
 
           - `required Type Type`
-
             - `"commit"Commit`
 
     - `class BetaManagedAgentsFileResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -2641,7 +2042,6 @@ Get Session
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"file"File`
 
       - `required DateTimeOffset UpdatedAt`
@@ -2651,19 +2051,16 @@ Get Session
     - `class BetaManagedAgentsMemoryStoreResource:`
 
       A memory store attached to an agent session.
-
       - `required string MemoryStoreID`
 
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
       - `required Type Type`
-
         - `"memory_store"MemoryStore`
 
       - `Access? Access`
 
         Access mode for an attached memory store.
-
         - `"read_write"ReadWrite`
 
         - `"read_only"ReadOnly`
@@ -2687,7 +2084,6 @@ Get Session
   - `required BetaManagedAgentsSessionStats Stats`
 
     Timing statistics for a session.
-
     - `Double ActiveSeconds`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -2699,7 +2095,6 @@ Get Session
   - `required Status Status`
 
     SessionStatus enum
-
     - `"rescheduling"Rescheduling`
 
     - `"running"Running`
@@ -2711,7 +2106,6 @@ Get Session
   - `required string? Title`
 
   - `required Type Type`
-
     - `"session"Session`
 
   - `required DateTimeOffset UpdatedAt`
@@ -2721,11 +2115,9 @@ Get Session
   - `required BetaManagedAgentsSessionUsage Usage`
 
     Cumulative token usage for a session across all turns.
-
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `Int Ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -2763,7 +2155,172 @@ var betaManagedAgentsSession = await client.Beta.Sessions.Retrieve(parameters);
 Console.WriteLine(betaManagedAgentsSession);
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "description": "A general-purpose starter agent.",
+    "mcp_servers": [
+      {
+        "name": "example-mcp",
+        "type": "url",
+        "url": "https://example-server.modelcontextprotocol.io/sse"
+      }
+    ],
+    "model": {
+      "id": "claude-sonnet-4-6",
+      "speed": "standard"
+    },
+    "multiagent": {
+      "agents": [
+        {
+          "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+          "description": "A focused research subagent.",
+          "mcp_servers": [
+            {
+              "name": "example-mcp",
+              "type": "url",
+              "url": "https://example-server.modelcontextprotocol.io/sse"
+            }
+          ],
+          "model": {
+            "id": "claude-sonnet-4-6",
+            "speed": "standard"
+          },
+          "name": "Researcher",
+          "skills": [
+            {
+              "skill_id": "xlsx",
+              "type": "anthropic",
+              "version": "1"
+            }
+          ],
+          "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+          "tools": [
+            {
+              "configs": [
+                {
+                  "enabled": true,
+                  "name": "bash",
+                  "permission_policy": {
+                    "type": "always_allow"
+                  }
+                }
+              ],
+              "default_config": {
+                "enabled": true,
+                "permission_policy": {
+                  "type": "always_ask"
+                }
+              },
+              "type": "agent_toolset_20260401"
+            }
+          ],
+          "type": "agent",
+          "version": 1
+        }
+      ],
+      "type": "coordinator"
+    },
+    "name": "My First Agent",
+    "skills": [
+      {
+        "skill_id": "xlsx",
+        "type": "anthropic",
+        "version": "1"
+      },
+      {
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "type": "custom",
+        "version": "2"
+      }
+    ],
+    "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
+    "tools": [
+      {
+        "configs": [
+          {
+            "enabled": true,
+            "name": "bash",
+            "permission_policy": {
+              "type": "always_allow"
+            }
+          }
+        ],
+        "default_config": {
+          "enabled": true,
+          "permission_policy": {
+            "type": "always_ask"
+          }
+        },
+        "type": "agent_toolset_20260401"
+      }
+    ],
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "metadata": {},
+  "outcome_evaluations": [
+    {
+      "completed_at": "2026-03-15T10:02:31Z",
+      "description": "Produce a 2-page summary as summary.md",
+      "explanation": "All five sections present with inline citations.",
+      "iteration": 0,
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "result": "satisfied",
+      "type": "outcome_evaluation"
+    }
+  ],
+  "resources": [
+    {
+      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+      "created_at": "2026-03-15T10:00:00Z",
+      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "mount_path": "/uploads/receipt.pdf",
+      "type": "file",
+      "updated_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "created_at": "2026-03-15T10:00:00Z",
+      "mount_path": "/workspace/example-repo",
+      "type": "github_repository",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "url": "https://github.com/example-org/example-repo",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      }
+    }
+  ],
+  "stats": {
+    "active_seconds": 0,
+    "duration_seconds": 0
+  },
+  "status": "idle",
+  "title": "Order #1234 inquiry",
+  "type": "session",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+}
+```
+
+## Update Session
 
 `BetaManagedAgentsSession Beta.Sessions.Update(SessionUpdateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -2774,10 +2331,13 @@ Update Session
 ### Parameters
 
 - `SessionUpdateParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
+
+  - `BetaManagedAgentsSessionAgentUpdate agent`
+
+    Body param: Mid-session agent configuration update. Only `tools` and `mcp_servers` are updatable. Full replacement: the provided array becomes the new value. To preserve existing entries, GET the session, modify the array, and POST it back.
 
   - `IReadOnlyDictionary<string, string>? metadata`
 
@@ -2794,7 +2354,6 @@ Update Session
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -2843,28 +2402,30 @@ Update Session
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsSession:`
 
   A Managed Agents `session`.
-
   - `required string ID`
 
   - `required BetaManagedAgentsSessionAgent Agent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
     - `required string ID`
 
     - `required string? Description`
 
     - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
       - `required string Name`
 
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -2872,13 +2433,11 @@ Update Session
     - `required BetaManagedAgentsModelConfig Model`
 
       Model identifier and configuration.
-
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -2918,7 +2477,6 @@ Update Session
       - `Speed Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -2926,22 +2484,17 @@ Update Session
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
       Resolved coordinator topology with full agent definitions for each roster member.
-
       - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
-
         - `required string ID`
 
         - `required string? Description`
 
         - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
           - `required string Name`
 
           - `required Type Type`
-
-            - `"url"Url`
 
           - `required string Url`
 
@@ -2949,68 +2502,15 @@ Update Session
 
           Model identifier and configuration.
 
-          - `required BetaManagedAgentsModel ID`
-
-            The model that will power your agent.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-            - `"claude-opus-4-7"ClaudeOpus4_7`
-
-              Frontier intelligence for long-running agents and coding
-
-            - `"claude-opus-4-6"ClaudeOpus4_6`
-
-              Most intelligent model for building agents and coding
-
-            - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-              Best combination of speed and intelligence
-
-            - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-opus-4-5"ClaudeOpus4_5`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-              High-performance model for agents and coding
-
-          - `Speed Speed`
-
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-            - `"standard"Standard`
-
-            - `"fast"Fast`
-
         - `required string Name`
 
         - `required IReadOnlyList<Skill> Skills`
-
           - `class BetaManagedAgentsAnthropicSkill:`
 
             A resolved Anthropic-managed skill.
-
             - `required string SkillID`
 
             - `required Type Type`
-
               - `"anthropic"Anthropic`
 
             - `required string Version`
@@ -3018,11 +2518,9 @@ Update Session
           - `class BetaManagedAgentsCustomSkill:`
 
             A resolved user-created custom skill.
-
             - `required string SkillID`
 
             - `required Type Type`
-
               - `"custom"Custom`
 
             - `required string Version`
@@ -3030,17 +2528,13 @@ Update Session
         - `required string? System`
 
         - `required IReadOnlyList<Tool> Tools`
-
           - `class BetaManagedAgentsAgentToolset20260401:`
-
             - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
               - `required Boolean Enabled`
 
               - `required Name Name`
 
                 Built-in agent tool identifier.
-
                 - `"bash"Bash`
 
                 - `"edit"Edit`
@@ -3060,57 +2554,39 @@ Update Session
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
                   - `required Type Type`
-
                     - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
-
                   - `required Type Type`
-
                     - `"always_ask"AlwaysAsk`
 
             - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for agent tools.
-
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required Type Type`
-
               - `"agent_toolset_20260401"AgentToolset20260401`
 
           - `class BetaManagedAgentsMcpToolset:`
-
             - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
               - `required Boolean Enabled`
 
               - `required string Name`
@@ -3118,65 +2594,43 @@ Update Session
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for all tools from an MCP server.
-
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required string McpServerName`
 
             - `required Type Type`
-
               - `"mcp_toolset"McpToolset`
 
           - `class BetaManagedAgentsCustomTool:`
 
             A custom tool as returned in API responses.
-
             - `required string Description`
 
             - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
               JSON Schema for custom tool input parameters.
-
               - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
                 JSON Schema properties defining the tool's input parameters.
@@ -3188,225 +2642,44 @@ Update Session
               - `Type Type`
 
                 Must be 'object' for tool input schemas.
-
                 - `"object"Object`
 
             - `required string Name`
 
             - `required Type Type`
-
               - `"custom"Custom`
 
         - `required Type Type`
-
           - `"agent"Agent`
 
         - `required Int Version`
 
       - `required Type Type`
-
         - `"coordinator"Coordinator`
 
     - `required string Name`
 
     - `required IReadOnlyList<Skill> Skills`
-
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
-
-        - `required string SkillID`
-
-        - `required Type Type`
-
-          - `"anthropic"Anthropic`
-
-        - `required string Version`
 
       - `class BetaManagedAgentsCustomSkill:`
 
         A resolved user-created custom skill.
 
-        - `required string SkillID`
-
-        - `required Type Type`
-
-          - `"custom"Custom`
-
-        - `required string Version`
-
     - `required string? System`
 
     - `required IReadOnlyList<Tool> Tools`
-
       - `class BetaManagedAgentsAgentToolset20260401:`
 
-        - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
-          - `required Boolean Enabled`
-
-          - `required Name Name`
-
-            Built-in agent tool identifier.
-
-            - `"bash"Bash`
-
-            - `"edit"Edit`
-
-            - `"read"Read`
-
-            - `"write"Write`
-
-            - `"glob"Glob`
-
-            - `"grep"Grep`
-
-            - `"web_fetch"WebFetch`
-
-            - `"web_search"WebSearch`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
-
-          Resolved default configuration for agent tools.
-
-          - `required Boolean Enabled`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required Type Type`
-
-          - `"agent_toolset_20260401"AgentToolset20260401`
-
       - `class BetaManagedAgentsMcpToolset:`
-
-        - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
-          - `required Boolean Enabled`
-
-          - `required string Name`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
-
-          Resolved default configuration for all tools from an MCP server.
-
-          - `required Boolean Enabled`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required string McpServerName`
-
-        - `required Type Type`
-
-          - `"mcp_toolset"McpToolset`
 
       - `class BetaManagedAgentsCustomTool:`
 
         A custom tool as returned in API responses.
 
-        - `required string Description`
-
-        - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
-
-          JSON Schema for custom tool input parameters.
-
-          - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-            JSON Schema properties defining the tool's input parameters.
-
-          - `IReadOnlyList<string> Required`
-
-            List of required property names.
-
-          - `Type Type`
-
-            Must be 'object' for tool input schemas.
-
-            - `"object"Object`
-
-        - `required string Name`
-
-        - `required Type Type`
-
-          - `"custom"Custom`
-
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `required Int Version`
@@ -3426,7 +2699,6 @@ Update Session
   - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
-
     - `required DateTimeOffset? CompletedAt`
 
       A timestamp in RFC 3339 format
@@ -3445,20 +2717,17 @@ Update Session
 
     - `required string OutcomeID`
 
-      Server-generated outc_ ID for this outcome.
+      Server-generated outc\_ ID for this outcome.
 
     - `required string Result`
 
-      Current evaluation state. 'pending' before the agent begins work; 'running' while producing or revising; 'evaluating' while the grader scores; 'satisfied'/'max_iterations_reached'/'failed'/'interrupted' are terminal.
+      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `required Type Type`
-
       - `"outcome_evaluation"OutcomeEvaluation`
 
   - `required IReadOnlyList<BetaManagedAgentsSessionResource> Resources`
-
     - `class BetaManagedAgentsGitHubRepositoryResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -3468,7 +2737,6 @@ Update Session
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"github_repository"GitHubRepository`
 
       - `required DateTimeOffset UpdatedAt`
@@ -3478,29 +2746,23 @@ Update Session
       - `required string Url`
 
       - `Checkout? Checkout`
-
         - `class BetaManagedAgentsBranchCheckout:`
-
           - `required string Name`
 
             Branch name to check out.
 
           - `required Type Type`
-
             - `"branch"Branch`
 
         - `class BetaManagedAgentsCommitCheckout:`
-
           - `required string Sha`
 
             Full commit SHA to check out.
 
           - `required Type Type`
-
             - `"commit"Commit`
 
     - `class BetaManagedAgentsFileResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -3512,7 +2774,6 @@ Update Session
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"file"File`
 
       - `required DateTimeOffset UpdatedAt`
@@ -3522,19 +2783,16 @@ Update Session
     - `class BetaManagedAgentsMemoryStoreResource:`
 
       A memory store attached to an agent session.
-
       - `required string MemoryStoreID`
 
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
       - `required Type Type`
-
         - `"memory_store"MemoryStore`
 
       - `Access? Access`
 
         Access mode for an attached memory store.
-
         - `"read_write"ReadWrite`
 
         - `"read_only"ReadOnly`
@@ -3558,7 +2816,6 @@ Update Session
   - `required BetaManagedAgentsSessionStats Stats`
 
     Timing statistics for a session.
-
     - `Double ActiveSeconds`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -3570,7 +2827,6 @@ Update Session
   - `required Status Status`
 
     SessionStatus enum
-
     - `"rescheduling"Rescheduling`
 
     - `"running"Running`
@@ -3582,7 +2838,6 @@ Update Session
   - `required string? Title`
 
   - `required Type Type`
-
     - `"session"Session`
 
   - `required DateTimeOffset UpdatedAt`
@@ -3592,11 +2847,9 @@ Update Session
   - `required BetaManagedAgentsSessionUsage Usage`
 
     Cumulative token usage for a session across all turns.
-
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `Int Ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -3634,7 +2887,172 @@ var betaManagedAgentsSession = await client.Beta.Sessions.Update(parameters);
 Console.WriteLine(betaManagedAgentsSession);
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "description": "A general-purpose starter agent.",
+    "mcp_servers": [
+      {
+        "name": "example-mcp",
+        "type": "url",
+        "url": "https://example-server.modelcontextprotocol.io/sse"
+      }
+    ],
+    "model": {
+      "id": "claude-sonnet-4-6",
+      "speed": "standard"
+    },
+    "multiagent": {
+      "agents": [
+        {
+          "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+          "description": "A focused research subagent.",
+          "mcp_servers": [
+            {
+              "name": "example-mcp",
+              "type": "url",
+              "url": "https://example-server.modelcontextprotocol.io/sse"
+            }
+          ],
+          "model": {
+            "id": "claude-sonnet-4-6",
+            "speed": "standard"
+          },
+          "name": "Researcher",
+          "skills": [
+            {
+              "skill_id": "xlsx",
+              "type": "anthropic",
+              "version": "1"
+            }
+          ],
+          "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+          "tools": [
+            {
+              "configs": [
+                {
+                  "enabled": true,
+                  "name": "bash",
+                  "permission_policy": {
+                    "type": "always_allow"
+                  }
+                }
+              ],
+              "default_config": {
+                "enabled": true,
+                "permission_policy": {
+                  "type": "always_ask"
+                }
+              },
+              "type": "agent_toolset_20260401"
+            }
+          ],
+          "type": "agent",
+          "version": 1
+        }
+      ],
+      "type": "coordinator"
+    },
+    "name": "My First Agent",
+    "skills": [
+      {
+        "skill_id": "xlsx",
+        "type": "anthropic",
+        "version": "1"
+      },
+      {
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "type": "custom",
+        "version": "2"
+      }
+    ],
+    "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
+    "tools": [
+      {
+        "configs": [
+          {
+            "enabled": true,
+            "name": "bash",
+            "permission_policy": {
+              "type": "always_allow"
+            }
+          }
+        ],
+        "default_config": {
+          "enabled": true,
+          "permission_policy": {
+            "type": "always_ask"
+          }
+        },
+        "type": "agent_toolset_20260401"
+      }
+    ],
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "metadata": {},
+  "outcome_evaluations": [
+    {
+      "completed_at": "2026-03-15T10:02:31Z",
+      "description": "Produce a 2-page summary as summary.md",
+      "explanation": "All five sections present with inline citations.",
+      "iteration": 0,
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "result": "satisfied",
+      "type": "outcome_evaluation"
+    }
+  ],
+  "resources": [
+    {
+      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+      "created_at": "2026-03-15T10:00:00Z",
+      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "mount_path": "/uploads/receipt.pdf",
+      "type": "file",
+      "updated_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "created_at": "2026-03-15T10:00:00Z",
+      "mount_path": "/workspace/example-repo",
+      "type": "github_repository",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "url": "https://github.com/example-org/example-repo",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      }
+    }
+  ],
+  "stats": {
+    "active_seconds": 0,
+    "duration_seconds": 0
+  },
+  "status": "idle",
+  "title": "Order #1234 inquiry",
+  "type": "session",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+}
+```
+
+## Delete Session
 
 `BetaManagedAgentsDeletedSession Beta.Sessions.Delete(SessionDeleteParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -3645,7 +3063,6 @@ Delete Session
 ### Parameters
 
 - `SessionDeleteParams parameters`
-
   - `required string sessionID`
 
     Path parameter session_id
@@ -3653,7 +3070,6 @@ Delete Session
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -3702,16 +3118,20 @@ Delete Session
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsDeletedSession:`
 
   Confirmation that a `session` has been permanently deleted.
-
   - `required string ID`
 
   - `required Type Type`
-
     - `"session_deleted"SessionDeleted`
 
 ### Example
@@ -3727,7 +3147,16 @@ var betaManagedAgentsDeletedSession = await client.Beta.Sessions.Delete(paramete
 Console.WriteLine(betaManagedAgentsDeletedSession);
 ```
 
-## Archive
+#### Response
+
+```json
+{
+  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "type": "session_deleted"
+}
+```
+
+## Archive Session
 
 `BetaManagedAgentsSession Beta.Sessions.Archive(SessionArchiveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -3738,7 +3167,6 @@ Archive Session
 ### Parameters
 
 - `SessionArchiveParams parameters`
-
   - `required string sessionID`
 
     Path parameter session_id
@@ -3746,7 +3174,6 @@ Archive Session
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -3795,28 +3222,30 @@ Archive Session
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsSession:`
 
   A Managed Agents `session`.
-
   - `required string ID`
 
   - `required BetaManagedAgentsSessionAgent Agent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
     - `required string ID`
 
     - `required string? Description`
 
     - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
       - `required string Name`
 
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -3824,13 +3253,11 @@ Archive Session
     - `required BetaManagedAgentsModelConfig Model`
 
       Model identifier and configuration.
-
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -3870,7 +3297,6 @@ Archive Session
       - `Speed Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -3878,22 +3304,17 @@ Archive Session
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
       Resolved coordinator topology with full agent definitions for each roster member.
-
       - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
-
         - `required string ID`
 
         - `required string? Description`
 
         - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
           - `required string Name`
 
           - `required Type Type`
-
-            - `"url"Url`
 
           - `required string Url`
 
@@ -3901,68 +3322,15 @@ Archive Session
 
           Model identifier and configuration.
 
-          - `required BetaManagedAgentsModel ID`
-
-            The model that will power your agent.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-            - `"claude-opus-4-7"ClaudeOpus4_7`
-
-              Frontier intelligence for long-running agents and coding
-
-            - `"claude-opus-4-6"ClaudeOpus4_6`
-
-              Most intelligent model for building agents and coding
-
-            - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-              Best combination of speed and intelligence
-
-            - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-opus-4-5"ClaudeOpus4_5`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-              High-performance model for agents and coding
-
-          - `Speed Speed`
-
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-            - `"standard"Standard`
-
-            - `"fast"Fast`
-
         - `required string Name`
 
         - `required IReadOnlyList<Skill> Skills`
-
           - `class BetaManagedAgentsAnthropicSkill:`
 
             A resolved Anthropic-managed skill.
-
             - `required string SkillID`
 
             - `required Type Type`
-
               - `"anthropic"Anthropic`
 
             - `required string Version`
@@ -3970,11 +3338,9 @@ Archive Session
           - `class BetaManagedAgentsCustomSkill:`
 
             A resolved user-created custom skill.
-
             - `required string SkillID`
 
             - `required Type Type`
-
               - `"custom"Custom`
 
             - `required string Version`
@@ -3982,17 +3348,13 @@ Archive Session
         - `required string? System`
 
         - `required IReadOnlyList<Tool> Tools`
-
           - `class BetaManagedAgentsAgentToolset20260401:`
-
             - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
               - `required Boolean Enabled`
 
               - `required Name Name`
 
                 Built-in agent tool identifier.
-
                 - `"bash"Bash`
 
                 - `"edit"Edit`
@@ -4012,57 +3374,39 @@ Archive Session
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
                   - `required Type Type`
-
                     - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
-
                   - `required Type Type`
-
                     - `"always_ask"AlwaysAsk`
 
             - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for agent tools.
-
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required Type Type`
-
               - `"agent_toolset_20260401"AgentToolset20260401`
 
           - `class BetaManagedAgentsMcpToolset:`
-
             - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
               - `required Boolean Enabled`
 
               - `required string Name`
@@ -4070,65 +3414,43 @@ Archive Session
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for all tools from an MCP server.
-
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required string McpServerName`
 
             - `required Type Type`
-
               - `"mcp_toolset"McpToolset`
 
           - `class BetaManagedAgentsCustomTool:`
 
             A custom tool as returned in API responses.
-
             - `required string Description`
 
             - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
               JSON Schema for custom tool input parameters.
-
               - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
                 JSON Schema properties defining the tool's input parameters.
@@ -4140,225 +3462,44 @@ Archive Session
               - `Type Type`
 
                 Must be 'object' for tool input schemas.
-
                 - `"object"Object`
 
             - `required string Name`
 
             - `required Type Type`
-
               - `"custom"Custom`
 
         - `required Type Type`
-
           - `"agent"Agent`
 
         - `required Int Version`
 
       - `required Type Type`
-
         - `"coordinator"Coordinator`
 
     - `required string Name`
 
     - `required IReadOnlyList<Skill> Skills`
-
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
-
-        - `required string SkillID`
-
-        - `required Type Type`
-
-          - `"anthropic"Anthropic`
-
-        - `required string Version`
 
       - `class BetaManagedAgentsCustomSkill:`
 
         A resolved user-created custom skill.
 
-        - `required string SkillID`
-
-        - `required Type Type`
-
-          - `"custom"Custom`
-
-        - `required string Version`
-
     - `required string? System`
 
     - `required IReadOnlyList<Tool> Tools`
-
       - `class BetaManagedAgentsAgentToolset20260401:`
 
-        - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
-          - `required Boolean Enabled`
-
-          - `required Name Name`
-
-            Built-in agent tool identifier.
-
-            - `"bash"Bash`
-
-            - `"edit"Edit`
-
-            - `"read"Read`
-
-            - `"write"Write`
-
-            - `"glob"Glob`
-
-            - `"grep"Grep`
-
-            - `"web_fetch"WebFetch`
-
-            - `"web_search"WebSearch`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
-
-          Resolved default configuration for agent tools.
-
-          - `required Boolean Enabled`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required Type Type`
-
-          - `"agent_toolset_20260401"AgentToolset20260401`
-
       - `class BetaManagedAgentsMcpToolset:`
-
-        - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
-          - `required Boolean Enabled`
-
-          - `required string Name`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
-
-          Resolved default configuration for all tools from an MCP server.
-
-          - `required Boolean Enabled`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required string McpServerName`
-
-        - `required Type Type`
-
-          - `"mcp_toolset"McpToolset`
 
       - `class BetaManagedAgentsCustomTool:`
 
         A custom tool as returned in API responses.
 
-        - `required string Description`
-
-        - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
-
-          JSON Schema for custom tool input parameters.
-
-          - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-            JSON Schema properties defining the tool's input parameters.
-
-          - `IReadOnlyList<string> Required`
-
-            List of required property names.
-
-          - `Type Type`
-
-            Must be 'object' for tool input schemas.
-
-            - `"object"Object`
-
-        - `required string Name`
-
-        - `required Type Type`
-
-          - `"custom"Custom`
-
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `required Int Version`
@@ -4378,7 +3519,6 @@ Archive Session
   - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
-
     - `required DateTimeOffset? CompletedAt`
 
       A timestamp in RFC 3339 format
@@ -4397,20 +3537,17 @@ Archive Session
 
     - `required string OutcomeID`
 
-      Server-generated outc_ ID for this outcome.
+      Server-generated outc\_ ID for this outcome.
 
     - `required string Result`
 
-      Current evaluation state. 'pending' before the agent begins work; 'running' while producing or revising; 'evaluating' while the grader scores; 'satisfied'/'max_iterations_reached'/'failed'/'interrupted' are terminal.
+      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `required Type Type`
-
       - `"outcome_evaluation"OutcomeEvaluation`
 
   - `required IReadOnlyList<BetaManagedAgentsSessionResource> Resources`
-
     - `class BetaManagedAgentsGitHubRepositoryResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -4420,7 +3557,6 @@ Archive Session
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"github_repository"GitHubRepository`
 
       - `required DateTimeOffset UpdatedAt`
@@ -4430,29 +3566,23 @@ Archive Session
       - `required string Url`
 
       - `Checkout? Checkout`
-
         - `class BetaManagedAgentsBranchCheckout:`
-
           - `required string Name`
 
             Branch name to check out.
 
           - `required Type Type`
-
             - `"branch"Branch`
 
         - `class BetaManagedAgentsCommitCheckout:`
-
           - `required string Sha`
 
             Full commit SHA to check out.
 
           - `required Type Type`
-
             - `"commit"Commit`
 
     - `class BetaManagedAgentsFileResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -4464,7 +3594,6 @@ Archive Session
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"file"File`
 
       - `required DateTimeOffset UpdatedAt`
@@ -4474,19 +3603,16 @@ Archive Session
     - `class BetaManagedAgentsMemoryStoreResource:`
 
       A memory store attached to an agent session.
-
       - `required string MemoryStoreID`
 
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
       - `required Type Type`
-
         - `"memory_store"MemoryStore`
 
       - `Access? Access`
 
         Access mode for an attached memory store.
-
         - `"read_write"ReadWrite`
 
         - `"read_only"ReadOnly`
@@ -4510,7 +3636,6 @@ Archive Session
   - `required BetaManagedAgentsSessionStats Stats`
 
     Timing statistics for a session.
-
     - `Double ActiveSeconds`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -4522,7 +3647,6 @@ Archive Session
   - `required Status Status`
 
     SessionStatus enum
-
     - `"rescheduling"Rescheduling`
 
     - `"running"Running`
@@ -4534,7 +3658,6 @@ Archive Session
   - `required string? Title`
 
   - `required Type Type`
-
     - `"session"Session`
 
   - `required DateTimeOffset UpdatedAt`
@@ -4544,11 +3667,9 @@ Archive Session
   - `required BetaManagedAgentsSessionUsage Usage`
 
     Cumulative token usage for a session across all turns.
-
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `Int Ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -4586,6 +3707,171 @@ var betaManagedAgentsSession = await client.Beta.Sessions.Archive(parameters);
 Console.WriteLine(betaManagedAgentsSession);
 ```
 
+#### Response
+
+```json
+{
+  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "agent": {
+    "id": "agent_011CZkYpogX7uDKUyvBTophP",
+    "description": "A general-purpose starter agent.",
+    "mcp_servers": [
+      {
+        "name": "example-mcp",
+        "type": "url",
+        "url": "https://example-server.modelcontextprotocol.io/sse"
+      }
+    ],
+    "model": {
+      "id": "claude-sonnet-4-6",
+      "speed": "standard"
+    },
+    "multiagent": {
+      "agents": [
+        {
+          "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+          "description": "A focused research subagent.",
+          "mcp_servers": [
+            {
+              "name": "example-mcp",
+              "type": "url",
+              "url": "https://example-server.modelcontextprotocol.io/sse"
+            }
+          ],
+          "model": {
+            "id": "claude-sonnet-4-6",
+            "speed": "standard"
+          },
+          "name": "Researcher",
+          "skills": [
+            {
+              "skill_id": "xlsx",
+              "type": "anthropic",
+              "version": "1"
+            }
+          ],
+          "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+          "tools": [
+            {
+              "configs": [
+                {
+                  "enabled": true,
+                  "name": "bash",
+                  "permission_policy": {
+                    "type": "always_allow"
+                  }
+                }
+              ],
+              "default_config": {
+                "enabled": true,
+                "permission_policy": {
+                  "type": "always_ask"
+                }
+              },
+              "type": "agent_toolset_20260401"
+            }
+          ],
+          "type": "agent",
+          "version": 1
+        }
+      ],
+      "type": "coordinator"
+    },
+    "name": "My First Agent",
+    "skills": [
+      {
+        "skill_id": "xlsx",
+        "type": "anthropic",
+        "version": "1"
+      },
+      {
+        "skill_id": "skill_011CZkZFNu9hAbo3jZPRgTlx",
+        "type": "custom",
+        "version": "2"
+      }
+    ],
+    "system": "You are a general-purpose agent that can research, write code, run commands, and use connected tools to complete the user's task end to end.",
+    "tools": [
+      {
+        "configs": [
+          {
+            "enabled": true,
+            "name": "bash",
+            "permission_policy": {
+              "type": "always_allow"
+            }
+          }
+        ],
+        "default_config": {
+          "enabled": true,
+          "permission_policy": {
+            "type": "always_ask"
+          }
+        },
+        "type": "agent_toolset_20260401"
+      }
+    ],
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "environment_id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "metadata": {},
+  "outcome_evaluations": [
+    {
+      "completed_at": "2026-03-15T10:02:31Z",
+      "description": "Produce a 2-page summary as summary.md",
+      "explanation": "All five sections present with inline citations.",
+      "iteration": 0,
+      "outcome_id": "outc_011CZkZRSw2kEfs6ncTVljxP",
+      "result": "satisfied",
+      "type": "outcome_evaluation"
+    }
+  ],
+  "resources": [
+    {
+      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+      "created_at": "2026-03-15T10:00:00Z",
+      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "mount_path": "/uploads/receipt.pdf",
+      "type": "file",
+      "updated_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "created_at": "2026-03-15T10:00:00Z",
+      "mount_path": "/workspace/example-repo",
+      "type": "github_repository",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "url": "https://github.com/example-org/example-repo",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      }
+    }
+  ],
+  "stats": {
+    "active_seconds": 0,
+    "duration_seconds": 0
+  },
+  "status": "idle",
+  "title": "Order #1234 inquiry",
+  "type": "session",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  },
+  "vault_ids": ["vlt_011CZkZDLs7fYzm1hXNPeRjv"]
+}
+```
+
 ## Domain Types
 
 ### Beta Managed Agents Agent Params
@@ -4593,13 +3879,11 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsAgentParams:`
 
   Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
-
   - `required string ID`
 
     The `agent` ID.
 
   - `required Type Type`
-
     - `"agent"Agent`
 
   - `Int Version`
@@ -4609,13 +3893,11 @@ Console.WriteLine(betaManagedAgentsSession);
 ### Beta Managed Agents Branch Checkout
 
 - `class BetaManagedAgentsBranchCheckout:`
-
   - `required string Name`
 
     Branch name to check out.
 
   - `required Type Type`
-
     - `"branch"Branch`
 
 ### Beta Managed Agents Cache Creation Usage
@@ -4623,7 +3905,6 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsCacheCreationUsage:`
 
   Prompt-cache creation token usage broken down by cache lifetime.
-
   - `Int Ephemeral1hInputTokens`
 
     Tokens used to create 1-hour ephemeral cache entries.
@@ -4635,13 +3916,11 @@ Console.WriteLine(betaManagedAgentsSession);
 ### Beta Managed Agents Commit Checkout
 
 - `class BetaManagedAgentsCommitCheckout:`
-
   - `required string Sha`
 
     Full commit SHA to check out.
 
   - `required Type Type`
-
     - `"commit"Commit`
 
 ### Beta Managed Agents Deleted Session
@@ -4649,11 +3928,9 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsDeletedSession:`
 
   Confirmation that a `session` has been permanently deleted.
-
   - `required string ID`
 
   - `required Type Type`
-
     - `"session_deleted"SessionDeleted`
 
 ### Beta Managed Agents File Resource Params
@@ -4661,13 +3938,11 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsFileResourceParams:`
 
   Mount a file uploaded via the Files API into the session.
-
   - `required string FileID`
 
     ID of a previously uploaded file.
 
   - `required Type Type`
-
     - `"file"File`
 
   - `string? MountPath`
@@ -4679,13 +3954,11 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsGitHubRepositoryResourceParams:`
 
   Mount a GitHub repository into the session's container.
-
   - `required string AuthorizationToken`
 
     GitHub authorization token used to clone the repository.
 
   - `required Type Type`
-
     - `"github_repository"GitHubRepository`
 
   - `required string Url`
@@ -4695,25 +3968,20 @@ Console.WriteLine(betaManagedAgentsSession);
   - `Checkout? Checkout`
 
     Branch or commit to check out. Defaults to the repository's default branch.
-
     - `class BetaManagedAgentsBranchCheckout:`
-
       - `required string Name`
 
         Branch name to check out.
 
       - `required Type Type`
-
         - `"branch"Branch`
 
     - `class BetaManagedAgentsCommitCheckout:`
-
       - `required string Sha`
 
         Full commit SHA to check out.
 
       - `required Type Type`
-
         - `"commit"Commit`
 
   - `string? MountPath`
@@ -4725,19 +3993,16 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsMemoryStoreResourceParam:`
 
   Parameters for attaching a memory store to an agent session.
-
   - `required string MemoryStoreID`
 
-    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
   - `required Type Type`
-
     - `"memory_store"MemoryStore`
 
   - `Access? Access`
 
     Access mode for an attached memory store.
-
     - `"read_write"ReadWrite`
 
     - `"read_only"ReadOnly`
@@ -4751,21 +4016,17 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsMultiagent:`
 
   Resolved coordinator topology with a concrete agent roster.
-
   - `required IReadOnlyList<BetaManagedAgentsAgentReference> Agents`
 
     Agents the coordinator may spawn as session threads, each resolved to a specific version.
-
     - `required string ID`
 
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `required Int Version`
 
   - `required Type Type`
-
     - `"coordinator"Coordinator`
 
 ### Beta Managed Agents Multiagent Params
@@ -4773,23 +4034,19 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsMultiagentParams:`
 
   A coordinator topology: the session's primary thread orchestrates work by spawning session threads, each running an agent drawn from the `agents` roster.
-
   - `required IReadOnlyList<BetaManagedAgentsMultiagentRosterEntryParams> Agents`
 
     Agents the coordinator may spawn as session threads. 1–20 entries. Each entry is an agent ID string, a versioned `{"type":"agent","id","version"}` reference, or `{"type":"self"}` to allow recursive self-invocation. Entries must reference distinct agents (after resolving `self` and string forms); at most one `self`. Referenced agents must exist, must not be archived, and must not themselves have `multiagent` set (depth limit 1).
-
     - `string`
 
     - `class BetaManagedAgentsAgentParams:`
 
       Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
-
       - `required string ID`
 
         The `agent` ID.
 
       - `required Type Type`
-
         - `"agent"Agent`
 
       - `Int Version`
@@ -4799,13 +4056,10 @@ Console.WriteLine(betaManagedAgentsSession);
     - `class BetaManagedAgentsMultiagentSelfParams:`
 
       Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
-
       - `required Type Type`
-
         - `"self"Self`
 
   - `required Type Type`
-
     - `"coordinator"Coordinator`
 
 ### Beta Managed Agents Multiagent Roster Entry Params
@@ -4813,19 +4067,16 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsMultiagentRosterEntryParams: A class that can be one of several variants.union`
 
   An entry in a multiagent roster: an agent ID string, a versioned agent reference, or `self`.
-
   - `string`
 
   - `class BetaManagedAgentsAgentParams:`
 
     Specification for an Agent. Provide a specific `version` or use the short-form `agent="agent_id"` for the most recent version
-
     - `required string ID`
 
       The `agent` ID.
 
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `Int Version`
@@ -4835,9 +4086,7 @@ Console.WriteLine(betaManagedAgentsSession);
   - `class BetaManagedAgentsMultiagentSelfParams:`
 
     Sentinel roster entry meaning "the agent that owns this configuration". Resolved server-side to a concrete agent reference.
-
     - `required Type Type`
-
       - `"self"Self`
 
 ### Beta Managed Agents Outcome Evaluation Resource
@@ -4845,7 +4094,6 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsOutcomeEvaluationResource:`
 
   Evaluation state for a single outcome defined via a define_outcome event.
-
   - `required DateTimeOffset? CompletedAt`
 
     A timestamp in RFC 3339 format
@@ -4864,14 +4112,13 @@ Console.WriteLine(betaManagedAgentsSession);
 
   - `required string OutcomeID`
 
-    Server-generated outc_ ID for this outcome.
+    Server-generated outc\_ ID for this outcome.
 
   - `required string Result`
 
-    Current evaluation state. 'pending' before the agent begins work; 'running' while producing or revising; 'evaluating' while the grader scores; 'satisfied'/'max_iterations_reached'/'failed'/'interrupted' are terminal.
+    Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
   - `required Type Type`
-
     - `"outcome_evaluation"OutcomeEvaluation`
 
 ### Beta Managed Agents Session
@@ -4879,23 +4126,19 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsSession:`
 
   A Managed Agents `session`.
-
   - `required string ID`
 
   - `required BetaManagedAgentsSessionAgent Agent`
 
     Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
     - `required string ID`
 
     - `required string? Description`
 
     - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
       - `required string Name`
 
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -4903,13 +4146,11 @@ Console.WriteLine(betaManagedAgentsSession);
     - `required BetaManagedAgentsModelConfig Model`
 
       Model identifier and configuration.
-
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -4949,7 +4190,6 @@ Console.WriteLine(betaManagedAgentsSession);
       - `Speed Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -4957,22 +4197,17 @@ Console.WriteLine(betaManagedAgentsSession);
     - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
       Resolved coordinator topology with full agent definitions for each roster member.
-
       - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
 
         Full `agent` definitions the coordinator may spawn as session threads.
-
         - `required string ID`
 
         - `required string? Description`
 
         - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
           - `required string Name`
 
           - `required Type Type`
-
-            - `"url"Url`
 
           - `required string Url`
 
@@ -4980,68 +4215,15 @@ Console.WriteLine(betaManagedAgentsSession);
 
           Model identifier and configuration.
 
-          - `required BetaManagedAgentsModel ID`
-
-            The model that will power your agent.
-
-            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-            - `"claude-opus-4-7"ClaudeOpus4_7`
-
-              Frontier intelligence for long-running agents and coding
-
-            - `"claude-opus-4-6"ClaudeOpus4_6`
-
-              Most intelligent model for building agents and coding
-
-            - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-              Best combination of speed and intelligence
-
-            - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-              Fastest model with near-frontier intelligence
-
-            - `"claude-opus-4-5"ClaudeOpus4_5`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-              Premium model combining maximum intelligence with practical performance
-
-            - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-              High-performance model for agents and coding
-
-            - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-              High-performance model for agents and coding
-
-          - `Speed Speed`
-
-            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-            - `"standard"Standard`
-
-            - `"fast"Fast`
-
         - `required string Name`
 
         - `required IReadOnlyList<Skill> Skills`
-
           - `class BetaManagedAgentsAnthropicSkill:`
 
             A resolved Anthropic-managed skill.
-
             - `required string SkillID`
 
             - `required Type Type`
-
               - `"anthropic"Anthropic`
 
             - `required string Version`
@@ -5049,11 +4231,9 @@ Console.WriteLine(betaManagedAgentsSession);
           - `class BetaManagedAgentsCustomSkill:`
 
             A resolved user-created custom skill.
-
             - `required string SkillID`
 
             - `required Type Type`
-
               - `"custom"Custom`
 
             - `required string Version`
@@ -5061,17 +4241,13 @@ Console.WriteLine(betaManagedAgentsSession);
         - `required string? System`
 
         - `required IReadOnlyList<Tool> Tools`
-
           - `class BetaManagedAgentsAgentToolset20260401:`
-
             - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
               - `required Boolean Enabled`
 
               - `required Name Name`
 
                 Built-in agent tool identifier.
-
                 - `"bash"Bash`
 
                 - `"edit"Edit`
@@ -5091,57 +4267,39 @@ Console.WriteLine(betaManagedAgentsSession);
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
                   - `required Type Type`
-
                     - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
-
                   - `required Type Type`
-
                     - `"always_ask"AlwaysAsk`
 
             - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for agent tools.
-
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required Type Type`
-
               - `"agent_toolset_20260401"AgentToolset20260401`
 
           - `class BetaManagedAgentsMcpToolset:`
-
             - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
               - `required Boolean Enabled`
 
               - `required string Name`
@@ -5149,65 +4307,43 @@ Console.WriteLine(betaManagedAgentsSession);
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
               Resolved default configuration for all tools from an MCP server.
-
               - `required Boolean Enabled`
 
               - `required PermissionPolicy PermissionPolicy`
 
                 Permission policy for tool execution.
-
                 - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                   Tool calls are automatically approved without user confirmation.
-
-                  - `required Type Type`
-
-                    - `"always_allow"AlwaysAllow`
 
                 - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                   Tool calls require user confirmation before execution.
 
-                  - `required Type Type`
-
-                    - `"always_ask"AlwaysAsk`
-
             - `required string McpServerName`
 
             - `required Type Type`
-
               - `"mcp_toolset"McpToolset`
 
           - `class BetaManagedAgentsCustomTool:`
 
             A custom tool as returned in API responses.
-
             - `required string Description`
 
             - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
               JSON Schema for custom tool input parameters.
-
               - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
                 JSON Schema properties defining the tool's input parameters.
@@ -5219,225 +4355,44 @@ Console.WriteLine(betaManagedAgentsSession);
               - `Type Type`
 
                 Must be 'object' for tool input schemas.
-
                 - `"object"Object`
 
             - `required string Name`
 
             - `required Type Type`
-
               - `"custom"Custom`
 
         - `required Type Type`
-
           - `"agent"Agent`
 
         - `required Int Version`
 
       - `required Type Type`
-
         - `"coordinator"Coordinator`
 
     - `required string Name`
 
     - `required IReadOnlyList<Skill> Skills`
-
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
-
-        - `required string SkillID`
-
-        - `required Type Type`
-
-          - `"anthropic"Anthropic`
-
-        - `required string Version`
 
       - `class BetaManagedAgentsCustomSkill:`
 
         A resolved user-created custom skill.
 
-        - `required string SkillID`
-
-        - `required Type Type`
-
-          - `"custom"Custom`
-
-        - `required string Version`
-
     - `required string? System`
 
     - `required IReadOnlyList<Tool> Tools`
-
       - `class BetaManagedAgentsAgentToolset20260401:`
 
-        - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
-          - `required Boolean Enabled`
-
-          - `required Name Name`
-
-            Built-in agent tool identifier.
-
-            - `"bash"Bash`
-
-            - `"edit"Edit`
-
-            - `"read"Read`
-
-            - `"write"Write`
-
-            - `"glob"Glob`
-
-            - `"grep"Grep`
-
-            - `"web_fetch"WebFetch`
-
-            - `"web_search"WebSearch`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
-
-          Resolved default configuration for agent tools.
-
-          - `required Boolean Enabled`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required Type Type`
-
-          - `"agent_toolset_20260401"AgentToolset20260401`
-
       - `class BetaManagedAgentsMcpToolset:`
-
-        - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
-          - `required Boolean Enabled`
-
-          - `required string Name`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
-
-          Resolved default configuration for all tools from an MCP server.
-
-          - `required Boolean Enabled`
-
-          - `required PermissionPolicy PermissionPolicy`
-
-            Permission policy for tool execution.
-
-            - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-              Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
-
-            - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-              Tool calls require user confirmation before execution.
-
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
-        - `required string McpServerName`
-
-        - `required Type Type`
-
-          - `"mcp_toolset"McpToolset`
 
       - `class BetaManagedAgentsCustomTool:`
 
         A custom tool as returned in API responses.
 
-        - `required string Description`
-
-        - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
-
-          JSON Schema for custom tool input parameters.
-
-          - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-            JSON Schema properties defining the tool's input parameters.
-
-          - `IReadOnlyList<string> Required`
-
-            List of required property names.
-
-          - `Type Type`
-
-            Must be 'object' for tool input schemas.
-
-            - `"object"Object`
-
-        - `required string Name`
-
-        - `required Type Type`
-
-          - `"custom"Custom`
-
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `required Int Version`
@@ -5457,7 +4412,6 @@ Console.WriteLine(betaManagedAgentsSession);
   - `required IReadOnlyList<BetaManagedAgentsOutcomeEvaluationResource> OutcomeEvaluations`
 
     Per-outcome evaluation state. One entry per define_outcome event sent to the session.
-
     - `required DateTimeOffset? CompletedAt`
 
       A timestamp in RFC 3339 format
@@ -5476,20 +4430,17 @@ Console.WriteLine(betaManagedAgentsSession);
 
     - `required string OutcomeID`
 
-      Server-generated outc_ ID for this outcome.
+      Server-generated outc\_ ID for this outcome.
 
     - `required string Result`
 
-      Current evaluation state. 'pending' before the agent begins work; 'running' while producing or revising; 'evaluating' while the grader scores; 'satisfied'/'max_iterations_reached'/'failed'/'interrupted' are terminal.
+      Current evaluation state. `pending` before the agent begins work; `running` while producing or revising; `evaluating` while the grader scores; `satisfied`/`max_iterations_reached`/`failed`/`interrupted` are terminal.
 
     - `required Type Type`
-
       - `"outcome_evaluation"OutcomeEvaluation`
 
   - `required IReadOnlyList<BetaManagedAgentsSessionResource> Resources`
-
     - `class BetaManagedAgentsGitHubRepositoryResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -5499,7 +4450,6 @@ Console.WriteLine(betaManagedAgentsSession);
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"github_repository"GitHubRepository`
 
       - `required DateTimeOffset UpdatedAt`
@@ -5509,29 +4459,23 @@ Console.WriteLine(betaManagedAgentsSession);
       - `required string Url`
 
       - `Checkout? Checkout`
-
         - `class BetaManagedAgentsBranchCheckout:`
-
           - `required string Name`
 
             Branch name to check out.
 
           - `required Type Type`
-
             - `"branch"Branch`
 
         - `class BetaManagedAgentsCommitCheckout:`
-
           - `required string Sha`
 
             Full commit SHA to check out.
 
           - `required Type Type`
-
             - `"commit"Commit`
 
     - `class BetaManagedAgentsFileResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -5543,7 +4487,6 @@ Console.WriteLine(betaManagedAgentsSession);
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"file"File`
 
       - `required DateTimeOffset UpdatedAt`
@@ -5553,19 +4496,16 @@ Console.WriteLine(betaManagedAgentsSession);
     - `class BetaManagedAgentsMemoryStoreResource:`
 
       A memory store attached to an agent session.
-
       - `required string MemoryStoreID`
 
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
       - `required Type Type`
-
         - `"memory_store"MemoryStore`
 
       - `Access? Access`
 
         Access mode for an attached memory store.
-
         - `"read_write"ReadWrite`
 
         - `"read_only"ReadOnly`
@@ -5589,7 +4529,6 @@ Console.WriteLine(betaManagedAgentsSession);
   - `required BetaManagedAgentsSessionStats Stats`
 
     Timing statistics for a session.
-
     - `Double ActiveSeconds`
 
       Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -5601,7 +4540,6 @@ Console.WriteLine(betaManagedAgentsSession);
   - `required Status Status`
 
     SessionStatus enum
-
     - `"rescheduling"Rescheduling`
 
     - `"running"Running`
@@ -5613,7 +4551,6 @@ Console.WriteLine(betaManagedAgentsSession);
   - `required string? Title`
 
   - `required Type Type`
-
     - `"session"Session`
 
   - `required DateTimeOffset UpdatedAt`
@@ -5623,11 +4560,9 @@ Console.WriteLine(betaManagedAgentsSession);
   - `required BetaManagedAgentsSessionUsage Usage`
 
     Cumulative token usage for a session across all turns.
-
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `Int Ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -5657,17 +4592,14 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsSessionAgent:`
 
   Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
-
   - `required string ID`
 
   - `required string? Description`
 
   - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
     - `required string Name`
 
     - `required Type Type`
-
       - `"url"Url`
 
     - `required string Url`
@@ -5675,13 +4607,11 @@ Console.WriteLine(betaManagedAgentsSession);
   - `required BetaManagedAgentsModelConfig Model`
 
     Model identifier and configuration.
-
     - `required BetaManagedAgentsModel ID`
 
       The model that will power your agent.
 
       See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
       - `"claude-opus-4-7"ClaudeOpus4_7`
 
         Frontier intelligence for long-running agents and coding
@@ -5721,7 +4651,6 @@ Console.WriteLine(betaManagedAgentsSession);
     - `Speed Speed`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
       - `"standard"Standard`
 
       - `"fast"Fast`
@@ -5729,22 +4658,17 @@ Console.WriteLine(betaManagedAgentsSession);
   - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
 
     Resolved coordinator topology with full agent definitions for each roster member.
-
     - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
 
       Full `agent` definitions the coordinator may spawn as session threads.
-
       - `required string ID`
 
       - `required string? Description`
 
       - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
         - `required string Name`
 
         - `required Type Type`
-
-          - `"url"Url`
 
         - `required string Url`
 
@@ -5752,68 +4676,15 @@ Console.WriteLine(betaManagedAgentsSession);
 
         Model identifier and configuration.
 
-        - `required BetaManagedAgentsModel ID`
-
-          The model that will power your agent.
-
-          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-          - `"claude-opus-4-7"ClaudeOpus4_7`
-
-            Frontier intelligence for long-running agents and coding
-
-          - `"claude-opus-4-6"ClaudeOpus4_6`
-
-            Most intelligent model for building agents and coding
-
-          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-            Best combination of speed and intelligence
-
-          - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-            Fastest model with near-frontier intelligence
-
-          - `"claude-opus-4-5"ClaudeOpus4_5`
-
-            Premium model combining maximum intelligence with practical performance
-
-          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-            Premium model combining maximum intelligence with practical performance
-
-          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-            High-performance model for agents and coding
-
-          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-            High-performance model for agents and coding
-
-        - `Speed Speed`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `"standard"Standard`
-
-          - `"fast"Fast`
-
       - `required string Name`
 
       - `required IReadOnlyList<Skill> Skills`
-
         - `class BetaManagedAgentsAnthropicSkill:`
 
           A resolved Anthropic-managed skill.
-
           - `required string SkillID`
 
           - `required Type Type`
-
             - `"anthropic"Anthropic`
 
           - `required string Version`
@@ -5821,11 +4692,9 @@ Console.WriteLine(betaManagedAgentsSession);
         - `class BetaManagedAgentsCustomSkill:`
 
           A resolved user-created custom skill.
-
           - `required string SkillID`
 
           - `required Type Type`
-
             - `"custom"Custom`
 
           - `required string Version`
@@ -5833,17 +4702,13 @@ Console.WriteLine(betaManagedAgentsSession);
       - `required string? System`
 
       - `required IReadOnlyList<Tool> Tools`
-
         - `class BetaManagedAgentsAgentToolset20260401:`
-
           - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
             - `required Boolean Enabled`
 
             - `required Name Name`
 
               Built-in agent tool identifier.
-
               - `"bash"Bash`
 
               - `"edit"Edit`
@@ -5863,57 +4728,39 @@ Console.WriteLine(betaManagedAgentsSession);
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
                 - `required Type Type`
-
                   - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
-
                 - `required Type Type`
-
                   - `"always_ask"AlwaysAsk`
 
           - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
             Resolved default configuration for agent tools.
-
             - `required Boolean Enabled`
 
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
 
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
           - `required Type Type`
-
             - `"agent_toolset_20260401"AgentToolset20260401`
 
         - `class BetaManagedAgentsMcpToolset:`
-
           - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
             - `required Boolean Enabled`
 
             - `required string Name`
@@ -5921,65 +4768,43 @@ Console.WriteLine(betaManagedAgentsSession);
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
 
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
           - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
             Resolved default configuration for all tools from an MCP server.
-
             - `required Boolean Enabled`
 
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
 
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
           - `required string McpServerName`
 
           - `required Type Type`
-
             - `"mcp_toolset"McpToolset`
 
         - `class BetaManagedAgentsCustomTool:`
 
           A custom tool as returned in API responses.
-
           - `required string Description`
 
           - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
             JSON Schema for custom tool input parameters.
-
             - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
               JSON Schema properties defining the tool's input parameters.
@@ -5991,67 +4816,82 @@ Console.WriteLine(betaManagedAgentsSession);
             - `Type Type`
 
               Must be 'object' for tool input schemas.
-
               - `"object"Object`
 
           - `required string Name`
 
           - `required Type Type`
-
             - `"custom"Custom`
 
       - `required Type Type`
-
         - `"agent"Agent`
 
       - `required Int Version`
 
     - `required Type Type`
-
       - `"coordinator"Coordinator`
 
   - `required string Name`
 
   - `required IReadOnlyList<Skill> Skills`
-
     - `class BetaManagedAgentsAnthropicSkill:`
 
       A resolved Anthropic-managed skill.
-
-      - `required string SkillID`
-
-      - `required Type Type`
-
-        - `"anthropic"Anthropic`
-
-      - `required string Version`
 
     - `class BetaManagedAgentsCustomSkill:`
 
       A resolved user-created custom skill.
 
-      - `required string SkillID`
-
-      - `required Type Type`
-
-        - `"custom"Custom`
-
-      - `required string Version`
-
   - `required string? System`
 
   - `required IReadOnlyList<Tool> Tools`
-
     - `class BetaManagedAgentsAgentToolset20260401:`
 
-      - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+    - `class BetaManagedAgentsMcpToolset:`
 
-        - `required Boolean Enabled`
+    - `class BetaManagedAgentsCustomTool:`
 
+      A custom tool as returned in API responses.
+
+  - `required Type Type`
+    - `"agent"Agent`
+
+  - `required Int Version`
+
+### Beta Managed Agents Session Agent Update
+
+- `class BetaManagedAgentsSessionAgentUpdate:`
+
+  Mid-session agent configuration update. Only `tools` and `mcp_servers` are updatable. Full replacement: the provided array becomes the new value. To preserve existing entries, GET the session, modify the array, and POST it back.
+  - `IReadOnlyList<BetaManagedAgentsUrlMcpServerParams> McpServers`
+
+    Replacement MCP server list. Full replacement: the provided array becomes the new value. Send an empty array to clear; omit to preserve.
+    - `required string Name`
+
+      Unique name for this server, referenced by mcp_toolset configurations. 1-255 characters.
+
+    - `required Type Type`
+      - `"url"Url`
+
+    - `required string Url`
+
+      Endpoint URL for the MCP server.
+
+  - `IReadOnlyList<Tool> Tools`
+
+    Replacement tool list. Full replacement: the provided array becomes the new value. Send an empty array to clear; omit to preserve.
+    - `class BetaManagedAgentsAgentToolset20260401Params:`
+
+      Configuration for built-in agent tools. Use this to enable or disable groups of tools available to the agent.
+      - `required Type Type`
+        - `"agent_toolset_20260401"AgentToolset20260401`
+
+      - `IReadOnlyList<BetaManagedAgentsAgentToolConfigParams> Configs`
+
+        Per-tool configuration overrides.
         - `required Name Name`
 
           Built-in agent tool identifier.
-
           - `"bash"Bash`
 
           - `"edit"Edit`
@@ -6068,126 +4908,103 @@ Console.WriteLine(betaManagedAgentsSession);
 
           - `"web_search"WebSearch`
 
-        - `required PermissionPolicy PermissionPolicy`
+        - `Boolean? Enabled`
+
+          Whether this tool is enabled and available to Claude. Overrides the default_config setting.
+
+        - `PermissionPolicy? PermissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
             - `required Type Type`
-
               - `"always_allow"AlwaysAllow`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
-
             - `required Type Type`
-
               - `"always_ask"AlwaysAsk`
 
-      - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
+      - `BetaManagedAgentsAgentToolsetDefaultConfigParams? DefaultConfig`
 
-        Resolved default configuration for agent tools.
+        Default configuration for all tools in a toolset.
+        - `Boolean? Enabled`
 
-        - `required Boolean Enabled`
+          Whether tools are enabled and available to Claude by default. Defaults to true if not specified.
 
-        - `required PermissionPolicy PermissionPolicy`
+        - `PermissionPolicy? PermissionPolicy`
 
           Permission policy for tool execution.
-
           - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
             Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
 
           - `class BetaManagedAgentsAlwaysAskPolicy:`
 
             Tool calls require user confirmation before execution.
 
-            - `required Type Type`
+    - `class BetaManagedAgentsMcpToolsetParams:`
 
-              - `"always_ask"AlwaysAsk`
-
-      - `required Type Type`
-
-        - `"agent_toolset_20260401"AgentToolset20260401`
-
-    - `class BetaManagedAgentsMcpToolset:`
-
-      - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
-        - `required Boolean Enabled`
-
-        - `required string Name`
-
-        - `required PermissionPolicy PermissionPolicy`
-
-          Permission policy for tool execution.
-
-          - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-            Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
-
-          - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-            Tool calls require user confirmation before execution.
-
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
-      - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
-
-        Resolved default configuration for all tools from an MCP server.
-
-        - `required Boolean Enabled`
-
-        - `required PermissionPolicy PermissionPolicy`
-
-          Permission policy for tool execution.
-
-          - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-            Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
-
-          - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-            Tool calls require user confirmation before execution.
-
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
+      Configuration for tools from an MCP server defined in `mcp_servers`.
       - `required string McpServerName`
 
-      - `required Type Type`
+        Name of the MCP server. Must match a server name from the mcp_servers array. 1-255 characters.
 
+      - `required Type Type`
         - `"mcp_toolset"McpToolset`
 
-    - `class BetaManagedAgentsCustomTool:`
+      - `IReadOnlyList<BetaManagedAgentsMcpToolConfigParams> Configs`
 
-      A custom tool as returned in API responses.
+        Per-tool configuration overrides.
+        - `required string Name`
 
+          Name of the MCP tool to configure. 1-128 characters.
+
+        - `Boolean? Enabled`
+
+          Whether this tool is enabled. Overrides the `default_config` setting.
+
+        - `PermissionPolicy? PermissionPolicy`
+
+          Permission policy for tool execution.
+          - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+            Tool calls require user confirmation before execution.
+
+      - `BetaManagedAgentsMcpToolsetDefaultConfigParams? DefaultConfig`
+
+        Default configuration for all tools from an MCP server.
+        - `Boolean? Enabled`
+
+          Whether tools are enabled by default. Defaults to true if not specified.
+
+        - `PermissionPolicy? PermissionPolicy`
+
+          Permission policy for tool execution.
+          - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+            Tool calls are automatically approved without user confirmation.
+
+          - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+            Tool calls require user confirmation before execution.
+
+    - `class BetaManagedAgentsCustomToolParams:`
+
+      A custom tool that is executed by the API client rather than the agent. When the agent calls this tool, an `agent.custom_tool_use` event is emitted and the session goes idle, waiting for the client to provide the result via a `user.custom_tool_result` event.
       - `required string Description`
+
+        Description of what the tool does, shown to the agent to help it decide when to use the tool. 1-1024 characters.
 
       - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
         JSON Schema for custom tool input parameters.
-
         - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
           JSON Schema properties defining the tool's input parameters.
@@ -6199,41 +5016,31 @@ Console.WriteLine(betaManagedAgentsSession);
         - `Type Type`
 
           Must be 'object' for tool input schemas.
-
           - `"object"Object`
 
       - `required string Name`
 
+        Unique name for the tool. 1-128 characters; letters, digits, underscores, and hyphens.
+
       - `required Type Type`
-
         - `"custom"Custom`
-
-  - `required Type Type`
-
-    - `"agent"Agent`
-
-  - `required Int Version`
 
 ### Beta Managed Agents Session Multiagent Coordinator
 
 - `class BetaManagedAgentsSessionMultiagentCoordinator:`
 
   Resolved coordinator topology with full agent definitions for each roster member.
-
   - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
 
     Full `agent` definitions the coordinator may spawn as session threads.
-
     - `required string ID`
 
     - `required string? Description`
 
     - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
       - `required string Name`
 
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -6241,13 +5048,11 @@ Console.WriteLine(betaManagedAgentsSession);
     - `required BetaManagedAgentsModelConfig Model`
 
       Model identifier and configuration.
-
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -6287,7 +5092,6 @@ Console.WriteLine(betaManagedAgentsSession);
       - `Speed Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -6295,15 +5099,12 @@ Console.WriteLine(betaManagedAgentsSession);
     - `required string Name`
 
     - `required IReadOnlyList<Skill> Skills`
-
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
-
         - `required string SkillID`
 
         - `required Type Type`
-
           - `"anthropic"Anthropic`
 
         - `required string Version`
@@ -6311,11 +5112,9 @@ Console.WriteLine(betaManagedAgentsSession);
       - `class BetaManagedAgentsCustomSkill:`
 
         A resolved user-created custom skill.
-
         - `required string SkillID`
 
         - `required Type Type`
-
           - `"custom"Custom`
 
         - `required string Version`
@@ -6323,17 +5122,13 @@ Console.WriteLine(betaManagedAgentsSession);
     - `required string? System`
 
     - `required IReadOnlyList<Tool> Tools`
-
       - `class BetaManagedAgentsAgentToolset20260401:`
-
         - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
           - `required Boolean Enabled`
 
           - `required Name Name`
 
             Built-in agent tool identifier.
-
             - `"bash"Bash`
 
             - `"edit"Edit`
@@ -6353,57 +5148,39 @@ Console.WriteLine(betaManagedAgentsSession);
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
               - `required Type Type`
-
                 - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
-
               - `required Type Type`
-
                 - `"always_ask"AlwaysAsk`
 
         - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `required Boolean Enabled`
 
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required Type Type`
-
           - `"agent_toolset_20260401"AgentToolset20260401`
 
       - `class BetaManagedAgentsMcpToolset:`
-
         - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
           - `required Boolean Enabled`
 
           - `required string Name`
@@ -6411,65 +5188,43 @@ Console.WriteLine(betaManagedAgentsSession);
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `required Boolean Enabled`
 
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required string McpServerName`
 
         - `required Type Type`
-
           - `"mcp_toolset"McpToolset`
 
       - `class BetaManagedAgentsCustomTool:`
 
         A custom tool as returned in API responses.
-
         - `required string Description`
 
         - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
             JSON Schema properties defining the tool's input parameters.
@@ -6481,23 +5236,19 @@ Console.WriteLine(betaManagedAgentsSession);
           - `Type Type`
 
             Must be 'object' for tool input schemas.
-
             - `"object"Object`
 
         - `required string Name`
 
         - `required Type Type`
-
           - `"custom"Custom`
 
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `required Int Version`
 
   - `required Type Type`
-
     - `"coordinator"Coordinator`
 
 ### Beta Managed Agents Session Stats
@@ -6505,7 +5256,6 @@ Console.WriteLine(betaManagedAgentsSession);
 - `class BetaManagedAgentsSessionStats:`
 
   Timing statistics for a session.
-
   - `Double ActiveSeconds`
 
     Cumulative time in seconds the session spent in running status. Excludes idle time.
@@ -6514,16 +5264,307 @@ Console.WriteLine(betaManagedAgentsSession);
 
     Elapsed time since session creation in seconds. For terminated sessions, frozen at the final update.
 
+### Beta Managed Agents Session Updated Event
+
+- `class BetaManagedAgentsSessionUpdatedEvent:`
+
+  Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+  - `required string ID`
+
+    Unique identifier for this event.
+
+  - `required DateTimeOffset ProcessedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `required Type Type`
+    - `"session.updated"SessionUpdated`
+
+  - `BetaManagedAgentsSessionAgent? Agent`
+
+    Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+    - `required string ID`
+
+    - `required string? Description`
+
+    - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+      - `required string Name`
+
+      - `required Type Type`
+        - `"url"Url`
+
+      - `required string Url`
+
+    - `required BetaManagedAgentsModelConfig Model`
+
+      Model identifier and configuration.
+      - `required BetaManagedAgentsModel ID`
+
+        The model that will power your agent.
+
+        See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+        - `"claude-opus-4-7"ClaudeOpus4_7`
+
+          Frontier intelligence for long-running agents and coding
+
+        - `"claude-opus-4-6"ClaudeOpus4_6`
+
+          Most intelligent model for building agents and coding
+
+        - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+          Best combination of speed and intelligence
+
+        - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+          Fastest model with near-frontier intelligence
+
+        - `"claude-opus-4-5"ClaudeOpus4_5`
+
+          Premium model combining maximum intelligence with practical performance
+
+        - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+          Premium model combining maximum intelligence with practical performance
+
+        - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+          High-performance model for agents and coding
+
+        - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+          High-performance model for agents and coding
+
+      - `Speed Speed`
+
+        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+        - `"standard"Standard`
+
+        - `"fast"Fast`
+
+    - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
+
+      Resolved coordinator topology with full agent definitions for each roster member.
+      - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
+
+        Full `agent` definitions the coordinator may spawn as session threads.
+        - `required string ID`
+
+        - `required string? Description`
+
+        - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+          - `required string Name`
+
+          - `required Type Type`
+
+          - `required string Url`
+
+        - `required BetaManagedAgentsModelConfig Model`
+
+          Model identifier and configuration.
+
+        - `required string Name`
+
+        - `required IReadOnlyList<Skill> Skills`
+          - `class BetaManagedAgentsAnthropicSkill:`
+
+            A resolved Anthropic-managed skill.
+            - `required string SkillID`
+
+            - `required Type Type`
+              - `"anthropic"Anthropic`
+
+            - `required string Version`
+
+          - `class BetaManagedAgentsCustomSkill:`
+
+            A resolved user-created custom skill.
+            - `required string SkillID`
+
+            - `required Type Type`
+              - `"custom"Custom`
+
+            - `required string Version`
+
+        - `required string? System`
+
+        - `required IReadOnlyList<Tool> Tools`
+          - `class BetaManagedAgentsAgentToolset20260401:`
+            - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+              - `required Boolean Enabled`
+
+              - `required Name Name`
+
+                Built-in agent tool identifier.
+                - `"bash"Bash`
+
+                - `"edit"Edit`
+
+                - `"read"Read`
+
+                - `"write"Write`
+
+                - `"glob"Glob`
+
+                - `"grep"Grep`
+
+                - `"web_fetch"WebFetch`
+
+                - `"web_search"WebSearch`
+
+              - `required PermissionPolicy PermissionPolicy`
+
+                Permission policy for tool execution.
+                - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                  Tool calls are automatically approved without user confirmation.
+                  - `required Type Type`
+                    - `"always_allow"AlwaysAllow`
+
+                - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                  Tool calls require user confirmation before execution.
+                  - `required Type Type`
+                    - `"always_ask"AlwaysAsk`
+
+            - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
+
+              Resolved default configuration for agent tools.
+              - `required Boolean Enabled`
+
+              - `required PermissionPolicy PermissionPolicy`
+
+                Permission policy for tool execution.
+                - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                  Tool calls require user confirmation before execution.
+
+            - `required Type Type`
+              - `"agent_toolset_20260401"AgentToolset20260401`
+
+          - `class BetaManagedAgentsMcpToolset:`
+            - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
+              - `required Boolean Enabled`
+
+              - `required string Name`
+
+              - `required PermissionPolicy PermissionPolicy`
+
+                Permission policy for tool execution.
+                - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                  Tool calls require user confirmation before execution.
+
+            - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
+
+              Resolved default configuration for all tools from an MCP server.
+              - `required Boolean Enabled`
+
+              - `required PermissionPolicy PermissionPolicy`
+
+                Permission policy for tool execution.
+                - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                  Tool calls are automatically approved without user confirmation.
+
+                - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                  Tool calls require user confirmation before execution.
+
+            - `required string McpServerName`
+
+            - `required Type Type`
+              - `"mcp_toolset"McpToolset`
+
+          - `class BetaManagedAgentsCustomTool:`
+
+            A custom tool as returned in API responses.
+            - `required string Description`
+
+            - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
+
+              JSON Schema for custom tool input parameters.
+              - `IReadOnlyDictionary<string, JsonElement>? Properties`
+
+                JSON Schema properties defining the tool's input parameters.
+
+              - `IReadOnlyList<string> Required`
+
+                List of required property names.
+
+              - `Type Type`
+
+                Must be 'object' for tool input schemas.
+                - `"object"Object`
+
+            - `required string Name`
+
+            - `required Type Type`
+              - `"custom"Custom`
+
+        - `required Type Type`
+          - `"agent"Agent`
+
+        - `required Int Version`
+
+      - `required Type Type`
+        - `"coordinator"Coordinator`
+
+    - `required string Name`
+
+    - `required IReadOnlyList<Skill> Skills`
+      - `class BetaManagedAgentsAnthropicSkill:`
+
+        A resolved Anthropic-managed skill.
+
+      - `class BetaManagedAgentsCustomSkill:`
+
+        A resolved user-created custom skill.
+
+    - `required string? System`
+
+    - `required IReadOnlyList<Tool> Tools`
+      - `class BetaManagedAgentsAgentToolset20260401:`
+
+      - `class BetaManagedAgentsMcpToolset:`
+
+      - `class BetaManagedAgentsCustomTool:`
+
+        A custom tool as returned in API responses.
+
+    - `required Type Type`
+      - `"agent"Agent`
+
+    - `required Int Version`
+
+  - `IReadOnlyDictionary<string, string> Metadata`
+
+    The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+  - `string? Title`
+
+    The session's new title. Present only when the update changed it.
+
 ### Beta Managed Agents Session Usage
 
 - `class BetaManagedAgentsSessionUsage:`
 
   Cumulative token usage for a session across all turns.
-
   - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
     Prompt-cache creation token usage broken down by cache lifetime.
-
     - `Int Ephemeral1hInputTokens`
 
       Tokens used to create 1-hour ephemeral cache entries.
@@ -6544,9 +5585,190 @@ Console.WriteLine(betaManagedAgentsSession);
 
     Total output tokens generated across all turns.
 
+### Beta Managed Agents User Tool Result Event
+
+- `class BetaManagedAgentsUserToolResultEvent:`
+
+  Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+  - `required string ID`
+
+    Unique identifier for this event.
+
+  - `required string ToolUseID`
+
+    The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+  - `required Type Type`
+    - `"user.tool_result"UserToolResult`
+
+  - `IReadOnlyList<Content> Content`
+
+    The result content returned by the tool.
+    - `class BetaManagedAgentsTextBlock:`
+
+      Regular text content.
+      - `required string Text`
+
+        The text content.
+
+      - `required Type Type`
+        - `"text"Text`
+
+    - `class BetaManagedAgentsImageBlock:`
+
+      Image content specified directly as base64 data or as a reference via a URL.
+      - `required Source Source`
+
+        Union type for image source variants.
+        - `class BetaManagedAgentsBase64ImageSource:`
+
+          Base64-encoded image data.
+          - `required string Data`
+
+            Base64-encoded image data.
+
+          - `required string MediaType`
+
+            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+          - `required Type Type`
+            - `"base64"Base64`
+
+        - `class BetaManagedAgentsUrlImageSource:`
+
+          Image referenced by URL.
+          - `required Type Type`
+            - `"url"Url`
+
+          - `required string Url`
+
+            URL of the image to fetch.
+
+        - `class BetaManagedAgentsFileImageSource:`
+
+          Image referenced by file ID.
+          - `required string FileID`
+
+            ID of a previously uploaded file.
+
+          - `required Type Type`
+            - `"file"File`
+
+      - `required Type Type`
+        - `"image"Image`
+
+    - `class BetaManagedAgentsDocumentBlock:`
+
+      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+      - `required Source Source`
+
+        Union type for document source variants.
+        - `class BetaManagedAgentsBase64DocumentSource:`
+
+          Base64-encoded document data.
+          - `required string Data`
+
+            Base64-encoded document data.
+
+          - `required string MediaType`
+
+            MIME type of the document (e.g., "application/pdf").
+
+          - `required Type Type`
+            - `"base64"Base64`
+
+        - `class BetaManagedAgentsPlainTextDocumentSource:`
+
+          Plain text document content.
+          - `required string Data`
+
+            The plain text content.
+
+          - `required MediaType MediaType`
+
+            MIME type of the text content. Must be "text/plain".
+            - `"text/plain"TextPlain`
+
+          - `required Type Type`
+            - `"text"Text`
+
+        - `class BetaManagedAgentsUrlDocumentSource:`
+
+          Document referenced by URL.
+          - `required Type Type`
+            - `"url"Url`
+
+          - `required string Url`
+
+            URL of the document to fetch.
+
+        - `class BetaManagedAgentsFileDocumentSource:`
+
+          Document referenced by file ID.
+          - `required string FileID`
+
+            ID of a previously uploaded file.
+
+          - `required Type Type`
+            - `"file"File`
+
+      - `required Type Type`
+        - `"document"Document`
+
+      - `string? Context`
+
+        Additional context about the document for the model.
+
+      - `string? Title`
+
+        The title of the document.
+
+    - `class BetaManagedAgentsSearchResultBlock:`
+
+      A block containing a web search result.
+      - `required BetaManagedAgentsSearchResultCitations Citations`
+
+        Citation settings for a search result.
+        - `required Boolean Enabled`
+
+          Whether citations are enabled for this search result.
+
+      - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
+
+        Array of text content blocks from the search result.
+        - `required string Text`
+
+          The text content.
+
+        - `required Type Type`
+          - `"text"Text`
+
+      - `required string Source`
+
+        The URL source of the search result.
+
+      - `required string Title`
+
+        The title of the search result.
+
+      - `required Type Type`
+        - `"search_result"SearchResult`
+
+  - `Boolean? IsError`
+
+    Whether the tool execution resulted in an error.
+
+  - `DateTimeOffset? ProcessedAt`
+
+    A timestamp in RFC 3339 format
+
+  - `string? SessionThreadID`
+
+    Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
+
 # Events
 
-## List
+## List Events
 
 `EventListPageResponse Beta.Sessions.Events.List(EventListParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -6557,7 +5779,6 @@ List Events
 ### Parameters
 
 - `EventListParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -6585,7 +5806,6 @@ List Events
   - `Order order`
 
     Query param: Sort direction for results, ordered by created_at. Defaults to asc (chronological).
-
     - `"asc"Asc`
 
     - `"desc"Desc`
@@ -6601,7 +5821,6 @@ List Events
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -6650,20 +5869,23 @@ List Events
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class EventListPageResponse:`
 
   Paginated list of events for a `session`.
-
   - `IReadOnlyList<BetaManagedAgentsSessionEvent> Data`
 
     Events for the session, ordered by `created_at`.
-
     - `class BetaManagedAgentsUserMessageEvent:`
 
       A user message event in the session conversation.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -6671,31 +5893,25 @@ List Events
       - `required IReadOnlyList<Content> Content`
 
         Array of content blocks comprising the user message.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
           - `required string Text`
 
             The text content.
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
-
           - `required Source Source`
 
             Union type for image source variants.
-
             - `class BetaManagedAgentsBase64ImageSource:`
 
               Base64-encoded image data.
-
               - `required string Data`
 
                 Base64-encoded image data.
@@ -6705,15 +5921,12 @@ List Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               - `required Type Type`
-
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
               Image referenced by URL.
-
               - `required Type Type`
-
                 - `"url"Url`
 
               - `required string Url`
@@ -6723,31 +5936,25 @@ List Events
             - `class BetaManagedAgentsFileImageSource:`
 
               Image referenced by file ID.
-
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
-
                 - `"file"File`
 
           - `required Type Type`
-
             - `"image"Image`
 
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
           - `required Source Source`
 
             Union type for document source variants.
-
             - `class BetaManagedAgentsBase64DocumentSource:`
 
               Base64-encoded document data.
-
               - `required string Data`
 
                 Base64-encoded document data.
@@ -6757,13 +5964,11 @@ List Events
                 MIME type of the document (e.g., "application/pdf").
 
               - `required Type Type`
-
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
               Plain text document content.
-
               - `required string Data`
 
                 The plain text content.
@@ -6771,19 +5976,15 @@ List Events
               - `required MediaType MediaType`
 
                 MIME type of the text content. Must be "text/plain".
-
                 - `"text/plain"TextPlain`
 
               - `required Type Type`
-
                 - `"text"Text`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
               Document referenced by URL.
-
               - `required Type Type`
-
                 - `"url"Url`
 
               - `required string Url`
@@ -6793,17 +5994,14 @@ List Events
             - `class BetaManagedAgentsFileDocumentSource:`
 
               Document referenced by file ID.
-
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
-
                 - `"file"File`
 
           - `required Type Type`
-
             - `"document"Document`
 
           - `string? Context`
@@ -6815,7 +6013,6 @@ List Events
             The title of the document.
 
       - `required Type Type`
-
         - `"user.message"UserMessage`
 
       - `DateTimeOffset? ProcessedAt`
@@ -6825,13 +6022,11 @@ List Events
     - `class BetaManagedAgentsUserInterruptEvent:`
 
       An interrupt event that pauses agent execution and returns control to the user.
-
       - `required string ID`
 
         Unique identifier for this event.
 
       - `required Type Type`
-
         - `"user.interrupt"UserInterrupt`
 
       - `DateTimeOffset? ProcessedAt`
@@ -6845,7 +6040,6 @@ List Events
     - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
       A tool confirmation event that approves or denies a pending tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -6853,7 +6047,6 @@ List Events
       - `required Result Result`
 
         UserToolConfirmationResult enum
-
         - `"allow"Allow`
 
         - `"deny"Deny`
@@ -6863,7 +6056,6 @@ List Events
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
-
         - `"user.tool_confirmation"UserToolConfirmation`
 
       - `string? DenyMessage`
@@ -6881,7 +6073,6 @@ List Events
     - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
       Event sent by the client providing the result of a custom tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -6891,154 +6082,53 @@ List Events
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
-
         - `"user.custom_tool_result"UserCustomToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-          - `required Source Source`
+        - `class BetaManagedAgentsSearchResultBlock:`
 
-            Union type for document source variants.
+          A block containing a web search result.
+          - `required BetaManagedAgentsSearchResultCitations Citations`
 
-            - `class BetaManagedAgentsBase64DocumentSource:`
+            Citation settings for a search result.
+            - `required Boolean Enabled`
 
-              Base64-encoded document data.
+              Whether citations are enabled for this search result.
 
-              - `required string Data`
+          - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
-                Base64-encoded document data.
+            Array of text content blocks from the search result.
+            - `required string Text`
 
-              - `required string MediaType`
+              The text content.
 
-                MIME type of the document (e.g., "application/pdf").
+            - `required Type Type`
+              - `"text"Text`
 
-              - `required Type Type`
+          - `required string Source`
 
-                - `"base64"Base64`
+            The URL source of the search result.
 
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
+          - `required string Title`
 
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
+            The title of the search result.
 
           - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
+            - `"search_result"SearchResult`
 
       - `Boolean? IsError`
 
@@ -7055,7 +6145,6 @@ List Events
     - `class BetaManagedAgentsAgentCustomToolUseEvent:`
 
       Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -7073,7 +6162,6 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.custom_tool_use"AgentCustomToolUse`
 
       - `string? SessionThreadID`
@@ -7083,7 +6171,6 @@ List Events
     - `class BetaManagedAgentsAgentMessageEvent:`
 
       An agent response event in the session conversation.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -7091,27 +6178,22 @@ List Events
       - `required IReadOnlyList<BetaManagedAgentsTextBlock> Content`
 
         Array of text blocks comprising the agent response.
-
         - `required string Text`
 
           The text content.
 
         - `required Type Type`
 
-          - `"text"Text`
-
       - `required DateTimeOffset ProcessedAt`
 
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.message"AgentMessage`
 
     - `class BetaManagedAgentsAgentThinkingEvent:`
 
       Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -7121,13 +6203,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.thinking"AgentThinking`
 
     - `class BetaManagedAgentsAgentMcpToolUseEvent:`
 
       Event emitted when the agent invokes a tool provided by an MCP server.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -7149,13 +6229,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.mcp_tool_use"AgentMcpToolUse`
 
       - `EvaluatedPermission EvaluatedPermission`
 
         AgentEvaluatedPermission enum
-
         - `"allow"Allow`
 
         - `"ask"Ask`
@@ -7169,7 +6247,6 @@ List Events
     - `class BetaManagedAgentsAgentMcpToolResultEvent:`
 
       Event representing the result of an MCP tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -7183,154 +6260,26 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.mcp_tool_result"AgentMcpToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-          - `required Source Source`
+        - `class BetaManagedAgentsSearchResultBlock:`
 
-            Union type for document source variants.
-
-            - `class BetaManagedAgentsBase64DocumentSource:`
-
-              Base64-encoded document data.
-
-              - `required string Data`
-
-                Base64-encoded document data.
-
-              - `required string MediaType`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
+          A block containing a web search result.
 
       - `Boolean? IsError`
 
@@ -7339,7 +6288,6 @@ List Events
     - `class BetaManagedAgentsAgentToolUseEvent:`
 
       Event emitted when the agent invokes a built-in agent tool.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -7357,13 +6305,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.tool_use"AgentToolUse`
 
       - `EvaluatedPermission EvaluatedPermission`
 
         AgentEvaluatedPermission enum
-
         - `"allow"Allow`
 
         - `"ask"Ask`
@@ -7377,7 +6323,6 @@ List Events
     - `class BetaManagedAgentsAgentToolResultEvent:`
 
       Event representing the result of an agent tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -7391,154 +6336,26 @@ List Events
         The id of the `agent.tool_use` event this result corresponds to.
 
       - `required Type Type`
-
         - `"agent.tool_result"AgentToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-          - `required Source Source`
+        - `class BetaManagedAgentsSearchResultBlock:`
 
-            Union type for document source variants.
-
-            - `class BetaManagedAgentsBase64DocumentSource:`
-
-              Base64-encoded document data.
-
-              - `required string Data`
-
-                Base64-encoded document data.
-
-              - `required string MediaType`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
+          A block containing a web search result.
 
       - `Boolean? IsError`
 
@@ -7547,7 +6364,6 @@ List Events
     - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
 
       Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -7555,148 +6371,17 @@ List Events
       - `required IReadOnlyList<Content> Content`
 
         Message content blocks.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `required Source Source`
-
-            Union type for document source variants.
-
-            - `class BetaManagedAgentsBase64DocumentSource:`
-
-              Base64-encoded document data.
-
-              - `required string Data`
-
-                Base64-encoded document data.
-
-              - `required string MediaType`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
 
       - `required string FromSessionThreadID`
 
@@ -7707,7 +6392,6 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.thread_message_received"AgentThreadMessageReceived`
 
       - `string? FromAgentName`
@@ -7717,7 +6401,6 @@ List Events
     - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
 
       Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -7725,148 +6408,17 @@ List Events
       - `required IReadOnlyList<Content> Content`
 
         Message content blocks.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `required Source Source`
-
-            Union type for document source variants.
-
-            - `class BetaManagedAgentsBase64DocumentSource:`
-
-              Base64-encoded document data.
-
-              - `required string Data`
-
-                Base64-encoded document data.
-
-              - `required string MediaType`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
 
       - `required DateTimeOffset ProcessedAt`
 
@@ -7877,7 +6429,6 @@ List Events
         Public `sthr_` ID of the thread the message was sent to.
 
       - `required Type Type`
-
         - `"agent.thread_message_sent"AgentThreadMessageSent`
 
       - `string? ToAgentName`
@@ -7887,7 +6438,6 @@ List Events
     - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
 
       Indicates that context compaction (summarization) occurred during the session.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -7897,13 +6447,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.thread_context_compacted"AgentThreadContextCompacted`
 
     - `class BetaManagedAgentsSessionErrorEvent:`
 
       An error event indicating a problem occurred during session execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -7911,11 +6459,9 @@ List Events
       - `required Error Error`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
         - `class BetaManagedAgentsUnknownError:`
 
           An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
           - `required string Message`
 
             Human-readable error description.
@@ -7923,39 +6469,30 @@ List Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
               - `required Type Type`
-
                 - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
               - `required Type Type`
-
                 - `"exhausted"Exhausted`
 
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
-
               - `required Type Type`
-
                 - `"terminal"Terminal`
 
           - `required Type Type`
-
             - `"unknown_error"UnknownError`
 
         - `class BetaManagedAgentsModelOverloadedError:`
 
           The model is currently overloaded. Emitted after automatic retries are exhausted.
-
           - `required string Message`
 
             Human-readable error description.
@@ -7963,39 +6500,24 @@ List Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"model_overloaded_error"ModelOverloadedError`
 
         - `class BetaManagedAgentsModelRateLimitedError:`
 
           The model request was rate-limited.
-
           - `required string Message`
 
             Human-readable error description.
@@ -8003,39 +6525,24 @@ List Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"model_rate_limited_error"ModelRateLimitedError`
 
         - `class BetaManagedAgentsModelRequestFailedError:`
 
           A model request failed for a reason other than overload or rate-limiting.
-
           - `required string Message`
 
             Human-readable error description.
@@ -8043,39 +6550,24 @@ List Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"model_request_failed_error"ModelRequestFailedError`
 
         - `class BetaManagedAgentsMcpConnectionFailedError:`
 
           Failed to connect to an MCP server.
-
           - `required string McpServerName`
 
             Name of the MCP server that failed to connect.
@@ -8087,39 +6579,24 @@ List Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"mcp_connection_failed_error"McpConnectionFailedError`
 
         - `class BetaManagedAgentsMcpAuthenticationFailedError:`
 
           Authentication to an MCP server failed.
-
           - `required string McpServerName`
 
             Name of the MCP server that failed authentication.
@@ -8131,39 +6608,24 @@ List Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"mcp_authentication_failed_error"McpAuthenticationFailedError`
 
         - `class BetaManagedAgentsBillingError:`
 
           The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
           - `required string Message`
 
             Human-readable error description.
@@ -8171,33 +6633,19 @@ List Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"billing_error"BillingError`
 
       - `required DateTimeOffset ProcessedAt`
@@ -8205,13 +6653,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"session.error"SessionError`
 
     - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
 
       Indicates the session is recovering from an error state and is rescheduled for execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8221,13 +6667,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"session.status_rescheduled"SessionStatusRescheduled`
 
     - `class BetaManagedAgentsSessionStatusRunningEvent:`
 
       Indicates the session is actively running and the agent is working.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8237,13 +6681,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"session.status_running"SessionStatusRunning`
 
     - `class BetaManagedAgentsSessionStatusIdleEvent:`
 
       Indicates the agent has paused and is awaiting user input.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8255,43 +6697,34 @@ List Events
       - `required StopReason StopReason`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `class BetaManagedAgentsSessionEndTurn:`
 
           The agent completed its turn naturally and is ready for the next user message.
-
           - `required Type Type`
-
             - `"end_turn"EndTurn`
 
         - `class BetaManagedAgentsSessionRequiresAction:`
 
           The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
           - `required IReadOnlyList<string> EventIds`
 
             The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
           - `required Type Type`
-
             - `"requires_action"RequiresAction`
 
         - `class BetaManagedAgentsSessionRetriesExhausted:`
 
           The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
           - `required Type Type`
-
             - `"retries_exhausted"RetriesExhausted`
 
       - `required Type Type`
-
         - `"session.status_idle"SessionStatusIdle`
 
     - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
 
       Indicates the session has terminated, either due to an error or completion.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8301,13 +6734,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"session.status_terminated"SessionStatusTerminated`
 
     - `class BetaManagedAgentsSessionThreadCreatedEvent:`
 
       Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8325,13 +6756,11 @@ List Events
         Public `sthr_` ID of the newly created thread.
 
       - `required Type Type`
-
         - `"session.thread_created"SessionThreadCreated`
 
     - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
 
       Emitted when an outcome evaluation cycle begins.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8349,13 +6778,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"span.outcome_evaluation_start"SpanOutcomeEvaluationStart`
 
     - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
 
       Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8385,13 +6812,11 @@ List Events
         Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
       - `required Type Type`
-
         - `"span.outcome_evaluation_end"SpanOutcomeEvaluationEnd`
 
       - `required BetaManagedAgentsSpanModelUsage Usage`
 
         Token usage for a single model request.
-
         - `required Int CacheCreationInputTokens`
 
           Tokens used to create prompt cache in this request.
@@ -8411,7 +6836,6 @@ List Events
         - `Speed? Speed`
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
           - `"standard"Standard`
 
           - `"fast"Fast`
@@ -8419,7 +6843,6 @@ List Events
     - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
       Emitted when a model request is initiated by the agent.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8429,13 +6852,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"span.model_request_start"SpanModelRequestStart`
 
     - `class BetaManagedAgentsSpanModelRequestEndEvent:`
 
       Emitted when a model request completes.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8452,42 +6873,16 @@ List Events
 
         Token usage for a single model request.
 
-        - `required Int CacheCreationInputTokens`
-
-          Tokens used to create prompt cache in this request.
-
-        - `required Int CacheReadInputTokens`
-
-          Tokens read from prompt cache in this request.
-
-        - `required Int InputTokens`
-
-          Input tokens consumed by this request.
-
-        - `required Int OutputTokens`
-
-          Output tokens generated by this request.
-
-        - `Speed? Speed`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `"standard"Standard`
-
-          - `"fast"Fast`
-
       - `required DateTimeOffset ProcessedAt`
 
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"span.model_request_end"SpanModelRequestEnd`
 
     - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
 
       Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8505,13 +6900,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"span.outcome_evaluation_ongoing"SpanOutcomeEvaluationOngoing`
 
     - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8535,39 +6928,32 @@ List Events
       - `required Rubric Rubric`
 
         Rubric for grading the quality of an outcome.
-
         - `class BetaManagedAgentsFileRubric:`
 
           Rubric referenced by a file uploaded via the Files API.
-
           - `required string FileID`
 
             ID of the rubric file.
 
           - `required Type Type`
-
             - `"file"File`
 
         - `class BetaManagedAgentsTextRubric:`
 
           Rubric content provided inline as text.
-
           - `required string Content`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
           - `required Type Type`
-
             - `"text"Text`
 
       - `required Type Type`
-
         - `"user.define_outcome"UserDefineOutcome`
 
     - `class BetaManagedAgentsSessionDeletedEvent:`
 
       Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8577,13 +6963,11 @@ List Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"session.deleted"SessionDeleted`
 
     - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
 
       A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8598,16 +6982,14 @@ List Events
 
       - `required string SessionThreadID`
 
-        Public sthr_ ID of the thread that started running.
+        Public sthr\_ ID of the thread that started running.
 
       - `required Type Type`
-
         - `"session.thread_status_running"SessionThreadStatusRunning`
 
     - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
 
       A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8622,48 +7004,29 @@ List Events
 
       - `required string SessionThreadID`
 
-        Public sthr_ ID of the thread that went idle.
+        Public sthr\_ ID of the thread that went idle.
 
       - `required StopReason StopReason`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `class BetaManagedAgentsSessionEndTurn:`
 
           The agent completed its turn naturally and is ready for the next user message.
-
-          - `required Type Type`
-
-            - `"end_turn"EndTurn`
 
         - `class BetaManagedAgentsSessionRequiresAction:`
 
           The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-          - `required IReadOnlyList<string> EventIds`
-
-            The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-          - `required Type Type`
-
-            - `"requires_action"RequiresAction`
-
         - `class BetaManagedAgentsSessionRetriesExhausted:`
 
           The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
-          - `required Type Type`
-
-            - `"retries_exhausted"RetriesExhausted`
-
       - `required Type Type`
-
         - `"session.thread_status_idle"SessionThreadStatusIdle`
 
     - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
 
       A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8678,16 +7041,59 @@ List Events
 
       - `required string SessionThreadID`
 
-        Public sthr_ ID of the thread that terminated.
+        Public sthr\_ ID of the thread that terminated.
 
       - `required Type Type`
-
         - `"session.thread_status_terminated"SessionThreadStatusTerminated`
+
+    - `class BetaManagedAgentsUserToolResultEvent:`
+
+      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+      - `required string ID`
+
+        Unique identifier for this event.
+
+      - `required string ToolUseID`
+
+        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `required Type Type`
+        - `"user.tool_result"UserToolResult`
+
+      - `IReadOnlyList<Content> Content`
+
+        The result content returned by the tool.
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock:`
+
+          A block containing a web search result.
+
+      - `Boolean? IsError`
+
+        Whether the tool execution resulted in an error.
+
+      - `DateTimeOffset? ProcessedAt`
+
+        A timestamp in RFC 3339 format
+
+      - `string? SessionThreadID`
+
+        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
     - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
 
       A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -8702,11 +7108,301 @@ List Events
 
       - `required string SessionThreadID`
 
-        Public sthr_ ID of the thread that is retrying.
+        Public sthr\_ ID of the thread that is retrying.
 
       - `required Type Type`
-
         - `"session.thread_status_rescheduled"SessionThreadStatusRescheduled`
+
+    - `class BetaManagedAgentsSessionUpdatedEvent:`
+
+      Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+      - `required string ID`
+
+        Unique identifier for this event.
+
+      - `required DateTimeOffset ProcessedAt`
+
+        A timestamp in RFC 3339 format
+
+      - `required Type Type`
+        - `"session.updated"SessionUpdated`
+
+      - `BetaManagedAgentsSessionAgent? Agent`
+
+        Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+        - `required string ID`
+
+        - `required string? Description`
+
+        - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+          - `required string Name`
+
+          - `required Type Type`
+            - `"url"Url`
+
+          - `required string Url`
+
+        - `required BetaManagedAgentsModelConfig Model`
+
+          Model identifier and configuration.
+          - `required BetaManagedAgentsModel ID`
+
+            The model that will power your agent.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+            - `"claude-opus-4-7"ClaudeOpus4_7`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"ClaudeOpus4_6`
+
+              Most intelligent model for building agents and coding
+
+            - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"ClaudeOpus4_5`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+              High-performance model for agents and coding
+
+          - `Speed Speed`
+
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+            - `"standard"Standard`
+
+            - `"fast"Fast`
+
+        - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
+
+          Resolved coordinator topology with full agent definitions for each roster member.
+          - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
+
+            Full `agent` definitions the coordinator may spawn as session threads.
+            - `required string ID`
+
+            - `required string? Description`
+
+            - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+              - `required string Name`
+
+              - `required Type Type`
+
+              - `required string Url`
+
+            - `required BetaManagedAgentsModelConfig Model`
+
+              Model identifier and configuration.
+
+            - `required string Name`
+
+            - `required IReadOnlyList<Skill> Skills`
+              - `class BetaManagedAgentsAnthropicSkill:`
+
+                A resolved Anthropic-managed skill.
+                - `required string SkillID`
+
+                - `required Type Type`
+                  - `"anthropic"Anthropic`
+
+                - `required string Version`
+
+              - `class BetaManagedAgentsCustomSkill:`
+
+                A resolved user-created custom skill.
+                - `required string SkillID`
+
+                - `required Type Type`
+                  - `"custom"Custom`
+
+                - `required string Version`
+
+            - `required string? System`
+
+            - `required IReadOnlyList<Tool> Tools`
+              - `class BetaManagedAgentsAgentToolset20260401:`
+                - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+                  - `required Boolean Enabled`
+
+                  - `required Name Name`
+
+                    Built-in agent tool identifier.
+                    - `"bash"Bash`
+
+                    - `"edit"Edit`
+
+                    - `"read"Read`
+
+                    - `"write"Write`
+
+                    - `"glob"Glob`
+
+                    - `"grep"Grep`
+
+                    - `"web_fetch"WebFetch`
+
+                    - `"web_search"WebSearch`
+
+                  - `required PermissionPolicy PermissionPolicy`
+
+                    Permission policy for tool execution.
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+                      - `required Type Type`
+                        - `"always_allow"AlwaysAllow`
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+                      - `required Type Type`
+                        - `"always_ask"AlwaysAsk`
+
+                - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
+
+                  Resolved default configuration for agent tools.
+                  - `required Boolean Enabled`
+
+                  - `required PermissionPolicy PermissionPolicy`
+
+                    Permission policy for tool execution.
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+
+                - `required Type Type`
+                  - `"agent_toolset_20260401"AgentToolset20260401`
+
+              - `class BetaManagedAgentsMcpToolset:`
+                - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
+                  - `required Boolean Enabled`
+
+                  - `required string Name`
+
+                  - `required PermissionPolicy PermissionPolicy`
+
+                    Permission policy for tool execution.
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+
+                - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
+
+                  Resolved default configuration for all tools from an MCP server.
+                  - `required Boolean Enabled`
+
+                  - `required PermissionPolicy PermissionPolicy`
+
+                    Permission policy for tool execution.
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+
+                - `required string McpServerName`
+
+                - `required Type Type`
+                  - `"mcp_toolset"McpToolset`
+
+              - `class BetaManagedAgentsCustomTool:`
+
+                A custom tool as returned in API responses.
+                - `required string Description`
+
+                - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
+
+                  JSON Schema for custom tool input parameters.
+                  - `IReadOnlyDictionary<string, JsonElement>? Properties`
+
+                    JSON Schema properties defining the tool's input parameters.
+
+                  - `IReadOnlyList<string> Required`
+
+                    List of required property names.
+
+                  - `Type Type`
+
+                    Must be 'object' for tool input schemas.
+                    - `"object"Object`
+
+                - `required string Name`
+
+                - `required Type Type`
+                  - `"custom"Custom`
+
+            - `required Type Type`
+              - `"agent"Agent`
+
+            - `required Int Version`
+
+          - `required Type Type`
+            - `"coordinator"Coordinator`
+
+        - `required string Name`
+
+        - `required IReadOnlyList<Skill> Skills`
+          - `class BetaManagedAgentsAnthropicSkill:`
+
+            A resolved Anthropic-managed skill.
+
+          - `class BetaManagedAgentsCustomSkill:`
+
+            A resolved user-created custom skill.
+
+        - `required string? System`
+
+        - `required IReadOnlyList<Tool> Tools`
+          - `class BetaManagedAgentsAgentToolset20260401:`
+
+          - `class BetaManagedAgentsMcpToolset:`
+
+          - `class BetaManagedAgentsCustomTool:`
+
+            A custom tool as returned in API responses.
+
+        - `required Type Type`
+          - `"agent"Agent`
+
+        - `required Int Version`
+
+      - `IReadOnlyDictionary<string, string> Metadata`
+
+        The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+      - `string? Title`
+
+        The session's new title. Present only when the update changed it.
 
   - `string? NextPage`
 
@@ -8727,7 +7423,39 @@ await foreach (var item in page.Paginate())
 }
 ```
 
-## Send
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message",
+      "processed_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sevt_011CZkZHPq1jCdq5lbRTjiVnz",
+      "content": [
+        {
+          "text": "Let me look up order #1234 for you.",
+          "type": "text"
+        }
+      ],
+      "processed_at": "2026-03-15T10:00:00Z",
+      "type": "agent.message"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Send Events
 
 `BetaManagedAgentsSendSessionEvents Beta.Sessions.Events.Send(EventSendParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -8738,7 +7466,6 @@ Send Events
 ### Parameters
 
 - `EventSendParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -8746,39 +7473,31 @@ Send Events
   - `required IReadOnlyList<BetaManagedAgentsEventParams> events`
 
     Body param: Events to send to the `session`.
-
     - `class BetaManagedAgentsUserMessageEventParams:`
 
       Parameters for sending a user message to the session.
-
       - `required IReadOnlyList<Content> Content`
 
         Array of content blocks for the user message.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
           - `required string Text`
 
             The text content.
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
-
           - `required Source Source`
 
             Union type for image source variants.
-
             - `class BetaManagedAgentsBase64ImageSource:`
 
               Base64-encoded image data.
-
               - `required string Data`
 
                 Base64-encoded image data.
@@ -8788,15 +7507,12 @@ Send Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               - `required Type Type`
-
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
               Image referenced by URL.
-
               - `required Type Type`
-
                 - `"url"Url`
 
               - `required string Url`
@@ -8806,31 +7522,25 @@ Send Events
             - `class BetaManagedAgentsFileImageSource:`
 
               Image referenced by file ID.
-
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
-
                 - `"file"File`
 
           - `required Type Type`
-
             - `"image"Image`
 
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
           - `required Source Source`
 
             Union type for document source variants.
-
             - `class BetaManagedAgentsBase64DocumentSource:`
 
               Base64-encoded document data.
-
               - `required string Data`
 
                 Base64-encoded document data.
@@ -8840,13 +7550,11 @@ Send Events
                 MIME type of the document (e.g., "application/pdf").
 
               - `required Type Type`
-
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
               Plain text document content.
-
               - `required string Data`
 
                 The plain text content.
@@ -8854,19 +7562,15 @@ Send Events
               - `required MediaType MediaType`
 
                 MIME type of the text content. Must be "text/plain".
-
                 - `"text/plain"TextPlain`
 
               - `required Type Type`
-
                 - `"text"Text`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
               Document referenced by URL.
-
               - `required Type Type`
-
                 - `"url"Url`
 
               - `required string Url`
@@ -8876,17 +7580,14 @@ Send Events
             - `class BetaManagedAgentsFileDocumentSource:`
 
               Document referenced by file ID.
-
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
-
                 - `"file"File`
 
           - `required Type Type`
-
             - `"document"Document`
 
           - `string? Context`
@@ -8898,15 +7599,12 @@ Send Events
             The title of the document.
 
       - `required Type Type`
-
         - `"user.message"UserMessage`
 
     - `class BetaManagedAgentsUserInterruptEventParams:`
 
       Parameters for sending an interrupt to pause the agent.
-
       - `required Type Type`
-
         - `"user.interrupt"UserInterrupt`
 
       - `string? SessionThreadID`
@@ -8916,11 +7614,9 @@ Send Events
     - `class BetaManagedAgentsUserToolConfirmationEventParams:`
 
       Parameters for confirming or denying a tool execution request.
-
       - `required Result Result`
 
         UserToolConfirmationResult enum
-
         - `"allow"Allow`
 
         - `"deny"Deny`
@@ -8930,7 +7626,6 @@ Send Events
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
-
         - `"user.tool_confirmation"UserToolConfirmation`
 
       - `string? DenyMessage`
@@ -8940,160 +7635,58 @@ Send Events
     - `class BetaManagedAgentsUserCustomToolResultEventParams:`
 
       Parameters for providing the result of a custom tool execution.
-
       - `required string CustomToolUseID`
 
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
-
         - `"user.custom_tool_result"UserCustomToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-          - `required Source Source`
+        - `class BetaManagedAgentsSearchResultBlock:`
 
-            Union type for document source variants.
+          A block containing a web search result.
+          - `required BetaManagedAgentsSearchResultCitations Citations`
 
-            - `class BetaManagedAgentsBase64DocumentSource:`
+            Citation settings for a search result.
+            - `required Boolean Enabled`
 
-              Base64-encoded document data.
+              Whether citations are enabled for this search result.
 
-              - `required string Data`
+          - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
-                Base64-encoded document data.
+            Array of text content blocks from the search result.
+            - `required string Text`
 
-              - `required string MediaType`
+              The text content.
 
-                MIME type of the document (e.g., "application/pdf").
+            - `required Type Type`
+              - `"text"Text`
 
-              - `required Type Type`
+          - `required string Source`
 
-                - `"base64"Base64`
+            The URL source of the search result.
 
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
+          - `required string Title`
 
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
+            The title of the search result.
 
           - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
+            - `"search_result"SearchResult`
 
       - `Boolean? IsError`
 
@@ -9102,7 +7695,6 @@ Send Events
     - `class BetaManagedAgentsUserDefineOutcomeEventParams:`
 
       Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
-
       - `required string Description`
 
         What the agent should produce. This is the task specification.
@@ -9110,43 +7702,69 @@ Send Events
       - `required Rubric Rubric`
 
         Rubric for grading the quality of an outcome.
-
         - `class BetaManagedAgentsFileRubricParams:`
 
           Rubric referenced by a file uploaded via the Files API.
-
           - `required string FileID`
 
             ID of the rubric file.
 
           - `required Type Type`
-
             - `"file"File`
 
         - `class BetaManagedAgentsTextRubricParams:`
 
           Rubric content provided inline as text.
-
           - `required string Content`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
           - `required Type Type`
-
             - `"text"Text`
 
       - `required Type Type`
-
         - `"user.define_outcome"UserDefineOutcome`
 
       - `Int? MaxIterations`
 
         Eval→revision cycles before giving up. Default 3, max 20.
 
+    - `class BetaManagedAgentsUserToolResultEventParams:`
+
+      Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+      - `required string ToolUseID`
+
+        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `required Type Type`
+        - `"user.tool_result"UserToolResult`
+
+      - `IReadOnlyList<Content> Content`
+
+        The result content returned by the tool.
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock:`
+
+          A block containing a web search result.
+
+      - `Boolean? IsError`
+
+        Whether the tool execution resulted in an error.
+
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -9195,20 +7813,23 @@ Send Events
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsSendSessionEvents:`
 
   Events that were successfully sent to the session.
-
   - `IReadOnlyList<Data> Data`
 
     Sent events
-
     - `class BetaManagedAgentsUserMessageEvent:`
 
       A user message event in the session conversation.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -9216,31 +7837,25 @@ Send Events
       - `required IReadOnlyList<Content> Content`
 
         Array of content blocks comprising the user message.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
           - `required string Text`
 
             The text content.
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
-
           - `required Source Source`
 
             Union type for image source variants.
-
             - `class BetaManagedAgentsBase64ImageSource:`
 
               Base64-encoded image data.
-
               - `required string Data`
 
                 Base64-encoded image data.
@@ -9250,15 +7865,12 @@ Send Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               - `required Type Type`
-
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
               Image referenced by URL.
-
               - `required Type Type`
-
                 - `"url"Url`
 
               - `required string Url`
@@ -9268,31 +7880,25 @@ Send Events
             - `class BetaManagedAgentsFileImageSource:`
 
               Image referenced by file ID.
-
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
-
                 - `"file"File`
 
           - `required Type Type`
-
             - `"image"Image`
 
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
           - `required Source Source`
 
             Union type for document source variants.
-
             - `class BetaManagedAgentsBase64DocumentSource:`
 
               Base64-encoded document data.
-
               - `required string Data`
 
                 Base64-encoded document data.
@@ -9302,13 +7908,11 @@ Send Events
                 MIME type of the document (e.g., "application/pdf").
 
               - `required Type Type`
-
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
               Plain text document content.
-
               - `required string Data`
 
                 The plain text content.
@@ -9316,19 +7920,15 @@ Send Events
               - `required MediaType MediaType`
 
                 MIME type of the text content. Must be "text/plain".
-
                 - `"text/plain"TextPlain`
 
               - `required Type Type`
-
                 - `"text"Text`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
               Document referenced by URL.
-
               - `required Type Type`
-
                 - `"url"Url`
 
               - `required string Url`
@@ -9338,17 +7938,14 @@ Send Events
             - `class BetaManagedAgentsFileDocumentSource:`
 
               Document referenced by file ID.
-
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
-
                 - `"file"File`
 
           - `required Type Type`
-
             - `"document"Document`
 
           - `string? Context`
@@ -9360,7 +7957,6 @@ Send Events
             The title of the document.
 
       - `required Type Type`
-
         - `"user.message"UserMessage`
 
       - `DateTimeOffset? ProcessedAt`
@@ -9370,13 +7966,11 @@ Send Events
     - `class BetaManagedAgentsUserInterruptEvent:`
 
       An interrupt event that pauses agent execution and returns control to the user.
-
       - `required string ID`
 
         Unique identifier for this event.
 
       - `required Type Type`
-
         - `"user.interrupt"UserInterrupt`
 
       - `DateTimeOffset? ProcessedAt`
@@ -9390,7 +7984,6 @@ Send Events
     - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
       A tool confirmation event that approves or denies a pending tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -9398,7 +7991,6 @@ Send Events
       - `required Result Result`
 
         UserToolConfirmationResult enum
-
         - `"allow"Allow`
 
         - `"deny"Deny`
@@ -9408,7 +8000,6 @@ Send Events
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
-
         - `"user.tool_confirmation"UserToolConfirmation`
 
       - `string? DenyMessage`
@@ -9426,7 +8017,6 @@ Send Events
     - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
       Event sent by the client providing the result of a custom tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -9436,154 +8026,53 @@ Send Events
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
-
         - `"user.custom_tool_result"UserCustomToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-          - `required Source Source`
+        - `class BetaManagedAgentsSearchResultBlock:`
 
-            Union type for document source variants.
+          A block containing a web search result.
+          - `required BetaManagedAgentsSearchResultCitations Citations`
 
-            - `class BetaManagedAgentsBase64DocumentSource:`
+            Citation settings for a search result.
+            - `required Boolean Enabled`
 
-              Base64-encoded document data.
+              Whether citations are enabled for this search result.
 
-              - `required string Data`
+          - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
-                Base64-encoded document data.
+            Array of text content blocks from the search result.
+            - `required string Text`
 
-              - `required string MediaType`
+              The text content.
 
-                MIME type of the document (e.g., "application/pdf").
+            - `required Type Type`
+              - `"text"Text`
 
-              - `required Type Type`
+          - `required string Source`
 
-                - `"base64"Base64`
+            The URL source of the search result.
 
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
+          - `required string Title`
 
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
+            The title of the search result.
 
           - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
+            - `"search_result"SearchResult`
 
       - `Boolean? IsError`
 
@@ -9600,7 +8089,6 @@ Send Events
     - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -9624,34 +8112,73 @@ Send Events
       - `required Rubric Rubric`
 
         Rubric for grading the quality of an outcome.
-
         - `class BetaManagedAgentsFileRubric:`
 
           Rubric referenced by a file uploaded via the Files API.
-
           - `required string FileID`
 
             ID of the rubric file.
 
           - `required Type Type`
-
             - `"file"File`
 
         - `class BetaManagedAgentsTextRubric:`
 
           Rubric content provided inline as text.
-
           - `required string Content`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
           - `required Type Type`
-
             - `"text"Text`
 
       - `required Type Type`
-
         - `"user.define_outcome"UserDefineOutcome`
+
+    - `class BetaManagedAgentsUserToolResultEvent:`
+
+      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+      - `required string ID`
+
+        Unique identifier for this event.
+
+      - `required string ToolUseID`
+
+        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `required Type Type`
+        - `"user.tool_result"UserToolResult`
+
+      - `IReadOnlyList<Content> Content`
+
+        The result content returned by the tool.
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock:`
+
+          A block containing a web search result.
+
+      - `Boolean? IsError`
+
+        Whether the tool execution resulted in an error.
+
+      - `DateTimeOffset? ProcessedAt`
+
+        A timestamp in RFC 3339 format
+
+      - `string? SessionThreadID`
+
+        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
 ### Example
 
@@ -9681,7 +8208,27 @@ var betaManagedAgentsSendSessionEvents = await client.Beta.Sessions.Events.Send(
 Console.WriteLine(betaManagedAgentsSendSessionEvents);
 ```
 
-## Stream
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message",
+      "processed_at": "2026-03-15T10:00:00Z"
+    }
+  ]
+}
+```
+
+## Stream Events
 
 `BetaManagedAgentsStreamSessionEvents Beta.Sessions.Events.StreamStreaming(EventStreamParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9692,7 +8239,6 @@ Stream Events
 ### Parameters
 
 - `EventStreamParams parameters`
-
   - `required string sessionID`
 
     Path parameter session_id
@@ -9700,7 +8246,6 @@ Stream Events
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -9749,16 +8294,20 @@ Stream Events
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsStreamSessionEvents: A class that can be one of several variants.union`
 
   Server-sent event in the session stream.
-
   - `class BetaManagedAgentsUserMessageEvent:`
 
     A user message event in the session conversation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -9766,31 +8315,25 @@ Stream Events
     - `required IReadOnlyList<Content> Content`
 
       Array of content blocks comprising the user message.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
         - `required string Text`
 
           The text content.
 
         - `required Type Type`
-
           - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for image source variants.
-
           - `class BetaManagedAgentsBase64ImageSource:`
 
             Base64-encoded image data.
-
             - `required string Data`
 
               Base64-encoded image data.
@@ -9800,15 +8343,12 @@ Stream Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsUrlImageSource:`
 
             Image referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -9818,31 +8358,25 @@ Stream Events
           - `class BetaManagedAgentsFileImageSource:`
 
             Image referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"image"Image`
 
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for document source variants.
-
           - `class BetaManagedAgentsBase64DocumentSource:`
 
             Base64-encoded document data.
-
             - `required string Data`
 
               Base64-encoded document data.
@@ -9852,13 +8386,11 @@ Stream Events
               MIME type of the document (e.g., "application/pdf").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource:`
 
             Plain text document content.
-
             - `required string Data`
 
               The plain text content.
@@ -9866,19 +8398,15 @@ Stream Events
             - `required MediaType MediaType`
 
               MIME type of the text content. Must be "text/plain".
-
               - `"text/plain"TextPlain`
 
             - `required Type Type`
-
               - `"text"Text`
 
           - `class BetaManagedAgentsUrlDocumentSource:`
 
             Document referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -9888,17 +8416,14 @@ Stream Events
           - `class BetaManagedAgentsFileDocumentSource:`
 
             Document referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"document"Document`
 
         - `string? Context`
@@ -9910,7 +8435,6 @@ Stream Events
           The title of the document.
 
     - `required Type Type`
-
       - `"user.message"UserMessage`
 
     - `DateTimeOffset? ProcessedAt`
@@ -9920,13 +8444,11 @@ Stream Events
   - `class BetaManagedAgentsUserInterruptEvent:`
 
     An interrupt event that pauses agent execution and returns control to the user.
-
     - `required string ID`
 
       Unique identifier for this event.
 
     - `required Type Type`
-
       - `"user.interrupt"UserInterrupt`
 
     - `DateTimeOffset? ProcessedAt`
@@ -9940,7 +8462,6 @@ Stream Events
   - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
     A tool confirmation event that approves or denies a pending tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -9948,7 +8469,6 @@ Stream Events
     - `required Result Result`
 
       UserToolConfirmationResult enum
-
       - `"allow"Allow`
 
       - `"deny"Deny`
@@ -9958,7 +8478,6 @@ Stream Events
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.tool_confirmation"UserToolConfirmation`
 
     - `string? DenyMessage`
@@ -9976,7 +8495,6 @@ Stream Events
   - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
     Event sent by the client providing the result of a custom tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -9986,154 +8504,53 @@ Stream Events
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.custom_tool_result"UserCustomToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
+        A block containing a web search result.
+        - `required BetaManagedAgentsSearchResultCitations Citations`
 
-          - `class BetaManagedAgentsBase64DocumentSource:`
+          Citation settings for a search result.
+          - `required Boolean Enabled`
 
-            Base64-encoded document data.
+            Whether citations are enabled for this search result.
 
-            - `required string Data`
+        - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
-              Base64-encoded document data.
+          Array of text content blocks from the search result.
+          - `required string Text`
 
-            - `required string MediaType`
+            The text content.
 
-              MIME type of the document (e.g., "application/pdf").
+          - `required Type Type`
+            - `"text"Text`
 
-            - `required Type Type`
+        - `required string Source`
 
-              - `"base64"Base64`
+          The URL source of the search result.
 
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
+        - `required string Title`
 
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
+          The title of the search result.
 
         - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+          - `"search_result"SearchResult`
 
     - `Boolean? IsError`
 
@@ -10150,7 +8567,6 @@ Stream Events
   - `class BetaManagedAgentsAgentCustomToolUseEvent:`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -10168,7 +8584,6 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.custom_tool_use"AgentCustomToolUse`
 
     - `string? SessionThreadID`
@@ -10178,7 +8593,6 @@ Stream Events
   - `class BetaManagedAgentsAgentMessageEvent:`
 
     An agent response event in the session conversation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -10186,27 +8600,22 @@ Stream Events
     - `required IReadOnlyList<BetaManagedAgentsTextBlock> Content`
 
       Array of text blocks comprising the agent response.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
 
-        - `"text"Text`
-
     - `required DateTimeOffset ProcessedAt`
 
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.message"AgentMessage`
 
   - `class BetaManagedAgentsAgentThinkingEvent:`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -10216,13 +8625,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thinking"AgentThinking`
 
   - `class BetaManagedAgentsAgentMcpToolUseEvent:`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -10244,13 +8651,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.mcp_tool_use"AgentMcpToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -10264,7 +8669,6 @@ Stream Events
   - `class BetaManagedAgentsAgentMcpToolResultEvent:`
 
     Event representing the result of an MCP tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -10278,154 +8682,26 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.mcp_tool_result"AgentMcpToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `Boolean? IsError`
 
@@ -10434,7 +8710,6 @@ Stream Events
   - `class BetaManagedAgentsAgentToolUseEvent:`
 
     Event emitted when the agent invokes a built-in agent tool.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -10452,13 +8727,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.tool_use"AgentToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -10472,7 +8745,6 @@ Stream Events
   - `class BetaManagedAgentsAgentToolResultEvent:`
 
     Event representing the result of an agent tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -10486,154 +8758,26 @@ Stream Events
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `required Type Type`
-
       - `"agent.tool_result"AgentToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `Boolean? IsError`
 
@@ -10642,7 +8786,6 @@ Stream Events
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -10650,148 +8793,17 @@ Stream Events
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
 
     - `required string FromSessionThreadID`
 
@@ -10802,7 +8814,6 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thread_message_received"AgentThreadMessageReceived`
 
     - `string? FromAgentName`
@@ -10812,7 +8823,6 @@ Stream Events
   - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -10820,148 +8830,17 @@ Stream Events
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
 
     - `required DateTimeOffset ProcessedAt`
 
@@ -10972,7 +8851,6 @@ Stream Events
       Public `sthr_` ID of the thread the message was sent to.
 
     - `required Type Type`
-
       - `"agent.thread_message_sent"AgentThreadMessageSent`
 
     - `string? ToAgentName`
@@ -10982,7 +8860,6 @@ Stream Events
   - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
 
     Indicates that context compaction (summarization) occurred during the session.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -10992,13 +8869,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thread_context_compacted"AgentThreadContextCompacted`
 
   - `class BetaManagedAgentsSessionErrorEvent:`
 
     An error event indicating a problem occurred during session execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11006,11 +8881,9 @@ Stream Events
     - `required Error Error`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `class BetaManagedAgentsUnknownError:`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
         - `required string Message`
 
           Human-readable error description.
@@ -11018,39 +8891,30 @@ Stream Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
             - `required Type Type`
-
               - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
             - `required Type Type`
-
               - `"exhausted"Exhausted`
 
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
             - `required Type Type`
-
               - `"terminal"Terminal`
 
         - `required Type Type`
-
           - `"unknown_error"UnknownError`
 
       - `class BetaManagedAgentsModelOverloadedError:`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
-
         - `required string Message`
 
           Human-readable error description.
@@ -11058,39 +8922,24 @@ Stream Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_overloaded_error"ModelOverloadedError`
 
       - `class BetaManagedAgentsModelRateLimitedError:`
 
         The model request was rate-limited.
-
         - `required string Message`
 
           Human-readable error description.
@@ -11098,39 +8947,24 @@ Stream Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_rate_limited_error"ModelRateLimitedError`
 
       - `class BetaManagedAgentsModelRequestFailedError:`
 
         A model request failed for a reason other than overload or rate-limiting.
-
         - `required string Message`
 
           Human-readable error description.
@@ -11138,39 +8972,24 @@ Stream Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_request_failed_error"ModelRequestFailedError`
 
       - `class BetaManagedAgentsMcpConnectionFailedError:`
 
         Failed to connect to an MCP server.
-
         - `required string McpServerName`
 
           Name of the MCP server that failed to connect.
@@ -11182,39 +9001,24 @@ Stream Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"mcp_connection_failed_error"McpConnectionFailedError`
 
       - `class BetaManagedAgentsMcpAuthenticationFailedError:`
 
         Authentication to an MCP server failed.
-
         - `required string McpServerName`
 
           Name of the MCP server that failed authentication.
@@ -11226,39 +9030,24 @@ Stream Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"mcp_authentication_failed_error"McpAuthenticationFailedError`
 
       - `class BetaManagedAgentsBillingError:`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
         - `required string Message`
 
           Human-readable error description.
@@ -11266,33 +9055,19 @@ Stream Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"billing_error"BillingError`
 
     - `required DateTimeOffset ProcessedAt`
@@ -11300,13 +9075,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.error"SessionError`
 
   - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11316,13 +9089,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_rescheduled"SessionStatusRescheduled`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent:`
 
     Indicates the session is actively running and the agent is working.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11332,13 +9103,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_running"SessionStatusRunning`
 
   - `class BetaManagedAgentsSessionStatusIdleEvent:`
 
     Indicates the agent has paused and is awaiting user input.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11350,43 +9119,34 @@ Stream Events
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `required Type Type`
-
           - `"end_turn"EndTurn`
 
       - `class BetaManagedAgentsSessionRequiresAction:`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
         - `required IReadOnlyList<string> EventIds`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
         - `required Type Type`
-
           - `"requires_action"RequiresAction`
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
         - `required Type Type`
-
           - `"retries_exhausted"RetriesExhausted`
 
     - `required Type Type`
-
       - `"session.status_idle"SessionStatusIdle`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
 
     Indicates the session has terminated, either due to an error or completion.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11396,13 +9156,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_terminated"SessionStatusTerminated`
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent:`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11420,13 +9178,11 @@ Stream Events
       Public `sthr_` ID of the newly created thread.
 
     - `required Type Type`
-
       - `"session.thread_created"SessionThreadCreated`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
 
     Emitted when an outcome evaluation cycle begins.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11444,13 +9200,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_start"SpanOutcomeEvaluationStart`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11480,13 +9234,11 @@ Stream Events
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_end"SpanOutcomeEvaluationEnd`
 
     - `required BetaManagedAgentsSpanModelUsage Usage`
 
       Token usage for a single model request.
-
       - `required Int CacheCreationInputTokens`
 
         Tokens used to create prompt cache in this request.
@@ -11506,7 +9258,6 @@ Stream Events
       - `Speed? Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -11514,7 +9265,6 @@ Stream Events
   - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
     Emitted when a model request is initiated by the agent.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11524,13 +9274,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.model_request_start"SpanModelRequestStart`
 
   - `class BetaManagedAgentsSpanModelRequestEndEvent:`
 
     Emitted when a model request completes.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11547,42 +9295,16 @@ Stream Events
 
       Token usage for a single model request.
 
-      - `required Int CacheCreationInputTokens`
-
-        Tokens used to create prompt cache in this request.
-
-      - `required Int CacheReadInputTokens`
-
-        Tokens read from prompt cache in this request.
-
-      - `required Int InputTokens`
-
-        Input tokens consumed by this request.
-
-      - `required Int OutputTokens`
-
-        Output tokens generated by this request.
-
-      - `Speed? Speed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"Standard`
-
-        - `"fast"Fast`
-
     - `required DateTimeOffset ProcessedAt`
 
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.model_request_end"SpanModelRequestEnd`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11600,13 +9322,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_ongoing"SpanOutcomeEvaluationOngoing`
 
   - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11630,39 +9350,32 @@ Stream Events
     - `required Rubric Rubric`
 
       Rubric for grading the quality of an outcome.
-
       - `class BetaManagedAgentsFileRubric:`
 
         Rubric referenced by a file uploaded via the Files API.
-
         - `required string FileID`
 
           ID of the rubric file.
 
         - `required Type Type`
-
           - `"file"File`
 
       - `class BetaManagedAgentsTextRubric:`
 
         Rubric content provided inline as text.
-
         - `required string Content`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
         - `required Type Type`
-
           - `"text"Text`
 
     - `required Type Type`
-
       - `"user.define_outcome"UserDefineOutcome`
 
   - `class BetaManagedAgentsSessionDeletedEvent:`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11672,13 +9385,11 @@ Stream Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.deleted"SessionDeleted`
 
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11693,16 +9404,14 @@ Stream Events
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that started running.
+      Public sthr\_ ID of the thread that started running.
 
     - `required Type Type`
-
       - `"session.thread_status_running"SessionThreadStatusRunning`
 
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11717,48 +9426,29 @@ Stream Events
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that went idle.
+      Public sthr\_ ID of the thread that went idle.
 
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
-
-        - `required Type Type`
-
-          - `"end_turn"EndTurn`
 
       - `class BetaManagedAgentsSessionRequiresAction:`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-        - `required IReadOnlyList<string> EventIds`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `required Type Type`
-
-          - `"requires_action"RequiresAction`
-
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
-        - `required Type Type`
-
-          - `"retries_exhausted"RetriesExhausted`
-
     - `required Type Type`
-
       - `"session.thread_status_idle"SessionThreadStatusIdle`
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11773,16 +9463,59 @@ Stream Events
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that terminated.
+      Public sthr\_ ID of the thread that terminated.
 
     - `required Type Type`
-
       - `"session.thread_status_terminated"SessionThreadStatusTerminated`
+
+  - `class BetaManagedAgentsUserToolResultEvent:`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+    - `required string ID`
+
+      Unique identifier for this event.
+
+    - `required string ToolUseID`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `required Type Type`
+      - `"user.tool_result"UserToolResult`
+
+    - `IReadOnlyList<Content> Content`
+
+      The result content returned by the tool.
+      - `class BetaManagedAgentsTextBlock:`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock:`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock:`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock:`
+
+        A block containing a web search result.
+
+    - `Boolean? IsError`
+
+      Whether the tool execution resulted in an error.
+
+    - `DateTimeOffset? ProcessedAt`
+
+      A timestamp in RFC 3339 format
+
+    - `string? SessionThreadID`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -11797,11 +9530,301 @@ Stream Events
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that is retrying.
+      Public sthr\_ ID of the thread that is retrying.
 
     - `required Type Type`
-
       - `"session.thread_status_rescheduled"SessionThreadStatusRescheduled`
+
+  - `class BetaManagedAgentsSessionUpdatedEvent:`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+    - `required string ID`
+
+      Unique identifier for this event.
+
+    - `required DateTimeOffset ProcessedAt`
+
+      A timestamp in RFC 3339 format
+
+    - `required Type Type`
+      - `"session.updated"SessionUpdated`
+
+    - `BetaManagedAgentsSessionAgent? Agent`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      - `required string ID`
+
+      - `required string? Description`
+
+      - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+        - `required string Name`
+
+        - `required Type Type`
+          - `"url"Url`
+
+        - `required string Url`
+
+      - `required BetaManagedAgentsModelConfig Model`
+
+        Model identifier and configuration.
+        - `required BetaManagedAgentsModel ID`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `"claude-opus-4-7"ClaudeOpus4_7`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-opus-4-6"ClaudeOpus4_6`
+
+            Most intelligent model for building agents and coding
+
+          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"ClaudeOpus4_5`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+            High-performance model for agents and coding
+
+        - `Speed Speed`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          - `"standard"Standard`
+
+          - `"fast"Fast`
+
+      - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+        - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+          - `required string ID`
+
+          - `required string? Description`
+
+          - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+            - `required string Name`
+
+            - `required Type Type`
+
+            - `required string Url`
+
+          - `required BetaManagedAgentsModelConfig Model`
+
+            Model identifier and configuration.
+
+          - `required string Name`
+
+          - `required IReadOnlyList<Skill> Skills`
+            - `class BetaManagedAgentsAnthropicSkill:`
+
+              A resolved Anthropic-managed skill.
+              - `required string SkillID`
+
+              - `required Type Type`
+                - `"anthropic"Anthropic`
+
+              - `required string Version`
+
+            - `class BetaManagedAgentsCustomSkill:`
+
+              A resolved user-created custom skill.
+              - `required string SkillID`
+
+              - `required Type Type`
+                - `"custom"Custom`
+
+              - `required string Version`
+
+          - `required string? System`
+
+          - `required IReadOnlyList<Tool> Tools`
+            - `class BetaManagedAgentsAgentToolset20260401:`
+              - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+                - `required Boolean Enabled`
+
+                - `required Name Name`
+
+                  Built-in agent tool identifier.
+                  - `"bash"Bash`
+
+                  - `"edit"Edit`
+
+                  - `"read"Read`
+
+                  - `"write"Write`
+
+                  - `"glob"Glob`
+
+                  - `"grep"Grep`
+
+                  - `"web_fetch"WebFetch`
+
+                  - `"web_search"WebSearch`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+                    - `required Type Type`
+                      - `"always_allow"AlwaysAllow`
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+                    - `required Type Type`
+                      - `"always_ask"AlwaysAsk`
+
+              - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
+
+                Resolved default configuration for agent tools.
+                - `required Boolean Enabled`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required Type Type`
+                - `"agent_toolset_20260401"AgentToolset20260401`
+
+            - `class BetaManagedAgentsMcpToolset:`
+              - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
+                - `required Boolean Enabled`
+
+                - `required string Name`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+                - `required Boolean Enabled`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required string McpServerName`
+
+              - `required Type Type`
+                - `"mcp_toolset"McpToolset`
+
+            - `class BetaManagedAgentsCustomTool:`
+
+              A custom tool as returned in API responses.
+              - `required string Description`
+
+              - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
+
+                JSON Schema for custom tool input parameters.
+                - `IReadOnlyDictionary<string, JsonElement>? Properties`
+
+                  JSON Schema properties defining the tool's input parameters.
+
+                - `IReadOnlyList<string> Required`
+
+                  List of required property names.
+
+                - `Type Type`
+
+                  Must be 'object' for tool input schemas.
+                  - `"object"Object`
+
+              - `required string Name`
+
+              - `required Type Type`
+                - `"custom"Custom`
+
+          - `required Type Type`
+            - `"agent"Agent`
+
+          - `required Int Version`
+
+        - `required Type Type`
+          - `"coordinator"Coordinator`
+
+      - `required string Name`
+
+      - `required IReadOnlyList<Skill> Skills`
+        - `class BetaManagedAgentsAnthropicSkill:`
+
+          A resolved Anthropic-managed skill.
+
+        - `class BetaManagedAgentsCustomSkill:`
+
+          A resolved user-created custom skill.
+
+      - `required string? System`
+
+      - `required IReadOnlyList<Tool> Tools`
+        - `class BetaManagedAgentsAgentToolset20260401:`
+
+        - `class BetaManagedAgentsMcpToolset:`
+
+        - `class BetaManagedAgentsCustomTool:`
+
+          A custom tool as returned in API responses.
+
+      - `required Type Type`
+        - `"agent"Agent`
+
+      - `required Int Version`
+
+    - `IReadOnlyDictionary<string, string> Metadata`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `string? Title`
+
+      The session's new title. Present only when the update changed it.
 
 ### Example
 
@@ -11817,6 +9840,22 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 }
 ```
 
+#### Response
+
+```json
+{
+  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "content": [
+    {
+      "text": "Where is my order #1234?",
+      "type": "text"
+    }
+  ],
+  "type": "user.message",
+  "processed_at": "2026-03-15T10:00:00Z"
+}
+```
+
 ## Domain Types
 
 ### Beta Managed Agents Agent Custom Tool Use Event
@@ -11824,7 +9863,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsAgentCustomToolUseEvent:`
 
   Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -11842,7 +9880,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"agent.custom_tool_use"AgentCustomToolUse`
 
   - `string? SessionThreadID`
@@ -11854,7 +9891,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsAgentMcpToolResultEvent:`
 
   Event representing the result of an MCP tool execution.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -11868,37 +9904,30 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"agent.mcp_tool_result"AgentMcpToolResult`
 
   - `IReadOnlyList<Content> Content`
 
     The result content returned by the tool.
-
     - `class BetaManagedAgentsTextBlock:`
 
       Regular text content.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
-
         - `"text"Text`
 
     - `class BetaManagedAgentsImageBlock:`
 
       Image content specified directly as base64 data or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for image source variants.
-
         - `class BetaManagedAgentsBase64ImageSource:`
 
           Base64-encoded image data.
-
           - `required string Data`
 
             Base64-encoded image data.
@@ -11908,15 +9937,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsUrlImageSource:`
 
           Image referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -11926,31 +9952,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileImageSource:`
 
           Image referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"image"Image`
 
     - `class BetaManagedAgentsDocumentBlock:`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for document source variants.
-
         - `class BetaManagedAgentsBase64DocumentSource:`
 
           Base64-encoded document data.
-
           - `required string Data`
 
             Base64-encoded document data.
@@ -11960,13 +9980,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the document (e.g., "application/pdf").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsPlainTextDocumentSource:`
 
           Plain text document content.
-
           - `required string Data`
 
             The plain text content.
@@ -11974,19 +9992,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `required MediaType MediaType`
 
             MIME type of the text content. Must be "text/plain".
-
             - `"text/plain"TextPlain`
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsUrlDocumentSource:`
 
           Document referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -11996,17 +10010,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileDocumentSource:`
 
           Document referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"document"Document`
 
       - `string? Context`
@@ -12017,6 +10028,37 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
         The title of the document.
 
+    - `class BetaManagedAgentsSearchResultBlock:`
+
+      A block containing a web search result.
+      - `required BetaManagedAgentsSearchResultCitations Citations`
+
+        Citation settings for a search result.
+        - `required Boolean Enabled`
+
+          Whether citations are enabled for this search result.
+
+      - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
+
+        Array of text content blocks from the search result.
+        - `required string Text`
+
+          The text content.
+
+        - `required Type Type`
+          - `"text"Text`
+
+      - `required string Source`
+
+        The URL source of the search result.
+
+      - `required string Title`
+
+        The title of the search result.
+
+      - `required Type Type`
+        - `"search_result"SearchResult`
+
   - `Boolean? IsError`
 
     Whether the tool execution resulted in an error.
@@ -12026,7 +10068,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsAgentMcpToolUseEvent:`
 
   Event emitted when the agent invokes a tool provided by an MCP server.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -12048,13 +10089,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"agent.mcp_tool_use"AgentMcpToolUse`
 
   - `EvaluatedPermission EvaluatedPermission`
 
     AgentEvaluatedPermission enum
-
     - `"allow"Allow`
 
     - `"ask"Ask`
@@ -12070,7 +10109,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsAgentMessageEvent:`
 
   An agent response event in the session conversation.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -12078,13 +10116,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required IReadOnlyList<BetaManagedAgentsTextBlock> Content`
 
     Array of text blocks comprising the agent response.
-
     - `required string Text`
 
       The text content.
 
     - `required Type Type`
-
       - `"text"Text`
 
   - `required DateTimeOffset ProcessedAt`
@@ -12092,7 +10128,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"agent.message"AgentMessage`
 
 ### Beta Managed Agents Agent Thinking Event
@@ -12100,7 +10135,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsAgentThinkingEvent:`
 
   Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -12110,7 +10144,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"agent.thinking"AgentThinking`
 
 ### Beta Managed Agents Agent Thread Context Compacted Event
@@ -12118,7 +10151,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
 
   Indicates that context compaction (summarization) occurred during the session.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -12128,7 +10160,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"agent.thread_context_compacted"AgentThreadContextCompacted`
 
 ### Beta Managed Agents Agent Thread Message Received Event
@@ -12136,7 +10167,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
 
   Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -12144,31 +10174,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required IReadOnlyList<Content> Content`
 
     Message content blocks.
-
     - `class BetaManagedAgentsTextBlock:`
 
       Regular text content.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
-
         - `"text"Text`
 
     - `class BetaManagedAgentsImageBlock:`
 
       Image content specified directly as base64 data or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for image source variants.
-
         - `class BetaManagedAgentsBase64ImageSource:`
 
           Base64-encoded image data.
-
           - `required string Data`
 
             Base64-encoded image data.
@@ -12178,15 +10202,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsUrlImageSource:`
 
           Image referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -12196,31 +10217,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileImageSource:`
 
           Image referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"image"Image`
 
     - `class BetaManagedAgentsDocumentBlock:`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for document source variants.
-
         - `class BetaManagedAgentsBase64DocumentSource:`
 
           Base64-encoded document data.
-
           - `required string Data`
 
             Base64-encoded document data.
@@ -12230,13 +10245,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the document (e.g., "application/pdf").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsPlainTextDocumentSource:`
 
           Plain text document content.
-
           - `required string Data`
 
             The plain text content.
@@ -12244,19 +10257,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `required MediaType MediaType`
 
             MIME type of the text content. Must be "text/plain".
-
             - `"text/plain"TextPlain`
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsUrlDocumentSource:`
 
           Document referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -12266,17 +10275,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileDocumentSource:`
 
           Document referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"document"Document`
 
       - `string? Context`
@@ -12296,7 +10302,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"agent.thread_message_received"AgentThreadMessageReceived`
 
   - `string? FromAgentName`
@@ -12308,7 +10313,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
 
   Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -12316,31 +10320,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required IReadOnlyList<Content> Content`
 
     Message content blocks.
-
     - `class BetaManagedAgentsTextBlock:`
 
       Regular text content.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
-
         - `"text"Text`
 
     - `class BetaManagedAgentsImageBlock:`
 
       Image content specified directly as base64 data or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for image source variants.
-
         - `class BetaManagedAgentsBase64ImageSource:`
 
           Base64-encoded image data.
-
           - `required string Data`
 
             Base64-encoded image data.
@@ -12350,15 +10348,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsUrlImageSource:`
 
           Image referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -12368,31 +10363,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileImageSource:`
 
           Image referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"image"Image`
 
     - `class BetaManagedAgentsDocumentBlock:`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for document source variants.
-
         - `class BetaManagedAgentsBase64DocumentSource:`
 
           Base64-encoded document data.
-
           - `required string Data`
 
             Base64-encoded document data.
@@ -12402,13 +10391,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the document (e.g., "application/pdf").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsPlainTextDocumentSource:`
 
           Plain text document content.
-
           - `required string Data`
 
             The plain text content.
@@ -12416,19 +10403,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `required MediaType MediaType`
 
             MIME type of the text content. Must be "text/plain".
-
             - `"text/plain"TextPlain`
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsUrlDocumentSource:`
 
           Document referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -12438,17 +10421,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileDocumentSource:`
 
           Document referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"document"Document`
 
       - `string? Context`
@@ -12468,7 +10448,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     Public `sthr_` ID of the thread the message was sent to.
 
   - `required Type Type`
-
     - `"agent.thread_message_sent"AgentThreadMessageSent`
 
   - `string? ToAgentName`
@@ -12480,7 +10459,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsAgentToolResultEvent:`
 
   Event representing the result of an agent tool execution.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -12494,37 +10472,30 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     The id of the `agent.tool_use` event this result corresponds to.
 
   - `required Type Type`
-
     - `"agent.tool_result"AgentToolResult`
 
   - `IReadOnlyList<Content> Content`
 
     The result content returned by the tool.
-
     - `class BetaManagedAgentsTextBlock:`
 
       Regular text content.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
-
         - `"text"Text`
 
     - `class BetaManagedAgentsImageBlock:`
 
       Image content specified directly as base64 data or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for image source variants.
-
         - `class BetaManagedAgentsBase64ImageSource:`
 
           Base64-encoded image data.
-
           - `required string Data`
 
             Base64-encoded image data.
@@ -12534,15 +10505,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsUrlImageSource:`
 
           Image referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -12552,31 +10520,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileImageSource:`
 
           Image referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"image"Image`
 
     - `class BetaManagedAgentsDocumentBlock:`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for document source variants.
-
         - `class BetaManagedAgentsBase64DocumentSource:`
 
           Base64-encoded document data.
-
           - `required string Data`
 
             Base64-encoded document data.
@@ -12586,13 +10548,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the document (e.g., "application/pdf").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsPlainTextDocumentSource:`
 
           Plain text document content.
-
           - `required string Data`
 
             The plain text content.
@@ -12600,19 +10560,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `required MediaType MediaType`
 
             MIME type of the text content. Must be "text/plain".
-
             - `"text/plain"TextPlain`
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsUrlDocumentSource:`
 
           Document referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -12622,17 +10578,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileDocumentSource:`
 
           Document referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"document"Document`
 
       - `string? Context`
@@ -12643,6 +10596,37 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
         The title of the document.
 
+    - `class BetaManagedAgentsSearchResultBlock:`
+
+      A block containing a web search result.
+      - `required BetaManagedAgentsSearchResultCitations Citations`
+
+        Citation settings for a search result.
+        - `required Boolean Enabled`
+
+          Whether citations are enabled for this search result.
+
+      - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
+
+        Array of text content blocks from the search result.
+        - `required string Text`
+
+          The text content.
+
+        - `required Type Type`
+          - `"text"Text`
+
+      - `required string Source`
+
+        The URL source of the search result.
+
+      - `required string Title`
+
+        The title of the search result.
+
+      - `required Type Type`
+        - `"search_result"SearchResult`
+
   - `Boolean? IsError`
 
     Whether the tool execution resulted in an error.
@@ -12652,7 +10636,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsAgentToolUseEvent:`
 
   Event emitted when the agent invokes a built-in agent tool.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -12670,13 +10653,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"agent.tool_use"AgentToolUse`
 
   - `EvaluatedPermission EvaluatedPermission`
 
     AgentEvaluatedPermission enum
-
     - `"allow"Allow`
 
     - `"ask"Ask`
@@ -12692,7 +10673,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsBase64DocumentSource:`
 
   Base64-encoded document data.
-
   - `required string Data`
 
     Base64-encoded document data.
@@ -12702,7 +10682,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     MIME type of the document (e.g., "application/pdf").
 
   - `required Type Type`
-
     - `"base64"Base64`
 
 ### Beta Managed Agents Base64 Image Source
@@ -12710,7 +10689,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsBase64ImageSource:`
 
   Base64-encoded image data.
-
   - `required string Data`
 
     Base64-encoded image data.
@@ -12720,7 +10698,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
   - `required Type Type`
-
     - `"base64"Base64`
 
 ### Beta Managed Agents Billing Error
@@ -12728,7 +10705,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsBillingError:`
 
   The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
   - `required string Message`
 
     Human-readable error description.
@@ -12736,33 +10712,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required RetryStatus RetryStatus`
 
     What the client should do next in response to this error.
-
     - `class BetaManagedAgentsRetryStatusRetrying:`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
       - `required Type Type`
-
         - `"retrying"Retrying`
 
     - `class BetaManagedAgentsRetryStatusExhausted:`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
       - `required Type Type`
-
         - `"exhausted"Exhausted`
 
     - `class BetaManagedAgentsRetryStatusTerminal:`
 
       The session encountered a terminal error and will transition to `terminated` state.
-
       - `required Type Type`
-
         - `"terminal"Terminal`
 
   - `required Type Type`
-
     - `"billing_error"BillingError`
 
 ### Beta Managed Agents Document Block
@@ -12770,15 +10738,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsDocumentBlock:`
 
   Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
   - `required Source Source`
 
     Union type for document source variants.
-
     - `class BetaManagedAgentsBase64DocumentSource:`
 
       Base64-encoded document data.
-
       - `required string Data`
 
         Base64-encoded document data.
@@ -12788,13 +10753,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         MIME type of the document (e.g., "application/pdf").
 
       - `required Type Type`
-
         - `"base64"Base64`
 
     - `class BetaManagedAgentsPlainTextDocumentSource:`
 
       Plain text document content.
-
       - `required string Data`
 
         The plain text content.
@@ -12802,19 +10765,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `required MediaType MediaType`
 
         MIME type of the text content. Must be "text/plain".
-
         - `"text/plain"TextPlain`
 
       - `required Type Type`
-
         - `"text"Text`
 
     - `class BetaManagedAgentsUrlDocumentSource:`
 
       Document referenced by URL.
-
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -12824,17 +10783,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `class BetaManagedAgentsFileDocumentSource:`
 
       Document referenced by file ID.
-
       - `required string FileID`
 
         ID of a previously uploaded file.
 
       - `required Type Type`
-
         - `"file"File`
 
   - `required Type Type`
-
     - `"document"Document`
 
   - `string? Context`
@@ -12850,39 +10806,31 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsEventParams: A class that can be one of several variants.union`
 
   Union type for event parameters that can be sent to a session.
-
   - `class BetaManagedAgentsUserMessageEventParams:`
 
     Parameters for sending a user message to the session.
-
     - `required IReadOnlyList<Content> Content`
 
       Array of content blocks for the user message.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
         - `required string Text`
 
           The text content.
 
         - `required Type Type`
-
           - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for image source variants.
-
           - `class BetaManagedAgentsBase64ImageSource:`
 
             Base64-encoded image data.
-
             - `required string Data`
 
               Base64-encoded image data.
@@ -12892,15 +10840,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsUrlImageSource:`
 
             Image referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -12910,31 +10855,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `class BetaManagedAgentsFileImageSource:`
 
             Image referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"image"Image`
 
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for document source variants.
-
           - `class BetaManagedAgentsBase64DocumentSource:`
 
             Base64-encoded document data.
-
             - `required string Data`
 
               Base64-encoded document data.
@@ -12944,13 +10883,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
               MIME type of the document (e.g., "application/pdf").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource:`
 
             Plain text document content.
-
             - `required string Data`
 
               The plain text content.
@@ -12958,19 +10895,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             - `required MediaType MediaType`
 
               MIME type of the text content. Must be "text/plain".
-
               - `"text/plain"TextPlain`
 
             - `required Type Type`
-
               - `"text"Text`
 
           - `class BetaManagedAgentsUrlDocumentSource:`
 
             Document referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -12980,17 +10913,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `class BetaManagedAgentsFileDocumentSource:`
 
             Document referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"document"Document`
 
         - `string? Context`
@@ -13002,15 +10932,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           The title of the document.
 
     - `required Type Type`
-
       - `"user.message"UserMessage`
 
   - `class BetaManagedAgentsUserInterruptEventParams:`
 
     Parameters for sending an interrupt to pause the agent.
-
     - `required Type Type`
-
       - `"user.interrupt"UserInterrupt`
 
     - `string? SessionThreadID`
@@ -13020,11 +10947,9 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsUserToolConfirmationEventParams:`
 
     Parameters for confirming or denying a tool execution request.
-
     - `required Result Result`
 
       UserToolConfirmationResult enum
-
       - `"allow"Allow`
 
       - `"deny"Deny`
@@ -13034,7 +10959,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.tool_confirmation"UserToolConfirmation`
 
     - `string? DenyMessage`
@@ -13044,160 +10968,58 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsUserCustomToolResultEventParams:`
 
     Parameters for providing the result of a custom tool execution.
-
     - `required string CustomToolUseID`
 
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.custom_tool_result"UserCustomToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
+        A block containing a web search result.
+        - `required BetaManagedAgentsSearchResultCitations Citations`
 
-          - `class BetaManagedAgentsBase64DocumentSource:`
+          Citation settings for a search result.
+          - `required Boolean Enabled`
 
-            Base64-encoded document data.
+            Whether citations are enabled for this search result.
 
-            - `required string Data`
+        - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
-              Base64-encoded document data.
+          Array of text content blocks from the search result.
+          - `required string Text`
 
-            - `required string MediaType`
+            The text content.
 
-              MIME type of the document (e.g., "application/pdf").
+          - `required Type Type`
+            - `"text"Text`
 
-            - `required Type Type`
+        - `required string Source`
 
-              - `"base64"Base64`
+          The URL source of the search result.
 
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
+        - `required string Title`
 
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
+          The title of the search result.
 
         - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+          - `"search_result"SearchResult`
 
     - `Boolean? IsError`
 
@@ -13206,7 +11028,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsUserDefineOutcomeEventParams:`
 
     Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
-
     - `required string Description`
 
       What the agent should produce. This is the task specification.
@@ -13214,51 +11035,76 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required Rubric Rubric`
 
       Rubric for grading the quality of an outcome.
-
       - `class BetaManagedAgentsFileRubricParams:`
 
         Rubric referenced by a file uploaded via the Files API.
-
         - `required string FileID`
 
           ID of the rubric file.
 
         - `required Type Type`
-
           - `"file"File`
 
       - `class BetaManagedAgentsTextRubricParams:`
 
         Rubric content provided inline as text.
-
         - `required string Content`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
         - `required Type Type`
-
           - `"text"Text`
 
     - `required Type Type`
-
       - `"user.define_outcome"UserDefineOutcome`
 
     - `Int? MaxIterations`
 
       Eval→revision cycles before giving up. Default 3, max 20.
 
+  - `class BetaManagedAgentsUserToolResultEventParams:`
+
+    Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+    - `required string ToolUseID`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `required Type Type`
+      - `"user.tool_result"UserToolResult`
+
+    - `IReadOnlyList<Content> Content`
+
+      The result content returned by the tool.
+      - `class BetaManagedAgentsTextBlock:`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock:`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock:`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock:`
+
+        A block containing a web search result.
+
+    - `Boolean? IsError`
+
+      Whether the tool execution resulted in an error.
+
 ### Beta Managed Agents File Document Source
 
 - `class BetaManagedAgentsFileDocumentSource:`
 
   Document referenced by file ID.
-
   - `required string FileID`
 
     ID of a previously uploaded file.
 
   - `required Type Type`
-
     - `"file"File`
 
 ### Beta Managed Agents File Image Source
@@ -13266,13 +11112,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsFileImageSource:`
 
   Image referenced by file ID.
-
   - `required string FileID`
 
     ID of a previously uploaded file.
 
   - `required Type Type`
-
     - `"file"File`
 
 ### Beta Managed Agents File Rubric
@@ -13280,13 +11124,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsFileRubric:`
 
   Rubric referenced by a file uploaded via the Files API.
-
   - `required string FileID`
 
     ID of the rubric file.
 
   - `required Type Type`
-
     - `"file"File`
 
 ### Beta Managed Agents File Rubric Params
@@ -13294,13 +11136,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsFileRubricParams:`
 
   Rubric referenced by a file uploaded via the Files API.
-
   - `required string FileID`
 
     ID of the rubric file.
 
   - `required Type Type`
-
     - `"file"File`
 
 ### Beta Managed Agents Image Block
@@ -13308,15 +11148,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsImageBlock:`
 
   Image content specified directly as base64 data or as a reference via a URL.
-
   - `required Source Source`
 
     Union type for image source variants.
-
     - `class BetaManagedAgentsBase64ImageSource:`
 
       Base64-encoded image data.
-
       - `required string Data`
 
         Base64-encoded image data.
@@ -13326,15 +11163,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
       - `required Type Type`
-
         - `"base64"Base64`
 
     - `class BetaManagedAgentsUrlImageSource:`
 
       Image referenced by URL.
-
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -13344,17 +11178,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `class BetaManagedAgentsFileImageSource:`
 
       Image referenced by file ID.
-
       - `required string FileID`
 
         ID of a previously uploaded file.
 
       - `required Type Type`
-
         - `"file"File`
 
   - `required Type Type`
-
     - `"image"Image`
 
 ### Beta Managed Agents MCP Authentication Failed Error
@@ -13362,7 +11193,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsMcpAuthenticationFailedError:`
 
   Authentication to an MCP server failed.
-
   - `required string McpServerName`
 
     Name of the MCP server that failed authentication.
@@ -13374,33 +11204,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required RetryStatus RetryStatus`
 
     What the client should do next in response to this error.
-
     - `class BetaManagedAgentsRetryStatusRetrying:`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
       - `required Type Type`
-
         - `"retrying"Retrying`
 
     - `class BetaManagedAgentsRetryStatusExhausted:`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
       - `required Type Type`
-
         - `"exhausted"Exhausted`
 
     - `class BetaManagedAgentsRetryStatusTerminal:`
 
       The session encountered a terminal error and will transition to `terminated` state.
-
       - `required Type Type`
-
         - `"terminal"Terminal`
 
   - `required Type Type`
-
     - `"mcp_authentication_failed_error"McpAuthenticationFailedError`
 
 ### Beta Managed Agents MCP Connection Failed Error
@@ -13408,7 +11230,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsMcpConnectionFailedError:`
 
   Failed to connect to an MCP server.
-
   - `required string McpServerName`
 
     Name of the MCP server that failed to connect.
@@ -13420,33 +11241,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required RetryStatus RetryStatus`
 
     What the client should do next in response to this error.
-
     - `class BetaManagedAgentsRetryStatusRetrying:`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
       - `required Type Type`
-
         - `"retrying"Retrying`
 
     - `class BetaManagedAgentsRetryStatusExhausted:`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
       - `required Type Type`
-
         - `"exhausted"Exhausted`
 
     - `class BetaManagedAgentsRetryStatusTerminal:`
 
       The session encountered a terminal error and will transition to `terminated` state.
-
       - `required Type Type`
-
         - `"terminal"Terminal`
 
   - `required Type Type`
-
     - `"mcp_connection_failed_error"McpConnectionFailedError`
 
 ### Beta Managed Agents Model Overloaded Error
@@ -13454,7 +11267,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsModelOverloadedError:`
 
   The model is currently overloaded. Emitted after automatic retries are exhausted.
-
   - `required string Message`
 
     Human-readable error description.
@@ -13462,33 +11274,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required RetryStatus RetryStatus`
 
     What the client should do next in response to this error.
-
     - `class BetaManagedAgentsRetryStatusRetrying:`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
       - `required Type Type`
-
         - `"retrying"Retrying`
 
     - `class BetaManagedAgentsRetryStatusExhausted:`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
       - `required Type Type`
-
         - `"exhausted"Exhausted`
 
     - `class BetaManagedAgentsRetryStatusTerminal:`
 
       The session encountered a terminal error and will transition to `terminated` state.
-
       - `required Type Type`
-
         - `"terminal"Terminal`
 
   - `required Type Type`
-
     - `"model_overloaded_error"ModelOverloadedError`
 
 ### Beta Managed Agents Model Rate Limited Error
@@ -13496,7 +11300,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsModelRateLimitedError:`
 
   The model request was rate-limited.
-
   - `required string Message`
 
     Human-readable error description.
@@ -13504,33 +11307,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required RetryStatus RetryStatus`
 
     What the client should do next in response to this error.
-
     - `class BetaManagedAgentsRetryStatusRetrying:`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
       - `required Type Type`
-
         - `"retrying"Retrying`
 
     - `class BetaManagedAgentsRetryStatusExhausted:`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
       - `required Type Type`
-
         - `"exhausted"Exhausted`
 
     - `class BetaManagedAgentsRetryStatusTerminal:`
 
       The session encountered a terminal error and will transition to `terminated` state.
-
       - `required Type Type`
-
         - `"terminal"Terminal`
 
   - `required Type Type`
-
     - `"model_rate_limited_error"ModelRateLimitedError`
 
 ### Beta Managed Agents Model Request Failed Error
@@ -13538,7 +11333,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsModelRequestFailedError:`
 
   A model request failed for a reason other than overload or rate-limiting.
-
   - `required string Message`
 
     Human-readable error description.
@@ -13546,33 +11340,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required RetryStatus RetryStatus`
 
     What the client should do next in response to this error.
-
     - `class BetaManagedAgentsRetryStatusRetrying:`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
       - `required Type Type`
-
         - `"retrying"Retrying`
 
     - `class BetaManagedAgentsRetryStatusExhausted:`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
       - `required Type Type`
-
         - `"exhausted"Exhausted`
 
     - `class BetaManagedAgentsRetryStatusTerminal:`
 
       The session encountered a terminal error and will transition to `terminated` state.
-
       - `required Type Type`
-
         - `"terminal"Terminal`
 
   - `required Type Type`
-
     - `"model_request_failed_error"ModelRequestFailedError`
 
 ### Beta Managed Agents Plain Text Document Source
@@ -13580,7 +11366,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsPlainTextDocumentSource:`
 
   Plain text document content.
-
   - `required string Data`
 
     The plain text content.
@@ -13588,11 +11373,9 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required MediaType MediaType`
 
     MIME type of the text content. Must be "text/plain".
-
     - `"text/plain"TextPlain`
 
   - `required Type Type`
-
     - `"text"Text`
 
 ### Beta Managed Agents Retry Status Exhausted
@@ -13600,9 +11383,7 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsRetryStatusExhausted:`
 
   This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
   - `required Type Type`
-
     - `"exhausted"Exhausted`
 
 ### Beta Managed Agents Retry Status Retrying
@@ -13610,9 +11391,7 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsRetryStatusRetrying:`
 
   The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
   - `required Type Type`
-
     - `"retrying"Retrying`
 
 ### Beta Managed Agents Retry Status Terminal
@@ -13620,25 +11399,74 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsRetryStatusTerminal:`
 
   The session encountered a terminal error and will transition to `terminated` state.
+  - `required Type Type`
+    - `"terminal"Terminal`
+
+### Beta Managed Agents Search Result Block
+
+- `class BetaManagedAgentsSearchResultBlock:`
+
+  A block containing a web search result.
+  - `required BetaManagedAgentsSearchResultCitations Citations`
+
+    Citation settings for a search result.
+    - `required Boolean Enabled`
+
+      Whether citations are enabled for this search result.
+
+  - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
+
+    Array of text content blocks from the search result.
+    - `required string Text`
+
+      The text content.
+
+    - `required Type Type`
+      - `"text"Text`
+
+  - `required string Source`
+
+    The URL source of the search result.
+
+  - `required string Title`
+
+    The title of the search result.
 
   - `required Type Type`
+    - `"search_result"SearchResult`
 
-    - `"terminal"Terminal`
+### Beta Managed Agents Search Result Citations
+
+- `class BetaManagedAgentsSearchResultCitations:`
+
+  Citation settings for a search result.
+  - `required Boolean Enabled`
+
+    Whether citations are enabled for this search result.
+
+### Beta Managed Agents Search Result Content
+
+- `class BetaManagedAgentsSearchResultContent:`
+
+  Text content within a search result.
+  - `required string Text`
+
+    The text content.
+
+  - `required Type Type`
+    - `"text"Text`
 
 ### Beta Managed Agents Send Session Events
 
 - `class BetaManagedAgentsSendSessionEvents:`
 
   Events that were successfully sent to the session.
-
   - `IReadOnlyList<Data> Data`
 
     Sent events
-
     - `class BetaManagedAgentsUserMessageEvent:`
 
       A user message event in the session conversation.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -13646,31 +11474,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `required IReadOnlyList<Content> Content`
 
         Array of content blocks comprising the user message.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
           - `required string Text`
 
             The text content.
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
-
           - `required Source Source`
 
             Union type for image source variants.
-
             - `class BetaManagedAgentsBase64ImageSource:`
 
               Base64-encoded image data.
-
               - `required string Data`
 
                 Base64-encoded image data.
@@ -13680,15 +11502,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               - `required Type Type`
-
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
               Image referenced by URL.
-
               - `required Type Type`
-
                 - `"url"Url`
 
               - `required string Url`
@@ -13698,31 +11517,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             - `class BetaManagedAgentsFileImageSource:`
 
               Image referenced by file ID.
-
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
-
                 - `"file"File`
 
           - `required Type Type`
-
             - `"image"Image`
 
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
           - `required Source Source`
 
             Union type for document source variants.
-
             - `class BetaManagedAgentsBase64DocumentSource:`
 
               Base64-encoded document data.
-
               - `required string Data`
 
                 Base64-encoded document data.
@@ -13732,13 +11545,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
                 MIME type of the document (e.g., "application/pdf").
 
               - `required Type Type`
-
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
               Plain text document content.
-
               - `required string Data`
 
                 The plain text content.
@@ -13746,19 +11557,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
               - `required MediaType MediaType`
 
                 MIME type of the text content. Must be "text/plain".
-
                 - `"text/plain"TextPlain`
 
               - `required Type Type`
-
                 - `"text"Text`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
               Document referenced by URL.
-
               - `required Type Type`
-
                 - `"url"Url`
 
               - `required string Url`
@@ -13768,17 +11575,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             - `class BetaManagedAgentsFileDocumentSource:`
 
               Document referenced by file ID.
-
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
-
                 - `"file"File`
 
           - `required Type Type`
-
             - `"document"Document`
 
           - `string? Context`
@@ -13790,7 +11594,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             The title of the document.
 
       - `required Type Type`
-
         - `"user.message"UserMessage`
 
       - `DateTimeOffset? ProcessedAt`
@@ -13800,13 +11603,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `class BetaManagedAgentsUserInterruptEvent:`
 
       An interrupt event that pauses agent execution and returns control to the user.
-
       - `required string ID`
 
         Unique identifier for this event.
 
       - `required Type Type`
-
         - `"user.interrupt"UserInterrupt`
 
       - `DateTimeOffset? ProcessedAt`
@@ -13820,7 +11621,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
       A tool confirmation event that approves or denies a pending tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -13828,7 +11628,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `required Result Result`
 
         UserToolConfirmationResult enum
-
         - `"allow"Allow`
 
         - `"deny"Deny`
@@ -13838,7 +11637,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
-
         - `"user.tool_confirmation"UserToolConfirmation`
 
       - `string? DenyMessage`
@@ -13856,7 +11654,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
       Event sent by the client providing the result of a custom tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -13866,154 +11663,53 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
-
         - `"user.custom_tool_result"UserCustomToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-          - `required Source Source`
+        - `class BetaManagedAgentsSearchResultBlock:`
 
-            Union type for document source variants.
+          A block containing a web search result.
+          - `required BetaManagedAgentsSearchResultCitations Citations`
 
-            - `class BetaManagedAgentsBase64DocumentSource:`
+            Citation settings for a search result.
+            - `required Boolean Enabled`
 
-              Base64-encoded document data.
+              Whether citations are enabled for this search result.
 
-              - `required string Data`
+          - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
-                Base64-encoded document data.
+            Array of text content blocks from the search result.
+            - `required string Text`
 
-              - `required string MediaType`
+              The text content.
 
-                MIME type of the document (e.g., "application/pdf").
+            - `required Type Type`
+              - `"text"Text`
 
-              - `required Type Type`
+          - `required string Source`
 
-                - `"base64"Base64`
+            The URL source of the search result.
 
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
+          - `required string Title`
 
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
+            The title of the search result.
 
           - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
+            - `"search_result"SearchResult`
 
       - `Boolean? IsError`
 
@@ -14030,7 +11726,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -14054,41 +11749,79 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `required Rubric Rubric`
 
         Rubric for grading the quality of an outcome.
-
         - `class BetaManagedAgentsFileRubric:`
 
           Rubric referenced by a file uploaded via the Files API.
-
           - `required string FileID`
 
             ID of the rubric file.
 
           - `required Type Type`
-
             - `"file"File`
 
         - `class BetaManagedAgentsTextRubric:`
 
           Rubric content provided inline as text.
-
           - `required string Content`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
           - `required Type Type`
-
             - `"text"Text`
 
       - `required Type Type`
-
         - `"user.define_outcome"UserDefineOutcome`
+
+    - `class BetaManagedAgentsUserToolResultEvent:`
+
+      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+      - `required string ID`
+
+        Unique identifier for this event.
+
+      - `required string ToolUseID`
+
+        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `required Type Type`
+        - `"user.tool_result"UserToolResult`
+
+      - `IReadOnlyList<Content> Content`
+
+        The result content returned by the tool.
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock:`
+
+          A block containing a web search result.
+
+      - `Boolean? IsError`
+
+        Whether the tool execution resulted in an error.
+
+      - `DateTimeOffset? ProcessedAt`
+
+        A timestamp in RFC 3339 format
+
+      - `string? SessionThreadID`
+
+        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
 ### Beta Managed Agents Session Deleted Event
 
 - `class BetaManagedAgentsSessionDeletedEvent:`
 
   Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -14098,7 +11831,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"session.deleted"SessionDeleted`
 
 ### Beta Managed Agents Session End Turn
@@ -14106,9 +11838,7 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionEndTurn:`
 
   The agent completed its turn naturally and is ready for the next user message.
-
   - `required Type Type`
-
     - `"end_turn"EndTurn`
 
 ### Beta Managed Agents Session Error Event
@@ -14116,7 +11846,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionErrorEvent:`
 
   An error event indicating a problem occurred during session execution.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -14124,11 +11853,9 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required Error Error`
 
     An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
     - `class BetaManagedAgentsUnknownError:`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `required string Message`
 
         Human-readable error description.
@@ -14136,39 +11863,30 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `required RetryStatus RetryStatus`
 
         What the client should do next in response to this error.
-
         - `class BetaManagedAgentsRetryStatusRetrying:`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
           - `required Type Type`
-
             - `"retrying"Retrying`
 
         - `class BetaManagedAgentsRetryStatusExhausted:`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
           - `required Type Type`
-
             - `"exhausted"Exhausted`
 
         - `class BetaManagedAgentsRetryStatusTerminal:`
 
           The session encountered a terminal error and will transition to `terminated` state.
-
           - `required Type Type`
-
             - `"terminal"Terminal`
 
       - `required Type Type`
-
         - `"unknown_error"UnknownError`
 
     - `class BetaManagedAgentsModelOverloadedError:`
 
       The model is currently overloaded. Emitted after automatic retries are exhausted.
-
       - `required string Message`
 
         Human-readable error description.
@@ -14176,39 +11894,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `required RetryStatus RetryStatus`
 
         What the client should do next in response to this error.
-
         - `class BetaManagedAgentsRetryStatusRetrying:`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `required Type Type`
-
-            - `"retrying"Retrying`
 
         - `class BetaManagedAgentsRetryStatusExhausted:`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `required Type Type`
-
-            - `"exhausted"Exhausted`
-
         - `class BetaManagedAgentsRetryStatusTerminal:`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-          - `required Type Type`
-
-            - `"terminal"Terminal`
-
       - `required Type Type`
-
         - `"model_overloaded_error"ModelOverloadedError`
 
     - `class BetaManagedAgentsModelRateLimitedError:`
 
       The model request was rate-limited.
-
       - `required string Message`
 
         Human-readable error description.
@@ -14216,39 +11919,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `required RetryStatus RetryStatus`
 
         What the client should do next in response to this error.
-
         - `class BetaManagedAgentsRetryStatusRetrying:`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `required Type Type`
-
-            - `"retrying"Retrying`
 
         - `class BetaManagedAgentsRetryStatusExhausted:`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `required Type Type`
-
-            - `"exhausted"Exhausted`
-
         - `class BetaManagedAgentsRetryStatusTerminal:`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-          - `required Type Type`
-
-            - `"terminal"Terminal`
-
       - `required Type Type`
-
         - `"model_rate_limited_error"ModelRateLimitedError`
 
     - `class BetaManagedAgentsModelRequestFailedError:`
 
       A model request failed for a reason other than overload or rate-limiting.
-
       - `required string Message`
 
         Human-readable error description.
@@ -14256,39 +11944,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `required RetryStatus RetryStatus`
 
         What the client should do next in response to this error.
-
         - `class BetaManagedAgentsRetryStatusRetrying:`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `required Type Type`
-
-            - `"retrying"Retrying`
 
         - `class BetaManagedAgentsRetryStatusExhausted:`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `required Type Type`
-
-            - `"exhausted"Exhausted`
-
         - `class BetaManagedAgentsRetryStatusTerminal:`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-          - `required Type Type`
-
-            - `"terminal"Terminal`
-
       - `required Type Type`
-
         - `"model_request_failed_error"ModelRequestFailedError`
 
     - `class BetaManagedAgentsMcpConnectionFailedError:`
 
       Failed to connect to an MCP server.
-
       - `required string McpServerName`
 
         Name of the MCP server that failed to connect.
@@ -14300,39 +11973,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `required RetryStatus RetryStatus`
 
         What the client should do next in response to this error.
-
         - `class BetaManagedAgentsRetryStatusRetrying:`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `required Type Type`
-
-            - `"retrying"Retrying`
 
         - `class BetaManagedAgentsRetryStatusExhausted:`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `required Type Type`
-
-            - `"exhausted"Exhausted`
-
         - `class BetaManagedAgentsRetryStatusTerminal:`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-          - `required Type Type`
-
-            - `"terminal"Terminal`
-
       - `required Type Type`
-
         - `"mcp_connection_failed_error"McpConnectionFailedError`
 
     - `class BetaManagedAgentsMcpAuthenticationFailedError:`
 
       Authentication to an MCP server failed.
-
       - `required string McpServerName`
 
         Name of the MCP server that failed authentication.
@@ -14344,39 +12002,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `required RetryStatus RetryStatus`
 
         What the client should do next in response to this error.
-
         - `class BetaManagedAgentsRetryStatusRetrying:`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `required Type Type`
-
-            - `"retrying"Retrying`
 
         - `class BetaManagedAgentsRetryStatusExhausted:`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `required Type Type`
-
-            - `"exhausted"Exhausted`
-
         - `class BetaManagedAgentsRetryStatusTerminal:`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-          - `required Type Type`
-
-            - `"terminal"Terminal`
-
       - `required Type Type`
-
         - `"mcp_authentication_failed_error"McpAuthenticationFailedError`
 
     - `class BetaManagedAgentsBillingError:`
 
       The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
       - `required string Message`
 
         Human-readable error description.
@@ -14384,33 +12027,19 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `required RetryStatus RetryStatus`
 
         What the client should do next in response to this error.
-
         - `class BetaManagedAgentsRetryStatusRetrying:`
 
           The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-          - `required Type Type`
-
-            - `"retrying"Retrying`
 
         - `class BetaManagedAgentsRetryStatusExhausted:`
 
           This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-          - `required Type Type`
-
-            - `"exhausted"Exhausted`
-
         - `class BetaManagedAgentsRetryStatusTerminal:`
 
           The session encountered a terminal error and will transition to `terminated` state.
 
-          - `required Type Type`
-
-            - `"terminal"Terminal`
-
       - `required Type Type`
-
         - `"billing_error"BillingError`
 
   - `required DateTimeOffset ProcessedAt`
@@ -14418,7 +12047,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"session.error"SessionError`
 
 ### Beta Managed Agents Session Event
@@ -14426,11 +12054,9 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionEvent: A class that can be one of several variants.union`
 
   Union type for all event types in a session.
-
   - `class BetaManagedAgentsUserMessageEvent:`
 
     A user message event in the session conversation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -14438,31 +12064,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required IReadOnlyList<Content> Content`
 
       Array of content blocks comprising the user message.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
         - `required string Text`
 
           The text content.
 
         - `required Type Type`
-
           - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for image source variants.
-
           - `class BetaManagedAgentsBase64ImageSource:`
 
             Base64-encoded image data.
-
             - `required string Data`
 
               Base64-encoded image data.
@@ -14472,15 +12092,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsUrlImageSource:`
 
             Image referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -14490,31 +12107,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `class BetaManagedAgentsFileImageSource:`
 
             Image referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"image"Image`
 
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for document source variants.
-
           - `class BetaManagedAgentsBase64DocumentSource:`
 
             Base64-encoded document data.
-
             - `required string Data`
 
               Base64-encoded document data.
@@ -14524,13 +12135,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
               MIME type of the document (e.g., "application/pdf").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource:`
 
             Plain text document content.
-
             - `required string Data`
 
               The plain text content.
@@ -14538,19 +12147,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             - `required MediaType MediaType`
 
               MIME type of the text content. Must be "text/plain".
-
               - `"text/plain"TextPlain`
 
             - `required Type Type`
-
               - `"text"Text`
 
           - `class BetaManagedAgentsUrlDocumentSource:`
 
             Document referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -14560,17 +12165,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `class BetaManagedAgentsFileDocumentSource:`
 
             Document referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"document"Document`
 
         - `string? Context`
@@ -14582,7 +12184,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           The title of the document.
 
     - `required Type Type`
-
       - `"user.message"UserMessage`
 
     - `DateTimeOffset? ProcessedAt`
@@ -14592,13 +12193,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsUserInterruptEvent:`
 
     An interrupt event that pauses agent execution and returns control to the user.
-
     - `required string ID`
 
       Unique identifier for this event.
 
     - `required Type Type`
-
       - `"user.interrupt"UserInterrupt`
 
     - `DateTimeOffset? ProcessedAt`
@@ -14612,7 +12211,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
     A tool confirmation event that approves or denies a pending tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -14620,7 +12218,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required Result Result`
 
       UserToolConfirmationResult enum
-
       - `"allow"Allow`
 
       - `"deny"Deny`
@@ -14630,7 +12227,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.tool_confirmation"UserToolConfirmation`
 
     - `string? DenyMessage`
@@ -14648,7 +12244,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
     Event sent by the client providing the result of a custom tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -14658,154 +12253,53 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.custom_tool_result"UserCustomToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
+        A block containing a web search result.
+        - `required BetaManagedAgentsSearchResultCitations Citations`
 
-          - `class BetaManagedAgentsBase64DocumentSource:`
+          Citation settings for a search result.
+          - `required Boolean Enabled`
 
-            Base64-encoded document data.
+            Whether citations are enabled for this search result.
 
-            - `required string Data`
+        - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
-              Base64-encoded document data.
+          Array of text content blocks from the search result.
+          - `required string Text`
 
-            - `required string MediaType`
+            The text content.
 
-              MIME type of the document (e.g., "application/pdf").
+          - `required Type Type`
+            - `"text"Text`
 
-            - `required Type Type`
+        - `required string Source`
 
-              - `"base64"Base64`
+          The URL source of the search result.
 
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
+        - `required string Title`
 
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
+          The title of the search result.
 
         - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+          - `"search_result"SearchResult`
 
     - `Boolean? IsError`
 
@@ -14822,7 +12316,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentCustomToolUseEvent:`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -14840,7 +12333,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.custom_tool_use"AgentCustomToolUse`
 
     - `string? SessionThreadID`
@@ -14850,7 +12342,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentMessageEvent:`
 
     An agent response event in the session conversation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -14858,27 +12349,22 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required IReadOnlyList<BetaManagedAgentsTextBlock> Content`
 
       Array of text blocks comprising the agent response.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
 
-        - `"text"Text`
-
     - `required DateTimeOffset ProcessedAt`
 
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.message"AgentMessage`
 
   - `class BetaManagedAgentsAgentThinkingEvent:`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -14888,13 +12374,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thinking"AgentThinking`
 
   - `class BetaManagedAgentsAgentMcpToolUseEvent:`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -14916,13 +12400,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.mcp_tool_use"AgentMcpToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -14936,7 +12418,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentMcpToolResultEvent:`
 
     Event representing the result of an MCP tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -14950,154 +12431,26 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.mcp_tool_result"AgentMcpToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `Boolean? IsError`
 
@@ -15106,7 +12459,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentToolUseEvent:`
 
     Event emitted when the agent invokes a built-in agent tool.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -15124,13 +12476,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.tool_use"AgentToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -15144,7 +12494,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentToolResultEvent:`
 
     Event representing the result of an agent tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -15158,154 +12507,26 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `required Type Type`
-
       - `"agent.tool_result"AgentToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `Boolean? IsError`
 
@@ -15314,7 +12535,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -15322,148 +12542,17 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
 
     - `required string FromSessionThreadID`
 
@@ -15474,7 +12563,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thread_message_received"AgentThreadMessageReceived`
 
     - `string? FromAgentName`
@@ -15484,7 +12572,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -15492,148 +12579,17 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
 
     - `required DateTimeOffset ProcessedAt`
 
@@ -15644,7 +12600,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       Public `sthr_` ID of the thread the message was sent to.
 
     - `required Type Type`
-
       - `"agent.thread_message_sent"AgentThreadMessageSent`
 
     - `string? ToAgentName`
@@ -15654,7 +12609,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
 
     Indicates that context compaction (summarization) occurred during the session.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -15664,13 +12618,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thread_context_compacted"AgentThreadContextCompacted`
 
   - `class BetaManagedAgentsSessionErrorEvent:`
 
     An error event indicating a problem occurred during session execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -15678,11 +12630,9 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required Error Error`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `class BetaManagedAgentsUnknownError:`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
         - `required string Message`
 
           Human-readable error description.
@@ -15690,39 +12640,30 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
             - `required Type Type`
-
               - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
             - `required Type Type`
-
               - `"exhausted"Exhausted`
 
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
             - `required Type Type`
-
               - `"terminal"Terminal`
 
         - `required Type Type`
-
           - `"unknown_error"UnknownError`
 
       - `class BetaManagedAgentsModelOverloadedError:`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
-
         - `required string Message`
 
           Human-readable error description.
@@ -15730,39 +12671,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_overloaded_error"ModelOverloadedError`
 
       - `class BetaManagedAgentsModelRateLimitedError:`
 
         The model request was rate-limited.
-
         - `required string Message`
 
           Human-readable error description.
@@ -15770,39 +12696,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_rate_limited_error"ModelRateLimitedError`
 
       - `class BetaManagedAgentsModelRequestFailedError:`
 
         A model request failed for a reason other than overload or rate-limiting.
-
         - `required string Message`
 
           Human-readable error description.
@@ -15810,39 +12721,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_request_failed_error"ModelRequestFailedError`
 
       - `class BetaManagedAgentsMcpConnectionFailedError:`
 
         Failed to connect to an MCP server.
-
         - `required string McpServerName`
 
           Name of the MCP server that failed to connect.
@@ -15854,39 +12750,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"mcp_connection_failed_error"McpConnectionFailedError`
 
       - `class BetaManagedAgentsMcpAuthenticationFailedError:`
 
         Authentication to an MCP server failed.
-
         - `required string McpServerName`
 
           Name of the MCP server that failed authentication.
@@ -15898,39 +12779,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"mcp_authentication_failed_error"McpAuthenticationFailedError`
 
       - `class BetaManagedAgentsBillingError:`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
         - `required string Message`
 
           Human-readable error description.
@@ -15938,33 +12804,19 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"billing_error"BillingError`
 
     - `required DateTimeOffset ProcessedAt`
@@ -15972,13 +12824,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.error"SessionError`
 
   - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -15988,13 +12838,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_rescheduled"SessionStatusRescheduled`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent:`
 
     Indicates the session is actively running and the agent is working.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16004,13 +12852,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_running"SessionStatusRunning`
 
   - `class BetaManagedAgentsSessionStatusIdleEvent:`
 
     Indicates the agent has paused and is awaiting user input.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16022,43 +12868,34 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `required Type Type`
-
           - `"end_turn"EndTurn`
 
       - `class BetaManagedAgentsSessionRequiresAction:`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
         - `required IReadOnlyList<string> EventIds`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
         - `required Type Type`
-
           - `"requires_action"RequiresAction`
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
         - `required Type Type`
-
           - `"retries_exhausted"RetriesExhausted`
 
     - `required Type Type`
-
       - `"session.status_idle"SessionStatusIdle`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
 
     Indicates the session has terminated, either due to an error or completion.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16068,13 +12905,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_terminated"SessionStatusTerminated`
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent:`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16092,13 +12927,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       Public `sthr_` ID of the newly created thread.
 
     - `required Type Type`
-
       - `"session.thread_created"SessionThreadCreated`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
 
     Emitted when an outcome evaluation cycle begins.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16116,13 +12949,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_start"SpanOutcomeEvaluationStart`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16152,13 +12983,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_end"SpanOutcomeEvaluationEnd`
 
     - `required BetaManagedAgentsSpanModelUsage Usage`
 
       Token usage for a single model request.
-
       - `required Int CacheCreationInputTokens`
 
         Tokens used to create prompt cache in this request.
@@ -16178,7 +13007,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `Speed? Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -16186,7 +13014,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
     Emitted when a model request is initiated by the agent.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16196,13 +13023,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.model_request_start"SpanModelRequestStart`
 
   - `class BetaManagedAgentsSpanModelRequestEndEvent:`
 
     Emitted when a model request completes.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16219,42 +13044,16 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
       Token usage for a single model request.
 
-      - `required Int CacheCreationInputTokens`
-
-        Tokens used to create prompt cache in this request.
-
-      - `required Int CacheReadInputTokens`
-
-        Tokens read from prompt cache in this request.
-
-      - `required Int InputTokens`
-
-        Input tokens consumed by this request.
-
-      - `required Int OutputTokens`
-
-        Output tokens generated by this request.
-
-      - `Speed? Speed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"Standard`
-
-        - `"fast"Fast`
-
     - `required DateTimeOffset ProcessedAt`
 
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.model_request_end"SpanModelRequestEnd`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16272,13 +13071,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_ongoing"SpanOutcomeEvaluationOngoing`
 
   - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16302,39 +13099,32 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required Rubric Rubric`
 
       Rubric for grading the quality of an outcome.
-
       - `class BetaManagedAgentsFileRubric:`
 
         Rubric referenced by a file uploaded via the Files API.
-
         - `required string FileID`
 
           ID of the rubric file.
 
         - `required Type Type`
-
           - `"file"File`
 
       - `class BetaManagedAgentsTextRubric:`
 
         Rubric content provided inline as text.
-
         - `required string Content`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
         - `required Type Type`
-
           - `"text"Text`
 
     - `required Type Type`
-
       - `"user.define_outcome"UserDefineOutcome`
 
   - `class BetaManagedAgentsSessionDeletedEvent:`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16344,13 +13134,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.deleted"SessionDeleted`
 
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16365,16 +13153,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that started running.
+      Public sthr\_ ID of the thread that started running.
 
     - `required Type Type`
-
       - `"session.thread_status_running"SessionThreadStatusRunning`
 
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16389,48 +13175,29 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that went idle.
+      Public sthr\_ ID of the thread that went idle.
 
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
-
-        - `required Type Type`
-
-          - `"end_turn"EndTurn`
 
       - `class BetaManagedAgentsSessionRequiresAction:`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-        - `required IReadOnlyList<string> EventIds`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `required Type Type`
-
-          - `"requires_action"RequiresAction`
-
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
-        - `required Type Type`
-
-          - `"retries_exhausted"RetriesExhausted`
-
     - `required Type Type`
-
       - `"session.thread_status_idle"SessionThreadStatusIdle`
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16445,16 +13212,59 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that terminated.
+      Public sthr\_ ID of the thread that terminated.
 
     - `required Type Type`
-
       - `"session.thread_status_terminated"SessionThreadStatusTerminated`
+
+  - `class BetaManagedAgentsUserToolResultEvent:`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+    - `required string ID`
+
+      Unique identifier for this event.
+
+    - `required string ToolUseID`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `required Type Type`
+      - `"user.tool_result"UserToolResult`
+
+    - `IReadOnlyList<Content> Content`
+
+      The result content returned by the tool.
+      - `class BetaManagedAgentsTextBlock:`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock:`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock:`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock:`
+
+        A block containing a web search result.
+
+    - `Boolean? IsError`
+
+      Whether the tool execution resulted in an error.
+
+    - `DateTimeOffset? ProcessedAt`
+
+      A timestamp in RFC 3339 format
+
+    - `string? SessionThreadID`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -16469,24 +13279,312 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that is retrying.
+      Public sthr\_ ID of the thread that is retrying.
 
     - `required Type Type`
-
       - `"session.thread_status_rescheduled"SessionThreadStatusRescheduled`
+
+  - `class BetaManagedAgentsSessionUpdatedEvent:`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+    - `required string ID`
+
+      Unique identifier for this event.
+
+    - `required DateTimeOffset ProcessedAt`
+
+      A timestamp in RFC 3339 format
+
+    - `required Type Type`
+      - `"session.updated"SessionUpdated`
+
+    - `BetaManagedAgentsSessionAgent? Agent`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      - `required string ID`
+
+      - `required string? Description`
+
+      - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+        - `required string Name`
+
+        - `required Type Type`
+          - `"url"Url`
+
+        - `required string Url`
+
+      - `required BetaManagedAgentsModelConfig Model`
+
+        Model identifier and configuration.
+        - `required BetaManagedAgentsModel ID`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `"claude-opus-4-7"ClaudeOpus4_7`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-opus-4-6"ClaudeOpus4_6`
+
+            Most intelligent model for building agents and coding
+
+          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"ClaudeOpus4_5`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+            High-performance model for agents and coding
+
+        - `Speed Speed`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          - `"standard"Standard`
+
+          - `"fast"Fast`
+
+      - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+        - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+          - `required string ID`
+
+          - `required string? Description`
+
+          - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+            - `required string Name`
+
+            - `required Type Type`
+
+            - `required string Url`
+
+          - `required BetaManagedAgentsModelConfig Model`
+
+            Model identifier and configuration.
+
+          - `required string Name`
+
+          - `required IReadOnlyList<Skill> Skills`
+            - `class BetaManagedAgentsAnthropicSkill:`
+
+              A resolved Anthropic-managed skill.
+              - `required string SkillID`
+
+              - `required Type Type`
+                - `"anthropic"Anthropic`
+
+              - `required string Version`
+
+            - `class BetaManagedAgentsCustomSkill:`
+
+              A resolved user-created custom skill.
+              - `required string SkillID`
+
+              - `required Type Type`
+                - `"custom"Custom`
+
+              - `required string Version`
+
+          - `required string? System`
+
+          - `required IReadOnlyList<Tool> Tools`
+            - `class BetaManagedAgentsAgentToolset20260401:`
+              - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+                - `required Boolean Enabled`
+
+                - `required Name Name`
+
+                  Built-in agent tool identifier.
+                  - `"bash"Bash`
+
+                  - `"edit"Edit`
+
+                  - `"read"Read`
+
+                  - `"write"Write`
+
+                  - `"glob"Glob`
+
+                  - `"grep"Grep`
+
+                  - `"web_fetch"WebFetch`
+
+                  - `"web_search"WebSearch`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+                    - `required Type Type`
+                      - `"always_allow"AlwaysAllow`
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+                    - `required Type Type`
+                      - `"always_ask"AlwaysAsk`
+
+              - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
+
+                Resolved default configuration for agent tools.
+                - `required Boolean Enabled`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required Type Type`
+                - `"agent_toolset_20260401"AgentToolset20260401`
+
+            - `class BetaManagedAgentsMcpToolset:`
+              - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
+                - `required Boolean Enabled`
+
+                - `required string Name`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+                - `required Boolean Enabled`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required string McpServerName`
+
+              - `required Type Type`
+                - `"mcp_toolset"McpToolset`
+
+            - `class BetaManagedAgentsCustomTool:`
+
+              A custom tool as returned in API responses.
+              - `required string Description`
+
+              - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
+
+                JSON Schema for custom tool input parameters.
+                - `IReadOnlyDictionary<string, JsonElement>? Properties`
+
+                  JSON Schema properties defining the tool's input parameters.
+
+                - `IReadOnlyList<string> Required`
+
+                  List of required property names.
+
+                - `Type Type`
+
+                  Must be 'object' for tool input schemas.
+                  - `"object"Object`
+
+              - `required string Name`
+
+              - `required Type Type`
+                - `"custom"Custom`
+
+          - `required Type Type`
+            - `"agent"Agent`
+
+          - `required Int Version`
+
+        - `required Type Type`
+          - `"coordinator"Coordinator`
+
+      - `required string Name`
+
+      - `required IReadOnlyList<Skill> Skills`
+        - `class BetaManagedAgentsAnthropicSkill:`
+
+          A resolved Anthropic-managed skill.
+
+        - `class BetaManagedAgentsCustomSkill:`
+
+          A resolved user-created custom skill.
+
+      - `required string? System`
+
+      - `required IReadOnlyList<Tool> Tools`
+        - `class BetaManagedAgentsAgentToolset20260401:`
+
+        - `class BetaManagedAgentsMcpToolset:`
+
+        - `class BetaManagedAgentsCustomTool:`
+
+          A custom tool as returned in API responses.
+
+      - `required Type Type`
+        - `"agent"Agent`
+
+      - `required Int Version`
+
+    - `IReadOnlyDictionary<string, string> Metadata`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `string? Title`
+
+      The session's new title. Present only when the update changed it.
 
 ### Beta Managed Agents Session Requires Action
 
 - `class BetaManagedAgentsSessionRequiresAction:`
 
   The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
   - `required IReadOnlyList<string> EventIds`
 
     The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
   - `required Type Type`
-
     - `"requires_action"RequiresAction`
 
 ### Beta Managed Agents Session Retries Exhausted
@@ -16494,9 +13592,7 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionRetriesExhausted:`
 
   The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
   - `required Type Type`
-
     - `"retries_exhausted"RetriesExhausted`
 
 ### Beta Managed Agents Session Status Idle Event
@@ -16504,7 +13600,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionStatusIdleEvent:`
 
   Indicates the agent has paused and is awaiting user input.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16516,37 +13611,29 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required StopReason StopReason`
 
     The agent completed its turn naturally and is ready for the next user message.
-
     - `class BetaManagedAgentsSessionEndTurn:`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `required Type Type`
-
         - `"end_turn"EndTurn`
 
     - `class BetaManagedAgentsSessionRequiresAction:`
 
       The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
       - `required IReadOnlyList<string> EventIds`
 
         The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
       - `required Type Type`
-
         - `"requires_action"RequiresAction`
 
     - `class BetaManagedAgentsSessionRetriesExhausted:`
 
       The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
       - `required Type Type`
-
         - `"retries_exhausted"RetriesExhausted`
 
   - `required Type Type`
-
     - `"session.status_idle"SessionStatusIdle`
 
 ### Beta Managed Agents Session Status Rescheduled Event
@@ -16554,7 +13641,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
 
   Indicates the session is recovering from an error state and is rescheduled for execution.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16564,7 +13650,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"session.status_rescheduled"SessionStatusRescheduled`
 
 ### Beta Managed Agents Session Status Running Event
@@ -16572,7 +13657,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionStatusRunningEvent:`
 
   Indicates the session is actively running and the agent is working.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16582,7 +13666,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"session.status_running"SessionStatusRunning`
 
 ### Beta Managed Agents Session Status Terminated Event
@@ -16590,7 +13673,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
 
   Indicates the session has terminated, either due to an error or completion.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16600,7 +13682,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"session.status_terminated"SessionStatusTerminated`
 
 ### Beta Managed Agents Session Thread Created Event
@@ -16608,7 +13689,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionThreadCreatedEvent:`
 
   Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16626,7 +13706,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     Public `sthr_` ID of the newly created thread.
 
   - `required Type Type`
-
     - `"session.thread_created"SessionThreadCreated`
 
 ### Beta Managed Agents Session Thread Status Idle Event
@@ -16634,7 +13713,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
 
   A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16649,42 +13727,34 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
   - `required string SessionThreadID`
 
-    Public sthr_ ID of the thread that went idle.
+    Public sthr\_ ID of the thread that went idle.
 
   - `required StopReason StopReason`
 
     The agent completed its turn naturally and is ready for the next user message.
-
     - `class BetaManagedAgentsSessionEndTurn:`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `required Type Type`
-
         - `"end_turn"EndTurn`
 
     - `class BetaManagedAgentsSessionRequiresAction:`
 
       The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
       - `required IReadOnlyList<string> EventIds`
 
         The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
       - `required Type Type`
-
         - `"requires_action"RequiresAction`
 
     - `class BetaManagedAgentsSessionRetriesExhausted:`
 
       The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
       - `required Type Type`
-
         - `"retries_exhausted"RetriesExhausted`
 
   - `required Type Type`
-
     - `"session.thread_status_idle"SessionThreadStatusIdle`
 
 ### Beta Managed Agents Session Thread Status Rescheduled Event
@@ -16692,7 +13762,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
 
   A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16707,10 +13776,9 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
   - `required string SessionThreadID`
 
-    Public sthr_ ID of the thread that is retrying.
+    Public sthr\_ ID of the thread that is retrying.
 
   - `required Type Type`
-
     - `"session.thread_status_rescheduled"SessionThreadStatusRescheduled`
 
 ### Beta Managed Agents Session Thread Status Running Event
@@ -16718,7 +13786,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
 
   A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16733,10 +13800,9 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
   - `required string SessionThreadID`
 
-    Public sthr_ ID of the thread that started running.
+    Public sthr\_ ID of the thread that started running.
 
   - `required Type Type`
-
     - `"session.thread_status_running"SessionThreadStatusRunning`
 
 ### Beta Managed Agents Session Thread Status Terminated Event
@@ -16744,7 +13810,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
 
   A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16759,10 +13824,9 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
   - `required string SessionThreadID`
 
-    Public sthr_ ID of the thread that terminated.
+    Public sthr\_ ID of the thread that terminated.
 
   - `required Type Type`
-
     - `"session.thread_status_terminated"SessionThreadStatusTerminated`
 
 ### Beta Managed Agents Span Model Request End Event
@@ -16770,7 +13834,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSpanModelRequestEndEvent:`
 
   Emitted when a model request completes.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16786,7 +13849,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required BetaManagedAgentsSpanModelUsage ModelUsage`
 
     Token usage for a single model request.
-
     - `required Int CacheCreationInputTokens`
 
       Tokens used to create prompt cache in this request.
@@ -16806,7 +13868,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `Speed? Speed`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
       - `"standard"Standard`
 
       - `"fast"Fast`
@@ -16816,7 +13877,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"span.model_request_end"SpanModelRequestEnd`
 
 ### Beta Managed Agents Span Model Request Start Event
@@ -16824,7 +13884,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
   Emitted when a model request is initiated by the agent.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16834,7 +13893,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"span.model_request_start"SpanModelRequestStart`
 
 ### Beta Managed Agents Span Model Usage
@@ -16842,7 +13900,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSpanModelUsage:`
 
   Token usage for a single model request.
-
   - `required Int CacheCreationInputTokens`
 
     Tokens used to create prompt cache in this request.
@@ -16862,7 +13919,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `Speed? Speed`
 
     Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
     - `"standard"Standard`
 
     - `"fast"Fast`
@@ -16872,7 +13928,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
 
   Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16902,13 +13957,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
   - `required Type Type`
-
     - `"span.outcome_evaluation_end"SpanOutcomeEvaluationEnd`
 
   - `required BetaManagedAgentsSpanModelUsage Usage`
 
     Token usage for a single model request.
-
     - `required Int CacheCreationInputTokens`
 
       Tokens used to create prompt cache in this request.
@@ -16928,7 +13981,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `Speed? Speed`
 
       Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
       - `"standard"Standard`
 
       - `"fast"Fast`
@@ -16938,7 +13990,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
 
   Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16956,7 +14007,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"span.outcome_evaluation_ongoing"SpanOutcomeEvaluationOngoing`
 
 ### Beta Managed Agents Span Outcome Evaluation Start Event
@@ -16964,7 +14014,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
 
   Emitted when an outcome evaluation cycle begins.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -16982,7 +14031,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     A timestamp in RFC 3339 format
 
   - `required Type Type`
-
     - `"span.outcome_evaluation_start"SpanOutcomeEvaluationStart`
 
 ### Beta Managed Agents Stream Session Events
@@ -16990,11 +14038,9 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsStreamSessionEvents: A class that can be one of several variants.union`
 
   Server-sent event in the session stream.
-
   - `class BetaManagedAgentsUserMessageEvent:`
 
     A user message event in the session conversation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -17002,31 +14048,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required IReadOnlyList<Content> Content`
 
       Array of content blocks comprising the user message.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
         - `required string Text`
 
           The text content.
 
         - `required Type Type`
-
           - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for image source variants.
-
           - `class BetaManagedAgentsBase64ImageSource:`
 
             Base64-encoded image data.
-
             - `required string Data`
 
               Base64-encoded image data.
@@ -17036,15 +14076,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsUrlImageSource:`
 
             Image referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -17054,31 +14091,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `class BetaManagedAgentsFileImageSource:`
 
             Image referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"image"Image`
 
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for document source variants.
-
           - `class BetaManagedAgentsBase64DocumentSource:`
 
             Base64-encoded document data.
-
             - `required string Data`
 
               Base64-encoded document data.
@@ -17088,13 +14119,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
               MIME type of the document (e.g., "application/pdf").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource:`
 
             Plain text document content.
-
             - `required string Data`
 
               The plain text content.
@@ -17102,19 +14131,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             - `required MediaType MediaType`
 
               MIME type of the text content. Must be "text/plain".
-
               - `"text/plain"TextPlain`
 
             - `required Type Type`
-
               - `"text"Text`
 
           - `class BetaManagedAgentsUrlDocumentSource:`
 
             Document referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -17124,17 +14149,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `class BetaManagedAgentsFileDocumentSource:`
 
             Document referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"document"Document`
 
         - `string? Context`
@@ -17146,7 +14168,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           The title of the document.
 
     - `required Type Type`
-
       - `"user.message"UserMessage`
 
     - `DateTimeOffset? ProcessedAt`
@@ -17156,13 +14177,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsUserInterruptEvent:`
 
     An interrupt event that pauses agent execution and returns control to the user.
-
     - `required string ID`
 
       Unique identifier for this event.
 
     - `required Type Type`
-
       - `"user.interrupt"UserInterrupt`
 
     - `DateTimeOffset? ProcessedAt`
@@ -17176,7 +14195,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
     A tool confirmation event that approves or denies a pending tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -17184,7 +14202,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required Result Result`
 
       UserToolConfirmationResult enum
-
       - `"allow"Allow`
 
       - `"deny"Deny`
@@ -17194,7 +14211,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.tool_confirmation"UserToolConfirmation`
 
     - `string? DenyMessage`
@@ -17212,7 +14228,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
     Event sent by the client providing the result of a custom tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -17222,154 +14237,53 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.custom_tool_result"UserCustomToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
+        A block containing a web search result.
+        - `required BetaManagedAgentsSearchResultCitations Citations`
 
-          - `class BetaManagedAgentsBase64DocumentSource:`
+          Citation settings for a search result.
+          - `required Boolean Enabled`
 
-            Base64-encoded document data.
+            Whether citations are enabled for this search result.
 
-            - `required string Data`
+        - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
-              Base64-encoded document data.
+          Array of text content blocks from the search result.
+          - `required string Text`
 
-            - `required string MediaType`
+            The text content.
 
-              MIME type of the document (e.g., "application/pdf").
+          - `required Type Type`
+            - `"text"Text`
 
-            - `required Type Type`
+        - `required string Source`
 
-              - `"base64"Base64`
+          The URL source of the search result.
 
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
+        - `required string Title`
 
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
+          The title of the search result.
 
         - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+          - `"search_result"SearchResult`
 
     - `Boolean? IsError`
 
@@ -17386,7 +14300,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentCustomToolUseEvent:`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -17404,7 +14317,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.custom_tool_use"AgentCustomToolUse`
 
     - `string? SessionThreadID`
@@ -17414,7 +14326,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentMessageEvent:`
 
     An agent response event in the session conversation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -17422,27 +14333,22 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required IReadOnlyList<BetaManagedAgentsTextBlock> Content`
 
       Array of text blocks comprising the agent response.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
 
-        - `"text"Text`
-
     - `required DateTimeOffset ProcessedAt`
 
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.message"AgentMessage`
 
   - `class BetaManagedAgentsAgentThinkingEvent:`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -17452,13 +14358,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thinking"AgentThinking`
 
   - `class BetaManagedAgentsAgentMcpToolUseEvent:`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -17480,13 +14384,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.mcp_tool_use"AgentMcpToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -17500,7 +14402,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentMcpToolResultEvent:`
 
     Event representing the result of an MCP tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -17514,154 +14415,26 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.mcp_tool_result"AgentMcpToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `Boolean? IsError`
 
@@ -17670,7 +14443,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentToolUseEvent:`
 
     Event emitted when the agent invokes a built-in agent tool.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -17688,13 +14460,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.tool_use"AgentToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -17708,7 +14478,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentToolResultEvent:`
 
     Event representing the result of an agent tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -17722,154 +14491,26 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `required Type Type`
-
       - `"agent.tool_result"AgentToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `Boolean? IsError`
 
@@ -17878,7 +14519,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -17886,148 +14526,17 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
 
     - `required string FromSessionThreadID`
 
@@ -18038,7 +14547,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thread_message_received"AgentThreadMessageReceived`
 
     - `string? FromAgentName`
@@ -18048,7 +14556,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18056,148 +14563,17 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
 
     - `required DateTimeOffset ProcessedAt`
 
@@ -18208,7 +14584,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       Public `sthr_` ID of the thread the message was sent to.
 
     - `required Type Type`
-
       - `"agent.thread_message_sent"AgentThreadMessageSent`
 
     - `string? ToAgentName`
@@ -18218,7 +14593,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
 
     Indicates that context compaction (summarization) occurred during the session.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18228,13 +14602,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thread_context_compacted"AgentThreadContextCompacted`
 
   - `class BetaManagedAgentsSessionErrorEvent:`
 
     An error event indicating a problem occurred during session execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18242,11 +14614,9 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required Error Error`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `class BetaManagedAgentsUnknownError:`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
         - `required string Message`
 
           Human-readable error description.
@@ -18254,39 +14624,30 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
             - `required Type Type`
-
               - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
             - `required Type Type`
-
               - `"exhausted"Exhausted`
 
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
             - `required Type Type`
-
               - `"terminal"Terminal`
 
         - `required Type Type`
-
           - `"unknown_error"UnknownError`
 
       - `class BetaManagedAgentsModelOverloadedError:`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
-
         - `required string Message`
 
           Human-readable error description.
@@ -18294,39 +14655,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_overloaded_error"ModelOverloadedError`
 
       - `class BetaManagedAgentsModelRateLimitedError:`
 
         The model request was rate-limited.
-
         - `required string Message`
 
           Human-readable error description.
@@ -18334,39 +14680,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_rate_limited_error"ModelRateLimitedError`
 
       - `class BetaManagedAgentsModelRequestFailedError:`
 
         A model request failed for a reason other than overload or rate-limiting.
-
         - `required string Message`
 
           Human-readable error description.
@@ -18374,39 +14705,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_request_failed_error"ModelRequestFailedError`
 
       - `class BetaManagedAgentsMcpConnectionFailedError:`
 
         Failed to connect to an MCP server.
-
         - `required string McpServerName`
 
           Name of the MCP server that failed to connect.
@@ -18418,39 +14734,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"mcp_connection_failed_error"McpConnectionFailedError`
 
       - `class BetaManagedAgentsMcpAuthenticationFailedError:`
 
         Authentication to an MCP server failed.
-
         - `required string McpServerName`
 
           Name of the MCP server that failed authentication.
@@ -18462,39 +14763,24 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"mcp_authentication_failed_error"McpAuthenticationFailedError`
 
       - `class BetaManagedAgentsBillingError:`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
         - `required string Message`
 
           Human-readable error description.
@@ -18502,33 +14788,19 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"billing_error"BillingError`
 
     - `required DateTimeOffset ProcessedAt`
@@ -18536,13 +14808,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.error"SessionError`
 
   - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18552,13 +14822,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_rescheduled"SessionStatusRescheduled`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent:`
 
     Indicates the session is actively running and the agent is working.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18568,13 +14836,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_running"SessionStatusRunning`
 
   - `class BetaManagedAgentsSessionStatusIdleEvent:`
 
     Indicates the agent has paused and is awaiting user input.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18586,43 +14852,34 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `required Type Type`
-
           - `"end_turn"EndTurn`
 
       - `class BetaManagedAgentsSessionRequiresAction:`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
         - `required IReadOnlyList<string> EventIds`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
         - `required Type Type`
-
           - `"requires_action"RequiresAction`
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
         - `required Type Type`
-
           - `"retries_exhausted"RetriesExhausted`
 
     - `required Type Type`
-
       - `"session.status_idle"SessionStatusIdle`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
 
     Indicates the session has terminated, either due to an error or completion.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18632,13 +14889,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_terminated"SessionStatusTerminated`
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent:`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18656,13 +14911,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       Public `sthr_` ID of the newly created thread.
 
     - `required Type Type`
-
       - `"session.thread_created"SessionThreadCreated`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
 
     Emitted when an outcome evaluation cycle begins.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18680,13 +14933,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_start"SpanOutcomeEvaluationStart`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18716,13 +14967,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_end"SpanOutcomeEvaluationEnd`
 
     - `required BetaManagedAgentsSpanModelUsage Usage`
 
       Token usage for a single model request.
-
       - `required Int CacheCreationInputTokens`
 
         Tokens used to create prompt cache in this request.
@@ -18742,7 +14991,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `Speed? Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -18750,7 +14998,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
     Emitted when a model request is initiated by the agent.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18760,13 +15007,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.model_request_start"SpanModelRequestStart`
 
   - `class BetaManagedAgentsSpanModelRequestEndEvent:`
 
     Emitted when a model request completes.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18783,42 +15028,16 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
       Token usage for a single model request.
 
-      - `required Int CacheCreationInputTokens`
-
-        Tokens used to create prompt cache in this request.
-
-      - `required Int CacheReadInputTokens`
-
-        Tokens read from prompt cache in this request.
-
-      - `required Int InputTokens`
-
-        Input tokens consumed by this request.
-
-      - `required Int OutputTokens`
-
-        Output tokens generated by this request.
-
-      - `Speed? Speed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"Standard`
-
-        - `"fast"Fast`
-
     - `required DateTimeOffset ProcessedAt`
 
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.model_request_end"SpanModelRequestEnd`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18836,13 +15055,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_ongoing"SpanOutcomeEvaluationOngoing`
 
   - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18866,39 +15083,32 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     - `required Rubric Rubric`
 
       Rubric for grading the quality of an outcome.
-
       - `class BetaManagedAgentsFileRubric:`
 
         Rubric referenced by a file uploaded via the Files API.
-
         - `required string FileID`
 
           ID of the rubric file.
 
         - `required Type Type`
-
           - `"file"File`
 
       - `class BetaManagedAgentsTextRubric:`
 
         Rubric content provided inline as text.
-
         - `required string Content`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
         - `required Type Type`
-
           - `"text"Text`
 
     - `required Type Type`
-
       - `"user.define_outcome"UserDefineOutcome`
 
   - `class BetaManagedAgentsSessionDeletedEvent:`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18908,13 +15118,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.deleted"SessionDeleted`
 
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18929,16 +15137,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that started running.
+      Public sthr\_ ID of the thread that started running.
 
     - `required Type Type`
-
       - `"session.thread_status_running"SessionThreadStatusRunning`
 
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -18953,48 +15159,29 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that went idle.
+      Public sthr\_ ID of the thread that went idle.
 
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
-
-        - `required Type Type`
-
-          - `"end_turn"EndTurn`
 
       - `class BetaManagedAgentsSessionRequiresAction:`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-        - `required IReadOnlyList<string> EventIds`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `required Type Type`
-
-          - `"requires_action"RequiresAction`
-
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
-        - `required Type Type`
-
-          - `"retries_exhausted"RetriesExhausted`
-
     - `required Type Type`
-
       - `"session.thread_status_idle"SessionThreadStatusIdle`
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -19009,16 +15196,59 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that terminated.
+      Public sthr\_ ID of the thread that terminated.
 
     - `required Type Type`
-
       - `"session.thread_status_terminated"SessionThreadStatusTerminated`
+
+  - `class BetaManagedAgentsUserToolResultEvent:`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+    - `required string ID`
+
+      Unique identifier for this event.
+
+    - `required string ToolUseID`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `required Type Type`
+      - `"user.tool_result"UserToolResult`
+
+    - `IReadOnlyList<Content> Content`
+
+      The result content returned by the tool.
+      - `class BetaManagedAgentsTextBlock:`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock:`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock:`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock:`
+
+        A block containing a web search result.
+
+    - `Boolean? IsError`
+
+      Whether the tool execution resulted in an error.
+
+    - `DateTimeOffset? ProcessedAt`
+
+      A timestamp in RFC 3339 format
+
+    - `string? SessionThreadID`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -19033,24 +15263,312 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that is retrying.
+      Public sthr\_ ID of the thread that is retrying.
 
     - `required Type Type`
-
       - `"session.thread_status_rescheduled"SessionThreadStatusRescheduled`
+
+  - `class BetaManagedAgentsSessionUpdatedEvent:`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+    - `required string ID`
+
+      Unique identifier for this event.
+
+    - `required DateTimeOffset ProcessedAt`
+
+      A timestamp in RFC 3339 format
+
+    - `required Type Type`
+      - `"session.updated"SessionUpdated`
+
+    - `BetaManagedAgentsSessionAgent? Agent`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      - `required string ID`
+
+      - `required string? Description`
+
+      - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+        - `required string Name`
+
+        - `required Type Type`
+          - `"url"Url`
+
+        - `required string Url`
+
+      - `required BetaManagedAgentsModelConfig Model`
+
+        Model identifier and configuration.
+        - `required BetaManagedAgentsModel ID`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `"claude-opus-4-7"ClaudeOpus4_7`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-opus-4-6"ClaudeOpus4_6`
+
+            Most intelligent model for building agents and coding
+
+          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"ClaudeOpus4_5`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+            High-performance model for agents and coding
+
+        - `Speed Speed`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          - `"standard"Standard`
+
+          - `"fast"Fast`
+
+      - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+        - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+          - `required string ID`
+
+          - `required string? Description`
+
+          - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+            - `required string Name`
+
+            - `required Type Type`
+
+            - `required string Url`
+
+          - `required BetaManagedAgentsModelConfig Model`
+
+            Model identifier and configuration.
+
+          - `required string Name`
+
+          - `required IReadOnlyList<Skill> Skills`
+            - `class BetaManagedAgentsAnthropicSkill:`
+
+              A resolved Anthropic-managed skill.
+              - `required string SkillID`
+
+              - `required Type Type`
+                - `"anthropic"Anthropic`
+
+              - `required string Version`
+
+            - `class BetaManagedAgentsCustomSkill:`
+
+              A resolved user-created custom skill.
+              - `required string SkillID`
+
+              - `required Type Type`
+                - `"custom"Custom`
+
+              - `required string Version`
+
+          - `required string? System`
+
+          - `required IReadOnlyList<Tool> Tools`
+            - `class BetaManagedAgentsAgentToolset20260401:`
+              - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+                - `required Boolean Enabled`
+
+                - `required Name Name`
+
+                  Built-in agent tool identifier.
+                  - `"bash"Bash`
+
+                  - `"edit"Edit`
+
+                  - `"read"Read`
+
+                  - `"write"Write`
+
+                  - `"glob"Glob`
+
+                  - `"grep"Grep`
+
+                  - `"web_fetch"WebFetch`
+
+                  - `"web_search"WebSearch`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+                    - `required Type Type`
+                      - `"always_allow"AlwaysAllow`
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+                    - `required Type Type`
+                      - `"always_ask"AlwaysAsk`
+
+              - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
+
+                Resolved default configuration for agent tools.
+                - `required Boolean Enabled`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required Type Type`
+                - `"agent_toolset_20260401"AgentToolset20260401`
+
+            - `class BetaManagedAgentsMcpToolset:`
+              - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
+                - `required Boolean Enabled`
+
+                - `required string Name`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+                - `required Boolean Enabled`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required string McpServerName`
+
+              - `required Type Type`
+                - `"mcp_toolset"McpToolset`
+
+            - `class BetaManagedAgentsCustomTool:`
+
+              A custom tool as returned in API responses.
+              - `required string Description`
+
+              - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
+
+                JSON Schema for custom tool input parameters.
+                - `IReadOnlyDictionary<string, JsonElement>? Properties`
+
+                  JSON Schema properties defining the tool's input parameters.
+
+                - `IReadOnlyList<string> Required`
+
+                  List of required property names.
+
+                - `Type Type`
+
+                  Must be 'object' for tool input schemas.
+                  - `"object"Object`
+
+              - `required string Name`
+
+              - `required Type Type`
+                - `"custom"Custom`
+
+          - `required Type Type`
+            - `"agent"Agent`
+
+          - `required Int Version`
+
+        - `required Type Type`
+          - `"coordinator"Coordinator`
+
+      - `required string Name`
+
+      - `required IReadOnlyList<Skill> Skills`
+        - `class BetaManagedAgentsAnthropicSkill:`
+
+          A resolved Anthropic-managed skill.
+
+        - `class BetaManagedAgentsCustomSkill:`
+
+          A resolved user-created custom skill.
+
+      - `required string? System`
+
+      - `required IReadOnlyList<Tool> Tools`
+        - `class BetaManagedAgentsAgentToolset20260401:`
+
+        - `class BetaManagedAgentsMcpToolset:`
+
+        - `class BetaManagedAgentsCustomTool:`
+
+          A custom tool as returned in API responses.
+
+      - `required Type Type`
+        - `"agent"Agent`
+
+      - `required Int Version`
+
+    - `IReadOnlyDictionary<string, string> Metadata`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `string? Title`
+
+      The session's new title. Present only when the update changed it.
 
 ### Beta Managed Agents Text Block
 
 - `class BetaManagedAgentsTextBlock:`
 
   Regular text content.
-
   - `required string Text`
 
     The text content.
 
   - `required Type Type`
-
     - `"text"Text`
 
 ### Beta Managed Agents Text Rubric
@@ -19058,13 +15576,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsTextRubric:`
 
   Rubric content provided inline as text.
-
   - `required string Content`
 
     Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
   - `required Type Type`
-
     - `"text"Text`
 
 ### Beta Managed Agents Text Rubric Params
@@ -19072,13 +15588,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsTextRubricParams:`
 
   Rubric content provided inline as text.
-
   - `required string Content`
 
     Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
   - `required Type Type`
-
     - `"text"Text`
 
 ### Beta Managed Agents Unknown Error
@@ -19086,7 +15600,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUnknownError:`
 
   An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
   - `required string Message`
 
     Human-readable error description.
@@ -19094,33 +15607,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required RetryStatus RetryStatus`
 
     What the client should do next in response to this error.
-
     - `class BetaManagedAgentsRetryStatusRetrying:`
 
       The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
       - `required Type Type`
-
         - `"retrying"Retrying`
 
     - `class BetaManagedAgentsRetryStatusExhausted:`
 
       This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
       - `required Type Type`
-
         - `"exhausted"Exhausted`
 
     - `class BetaManagedAgentsRetryStatusTerminal:`
 
       The session encountered a terminal error and will transition to `terminated` state.
-
       - `required Type Type`
-
         - `"terminal"Terminal`
 
   - `required Type Type`
-
     - `"unknown_error"UnknownError`
 
 ### Beta Managed Agents URL Document Source
@@ -19128,9 +15633,7 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUrlDocumentSource:`
 
   Document referenced by URL.
-
   - `required Type Type`
-
     - `"url"Url`
 
   - `required string Url`
@@ -19142,9 +15645,7 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUrlImageSource:`
 
   Image referenced by URL.
-
   - `required Type Type`
-
     - `"url"Url`
 
   - `required string Url`
@@ -19156,7 +15657,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
   Event sent by the client providing the result of a custom tool execution.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -19166,37 +15666,30 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
   - `required Type Type`
-
     - `"user.custom_tool_result"UserCustomToolResult`
 
   - `IReadOnlyList<Content> Content`
 
     The result content returned by the tool.
-
     - `class BetaManagedAgentsTextBlock:`
 
       Regular text content.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
-
         - `"text"Text`
 
     - `class BetaManagedAgentsImageBlock:`
 
       Image content specified directly as base64 data or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for image source variants.
-
         - `class BetaManagedAgentsBase64ImageSource:`
 
           Base64-encoded image data.
-
           - `required string Data`
 
             Base64-encoded image data.
@@ -19206,15 +15699,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsUrlImageSource:`
 
           Image referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -19224,31 +15714,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileImageSource:`
 
           Image referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"image"Image`
 
     - `class BetaManagedAgentsDocumentBlock:`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for document source variants.
-
         - `class BetaManagedAgentsBase64DocumentSource:`
 
           Base64-encoded document data.
-
           - `required string Data`
 
             Base64-encoded document data.
@@ -19258,13 +15742,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the document (e.g., "application/pdf").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsPlainTextDocumentSource:`
 
           Plain text document content.
-
           - `required string Data`
 
             The plain text content.
@@ -19272,19 +15754,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `required MediaType MediaType`
 
             MIME type of the text content. Must be "text/plain".
-
             - `"text/plain"TextPlain`
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsUrlDocumentSource:`
 
           Document referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -19294,17 +15772,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileDocumentSource:`
 
           Document referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"document"Document`
 
       - `string? Context`
@@ -19314,6 +15789,37 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
       - `string? Title`
 
         The title of the document.
+
+    - `class BetaManagedAgentsSearchResultBlock:`
+
+      A block containing a web search result.
+      - `required BetaManagedAgentsSearchResultCitations Citations`
+
+        Citation settings for a search result.
+        - `required Boolean Enabled`
+
+          Whether citations are enabled for this search result.
+
+      - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
+
+        Array of text content blocks from the search result.
+        - `required string Text`
+
+          The text content.
+
+        - `required Type Type`
+          - `"text"Text`
+
+      - `required string Source`
+
+        The URL source of the search result.
+
+      - `required string Title`
+
+        The title of the search result.
+
+      - `required Type Type`
+        - `"search_result"SearchResult`
 
   - `Boolean? IsError`
 
@@ -19332,43 +15838,35 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUserCustomToolResultEventParams:`
 
   Parameters for providing the result of a custom tool execution.
-
   - `required string CustomToolUseID`
 
     The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
   - `required Type Type`
-
     - `"user.custom_tool_result"UserCustomToolResult`
 
   - `IReadOnlyList<Content> Content`
 
     The result content returned by the tool.
-
     - `class BetaManagedAgentsTextBlock:`
 
       Regular text content.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
-
         - `"text"Text`
 
     - `class BetaManagedAgentsImageBlock:`
 
       Image content specified directly as base64 data or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for image source variants.
-
         - `class BetaManagedAgentsBase64ImageSource:`
 
           Base64-encoded image data.
-
           - `required string Data`
 
             Base64-encoded image data.
@@ -19378,15 +15876,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsUrlImageSource:`
 
           Image referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -19396,31 +15891,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileImageSource:`
 
           Image referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"image"Image`
 
     - `class BetaManagedAgentsDocumentBlock:`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for document source variants.
-
         - `class BetaManagedAgentsBase64DocumentSource:`
 
           Base64-encoded document data.
-
           - `required string Data`
 
             Base64-encoded document data.
@@ -19430,13 +15919,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the document (e.g., "application/pdf").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsPlainTextDocumentSource:`
 
           Plain text document content.
-
           - `required string Data`
 
             The plain text content.
@@ -19444,19 +15931,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `required MediaType MediaType`
 
             MIME type of the text content. Must be "text/plain".
-
             - `"text/plain"TextPlain`
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsUrlDocumentSource:`
 
           Document referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -19466,17 +15949,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileDocumentSource:`
 
           Document referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"document"Document`
 
       - `string? Context`
@@ -19487,6 +15967,37 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 
         The title of the document.
 
+    - `class BetaManagedAgentsSearchResultBlock:`
+
+      A block containing a web search result.
+      - `required BetaManagedAgentsSearchResultCitations Citations`
+
+        Citation settings for a search result.
+        - `required Boolean Enabled`
+
+          Whether citations are enabled for this search result.
+
+      - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
+
+        Array of text content blocks from the search result.
+        - `required string Text`
+
+          The text content.
+
+        - `required Type Type`
+          - `"text"Text`
+
+      - `required string Source`
+
+        The URL source of the search result.
+
+      - `required string Title`
+
+        The title of the search result.
+
+      - `required Type Type`
+        - `"search_result"SearchResult`
+
   - `Boolean? IsError`
 
     Whether the tool execution resulted in an error.
@@ -19496,7 +16007,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
   Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -19520,33 +16030,27 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required Rubric Rubric`
 
     Rubric for grading the quality of an outcome.
-
     - `class BetaManagedAgentsFileRubric:`
 
       Rubric referenced by a file uploaded via the Files API.
-
       - `required string FileID`
 
         ID of the rubric file.
 
       - `required Type Type`
-
         - `"file"File`
 
     - `class BetaManagedAgentsTextRubric:`
 
       Rubric content provided inline as text.
-
       - `required string Content`
 
         Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
       - `required Type Type`
-
         - `"text"Text`
 
   - `required Type Type`
-
     - `"user.define_outcome"UserDefineOutcome`
 
 ### Beta Managed Agents User Define Outcome Event Params
@@ -19554,7 +16058,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUserDefineOutcomeEventParams:`
 
   Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
-
   - `required string Description`
 
     What the agent should produce. This is the task specification.
@@ -19562,33 +16065,27 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required Rubric Rubric`
 
     Rubric for grading the quality of an outcome.
-
     - `class BetaManagedAgentsFileRubricParams:`
 
       Rubric referenced by a file uploaded via the Files API.
-
       - `required string FileID`
 
         ID of the rubric file.
 
       - `required Type Type`
-
         - `"file"File`
 
     - `class BetaManagedAgentsTextRubricParams:`
 
       Rubric content provided inline as text.
-
       - `required string Content`
 
         Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
       - `required Type Type`
-
         - `"text"Text`
 
   - `required Type Type`
-
     - `"user.define_outcome"UserDefineOutcome`
 
   - `Int? MaxIterations`
@@ -19600,13 +16097,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUserInterruptEvent:`
 
   An interrupt event that pauses agent execution and returns control to the user.
-
   - `required string ID`
 
     Unique identifier for this event.
 
   - `required Type Type`
-
     - `"user.interrupt"UserInterrupt`
 
   - `DateTimeOffset? ProcessedAt`
@@ -19622,9 +16117,7 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUserInterruptEventParams:`
 
   Parameters for sending an interrupt to pause the agent.
-
   - `required Type Type`
-
     - `"user.interrupt"UserInterrupt`
 
   - `string? SessionThreadID`
@@ -19636,7 +16129,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUserMessageEvent:`
 
   A user message event in the session conversation.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -19644,31 +16136,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required IReadOnlyList<Content> Content`
 
     Array of content blocks comprising the user message.
-
     - `class BetaManagedAgentsTextBlock:`
 
       Regular text content.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
-
         - `"text"Text`
 
     - `class BetaManagedAgentsImageBlock:`
 
       Image content specified directly as base64 data or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for image source variants.
-
         - `class BetaManagedAgentsBase64ImageSource:`
 
           Base64-encoded image data.
-
           - `required string Data`
 
             Base64-encoded image data.
@@ -19678,15 +16164,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsUrlImageSource:`
 
           Image referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -19696,31 +16179,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileImageSource:`
 
           Image referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"image"Image`
 
     - `class BetaManagedAgentsDocumentBlock:`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for document source variants.
-
         - `class BetaManagedAgentsBase64DocumentSource:`
 
           Base64-encoded document data.
-
           - `required string Data`
 
             Base64-encoded document data.
@@ -19730,13 +16207,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the document (e.g., "application/pdf").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsPlainTextDocumentSource:`
 
           Plain text document content.
-
           - `required string Data`
 
             The plain text content.
@@ -19744,19 +16219,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `required MediaType MediaType`
 
             MIME type of the text content. Must be "text/plain".
-
             - `"text/plain"TextPlain`
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsUrlDocumentSource:`
 
           Document referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -19766,17 +16237,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileDocumentSource:`
 
           Document referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"document"Document`
 
       - `string? Context`
@@ -19788,7 +16256,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         The title of the document.
 
   - `required Type Type`
-
     - `"user.message"UserMessage`
 
   - `DateTimeOffset? ProcessedAt`
@@ -19800,35 +16267,28 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUserMessageEventParams:`
 
   Parameters for sending a user message to the session.
-
   - `required IReadOnlyList<Content> Content`
 
     Array of content blocks for the user message.
-
     - `class BetaManagedAgentsTextBlock:`
 
       Regular text content.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
-
         - `"text"Text`
 
     - `class BetaManagedAgentsImageBlock:`
 
       Image content specified directly as base64 data or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for image source variants.
-
         - `class BetaManagedAgentsBase64ImageSource:`
 
           Base64-encoded image data.
-
           - `required string Data`
 
             Base64-encoded image data.
@@ -19838,15 +16298,12 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsUrlImageSource:`
 
           Image referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -19856,31 +16313,25 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileImageSource:`
 
           Image referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"image"Image`
 
     - `class BetaManagedAgentsDocumentBlock:`
 
       Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
       - `required Source Source`
 
         Union type for document source variants.
-
         - `class BetaManagedAgentsBase64DocumentSource:`
 
           Base64-encoded document data.
-
           - `required string Data`
 
             Base64-encoded document data.
@@ -19890,13 +16341,11 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
             MIME type of the document (e.g., "application/pdf").
 
           - `required Type Type`
-
             - `"base64"Base64`
 
         - `class BetaManagedAgentsPlainTextDocumentSource:`
 
           Plain text document content.
-
           - `required string Data`
 
             The plain text content.
@@ -19904,19 +16353,15 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
           - `required MediaType MediaType`
 
             MIME type of the text content. Must be "text/plain".
-
             - `"text/plain"TextPlain`
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsUrlDocumentSource:`
 
           Document referenced by URL.
-
           - `required Type Type`
-
             - `"url"Url`
 
           - `required string Url`
@@ -19926,17 +16371,14 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         - `class BetaManagedAgentsFileDocumentSource:`
 
           Document referenced by file ID.
-
           - `required string FileID`
 
             ID of a previously uploaded file.
 
           - `required Type Type`
-
             - `"file"File`
 
       - `required Type Type`
-
         - `"document"Document`
 
       - `string? Context`
@@ -19948,7 +16390,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
         The title of the document.
 
   - `required Type Type`
-
     - `"user.message"UserMessage`
 
 ### Beta Managed Agents User Tool Confirmation Event
@@ -19956,7 +16397,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
   A tool confirmation event that approves or denies a pending tool execution.
-
   - `required string ID`
 
     Unique identifier for this event.
@@ -19964,7 +16404,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
   - `required Result Result`
 
     UserToolConfirmationResult enum
-
     - `"allow"Allow`
 
     - `"deny"Deny`
@@ -19974,7 +16413,6 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
   - `required Type Type`
-
     - `"user.tool_confirmation"UserToolConfirmation`
 
   - `string? DenyMessage`
@@ -19994,11 +16432,9 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
 - `class BetaManagedAgentsUserToolConfirmationEventParams:`
 
   Parameters for confirming or denying a tool execution request.
-
   - `required Result Result`
 
     UserToolConfirmationResult enum
-
     - `"allow"Allow`
 
     - `"deny"Deny`
@@ -20008,16 +16444,184 @@ await foreach (var betaManagedAgentsStreamSessionEvents in client.Beta.Sessions.
     The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
   - `required Type Type`
-
     - `"user.tool_confirmation"UserToolConfirmation`
 
   - `string? DenyMessage`
 
     Optional message providing context for a 'deny' decision. Only allowed when result is 'deny'.
 
+### Beta Managed Agents User Tool Result Event Params
+
+- `class BetaManagedAgentsUserToolResultEventParams:`
+
+  Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+  - `required string ToolUseID`
+
+    The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+  - `required Type Type`
+    - `"user.tool_result"UserToolResult`
+
+  - `IReadOnlyList<Content> Content`
+
+    The result content returned by the tool.
+    - `class BetaManagedAgentsTextBlock:`
+
+      Regular text content.
+      - `required string Text`
+
+        The text content.
+
+      - `required Type Type`
+        - `"text"Text`
+
+    - `class BetaManagedAgentsImageBlock:`
+
+      Image content specified directly as base64 data or as a reference via a URL.
+      - `required Source Source`
+
+        Union type for image source variants.
+        - `class BetaManagedAgentsBase64ImageSource:`
+
+          Base64-encoded image data.
+          - `required string Data`
+
+            Base64-encoded image data.
+
+          - `required string MediaType`
+
+            MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
+
+          - `required Type Type`
+            - `"base64"Base64`
+
+        - `class BetaManagedAgentsUrlImageSource:`
+
+          Image referenced by URL.
+          - `required Type Type`
+            - `"url"Url`
+
+          - `required string Url`
+
+            URL of the image to fetch.
+
+        - `class BetaManagedAgentsFileImageSource:`
+
+          Image referenced by file ID.
+          - `required string FileID`
+
+            ID of a previously uploaded file.
+
+          - `required Type Type`
+            - `"file"File`
+
+      - `required Type Type`
+        - `"image"Image`
+
+    - `class BetaManagedAgentsDocumentBlock:`
+
+      Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+      - `required Source Source`
+
+        Union type for document source variants.
+        - `class BetaManagedAgentsBase64DocumentSource:`
+
+          Base64-encoded document data.
+          - `required string Data`
+
+            Base64-encoded document data.
+
+          - `required string MediaType`
+
+            MIME type of the document (e.g., "application/pdf").
+
+          - `required Type Type`
+            - `"base64"Base64`
+
+        - `class BetaManagedAgentsPlainTextDocumentSource:`
+
+          Plain text document content.
+          - `required string Data`
+
+            The plain text content.
+
+          - `required MediaType MediaType`
+
+            MIME type of the text content. Must be "text/plain".
+            - `"text/plain"TextPlain`
+
+          - `required Type Type`
+            - `"text"Text`
+
+        - `class BetaManagedAgentsUrlDocumentSource:`
+
+          Document referenced by URL.
+          - `required Type Type`
+            - `"url"Url`
+
+          - `required string Url`
+
+            URL of the document to fetch.
+
+        - `class BetaManagedAgentsFileDocumentSource:`
+
+          Document referenced by file ID.
+          - `required string FileID`
+
+            ID of a previously uploaded file.
+
+          - `required Type Type`
+            - `"file"File`
+
+      - `required Type Type`
+        - `"document"Document`
+
+      - `string? Context`
+
+        Additional context about the document for the model.
+
+      - `string? Title`
+
+        The title of the document.
+
+    - `class BetaManagedAgentsSearchResultBlock:`
+
+      A block containing a web search result.
+      - `required BetaManagedAgentsSearchResultCitations Citations`
+
+        Citation settings for a search result.
+        - `required Boolean Enabled`
+
+          Whether citations are enabled for this search result.
+
+      - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
+
+        Array of text content blocks from the search result.
+        - `required string Text`
+
+          The text content.
+
+        - `required Type Type`
+          - `"text"Text`
+
+      - `required string Source`
+
+        The URL source of the search result.
+
+      - `required string Title`
+
+        The title of the search result.
+
+      - `required Type Type`
+        - `"search_result"SearchResult`
+
+  - `Boolean? IsError`
+
+    Whether the tool execution resulted in an error.
+
 # Resources
 
-## Add
+## Add Session Resource
 
 `BetaManagedAgentsFileResource Beta.Sessions.Resources.Add(ResourceAddParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -20028,7 +16632,6 @@ Add Session Resource
 ### Parameters
 
 - `ResourceAddParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -20040,7 +16643,6 @@ Add Session Resource
   - `required Type type`
 
     Body param
-
     - `"file"File`
 
   - `string? mountPath`
@@ -20050,7 +16652,6 @@ Add Session Resource
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -20099,10 +16700,15 @@ Add Session Resource
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsFileResource:`
-
   - `required string ID`
 
   - `required DateTimeOffset CreatedAt`
@@ -20114,7 +16720,6 @@ Add Session Resource
   - `required string MountPath`
 
   - `required Type Type`
-
     - `"file"File`
 
   - `required DateTimeOffset UpdatedAt`
@@ -20136,7 +16741,20 @@ var betaManagedAgentsFileResource = await client.Beta.Sessions.Resources.Add(par
 Console.WriteLine(betaManagedAgentsFileResource);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "created_at": "2026-03-15T10:00:00Z",
+  "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "mount_path": "/uploads/receipt.pdf",
+  "type": "file",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## List Session Resources
 
 `ResourceListPageResponse Beta.Sessions.Resources.List(ResourceListParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -20147,7 +16765,6 @@ List Session Resources
 ### Parameters
 
 - `ResourceListParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -20163,7 +16780,6 @@ List Session Resources
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -20212,18 +16828,21 @@ List Session Resources
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class ResourceListPageResponse:`
 
   Paginated list of resources attached to a session.
-
   - `required IReadOnlyList<BetaManagedAgentsSessionResource> Data`
 
     Resources for the session, ordered by `created_at`.
-
     - `class BetaManagedAgentsGitHubRepositoryResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -20233,7 +16852,6 @@ List Session Resources
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"github_repository"GitHubRepository`
 
       - `required DateTimeOffset UpdatedAt`
@@ -20243,29 +16861,23 @@ List Session Resources
       - `required string Url`
 
       - `Checkout? Checkout`
-
         - `class BetaManagedAgentsBranchCheckout:`
-
           - `required string Name`
 
             Branch name to check out.
 
           - `required Type Type`
-
             - `"branch"Branch`
 
         - `class BetaManagedAgentsCommitCheckout:`
-
           - `required string Sha`
 
             Full commit SHA to check out.
 
           - `required Type Type`
-
             - `"commit"Commit`
 
     - `class BetaManagedAgentsFileResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -20277,7 +16889,6 @@ List Session Resources
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"file"File`
 
       - `required DateTimeOffset UpdatedAt`
@@ -20287,19 +16898,16 @@ List Session Resources
     - `class BetaManagedAgentsMemoryStoreResource:`
 
       A memory store attached to an agent session.
-
       - `required string MemoryStoreID`
 
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
       - `required Type Type`
-
         - `"memory_store"MemoryStore`
 
       - `Access? Access`
 
         Access mode for an attached memory store.
-
         - `"read_write"ReadWrite`
 
         - `"read_only"ReadOnly`
@@ -20339,7 +16947,37 @@ await foreach (var item in page.Paginate())
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+      "created_at": "2026-03-15T10:00:00Z",
+      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "mount_path": "/uploads/receipt.pdf",
+      "type": "file",
+      "updated_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "created_at": "2026-03-15T10:00:00Z",
+      "mount_path": "/workspace/example-repo",
+      "type": "github_repository",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "url": "https://github.com/example-org/example-repo",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      }
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Session Resource
 
 `ResourceRetrieveResponse Beta.Sessions.Resources.Retrieve(ResourceRetrieveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -20350,7 +16988,6 @@ Get Session Resource
 ### Parameters
 
 - `ResourceRetrieveParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -20362,7 +16999,6 @@ Get Session Resource
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -20411,14 +17047,18 @@ Get Session Resource
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class ResourceRetrieveResponse: A class that can be one of several variants.union`
 
   The requested session resource.
-
   - `class BetaManagedAgentsGitHubRepositoryResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -20428,7 +17068,6 @@ Get Session Resource
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"github_repository"GitHubRepository`
 
     - `required DateTimeOffset UpdatedAt`
@@ -20438,29 +17077,23 @@ Get Session Resource
     - `required string Url`
 
     - `Checkout? Checkout`
-
       - `class BetaManagedAgentsBranchCheckout:`
-
         - `required string Name`
 
           Branch name to check out.
 
         - `required Type Type`
-
           - `"branch"Branch`
 
       - `class BetaManagedAgentsCommitCheckout:`
-
         - `required string Sha`
 
           Full commit SHA to check out.
 
         - `required Type Type`
-
           - `"commit"Commit`
 
   - `class BetaManagedAgentsFileResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -20472,7 +17105,6 @@ Get Session Resource
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"file"File`
 
     - `required DateTimeOffset UpdatedAt`
@@ -20482,19 +17114,16 @@ Get Session Resource
   - `class BetaManagedAgentsMemoryStoreResource:`
 
     A memory store attached to an agent session.
-
     - `required string MemoryStoreID`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `required Type Type`
-
       - `"memory_store"MemoryStore`
 
     - `Access? Access`
 
       Access mode for an attached memory store.
-
       - `"read_write"ReadWrite`
 
       - `"read_only"ReadOnly`
@@ -20529,7 +17158,24 @@ var resource = await client.Beta.Sessions.Resources.Retrieve(parameters);
 Console.WriteLine(resource);
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "created_at": "2026-03-15T10:00:00Z",
+  "mount_path": "/workspace/example-repo",
+  "type": "github_repository",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "url": "https://github.com/example-org/example-repo",
+  "checkout": {
+    "name": "main",
+    "type": "branch"
+  }
+}
+```
+
+## Update Session Resource
 
 `ResourceUpdateResponse Beta.Sessions.Resources.Update(ResourceUpdateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -20540,7 +17186,6 @@ Update Session Resource
 ### Parameters
 
 - `ResourceUpdateParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -20556,7 +17201,6 @@ Update Session Resource
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -20605,14 +17249,18 @@ Update Session Resource
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class ResourceUpdateResponse: A class that can be one of several variants.union`
 
   The updated session resource.
-
   - `class BetaManagedAgentsGitHubRepositoryResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -20622,7 +17270,6 @@ Update Session Resource
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"github_repository"GitHubRepository`
 
     - `required DateTimeOffset UpdatedAt`
@@ -20632,29 +17279,23 @@ Update Session Resource
     - `required string Url`
 
     - `Checkout? Checkout`
-
       - `class BetaManagedAgentsBranchCheckout:`
-
         - `required string Name`
 
           Branch name to check out.
 
         - `required Type Type`
-
           - `"branch"Branch`
 
       - `class BetaManagedAgentsCommitCheckout:`
-
         - `required string Sha`
 
           Full commit SHA to check out.
 
         - `required Type Type`
-
           - `"commit"Commit`
 
   - `class BetaManagedAgentsFileResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -20666,7 +17307,6 @@ Update Session Resource
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"file"File`
 
     - `required DateTimeOffset UpdatedAt`
@@ -20676,19 +17316,16 @@ Update Session Resource
   - `class BetaManagedAgentsMemoryStoreResource:`
 
     A memory store attached to an agent session.
-
     - `required string MemoryStoreID`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `required Type Type`
-
       - `"memory_store"MemoryStore`
 
     - `Access? Access`
 
       Access mode for an attached memory store.
-
       - `"read_write"ReadWrite`
 
       - `"read_only"ReadOnly`
@@ -20724,7 +17361,24 @@ var resource = await client.Beta.Sessions.Resources.Update(parameters);
 Console.WriteLine(resource);
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "created_at": "2026-03-15T10:00:00Z",
+  "mount_path": "/workspace/example-repo",
+  "type": "github_repository",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "url": "https://github.com/example-org/example-repo",
+  "checkout": {
+    "name": "main",
+    "type": "branch"
+  }
+}
+```
+
+## Delete Session Resource
 
 `BetaManagedAgentsDeleteSessionResource Beta.Sessions.Resources.Delete(ResourceDeleteParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -20735,7 +17389,6 @@ Delete Session Resource
 ### Parameters
 
 - `ResourceDeleteParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -20747,7 +17400,6 @@ Delete Session Resource
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -20796,16 +17448,20 @@ Delete Session Resource
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsDeleteSessionResource:`
 
   Confirmation of resource deletion.
-
   - `required string ID`
 
   - `required Type Type`
-
     - `"session_resource_deleted"SessionResourceDeleted`
 
 ### Example
@@ -20822,6 +17478,15 @@ var betaManagedAgentsDeleteSessionResource = await client.Beta.Sessions.Resource
 Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 ```
 
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "type": "session_resource_deleted"
+}
+```
+
 ## Domain Types
 
 ### Beta Managed Agents Delete Session Resource
@@ -20829,17 +17494,14 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 - `class BetaManagedAgentsDeleteSessionResource:`
 
   Confirmation of resource deletion.
-
   - `required string ID`
 
   - `required Type Type`
-
     - `"session_resource_deleted"SessionResourceDeleted`
 
 ### Beta Managed Agents File Resource
 
 - `class BetaManagedAgentsFileResource:`
-
   - `required string ID`
 
   - `required DateTimeOffset CreatedAt`
@@ -20851,7 +17513,6 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
   - `required string MountPath`
 
   - `required Type Type`
-
     - `"file"File`
 
   - `required DateTimeOffset UpdatedAt`
@@ -20861,7 +17522,6 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents GitHub Repository Resource
 
 - `class BetaManagedAgentsGitHubRepositoryResource:`
-
   - `required string ID`
 
   - `required DateTimeOffset CreatedAt`
@@ -20871,7 +17531,6 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
   - `required string MountPath`
 
   - `required Type Type`
-
     - `"github_repository"GitHubRepository`
 
   - `required DateTimeOffset UpdatedAt`
@@ -20881,25 +17540,20 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
   - `required string Url`
 
   - `Checkout? Checkout`
-
     - `class BetaManagedAgentsBranchCheckout:`
-
       - `required string Name`
 
         Branch name to check out.
 
       - `required Type Type`
-
         - `"branch"Branch`
 
     - `class BetaManagedAgentsCommitCheckout:`
-
       - `required string Sha`
 
         Full commit SHA to check out.
 
       - `required Type Type`
-
         - `"commit"Commit`
 
 ### Beta Managed Agents Memory Store Resource
@@ -20907,19 +17561,16 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 - `class BetaManagedAgentsMemoryStoreResource:`
 
   A memory store attached to an agent session.
-
   - `required string MemoryStoreID`
 
-    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
   - `required Type Type`
-
     - `"memory_store"MemoryStore`
 
   - `Access? Access`
 
     Access mode for an attached memory store.
-
     - `"read_write"ReadWrite`
 
     - `"read_only"ReadOnly`
@@ -20945,9 +17596,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 - `class BetaManagedAgentsSessionResource: A class that can be one of several variants.union`
 
   A memory store attached to an agent session.
-
   - `class BetaManagedAgentsGitHubRepositoryResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -20957,7 +17606,6 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"github_repository"GitHubRepository`
 
     - `required DateTimeOffset UpdatedAt`
@@ -20967,29 +17615,23 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
     - `required string Url`
 
     - `Checkout? Checkout`
-
       - `class BetaManagedAgentsBranchCheckout:`
-
         - `required string Name`
 
           Branch name to check out.
 
         - `required Type Type`
-
           - `"branch"Branch`
 
       - `class BetaManagedAgentsCommitCheckout:`
-
         - `required string Sha`
 
           Full commit SHA to check out.
 
         - `required Type Type`
-
           - `"commit"Commit`
 
   - `class BetaManagedAgentsFileResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -21001,7 +17643,6 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"file"File`
 
     - `required DateTimeOffset UpdatedAt`
@@ -21011,19 +17652,16 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
   - `class BetaManagedAgentsMemoryStoreResource:`
 
     A memory store attached to an agent session.
-
     - `required string MemoryStoreID`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `required Type Type`
-
       - `"memory_store"MemoryStore`
 
     - `Access? Access`
 
       Access mode for an attached memory store.
-
       - `"read_write"ReadWrite`
 
       - `"read_only"ReadOnly`
@@ -21046,7 +17684,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 
 # Threads
 
-## List
+## List Session Threads
 
 `ThreadListPageResponse Beta.Sessions.Threads.List(ThreadListParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -21057,7 +17695,6 @@ List Session Threads
 ### Parameters
 
 - `ThreadListParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -21073,7 +17710,6 @@ List Session Threads
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -21122,16 +17758,20 @@ List Session Threads
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class ThreadListPageResponse:`
 
   Paginated list of threads within a `session`.
-
   - `IReadOnlyList<BetaManagedAgentsSessionThread> Data`
 
     Threads in the session, primary first then children in spawn order.
-
     - `required string ID`
 
       Unique identifier for this thread.
@@ -21139,17 +17779,14 @@ List Session Threads
     - `required BetaManagedAgentsSessionThreadAgent Agent`
 
       Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
       - `required string ID`
 
       - `required string? Description`
 
       - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
         - `required string Name`
 
         - `required Type Type`
-
           - `"url"Url`
 
         - `required string Url`
@@ -21157,13 +17794,11 @@ List Session Threads
       - `required BetaManagedAgentsModelConfig Model`
 
         Model identifier and configuration.
-
         - `required BetaManagedAgentsModel ID`
 
           The model that will power your agent.
 
           See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
           - `"claude-opus-4-7"ClaudeOpus4_7`
 
             Frontier intelligence for long-running agents and coding
@@ -21203,7 +17838,6 @@ List Session Threads
         - `Speed Speed`
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
           - `"standard"Standard`
 
           - `"fast"Fast`
@@ -21211,15 +17845,12 @@ List Session Threads
       - `required string Name`
 
       - `required IReadOnlyList<Skill> Skills`
-
         - `class BetaManagedAgentsAnthropicSkill:`
 
           A resolved Anthropic-managed skill.
-
           - `required string SkillID`
 
           - `required Type Type`
-
             - `"anthropic"Anthropic`
 
           - `required string Version`
@@ -21227,11 +17858,9 @@ List Session Threads
         - `class BetaManagedAgentsCustomSkill:`
 
           A resolved user-created custom skill.
-
           - `required string SkillID`
 
           - `required Type Type`
-
             - `"custom"Custom`
 
           - `required string Version`
@@ -21239,17 +17868,13 @@ List Session Threads
       - `required string? System`
 
       - `required IReadOnlyList<Tool> Tools`
-
         - `class BetaManagedAgentsAgentToolset20260401:`
-
           - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
             - `required Boolean Enabled`
 
             - `required Name Name`
 
               Built-in agent tool identifier.
-
               - `"bash"Bash`
 
               - `"edit"Edit`
@@ -21269,57 +17894,39 @@ List Session Threads
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
                 - `required Type Type`
-
                   - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
-
                 - `required Type Type`
-
                   - `"always_ask"AlwaysAsk`
 
           - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
             Resolved default configuration for agent tools.
-
             - `required Boolean Enabled`
 
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
 
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
           - `required Type Type`
-
             - `"agent_toolset_20260401"AgentToolset20260401`
 
         - `class BetaManagedAgentsMcpToolset:`
-
           - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
             - `required Boolean Enabled`
 
             - `required string Name`
@@ -21327,65 +17934,43 @@ List Session Threads
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
 
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
           - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
             Resolved default configuration for all tools from an MCP server.
-
             - `required Boolean Enabled`
 
             - `required PermissionPolicy PermissionPolicy`
 
               Permission policy for tool execution.
-
               - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
                 Tool calls are automatically approved without user confirmation.
-
-                - `required Type Type`
-
-                  - `"always_allow"AlwaysAllow`
 
               - `class BetaManagedAgentsAlwaysAskPolicy:`
 
                 Tool calls require user confirmation before execution.
 
-                - `required Type Type`
-
-                  - `"always_ask"AlwaysAsk`
-
           - `required string McpServerName`
 
           - `required Type Type`
-
             - `"mcp_toolset"McpToolset`
 
         - `class BetaManagedAgentsCustomTool:`
 
           A custom tool as returned in API responses.
-
           - `required string Description`
 
           - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
             JSON Schema for custom tool input parameters.
-
             - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
               JSON Schema properties defining the tool's input parameters.
@@ -21397,17 +17982,14 @@ List Session Threads
             - `Type Type`
 
               Must be 'object' for tool input schemas.
-
               - `"object"Object`
 
           - `required string Name`
 
           - `required Type Type`
-
             - `"custom"Custom`
 
       - `required Type Type`
-
         - `"agent"Agent`
 
       - `required Int Version`
@@ -21431,7 +18013,6 @@ List Session Threads
     - `required BetaManagedAgentsSessionThreadStats? Stats`
 
       Timing statistics for a session thread.
-
       - `Double ActiveSeconds`
 
         Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -21447,7 +18028,6 @@ List Session Threads
     - `required BetaManagedAgentsSessionThreadStatus Status`
 
       SessionThreadStatus enum
-
       - `"running"Running`
 
       - `"idle"Idle`
@@ -21457,7 +18037,6 @@ List Session Threads
       - `"terminated"Terminated`
 
     - `required Type Type`
-
       - `"session_thread"SessionThread`
 
     - `required DateTimeOffset UpdatedAt`
@@ -21467,11 +18046,9 @@ List Session Threads
     - `required BetaManagedAgentsSessionThreadUsage? Usage`
 
       Cumulative token usage for a session thread across all turns.
-
       - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
         Prompt-cache creation token usage broken down by cache lifetime.
-
         - `Int Ephemeral1hInputTokens`
 
           Tokens used to create 1-hour ephemeral cache entries.
@@ -21511,7 +18088,87 @@ await foreach (var item in page.Paginate())
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+      "agent": {
+        "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+        "description": "A focused research subagent.",
+        "mcp_servers": [
+          {
+            "name": "example-mcp",
+            "type": "url",
+            "url": "https://example-server.modelcontextprotocol.io/sse"
+          }
+        ],
+        "model": {
+          "id": "claude-sonnet-4-6",
+          "speed": "standard"
+        },
+        "name": "Researcher",
+        "skills": [
+          {
+            "skill_id": "xlsx",
+            "type": "anthropic",
+            "version": "1"
+          }
+        ],
+        "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+        "tools": [
+          {
+            "configs": [
+              {
+                "enabled": true,
+                "name": "bash",
+                "permission_policy": {
+                  "type": "always_allow"
+                }
+              }
+            ],
+            "default_config": {
+              "enabled": true,
+              "permission_policy": {
+                "type": "always_ask"
+              }
+            },
+            "type": "agent_toolset_20260401"
+          }
+        ],
+        "type": "agent",
+        "version": 1
+      },
+      "archived_at": null,
+      "created_at": "2026-03-15T10:00:00Z",
+      "parent_thread_id": null,
+      "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+      "stats": {
+        "active_seconds": 0,
+        "duration_seconds": 0,
+        "startup_seconds": 0
+      },
+      "status": "idle",
+      "type": "session_thread",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "usage": {
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "cache_read_input_tokens": 0,
+        "input_tokens": 0,
+        "output_tokens": 0
+      }
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Session Thread
 
 `BetaManagedAgentsSessionThread Beta.Sessions.Threads.Retrieve(ThreadRetrieveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -21522,7 +18179,6 @@ Get Session Thread
 ### Parameters
 
 - `ThreadRetrieveParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -21534,7 +18190,6 @@ Get Session Thread
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -21583,12 +18238,17 @@ Get Session Thread
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsSessionThread:`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
-
   - `required string ID`
 
     Unique identifier for this thread.
@@ -21596,17 +18256,14 @@ Get Session Thread
   - `required BetaManagedAgentsSessionThreadAgent Agent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
     - `required string ID`
 
     - `required string? Description`
 
     - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
       - `required string Name`
 
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -21614,13 +18271,11 @@ Get Session Thread
     - `required BetaManagedAgentsModelConfig Model`
 
       Model identifier and configuration.
-
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -21660,7 +18315,6 @@ Get Session Thread
       - `Speed Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -21668,15 +18322,12 @@ Get Session Thread
     - `required string Name`
 
     - `required IReadOnlyList<Skill> Skills`
-
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
-
         - `required string SkillID`
 
         - `required Type Type`
-
           - `"anthropic"Anthropic`
 
         - `required string Version`
@@ -21684,11 +18335,9 @@ Get Session Thread
       - `class BetaManagedAgentsCustomSkill:`
 
         A resolved user-created custom skill.
-
         - `required string SkillID`
 
         - `required Type Type`
-
           - `"custom"Custom`
 
         - `required string Version`
@@ -21696,17 +18345,13 @@ Get Session Thread
     - `required string? System`
 
     - `required IReadOnlyList<Tool> Tools`
-
       - `class BetaManagedAgentsAgentToolset20260401:`
-
         - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
           - `required Boolean Enabled`
 
           - `required Name Name`
 
             Built-in agent tool identifier.
-
             - `"bash"Bash`
 
             - `"edit"Edit`
@@ -21726,57 +18371,39 @@ Get Session Thread
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
               - `required Type Type`
-
                 - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
-
               - `required Type Type`
-
                 - `"always_ask"AlwaysAsk`
 
         - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `required Boolean Enabled`
 
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required Type Type`
-
           - `"agent_toolset_20260401"AgentToolset20260401`
 
       - `class BetaManagedAgentsMcpToolset:`
-
         - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
           - `required Boolean Enabled`
 
           - `required string Name`
@@ -21784,65 +18411,43 @@ Get Session Thread
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `required Boolean Enabled`
 
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required string McpServerName`
 
         - `required Type Type`
-
           - `"mcp_toolset"McpToolset`
 
       - `class BetaManagedAgentsCustomTool:`
 
         A custom tool as returned in API responses.
-
         - `required string Description`
 
         - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
             JSON Schema properties defining the tool's input parameters.
@@ -21854,17 +18459,14 @@ Get Session Thread
           - `Type Type`
 
             Must be 'object' for tool input schemas.
-
             - `"object"Object`
 
         - `required string Name`
 
         - `required Type Type`
-
           - `"custom"Custom`
 
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `required Int Version`
@@ -21888,7 +18490,6 @@ Get Session Thread
   - `required BetaManagedAgentsSessionThreadStats? Stats`
 
     Timing statistics for a session thread.
-
     - `Double ActiveSeconds`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -21904,7 +18505,6 @@ Get Session Thread
   - `required BetaManagedAgentsSessionThreadStatus Status`
 
     SessionThreadStatus enum
-
     - `"running"Running`
 
     - `"idle"Idle`
@@ -21914,7 +18514,6 @@ Get Session Thread
     - `"terminated"Terminated`
 
   - `required Type Type`
-
     - `"session_thread"SessionThread`
 
   - `required DateTimeOffset UpdatedAt`
@@ -21924,11 +18523,9 @@ Get Session Thread
   - `required BetaManagedAgentsSessionThreadUsage? Usage`
 
     Cumulative token usage for a session thread across all turns.
-
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `Int Ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -21963,7 +18560,82 @@ var betaManagedAgentsSessionThread = await client.Beta.Sessions.Threads.Retrieve
 Console.WriteLine(betaManagedAgentsSessionThread);
 ```
 
-## Archive
+#### Response
+
+```json
+{
+  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "description": "A focused research subagent.",
+    "mcp_servers": [
+      {
+        "name": "example-mcp",
+        "type": "url",
+        "url": "https://example-server.modelcontextprotocol.io/sse"
+      }
+    ],
+    "model": {
+      "id": "claude-sonnet-4-6",
+      "speed": "standard"
+    },
+    "name": "Researcher",
+    "skills": [
+      {
+        "skill_id": "xlsx",
+        "type": "anthropic",
+        "version": "1"
+      }
+    ],
+    "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+    "tools": [
+      {
+        "configs": [
+          {
+            "enabled": true,
+            "name": "bash",
+            "permission_policy": {
+              "type": "always_allow"
+            }
+          }
+        ],
+        "default_config": {
+          "enabled": true,
+          "permission_policy": {
+            "type": "always_ask"
+          }
+        },
+        "type": "agent_toolset_20260401"
+      }
+    ],
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "parent_thread_id": null,
+  "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "stats": {
+    "active_seconds": 0,
+    "duration_seconds": 0,
+    "startup_seconds": 0
+  },
+  "status": "idle",
+  "type": "session_thread",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
+## Archive Session Thread
 
 `BetaManagedAgentsSessionThread Beta.Sessions.Threads.Archive(ThreadArchiveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -21974,7 +18646,6 @@ Archive Session Thread
 ### Parameters
 
 - `ThreadArchiveParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -21986,7 +18657,6 @@ Archive Session Thread
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -22035,12 +18705,17 @@ Archive Session Thread
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsSessionThread:`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
-
   - `required string ID`
 
     Unique identifier for this thread.
@@ -22048,17 +18723,14 @@ Archive Session Thread
   - `required BetaManagedAgentsSessionThreadAgent Agent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
     - `required string ID`
 
     - `required string? Description`
 
     - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
       - `required string Name`
 
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -22066,13 +18738,11 @@ Archive Session Thread
     - `required BetaManagedAgentsModelConfig Model`
 
       Model identifier and configuration.
-
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -22112,7 +18782,6 @@ Archive Session Thread
       - `Speed Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -22120,15 +18789,12 @@ Archive Session Thread
     - `required string Name`
 
     - `required IReadOnlyList<Skill> Skills`
-
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
-
         - `required string SkillID`
 
         - `required Type Type`
-
           - `"anthropic"Anthropic`
 
         - `required string Version`
@@ -22136,11 +18802,9 @@ Archive Session Thread
       - `class BetaManagedAgentsCustomSkill:`
 
         A resolved user-created custom skill.
-
         - `required string SkillID`
 
         - `required Type Type`
-
           - `"custom"Custom`
 
         - `required string Version`
@@ -22148,17 +18812,13 @@ Archive Session Thread
     - `required string? System`
 
     - `required IReadOnlyList<Tool> Tools`
-
       - `class BetaManagedAgentsAgentToolset20260401:`
-
         - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
           - `required Boolean Enabled`
 
           - `required Name Name`
 
             Built-in agent tool identifier.
-
             - `"bash"Bash`
 
             - `"edit"Edit`
@@ -22178,57 +18838,39 @@ Archive Session Thread
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
               - `required Type Type`
-
                 - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
-
               - `required Type Type`
-
                 - `"always_ask"AlwaysAsk`
 
         - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `required Boolean Enabled`
 
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required Type Type`
-
           - `"agent_toolset_20260401"AgentToolset20260401`
 
       - `class BetaManagedAgentsMcpToolset:`
-
         - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
           - `required Boolean Enabled`
 
           - `required string Name`
@@ -22236,65 +18878,43 @@ Archive Session Thread
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `required Boolean Enabled`
 
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required string McpServerName`
 
         - `required Type Type`
-
           - `"mcp_toolset"McpToolset`
 
       - `class BetaManagedAgentsCustomTool:`
 
         A custom tool as returned in API responses.
-
         - `required string Description`
 
         - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
             JSON Schema properties defining the tool's input parameters.
@@ -22306,17 +18926,14 @@ Archive Session Thread
           - `Type Type`
 
             Must be 'object' for tool input schemas.
-
             - `"object"Object`
 
         - `required string Name`
 
         - `required Type Type`
-
           - `"custom"Custom`
 
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `required Int Version`
@@ -22340,7 +18957,6 @@ Archive Session Thread
   - `required BetaManagedAgentsSessionThreadStats? Stats`
 
     Timing statistics for a session thread.
-
     - `Double ActiveSeconds`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -22356,7 +18972,6 @@ Archive Session Thread
   - `required BetaManagedAgentsSessionThreadStatus Status`
 
     SessionThreadStatus enum
-
     - `"running"Running`
 
     - `"idle"Idle`
@@ -22366,7 +18981,6 @@ Archive Session Thread
     - `"terminated"Terminated`
 
   - `required Type Type`
-
     - `"session_thread"SessionThread`
 
   - `required DateTimeOffset UpdatedAt`
@@ -22376,11 +18990,9 @@ Archive Session Thread
   - `required BetaManagedAgentsSessionThreadUsage? Usage`
 
     Cumulative token usage for a session thread across all turns.
-
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `Int Ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -22415,6 +19027,81 @@ var betaManagedAgentsSessionThread = await client.Beta.Sessions.Threads.Archive(
 Console.WriteLine(betaManagedAgentsSessionThread);
 ```
 
+#### Response
+
+```json
+{
+  "id": "sthr_011CZkZVWa6oIjw0rgXZpnBt",
+  "agent": {
+    "id": "agent_011CZkYqphY8vELVzwCUpqiQ",
+    "description": "A focused research subagent.",
+    "mcp_servers": [
+      {
+        "name": "example-mcp",
+        "type": "url",
+        "url": "https://example-server.modelcontextprotocol.io/sse"
+      }
+    ],
+    "model": {
+      "id": "claude-sonnet-4-6",
+      "speed": "standard"
+    },
+    "name": "Researcher",
+    "skills": [
+      {
+        "skill_id": "xlsx",
+        "type": "anthropic",
+        "version": "1"
+      }
+    ],
+    "system": "You are a research subagent that gathers and summarises sources for the coordinating agent.",
+    "tools": [
+      {
+        "configs": [
+          {
+            "enabled": true,
+            "name": "bash",
+            "permission_policy": {
+              "type": "always_allow"
+            }
+          }
+        ],
+        "default_config": {
+          "enabled": true,
+          "permission_policy": {
+            "type": "always_ask"
+          }
+        },
+        "type": "agent_toolset_20260401"
+      }
+    ],
+    "type": "agent",
+    "version": 1
+  },
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "parent_thread_id": null,
+  "session_id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "stats": {
+    "active_seconds": 0,
+    "duration_seconds": 0,
+    "startup_seconds": 0
+  },
+  "status": "idle",
+  "type": "session_thread",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "usage": {
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 0,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "cache_read_input_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0
+  }
+}
+```
+
 ## Domain Types
 
 ### Beta Managed Agents Session Thread
@@ -22422,7 +19109,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 - `class BetaManagedAgentsSessionThread:`
 
   An execution thread within a `session`. Each session has one primary thread plus zero or more child threads spawned by the coordinator.
-
   - `required string ID`
 
     Unique identifier for this thread.
@@ -22430,17 +19116,14 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `required BetaManagedAgentsSessionThreadAgent Agent`
 
     Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
     - `required string ID`
 
     - `required string? Description`
 
     - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
       - `required string Name`
 
       - `required Type Type`
-
         - `"url"Url`
 
       - `required string Url`
@@ -22448,13 +19131,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `required BetaManagedAgentsModelConfig Model`
 
       Model identifier and configuration.
-
       - `required BetaManagedAgentsModel ID`
 
         The model that will power your agent.
 
         See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
         - `"claude-opus-4-7"ClaudeOpus4_7`
 
           Frontier intelligence for long-running agents and coding
@@ -22494,7 +19175,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       - `Speed Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -22502,15 +19182,12 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `required string Name`
 
     - `required IReadOnlyList<Skill> Skills`
-
       - `class BetaManagedAgentsAnthropicSkill:`
 
         A resolved Anthropic-managed skill.
-
         - `required string SkillID`
 
         - `required Type Type`
-
           - `"anthropic"Anthropic`
 
         - `required string Version`
@@ -22518,11 +19195,9 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       - `class BetaManagedAgentsCustomSkill:`
 
         A resolved user-created custom skill.
-
         - `required string SkillID`
 
         - `required Type Type`
-
           - `"custom"Custom`
 
         - `required string Version`
@@ -22530,17 +19205,13 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `required string? System`
 
     - `required IReadOnlyList<Tool> Tools`
-
       - `class BetaManagedAgentsAgentToolset20260401:`
-
         - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
           - `required Boolean Enabled`
 
           - `required Name Name`
 
             Built-in agent tool identifier.
-
             - `"bash"Bash`
 
             - `"edit"Edit`
@@ -22560,57 +19231,39 @@ Console.WriteLine(betaManagedAgentsSessionThread);
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
               - `required Type Type`
-
                 - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
-
               - `required Type Type`
-
                 - `"always_ask"AlwaysAsk`
 
         - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
 
           Resolved default configuration for agent tools.
-
           - `required Boolean Enabled`
 
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required Type Type`
-
           - `"agent_toolset_20260401"AgentToolset20260401`
 
       - `class BetaManagedAgentsMcpToolset:`
-
         - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
           - `required Boolean Enabled`
 
           - `required string Name`
@@ -22618,65 +19271,43 @@ Console.WriteLine(betaManagedAgentsSessionThread);
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
 
           Resolved default configuration for all tools from an MCP server.
-
           - `required Boolean Enabled`
 
           - `required PermissionPolicy PermissionPolicy`
 
             Permission policy for tool execution.
-
             - `class BetaManagedAgentsAlwaysAllowPolicy:`
 
               Tool calls are automatically approved without user confirmation.
-
-              - `required Type Type`
-
-                - `"always_allow"AlwaysAllow`
 
             - `class BetaManagedAgentsAlwaysAskPolicy:`
 
               Tool calls require user confirmation before execution.
 
-              - `required Type Type`
-
-                - `"always_ask"AlwaysAsk`
-
         - `required string McpServerName`
 
         - `required Type Type`
-
           - `"mcp_toolset"McpToolset`
 
       - `class BetaManagedAgentsCustomTool:`
 
         A custom tool as returned in API responses.
-
         - `required string Description`
 
         - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
 
           JSON Schema for custom tool input parameters.
-
           - `IReadOnlyDictionary<string, JsonElement>? Properties`
 
             JSON Schema properties defining the tool's input parameters.
@@ -22688,17 +19319,14 @@ Console.WriteLine(betaManagedAgentsSessionThread);
           - `Type Type`
 
             Must be 'object' for tool input schemas.
-
             - `"object"Object`
 
         - `required string Name`
 
         - `required Type Type`
-
           - `"custom"Custom`
 
     - `required Type Type`
-
       - `"agent"Agent`
 
     - `required Int Version`
@@ -22722,7 +19350,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `required BetaManagedAgentsSessionThreadStats? Stats`
 
     Timing statistics for a session thread.
-
     - `Double ActiveSeconds`
 
       Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -22738,7 +19365,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `required BetaManagedAgentsSessionThreadStatus Status`
 
     SessionThreadStatus enum
-
     - `"running"Running`
 
     - `"idle"Idle`
@@ -22748,7 +19374,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `"terminated"Terminated`
 
   - `required Type Type`
-
     - `"session_thread"SessionThread`
 
   - `required DateTimeOffset UpdatedAt`
@@ -22758,11 +19383,9 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `required BetaManagedAgentsSessionThreadUsage? Usage`
 
     Cumulative token usage for a session thread across all turns.
-
     - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
       Prompt-cache creation token usage broken down by cache lifetime.
-
       - `Int Ephemeral1hInputTokens`
 
         Tokens used to create 1-hour ephemeral cache entries.
@@ -22783,290 +19406,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
       Total output tokens generated across all turns.
 
-### Beta Managed Agents Session Thread Agent
-
-- `class BetaManagedAgentsSessionThreadAgent:`
-
-  Resolved `agent` definition for a single `session_thread`. Snapshot of the agent at thread creation time. The multiagent roster is not repeated here; read it from `Session.agent`.
-
-  - `required string ID`
-
-  - `required string? Description`
-
-  - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
-
-    - `required string Name`
-
-    - `required Type Type`
-
-      - `"url"Url`
-
-    - `required string Url`
-
-  - `required BetaManagedAgentsModelConfig Model`
-
-    Model identifier and configuration.
-
-    - `required BetaManagedAgentsModel ID`
-
-      The model that will power your agent.
-
-      See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
-
-      - `"claude-opus-4-7"ClaudeOpus4_7`
-
-        Frontier intelligence for long-running agents and coding
-
-      - `"claude-opus-4-6"ClaudeOpus4_6`
-
-        Most intelligent model for building agents and coding
-
-      - `"claude-sonnet-4-6"ClaudeSonnet4_6`
-
-        Best combination of speed and intelligence
-
-      - `"claude-haiku-4-5"ClaudeHaiku4_5`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
-
-        Fastest model with near-frontier intelligence
-
-      - `"claude-opus-4-5"ClaudeOpus4_5`
-
-        Premium model combining maximum intelligence with practical performance
-
-      - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
-
-        Premium model combining maximum intelligence with practical performance
-
-      - `"claude-sonnet-4-5"ClaudeSonnet4_5`
-
-        High-performance model for agents and coding
-
-      - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
-
-        High-performance model for agents and coding
-
-    - `Speed Speed`
-
-      Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-      - `"standard"Standard`
-
-      - `"fast"Fast`
-
-  - `required string Name`
-
-  - `required IReadOnlyList<Skill> Skills`
-
-    - `class BetaManagedAgentsAnthropicSkill:`
-
-      A resolved Anthropic-managed skill.
-
-      - `required string SkillID`
-
-      - `required Type Type`
-
-        - `"anthropic"Anthropic`
-
-      - `required string Version`
-
-    - `class BetaManagedAgentsCustomSkill:`
-
-      A resolved user-created custom skill.
-
-      - `required string SkillID`
-
-      - `required Type Type`
-
-        - `"custom"Custom`
-
-      - `required string Version`
-
-  - `required string? System`
-
-  - `required IReadOnlyList<Tool> Tools`
-
-    - `class BetaManagedAgentsAgentToolset20260401:`
-
-      - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
-
-        - `required Boolean Enabled`
-
-        - `required Name Name`
-
-          Built-in agent tool identifier.
-
-          - `"bash"Bash`
-
-          - `"edit"Edit`
-
-          - `"read"Read`
-
-          - `"write"Write`
-
-          - `"glob"Glob`
-
-          - `"grep"Grep`
-
-          - `"web_fetch"WebFetch`
-
-          - `"web_search"WebSearch`
-
-        - `required PermissionPolicy PermissionPolicy`
-
-          Permission policy for tool execution.
-
-          - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-            Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
-
-          - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-            Tool calls require user confirmation before execution.
-
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
-      - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
-
-        Resolved default configuration for agent tools.
-
-        - `required Boolean Enabled`
-
-        - `required PermissionPolicy PermissionPolicy`
-
-          Permission policy for tool execution.
-
-          - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-            Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
-
-          - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-            Tool calls require user confirmation before execution.
-
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
-      - `required Type Type`
-
-        - `"agent_toolset_20260401"AgentToolset20260401`
-
-    - `class BetaManagedAgentsMcpToolset:`
-
-      - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
-
-        - `required Boolean Enabled`
-
-        - `required string Name`
-
-        - `required PermissionPolicy PermissionPolicy`
-
-          Permission policy for tool execution.
-
-          - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-            Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
-
-          - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-            Tool calls require user confirmation before execution.
-
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
-      - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
-
-        Resolved default configuration for all tools from an MCP server.
-
-        - `required Boolean Enabled`
-
-        - `required PermissionPolicy PermissionPolicy`
-
-          Permission policy for tool execution.
-
-          - `class BetaManagedAgentsAlwaysAllowPolicy:`
-
-            Tool calls are automatically approved without user confirmation.
-
-            - `required Type Type`
-
-              - `"always_allow"AlwaysAllow`
-
-          - `class BetaManagedAgentsAlwaysAskPolicy:`
-
-            Tool calls require user confirmation before execution.
-
-            - `required Type Type`
-
-              - `"always_ask"AlwaysAsk`
-
-      - `required string McpServerName`
-
-      - `required Type Type`
-
-        - `"mcp_toolset"McpToolset`
-
-    - `class BetaManagedAgentsCustomTool:`
-
-      A custom tool as returned in API responses.
-
-      - `required string Description`
-
-      - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
-
-        JSON Schema for custom tool input parameters.
-
-        - `IReadOnlyDictionary<string, JsonElement>? Properties`
-
-          JSON Schema properties defining the tool's input parameters.
-
-        - `IReadOnlyList<string> Required`
-
-          List of required property names.
-
-        - `Type Type`
-
-          Must be 'object' for tool input schemas.
-
-          - `"object"Object`
-
-      - `required string Name`
-
-      - `required Type Type`
-
-        - `"custom"Custom`
-
-  - `required Type Type`
-
-    - `"agent"Agent`
-
-  - `required Int Version`
-
 ### Beta Managed Agents Session Thread Stats
 
 - `class BetaManagedAgentsSessionThreadStats:`
 
   Timing statistics for a session thread.
-
   - `Double ActiveSeconds`
 
     Cumulative time in seconds the thread spent actively running. Excludes idle time.
@@ -23084,7 +19428,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 - `enum BetaManagedAgentsSessionThreadStatus:`
 
   SessionThreadStatus enum
-
   - `"running"Running`
 
   - `"idle"Idle`
@@ -23098,11 +19441,9 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 - `class BetaManagedAgentsSessionThreadUsage:`
 
   Cumulative token usage for a session thread across all turns.
-
   - `BetaManagedAgentsCacheCreationUsage CacheCreation`
 
     Prompt-cache creation token usage broken down by cache lifetime.
-
     - `Int Ephemeral1hInputTokens`
 
       Tokens used to create 1-hour ephemeral cache entries.
@@ -23128,11 +19469,9 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 - `class BetaManagedAgentsStreamSessionThreadEvents: A class that can be one of several variants.union`
 
   Server-sent event in a single thread's stream.
-
   - `class BetaManagedAgentsUserMessageEvent:`
 
     A user message event in the session conversation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -23140,31 +19479,25 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `required IReadOnlyList<Content> Content`
 
       Array of content blocks comprising the user message.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
         - `required string Text`
 
           The text content.
 
         - `required Type Type`
-
           - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for image source variants.
-
           - `class BetaManagedAgentsBase64ImageSource:`
 
             Base64-encoded image data.
-
             - `required string Data`
 
               Base64-encoded image data.
@@ -23174,15 +19507,12 @@ Console.WriteLine(betaManagedAgentsSessionThread);
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsUrlImageSource:`
 
             Image referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -23192,31 +19522,25 @@ Console.WriteLine(betaManagedAgentsSessionThread);
           - `class BetaManagedAgentsFileImageSource:`
 
             Image referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"image"Image`
 
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for document source variants.
-
           - `class BetaManagedAgentsBase64DocumentSource:`
 
             Base64-encoded document data.
-
             - `required string Data`
 
               Base64-encoded document data.
@@ -23226,13 +19550,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
               MIME type of the document (e.g., "application/pdf").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource:`
 
             Plain text document content.
-
             - `required string Data`
 
               The plain text content.
@@ -23240,19 +19562,15 @@ Console.WriteLine(betaManagedAgentsSessionThread);
             - `required MediaType MediaType`
 
               MIME type of the text content. Must be "text/plain".
-
               - `"text/plain"TextPlain`
 
             - `required Type Type`
-
               - `"text"Text`
 
           - `class BetaManagedAgentsUrlDocumentSource:`
 
             Document referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -23262,17 +19580,14 @@ Console.WriteLine(betaManagedAgentsSessionThread);
           - `class BetaManagedAgentsFileDocumentSource:`
 
             Document referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"document"Document`
 
         - `string? Context`
@@ -23284,7 +19599,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
           The title of the document.
 
     - `required Type Type`
-
       - `"user.message"UserMessage`
 
     - `DateTimeOffset? ProcessedAt`
@@ -23294,13 +19608,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsUserInterruptEvent:`
 
     An interrupt event that pauses agent execution and returns control to the user.
-
     - `required string ID`
 
       Unique identifier for this event.
 
     - `required Type Type`
-
       - `"user.interrupt"UserInterrupt`
 
     - `DateTimeOffset? ProcessedAt`
@@ -23314,7 +19626,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
     A tool confirmation event that approves or denies a pending tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -23322,7 +19633,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `required Result Result`
 
       UserToolConfirmationResult enum
-
       - `"allow"Allow`
 
       - `"deny"Deny`
@@ -23332,7 +19642,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.tool_confirmation"UserToolConfirmation`
 
     - `string? DenyMessage`
@@ -23350,7 +19659,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
     Event sent by the client providing the result of a custom tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -23360,154 +19668,53 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.custom_tool_result"UserCustomToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
+        A block containing a web search result.
+        - `required BetaManagedAgentsSearchResultCitations Citations`
 
-          - `class BetaManagedAgentsBase64DocumentSource:`
+          Citation settings for a search result.
+          - `required Boolean Enabled`
 
-            Base64-encoded document data.
+            Whether citations are enabled for this search result.
 
-            - `required string Data`
+        - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
-              Base64-encoded document data.
+          Array of text content blocks from the search result.
+          - `required string Text`
 
-            - `required string MediaType`
+            The text content.
 
-              MIME type of the document (e.g., "application/pdf").
+          - `required Type Type`
+            - `"text"Text`
 
-            - `required Type Type`
+        - `required string Source`
 
-              - `"base64"Base64`
+          The URL source of the search result.
 
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
+        - `required string Title`
 
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
+          The title of the search result.
 
         - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+          - `"search_result"SearchResult`
 
     - `Boolean? IsError`
 
@@ -23524,7 +19731,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsAgentCustomToolUseEvent:`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -23542,7 +19748,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.custom_tool_use"AgentCustomToolUse`
 
     - `string? SessionThreadID`
@@ -23552,7 +19757,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsAgentMessageEvent:`
 
     An agent response event in the session conversation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -23560,27 +19764,22 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `required IReadOnlyList<BetaManagedAgentsTextBlock> Content`
 
       Array of text blocks comprising the agent response.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
 
-        - `"text"Text`
-
     - `required DateTimeOffset ProcessedAt`
 
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.message"AgentMessage`
 
   - `class BetaManagedAgentsAgentThinkingEvent:`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -23590,13 +19789,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thinking"AgentThinking`
 
   - `class BetaManagedAgentsAgentMcpToolUseEvent:`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -23618,13 +19815,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.mcp_tool_use"AgentMcpToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -23638,7 +19833,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsAgentMcpToolResultEvent:`
 
     Event representing the result of an MCP tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -23652,154 +19846,26 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.mcp_tool_result"AgentMcpToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `Boolean? IsError`
 
@@ -23808,7 +19874,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsAgentToolUseEvent:`
 
     Event emitted when the agent invokes a built-in agent tool.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -23826,13 +19891,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.tool_use"AgentToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -23846,7 +19909,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsAgentToolResultEvent:`
 
     Event representing the result of an agent tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -23860,154 +19922,26 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `required Type Type`
-
       - `"agent.tool_result"AgentToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `Boolean? IsError`
 
@@ -24016,7 +19950,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24024,148 +19957,17 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
 
     - `required string FromSessionThreadID`
 
@@ -24176,7 +19978,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thread_message_received"AgentThreadMessageReceived`
 
     - `string? FromAgentName`
@@ -24186,7 +19987,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24194,148 +19994,17 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
 
     - `required DateTimeOffset ProcessedAt`
 
@@ -24346,7 +20015,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       Public `sthr_` ID of the thread the message was sent to.
 
     - `required Type Type`
-
       - `"agent.thread_message_sent"AgentThreadMessageSent`
 
     - `string? ToAgentName`
@@ -24356,7 +20024,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
 
     Indicates that context compaction (summarization) occurred during the session.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24366,13 +20033,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thread_context_compacted"AgentThreadContextCompacted`
 
   - `class BetaManagedAgentsSessionErrorEvent:`
 
     An error event indicating a problem occurred during session execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24380,11 +20045,9 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `required Error Error`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `class BetaManagedAgentsUnknownError:`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
         - `required string Message`
 
           Human-readable error description.
@@ -24392,39 +20055,30 @@ Console.WriteLine(betaManagedAgentsSessionThread);
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
             - `required Type Type`
-
               - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
             - `required Type Type`
-
               - `"exhausted"Exhausted`
 
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
             - `required Type Type`
-
               - `"terminal"Terminal`
 
         - `required Type Type`
-
           - `"unknown_error"UnknownError`
 
       - `class BetaManagedAgentsModelOverloadedError:`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
-
         - `required string Message`
 
           Human-readable error description.
@@ -24432,39 +20086,24 @@ Console.WriteLine(betaManagedAgentsSessionThread);
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_overloaded_error"ModelOverloadedError`
 
       - `class BetaManagedAgentsModelRateLimitedError:`
 
         The model request was rate-limited.
-
         - `required string Message`
 
           Human-readable error description.
@@ -24472,39 +20111,24 @@ Console.WriteLine(betaManagedAgentsSessionThread);
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_rate_limited_error"ModelRateLimitedError`
 
       - `class BetaManagedAgentsModelRequestFailedError:`
 
         A model request failed for a reason other than overload or rate-limiting.
-
         - `required string Message`
 
           Human-readable error description.
@@ -24512,39 +20136,24 @@ Console.WriteLine(betaManagedAgentsSessionThread);
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_request_failed_error"ModelRequestFailedError`
 
       - `class BetaManagedAgentsMcpConnectionFailedError:`
 
         Failed to connect to an MCP server.
-
         - `required string McpServerName`
 
           Name of the MCP server that failed to connect.
@@ -24556,39 +20165,24 @@ Console.WriteLine(betaManagedAgentsSessionThread);
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"mcp_connection_failed_error"McpConnectionFailedError`
 
       - `class BetaManagedAgentsMcpAuthenticationFailedError:`
 
         Authentication to an MCP server failed.
-
         - `required string McpServerName`
 
           Name of the MCP server that failed authentication.
@@ -24600,39 +20194,24 @@ Console.WriteLine(betaManagedAgentsSessionThread);
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"mcp_authentication_failed_error"McpAuthenticationFailedError`
 
       - `class BetaManagedAgentsBillingError:`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
         - `required string Message`
 
           Human-readable error description.
@@ -24640,33 +20219,19 @@ Console.WriteLine(betaManagedAgentsSessionThread);
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"billing_error"BillingError`
 
     - `required DateTimeOffset ProcessedAt`
@@ -24674,13 +20239,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.error"SessionError`
 
   - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24690,13 +20253,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_rescheduled"SessionStatusRescheduled`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent:`
 
     Indicates the session is actively running and the agent is working.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24706,13 +20267,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_running"SessionStatusRunning`
 
   - `class BetaManagedAgentsSessionStatusIdleEvent:`
 
     Indicates the agent has paused and is awaiting user input.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24724,43 +20283,34 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `required Type Type`
-
           - `"end_turn"EndTurn`
 
       - `class BetaManagedAgentsSessionRequiresAction:`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
         - `required IReadOnlyList<string> EventIds`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
         - `required Type Type`
-
           - `"requires_action"RequiresAction`
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
         - `required Type Type`
-
           - `"retries_exhausted"RetriesExhausted`
 
     - `required Type Type`
-
       - `"session.status_idle"SessionStatusIdle`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
 
     Indicates the session has terminated, either due to an error or completion.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24770,13 +20320,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_terminated"SessionStatusTerminated`
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent:`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24794,13 +20342,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       Public `sthr_` ID of the newly created thread.
 
     - `required Type Type`
-
       - `"session.thread_created"SessionThreadCreated`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
 
     Emitted when an outcome evaluation cycle begins.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24818,13 +20364,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_start"SpanOutcomeEvaluationStart`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24854,13 +20398,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_end"SpanOutcomeEvaluationEnd`
 
     - `required BetaManagedAgentsSpanModelUsage Usage`
 
       Token usage for a single model request.
-
       - `required Int CacheCreationInputTokens`
 
         Tokens used to create prompt cache in this request.
@@ -24880,7 +20422,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       - `Speed? Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -24888,7 +20429,6 @@ Console.WriteLine(betaManagedAgentsSessionThread);
   - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
     Emitted when a model request is initiated by the agent.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24898,13 +20438,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.model_request_start"SpanModelRequestStart`
 
   - `class BetaManagedAgentsSpanModelRequestEndEvent:`
 
     Emitted when a model request completes.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24921,42 +20459,16 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
       Token usage for a single model request.
 
-      - `required Int CacheCreationInputTokens`
-
-        Tokens used to create prompt cache in this request.
-
-      - `required Int CacheReadInputTokens`
-
-        Tokens read from prompt cache in this request.
-
-      - `required Int InputTokens`
-
-        Input tokens consumed by this request.
-
-      - `required Int OutputTokens`
-
-        Output tokens generated by this request.
-
-      - `Speed? Speed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"Standard`
-
-        - `"fast"Fast`
-
     - `required DateTimeOffset ProcessedAt`
 
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.model_request_end"SpanModelRequestEnd`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -24974,13 +20486,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_ongoing"SpanOutcomeEvaluationOngoing`
 
   - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -25004,39 +20514,32 @@ Console.WriteLine(betaManagedAgentsSessionThread);
     - `required Rubric Rubric`
 
       Rubric for grading the quality of an outcome.
-
       - `class BetaManagedAgentsFileRubric:`
 
         Rubric referenced by a file uploaded via the Files API.
-
         - `required string FileID`
 
           ID of the rubric file.
 
         - `required Type Type`
-
           - `"file"File`
 
       - `class BetaManagedAgentsTextRubric:`
 
         Rubric content provided inline as text.
-
         - `required string Content`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
         - `required Type Type`
-
           - `"text"Text`
 
     - `required Type Type`
-
       - `"user.define_outcome"UserDefineOutcome`
 
   - `class BetaManagedAgentsSessionDeletedEvent:`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -25046,13 +20549,11 @@ Console.WriteLine(betaManagedAgentsSessionThread);
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.deleted"SessionDeleted`
 
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -25067,16 +20568,14 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that started running.
+      Public sthr\_ ID of the thread that started running.
 
     - `required Type Type`
-
       - `"session.thread_status_running"SessionThreadStatusRunning`
 
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -25091,48 +20590,29 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that went idle.
+      Public sthr\_ ID of the thread that went idle.
 
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
-
-        - `required Type Type`
-
-          - `"end_turn"EndTurn`
 
       - `class BetaManagedAgentsSessionRequiresAction:`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-        - `required IReadOnlyList<string> EventIds`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `required Type Type`
-
-          - `"requires_action"RequiresAction`
-
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
-        - `required Type Type`
-
-          - `"retries_exhausted"RetriesExhausted`
-
     - `required Type Type`
-
       - `"session.thread_status_idle"SessionThreadStatusIdle`
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -25147,16 +20627,59 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that terminated.
+      Public sthr\_ ID of the thread that terminated.
 
     - `required Type Type`
-
       - `"session.thread_status_terminated"SessionThreadStatusTerminated`
+
+  - `class BetaManagedAgentsUserToolResultEvent:`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+    - `required string ID`
+
+      Unique identifier for this event.
+
+    - `required string ToolUseID`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `required Type Type`
+      - `"user.tool_result"UserToolResult`
+
+    - `IReadOnlyList<Content> Content`
+
+      The result content returned by the tool.
+      - `class BetaManagedAgentsTextBlock:`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock:`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock:`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock:`
+
+        A block containing a web search result.
+
+    - `Boolean? IsError`
+
+      Whether the tool execution resulted in an error.
+
+    - `DateTimeOffset? ProcessedAt`
+
+      A timestamp in RFC 3339 format
+
+    - `string? SessionThreadID`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -25171,15 +20694,305 @@ Console.WriteLine(betaManagedAgentsSessionThread);
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that is retrying.
+      Public sthr\_ ID of the thread that is retrying.
 
     - `required Type Type`
-
       - `"session.thread_status_rescheduled"SessionThreadStatusRescheduled`
+
+  - `class BetaManagedAgentsSessionUpdatedEvent:`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+    - `required string ID`
+
+      Unique identifier for this event.
+
+    - `required DateTimeOffset ProcessedAt`
+
+      A timestamp in RFC 3339 format
+
+    - `required Type Type`
+      - `"session.updated"SessionUpdated`
+
+    - `BetaManagedAgentsSessionAgent? Agent`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      - `required string ID`
+
+      - `required string? Description`
+
+      - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+        - `required string Name`
+
+        - `required Type Type`
+          - `"url"Url`
+
+        - `required string Url`
+
+      - `required BetaManagedAgentsModelConfig Model`
+
+        Model identifier and configuration.
+        - `required BetaManagedAgentsModel ID`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `"claude-opus-4-7"ClaudeOpus4_7`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-opus-4-6"ClaudeOpus4_6`
+
+            Most intelligent model for building agents and coding
+
+          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"ClaudeOpus4_5`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+            High-performance model for agents and coding
+
+        - `Speed Speed`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          - `"standard"Standard`
+
+          - `"fast"Fast`
+
+      - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+        - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+          - `required string ID`
+
+          - `required string? Description`
+
+          - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+            - `required string Name`
+
+            - `required Type Type`
+
+            - `required string Url`
+
+          - `required BetaManagedAgentsModelConfig Model`
+
+            Model identifier and configuration.
+
+          - `required string Name`
+
+          - `required IReadOnlyList<Skill> Skills`
+            - `class BetaManagedAgentsAnthropicSkill:`
+
+              A resolved Anthropic-managed skill.
+              - `required string SkillID`
+
+              - `required Type Type`
+                - `"anthropic"Anthropic`
+
+              - `required string Version`
+
+            - `class BetaManagedAgentsCustomSkill:`
+
+              A resolved user-created custom skill.
+              - `required string SkillID`
+
+              - `required Type Type`
+                - `"custom"Custom`
+
+              - `required string Version`
+
+          - `required string? System`
+
+          - `required IReadOnlyList<Tool> Tools`
+            - `class BetaManagedAgentsAgentToolset20260401:`
+              - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+                - `required Boolean Enabled`
+
+                - `required Name Name`
+
+                  Built-in agent tool identifier.
+                  - `"bash"Bash`
+
+                  - `"edit"Edit`
+
+                  - `"read"Read`
+
+                  - `"write"Write`
+
+                  - `"glob"Glob`
+
+                  - `"grep"Grep`
+
+                  - `"web_fetch"WebFetch`
+
+                  - `"web_search"WebSearch`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+                    - `required Type Type`
+                      - `"always_allow"AlwaysAllow`
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+                    - `required Type Type`
+                      - `"always_ask"AlwaysAsk`
+
+              - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
+
+                Resolved default configuration for agent tools.
+                - `required Boolean Enabled`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required Type Type`
+                - `"agent_toolset_20260401"AgentToolset20260401`
+
+            - `class BetaManagedAgentsMcpToolset:`
+              - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
+                - `required Boolean Enabled`
+
+                - `required string Name`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+                - `required Boolean Enabled`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required string McpServerName`
+
+              - `required Type Type`
+                - `"mcp_toolset"McpToolset`
+
+            - `class BetaManagedAgentsCustomTool:`
+
+              A custom tool as returned in API responses.
+              - `required string Description`
+
+              - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
+
+                JSON Schema for custom tool input parameters.
+                - `IReadOnlyDictionary<string, JsonElement>? Properties`
+
+                  JSON Schema properties defining the tool's input parameters.
+
+                - `IReadOnlyList<string> Required`
+
+                  List of required property names.
+
+                - `Type Type`
+
+                  Must be 'object' for tool input schemas.
+                  - `"object"Object`
+
+              - `required string Name`
+
+              - `required Type Type`
+                - `"custom"Custom`
+
+          - `required Type Type`
+            - `"agent"Agent`
+
+          - `required Int Version`
+
+        - `required Type Type`
+          - `"coordinator"Coordinator`
+
+      - `required string Name`
+
+      - `required IReadOnlyList<Skill> Skills`
+        - `class BetaManagedAgentsAnthropicSkill:`
+
+          A resolved Anthropic-managed skill.
+
+        - `class BetaManagedAgentsCustomSkill:`
+
+          A resolved user-created custom skill.
+
+      - `required string? System`
+
+      - `required IReadOnlyList<Tool> Tools`
+        - `class BetaManagedAgentsAgentToolset20260401:`
+
+        - `class BetaManagedAgentsMcpToolset:`
+
+        - `class BetaManagedAgentsCustomTool:`
+
+          A custom tool as returned in API responses.
+
+      - `required Type Type`
+        - `"agent"Agent`
+
+      - `required Int Version`
+
+    - `IReadOnlyDictionary<string, string> Metadata`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `string? Title`
+
+      The session's new title. Present only when the update changed it.
 
 # Events
 
-## List
+## List Session Thread Events
 
 `EventListPageResponse Beta.Sessions.Threads.Events.List(EventListParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -25190,7 +21003,6 @@ List Session Thread Events
 ### Parameters
 
 - `EventListParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -25210,7 +21022,6 @@ List Session Thread Events
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -25259,20 +21070,23 @@ List Session Thread Events
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class EventListPageResponse:`
 
   Paginated list of events for a single thread within a `session`.
-
   - `IReadOnlyList<BetaManagedAgentsSessionEvent> Data`
 
     Events for the thread, ordered by `created_at`.
-
     - `class BetaManagedAgentsUserMessageEvent:`
 
       A user message event in the session conversation.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -25280,31 +21094,25 @@ List Session Thread Events
       - `required IReadOnlyList<Content> Content`
 
         Array of content blocks comprising the user message.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
           - `required string Text`
 
             The text content.
 
           - `required Type Type`
-
             - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
-
           - `required Source Source`
 
             Union type for image source variants.
-
             - `class BetaManagedAgentsBase64ImageSource:`
 
               Base64-encoded image data.
-
               - `required string Data`
 
                 Base64-encoded image data.
@@ -25314,15 +21122,12 @@ List Session Thread Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               - `required Type Type`
-
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
               Image referenced by URL.
-
               - `required Type Type`
-
                 - `"url"Url`
 
               - `required string Url`
@@ -25332,31 +21137,25 @@ List Session Thread Events
             - `class BetaManagedAgentsFileImageSource:`
 
               Image referenced by file ID.
-
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
-
                 - `"file"File`
 
           - `required Type Type`
-
             - `"image"Image`
 
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
           - `required Source Source`
 
             Union type for document source variants.
-
             - `class BetaManagedAgentsBase64DocumentSource:`
 
               Base64-encoded document data.
-
               - `required string Data`
 
                 Base64-encoded document data.
@@ -25366,13 +21165,11 @@ List Session Thread Events
                 MIME type of the document (e.g., "application/pdf").
 
               - `required Type Type`
-
                 - `"base64"Base64`
 
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
               Plain text document content.
-
               - `required string Data`
 
                 The plain text content.
@@ -25380,19 +21177,15 @@ List Session Thread Events
               - `required MediaType MediaType`
 
                 MIME type of the text content. Must be "text/plain".
-
                 - `"text/plain"TextPlain`
 
               - `required Type Type`
-
                 - `"text"Text`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
               Document referenced by URL.
-
               - `required Type Type`
-
                 - `"url"Url`
 
               - `required string Url`
@@ -25402,17 +21195,14 @@ List Session Thread Events
             - `class BetaManagedAgentsFileDocumentSource:`
 
               Document referenced by file ID.
-
               - `required string FileID`
 
                 ID of a previously uploaded file.
 
               - `required Type Type`
-
                 - `"file"File`
 
           - `required Type Type`
-
             - `"document"Document`
 
           - `string? Context`
@@ -25424,7 +21214,6 @@ List Session Thread Events
             The title of the document.
 
       - `required Type Type`
-
         - `"user.message"UserMessage`
 
       - `DateTimeOffset? ProcessedAt`
@@ -25434,13 +21223,11 @@ List Session Thread Events
     - `class BetaManagedAgentsUserInterruptEvent:`
 
       An interrupt event that pauses agent execution and returns control to the user.
-
       - `required string ID`
 
         Unique identifier for this event.
 
       - `required Type Type`
-
         - `"user.interrupt"UserInterrupt`
 
       - `DateTimeOffset? ProcessedAt`
@@ -25454,7 +21241,6 @@ List Session Thread Events
     - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
       A tool confirmation event that approves or denies a pending tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -25462,7 +21248,6 @@ List Session Thread Events
       - `required Result Result`
 
         UserToolConfirmationResult enum
-
         - `"allow"Allow`
 
         - `"deny"Deny`
@@ -25472,7 +21257,6 @@ List Session Thread Events
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
-
         - `"user.tool_confirmation"UserToolConfirmation`
 
       - `string? DenyMessage`
@@ -25490,7 +21274,6 @@ List Session Thread Events
     - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
       Event sent by the client providing the result of a custom tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -25500,154 +21283,53 @@ List Session Thread Events
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `required Type Type`
-
         - `"user.custom_tool_result"UserCustomToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-          - `required Source Source`
+        - `class BetaManagedAgentsSearchResultBlock:`
 
-            Union type for document source variants.
+          A block containing a web search result.
+          - `required BetaManagedAgentsSearchResultCitations Citations`
 
-            - `class BetaManagedAgentsBase64DocumentSource:`
+            Citation settings for a search result.
+            - `required Boolean Enabled`
 
-              Base64-encoded document data.
+              Whether citations are enabled for this search result.
 
-              - `required string Data`
+          - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
-                Base64-encoded document data.
+            Array of text content blocks from the search result.
+            - `required string Text`
 
-              - `required string MediaType`
+              The text content.
 
-                MIME type of the document (e.g., "application/pdf").
+            - `required Type Type`
+              - `"text"Text`
 
-              - `required Type Type`
+          - `required string Source`
 
-                - `"base64"Base64`
+            The URL source of the search result.
 
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
+          - `required string Title`
 
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
+            The title of the search result.
 
           - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
+            - `"search_result"SearchResult`
 
       - `Boolean? IsError`
 
@@ -25664,7 +21346,6 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentCustomToolUseEvent:`
 
       Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -25682,7 +21363,6 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.custom_tool_use"AgentCustomToolUse`
 
       - `string? SessionThreadID`
@@ -25692,7 +21372,6 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentMessageEvent:`
 
       An agent response event in the session conversation.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -25700,27 +21379,22 @@ List Session Thread Events
       - `required IReadOnlyList<BetaManagedAgentsTextBlock> Content`
 
         Array of text blocks comprising the agent response.
-
         - `required string Text`
 
           The text content.
 
         - `required Type Type`
 
-          - `"text"Text`
-
       - `required DateTimeOffset ProcessedAt`
 
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.message"AgentMessage`
 
     - `class BetaManagedAgentsAgentThinkingEvent:`
 
       Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -25730,13 +21404,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.thinking"AgentThinking`
 
     - `class BetaManagedAgentsAgentMcpToolUseEvent:`
 
       Event emitted when the agent invokes a tool provided by an MCP server.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -25758,13 +21430,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.mcp_tool_use"AgentMcpToolUse`
 
       - `EvaluatedPermission EvaluatedPermission`
 
         AgentEvaluatedPermission enum
-
         - `"allow"Allow`
 
         - `"ask"Ask`
@@ -25778,7 +21448,6 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentMcpToolResultEvent:`
 
       Event representing the result of an MCP tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -25792,154 +21461,26 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.mcp_tool_result"AgentMcpToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-          - `required Source Source`
+        - `class BetaManagedAgentsSearchResultBlock:`
 
-            Union type for document source variants.
-
-            - `class BetaManagedAgentsBase64DocumentSource:`
-
-              Base64-encoded document data.
-
-              - `required string Data`
-
-                Base64-encoded document data.
-
-              - `required string MediaType`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
+          A block containing a web search result.
 
       - `Boolean? IsError`
 
@@ -25948,7 +21489,6 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentToolUseEvent:`
 
       Event emitted when the agent invokes a built-in agent tool.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -25966,13 +21506,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.tool_use"AgentToolUse`
 
       - `EvaluatedPermission EvaluatedPermission`
 
         AgentEvaluatedPermission enum
-
         - `"allow"Allow`
 
         - `"ask"Ask`
@@ -25986,7 +21524,6 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentToolResultEvent:`
 
       Event representing the result of an agent tool execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26000,154 +21537,26 @@ List Session Thread Events
         The id of the `agent.tool_use` event this result corresponds to.
 
       - `required Type Type`
-
         - `"agent.tool_result"AgentToolResult`
 
       - `IReadOnlyList<Content> Content`
 
         The result content returned by the tool.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-          - `required Source Source`
+        - `class BetaManagedAgentsSearchResultBlock:`
 
-            Union type for document source variants.
-
-            - `class BetaManagedAgentsBase64DocumentSource:`
-
-              Base64-encoded document data.
-
-              - `required string Data`
-
-                Base64-encoded document data.
-
-              - `required string MediaType`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
+          A block containing a web search result.
 
       - `Boolean? IsError`
 
@@ -26156,7 +21565,6 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
 
       Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26164,148 +21572,17 @@ List Session Thread Events
       - `required IReadOnlyList<Content> Content`
 
         Message content blocks.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `required Source Source`
-
-            Union type for document source variants.
-
-            - `class BetaManagedAgentsBase64DocumentSource:`
-
-              Base64-encoded document data.
-
-              - `required string Data`
-
-                Base64-encoded document data.
-
-              - `required string MediaType`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
 
       - `required string FromSessionThreadID`
 
@@ -26316,7 +21593,6 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.thread_message_received"AgentThreadMessageReceived`
 
       - `string? FromAgentName`
@@ -26326,7 +21602,6 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
 
       Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26334,148 +21609,17 @@ List Session Thread Events
       - `required IReadOnlyList<Content> Content`
 
         Message content blocks.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `required string Text`
-
-            The text content.
-
-          - `required Type Type`
-
-            - `"text"Text`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `required Source Source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `required string Data`
-
-                Base64-encoded image data.
-
-              - `required string MediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"image"Image`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-          - `required Source Source`
-
-            Union type for document source variants.
-
-            - `class BetaManagedAgentsBase64DocumentSource:`
-
-              Base64-encoded document data.
-
-              - `required string Data`
-
-                Base64-encoded document data.
-
-              - `required string MediaType`
-
-                MIME type of the document (e.g., "application/pdf").
-
-              - `required Type Type`
-
-                - `"base64"Base64`
-
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-              Plain text document content.
-
-              - `required string Data`
-
-                The plain text content.
-
-              - `required MediaType MediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `"text/plain"TextPlain`
-
-              - `required Type Type`
-
-                - `"text"Text`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `required Type Type`
-
-                - `"url"Url`
-
-              - `required string Url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `required string FileID`
-
-                ID of a previously uploaded file.
-
-              - `required Type Type`
-
-                - `"file"File`
-
-          - `required Type Type`
-
-            - `"document"Document`
-
-          - `string? Context`
-
-            Additional context about the document for the model.
-
-          - `string? Title`
-
-            The title of the document.
 
       - `required DateTimeOffset ProcessedAt`
 
@@ -26486,7 +21630,6 @@ List Session Thread Events
         Public `sthr_` ID of the thread the message was sent to.
 
       - `required Type Type`
-
         - `"agent.thread_message_sent"AgentThreadMessageSent`
 
       - `string? ToAgentName`
@@ -26496,7 +21639,6 @@ List Session Thread Events
     - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
 
       Indicates that context compaction (summarization) occurred during the session.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26506,13 +21648,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"agent.thread_context_compacted"AgentThreadContextCompacted`
 
     - `class BetaManagedAgentsSessionErrorEvent:`
 
       An error event indicating a problem occurred during session execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26520,11 +21660,9 @@ List Session Thread Events
       - `required Error Error`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
         - `class BetaManagedAgentsUnknownError:`
 
           An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
           - `required string Message`
 
             Human-readable error description.
@@ -26532,39 +21670,30 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
               - `required Type Type`
-
                 - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
               - `required Type Type`
-
                 - `"exhausted"Exhausted`
 
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
-
               - `required Type Type`
-
                 - `"terminal"Terminal`
 
           - `required Type Type`
-
             - `"unknown_error"UnknownError`
 
         - `class BetaManagedAgentsModelOverloadedError:`
 
           The model is currently overloaded. Emitted after automatic retries are exhausted.
-
           - `required string Message`
 
             Human-readable error description.
@@ -26572,39 +21701,24 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"model_overloaded_error"ModelOverloadedError`
 
         - `class BetaManagedAgentsModelRateLimitedError:`
 
           The model request was rate-limited.
-
           - `required string Message`
 
             Human-readable error description.
@@ -26612,39 +21726,24 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"model_rate_limited_error"ModelRateLimitedError`
 
         - `class BetaManagedAgentsModelRequestFailedError:`
 
           A model request failed for a reason other than overload or rate-limiting.
-
           - `required string Message`
 
             Human-readable error description.
@@ -26652,39 +21751,24 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"model_request_failed_error"ModelRequestFailedError`
 
         - `class BetaManagedAgentsMcpConnectionFailedError:`
 
           Failed to connect to an MCP server.
-
           - `required string McpServerName`
 
             Name of the MCP server that failed to connect.
@@ -26696,39 +21780,24 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"mcp_connection_failed_error"McpConnectionFailedError`
 
         - `class BetaManagedAgentsMcpAuthenticationFailedError:`
 
           Authentication to an MCP server failed.
-
           - `required string McpServerName`
 
             Name of the MCP server that failed authentication.
@@ -26740,39 +21809,24 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"mcp_authentication_failed_error"McpAuthenticationFailedError`
 
         - `class BetaManagedAgentsBillingError:`
 
           The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
           - `required string Message`
 
             Human-readable error description.
@@ -26780,33 +21834,19 @@ List Session Thread Events
           - `required RetryStatus RetryStatus`
 
             What the client should do next in response to this error.
-
             - `class BetaManagedAgentsRetryStatusRetrying:`
 
               The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-              - `required Type Type`
-
-                - `"retrying"Retrying`
 
             - `class BetaManagedAgentsRetryStatusExhausted:`
 
               This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-              - `required Type Type`
-
-                - `"exhausted"Exhausted`
-
             - `class BetaManagedAgentsRetryStatusTerminal:`
 
               The session encountered a terminal error and will transition to `terminated` state.
 
-              - `required Type Type`
-
-                - `"terminal"Terminal`
-
           - `required Type Type`
-
             - `"billing_error"BillingError`
 
       - `required DateTimeOffset ProcessedAt`
@@ -26814,13 +21854,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"session.error"SessionError`
 
     - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
 
       Indicates the session is recovering from an error state and is rescheduled for execution.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26830,13 +21868,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"session.status_rescheduled"SessionStatusRescheduled`
 
     - `class BetaManagedAgentsSessionStatusRunningEvent:`
 
       Indicates the session is actively running and the agent is working.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26846,13 +21882,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"session.status_running"SessionStatusRunning`
 
     - `class BetaManagedAgentsSessionStatusIdleEvent:`
 
       Indicates the agent has paused and is awaiting user input.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26864,43 +21898,34 @@ List Session Thread Events
       - `required StopReason StopReason`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `class BetaManagedAgentsSessionEndTurn:`
 
           The agent completed its turn naturally and is ready for the next user message.
-
           - `required Type Type`
-
             - `"end_turn"EndTurn`
 
         - `class BetaManagedAgentsSessionRequiresAction:`
 
           The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
           - `required IReadOnlyList<string> EventIds`
 
             The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
           - `required Type Type`
-
             - `"requires_action"RequiresAction`
 
         - `class BetaManagedAgentsSessionRetriesExhausted:`
 
           The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
           - `required Type Type`
-
             - `"retries_exhausted"RetriesExhausted`
 
       - `required Type Type`
-
         - `"session.status_idle"SessionStatusIdle`
 
     - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
 
       Indicates the session has terminated, either due to an error or completion.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26910,13 +21935,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"session.status_terminated"SessionStatusTerminated`
 
     - `class BetaManagedAgentsSessionThreadCreatedEvent:`
 
       Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26934,13 +21957,11 @@ List Session Thread Events
         Public `sthr_` ID of the newly created thread.
 
       - `required Type Type`
-
         - `"session.thread_created"SessionThreadCreated`
 
     - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
 
       Emitted when an outcome evaluation cycle begins.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26958,13 +21979,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"span.outcome_evaluation_start"SpanOutcomeEvaluationStart`
 
     - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
 
       Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -26994,13 +22013,11 @@ List Session Thread Events
         Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
       - `required Type Type`
-
         - `"span.outcome_evaluation_end"SpanOutcomeEvaluationEnd`
 
       - `required BetaManagedAgentsSpanModelUsage Usage`
 
         Token usage for a single model request.
-
         - `required Int CacheCreationInputTokens`
 
           Tokens used to create prompt cache in this request.
@@ -27020,7 +22037,6 @@ List Session Thread Events
         - `Speed? Speed`
 
           Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
           - `"standard"Standard`
 
           - `"fast"Fast`
@@ -27028,7 +22044,6 @@ List Session Thread Events
     - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
       Emitted when a model request is initiated by the agent.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -27038,13 +22053,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"span.model_request_start"SpanModelRequestStart`
 
     - `class BetaManagedAgentsSpanModelRequestEndEvent:`
 
       Emitted when a model request completes.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -27061,42 +22074,16 @@ List Session Thread Events
 
         Token usage for a single model request.
 
-        - `required Int CacheCreationInputTokens`
-
-          Tokens used to create prompt cache in this request.
-
-        - `required Int CacheReadInputTokens`
-
-          Tokens read from prompt cache in this request.
-
-        - `required Int InputTokens`
-
-          Input tokens consumed by this request.
-
-        - `required Int OutputTokens`
-
-          Output tokens generated by this request.
-
-        - `Speed? Speed`
-
-          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-          - `"standard"Standard`
-
-          - `"fast"Fast`
-
       - `required DateTimeOffset ProcessedAt`
 
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"span.model_request_end"SpanModelRequestEnd`
 
     - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
 
       Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -27114,13 +22101,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"span.outcome_evaluation_ongoing"SpanOutcomeEvaluationOngoing`
 
     - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -27144,39 +22129,32 @@ List Session Thread Events
       - `required Rubric Rubric`
 
         Rubric for grading the quality of an outcome.
-
         - `class BetaManagedAgentsFileRubric:`
 
           Rubric referenced by a file uploaded via the Files API.
-
           - `required string FileID`
 
             ID of the rubric file.
 
           - `required Type Type`
-
             - `"file"File`
 
         - `class BetaManagedAgentsTextRubric:`
 
           Rubric content provided inline as text.
-
           - `required string Content`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
           - `required Type Type`
-
             - `"text"Text`
 
       - `required Type Type`
-
         - `"user.define_outcome"UserDefineOutcome`
 
     - `class BetaManagedAgentsSessionDeletedEvent:`
 
       Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -27186,13 +22164,11 @@ List Session Thread Events
         A timestamp in RFC 3339 format
 
       - `required Type Type`
-
         - `"session.deleted"SessionDeleted`
 
     - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
 
       A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -27207,16 +22183,14 @@ List Session Thread Events
 
       - `required string SessionThreadID`
 
-        Public sthr_ ID of the thread that started running.
+        Public sthr\_ ID of the thread that started running.
 
       - `required Type Type`
-
         - `"session.thread_status_running"SessionThreadStatusRunning`
 
     - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
 
       A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -27231,48 +22205,29 @@ List Session Thread Events
 
       - `required string SessionThreadID`
 
-        Public sthr_ ID of the thread that went idle.
+        Public sthr\_ ID of the thread that went idle.
 
       - `required StopReason StopReason`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `class BetaManagedAgentsSessionEndTurn:`
 
           The agent completed its turn naturally and is ready for the next user message.
-
-          - `required Type Type`
-
-            - `"end_turn"EndTurn`
 
         - `class BetaManagedAgentsSessionRequiresAction:`
 
           The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-          - `required IReadOnlyList<string> EventIds`
-
-            The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-          - `required Type Type`
-
-            - `"requires_action"RequiresAction`
-
         - `class BetaManagedAgentsSessionRetriesExhausted:`
 
           The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
-          - `required Type Type`
-
-            - `"retries_exhausted"RetriesExhausted`
-
       - `required Type Type`
-
         - `"session.thread_status_idle"SessionThreadStatusIdle`
 
     - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
 
       A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -27287,16 +22242,59 @@ List Session Thread Events
 
       - `required string SessionThreadID`
 
-        Public sthr_ ID of the thread that terminated.
+        Public sthr\_ ID of the thread that terminated.
 
       - `required Type Type`
-
         - `"session.thread_status_terminated"SessionThreadStatusTerminated`
+
+    - `class BetaManagedAgentsUserToolResultEvent:`
+
+      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+      - `required string ID`
+
+        Unique identifier for this event.
+
+      - `required string ToolUseID`
+
+        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `required Type Type`
+        - `"user.tool_result"UserToolResult`
+
+      - `IReadOnlyList<Content> Content`
+
+        The result content returned by the tool.
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock:`
+
+          A block containing a web search result.
+
+      - `Boolean? IsError`
+
+        Whether the tool execution resulted in an error.
+
+      - `DateTimeOffset? ProcessedAt`
+
+        A timestamp in RFC 3339 format
+
+      - `string? SessionThreadID`
+
+        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
     - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
 
       A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
       - `required string ID`
 
         Unique identifier for this event.
@@ -27311,11 +22309,301 @@ List Session Thread Events
 
       - `required string SessionThreadID`
 
-        Public sthr_ ID of the thread that is retrying.
+        Public sthr\_ ID of the thread that is retrying.
 
       - `required Type Type`
-
         - `"session.thread_status_rescheduled"SessionThreadStatusRescheduled`
+
+    - `class BetaManagedAgentsSessionUpdatedEvent:`
+
+      Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+      - `required string ID`
+
+        Unique identifier for this event.
+
+      - `required DateTimeOffset ProcessedAt`
+
+        A timestamp in RFC 3339 format
+
+      - `required Type Type`
+        - `"session.updated"SessionUpdated`
+
+      - `BetaManagedAgentsSessionAgent? Agent`
+
+        Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+        - `required string ID`
+
+        - `required string? Description`
+
+        - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+          - `required string Name`
+
+          - `required Type Type`
+            - `"url"Url`
+
+          - `required string Url`
+
+        - `required BetaManagedAgentsModelConfig Model`
+
+          Model identifier and configuration.
+          - `required BetaManagedAgentsModel ID`
+
+            The model that will power your agent.
+
+            See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+            - `"claude-opus-4-7"ClaudeOpus4_7`
+
+              Frontier intelligence for long-running agents and coding
+
+            - `"claude-opus-4-6"ClaudeOpus4_6`
+
+              Most intelligent model for building agents and coding
+
+            - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+              Best combination of speed and intelligence
+
+            - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+              Fastest model with near-frontier intelligence
+
+            - `"claude-opus-4-5"ClaudeOpus4_5`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+              Premium model combining maximum intelligence with practical performance
+
+            - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+              High-performance model for agents and coding
+
+            - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+              High-performance model for agents and coding
+
+          - `Speed Speed`
+
+            Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+            - `"standard"Standard`
+
+            - `"fast"Fast`
+
+        - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
+
+          Resolved coordinator topology with full agent definitions for each roster member.
+          - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
+
+            Full `agent` definitions the coordinator may spawn as session threads.
+            - `required string ID`
+
+            - `required string? Description`
+
+            - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+              - `required string Name`
+
+              - `required Type Type`
+
+              - `required string Url`
+
+            - `required BetaManagedAgentsModelConfig Model`
+
+              Model identifier and configuration.
+
+            - `required string Name`
+
+            - `required IReadOnlyList<Skill> Skills`
+              - `class BetaManagedAgentsAnthropicSkill:`
+
+                A resolved Anthropic-managed skill.
+                - `required string SkillID`
+
+                - `required Type Type`
+                  - `"anthropic"Anthropic`
+
+                - `required string Version`
+
+              - `class BetaManagedAgentsCustomSkill:`
+
+                A resolved user-created custom skill.
+                - `required string SkillID`
+
+                - `required Type Type`
+                  - `"custom"Custom`
+
+                - `required string Version`
+
+            - `required string? System`
+
+            - `required IReadOnlyList<Tool> Tools`
+              - `class BetaManagedAgentsAgentToolset20260401:`
+                - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+                  - `required Boolean Enabled`
+
+                  - `required Name Name`
+
+                    Built-in agent tool identifier.
+                    - `"bash"Bash`
+
+                    - `"edit"Edit`
+
+                    - `"read"Read`
+
+                    - `"write"Write`
+
+                    - `"glob"Glob`
+
+                    - `"grep"Grep`
+
+                    - `"web_fetch"WebFetch`
+
+                    - `"web_search"WebSearch`
+
+                  - `required PermissionPolicy PermissionPolicy`
+
+                    Permission policy for tool execution.
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+                      - `required Type Type`
+                        - `"always_allow"AlwaysAllow`
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+                      - `required Type Type`
+                        - `"always_ask"AlwaysAsk`
+
+                - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
+
+                  Resolved default configuration for agent tools.
+                  - `required Boolean Enabled`
+
+                  - `required PermissionPolicy PermissionPolicy`
+
+                    Permission policy for tool execution.
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+
+                - `required Type Type`
+                  - `"agent_toolset_20260401"AgentToolset20260401`
+
+              - `class BetaManagedAgentsMcpToolset:`
+                - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
+                  - `required Boolean Enabled`
+
+                  - `required string Name`
+
+                  - `required PermissionPolicy PermissionPolicy`
+
+                    Permission policy for tool execution.
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+
+                - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
+
+                  Resolved default configuration for all tools from an MCP server.
+                  - `required Boolean Enabled`
+
+                  - `required PermissionPolicy PermissionPolicy`
+
+                    Permission policy for tool execution.
+                    - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                      Tool calls are automatically approved without user confirmation.
+
+                    - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                      Tool calls require user confirmation before execution.
+
+                - `required string McpServerName`
+
+                - `required Type Type`
+                  - `"mcp_toolset"McpToolset`
+
+              - `class BetaManagedAgentsCustomTool:`
+
+                A custom tool as returned in API responses.
+                - `required string Description`
+
+                - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
+
+                  JSON Schema for custom tool input parameters.
+                  - `IReadOnlyDictionary<string, JsonElement>? Properties`
+
+                    JSON Schema properties defining the tool's input parameters.
+
+                  - `IReadOnlyList<string> Required`
+
+                    List of required property names.
+
+                  - `Type Type`
+
+                    Must be 'object' for tool input schemas.
+                    - `"object"Object`
+
+                - `required string Name`
+
+                - `required Type Type`
+                  - `"custom"Custom`
+
+            - `required Type Type`
+              - `"agent"Agent`
+
+            - `required Int Version`
+
+          - `required Type Type`
+            - `"coordinator"Coordinator`
+
+        - `required string Name`
+
+        - `required IReadOnlyList<Skill> Skills`
+          - `class BetaManagedAgentsAnthropicSkill:`
+
+            A resolved Anthropic-managed skill.
+
+          - `class BetaManagedAgentsCustomSkill:`
+
+            A resolved user-created custom skill.
+
+        - `required string? System`
+
+        - `required IReadOnlyList<Tool> Tools`
+          - `class BetaManagedAgentsAgentToolset20260401:`
+
+          - `class BetaManagedAgentsMcpToolset:`
+
+          - `class BetaManagedAgentsCustomTool:`
+
+            A custom tool as returned in API responses.
+
+        - `required Type Type`
+          - `"agent"Agent`
+
+        - `required Int Version`
+
+      - `IReadOnlyDictionary<string, string> Metadata`
+
+        The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+      - `string? Title`
+
+        The session's new title. Present only when the update changed it.
 
   - `string? NextPage`
 
@@ -27337,7 +22625,28 @@ await foreach (var item in page.Paginate())
 }
 ```
 
-## Stream
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message",
+      "processed_at": "2026-03-15T10:00:00Z"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Stream Session Thread Events
 
 `BetaManagedAgentsStreamSessionThreadEvents Beta.Sessions.Threads.Events.StreamStreaming(EventStreamParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -27348,7 +22657,6 @@ Stream Session Thread Events
 ### Parameters
 
 - `EventStreamParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -27360,7 +22668,6 @@ Stream Session Thread Events
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -27409,16 +22716,20 @@ Stream Session Thread Events
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsStreamSessionThreadEvents: A class that can be one of several variants.union`
 
   Server-sent event in a single thread's stream.
-
   - `class BetaManagedAgentsUserMessageEvent:`
 
     A user message event in the session conversation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -27426,31 +22737,25 @@ Stream Session Thread Events
     - `required IReadOnlyList<Content> Content`
 
       Array of content blocks comprising the user message.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
         - `required string Text`
 
           The text content.
 
         - `required Type Type`
-
           - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for image source variants.
-
           - `class BetaManagedAgentsBase64ImageSource:`
 
             Base64-encoded image data.
-
             - `required string Data`
 
               Base64-encoded image data.
@@ -27460,15 +22765,12 @@ Stream Session Thread Events
               MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsUrlImageSource:`
 
             Image referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -27478,31 +22780,25 @@ Stream Session Thread Events
           - `class BetaManagedAgentsFileImageSource:`
 
             Image referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"image"Image`
 
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
         - `required Source Source`
 
           Union type for document source variants.
-
           - `class BetaManagedAgentsBase64DocumentSource:`
 
             Base64-encoded document data.
-
             - `required string Data`
 
               Base64-encoded document data.
@@ -27512,13 +22808,11 @@ Stream Session Thread Events
               MIME type of the document (e.g., "application/pdf").
 
             - `required Type Type`
-
               - `"base64"Base64`
 
           - `class BetaManagedAgentsPlainTextDocumentSource:`
 
             Plain text document content.
-
             - `required string Data`
 
               The plain text content.
@@ -27526,19 +22820,15 @@ Stream Session Thread Events
             - `required MediaType MediaType`
 
               MIME type of the text content. Must be "text/plain".
-
               - `"text/plain"TextPlain`
 
             - `required Type Type`
-
               - `"text"Text`
 
           - `class BetaManagedAgentsUrlDocumentSource:`
 
             Document referenced by URL.
-
             - `required Type Type`
-
               - `"url"Url`
 
             - `required string Url`
@@ -27548,17 +22838,14 @@ Stream Session Thread Events
           - `class BetaManagedAgentsFileDocumentSource:`
 
             Document referenced by file ID.
-
             - `required string FileID`
 
               ID of a previously uploaded file.
 
             - `required Type Type`
-
               - `"file"File`
 
         - `required Type Type`
-
           - `"document"Document`
 
         - `string? Context`
@@ -27570,7 +22857,6 @@ Stream Session Thread Events
           The title of the document.
 
     - `required Type Type`
-
       - `"user.message"UserMessage`
 
     - `DateTimeOffset? ProcessedAt`
@@ -27580,13 +22866,11 @@ Stream Session Thread Events
   - `class BetaManagedAgentsUserInterruptEvent:`
 
     An interrupt event that pauses agent execution and returns control to the user.
-
     - `required string ID`
 
       Unique identifier for this event.
 
     - `required Type Type`
-
       - `"user.interrupt"UserInterrupt`
 
     - `DateTimeOffset? ProcessedAt`
@@ -27600,7 +22884,6 @@ Stream Session Thread Events
   - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
     A tool confirmation event that approves or denies a pending tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -27608,7 +22891,6 @@ Stream Session Thread Events
     - `required Result Result`
 
       UserToolConfirmationResult enum
-
       - `"allow"Allow`
 
       - `"deny"Deny`
@@ -27618,7 +22900,6 @@ Stream Session Thread Events
       The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.tool_confirmation"UserToolConfirmation`
 
     - `string? DenyMessage`
@@ -27636,7 +22917,6 @@ Stream Session Thread Events
   - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
     Event sent by the client providing the result of a custom tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -27646,154 +22926,53 @@ Stream Session Thread Events
       The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
     - `required Type Type`
-
       - `"user.custom_tool_result"UserCustomToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
+        A block containing a web search result.
+        - `required BetaManagedAgentsSearchResultCitations Citations`
 
-          - `class BetaManagedAgentsBase64DocumentSource:`
+          Citation settings for a search result.
+          - `required Boolean Enabled`
 
-            Base64-encoded document data.
+            Whether citations are enabled for this search result.
 
-            - `required string Data`
+        - `required IReadOnlyList<BetaManagedAgentsSearchResultContent> Content`
 
-              Base64-encoded document data.
+          Array of text content blocks from the search result.
+          - `required string Text`
 
-            - `required string MediaType`
+            The text content.
 
-              MIME type of the document (e.g., "application/pdf").
+          - `required Type Type`
+            - `"text"Text`
 
-            - `required Type Type`
+        - `required string Source`
 
-              - `"base64"Base64`
+          The URL source of the search result.
 
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
+        - `required string Title`
 
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
+          The title of the search result.
 
         - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+          - `"search_result"SearchResult`
 
     - `Boolean? IsError`
 
@@ -27810,7 +22989,6 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentCustomToolUseEvent:`
 
     Event emitted when the agent calls a custom tool. The session goes idle until the client sends a `user.custom_tool_result` event with the result.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -27828,7 +23006,6 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.custom_tool_use"AgentCustomToolUse`
 
     - `string? SessionThreadID`
@@ -27838,7 +23015,6 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentMessageEvent:`
 
     An agent response event in the session conversation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -27846,27 +23022,22 @@ Stream Session Thread Events
     - `required IReadOnlyList<BetaManagedAgentsTextBlock> Content`
 
       Array of text blocks comprising the agent response.
-
       - `required string Text`
 
         The text content.
 
       - `required Type Type`
 
-        - `"text"Text`
-
     - `required DateTimeOffset ProcessedAt`
 
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.message"AgentMessage`
 
   - `class BetaManagedAgentsAgentThinkingEvent:`
 
     Indicates the agent is making forward progress via extended thinking. A progress signal, not a content carrier.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -27876,13 +23047,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thinking"AgentThinking`
 
   - `class BetaManagedAgentsAgentMcpToolUseEvent:`
 
     Event emitted when the agent invokes a tool provided by an MCP server.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -27904,13 +23073,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.mcp_tool_use"AgentMcpToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -27924,7 +23091,6 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentMcpToolResultEvent:`
 
     Event representing the result of an MCP tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -27938,154 +23104,26 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.mcp_tool_result"AgentMcpToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `Boolean? IsError`
 
@@ -28094,7 +23132,6 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentToolUseEvent:`
 
     Event emitted when the agent invokes a built-in agent tool.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -28112,13 +23149,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.tool_use"AgentToolUse`
 
     - `EvaluatedPermission EvaluatedPermission`
 
       AgentEvaluatedPermission enum
-
       - `"allow"Allow`
 
       - `"ask"Ask`
@@ -28132,7 +23167,6 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentToolResultEvent:`
 
     Event representing the result of an agent tool execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -28146,154 +23180,26 @@ Stream Session Thread Events
       The id of the `agent.tool_use` event this result corresponds to.
 
     - `required Type Type`
-
       - `"agent.tool_result"AgentToolResult`
 
     - `IReadOnlyList<Content> Content`
 
       The result content returned by the tool.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-        - `required Source Source`
+      - `class BetaManagedAgentsSearchResultBlock:`
 
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
+        A block containing a web search result.
 
     - `Boolean? IsError`
 
@@ -28302,7 +23208,6 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentThreadMessageReceivedEvent:`
 
     Delivery event written to the target thread's input stream when an agent-to-agent message arrives.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -28310,148 +23215,17 @@ Stream Session Thread Events
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
 
     - `required string FromSessionThreadID`
 
@@ -28462,7 +23236,6 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thread_message_received"AgentThreadMessageReceived`
 
     - `string? FromAgentName`
@@ -28472,7 +23245,6 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentThreadMessageSentEvent:`
 
     Observability event emitted to the sender's output stream when an agent-to-agent message is sent.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -28480,148 +23252,17 @@ Stream Session Thread Events
     - `required IReadOnlyList<Content> Content`
 
       Message content blocks.
-
       - `class BetaManagedAgentsTextBlock:`
 
         Regular text content.
-
-        - `required string Text`
-
-          The text content.
-
-        - `required Type Type`
-
-          - `"text"Text`
 
       - `class BetaManagedAgentsImageBlock:`
 
         Image content specified directly as base64 data or as a reference via a URL.
 
-        - `required Source Source`
-
-          Union type for image source variants.
-
-          - `class BetaManagedAgentsBase64ImageSource:`
-
-            Base64-encoded image data.
-
-            - `required string Data`
-
-              Base64-encoded image data.
-
-            - `required string MediaType`
-
-              MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsUrlImageSource:`
-
-            Image referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the image to fetch.
-
-          - `class BetaManagedAgentsFileImageSource:`
-
-            Image referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"image"Image`
-
       - `class BetaManagedAgentsDocumentBlock:`
 
         Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
-        - `required Source Source`
-
-          Union type for document source variants.
-
-          - `class BetaManagedAgentsBase64DocumentSource:`
-
-            Base64-encoded document data.
-
-            - `required string Data`
-
-              Base64-encoded document data.
-
-            - `required string MediaType`
-
-              MIME type of the document (e.g., "application/pdf").
-
-            - `required Type Type`
-
-              - `"base64"Base64`
-
-          - `class BetaManagedAgentsPlainTextDocumentSource:`
-
-            Plain text document content.
-
-            - `required string Data`
-
-              The plain text content.
-
-            - `required MediaType MediaType`
-
-              MIME type of the text content. Must be "text/plain".
-
-              - `"text/plain"TextPlain`
-
-            - `required Type Type`
-
-              - `"text"Text`
-
-          - `class BetaManagedAgentsUrlDocumentSource:`
-
-            Document referenced by URL.
-
-            - `required Type Type`
-
-              - `"url"Url`
-
-            - `required string Url`
-
-              URL of the document to fetch.
-
-          - `class BetaManagedAgentsFileDocumentSource:`
-
-            Document referenced by file ID.
-
-            - `required string FileID`
-
-              ID of a previously uploaded file.
-
-            - `required Type Type`
-
-              - `"file"File`
-
-        - `required Type Type`
-
-          - `"document"Document`
-
-        - `string? Context`
-
-          Additional context about the document for the model.
-
-        - `string? Title`
-
-          The title of the document.
 
     - `required DateTimeOffset ProcessedAt`
 
@@ -28632,7 +23273,6 @@ Stream Session Thread Events
       Public `sthr_` ID of the thread the message was sent to.
 
     - `required Type Type`
-
       - `"agent.thread_message_sent"AgentThreadMessageSent`
 
     - `string? ToAgentName`
@@ -28642,7 +23282,6 @@ Stream Session Thread Events
   - `class BetaManagedAgentsAgentThreadContextCompactedEvent:`
 
     Indicates that context compaction (summarization) occurred during the session.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -28652,13 +23291,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"agent.thread_context_compacted"AgentThreadContextCompacted`
 
   - `class BetaManagedAgentsSessionErrorEvent:`
 
     An error event indicating a problem occurred during session execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -28666,11 +23303,9 @@ Stream Session Thread Events
     - `required Error Error`
 
       An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
       - `class BetaManagedAgentsUnknownError:`
 
         An unknown or unexpected error occurred during session execution. A fallback variant; clients that don't recognize a new error code can match on `retry_status` and `message` alone.
-
         - `required string Message`
 
           Human-readable error description.
@@ -28678,39 +23313,30 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
             - `required Type Type`
-
               - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
-
             - `required Type Type`
-
               - `"exhausted"Exhausted`
 
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
-
             - `required Type Type`
-
               - `"terminal"Terminal`
 
         - `required Type Type`
-
           - `"unknown_error"UnknownError`
 
       - `class BetaManagedAgentsModelOverloadedError:`
 
         The model is currently overloaded. Emitted after automatic retries are exhausted.
-
         - `required string Message`
 
           Human-readable error description.
@@ -28718,39 +23344,24 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_overloaded_error"ModelOverloadedError`
 
       - `class BetaManagedAgentsModelRateLimitedError:`
 
         The model request was rate-limited.
-
         - `required string Message`
 
           Human-readable error description.
@@ -28758,39 +23369,24 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_rate_limited_error"ModelRateLimitedError`
 
       - `class BetaManagedAgentsModelRequestFailedError:`
 
         A model request failed for a reason other than overload or rate-limiting.
-
         - `required string Message`
 
           Human-readable error description.
@@ -28798,39 +23394,24 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"model_request_failed_error"ModelRequestFailedError`
 
       - `class BetaManagedAgentsMcpConnectionFailedError:`
 
         Failed to connect to an MCP server.
-
         - `required string McpServerName`
 
           Name of the MCP server that failed to connect.
@@ -28842,39 +23423,24 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"mcp_connection_failed_error"McpConnectionFailedError`
 
       - `class BetaManagedAgentsMcpAuthenticationFailedError:`
 
         Authentication to an MCP server failed.
-
         - `required string McpServerName`
 
           Name of the MCP server that failed authentication.
@@ -28886,39 +23452,24 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"mcp_authentication_failed_error"McpAuthenticationFailedError`
 
       - `class BetaManagedAgentsBillingError:`
 
         The caller's organization or workspace cannot make model requests — out of credits or spend limit reached. Retrying with the same credentials will not succeed; the caller must resolve the billing state.
-
         - `required string Message`
 
           Human-readable error description.
@@ -28926,33 +23477,19 @@ Stream Session Thread Events
         - `required RetryStatus RetryStatus`
 
           What the client should do next in response to this error.
-
           - `class BetaManagedAgentsRetryStatusRetrying:`
 
             The server is retrying automatically. Client should wait; the same error type may fire again as retrying, then once as exhausted when the retry budget runs out.
-
-            - `required Type Type`
-
-              - `"retrying"Retrying`
 
           - `class BetaManagedAgentsRetryStatusExhausted:`
 
             This turn is dead; queued inputs are flushed and the session returns to idle. Client may send a new prompt.
 
-            - `required Type Type`
-
-              - `"exhausted"Exhausted`
-
           - `class BetaManagedAgentsRetryStatusTerminal:`
 
             The session encountered a terminal error and will transition to `terminated` state.
 
-            - `required Type Type`
-
-              - `"terminal"Terminal`
-
         - `required Type Type`
-
           - `"billing_error"BillingError`
 
     - `required DateTimeOffset ProcessedAt`
@@ -28960,13 +23497,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.error"SessionError`
 
   - `class BetaManagedAgentsSessionStatusRescheduledEvent:`
 
     Indicates the session is recovering from an error state and is rescheduled for execution.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -28976,13 +23511,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_rescheduled"SessionStatusRescheduled`
 
   - `class BetaManagedAgentsSessionStatusRunningEvent:`
 
     Indicates the session is actively running and the agent is working.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -28992,13 +23525,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_running"SessionStatusRunning`
 
   - `class BetaManagedAgentsSessionStatusIdleEvent:`
 
     Indicates the agent has paused and is awaiting user input.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29010,43 +23541,34 @@ Stream Session Thread Events
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
-
         - `required Type Type`
-
           - `"end_turn"EndTurn`
 
       - `class BetaManagedAgentsSessionRequiresAction:`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
-
         - `required IReadOnlyList<string> EventIds`
 
           The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
 
         - `required Type Type`
-
           - `"requires_action"RequiresAction`
 
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
-
         - `required Type Type`
-
           - `"retries_exhausted"RetriesExhausted`
 
     - `required Type Type`
-
       - `"session.status_idle"SessionStatusIdle`
 
   - `class BetaManagedAgentsSessionStatusTerminatedEvent:`
 
     Indicates the session has terminated, either due to an error or completion.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29056,13 +23578,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.status_terminated"SessionStatusTerminated`
 
   - `class BetaManagedAgentsSessionThreadCreatedEvent:`
 
     Emitted when a subagent is spawned as a new thread. Written to the parent thread's output stream so clients observing the session see child creation.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29080,13 +23600,11 @@ Stream Session Thread Events
       Public `sthr_` ID of the newly created thread.
 
     - `required Type Type`
-
       - `"session.thread_created"SessionThreadCreated`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationStartEvent:`
 
     Emitted when an outcome evaluation cycle begins.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29104,13 +23622,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_start"SpanOutcomeEvaluationStart`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationEndEvent:`
 
     Emitted when an outcome evaluation cycle completes. Carries the verdict and aggregate token usage. A verdict of `needs_revision` means another evaluation cycle follows; `satisfied`, `max_iterations_reached`, `failed`, or `interrupted` are terminal — no further evaluation cycles follow.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29140,13 +23656,11 @@ Stream Session Thread Events
       Evaluation verdict. 'satisfied': criteria met, session goes idle. 'needs_revision': criteria not met, another revision cycle follows. 'max_iterations_reached': evaluation budget exhausted with criteria still unmet — one final acknowledgment turn follows before the session goes idle, but no further evaluation runs. 'failed': grader determined the rubric does not apply to the deliverables. 'interrupted': user sent an interrupt while evaluation was in progress.
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_end"SpanOutcomeEvaluationEnd`
 
     - `required BetaManagedAgentsSpanModelUsage Usage`
 
       Token usage for a single model request.
-
       - `required Int CacheCreationInputTokens`
 
         Tokens used to create prompt cache in this request.
@@ -29166,7 +23680,6 @@ Stream Session Thread Events
       - `Speed? Speed`
 
         Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
         - `"standard"Standard`
 
         - `"fast"Fast`
@@ -29174,7 +23687,6 @@ Stream Session Thread Events
   - `class BetaManagedAgentsSpanModelRequestStartEvent:`
 
     Emitted when a model request is initiated by the agent.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29184,13 +23696,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.model_request_start"SpanModelRequestStart`
 
   - `class BetaManagedAgentsSpanModelRequestEndEvent:`
 
     Emitted when a model request completes.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29207,42 +23717,16 @@ Stream Session Thread Events
 
       Token usage for a single model request.
 
-      - `required Int CacheCreationInputTokens`
-
-        Tokens used to create prompt cache in this request.
-
-      - `required Int CacheReadInputTokens`
-
-        Tokens read from prompt cache in this request.
-
-      - `required Int InputTokens`
-
-        Input tokens consumed by this request.
-
-      - `required Int OutputTokens`
-
-        Output tokens generated by this request.
-
-      - `Speed? Speed`
-
-        Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
-
-        - `"standard"Standard`
-
-        - `"fast"Fast`
-
     - `required DateTimeOffset ProcessedAt`
 
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.model_request_end"SpanModelRequestEnd`
 
   - `class BetaManagedAgentsSpanOutcomeEvaluationOngoingEvent:`
 
     Periodic heartbeat emitted while an outcome evaluation cycle is in progress. Distinguishes 'evaluation is actively running' from 'evaluation is stuck' between the corresponding `span.outcome_evaluation_start` and `span.outcome_evaluation_end` events.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29260,13 +23744,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"span.outcome_evaluation_ongoing"SpanOutcomeEvaluationOngoing`
 
   - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
     Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29290,39 +23772,32 @@ Stream Session Thread Events
     - `required Rubric Rubric`
 
       Rubric for grading the quality of an outcome.
-
       - `class BetaManagedAgentsFileRubric:`
 
         Rubric referenced by a file uploaded via the Files API.
-
         - `required string FileID`
 
           ID of the rubric file.
 
         - `required Type Type`
-
           - `"file"File`
 
       - `class BetaManagedAgentsTextRubric:`
 
         Rubric content provided inline as text.
-
         - `required string Content`
 
           Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
         - `required Type Type`
-
           - `"text"Text`
 
     - `required Type Type`
-
       - `"user.define_outcome"UserDefineOutcome`
 
   - `class BetaManagedAgentsSessionDeletedEvent:`
 
     Emitted when a session has been deleted. Terminates any active event stream — no further events will be emitted for this session.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29332,13 +23807,11 @@ Stream Session Thread Events
       A timestamp in RFC 3339 format
 
     - `required Type Type`
-
       - `"session.deleted"SessionDeleted`
 
   - `class BetaManagedAgentsSessionThreadStatusRunningEvent:`
 
     A session thread has begun executing. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29353,16 +23826,14 @@ Stream Session Thread Events
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that started running.
+      Public sthr\_ ID of the thread that started running.
 
     - `required Type Type`
-
       - `"session.thread_status_running"SessionThreadStatusRunning`
 
   - `class BetaManagedAgentsSessionThreadStatusIdleEvent:`
 
     A session thread has yielded and is awaiting input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29377,48 +23848,29 @@ Stream Session Thread Events
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that went idle.
+      Public sthr\_ ID of the thread that went idle.
 
     - `required StopReason StopReason`
 
       The agent completed its turn naturally and is ready for the next user message.
-
       - `class BetaManagedAgentsSessionEndTurn:`
 
         The agent completed its turn naturally and is ready for the next user message.
-
-        - `required Type Type`
-
-          - `"end_turn"EndTurn`
 
       - `class BetaManagedAgentsSessionRequiresAction:`
 
         The agent is idle waiting on one or more blocking user-input events (tool confirmation, custom tool result, etc.). Resolving all of them transitions the session back to running.
 
-        - `required IReadOnlyList<string> EventIds`
-
-          The ids of events the agent is blocked on. Resolving fewer than all re-emits `session.status_idle` with the remainder.
-
-        - `required Type Type`
-
-          - `"requires_action"RequiresAction`
-
       - `class BetaManagedAgentsSessionRetriesExhausted:`
 
         The turn ended because the retry budget was exhausted (`max_iterations` hit or an error escalated to `retry_status: 'exhausted'`).
 
-        - `required Type Type`
-
-          - `"retries_exhausted"RetriesExhausted`
-
     - `required Type Type`
-
       - `"session.thread_status_idle"SessionThreadStatusIdle`
 
   - `class BetaManagedAgentsSessionThreadStatusTerminatedEvent:`
 
     A session thread has terminated and will accept no further input. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29433,16 +23885,59 @@ Stream Session Thread Events
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that terminated.
+      Public sthr\_ ID of the thread that terminated.
 
     - `required Type Type`
-
       - `"session.thread_status_terminated"SessionThreadStatusTerminated`
+
+  - `class BetaManagedAgentsUserToolResultEvent:`
+
+    Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+    - `required string ID`
+
+      Unique identifier for this event.
+
+    - `required string ToolUseID`
+
+      The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+    - `required Type Type`
+      - `"user.tool_result"UserToolResult`
+
+    - `IReadOnlyList<Content> Content`
+
+      The result content returned by the tool.
+      - `class BetaManagedAgentsTextBlock:`
+
+        Regular text content.
+
+      - `class BetaManagedAgentsImageBlock:`
+
+        Image content specified directly as base64 data or as a reference via a URL.
+
+      - `class BetaManagedAgentsDocumentBlock:`
+
+        Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+      - `class BetaManagedAgentsSearchResultBlock:`
+
+        A block containing a web search result.
+
+    - `Boolean? IsError`
+
+      Whether the tool execution resulted in an error.
+
+    - `DateTimeOffset? ProcessedAt`
+
+      A timestamp in RFC 3339 format
+
+    - `string? SessionThreadID`
+
+      Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
   - `class BetaManagedAgentsSessionThreadStatusRescheduledEvent:`
 
     A session thread hit a transient error and is retrying automatically. Emitted on the thread's own stream and cross-posted to the primary stream for child threads.
-
     - `required string ID`
 
       Unique identifier for this event.
@@ -29457,11 +23952,301 @@ Stream Session Thread Events
 
     - `required string SessionThreadID`
 
-      Public sthr_ ID of the thread that is retrying.
+      Public sthr\_ ID of the thread that is retrying.
 
     - `required Type Type`
-
       - `"session.thread_status_rescheduled"SessionThreadStatusRescheduled`
+
+  - `class BetaManagedAgentsSessionUpdatedEvent:`
+
+    Emitted when an UpdateSession request changed at least one field. Carries only the fields that changed; absent fields were not part of the update. The new configuration applies from the next turn.
+    - `required string ID`
+
+      Unique identifier for this event.
+
+    - `required DateTimeOffset ProcessedAt`
+
+      A timestamp in RFC 3339 format
+
+    - `required Type Type`
+      - `"session.updated"SessionUpdated`
+
+    - `BetaManagedAgentsSessionAgent? Agent`
+
+      Resolved `agent` definition for a `session`. Snapshot of the `agent` at `session` creation time.
+      - `required string ID`
+
+      - `required string? Description`
+
+      - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+        - `required string Name`
+
+        - `required Type Type`
+          - `"url"Url`
+
+        - `required string Url`
+
+      - `required BetaManagedAgentsModelConfig Model`
+
+        Model identifier and configuration.
+        - `required BetaManagedAgentsModel ID`
+
+          The model that will power your agent.
+
+          See [models](https://docs.anthropic.com/en/docs/models-overview) for additional details and options.
+          - `"claude-opus-4-7"ClaudeOpus4_7`
+
+            Frontier intelligence for long-running agents and coding
+
+          - `"claude-opus-4-6"ClaudeOpus4_6`
+
+            Most intelligent model for building agents and coding
+
+          - `"claude-sonnet-4-6"ClaudeSonnet4_6`
+
+            Best combination of speed and intelligence
+
+          - `"claude-haiku-4-5"ClaudeHaiku4_5`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-haiku-4-5-20251001"ClaudeHaiku4_5_20251001`
+
+            Fastest model with near-frontier intelligence
+
+          - `"claude-opus-4-5"ClaudeOpus4_5`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-opus-4-5-20251101"ClaudeOpus4_5_20251101`
+
+            Premium model combining maximum intelligence with practical performance
+
+          - `"claude-sonnet-4-5"ClaudeSonnet4_5`
+
+            High-performance model for agents and coding
+
+          - `"claude-sonnet-4-5-20250929"ClaudeSonnet4_5_20250929`
+
+            High-performance model for agents and coding
+
+        - `Speed Speed`
+
+          Inference speed mode. `fast` provides significantly faster output token generation at premium pricing. Not all models support `fast`; invalid combinations are rejected at create time.
+          - `"standard"Standard`
+
+          - `"fast"Fast`
+
+      - `required BetaManagedAgentsSessionMultiagentCoordinator? Multiagent`
+
+        Resolved coordinator topology with full agent definitions for each roster member.
+        - `required IReadOnlyList<BetaManagedAgentsSessionThreadAgent> Agents`
+
+          Full `agent` definitions the coordinator may spawn as session threads.
+          - `required string ID`
+
+          - `required string? Description`
+
+          - `required IReadOnlyList<BetaManagedAgentsMcpServerUrlDefinition> McpServers`
+            - `required string Name`
+
+            - `required Type Type`
+
+            - `required string Url`
+
+          - `required BetaManagedAgentsModelConfig Model`
+
+            Model identifier and configuration.
+
+          - `required string Name`
+
+          - `required IReadOnlyList<Skill> Skills`
+            - `class BetaManagedAgentsAnthropicSkill:`
+
+              A resolved Anthropic-managed skill.
+              - `required string SkillID`
+
+              - `required Type Type`
+                - `"anthropic"Anthropic`
+
+              - `required string Version`
+
+            - `class BetaManagedAgentsCustomSkill:`
+
+              A resolved user-created custom skill.
+              - `required string SkillID`
+
+              - `required Type Type`
+                - `"custom"Custom`
+
+              - `required string Version`
+
+          - `required string? System`
+
+          - `required IReadOnlyList<Tool> Tools`
+            - `class BetaManagedAgentsAgentToolset20260401:`
+              - `required IReadOnlyList<BetaManagedAgentsAgentToolConfig> Configs`
+                - `required Boolean Enabled`
+
+                - `required Name Name`
+
+                  Built-in agent tool identifier.
+                  - `"bash"Bash`
+
+                  - `"edit"Edit`
+
+                  - `"read"Read`
+
+                  - `"write"Write`
+
+                  - `"glob"Glob`
+
+                  - `"grep"Grep`
+
+                  - `"web_fetch"WebFetch`
+
+                  - `"web_search"WebSearch`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+                    - `required Type Type`
+                      - `"always_allow"AlwaysAllow`
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+                    - `required Type Type`
+                      - `"always_ask"AlwaysAsk`
+
+              - `required BetaManagedAgentsAgentToolsetDefaultConfig DefaultConfig`
+
+                Resolved default configuration for agent tools.
+                - `required Boolean Enabled`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required Type Type`
+                - `"agent_toolset_20260401"AgentToolset20260401`
+
+            - `class BetaManagedAgentsMcpToolset:`
+              - `required IReadOnlyList<BetaManagedAgentsMcpToolConfig> Configs`
+                - `required Boolean Enabled`
+
+                - `required string Name`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required BetaManagedAgentsMcpToolsetDefaultConfig DefaultConfig`
+
+                Resolved default configuration for all tools from an MCP server.
+                - `required Boolean Enabled`
+
+                - `required PermissionPolicy PermissionPolicy`
+
+                  Permission policy for tool execution.
+                  - `class BetaManagedAgentsAlwaysAllowPolicy:`
+
+                    Tool calls are automatically approved without user confirmation.
+
+                  - `class BetaManagedAgentsAlwaysAskPolicy:`
+
+                    Tool calls require user confirmation before execution.
+
+              - `required string McpServerName`
+
+              - `required Type Type`
+                - `"mcp_toolset"McpToolset`
+
+            - `class BetaManagedAgentsCustomTool:`
+
+              A custom tool as returned in API responses.
+              - `required string Description`
+
+              - `required BetaManagedAgentsCustomToolInputSchema InputSchema`
+
+                JSON Schema for custom tool input parameters.
+                - `IReadOnlyDictionary<string, JsonElement>? Properties`
+
+                  JSON Schema properties defining the tool's input parameters.
+
+                - `IReadOnlyList<string> Required`
+
+                  List of required property names.
+
+                - `Type Type`
+
+                  Must be 'object' for tool input schemas.
+                  - `"object"Object`
+
+              - `required string Name`
+
+              - `required Type Type`
+                - `"custom"Custom`
+
+          - `required Type Type`
+            - `"agent"Agent`
+
+          - `required Int Version`
+
+        - `required Type Type`
+          - `"coordinator"Coordinator`
+
+      - `required string Name`
+
+      - `required IReadOnlyList<Skill> Skills`
+        - `class BetaManagedAgentsAnthropicSkill:`
+
+          A resolved Anthropic-managed skill.
+
+        - `class BetaManagedAgentsCustomSkill:`
+
+          A resolved user-created custom skill.
+
+      - `required string? System`
+
+      - `required IReadOnlyList<Tool> Tools`
+        - `class BetaManagedAgentsAgentToolset20260401:`
+
+        - `class BetaManagedAgentsMcpToolset:`
+
+        - `class BetaManagedAgentsCustomTool:`
+
+          A custom tool as returned in API responses.
+
+      - `required Type Type`
+        - `"agent"Agent`
+
+      - `required Int Version`
+
+    - `IReadOnlyDictionary<string, string> Metadata`
+
+      The session's full metadata bag after the update. Present when the update set non-empty metadata; absent when metadata was unchanged or cleared to empty.
+
+    - `string? Title`
+
+      The session's new title. Present only when the update changed it.
 
 ### Example
 
@@ -29475,5 +24260,21 @@ EventStreamParams parameters = new()
 await foreach (var betaManagedAgentsStreamSessionThreadEvents in client.Beta.Sessions.Threads.Events.StreamStreaming(parameters))
 {
     Console.WriteLine(betaManagedAgentsStreamSessionThreadEvents);
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+  "content": [
+    {
+      "text": "Where is my order #1234?",
+      "type": "text"
+    }
+  ],
+  "type": "user.message",
+  "processed_at": "2026-03-15T10:00:00Z"
 }
 ```

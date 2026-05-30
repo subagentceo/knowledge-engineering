@@ -1,11 +1,13 @@
+# Harvey transforms legal work with Claude
+
 Harvey helps law firms and Fortune 500 enterprises revolutionize their approach to contract analysis, due diligence, and litigation by integrating Claude's advanced reasoning into their domain-specific AI platform.
 
 ## Key results with Claude:
 
--   Deployed Claude across the platform in under one month
--   Achieved one of the highest performance scores on Harvey's proprietary BigLaw Bench evaluation
--   Delivered statistically significant improvements on complex workflows requiring long-context reasoning
--   Deployed Claude at enterprise scale and with enterprise-grade security and privacy.
+- Deployed Claude across the platform in under one month
+- Achieved one of the highest performance scores on Harvey's proprietary BigLaw Bench evaluation
+- Delivered statistically significant improvements on complex workflows requiring long-context reasoning
+- Deployed Claude at enterprise scale and with enterprise-grade security and privacy.
 
 ## Legal AI demands exceptional accuracy and deep reasoning
 
@@ -13,7 +15,7 @@ Building AI for legal professionals requires processing thousands of documents w
 
 "Our secret sauce is this environment where we have domain experts embedded into teams and processes," said Niko Grupen, Head of Applied AI at Harvey. "We have legal researchers who are former Big Law attorneys sitting alongside AI researchers and engineers. They whiteboard together from concept, mapping legal problems to model problems."
 
-This deep domain expertise drives Harvey's rigorous approach to model selection. "Evaluation of models for domain-specific tasks is one of our core strengths at Harvey," said Grupen. The company tests every model through [BigLaw Bench](https://www.harvey.ai/blog/expanding-harveys-model-offerings), their proprietary benchmark that measures AI's ability to complete real-world legal tasks. These outputs are graded for both substance—including accuracy, materiality, and hallucination rates—and form, such as tone, length, and formatting.
+This deep domain expertise drives Harvey's rigorous approach to model selection. "Evaluation of models for domain-specific tasks is one of our core strengths at Harvey," said Grupen. The company tests every model through BigLaw Bench, their proprietary benchmark that measures AI's ability to complete real-world legal tasks. These outputs are graded for both substance—including accuracy, materiality, and hallucination rates—and form, such as tone, length, and formatting.
 
 ## Harvey chose Claude for superior long-context performance
 
@@ -25,7 +27,7 @@ Harvey's three-pillar evaluation process tested models through BigLaw Bench, rea
 
 ## Claude available across Harvey’s platform
 
-Harvey customers can select Claude models across key product surfaces — including [Assistant](https://www.harvey.ai/platform/assistant), [Vault](https://www.harvey.ai/platform/vault), and [Workflows](https://www.harvey.ai/platform/vault) — to help review and draft documents faster, more efficiently, and in the voice and tone of their organization or end customers. The Workflows product, in particular, is well-suited for Claude's instruction-following capabilities and ripe for customization.
+Harvey customers can select Claude models across key product surfaces — including Assistant, Vault, and Workflows — to help review and draft documents faster, more efficiently, and in the voice and tone of their organization or end customers. The Workflows product, in particular, is well-suited for Claude's instruction-following capabilities and ripe for customization.
 
 "We're taking complex legal tasks and turning them into end-to-end, interactive journeys. Instead of wrestling with natural-language prompts, you can engage with a Harvey agent that guides the process — proactively asking for input, asking the right follow-up questions, handling the heavy lifting behind the scenes, and surfacing intermediate work product for review.”
 

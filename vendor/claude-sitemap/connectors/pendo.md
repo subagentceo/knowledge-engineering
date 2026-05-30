@@ -1,3 +1,5 @@
+# Pendo
+
 The Pendo connector brings product analytics and behavioral data to AI environments. Access visitor and account metadata, query user behavior, and analyze pages, features, and events. Supports real-time product data integration for tasks like customer call preparation, adoption analysis, churn investigation, and support ticket enrichment.
 
 You can use the Pendo connector to:

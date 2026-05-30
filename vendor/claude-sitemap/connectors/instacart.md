@@ -1,3 +1,5 @@
+# Instacart
+
 Find nearby stores, check product availability, turn meal ideas and recipes into groceries delivered.
 
 You can use Instacart to:

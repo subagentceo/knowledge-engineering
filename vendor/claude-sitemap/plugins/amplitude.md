@@ -1,17 +1,10 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    ](#)
-    
--   Installs
-    
-    967
+# amplitude
+
+- Install in
+
+  Claude Code
+
+- Made by
+- Installs
+
+  1373

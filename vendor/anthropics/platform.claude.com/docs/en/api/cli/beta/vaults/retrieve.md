@@ -1,4 +1,4 @@
-## Retrieve
+## Get Vault
 
 `$ ant beta:vaults retrieve`
 
@@ -21,7 +21,6 @@ Get Vault
 - `beta_managed_agents_vault: object { id, archived_at, created_at, 4 more }`
 
   A vault that stores credentials for use by agents during sessions.
-
   - `id: string`
 
     Unique identifier for the vault.
@@ -43,7 +42,6 @@ Get Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
-
     - `"vault"`
 
   - `updated_at: string`
@@ -56,4 +54,20 @@ Get Vault
 ant beta:vaults retrieve \
   --api-key my-anthropic-api-key \
   --vault-id vlt_011CZkZDLs7fYzm1hXNPeRjv
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
 ```

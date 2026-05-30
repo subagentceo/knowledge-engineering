@@ -1,8 +1,10 @@
+# Scribd, Inc. boosts content discovery and engagement with Claude
+
 Scribd, Inc. uses Claude to generate high-quality metadata for millions of user-uploaded documents, improving content discoverability and driving user engagement across its global platforms.
 
--   Helped address 70% of user-uploaded content that lacked quality metadata
--   Richer content descriptions significantly increased user signups and subscriptions
--   Scaled to process over 100 million documents
+- Helped address 70% of user-uploaded content that lacked quality metadata
+- Richer content descriptions significantly increased user signups and subscriptions
+- Scaled to process over 100 million documents
 
 ## Enhancing a platform of user-generated content
 

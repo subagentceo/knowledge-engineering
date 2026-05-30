@@ -1,6 +1,8 @@
+# Using Daloopa for financial analysis
+
 The Daloopa integration provides Claude with access to a financial data extraction service that covers public company filings and metrics. This article explains how to set up and use Daloopa to retrieve financial data for your analysis.
 
-The Daloopa integration relies upon Claude's ability to [use remote connectors](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
+The Daloopa integration relies upon Claude's ability to use remote connectors.
 
 ## What This Integration Provides
 
@@ -8,39 +10,39 @@ The Daloopa integration relies upon Claude's ability to [use remote connectors](
 
 The Daloopa integration enables Claude to access comprehensive financial data from public company filings.
 
--   **Company Discovery and Identification:** Search for companies using ticker symbols or company names across Daloopa's database of 3,500+ public companies. The search handles name variations and automatically matches to the correct entity.**‍**
--   **Financial Metric Discovery:** Explore all available data series for any company, including standard financial statements and company-specific KPIs like subscriber counts for streaming services or wafer shipments for semiconductors. This reveals unique operational metrics beyond standard line items.**‍**
--   **Historical Data Retrieval:** Access specific financial fundamentals across custom time periods, with most companies having 10+ years of data. Request individual quarters, full years, or any combination for flexible analysis.**‍**
--   **Source-Linked Data Points:** Every financial value includes a hyperlink to its exact location in SEC filings or investor materials, providing complete transparency and audit trails.**‍**
--   **Flexible Period Selection:** Request data for any combination of quarters or years to enable quarter-over-quarter comparisons, year-over-year analyses, or custom period selections matching your analytical needs.**‍**
--   **Granular Metric Access:** Access specific line items like segment revenue breakdowns or working capital components without retrieving entire financial statements.
+- **Company Discovery and Identification:** Search for companies using ticker symbols or company names across Daloopa's database of 3,500+ public companies. The search handles name variations and automatically matches to the correct entity.**‍**
+- **Financial Metric Discovery:** Explore all available data series for any company, including standard financial statements and company-specific KPIs like subscriber counts for streaming services or wafer shipments for semiconductors. This reveals unique operational metrics beyond standard line items.**‍**
+- **Historical Data Retrieval:** Access specific financial fundamentals across custom time periods, with most companies having 10+ years of data. Request individual quarters, full years, or any combination for flexible analysis.**‍**
+- **Source-Linked Data Points:** Every financial value includes a hyperlink to its exact location in SEC filings or investor materials, providing complete transparency and audit trails.**‍**
+- **Flexible Period Selection:** Request data for any combination of quarters or years to enable quarter-over-quarter comparisons, year-over-year analyses, or custom period selections matching your analytical needs.**‍**
+- **Granular Metric Access:** Access specific line items like segment revenue breakdowns or working capital components without retrieving entire financial statements.
 
 ## How Claude Uses Daloopa Data
 
 Claude applies Daloopa's financial data to support your analysis.
 
--   **Multi-Company Comparisons:** Retrieves metrics for multiple companies and builds comparative tables showing revenue growth, margins, and other KPIs side by side to identify relative performance.**‍**
--   **Trend Analysis Construction:** Pulls data across multiple periods to calculate growth rates and identify patterns, highlighting periods of acceleration or deceleration in company performance.**‍**
--   **Custom Metric Calculations:** Computes derived metrics like free cash flow conversion or return on invested capital using raw financial data, creating calculations tailored to your analytical framework.**‍**
--   **Data Quality Verification:** Uses source links to reference specific filing locations, helping verify unusual figures or reconcile discrepancies with explanations from the original documents.**‍**
--   **Earnings Analysis Automation:** Following releases, pulls latest results and compares to prior periods, calculating variances and presenting structured analysis of key changes.**‍**
--   **Metric Discovery for Unfamiliar Companies:** First explores available metrics for new companies, then retrieves the most relevant KPIs, particularly useful when analyzing unfamiliar sectors with different performance indicators.
+- **Multi-Company Comparisons:** Retrieves metrics for multiple companies and builds comparative tables showing revenue growth, margins, and other KPIs side by side to identify relative performance.**‍**
+- **Trend Analysis Construction:** Pulls data across multiple periods to calculate growth rates and identify patterns, highlighting periods of acceleration or deceleration in company performance.**‍**
+- **Custom Metric Calculations:** Computes derived metrics like free cash flow conversion or return on invested capital using raw financial data, creating calculations tailored to your analytical framework.**‍**
+- **Data Quality Verification:** Uses source links to reference specific filing locations, helping verify unusual figures or reconcile discrepancies with explanations from the original documents.**‍**
+- **Earnings Analysis Automation:** Following releases, pulls latest results and compares to prior periods, calculating variances and presenting structured analysis of key changes.**‍**
+- **Metric Discovery for Unfamiliar Companies:** First explores available metrics for new companies, then retrieves the most relevant KPIs, particularly useful when analyzing unfamiliar sectors with different performance indicators.
 
 ## Setting Up Daloopa Integration
 
-Technical details of the Daloopa Integration can be found in Daloopa's [MCP Server Documentation](https://docs.daloopa.com/docs/daloopa-mcp). You will need to contact Daloopa to get access to the MCP server.
+Technical details of the Daloopa Integration can be found in Daloopa's MCP Server Documentation. You will need to contact Daloopa to get access to the MCP server.
 
 ### For Organization Owners
 
-1.  Navigate to [Admin settings > Connectors](https://claude.ai/admin-settings/connectors).
+1.  Navigate to Admin settings > Connectors.
 2.  Scroll down and click “Add custom connector" at the bottom of the list.
-3.  Enter integration URL: [https://mcp.daloopa.com/server/mcp](https://mcp.daloopa.com/server/mcp)‍
+3.  Enter integration URL: https://mcp.daloopa.com/server/mcp‍
 4.  Name the integration (e.g., "Daloopa MCP")
 5.  Click "Add"
 
 ### For Individual Users
 
-Learn about [finding and connecting tools](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
+Learn about finding and connecting tools.
 
 ## Common Use Cases
 
@@ -98,8 +100,8 @@ Learn about [finding and connecting tools](https://support.claude.com/en/article
 
 ## Tips for Using Daloopa
 
--   Use specific company tickers (MSFT, AAPL)
--   Define clear time periods (Q1 2024, 2023FY)
--   Request specific metrics rather than general categories
--   Limit scope to reasonable number of companies for clear comparisons
--   Consider data freshness - Daloopa updates after earnings releases but may not have real-time intraday data
+- Use specific company tickers (MSFT, AAPL)
+- Define clear time periods (Q1 2024, 2023FY)
+- Request specific metrics rather than general categories
+- Limit scope to reasonable number of companies for clear comparisons
+- Consider data freshness - Daloopa updates after earnings releases but may not have real-time intraday data

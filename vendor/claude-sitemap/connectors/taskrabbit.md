@@ -1,3 +1,5 @@
+# Taskrabbit Booking Assistance
+
 The Taskrabbit MCP connector lets Claude check service availability and pricing in the user's location. When a service is available, Claude guides the user through scoping questions to understand their needs — such as room count, space type, and other relevant details — then surfaces accurate local pricing and connects them with a booking link. Currently supported capabilities include availability checks, location-based pricing, and scoping conversations across Taskrabbit's range of home services.
 
 You can use Taskrabbit Booking Assistance to:

@@ -1,6 +1,6 @@
 # Files
 
-## Upload
+## Upload File
 
 `FileMetadata beta().files().upload(FileUploadParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -11,11 +11,9 @@ Upload File
 ### Parameters
 
 - `FileUploadParams params`
-
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -64,6 +62,12 @@ Upload File
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
   - `String file`
 
     The file to upload
@@ -71,7 +75,6 @@ Upload File
 ### Returns
 
 - `class FileMetadata:`
-
   - `String id`
 
     Unique object identifier.
@@ -99,7 +102,6 @@ Upload File
     Object type.
 
     For files, this is always `"file"`.
-
     - `FILE("file")`
 
   - `Optional<Boolean> downloadable`
@@ -109,7 +111,6 @@ Upload File
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `String id`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -117,7 +118,6 @@ Upload File
     - `JsonValue; type "session"constant`
 
       The type of scope (e.g., `"session"`).
-
       - `SESSION("session")`
 
 ### Example
@@ -145,7 +145,25 @@ public final class Main {
 }
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## List Files
 
 `FileListPage beta().files().list(FileListParamsparams = FileListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -156,7 +174,6 @@ List Files
 ### Parameters
 
 - `FileListParams params`
-
   - `Optional<String> afterId`
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -178,7 +195,6 @@ List Files
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -227,10 +243,15 @@ List Files
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class FileMetadata:`
-
   - `String id`
 
     Unique object identifier.
@@ -258,7 +279,6 @@ List Files
     Object type.
 
     For files, this is always `"file"`.
-
     - `FILE("file")`
 
   - `Optional<Boolean> downloadable`
@@ -268,7 +288,6 @@ List Files
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `String id`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -276,7 +295,6 @@ List Files
     - `JsonValue; type "session"constant`
 
       The type of scope (e.g., `"session"`).
-
       - `SESSION("session")`
 
 ### Example
@@ -300,7 +318,32 @@ public final class Main {
 }
 ```
 
-## Download
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "created_at": "2025-04-15T18:37:24.100435Z",
+      "filename": "document.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 102400,
+      "type": "file",
+      "downloadable": false,
+      "scope": {
+        "id": "id",
+        "type": "session"
+      }
+    }
+  ],
+  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "has_more": true,
+  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
+}
+```
+
+## Download File
 
 `HttpResponse beta().files().download(FileDownloadParamsparams = FileDownloadParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -311,7 +354,6 @@ Download File
 ### Parameters
 
 - `FileDownloadParams params`
-
   - `Optional<String> fileId`
 
     ID of the File.
@@ -319,7 +361,6 @@ Download File
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -367,6 +408,12 @@ Download File
     - `ADVISOR_TOOL_2026_03_01("advisor-tool-2026-03-01")`
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
+
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
 
 ### Example
 
@@ -389,7 +436,7 @@ public final class Main {
 }
 ```
 
-## Retrieve Metadata
+## Get File Metadata
 
 `FileMetadata beta().files().retrieveMetadata(FileRetrieveMetadataParamsparams = FileRetrieveMetadataParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -400,7 +447,6 @@ Get File Metadata
 ### Parameters
 
 - `FileRetrieveMetadataParams params`
-
   - `Optional<String> fileId`
 
     ID of the File.
@@ -408,7 +454,6 @@ Get File Metadata
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -457,10 +502,15 @@ Get File Metadata
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class FileMetadata:`
-
   - `String id`
 
     Unique object identifier.
@@ -488,7 +538,6 @@ Get File Metadata
     Object type.
 
     For files, this is always `"file"`.
-
     - `FILE("file")`
 
   - `Optional<Boolean> downloadable`
@@ -498,7 +547,6 @@ Get File Metadata
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `String id`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -506,7 +554,6 @@ Get File Metadata
     - `JsonValue; type "session"constant`
 
       The type of scope (e.g., `"session"`).
-
       - `SESSION("session")`
 
 ### Example
@@ -530,7 +577,25 @@ public final class Main {
 }
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## Delete File
 
 `DeletedFile beta().files().delete(FileDeleteParamsparams = FileDeleteParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -541,7 +606,6 @@ Delete File
 ### Parameters
 
 - `FileDeleteParams params`
-
   - `Optional<String> fileId`
 
     ID of the File.
@@ -549,7 +613,6 @@ Delete File
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -598,10 +661,15 @@ Delete File
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class DeletedFile:`
-
   - `String id`
 
     ID of the deleted file.
@@ -611,7 +679,6 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `FILE_DELETED("file_deleted")`
 
 ### Example
@@ -635,12 +702,20 @@ public final class Main {
 }
 ```
 
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "type": "file_deleted"
+}
+```
+
 ## Domain Types
 
 ### Beta File Scope
 
 - `class BetaFileScope:`
-
   - `String id`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -648,13 +723,11 @@ public final class Main {
   - `JsonValue; type "session"constant`
 
     The type of scope (e.g., `"session"`).
-
     - `SESSION("session")`
 
 ### Deleted File
 
 - `class DeletedFile:`
-
   - `String id`
 
     ID of the deleted file.
@@ -664,13 +737,11 @@ public final class Main {
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `FILE_DELETED("file_deleted")`
 
 ### File Metadata
 
 - `class FileMetadata:`
-
   - `String id`
 
     Unique object identifier.
@@ -698,7 +769,6 @@ public final class Main {
     Object type.
 
     For files, this is always `"file"`.
-
     - `FILE("file")`
 
   - `Optional<Boolean> downloadable`
@@ -708,7 +778,6 @@ public final class Main {
   - `Optional<BetaFileScope> scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `String id`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -716,5 +785,4 @@ public final class Main {
     - `JsonValue; type "session"constant`
 
       The type of scope (e.g., `"session"`).
-
       - `SESSION("session")`

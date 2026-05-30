@@ -1,10 +1,12 @@
+# StubHub transforms live event ticketing with Claude
+
 StubHub, the world's leading marketplace for live events, uses Claude to transform customer experiences by delivering instant, accurate support that resolves complex ticketing issues in seconds—improving satisfaction scores while optimizing operational efficiency.
 
 Key results with Claude:
 
--   Customer wait times dropped from over 20 minutes to near-instant responses
--   Optimized customer service operations to decrease costs by over 30% while improving response quality
--   Claude consistently outperformed other AI models in resolution rate and customer satisfaction
+- Customer wait times dropped from over 20 minutes to near-instant responses
+- Optimized customer service operations to decrease costs by over 30% while improving response quality
+- Claude consistently outperformed other AI models in resolution rate and customer satisfaction
 
 ## Meeting the demands of time-sensitive ticketing
 

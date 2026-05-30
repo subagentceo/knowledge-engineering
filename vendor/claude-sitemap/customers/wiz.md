@@ -1,12 +1,14 @@
-[Wiz](https://www.wiz.io/) is a cloud security platform with over 2,000 employees that helps security teams gain visibility into their cloud environments, manage security posture, and take remediation steps across the full development lifecycle. Wiz’s Data Security Posture Management (DSPM) team is responsible for scanning customer files across every environment and reading their contents to identify security issues like exposed credentials or sensitive data. 
+# Wiz migrates a 50,000-line codebase with Claude Code, achieving 2x performance gains
 
-## With Claude, Wiz achieved: 
+Wiz is a cloud security platform with over 2,000 employees that helps security teams gain visibility into their cloud environments, manage security posture, and take remediation steps across the full development lifecycle. Wiz’s Data Security Posture Management (DSPM) team is responsible for scanning customer files across every environment and reading their contents to identify security issues like exposed credentials or sensitive data. 
 
--   **~1 day of active development** to migrate a 50,000-line Python library to Go — a project estimated at 2-3 human months manually
--   **2x+ faster PDF processing in production**, with the new Go library fully replacing the sandboxed Python solution
--   **Full codebase ownership**, enabling bug fixes and customizations impossible in the original open-source library (including Hebrew language support)
--   **A 20,000-line C++ library migrated to Go in 2 days**, with Claude Code generating Go assembly code as part of the process
--   **20-30x estimated output multiplication** as the team integrates Claude Code across engineering workflows
+## With Claude, Wiz achieved:
+
+- **~1 day of active development** to migrate a 50,000-line Python library to Go — a project estimated at 2-3 human months manually
+- **2x+ faster PDF processing in production**, with the new Go library fully replacing the sandboxed Python solution
+- **Full codebase ownership**, enabling bug fixes and customizations impossible in the original open-source library (including Hebrew language support)
+- **A 20,000-line C++ library migrated to Go in 2 days**, with Claude Code generating Go assembly code as part of the process
+- **20-30x estimated output multiplication** as the team integrates Claude Code across engineering workflows
 
 ## The challenge: Parsing PDF files at scale
 

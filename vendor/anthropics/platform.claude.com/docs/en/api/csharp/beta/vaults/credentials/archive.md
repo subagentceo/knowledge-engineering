@@ -1,4 +1,4 @@
-## Archive
+## Archive Credential
 
 `BetaManagedAgentsCredential Beta.Vaults.Credentials.Archive(CredentialArchiveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Archive Credential
 ### Parameters
 
 - `CredentialArchiveParams parameters`
-
   - `required string vaultID`
 
     Path param: Path parameter vault_id
@@ -21,7 +20,6 @@ Archive Credential
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -70,12 +68,17 @@ Archive Credential
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsCredential:`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `required string ID`
 
     Unique identifier for the credential.
@@ -87,17 +90,14 @@ Archive Credential
   - `required Auth Auth`
 
     Authentication details for a credential.
-
     - `class BetaManagedAgentsMcpOAuthAuthResponse:`
 
       OAuth credential details for an MCP server.
-
       - `required string McpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `required Type Type`
-
         - `"mcp_oauth"McpOAuth`
 
       - `DateTimeOffset? ExpiresAt`
@@ -107,7 +107,6 @@ Archive Credential
       - `BetaManagedAgentsMcpOAuthRefreshResponse? Refresh`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `required string ClientID`
 
           OAuth client ID.
@@ -119,29 +118,22 @@ Archive Credential
         - `required TokenEndpointAuth TokenEndpointAuth`
 
           Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
             Token endpoint requires no client authentication.
-
             - `required Type Type`
-
               - `"none"None`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `required Type Type`
-
               - `"client_secret_basic"ClientSecretBasic`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `required Type Type`
-
               - `"client_secret_post"ClientSecretPost`
 
         - `string? Resource`
@@ -155,13 +147,11 @@ Archive Credential
     - `class BetaManagedAgentsStaticBearerAuthResponse:`
 
       Static bearer token credential details for an MCP server.
-
       - `required string McpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `required Type Type`
-
         - `"static_bearer"StaticBearer`
 
   - `required DateTimeOffset CreatedAt`
@@ -173,7 +163,6 @@ Archive Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `required Type Type`
-
     - `"vault_credential"VaultCredential`
 
   - `required DateTimeOffset UpdatedAt`
@@ -200,4 +189,25 @@ CredentialArchiveParams parameters = new()
 var betaManagedAgentsCredential = await client.Beta.Vaults.Credentials.Archive(parameters);
 
 Console.WriteLine(betaManagedAgentsCredential);
+```
+
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
 ```

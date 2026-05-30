@@ -4,7 +4,7 @@ Research transforms how Claude finds and analyzes information. Claude operates a
 
 With Research, Claude delivers thorough answers in minutes, complete with easy-to-check citations so you can trust Claude's findings.
 
-**Important:**  You must have [web search turned on](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) for Research to function.
+**Important:** You must have [web search turned on](https://support.claude.com/en/articles/10684626-enabling-and-using-web-search) for Research to function.
 
 ## How to enable or disable Research
 

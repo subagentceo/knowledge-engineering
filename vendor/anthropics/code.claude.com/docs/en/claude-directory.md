@@ -1,18 +1,19 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
 # Explore the .claude directory
 
-> Where Claude Code reads CLAUDE.md, settings.json, hooks, skills, commands, subagents, rules, and auto memory. Explore the .claude directory in your project and ~/.claude in your home directory.
+> Where Claude Code reads CLAUDE.md, settings.json, hooks, skills, commands, subagents, workflows, rules, and auto memory. Explore the .claude directory in your project and ~/.claude in your home directory.
 
 export const ClaudeExplorer = () => {
-  const A = useMemo(() => ({href, children}) => <a href={href} style={{
+const A = useMemo(() => ({href, children}) => <a href={href} style={{
     color: 'var(--ce-accent)',
     textDecoration: 'none',
     borderBottom: '1px dotted var(--ce-accent)'
   }}>{children}</a>, []);
-  const C = useMemo(() => ({children}) => <code style={{
+const C = useMemo(() => ({children}) => <code style={{
     fontFamily: 'var(--ce-mono)',
     fontSize: '0.92em',
     padding: '1px 4px',
@@ -20,34 +21,37 @@ export const ClaudeExplorer = () => {
     background: 'var(--ce-surface)',
     border: '0.5px solid var(--ce-border-subtle)'
   }}>{children}</code>, []);
-  const commandsNote = useMemo(() => <>Commands and skills are now the same mechanism. For new workflows, use <A href="/en/skills">skills/</A> instead: same <C>/name</C> invocation, plus you can bundle supporting files.</>, []);
-  const FILE_TREE = useMemo(() => ({
-    project: {
-      label: 'your-project/',
-      children: [{
-        id: 'claude-md',
-        label: 'CLAUDE.md',
-        type: 'file',
-        icon: 'md',
-        color: '#6A9BCC',
-        badge: 'committed',
-        oneLiner: 'Project instructions Claude reads every session',
-        when: 'Loaded into context at the start of every session',
-        description: 'Project-specific instructions that shape how Claude works in this repository. Put your conventions, common commands, and architectural context here so Claude operates with the same assumptions your team does.',
-        tips: ['Target under 200 lines. Longer files still load in full but may reduce adherence', <>CLAUDE.md loads into every session. If something only matters for specific tasks, move it to a <A href="/en/skills">skill</A> or a path-scoped <A href="/en/memory#organize-rules-with-claude/rules/">rule</A> so it loads only when needed</>, 'List the commands you run most, like build, test, and format, so Claude knows them without you spelling them out each time', <>Run <C>/memory</C> to open and edit CLAUDE.md from within a session</>, <>Also works at <C>.claude/CLAUDE.md</C> if you prefer to keep the project root clean</>],
-        exampleIntro: 'This example is for a TypeScript and React project. It lists the build and test commands, the framework conventions Claude should follow, and project-specific rules like export style and file layout.',
-        example: `# Project conventions
+const commandsNote = useMemo(() => <>Commands and skills are now the same mechanism. For new workflows, use <A href="/en/skills">skills/</A> instead: same <C>/name</C> invocation, plus you can bundle supporting files.</>, []);
+const FILE_TREE = useMemo(() => ({
+project: {
+label: 'your-project/',
+children: [{
+id: 'claude-md',
+label: 'CLAUDE.md',
+type: 'file',
+icon: 'md',
+color: '#6A9BCC',
+badge: 'committed',
+oneLiner: 'Project instructions Claude reads every session',
+when: 'Loaded into context at the start of every session',
+description: 'Project-specific instructions that shape how Claude works in this repository. Put your conventions, common commands, and architectural context here so Claude operates with the same assumptions your team does.',
+tips: ['Target under 200 lines. Longer files still load in full but may reduce adherence', <>CLAUDE.md loads into every session. If something only matters for specific tasks, move it to a <A href="/en/skills">skill</A> or a path-scoped <A href="/en/memory#organize-rules-with-claude/rules/">rule</A> so it loads only when needed</>, 'List the commands you run most, like build, test, and format, so Claude knows them without you spelling them out each time', <>Run <C>/memory</C> to open and edit CLAUDE.md from within a session</>, <>Also works at <C>.claude/CLAUDE.md</C> if you prefer to keep the project root clean</>],
+exampleIntro: 'This example is for a TypeScript and React project. It lists the build and test commands, the framework conventions Claude should follow, and project-specific rules like export style and file layout.',
+example: `# Project conventions
 
 ## Commands
+
 - Build: \`npm run build\`
 - Test: \`npm test\`
 - Lint: \`npm run lint\`
 
 ## Stack
+
 - TypeScript with strict mode
 - React 19, functional components only
 
 ## Rules
+
 - Named exports, never default exports
 - Tests live next to source: \`foo.ts\` -> \`foo.test.ts\`
 - All API routes return \`{ data, error }\` shape`,
@@ -66,15 +70,15 @@ export const ClaudeExplorer = () => {
         exampleIntro: <>This example configures the GitHub MCP server so Claude can read issues and open pull requests. The <C>{'${GITHUB_TOKEN}'}</C> reference is read from your shell environment when Claude Code starts the server, so the token never lands in the file.</>,
         example: `{
   "mcpServers": {
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_TOKEN": "\${GITHUB_TOKEN}"
-      }
-    }
+  "github": {
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-github"],
+  "env": {
+  "GITHUB_TOKEN": "\${GITHUB_TOKEN}"
   }
-}`,
+  }
+  }
+  }`,
         docsLink: '/en/mcp'
       }, {
         id: 'worktreeinclude',
@@ -89,10 +93,11 @@ export const ClaudeExplorer = () => {
         tips: [<>Lives at the project root, not inside <C>.claude/</C></>, <>Git-only: if you configure a <A href="/en/hooks#worktreecreate">WorktreeCreate hook</A> for a different VCS, this file is not read. Copy files inside your hook script instead</>, <>Also applies to parallel sessions in the <A href="/en/desktop#work-in-parallel-with-sessions">desktop app</A></>],
         exampleIntro: 'This example copies your local environment files and a secrets config into every worktree Claude creates. Comments start with # and blank lines are ignored, same as .gitignore.',
         example: `# Local environment
-.env
-.env.local
+  .env
+  .env.local
 
 # API credentials
+
 config/secrets.json`,
         docsLink: '/en/worktrees#copy-gitignored-files-into-worktrees'
       }, {
@@ -117,24 +122,24 @@ config/secrets.json`,
           tips: [<>Bash permission patterns support wildcards: <C>Bash(npm test *)</C> matches any command starting with <C>npm test</C></>, <>Array settings like <C>permissions.allow</C> combine across all scopes; scalar settings like <C>model</C> use the most specific value</>],
           exampleIntro: <>This example allows <C>npm test</C> and <C>npm run</C> commands without prompting, blocks <C>rm -rf</C>, and runs Prettier on files after Claude edits or writes them.</>,
           example: `{
-  "permissions": {
-    "allow": [
-      "Bash(npm test *)",
-      "Bash(npm run *)"
-    ],
-    "deny": [
-      "Bash(rm -rf *)"
-    ]
-  },
-  "hooks": {
-    "PostToolUse": [{
-      "matcher": "Edit|Write",
-      "hooks": [{
-        "type": "command",
-        "command": "jq -r '.tool_input.file_path' | xargs npx prettier --write"
-      }]
-    }]
-  }
+"permissions": {
+"allow": [
+"Bash(npm test *)",
+"Bash(npm run *)"
+],
+"deny": [
+"Bash(rm -rf *)"
+]
+},
+"hooks": {
+"PostToolUse": [{
+"matcher": "Edit|Write",
+"hooks": [{
+"type": "command",
+"command": "jq -r '.tool_input.file_path' | xargs npx prettier --write"
+}]
+}]
+}
 }`,
           docsLink: '/en/settings'
         }, {
@@ -150,11 +155,11 @@ config/secrets.json`,
           tips: [<>Same schema as settings.json. Array settings like <C>permissions.allow</C> combine across scopes; scalar settings like <C>model</C> use the local value</>, <>Claude Code adds this file to <C>~/.config/git/ignore</C> the first time it writes one. If you use a custom <C>core.excludesFile</C>, add the pattern there too. To share the ignore rule with your team, also add it to the project <C>.gitignore</C></>],
           exampleIntro: 'This example adds Docker permissions on top of whatever the team settings.json allows.',
           example: `{
-  "permissions": {
-    "allow": [
-      "Bash(docker *)"
-    ]
-  }
+"permissions": {
+"allow": [
+"Bash(docker *)"
+]
+}
 }`,
           docsLink: '/en/settings'
         }, {
@@ -180,16 +185,17 @@ config/secrets.json`,
             description: <>An example rule that only loads when Claude is working on test files. The <C>paths:</C> globs in the frontmatter define which files trigger it; here, anything ending in .test.ts or .test.tsx. For other files, this rule is not loaded into context.</>,
             example: `---
 paths:
-  - "**/*.test.ts"
-  - "**/*.test.tsx"
+
+- "\*_/_.test.ts"
+- "\*_/_.test.tsx"
+
 ---
 
 # Testing Rules
 
 - Use descriptive test names: "should [expected] when [condition]"
 - Mock external dependencies, not internal modules
-- Clean up side effects in afterEach`
-          }, {
+- Clean up side effects in afterEach`          }, {
             id: 'rule-api',
             label: 'api-design.md',
             type: 'file',
@@ -199,9 +205,10 @@ paths:
             oneLiner: 'API conventions scoped to backend code',
             when: <>Loaded when Claude reads a file matching the <C>paths:</C> glob below</>,
             description: <>A second example showing a rule scoped to backend code. The <C>paths:</C> glob matches files under src/api/, so these conventions load only when Claude is editing API routes.</>,
-            example: `---
-paths:
-  - "src/api/**/*.ts"
+            example:`---
+  paths:
+  - "src/api/\*_/_.ts"
+
 ---
 
 # API Design Rules
@@ -239,9 +246,10 @@ paths:
               when: <>User types <C>/security-review &lt;target&gt;</C>; Claude cannot auto-invoke this skill</>,
               description: [<>This skill uses <C>disable-model-invocation: true</C> so only you can trigger it; Claude never invokes it on its own.</>, <>The <C>!`...`</C> line runs a shell command and injects its output into the prompt. <C>$ARGUMENTS</C> substitutes whatever you typed after the skill name. Claude sees the skill directory path, so mentioning a bundled file like checklist.md lets Claude read it.</>],
               example: `---
-description: Reviews code changes for security vulnerabilities, authentication gaps, and injection risks
-disable-model-invocation: true
-argument-hint: <branch-or-path>
+  description: Reviews code changes for security vulnerabilities, authentication gaps, and injection risks
+  disable-model-invocation: true
+  argument-hint: <branch-or-path>
+
 ---
 
 ## Diff to review
@@ -256,8 +264,7 @@ Audit the changes above for:
 
 Use checklist.md in this skill directory for the full review checklist.
 
-Report findings with severity ratings and remediation steps.`
-            }, {
+Report findings with severity ratings and remediation steps.`            }, {
               id: 'skill-checklist',
               label: 'checklist.md',
               type: 'file',
@@ -267,14 +274,16 @@ Report findings with severity ratings and remediation steps.`
               oneLiner: 'Supporting file bundled with the skill',
               when: 'Claude reads it on demand while running the skill',
               description: <>Skills can bundle any supporting files: reference docs, templates, scripts. The skill directory path is prepended to SKILL.md, so Claude can read bundled files by name. For scripts in bash injection commands, use the <C>{'${CLAUDE_SKILL_DIR}'}</C> placeholder.</>,
-              example: `# Security Review Checklist
+              example:`# Security Review Checklist
 
 ## Input Validation
+
 - [ ] All user input sanitized before DB queries
 - [ ] File upload MIME types validated
 - [ ] Path traversal prevented on file operations
 
 ## Authentication
+
 - [ ] JWT tokens expire after 24 hours
 - [ ] API keys stored in environment variables
 - [ ] Passwords hashed with bcrypt or argon2`
@@ -303,7 +312,8 @@ Report findings with severity ratings and remediation steps.`
             note: commandsNote,
             description: [<>An example command for fixing a GitHub issue. Type <C>/fix-issue 123</C> and the <C>!`...`</C> line runs <C>gh issue view 123</C> in your shell, injecting the output into the prompt before Claude sees it.</>, <><C>$ARGUMENTS</C> substitutes whatever you typed after the command name. For positional access, use <C>$0</C> <C>$1</C> and so on.</>],
             example: `---
-argument-hint: <issue-number>
+      argument-hint: <issue-number>
+
 ---
 
 !\`gh issue view $ARGUMENTS\`
@@ -313,8 +323,7 @@ Investigate and fix the issue above.
 1. Trace the bug to its root cause
 2. Implement the fix
 3. Write or update tests
-4. Summarize what you changed and why`
-          }]
+4. Summarize what you changed and why`          }]
         }, {
           id: 'output-styles',
           label: 'output-styles/',
@@ -347,10 +356,11 @@ Investigate and fix the issue above.
             oneLiner: 'Subagent for isolated code review',
             when: 'Claude spawns it for review tasks, or you @-mention it from the autocomplete',
             description: <>An example subagent restricted to read-only tools. The <C>description</C> frontmatter tells Claude when to delegate to it automatically; <C>tools:</C> limits it to Read, Grep, and Glob so it can inspect code but never edit. The body becomes the subagent's system prompt.</>,
-            example: `---
-name: code-reviewer
-description: Reviews code for correctness, security, and maintainability
-tools: Read, Grep, Glob
+            example:`---
+   name: code-reviewer
+   description: Reviews code for correctness, security, and maintainability
+   tools: Read, Grep, Glob
+
 ---
 
 You are a senior code reviewer. Review for:
@@ -359,8 +369,18 @@ You are a senior code reviewer. Review for:
 2. Security: injection, auth bypass, data exposure
 3. Maintainability: naming, complexity, duplication
 
-Every finding must include a concrete fix.`
-          }]
+Every finding must include a concrete fix.`          }]
+        }, {
+          id: 'workflows',
+          label: 'workflows/',
+          type: 'folder',
+          icon: 'folder',
+          color: '#C46686',
+          oneLiner: 'Dynamic workflow scripts that orchestrate many subagents',
+          when: 'Loaded at startup; each file becomes a /<name> command',
+          description: <>Each <C>.js</C> file is a <A href="/en/workflows">dynamic workflow</A>: a script the runtime executes to spawn and coordinate many subagents. Workflows are written by Claude and saved here from <C>/workflows</C> rather than authored from scratch.</>,
+          tips: [<>Save a run from <C>/workflows</C> with <C>s</C> to create one of these</>, <>A project workflow takes precedence over a personal one in <C>~/.claude/workflows/</C> with the same name</>],
+          docsLink: '/en/workflows'
         }, {
           id: 'agent-memory',
           label: 'agent-memory/',
@@ -392,17 +412,18 @@ Every finding must include a concrete fix.`
               oneLiner: 'The subagent writes and maintains this file automatically',
               when: 'Loaded into the subagent system prompt when the subagent starts',
               description: <>Works the same as your <A href="/en/memory#auto-memory">main auto memory</A>: the subagent creates and updates this file itself. You do not write it. The subagent reads it at the start of each task and writes back what it learns.</>,
-              example: `# code-reviewer memory
+              example:`# code-reviewer memory
 
 ## Patterns seen
+
 - Project uses custom Result<T, E> type, not exceptions
 - Auth middleware expects Bearer token in Authorization header
 - Tests use factory functions in test/factories/
 
 ## Recurring issues
-- Missing null checks on API responses (src/api/*)
-- Unhandled promise rejections in background jobs`
-            }]
+
+- Missing null checks on API responses (src/api/\*)
+- Unhandled promise rejections in background jobs`            }]
           }]
         }]
       }]
@@ -420,16 +441,16 @@ Every finding must include a concrete fix.`
         when: <>Read at session start for your preferences and MCP servers. Claude Code writes back to it when you change settings in <C>/config</C> or approve trust prompts</>,
         description: <>Holds state that does not belong in settings.json: theme, OAuth session, per-project trust decisions, your personal MCP servers, and UI toggles. Mostly managed through <C>/config</C> rather than editing directly.</>,
         tips: [<>IDE toggles like <C>autoConnectIde</C> and <C>externalEditorContext</C> live here, not in settings.json</>, <>The <C>projects</C> key tracks per-project state like trust-dialog acceptance and last-session metrics. Permission rules you approve in-session go to <C>.claude/settings.local.json</C> instead</>, <>MCP servers here are yours only: user scope applies across all projects, local scope is per-project but not committed. Team-shared servers go in <C>.mcp.json</C> at the project root instead</>],
-        example: `{
+        example:`{
   "autoConnectIde": true,
   "externalEditorContext": true,
   "mcpServers": {
-    "my-tools": {
-      "command": "npx",
-      "args": ["-y", "@example/mcp-server"]
-    }
+  "my-tools": {
+  "command": "npx",
+  "args": ["-y", "@example/mcp-server"]
   }
-}`,
+  }
+  }`,
         docsLink: '/en/settings#global-config-settings'
       }, {
         id: 'global-dot-claude',
@@ -469,12 +490,12 @@ Every finding must include a concrete fix.`
           description: [<>Same keys as project <C>settings.json</C>: permissions, hooks, model, environment variables, and the rest. Put settings here that you want in every project, like permissions you always allow, a preferred model, or a notification hook that runs regardless of which project you're in.</>, <>Settings follow a precedence order: project <C>settings.json</C> overrides any matching keys you set here. This is different from CLAUDE.md, where global and project files are both loaded into context rather than merged key by key.</>],
           example: `{
   "permissions": {
-    "allow": [
-      "Bash(git log *)",
-      "Bash(git diff *)"
-    ]
+  "allow": [
+  "Bash(git log *)",
+  "Bash(git diff *)"
+  ]
   }
-}`,
+  }`,
           docsLink: '/en/settings'
         }, {
           id: 'keybindings',
@@ -491,15 +512,15 @@ Every finding must include a concrete fix.`
   "$schema": "https://www.schemastore.org/claude-code-keybindings.json",
   "$docs": "https://code.claude.com/docs/en/keybindings",
   "bindings": [
-    {
-      "context": "Chat",
-      "bindings": {
-        "ctrl+e": "chat:externalEditor",
-        "ctrl+u": null
-      }
-    }
+  {
+  "context": "Chat",
+  "bindings": {
+  "ctrl+e": "chat:externalEditor",
+  "ctrl+u": null
+  }
+  }
   ]
-}`,
+  }`,
           docsLink: '/en/keybindings'
         }, {
           id: 'themes',
@@ -514,11 +535,11 @@ Every finding must include a concrete fix.`
   "name": "Dracula",
   "base": "dark",
   "overrides": {
-    "claude": "#bd93f9",
-    "error": "#ff5555",
-    "success": "#50fa7b"
+  "claude": "#bd93f9",
+  "error": "#ff5555",
+  "success": "#50fa7b"
   }
-}`,
+  }`,
           docsLink: '/en/terminal-config#create-a-custom-theme',
           children: []
         }, {
@@ -555,10 +576,12 @@ Every finding must include a concrete fix.`
               example: `# Memory Index
 
 ## Project
+
 - [build-and-test.md](build-and-test.md): npm run build (~45s), Vitest, dev server on 3001
 - [architecture.md](architecture.md): API client singleton, refresh-token auth
 
 ## Reference
+
 - [debugging.md](debugging.md): auth token rotation and DB connection troubleshooting`,
               docsLink: '/en/memory'
             }, {
@@ -573,19 +596,21 @@ Every finding must include a concrete fix.`
               when: 'Claude reads this when a related task comes up',
               description: 'An example of a topic file Claude creates when MEMORY.md grows too long. Claude picks the filename based on what it splits out: debugging.md, architecture.md, build-commands.md, or similar. You never create these yourself. Claude reads a topic file back only when the current task relates to it.',
               example: `---
-name: Debugging patterns
-description: Auth token rotation and database connection troubleshooting for this project
-type: reference
+  name: Debugging patterns
+  description: Auth token rotation and database connection troubleshooting for this project
+  type: reference
+
 ---
 
 ## Auth Token Issues
+
 - Refresh token rotation: old token invalidated immediately
 - If 401 after refresh: check clock skew between client and server
 
 ## Database Connection Drops
+
 - Connection pool: max 10 in dev, 50 in prod
-- Always check \`docker compose ps\` first`
-            }]
+- Always check \`docker compose ps\` first`            }]
           }]
         }, {
           id: 'global-rules',
@@ -642,17 +667,17 @@ type: reference
             oneLiner: 'Example style that adds explanations and leaves small changes for you',
             when: <>Active when <C>outputStyle</C> in settings is set to <C>teaching</C></>,
             description: <>This style appends instructions to the system prompt: Claude adds a "Why this approach" note after each task and leaves TODO(human) markers for changes under 10 lines instead of writing them itself. Select it by setting <C>outputStyle</C> to the filename without .md, or to the <C>name</C> field if you set one in frontmatter.</>,
-            example: `---
-description: Explains reasoning and asks you to implement small pieces
-keep-coding-instructions: true
+            example:`---
+  description: Explains reasoning and asks you to implement small pieces
+  keep-coding-instructions: true
+
 ---
 
 After completing each task, add a brief "Why this approach" note
 explaining the key design decision.
 
 When a change is under 10 lines, ask the user to implement it
-themselves by leaving a TODO(human) marker instead of writing it.`
-          }]
+themselves by leaving a TODO(human) marker instead of writing it.`          }]
         }, {
           id: 'global-agents',
           label: 'agents/',
@@ -663,6 +688,17 @@ themselves by leaving a TODO(human) marker instead of writing it.`
           when: 'Claude delegates or you @-mention in any project',
           description: 'Subagents defined here are available across all your projects. Same format as project agents.',
           docsLink: '/en/sub-agents',
+          children: []
+        }, {
+          id: 'global-workflows',
+          label: 'workflows/',
+          type: 'folder',
+          icon: 'folder',
+          color: '#C46686',
+          oneLiner: 'Personal dynamic workflows available in every project',
+          when: 'Loaded at startup; each file becomes a /<name> command',
+          description: <>Workflow scripts saved here are available across all your projects. A project workflow with the same name in <C>.claude/workflows/</C> takes precedence.</>,
+          docsLink: '/en/workflows',
           children: []
         }, {
           id: 'global-agent-memory',
@@ -897,7 +933,7 @@ themselves by leaving a TODO(human) marker instead of writing it.`
       alignItems: 'center',
       gap: '5px',
       width: '100%',
-      padding: `4px 8px 4px ${8 + depth * 16}px`,
+      padding:`4px 8px 4px ${8 + depth \* 16}px`,
       background: isSelected ? 'var(--ce-accent-bg)' : 'transparent',
       borderTop: 'none',
       borderRight: 'none',
@@ -958,65 +994,65 @@ themselves by leaving a TODO(human) marker instead of writing it.`
   };
   return <>
     <style>{`
-      .ce-root {
-        --ce-mono: var(--font-mono, ui-monospace, monospace);
-        --ce-accent: #D97757;
-        --ce-accent-bg: rgba(217,119,87,0.06);
-        --ce-accent-border: rgba(217,119,87,0.12);
-        --ce-bg: #fff;
-        --ce-surface: #FAFAF7;
-        --ce-surface-hover: #F0EEE6;
-        --ce-border: #E8E6DC;
-        --ce-border-subtle: #F0EEE6;
-        --ce-text: #141413;
-        --ce-text-2: #5E5D59;
-        --ce-text-3: #73726C;
-        --ce-text-4: #9C9A92;
-        --ce-text-5: #B8B6AE;
-        --ce-sep: #D1CFC5;
-        --ce-code-header: #F5F4ED;
-        --ce-code-bg: #1A1918;
-        --ce-arrow-hover: rgba(0,0,0,0.08);
-        --ce-badge-committed: #3d6b2e;
-        --ce-badge-gitignored: #b85c3a;
-        --ce-badge-local: #5e5d59;
-        --ce-badge-autogen: #b07520;
-        --ce-when-text: #4a7fb5;
-      }
-      .dark .ce-root {
-        --ce-bg: #1a1918;
-        --ce-surface: #232221;
-        --ce-surface-hover: #2e2d2b;
-        --ce-border: #3a3936;
-        --ce-border-subtle: #2e2d2b;
-        --ce-text: #e8e6dc;
-        --ce-text-2: #c4c2b8;
-        --ce-text-3: #9c9a92;
-        --ce-text-4: #73726c;
-        --ce-text-5: #5e5d59;
-        --ce-sep: #4a4946;
-        --ce-code-header: #2e2d2b;
-        --ce-code-bg: #0d0d0c;
-        --ce-arrow-hover: rgba(255,255,255,0.08);
-        --ce-badge-committed: #6fa85c;
-        --ce-badge-gitignored: #e08a60;
-        --ce-badge-local: #9c9a92;
-        --ce-badge-autogen: #e8a45c;
-        --ce-when-text: #8bb4e0;
-      }
-      .ce-mobile-fallback { display: none; border: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.03); }
-      .dark .ce-mobile-fallback { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); }
-      @media (max-width: 700px) {
-        .ce-root:not(.ce-force) { display: none !important; }
-        .ce-mobile-fallback { display: block; }
-      }
-    `}</style>
-    {!forceMobile && <div className="ce-mobile-fallback" style={{
+.ce-root {
+--ce-mono: var(--font-mono, ui-monospace, monospace);
+--ce-accent: #D97757;
+--ce-accent-bg: rgba(217,119,87,0.06);
+--ce-accent-border: rgba(217,119,87,0.12);
+--ce-bg: #fff;
+--ce-surface: #FAFAF7;
+--ce-surface-hover: #F0EEE6;
+--ce-border: #E8E6DC;
+--ce-border-subtle: #F0EEE6;
+--ce-text: #141413;
+--ce-text-2: #5E5D59;
+--ce-text-3: #73726C;
+--ce-text-4: #9C9A92;
+--ce-text-5: #B8B6AE;
+--ce-sep: #D1CFC5;
+--ce-code-header: #F5F4ED;
+--ce-code-bg: #1A1918;
+--ce-arrow-hover: rgba(0,0,0,0.08);
+--ce-badge-committed: #3d6b2e;
+--ce-badge-gitignored: #b85c3a;
+--ce-badge-local: #5e5d59;
+--ce-badge-autogen: #b07520;
+--ce-when-text: #4a7fb5;
+}
+.dark .ce-root {
+--ce-bg: #1a1918;
+--ce-surface: #232221;
+--ce-surface-hover: #2e2d2b;
+--ce-border: #3a3936;
+--ce-border-subtle: #2e2d2b;
+--ce-text: #e8e6dc;
+--ce-text-2: #c4c2b8;
+--ce-text-3: #9c9a92;
+--ce-text-4: #73726c;
+--ce-text-5: #5e5d59;
+--ce-sep: #4a4946;
+--ce-code-header: #2e2d2b;
+--ce-code-bg: #0d0d0c;
+--ce-arrow-hover: rgba(255,255,255,0.08);
+--ce-badge-committed: #6fa85c;
+--ce-badge-gitignored: #e08a60;
+--ce-badge-local: #9c9a92;
+--ce-badge-autogen: #e8a45c;
+--ce-when-text: #8bb4e0;
+}
+.ce-mobile-fallback { display: none; border: 1px solid rgba(0,0,0,0.1); background: rgba(0,0,0,0.03); }
+.dark .ce-mobile-fallback { border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); }
+@media (max-width: 700px) {
+.ce-root:not(.ce-force) { display: none !important; }
+.ce-mobile-fallback { display: block; }
+}
+`}</style>
+{!forceMobile && <div className="ce-mobile-fallback" style={{
     padding: '14px 16px',
     borderRadius: '8px',
     fontSize: '14px'
   }}>
-      The interactive explorer works best on a larger screen. See the <a href="#file-reference" style={{
+The interactive explorer works best on a larger screen. See the <a href="#file-reference" style={{
     color: '#D97757'
   }}>file reference table</a> below, or <button onClick={() => setForceMobile(true)} style={{
     border: 'none',
@@ -1027,8 +1063,8 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     cursor: 'pointer',
     font: 'inherit'
   }}>show the explorer anyway</button>.
-    </div>}
-    <div ref={rootRef} className={forceMobile ? 'ce-root ce-force' : 'ce-root'} style={{
+</div>}
+<div ref={rootRef} className={forceMobile ? 'ce-root ce-force' : 'ce-root'} style={{
     borderRadius: isFullscreen ? 0 : '12px',
     border: '1px solid var(--ce-border)',
     background: 'var(--ce-bg)',
@@ -1040,8 +1076,8 @@ themselves by leaving a TODO(human) marker instead of writing it.`
       height: '100vh'
     })
   }}>
-      {}
-      <div style={{
+{}
+<div style={{
     width: 'min(240px, 35%)',
     minWidth: '180px',
     flexShrink: 0,
@@ -1050,13 +1086,13 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     display: 'flex',
     flexDirection: 'column'
   }}>
-        <div style={{
+<div style={{
     padding: '8px 8px 4px',
     borderBottom: '1px solid var(--ce-border-subtle)',
     display: 'flex',
     gap: '4px'
   }}>
-          {['project', 'global'].map(root => <button key={root} onClick={() => switchRoot(root)} style={{
+{['project', 'global'].map(root => <button key={root} onClick={() => switchRoot(root)} style={{
     flex: 1,
     padding: '6px 0',
     borderRadius: '6px',
@@ -1068,30 +1104,30 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     color: activeRoot === root ? 'var(--ce-accent)' : 'var(--ce-text-4)',
     fontWeight: activeRoot === root ? 600 : 430
   }}>
-              {root === 'project' ? 'Project' : 'Global (~/)'}
-            </button>)}
-          <button onClick={toggleAllFolders} title={allExpanded ? 'Collapse all' : 'Expand all'} style={{
+{root === 'project' ? 'Project' : 'Global (~/)'}
+</button>)}
+<button onClick={toggleAllFolders} title={allExpanded ? 'Collapse all' : 'Expand all'} style={{
     ...iconBtn,
     fontSize: 11
   }}>
-            {allExpanded ? '⊟' : '⊞'}
-          </button>
-          <button onClick={toggleFullscreen} title={isFullscreen ? 'Exit fullscreen' : 'Fullscreen'} style={{
+{allExpanded ? '⊟' : '⊞'}
+</button>
+<button onClick={toggleFullscreen} title={isFullscreen ? 'Exit fullscreen' : 'Fullscreen'} style={{
     ...iconBtn,
     fontSize: 13
   }}>
-            {isFullscreen ? '⤡' : '⛶'}
-          </button>
-        </div>
-        <div role="tree" aria-label="Configuration files" tabIndex={0} onKeyDown={onTreeKeyDown} style={{
+{isFullscreen ? '⤡' : '⛶'}
+</button>
+</div>
+<div role="tree" aria-label="Configuration files" tabIndex={0} onKeyDown={onTreeKeyDown} style={{
     padding: '6px 0',
     overflowY: 'auto',
     flex: 1,
     outline: 'none'
   }}>
-          {tree.children.map(node => renderNode(node, 0))}
-        </div>
-      </div>
+{tree.children.map(node => renderNode(node, 0))}
+</div>
+</div>
 
       {}
       <div style={{
@@ -1100,31 +1136,32 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     padding: '20px 24px',
     minHeight: '400px',
     overflowY: 'auto'
-  }}>
-            <span aria-live="polite" style={{
+
+}}>
+<span aria-live="polite" style={{
     position: 'absolute',
     width: 1,
     height: 1,
     overflow: 'hidden',
     clip: 'rect(0 0 0 0)'
   }}>{selected.label} selected</span>
-            {}
-            <div style={{
+{}
+<div style={{
     fontFamily: 'var(--ce-mono)',
     fontSize: '11px',
     color: 'var(--ce-text-4)',
     marginBottom: '10px',
     cursor: 'default'
   }}>
-              {selected.path.map((seg, i) => <span key={i}>
-                  <span style={{
+{selected.path.map((seg, i) => <span key={i}>
+<span style={{
     color: i === selected.path.length - 1 ? 'var(--ce-accent)' : 'var(--ce-text-4)'
   }}>{seg.replace(/\/$/, '')}</span>
-                  {i < selected.path.length - 1 && <span style={{
+{i < selected.path.length - 1 && <span style={{
     color: 'var(--ce-sep)'
   }}> / </span>}
-                </span>)}
-            </div>
+</span>)}
+</div>
 
             {}
             <div style={{
@@ -1132,37 +1169,38 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     alignItems: 'flex-start',
     gap: '10px',
     marginBottom: '10px'
-  }}>
-              <span style={{
+
+}}>
+<span style={{
     flexShrink: 0,
     display: 'flex'
   }}>{renderIcon(selected.icon, selected.color, 24)}</span>
-              <div style={{
+<div style={{
     flex: 1,
     minWidth: 0
   }}>
-                <div style={{
+<div style={{
     fontSize: '22px',
     fontWeight: 600,
     color: 'var(--ce-text)',
     letterSpacing: '-0.3px',
     lineHeight: '26px'
   }}>{selected.label}</div>
-                {selected.oneLiner && <div style={{
+{selected.oneLiner && <div style={{
     fontSize: '15px',
     color: 'var(--ce-text-3)',
     marginTop: '3px'
   }}>{selected.oneLiner}</div>}
-              </div>
-              <div style={{
+</div>
+<div style={{
     display: 'flex',
     gap: '4px',
     flexShrink: 0
   }}>
-                {[selected.autogen && 'autogen', selected.badge].filter(Boolean).map(k => {
-    const s = BADGE_STYLES[k];
-    if (!s) return null;
-    return <span key={k} style={{
+{[selected.autogen && 'autogen', selected.badge].filter(Boolean).map(k => {
+const s = BADGE_STYLES[k];
+if (!s) return null;
+return <span key={k} style={{
       fontFamily: 'var(--ce-mono)',
       fontSize: '10px',
       fontWeight: 600,
@@ -1174,9 +1212,9 @@ themselves by leaving a TODO(human) marker instead of writing it.`
       color: s.color,
       border: `0.5px solid ${s.border}`
     }}>{s.label}</span>;
-  })}
-              </div>
-            </div>
+})}
+</div>
+</div>
 
             {}
             {selected.note && <div style={{
@@ -1189,9 +1227,10 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     fontSize: '15px',
     color: 'var(--ce-text-2)',
     lineHeight: 1.6
-  }}>
-                {selected.note}
-              </div>}
+
+}}>
+{selected.note}
+</div>}
 
             {}
             {selected.when && <div style={{
@@ -1202,8 +1241,9 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     fontSize: '15px',
     color: 'var(--ce-when-text)',
     marginBottom: '16px'
-  }}>
-                <div style={{
+
+}}>
+<div style={{
     fontSize: '10px',
     fontWeight: 700,
     textTransform: 'uppercase',
@@ -1211,10 +1251,10 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     opacity: 0.65,
     marginBottom: '3px'
   }}>When it loads</div>
-                <div style={{
+<div style={{
     fontWeight: 500
   }}>{selected.when}</div>
-              </div>}
+</div>}
 
             {}
             {selected.description && <div style={{
@@ -1222,17 +1262,19 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     color: 'var(--ce-text-2)',
     lineHeight: 1.65,
     marginBottom: '16px'
-  }}>
-                {Array.isArray(selected.description) ? selected.description.map((para, i) => <div key={i} style={{
+
+}}>
+{Array.isArray(selected.description) ? selected.description.map((para, i) => <div key={i} style={{
     marginBottom: i < selected.description.length - 1 ? '12px' : 0
   }}>{para}</div>) : selected.description}
-              </div>}
+</div>}
 
             {}
             {selected.contains && selected.contains.length > 0 && <div style={{
     marginBottom: '16px'
-  }}>
-                <div style={{
+
+}}>
+<div style={{
     fontSize: '11px',
     fontWeight: 700,
     color: 'var(--ce-text-4)',
@@ -1240,7 +1282,7 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     letterSpacing: '0.4px',
     marginBottom: '8px'
   }}>Common keys</div>
-                {selected.contains.map((item, i) => <div key={i} style={{
+{selected.contains.map((item, i) => <div key={i} style={{
     display: 'flex',
     gap: '7px',
     fontSize: '15px',
@@ -1248,14 +1290,14 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     lineHeight: 1.5,
     marginBottom: '5px'
   }}>
-                    <span style={{
+<span style={{
     fontSize: '7px',
     color: 'var(--ce-text-4)',
     marginTop: '6px'
   }}>●</span>
-                    <span>{item}</span>
-                  </div>)}
-              </div>}
+<span>{item}</span>
+</div>)}
+</div>}
 
             {}
             {selected.tips && selected.tips.length > 0 && <div style={{
@@ -1264,8 +1306,9 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     background: 'var(--ce-surface)',
     border: '1px solid var(--ce-border-subtle)',
     marginBottom: '16px'
-  }}>
-                <div style={{
+
+}}>
+<div style={{
     fontSize: '11px',
     fontWeight: 700,
     color: 'var(--ce-accent)',
@@ -1273,35 +1316,36 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     letterSpacing: '0.4px',
     marginBottom: '6px'
   }}>Tips</div>
-                {selected.tips.map((tip, i) => <div key={i} style={{
+{selected.tips.map((tip, i) => <div key={i} style={{
     display: 'flex',
     gap: '7px',
     fontSize: '14.5px',
     color: 'var(--ce-text-2)',
     marginBottom: i < selected.tips.length - 1 ? '5px' : 0
   }}>
-                    <span style={{
+<span style={{
     fontSize: '7px',
     color: 'var(--ce-accent)',
     marginTop: '6px'
   }}>●</span>
-                    <span>{tip}</span>
-                  </div>)}
-              </div>}
+<span>{tip}</span>
+</div>)}
+</div>}
 
             {}
             {selected.example && <div style={{
     marginBottom: '16px'
-  }}>
-                {selected.exampleIntro && <div style={{
+
+}}>
+{selected.exampleIntro && <div style={{
     fontSize: '15px',
     color: 'var(--ce-text-2)',
     lineHeight: 1.6,
     marginBottom: '10px'
   }}>
-                    {selected.exampleIntro}
-                  </div>}
-                <div style={{
+{selected.exampleIntro}
+</div>}
+<div style={{
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -1310,13 +1354,13 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     border: '1px solid var(--ce-border)',
     borderRadius: '8px 8px 0 0'
   }}>
-                  <span style={{
+<span style={{
     fontFamily: 'var(--ce-mono)',
     fontSize: '11px',
     fontWeight: 600,
     color: 'var(--ce-text-3)'
   }}>{selected.label}</span>
-                  <button onClick={() => copyExample(selected.id, selected.example)} style={{
+<button onClick={() => copyExample(selected.id, selected.example)} style={{
     padding: '3px 8px',
     borderRadius: '4px',
     fontSize: '11px',
@@ -1327,10 +1371,10 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     border: isCopied ? '0.5px solid rgba(85,138,66,0.2)' : '0.5px solid var(--ce-border)',
     color: isCopied ? '#558A42' : 'var(--ce-text-3)'
   }}>
-                    {isCopied ? '✓ Copied' : 'Copy'}
-                  </button>
-                </div>
-                <pre style={{
+{isCopied ? '✓ Copied' : 'Copy'}
+</button>
+</div>
+<pre style={{
     margin: 0,
     padding: '12px 14px',
     background: 'var(--ce-code-bg)',
@@ -1342,7 +1386,7 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     overflowX: 'auto',
     whiteSpace: 'pre'
   }}>{selected.example}</pre>
-              </div>}
+</div>}
 
             {}
             {selected.docsLink && <a href={selected.docsLink} style={{
@@ -1355,13 +1399,15 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     fontSize: '12px',
     fontWeight: 600,
     textDecoration: 'none'
-  }}>Full docs →</a>}
+
+}}>Full docs →</a>}
 
             {}
             {selected.children && selected.children.length > 0 && <div style={{
     marginTop: '20px'
-  }}>
-                <div style={{
+
+}}>
+<div style={{
     fontSize: '11px',
     fontWeight: 700,
     color: 'var(--ce-text-4)',
@@ -1369,12 +1415,12 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     letterSpacing: '0.4px',
     marginBottom: '8px'
   }}>Contents</div>
-                <div style={{
+<div style={{
     display: 'flex',
     flexDirection: 'column',
     gap: '4px'
   }}>
-                  {selected.children.map(child => <button key={child.id} onClick={() => selectNode(child)} style={{
+{selected.children.map(child => <button key={child.id} onClick={() => selectNode(child)} style={{
     display: 'flex',
     alignItems: 'center',
     gap: '8px',
@@ -1387,25 +1433,25 @@ themselves by leaving a TODO(human) marker instead of writing it.`
     textAlign: 'left',
     transition: 'background 0.1s'
   }} onMouseEnter={e => e.currentTarget.style.background = 'var(--ce-surface-hover)'} onMouseLeave={e => e.currentTarget.style.background = 'var(--ce-surface)'}>
-                      {renderIcon(child.icon, child.color, 13)}
-                      <span style={{
+{renderIcon(child.icon, child.color, 13)}
+<span style={{
     fontFamily: 'var(--ce-mono)',
     fontSize: '12px',
     color: 'var(--ce-text-2)'
   }}>{child.label}</span>
-                      {child.oneLiner && <span style={{
+{child.oneLiner && <span style={{
     fontSize: '11px',
     color: 'var(--ce-text-4)',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap'
   }}>{child.oneLiner}</span>}
-                    </button>)}
-                </div>
-              </div>}
-      </div>
-    </div>
-    </>;
+</button>)}
+</div>
+</div>}
+</div>
+</div>
+</>;
 };
 
 Claude Code reads instructions, settings, skills, subagents, and memory from your project directory and from `~/.claude` in your home directory. Commit project files to git to share them with your team; files in `~/.claude` are personal configuration that applies across all your projects.
@@ -1445,6 +1491,7 @@ Different kinds of customization live in different files. Use this table to find
 | Keep personal overrides out of git                 | `settings.local.json`                    | project only      | [Settings scopes](/en/settings#settings-files)     |
 | Add a prompt or capability you invoke with `/name` | `skills/<name>/SKILL.md`                 | project or global | [Skills](/en/skills)                               |
 | Define a specialized subagent with its own tools   | `agents/*.md`                            | project or global | [Subagents](/en/sub-agents)                        |
+| Orchestrate many subagents from a script           | `workflows/*.js`                         | project or global | [Dynamic workflows](/en/workflows)                 |
 | Connect external tools over MCP                    | `.mcp.json`                              | project only      | [MCP](/en/mcp)                                     |
 | Change how Claude formats responses                | `output-styles/*.md`                     | project or global | [Output styles](/en/output-styles)                 |
 
@@ -1455,32 +1502,33 @@ This table lists every file the explorer covers. Project-scope files live in you
 <Note>
   Several things can override what you put in these files:
 
-  * [Managed settings](/en/server-managed-settings) deployed by your organization take precedence over everything
-  * CLI flags like `--permission-mode` or `--settings` override `settings.json` for that session
-  * Some environment variables take precedence over their equivalent setting, but this varies: check the [environment variables reference](/en/env-vars) for each one
+- [Managed settings](/en/server-managed-settings) deployed by your organization take precedence over everything
+- CLI flags like `--permission-mode` or `--settings` override `settings.json` for that session
+- Some environment variables take precedence over their equivalent setting, but this varies: check the [environment variables reference](/en/env-vars) for each one
 
-  See [settings precedence](/en/settings#settings-precedence) for the full order.
+See [settings precedence](/en/settings#settings-precedence) for the full order.
 </Note>
 
 Click a filename to open that node in the explorer above.
 
-| File                                                | Scope              | Commit | What it does                                          | Reference                                                       |
-| --------------------------------------------------- | ------------------ | ------ | ----------------------------------------------------- | --------------------------------------------------------------- |
-| [`CLAUDE.md`](#ce-claude-md)                        | Project and global | ✓      | Instructions loaded every session                     | [Memory](/en/memory)                                            |
-| [`rules/*.md`](#ce-rules)                           | Project and global | ✓      | Topic-scoped instructions, optionally path-gated      | [Rules](/en/memory#organize-rules-with-claude/rules/)           |
-| [`settings.json`](#ce-settings-json)                | Project and global | ✓      | Permissions, hooks, env vars, model defaults          | [Settings](/en/settings)                                        |
-| [`settings.local.json`](#ce-settings-local-json)    | Project only       |        | Your personal overrides, auto-gitignored              | [Settings scopes](/en/settings#settings-files)                  |
-| [`.mcp.json`](#ce-mcp-json)                         | Project only       | ✓      | Team-shared MCP servers                               | [MCP scopes](/en/mcp#mcp-installation-scopes)                   |
-| [`.worktreeinclude`](#ce-worktreeinclude)           | Project only       | ✓      | Gitignored files to copy into new worktrees           | [Worktrees](/en/worktrees#copy-gitignored-files-into-worktrees) |
-| [`skills/<name>/SKILL.md`](#ce-skills)              | Project and global | ✓      | Reusable prompts invoked with `/name` or auto-invoked | [Skills](/en/skills)                                            |
-| [`commands/*.md`](#ce-commands)                     | Project and global | ✓      | Single-file prompts; same mechanism as skills         | [Skills](/en/skills)                                            |
-| [`output-styles/*.md`](#ce-output-styles)           | Project and global | ✓      | Custom system-prompt sections                         | [Output styles](/en/output-styles)                              |
-| [`agents/*.md`](#ce-agents)                         | Project and global | ✓      | Subagent definitions with their own prompt and tools  | [Subagents](/en/sub-agents)                                     |
-| [`agent-memory/<name>/`](#ce-agent-memory)          | Project and global | ✓      | Persistent memory for subagents                       | [Persistent memory](/en/sub-agents#enable-persistent-memory)    |
-| [`~/.claude.json`](#ce-claude-json)                 | Global only        |        | App state, OAuth, UI toggles, personal MCP servers    | [Global config](/en/settings#global-config-settings)            |
-| [`projects/<project>/memory/`](#ce-global-projects) | Global only        |        | Auto memory: Claude's notes to itself across sessions | [Auto memory](/en/memory#auto-memory)                           |
-| [`keybindings.json`](#ce-keybindings)               | Global only        |        | Custom keyboard shortcuts                             | [Keybindings](/en/keybindings)                                  |
-| [`themes/*.json`](#ce-themes)                       | Global only        |        | Custom color themes                                   | [Custom themes](/en/terminal-config#create-a-custom-theme)      |
+| File                                                | Scope              | Commit | What it does                                                                                                  | Reference                                                       |
+| --------------------------------------------------- | ------------------ | ------ | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| [`CLAUDE.md`](#ce-claude-md)                        | Project and global | ✓      | Instructions loaded every session                                                                             | [Memory](/en/memory)                                            |
+| [`rules/*.md`](#ce-rules)                           | Project and global | ✓      | Topic-scoped instructions, optionally path-gated                                                              | [Rules](/en/memory#organize-rules-with-claude/rules/)           |
+| [`settings.json`](#ce-settings-json)                | Project and global | ✓      | Permissions, hooks, env vars, model defaults                                                                  | [Settings](/en/settings)                                        |
+| [`settings.local.json`](#ce-settings-local-json)    | Project only       |        | Your personal overrides, auto-gitignored                                                                      | [Settings scopes](/en/settings#settings-files)                  |
+| [`.mcp.json`](#ce-mcp-json)                         | Project only       | ✓      | Team-shared MCP servers                                                                                       | [MCP scopes](/en/mcp#mcp-installation-scopes)                   |
+| [`.worktreeinclude`](#ce-worktreeinclude)           | Project only       | ✓      | Gitignored files to copy into new worktrees                                                                   | [Worktrees](/en/worktrees#copy-gitignored-files-into-worktrees) |
+| [`skills/<name>/SKILL.md`](#ce-skills)              | Project and global | ✓      | Reusable prompts invoked with `/name` or auto-invoked                                                         | [Skills](/en/skills)                                            |
+| [`commands/*.md`](#ce-commands)                     | Project and global | ✓      | Single-file prompts; same mechanism as skills                                                                 | [Skills](/en/skills)                                            |
+| [`output-styles/*.md`](#ce-output-styles)           | Project and global | ✓      | Custom system-prompt sections                                                                                 | [Output styles](/en/output-styles)                              |
+| [`agents/*.md`](#ce-agents)                         | Project and global | ✓      | Subagent definitions with their own prompt and tools                                                          | [Subagents](/en/sub-agents)                                     |
+| [`workflows/*.js`](#ce-workflows)                   | Project and global | ✓      | Dynamic workflow scripts written by Claude and saved from `/workflows`; each file becomes a `/<name>` command | [Dynamic workflows](/en/workflows)                              |
+| [`agent-memory/<name>/`](#ce-agent-memory)          | Project and global | ✓      | Persistent memory for subagents                                                                               | [Persistent memory](/en/sub-agents#enable-persistent-memory)    |
+| [`~/.claude.json`](#ce-claude-json)                 | Global only        |        | App state, OAuth, UI toggles, personal MCP servers                                                            | [Global config](/en/settings#global-config-settings)            |
+| [`projects/<project>/memory/`](#ce-global-projects) | Global only        |        | Auto memory: Claude's notes to itself across sessions                                                         | [Auto memory](/en/memory#auto-memory)                           |
+| [`keybindings.json`](#ce-keybindings)               | Global only        |        | Custom keyboard shortcuts                                                                                     | [Keybindings](/en/keybindings)                                  |
+| [`themes/*.json`](#ce-themes)                       | Global only        |        | Custom color themes                                                                                           | [Custom themes](/en/terminal-config#create-a-custom-theme)      |
 
 ## Troubleshoot configuration
 
@@ -1494,19 +1542,21 @@ Beyond the config you author, `~/.claude` holds data Claude Code writes during s
 
 Files in the paths below are deleted on startup once they're older than [`cleanupPeriodDays`](/en/settings#available-settings). The default is 30 days.
 
-| Path under `~/.claude/`                      | Contents                                                                                                          |
-| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `projects/<project>/<session>.jsonl`         | Full conversation transcript: every message, tool call, and tool result                                           |
-| `projects/<project>/<session>/subagents/`    | [Subagent](/en/sub-agents) conversation transcripts, removed with the parent session transcript when it ages out  |
-| `projects/<project>/<session>/tool-results/` | Large tool outputs spilled to separate files                                                                      |
-| `file-history/<session>/`                    | Pre-edit snapshots of files Claude changed, used for [checkpoint restore](/en/checkpointing)                      |
-| `plans/`                                     | Plan files written during [plan mode](/en/permission-modes#analyze-before-you-edit-with-plan-mode)                |
-| `debug/`                                     | Per-session debug logs, written only when you start with `--debug` or run `/debug`                                |
-| `paste-cache/`, `image-cache/`               | Contents of large pastes and attached images                                                                      |
-| `session-env/`                               | Per-session environment metadata                                                                                  |
-| `tasks/`                                     | Per-session task lists written by the task tools                                                                  |
-| `shell-snapshots/`                           | Captured shell environment used by the Bash tool. Removed on clean exit. The sweep clears any left after a crash. |
-| `backups/`                                   | Timestamped copies of `~/.claude.json` taken before config migrations                                             |
+| Path under `~/.claude/`                      | Contents                                                                                                                  |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `projects/<project>/<session>.jsonl`         | Full conversation transcript: every message, tool call, and tool result                                                   |
+| `projects/<project>/<session>/subagents/`    | [Subagent](/en/sub-agents) conversation transcripts, removed with the parent session transcript when it ages out          |
+| `projects/<project>/<session>/tool-results/` | Large tool outputs spilled to separate files                                                                              |
+| `file-history/<session>/`                    | Pre-edit snapshots of files Claude changed, used for [checkpoint restore](/en/checkpointing)                              |
+| `plans/`                                     | Plan files written during [plan mode](/en/permission-modes#analyze-before-you-edit-with-plan-mode)                        |
+| `debug/`                                     | Per-session debug logs, written only when you start with `--debug` or run `/debug`                                        |
+| `paste-cache/`, `image-cache/`               | Contents of large pastes and attached images                                                                              |
+| `session-env/`                               | Per-session environment metadata                                                                                          |
+| `tasks/`                                     | Per-session task lists written by the task tools                                                                          |
+| `shell-snapshots/`                           | Captured shell environment used by the Bash tool. Removed on clean exit. The sweep clears any left after a crash.         |
+| `backups/`                                   | Timestamped copies of `~/.claude.json` taken before config migrations                                                     |
+| `feedback-bundles/`                          | Redacted transcript archives written by `/feedback` on third-party providers, for sending to your Anthropic account team  |
+| `todos/`, `statsig/`, `logs/`                | Legacy directories from older versions. No longer written. The sweep removes their contents and then the empty directory. |
 
 ### Kept until you delete them
 
@@ -1517,7 +1567,6 @@ The following paths are not covered by automatic cleanup and persist indefinitel
 | `history.jsonl`         | Every prompt you've typed, with timestamp and project path. Used for up-arrow recall.                                                                                           |
 | `stats-cache.json`      | Aggregated token and cost counts shown by `/usage`                                                                                                                              |
 | `remote-settings.json`  | Cached copy of [server-managed settings](/en/server-managed-settings) for your organization. Only present when your organization has configured them. Refreshed on each launch. |
-| `todos/`                | Legacy per-session task lists. No longer written by current versions; safe to delete.                                                                                           |
 
 Other small cache and lock files appear depending on which features you use and are safe to delete.
 
@@ -1525,18 +1574,18 @@ Other small cache and lock files appear depending on which features you use and 
 
 Transcripts and history are not encrypted at rest. OS file permissions are the only protection. If a tool reads a `.env` file or a command prints a credential, that value is written to `projects/<project>/<session>.jsonl`. To reduce exposure:
 
-* Lower `cleanupPeriodDays` to shorten how long transcripts are kept
-* Set the [`CLAUDE_CODE_SKIP_PROMPT_HISTORY`](/en/env-vars) environment variable to skip writing transcripts and prompt history in any mode. In non-interactive mode, you can instead pass `--no-session-persistence` alongside `-p`, or set `persistSession: false` in the Agent SDK.
-* Use [permission rules](/en/permissions) to deny reads of credential files
+- Lower `cleanupPeriodDays` to shorten how long transcripts are kept
+- Set the [`CLAUDE_CODE_SKIP_PROMPT_HISTORY`](/en/env-vars) environment variable to skip writing transcripts and prompt history in any mode. In non-interactive mode, you can instead pass `--no-session-persistence` alongside `-p`, or set `persistSession: false` in the Agent SDK.
+- Use [permission rules](/en/permissions) to deny reads of credential files
 
 ### Clear local data
 
 Run `claude project purge` to delete the state Claude Code holds for one project:
 
-* Transcripts and auto memory under `projects/`
-* Per-session `tasks/`, `debug/`, and `file-history/` entries
-* Matching prompt lines in `history.jsonl`
-* The project's entry in `~/.claude.json`
+- Transcripts and auto memory under `projects/`
+- Per-session `tasks/`, `debug/`, and `file-history/` entries
+- Matching prompt lines in `history.jsonl`
+- The project's entry in `~/.claude.json`
 
 The command prints the full deletion plan and asks for confirmation before removing anything.
 
@@ -1566,21 +1615,21 @@ The command leaves `shell-snapshots/` and `backups/` alone because those are not
 
 You can also delete any of the application-data paths above by hand. New sessions are unaffected. The table below shows what you lose for past sessions.
 
-| Delete                                                                                                                                                                                       | You lose                                                   |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| `~/.claude/projects/`                                                                                                                                                                        | Resume, continue, and rewind for past sessions             |
-| `~/.claude/history.jsonl`                                                                                                                                                                    | Up-arrow prompt recall                                     |
-| `~/.claude/file-history/`                                                                                                                                                                    | Checkpoint restore for past sessions                       |
-| `~/.claude/stats-cache.json`                                                                                                                                                                 | Historical totals shown by `/usage`                        |
-| `~/.claude/remote-settings.json`                                                                                                                                                             | Nothing. Re-fetched on next launch.                        |
-| `~/.claude/debug/`, `~/.claude/plans/`, `~/.claude/paste-cache/`, `~/.claude/image-cache/`, `~/.claude/session-env/`, `~/.claude/tasks/`, `~/.claude/shell-snapshots/`, `~/.claude/backups/` | Nothing user-facing                                        |
-| `~/.claude/todos/`                                                                                                                                                                           | Nothing. Legacy directory not written by current versions. |
+| Delete                                                                                                                                                                                       | You lose                                                     |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| `~/.claude/projects/`                                                                                                                                                                        | Resume, continue, and rewind for past sessions               |
+| `~/.claude/history.jsonl`                                                                                                                                                                    | Up-arrow prompt recall                                       |
+| `~/.claude/file-history/`                                                                                                                                                                    | Checkpoint restore for past sessions                         |
+| `~/.claude/stats-cache.json`                                                                                                                                                                 | Historical totals shown by `/usage`                          |
+| `~/.claude/remote-settings.json`                                                                                                                                                             | Nothing. Re-fetched on next launch.                          |
+| `~/.claude/debug/`, `~/.claude/plans/`, `~/.claude/paste-cache/`, `~/.claude/image-cache/`, `~/.claude/session-env/`, `~/.claude/tasks/`, `~/.claude/shell-snapshots/`, `~/.claude/backups/` | Nothing user-facing                                          |
+| `~/.claude/todos/`, `~/.claude/statsig/`, `~/.claude/logs/`                                                                                                                                  | Nothing. Legacy directories not written by current versions. |
 
 Don't delete `~/.claude.json`, `~/.claude/settings.json`, or `~/.claude/plugins/`: those hold your auth, preferences, and installed plugins.
 
 ## Related resources
 
-* [Manage Claude's memory](/en/memory): write and organize CLAUDE.md, rules, and auto memory
-* [Configure settings](/en/settings): set permissions, hooks, environment variables, and model defaults
-* [Create skills](/en/skills): build reusable prompts and workflows
-* [Configure subagents](/en/sub-agents): define specialized agents with their own context
+- [Manage Claude's memory](/en/memory): write and organize CLAUDE.md, rules, and auto memory
+- [Configure settings](/en/settings): set permissions, hooks, environment variables, and model defaults
+- [Create skills](/en/skills): build reusable prompts and workflows
+- [Configure subagents](/en/sub-agents): define specialized agents with their own context

@@ -1,19 +1,13 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Fullstory
-    
-    ](#)
-    
--   Installs
-    
-    73
+# fullstory
+
+- Install in
+
+  Claude Code
+
+- Made by
+
+  Fullstory
+
+- Installs
+
+  138

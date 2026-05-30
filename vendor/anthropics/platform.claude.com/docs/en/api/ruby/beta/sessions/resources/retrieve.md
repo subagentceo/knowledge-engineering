@@ -1,4 +1,4 @@
-## Retrieve
+## Get Session Resource
 
 `beta.sessions.resources.retrieve(resource_id, **kwargs) -> ResourceRetrieveResponse`
 
@@ -15,11 +15,9 @@ Get Session Resource
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -68,14 +66,18 @@ Get Session Resource
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The requested session resource.
-
   - `class BetaManagedAgentsGitHubRepositoryResource`
-
     - `id: String`
 
     - `created_at: Time`
@@ -85,7 +87,6 @@ Get Session Resource
     - `mount_path: String`
 
     - `type: :github_repository`
-
       - `:github_repository`
 
     - `updated_at: Time`
@@ -95,29 +96,23 @@ Get Session Resource
     - `url: String`
 
     - `checkout: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout`
-
       - `class BetaManagedAgentsBranchCheckout`
-
         - `name: String`
 
           Branch name to check out.
 
         - `type: :branch`
-
           - `:branch`
 
       - `class BetaManagedAgentsCommitCheckout`
-
         - `sha: String`
 
           Full commit SHA to check out.
 
         - `type: :commit`
-
           - `:commit`
 
   - `class BetaManagedAgentsFileResource`
-
     - `id: String`
 
     - `created_at: Time`
@@ -129,7 +124,6 @@ Get Session Resource
     - `mount_path: String`
 
     - `type: :file`
-
       - `:file`
 
     - `updated_at: Time`
@@ -139,19 +133,16 @@ Get Session Resource
   - `class BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
-
     - `memory_store_id: String`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `type: :memory_store`
-
       - `:memory_store`
 
     - `access: :read_write | :read_only`
 
       Access mode for an attached memory store.
-
       - `:read_write`
 
       - `:read_only`
@@ -185,4 +176,21 @@ resource = anthropic.beta.sessions.resources.retrieve(
 )
 
 puts(resource)
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "created_at": "2026-03-15T10:00:00Z",
+  "mount_path": "/workspace/example-repo",
+  "type": "github_repository",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "url": "https://github.com/example-org/example-repo",
+  "checkout": {
+    "name": "main",
+    "type": "branch"
+  }
+}
 ```

@@ -1,4 +1,10 @@
-Consensus enables AI assistants to search through 200+ million peer-reviewed research papers from leading academic databases including Semantic Scholar, PubMed, and ArXiv. Users can find relevant scientific studies with advanced filtering by publication year, journal quality, sample size, and human subject studies. Each result includes comprehensive metadata: titles, abstracts, authors, citation counts, and direct links to papers. Perfect for researchers, students, healthcare professionals, and anyone seeking evidence-based answers backed by scientific literature.
+# Consensus
+
+Consensus is the go-to MCP for academic research. Connect directly to 220M+ peer-reviewed papers to search, synthesize, and build structured research outputs from within your conversation.
+
+Run literature reviews, build boolean search strategies, generate bibliographies, identify research gaps, and draft cited content — grounded in studies from PubMed, Semantic Scholar, and ArXiv. Pre-built workflows handle complex tasks in minutes: systematic reviews, curriculum reading lists, grant research with novelty analysis, and clinical evidence synthesis.
+
+Built for researchers, students, faculty, and clinicians across biomedical, social science, STEM, and all academic disciplines.
 
 You can use Consensus to:
 

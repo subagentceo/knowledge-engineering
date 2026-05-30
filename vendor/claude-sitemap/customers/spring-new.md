@@ -1,10 +1,12 @@
-[Spring.new](http://spring.new), a platform that enables business teams to build custom applications through natural language prompts, uses Claude on Google Cloud's Vertex AI to eliminate traditional development bottlenecks. With Claude, anyone can build sophisticated applications without coding expertise.
+# Spring.new empowers business application development with Claude on Google Cloud's Vertex AI
+
+Spring.new, a platform that enables business teams to build custom applications through natural language prompts, uses Claude on Google Cloud's Vertex AI to eliminate traditional development bottlenecks. With Claude, anyone can build sophisticated applications without coding expertise.
 
 Key results with Claude:
 
--   Achieves 95-99% time savings on R&D projects
--   Serves customers with 200+ integrations to existing business systems
--   Enables business users to build production-ready tools independently
+- Achieves 95-99% time savings on R&D projects
+- Serves customers with 200+ integrations to existing business systems
+- Enables business users to build production-ready tools independently
 
 ## Breaking down barriers to internal tool creation
 
@@ -20,19 +22,19 @@ Spring.new recognized that AI models could generate functional code, but existin
 
 After evaluating multiple AI models, Spring.new selected Claude on Google Cloud's Vertex AI for three critical reasons.
 
--   **Reliable code generation and tool execution**: Claude consistently delivered functional code for complex, multi-step development tasks and also executed tool calls accurately. Gilboa said, "With Claude it was about the alignment of the model to the user input and the stability we have with building code and executing tool calls."
--   **Enterprise security and compliance**: Running Claude on Google Cloud’s Vertex AI provided the enterprise-grade security that Spring.new’s customers required. Gilboa explained, "Google Cloud helps us gain trust with enterprise customers. It's about building trust and allowing them to know they're doing something new but in a safer environment."
--   **Performance and scalability**: Infrastructure performance also influenced their decision. Samuel Stankiewicz, Spring.new's CTO, noted that "Vertex AI improves every day in terms of tokens per second. It's amazing." This combination creates the responsive user experience essential for natural language-to-app workflows.
+- **Reliable code generation and tool execution**: Claude consistently delivered functional code for complex, multi-step development tasks and also executed tool calls accurately. Gilboa said, "With Claude it was about the alignment of the model to the user input and the stability we have with building code and executing tool calls."
+- **Enterprise security and compliance**: Running Claude on Google Cloud’s Vertex AI provided the enterprise-grade security that Spring.new’s customers required. Gilboa explained, "Google Cloud helps us gain trust with enterprise customers. It's about building trust and allowing them to know they're doing something new but in a safer environment."
+- **Performance and scalability**: Infrastructure performance also influenced their decision. Samuel Stankiewicz, Spring.new's CTO, noted that "Vertex AI improves every day in terms of tokens per second. It's amazing." This combination creates the responsive user experience essential for natural language-to-app workflows.
 
 ## How Claude transforms business tool creation
 
 Spring.new built a platform to automate application development, leveraging Claude's agentic capabilities:
 
--   **Context Analysis**: Claude examines prompts and gathers context from integrated sources like Google Sheets
--   **Architecture Planning**: Creates detailed blueprints with component flowcharts and data flows
--   **Multi-Integration Development**: Connects with 200+ business tools including CRMs and project management platforms
--   **Iterative Enhancement**: Users refine applications through natural language while Claude maintains functionality
--   **Error Resolution**: Claude identifies and fixes application errors automatically
+- **Context Analysis**: Claude examines prompts and gathers context from integrated sources like Google Sheets
+- **Architecture Planning**: Creates detailed blueprints with component flowcharts and data flows
+- **Multi-Integration Development**: Connects with 200+ business tools including CRMs and project management platforms
+- **Iterative Enhancement**: Users refine applications through natural language while Claude maintains functionality
+- **Error Resolution**: Claude identifies and fixes application errors automatically
 
 Claude operates autonomously throughout this process whether that is gathering data, examining files, or building components based on user needs.
 

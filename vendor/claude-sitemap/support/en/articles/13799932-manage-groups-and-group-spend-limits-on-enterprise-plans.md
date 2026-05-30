@@ -76,11 +76,11 @@ Only Owners and Primary Owners can change member roles. You can also assign “C
 
 4. Add members to the appropriate groups.
 
-  1. **Note:** If a member set to Custom roles isn't in any groups, or their groups have no custom roles assigned, they have no permissions and can't access any products. They'll land on their settings page when they sign in.
+5. **Note:** If a member set to Custom roles isn't in any groups, or their groups have no custom roles assigned, they have no permissions and can't access any products. They'll land on their settings page when they sign in.
 
-5. Set each member's organization role to **Custom roles**.
+6. Set each member's organization role to **Custom roles**.
 
-6. Enable any features at the organization level that you want to control per-group.
+7. Enable any features at the organization level that you want to control per-group.
 
 The member's effective permissions are now determined by their group memberships and the custom roles assigned to those groups.
 
@@ -120,6 +120,6 @@ When determining a member's effective spend limit, the system evaluates in this 
 
 2. **Group limit**—if the member has no individual limit, the system checks their group memberships. If the member belongs to multiple groups with spend limits, the lowest (most restrictive) limit applies.
 
-  1. This lets you set a broad spend limit on a larger group and then create subgroups with lower limits for teams that need tighter budget controls.
+3. This lets you set a broad spend limit on a larger group and then create subgroups with lower limits for teams that need tighter budget controls.
 
-3. **No limit**—if the member has no individual limit and belongs to no groups with spend limits, no spend limit is applied.
+4. **No limit**—if the member has no individual limit and belongs to no groups with spend limits, no spend limit is applied.

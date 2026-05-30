@@ -1,6 +1,8 @@
+# Introducing the Claude Platform on AWS
+
 The Claude Platform on AWS is now generally available, offering a new way for AWS customers to access the full set of Claude Platform features with AWS authentication, billing, and commitment retirement. Claude also remains available on Amazon Bedrock, where AWS is the data processor.
 
-Starting today, Claude Platform on AWS customers can deploy agents at scale with [Claude Managed Agents](https://claude.com/blog/claude-managed-agents) and build with tools like code execution, skills, the advisor strategy, and more.
+Starting today, Claude Platform on AWS customers can deploy agents at scale with Claude Managed Agents and build with tools like code execution, skills, the advisor strategy, and more.
 
 ## Access the complete Claude Platform via AWS
 

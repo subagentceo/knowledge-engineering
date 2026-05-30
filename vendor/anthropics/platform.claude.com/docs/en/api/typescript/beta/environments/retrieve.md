@@ -1,4 +1,4 @@
-## Retrieve
+## Get Environment
 
 `client.beta.environments.retrieve(stringenvironmentID, EnvironmentRetrieveParamsparams?, RequestOptionsoptions?): BetaEnvironment`
 
@@ -11,15 +11,12 @@ Retrieve a specific environment by ID.
 - `environmentID: string`
 
 - `params: EnvironmentRetrieveParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -68,99 +65,106 @@ Retrieve a specific environment by ID.
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaEnvironment`
 
   Unified Environment resource for both cloud and self-hosted environments.
-
   - `id: string`
 
-    Environment identifier (e.g., 'env_...')
+    Environment identifier (e.g., 'env\_...')
 
   - `archived_at: string | null`
 
     RFC 3339 timestamp when environment was archived, or null if not archived
 
-  - `config: BetaCloudConfig`
+  - `config: BetaCloudConfig | BetaSelfHostedConfig`
 
-    `cloud` environment configuration.
+    Environment configuration (either Anthropic Cloud or self-hosted)
+    - `BetaCloudConfig`
 
-    - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
+      `cloud` environment configuration.
+      - `networking: BetaUnrestrictedNetwork | BetaLimitedNetwork`
 
-      Network configuration policy.
+        Network configuration policy.
+        - `BetaUnrestrictedNetwork`
 
-      - `BetaUnrestrictedNetwork`
+          Unrestricted network access.
+          - `type: "unrestricted"`
 
-        Unrestricted network access.
+            Network policy type
+            - `"unrestricted"`
 
-        - `type: "unrestricted"`
+        - `BetaLimitedNetwork`
 
-          Network policy type
+          Limited network access.
+          - `allow_mcp_servers: boolean`
 
-          - `"unrestricted"`
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
 
-      - `BetaLimitedNetwork`
+          - `allow_package_managers: boolean`
 
-        Limited network access.
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
 
-        - `allow_mcp_servers: boolean`
+          - `allowed_hosts: Array<string>`
 
-          Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+            Specifies domains the container can reach.
 
-        - `allow_package_managers: boolean`
+          - `type: "limited"`
 
-          Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+            Network policy type
+            - `"limited"`
 
-        - `allowed_hosts: Array<string>`
+      - `packages: BetaPackages`
 
-          Specifies domains the container can reach.
+        Package manager configuration.
+        - `apt: Array<string>`
 
-        - `type: "limited"`
+          Ubuntu/Debian packages to install
 
-          Network policy type
+        - `cargo: Array<string>`
 
-          - `"limited"`
+          Rust packages to install
 
-    - `packages: BetaPackages`
+        - `gem: Array<string>`
 
-      Package manager configuration.
+          Ruby packages to install
 
-      - `apt: Array<string>`
+        - `go: Array<string>`
 
-        Ubuntu/Debian packages to install
+          Go packages to install
 
-      - `cargo: Array<string>`
+        - `npm: Array<string>`
 
-        Rust packages to install
+          Node.js packages to install
 
-      - `gem: Array<string>`
+        - `pip: Array<string>`
 
-        Ruby packages to install
+          Python packages to install
 
-      - `go: Array<string>`
+        - `type?: "packages"`
 
-        Go packages to install
+          Package configuration type
+          - `"packages"`
 
-      - `npm: Array<string>`
+      - `type: "cloud"`
 
-        Node.js packages to install
+        Environment type
+        - `"cloud"`
 
-      - `pip: Array<string>`
+    - `BetaSelfHostedConfig`
 
-        Python packages to install
+      Configuration for self-hosted environments.
+      - `type: "self_hosted"`
 
-      - `type?: "packages"`
-
-        Package configuration type
-
-        - `"packages"`
-
-    - `type: "cloud"`
-
-      Environment type
-
-      - `"cloud"`
+        Environment type
+        - `"self_hosted"`
 
   - `created_at: string`
 
@@ -181,23 +185,65 @@ Retrieve a specific environment by ID.
   - `type: "environment"`
 
     The type of object (always 'environment')
-
     - `"environment"`
 
   - `updated_at: string`
 
     RFC 3339 timestamp when environment was last updated
 
+  - `scope?: "organization" | "account"`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+    - `"organization"`
+
+    - `"account"`
+
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaEnvironment = await client.beta.environments.retrieve('env_011CZkZ9X2dpNyB7HsEFoRfW');
+const betaEnvironment = await client.beta.environments.retrieve(
+  "env_011CZkZ9X2dpNyB7HsEFoRfW",
+);
 
 console.log(betaEnvironment.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "archived_at": null,
+  "config": {
+    "networking": {
+      "allow_mcp_servers": false,
+      "allow_package_managers": true,
+      "allowed_hosts": ["api.example.com"],
+      "type": "limited"
+    },
+    "packages": {
+      "apt": ["string"],
+      "cargo": ["string"],
+      "gem": ["string"],
+      "go": ["string"],
+      "npm": ["string"],
+      "pip": ["pandas", "numpy"],
+      "type": "packages"
+    },
+    "type": "cloud"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "description": "Python environment with data-analysis packages.",
+  "metadata": {},
+  "name": "python-data-analysis",
+  "type": "environment",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "scope": "organization"
+}
 ```

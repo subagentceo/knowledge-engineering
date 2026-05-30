@@ -1,12 +1,14 @@
-[**Adalat AI**](https://www.adalat.ai/) is a legal-tech nonprofit building justice technology for courts across India and the Global South, supporting judges and court staff with real-time multilingual speech-to-text and  AI-powered translation with Adalat’s models. With Claude, Adalat AI accelerated its engineering capacity and launched India’s first AI-powered national case information helpline on WhatsApp—giving ordinary families the ability to understand their own court cases, in their own language, for the first time.
+# Adalat AI makes India’s court system accessible to millions with Claude
+
+**Adalat AI** is a legal-tech nonprofit building justice technology for courts across India and the Global South, supporting judges and court staff with real-time multilingual speech-to-text and  AI-powered translation with Adalat’s models. With Claude, Adalat AI accelerated its engineering capacity and launched India’s first AI-powered national case information helpline on WhatsApp—giving ordinary families the ability to understand their own court cases, in their own language, for the first time.
 
 ## With Claude, Adalat AI accomplished:
 
--   50–200% productivity gains across engineering teams with Claude Code
--   Production-ready products deployed to real users in under 30 days, built by a single engineer using Claude Code
--   Claude API intelligence layer implemented in 2 days; first working prototype in 1 week
--   Bug resolution dropped from half-day investigations to under two hours
--   National WhatsApp helpline provides multilingual legal information across the country
+- 50–200% productivity gains across engineering teams with Claude Code
+- Production-ready products deployed to real users in under 30 days, built by a single engineer using Claude Code
+- Claude API intelligence layer implemented in 2 days; first working prototype in 1 week
+- Bug resolution dropped from half-day investigations to under two hours
+- National WhatsApp helpline provides multilingual legal information across the country
 
 ## The challenge: A justice system overwhelmed by delay
 
@@ -18,7 +20,7 @@ The consequences are personal: people awaiting trial spending years in jail with
 
 Beyond the courtrooms, litigants face a deep information access crisis. Most court portals have non-intuitive navigation, multiple CAPTCHAs, and content overwhelmingly in English—effectively unusable for low-income or non-English-speaking communities. Families often have no idea what is happening in their own cases.
 
-## Choosing Claude for privacy standards 
+## Choosing Claude for privacy standards
 
 Adalat AI evaluated multiple models before selecting Claude Sonnet 4.5 and Haiku 4.5. “Claude consistently produced summaries that were both faithful to the source and genuinely readable for non-lawyers,” said Arghya Bhattacharya, Co-founder and CTO. “Other models either oversimplified, losing critical nuance, or reproduced the complexity without making it accessible.” Claude’s disciplined reasoning—staying within the document without speculating or providing legal advice—was noticeably stronger than alternatives. 
 

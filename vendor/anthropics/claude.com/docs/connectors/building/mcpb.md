@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -18,11 +19,11 @@ An `.mcpb` file is a zip archive containing a local MCP server and a `manifest.j
 
 Key characteristics:
 
-* Runs locally on the user's machine
-* Communicates via stdio transport
-* Bundles all dependencies
-* Works offline
-* No OAuth required
+- Runs locally on the user's machine
+- Communicates via stdio transport
+- Bundles all dependencies
+- Works offline
+- No OAuth required
 
 See the [MCPB repository](https://github.com/modelcontextprotocol/mcpb) for the complete specification and the [Desktop Extensions blog post](https://www.anthropic.com/engineering/desktop-extensions) for an architecture overview.
 
@@ -52,9 +53,9 @@ For remote connector guidance, see [building custom connectors](/connectors/buil
 
 Node.js is strongly recommended:
 
-* Ships with Claude Desktop on macOS and Windows, so users need no separate runtime
-* Best compatibility and reliability with Claude Desktop
-* Extensive MCP SDK support
+- Ships with Claude Desktop on macOS and Windows, so users need no separate runtime
+- Best compatibility and reliability with Claude Desktop
+- Extensive MCP SDK support
 
 ## Platform support
 
@@ -141,28 +142,28 @@ For the end-user installation experience and Team/Enterprise admin controls (org
 
 **MCPB framework**
 
-* [MCPB repository](https://github.com/modelcontextprotocol/mcpb): complete specification and tools
-* [MCPB Manifest Spec](https://github.com/modelcontextprotocol/mcpb/blob/main/MANIFEST.md): full manifest schema
-* [MCPB CLI documentation](https://github.com/modelcontextprotocol/mcpb/blob/main/CLI.md): command reference
-* [MCPB examples](https://github.com/modelcontextprotocol/mcpb/tree/main/examples): reference implementations
+- [MCPB repository](https://github.com/modelcontextprotocol/mcpb): complete specification and tools
+- [MCPB Manifest Spec](https://github.com/modelcontextprotocol/mcpb/blob/main/MANIFEST.md): full manifest schema
+- [MCPB CLI documentation](https://github.com/modelcontextprotocol/mcpb/blob/main/CLI.md): command reference
+- [MCPB examples](https://github.com/modelcontextprotocol/mcpb/tree/main/examples): reference implementations
 
 **MCP protocol**
 
-* [MCP specification](https://modelcontextprotocol.io/docs/getting-started/intro): protocol documentation
-* [MCP quickstart](https://modelcontextprotocol.io/docs/develop/build-server): getting-started guide
-* [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk): Node.js implementation
-* [Python SDK](https://github.com/modelcontextprotocol/python-sdk): Python implementation
+- [MCP specification](https://modelcontextprotocol.io/docs/getting-started/intro): protocol documentation
+- [MCP quickstart](https://modelcontextprotocol.io/docs/develop/build-server): getting-started guide
+- [TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk): Node.js implementation
+- [Python SDK](https://github.com/modelcontextprotocol/python-sdk): Python implementation
 
 **Claude Desktop**
 
-* [Release notes](https://support.claude.com/en/articles/12138966-release-notes): version updates
-* [Desktop Extensions blog](https://www.anthropic.com/engineering/desktop-extensions): architecture overview
+- [Release notes](https://support.claude.com/en/articles/12138966-release-notes): version updates
+- [Desktop Extensions blog](https://www.anthropic.com/engineering/desktop-extensions): architecture overview
 
 ## Get help
 
-* [MCPB GitHub issues](https://github.com/modelcontextprotocol/mcpb/issues): bug reports and feature requests
-* [MCP specification repo](https://github.com/modelcontextprotocol/modelcontextprotocol): protocol questions
-* [Claude support](https://support.claude.com/en/articles/9015913-how-to-get-support): general Claude Desktop support
+- [MCPB GitHub issues](https://github.com/modelcontextprotocol/mcpb/issues): bug reports and feature requests
+- [MCP specification repo](https://github.com/modelcontextprotocol/modelcontextprotocol): protocol questions
+- [Claude support](https://support.claude.com/en/articles/9015913-how-to-get-support): general Claude Desktop support
 
 Check repository discussions for community Q\&A, follow release notes for updates, and review the examples for implementation patterns.
 
@@ -170,8 +171,8 @@ Check repository discussions for community Q\&A, follow release notes for update
 
 If you have a working MCPB and want broader distribution and discoverability, submit it to the Connectors Directory. See [submitting to the directory](/connectors/building/submission) for requirements including:
 
-* Mandatory tool annotations for all tools
-* Privacy policy requirements
-* Working examples that exercise each tool
-* Test credentials where applicable
-* The complete submission process and review timeline
+- Mandatory tool annotations for all tools
+- Privacy policy requirements
+- Working examples that exercise each tool
+- Test credentials where applicable
+- The complete submission process and review timeline

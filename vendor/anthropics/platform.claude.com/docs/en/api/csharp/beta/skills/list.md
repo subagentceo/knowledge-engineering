@@ -1,4 +1,4 @@
-## List
+## List Skills
 
 `SkillListPageResponse Beta.Skills.List(SkillListParams?parameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ List Skills
 ### Parameters
 
 - `SkillListParams parameters`
-
   - `Long limit`
 
     Query param: Number of results to return per page.
@@ -27,14 +26,12 @@ List Skills
     Query param: Filter skills by source.
 
     If provided, only skills from the specified source will be returned:
-
-    * `"custom"`: only return user-created skills
-    * `"anthropic"`: only return Anthropic-created skills
+    - `"custom"`: only return user-created skills
+    - `"anthropic"`: only return Anthropic-created skills
 
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -83,14 +80,18 @@ List Skills
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class SkillListPageResponse:`
-
   - `required IReadOnlyList<SkillListResponse> Data`
 
     List of skills.
-
     - `required string ID`
 
       Unique identifier for the skill.
@@ -118,9 +119,8 @@ List Skills
       Source of the skill.
 
       This may be one of the following values:
-
-      * `"custom"`: the skill was created by a user
-      * `"anthropic"`: the skill was created by Anthropic
+      - `"custom"`: the skill was created by a user
+      - `"anthropic"`: the skill was created by Anthropic
 
     - `required string Type`
 
@@ -153,5 +153,25 @@ var page = await client.Beta.Skills.List(parameters);
 await foreach (var item in page.Paginate())
 {
     Console.WriteLine(item);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_title": "My Custom Skill",
+      "latest_version": "1759178010641129",
+      "source": "custom",
+      "type": "type",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```

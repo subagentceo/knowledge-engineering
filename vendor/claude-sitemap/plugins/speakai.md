@@ -1,19 +1,13 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    Speak AI
-    
-    ](#)
-    
--   Installs
-    
-    85
+# speakai
+
+- Install in
+
+  Claude Code
+
+- Made by
+
+  Speak AI
+
+- Installs
+
+  88

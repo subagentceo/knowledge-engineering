@@ -1,3 +1,5 @@
+# Aurora
+
 Aurora is a read-only connector that puts your Consilio engagement, document, and other data at Claude's fingertips. Ask Claude to find a matter by client or alpha-code, list the workspaces inside it, run a full-text search across documents. AI-powered investigations let Claude follow an answer across matters, workspaces, and documents in a single conversation — automatically narrowing ambiguous queries to the right context and citing a direct source URL on every record. Every response is scoped to what you're already entitled to see on the Consilio web products.
 
 You can use Aurora to:

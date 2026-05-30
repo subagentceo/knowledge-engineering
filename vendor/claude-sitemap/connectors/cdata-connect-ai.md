@@ -1,6 +1,7 @@
+# CData
+
 Connect Claude to read, write, and act on 350+ enterprise data sources like Salesforce, Snowflake and NetSuite in real-time through one fully hosted remote MCP server. Connect AI is the only managed MCP platform built with semantic intelligence that understands your data's metadata and relationships across systems for multi-source analysis. Ensure trusted boundaries with enterprise security, granular permissions, and complete audit trails. Set up any source in minutes and get started free.
 
-  
 You can use the CData Connect AI connector to:
 
 Analyze Campaign Performance:**  

@@ -2,9 +2,9 @@ Lovable uses Claude to transform software development, enabling non-engineers an
 
 With Claude, Lovable:
 
--   Makes development 20x faster than traditional coding
--   Empowers more than one million active users each month to build software products
--   Grew to $40 million in annualized recurring revenue in under six months post launch
+- Makes development 20x faster than traditional coding
+- Empowers more than one million active users each month to build software products
+- Grew to $40 million in annualized recurring revenue in under six months post launch
 
 ## Breaking down barriers to software creation
 
@@ -28,11 +28,11 @@ The platform also emphasizes educating users throughout the development process.
 
 Lovable helps users create diverse applications through Claude's natural language understanding:
 
--   Intuitive front-end user interfaces
--   Backend systems with secure login functionality
--   Commercial SaaS products ready for customer use
--   Internal business tools for workflow optimization
--   Customer-facing applications with full deployment capability
+- Intuitive front-end user interfaces
+- Backend systems with secure login functionality
+- Commercial SaaS products ready for customer use
+- Internal business tools for workflow optimization
+- Customer-facing applications with full deployment capability
 
 ## Transforming ideas into reality
 

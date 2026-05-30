@@ -2,31 +2,9 @@
 
 Adaptive thinking and effort controls give developers a new decision: how much should Claude reason for a given task? This session covers thinking budgets, effort levels, and the cost, latency, and quality tradeoffs involved.
 
-Details
-
-City
-
-San Francisco, USA
-
-Date
-
-May 6, 2026
-
-Time
-
-03:20PM – 03:50PM
-
-Speaker(s)
-
-Matt Bleifer
-
-Research Product,
-
-Anthropic
-
 ## Watch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf82779f82558bad3a161_%20the-thinking-lever.webp)
 
@@ -36,4 +14,4 @@ Keynotes, demos, and conversations with the teams behind Claude. Recorded at Cod
 
 Browse recordings
 
-[Learn more](/code-with-claude/san-francisco)Learn more
+Learn moreLearn more

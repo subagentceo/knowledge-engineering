@@ -1,1 +1,5 @@
-The Vanta plugin connects Claude Code to Vanta's security and compliance platform through the Vanta MCP server. It combines Vanta's test-specific remediation intelligence with your local repository context to help you fix compliance failures faster.
+# Vanta
+
+The Vanta plugin brings your trust program directly into Claude. You can ask questions about your compliance status, understand which tests need attention, and draft infrastructure fixes without leaving where you work. Vanta remains your source of truth, while Claude becomes a powerful orchestrator for your security and compliance workflows. The plugin includes two specialized skills to start. List Tests prioritizes failures by framework, cloud provider, or status so you know what to tackle first. Fix Test writes targeted IaC remediation against your local code and opens a pull request when you're ready.
+
+**How to use:** After installation, ask questions in plain language. Try "What's my SOC 2 completion status?", "Show all my most important failing tests", "Draft a PR to fix my infrastructure misconfigurations within this repo", or "Summarize our gaps ahead of the audit". Go to the Vanta Help Center to learn more.

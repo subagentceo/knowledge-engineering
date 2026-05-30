@@ -1,3 +1,5 @@
+# Hebbia helps knowledge workers save thousands of hours with Claude
+
 Hebbia is the AI platform for knowledge work, servicing over 1/3 of the top 50 asset managers as well as Tier 1 Investment Banks and Law Firms. Hebbia uses Claude to power their platform, analyzing vast amounts of complex documents and generating actionable insights.
 
 ## The need for an AI financial and legal analyst
@@ -18,10 +20,10 @@ Internally, Hebbia leverages Claude to build key platform features, with meta-pr
 
 Hebbia's Matrix lets users analyze hundreds of documents simultaneously. When users input queries, Claude helps in multiple ways:
 
--   Generates prompts for complex analysis
--   Provides metadata and quick summaries through Claude Haiku
--   Offers detailed analysis of technical documents via Claude
--   Enables natural language interactions so users don't need to write technical prompts
+- Generates prompts for complex analysis
+- Provides metadata and quick summaries through Claude Haiku
+- Offers detailed analysis of technical documents via Claude
+- Enables natural language interactions so users don't need to write technical prompts
 
 ## Hebbia delivers speedy document analysis with Claude
 

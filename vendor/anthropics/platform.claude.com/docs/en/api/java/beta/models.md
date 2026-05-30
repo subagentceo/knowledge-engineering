@@ -1,6 +1,6 @@
 # Models
 
-## List
+## List Models
 
 `ModelListPage beta().models().list(ModelListParamsparams = ModelListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -13,7 +13,6 @@ The Models API response can be used to determine which models are available for 
 ### Parameters
 
 - `ModelListParams params`
-
   - `Optional<String> afterId`
 
     ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -31,7 +30,6 @@ The Models API response can be used to determine which models are available for 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -80,10 +78,15 @@ The Models API response can be used to determine which models are available for 
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaModelInfo:`
-
   - `String id`
 
     Unique model identifier.
@@ -91,11 +94,9 @@ The Models API response can be used to determine which models are available for 
   - `Optional<BetaModelCapabilities> capabilities`
 
     Model capability information.
-
     - `BetaCapabilitySupport batch`
 
       Whether the model supports the Batch API.
-
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -104,45 +105,24 @@ The Models API response can be used to determine which models are available for 
 
       Whether the model supports citation generation.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaCapabilitySupport codeExecution`
 
       Whether the model supports code execution tools.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaContextManagementCapability contextManagement`
 
       Context management support and available strategies.
-
       - `Optional<BetaCapabilitySupport> clearThinking20251015`
 
         Indicates whether a capability is supported.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `Optional<BetaCapabilitySupport> clearToolUses20250919`
 
         Indicates whether a capability is supported.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
       - `Optional<BetaCapabilitySupport> compact20260112`
 
         Indicates whether a capability is supported.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `boolean supported`
 
@@ -151,38 +131,21 @@ The Models API response can be used to determine which models are available for 
     - `BetaEffortCapability effort`
 
       Effort (reasoning_effort) support and available levels.
-
       - `BetaCapabilitySupport high`
 
         Whether the model supports high effort level.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `BetaCapabilitySupport low`
 
         Whether the model supports low effort level.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
       - `BetaCapabilitySupport max`
 
         Whether the model supports max effort level.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
       - `BetaCapabilitySupport medium`
 
         Whether the model supports medium effort level.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `boolean supported`
 
@@ -192,38 +155,21 @@ The Models API response can be used to determine which models are available for 
 
         Indicates whether a capability is supported.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
     - `BetaCapabilitySupport imageInput`
 
       Whether the model accepts image content blocks.
-
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
 
     - `BetaCapabilitySupport pdfInput`
 
       Whether the model accepts PDF content blocks.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaCapabilitySupport structuredOutputs`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaThinkingCapability thinking`
 
       Thinking capability and supported type configurations.
-
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -231,22 +177,13 @@ The Models API response can be used to determine which models are available for 
       - `BetaThinkingTypes types`
 
         Supported thinking type configurations.
-
         - `BetaCapabilitySupport adaptive`
 
           Whether the model supports thinking with type 'adaptive' (auto).
 
-          - `boolean supported`
-
-            Whether this capability is supported by the model.
-
         - `BetaCapabilitySupport enabled`
 
           Whether the model supports thinking with type 'enabled'.
-
-          - `boolean supported`
-
-            Whether this capability is supported by the model.
 
   - `LocalDateTime createdAt`
 
@@ -269,7 +206,6 @@ The Models API response can be used to determine which models are available for 
     Object type.
 
     For Models, this is always `"model"`.
-
     - `MODEL("model")`
 
 ### Example
@@ -293,7 +229,88 @@ public final class Main {
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "claude-opus-4-6",
+      "capabilities": {
+        "batch": {
+          "supported": true
+        },
+        "citations": {
+          "supported": true
+        },
+        "code_execution": {
+          "supported": true
+        },
+        "context_management": {
+          "clear_thinking_20251015": {
+            "supported": true
+          },
+          "clear_tool_uses_20250919": {
+            "supported": true
+          },
+          "compact_20260112": {
+            "supported": true
+          },
+          "supported": true
+        },
+        "effort": {
+          "high": {
+            "supported": true
+          },
+          "low": {
+            "supported": true
+          },
+          "max": {
+            "supported": true
+          },
+          "medium": {
+            "supported": true
+          },
+          "supported": true,
+          "xhigh": {
+            "supported": true
+          }
+        },
+        "image_input": {
+          "supported": true
+        },
+        "pdf_input": {
+          "supported": true
+        },
+        "structured_outputs": {
+          "supported": true
+        },
+        "thinking": {
+          "supported": true,
+          "types": {
+            "adaptive": {
+              "supported": true
+            },
+            "enabled": {
+              "supported": true
+            }
+          }
+        }
+      },
+      "created_at": "2026-02-04T00:00:00Z",
+      "display_name": "Claude Opus 4.6",
+      "max_input_tokens": 0,
+      "max_tokens": 0,
+      "type": "model"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
+```
+
+## Get a Model
 
 `BetaModelInfo beta().models().retrieve(ModelRetrieveParamsparams = ModelRetrieveParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -306,7 +323,6 @@ The Models API response can be used to determine information about a specific mo
 ### Parameters
 
 - `ModelRetrieveParams params`
-
   - `Optional<String> modelId`
 
     Model identifier or alias.
@@ -314,7 +330,6 @@ The Models API response can be used to determine information about a specific mo
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -363,10 +378,15 @@ The Models API response can be used to determine information about a specific mo
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaModelInfo:`
-
   - `String id`
 
     Unique model identifier.
@@ -374,11 +394,9 @@ The Models API response can be used to determine information about a specific mo
   - `Optional<BetaModelCapabilities> capabilities`
 
     Model capability information.
-
     - `BetaCapabilitySupport batch`
 
       Whether the model supports the Batch API.
-
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -387,45 +405,24 @@ The Models API response can be used to determine information about a specific mo
 
       Whether the model supports citation generation.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaCapabilitySupport codeExecution`
 
       Whether the model supports code execution tools.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaContextManagementCapability contextManagement`
 
       Context management support and available strategies.
-
       - `Optional<BetaCapabilitySupport> clearThinking20251015`
 
         Indicates whether a capability is supported.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `Optional<BetaCapabilitySupport> clearToolUses20250919`
 
         Indicates whether a capability is supported.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
       - `Optional<BetaCapabilitySupport> compact20260112`
 
         Indicates whether a capability is supported.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `boolean supported`
 
@@ -434,38 +431,21 @@ The Models API response can be used to determine information about a specific mo
     - `BetaEffortCapability effort`
 
       Effort (reasoning_effort) support and available levels.
-
       - `BetaCapabilitySupport high`
 
         Whether the model supports high effort level.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `BetaCapabilitySupport low`
 
         Whether the model supports low effort level.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
       - `BetaCapabilitySupport max`
 
         Whether the model supports max effort level.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
       - `BetaCapabilitySupport medium`
 
         Whether the model supports medium effort level.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `boolean supported`
 
@@ -475,38 +455,21 @@ The Models API response can be used to determine information about a specific mo
 
         Indicates whether a capability is supported.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
     - `BetaCapabilitySupport imageInput`
 
       Whether the model accepts image content blocks.
-
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
 
     - `BetaCapabilitySupport pdfInput`
 
       Whether the model accepts PDF content blocks.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaCapabilitySupport structuredOutputs`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaThinkingCapability thinking`
 
       Thinking capability and supported type configurations.
-
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -514,22 +477,13 @@ The Models API response can be used to determine information about a specific mo
       - `BetaThinkingTypes types`
 
         Supported thinking type configurations.
-
         - `BetaCapabilitySupport adaptive`
 
           Whether the model supports thinking with type 'adaptive' (auto).
 
-          - `boolean supported`
-
-            Whether this capability is supported by the model.
-
         - `BetaCapabilitySupport enabled`
 
           Whether the model supports thinking with type 'enabled'.
-
-          - `boolean supported`
-
-            Whether this capability is supported by the model.
 
   - `LocalDateTime createdAt`
 
@@ -552,7 +506,6 @@ The Models API response can be used to determine information about a specific mo
     Object type.
 
     For Models, this is always `"model"`.
-
     - `MODEL("model")`
 
 ### Example
@@ -576,6 +529,80 @@ public final class Main {
 }
 ```
 
+#### Response
+
+```json
+{
+  "id": "claude-opus-4-6",
+  "capabilities": {
+    "batch": {
+      "supported": true
+    },
+    "citations": {
+      "supported": true
+    },
+    "code_execution": {
+      "supported": true
+    },
+    "context_management": {
+      "clear_thinking_20251015": {
+        "supported": true
+      },
+      "clear_tool_uses_20250919": {
+        "supported": true
+      },
+      "compact_20260112": {
+        "supported": true
+      },
+      "supported": true
+    },
+    "effort": {
+      "high": {
+        "supported": true
+      },
+      "low": {
+        "supported": true
+      },
+      "max": {
+        "supported": true
+      },
+      "medium": {
+        "supported": true
+      },
+      "supported": true,
+      "xhigh": {
+        "supported": true
+      }
+    },
+    "image_input": {
+      "supported": true
+    },
+    "pdf_input": {
+      "supported": true
+    },
+    "structured_outputs": {
+      "supported": true
+    },
+    "thinking": {
+      "supported": true,
+      "types": {
+        "adaptive": {
+          "supported": true
+        },
+        "enabled": {
+          "supported": true
+        }
+      }
+    }
+  },
+  "created_at": "2026-02-04T00:00:00Z",
+  "display_name": "Claude Opus 4.6",
+  "max_input_tokens": 0,
+  "max_tokens": 0,
+  "type": "model"
+}
+```
+
 ## Domain Types
 
 ### Beta Capability Support
@@ -583,7 +610,6 @@ public final class Main {
 - `class BetaCapabilitySupport:`
 
   Indicates whether a capability is supported.
-
   - `boolean supported`
 
     Whether this capability is supported by the model.
@@ -593,11 +619,9 @@ public final class Main {
 - `class BetaContextManagementCapability:`
 
   Context management capability details.
-
   - `Optional<BetaCapabilitySupport> clearThinking20251015`
 
     Indicates whether a capability is supported.
-
     - `boolean supported`
 
       Whether this capability is supported by the model.
@@ -606,17 +630,9 @@ public final class Main {
 
     Indicates whether a capability is supported.
 
-    - `boolean supported`
-
-      Whether this capability is supported by the model.
-
   - `Optional<BetaCapabilitySupport> compact20260112`
 
     Indicates whether a capability is supported.
-
-    - `boolean supported`
-
-      Whether this capability is supported by the model.
 
   - `boolean supported`
 
@@ -627,11 +643,9 @@ public final class Main {
 - `class BetaEffortCapability:`
 
   Effort (reasoning_effort) capability details.
-
   - `BetaCapabilitySupport high`
 
     Whether the model supports high effort level.
-
     - `boolean supported`
 
       Whether this capability is supported by the model.
@@ -640,25 +654,13 @@ public final class Main {
 
     Whether the model supports low effort level.
 
-    - `boolean supported`
-
-      Whether this capability is supported by the model.
-
   - `BetaCapabilitySupport max`
 
     Whether the model supports max effort level.
 
-    - `boolean supported`
-
-      Whether this capability is supported by the model.
-
   - `BetaCapabilitySupport medium`
 
     Whether the model supports medium effort level.
-
-    - `boolean supported`
-
-      Whether this capability is supported by the model.
 
   - `boolean supported`
 
@@ -668,20 +670,14 @@ public final class Main {
 
     Indicates whether a capability is supported.
 
-    - `boolean supported`
-
-      Whether this capability is supported by the model.
-
 ### Beta Model Capabilities
 
 - `class BetaModelCapabilities:`
 
   Model capability information.
-
   - `BetaCapabilitySupport batch`
 
     Whether the model supports the Batch API.
-
     - `boolean supported`
 
       Whether this capability is supported by the model.
@@ -690,45 +686,24 @@ public final class Main {
 
     Whether the model supports citation generation.
 
-    - `boolean supported`
-
-      Whether this capability is supported by the model.
-
   - `BetaCapabilitySupport codeExecution`
 
     Whether the model supports code execution tools.
 
-    - `boolean supported`
-
-      Whether this capability is supported by the model.
-
   - `BetaContextManagementCapability contextManagement`
 
     Context management support and available strategies.
-
     - `Optional<BetaCapabilitySupport> clearThinking20251015`
 
       Indicates whether a capability is supported.
-
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
 
     - `Optional<BetaCapabilitySupport> clearToolUses20250919`
 
       Indicates whether a capability is supported.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `Optional<BetaCapabilitySupport> compact20260112`
 
       Indicates whether a capability is supported.
-
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
 
     - `boolean supported`
 
@@ -737,38 +712,21 @@ public final class Main {
   - `BetaEffortCapability effort`
 
     Effort (reasoning_effort) support and available levels.
-
     - `BetaCapabilitySupport high`
 
       Whether the model supports high effort level.
-
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
 
     - `BetaCapabilitySupport low`
 
       Whether the model supports low effort level.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaCapabilitySupport max`
 
       Whether the model supports max effort level.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaCapabilitySupport medium`
 
       Whether the model supports medium effort level.
-
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
 
     - `boolean supported`
 
@@ -778,38 +736,21 @@ public final class Main {
 
       Indicates whether a capability is supported.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
   - `BetaCapabilitySupport imageInput`
 
     Whether the model accepts image content blocks.
-
-    - `boolean supported`
-
-      Whether this capability is supported by the model.
 
   - `BetaCapabilitySupport pdfInput`
 
     Whether the model accepts PDF content blocks.
 
-    - `boolean supported`
-
-      Whether this capability is supported by the model.
-
   - `BetaCapabilitySupport structuredOutputs`
 
     Whether the model supports structured output / JSON mode / strict tool schemas.
 
-    - `boolean supported`
-
-      Whether this capability is supported by the model.
-
   - `BetaThinkingCapability thinking`
 
     Thinking capability and supported type configurations.
-
     - `boolean supported`
 
       Whether this capability is supported by the model.
@@ -817,27 +758,17 @@ public final class Main {
     - `BetaThinkingTypes types`
 
       Supported thinking type configurations.
-
       - `BetaCapabilitySupport adaptive`
 
         Whether the model supports thinking with type 'adaptive' (auto).
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `BetaCapabilitySupport enabled`
 
         Whether the model supports thinking with type 'enabled'.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
 ### Beta Model Info
 
 - `class BetaModelInfo:`
-
   - `String id`
 
     Unique model identifier.
@@ -845,11 +776,9 @@ public final class Main {
   - `Optional<BetaModelCapabilities> capabilities`
 
     Model capability information.
-
     - `BetaCapabilitySupport batch`
 
       Whether the model supports the Batch API.
-
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -858,45 +787,24 @@ public final class Main {
 
       Whether the model supports citation generation.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaCapabilitySupport codeExecution`
 
       Whether the model supports code execution tools.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaContextManagementCapability contextManagement`
 
       Context management support and available strategies.
-
       - `Optional<BetaCapabilitySupport> clearThinking20251015`
 
         Indicates whether a capability is supported.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `Optional<BetaCapabilitySupport> clearToolUses20250919`
 
         Indicates whether a capability is supported.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
       - `Optional<BetaCapabilitySupport> compact20260112`
 
         Indicates whether a capability is supported.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `boolean supported`
 
@@ -905,38 +813,21 @@ public final class Main {
     - `BetaEffortCapability effort`
 
       Effort (reasoning_effort) support and available levels.
-
       - `BetaCapabilitySupport high`
 
         Whether the model supports high effort level.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `BetaCapabilitySupport low`
 
         Whether the model supports low effort level.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
       - `BetaCapabilitySupport max`
 
         Whether the model supports max effort level.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
       - `BetaCapabilitySupport medium`
 
         Whether the model supports medium effort level.
-
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
 
       - `boolean supported`
 
@@ -946,38 +837,21 @@ public final class Main {
 
         Indicates whether a capability is supported.
 
-        - `boolean supported`
-
-          Whether this capability is supported by the model.
-
     - `BetaCapabilitySupport imageInput`
 
       Whether the model accepts image content blocks.
-
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
 
     - `BetaCapabilitySupport pdfInput`
 
       Whether the model accepts PDF content blocks.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaCapabilitySupport structuredOutputs`
 
       Whether the model supports structured output / JSON mode / strict tool schemas.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
     - `BetaThinkingCapability thinking`
 
       Thinking capability and supported type configurations.
-
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -985,22 +859,13 @@ public final class Main {
       - `BetaThinkingTypes types`
 
         Supported thinking type configurations.
-
         - `BetaCapabilitySupport adaptive`
 
           Whether the model supports thinking with type 'adaptive' (auto).
 
-          - `boolean supported`
-
-            Whether this capability is supported by the model.
-
         - `BetaCapabilitySupport enabled`
 
           Whether the model supports thinking with type 'enabled'.
-
-          - `boolean supported`
-
-            Whether this capability is supported by the model.
 
   - `LocalDateTime createdAt`
 
@@ -1023,7 +888,6 @@ public final class Main {
     Object type.
 
     For Models, this is always `"model"`.
-
     - `MODEL("model")`
 
 ### Beta Thinking Capability
@@ -1031,7 +895,6 @@ public final class Main {
 - `class BetaThinkingCapability:`
 
   Thinking capability details.
-
   - `boolean supported`
 
     Whether this capability is supported by the model.
@@ -1039,11 +902,9 @@ public final class Main {
   - `BetaThinkingTypes types`
 
     Supported thinking type configurations.
-
     - `BetaCapabilitySupport adaptive`
 
       Whether the model supports thinking with type 'adaptive' (auto).
-
       - `boolean supported`
 
         Whether this capability is supported by the model.
@@ -1052,20 +913,14 @@ public final class Main {
 
       Whether the model supports thinking with type 'enabled'.
 
-      - `boolean supported`
-
-        Whether this capability is supported by the model.
-
 ### Beta Thinking Types
 
 - `class BetaThinkingTypes:`
 
   Supported thinking type configurations.
-
   - `BetaCapabilitySupport adaptive`
 
     Whether the model supports thinking with type 'adaptive' (auto).
-
     - `boolean supported`
 
       Whether this capability is supported by the model.
@@ -1073,7 +928,3 @@ public final class Main {
   - `BetaCapabilitySupport enabled`
 
     Whether the model supports thinking with type 'enabled'.
-
-    - `boolean supported`
-
-      Whether this capability is supported by the model.

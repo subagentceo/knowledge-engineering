@@ -1,4 +1,4 @@
-## Update
+## Update Vault
 
 **post** `/v1/vaults/{vault_id}`
 
@@ -13,11 +13,9 @@ Update Vault
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -66,6 +64,12 @@ Update Vault
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Body Parameters
 
 - `display_name: optional string`
@@ -78,10 +82,9 @@ Update Vault
 
 ### Returns
 
-- `BetaManagedAgentsVault = object { id, archived_at, created_at, 4 more }`
+- `BetaManagedAgentsVault object { id, archived_at, created_at, 4 more }`
 
   A vault that stores credentials for use by agents during sessions.
-
   - `id: string`
 
     Unique identifier for the vault.
@@ -103,7 +106,6 @@ Update Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
-
     - `"vault"`
 
   - `updated_at: string`
@@ -124,4 +126,20 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID \
             "environment": "production"
           }
         }'
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
 ```

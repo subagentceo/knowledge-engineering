@@ -1,3 +1,5 @@
+# LegalZoom
+
 AI-powered document review meets attorney guidance. Connect to LegalZoom for real-time scans of legal documents to identify critical risks and important clauses, advise on when to engage an attorney, and share notes in advance—all within one workflow. When matters require professional expertise, users will be routed directly into LegalZoom's network of vetted attorneys for timely, jurisdiction-specific guidance.
 
 You can use LegalZoom for:

@@ -1,3 +1,5 @@
+# Postiz
+
 Postiz is a social media automation plugin that lets you schedule posts, manage integrations, upload media, and track analytics across 28+ platforms — including X, LinkedIn, Reddit, YouTube, TikTok, Instagram, Facebook, and more — all from within Claude Code. It provides a full suite of CLI commands for discovering connected accounts, creating multi-platform campaigns, and monitoring post performance.
 
 Key features include multi-platform posting with a single command, threaded posts with follow-up comments and per-comment media, scheduled publishing with precise timestamps, platform-specific settings discovery (e.g. Reddit flairs, YouTube playlists), media uploads (images, videos, audio, documents), and analytics tracking for both platform-level and individual post engagement.

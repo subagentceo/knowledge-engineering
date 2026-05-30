@@ -1,3 +1,5 @@
+# CoinDesk
+
 The CoinDesk Data & Indices Connector provides real-time and historical digital asset market data powered by institutional-grade infrastructure. Access regulated indices, benchmarks, spot prices, futures, and options data across leading exchanges — including funding rates, open interest, orderbook depth, and trade history. Built for traders, analysts, and researchers who need comprehensive, cross-market digital asset intelligence through natural language.
 
 You can use CoinDesk to:

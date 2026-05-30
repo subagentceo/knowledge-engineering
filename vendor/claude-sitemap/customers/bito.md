@@ -1,11 +1,13 @@
+# Bito powers agentic AI tools for software development with Claude
+
 Bito leverages Claude to create AI agents that transform how over 100,000 developers worldwide write, review, and ship code, revolutionizing software engineering workflows.
 
 With Claude, Bito:
 
--   Reduces pull request cycles by 89%
--   Lowers code regressions by 34%
--   Helps engineering teams save a full workday per sprint
--   Delivers $14 ROI for every $1 spent on AI code review
+- Reduces pull request cycles by 89%
+- Lowers code regressions by 34%
+- Helps engineering teams save a full workday per sprint
+- Delivers $14 ROI for every $1 spent on AI code review
 
 ## Pioneering how developers integrate AI into their workflows
 
@@ -23,9 +25,9 @@ Thanks to Anthropic's developer-friendly infrastructure, the implementation proc
 
 Bito uses Claude to transform engineering team workflows across their tools, including:
 
--   **AI Code Review Agent**: Bito transforms code review by leveraging Claude's extensive context window to analyze diffs, file relationships, and architectural patterns within pull requests. The system provides semantic feedback on code quality, identifies anti-patterns, and flags potential security flaws, with suggestions delivered as comments within the pull request and the engineering teams' Git workflows.
--   **Bito Wingman**: This coding agent takes meaningful action across the development ecosystem. Developers interact with a coding agent that can execute complicated commands and take action. From integrations with Jira and Confluence, Wingman can retrieve and understand scoped tasks then write or refactor code before compiling, reviewing, and testing. Claude 3.7 Sonnet provides this advanced reasoning capabilities.
--   **IDE Extensions**: Bito integrates Claude's capabilities into popular development environments like VS Code and JetBrains, ensuring AI assistance is available where developers need it without disrupting established workflows.
+- **AI Code Review Agent**: Bito transforms code review by leveraging Claude's extensive context window to analyze diffs, file relationships, and architectural patterns within pull requests. The system provides semantic feedback on code quality, identifies anti-patterns, and flags potential security flaws, with suggestions delivered as comments within the pull request and the engineering teams' Git workflows.
+- **Bito Wingman**: This coding agent takes meaningful action across the development ecosystem. Developers interact with a coding agent that can execute complicated commands and take action. From integrations with Jira and Confluence, Wingman can retrieve and understand scoped tasks then write or refactor code before compiling, reviewing, and testing. Claude 3.7 Sonnet provides this advanced reasoning capabilities.
+- **IDE Extensions**: Bito integrates Claude's capabilities into popular development environments like VS Code and JetBrains, ensuring AI assistance is available where developers need it without disrupting established workflows.
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05e5545910afe2f4772_b5b87fd270c0f3bdbb3800e88228cfc9f00e5f53-1920x1013.png)
 

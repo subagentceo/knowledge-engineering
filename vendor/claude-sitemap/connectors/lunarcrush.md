@@ -1,3 +1,5 @@
+# LunarCrush
+
 Access comprehensive social analytics and market intelligence for companies, brands, stocks, and cryptocurrencies through LunarCrush's AI-data platform. Stream real-time social metrics, sentiment analysis, trending topics, and market data directly into your AI workflows.
 
 You can use LunarCrush to:

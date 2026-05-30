@@ -1,11 +1,13 @@
+# BlueFlame AI empowers lean investment teams to achieve institutional-scale analysis with Claude
+
 BlueFlame uses Claude to give small investment teams enterprise-grade analytical capabilities, enabling lean teams to analyze vast document sets and uncover insights at institutional scale—without needing in-house technical expertise.
 
 With Claude, BlueFlame:
 
--   Enabled small teams to perform institutional-scale analysis previously requiring large technical departments
--   Reduced document analysis time from 4+ hours to minutes
--   Supports and average of 30 client queries per day
--   Automated comparison of hundreds of companies simultaneously
+- Enabled small teams to perform institutional-scale analysis previously requiring large technical departments
+- Reduced document analysis time from 4+ hours to minutes
+- Supports and average of 30 client queries per day
+- Automated comparison of hundreds of companies simultaneously
 
 ## Bridging the resource gap for sophisticated investors
 
@@ -23,11 +25,11 @@ Consistency and reliability were paramount. "Our clients expect deterministic ou
 
 BlueFlame's platform democratizes sophisticated analysis capabilities, providing customers:
 
--   Automated processing of deal room documents
--   Simultaneous comparison of hundreds of companies
--   Portfolio-wide KPI extraction and analysis
--   Generation of tailored investment insights
--   Comprehensive due diligence automation
+- Automated processing of deal room documents
+- Simultaneous comparison of hundreds of companies
+- Portfolio-wide KPI extraction and analysis
+- Generation of tailored investment insights
+- Comprehensive due diligence automation
 
 ![BlueFlame product screen](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf058f586050e261b3054_ad0b91a36a38783e04ce3930cb87627e74147b28-1920x1009.jpeg)
 

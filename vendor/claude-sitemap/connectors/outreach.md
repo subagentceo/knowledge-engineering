@@ -1,3 +1,5 @@
+# Outreach
+
 Bring Outreach knowledge and actions into Claude so your teams can move faster, combine insights across systems, and complete advanced revenue tasks without switching tools. Outreach is an end-to-end AI Revenue Platform for all go-to-market teams. By embedding agentic AI across every revenue workflow, Outreach increases sales productivity, boosts pipeline, and gives leaders the visibility and predictability they need to grow revenue at scale.
 
 You can use Outreach to:

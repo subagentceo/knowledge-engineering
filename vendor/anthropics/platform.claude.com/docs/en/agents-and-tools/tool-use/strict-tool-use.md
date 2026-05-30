@@ -18,6 +18,7 @@ Strict tool use validates tool parameters, ensuring Claude calls your functions 
 Building reliable agentic systems requires guaranteed schema conformance. Without strict mode, Claude might return incompatible types (`"2"` instead of `2`) or missing required fields, breaking your functions and causing runtime errors.
 
 Strict tool use guarantees type-safe parameters:
+
 - Functions receive correctly-typed arguments every time
 - No need to validate and retry tool calls
 - Production-ready agents that work consistently at scale
@@ -34,7 +35,7 @@ curl https://api.anthropic.com/v1/messages \
   -H "x-api-key: $ANTHROPIC_API_KEY" \
   -H "anthropic-version: 2023-06-01" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 1024,
     "messages": [
       {"role": "user", "content": "What is the weather in San Francisco?"}
@@ -64,7 +65,7 @@ curl https://api.anthropic.com/v1/messages \
 
 ```bash CLI
 ant messages create --transform content <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 1024
 messages:
   - role: user
@@ -93,7 +94,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 response = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=1024,
     messages=[{"role": "user", "content": "What's the weather like in San Francisco?"}],
     tools=[
@@ -127,17 +128,17 @@ print(response.content)
 import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY
+  apiKey: process.env.ANTHROPIC_API_KEY,
 });
 
 const response = await client.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [
     {
       role: "user",
-      content: "What's the weather like in San Francisco?"
-    }
+      content: "What's the weather like in San Francisco?",
+    },
   ],
   tools: [
     {
@@ -149,18 +150,18 @@ const response = await client.messages.create({
         properties: {
           location: {
             type: "string",
-            description: "The city and state, e.g. San Francisco, CA"
+            description: "The city and state, e.g. San Francisco, CA",
           },
           unit: {
             type: "string",
-            enum: ["celsius", "fahrenheit"]
-          }
+            enum: ["celsius", "fahrenheit"],
+          },
         },
         required: ["location"],
-        additionalProperties: false
-      }
-    }
-  ]
+        additionalProperties: false,
+      },
+    },
+  ],
 });
 console.log(response.content);
 ```
@@ -174,7 +175,7 @@ AnthropicClient client = new();
 
 var parameters = new MessageCreateParams
 {
-    Model = Model.ClaudeOpus4_7,
+    Model = Model.ClaudeOpus4_8,
     MaxTokens = 1024,
     Messages = [new() { Role = Role.User, Content = "What's the weather like in San Francisco?" }],
     Tools = [
@@ -216,7 +217,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 1024,
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(anthropic.NewTextBlock("What's the weather like in San Francisco?")),
@@ -286,7 +287,7 @@ void main() {
         .build();
 
     MessageCreateParams params = MessageCreateParams.builder()
-        .model(Model.CLAUDE_OPUS_4_7)
+        .model(Model.CLAUDE_OPUS_4_8)
         .maxTokens(1024L)
         .addUserMessage("What's the weather like in San Francisco?")
         .addTool(
@@ -316,7 +317,7 @@ $message = $client->messages->create(
     messages: [
         ['role' => 'user', 'content' => "What's the weather like in San Francisco?"]
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     tools: [
         [
             'name' => 'get_weather',
@@ -350,7 +351,7 @@ require "anthropic"
 client = Anthropic::Client.new
 
 message = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [
     { role: "user", content: "What's the weather like in San Francisco?" }
@@ -396,6 +397,7 @@ puts message.content
 ```
 
 **Guarantees:**
+
 - Tool `input` strictly follows the `input_schema`
 - Tool `name` is always valid (from provided tools or server tools)
 
@@ -423,7 +425,7 @@ Ensure tool parameters exactly match your schema:
 
 ```bash CLI
 ant messages create <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 1024
 messages:
   - role: user
@@ -452,7 +454,7 @@ from anthropic import Anthropic
 
 client = Anthropic()
 response = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=1024,
     messages=[
         {
@@ -497,18 +499,23 @@ const searchFlightsTool: Anthropic.Tool = {
     properties: {
       destination: { type: "string" },
       departure_date: { type: "string", format: "date" },
-      passengers: { type: "integer", enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }
+      passengers: { type: "integer", enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] },
     },
     required: ["destination", "departure_date"],
-    additionalProperties: false
-  }
+    additionalProperties: false,
+  },
 };
 
 const response = await client.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Search for flights to Tokyo departing June 1, 2026" }],
-  tools: [searchFlightsTool]
+  messages: [
+    {
+      role: "user",
+      content: "Search for flights to Tokyo departing June 1, 2026",
+    },
+  ],
+  tools: [searchFlightsTool],
 });
 
 console.log(response);
@@ -523,7 +530,7 @@ AnthropicClient client = new();
 
 var parameters = new MessageCreateParams
 {
-    Model = Model.ClaudeOpus4_7,
+    Model = Model.ClaudeOpus4_8,
     MaxTokens = 1024,
     Messages = [new() { Role = Role.User, Content = "Search for flights to Tokyo departing June 1, 2026" }],
     Tools = [
@@ -565,7 +572,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 1024,
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(anthropic.NewTextBlock("Search for flights to Tokyo departing June 1, 2026")),
@@ -635,7 +642,7 @@ void main() {
         .build();
 
     MessageCreateParams params = MessageCreateParams.builder()
-        .model(Model.CLAUDE_OPUS_4_7)
+        .model(Model.CLAUDE_OPUS_4_8)
         .maxTokens(1024L)
         .addUserMessage("Search for flights to Tokyo departing June 1, 2026")
         .addTool(
@@ -664,7 +671,7 @@ $message = $client->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Search for flights to Tokyo departing June 1, 2026']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     tools: [
         [
             'name' => 'search_flights',
@@ -695,7 +702,7 @@ require "anthropic"
 client = Anthropic::Client.new
 
 message = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [
     { role: "user", content: "Search for flights to Tokyo departing June 1, 2026" }
@@ -735,7 +742,7 @@ Build reliable multi-step agents with guaranteed tool parameters:
 
 ```bash CLI
 ant messages create <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 1024
 messages:
   - role: user
@@ -772,7 +779,7 @@ from anthropic import Anthropic
 
 client = Anthropic()
 response = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=1024,
     messages=[
         {
@@ -831,11 +838,11 @@ const tools: Anthropic.Tool[] = [
         origin: { type: "string" },
         destination: { type: "string" },
         departure_date: { type: "string", format: "date" },
-        travelers: { type: "integer", enum: [1, 2, 3, 4, 5, 6] }
+        travelers: { type: "integer", enum: [1, 2, 3, 4, 5, 6] },
       },
       required: ["origin", "destination", "departure_date"],
-      additionalProperties: false
-    }
+      additionalProperties: false,
+    },
   },
   {
     name: "search_hotels",
@@ -845,25 +852,25 @@ const tools: Anthropic.Tool[] = [
       properties: {
         city: { type: "string" },
         check_in: { type: "string", format: "date" },
-        guests: { type: "integer", enum: [1, 2, 3, 4] }
+        guests: { type: "integer", enum: [1, 2, 3, 4] },
       },
       required: ["city", "check_in"],
-      additionalProperties: false
-    }
-  }
+      additionalProperties: false,
+    },
+  },
 ];
 
 const response = await client.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [
     {
       role: "user",
       content:
-        "Help me plan a trip from New York to Paris for 2 people, departing June 1, 2026"
-    }
+        "Help me plan a trip from New York to Paris for 2 people, departing June 1, 2026",
+    },
   ],
-  tools: tools
+  tools: tools,
 });
 
 console.log(response);
@@ -878,7 +885,7 @@ AnthropicClient client = new();
 
 var parameters = new MessageCreateParams
 {
-    Model = Model.ClaudeOpus4_7,
+    Model = Model.ClaudeOpus4_8,
     MaxTokens = 1024,
     Messages = [new() { Role = Role.User, Content = "Help me plan a trip from New York to Paris for 2 people, departing June 1, 2026" }],
     Tools = [
@@ -937,7 +944,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 1024,
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(anthropic.NewTextBlock("Help me plan a trip from New York to Paris for 2 people, departing June 1, 2026")),
@@ -1026,7 +1033,7 @@ void main() {
         .build();
 
     MessageCreateParams params = MessageCreateParams.builder()
-        .model(Model.CLAUDE_OPUS_4_7)
+        .model(Model.CLAUDE_OPUS_4_8)
         .maxTokens(1024L)
         .addUserMessage("Help me plan a trip from New York to Paris for 2 people, departing June 1, 2026")
         .addTool(
@@ -1062,7 +1069,7 @@ $message = $client->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'Help me plan a trip from New York to Paris for 2 people, departing June 1, 2026']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     tools: [
         [
             'name' => 'search_flights',
@@ -1105,7 +1112,7 @@ require "anthropic"
 client = Anthropic::Client.new
 
 message = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [
     { role: "user", content: "Help me plan a trip from New York to Paris for 2 people, departing June 1, 2026" }

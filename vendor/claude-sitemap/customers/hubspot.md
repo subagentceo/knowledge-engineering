@@ -1,12 +1,14 @@
-[HubSpot](https://www.hubspot.com/) is an agentic customer platform that helps marketing, sales, and customer service teams drive growth. The company serves hundreds of thousands of customers worldwide, from startups to enterprise organizations, with tools designed to unify customer context to make growth easier and faster.
+# HubSpot reclaims time for creativity with Claude
+
+HubSpot is an agentic customer platform that helps marketing, sales, and customer service teams drive growth. The company serves hundreds of thousands of customers worldwide, from startups to enterprise organizations, with tools designed to unify customer context to make growth easier and faster.
 
 ## With Claude, HubSpot:
 
--   Achieved up to 40% productivity increases across web development and content creation workflows
--   Reduced complex technical troubleshooting from 3-5 days to under an hour
--   Accelerated developer onboarding, enabling new engineers to ship to production faster
--   Built hundreds of Claude projects across teams to centralize context and best practices
--   Shifted customer success conversations from product-focused to business outcome-focused
+- Achieved up to 40% productivity increases across web development and content creation workflows
+- Reduced complex technical troubleshooting from 3-5 days to under an hour
+- Accelerated developer onboarding, enabling new engineers to ship to production faster
+- Built hundreds of Claude projects across teams to centralize context and best practices
+- Shifted customer success conversations from product-focused to business outcome-focused
 
 ## The problem
 
@@ -32,7 +34,7 @@ For marketing and customer success, Claude projects were the catalyst for adopti
 
 ‍
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698a110eb71a7a10bb924038_69894be65f8f2537585fa515_Anthropic_x_HubSpot-LongForm-012126.00_01_26_13.Still005%2520\(1\).png)
+![](<https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698a110eb71a7a10bb924038_69894be65f8f2537585fa515_Anthropic_x_HubSpot-LongForm-012126.00_01_26_13.Still005%2520(1).png>)
 
 Francesco Signoretti, Engineering Lead on HubSpot's Developer Experience AI team
 
@@ -46,7 +48,7 @@ The impact is measurable across departments. Marketing reports a 40% productivit
 
 "Claude gives me the support and time to be a more strategic partner for my customers," Caruthers says. "As a result, they're now telling me our conversations are more meaningful than ever."
 
-![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698a110eb71a7a10bb92402c_69894f85abadee97443db71b_Anthropic_x_HubSpot-LongForm-012126.00_01_24_16.Still004%2520\(1\).png)
+![](<https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/698a110eb71a7a10bb92402c_69894f85abadee97443db71b_Anthropic_x_HubSpot-LongForm-012126.00_01_24_16.Still004%2520(1).png>)
 
 Engineering uses Claude Code for development work, connecting it to HubSpot's infrastructure through MCP.
 

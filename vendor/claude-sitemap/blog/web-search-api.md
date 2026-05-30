@@ -1,4 +1,6 @@
-**_Update:_** _You can now add the web fetch tool to your requests and Claude will fetch and analyze content from any webpage URL. September 10, 2025_
+# Introducing web search on the Anthropic API
+
+***Update:*** *You can now add the web fetch tool to your requests and Claude will fetch and analyze content from any webpage URL. September 10, 2025*
 
 Today, we're introducing web search on the Anthropic API—a new tool that gives Claude access to current information from across the web. With web search enabled, developers can build Claude-powered applications and agents that deliver up-to-date insights.
 
@@ -8,7 +10,7 @@ Developers can now augment Claude’s comprehensive knowledge with current, real
 
 When Claude receives a request that would benefit from up-to-date information or specialized knowledge, it uses its reasoning capabilities to determine whether the web search tool would help provide a more accurate response. If searching the web would be beneficial, Claude generates a targeted search query, retrieves relevant results, analyzes them for key information, and provides a comprehensive answer with citations back to the source material.
 
-Claude can also operate agentically and conduct multiple progressive searches, using earlier results to inform subsequent queries in order to do light research and generate a more comprehensive answer. Developers can control this by adjusting the _max\_uses_ parameter_._ Behind the scenes, Claude may also refine its queries to deliver a more accurate response.
+Claude can also operate agentically and conduct multiple progressive searches, using earlier results to inform subsequent queries in order to do light research and generate a more comprehensive answer. Developers can control this by adjusting the _max_uses_ parameter*.* Behind the scenes, Claude may also refine its queries to deliver a more accurate response.
 
 With web search, developers can now build AI solutions that tap into current information without needing to manage their own web search infrastructure.
 
@@ -16,10 +18,10 @@ With web search, developers can now build AI solutions that tap into current inf
 
 Web search enables Claude to power a wide range of use cases that benefit from real-time data and specialized knowledge across various industries. Use cases include:
 
--   **Financial services:** Build AI agents that analyze real-time stock prices, market trends, and regulatory updates.
--   **Legal research:** Create tools that access recent court decisions, regulatory changes, and legal news.
--   **Developer tools:** Enable Claude to reference the latest API documentation, GitHub releases, and technology updates.
--   **Productivity:** Build agents that incorporate the latest company reports, competitive intelligence, or industry research.
+- **Financial services:** Build AI agents that analyze real-time stock prices, market trends, and regulatory updates.
+- **Legal research:** Create tools that access recent court decisions, regulatory changes, and legal news.
+- **Developer tools:** Enable Claude to reference the latest API documentation, GitHub releases, and technology updates.
+- **Productivity:** Build agents that incorporate the latest company reports, competitive intelligence, or industry research.
 
 ### Build with trust and control
 
@@ -29,9 +31,9 @@ Every web-sourced response includes citations to source materials, enabling user
 
 Organizations can maintain additional control through the following admin settings:
 
--   **Domain allow lists**: Specify which domains Claude can search and retrieve information from, ensuring that results only come from approved sources.
--   **Domain block lists**: Prevent Claude from accessing certain domains that may contain sensitive, competitive, or inappropriate content for your organization.
--   **Organization-level management**: Administrators can allow or prohibit web search use at the organization level.
+- **Domain allow lists**: Specify which domains Claude can search and retrieve information from, ensuring that results only come from approved sources.
+- **Domain block lists**: Prevent Claude from accessing certain domains that may contain sensitive, competitive, or inappropriate content for your organization.
+- **Organization-level management**: Administrators can allow or prohibit web search use at the organization level.
 
 ### Enhance Claude Code with web search
 
@@ -55,4 +57,4 @@ Adaptive is an AI tool for consumers to create end-to-end apps.
 
 Web search is now available on the Anthropic API for Claude 3.7 Sonnet, the upgraded Claude 3.5 Sonnet, and Claude 3.5 Haiku at $10 per 1,000 searches plus standard token costs.
 
-To get started, enable the web search tool in your API requests. Explore our [documentation](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/web-search-tool) and [pricing](https://www.anthropic.com/pricing#api) to learn more.
+To get started, enable the web search tool in your API requests. Explore our documentation and pricing to learn more.

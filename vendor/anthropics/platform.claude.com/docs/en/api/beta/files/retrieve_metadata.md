@@ -1,4 +1,4 @@
-## Retrieve Metadata
+## Get File Metadata
 
 **get** `/v1/files/{file_id}`
 
@@ -15,11 +15,9 @@ Get File Metadata
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -68,10 +66,15 @@ Get File Metadata
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `FileMetadata = object { id, created_at, filename, 5 more }`
-
+- `FileMetadata object { id, created_at, filename, 5 more }`
   - `id: string`
 
     Unique object identifier.
@@ -99,7 +102,6 @@ Get File Metadata
     Object type.
 
     For files, this is always `"file"`.
-
     - `"file"`
 
   - `downloadable: optional boolean`
@@ -109,7 +111,6 @@ Get File Metadata
   - `scope: optional BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `id: string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -117,7 +118,6 @@ Get File Metadata
     - `type: "session"`
 
       The type of scope (e.g., `"session"`).
-
       - `"session"`
 
 ### Example
@@ -127,4 +127,22 @@ curl https://api.anthropic.com/v1/files/$FILE_ID \
     -H 'anthropic-version: 2023-06-01' \
     -H 'anthropic-beta: files-api-2025-04-14' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
 ```

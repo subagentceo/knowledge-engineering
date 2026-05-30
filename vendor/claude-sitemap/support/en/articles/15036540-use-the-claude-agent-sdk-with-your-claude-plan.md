@@ -10,17 +10,17 @@ To support Agent SDK use, eligible Pro, Max, Team, and Enterprise plan users can
 
 ## Monthly credit by plan
 
-| **Plan** | **Monthly credit** |
-| --- | --- |
-| Pro | $20 |
-| Max 5x | $100 |
-| Max 20x | $200 |
-| Team (Standard seats) | $20 |
-| Team (Premium seats) | $100 |
-| Enterprise (usage-based) | $20 |
-| Enterprise (seat-based Premium seats*) | $200 |
+| **Plan**                                | **Monthly credit** |
+| --------------------------------------- | ------------------ |
+| Pro                                     | $20                |
+| Max 5x                                  | $100               |
+| Max 20x                                 | $200               |
+| Team (Standard seats)                   | $20                |
+| Team (Premium seats)                    | $100               |
+| Enterprise (usage-based)                | $20                |
+| Enterprise (seat-based Premium seats\*) | $200               |
 
-*Members of seat-based Enterprise plans on Standard seats aren’t eligible to claim the Agent SDK monthly credit.
+\*Members of seat-based Enterprise plans on Standard seats aren’t eligible to claim the Agent SDK monthly credit.
 
 ---
 
@@ -44,7 +44,7 @@ The credit doesn’t apply to:
 
 - Claude Cowork
 
-- Other features that draw from extra usage
+- Other features that draw from usage credits
 
 ---
 
@@ -58,7 +58,7 @@ The credit doesn’t apply to:
 
 **Drains first.** Agent SDK usage draws from your monthly credit before any other source.
 
-**Past the credit, usage moves to extra usage.** When your monthly credit runs out, additional Agent SDK usage flows to extra usage at standard API rates—but only if you’ve enabled extra usage. If extra usage isn’t enabled, Agent SDK requests stop until your credit refreshes.
+**Past the credit, usage moves to usage credits.** When your monthly credit runs out, additional Agent SDK usage flows to usage credits at standard API rates—but only if you've enabled usage credits. If usage credits aren't enabled, Agent SDK requests stop until your credit refreshes.
 
 ---
 

@@ -6,9 +6,9 @@ Authenticate to the Claude API with API keys or Workload Identity Federation.
 
 The Claude API supports two ways to authenticate requests:
 
-| Method | Credential | Best for |
-|---|---|---|
-| [API key](#api-keys) | Long-lived `sk-ant-api...` secret in the `x-api-key` header | Local development, prototyping, scripts, and single-tenant servers where you control secret storage |
+| Method                                                        | Credential                                                                      | Best for                                                                                                                                        |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| [API key](#api-keys)                                          | Long-lived `sk-ant-api...` secret in the `x-api-key` header                     | Local development, prototyping, scripts, and single-tenant servers where you control secret storage                                             |
 | [Workload Identity Federation](#workload-identity-federation) | Short-lived bearer token exchanged from your identity provider's identity token | Production workloads on cloud platforms (AWS, Google Cloud, Azure), CI/CD pipelines, and Kubernetes, where you want to eliminate static secrets |
 
 Both methods grant the same access to Claude API endpoints. Choose API keys to get started quickly, and move to Workload Identity Federation when your workload already has a platform-issued identity you can federate.
@@ -37,7 +37,7 @@ curl https://api.anthropic.com/v1/messages \
   -H "anthropic-version: 2023-06-01" \
   -H "content-type: application/json" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 1024,
     "messages": [{"role": "user", "content": "Hello, Claude"}]
   }'

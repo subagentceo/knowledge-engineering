@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -19,10 +20,10 @@ Navigate to [claude.ai/analytics/claude-code](https://claude.ai/analytics/claude
 
 The Team and Enterprise dashboard includes:
 
-* **Usage metrics**: lines of code accepted, suggestion accept rate, daily active users and sessions
-* **Contribution metrics**: PRs and lines of code shipped with Claude Code assistance, with [GitHub integration](#enable-contribution-metrics)
-* **Leaderboard**: top contributors ranked by Claude Code usage
-* **Data export**: download contribution data as CSV for custom reporting
+- **Usage metrics**: lines of code accepted, suggestion accept rate, daily active users and sessions
+- **Contribution metrics**: PRs and lines of code shipped with Claude Code assistance, with [GitHub integration](#enable-contribution-metrics)
+- **Leaderboard**: top contributors ranked by Claude Code usage
+- **Data export**: download contribution data as CSV for custom reporting
 
 For per-user token counts and cost estimates, configure [OpenTelemetry export](/en/monitoring-usage).
 
@@ -60,8 +61,8 @@ You need the Owner role to configure analytics settings. A GitHub admin must ins
 
 Data typically appears within 24 hours after enabling, with daily updates. If no data appears, you may see one of these messages:
 
-* **"GitHub app required"**: install the GitHub app to view contribution metrics
-* **"Data processing in progress"**: check back in a few days and confirm the GitHub app is installed if data doesn't appear
+- **"GitHub app required"**: install the GitHub app to view contribution metrics
+- **"Data processing in progress"**: check back in a few days and confirm the GitHub app is installed if data doesn't appear
 
 Contribution metrics support GitHub Cloud and GitHub Enterprise Server.
 
@@ -73,11 +74,11 @@ Contribution metrics support GitHub Cloud and GitHub Enterprise Server.
 
 The dashboard displays these summary metrics at the top:
 
-* **PRs with CC**: total count of merged pull requests that contain at least one line of code written with Claude Code
-* **Lines of code with CC**: total lines of code across all merged PRs that were written with Claude Code assistance. Only "effective lines" are counted: lines with more than 3 characters after normalization, excluding empty lines and lines with only brackets or trivial punctuation.
-* **PRs with Claude Code (%)**: percentage of all merged PRs that contain Claude Code-assisted code
-* **Suggestion accept rate**: percentage of times users accept Claude Code's code editing suggestions, including Edit, Write, and NotebookEdit tool usage
-* **Lines of code accepted**: total lines of code written by Claude Code that users have accepted in their sessions. This excludes rejected suggestions and does not track subsequent deletions.
+- **PRs with CC**: total count of merged pull requests that contain at least one line of code written with Claude Code
+- **Lines of code with CC**: total lines of code across all merged PRs that were written with Claude Code assistance. Only "effective lines" are counted: lines with more than 3 characters after normalization, excluding empty lines and lines with only brackets or trivial punctuation.
+- **PRs with Claude Code (%)**: percentage of all merged PRs that contain Claude Code-assisted code
+- **Suggestion accept rate**: percentage of times users accept Claude Code's code editing suggestions, including Edit, Write, and NotebookEdit tool usage
+- **Lines of code accepted**: total lines of code written by Claude Code that users have accepted in their sessions. This excludes rejected suggestions and does not track subsequent deletions.
 
 ### Explore the charts
 
@@ -87,15 +88,15 @@ The dashboard includes several charts to visualize trends over time.
 
 The Adoption chart shows daily usage trends:
 
-* **users**: daily active users
-* **sessions**: number of active Claude Code sessions per day
+- **users**: daily active users
+- **sessions**: number of active Claude Code sessions per day
 
 #### Measure PRs per user
 
 This chart displays individual developer activity over time:
 
-* **PRs per user**: total number of PRs merged per day divided by daily active users
-* **users**: daily active users
+- **PRs per user**: total number of PRs merged per day divided by daily active users
+- **users**: daily active users
 
 Use this to understand how individual productivity changes as Claude Code adoption increases.
 
@@ -103,8 +104,8 @@ Use this to understand how individual productivity changes as Claude Code adopti
 
 The Pull requests chart shows a daily breakdown of merged PRs:
 
-* **PRs with CC**: pull requests containing Claude Code-assisted code
-* **PRs without CC**: pull requests without Claude Code-assisted code
+- **PRs with CC**: pull requests containing Claude Code-assisted code
+- **PRs without CC**: pull requests without Claude Code-assisted code
 
 Toggle to **Lines of code** view to see the same breakdown by lines of code rather than PR count.
 
@@ -112,8 +113,8 @@ Toggle to **Lines of code** view to see the same breakdown by lines of code rath
 
 The Leaderboard shows the top 10 users ranked by contribution volume. Toggle between:
 
-* **Pull requests**: shows PRs with Claude Code vs All PRs for each user
-* **Lines of code**: shows lines with Claude Code vs All lines for each user
+- **Pull requests**: shows PRs with Claude Code vs All PRs for each user
+- **Lines of code**: shows lines with Claude Code vs All lines for each user
 
 Click **Export all users** to download complete contribution data for all users as a CSV file. The export includes all users, not just the top 10 displayed.
 
@@ -146,19 +147,19 @@ Sessions from 21 days before to 2 days after the PR merge date are considered fo
 
 Certain files are automatically excluded from analysis because they are auto-generated:
 
-* Lock files: package-lock.json, yarn.lock, Cargo.lock, and similar
-* Generated code: Protobuf outputs, build artifacts, minified files
-* Build directories: dist/, build/, node\_modules/, target/
-* Test fixtures: snapshots, cassettes, mock data
-* Lines over 1,000 characters, which are likely minified or generated
+- Lock files: package-lock.json, yarn.lock, Cargo.lock, and similar
+- Generated code: Protobuf outputs, build artifacts, minified files
+- Build directories: dist/, build/, node_modules/, target/
+- Test fixtures: snapshots, cassettes, mock data
+- Lines over 1,000 characters, which are likely minified or generated
 
 #### Attribution notes
 
 Keep these additional details in mind when interpreting attribution data:
 
-* Code substantially rewritten by developers, with more than 20% difference, is not attributed to Claude Code
-* Sessions outside the 21-day window are not considered
-* The algorithm does not consider the PR source or destination branch when performing attribution
+- Code substantially rewritten by developers, with more than 20% difference, is not attributed to Claude Code
+- Sessions outside the 21-day window are not considered
+- The algorithm does not consider the PR source or destination branch when performing attribution
 
 ### Get the most from analytics
 
@@ -168,25 +169,25 @@ Use contribution metrics to demonstrate ROI, identify adoption patterns, and fin
 
 Track the Adoption chart and user counts to identify:
 
-* Active users who can share best practices
-* Overall adoption trends across your organization
-* Dips in usage that may indicate friction or issues
+- Active users who can share best practices
+- Overall adoption trends across your organization
+- Dips in usage that may indicate friction or issues
 
 #### Measure ROI
 
 Contribution metrics help answer "Is this tool worth the investment?" with data from your own codebase:
 
-* Track changes in PRs per user over time as adoption increases
-* Compare PRs and lines of code shipped with vs. without Claude Code
-* Use alongside [DORA metrics](https://dora.dev/), sprint velocity, or other engineering KPIs to understand changes from adopting Claude Code
+- Track changes in PRs per user over time as adoption increases
+- Compare PRs and lines of code shipped with vs. without Claude Code
+- Use alongside [DORA metrics](https://dora.dev/), sprint velocity, or other engineering KPIs to understand changes from adopting Claude Code
 
 #### Identify power users
 
 The Leaderboard helps you find team members with high Claude Code adoption who can:
 
-* Share prompting techniques and workflows with the team
-* Provide feedback on what's working well
-* Help onboard new users
+- Share prompting techniques and workflows with the team
+- Provide feedback on what's working well
+- Help onboard new users
 
 #### Access data programmatically
 
@@ -202,18 +203,18 @@ API customers using the Claude Console can access analytics at [platform.claude.
 
 The Console dashboard displays:
 
-* **Lines of code accepted**: total lines of code written by Claude Code that users have accepted in their sessions. This excludes rejected suggestions and does not track subsequent deletions.
-* **Suggestion accept rate**: percentage of times users accept code editing tool usage, including Edit, Write, and NotebookEdit tools.
-* **Activity**: daily active users and sessions shown on a chart.
-* **Spend**: daily API costs in dollars alongside user count.
+- **Lines of code accepted**: total lines of code written by Claude Code that users have accepted in their sessions. This excludes rejected suggestions and does not track subsequent deletions.
+- **Suggestion accept rate**: percentage of times users accept code editing tool usage, including Edit, Write, and NotebookEdit tools.
+- **Activity**: daily active users and sessions shown on a chart.
+- **Spend**: daily API costs in dollars alongside user count.
 
 ### View team insights
 
 The team insights table shows per-user metrics:
 
-* **Members**: all users who have authenticated to Claude Code. API key users display by key identifier, OAuth users display by email address.
-* **Spend this month**: per-user total API costs for the current month.
-* **Lines this month**: per-user total of accepted code lines for the current month.
+- **Members**: all users who have authenticated to Claude Code. API key users display by key identifier, OAuth users display by email address.
+- **Spend this month**: per-user total API costs for the current month.
+- **Lines this month**: per-user total of accepted code lines for the current month.
 
 <Note>
   Spend figures in the Console dashboard are estimates for analytics purposes. For actual costs, refer to your billing page.
@@ -221,6 +222,6 @@ The team insights table shows per-user metrics:
 
 ## Related resources
 
-* [Monitoring with OpenTelemetry](/en/monitoring-usage): export real-time metrics and events to your observability stack
-* [Manage costs effectively](/en/costs): set spend limits and optimize token usage
-* [Permissions](/en/permissions): configure roles and permissions
+- [Monitoring with OpenTelemetry](/en/monitoring-usage): export real-time metrics and events to your observability stack
+- [Manage costs effectively](/en/costs): set spend limits and optimize token usage
+- [Permissions](/en/permissions): configure roles and permissions

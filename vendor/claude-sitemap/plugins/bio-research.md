@@ -1,3 +1,5 @@
+# Bio Research
+
 Bio Research consolidates 10 MCP server integrations and 6 analysis skills into a single package for life science researchers. Search biomedical literature via PubMed and preprint servers, access journal articles, explore drug target databases, and browse clinical trial registries — all from one plugin.
 
 The plugin includes deep analysis workflows: run automated quality control on single-cell RNA-seq data, use scvi-tools for batch correction and cell type annotation, or launch nf-core bioinformatics pipelines for RNA-seq, variant calling, and ATAC-seq on local or public GEO/SRA data.

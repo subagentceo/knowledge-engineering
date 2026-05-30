@@ -1,3 +1,5 @@
+# Firecrawl
+
 Turn any website into clean, LLM-ready markdown or structured data. Firecrawl integrates powerful web scraping, crawling, and search capabilities directly into Claude Code. Scrape single pages, crawl entire sites, map site structures, and search the web — all with automatic JavaScript rendering, anti-bot handling, and proxy rotation built in.
 
 The plugin includes an AI agent for autonomous multi-source data gathering. Just describe the data you need in plain language and the agent finds, navigates, and extracts it across multiple websites — no URLs required. Results can be returned as markdown, HTML, screenshots, links, or structured data matching a custom schema.

@@ -1,14 +1,16 @@
-[Duvo](https://www.duvo.ai/) builds AI agents that run procurement, supply chain, and category management processes for multi-billion-euro retail and CPG companies. The agents work across every system involved: ERPs, supplier portals, spreadsheets, email, even phone calls. Duvo is built entirely on Claude, using the Agent SDK to orchestrate across workflows, with every API call running under Anthropic's Zero Data Retention mode.
+# Duvo automates enterprise operations across legacy systems with Claude
 
-## **With Claude, Duvo achieved:**
+Duvo builds AI agents that run procurement, supply chain, and category management processes for multi-billion-euro retail and CPG companies. The agents work across every system involved: ERPs, supplier portals, spreadsheets, email, even phone calls. Duvo is built entirely on Claude, using the Agent SDK to orchestrate across workflows, with every API call running under Anthropic's Zero Data Retention mode.
 
--   €2.8M+ in annualized savings within three months for its customer Rohlik Group, across processes that had never been systematically run
--   Annual supplier negotiations shortened by one month at Rohlik Group, with approximately 80% automated from preparation through contract generation to ERP write-back
--   40%+ of team capacity freed up on average across enterprise procurement, supply chain, and retail operations by reducing manual work
--   Eight weeks on average from first conversation to production deployment with measured savings
--   Production deployment within days of adopting the Claude Agent SDK
+## With Claude, Duvo achieved:
 
-## **The challenge: The cost of "abandoned work" in enterprise operations**
+- €2.8M+ in annualized savings within three months for its customer Rohlik Group, across processes that had never been systematically run
+- Annual supplier negotiations shortened by one month at Rohlik Group, with approximately 80% automated from preparation through contract generation to ERP write-back
+- 40%+ of team capacity freed up on average across enterprise procurement, supply chain, and retail operations by reducing manual work
+- Eight weeks on average from first conversation to production deployment with measured savings
+- Production deployment within days of adopting the Claude Agent SDK
+
+## The challenge: The cost of "abandoned work" in enterprise operations
 
 Duvo's customers have operations teams that know exactly what needs to happen but can't get to all of it. Buyers manage ordering across SAP, supplier portals, and email. Category managers track commodity prices in spreadsheets they built themselves. Procurement coordinators chase confirmations by copying status between systems. These teams cover the top 20 suppliers and the most urgent issues. But the long tail, hundreds of smaller actions worth millions in aggregate, never get touched.
 
@@ -16,7 +18,7 @@ Duvo's customers have operations teams that know exactly what needs to happen bu
 
 The blocker isn't a missing dashboard. The work spans systems that don't connect, and no two companies use the same stack. Traditional automation stalls because there are no clean APIs, the IT backlog is years long, and every exception requires judgment. Duvo calls this "abandoned work": processes worth millions that nobody runs because there aren't enough hours in the day.
 
-## **The solution: Selecting Claude for messy, multi-step work**
+## The solution: Selecting Claude for messy, multi-step work
 
 After evaluating multiple model providers, Duvo committed to a single-provider architecture on Claude. The product defaults to Sonnet 4.6, with browser-use agents often using Opus 4.6.
 

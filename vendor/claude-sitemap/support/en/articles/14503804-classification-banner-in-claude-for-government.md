@@ -24,13 +24,13 @@ You must be the Primary Owner to configure the banner.
 
 3. Fill in the banner fields:
 
-  - Banner text — the marking that appears on the banner
+- Banner text — the marking that appears on the banner
 
-  - Background color — the banner's fill color
+- Background color — the banner's fill color
 
-  - Text color — the marking text color
+- Text color — the marking text color
 
-  - Link URL (optional) — if provided, the banner text becomes a clickable link. You can point it at your agency's classification policy page or handling guide.
+- Link URL (optional) — if provided, the banner text becomes a clickable link. You can point it at your agency's classification policy page or handling guide.
 
 4. Click "Save." The banner appears for all users in your organization.
 

@@ -13,6 +13,7 @@ All Managed Agents API requests require the `managed-agents-2026-04-01` beta hea
 ## Event types
 
 Events flow in two directions.
+
 - **User events** are what you send to the agent to kick off a session and steer it as it progresses.
 - **Session events**, **span events**, and **agent events** are sent to you for observability into your session state and agent progress.
 
@@ -21,57 +22,59 @@ Event type strings follow a `{domain}.{action}` naming convention.
 <Tabs>
   <Tab title="User events">
 
-| Type | Description |
-| --- | --- |
-| `user.message` | A user message with text content. |
-| `user.interrupt` | Stop the agent mid-execution. |
-| `user.custom_tool_result` | Response to a custom tool call from the agent. |
-| `user.tool_confirmation` | Approve or deny an agent or MCP tool call when a permission policy requires confirmation. |
-| `user.define_outcome` | Define an [outcome](/docs/en/managed-agents/define-outcomes) for the agent to work toward.  |
+| Type                      | Description                                                                                                                                                                                                               |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `user.message`            | A user message with text content.                                                                                                                                                                                         |
+| `user.interrupt`          | Stop the agent mid-execution.                                                                                                                                                                                             |
+| `user.custom_tool_result` | Response to a custom tool call from the agent.                                                                                                                                                                            |
+| `user.tool_confirmation`  | Approve or deny an agent or MCP tool call when a permission policy requires confirmation.                                                                                                                                 |
+| `user.define_outcome`     | Define an [outcome](/docs/en/managed-agents/define-outcomes) for the agent to work toward.                                                                                                                                |
+| `user.tool_result`        | For sessions with `self_hosted` [environments](/docs/en/managed-agents/self-hosted-sandboxes) only, your integration is responsible for providing `agent_toolset` results. The SDK helpers and CLI do this automatically. |
 
   </Tab>
   <Tab title="Agent events">
 
-| Type | Description |
-| --- | --- |
-| `agent.message` | Agent response containing text content blocks. |
-| `agent.thinking` | Agent thinking content, emitted separately from messages. |
-| `agent.tool_use` | Agent invokes a pre-built agent tool (bash, file operations, and so on). |
-| `agent.tool_result` | Result of a pre-built agent tool execution. |
-| `agent.mcp_tool_use` | Agent invokes an MCP server tool. |
-| `agent.mcp_tool_result` | Result of an MCP tool execution. |
-| `agent.custom_tool_use` | Agent invokes one of your custom tools. Respond with a `user.custom_tool_result` event. |
-| `agent.thread_context_compacted` | Conversation history was compacted to fit the context window. |
-| `agent.thread_message_received` | In a [multiagent](/docs/en/managed-agents/multi-agent) session, an agent delivered its result to the coordinator. |
-| `agent.thread_message_sent` | In a [multiagent](/docs/en/managed-agents/multi-agent) session, the coordinator sent a follow-up to another agent. |
+| Type                             | Description                                                                                                        |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `agent.message`                  | Agent response containing text content blocks.                                                                     |
+| `agent.thinking`                 | Agent thinking content, emitted separately from messages.                                                          |
+| `agent.tool_use`                 | Agent invokes a pre-built agent tool (bash, file operations, and so on).                                           |
+| `agent.tool_result`              | Result of a pre-built agent tool execution.                                                                        |
+| `agent.mcp_tool_use`             | Agent invokes an MCP server tool.                                                                                  |
+| `agent.mcp_tool_result`          | Result of an MCP tool execution.                                                                                   |
+| `agent.custom_tool_use`          | Agent invokes one of your custom tools. Respond with a `user.custom_tool_result` event.                            |
+| `agent.thread_context_compacted` | Conversation history was compacted to fit the context window.                                                      |
+| `agent.thread_message_received`  | In a [multiagent](/docs/en/managed-agents/multi-agent) session, an agent delivered its result to the coordinator.  |
+| `agent.thread_message_sent`      | In a [multiagent](/docs/en/managed-agents/multi-agent) session, the coordinator sent a follow-up to another agent. |
 
   </Tab>
   <Tab title="Session events">
 
-| Type | Description |
-| --- | --- |
-| `session.status_running` | Agent is actively processing. |
-| `session.status_idle` | Agent finished its current task and is waiting for input. Includes a `stop_reason` indicating why the agent stopped. |
-| `session.status_rescheduled` | A transient error occurred and the session is retrying automatically. |
-| `session.status_terminated` | Session ended due to an unrecoverable error. |
-| `session.error` | An error occurred during processing. Includes a typed `error` object with a `retry_status`. |
-| `session.thread_created` | A [multiagent](/docs/en/managed-agents/multi-agent) thread was created. |
-| `session.thread_status_running` | A [multiagent](/docs/en/managed-agents/multi-agent) thread started activity. |
-| `session.thread_status_idle` | A [multiagent](/docs/en/managed-agents/multi-agent) thread finished its turn and is awaiting input. Includes `stop_reason`. |
-| `session.thread_status_terminated` | A [multiagent](/docs/en/managed-agents/multi-agent) thread was archived or reached a terminal error. |
+| Type                               | Description                                                                                                                 |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `session.status_running`           | Agent is actively processing.                                                                                               |
+| `session.status_idle`              | Agent finished its current task and is waiting for input. Includes a `stop_reason` indicating why the agent stopped.        |
+| `session.status_rescheduled`       | A transient error occurred and the session is retrying automatically.                                                       |
+| `session.status_terminated`        | Session ended due to an unrecoverable error.                                                                                |
+| `session.updated`                  | Session update request changed at least one field. Includes only the fields that changed. Updates apply on the next turn.   |
+| `session.error`                    | An error occurred during processing. Includes a typed `error` object with a `retry_status`.                                 |
+| `session.thread_created`           | A [multiagent](/docs/en/managed-agents/multi-agent) thread was created.                                                     |
+| `session.thread_status_running`    | A [multiagent](/docs/en/managed-agents/multi-agent) thread started activity.                                                |
+| `session.thread_status_idle`       | A [multiagent](/docs/en/managed-agents/multi-agent) thread finished its turn and is awaiting input. Includes `stop_reason`. |
+| `session.thread_status_terminated` | A [multiagent](/docs/en/managed-agents/multi-agent) thread was archived or reached a terminal error.                        |
 
   </Tab>
   <Tab title="Span events">
 
 Span events are observability markers that wrap activity for timing and usage tracking.
 
-| Type | Description |
-| --- | --- |
-| `span.model_request_start` | A model inference call has started. |
-| `span.model_request_end` | A model inference call has completed. Includes `model_usage` with token counts. |
-| `span.outcome_evaluation_start` | [Outcome](/docs/en/managed-agents/define-outcomes) evaluation has started.  |
-| `span.outcome_evaluation_ongoing` | Heartbeat during an ongoing [outcome](/docs/en/managed-agents/define-outcomes) evaluation.  |
-| `span.outcome_evaluation_end` | [Outcome](/docs/en/managed-agents/define-outcomes) evaluation has completed.  |
+| Type                              | Description                                                                                |
+| --------------------------------- | ------------------------------------------------------------------------------------------ |
+| `span.model_request_start`        | A model inference call has started.                                                        |
+| `span.model_request_end`          | A model inference call has completed. Includes `model_usage` with token counts.            |
+| `span.outcome_evaluation_start`   | [Outcome](/docs/en/managed-agents/define-outcomes) evaluation has started.                 |
+| `span.outcome_evaluation_ongoing` | Heartbeat during an ongoing [outcome](/docs/en/managed-agents/define-outcomes) evaluation. |
+| `span.outcome_evaluation_end`     | [Outcome](/docs/en/managed-agents/define-outcomes) evaluation has completed.               |
 
   </Tab>
 </Tabs>
@@ -107,8 +110,7 @@ curl -sS --fail-with-body "https://api.anthropic.com/v1/sessions/$SESSION_ID/eve
 EOF
 ````
 
-  
-````bash
+```bash
 ant beta:sessions:events send --session-id "$SESSION_ID" <<'YAML'
 events:
   - type: user.message
@@ -116,10 +118,9 @@ events:
       - type: text
         text: Analyze the performance of the sort function in utils.py
 YAML
-````
+```
 
-  
-````python
+```python
 client.beta.sessions.events.send(
     session.id,
     events=[
@@ -134,10 +135,9 @@ client.beta.sessions.events.send(
         },
     ],
 )
-````
+```
 
-  
-````typescript
+```typescript
 await client.beta.sessions.events.send(session.id, {
   events: [
     {
@@ -151,10 +151,9 @@ await client.beta.sessions.events.send(session.id, {
     },
   ],
 });
-````
+```
 
-  
-````csharp
+```csharp
 await client.Beta.Sessions.Events.Send(session.ID, new()
 {
     Events =
@@ -173,10 +172,9 @@ await client.Beta.Sessions.Events.Send(session.ID, new()
         },
     ],
 });
-````
+```
 
-  
-````go
+```go
 if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
 	Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
 		OfUserMessage: &anthropic.BetaManagedAgentsUserMessageEventParams{
@@ -192,10 +190,9 @@ if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSes
 }); err != nil {
 	panic(err)
 }
-````
+```
 
-  
-````java
+```java
 client.beta().sessions().events().send(
     session.id(),
     EventSendParams.builder()
@@ -204,10 +201,9 @@ client.beta().sessions().events().send(
             .addTextContent("Analyze the performance of the sort function in utils.py")
             .build())
         .build());
-````
+```
 
-  
-````php
+```php
 $client->beta->sessions->events->send(
     $session->id,
     events: [
@@ -222,10 +218,9 @@ $client->beta->sessions->events->send(
         ],
     ],
 );
-````
+```
 
-  
-````ruby
+```ruby
 client.beta.sessions.events.send_(
   session.id,
   events: [
@@ -240,7 +235,7 @@ client.beta.sessions.events.send_(
     }
   ]
 )
-````
+```
 
 </CodeGroup>
 
@@ -271,8 +266,7 @@ curl -sS --fail-with-body "https://api.anthropic.com/v1/sessions/$SESSION_ID/eve
 EOF
 ````
 
-  
-````bash
+```bash
 # Agent is currently analyzing a file...
 # Interrupt with a new direction:
 ant beta:sessions:events send --session-id "$SESSION_ID" <<'YAML'
@@ -283,10 +277,9 @@ events:
       - type: text
         text: Instead, focus on fixing the bug in line 42.
 YAML
-````
+```
 
-  
-````python
+```python
 # Agent is currently analyzing a file...
 # Interrupt with a new direction:
 client.beta.sessions.events.send(
@@ -304,10 +297,9 @@ client.beta.sessions.events.send(
         },
     ],
 )
-````
+```
 
-  
-````typescript
+```typescript
 // Agent is currently analyzing a file...
 // Interrupt with a new direction:
 await client.beta.sessions.events.send(session.id, {
@@ -324,10 +316,9 @@ await client.beta.sessions.events.send(session.id, {
     },
   ],
 });
-````
+```
 
-  
-````csharp
+```csharp
 // Agent is currently analyzing a file...
 // Interrupt with a new direction:
 await client.Beta.Sessions.Events.Send(session.ID, new()
@@ -352,10 +343,9 @@ await client.Beta.Sessions.Events.Send(session.ID, new()
         },
     ],
 });
-````
+```
 
-  
-````go
+```go
 // Agent is currently analyzing a file...
 // Interrupt with a new direction:
 if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
@@ -380,10 +370,9 @@ if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSes
 }); err != nil {
 	panic(err)
 }
-````
+```
 
-  
-````java
+```java
 // Agent is currently analyzing a file...
 // Interrupt with a new direction:
 client.beta().sessions().events().send(
@@ -397,10 +386,9 @@ client.beta().sessions().events().send(
             .addTextContent("Instead, focus on fixing the bug in line 42.")
             .build())
         .build());
-````
+```
 
-  
-````php
+```php
 // Agent is currently analyzing a file...
 // Interrupt with a new direction:
 $client->beta->sessions->events->send(
@@ -418,10 +406,9 @@ $client->beta->sessions->events->send(
         ],
     ],
 );
-````
+```
 
-  
-````ruby
+```ruby
 # Agent is currently analyzing a file...
 # Interrupt with a new direction:
 client.beta.sessions.events.send_(
@@ -436,7 +423,7 @@ client.beta.sessions.events.send_(
     }
   ]
 )
-````
+```
 
 </CodeGroup>
 
@@ -462,49 +449,49 @@ exec {stream}< <(
 )
 
 curl -sS --fail-with-body \
-  "https://api.anthropic.com/v1/sessions/$SESSION_ID/events?beta=true" \
-  -H "x-api-key: $ANTHROPIC_API_KEY" \
-  -H "anthropic-version: 2023-06-01" \
-  -H "anthropic-beta: managed-agents-2026-04-01" \
-  -H "content-type: application/json" \
-  -d @- >/dev/null <<'EOF'
+ "https://api.anthropic.com/v1/sessions/$SESSION_ID/events?beta=true" \
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "anthropic-version: 2023-06-01" \
+ -H "anthropic-beta: managed-agents-2026-04-01" \
+ -H "content-type: application/json" \
+ -d @- >/dev/null <<'EOF'
 {
-  "events": [
-    {
-      "type": "user.message",
-      "content": [{"type": "text", "text": "Summarize the repo README"}]
-    }
-  ]
+"events": [
+{
+"type": "user.message",
+"content": [{"type": "text", "text": "Summarize the repo README"}]
+}
+]
 }
 EOF
 
 while IFS= read -r -u "$stream" line; do
   [[ $line == data:* ]] || continue
   json=${line#data: }
-  case $(jq -r '.type' <<<"$json") in
-    agent.message)
-      jq -j '.content[] | select(.type == "text") | .text' <<<"$json"
+case $(jq -r '.type' <<<"$json") in
+agent.message)
+jq -j '.content[] | select(.type == "text") | .text' <<<"$json"
       ;;
     session.status_idle)
       break
       ;;
     session.error)
       printf '\n[Error: %s]\n' "$(jq -r '.error.message // "unknown"' <<<"$json")"
-      break
-      ;;
-  esac
+break
+;;
+esac
 done
 exec {stream}<&-
-````
 
-  
+`````
+
+
 ````bash
 # This workflow does not translate well to a one-off shell command.
 # Use one of the SDK examples in this code group instead.
-````
+`````
 
-  
-````python
+```python
 # Open the stream first, then send the user message
 with client.beta.sessions.events.stream(session.id) as stream:
     client.beta.sessions.events.send(
@@ -529,19 +516,18 @@ with client.beta.sessions.events.stream(session.id) as stream:
                 msg = event.error.message if event.error else "unknown"
                 print(f"\n[Error: {msg}]")
                 break
-````
+```
 
-  
-````typescript
+```typescript
 // Open the stream first, then send the user message
 const stream = await client.beta.sessions.events.stream(session.id);
 await client.beta.sessions.events.send(session.id, {
   events: [
     {
       type: "user.message",
-      content: [{ type: "text", text: "Summarize the repo README" }]
-    }
-  ]
+      content: [{ type: "text", text: "Summarize the repo README" }],
+    },
+  ],
 });
 
 for await (const event of stream) {
@@ -558,10 +544,9 @@ for await (const event of stream) {
     break;
   }
 }
-````
+```
 
-  
-````csharp
+```csharp
 // Open the stream first, then send the user message
 using var stream = await client.Beta.Sessions.Events.WithRawResponse.StreamStreaming(session.ID);
 await client.Beta.Sessions.Events.Send(session.ID, new()
@@ -602,16 +587,15 @@ await foreach (var streamEvent in stream.Enumerate())
         break;
     }
 }
-````
+```
 
-  
-````go
+```go
 	// Open the stream first, then send the user message
 	stream := client.Beta.Sessions.Events.StreamEvents(ctx, session.ID, anthropic.BetaSessionEventStreamParams{})
 	defer stream.Close()
 
 	if _, err := client.Beta.Sessions.Events.Send(ctx, session.ID, anthropic.BetaSessionEventSendParams{
-		Events: []anthropic.SendEventsParamsUnion{{
+		Events: []anthropic.BetaManagedAgentsEventParamsUnion{{
 			OfUserMessage: &anthropic.BetaManagedAgentsUserMessageEventParams{
 				Type: anthropic.BetaManagedAgentsUserMessageEventParamsTypeUserMessage,
 				Content: []anthropic.BetaManagedAgentsUserMessageEventParamsContentUnion{{
@@ -643,10 +627,9 @@ events:
 	if err := stream.Err(); err != nil {
 		panic(err)
 	}
-````
+```
 
-  
-````java
+```java
 // Open the stream first, then send the user message
 try (var stream = client.beta().sessions().events().streamStreaming(session.id())) {
     client.beta().sessions().events().send(
@@ -659,7 +642,7 @@ try (var stream = client.beta().sessions().events().streamStreaming(session.id()
             .build()
     );
 
-    for (var event : (Iterable<StreamEvents>) stream.stream()::iterator) {
+    for (var event : (Iterable<BetaManagedAgentsStreamSessionEvents>) stream.stream()::iterator) {
         if (event.isAgentMessage()) {
             event.asAgentMessage().content().forEach(block -> IO.print(block.text()));
         } else if (event.isSessionStatusIdle()) {
@@ -677,15 +660,11 @@ try (var stream = client.beta().sessions().events().streamStreaming(session.id()
         }
     }
 }
-````
+```
 
-  
-````php
+```php
 // Open the stream first, then send the user message
-$stream = $client->beta->sessions->events->streamStream(
-    $session->id,
-    requestOptions: ['transporter' => $streamingClient],
-);
+$stream = $client->beta->sessions->events->streamStream($session->id);
 $client->beta->sessions->events->send(
     $session->id,
     events: [
@@ -710,10 +689,9 @@ foreach ($stream as $event) {
     }
 }
 $stream->close();
-````
+```
 
-  
-````ruby
+```ruby
 # Open the stream first, then send the user message
 stream = client.beta.sessions.events.stream_events(session.id)
 
@@ -738,7 +716,7 @@ stream.each do |event|
     # ignore other event types
   end
 end
-````
+```
 
 </CodeGroup>
 
@@ -758,45 +736,47 @@ exec {stream}< <(
 )
 
 # Stream is open and buffering. List history before tailing live.
+
 declare -A seen_event_ids
 while IFS= read -r id; do
-  seen_event_ids[$id]=1
+seen_event_ids[$id]=1
 done < <(
-  curl -sS --fail-with-body \
-    "https://api.anthropic.com/v1/sessions/$SESSION_ID/events?beta=true" \
-    -H "x-api-key: $ANTHROPIC_API_KEY" \
-    -H "anthropic-version: 2023-06-01" \
-    -H "anthropic-beta: managed-agents-2026-04-01" \
-    -H "content-type: application/json" | jq -r '.data[].id'
+curl -sS --fail-with-body \
+ "https://api.anthropic.com/v1/sessions/$SESSION_ID/events?beta=true" \
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "anthropic-version: 2023-06-01" \
+ -H "anthropic-beta: managed-agents-2026-04-01" \
+ -H "content-type: application/json" | jq -r '.data[].id'
 )
 
 # Tail live events, skipping anything already seen
+
 while IFS= read -r -u "$stream" line; do
   [[ $line == data:* ]] || continue
   json=${line#data: }
-  id=$(jq -r '.id' <<<"$json")
-  [[ -n ${seen_event_ids[$id]+seen} ]] && continue
-  seen_event_ids[$id]=1
-  case $(jq -r '.type' <<<"$json") in
-    agent.message)
-      jq -j '.content[] | select(.type == "text") | .text' <<<"$json"
-      ;;
-    session.status_idle)
-      break
-      ;;
-  esac
+id=$(jq -r '.id' <<<"$json")
+[[-n ${seen_event_ids[$id]+seen}]] && continue
+seen_event_ids[$id]=1
+case $(jq -r '.type' <<<"$json") in
+agent.message)
+jq -j '.content[] | select(.type == "text") | .text' <<<"$json"
+;;
+session.status_idle)
+break
+;;
+esac
 done
 exec {stream}<&-
-````
 
-  
+`````
+
+
 ````bash
 # This workflow does not translate well to a one-off shell command.
 # Use one of the SDK examples in this code group instead.
-````
+`````
 
-  
-````python
+```python
 with client.beta.sessions.events.stream(session.id) as stream:
     # Stream is open and buffering. List history before tailing live.
     seen_event_ids = {event.id for event in client.beta.sessions.events.list(session.id)}
@@ -813,10 +793,9 @@ with client.beta.sessions.events.stream(session.id) as stream:
                         print(block.text, end="")
             case "session.status_idle":
                 break
-````
+```
 
-  
-````typescript
+```typescript
 const seenEventIds = new Set<string>();
 const stream = await client.beta.sessions.events.stream(session.id);
 
@@ -839,10 +818,9 @@ for await (const event of stream) {
     break;
   }
 }
-````
+```
 
-  
-````csharp
+```csharp
 using var stream = await client.Beta.Sessions.Events.WithRawResponse.StreamStreaming(session.ID);
 
 // Stream is open and buffering. List history before tailing live.
@@ -872,10 +850,9 @@ await foreach (var streamEvent in stream.Enumerate())
         break;
     }
 }
-````
+```
 
-  
-````go
+```go
 	stream := client.Beta.Sessions.Events.StreamEvents(ctx, session.ID, anthropic.BetaSessionEventStreamParams{})
 	defer stream.Close()
 
@@ -909,10 +886,9 @@ tail:
 	if err := stream.Err(); err != nil {
 		panic(err)
 	}
-````
+```
 
-  
-````java
+```java
 try (var stream = client.beta().sessions().events().streamStreaming(session.id())) {
     // Stream is open and buffering. List history before tailing live.
     // _json() exposes the raw event so we can read the cross-variant `id` field.
@@ -923,7 +899,7 @@ try (var stream = client.beta().sessions().events().streamStreaming(session.id()
     }
 
     // Tail live events, skipping anything already seen
-    for (var event : (Iterable<StreamEvents>) stream.stream()::iterator) {
+    for (var event : (Iterable<BetaManagedAgentsStreamSessionEvents>) stream.stream()::iterator) {
         Optional<Map<String, JsonValue>> obj = event._json().orElseThrow().asObject();
         if (!seenEventIds.add(obj.orElseThrow().get("id").asStringOrThrow())) continue;
         if (event.isAgentMessage()) {
@@ -933,14 +909,10 @@ try (var stream = client.beta().sessions().events().streamStreaming(session.id()
         }
     }
 }
-````
+```
 
-  
-````php
-$stream = $client->beta->sessions->events->streamStream(
-    $session->id,
-    requestOptions: ['transporter' => $streamingClient],
-);
+```php
+$stream = $client->beta->sessions->events->streamStream($session->id);
 
 // Stream is open and buffering. List history before tailing live.
 $seenEventIds = [];
@@ -966,10 +938,9 @@ foreach ($stream as $event) {
     }
 }
 $stream->close();
-````
+```
 
-  
-````ruby
+```ruby
 stream = client.beta.sessions.events.stream_events(session.id)
 
 # Stream is open and buffering. List history before tailing live.
@@ -989,7 +960,7 @@ stream.each do |event|
     # ignore other event types
   end
 end
-````
+```
 
 </CodeGroup>
 
@@ -1009,40 +980,35 @@ curl -sS --fail-with-body "https://api.anthropic.com/v1/sessions/$SESSION_ID/eve
   | jq -r '.data[] | "[\(.type)] \(.processed_at)"'
 ````
 
-  
-````bash
+```bash
 ant beta:sessions:events list \
   --session-id "$SESSION_ID" \
   --format jsonl \
   --transform '{type,processed_at}'
-````
+```
 
-  
-````python
+```python
 events = client.beta.sessions.events.list(session.id)
 for event in events.data:
     print(f"[{event.type}] {event.processed_at}")
-````
+```
 
-  
-````typescript
+```typescript
 const events = await client.beta.sessions.events.list(session.id);
 for (const event of events.data) {
   console.log(`[${event.type}] ${event.processed_at}`);
 }
-````
+```
 
-  
-````csharp
+```csharp
 var events = await client.Beta.Sessions.Events.List(session.ID);
 foreach (var evt in events.Items)
 {
     Console.WriteLine($"[{evt.Json.GetProperty("type").GetString()}] {evt.ProcessedAt}");
 }
-````
+```
 
-  
-````go
+```go
 events, err := client.Beta.Sessions.Events.List(ctx, session.ID, anthropic.BetaSessionEventListParams{})
 if err != nil {
 	panic(err)
@@ -1050,35 +1016,32 @@ if err != nil {
 for _, event := range events.Data {
 	fmt.Printf("[%s] %s\n", event.Type, event.ProcessedAt)
 }
-````
+```
 
-  
-````java
+```java
 var events = client.beta().sessions().events().list(session.id());
 for (var event : events.data()) {
-    var json = (Map<String, JsonValue>) event._json().orElseThrow().asObject().orElseThrow();
+    var json = event._json().orElseThrow().asObject().orElseThrow();
     var type = json.get("type").asStringOrThrow();
     var processedAt = json.containsKey("processed_at")
         ? json.get("processed_at").asStringOrThrow()
         : "pending";
     IO.println("[" + type + "] " + processedAt);
 }
-````
+```
 
-  
-````php
+```php
 $events = $client->beta->sessions->events->list($session->id);
 foreach ($events->data as $event) {
     $processedAt = ($event->processedAt ?? null)?->format(DATE_RFC3339) ?? 'pending';
     echo "[{$event->type}] {$processedAt}\n";
 }
-````
+```
 
-  
-````ruby
+```ruby
 events = client.beta.sessions.events.list(session.id)
 events.data.each { puts "[#{it.type}] #{it.processed_at}" }
-````
+```
 
 </CodeGroup>
 
@@ -1094,38 +1057,34 @@ curl -sS --fail-with-body "https://api.anthropic.com/v1/sessions/$SESSION_ID/eve
   | jq -r '.data[] | "[\(.type)] \(.processed_at)"'
 ````
 
-  
-````bash
+```bash
 ant beta:sessions:events list \
   --session-id "$SESSION_ID" \
   --type agent.tool_use \
   --type agent.tool_result \
   --format jsonl \
   --transform '{type,processed_at}'
-````
+```
 
-  
-````python
+```python
 events = client.beta.sessions.events.list(
     session.id,
     types=["agent.tool_use", "agent.tool_result"],
 )
 for event in events.data:
     print(f"[{event.type}] {event.processed_at}")
-````
+```
 
-  
-````typescript
+```typescript
 const events = await client.beta.sessions.events.list(session.id, {
   types: ["agent.tool_use", "agent.tool_result"],
 });
 for (const event of events.data) {
   console.log(`[${event.type}] ${event.processed_at}`);
 }
-````
+```
 
-  
-````csharp
+```csharp
 var events = await client.Beta.Sessions.Events.List(session.ID, new()
 {
     Types = ["agent.tool_use", "agent.tool_result"],
@@ -1134,10 +1093,9 @@ foreach (var evt in events.Items)
 {
     Console.WriteLine($"[{evt.Json.GetProperty("type").GetString()}] {evt.ProcessedAt}");
 }
-````
+```
 
-  
-````go
+```go
 events, err := client.Beta.Sessions.Events.List(ctx, session.ID, anthropic.BetaSessionEventListParams{
 	Types: []string{"agent.tool_use", "agent.tool_result"},
 })
@@ -1147,10 +1105,9 @@ if err != nil {
 for _, event := range events.Data {
 	fmt.Printf("[%s] %s\n", event.Type, event.ProcessedAt)
 }
-````
+```
 
-  
-````java
+```java
 var events = client.beta().sessions().events().list(
     session.id(),
     EventListParams.builder()
@@ -1163,10 +1120,9 @@ for (var event : events.data()) {
     event.agentToolResult().ifPresent(toolResult ->
         IO.println("[" + toolResult.type() + "] " + toolResult.processedAt()));
 }
-````
+```
 
-  
-````php
+```php
 $events = $client->beta->sessions->events->list(
     $session->id,
     types: ['agent.tool_use', 'agent.tool_result'],
@@ -1175,16 +1131,15 @@ foreach ($events->data as $event) {
     $processedAt = ($event->processedAt ?? null)?->format(DATE_RFC3339) ?? 'pending';
     echo "[{$event->type}] {$processedAt}\n";
 }
-````
+```
 
-  
-````ruby
+```ruby
 events = client.beta.sessions.events.list(
   session.id,
   types: ["agent.tool_use", "agent.tool_result"]
 )
 events.data.each { puts "[#{it.type}] #{it.processed_at}" }
-````
+```
 
 </CodeGroup>
 
@@ -1216,40 +1171,38 @@ exec {fd}< <(curl -sS -N --fail-with-body \
 while IFS= read -r -u "$fd" line; do
   [[ $line == data:* ]] || continue
   data="${line#data: }"
-  [[ $(jq -r '.type' <<<"$data") == "session.status_idle" ]] || continue
-  case $(jq -r '.stop_reason.type // empty' <<<"$data") in
-    requires_action)
-      while IFS= read -r event_id; do
-        # Look up the custom tool use event and execute it
-        result=$(call_tool "$event_id")
-        # Send the result back
-        jq -n --arg id "$event_id" --arg result "$result" \
-          '{events: [{type: "user.custom_tool_result", custom_tool_use_id: $id, content: [{type: "text", text: $result}]}]}' |
+[[$(jq -r '.type' <<<"$data") == "session.status_idle"]] || continue
+case $(jq -r '.stop_reason.type // empty' <<<"$data") in
+requires_action)
+while IFS= read -r event_id; do # Look up the custom tool use event and execute it
+result=$(call_tool "$event_id") # Send the result back
+jq -n --arg id "$event_id" --arg result "$result" \
+ '{events: [{type: "user.custom_tool_result", custom_tool_use_id: $id, content: [{type: "text", text: $result}]}]}' |
           curl -sS --fail-with-body \
             "https://api.anthropic.com/v1/sessions/$SESSION_ID/events?beta=true" \
-            -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
             -H "anthropic-version: 2023-06-01" \
             -H "anthropic-beta: managed-agents-2026-04-01" \
             -H "content-type: application/json" \
             -d @-
       done < <(jq -r '.stop_reason.event_ids[]' <<<"$data")
-      ;;
-    end_turn)
-      break
-      ;;
-  esac
+;;
+end_turn)
+break
+;;
+esac
 done
 exec {fd}<&-
-````
 
-  
+`````
+
+
 ````bash
 # This workflow does not translate well to a one-off shell command.
 # Use one of the SDK examples in this code group instead.
-````
+`````
 
-  
-````python
+```python
 with client.beta.sessions.events.stream(session.id) as stream:
     for event in stream:
         if event.type == "session.status_idle" and (stop := event.stop_reason):
@@ -1273,10 +1226,9 @@ with client.beta.sessions.events.stream(session.id) as stream:
                         )
                 case "end_turn":
                     break
-````
+```
 
-  
-````typescript
+```typescript
 const stream = await client.beta.sessions.events.stream(session.id);
 
 for await (const event of stream) {
@@ -1303,10 +1255,9 @@ for await (const event of stream) {
     }
   }
 }
-````
+```
 
-  
-````csharp
+```csharp
 await foreach (var streamEvent in client.Beta.Sessions.Events.StreamStreaming(session.ID))
 {
     if (streamEvent.Value is BetaManagedAgentsSessionStatusIdleEvent idle)
@@ -1346,10 +1297,9 @@ await foreach (var streamEvent in client.Beta.Sessions.Events.StreamStreaming(se
         }
     }
 }
-````
+```
 
-  
-````go
+```go
 	stream := client.Beta.Sessions.Events.StreamEvents(ctx, session.ID, anthropic.BetaSessionEventStreamParams{})
 	defer stream.Close()
 
@@ -1390,12 +1340,11 @@ loop:
 	if err := stream.Err(); err != nil {
 		panic(err)
 	}
-````
+```
 
-  
-````java
+```java
 try (var stream = client.beta().sessions().events().streamStreaming(session.id())) {
-    for (var event : (Iterable<StreamEvents>) stream.stream()::iterator) {
+    for (var event : (Iterable<BetaManagedAgentsStreamSessionEvents>) stream.stream()::iterator) {
         if (!event.isSessionStatusIdle()) continue;
         var stopReason = event.asSessionStatusIdle().stopReason().orElseThrow();
         if (stopReason.isRequiresAction()) {
@@ -1419,14 +1368,10 @@ try (var stream = client.beta().sessions().events().streamStreaming(session.id()
         }
     }
 }
-````
+```
 
-  
-````php
-$stream = $client->beta->sessions->events->streamStream(
-    $session->id,
-    requestOptions: ['transporter' => $streamingClient],
-);
+```php
+$stream = $client->beta->sessions->events->streamStream($session->id);
 
 foreach ($stream as $event) {
     if ($event->type === 'session.status_idle' && $event->stopReason) {
@@ -1453,10 +1398,9 @@ foreach ($stream as $event) {
         }
     }
 }
-````
+```
 
-  
-````ruby
+```ruby
 client.beta.sessions.events.stream_events(session.id).each do |event|
   case event
   in {type: :"session.status_idle", stop_reason: {type: :requires_action, event_ids:}}
@@ -1481,7 +1425,7 @@ client.beta.sessions.events.stream_events(session.id).each do |event|
   else
   end
 end
-````
+```
 
 </CodeGroup>
 
@@ -1508,38 +1452,37 @@ exec {fd}< <(curl -sS -N --fail-with-body \
 while IFS= read -r -u "$fd" line; do
   [[ $line == data:* ]] || continue
   data="${line#data: }"
-  [[ $(jq -r '.type' <<<"$data") == "session.status_idle" ]] || continue
-  case $(jq -r '.stop_reason.type // empty' <<<"$data") in
-    requires_action)
-      while IFS= read -r event_id; do
-        # Approve the pending tool call
-        jq -n --arg id "$event_id" \
+[[$(jq -r '.type' <<<"$data") == "session.status_idle"]] || continue
+case $(jq -r '.stop_reason.type // empty' <<<"$data") in
+requires_action)
+while IFS= read -r event_id; do # Approve the pending tool call
+jq -n --arg id "$event_id" \
           '{events: [{type: "user.tool_confirmation", tool_use_id: $id, result: "allow"}]}' |
           curl -sS --fail-with-body \
             "https://api.anthropic.com/v1/sessions/$SESSION_ID/events?beta=true" \
-            -H "x-api-key: $ANTHROPIC_API_KEY" \
+ -H "x-api-key: $ANTHROPIC_API_KEY" \
             -H "anthropic-version: 2023-06-01" \
             -H "anthropic-beta: managed-agents-2026-04-01" \
             -H "content-type: application/json" \
             -d @-
       done < <(jq -r '.stop_reason.event_ids[]' <<<"$data")
-      ;;
-    end_turn)
-      break
-      ;;
-  esac
+;;
+end_turn)
+break
+;;
+esac
 done
 exec {fd}<&-
-````
 
-  
+`````
+
+
 ````bash
 # This workflow does not translate well to a one-off shell command.
 # Use one of the SDK examples in this code group instead.
-````
+`````
 
-  
-````python
+```python
 with client.beta.sessions.events.stream(session.id) as stream:
     for event in stream:
         if event.type == "session.status_idle" and (stop := event.stop_reason):
@@ -1559,10 +1502,9 @@ with client.beta.sessions.events.stream(session.id) as stream:
                         )
                 case "end_turn":
                     break
-````
+```
 
-  
-````typescript
+```typescript
 const stream = await client.beta.sessions.events.stream(session.id);
 
 for await (const event of stream) {
@@ -1585,10 +1527,9 @@ for await (const event of stream) {
     }
   }
 }
-````
+```
 
-  
-````csharp
+```csharp
 await foreach (var streamEvent in client.Beta.Sessions.Events.StreamStreaming(session.ID))
 {
     if (streamEvent.Value is BetaManagedAgentsSessionStatusIdleEvent idle)
@@ -1618,10 +1559,9 @@ await foreach (var streamEvent in client.Beta.Sessions.Events.StreamStreaming(se
         }
     }
 }
-````
+```
 
-  
-````go
+```go
 	stream := client.Beta.Sessions.Events.StreamEvents(ctx, session.ID, anthropic.BetaSessionEventStreamParams{})
 	defer stream.Close()
 
@@ -1654,12 +1594,11 @@ loop:
 	if err := stream.Err(); err != nil {
 		panic(err)
 	}
-````
+```
 
-  
-````java
+```java
 try (var stream = client.beta().sessions().events().streamStreaming(session.id())) {
-    for (var event : (Iterable<StreamEvents>) stream.stream()::iterator) {
+    for (var event : (Iterable<BetaManagedAgentsStreamSessionEvents>) stream.stream()::iterator) {
         if (!event.isSessionStatusIdle()) continue;
         var stopReason = event.asSessionStatusIdle().stopReason().orElseThrow();
         if (stopReason.isRequiresAction()) {
@@ -1680,14 +1619,10 @@ try (var stream = client.beta().sessions().events().streamStreaming(session.id()
         }
     }
 }
-````
+```
 
-  
-````php
-$stream = $client->beta->sessions->events->streamStream(
-    $session->id,
-    requestOptions: ['transporter' => $streamingClient],
-);
+```php
+$stream = $client->beta->sessions->events->streamStream($session->id);
 
 foreach ($stream as $event) {
     if ($event->type === 'session.status_idle' && $event->stopReason) {
@@ -1710,10 +1645,9 @@ foreach ($stream as $event) {
         }
     }
 }
-````
+```
 
-  
-````ruby
+```ruby
 client.beta.sessions.events.stream_events(session.id).each do |event|
   case event
   in {type: :"session.status_idle", stop_reason: {type: :requires_action, event_ids:}}
@@ -1731,16 +1665,16 @@ client.beta.sessions.events.stream_events(session.id).each do |event|
   else
   end
 end
-````
+```
 
 </CodeGroup>
 
 ### Resuming an idle session
 
-Sessions persist between interactions. Conversation history is preserved unless the session is explicitly deleted. When a session goes idle, its container is checkpointed, preserving the full container state, including the filesystem, installed packages, and any files the agent created. This allows you to resume cleanly from inactivity.
+Sessions persist between interactions. Conversation history is preserved unless the session is explicitly deleted. When a session goes idle, its sandbox is checkpointed, preserving the full sandbox state, including the filesystem, installed packages, and any files the agent created. This allows you to resume cleanly from inactivity.
 
 <Note>
-While session history is persisted until deleted, checkpoints are only preserved for 30 days after the session's last activity. If your workflow requires the full container state (files, installed tools, and so on) to persist beyond 30 days, send periodic `user.message` events to reset the inactivity timer before the checkpoint expires.
+While session history is persisted until deleted, checkpoints are only preserved for 30 days after the session's last activity. If your workflow requires the full sandbox state (files, installed tools, and so on) to persist beyond 30 days, send periodic `user.message` events to reset the inactivity timer before the checkpoint expires.
 </Note>
 
 To resume a session, send a `user.message` event to it as usual:

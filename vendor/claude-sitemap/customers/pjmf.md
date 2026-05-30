@@ -1,11 +1,13 @@
+# The Patrick J. McGovern Foundation standardizes grant evaluation with Claude
+
 The Patrick J. McGovern Foundation, a global philanthropy focused on AI and data for good, uses Claude to revolutionize how grant makers evaluate nonprofits. Their Grant Guardian tool transforms financial due diligence from inconsistent manual work into standardized analysis, delivering accurate results for hundreds of organizations while saving hours of document review.
 
 **Key results with Claude**
 
--   Processed hundreds of grants since launching Grant Guardian
--   Eliminated hours of manual work transcribing and cross-checking financial documents
--   Achieved consistent evaluation standards across all grant reviews
--   Replaced inefficient spreadsheet processes prone to manual error
+- Processed hundreds of grants since launching Grant Guardian
+- Eliminated hours of manual work transcribing and cross-checking financial documents
+- Achieved consistent evaluation standards across all grant reviews
+- Replaced inefficient spreadsheet processes prone to manual error
 
 ## Grant evaluation becomes a guessing game without proper tools
 
@@ -49,7 +51,7 @@ The impact extends beyond internal efficiency to the organizations they serve. F
 
 PJMF envisions AI transforming philanthropy along two critical dimensions over the next several years. First, operational tools like Grant Guardian will enable greater transparency and strategic consistency across an industry that often lacks standardized processes, helping foundations scale their impact while maintaining rigorous evaluation standards.
 
-Second, they're focused on helping grantees leverage AI for their mission-driven work. PJMF actively trains other funders to evaluate grant proposals incorporating AI, ensuring the philanthropic sector can confidently support innovative approaches to social challenges. Their [Learning Hub](https://learn.mcgovern.org/) provides workshops and other materials to help nonprofits move forward in their AI journey.
+Second, they're focused on helping grantees leverage AI for their mission-driven work. PJMF actively trains other funders to evaluate grant proposals incorporating AI, ensuring the philanthropic sector can confidently support innovative approaches to social challenges. Their Learning Hub provides workshops and other materials to help nonprofits move forward in their AI journey.
 
 PJMF’s approach centers on keeping humans in the loop, developing AI tools that augment rather than replace human expertise. This philosophy ensures that sophisticated analytical capabilities become accessible to organizations of all sizes, not just those with large technical teams.
 

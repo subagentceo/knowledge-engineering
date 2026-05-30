@@ -1,3 +1,5 @@
+# bioRxiv
+
 The bioRxiv connector gives Claude access to bioRxiv and medRxiv preprint servers, hosting research papers in biological and medical sciences posted before peer review. Search for preprints by topic, funder, or category. Track publication outcomes and analyze research trends across the life sciences.
 
 You can use the bioRxiv connector to:

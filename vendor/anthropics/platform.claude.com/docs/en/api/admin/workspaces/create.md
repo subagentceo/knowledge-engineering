@@ -1,8 +1,16 @@
-## Create
+## Create Workspace
 
 **post** `/v1/organizations/workspaces`
 
 Create Workspace
+
+### Header Parameters
+
+- `"anthropic-beta": optional array of string`
+
+  Optional header to specify the beta version(s) you want to use.
+
+  To use multiple betas, use a comma separated list like `beta1,beta2` or specify the header multiple times for each beta.
 
 ### Body Parameters
 
@@ -13,15 +21,12 @@ Create Workspace
 - `data_residency: optional object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
   Data residency configuration for the workspace. If omitted, defaults to workspace_geo=`"us"`, allowed_inference_geos=`"unrestricted"`, and default_inference_geo=`"global"`.
-
   - `allowed_inference_geos: optional array of string or "unrestricted"`
 
     Permitted inference geo values. Defaults to 'unrestricted' if omitted, which allows all geos. Use the string 'unrestricted' to allow all geos, or a list of specific geos.
+    - `array of string`
 
-    - `UnionMember0 = array of string`
-
-    - `UnionMember1 = "unrestricted"`
-
+    - `"unrestricted"`
       - `"unrestricted"`
 
   - `default_inference_geo: optional string`
@@ -32,10 +37,13 @@ Create Workspace
 
     Geographic region for workspace data storage. Immutable after creation. Defaults to 'us' if omitted.
 
+- `tags: optional map[string]`
+
+  User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
 ### Returns
 
-- `Workspace = object { id, archived_at, created_at, 4 more }`
-
+- `Workspace object { id, archived_at, created_at, 5 more }`
   - `id: string`
 
     ID of the Workspace.
@@ -51,15 +59,12 @@ Create Workspace
   - `data_residency: object { allowed_inference_geos, default_inference_geo, workspace_geo }`
 
     Data residency configuration.
-
     - `allowed_inference_geos: array of string or "unrestricted"`
 
       Permitted inference geo values. 'unrestricted' means all geos are allowed.
+      - `array of string`
 
-      - `UnionMember0 = array of string`
-
-      - `UnionMember1 = "unrestricted"`
-
+      - `"unrestricted"`
         - `"unrestricted"`
 
     - `default_inference_geo: string`
@@ -78,12 +83,15 @@ Create Workspace
 
     Name of the Workspace.
 
+  - `tags: map[string]`
+
+    User-defined tags as string key-value pairs. Keys may not begin with `anthropic`.
+
   - `type: "workspace"`
 
     Object type.
 
     For Workspaces, this is always `"workspace"`.
-
     - `"workspace"`
 
 ### Example
@@ -94,6 +102,32 @@ curl https://api.anthropic.com/v1/organizations/workspaces \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY" \
     -d '{
-          "name": "x"
+          "name": "x",
+          "tags": {
+            "env": "prod",
+            "team": "platform"
+          }
         }'
+```
+
+#### Response
+
+```json
+{
+  "id": "wrkspc_01JwQvzr7rXLA5AGx3HKfFUJ",
+  "archived_at": "2024-11-01T23:59:27.427722Z",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "data_residency": {
+    "allowed_inference_geos": "unrestricted",
+    "default_inference_geo": "default_inference_geo",
+    "workspace_geo": "workspace_geo"
+  },
+  "display_color": "#6C5BB9",
+  "name": "Workspace Name",
+  "tags": {
+    "env": "prod",
+    "team": "platform"
+  },
+  "type": "workspace"
+}
 ```

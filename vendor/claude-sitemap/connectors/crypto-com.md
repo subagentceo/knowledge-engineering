@@ -1,3 +1,5 @@
+# Crypto.com
+
 Real time price quotes, order books, conversions, candlestick charts and more for cryptocurrency tokens from Crypto.com  
 ‍  
 You can use the Crypto.com connector to:

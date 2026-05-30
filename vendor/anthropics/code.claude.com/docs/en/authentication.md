@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -18,10 +19,10 @@ If your browser shows a login code instead of redirecting back after you sign in
 
 You can authenticate with any of these account types:
 
-* **Claude Pro or Max subscription**: log in with your Claude.ai account. Subscribe at [claude.com/pricing](https://claude.com/pricing?utm_source=claude_code\&utm_medium=docs\&utm_content=authentication_pro_max).
-* **Claude for Teams or Enterprise**: log in with the Claude.ai account your team admin invited you to.
-* **Claude Console**: log in with your Console credentials. Your admin must have [invited you](#claude-console-authentication) first.
-* **Cloud providers**: if your organization uses [Amazon Bedrock](/en/amazon-bedrock), [Google Vertex AI](/en/google-vertex-ai), or [Microsoft Foundry](/en/microsoft-foundry), set the required environment variables before running `claude`. No browser login is needed.
+- **Claude Pro or Max subscription**: log in with your Claude.ai account. Subscribe at [claude.com/pricing](https://claude.com/pricing?utm_source=claude_code&utm_medium=docs&utm_content=authentication_pro_max).
+- **Claude for Teams or Enterprise**: log in with the Claude.ai account your team admin invited you to.
+- **Claude Console**: log in with your Console credentials. Your admin must have [invited you](#claude-console-authentication) first.
+- **Cloud providers**: if your organization uses [Amazon Bedrock](/en/amazon-bedrock), [Google Vertex AI](/en/google-vertex-ai), or [Microsoft Foundry](/en/microsoft-foundry), set the required environment variables before running `claude`. No browser login is needed.
 
 To log out and re-authenticate, type `/logout` at the Claude Code prompt.
 
@@ -31,18 +32,18 @@ If you're having trouble logging in, see [authentication troubleshooting](/en/tr
 
 For teams and organizations, you can configure Claude Code access in one of these ways:
 
-* [Claude for Teams or Enterprise](#claude-for-teams-or-enterprise), recommended for most teams
-* [Claude Console](#claude-console-authentication)
-* [Amazon Bedrock](/en/amazon-bedrock)
-* [Google Vertex AI](/en/google-vertex-ai)
-* [Microsoft Foundry](/en/microsoft-foundry)
+- [Claude for Teams or Enterprise](#claude-for-teams-or-enterprise), recommended for most teams
+- [Claude Console](#claude-console-authentication)
+- [Amazon Bedrock](/en/amazon-bedrock)
+- [Google Vertex AI](/en/google-vertex-ai)
+- [Microsoft Foundry](/en/microsoft-foundry)
 
 ### Claude for Teams or Enterprise
 
-[Claude for Teams](https://claude.com/pricing?utm_source=claude_code\&utm_medium=docs\&utm_content=authentication_teams#team-&-enterprise) and [Claude for Enterprise](https://anthropic.com/contact-sales?utm_source=claude_code\&utm_medium=docs\&utm_content=authentication_enterprise) provide the best experience for organizations using Claude Code. Team members get access to both Claude Code and Claude on the web with centralized billing and team management.
+[Claude for Teams](https://claude.com/pricing?utm_source=claude_code&utm_medium=docs&utm_content=authentication_teams#team-&-enterprise) and [Claude for Enterprise](https://anthropic.com/contact-sales?utm_source=claude_code&utm_medium=docs&utm_content=authentication_enterprise) provide the best experience for organizations using Claude Code. Team members get access to both Claude Code and Claude on the web with centralized billing and team management.
 
-* **Claude for Teams**: self-service plan with collaboration features, admin tools, and billing management. Best for smaller teams.
-* **Claude for Enterprise**: adds SSO, domain capture, role-based permissions, compliance API, and managed policy settings for organization-wide Claude Code configurations. Best for larger organizations with security and compliance requirements.
+- **Claude for Teams**: self-service plan with collaboration features, admin tools, and billing management. Best for smaller teams.
+- **Claude for Enterprise**: adds SSO, domain capture, role-based permissions, compliance API, and managed policy settings for organization-wide Claude Code configurations. Best for larger organizations with security and compliance requirements.
 
 <Steps>
   <Step title="Subscribe">
@@ -72,6 +73,7 @@ For organizations that prefer API-based billing, you can set up access through t
 
     * Bulk invite users from within the Console: Settings -> Members -> Invite
     * [Set up SSO](https://support.claude.com/en/articles/13132885-setting-up-single-sign-on-sso)
+
   </Step>
 
   <Step title="Assign roles">
@@ -79,6 +81,7 @@ For organizations that prefer API-based billing, you can set up access through t
 
     * **Claude Code** role: users can only create Claude Code API keys
     * **Developer** role: users can create any kind of API key
+
   </Step>
 
   <Step title="Users complete setup">
@@ -88,6 +91,7 @@ For organizations that prefer API-based billing, you can set up access through t
     * [Check system requirements](/en/setup#system-requirements)
     * [Install Claude Code](/en/setup#install-claude-code)
     * Log in with Console account credentials
+
   </Step>
 </Steps>
 
@@ -113,16 +117,16 @@ For teams using Amazon Bedrock, Google Vertex AI, or Microsoft Foundry:
 
 Claude Code securely manages your authentication credentials:
 
-* **Storage location**:
-  * On macOS, credentials are stored in the encrypted macOS Keychain.
-  * On Linux, credentials are stored in `~/.claude/.credentials.json` with file mode `0600`.
-  * On Windows, credentials are stored in `%USERPROFILE%\.claude\.credentials.json` and inherit the access controls of your user profile directory, which restricts the file to your user account by default.
-  * If you've set the `CLAUDE_CONFIG_DIR` environment variable on Linux or Windows, the `.credentials.json` file lives under that directory instead.
-  * Claude Code manages `.credentials.json` through `/login` and `/logout`. To route requests through a custom API endpoint, set the [`ANTHROPIC_BASE_URL`](/en/env-vars) environment variable instead.
-* **Supported authentication types**: Claude.ai credentials, Claude API credentials, Azure Auth, Bedrock Auth, and Vertex Auth.
-* **Custom credential scripts**: the [`apiKeyHelper`](/en/settings#available-settings) setting can be configured to run a shell script that returns an API key.
-* **Refresh intervals**: by default, `apiKeyHelper` is called after 5 minutes or on HTTP 401 response. Set `CLAUDE_CODE_API_KEY_HELPER_TTL_MS` environment variable for custom refresh intervals.
-* **Slow helper notice**: if `apiKeyHelper` takes longer than 10 seconds to return a key, Claude Code displays a warning notice in the prompt bar showing the elapsed time. If you see this notice regularly, check whether your credential script can be optimized.
+- **Storage location**:
+  - On macOS, credentials are stored in the encrypted macOS Keychain.
+  - On Linux, credentials are stored in `~/.claude/.credentials.json` with file mode `0600`.
+  - On Windows, credentials are stored in `%USERPROFILE%\.claude\.credentials.json` and inherit the access controls of your user profile directory, which restricts the file to your user account by default.
+  - If you've set the `CLAUDE_CONFIG_DIR` environment variable on Linux or Windows, the `.credentials.json` file lives under that directory instead.
+  - Claude Code manages `.credentials.json` through `/login` and `/logout`. To route requests through a custom API endpoint, set the [`ANTHROPIC_BASE_URL`](/en/env-vars) environment variable instead.
+- **Supported authentication types**: Claude.ai credentials, Claude API credentials, Azure Auth, Bedrock Auth, and Vertex Auth.
+- **Custom credential scripts**: the [`apiKeyHelper`](/en/settings#available-settings) setting can be configured to run a shell script that returns an API key.
+- **Refresh intervals**: by default, `apiKeyHelper` is called after 5 minutes or on HTTP 401 response. Set `CLAUDE_CODE_API_KEY_HELPER_TTL_MS` environment variable for custom refresh intervals.
+- **Slow helper notice**: if `apiKeyHelper` takes longer than 10 seconds to return a key, Claude Code displays a warning notice in the prompt bar showing the elapsed time. If you see this notice regularly, check whether your credential script can be optimized.
 
 `apiKeyHelper`, `ANTHROPIC_API_KEY`, and `ANTHROPIC_AUTH_TOKEN` apply to terminal CLI sessions only. Claude Desktop and remote sessions use OAuth exclusively and do not call `apiKeyHelper` or read API key environment variables.
 

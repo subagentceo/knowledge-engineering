@@ -1,4 +1,4 @@
-## Delete
+## Delete Session Resource
 
 `$ ant beta:sessions:resources delete`
 
@@ -25,11 +25,9 @@ Delete Session Resource
 - `beta_managed_agents_delete_session_resource: object { id, type }`
 
   Confirmation of resource deletion.
-
   - `id: string`
 
   - `type: "session_resource_deleted"`
-
     - `"session_resource_deleted"`
 
 ### Example
@@ -39,4 +37,13 @@ ant beta:sessions:resources delete \
   --api-key my-anthropic-api-key \
   --session-id sesn_011CZkZAtmR3yMPDzynEDxu7 \
   --resource-id sesrsc_011CZkZBJq5dWxk9fVLNcPht
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "type": "session_resource_deleted"
+}
 ```

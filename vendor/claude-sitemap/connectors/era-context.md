@@ -1,3 +1,5 @@
+# Era Context
+
 Era Context is a secure place to manage your finances. Set up automations, fix overspending, figure out your portfolio, or tell Claude a goal and get your full financial life in context.
 
 You can use Era Context to:

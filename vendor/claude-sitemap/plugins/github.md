@@ -1,3 +1,5 @@
+# GitHub
+
 The GitHub plugin connects Claude Code directly to GitHub's platform through the official GitHub MCP server. Manage repositories, issues, pull requests, and workflows without leaving your development environment. Browse code, analyze commits, and understand project structure across all your accessible repositories.
 
 Key capabilities include creating and updating issues and pull requests, reviewing code with AI assistance, monitoring GitHub Actions workflows, analyzing build failures, and managing releases. The plugin also provides security features like examining code scanning findings and reviewing Dependabot alerts.

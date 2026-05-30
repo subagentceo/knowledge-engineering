@@ -1,3 +1,5 @@
+# LSEG
+
 The LSEG plugin gives financial professionals direct access to LSEG's market data and analytics from within Claude. Build DCF models with live yield curves, draft morning notes with real-time news, rebalance portfolios with current cross-asset pricing, and analyse deals with actual financing economics. Claude handles the orchestration; LSEG provides the institutional-grade content. Designed for analysts, portfolio managers, traders, and strategists with active LSEG data entitlements.
 
 **Fixed Income & Rates**

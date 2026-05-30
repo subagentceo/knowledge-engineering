@@ -30,7 +30,7 @@ Additionally, all invoices are automatically emailed to your billing email addre
 
 If you want to use a name other than the one tied to your payment method, check the "Use a different name on invoices" box when adding or updating your payment method in [Settings > Billing](http://claude.ai/settings/billing).
 
-![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1778914800&amp;signature=b802baa06a35f92de0887e5f0f879a9ecea2f39bccc799e4d25869b1bd1dc02d&amp;req=dSklFMh6nIZXXPMW1HO4zVXW%2F2WiajfEQoNvNFTb5ccF4QjIFABn3UYElO8z%0AZCx8ilzRGb8AvtCs0L4%3D%0A)
+![](https://downloads.intercomcdn.com/i/o/lupk8zyo/1922141785/666191101c11030b05f03a668a74/image.png?expires=1780164900&signature=6d68b552f599f6f56e64931eda5aa0c993cd73ea00eaf6d5c8928e1dc9bab8ec&req=dSklFMh6nIZXXPMW1HO4zVXW8G2qbTfFQoNvNFTb5cd7QaPV64EyhT6Uc6Td%0AUlJO9WJkagQr2fSEZTE%3D%0A)
 
 ## How can I edit a paid invoice?
 

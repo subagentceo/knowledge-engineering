@@ -1,3 +1,5 @@
+# StubHub
+
 StubHub makes it easy to explore live events directly from Claude. Access live ticket availability, pricing, and view quality in real time with an assistant that remembers your preferences. With over 50 million listings across 200+ countries, you can discover concerts, sports, theater, comedy, festivals, and more — all in one place.
 
 You can use StubHub to:

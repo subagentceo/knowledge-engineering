@@ -1,4 +1,6 @@
-Integrates the [ElixirLS](https://github.com/elixir-lsp/elixir-ls) language server with Claude Code, providing code intelligence and diagnostics for Elixir projects. Supports `.ex` (Elixir source), `.exs` (Elixir script), and `.heex` (Phoenix HEEx template) files.
+# Elixir LS
+
+Integrates the ElixirLS language server with Claude Code, providing code intelligence and diagnostics for Elixir projects. Supports `.ex` (Elixir source), `.exs` (Elixir script), and `.heex` (Phoenix HEEx template) files.
 
 With this plugin enabled, Claude Code gains access to real-time compiler diagnostics, code navigation, and language-aware analysis powered by ElixirLS — the same language server used by popular editors like VS Code and Neovim. This means more accurate code suggestions, better error detection, and richer understanding of your Elixir and Phoenix codebases.
 

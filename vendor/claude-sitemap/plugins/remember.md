@@ -1,3 +1,5 @@
+# Remember
+
 Continuous memory for Claude Code. This plugin automatically captures your sessions, compresses them through Claude Haiku into tiered daily logs, and reloads context when you start a new session. Claude remembers what you worked on yesterday — the files you changed, decisions you made, and where you left off — without any manual effort.
 
 The memory pipeline works in layers: sessions are extracted and filtered, then summarized by Haiku into daily buffers. Hourly compression consolidates same-day entries, and daily consolidation organizes everything into 7-day "recent" and older "archive" files. On session start, relevant memory is automatically injected into Claude's context. You can also define a persistent identity file so Claude maintains consistent personality and conventions across sessions. Typical cost is less than $0.01 per session save.

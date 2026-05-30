@@ -1,3 +1,5 @@
+# Rust Analyzer LSP
+
 Rust Analyzer LSP integrates the official Rust language server with Claude Code, providing powerful code intelligence and analysis for Rust projects. It delivers IDE-quality features including go-to-definition, find-all-references, intelligent code completion, and real-time diagnostics from rustc and clippy.
 
 The plugin supports refactoring operations, integrated rustfmt formatting, and comprehensive code navigation for .rs files. It leverages the same rust-analyzer engine used by VS Code, Vim, Emacs, and other major editors.

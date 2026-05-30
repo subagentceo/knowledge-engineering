@@ -1,3 +1,5 @@
+# Jumpcut helps Hollywood find the next big script with Claude
+
 Jumpcut uses Claude 3 Opus to save Hollywood studios, agencies, and production companies hundreds of hours on script reviews by generating comprehensive reports that help entertainment teams review more scripts and more writers catch their big break.
 
 ## Finding the right script
@@ -6,7 +8,7 @@ Each year, hundreds of thousands of screenplays compete for attention from creat
 
 Jumpcut offers a radically different approach using generative AI. Its founders have built a product, ScriptSense, to reduce the hours spent analyzing each script so entertainment teams can deeply consider a more diverse array of projects.
 
-Teams upload scripts to ScriptSense to produce comprehensive script coverage on everything from scene summaries to character breakdowns to similar titles—all in seconds. In order to capture the rich stories and unique subtext from each script, the team chose to power ScriptSense with Claude.  
+Teams upload scripts to ScriptSense to produce comprehensive script coverage on everything from scene summaries to character breakdowns to similar titles—all in seconds. In order to capture the rich stories and unique subtext from each script, the team chose to power ScriptSense with Claude.
 
 ![App screen from the Jumpcut platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05c0354d3ed544db3a1_cce4f1f69906a5e5a4d887d491677f9bd0e13115-1920x1080.jpeg)
 
@@ -22,9 +24,9 @@ With ScriptSense, the Jumpcut team built a multi-step, agentic architecture to b
 
 ![App screen from the Jumpcut platform](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf05c0354d3ed544db3b2_5a8ae362e7c28294842ab993ab6692bd359fd2a2-1920x1080.jpeg)
 
-> We ran tests and evaluations across all major foundation models, which revealed that Claude performed best at the summarization and creative analysis subtasks involved in the multi-step script breakdown process. The end result was more context-rich results that help entertainment teams make informed decisions faster.  
->   
-> \- Dilip Rajan, Co-Founder and Head of Product of Jumpcut
+> We ran tests and evaluations across all major foundation models, which revealed that Claude performed best at the summarization and creative analysis subtasks involved in the multi-step script breakdown process. The end result was more context-rich results that help entertainment teams make informed decisions faster.
+>
+> - Dilip Rajan, Co-Founder and Head of Product of Jumpcut
 
 In addition to high quality, unbiased script coverage, ScriptSense breaks down silos across large teams by indexing all uploaded material and making it easily searchable in a centralized database. When a studio or agent is looking to meet a very specific content mandate, they can easily search across the thousands of scripts that their teams have collected, down to the detail of subgenres, settings, themes, type of characters, or storylines.
 

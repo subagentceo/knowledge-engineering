@@ -1,4 +1,4 @@
-## List
+## List Skills
 
 `SkillListPage beta().skills().list(SkillListParamsparams = SkillListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,7 +9,6 @@ List Skills
 ### Parameters
 
 - `SkillListParams params`
-
   - `Optional<Long> limit`
 
     Number of results to return per page.
@@ -27,14 +26,12 @@ List Skills
     Filter skills by source.
 
     If provided, only skills from the specified source will be returned:
-
-    * `"custom"`: only return user-created skills
-    * `"anthropic"`: only return Anthropic-created skills
+    - `"custom"`: only return user-created skills
+    - `"anthropic"`: only return Anthropic-created skills
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -83,10 +80,15 @@ List Skills
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class SkillListResponse:`
-
   - `String id`
 
     Unique identifier for the skill.
@@ -114,9 +116,8 @@ List Skills
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `String type`
 
@@ -146,5 +147,25 @@ public final class Main {
 
         SkillListPage page = client.beta().skills().list();
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_title": "My Custom Skill",
+      "latest_version": "1759178010641129",
+      "source": "custom",
+      "type": "type",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```

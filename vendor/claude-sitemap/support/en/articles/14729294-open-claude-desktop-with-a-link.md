@@ -16,11 +16,12 @@ All parameter values must be URL-encoded. Prompt text passed in `q` is truncated
 claude://claude.ai/new
 claude://claude.ai/new?q=Summarize%20this%20week%27s%20release%20notes
 ```
+
 Opens a new chat in Claude Desktop. If you include `q`, the prompt field is prefilled with that text so you can review and send it.
 
-| **Parameter** | **Required** | **Description** |
-| --- | --- | --- |
-| `q` | No | Text to prefill in the prompt field. |
+| **Parameter** | **Required** | **Description**                      |
+| ------------- | ------------ | ------------------------------------ |
+| `q`           | No           | Text to prefill in the prompt field. |
 
 ---
 
@@ -30,6 +31,7 @@ Opens a new chat in Claude Desktop. If you include `q`, the prompt field is pref
 claude://claude.ai/chat/{conversation-id}
 claude://claude.ai/project/{project-id}
 ```
+
 Opens a specific chat or project by its ID. The ID is the UUID you see at the end of the chat or project URL in Claude. If the ID is missing or invalid, Claude opens your recent chats or your projects list instead.
 
 ---
@@ -40,13 +42,14 @@ Opens a specific chat or project by its ID. The ID is the UUID you see at the en
 claude://code/new
 claude://code/new?q=Fix%20the%20failing%20test&folder=%2FUsers%2Fme%2Frepo
 ```
+
 Opens Claude Code in Claude Desktop with the composer prefilled. Use this for "Open in Claude Code" buttons in your own tools.
 
-| **Parameter** | **Required** | **Description** |
-| --- | --- | --- |
-| `q` | No | Text to prefill in the composer. prompt is accepted as an alias. |
-| `folder` | No | Absolute path to use as the working directory. Claude Desktop asks you to confirm the folder before it's used. Only the first folder value is applied today. |
-| `file` | No | Absolute path to a file to attach. Accepted but not currently supported. |
+| **Parameter** | **Required** | **Description**                                                                                                                                              |
+| ------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `q`           | No           | Text to prefill in the composer. prompt is accepted as an alias.                                                                                             |
+| `folder`      | No           | Absolute path to use as the working directory. Claude Desktop asks you to confirm the folder before it's used. Only the first folder value is applied today. |
+| `file`        | No           | Absolute path to a file to attach. Accepted but not currently supported.                                                                                     |
 
 **Note:** Any folder supplied through a link is treated as untrusted. Claude Desktop always shows a confirmation dialog before adopting it as the working directory, even if you've trusted that folder before.
 
@@ -59,13 +62,14 @@ claude://cowork/new
 claude://cowork/new?q=Draft%20the%20Q2%20update&folder=%2FUsers%2Fme%2Fdocs&file=%2FUsers%2Fme
 %2Fdocs%2Fnotes.md
 ```
+
 Opens a new Cowork session with the composer prefilled. Use this for "Open in Claude Cowork" buttons in your own tools.
 
-| **Parameter** | **Required** | **Description** |
-| --- | --- | --- |
-| `q` | No | Text to prefill in the composer. |
-| `folder` | No | Absolute path to a folder to attach. Repeat the parameter to attach more than one. Claude Desktop asks you to confirm each folder before it's used. |
-| `file` | No | Absolute path to a file to attach. Repeat the parameter to attach more than one. |
+| **Parameter** | **Required** | **Description**                                                                                                                                     |
+| ------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `q`           | No           | Text to prefill in the composer.                                                                                                                    |
+| `folder`      | No           | Absolute path to a folder to attach. Repeat the parameter to attach more than one. Claude Desktop asks you to confirm each folder before it's used. |
+| `file`        | No           | Absolute path to a file to attach. Repeat the parameter to attach more than one.                                                                    |
 
 **Note:** Any folder supplied through a link is treated as untrusted. Claude Desktop always shows a confirmation dialog before adopting it as the working directory, even if you've trusted that folder before.
 

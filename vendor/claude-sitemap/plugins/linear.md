@@ -1,3 +1,5 @@
+# Linear
+
 Connect Claude Code to Linear's modern issue tracking platform. This plugin lets you create and manage issues, update statuses, search across your workspaces, and keep your development workflow in sync—all without leaving your terminal.
 
 With the Linear plugin, you can quickly file bugs, track feature requests, update project statuses, and query your issue backlog directly from Claude Code. It integrates seamlessly with Linear's fast, streamlined interface designed for product teams.

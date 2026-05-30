@@ -1,4 +1,4 @@
-## Delete
+## Delete Session Resource
 
 `BetaManagedAgentsDeleteSessionResource beta().sessions().resources().delete(ResourceDeleteParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,7 +9,6 @@ Delete Session Resource
 ### Parameters
 
 - `ResourceDeleteParams params`
-
   - `String sessionId`
 
   - `Optional<String> resourceId`
@@ -17,7 +16,6 @@ Delete Session Resource
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -66,16 +64,20 @@ Delete Session Resource
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaManagedAgentsDeleteSessionResource:`
 
   Confirmation of resource deletion.
-
   - `String id`
 
   - `Type type`
-
     - `SESSION_RESOURCE_DELETED("session_resource_deleted")`
 
 ### Example
@@ -100,5 +102,14 @@ public final class Main {
             .build();
         BetaManagedAgentsDeleteSessionResource betaManagedAgentsDeleteSessionResource = client.beta().sessions().resources().delete(params);
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "type": "session_resource_deleted"
 }
 ```

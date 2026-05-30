@@ -1,4 +1,6 @@
-**_Update:_** _Now available on Google Cloud's Vertex AI (Aug 26, 2025)_
+# Claude Sonnet 4 now supports 1M tokens of context
+
+***Update:*** *Now available on Google Cloud's Vertex AI (Aug 26, 2025)*
 
 Claude Sonnet 4 now supports up to 1 million tokens of context on the Anthropic API—a 5x increase that lets you process entire codebases with over 75,000 lines of code or dozens of research papers in a single request.
 
@@ -8,13 +10,13 @@ Long context support for Sonnet 4 is now in public beta on the Claude Developer 
 
 With longer context, developers can run more comprehensive and data-intensive use cases with Claude, including:
 
--   **Large-scale code analysis:** Load entire codebases including source files, tests, and documentation. Claude can understand project architecture, identify cross-file dependencies, and suggest improvements that account for the complete system design.
--   **Document synthesis:** Process extensive document sets like legal contracts, research papers, or technical specifications. Analyze relationships across hundreds of documents while maintaining full context.
--   **Context-aware agents:** Build agents that maintain context across hundreds of tool calls and multi-step workflows. Include complete API documentation, tool definitions, and interaction histories without losing coherence.
+- **Large-scale code analysis:** Load entire codebases including source files, tests, and documentation. Claude can understand project architecture, identify cross-file dependencies, and suggest improvements that account for the complete system design.
+- **Document synthesis:** Process extensive document sets like legal contracts, research papers, or technical specifications. Analyze relationships across hundreds of documents while maintaining full context.
+- **Context-aware agents:** Build agents that maintain context across hundreds of tool calls and multi-step workflows. Include complete API documentation, tool definitions, and interaction histories without losing coherence.
 
 ### API pricing
 
-To account for increased computational requirements, [pricing](https://www.anthropic.com/pricing#api) adjusts for prompts over 200K tokens:
+To account for increased computational requirements, pricing adjusts for prompts over 200K tokens:
 
 Input
 
@@ -34,7 +36,7 @@ $22.50 / MTok
 
 Claude Sonnet 4 pricing on the Anthropic API
 
-When combined with [prompt caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching), users can reduce latency and costs for Claude Sonnet 4 with long context. The 1M context window can also be used with [batch processing](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) for an additional 50% cost savings.
+When combined with prompt caching, users can reduce latency and costs for Claude Sonnet 4 with long context. The 1M context window can also be used with batch processing for an additional 50% cost savings.
 
 ### Customer spotlight: Bolt.new
 
@@ -52,4 +54,4 @@ London-based iGent AI is advancing the field of software development with Maestr
 
 Long context support for Sonnet 4 is now in public beta on the Claude Developer Platform for customers with Tier 4 and custom rate limits, with broader availability rolling out over the coming weeks. Long context is also available in Amazon Bedrock and on Google Cloud's Vertex AI. We’re also exploring how to bring long context to other Claude products.
 
-To learn more about Sonnet 4 and the 1M context window, see our [documentation](https://docs.anthropic.com/en/docs/build-with-claude/context-windows#1m-token-context-window) and [pricing page](https://www.anthropic.com/pricing#api).
+To learn more about Sonnet 4 and the 1M context window, see our documentation and pricing page.

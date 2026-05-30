@@ -1,24 +1,26 @@
-Before a [new Claude model goes live](https://www.anthropic.com/news/claude-opus-4-6), a small group of customers gets access days before the rest of the world. They work with pre-production research models, test them against real workloads to figure out what the model is great at, where it breaks, and whether it's ready to ship to their own users the moment  Anthropic launches it publicly. Their honest assessments — what works _and_ what doesn't — directly shape the version of the model Anthropic ultimately ships.
+# Behind the model launch: What customers discovered testing Claude Opus 4.6 early
+
+Before a new Claude model goes live, a small group of customers gets access days before the rest of the world. They work with pre-production research models, test them against real workloads to figure out what the model is great at, where it breaks, and whether it's ready to ship to their own users the moment  Anthropic launches it publicly. Their honest assessments — what works _and_ what doesn't — directly shape the version of the model Anthropic ultimately ships.
 
 The review window is tight. Teams clear their calendars, spin up war rooms, and start throwing their hardest problems at the model. Behind the scenes, it's late nights, many cups of coffee, and Slack channels lighting up at odd hours. What their customers eventually see is polished—but the process of getting there is a lot messier and a lot more fun.
 
-For this piece, we wanted to pull the curtain on what this looks like. [Harvey](https://www.harvey.ai/), [bolt.new](https://bolt.new/), [Shopify](https://www.shopify.com/), and [Lovable](https://lovable.dev/) all gave us a look inside at their early access period with Claude Opus 4.6: the approaches they took, the breakthroughs they found, and what they learned before anyone else.
+For this piece, we wanted to pull the curtain on what this looks like. Harvey, bolt.new, Shopify, and Lovable all gave us a look inside at their early access period with Claude Opus 4.6: the approaches they took, the breakthroughs they found, and what they learned before anyone else.
 
-## **Getting ready for model testing**
+## Getting ready for model testing
 
 How teams kick things off depends a lot on what they're building. 
 
-[bolt.new](https://claude.com/customers/stackblitz) spun up a dedicated Slack channel and deliberately avoided sharing impressions early so they wouldn't bias each other. 
+bolt.new spun up a dedicated Slack channel and deliberately avoided sharing impressions early so they wouldn't bias each other. 
 
-[Harvey](https://claude.com/customers/harvey)'s research team brought in experienced lawyers to test the model on legal tasks while running it through BigLaw Bench, their benchmark for real-world legal work.
+Harvey's research team brought in experienced lawyers to test the model on legal tasks while running it through BigLaw Bench, their benchmark for real-world legal work.
 
-[Shopify](https://claude.com/customers/shopify)'s engineers started feeding the model into iterative planning loops they'd already built around Claude. 
+Shopify's engineers started feeding the model into iterative planning loops they'd already built around Claude. 
 
-At [Lovable](https://claude.com/customers/lovable), the team that manages models and evals kicked into gear immediately—running benchmarks while engineers booked time to do what they call "vibe checks," building apps with the new model to feel out where it's stronger. Alexandre Pesant, engineering lead at Lovable, said, "It's a bit like Christmas." 
+At Lovable, the team that manages models and evals kicked into gear immediately—running benchmarks while engineers booked time to do what they call "vibe checks," building apps with the new model to feel out where it's stronger. Alexandre Pesant, engineering lead at Lovable, said, "It's a bit like Christmas." 
 
 The approaches were different, but the instinct was the same: throw your hardest problems at the model first.
 
-## **When the results start coming in**
+## When the results start coming in
 
 Once testing is underway, teams are watching for two things: how the model scores on their benchmarks, and how it _feels_ in practice. Both matter, and they don't always tell you the same thing.
 
@@ -44,7 +46,7 @@ His own stress test was a side project involving complicated subway mapping and 
 
 "I kind of know when things are not going to work or if we're hitting the limits," he said. "It went further than others." He also noticed a broader shift: with the model's ability to use the browser and test on its own inside Lovable, "you can feel a difference in autonomy."
 
-## **What it's like on the other side**
+## What it's like on the other side
 
 By the time early access wraps up, teams have a clear picture of what they're working with. Every team we talked to kept coming back to the same point: the relationship with the model is changing.
 

@@ -1,6 +1,6 @@
 # Resources
 
-## Add
+## Add Session Resource
 
 `client.beta.sessions.resources.add(stringsessionID, ResourceAddParamsparams, RequestOptionsoptions?): BetaManagedAgentsFileResource`
 
@@ -13,7 +13,6 @@ Add Session Resource
 - `sessionID: string`
 
 - `params: ResourceAddParams`
-
   - `file_id: string`
 
     Body param: ID of a previously uploaded file.
@@ -21,7 +20,6 @@ Add Session Resource
   - `type: "file"`
 
     Body param
-
     - `"file"`
 
   - `mount_path?: string | null`
@@ -31,11 +29,9 @@ Add Session Resource
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -84,10 +80,15 @@ Add Session Resource
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsFileResource`
-
   - `id: string`
 
   - `created_at: string`
@@ -99,7 +100,6 @@ Add Session Resource
   - `mount_path: string`
 
   - `type: "file"`
-
     - `"file"`
 
   - `updated_at: string`
@@ -109,21 +109,34 @@ Add Session Resource
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 const betaManagedAgentsFileResource = await client.beta.sessions.resources.add(
-  'sesn_011CZkZAtmR3yMPDzynEDxu7',
-  { file_id: 'file_011CNha8iCJcU1wXNR6q4V8w', type: 'file' },
+  "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  { file_id: "file_011CNha8iCJcU1wXNR6q4V8w", type: "file" },
 );
 
 console.log(betaManagedAgentsFileResource.id);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "created_at": "2026-03-15T10:00:00Z",
+  "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "mount_path": "/uploads/receipt.pdf",
+  "type": "file",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## List Session Resources
 
 `client.beta.sessions.resources.list(stringsessionID, ResourceListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsSessionResource>`
 
@@ -136,7 +149,6 @@ List Session Resources
 - `sessionID: string`
 
 - `params: ResourceListParams`
-
   - `limit?: number`
 
     Query param: Maximum number of resources to return per page (max 1000). If omitted, returns all resources.
@@ -148,11 +160,9 @@ List Session Resources
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -201,14 +211,18 @@ List Session Resources
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   A memory store attached to an agent session.
-
   - `BetaManagedAgentsGitHubRepositoryResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -218,7 +232,6 @@ List Session Resources
     - `mount_path: string`
 
     - `type: "github_repository"`
-
       - `"github_repository"`
 
     - `updated_at: string`
@@ -228,29 +241,23 @@ List Session Resources
     - `url: string`
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
-
       - `BetaManagedAgentsBranchCheckout`
-
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
-
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout`
-
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
-
           - `"commit"`
 
   - `BetaManagedAgentsFileResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -262,7 +269,6 @@ List Session Resources
     - `mount_path: string`
 
     - `type: "file"`
-
       - `"file"`
 
     - `updated_at: string`
@@ -272,19 +278,16 @@ List Session Resources
   - `BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
-
     - `memory_store_id: string`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
-
       - `"memory_store"`
 
     - `access?: "read_write" | "read_only" | null`
 
       Access mode for an attached memory store.
-
       - `"read_write"`
 
       - `"read_only"`
@@ -308,21 +311,51 @@ List Session Resources
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
 for await (const betaManagedAgentsSessionResource of client.beta.sessions.resources.list(
-  'sesn_011CZkZAtmR3yMPDzynEDxu7',
+  "sesn_011CZkZAtmR3yMPDzynEDxu7",
 )) {
   console.log(betaManagedAgentsSessionResource);
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+      "created_at": "2026-03-15T10:00:00Z",
+      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "mount_path": "/uploads/receipt.pdf",
+      "type": "file",
+      "updated_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "created_at": "2026-03-15T10:00:00Z",
+      "mount_path": "/workspace/example-repo",
+      "type": "github_repository",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "url": "https://github.com/example-org/example-repo",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      }
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Session Resource
 
 `client.beta.sessions.resources.retrieve(stringresourceID, ResourceRetrieveParamsparams, RequestOptionsoptions?): ResourceRetrieveResponse`
 
@@ -335,7 +368,6 @@ Get Session Resource
 - `resourceID: string`
 
 - `params: ResourceRetrieveParams`
-
   - `session_id: string`
 
     Path param: Path parameter session_id
@@ -343,11 +375,9 @@ Get Session Resource
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -396,14 +426,18 @@ Get Session Resource
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The requested session resource.
-
   - `BetaManagedAgentsGitHubRepositoryResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -413,7 +447,6 @@ Get Session Resource
     - `mount_path: string`
 
     - `type: "github_repository"`
-
       - `"github_repository"`
 
     - `updated_at: string`
@@ -423,29 +456,23 @@ Get Session Resource
     - `url: string`
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
-
       - `BetaManagedAgentsBranchCheckout`
-
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
-
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout`
-
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
-
           - `"commit"`
 
   - `BetaManagedAgentsFileResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -457,7 +484,6 @@ Get Session Resource
     - `mount_path: string`
 
     - `type: "file"`
-
       - `"file"`
 
     - `updated_at: string`
@@ -467,19 +493,16 @@ Get Session Resource
   - `BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
-
     - `memory_store_id: string`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
-
       - `"memory_store"`
 
     - `access?: "read_write" | "read_only" | null`
 
       Access mode for an attached memory store.
-
       - `"read_write"`
 
       - `"read_only"`
@@ -503,20 +526,40 @@ Get Session Resource
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const resource = await client.beta.sessions.resources.retrieve('sesrsc_011CZkZBJq5dWxk9fVLNcPht', {
-  session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
-});
+const resource = await client.beta.sessions.resources.retrieve(
+  "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  {
+    session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  },
+);
 
 console.log(resource);
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "created_at": "2026-03-15T10:00:00Z",
+  "mount_path": "/workspace/example-repo",
+  "type": "github_repository",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "url": "https://github.com/example-org/example-repo",
+  "checkout": {
+    "name": "main",
+    "type": "branch"
+  }
+}
+```
+
+## Update Session Resource
 
 `client.beta.sessions.resources.update(stringresourceID, ResourceUpdateParamsparams, RequestOptionsoptions?): ResourceUpdateResponse`
 
@@ -529,7 +572,6 @@ Update Session Resource
 - `resourceID: string`
 
 - `params: ResourceUpdateParams`
-
   - `session_id: string`
 
     Path param: Path parameter session_id
@@ -541,11 +583,9 @@ Update Session Resource
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -594,14 +634,18 @@ Update Session Resource
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The updated session resource.
-
   - `BetaManagedAgentsGitHubRepositoryResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -611,7 +655,6 @@ Update Session Resource
     - `mount_path: string`
 
     - `type: "github_repository"`
-
       - `"github_repository"`
 
     - `updated_at: string`
@@ -621,29 +664,23 @@ Update Session Resource
     - `url: string`
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
-
       - `BetaManagedAgentsBranchCheckout`
-
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
-
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout`
-
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
-
           - `"commit"`
 
   - `BetaManagedAgentsFileResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -655,7 +692,6 @@ Update Session Resource
     - `mount_path: string`
 
     - `type: "file"`
-
       - `"file"`
 
     - `updated_at: string`
@@ -665,19 +701,16 @@ Update Session Resource
   - `BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
-
     - `memory_store_id: string`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
-
       - `"memory_store"`
 
     - `access?: "read_write" | "read_only" | null`
 
       Access mode for an attached memory store.
-
       - `"read_write"`
 
       - `"read_only"`
@@ -701,21 +734,41 @@ Update Session Resource
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const resource = await client.beta.sessions.resources.update('sesrsc_011CZkZBJq5dWxk9fVLNcPht', {
-  session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7',
-  authorization_token: 'ghp_exampletoken',
-});
+const resource = await client.beta.sessions.resources.update(
+  "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  {
+    session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7",
+    authorization_token: "ghp_exampletoken",
+  },
+);
 
 console.log(resource);
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "created_at": "2026-03-15T10:00:00Z",
+  "mount_path": "/workspace/example-repo",
+  "type": "github_repository",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "url": "https://github.com/example-org/example-repo",
+  "checkout": {
+    "name": "main",
+    "type": "branch"
+  }
+}
+```
+
+## Delete Session Resource
 
 `client.beta.sessions.resources.delete(stringresourceID, ResourceDeleteParamsparams, RequestOptionsoptions?): BetaManagedAgentsDeleteSessionResource`
 
@@ -728,7 +781,6 @@ Delete Session Resource
 - `resourceID: string`
 
 - `params: ResourceDeleteParams`
-
   - `session_id: string`
 
     Path param: Path parameter session_id
@@ -736,11 +788,9 @@ Delete Session Resource
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -789,33 +839,47 @@ Delete Session Resource
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsDeleteSessionResource`
 
   Confirmation of resource deletion.
-
   - `id: string`
 
   - `type: "session_resource_deleted"`
-
     - `"session_resource_deleted"`
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsDeleteSessionResource = await client.beta.sessions.resources.delete(
-  'sesrsc_011CZkZBJq5dWxk9fVLNcPht',
-  { session_id: 'sesn_011CZkZAtmR3yMPDzynEDxu7' },
-);
+const betaManagedAgentsDeleteSessionResource =
+  await client.beta.sessions.resources.delete(
+    "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+    { session_id: "sesn_011CZkZAtmR3yMPDzynEDxu7" },
+  );
 
 console.log(betaManagedAgentsDeleteSessionResource.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "type": "session_resource_deleted"
+}
 ```
 
 ## Domain Types
@@ -825,17 +889,14 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 - `BetaManagedAgentsDeleteSessionResource`
 
   Confirmation of resource deletion.
-
   - `id: string`
 
   - `type: "session_resource_deleted"`
-
     - `"session_resource_deleted"`
 
 ### Beta Managed Agents File Resource
 
 - `BetaManagedAgentsFileResource`
-
   - `id: string`
 
   - `created_at: string`
@@ -847,7 +908,6 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
   - `mount_path: string`
 
   - `type: "file"`
-
     - `"file"`
 
   - `updated_at: string`
@@ -857,7 +917,6 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 ### Beta Managed Agents GitHub Repository Resource
 
 - `BetaManagedAgentsGitHubRepositoryResource`
-
   - `id: string`
 
   - `created_at: string`
@@ -867,7 +926,6 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
   - `mount_path: string`
 
   - `type: "github_repository"`
-
     - `"github_repository"`
 
   - `updated_at: string`
@@ -877,25 +935,20 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
   - `url: string`
 
   - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
-
     - `BetaManagedAgentsBranchCheckout`
-
       - `name: string`
 
         Branch name to check out.
 
       - `type: "branch"`
-
         - `"branch"`
 
     - `BetaManagedAgentsCommitCheckout`
-
       - `sha: string`
 
         Full commit SHA to check out.
 
       - `type: "commit"`
-
         - `"commit"`
 
 ### Beta Managed Agents Memory Store Resource
@@ -903,19 +956,16 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 - `BetaManagedAgentsMemoryStoreResource`
 
   A memory store attached to an agent session.
-
   - `memory_store_id: string`
 
-    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `access?: "read_write" | "read_only" | null`
 
     Access mode for an attached memory store.
-
     - `"read_write"`
 
     - `"read_only"`
@@ -941,9 +991,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 - `BetaManagedAgentsSessionResource = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   A memory store attached to an agent session.
-
   - `BetaManagedAgentsGitHubRepositoryResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -953,7 +1001,6 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
     - `mount_path: string`
 
     - `type: "github_repository"`
-
       - `"github_repository"`
 
     - `updated_at: string`
@@ -963,29 +1010,23 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
     - `url: string`
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
-
       - `BetaManagedAgentsBranchCheckout`
-
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
-
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout`
-
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
-
           - `"commit"`
 
   - `BetaManagedAgentsFileResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -997,7 +1038,6 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
     - `mount_path: string`
 
     - `type: "file"`
-
       - `"file"`
 
     - `updated_at: string`
@@ -1007,19 +1047,16 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
   - `BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
-
     - `memory_store_id: string`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
-
       - `"memory_store"`
 
     - `access?: "read_write" | "read_only" | null`
 
       Access mode for an attached memory store.
-
       - `"read_write"`
 
       - `"read_only"`
@@ -1045,9 +1082,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 - `ResourceRetrieveResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The requested session resource.
-
   - `BetaManagedAgentsGitHubRepositoryResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -1057,7 +1092,6 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
     - `mount_path: string`
 
     - `type: "github_repository"`
-
       - `"github_repository"`
 
     - `updated_at: string`
@@ -1067,29 +1101,23 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
     - `url: string`
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
-
       - `BetaManagedAgentsBranchCheckout`
-
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
-
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout`
-
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
-
           - `"commit"`
 
   - `BetaManagedAgentsFileResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -1101,7 +1129,6 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
     - `mount_path: string`
 
     - `type: "file"`
-
       - `"file"`
 
     - `updated_at: string`
@@ -1111,19 +1138,16 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
   - `BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
-
     - `memory_store_id: string`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
-
       - `"memory_store"`
 
     - `access?: "read_write" | "read_only" | null`
 
       Access mode for an attached memory store.
-
       - `"read_write"`
 
       - `"read_only"`
@@ -1149,9 +1173,7 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
 - `ResourceUpdateResponse = BetaManagedAgentsGitHubRepositoryResource | BetaManagedAgentsFileResource | BetaManagedAgentsMemoryStoreResource`
 
   The updated session resource.
-
   - `BetaManagedAgentsGitHubRepositoryResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -1161,7 +1183,6 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
     - `mount_path: string`
 
     - `type: "github_repository"`
-
       - `"github_repository"`
 
     - `updated_at: string`
@@ -1171,29 +1192,23 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
     - `url: string`
 
     - `checkout?: BetaManagedAgentsBranchCheckout | BetaManagedAgentsCommitCheckout | null`
-
       - `BetaManagedAgentsBranchCheckout`
-
         - `name: string`
 
           Branch name to check out.
 
         - `type: "branch"`
-
           - `"branch"`
 
       - `BetaManagedAgentsCommitCheckout`
-
         - `sha: string`
 
           Full commit SHA to check out.
 
         - `type: "commit"`
-
           - `"commit"`
 
   - `BetaManagedAgentsFileResource`
-
     - `id: string`
 
     - `created_at: string`
@@ -1205,7 +1220,6 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
     - `mount_path: string`
 
     - `type: "file"`
-
       - `"file"`
 
     - `updated_at: string`
@@ -1215,19 +1229,16 @@ console.log(betaManagedAgentsDeleteSessionResource.id);
   - `BetaManagedAgentsMemoryStoreResource`
 
     A memory store attached to an agent session.
-
     - `memory_store_id: string`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `type: "memory_store"`
-
       - `"memory_store"`
 
     - `access?: "read_write" | "read_only" | null`
 
       Access mode for an attached memory store.
-
       - `"read_write"`
 
       - `"read_only"`

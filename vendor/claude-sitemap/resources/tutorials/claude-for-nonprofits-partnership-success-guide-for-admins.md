@@ -1,3 +1,5 @@
+# Claude for nonprofits partnership success guide for admins
+
 Welcome to the Claude for nonprofits community. This guide provides everything you need to successfully launch and scale Claude at your organization.
 
 The framework below is flexible and self-paced. Move through the phases at whatever speed works for your team.
@@ -6,8 +8,8 @@ The framework below is flexible and self-paced. Move through the phases at whate
 
 #### Key resources
 
--   [Getting started guides](https://support.claude.com/en/articles/12166798-getting-started-with-claude-for-enterprise) covering SSO, user management, and technical configuration
--   [Driving adoption at your organization](https://anthropic.skilljar.com/driving-enterprise-adoption-of-claude) course with customizable templates for change management
+- Getting started guides covering SSO, user management, and technical configuration
+- Driving adoption at your organization course with customizable templates for change management
 
 #### Recommended actions
 
@@ -18,17 +20,17 @@ The framework below is flexible and self-paced. Move through the phases at whate
 
 #### Implementation tips
 
--   Identify an implementation leader to complete adoption training
--   Acknowledge challenges early and maintain open communication
--   Establish Slack or Teams channels and office hours with designated ownership
--   Bookmark the [Claude help center](https://support.claude.com/en/) for technical support
+- Identify an implementation leader to complete adoption training
+- Acknowledge challenges early and maintain open communication
+- Establish Slack or Teams channels and office hours with designated ownership
+- Bookmark the Claude help center for technical support
 
 ## Phase 2: Activation (first users and early wins)
 
 #### Key resources
 
--   [On-demand AI fluency courses](https://anthropic.skilljar.com/)
--   [Use case and workflow planning](https://claude.com/resources/use-cases/workflow-improvement-planner)
+- On-demand AI fluency courses
+- Use case and workflow planning
 
 #### Recommended actions
 
@@ -38,19 +40,19 @@ The framework below is flexible and self-paced. Move through the phases at whate
 
 #### Implementation tips
 
--   Launch Slack or Teams channels for ongoing discussion
--   Host 30-day retrospectives to capture lessons learned
--   Use Claude itself to facilitate planning. Try a prompt like: `Help me design a 30-day pilot plan for introducing Claude to our fundraising team. Include milestones, success metrics, and potential challenges.`
--   Send baseline surveys to track progress and use cases
+- Launch Slack or Teams channels for ongoing discussion
+- Host 30-day retrospectives to capture lessons learned
+- Use Claude itself to facilitate planning. Try a prompt like: `Help me design a 30-day pilot plan for introducing Claude to our fundraising team. Include milestones, success metrics, and potential challenges.`
+- Send baseline surveys to track progress and use cases
 
 ## Phase 3: Acceleration (scaling and integration)
 
 #### Key resources
 
--   [Nonprofit use cases](https://claude.com/resources/use-cases/category/nonprofits)
--   [How to access audit logs](https://support.claude.com/en/articles/9970975-how-to-access-audit-logs)
--   [Claude artifact inspiration gallery](https://claude.ai/artifacts?category=learn)
--   [MCP connector directory](https://claude.com/connectors)
+- Nonprofit use cases
+- How to access audit logs
+- Claude artifact inspiration gallery
+- MCP connector directory
 
 #### Recommended actions
 
@@ -61,15 +63,15 @@ The framework below is flexible and self-paced. Move through the phases at whate
 
 #### Implementation tips
 
--   Monitor leading indicators: weekly active users %, users with 10+ chats %, project adoption %
--   Share success stories internally on a regular basis
+- Monitor leading indicators: weekly active users %, users with 10+ chats %, project adoption %
+- Share success stories internally on a regular basis
 
 ## Phase 4: Expansion (advanced use cases and impact)
 
 #### Key resources
 
--   [Claude train the trainer program](https://anthropic.skilljar.com/enterprise-train-the-trainer) (self-paced course)
--   [Case studies hub](https://claude.com/customers)
+- Claude train the trainer program (self-paced course)
+- Case studies hub
 
 #### Recommended actions
 

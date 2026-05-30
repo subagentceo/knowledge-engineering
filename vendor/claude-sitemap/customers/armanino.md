@@ -1,8 +1,10 @@
+# Armanino builds AI-powered accounting tools with Claude
+
 Armanino, one of the largest accounting firms in the United States, uses Claude on Amazon Bedrock to transform its accounting and consulting services with AI. By integrating AI into its workflows, Armanino is significantly reducing manual tasks, improving client communication, and accelerating innovation across its audit, tax, and consulting practices. These improvements have allowed Armanino to deliver faster and spend more time on high valued items that benefit their clients. Some of these benefits include estimated time savings in audits such as:
 
--   65% reduction in time spent on manual writing tasks
--   60% decrease in follow-up clarifications needed
--   2 weeks from idea to production for new AI-powered tools
+- 65% reduction in time spent on manual writing tasks
+- 60% decrease in follow-up clarifications needed
+- 2 weeks from idea to production for new AI-powered tools
 
 ## Revolutionizing accounting with AI
 
@@ -38,10 +40,10 @@ The new tool leverages Claude to automatically generate formal notes explaining 
 
 Even with their first Claude-powered use case, the team was able to generate substantial value across the organization, the expected benefits are:
 
--   65% reduction in time spent writing rejection notes
--   60% decrease in the need for follow-up clarifications
--   Thousands of hours saved across the firm annually
--   90% of users report feeling more confident when using the AI-assisted feature
+- 65% reduction in time spent writing rejection notes
+- 60% decrease in the need for follow-up clarifications
+- Thousands of hours saved across the firm annually
+- 90% of users report feeling more confident when using the AI-assisted feature
 
 “When we demoed our Claude-powered document request explainer, you could see the users’ eyes immediately light up,” AJ recalls. “We received glowing feedback. We were even told that the feature would change our users’ lives.”
 

@@ -1,4 +1,6 @@
-[Rogo](https://rogo.ai/) is an AI platform built specifically for finance. More than 35,000 financial professionals at major banks, investment firms, and advisory practices run over 50,000 queries a day on the platform. We spoke with Strib Walker, Head of Product at Rogo, about what makes financial AI different, how Rogo evaluates models, and where the work is headed.
+# How Rogo evaluates frontier models for institutional finance
+
+Rogo is an AI platform built specifically for finance. More than 35,000 financial professionals at major banks, investment firms, and advisory practices run over 50,000 queries a day on the platform. We spoke with Strib Walker, Head of Product at Rogo, about what makes financial AI different, how Rogo evaluates models, and where the work is headed.
 
 ## Anthropic: What do most people get wrong about applying AI to finance?
 
@@ -6,7 +8,7 @@
 
 ## Where does Claude fit into what you're building?
 
-**Walker:** What we do in plain terms is help institutions operationalize AI inside their firms. Claude Opus 4.7 and Sonnet 4.6 are integrated across the Rogo platform, where they power parts of the core research, analysis, and artifact-generation experience our customers rely on every day. Anthropic models are available through Felix, our agent orchestrator for end-to-end financial workflows. Felix takes on the kinds of multi-step assignments that define the work in finance: building decks, financial models, and documents from start to finish with the structure, formatting, and rigor the work demands. Claude is one of several frontier models Rogo draws on inside Felix.  
+**Walker:** What we do in plain terms is help institutions operationalize AI inside their firms. Claude Opus 4.7 and Sonnet 4.6 are integrated across the Rogo platform, where they power parts of the core research, analysis, and artifact-generation experience our customers rely on every day. Anthropic models are available through Felix, our agent orchestrator for end-to-end financial workflows. Felix takes on the kinds of multi-step assignments that define the work in finance: building decks, financial models, and documents from start to finish with the structure, formatting, and rigor the work demands. Claude is one of several frontier models Rogo draws on inside Felix.
 
 ## What specifically drew you to Claude?
 

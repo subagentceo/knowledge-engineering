@@ -1,7 +1,9 @@
+# Linear
+
 Manage issues, projects, and team workflows in Linear with natural language. Create and update issues, track progress, plan cycles, and coordinate development tasks using Linear's streamlined project management interface for faster, more efficient workflows.
 
-You can use the Linear connector to:  
-  
+You can use the Linear connector to:
+
 Create and assign issues:  
 "Create a new issue titled 'Login fails on mobile Safari' in the Onboarding team's triage queue. Set priority to high, assign it to Alexandra, and add the label 'bug'"
 

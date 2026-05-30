@@ -66,7 +66,7 @@ session = client.beta.sessions.create(
 const session = await client.beta.sessions.create({
   agent: "agent_01J8XkN5uT3vHpLqRfWdY2",
   environment_id: "env_01K2mPsT7hNwR4jXuLvCqD8",
-  title: "My first session"
+  title: "My first session",
 });
 ```
 
@@ -118,4 +118,5 @@ session = client.beta.sessions.create(
   title: "My first session"
 )
 ```
+
 </CodeGroup>

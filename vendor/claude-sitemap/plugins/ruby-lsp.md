@@ -1,3 +1,5 @@
+# Ruby LSP
+
 Integrates the Ruby Language Server into Claude Code, providing rich code intelligence and analysis for Ruby projects. Supports `.rb`, `.rake`, `.gemspec`, `.ru`, and `.erb` files with features like go-to-definition, hover documentation, code completion, signature help, and diagnostics. Built on Shopify's open-source Ruby LSP implementation, it brings a full-featured Ruby development experience directly into your workflow.
 
 The plugin delivers comprehensive navigation and refactoring capabilities including find references, workspace-wide symbol search, rename symbol, extract-to-variable/method refactorings, and intelligent code actions for quick fixes. Semantic highlighting, inlay hints, and folding ranges help you read and understand Ruby code more effectively.

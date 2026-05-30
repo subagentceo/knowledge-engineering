@@ -1,3 +1,5 @@
+# Map your lit review mid-conversation to surface the underlying debate
+
 You've read the papers. Each made sense on its own. What gets hard around paper twelve is holding the shape of the whole thing — which papers are building on each other, which are in tension, what each camp is taking for granted. Claude can draw that shape inline as you work through the set: clusters by claim, tension lines where camps disagree, a panel per cluster on what it's missing. The map is one reading of the debate — something to check against your own sense of where the papers sit. Where you'd cluster differently is often where your own argument starts taking shape.
 
 Here a grad student has read twenty papers on AI in K-12 and lost the thread. Claude draws five argument clusters with tension lines between them, and the blind-spot panels give the student something to check against their own sense of the literature.

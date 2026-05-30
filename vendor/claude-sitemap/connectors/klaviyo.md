@@ -1,3 +1,5 @@
+# Klaviyo
+
 Chat directly with Klaviyo to report, strategize, and launch faster. Ask for performance summaries, content and copy, optimization opportunities, and profile insights—AI responds with the full context of your Klaviyo data.
 
 You can use Klaviyo to:

@@ -1,9 +1,13 @@
-Connect Dovetail inside Claude to turn customer feedback into decisions without leaving your conversation. Search your Dovetail workspace for relevant projects, notes, docs, and themes, and get results back instantly.
+# Dovetail
 
-You can use Dovetail to:
+The Dovetail connector for Claude gives you direct access to your customer intelligence through natural language. Fetch projects, highlights, data, and docs. Get answers grounded in real customer signal, all within Claude.
 
-**Ask a question:**  
-"What can you help me do with Dovetail?"
+What you can do
 
-**Explore your data:**  
-"Summarize the most recent activity in Dovetail."
+**Fetch everything.** Query projects, docs, highlights, Channels data, contacts, tags, and more—across your entire Dovetail workspace.
+
+**Surface what matters.** Search across your workspace to find the signal that's relevant right now, without knowing exactly where to look.
+
+**Create as you go.** Spin up projects, docs, highlights, and Channel data points directly from Claude—no context switching required.
+
+**Go deeper on demand.** Pull the full content behind any data point, not just the headline—so nothing gets lost in a summary.

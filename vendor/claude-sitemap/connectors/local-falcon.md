@@ -1,3 +1,5 @@
+# Local Falcon
+
 Local Falcon gives Claude access to real-time local search data across Google Maps, Apple Maps, and AI search platforms. With 37 tools spanning geo-grid rank tracking, competitor intelligence, campaign management, Google Business Profile monitoring, and AI search visibility tracking, Claude becomes a full-service local search and AI visibility analyst.
 
 You can use Local Falcon to:

@@ -50,9 +50,7 @@ This article helps you resolve common issues with Claude in Chrome and explains 
 
 - Restart or update Claude Code if the extension won’t connect to it.
 
--
-
----
+- ***
 
 ## Usage Limits
 
@@ -69,7 +67,6 @@ Your feedback directly shapes how we improve Claude's browser capabilities and s
 - **Thumbs up/down** on Claude's responses in the side panel.
 
 - **Report suspected prompt injection** if Claude behaves unexpectedly.
-
   - **Email <usersafety@anthropic.com>** to report any safety issues or unexpected behaviors.
 
 - **[Contact Support](https://support.claude.com/en/articles/9015913-how-to-get-support)** for technical issues or account problems.

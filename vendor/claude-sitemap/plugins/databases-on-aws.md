@@ -1,17 +1,10 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    ](#)
-    
--   Installs
-    
-    806
+# databases-on-aws
+
+- Install in
+
+  Claude Code
+
+- Made by
+- Installs
+
+  1280

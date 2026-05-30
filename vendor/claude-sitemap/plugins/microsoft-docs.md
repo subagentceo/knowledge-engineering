@@ -1,3 +1,5 @@
+# Microsoft Docs
+
 Connects Claude directly to official Microsoft documentation on learn.microsoft.com, giving you accurate, up-to-date technical information for Azure, .NET, Windows, Microsoft 365, Power Platform, and more. The plugin provides three core tools: semantic search across Microsoft's documentation library, full-page fetching that converts docs to markdown, and a dedicated code sample search with language filtering. This helps prevent hallucinations by grounding responses in first-party Microsoft content.
 
 The plugin includes three skills. The **microsoft-docs** skill guides documentation lookups for concepts, tutorials, configuration, and best practices. The **microsoft-code-reference** skill validates SDK code against official API references and working examples — confirming method signatures, parameter types, and deprecation status before you ship. The **microsoft-skill-creator** skill helps you build custom hybrid knowledge packages for specific Microsoft technologies, combining local reference content with dynamic documentation lookups.

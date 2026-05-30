@@ -160,10 +160,11 @@ async function fetchOktaToken(): Promise<string> {
     body: new URLSearchParams({
       grant_type: "client_credentials",
       scope: "anthropic.access",
-      client_assertion_type: "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+      client_assertion_type:
+        "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
       // Build the RFC 7523 client_assertion JWT signed with your Okta app's private key
-      client_assertion: buildSignedClientAssertion()
-    })
+      client_assertion: buildSignedClientAssertion(),
+    }),
   });
   const body = (await response.json()) as { access_token: string };
   return body.access_token;
@@ -177,14 +178,14 @@ const client = new Anthropic({
     serviceAccountId: process.env.ANTHROPIC_SERVICE_ACCOUNT_ID,
     workspaceId: process.env.ANTHROPIC_WORKSPACE_ID,
     baseURL: "https://api.anthropic.com",
-    fetch
-  })
+    fetch,
+  }),
 });
 
 const message = await client.messages.create({
   model: "claude-sonnet-4-6",
   max_tokens: 1024,
-  messages: [{ role: "user", content: "Hello, Claude" }]
+  messages: [{ role: "user", content: "Hello, Claude" }],
 });
 for (const block of message.content) {
   if (block.type === "text") {

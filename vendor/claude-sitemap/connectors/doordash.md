@@ -1,3 +1,5 @@
+# DoorDash
+
 Browse DoorDash menus, build carts, and book local restaurant reservations — all through Claude.
 
 You can use DoorDash to:

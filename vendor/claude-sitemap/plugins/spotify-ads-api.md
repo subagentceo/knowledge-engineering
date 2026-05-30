@@ -1,17 +1,10 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    ](#)
-    
--   Installs
-    
-    622
+# spotify-ads-api
+
+- Install in
+
+  Claude Code
+
+- Made by
+- Installs
+
+  827

@@ -1,6 +1,6 @@
 # Resources
 
-## Add
+## Add Session Resource
 
 `BetaManagedAgentsFileResource Beta.Sessions.Resources.Add(ResourceAddParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -11,7 +11,6 @@ Add Session Resource
 ### Parameters
 
 - `ResourceAddParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -23,7 +22,6 @@ Add Session Resource
   - `required Type type`
 
     Body param
-
     - `"file"File`
 
   - `string? mountPath`
@@ -33,7 +31,6 @@ Add Session Resource
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -82,10 +79,15 @@ Add Session Resource
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsFileResource:`
-
   - `required string ID`
 
   - `required DateTimeOffset CreatedAt`
@@ -97,7 +99,6 @@ Add Session Resource
   - `required string MountPath`
 
   - `required Type Type`
-
     - `"file"File`
 
   - `required DateTimeOffset UpdatedAt`
@@ -119,7 +120,20 @@ var betaManagedAgentsFileResource = await client.Beta.Sessions.Resources.Add(par
 Console.WriteLine(betaManagedAgentsFileResource);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "created_at": "2026-03-15T10:00:00Z",
+  "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "mount_path": "/uploads/receipt.pdf",
+  "type": "file",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
+```
+
+## List Session Resources
 
 `ResourceListPageResponse Beta.Sessions.Resources.List(ResourceListParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -130,7 +144,6 @@ List Session Resources
 ### Parameters
 
 - `ResourceListParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -146,7 +159,6 @@ List Session Resources
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -195,18 +207,21 @@ List Session Resources
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class ResourceListPageResponse:`
 
   Paginated list of resources attached to a session.
-
   - `required IReadOnlyList<BetaManagedAgentsSessionResource> Data`
 
     Resources for the session, ordered by `created_at`.
-
     - `class BetaManagedAgentsGitHubRepositoryResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -216,7 +231,6 @@ List Session Resources
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"github_repository"GitHubRepository`
 
       - `required DateTimeOffset UpdatedAt`
@@ -226,29 +240,23 @@ List Session Resources
       - `required string Url`
 
       - `Checkout? Checkout`
-
         - `class BetaManagedAgentsBranchCheckout:`
-
           - `required string Name`
 
             Branch name to check out.
 
           - `required Type Type`
-
             - `"branch"Branch`
 
         - `class BetaManagedAgentsCommitCheckout:`
-
           - `required string Sha`
 
             Full commit SHA to check out.
 
           - `required Type Type`
-
             - `"commit"Commit`
 
     - `class BetaManagedAgentsFileResource:`
-
       - `required string ID`
 
       - `required DateTimeOffset CreatedAt`
@@ -260,7 +268,6 @@ List Session Resources
       - `required string MountPath`
 
       - `required Type Type`
-
         - `"file"File`
 
       - `required DateTimeOffset UpdatedAt`
@@ -270,19 +277,16 @@ List Session Resources
     - `class BetaManagedAgentsMemoryStoreResource:`
 
       A memory store attached to an agent session.
-
       - `required string MemoryStoreID`
 
-        The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+        The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
       - `required Type Type`
-
         - `"memory_store"MemoryStore`
 
       - `Access? Access`
 
         Access mode for an attached memory store.
-
         - `"read_write"ReadWrite`
 
         - `"read_only"ReadOnly`
@@ -322,7 +326,37 @@ await foreach (var item in page.Paginate())
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+      "created_at": "2026-03-15T10:00:00Z",
+      "file_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "mount_path": "/uploads/receipt.pdf",
+      "type": "file",
+      "updated_at": "2026-03-15T10:00:00Z"
+    },
+    {
+      "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+      "created_at": "2026-03-15T10:00:00Z",
+      "mount_path": "/workspace/example-repo",
+      "type": "github_repository",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "url": "https://github.com/example-org/example-repo",
+      "checkout": {
+        "name": "main",
+        "type": "branch"
+      }
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Session Resource
 
 `ResourceRetrieveResponse Beta.Sessions.Resources.Retrieve(ResourceRetrieveParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -333,7 +367,6 @@ Get Session Resource
 ### Parameters
 
 - `ResourceRetrieveParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -345,7 +378,6 @@ Get Session Resource
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -394,14 +426,18 @@ Get Session Resource
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class ResourceRetrieveResponse: A class that can be one of several variants.union`
 
   The requested session resource.
-
   - `class BetaManagedAgentsGitHubRepositoryResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -411,7 +447,6 @@ Get Session Resource
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"github_repository"GitHubRepository`
 
     - `required DateTimeOffset UpdatedAt`
@@ -421,29 +456,23 @@ Get Session Resource
     - `required string Url`
 
     - `Checkout? Checkout`
-
       - `class BetaManagedAgentsBranchCheckout:`
-
         - `required string Name`
 
           Branch name to check out.
 
         - `required Type Type`
-
           - `"branch"Branch`
 
       - `class BetaManagedAgentsCommitCheckout:`
-
         - `required string Sha`
 
           Full commit SHA to check out.
 
         - `required Type Type`
-
           - `"commit"Commit`
 
   - `class BetaManagedAgentsFileResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -455,7 +484,6 @@ Get Session Resource
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"file"File`
 
     - `required DateTimeOffset UpdatedAt`
@@ -465,19 +493,16 @@ Get Session Resource
   - `class BetaManagedAgentsMemoryStoreResource:`
 
     A memory store attached to an agent session.
-
     - `required string MemoryStoreID`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `required Type Type`
-
       - `"memory_store"MemoryStore`
 
     - `Access? Access`
 
       Access mode for an attached memory store.
-
       - `"read_write"ReadWrite`
 
       - `"read_only"ReadOnly`
@@ -512,7 +537,24 @@ var resource = await client.Beta.Sessions.Resources.Retrieve(parameters);
 Console.WriteLine(resource);
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "created_at": "2026-03-15T10:00:00Z",
+  "mount_path": "/workspace/example-repo",
+  "type": "github_repository",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "url": "https://github.com/example-org/example-repo",
+  "checkout": {
+    "name": "main",
+    "type": "branch"
+  }
+}
+```
+
+## Update Session Resource
 
 `ResourceUpdateResponse Beta.Sessions.Resources.Update(ResourceUpdateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -523,7 +565,6 @@ Update Session Resource
 ### Parameters
 
 - `ResourceUpdateParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -539,7 +580,6 @@ Update Session Resource
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -588,14 +628,18 @@ Update Session Resource
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class ResourceUpdateResponse: A class that can be one of several variants.union`
 
   The updated session resource.
-
   - `class BetaManagedAgentsGitHubRepositoryResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -605,7 +649,6 @@ Update Session Resource
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"github_repository"GitHubRepository`
 
     - `required DateTimeOffset UpdatedAt`
@@ -615,29 +658,23 @@ Update Session Resource
     - `required string Url`
 
     - `Checkout? Checkout`
-
       - `class BetaManagedAgentsBranchCheckout:`
-
         - `required string Name`
 
           Branch name to check out.
 
         - `required Type Type`
-
           - `"branch"Branch`
 
       - `class BetaManagedAgentsCommitCheckout:`
-
         - `required string Sha`
 
           Full commit SHA to check out.
 
         - `required Type Type`
-
           - `"commit"Commit`
 
   - `class BetaManagedAgentsFileResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -649,7 +686,6 @@ Update Session Resource
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"file"File`
 
     - `required DateTimeOffset UpdatedAt`
@@ -659,19 +695,16 @@ Update Session Resource
   - `class BetaManagedAgentsMemoryStoreResource:`
 
     A memory store attached to an agent session.
-
     - `required string MemoryStoreID`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `required Type Type`
-
       - `"memory_store"MemoryStore`
 
     - `Access? Access`
 
       Access mode for an attached memory store.
-
       - `"read_write"ReadWrite`
 
       - `"read_only"ReadOnly`
@@ -707,7 +740,24 @@ var resource = await client.Beta.Sessions.Resources.Update(parameters);
 Console.WriteLine(resource);
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "created_at": "2026-03-15T10:00:00Z",
+  "mount_path": "/workspace/example-repo",
+  "type": "github_repository",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "url": "https://github.com/example-org/example-repo",
+  "checkout": {
+    "name": "main",
+    "type": "branch"
+  }
+}
+```
+
+## Delete Session Resource
 
 `BetaManagedAgentsDeleteSessionResource Beta.Sessions.Resources.Delete(ResourceDeleteParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -718,7 +768,6 @@ Delete Session Resource
 ### Parameters
 
 - `ResourceDeleteParams parameters`
-
   - `required string sessionID`
 
     Path param: Path parameter session_id
@@ -730,7 +779,6 @@ Delete Session Resource
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -779,16 +827,20 @@ Delete Session Resource
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsDeleteSessionResource:`
 
   Confirmation of resource deletion.
-
   - `required string ID`
 
   - `required Type Type`
-
     - `"session_resource_deleted"SessionResourceDeleted`
 
 ### Example
@@ -805,6 +857,15 @@ var betaManagedAgentsDeleteSessionResource = await client.Beta.Sessions.Resource
 Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 ```
 
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZBJq5dWxk9fVLNcPht",
+  "type": "session_resource_deleted"
+}
+```
+
 ## Domain Types
 
 ### Beta Managed Agents Delete Session Resource
@@ -812,17 +873,14 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 - `class BetaManagedAgentsDeleteSessionResource:`
 
   Confirmation of resource deletion.
-
   - `required string ID`
 
   - `required Type Type`
-
     - `"session_resource_deleted"SessionResourceDeleted`
 
 ### Beta Managed Agents File Resource
 
 - `class BetaManagedAgentsFileResource:`
-
   - `required string ID`
 
   - `required DateTimeOffset CreatedAt`
@@ -834,7 +892,6 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
   - `required string MountPath`
 
   - `required Type Type`
-
     - `"file"File`
 
   - `required DateTimeOffset UpdatedAt`
@@ -844,7 +901,6 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 ### Beta Managed Agents GitHub Repository Resource
 
 - `class BetaManagedAgentsGitHubRepositoryResource:`
-
   - `required string ID`
 
   - `required DateTimeOffset CreatedAt`
@@ -854,7 +910,6 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
   - `required string MountPath`
 
   - `required Type Type`
-
     - `"github_repository"GitHubRepository`
 
   - `required DateTimeOffset UpdatedAt`
@@ -864,25 +919,20 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
   - `required string Url`
 
   - `Checkout? Checkout`
-
     - `class BetaManagedAgentsBranchCheckout:`
-
       - `required string Name`
 
         Branch name to check out.
 
       - `required Type Type`
-
         - `"branch"Branch`
 
     - `class BetaManagedAgentsCommitCheckout:`
-
       - `required string Sha`
 
         Full commit SHA to check out.
 
       - `required Type Type`
-
         - `"commit"Commit`
 
 ### Beta Managed Agents Memory Store Resource
@@ -890,19 +940,16 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 - `class BetaManagedAgentsMemoryStoreResource:`
 
   A memory store attached to an agent session.
-
   - `required string MemoryStoreID`
 
-    The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+    The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
   - `required Type Type`
-
     - `"memory_store"MemoryStore`
 
   - `Access? Access`
 
     Access mode for an attached memory store.
-
     - `"read_write"ReadWrite`
 
     - `"read_only"ReadOnly`
@@ -928,9 +975,7 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
 - `class BetaManagedAgentsSessionResource: A class that can be one of several variants.union`
 
   A memory store attached to an agent session.
-
   - `class BetaManagedAgentsGitHubRepositoryResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -940,7 +985,6 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"github_repository"GitHubRepository`
 
     - `required DateTimeOffset UpdatedAt`
@@ -950,29 +994,23 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
     - `required string Url`
 
     - `Checkout? Checkout`
-
       - `class BetaManagedAgentsBranchCheckout:`
-
         - `required string Name`
 
           Branch name to check out.
 
         - `required Type Type`
-
           - `"branch"Branch`
 
       - `class BetaManagedAgentsCommitCheckout:`
-
         - `required string Sha`
 
           Full commit SHA to check out.
 
         - `required Type Type`
-
           - `"commit"Commit`
 
   - `class BetaManagedAgentsFileResource:`
-
     - `required string ID`
 
     - `required DateTimeOffset CreatedAt`
@@ -984,7 +1022,6 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
     - `required string MountPath`
 
     - `required Type Type`
-
       - `"file"File`
 
     - `required DateTimeOffset UpdatedAt`
@@ -994,19 +1031,16 @@ Console.WriteLine(betaManagedAgentsDeleteSessionResource);
   - `class BetaManagedAgentsMemoryStoreResource:`
 
     A memory store attached to an agent session.
-
     - `required string MemoryStoreID`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `required Type Type`
-
       - `"memory_store"MemoryStore`
 
     - `Access? Access`
 
       Access mode for an attached memory store.
-
       - `"read_write"ReadWrite`
 
       - `"read_only"ReadOnly`

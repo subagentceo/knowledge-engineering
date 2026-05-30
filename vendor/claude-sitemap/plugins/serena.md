@@ -1,3 +1,5 @@
+# Serena
+
 Serena transforms Claude into a powerful coding agent with IDE-like capabilities. This MCP server provides semantic code retrieval and editing tools that work at the symbol level, enabling intelligent navigation of large codebases without reading entire files. Supporting over 30 programming languages including Python, JavaScript, TypeScript, Java, Rust, Go, and C++, Serena leverages Language Server Protocol integration to deliver precise code understanding.
 
 Key features include symbol-level code extraction with tools like `find_symbol` and `find_referencing_symbols`, precision editing operations such as `insert_after_symbol`, and token-efficient codebase interaction. The toolkit exploits the relational structure of code to help Claude work effectively on complex projects.

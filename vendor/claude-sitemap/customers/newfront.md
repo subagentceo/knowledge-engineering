@@ -1,10 +1,12 @@
+# Newfront modernizes insurance experiences with Claude
+
 Newfront, a modern insurance platform serving 20% of US startups with unicorn status, uses Claude to automate tedious insurance tasks and provide instant support, making insurance more accessible and efficient for everyone.
 
 With Claude, Newfront:
 
--   Saves HR teams one month per year and delivers 24/7 personalized support for employees
--   Reduces document processing costs by 60%
--   Provides instant contract reviews for legal teams
+- Saves HR teams one month per year and delivers 24/7 personalized support for employees
+- Reduces document processing costs by 60%
+- Provides instant contract reviews for legal teams
 
 ## Building a better way to handle insurance
 

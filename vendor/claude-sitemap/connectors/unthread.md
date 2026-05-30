@@ -1,3 +1,5 @@
+# Unthread
+
 Search conversations, monitor SLAs, and analyze support metrics directly from Claude. Make Unthread a native part of your AI workflow—a support intelligence layer that helps you stay on top of your helpdesk's performance.
 
 You can use Unthread to:

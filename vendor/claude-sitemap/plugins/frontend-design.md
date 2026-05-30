@@ -1,3 +1,5 @@
+# Frontend Design
+
 Generate distinctive, production-grade frontend interfaces that stand out from generic AI-generated designs. This plugin enables Claude to create polished code with bold aesthetic choices, distinctive typography and color palettes, high-impact animations, and context-aware visual details.
 
 The plugin establishes a design framework before coding—identifying purpose, audience, and a specific aesthetic direction (brutalist, maximalist, retro-futuristic, luxury, playful, etc.). It intentionally avoids common patterns like generic system fonts, predictable purple gradients, and cookie-cutter components.

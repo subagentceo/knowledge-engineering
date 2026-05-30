@@ -1,4 +1,4 @@
-## Create
+## Create Vault
 
 `client.beta.vaults.create(VaultCreateParamsparams, RequestOptionsoptions?): BetaManagedAgentsVault`
 
@@ -9,7 +9,6 @@ Create Vault
 ### Parameters
 
 - `params: VaultCreateParams`
-
   - `display_name: string`
 
     Body param: Human-readable name for the vault. 1-255 characters.
@@ -21,11 +20,9 @@ Create Vault
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -74,12 +71,17 @@ Create Vault
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsVault`
 
   A vault that stores credentials for use by agents during sessions.
-
   - `id: string`
 
     Unique identifier for the vault.
@@ -101,7 +103,6 @@ Create Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
-
     - `"vault"`
 
   - `updated_at: string`
@@ -111,13 +112,31 @@ Create Vault
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsVault = await client.beta.vaults.create({ display_name: 'Example vault' });
+const betaManagedAgentsVault = await client.beta.vaults.create({
+  display_name: "Example vault",
+});
 
 console.log(betaManagedAgentsVault.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
 ```

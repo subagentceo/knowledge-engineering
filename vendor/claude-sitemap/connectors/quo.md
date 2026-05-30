@@ -1,3 +1,5 @@
+# Quo
+
 Quo is a next-generation business phone system that helps teams engage customers, collaborate internally, and scale communication with AI — without losing the personal touch. Connecting Quo gives Claude access to your customer conversations across calls, text messages, and contacts. You can ask questions about those interactions to uncover patterns in what customers are saying and where opportunities may be lost. Claude can search, analyze, and summarize conversations to surface insights like Why are we losing deals? What do customers love about our service? What complaints show up most often?
 
 You can use Quo to:

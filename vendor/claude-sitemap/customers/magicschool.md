@@ -1,11 +1,13 @@
-[MagicSchool](https://www.magicschool.ai/?utm_source=anthropic&utm_medium=partner&utm_campaign=26-01_case-study), an AI copilot for educators and students, transforms education with Claude by streamlining lesson planning, providing personalized student feedback, and creating engaging content for students.
+# MagicSchool transforms K-12 education for 7 million educators and their students with Claude
+
+MagicSchool, an AI copilot for educators and students, transforms education with Claude by streamlining lesson planning, providing personalized student feedback, and creating engaging content for students.
 
 With Claude, MagicSchool supports:
 
--   7 million educators actively using the platform
--   Over 100 million AI-powered engagements
--   13,000+ schools and districts
--   Millions of students reached through teacher-guided AI interactions
+- 7 million educators actively using the platform
+- Over 100 million AI-powered engagements
+- 13,000+ schools and districts
+- Millions of students reached through teacher-guided AI interactions
 
 ## Tackling teacher burnout with AI assistance
 

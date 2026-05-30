@@ -1,3 +1,5 @@
+# Prompting strategies for financial analysis
+
 Effective prompting helps you use Claude's financial analysis capabilities efficiently and accurately. This guide provides strategies for writing clear, specific prompts that produce the results you need while avoiding common issues that can lead to incomplete or overwhelming outputs.
 
 ## Discovering What Data Claude Can Access
@@ -6,9 +8,9 @@ Before starting any financial analysis, it's essential to understand which data 
 
 Start your analysis sessions by confirming data availability:
 
--   "_What S&P Global financial data can you access through Kensho?_"
+- "_What S&P Global financial data can you access through Kensho?_"
 
--   "_Can you retrieve segment data through Daloopa?_"
+- "_Can you retrieve segment data through Daloopa?_"
 
 This preliminary step prevents requesting analyses that require unavailable data and helps you understand which integration to specify for different types of analysis.
 
@@ -20,13 +22,13 @@ Claude has access to vast amounts of financial data through multiple sources. Wi
 
 Consider these contrasting examples:
 
-\# Bad prompt
+# Bad prompt
 
 `Claude, please Analyze Microsoft`
 
 This vague request could trigger retrieval of hundreds of data points across multiple years, making it difficult to identify relevant insights. Claude won't know whether you want valuation metrics, operational performance, or competitive positioning.
 
-\# Good prompt
+# Good prompt
 
 `Using Daloopa, retrieve Microsoft's (MSFT) revenue, operating margin, and free cash flow for Q1 2023 through Q4 2024, then calculate year-over-year growth rates`
 
@@ -36,13 +38,13 @@ This specific request identifies the data source, company ticker, exact metrics,
 
 Financial integrations can pull extensive datasets covering hundreds of metrics across many years. Requesting everything available wastes time, increases processing complexity, and makes it harder to focus on what matters for your specific analysis. Targeted requests produce cleaner, more actionable results.
 
-\# Bad prompt
+# Bad prompt
 
 `Pull all financial data for Tesla, Ford, and GM`
 
 This request could return thousands of data points including irrelevant metrics, making it difficult to conduct focused analysis.
 
-\# Good prompt
+# Good prompt
 
 `For Tesla (TSLA), Ford (F), and GM, retrieve only automotive revenue and gross margins for the last 4 quarters to compare operational efficiency`
 
@@ -52,13 +54,13 @@ This focused request retrieves only the metrics needed for operational compariso
 
 Large data requests can slow down analysis and produce overwhelming outputs that are difficult to interpret. Managing scope ensures Claude can process requests efficiently and present results in digestible formats. This is particularly important when working with multiple companies or extended time periods.
 
-\# Bad prompt
+# Bad prompt
 
 `Get all available historical data for the entire S&P 500`
 
 This request is likely to fail or produce unusable results due to the sheer volume of data involved.
 
-\# Good prompt
+# Good prompt
 
 `Retrieve the last 8 quarters of revenue and EBITDA margin for these 5 software companies: CRM, NOW, WDAY, TEAM, and ZM`
 
@@ -70,13 +72,13 @@ This manageable request focuses on a specific peer group with defined metrics an
 
 Complex financial analyses involve multiple steps, data sources, and assumptions. Having Claude outline the approach first lets you catch potential issues before time is spent on calculations. This is especially valuable for valuations, modeling, or multi-company comparisons where methodology choices significantly impact results. A clear plan also ensures alignment between your expectations and Claude's intended approach.
 
-\# Bad prompt
+# Bad prompt
 
 `Do a complete valuation analysis of Netflix`
 
 This open-ended request leaves too many decisions to Claude, potentially resulting in an analysis that doesn't match your requirements or uses inappropriate assumptions.
 
-\# Good prompt
+# Good prompt
 
 `Create a plan for valuing Netflix (NFLX) using DCF methodology. List the data you'll need, calculations you'll perform, and assumptions you'll make. Let me review before you proceed.`
 
@@ -86,13 +88,13 @@ This approach gives you visibility into the planned methodology before execution
 
 Breaking complex analyses into discrete steps provides transparency into Claude's process and allows for course correction. You can verify data accuracy, check calculations, and adjust methodology between steps rather than discovering issues only in final results. This approach is particularly valuable when working with multiple data sources or when calculations build upon each other.
 
-\# Bad prompt
+# Bad prompt
 
 `Compare these 5 companies and tell me which is best`
 
 This request produces a black-box analysis where you can't verify the underlying data or logic.
 
-\# Good prompt
+# Good prompt
 
 `Let's analyze these companies step by step. First, pull their P/E ratios. Show me the results before proceeding to the next metric.`
 
@@ -138,11 +140,11 @@ For example, instead of "_Analyze all REITs,_" try being more specific: "_Analyz
 
 Here's an example:
 
-\# Bad prompt
+# Bad prompt
 
 `Find me good value stocks`
 
-\# Good prompt
+# Good prompt
 
 `Find companies with P/E below 15, positive free cash flow, and revenue growth above 5%`
 
@@ -150,14 +152,14 @@ The specific criteria ensure Claude identifies companies that match your investm
 
 ## Tips for Efficient Prompting
 
--   State your end goal upfront so Claude can suggest appropriate approaches.
--   Use consistent terminology throughout your analysis.
--   Save successful prompt templates for recurring analyses.
--   Start with smaller test requests before scaling up.
--   Name the specific data source in your prompts (Daloopa, Kensho/S&P Global).
--   Consider data freshness - specify if you need latest available or specific historical data.
--   Include output format preferences (table, bullet points, narrative).
--   Request source citations when accuracy is critical.
--   For recurring analyses, establish a consistent prompt structure you can reuse.
+- State your end goal upfront so Claude can suggest appropriate approaches.
+- Use consistent terminology throughout your analysis.
+- Save successful prompt templates for recurring analyses.
+- Start with smaller test requests before scaling up.
+- Name the specific data source in your prompts (Daloopa, Kensho/S&P Global).
+- Consider data freshness - specify if you need latest available or specific historical data.
+- Include output format preferences (table, bullet points, narrative).
+- Request source citations when accuracy is critical.
+- For recurring analyses, establish a consistent prompt structure you can reuse.
 
 These strategies help you get the most value from Claude's financial analysis capabilities while avoiding common pitfalls. As you develop experience with the system, you'll identify prompt patterns that work well for your specific analytical needs.

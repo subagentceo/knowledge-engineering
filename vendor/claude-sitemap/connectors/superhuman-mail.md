@@ -1,3 +1,5 @@
+# Superhuman Mail
+
 Connect Superhuman Mail to Claude, and build powerful workflows for email and calendar. Find anything in your inbox, draft replies that sound like you for every recipient, check read statuses, set reminders, schedule meetings, and send — all without leaving Claude.
 
 You can use the Superhuman Mail connector to:
@@ -9,7 +11,7 @@ You can use the Superhuman Mail connector to:
 "draft an email introducing myself to the new team"
 
 **Automate tasks:**  
-"forward today's invoices to [\[email protected\]](/cdn-cgi/l/email-protection) and say it's approved"
+"forward today's invoices to [email protected] and say it's approved"
 
 **Check read statuses:**  
 "who hasn't opened the exec dinner invite yet?"

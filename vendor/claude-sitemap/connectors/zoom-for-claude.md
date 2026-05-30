@@ -1,3 +1,5 @@
+# Zoom for Claude
+
 The Zoom for Claude connector allows users to search their Zoom meetings using natural language, retrieve meeting assets such as AI summaries, docs, recordings, and whiteboards, and access recording-specific resources including transcripts, summaries, next steps, and playback links. Users can ask questions to quickly locate the exact moment a topic was discussed in a meeting recording, generate agendas, capture notes, identify action items, and follow up using the transcript, summary, and shared materials.
 
 You can use Zoom for Claude to:

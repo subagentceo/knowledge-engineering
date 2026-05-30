@@ -1,4 +1,4 @@
-## List
+## List User Profiles
 
 `client.beta.userProfiles.list(UserProfileListParamsparams?, RequestOptionsoptions?): PageCursor<BetaUserProfile>`
 
@@ -9,7 +9,6 @@ List User Profiles
 ### Parameters
 
 - `params: UserProfileListParams`
-
   - `limit?: number`
 
     Query param: Query parameter for limit
@@ -17,7 +16,6 @@ List User Profiles
   - `order?: "asc" | "desc"`
 
     Query param: Query parameter for order
-
     - `"asc"`
 
     - `"desc"`
@@ -29,11 +27,9 @@ List User Profiles
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -82,10 +78,15 @@ List User Profiles
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaUserProfile`
-
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -101,7 +102,6 @@ List User Profiles
   - `relationship: "external" | "resold" | "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -111,11 +111,9 @@ List User Profiles
   - `trust_grants: Record<string, BetaUserProfileTrustGrant>`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" | "pending" | "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -125,7 +123,6 @@ List User Profiles
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -143,14 +140,39 @@ List User Profiles
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
 for await (const betaUserProfile of client.beta.userProfiles.list()) {
   console.log(betaUserProfile.id);
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {},
+      "relationship": "external",
+      "trust_grants": {
+        "cyber": {
+          "status": "active"
+        }
+      },
+      "type": "user_profile",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "external_id": "user_12345",
+      "name": "Example User"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```

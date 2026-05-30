@@ -1,3 +1,5 @@
+# Redesigning Claude Code on desktop for parallel agents
+
 It includes a new sidebar for managing multiple sessions, a drag-and-drop layout for arranging your workspace, an integrated terminal and file editor, plus performance and quality-of-life improvements.
 
 ## The new desktop experience
@@ -18,10 +20,10 @@ When you need to ask a question mid-task, you can open a side chat (⌘ + ; or C
 
 The redesign brings more commonly-used tools into the app, so you can review, tweak, and ship Claude's work without bouncing to your editor:
 
--   **Integrated terminal**: Run tests or builds alongside your session.
--   **In-app file editor**: Open files, make spot edits directly, and save changes.
--   **Faster diff viewer**: Rebuilt for performance on large changesets.
--   **Expanded preview**: Open HTML files or PDFs in-app, in addition to running local app servers in the preview pane.
+- **Integrated terminal**: Run tests or builds alongside your session.
+- **In-app file editor**: Open files, make spot edits directly, and save changes.
+- **Faster diff viewer**: Rebuilt for performance on large changesets.
+- **Expanded preview**: Open HTML files or PDFs in-app, in addition to running local app servers in the preview pane.
 
 Every pane is drag-and-drop. Arrange the terminal, preview, diff viewer, and chat in whatever grid matches how you work.
 
@@ -41,4 +43,4 @@ Under the hood, the app has been rebuilt for reliability and speed, and now stre
 
 The redesigned desktop app is available now for all Claude Code users on Pro, Max, Team, and Enterprise plans, and via the Claude API.
 
-[Download the app](https://claude.com/download), or update and restart if you already have it. Explore the [documentation](https://docs.claude.com/claude-code) to learn more.
+Download the app, or update and restart if you already have it. Explore the documentation to learn more.

@@ -1,3 +1,5 @@
+# Tines
+
 Build custom MCP servers securely in Tines. Connect templates, send-to-story workflows, and custom tools and make them accessible to external MCP clients.
 
 You can use Tines to:

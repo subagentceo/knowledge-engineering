@@ -1,3 +1,5 @@
+# Binti modernizes child welfare systems with Claude
+
 Binti is a technology company helping child welfare agencies modernize how they support children and families—so that every child can have a family. The company supports over 550 agencies across 36 states, serving 47% of children in care. Binti partners with state, county, and private child welfare agencies to streamline complex child welfare processes. By integrating Claude into their platform, Binti helps social workers make more informed decisions and spend less time on administrative work, so they can focus on connecting with families and driving better outcomes for children.
 
 Anthropic’s work with Binti is an important partnership in social services as part of the broader “AI for Good” initiative. 
@@ -6,10 +8,10 @@ Anthropic’s work with Binti is an important partnership in social services as 
 
 Binti has driven significant impact for the more than 550 child welfare agencies and more than 12,000 social workers it supports. Binti has helped child welfare agencies:
 
--   Reduce the time spent on administrative work by 20-40%
--   Increase the number of foster & adoptive families approved annually by ~30%
--   Reduce the number of days to approve foster and adoptive families by ~18%
--   Approve over 100,000 foster and adoptive families total
+- Reduce the time spent on administrative work by 20-40%
+- Increase the number of foster & adoptive families approved annually by ~30%
+- Reduce the number of days to approve foster and adoptive families by ~18%
+- Approve over 100,000 foster and adoptive families total
 
 Now, with Claude, Binti is able to drive even greater impact for agencies. Social workers using Binti’s AI tools have reported a 50% reduction in home visit writing time—from 3-4 hours to under 2 hours—with some seeing time savings as high as 75%.
 
@@ -23,9 +25,9 @@ This administrative burden created real challenges. Felicia Curcuru, co-founder 
 
 Binti integrated Claude to power three core features that reduce administrative burden, help social workers make more informed decisions, and ensure they’re able to support all families:
 
--   **Binti Form and Case Note Completion:** Social workers can record family meetings or upload handwritten notes, and they’ll receive AI-drafted documentation ready for review. Workers can upload recordings immediately after home visits—even from their cars—and return to the office with drafts already prepared, reducing report writing time from 3-4 hours to under 2 hours.
--   **Chat with Binti AI:** Workers can instantly query case information using natural language instead of searching through hundreds of pages of documents. The AI cites its sources for every answer and includes feedback mechanisms for continuous improvement.
--   **Binti Translate** Families can complete forms in their preferred language, with responses automatically translated for caseworkers. This reduces interpretation costs while ensuring non-English-speaking families can fully participate in the process.
+- **Binti Form and Case Note Completion:** Social workers can record family meetings or upload handwritten notes, and they’ll receive AI-drafted documentation ready for review. Workers can upload recordings immediately after home visits—even from their cars—and return to the office with drafts already prepared, reducing report writing time from 3-4 hours to under 2 hours.
+- **Chat with Binti AI:** Workers can instantly query case information using natural language instead of searching through hundreds of pages of documents. The AI cites its sources for every answer and includes feedback mechanisms for continuous improvement.
+- **Binti Translate** Families can complete forms in their preferred language, with responses automatically translated for caseworkers. This reduces interpretation costs while ensuring non-English-speaking families can fully participate in the process.
 
 Curcuru noted, "The technical integration with Claude was straightforward and user friendly for our engineering team. It allowed us to quickly launch AI-powered features, get them into the hands of social workers, and gather early, meaningful feedback."
 

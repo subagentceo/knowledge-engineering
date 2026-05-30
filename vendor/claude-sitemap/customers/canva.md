@@ -1,11 +1,13 @@
+# Canva empowers employees across teams with Claude
+
 Canva, a leading design and collaboration platform with over 5,000 employees, empowered their teams with Claude for Work, resulting in rapid demand and widespread adoption across the organization. Claude quickly became a highly popular ‘go-to’ tool, with employees showing remarkable enthusiasm for its capabilities. From engineers to product managers, teams across Canva use Claude to bring their ideas to life.
 
 With Claude, Canva:
 
--   Democratizes prototyping, allowing employees to create designs without specialized tools
--   Boosts engineering productivity with powerful code generation
--   Allows team members to quickly write copy in the correct tone and nuance, ideal for polishing content and allowing brand voice consistency
--   Empowers business teams to create custom solutions independently
+- Democratizes prototyping, allowing employees to create designs without specialized tools
+- Boosts engineering productivity with powerful code generation
+- Allows team members to quickly write copy in the correct tone and nuance, ideal for polishing content and allowing brand voice consistency
+- Empowers business teams to create custom solutions independently
 
 ## Building an experimental AI ecosystem
 
@@ -27,11 +29,11 @@ Another crucial factor was the enterprise-ready nature of Claude for Work. "We f
 
 Claude's integration into Canva employees' workflows supports several key use cases:
 
--   **Design prototyping**: Designers use Claude to simulate and iterate user testing of Canva templates, with Claude populating templates with content from screenshots.
--   **Component building**: Teams build interactive components that can be tested with real users without developer resources.
--   **Product visualization**: Product managers use Claude to develop prototypes of new features and visually explain concepts to engineers or designers.
--   **Collaboration**: Product managers and designers use Claude's Projects feature to maintain context about product design styles, principles, and philosophies, creating reusable workspaces for consistent outputs.
--   **Code generation**: Engineers provide "overwhelming feedback about Claude's excellent capabilities" in writing and optimizing code.
+- **Design prototyping**: Designers use Claude to simulate and iterate user testing of Canva templates, with Claude populating templates with content from screenshots.
+- **Component building**: Teams build interactive components that can be tested with real users without developer resources.
+- **Product visualization**: Product managers use Claude to develop prototypes of new features and visually explain concepts to engineers or designers.
+- **Collaboration**: Product managers and designers use Claude's Projects feature to maintain context about product design styles, principles, and philosophies, creating reusable workspaces for consistent outputs.
+- **Code generation**: Engineers provide "overwhelming feedback about Claude's excellent capabilities" in writing and optimizing code.
 
 Garrett explains: "One product manager commented, 'Claude has allowed me to create prototypes I wouldn't have attempted otherwise, giving me a visual way to communicate my ideas to the team.'" The Projects feature has been valuable, allowing teams to build design knowledge repositories for Claude. "It's enabling people from non-design backgrounds to express concepts in a completely new way."
 

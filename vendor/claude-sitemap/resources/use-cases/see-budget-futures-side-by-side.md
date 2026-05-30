@@ -1,3 +1,5 @@
+# See budget futures side by side, in chat with Claude
+
 Scenario planning is more tedious than hard, since it mostly comes down to opening the spreadsheet, cloning the tab, adjusting the numbers, and comparing. When the board call is in an hour, what you actually want is to look at multiple futures side by side and see at a glance which one hurts most. Tell Claude your budget in a sentence along with the thing that might change, and stacked bars stream in next to each other with a toggle between dollars and percentages. Clicking any scenario gets you a one-line read on what it actually means for the organization, which is usually the sentence you need for the board.
 
 Here an ED might lose a major grant and needs to walk into a board call with a clear picture of what that looks like against flat and slight growth. Claude draws side by side, and the proportional cut to programs shows up as a flag before the ED has even clicked in.

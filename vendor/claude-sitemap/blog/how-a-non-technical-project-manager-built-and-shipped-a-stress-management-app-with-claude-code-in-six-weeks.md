@@ -1,4 +1,6 @@
-_In our series,_ **_Day zero: founder stories_**_, we profile the builders behind some of the world’s most interesting and inspiring startups. In this article, we highlight Kostiantyn Vlasenko, a winner of the_ [_Claude Opus 4.6 Hackathon_](https://claude.com/blog/meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon) _and creator of Respiro._
+# How a non-technical project manager built and shipped a stress management app with Claude Code in six weeks
+
+_In our series,_ **_Day zero: founder stories_**_, we profile the builders behind some of the world’s most interesting and inspiring startups. In this article, we highlight Kostiantyn Vlasenko, a winner of the_ _Claude Opus 4.6 Hackathon_ _and creator of Respiro._
 
 Founder
 
@@ -16,13 +18,13 @@ Fifteen minutes before joining the video call for this interview, Kostiantyn Vla
 
 "The app detected this and alerted me, _'Mate, you can just go and do a short box breathing session. Box breathing has previously helped you de-stress,'_" he says.
 
-That app, [Respiro](https://apps.apple.com/us/app/respiro-stress-relief/id6758023997), is Vlasenko's creation. Although a project manager with a decade of experience, he’d never shipped a line of code until February 2026 when he decided to build a project for the [Built With Opus 4.6 Claude Code Hackathon](https://cerebralvalley.ai/e/claude-code-hackathon?tab=guest-list). A month later, Respiro (an iOS app for science-backed stress management) is live on the Apple App Store, has hundreds of users, and runs on an architecture involving 15+ specialized subagents that Vlasenko built and orchestrates himself. 
+That app, Respiro, is Vlasenko's creation. Although a project manager with a decade of experience, he’d never shipped a line of code until February 2026 when he decided to build a project for the Built With Opus 4.6 Claude Code Hackathon. A month later, Respiro (an iOS app for science-backed stress management) is live on the Apple App Store, has hundreds of users, and runs on an architecture involving 15+ specialized subagents that Vlasenko built and orchestrates himself. 
 
 He did it all with Claude Code, in 72 hours, with no team and no programming experience. 
 
 ## The problem no app could solve
 
-As a project manager at [Mythical Games](https://mythicalgames.com/), Kyiv-based Vlasenko has spent ten years managing stakeholder pressure, team dynamics, and the relentless pace of product releases. He found that breathing techniques and mindfulness helped keep his stress level under control; what he couldn’t find was a stress management tool that kicked in during moments of actual stress.
+As a project manager at Mythical Games, Kyiv-based Vlasenko has spent ten years managing stakeholder pressure, team dynamics, and the relentless pace of product releases. He found that breathing techniques and mindfulness helped keep his stress level under control; what he couldn’t find was a stress management tool that kicked in during moments of actual stress.
 
 "The existing apps could notify me to do some deep breathing at 10:00 PM or whatever. But they didn’t understand that I'm stressed _right now_," he explains. He was on vacation in the mountains of western Ukraine when the idea crystallized: build an app that detects stress signals from your personal device(s) in real time, and then intervenes with a guided mindful breathing exercise at the moments when you need it most. The only problem was that he didn't know how to build apps.
 
@@ -46,7 +48,7 @@ Building the app was one thing. Shipping it was another, and Vlasenko had never 
 
 "When I got stuck, I could just take a screenshot and ask Claude, 'Hey, what should I press here?'" he says. He used the same approach to set up other third-party services, like Sentry for logging and Amplitude for analytics. “I'd tell Claude, _I completed the sign-in, here's the API key_ and 99 percent of the time Claude got it on the first try,” Vlasenko said. The other one percent of the time, he continued, “I just needed to refine and give more clarity to what I was asking for in the first prompt, and within a few more tries Claude gives me the results I want.”
 
-In fact, Vlasenko considers [Claude’s vision capabilities](https://platform.claude.com/docs/en/build-with-claude/vision) to be its most under-appreciated feature. “You send Claude a screenshot to analyze and it tells you what it sees. Then you use this to have Claude guide you through even the most complex UX, ” he explained. “Like, I had to create an API token on Meta and I was just getting lost in their interface, but Claude really understands and guides you everywhere you need to go.”
+In fact, Vlasenko considers Claude’s vision capabilities to be its most under-appreciated feature. “You send Claude a screenshot to analyze and it tells you what it sees. Then you use this to have Claude guide you through even the most complex UX, ” he explained. “Like, I had to create an API token on Meta and I was just getting lost in their interface, but Claude really understands and guides you everywhere you need to go.”
 
 Marketing Respiro is also a Claude-assisted endeavor. When Vlasenko needed analytics, Claude went beyond integrating Amplitude’s basic SDK to set up full user funnels, retention metrics, and active tracking for daily and monthly users. When he needed content, Claude started writing his blog posts and helping him create TikToks. Claude also suggested a growth strategy Vlasenko says he never would have thought of: reaching out to psychologists and mindfulness practitioners who could recommend Respiro to their clients. He tried it. It worked. Practitioners started recommending the app.
 

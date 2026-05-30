@@ -1,4 +1,4 @@
-## Retrieve
+## Retrieve a Message Batch
 
 `beta.messages.batches.retrieve(strmessage_batch_id, BatchRetrieveParams**kwargs)  -> BetaMessageBatch`
 
@@ -17,11 +17,9 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 - `betas: Optional[List[AnthropicBetaParam]]`
 
   Optional header to specify the beta version(s) you want to use.
-
   - `str`
 
-  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 21 more]`
-
+  - `Literal["message-batches-2024-09-24", "prompt-caching-2024-07-31", "computer-use-2024-10-22", 24 more]`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -70,10 +68,15 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaMessageBatch: …`
-
   - `id: str`
 
     Unique object identifier.
@@ -105,7 +108,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `processing_status: Literal["in_progress", "canceling", "ended"]`
 
     Processing status of the Message Batch.
-
     - `"in_progress"`
 
     - `"canceling"`
@@ -117,7 +119,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
-
     - `canceled: int`
 
       Number of requests in the Message Batch that have been canceled.
@@ -157,7 +158,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
-
     - `"message_batch"`
 
 ### Example
@@ -173,4 +173,27 @@ beta_message_batch = client.beta.messages.batches.retrieve(
     message_batch_id="message_batch_id",
 )
 print(beta_message_batch.id)
+```
+
+#### Response
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "archived_at": "2024-08-20T18:37:24.100435Z",
+  "cancel_initiated_at": "2024-08-20T18:37:24.100435Z",
+  "created_at": "2024-08-20T18:37:24.100435Z",
+  "ended_at": "2024-08-20T18:37:24.100435Z",
+  "expires_at": "2024-08-20T18:37:24.100435Z",
+  "processing_status": "in_progress",
+  "request_counts": {
+    "canceled": 10,
+    "errored": 30,
+    "expired": 10,
+    "processing": 100,
+    "succeeded": 50
+  },
+  "results_url": "https://api.anthropic.com/v1/messages/batches/msgbatch_013Zva2CMHLNnXjNJJKqJ2EF/results",
+  "type": "message_batch"
+}
 ```

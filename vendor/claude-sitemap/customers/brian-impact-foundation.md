@@ -1,3 +1,5 @@
+# Brian Impact Foundation powers their search for the next generation of social innovators with Claude
+
 Brian Impact Foundation, a nonprofit focused on using technology to solve social problems, used Claude to help the team review 100x more candidates than the year prior, allowing the team to consider a much larger pool of innovators and create a more equitable process for identifying fellowship candidates.
 
 ## Large impact, small team
@@ -36,4 +38,4 @@ With Claude, Brian Impact Foundation can be confident that it’s supporting the
 
 > Partnering with Anthropic has helped our team of 13 discover a larger number of fellowship applications and review every application more thoroughly. This enables us to increase equity in our fellowship application process, strengthening our mission to support innovators using technology to make the world a better place.
 
-\- Soomin Syd Kim, Project Director at Brian Impact Foundation
+- Soomin Syd Kim, Project Director at Brian Impact Foundation

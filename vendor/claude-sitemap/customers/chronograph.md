@@ -1,12 +1,14 @@
-[Chronograph](https://www.chronograph.pe) is a leading portfolio monitoring and analytics platform serving institutional private equity investors. The company supports more than $4 trillion in client capital and serves a majority of the largest General Partners and Limited Partners globally.
+# Chronograph scales operations and accelerates decision-making with Claude
+
+Chronograph is a leading portfolio monitoring and analytics platform serving institutional private equity investors. The company supports more than $4 trillion in client capital and serves a majority of the largest General Partners and Limited Partners globally.
 
 With Claude, Chronograph:
 
--   Achieves 100% employee adoption with 80% daily active usage across all 150+ team members
--   Enables new hires to contribute in Week 2 versus 2+ months previously
--   Replaces expensive vendor tools with custom AI-powered lead generation workflows
--   Enables non-technical teams to build real-time dashboards and analyze data without engineering bottlenecks
--   Launched Chronograph MCP server, enabling private equity clients to connect portfolio data directly to Claude
+- Achieves 100% employee adoption with 80% daily active usage across all 150+ team members
+- Enables new hires to contribute in Week 2 versus 2+ months previously
+- Replaces expensive vendor tools with custom AI-powered lead generation workflows
+- Enables non-technical teams to build real-time dashboards and analyze data without engineering bottlenecks
+- Launched Chronograph MCP server, enabling private equity clients to connect portfolio data directly to Claude
 
 ## The problem
 
@@ -36,7 +38,7 @@ Non-technical teams now build real-time dashboards through Claude Artifacts and 
 
 Building on its success using Claude Enterprise to scale operations, Chronograph has launched an MCP server that enables its clients to connect their private capital portfolio data managed on the company’s platforms directly to Claude.
 
-[Chronograph’s MCP is available as a Claude direct connector](https://support.claude.com/en/articles/12662597-using-chronograph-for-portfolio-monitoring) in the Claude Partners Directory. Through Claude, private equity professionals can instantly analyze fund performance, underlying company metrics, and exposure analytics across their complete private investment portfolio.
+Chronograph’s MCP is available as a Claude direct connector in the Claude Partners Directory. Through Claude, private equity professionals can instantly analyze fund performance, underlying company metrics, and exposure analytics across their complete private investment portfolio.
 
 “The private capital industry generates massive amounts of portfolio data, but traditional tools often create friction in accessing insights,” said Nicholas Lin, Head of Product for Financial Services, Anthropic. “By connecting Chronograph's comprehensive portfolio monitoring platform with Claude's interface, we're enabling institutional investors to unlock the full potential of their data—moving from data retrieval to strategic insight in seconds.”
 

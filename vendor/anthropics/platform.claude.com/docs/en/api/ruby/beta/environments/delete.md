@@ -1,4 +1,4 @@
-## Delete
+## Delete Environment
 
 `beta.environments.delete(environment_id, **kwargs) -> BetaEnvironmentDeleteResponse`
 
@@ -13,11 +13,9 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -66,12 +64,17 @@ Delete an environment by ID. Returns a confirmation of the deletion.
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaEnvironmentDeleteResponse`
 
   Response after deleting an environment.
-
   - `id: String`
 
     Environment identifier
@@ -79,7 +82,6 @@ Delete an environment by ID. Returns a confirmation of the deletion.
   - `type: :environment_deleted`
 
     The type of response
-
     - `:environment_deleted`
 
 ### Example
@@ -92,4 +94,13 @@ anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 beta_environment_delete_response = anthropic.beta.environments.delete("env_011CZkZ9X2dpNyB7HsEFoRfW")
 
 puts(beta_environment_delete_response)
+```
+
+#### Response
+
+```json
+{
+  "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+  "type": "environment_deleted"
+}
 ```

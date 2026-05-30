@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -21,19 +22,19 @@ styles.
 
 With Claude for Word, you can:
 
-* Ask questions about your document and get answers with clickable
+- Ask questions about your document and get answers with clickable
   section citations.
-* Edit selected text while preserving surrounding styles, numbering,
+- Edit selected text while preserving surrounding styles, numbering,
   and formatting.
-* Use tracked changes mode so every edit lands as a revision you can
+- Use tracked changes mode so every edit lands as a revision you can
   accept or reject in Word's native review pane.
-* Have Claude work through comment threads, editing the anchored text
+- Have Claude work through comment threads, editing the anchored text
   and replying with what it changed.
-* Summarize counterparty redlines and flag the revisions worth pushing
+- Summarize counterparty redlines and flag the revisions worth pushing
   back on.
-* Fill templates with drafted content that inherits your document's
+- Fill templates with drafted content that inherits your document's
   heading and paragraph styles.
-* Find every provision touching a theme with semantic navigation, not
+- Find every provision touching a theme with semantic navigation, not
   just keyword search.
 
 ## Get started with Claude for Word
@@ -42,10 +43,10 @@ With Claude for Word, you can:
 
 Claude for Word runs on the following Word builds.
 
-* Word on the web
-* Word on Windows with a Microsoft 365 subscription, Version 2205,
+- Word on the web
+- Word on Windows with a Microsoft 365 subscription, Version 2205,
   build 15202.10000 or later
-* Word on Mac, version 16.61, build 22040100 or later
+- Word on Mac, version 16.61, build 22040100 or later
 
 ### Install for yourself
 
@@ -159,9 +160,9 @@ navigate directly to the referenced section.
 
 Example prompts:
 
-* "What's the liability cap and is it mutual?"
-* "Summarize the key commercial terms in this agreement."
-* "What assumptions drive the revenue forecast in section 3?"
+- "What's the liability cap and is it mutual?"
+- "Summarize the key commercial terms in this agreement."
+- "What assumptions drive the revenue forecast in section 3?"
 
 ### Edit selected text
 
@@ -172,9 +173,9 @@ of the surrounding content.
 
 Example prompts:
 
-* "Tighten this paragraph and drop the passive voice."
-* "Rewrite this clause to make the indemnification mutual."
-* "Simplify this section for a non-technical audience."
+- "Tighten this paragraph and drop the passive voice."
+- "Rewrite this clause to make the indemnification mutual."
+- "Simplify this section for a non-technical audience."
 
 ### Tracked changes mode
 
@@ -186,9 +187,9 @@ on Windows or Cmd+Z on Mac if you want to revert.
 
 Example prompts:
 
-* "Rewrite section 4.2 to cap damages at 12 months of fees, and make it
+- "Rewrite section 4.2 to cap damages at 12 months of fees, and make it
   mutual."
-* "Draft a mutual indemnification clause after section 8."
+- "Draft a mutual indemnification clause after section 8."
 
 ### Comment-driven editing
 
@@ -199,8 +200,8 @@ thread with a note explaining what it did.
 
 Example prompts:
 
-* "Work through my open comments."
-* "Address the comment on the liability section."
+- "Work through my open comments."
+- "Address the comment on the liability section."
 
 ### Summarize counterparty redlines
 
@@ -210,9 +211,9 @@ severity or flag the ones worth pushing back on.
 
 Example prompts:
 
-* "Summarize what the other side changed and flag anything that's worth
+- "Summarize what the other side changed and flag anything that's worth
   discussing."
-* "Which of these redlines are dealbreakers?"
+- "Which of these redlines are dealbreakers?"
 
 ### Fill templates
 
@@ -223,8 +224,8 @@ populate in place without reflowing layout or changing column widths.
 
 Example prompts:
 
-* "Draft the Key Risks section with four risks in the template's style."
-* "Populate the summary table with revenue, gross margin, and net
+- "Draft the Key Risks section with four risks in the template's style."
+- "Populate the summary table with revenue, gross margin, and net
   retention for the last three years."
 
 ### Semantic navigation
@@ -235,8 +236,8 @@ and each result navigates to the relevant location on click.
 
 Example prompts:
 
-* "Find every provision touching data retention."
-* "Where does this agreement address termination?"
+- "Find every provision touching data retention."
+- "Where does this agreement address termination?"
 
 ## Connectors and Skills
 
@@ -269,7 +270,7 @@ workbook, deck, and inbox. See
 The add-in handles long sessions for you so a single conversation can
 span an entire workflow.
 
-* **Auto-compaction**: longer conversations are automatically compacted
+- **Auto-compaction**: longer conversations are automatically compacted
   into new conversations to avoid running out of context. See
   [Understanding usage and length limits](https://support.claude.com/en/articles/11647753-understanding-usage-and-length-limits).
 
@@ -306,22 +307,22 @@ or regulated data, follow your organization's data handling policies.
 
 As a beta feature, Claude for Word is not recommended for:
 
-* Final client deliverables or counterparty sends without human review.
-* Litigation filings or audit-critical documents without verification.
-* Replacing legal or financial judgment.
-* Documents containing highly sensitive or privileged data without
+- Final client deliverables or counterparty sends without human review.
+- Litigation filings or audit-critical documents without verification.
+- Replacing legal or financial judgment.
+- Documents containing highly sensitive or privileged data without
   proper controls.
 
 ### Unsupported versions
 
 The add-in does not run on these Word versions.
 
-* Word 2016 and 2019 perpetual or volume license.
-* Word on iPad.
-* Word on Android.
-* Microsoft 365 Word builds older than Version 2205 on Windows or
+- Word 2016 and 2019 perpetual or volume license.
+- Word on iPad.
+- Word on Android.
+- Microsoft 365 Word builds older than Version 2205 on Windows or
   version 16.61 on Mac.
-* Legacy `.doc` files. Save as `.docx` first.
+- Legacy `.doc` files. Save as `.docx` first.
 
 ## Prompt injection risk
 
@@ -338,11 +339,11 @@ content such as text, comments, tracked changes, headers, and footers
 to trick Claude into taking unintended actions. Testing has identified
 scenarios where Claude for Word can be manipulated to:
 
-* Extract and share sensitive information through web searches
+- Extract and share sensitive information through web searches
   containing your sensitive data or file system access that exposes
   proprietary information.
-* Modify critical content such as contract terms or financial figures.
-* Perform destructive actions without verification when allowed to act
+- Modify critical content such as contract terms or financial figures.
+- Perform destructive actions without verification when allowed to act
   unsupervised.
 
 When Claude proposes a risky operation, you are asked to confirm before
@@ -353,11 +354,11 @@ external sources.
 
 Follow these guidelines to use Claude for Word safely and effectively.
 
-* Always review tracked changes before accepting them.
-* Verify that outputs match your firm's playbook and standard
+- Always review tracked changes before accepting them.
+- Verify that outputs match your firm's playbook and standard
   positions.
-* Use appropriate permissions and access controls.
-* Maintain human oversight for client-facing work.
+- Use appropriate permissions and access controls.
+- Maintain human oversight for client-facing work.
 
 ## Example use cases
 
@@ -365,42 +366,42 @@ Follow these guidelines to use Claude for Word safely and effectively.
 
 Prompts that review and revise contracts and counterparty redlines.
 
-* "Summarize the key commercial terms: parties, term, governing law,
+- "Summarize the key commercial terms: parties, term, governing law,
   and anything off-market."
-* "Flag provisions that deviate from standard market position, ranked
+- "Flag provisions that deviate from standard market position, ranked
   by severity."
-* "Make the indemnification mutual and insert our standard fallback
+- "Make the indemnification mutual and insert our standard fallback
   language."
-* "Work through all five reviewer comments as tracked changes."
-* "What did the counterparty change, and which revisions are
+- "Work through all five reviewer comments as tracked changes."
+- "What did the counterparty change, and which revisions are
   dealbreakers?"
 
 ### Finance memo drafting
 
 Prompts that build out investment memos and finance writeups.
 
-* "Draft the Investment Thesis section with three points, pulling the
+- "Draft the Investment Thesis section with three points, pulling the
   numbers from the uploaded 10-K."
-* "Populate the summary table with revenue, gross margin, and FCF for
+- "Populate the summary table with revenue, gross margin, and FCF for
   the last three years."
-* "Too generic on point two. Use the customer count from the deck."
-* "Address the partner's comment on the Risks section."
+- "Too generic on point two. Use the customer count from the deck."
+- "Address the partner's comment on the Risks section."
 
 ### Document QA and consistency
 
 Prompts that check a document for internal consistency and quality.
 
-* "Flag inconsistent defined terms and broken cross-references."
-* "Check the numbering scheme for gaps."
-* "Proofread for spelling, grammar, and punctuation."
-* "Is the same party referred to by different names anywhere in this
+- "Flag inconsistent defined terms and broken cross-references."
+- "Check the numbering scheme for gaps."
+- "Proofread for spelling, grammar, and punctuation."
+- "Is the same party referred to by different names anywhere in this
   document?"
 
 ### General document editing
 
 Prompts that tighten or restructure prose.
 
-* "Tighten section 4 and drop the passive voice."
-* "Rewrite this for a non-technical audience."
-* "Add a fourth risk addressing customer concentration."
-* "Define this term and use it consistently throughout."
+- "Tighten section 4 and drop the passive voice."
+- "Rewrite this for a non-technical audience."
+- "Add a fourth risk addressing customer concentration."
+- "Define this term and use it consistently throughout."

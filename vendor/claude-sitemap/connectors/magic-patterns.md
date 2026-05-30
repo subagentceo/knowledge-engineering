@@ -1,3 +1,5 @@
+# Magic Patterns
+
 Discuss and iterate on Magic Patterns designs directly from Claude. Magic Patterns is an AI agent specialized in frontend design.
 
 You can use Magic Patterns to:

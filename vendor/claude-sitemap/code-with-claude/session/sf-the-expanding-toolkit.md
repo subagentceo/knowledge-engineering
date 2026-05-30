@@ -2,31 +2,9 @@
 
 Over the last year, capabilities that used to require heavy scaffolding have moved into the model: reliable tool use, context management, writing and running code, computer use, and more. This session walks through these capabilities, shows what changed between model generations, and demonstrates how they compose into agents that finish work instead of just starting it.
 
-Details
-
-City
-
-San Francisco, USA
-
-Date
-
-May 6, 2026
-
-Time
-
-11:15AM – 11:45AM
-
-Speaker(s)
-
-Lucas Gonzalez
-
-Member of Technical Staff,
-
-Anthropic
-
 ## Watch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf35b3ece741832c28348_the-expanding-toolkit.webp)
 
@@ -36,4 +14,4 @@ Keynotes, demos, and conversations with the teams behind Claude. Recorded at Cod
 
 Browse recordings
 
-[Learn more](/code-with-claude/san-francisco)Learn more
+Learn moreLearn more

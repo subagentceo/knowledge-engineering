@@ -1,3 +1,5 @@
+# Preclinical study analysis
+
 Claude connects directly to research platforms like Benchling, allowing you to query complex experimental data as naturally as asking a colleague. It retrieves data from multiple notebook entries and sources, synthesizes comparisons, and creates polished reports, saving hours of tedious compilation work.
 
 Start by telling Claude what studies you need to compare and what you want to understand about them.

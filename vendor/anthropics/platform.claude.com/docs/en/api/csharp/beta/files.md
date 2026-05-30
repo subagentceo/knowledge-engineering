@@ -1,6 +1,6 @@
 # Files
 
-## Upload
+## Upload File
 
 `FileMetadata Beta.Files.Upload(FileUploadParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -11,7 +11,6 @@ Upload File
 ### Parameters
 
 - `FileUploadParams parameters`
-
   - `required string file`
 
     Body param: The file to upload
@@ -19,7 +18,6 @@ Upload File
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -68,10 +66,15 @@ Upload File
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class FileMetadata:`
-
   - `required string ID`
 
     Unique object identifier.
@@ -107,7 +110,6 @@ Upload File
   - `BetaFileScope? Scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `required string ID`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -129,7 +131,25 @@ var fileMetadata = await client.Beta.Files.Upload(parameters);
 Console.WriteLine(fileMetadata);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## List Files
 
 `FileListPageResponse Beta.Files.List(FileListParams?parameters, CancellationTokencancellationToken = default)`
 
@@ -140,7 +160,6 @@ List Files
 ### Parameters
 
 - `FileListParams parameters`
-
   - `string afterID`
 
     Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -162,7 +181,6 @@ List Files
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -211,14 +229,18 @@ List Files
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class FileListPageResponse:`
-
   - `required IReadOnlyList<FileMetadata> Data`
 
     List of file metadata objects.
-
     - `required string ID`
 
       Unique object identifier.
@@ -254,7 +276,6 @@ List Files
     - `BetaFileScope? Scope`
 
       The scope of this file, indicating the context in which it was created (e.g., a session).
-
       - `required string ID`
 
         The ID of the scoping resource (e.g., the session ID).
@@ -287,7 +308,32 @@ await foreach (var item in page.Paginate())
 }
 ```
 
-## Download
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "created_at": "2025-04-15T18:37:24.100435Z",
+      "filename": "document.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 102400,
+      "type": "file",
+      "downloadable": false,
+      "scope": {
+        "id": "id",
+        "type": "session"
+      }
+    }
+  ],
+  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "has_more": true,
+  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
+}
+```
+
+## Download File
 
 `HttpResponse Beta.Files.Download(FileDownloadParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -298,7 +344,6 @@ Download File
 ### Parameters
 
 - `FileDownloadParams parameters`
-
   - `required string fileID`
 
     ID of the File.
@@ -306,7 +351,6 @@ Download File
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -354,6 +398,12 @@ Download File
     - `"advisor-tool-2026-03-01"AdvisorTool2026_03_01`
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
+
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
 
 ### Example
 
@@ -365,7 +415,7 @@ var response = await client.Beta.Files.Download(parameters);
 Console.WriteLine(response);
 ```
 
-## Retrieve Metadata
+## Get File Metadata
 
 `FileMetadata Beta.Files.RetrieveMetadata(FileRetrieveMetadataParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -376,7 +426,6 @@ Get File Metadata
 ### Parameters
 
 - `FileRetrieveMetadataParams parameters`
-
   - `required string fileID`
 
     ID of the File.
@@ -384,7 +433,6 @@ Get File Metadata
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -433,10 +481,15 @@ Get File Metadata
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class FileMetadata:`
-
   - `required string ID`
 
     Unique object identifier.
@@ -472,7 +525,6 @@ Get File Metadata
   - `BetaFileScope? Scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `required string ID`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -491,7 +543,25 @@ var fileMetadata = await client.Beta.Files.RetrieveMetadata(parameters);
 Console.WriteLine(fileMetadata);
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## Delete File
 
 `DeletedFile Beta.Files.Delete(FileDeleteParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -502,7 +572,6 @@ Delete File
 ### Parameters
 
 - `FileDeleteParams parameters`
-
   - `required string fileID`
 
     ID of the File.
@@ -510,7 +579,6 @@ Delete File
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -559,10 +627,15 @@ Delete File
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class DeletedFile:`
-
   - `required string ID`
 
     ID of the deleted file.
@@ -572,7 +645,6 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `"file_deleted"FileDeleted`
 
 ### Example
@@ -585,12 +657,20 @@ var deletedFile = await client.Beta.Files.Delete(parameters);
 Console.WriteLine(deletedFile);
 ```
 
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "type": "file_deleted"
+}
+```
+
 ## Domain Types
 
 ### Beta File Scope
 
 - `class BetaFileScope:`
-
   - `required string ID`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -602,7 +682,6 @@ Console.WriteLine(deletedFile);
 ### Deleted File
 
 - `class DeletedFile:`
-
   - `required string ID`
 
     ID of the deleted file.
@@ -612,13 +691,11 @@ Console.WriteLine(deletedFile);
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `"file_deleted"FileDeleted`
 
 ### File Metadata
 
 - `class FileMetadata:`
-
   - `required string ID`
 
     Unique object identifier.
@@ -654,7 +731,6 @@ Console.WriteLine(deletedFile);
   - `BetaFileScope? Scope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `required string ID`
 
       The ID of the scoping resource (e.g., the session ID).

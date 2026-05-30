@@ -1,4 +1,4 @@
-## List
+## List Environments
 
 `EnvironmentListPage beta().environments().list(EnvironmentListParamsparams = EnvironmentListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,7 +9,6 @@ List environments with pagination support.
 ### Parameters
 
 - `EnvironmentListParams params`
-
   - `Optional<Boolean> includeArchived`
 
     Include archived environments in the response
@@ -25,7 +24,6 @@ List environments with pagination support.
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -74,99 +72,106 @@ List environments with pagination support.
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaEnvironment:`
 
   Unified Environment resource for both cloud and self-hosted environments.
-
   - `String id`
 
-    Environment identifier (e.g., 'env_...')
+    Environment identifier (e.g., 'env\_...')
 
   - `Optional<String> archivedAt`
 
     RFC 3339 timestamp when environment was archived, or null if not archived
 
-  - `BetaCloudConfig config`
+  - `Config config`
 
-    `cloud` environment configuration.
+    Environment configuration (either Anthropic Cloud or self-hosted)
+    - `class BetaCloudConfig:`
 
-    - `Networking networking`
+      `cloud` environment configuration.
+      - `Networking networking`
 
-      Network configuration policy.
+        Network configuration policy.
+        - `class BetaUnrestrictedNetwork:`
 
-      - `class BetaUnrestrictedNetwork:`
+          Unrestricted network access.
+          - `JsonValue; type "unrestricted"constant`
 
-        Unrestricted network access.
+            Network policy type
+            - `UNRESTRICTED("unrestricted")`
 
-        - `JsonValue; type "unrestricted"constant`
+        - `class BetaLimitedNetwork:`
 
-          Network policy type
+          Limited network access.
+          - `boolean allowMcpServers`
 
-          - `UNRESTRICTED("unrestricted")`
+            Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
 
-      - `class BetaLimitedNetwork:`
+          - `boolean allowPackageManagers`
 
-        Limited network access.
+            Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
 
-        - `boolean allowMcpServers`
+          - `List<String> allowedHosts`
 
-          Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
+            Specifies domains the container can reach.
 
-        - `boolean allowPackageManagers`
+          - `JsonValue; type "limited"constant`
 
-          Permits outbound access to public package registries (PyPI, npm, etc.) beyond those listed in the `allowed_hosts` array.
+            Network policy type
+            - `LIMITED("limited")`
 
-        - `List<String> allowedHosts`
+      - `BetaPackages packages`
 
-          Specifies domains the container can reach.
+        Package manager configuration.
+        - `List<String> apt`
 
-        - `JsonValue; type "limited"constant`
+          Ubuntu/Debian packages to install
 
-          Network policy type
+        - `List<String> cargo`
 
-          - `LIMITED("limited")`
+          Rust packages to install
 
-    - `BetaPackages packages`
+        - `List<String> gem`
 
-      Package manager configuration.
+          Ruby packages to install
 
-      - `List<String> apt`
+        - `List<String> go`
 
-        Ubuntu/Debian packages to install
+          Go packages to install
 
-      - `List<String> cargo`
+        - `List<String> npm`
 
-        Rust packages to install
+          Node.js packages to install
 
-      - `List<String> gem`
+        - `List<String> pip`
 
-        Ruby packages to install
+          Python packages to install
 
-      - `List<String> go`
+        - `Optional<Type> type`
 
-        Go packages to install
+          Package configuration type
+          - `PACKAGES("packages")`
 
-      - `List<String> npm`
+      - `JsonValue; type "cloud"constant`
 
-        Node.js packages to install
+        Environment type
+        - `CLOUD("cloud")`
 
-      - `List<String> pip`
+    - `class BetaSelfHostedConfig:`
 
-        Python packages to install
+      Configuration for self-hosted environments.
+      - `JsonValue; type "self_hosted"constant`
 
-      - `Optional<Type> type`
-
-        Package configuration type
-
-        - `PACKAGES("packages")`
-
-    - `JsonValue; type "cloud"constant`
-
-      Environment type
-
-      - `CLOUD("cloud")`
+        Environment type
+        - `SELF_HOSTED("self_hosted")`
 
   - `String createdAt`
 
@@ -187,12 +192,18 @@ List environments with pagination support.
   - `JsonValue; type "environment"constant`
 
     The type of object (always 'environment')
-
     - `ENVIRONMENT("environment")`
 
   - `String updatedAt`
 
     RFC 3339 timestamp when environment was last updated
+
+  - `Optional<Scope> scope`
+
+    The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+    - `ORGANIZATION("organization")`
+
+    - `ACCOUNT("account")`
 
 ### Example
 
@@ -212,5 +223,44 @@ public final class Main {
 
         EnvironmentListPage page = client.beta().environments().list();
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "env_011CZkZ9X2dpNyB7HsEFoRfW",
+      "archived_at": null,
+      "config": {
+        "networking": {
+          "allow_mcp_servers": false,
+          "allow_package_managers": true,
+          "allowed_hosts": ["api.example.com"],
+          "type": "limited"
+        },
+        "packages": {
+          "apt": ["string"],
+          "cargo": ["string"],
+          "gem": ["string"],
+          "go": ["string"],
+          "npm": ["string"],
+          "pip": ["pandas", "numpy"],
+          "type": "packages"
+        },
+        "type": "cloud"
+      },
+      "created_at": "2026-03-15T10:00:00Z",
+      "description": "Python environment with data-analysis packages.",
+      "metadata": {},
+      "name": "python-data-analysis",
+      "type": "environment",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "scope": "organization"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
 }
 ```

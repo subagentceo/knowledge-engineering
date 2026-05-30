@@ -1,6 +1,6 @@
 # Memory Stores
 
-## Create
+## Create a memory store
 
 `$ ant beta:memory-stores create`
 
@@ -31,7 +31,6 @@ Create a memory store
 - `beta_managed_agents_memory_store: object { id, created_at, name, 5 more }`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -45,7 +44,6 @@ Create a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -72,7 +70,24 @@ ant beta:memory-stores create \
   --name x
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+## List memory stores
 
 `$ ant beta:memory-stores list`
 
@@ -111,11 +126,9 @@ List memory stores
 - `BetaManagedAgentsListMemoryStoresResponse: object { data, next_page }`
 
   A page of `memory_store` results, ordered by `created_at` descending (newest first).
-
   - `data: optional array of BetaManagedAgentsMemoryStore`
 
     Memory stores on this page, newest first. Empty when there are no stores matching the filters.
-
     - `id: string`
 
       Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -129,7 +142,6 @@ List memory stores
       Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
     - `type: "memory_store"`
-
       - `"memory_store"`
 
     - `updated_at: string`
@@ -159,7 +171,29 @@ ant beta:memory-stores list \
   --api-key my-anthropic-api-key
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "name": "name",
+      "type": "memory_store",
+      "updated_at": "2019-12-27T18:11:19.117Z",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "description": "description",
+      "metadata": {
+        "foo": "string"
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Retrieve a memory store
 
 `$ ant beta:memory-stores retrieve`
 
@@ -182,7 +216,6 @@ Retrieve a memory store
 - `beta_managed_agents_memory_store: object { id, created_at, name, 5 more }`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -196,7 +229,6 @@ Retrieve a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -223,7 +255,24 @@ ant beta:memory-stores retrieve \
   --memory-store-id memory_store_id
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+## Update a memory store
 
 `$ ant beta:memory-stores update`
 
@@ -258,7 +307,6 @@ Update a memory store
 - `beta_managed_agents_memory_store: object { id, created_at, name, 5 more }`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -272,7 +320,6 @@ Update a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -299,7 +346,24 @@ ant beta:memory-stores update \
   --memory-store-id memory_store_id
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+## Delete a memory store
 
 `$ ant beta:memory-stores delete`
 
@@ -322,13 +386,11 @@ Delete a memory store
 - `beta_managed_agents_deleted_memory_store: object { id, type }`
 
   Confirmation that a `memory_store` was deleted.
-
   - `id: string`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `type: "memory_store_deleted"`
-
     - `"memory_store_deleted"`
 
 ### Example
@@ -339,7 +401,16 @@ ant beta:memory-stores delete \
   --memory-store-id memory_store_id
 ```
 
-## Archive
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "memory_store_deleted"
+}
+```
+
+## Archive a memory store
 
 `$ ant beta:memory-stores archive`
 
@@ -362,7 +433,6 @@ Archive a memory store
 - `beta_managed_agents_memory_store: object { id, created_at, name, 5 more }`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -376,7 +446,6 @@ Archive a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -403,6 +472,23 @@ ant beta:memory-stores archive \
   --memory-store-id memory_store_id
 ```
 
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
 ## Domain Types
 
 ### Beta Managed Agents Deleted Memory Store
@@ -410,13 +496,11 @@ ant beta:memory-stores archive \
 - `beta_managed_agents_deleted_memory_store: object { id, type }`
 
   Confirmation that a `memory_store` was deleted.
-
   - `id: string`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `type: "memory_store_deleted"`
-
     - `"memory_store_deleted"`
 
 ### Beta Managed Agents Memory Store
@@ -424,7 +508,6 @@ ant beta:memory-stores archive \
 - `beta_managed_agents_memory_store: object { id, created_at, name, 5 more }`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -438,7 +521,6 @@ ant beta:memory-stores archive \
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -459,7 +541,7 @@ ant beta:memory-stores archive \
 
 # Memories
 
-## Create
+## Create a memory
 
 `$ ant beta:memory-stores:memories create`
 
@@ -494,7 +576,6 @@ Create a memory
 - `beta_managed_agents_memory: object { id, content_sha256, content_size_bytes, 7 more }`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -524,7 +605,6 @@ Create a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
-
     - `"memory"`
 
   - `updated_at: string`
@@ -545,7 +625,24 @@ ant beta:memory-stores:memories create \
   --path xx
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+## List memories
 
 `$ ant beta:memory-stores:memories list`
 
@@ -596,15 +693,12 @@ List memories
 - `BetaManagedAgentsListMemoriesResult: object { data, next_page }`
 
   Response payload for [List memories](/docs/en/api/beta/memory_stores/memories/list).
-
   - `data: optional array of BetaManagedAgentsMemoryListItem`
 
     One page of results. Each item is either a `memory` object or, when `depth` was set, a `memory_prefix` rollup marker. Items appear in the requested `order_by`/`order`.
-
     - `beta_managed_agents_memory: object { id, content_sha256, content_size_bytes, 7 more }`
 
       A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
       - `id: string`
 
         Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -634,7 +728,6 @@ List memories
         Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
       - `type: "memory"`
-
         - `"memory"`
 
       - `updated_at: string`
@@ -648,13 +741,11 @@ List memories
     - `beta_managed_agents_memory_prefix: object { path, type }`
 
       A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
       - `path: string`
 
         The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
       - `type: "memory_prefix"`
-
         - `"memory_prefix"`
 
   - `next_page: optional string`
@@ -669,7 +760,29 @@ ant beta:memory-stores:memories list \
   --memory-store-id memory_store_id
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "content_sha256": "content_sha256",
+      "content_size_bytes": 0,
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "memory_store_id": "memory_store_id",
+      "memory_version_id": "memory_version_id",
+      "path": "path",
+      "type": "memory",
+      "updated_at": "2019-12-27T18:11:19.117Z",
+      "content": "content"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Retrieve a memory
 
 `$ ant beta:memory-stores:memories retrieve`
 
@@ -700,7 +813,6 @@ Retrieve a memory
 - `beta_managed_agents_memory: object { id, content_sha256, content_size_bytes, 7 more }`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -730,7 +842,6 @@ Retrieve a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
-
     - `"memory"`
 
   - `updated_at: string`
@@ -750,7 +861,24 @@ ant beta:memory-stores:memories retrieve \
   --memory-id memory_id
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+## Update a memory
 
 `$ ant beta:memory-stores:memories update`
 
@@ -793,7 +921,6 @@ Update a memory
 - `beta_managed_agents_memory: object { id, content_sha256, content_size_bytes, 7 more }`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -823,7 +950,6 @@ Update a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
-
     - `"memory"`
 
   - `updated_at: string`
@@ -843,7 +969,24 @@ ant beta:memory-stores:memories update \
   --memory-id memory_id
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+## Delete a memory
 
 `$ ant beta:memory-stores:memories delete`
 
@@ -874,13 +1017,11 @@ Delete a memory
 - `beta_managed_agents_deleted_memory: object { id, type }`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
-
   - `id: string`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `type: "memory_deleted"`
-
     - `"memory_deleted"`
 
 ### Example
@@ -892,14 +1033,21 @@ ant beta:memory-stores:memories delete \
   --memory-id memory_id
 ```
 
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "memory_deleted"
+}
+```
+
 ## Domain Types
 
 ### Beta Managed Agents Conflict Error
 
 - `beta_managed_agents_conflict_error: object { type, message }`
-
   - `type: "conflict_error"`
-
     - `"conflict_error"`
 
   - `message: optional string`
@@ -909,9 +1057,7 @@ ant beta:memory-stores:memories delete \
 - `beta_managed_agents_content_sha256_precondition: object { type, content_sha256 }`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
   - `type: "content_sha256"`
-
     - `"content_sha256"`
 
   - `content_sha256: optional string`
@@ -923,85 +1069,69 @@ ant beta:memory-stores:memories delete \
 - `beta_managed_agents_deleted_memory: object { id, type }`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
-
   - `id: string`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `type: "memory_deleted"`
-
     - `"memory_deleted"`
 
 ### Beta Managed Agents Error
 
 - `beta_managed_agents_error: BetaInvalidRequestError or BetaAuthenticationError or BetaBillingError or 9 more`
-
   - `beta_invalid_request_error: object { message, type }`
-
     - `message: string`
 
     - `type: "invalid_request_error"`
 
   - `beta_authentication_error: object { message, type }`
-
     - `message: string`
 
     - `type: "authentication_error"`
 
   - `beta_billing_error: object { message, type }`
-
     - `message: string`
 
     - `type: "billing_error"`
 
   - `beta_permission_error: object { message, type }`
-
     - `message: string`
 
     - `type: "permission_error"`
 
   - `beta_not_found_error: object { message, type }`
-
     - `message: string`
 
     - `type: "not_found_error"`
 
   - `beta_rate_limit_error: object { message, type }`
-
     - `message: string`
 
     - `type: "rate_limit_error"`
 
   - `beta_gateway_timeout_error: object { message, type }`
-
     - `message: string`
 
     - `type: "timeout_error"`
 
   - `beta_api_error: object { message, type }`
-
     - `message: string`
 
     - `type: "api_error"`
 
   - `beta_overloaded_error: object { message, type }`
-
     - `message: string`
 
     - `type: "overloaded_error"`
 
   - `beta_managed_agents_memory_precondition_failed_error: object { type, message }`
-
     - `type: "memory_precondition_failed_error"`
-
       - `"memory_precondition_failed_error"`
 
     - `message: optional string`
 
   - `beta_managed_agents_memory_path_conflict_error: object { type, conflicting_memory_id, conflicting_path, message }`
-
     - `type: "memory_path_conflict_error"`
-
       - `"memory_path_conflict_error"`
 
     - `conflicting_memory_id: optional string`
@@ -1011,9 +1141,7 @@ ant beta:memory-stores:memories delete \
     - `message: optional string`
 
   - `beta_managed_agents_conflict_error: object { type, message }`
-
     - `type: "conflict_error"`
-
       - `"conflict_error"`
 
     - `message: optional string`
@@ -1023,7 +1151,6 @@ ant beta:memory-stores:memories delete \
 - `beta_managed_agents_memory: object { id, content_sha256, content_size_bytes, 7 more }`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1053,7 +1180,6 @@ ant beta:memory-stores:memories delete \
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
-
     - `"memory"`
 
   - `updated_at: string`
@@ -1069,11 +1195,9 @@ ant beta:memory-stores:memories delete \
 - `beta_managed_agents_memory_list_item: BetaManagedAgentsMemory or BetaManagedAgentsMemoryPrefix`
 
   One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
-
   - `beta_managed_agents_memory: object { id, content_sha256, content_size_bytes, 7 more }`
 
     A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
     - `id: string`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1103,7 +1227,6 @@ ant beta:memory-stores:memories delete \
       Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
     - `type: "memory"`
-
       - `"memory"`
 
     - `updated_at: string`
@@ -1117,21 +1240,17 @@ ant beta:memory-stores:memories delete \
   - `beta_managed_agents_memory_prefix: object { path, type }`
 
     A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
     - `path: string`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
     - `type: "memory_prefix"`
-
       - `"memory_prefix"`
 
 ### Beta Managed Agents Memory Path Conflict Error
 
 - `beta_managed_agents_memory_path_conflict_error: object { type, conflicting_memory_id, conflicting_path, message }`
-
   - `type: "memory_path_conflict_error"`
-
     - `"memory_path_conflict_error"`
 
   - `conflicting_memory_id: optional string`
@@ -1143,9 +1262,7 @@ ant beta:memory-stores:memories delete \
 ### Beta Managed Agents Memory Precondition Failed Error
 
 - `beta_managed_agents_memory_precondition_failed_error: object { type, message }`
-
   - `type: "memory_precondition_failed_error"`
-
     - `"memory_precondition_failed_error"`
 
   - `message: optional string`
@@ -1155,13 +1272,11 @@ ant beta:memory-stores:memories delete \
 - `beta_managed_agents_memory_prefix: object { path, type }`
 
   A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
   - `path: string`
 
     The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
   - `type: "memory_prefix"`
-
     - `"memory_prefix"`
 
 ### Beta Managed Agents Memory View
@@ -1169,7 +1284,6 @@ ant beta:memory-stores:memories delete \
 - `beta_managed_agents_memory_view: "basic" or "full"`
 
   Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
-
   - `"basic"`
 
   - `"full"`
@@ -1179,9 +1293,7 @@ ant beta:memory-stores:memories delete \
 - `beta_managed_agents_precondition: object { type, content_sha256 }`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
   - `type: "content_sha256"`
-
     - `"content_sha256"`
 
   - `content_sha256: optional string`
@@ -1190,7 +1302,7 @@ ant beta:memory-stores:memories delete \
 
 # Memory Versions
 
-## List
+## List memory versions
 
 `$ ant beta:memory-stores:memory-versions list`
 
@@ -1249,11 +1361,9 @@ List memory versions
 - `BetaManagedAgentsListMemoryVersionsResult: object { data, next_page }`
 
   Response payload for [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list).
-
   - `data: optional array of BetaManagedAgentsMemoryVersion`
 
     One page of `memory_version` objects, ordered by `created_at` descending (newest first), with `id` as tiebreak.
-
     - `id: string`
 
       Unique identifier for this version (a `memver_...` value).
@@ -1273,7 +1383,6 @@ List memory versions
     - `operation: "created" or "modified" or "deleted"`
 
       The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
       - `"created"`
 
       - `"modified"`
@@ -1281,7 +1390,6 @@ List memory versions
       - `"deleted"`
 
     - `type: "memory_version"`
-
       - `"memory_version"`
 
     - `content: optional string`
@@ -1299,37 +1407,30 @@ List memory versions
     - `created_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor`
 
       Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
       - `beta_managed_agents_session_actor: object { session_id, type }`
 
         Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
         - `session_id: string`
 
           ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
         - `type: "session_actor"`
-
           - `"session_actor"`
 
       - `beta_managed_agents_api_actor: object { api_key_id, type }`
 
         Attribution for a write made directly via the public API (outside of any session).
-
         - `api_key_id: string`
 
           ID of the API key that performed the write. This identifies the key, not the secret.
 
         - `type: "api_actor"`
-
           - `"api_actor"`
 
       - `beta_managed_agents_user_actor: object { type, user_id }`
 
         Attribution for a write made by a human user through the Anthropic Console.
-
         - `type: "user_actor"`
-
           - `"user_actor"`
 
         - `user_id: string`
@@ -1347,42 +1448,17 @@ List memory versions
     - `redacted_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor`
 
       Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
       - `beta_managed_agents_session_actor: object { session_id, type }`
 
         Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-        - `session_id: string`
-
-          ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-        - `type: "session_actor"`
-
-          - `"session_actor"`
 
       - `beta_managed_agents_api_actor: object { api_key_id, type }`
 
         Attribution for a write made directly via the public API (outside of any session).
 
-        - `api_key_id: string`
-
-          ID of the API key that performed the write. This identifies the key, not the secret.
-
-        - `type: "api_actor"`
-
-          - `"api_actor"`
-
       - `beta_managed_agents_user_actor: object { type, user_id }`
 
         Attribution for a write made by a human user through the Anthropic Console.
-
-        - `type: "user_actor"`
-
-          - `"user_actor"`
-
-        - `user_id: string`
-
-          ID of the user who performed the write (a `user_...` value).
 
   - `next_page: optional string`
 
@@ -1396,7 +1472,38 @@ ant beta:memory-stores:memory-versions list \
   --memory-store-id memory_store_id
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "memory_id": "memory_id",
+      "memory_store_id": "memory_store_id",
+      "operation": "created",
+      "type": "memory_version",
+      "content": "content",
+      "content_sha256": "content_sha256",
+      "content_size_bytes": 0,
+      "created_by": {
+        "session_id": "x",
+        "type": "session_actor"
+      },
+      "path": "path",
+      "redacted_at": "2019-12-27T18:11:19.117Z",
+      "redacted_by": {
+        "session_id": "x",
+        "type": "session_actor"
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Retrieve a memory version
 
 `$ ant beta:memory-stores:memory-versions retrieve`
 
@@ -1427,7 +1534,6 @@ Retrieve a memory version
 - `beta_managed_agents_memory_version: object { id, created_at, memory_id, 10 more }`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
   - `id: string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -1447,7 +1553,6 @@ Retrieve a memory version
   - `operation: "created" or "modified" or "deleted"`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
     - `"created"`
 
     - `"modified"`
@@ -1455,7 +1560,6 @@ Retrieve a memory version
     - `"deleted"`
 
   - `type: "memory_version"`
-
     - `"memory_version"`
 
   - `content: optional string`
@@ -1473,37 +1577,30 @@ Retrieve a memory version
   - `created_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
     - `beta_managed_agents_session_actor: object { session_id, type }`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
       - `session_id: string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `type: "session_actor"`
-
         - `"session_actor"`
 
     - `beta_managed_agents_api_actor: object { api_key_id, type }`
 
       Attribution for a write made directly via the public API (outside of any session).
-
       - `api_key_id: string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `type: "api_actor"`
-
         - `"api_actor"`
 
     - `beta_managed_agents_user_actor: object { type, user_id }`
 
       Attribution for a write made by a human user through the Anthropic Console.
-
       - `type: "user_actor"`
-
         - `"user_actor"`
 
       - `user_id: string`
@@ -1521,42 +1618,17 @@ Retrieve a memory version
   - `redacted_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
     - `beta_managed_agents_session_actor: object { session_id, type }`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: string`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: "session_actor"`
-
-        - `"session_actor"`
 
     - `beta_managed_agents_api_actor: object { api_key_id, type }`
 
       Attribution for a write made directly via the public API (outside of any session).
 
-      - `api_key_id: string`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: "api_actor"`
-
-        - `"api_actor"`
-
     - `beta_managed_agents_user_actor: object { type, user_id }`
 
       Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: "user_actor"`
-
-        - `"user_actor"`
-
-      - `user_id: string`
-
-        ID of the user who performed the write (a `user_...` value).
 
 ### Example
 
@@ -1567,7 +1639,33 @@ ant beta:memory-stores:memory-versions retrieve \
   --memory-version-id memory_version_id
 ```
 
-## Redact
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_id": "memory_id",
+  "memory_store_id": "memory_store_id",
+  "operation": "created",
+  "type": "memory_version",
+  "content": "content",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  },
+  "path": "path",
+  "redacted_at": "2019-12-27T18:11:19.117Z",
+  "redacted_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  }
+}
+```
+
+## Redact a memory version
 
 `$ ant beta:memory-stores:memory-versions redact`
 
@@ -1594,7 +1692,6 @@ Redact a memory version
 - `beta_managed_agents_memory_version: object { id, created_at, memory_id, 10 more }`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
   - `id: string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -1614,7 +1711,6 @@ Redact a memory version
   - `operation: "created" or "modified" or "deleted"`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
     - `"created"`
 
     - `"modified"`
@@ -1622,7 +1718,6 @@ Redact a memory version
     - `"deleted"`
 
   - `type: "memory_version"`
-
     - `"memory_version"`
 
   - `content: optional string`
@@ -1640,37 +1735,30 @@ Redact a memory version
   - `created_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
     - `beta_managed_agents_session_actor: object { session_id, type }`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
       - `session_id: string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `type: "session_actor"`
-
         - `"session_actor"`
 
     - `beta_managed_agents_api_actor: object { api_key_id, type }`
 
       Attribution for a write made directly via the public API (outside of any session).
-
       - `api_key_id: string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `type: "api_actor"`
-
         - `"api_actor"`
 
     - `beta_managed_agents_user_actor: object { type, user_id }`
 
       Attribution for a write made by a human user through the Anthropic Console.
-
       - `type: "user_actor"`
-
         - `"user_actor"`
 
       - `user_id: string`
@@ -1688,42 +1776,17 @@ Redact a memory version
   - `redacted_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
     - `beta_managed_agents_session_actor: object { session_id, type }`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: string`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: "session_actor"`
-
-        - `"session_actor"`
 
     - `beta_managed_agents_api_actor: object { api_key_id, type }`
 
       Attribution for a write made directly via the public API (outside of any session).
 
-      - `api_key_id: string`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: "api_actor"`
-
-        - `"api_actor"`
-
     - `beta_managed_agents_user_actor: object { type, user_id }`
 
       Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: "user_actor"`
-
-        - `"user_actor"`
-
-      - `user_id: string`
-
-        ID of the user who performed the write (a `user_...` value).
 
 ### Example
 
@@ -1734,6 +1797,32 @@ ant beta:memory-stores:memory-versions redact \
   --memory-version-id memory_version_id
 ```
 
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_id": "memory_id",
+  "memory_store_id": "memory_store_id",
+  "operation": "created",
+  "type": "memory_version",
+  "content": "content",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  },
+  "path": "path",
+  "redacted_at": "2019-12-27T18:11:19.117Z",
+  "redacted_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  }
+}
+```
+
 ## Domain Types
 
 ### Beta Managed Agents Actor
@@ -1741,37 +1830,30 @@ ant beta:memory-stores:memory-versions redact \
 - `beta_managed_agents_actor: BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor`
 
   Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
   - `beta_managed_agents_session_actor: object { session_id, type }`
 
     Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
     - `session_id: string`
 
       ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
     - `type: "session_actor"`
-
       - `"session_actor"`
 
   - `beta_managed_agents_api_actor: object { api_key_id, type }`
 
     Attribution for a write made directly via the public API (outside of any session).
-
     - `api_key_id: string`
 
       ID of the API key that performed the write. This identifies the key, not the secret.
 
     - `type: "api_actor"`
-
       - `"api_actor"`
 
   - `beta_managed_agents_user_actor: object { type, user_id }`
 
     Attribution for a write made by a human user through the Anthropic Console.
-
     - `type: "user_actor"`
-
       - `"user_actor"`
 
     - `user_id: string`
@@ -1783,13 +1865,11 @@ ant beta:memory-stores:memory-versions redact \
 - `beta_managed_agents_api_actor: object { api_key_id, type }`
 
   Attribution for a write made directly via the public API (outside of any session).
-
   - `api_key_id: string`
 
     ID of the API key that performed the write. This identifies the key, not the secret.
 
   - `type: "api_actor"`
-
     - `"api_actor"`
 
 ### Beta Managed Agents Memory Version
@@ -1797,7 +1877,6 @@ ant beta:memory-stores:memory-versions redact \
 - `beta_managed_agents_memory_version: object { id, created_at, memory_id, 10 more }`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
   - `id: string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -1817,7 +1896,6 @@ ant beta:memory-stores:memory-versions redact \
   - `operation: "created" or "modified" or "deleted"`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
     - `"created"`
 
     - `"modified"`
@@ -1825,7 +1903,6 @@ ant beta:memory-stores:memory-versions redact \
     - `"deleted"`
 
   - `type: "memory_version"`
-
     - `"memory_version"`
 
   - `content: optional string`
@@ -1843,37 +1920,30 @@ ant beta:memory-stores:memory-versions redact \
   - `created_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
     - `beta_managed_agents_session_actor: object { session_id, type }`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
       - `session_id: string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `type: "session_actor"`
-
         - `"session_actor"`
 
     - `beta_managed_agents_api_actor: object { api_key_id, type }`
 
       Attribution for a write made directly via the public API (outside of any session).
-
       - `api_key_id: string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `type: "api_actor"`
-
         - `"api_actor"`
 
     - `beta_managed_agents_user_actor: object { type, user_id }`
 
       Attribution for a write made by a human user through the Anthropic Console.
-
       - `type: "user_actor"`
-
         - `"user_actor"`
 
       - `user_id: string`
@@ -1891,49 +1961,23 @@ ant beta:memory-stores:memory-versions redact \
   - `redacted_by: optional BetaManagedAgentsSessionActor or BetaManagedAgentsAPIActor or BetaManagedAgentsUserActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
     - `beta_managed_agents_session_actor: object { session_id, type }`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: string`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: "session_actor"`
-
-        - `"session_actor"`
 
     - `beta_managed_agents_api_actor: object { api_key_id, type }`
 
       Attribution for a write made directly via the public API (outside of any session).
 
-      - `api_key_id: string`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: "api_actor"`
-
-        - `"api_actor"`
-
     - `beta_managed_agents_user_actor: object { type, user_id }`
 
       Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: "user_actor"`
-
-        - `"user_actor"`
-
-      - `user_id: string`
-
-        ID of the user who performed the write (a `user_...` value).
 
 ### Beta Managed Agents Memory Version Operation
 
 - `beta_managed_agents_memory_version_operation: "created" or "modified" or "deleted"`
 
   The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
   - `"created"`
 
   - `"modified"`
@@ -1945,13 +1989,11 @@ ant beta:memory-stores:memory-versions redact \
 - `beta_managed_agents_session_actor: object { session_id, type }`
 
   Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
   - `session_id: string`
 
     ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
   - `type: "session_actor"`
-
     - `"session_actor"`
 
 ### Beta Managed Agents User Actor
@@ -1959,9 +2001,7 @@ ant beta:memory-stores:memory-versions redact \
 - `beta_managed_agents_user_actor: object { type, user_id }`
 
   Attribution for a write made by a human user through the Anthropic Console.
-
   - `type: "user_actor"`
-
     - `"user_actor"`
 
   - `user_id: string`

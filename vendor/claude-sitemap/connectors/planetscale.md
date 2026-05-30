@@ -1,3 +1,5 @@
+# PlanetScale
+
 Access to your PlanetScale organizations, databases, branches, schema, and Insights data.
 
 You can use PlanetScale to:

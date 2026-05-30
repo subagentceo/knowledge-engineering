@@ -1,11 +1,13 @@
+# Tidio automates customer support at scale with Claude
+
 Tidio empowers e-commerce businesses to resolve up to 90% of customer inquiries automatically using their Claude-powered Lyro AI agent.
 
 With Claude, Tidio:
 
--   Achieved 71% automation of Tidio's own customer support across live chat and email channels
--   Grew Lyro adoption by 700% in just one year
--   Resolved over 2 million customer conversations through AI automation
--   Offers a risk-free guarantee: below 50% automation rate, customers pay nothing
+- Achieved 71% automation of Tidio's own customer support across live chat and email channels
+- Grew Lyro adoption by 700% in just one year
+- Resolved over 2 million customer conversations through AI automation
+- Offers a risk-free guarantee: below 50% automation rate, customers pay nothing
 
 ## How Tidio tackled repetitive customer support questions
 

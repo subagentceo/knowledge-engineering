@@ -1,3 +1,5 @@
+# Contentsquare
+
 Quickly understand everything your users are doing and why, directly from Claude. Contentsquare automatically captures every user action and analyzes it retroactively, no tagging needed. Ask Claude natural language questions about your analytics.
 
 You can use Contentsquare to:

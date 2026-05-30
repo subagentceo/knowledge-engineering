@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -53,7 +54,7 @@ for details on enabling and managing Skills.
 
 See the per-app guides for setup and feature details.
 
-* [Use Claude for Excel](/office-agents/excel)
-* [Use Claude for PowerPoint](/office-agents/powerpoint)
-* [Use Claude for Word](/office-agents/word)
-* [Use Claude for Outlook](/office-agents/outlook)
+- [Use Claude for Excel](/office-agents/excel)
+- [Use Claude for PowerPoint](/office-agents/powerpoint)
+- [Use Claude for Word](/office-agents/word)
+- [Use Claude for Outlook](/office-agents/outlook)

@@ -1,3 +1,5 @@
+# Create new hire onboarding guides
+
 Claude's ability to combine standard information with personalized details, paired with your knowledge of what new hires actually need, lets you create welcoming, practical guides without manually assembling the same pieces each time.
 
 Tell Claude about the new hire (name, role, start date, team, manager) and point to your standard company information. Ask for a first week guide that combines everything they need to know in one place.

@@ -1,3 +1,5 @@
+# Code with Claude San Francisco — May 6, 2026
+
 May 6, 2026
 
 San Francisco, CA
@@ -22,9 +24,9 @@ Thank you! Your submission has been received!
 
 Oops! Something went wrong while submitting the form.
 
-[Watch recording](/code-with-claude/session/sf-opening-keynote)Watch recording
+Watch recordingWatch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9dc8f3f45396c2541ce1_opening-keynote.webp)
 
@@ -42,9 +44,9 @@ Katelyn Lesse
 
 Cat Wu
 
-[Watch recording](/code-with-claude/session/sf-whats-new-in-claude-code)Watch recording
+Watch recordingWatch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9db5361eaf173bcde3a1_whats-new-claude-code.webp)
 
@@ -54,9 +56,9 @@ Dickson Tsai
 
 Claude Code
 
-[Watch recording](/code-with-claude/session/sf-memory-and-dreaming-for-self-learning-agents)Watch recording
+Watch recordingWatch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf456e463868480fc8c1e_designing-memory-systems.webp)
 
@@ -66,9 +68,9 @@ Mahesh Murag
 
 Claude Platform
 
-[Watch recording](/code-with-claude/session/sf-caching-harnesses-and-advisors-building-on-claude-at-github-scale)Watch recording
+Watch recordingWatch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9d4a22fc7d70ce2a2bd8_caching-harnesses-advisors.webp)
 
@@ -80,9 +82,9 @@ Brad Abrams
 
 Claude Platform
 
-[Watch recording](/code-with-claude/session/sf-the-expanding-toolkit)Watch recording
+Watch recordingWatch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf35b3ece741832c28348_the-expanding-toolkit.webp)
 
@@ -92,9 +94,9 @@ Lucas Gonzalez
 
 Research
 
-[Watch recording](/code-with-claude/session/sf-how-to-get-to-production-faster-with-claude-managed-agents)Watch recording
+Watch recordingWatch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9d284a8f0321408950f6_managed-agents-production.webp)
 
@@ -106,9 +108,9 @@ Lance Martin
 
 Claude Platform
 
-[Watch recording](/code-with-claude/session/a-conversation-with-dario-amodei-daniela-amodei)Watch recording
+Watch recordingWatch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9c9e4d03ef956bea5197_dario-daniela-fireside.webp)
 
@@ -122,9 +124,9 @@ Ami Vora
 
 Claude Platform
 
-[Watch recording](/code-with-claude/session/sf-live-coding-session-with-boris-cherny-and-jarred-sumner)Watch recording
+Watch recordingWatch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fc9cd08a40b31c0b2b7756_live-coding-boris.webp)
 
@@ -136,9 +138,9 @@ Jarred Sumner
 
 Claude Code
 
-[Watch recording](/code-with-claude/session/sf-building-with-claude-managed-agents-and-asana-ai-teammates)Watch recording
+Watch recordingWatch recording
 
-[Play video](#)Play video
+Play videoPlay video
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69fdf7dba8289651c9b83cb2_claude-managed-agents.webp)
 
@@ -148,11 +150,7 @@ Arnab Bose
 
 Claude Platform
 
-[
-
 View more
-
-](?c769d3f9_page=2)
 
 1 / 3
 
@@ -162,4 +160,4 @@ Try another search or clear some of your filters.
 
 Clear all filters
 
-[Attend virtually](#)Attend virtually
+Attend virtuallyAttend virtually

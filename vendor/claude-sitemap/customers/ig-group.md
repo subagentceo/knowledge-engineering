@@ -1,12 +1,14 @@
+# IG Group boosts productivity and saves operational costs with Claude for Work
+
 IG Group, a global leader in online trading and financial services, uses Claude for Work to streamline internal processes across teams and departments. By empowering employees with Claude's capabilities, they have enhanced productivity, accelerated time-to-market, and delivered significant cost savings.
 
 With Claude, IG Group saw:
 
--   100% productivity increase in certain cases
--   70 hours saved weekly for analysts with AI-assisted analytics and query handling
--   Less than 3-month payback period on their AI investment
--   Triple-digit improvements in speed-to-market
--   Significant reduction in outsourcing costs
+- 100% productivity increase in certain cases
+- 70 hours saved weekly for analysts with AI-assisted analytics and query handling
+- Less than 3-month payback period on their AI investment
+- Triple-digit improvements in speed-to-market
+- Significant reduction in outsourcing costs
 
 ## Meeting complex challenges in global financial services
 

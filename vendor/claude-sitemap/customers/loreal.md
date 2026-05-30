@@ -1,11 +1,13 @@
-[L'Oréal](https://www.loreal.com) is the world's largest cosmetics and beauty company, operating in over 150 countries with a portfolio of 37+ international brands across skincare, haircare, makeup, and fragrance. The company is positioning itself as a Beauty Tech leader, combining cutting-edge research and innovation with AI, data, and digital capabilities.
+# L'Oréal advances conversational analytics with Claude
+
+L'Oréal is the world's largest cosmetics and beauty company, operating in over 150 countries with a portfolio of 37+ international brands across skincare, haircare, makeup, and fragrance. The company is positioning itself as a Beauty Tech leader, combining cutting-edge research and innovation with AI, data, and digital capabilities.
 
 ## With Claude, L'Oréal has:
 
--   Achieved 99.9% accuracy on conversational analytics applications, compared to 90% with previous GenAI approaches
--   Built a multi-agent system that transforms natural language questions into data insights and visualizations
--   Enabled employees to query data directly rather than building custom dashboards for each question
--   Deployed Claude across its internal AI platform, serving 15,000 daily users and 44,000 monthly users
+- Achieved 99.9% accuracy on conversational analytics applications, compared to 90% with previous GenAI approaches
+- Built a multi-agent system that transforms natural language questions into data insights and visualizations
+- Enabled employees to query data directly rather than building custom dashboards for each question
+- Deployed Claude across its internal AI platform, serving 15,000 daily users and 44,000 monthly users
 
 ## The problem
 

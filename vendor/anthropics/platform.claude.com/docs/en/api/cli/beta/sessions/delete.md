@@ -1,4 +1,4 @@
-## Delete
+## Delete Session
 
 `$ ant beta:sessions delete`
 
@@ -21,11 +21,9 @@ Delete Session
 - `beta_managed_agents_deleted_session: object { id, type }`
 
   Confirmation that a `session` has been permanently deleted.
-
   - `id: string`
 
   - `type: "session_deleted"`
-
     - `"session_deleted"`
 
 ### Example
@@ -34,4 +32,13 @@ Delete Session
 ant beta:sessions delete \
   --api-key my-anthropic-api-key \
   --session-id sesn_011CZkZAtmR3yMPDzynEDxu7
+```
+
+#### Response
+
+```json
+{
+  "id": "sesn_011CZkZAtmR3yMPDzynEDxu7",
+  "type": "session_deleted"
+}
 ```

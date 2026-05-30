@@ -66,20 +66,18 @@ Your writing samples help Claude understand and match your preferred communicati
 
 4. Select a starting point that best matches your goal.
 
-  1. Claude will use the selected starting point to help create an effective style.
+5. Claude will use the selected starting point to help create an effective style.
 
-  2. Click on "Use custom instructions (advanced)" to provide your own specific style instructions that Claude will follow exactly.
+6. Click on "Use custom instructions (advanced)" to provide your own specific style instructions that Claude will follow exactly.
 
-5. Click "Generate style."
+7. Click "Generate style."
 
 ## Managing your custom styles
 
 - From the "Use style" dropdown, click "Create & edit styles" to:
-
   - Reorder styles using the icon (:::) next to each style.
 
 - From the "Create & edit styles" modal, click into individual styles to:
-
   - Rename styles by clicking into the style name or options menu.
 
   - Preview how the style affects Claude's responses.

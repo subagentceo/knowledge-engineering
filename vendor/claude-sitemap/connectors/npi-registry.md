@@ -1,3 +1,5 @@
+# NPI Registry
+
 The NPI Registry connector gives Claude access to the US National Provider Identifier (NPI) Registry, containing information about all HIPAA-covered healthcare providers in the United States. Look up provider credentials, search for specialists by location and specialty, and validate NPI numbers for credentialing and referral workflows.
 
 You can use the NPI Registry connector to:

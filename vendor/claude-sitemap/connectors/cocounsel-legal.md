@@ -1,3 +1,5 @@
+# CoCounsel Legal
+
 CoCounsel Legal delivers comprehensive Westlaw Deep Research reports with inline, linked citations to Westlaw and Practical Law sources.
 
 You can use CoCounsel Legal to:

@@ -1,4 +1,4 @@
-## Retrieve
+## Get Session Resource
 
 `client.Beta.Sessions.Resources.Get(ctx, resourceID, params) (*BetaSessionResourceGetResponseUnion, error)`
 
@@ -11,7 +11,6 @@ Get Session Resource
 - `resourceID string`
 
 - `params BetaSessionResourceGetParams`
-
   - `SessionID param.Field[string]`
 
     Path param: Path parameter session_id
@@ -19,11 +18,9 @@ Get Session Resource
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -72,14 +69,18 @@ Get Session Resource
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type BetaSessionResourceGetResponseUnion interface{…}`
 
   The requested session resource.
-
   - `type BetaManagedAgentsGitHubRepositoryResource struct{…}`
-
     - `ID string`
 
     - `CreatedAt Time`
@@ -89,7 +90,6 @@ Get Session Resource
     - `MountPath string`
 
     - `Type BetaManagedAgentsGitHubRepositoryResourceType`
-
       - `const BetaManagedAgentsGitHubRepositoryResourceTypeGitHubRepository BetaManagedAgentsGitHubRepositoryResourceType = "github_repository"`
 
     - `UpdatedAt Time`
@@ -99,29 +99,23 @@ Get Session Resource
     - `URL string`
 
     - `Checkout BetaManagedAgentsGitHubRepositoryResourceCheckoutUnion`
-
       - `type BetaManagedAgentsBranchCheckout struct{…}`
-
         - `Name string`
 
           Branch name to check out.
 
         - `Type BetaManagedAgentsBranchCheckoutType`
-
           - `const BetaManagedAgentsBranchCheckoutTypeBranch BetaManagedAgentsBranchCheckoutType = "branch"`
 
       - `type BetaManagedAgentsCommitCheckout struct{…}`
-
         - `Sha string`
 
           Full commit SHA to check out.
 
         - `Type BetaManagedAgentsCommitCheckoutType`
-
           - `const BetaManagedAgentsCommitCheckoutTypeCommit BetaManagedAgentsCommitCheckoutType = "commit"`
 
   - `type BetaManagedAgentsFileResource struct{…}`
-
     - `ID string`
 
     - `CreatedAt Time`
@@ -133,7 +127,6 @@ Get Session Resource
     - `MountPath string`
 
     - `Type BetaManagedAgentsFileResourceType`
-
       - `const BetaManagedAgentsFileResourceTypeFile BetaManagedAgentsFileResourceType = "file"`
 
     - `UpdatedAt Time`
@@ -143,19 +136,16 @@ Get Session Resource
   - `type BetaManagedAgentsMemoryStoreResource struct{…}`
 
     A memory store attached to an agent session.
-
     - `MemoryStoreID string`
 
-      The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+      The memory store ID (memstore\_...). Must belong to the caller's organization and workspace.
 
     - `Type BetaManagedAgentsMemoryStoreResourceType`
-
       - `const BetaManagedAgentsMemoryStoreResourceTypeMemoryStore BetaManagedAgentsMemoryStoreResourceType = "memory_store"`
 
     - `Access BetaManagedAgentsMemoryStoreResourceAccess`
 
       Access mode for an attached memory store.
-
       - `const BetaManagedAgentsMemoryStoreResourceAccessReadWrite BetaManagedAgentsMemoryStoreResourceAccess = "read_write"`
 
       - `const BetaManagedAgentsMemoryStoreResourceAccessReadOnly BetaManagedAgentsMemoryStoreResourceAccess = "read_only"`
@@ -204,5 +194,22 @@ func main() {
     panic(err.Error())
   }
   fmt.Printf("%+v\n", resource)
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "sesrsc_011CZkZCKr6eXyl0gWMOdQiu",
+  "created_at": "2026-03-15T10:00:00Z",
+  "mount_path": "/workspace/example-repo",
+  "type": "github_repository",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "url": "https://github.com/example-org/example-repo",
+  "checkout": {
+    "name": "main",
+    "type": "branch"
+  }
 }
 ```

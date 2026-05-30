@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -12,10 +13,10 @@ MCP Apps are interactive interfaces that appear within Claude's conversational f
 
 **Core principles:**
 
-* **Conversational.** Fit naturally into dialogue. Don't force users to learn new interaction patterns.
-* **Contextual.** Use conversation history to inform what you display and when.
-* **Integrated.** Inherit styling and conventions from the containing environment.
-* **Adaptive.** Handle variable sizing, mobile viewports, and diverse accessibility needs gracefully.
+- **Conversational.** Fit naturally into dialogue. Don't force users to learn new interaction patterns.
+- **Contextual.** Use conversation history to inform what you display and when.
+- **Integrated.** Inherit styling and conventions from the containing environment.
+- **Adaptive.** Handle variable sizing, mobile viewports, and diverse accessibility needs gracefully.
 
 <Tip>
   See our [Figma UI kit](https://www.figma.com/community/file/1597641111449594397/mcp-apps-for-claude) for components and patterns to help you get started.
@@ -25,20 +26,20 @@ MCP Apps are interactive interfaces that appear within Claude's conversational f
 
 **Good candidates:**
 
-* Tasks that fit naturally into conversation like data analysis, document review, or project coordination
-* Communication and collaboration context like message search results, conversation threads, or team member profiles
-* Tasks with a clear start and end like booking, ordering or scheduling
-* Information users can act on immediately
-* Functionality that extends Claude's capabilities meaningfully
+- Tasks that fit naturally into conversation like data analysis, document review, or project coordination
+- Communication and collaboration context like message search results, conversation threads, or team member profiles
+- Tasks with a clear start and end like booking, ordering or scheduling
+- Information users can act on immediately
+- Functionality that extends Claude's capabilities meaningfully
 
 **Patterns to avoid:**
 
-* Long-form or static content better suited for external viewing (max 500px height)
-* Complex multi-step workflows that exceed the display mode's scope
-* Deep navigation (no drill-ins, breadcrumbs, or multiple views)
-* Nested scrolling (inline cards should auto-fit content height)
-* Menus and popovers (dropdowns, context menus, and popover panels can get clipped by container boundaries or create z-index conflicts with the host UI — prefer visible controls like segmented buttons, toggles, or inline options)
-* Chat inputs or conversational UI (don't replicate Claude's features)
+- Long-form or static content better suited for external viewing (max 500px height)
+- Complex multi-step workflows that exceed the display mode's scope
+- Deep navigation (no drill-ins, breadcrumbs, or multiple views)
+- Nested scrolling (inline cards should auto-fit content height)
+- Menus and popovers (dropdowns, context menus, and popover panels can get clipped by container boundaries or create z-index conflicts with the host UI — prefer visible controls like segmented buttons, toggles, or inline options)
+- Chat inputs or conversational UI (don't replicate Claude's features)
 
 ## Display modes
 
@@ -48,10 +49,10 @@ Compact components embedded directly in conversation. Good for summaries, confir
 
 **When to use:**
 
-* Status updates and confirmations
-* Simple data displays or selections
-* Brief summaries with optional expansion
-* Quick actions that continue the conversation
+- Status updates and confirmations
+- Simple data displays or selections
+- Brief summaries with optional expansion
+- Quick actions that continue the conversation
 
 <img src="https://mintcdn.com/claude-ai/IPtAfld1XUBVOx8m/images/mcp-apps/inline-card-1.png?fit=max&auto=format&n=IPtAfld1XUBVOx8m&q=85&s=0c7825c89be73ad56d0a90e4c979401d" alt="Inline card example showing a compact component" width="1999" height="1423" data-path="images/mcp-apps/inline-card-1.png" />
 
@@ -59,11 +60,11 @@ Compact components embedded directly in conversation. Good for summaries, confir
 
 **Constraints:**
 
-* Max height: 500px (auto-fit content height, no nested scrolling)
-* Max actions: 2, placed at the bottom of the card
-* Max data points: 4-5
-* No drill-ins, breadcrumbs, or multiple views
-* No menus or popovers — use visible controls instead
+- Max height: 500px (auto-fit content height, no nested scrolling)
+- Max actions: 2, placed at the bottom of the card
+- Max data points: 4-5
+- No drill-ins, breadcrumbs, or multiple views
+- No menus or popovers — use visible controls instead
 
 **On mobile:** Inline cards render full-width within the conversation. Ensure all tap targets are at least 44pt. Content should adapt to narrower viewports without horizontal scrolling.
 
@@ -75,20 +76,20 @@ Side-by-side items for browsing options. Users swipe or scroll horizontally to e
 
 **When to use:**
 
-* Product listings or search results
-* Location or venue options
-* Media galleries
-* Any set of comparable items
+- Product listings or search results
+- Location or venue options
+- Media galleries
+- Any set of comparable items
 
 <img src="https://mintcdn.com/claude-ai/IPtAfld1XUBVOx8m/images/mcp-apps/inline-carousel-1.png?fit=max&auto=format&n=IPtAfld1XUBVOx8m&q=85&s=ef6b5615726ad25708ebdedf586226ae" alt="Inline carousel example showing browsable items" width="1999" height="1423" data-path="images/mcp-apps/inline-carousel-1.png" />
 
 **Constraints:**
 
-* 3-8 items for scannability
-* Each card: image + title + metadata (max 3 lines) + optional CTA
-* 1 optional CTA per card
-* Maintain consistent card dimensions within a carousel
-* Cards should have consistent visual hierarchy
+- 3-8 items for scannability
+- Each card: image + title + metadata (max 3 lines) + optional CTA
+- 1 optional CTA per card
+- Maintain consistent card dimensions within a carousel
+- Cards should have consistent visual hierarchy
 
 **On mobile:** Carousel cards are optimized for horizontal swipe. Design for thumb reach — keep primary actions in the lower portion of cards. Peek the next card to signal scrollability.
 
@@ -100,11 +101,11 @@ Immersive interfaces for complex interactions. The conversation composer remains
 
 **When to use:**
 
-* Data visualizations and dashboards
-* Detailed analysis tools
-* Document editing
-* Content that benefits from focused attention
-* Rich tasks requiring more space than inline allows
+- Data visualizations and dashboards
+- Detailed analysis tools
+- Document editing
+- Content that benefits from focused attention
+- Rich tasks requiring more space than inline allows
 
 <img src="https://mintcdn.com/claude-ai/IPtAfld1XUBVOx8m/images/mcp-apps/fullscreen-1.png?fit=max&auto=format&n=IPtAfld1XUBVOx8m&q=85&s=a4b491bb475bab8ed146c1bc953516ec" alt="Full screen mode example" width="1999" height="1423" data-path="images/mcp-apps/fullscreen-1.png" />
 
@@ -112,10 +113,10 @@ Immersive interfaces for complex interactions. The conversation composer remains
 
 **Constraints:**
 
-* Your app provides its own fullscreen button; a close button appears in the native header bar
-* The composer is always visible — design your UX to work with it
-* No floating panels — use collapsible sidebars, tabs, or pagination to disclose details
-* Chat sheet maintains conversational context
+- Your app provides its own fullscreen button; a close button appears in the native header bar
+- The composer is always visible — design your UX to work with it
+- No floating panels — use collapsible sidebars, tabs, or pagination to disclose details
+- Chat sheet maintains conversational context
 
 **On mobile (coming soon):** Fullscreen is not yet available on mobile—apps render inline only. When it ships, the composer will overlay the bottom of the screen, so avoid anchoring critical UI to the bottom edge. Use the full viewport width and support both portrait and landscape where it makes sense.
 
@@ -131,7 +132,7 @@ On mobile, Claude renders apps in a native WebView (WKWebView on iOS, WebView on
 
 The host passes layout hints via `hostContext`:
 
-* `hostContext.safeAreaInsets` — `{top, right, bottom, left}` in pixels. Honor these to keep content clear of notches, the home indicator, and the composer overlay.
+- `hostContext.safeAreaInsets` — `{top, right, bottom, left}` in pixels. Honor these to keep content clear of notches, the home indicator, and the composer overlay.
 
 Separately, set `_meta.ui.prefersBorder: false` on your `ui://` resource metadata to remove the outer card border on mobile.
 
@@ -163,27 +164,27 @@ By default, all external origins are blocked. `frameDomains` (embedding third-pa
 
 ### Viewport and layout
 
-* Design for variable widths (320pt minimum, up to tablet)
-* Respect safe areas on notched devices
-* Full-width layouts — don't add side margins that waste mobile screen real estate
-* Content should reflow gracefully; avoid fixed-width layouts
+- Design for variable widths (320pt minimum, up to tablet)
+- Respect safe areas on notched devices
+- Full-width layouts — don't add side margins that waste mobile screen real estate
+- Content should reflow gracefully; avoid fixed-width layouts
 
 <img src="https://mintcdn.com/claude-ai/IPtAfld1XUBVOx8m/images/mcp-apps/mobile-viewport-layout.png?fit=max&auto=format&n=IPtAfld1XUBVOx8m&q=85&s=d2244b6ff7e2d6c5e7b2c36fd2d901ed" alt="Viewport and layout do's and don'ts" width="1718" height="1238" data-path="images/mcp-apps/mobile-viewport-layout.png" />
 
 ### Touch targets
 
-* Minimum tap target: 44 x 44pt (per Apple HIG / Material guidelines)
-* Add sufficient spacing between interactive elements to prevent mis-taps
-* Prefer larger, thumb-friendly buttons over small text links
-* Place primary actions within natural thumb reach (lower portion of screen)
+- Minimum tap target: 44 x 44pt (per Apple HIG / Material guidelines)
+- Add sufficient spacing between interactive elements to prevent mis-taps
+- Prefer larger, thumb-friendly buttons over small text links
+- Place primary actions within natural thumb reach (lower portion of screen)
 
 <img src="https://mintcdn.com/claude-ai/IPtAfld1XUBVOx8m/images/mcp-apps/mobile-touch-targets.png?fit=max&auto=format&n=IPtAfld1XUBVOx8m&q=85&s=95bd5b4393d85a67b74e894331d5f4b0" alt="Touch target do's and don'ts" width="1718" height="1238" data-path="images/mcp-apps/mobile-touch-targets.png" />
 
 ### Transitions
 
-* Inline cards expand to fullscreen with a smooth transition
-* Provide a clear visual affordance for expansion (fullscreen button or tap-to-expand)
-* Fullscreen close returns to the conversation at the same scroll position
+- Inline cards expand to fullscreen with a smooth transition
+- Provide a clear visual affordance for expansion (fullscreen button or tap-to-expand)
+- Fullscreen close returns to the conversation at the same scroll position
 
 <img src="https://mintcdn.com/claude-ai/IPtAfld1XUBVOx8m/images/mcp-apps/mobile-transitions.png?fit=max&auto=format&n=IPtAfld1XUBVOx8m&q=85&s=343fe75a1428c1874568c10e02de9aa8" alt="Transition from inline card to full screen" width="1718" height="1222" data-path="images/mcp-apps/mobile-transitions.png" />
 
@@ -235,21 +236,21 @@ Understanding the boundary between your app's interactions and Claude's conversa
 
 **Handle within your app:**
 
-* Direct manipulation like sliders, toggles, and selections
-* Filtering or sorting data you're already displaying
-* Expanding and collapsing content sections
-* Confirming or executing a prepared action ("Mark complete," "Send," "Save")
-* Interacting with visualizations like hover states or clicking data points
+- Direct manipulation like sliders, toggles, and selections
+- Filtering or sorting data you're already displaying
+- Expanding and collapsing content sections
+- Confirming or executing a prepared action ("Mark complete," "Send," "Save")
+- Interacting with visualizations like hover states or clicking data points
 
 Prefer controls with visible options (segmented buttons, toggle chips, inline tabs) over menus and dropdowns, which can conflict with the host container.
 
 **Push to chat input:**
 
-* Text entry and freeform input
-* Follow-up questions or requests for clarification
-* Requests to modify, refine, or redo something
-* Navigation to different contexts or topics
-* Anything that benefits from Claude's interpretation
+- Text entry and freeform input
+- Follow-up questions or requests for clarification
+- Requests to modify, refine, or redo something
+- Navigation to different contexts or topics
+- Anything that benefits from Claude's interpretation
 
 If the interaction requires language understanding or generates a response from Claude, it goes through chat. If it's a direct UI action on content your app already controls, handle it in the app.
 

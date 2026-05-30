@@ -1,3 +1,5 @@
+# Adobe Experience Manager
+
 Create, edit, search, and publish pages and content fragments in Adobe Experience Manager — simply by describing what you need. Instead of navigating the user interface, tell Claude what to do in plain language: update a hero banner, find pages about a campaign, or schedule content for launch. All changes respect your AEM permissions. Work faster, reduce repetitive tasks, and stay focused on what matters most — your content.
 
 You can use Adobe Experience Manager to:

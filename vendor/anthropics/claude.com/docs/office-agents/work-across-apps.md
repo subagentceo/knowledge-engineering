@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -22,14 +23,14 @@ make changes in another.
 Install each Claude for M365 add-in and confirm your plan before turning
 on cross-app mode.
 
-* A paid Claude plan: Pro, Max, Team, or Enterprise.
-* [Claude for Excel](/office-agents/excel) installed from the
+- A paid Claude plan: Pro, Max, Team, or Enterprise.
+- [Claude for Excel](/office-agents/excel) installed from the
   Microsoft AppSource.
-* [Claude for PowerPoint](/office-agents/powerpoint) installed
+- [Claude for PowerPoint](/office-agents/powerpoint) installed
   from the Microsoft AppSource.
-* [Claude for Word](/office-agents/word) installed from the
+- [Claude for Word](/office-agents/word) installed from the
   Microsoft AppSource.
-* [Claude for Outlook](/office-agents/outlook) installed from the
+- [Claude for Outlook](/office-agents/outlook) installed from the
   Microsoft AppSource.
 
 ## Enable cross-app mode
@@ -57,9 +58,9 @@ Excel, PowerPoint, Word, or Outlook sessions are linked.
 When you describe a task that involves multiple files or apps, Claude
 coordinates automatically:
 
-* Claude uses the Excel, PowerPoint, Word, and Outlook add-ins to read
+- Claude uses the Excel, PowerPoint, Word, and Outlook add-ins to read
   from and write to open files and email threads.
-* Context transfers between apps automatically, so you don't need to
+- Context transfers between apps automatically, so you don't need to
   copy and paste information manually.
 
 You stay in one place while Claude does the switching.
@@ -72,15 +73,15 @@ Claude can read data from an open Excel workbook, PowerPoint
 presentation, Word document, or Outlook email thread, and make changes
 to them directly. For example:
 
-* Pull numbers from an Excel model into a PowerPoint slide or a Word
+- Pull numbers from an Excel model into a PowerPoint slide or a Word
   memo.
-* Update a chart in PowerPoint with the latest figures from Excel.
-* Read content from a presentation and use it to populate a spreadsheet.
-* Summarize a Word document into PowerPoint slides.
-* Draft a Word memo using data from an Excel workbook.
-* Open an attached letter of intent in Word with the Outlook thread
+- Update a chart in PowerPoint with the latest figures from Excel.
+- Read content from a presentation and use it to populate a spreadsheet.
+- Summarize a Word document into PowerPoint slides.
+- Draft a Word memo using data from an Excel workbook.
+- Open an attached letter of intent in Word with the Outlook thread
   already loaded as context.
-* Pull figures from an email thread into an open Excel model.
+- Pull figures from an email thread into an open Excel model.
 
 ### Pass context between apps
 
@@ -134,10 +135,10 @@ be cleared from Settings at any time.
 
 ## Current limitations
 
-* Claude can only read from and write to files that are currently open
+- Claude can only read from and write to files that are currently open
   in Excel, PowerPoint, or Word, and the email or event currently open
   in Outlook.
-* Claude cannot create, open, close, or switch files directly. The files
+- Claude cannot create, open, close, or switch files directly. The files
   and add-ins must be open with the feature turned on.
 
 ## Troubleshooting

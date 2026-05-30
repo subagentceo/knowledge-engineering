@@ -1,3 +1,5 @@
+# Workable
+
 Connect your AI assistant directly to Workable. With 40+ tools spanning the full hiring lifecycle, you can manage jobs, move candidates through pipeline stages, add reviews and comments, handle requisitions and offers, and access employee and HR data all without leaving your AI interface. Whether you're sourcing talent, tracking approvals, or pulling workforce insights, the Workable MCP server turns natural language into real actions across your recruiting and HR operations.
 
 You can use Workable to:

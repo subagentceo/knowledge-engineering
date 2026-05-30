@@ -1,4 +1,4 @@
-## Delete
+## Delete a Message Batch
 
 `DeletedMessageBatch messages().batches().delete(BatchDeleteParamsparams = BatchDeleteParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -13,7 +13,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Parameters
 
 - `BatchDeleteParams params`
-
   - `Optional<String> messageBatchId`
 
     ID of the Message Batch.
@@ -21,7 +20,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `class DeletedMessageBatch:`
-
   - `String id`
 
     ID of the Message Batch.
@@ -31,7 +29,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
-
     - `MESSAGE_BATCH_DELETED("message_batch_deleted")`
 
 ### Example
@@ -52,5 +49,14 @@ public final class Main {
 
         DeletedMessageBatch deletedMessageBatch = client.messages().batches().delete("message_batch_id");
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "type": "message_batch_deleted"
 }
 ```

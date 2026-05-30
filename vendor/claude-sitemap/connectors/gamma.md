@@ -1,3 +1,5 @@
+# Gamma
+
 Transform ideas into presentations, documents, social media posts, and websites directly from Claude. Gamma generates beautifully designed content from prompts or notes, with smart layouts, customizable themes, and AI visuals. Work in 60+ languages, control tone and detail level, and export to PDF or PPTX — all without leaving your workflow in Claude.
 
 You can use Gamma in Claude to:

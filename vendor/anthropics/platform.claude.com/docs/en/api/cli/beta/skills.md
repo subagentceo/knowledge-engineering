@@ -1,6 +1,6 @@
 # Skills
 
-## Create
+## Create Skill
 
 `$ ant beta:skills create`
 
@@ -29,7 +29,6 @@ Create Skill
 ### Returns
 
 - `BetaSkillNewResponse: object { id, created_at, display_title, 4 more }`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -57,9 +56,8 @@ Create Skill
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -78,7 +76,21 @@ ant beta:skills create \
   --api-key my-anthropic-api-key
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_title": "My Custom Skill",
+  "latest_version": "1759178010641129",
+  "source": "custom",
+  "type": "type",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## List Skills
 
 `$ ant beta:skills list`
 
@@ -105,9 +117,8 @@ List Skills
   Query param: Filter skills by source.
 
   If provided, only skills from the specified source will be returned:
-
-  * `"custom"`: only return user-created skills
-  * `"anthropic"`: only return Anthropic-created skills
+  - `"custom"`: only return user-created skills
+  - `"anthropic"`: only return Anthropic-created skills
 
 - `--beta: optional array of AnthropicBeta`
 
@@ -116,11 +127,9 @@ List Skills
 ### Returns
 
 - `BetaListSkillsResponse: object { data, has_more, next_page }`
-
   - `data: array of object { id, created_at, display_title, 4 more }`
 
     List of skills.
-
     - `id: string`
 
       Unique identifier for the skill.
@@ -148,9 +157,8 @@ List Skills
       Source of the skill.
 
       This may be one of the following values:
-
-      * `"custom"`: the skill was created by a user
-      * `"anthropic"`: the skill was created by Anthropic
+      - `"custom"`: the skill was created by a user
+      - `"anthropic"`: the skill was created by Anthropic
 
     - `type: string`
 
@@ -181,7 +189,27 @@ ant beta:skills list \
   --api-key my-anthropic-api-key
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "display_title": "My Custom Skill",
+      "latest_version": "1759178010641129",
+      "source": "custom",
+      "type": "type",
+      "updated_at": "2024-10-30T23:58:27.427722Z"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Skill
 
 `$ ant beta:skills retrieve`
 
@@ -204,7 +232,6 @@ Get Skill
 ### Returns
 
 - `BetaSkillGetResponse: object { id, created_at, display_title, 4 more }`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -232,9 +259,8 @@ Get Skill
     Source of the skill.
 
     This may be one of the following values:
-
-    * `"custom"`: the skill was created by a user
-    * `"anthropic"`: the skill was created by Anthropic
+    - `"custom"`: the skill was created by a user
+    - `"anthropic"`: the skill was created by Anthropic
 
   - `type: string`
 
@@ -254,7 +280,21 @@ ant beta:skills retrieve \
   --skill-id skill_id
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "display_title": "My Custom Skill",
+  "latest_version": "1759178010641129",
+  "source": "custom",
+  "type": "type",
+  "updated_at": "2024-10-30T23:58:27.427722Z"
+}
+```
+
+## Delete Skill
 
 `$ ant beta:skills delete`
 
@@ -277,7 +317,6 @@ Delete Skill
 ### Returns
 
 - `BetaSkillDeleteResponse: object { id, type }`
-
   - `id: string`
 
     Unique identifier for the skill.
@@ -298,9 +337,18 @@ ant beta:skills delete \
   --skill-id skill_id
 ```
 
+#### Response
+
+```json
+{
+  "id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type"
+}
+```
+
 # Versions
 
-## Create
+## Create Skill Version
 
 `$ ant beta:skills:versions create`
 
@@ -329,7 +377,6 @@ Create Skill Version
 ### Returns
 
 - `BetaSkillVersionNewResponse: object { id, created_at, description, 5 more }`
-
   - `id: string`
 
     Unique identifier for the skill version.
@@ -382,7 +429,22 @@ ant beta:skills:versions create \
   --skill-id skill_id
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## List Skill Versions
 
 `$ ant beta:skills:versions list`
 
@@ -415,11 +477,9 @@ List Skill Versions
 ### Returns
 
 - `BetaListSkillVersionsResponse: object { data, has_more, next_page }`
-
   - `data: array of object { id, created_at, description, 5 more }`
 
     List of skill versions.
-
     - `id: string`
 
       Unique identifier for the skill version.
@@ -480,7 +540,67 @@ ant beta:skills:versions list \
   --skill-id skill_id
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+      "created_at": "2024-10-30T23:58:27.427722Z",
+      "description": "A custom skill for doing something useful",
+      "directory": "my-skill",
+      "name": "my-skill",
+      "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+      "type": "type",
+      "version": "1759178010641129"
+    }
+  ],
+  "has_more": true,
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Download Skill Version Content
+
+`$ ant beta:skills:versions download`
+
+**get** `/v1/skills/{skill_id}/versions/{version}/content`
+
+Download a skill version's content as a zip archive.
+
+### Parameters
+
+- `--skill-id: string`
+
+  Path param: Unique identifier for the skill.
+
+  The format and length of IDs may change over time.
+
+- `--version: string`
+
+  Path param: Version identifier for the skill.
+
+  Each version is identified by a Unix epoch timestamp (e.g., "1759178010641129").
+
+- `--beta: optional array of AnthropicBeta`
+
+  Header param: Optional header to specify the beta version(s) you want to use.
+
+### Returns
+
+- `unnamed_schema_1: file path`
+
+### Example
+
+```cli
+ant beta:skills:versions download \
+  --api-key my-anthropic-api-key \
+  --skill-id skill_id \
+  --version version
+```
+
+## Get Skill Version
 
 `$ ant beta:skills:versions retrieve`
 
@@ -509,7 +629,6 @@ Get Skill Version
 ### Returns
 
 - `BetaSkillVersionGetResponse: object { id, created_at, description, 5 more }`
-
   - `id: string`
 
     Unique identifier for the skill version.
@@ -563,7 +682,22 @@ ant beta:skills:versions retrieve \
   --version version
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "skillver_01JAbcdefghijklmnopqrstuvw",
+  "created_at": "2024-10-30T23:58:27.427722Z",
+  "description": "A custom skill for doing something useful",
+  "directory": "my-skill",
+  "name": "my-skill",
+  "skill_id": "skill_01JAbcdefghijklmnopqrstuvw",
+  "type": "type",
+  "version": "1759178010641129"
+}
+```
+
+## Delete Skill Version
 
 `$ ant beta:skills:versions delete`
 
@@ -592,7 +726,6 @@ Delete Skill Version
 ### Returns
 
 - `BetaSkillVersionDeleteResponse: object { id, type }`
-
   - `id: string`
 
     Version identifier for the skill.
@@ -612,4 +745,13 @@ ant beta:skills:versions delete \
   --api-key my-anthropic-api-key \
   --skill-id skill_id \
   --version version
+```
+
+#### Response
+
+```json
+{
+  "id": "1759178010641129",
+  "type": "type"
+}
 ```

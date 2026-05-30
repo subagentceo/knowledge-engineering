@@ -1,6 +1,6 @@
 # User Profiles
 
-## Create
+## Create User Profile
 
 `beta.user_profiles.create(**kwargs) -> BetaUserProfile`
 
@@ -25,7 +25,6 @@ Create User Profile
 - `relationship: :external | :resold | :internal`
 
   How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
   - `:external`
 
   - `:resold`
@@ -35,11 +34,9 @@ Create User Profile
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -88,10 +85,15 @@ Create User Profile
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaUserProfile`
-
   - `id: String`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -107,7 +109,6 @@ Create User Profile
   - `relationship: :external | :resold | :internal`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `:external`
 
     - `:resold`
@@ -117,11 +118,9 @@ Create User Profile
   - `trust_grants: Hash[Symbol, BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: :active | :pending | :rejected`
 
       Status of the trust grant.
-
       - `:active`
 
       - `:pending`
@@ -131,7 +130,6 @@ Create User Profile
   - `type: :user_profile`
 
     Object type. Always `user_profile`.
-
     - `:user_profile`
 
   - `updated_at: Time`
@@ -158,7 +156,27 @@ beta_user_profile = anthropic.beta.user_profiles.create
 puts(beta_user_profile)
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## List User Profiles
 
 `beta.user_profiles.list(**kwargs) -> PageCursor<BetaUserProfile>`
 
@@ -175,7 +193,6 @@ List User Profiles
 - `order: :asc | :desc`
 
   Query parameter for order
-
   - `:asc`
 
   - `:desc`
@@ -187,11 +204,9 @@ List User Profiles
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -240,10 +255,15 @@ List User Profiles
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaUserProfile`
-
   - `id: String`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -259,7 +279,6 @@ List User Profiles
   - `relationship: :external | :resold | :internal`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `:external`
 
     - `:resold`
@@ -269,11 +288,9 @@ List User Profiles
   - `trust_grants: Hash[Symbol, BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: :active | :pending | :rejected`
 
       Status of the trust grant.
-
       - `:active`
 
       - `:pending`
@@ -283,7 +300,6 @@ List User Profiles
   - `type: :user_profile`
 
     Object type. Always `user_profile`.
-
     - `:user_profile`
 
   - `updated_at: Time`
@@ -310,7 +326,32 @@ page = anthropic.beta.user_profiles.list
 puts(page)
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {},
+      "relationship": "external",
+      "trust_grants": {
+        "cyber": {
+          "status": "active"
+        }
+      },
+      "type": "user_profile",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "external_id": "user_12345",
+      "name": "Example User"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get User Profile
 
 `beta.user_profiles.retrieve(user_profile_id, **kwargs) -> BetaUserProfile`
 
@@ -325,11 +366,9 @@ Get User Profile
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -378,10 +417,15 @@ Get User Profile
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaUserProfile`
-
   - `id: String`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -397,7 +441,6 @@ Get User Profile
   - `relationship: :external | :resold | :internal`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `:external`
 
     - `:resold`
@@ -407,11 +450,9 @@ Get User Profile
   - `trust_grants: Hash[Symbol, BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: :active | :pending | :rejected`
 
       Status of the trust grant.
-
       - `:active`
 
       - `:pending`
@@ -421,7 +462,6 @@ Get User Profile
   - `type: :user_profile`
 
     Object type. Always `user_profile`.
-
     - `:user_profile`
 
   - `updated_at: Time`
@@ -448,7 +488,27 @@ beta_user_profile = anthropic.beta.user_profiles.retrieve("uprof_011CZkZCu8hGbp5
 puts(beta_user_profile)
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## Update User Profile
 
 `beta.user_profiles.update(user_profile_id, **kwargs) -> BetaUserProfile`
 
@@ -475,7 +535,6 @@ Update User Profile
 - `relationship: :external | :resold | :internal`
 
   How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
   - `:external`
 
   - `:resold`
@@ -485,11 +544,9 @@ Update User Profile
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -538,10 +595,15 @@ Update User Profile
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaUserProfile`
-
   - `id: String`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -557,7 +619,6 @@ Update User Profile
   - `relationship: :external | :resold | :internal`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `:external`
 
     - `:resold`
@@ -567,11 +628,9 @@ Update User Profile
   - `trust_grants: Hash[Symbol, BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: :active | :pending | :rejected`
 
       Status of the trust grant.
-
       - `:active`
 
       - `:pending`
@@ -581,7 +640,6 @@ Update User Profile
   - `type: :user_profile`
 
     Object type. Always `user_profile`.
-
     - `:user_profile`
 
   - `updated_at: Time`
@@ -608,6 +666,26 @@ beta_user_profile = anthropic.beta.user_profiles.update("uprof_011CZkZCu8hGbp5mY
 puts(beta_user_profile)
 ```
 
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
 ## Create Enrollment URL
 
 `beta.user_profiles.create_enrollment_url(user_profile_id, **kwargs) -> BetaUserProfileEnrollmentURL`
@@ -623,11 +701,9 @@ Create Enrollment URL
 - `betas: Array[AnthropicBeta]`
 
   Optional header to specify the beta version(s) you want to use.
+  - `String = String`
 
-  - `String`
-
-  - `:"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 21 more`
-
+  - `AnthropicBeta = :"message-batches-2024-09-24" | :"prompt-caching-2024-07-31" | :"computer-use-2024-10-22" | 24 more`
     - `:"message-batches-2024-09-24"`
 
     - `:"prompt-caching-2024-07-31"`
@@ -676,10 +752,15 @@ Create Enrollment URL
 
     - `:"managed-agents-2026-04-01"`
 
+    - `:"cache-diagnosis-2026-04-07"`
+
+    - `:"thinking-token-count-2026-05-13"`
+
+    - `:"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `class BetaUserProfileEnrollmentURL`
-
   - `expires_at: Time`
 
     A timestamp in RFC 3339 format
@@ -687,7 +768,6 @@ Create Enrollment URL
   - `type: :enrollment_url`
 
     Object type. Always `enrollment_url`.
-
     - `:enrollment_url`
 
   - `url: String`
@@ -706,12 +786,21 @@ beta_user_profile_enrollment_url = anthropic.beta.user_profiles.create_enrollmen
 puts(beta_user_profile_enrollment_url)
 ```
 
+#### Response
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
+```
+
 ## Domain Types
 
 ### Beta User Profile
 
 - `class BetaUserProfile`
-
   - `id: String`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -727,7 +816,6 @@ puts(beta_user_profile_enrollment_url)
   - `relationship: :external | :resold | :internal`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `:external`
 
     - `:resold`
@@ -737,11 +825,9 @@ puts(beta_user_profile_enrollment_url)
   - `trust_grants: Hash[Symbol, BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: :active | :pending | :rejected`
 
       Status of the trust grant.
-
       - `:active`
 
       - `:pending`
@@ -751,7 +837,6 @@ puts(beta_user_profile_enrollment_url)
   - `type: :user_profile`
 
     Object type. Always `user_profile`.
-
     - `:user_profile`
 
   - `updated_at: Time`
@@ -769,7 +854,6 @@ puts(beta_user_profile_enrollment_url)
 ### Beta User Profile Enrollment URL
 
 - `class BetaUserProfileEnrollmentURL`
-
   - `expires_at: Time`
 
     A timestamp in RFC 3339 format
@@ -777,7 +861,6 @@ puts(beta_user_profile_enrollment_url)
   - `type: :enrollment_url`
 
     Object type. Always `enrollment_url`.
-
     - `:enrollment_url`
 
   - `url: String`
@@ -787,11 +870,9 @@ puts(beta_user_profile_enrollment_url)
 ### Beta User Profile Trust Grant
 
 - `class BetaUserProfileTrustGrant`
-
   - `status: :active | :pending | :rejected`
 
     Status of the trust grant.
-
     - `:active`
 
     - `:pending`

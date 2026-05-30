@@ -5,7 +5,7 @@ Choose between polling and cursor-driven Activity Feed consumption, correlate Co
 ---
 
 <Note>
-  The Compliance API is available only on the Claude Enterprise plan and must be enabled before use. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
+  The Compliance API is enabled on request. Claude Enterprise organizations have access to the full API; Claude Console organizations have access to the [Activity Feed](/docs/en/manage-claude/compliance-activity-feed) only. See [Get access to the Compliance API](/docs/en/manage-claude/compliance-api-access).
 </Note>
 
 <Check>
@@ -25,10 +25,11 @@ Both patterns share these constraints:
 - Activities are queryable within 1 minute of occurring and retained for 6 years.
 - The maximum `limit` for each page is 5,000.
 - Cursor values are opaque strings that you must not parse.
+- Requests are limited to 600 per minute per [parent organization](/docs/en/manage-claude/compliance-api#how-the-compliance-api-works), shared across every key, every linked organization, and every `/v1/compliance/*` endpoint; see [429 Too Many Requests](/docs/en/manage-claude/compliance-errors#429-too-many-requests) for the response headers and retry contract.
 
-| Pattern | Choose when |
-| :---- | :---- |
-| Window polling | Your pipeline runs on a fixed schedule, you prefer stateless workers, and you can tolerate replaying or overlapping windows |
+| Pattern                         | Choose when                                                                                                                                                                                                     |
+| :------------------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Window polling                  | Your pipeline runs on a fixed schedule, you prefer stateless workers, and you can tolerate replaying or overlapping windows                                                                                     |
 | Cursor-driven incremental reads | You want the lowest latency between an activity occurring and your pipeline ingesting it, you want to avoid re-reading pages you already drained, and you have a durable place to persist a cursor between runs |
 
 ### Window polling
@@ -61,11 +62,12 @@ Even with clean tiling, an activity that indexes after its window has closed nev
 first_id="activity_01XyDMpzjS89pFZXqSFUBDr6"  # first_id from a previous response
 
 curl --fail-with-body -sS -G \
-  "https://api.anthropic.com/v1/compliance/activities" \
-  --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" \
+ "https://api.anthropic.com/v1/compliance/activities" \
+ --header "x-api-key: $ANTHROPIC_COMPLIANCE_ACCESS_KEY" \
   --data-urlencode "limit=5000" \
   --data-urlencode "before_id=$first_id"
-```
+
+````
 </CodeGroup>
 
 Page through until `has_more` is `false`, then persist `first_id` from the final response and pass it unchanged as `before_id` on the next run to retrieve activities newer than the saved cursor. To walk in the opposite direction for a backfill, persist `last_id` and pass it as `after_id` instead. For the full cursor-vs-page-token reference and retry semantics, see [Paginate results](/docs/en/manage-claude/compliance-activity-feed#paginate-results).
@@ -81,7 +83,7 @@ loop:
     cursor = page.first_id
   if not page.has_more: break
 persist(cursor)
-```
+````
 
 Cursors survive key rotation; see [Manage and rotate keys](/docs/en/manage-claude/compliance-api-access#manage-and-rotate-keys).
 
@@ -93,25 +95,25 @@ Cursors survive key rotation; see [Manage and rotate keys](/docs/en/manage-claud
 
 Each `Activity` carries fields you can join against events already in your SIEM (Splunk, Datadog, Microsoft Sentinel, Cribl, or similar):
 
-| Compliance API field | Join target |
-| :---- | :---- |
-| `actor.user_id` | Your identity provider's stable user identifier |
+| Compliance API field  | Join target                                     |
+| :-------------------- | :---------------------------------------------- |
+| `actor.user_id`       | Your identity provider's stable user identifier |
 | `actor.email_address` | Directory email when a stable ID is unavailable |
-| `actor.ip_address` | Network, VPN, and endpoint logs |
-| `created_at` | Time-window correlation across any source |
+| `actor.ip_address`    | Network, VPN, and endpoint logs                 |
+| `created_at`          | Time-window correlation across any source       |
 
 `actor.user_id` and `actor.email_address` are present when `actor.type` is `user_actor`; check the discriminator before reading them. `user_id` is a stable, opaque identifier for the user account: it is consistent across every Compliance API endpoint and activity payload, and it does not change when the user's email or display name changes. Use `user_id`, not `email_address`, as the primary join key.
 
-Calls to the Compliance API itself emit `compliance_api_accessed` activities. Ingest these alongside other activity types so your SIEM records who queried compliance data, and when. Filter on `actor.type` `api_actor` and `actor.api_key_id` to attribute each access to a specific Compliance Access Key or Admin API key.
+Calls to the Compliance API itself emit `compliance_api_accessed` activities. Ingest these alongside other activity types so your SIEM records who queried compliance data, and when. Pass `activity_types[]=compliance_api_accessed` to scope the query, then in your client, read `actor.api_key_id` from each activity whose `actor.type` is `api_actor` to attribute the access to a specific Compliance Access Key or Admin API key.
 
 ## Plan content retention
 
 Three retention horizons govern what you can retrieve later:
 
-| Data | Retained for | Controlled by |
-| :---- | :---- | :---- |
-| Activity Feed records | 6 years | Anthropic |
-| Chat, file, and project content | Your organization's claude.ai retention policy | Your organization |
+| Data                                            | Retained for                                      | Controlled by                       |
+| :---------------------------------------------- | :------------------------------------------------ | :---------------------------------- |
+| Activity Feed records                           | 6 years                                           | Anthropic                           |
+| Chat, file, and project content                 | Your organization's claude.ai retention policy    | Your organization                   |
 | Content hard-deleted through the Compliance API | Not retained; deletion is immediate and permanent | The caller of the `DELETE` endpoint |
 
 For how the rest of the Claude Platform handles retention, see [API and data retention](/docs/en/manage-claude/api-and-data-retention).

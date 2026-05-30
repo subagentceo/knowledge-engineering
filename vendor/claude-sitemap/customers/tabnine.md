@@ -1,10 +1,12 @@
+# Tabnine solves developers' pain points and enhances productivity with Claude
+
 Tabnine, an AI coding assistant, uses Claude to provide explanations, suggestions, and code generation to over 1 million developers every month, while maintaining high customer privacy standards.
 
 With Claude, Tabnine:
 
--   Handles hundreds of thousands of messages per hour, delivering answers up to 50% faster than other models
--   Helps with compliance and assures customers their data is safe by using Claude in Amazon Bedrock
--   Saw a 20% increase in free-to-paid user conversions
+- Handles hundreds of thousands of messages per hour, delivering answers up to 50% faster than other models
+- Helps with compliance and assures customers their data is safe by using Claude in Amazon Bedrock
+- Saw a 20% increase in free-to-paid user conversions
 
 Tabnine helps developers with tasks like debugging and decrypting API documentation. Brandon Jung, VP of Ecosystem, says, "Think of it as delivering the right suggestion at the right time in the right place. It can help you write, explain, and test code."
 

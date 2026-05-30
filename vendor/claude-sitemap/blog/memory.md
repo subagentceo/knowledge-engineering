@@ -1,3 +1,5 @@
+# Bringing memory to Claude
+
 **_Update:_** _Expanding to Pro and Max plans (Oct 23, 2025)_
 
 _‍_**_Memory is now rolling out to Pro and Max plan users_**
@@ -34,6 +36,6 @@ Memory introduces new safety considerations and we've designed the feature to be
 
 ### Getting started
 
-To see memory in action, enable the feature in Settings, and let Claude generate memory with your past chats at initial set-up. Ask Claude questions like “what were we working on last week?” to see what Claude remembers across your existing chats and connected tools. If you would like to bring your memory details over from a different AI tool or export your memory from Claude for backup or migration, you can [follow these instructions](https://support.anthropic.com/en/articles/12123587-importing-and-exporting-your-memory-from-claude).
+To see memory in action, enable the feature in Settings, and let Claude generate memory with your past chats at initial set-up. Ask Claude questions like “what were we working on last week?” to see what Claude remembers across your existing chats and connected tools. If you would like to bring your memory details over from a different AI tool or export your memory from Claude for backup or migration, you can follow these instructions.
 
 Great work builds over time. With memory, each conversation with Claude improves the next.

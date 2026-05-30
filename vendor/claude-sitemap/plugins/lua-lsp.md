@@ -1,3 +1,5 @@
+# Lua LSP
+
 Lua LSP integrates the Lua Language Server with Claude Code, providing intelligent code assistance for Lua development. It supports Lua 5.1 through 5.5 and LuaJIT, offering features like go-to-definition, code completion, type checking, diagnostics, and hover documentation.
 
 The plugin enables Claude to understand your Lua codebase with full language server capabilities including reference finding, symbol renaming, code formatting, and syntax validation with over 20 supported annotations for documentation.

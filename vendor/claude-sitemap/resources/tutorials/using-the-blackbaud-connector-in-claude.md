@@ -1,15 +1,17 @@
+# Using the Blackbaud connector in Claude
+
 The Blackbaud connector gives Claude secure access to your Raiser's Edge NXT fundraising data. Look up donor profiles, review gift history, search events, and draft personalized communications through natural language.
 
-The Blackbaud integration relies on Claude's ability to [use remote connectors](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
+The Blackbaud integration relies on Claude's ability to use remote connectors.
 
 ## What this connector provides
 
--   **Constituent profiles:** Access detailed donor records including contact information, affiliations, and giving history
--   **Constituent search:** Search donors by full or partial name across your database
--   **Event discovery:** Search fundraising events by name or keyword and retrieve details like dates, locations, and funds raised
--   **Gift records:** View donation amounts, dates, donors, and associated campaigns
--   **Communications:** Draft personalized thank-you notes and donor outreach referencing specific gifts
--   **Real-time data:** Fetch current information directly from Raiser's Edge NXT
+- **Constituent profiles:** Access detailed donor records including contact information, affiliations, and giving history
+- **Constituent search:** Search donors by full or partial name across your database
+- **Event discovery:** Search fundraising events by name or keyword and retrieve details like dates, locations, and funds raised
+- **Gift records:** View donation amounts, dates, donors, and associated campaigns
+- **Communications:** Draft personalized thank-you notes and donor outreach referencing specific gifts
+- **Real-time data:** Fetch current information directly from Raiser's Edge NXT
 
 ## Setting up the connector
 
@@ -21,7 +23,7 @@ The Blackbaud integration relies on Claude's ability to [use remote connectors](
 
 #### For organization owners
 
-1.  Go to [Claude.ai Settings](https://claude.ai/settings)
+1.  Go to Claude.ai Settings
 2.  Select Connectors or Integrations
 3.  Choose `Add server` or `Browse connectors`
 4.  Search for and select Blackbaud
@@ -31,7 +33,7 @@ The Blackbaud integration relies on Claude's ability to [use remote connectors](
 #### For individual users
 
 1.  Log in to Claude with your enterprise account
-2.  Access [Settings](https://claude.ai/settings) > Connectors
+2.  Access Settings > Connectors
 3.  Select the Blackbaud connector and authorize
 4.  Sign in with your Blackbaud ID and grant permissions
 5.  Your account displays as "Linked" when complete
@@ -70,9 +72,9 @@ _When to use: Locating donors with partial names, finding family members._
 
 ## Tips for using the connector
 
--   Use full donor names for accurate constituent lookups
--   Specify time periods in gift history requests
--   Ask naturally, as if asking a colleague
--   Combine multiple requests when helpful
--   Review AI-generated communications before sending, especially with sensitive donor data
--   Claude only accesses data your Blackbaud account authorizes
+- Use full donor names for accurate constituent lookups
+- Specify time periods in gift history requests
+- Ask naturally, as if asking a colleague
+- Combine multiple requests when helpful
+- Review AI-generated communications before sending, especially with sensitive donor data
+- Claude only accesses data your Blackbaud account authorizes

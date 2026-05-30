@@ -1,3 +1,5 @@
+# Descrybe Legal Engine
+
 The Descrybe Connector gives Claude access to legal research tools for working with primary law. It can help analyze a research question, search cases by legal concept or exact wording, find cases from citations or messy references, extract authorities from pasted text, retrieve summaries, case PDFs, and focused opinion passages, search statutes and regulations, check case treatment status, find citing cases, and verify quoted language against known cases.
 
 You can use Descrybe to:

@@ -1,3 +1,5 @@
+# Using FactSet for comprehensive financial research
+
 The FactSet integration is currently in early access; contact the FactSet team for additional details.
 
 The FactSet integration provides Claude with access to institutional-grade financial data and analytics used by investment professionals worldwide. This article explains how to set up and use FactSet data for financial analysis, including global pricing data, fundamental financials, analyst estimates, M&A transactions, ownership data, and executive information.
@@ -8,30 +10,30 @@ The FactSet integration provides Claude with access to institutional-grade finan
 
 The FactSet integration enables Claude to access multiple categories of financial and market data:
 
--   **Global Market Data**: End-of-day pricing, OHLC, volume, and returns for global equities, ADRs, and ETFs from 2006 onwards, including corporate actions and dividend adjustments.**‍**
--   **Comprehensive Fundamentals**: Standardized financial statements, segment breakdowns, and ratios from company filings across annual, quarterly, and interim periods.**‍**
--   **Analyst Consensus and Estimates**: Forward-looking earnings estimates, analyst ratings, and earnings surprise data comparing actual results to expectations.**‍**
--   **M&A and Deal Intelligence**: Transaction data including deal values, terms, parties, and status for both public and private deals.**‍**
--   **Supply Chain Relationships**: Business network mapping of competitors, customers, suppliers, and partners from regulatory filings.**‍**
--   **Ownership and Insider Activity**: Institutional holdings, fund positions, and insider transactions (with quarterly filing lags).**‍**
--   **Executive and Board Information**: Leadership profiles, compensation data, employment history, and governance statistics.**‍**
--   **Corporate Events Calendar**: Earnings announcements, investor conferences, and other scheduled corporate events.
+- **Global Market Data**: End-of-day pricing, OHLC, volume, and returns for global equities, ADRs, and ETFs from 2006 onwards, including corporate actions and dividend adjustments.**‍**
+- **Comprehensive Fundamentals**: Standardized financial statements, segment breakdowns, and ratios from company filings across annual, quarterly, and interim periods.**‍**
+- **Analyst Consensus and Estimates**: Forward-looking earnings estimates, analyst ratings, and earnings surprise data comparing actual results to expectations.**‍**
+- **M&A and Deal Intelligence**: Transaction data including deal values, terms, parties, and status for both public and private deals.**‍**
+- **Supply Chain Relationships**: Business network mapping of competitors, customers, suppliers, and partners from regulatory filings.**‍**
+- **Ownership and Insider Activity**: Institutional holdings, fund positions, and insider transactions (with quarterly filing lags).**‍**
+- **Executive and Board Information**: Leadership profiles, compensation data, employment history, and governance statistics.**‍**
+- **Corporate Events Calendar**: Earnings announcements, investor conferences, and other scheduled corporate events.
 
 ## How Claude Uses FactSet Data
 
 Claude applies FactSet's data to support comprehensive analysis:
 
--   **Integrated Company Analysis**: Combines pricing, fundamentals, estimates, and ownership data to build complete company profiles.**‍**
--   **Cross-Dataset Validation**: Verifies information across data types, such as comparing earnings surprises to insider trading patterns.**‍**
--   **Timeline Construction**: Builds chronological narratives combining M&A events, corporate actions, and management changes.**‍**
--   **Network Mapping**: Creates relationship maps showing competitive dynamics and ownership structures.**‍**
--   **Multi-Period Comparisons**: Retrieves standardized metrics across companies for accurate peer analysis.
+- **Integrated Company Analysis**: Combines pricing, fundamentals, estimates, and ownership data to build complete company profiles.**‍**
+- **Cross-Dataset Validation**: Verifies information across data types, such as comparing earnings surprises to insider trading patterns.**‍**
+- **Timeline Construction**: Builds chronological narratives combining M&A events, corporate actions, and management changes.**‍**
+- **Network Mapping**: Creates relationship maps showing competitive dynamics and ownership structures.**‍**
+- **Multi-Period Comparisons**: Retrieves standardized metrics across companies for accurate peer analysis.
 
 ## Setting up the FactSet integration
 
 ### For Organization Owners
 
-1.  Navigate to [Admin settings > Connectors](https://claude.ai/admin-settings/connectors).
+1.  Navigate to Admin settings > Connectors.
 2.  Scroll down and click “Add custom connector" at the bottom of the list.
 3.  Enter the FactSet integration URL (provided by your FactSet representative)
 4.  Name the integration (e.g., "FactSet")
@@ -39,7 +41,7 @@ Claude applies FactSet's data to support comprehensive analysis:
 
 ### For Individual Users
 
-Learn about [finding and connecting tools](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
+Learn about finding and connecting tools.
 
 ## Common Use Cases
 
@@ -95,14 +97,14 @@ Supply chain analysis through FactSet can show dependencies that may not be appa
 
 ## Tips for Using FactSet
 
--   Specify exact data types needed to avoid overwhelming results
+- Specify exact data types needed to avoid overwhelming results
 
--   Use date ranges to manage data volume, especially for daily pricing data
+- Use date ranges to manage data volume, especially for daily pricing data
 
--   Note that some data has reporting lags—ownership is quarterly, insider transactions have filing delays
+- Note that some data has reporting lags—ownership is quarterly, insider transactions have filing delays
 
--   For complex analyses, start with a subset of companies before expanding scope
+- For complex analyses, start with a subset of companies before expanding scope
 
--   Be aware that relationship and ownership data reflects disclosed information and may not be complete
+- Be aware that relationship and ownership data reflects disclosed information and may not be complete
 
 ‍

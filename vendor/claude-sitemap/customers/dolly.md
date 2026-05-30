@@ -1,11 +1,13 @@
-Dolly helps UK teachers save time by using Claude in [Amazon Bedrock](https://aws.amazon.com/bedrock/claude/) to instantly grade assignments, generate research-backed lesson content, and create detailed student progress reports.
+# Dolly helps teachers reclaim their work-life balance with Claude in Amazon Bedrock
+
+Dolly helps UK teachers save time by using Claude in Amazon Bedrock to instantly grade assignments, generate research-backed lesson content, and create detailed student progress reports.
 
 **Key results with Claude**
 
--   60-70% reduction in marking time for digital quizzes and assessments
--   8-10 hours saved per teacher per week across multiple classes
--   Quiz marking reduced from 1.5-2 hours to instant feedback for a class of 30
--   50% reduction in report writing time with AI-generated narrative summaries
+- 60-70% reduction in marking time for digital quizzes and assessments
+- 8-10 hours saved per teacher per week across multiple classes
+- Quiz marking reduced from 1.5-2 hours to instant feedback for a class of 30
+- 50% reduction in report writing time with AI-generated narrative summaries
 
 ## The teaching profession faces a workload crisis
 
@@ -31,7 +33,7 @@ Amazon Bedrock provided the perfect deployment solution. Morgan explained, "Usin
 
 ## How Claude powers efficient teaching workflows
 
-Dolly built a custom Amazon Web Services (AWS) [Step Functions](https://aws.amazon.com/step-functions/) workflow to manage multi-stage prompting with Claude. Morgan explained, "We break complex tasks into focused steps, each handled by a separate Claude prompt. This improves output quality and makes our system easier to maintain." The architecture leverages Amazon Bedrock for model inference while ensuring data sovereignty, a critical requirement for educational institutions.
+Dolly built a custom Amazon Web Services (AWS) Step Functions workflow to manage multi-stage prompting with Claude. Morgan explained, "We break complex tasks into focused steps, each handled by a separate Claude prompt. This improves output quality and makes our system easier to maintain." The architecture leverages Amazon Bedrock for model inference while ensuring data sovereignty, a critical requirement for educational institutions.
 
 The platform transforms how teachers work. Claude-powered agents research topics before generating assignments and provide sources for verification. Digital quizzes receive instant grading with detailed feedback for each student. Teachers can create differentiated materials for various ability levels in minutes instead of hours. The system maintains real-time student reports based on AI-analyzed performance data.
 

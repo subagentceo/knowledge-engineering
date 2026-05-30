@@ -1,3 +1,5 @@
+# Using Databricks for Data Analysis
+
 The Databricks connector provides Claude with access to your organization's internal data through Unity Catalog, enabling analysis of your databases, running custom business logic, and accessing unstructured documents. Databricks provides three separate connectors: one for functions, one for vector search, and one for Genie, each accessing different capabilities within your Databricks workspace.
 
 ## Reminder on Databricks Components
@@ -14,20 +16,20 @@ Before exploring what Claude can do with Databricks, it's important to understan
 
 Through the Databricks integration, Claude can access resources in your workspace:
 
--   **Execute Custom Functions**: Claude can run Unity Catalog functions defined by your organization. This includes executing complex business logic, applying calculations, or calling external APIs through functions your team has created. For example, if your organization has built a custom customer health score function, Claude can apply it consistently across analyses.**‍**
--   **Semantic Search**: Using vector search indexes, Claude can find relevant documents and content based on meaning rather than just keywords. This is particularly useful for searching through contracts, research reports, customer feedback, or technical documentation where similar concepts might be expressed in different ways.**‍**
--   **Natural Language Queries**: Through Genie, Claude can translate plain English questions into SQL queries. Instead of writing complex SQL, you can ask questions like "What was our revenue growth last quarter?" and Claude will use Genie to generate and execute the appropriate query.**‍**
--   **Governed Access**: All data access through the connector respects your organization's Unity Catalog permissions and policies. Claude can only access data and execute functions that your user account has permission to use.
+- **Execute Custom Functions**: Claude can run Unity Catalog functions defined by your organization. This includes executing complex business logic, applying calculations, or calling external APIs through functions your team has created. For example, if your organization has built a custom customer health score function, Claude can apply it consistently across analyses.**‍**
+- **Semantic Search**: Using vector search indexes, Claude can find relevant documents and content based on meaning rather than just keywords. This is particularly useful for searching through contracts, research reports, customer feedback, or technical documentation where similar concepts might be expressed in different ways.**‍**
+- **Natural Language Queries**: Through Genie, Claude can translate plain English questions into SQL queries. Instead of writing complex SQL, you can ask questions like "What was our revenue growth last quarter?" and Claude will use Genie to generate and execute the appropriate query.**‍**
+- **Governed Access**: All data access through the connector respects your organization's Unity Catalog permissions and policies. Claude can only access data and execute functions that your user account has permission to use.
 
 ### How Claude Uses Databricks Data
 
 Claude applies Databricks capabilities in several ways to support comprehensive data analysis:
 
--   **Multi-Source Analysis**: Claude combines results from database queries, vector searches, and custom functions to provide comprehensive insights. For example, when validating an investment thesis, Claude might query historical financial performance from your portfolio database, search through past due diligence reports for similar sector investments, and apply your proprietary IRR calculation function to model expected returns.**‍**
--   **Iterative Exploration**: Claude can query data, analyze initial results, and refine searches based on findings. This allows for analysis where insights from one query inform the next.**‍**
--   **Custom Logic Application**: By executing Unity Catalog functions, Claude applies your organization's specific rules and calculations. This ensures that proprietary metrics, adjusted calculations, and company-specific logic are applied uniformly across all analyses.**‍**
--   **Contextual Query Building**: When you ask questions in plain English, Claude uses Genie to translate them into appropriate SQL queries. This translation considers your table structures, column names, and relationships to generate accurate queries that match your database structure.**‍**
--   **Pattern Recognition**: Through vector search, Claude can find patterns and similarities across documents and data. This helps in finding related issues, similar transactions, or comparable situations that might not be obvious through traditional keyword searches.
+- **Multi-Source Analysis**: Claude combines results from database queries, vector searches, and custom functions to provide comprehensive insights. For example, when validating an investment thesis, Claude might query historical financial performance from your portfolio database, search through past due diligence reports for similar sector investments, and apply your proprietary IRR calculation function to model expected returns.**‍**
+- **Iterative Exploration**: Claude can query data, analyze initial results, and refine searches based on findings. This allows for analysis where insights from one query inform the next.**‍**
+- **Custom Logic Application**: By executing Unity Catalog functions, Claude applies your organization's specific rules and calculations. This ensures that proprietary metrics, adjusted calculations, and company-specific logic are applied uniformly across all analyses.**‍**
+- **Contextual Query Building**: When you ask questions in plain English, Claude uses Genie to translate them into appropriate SQL queries. This translation considers your table structures, column names, and relationships to generate accurate queries that match your database structure.**‍**
+- **Pattern Recognition**: Through vector search, Claude can find patterns and similarities across documents and data. This helps in finding related issues, similar transactions, or comparable situations that might not be obvious through traditional keyword searches.
 
 ## Setting up the Databricks Connector
 
@@ -37,19 +39,19 @@ The Databricks integration consists of three separate connectors, each requiring
 2.  **Vector Search Server:** Enables semantic search across indexed documents and datasets.**‍**
 3.  **Genie Server:** Provides natural language to SQL query translation capabilities.
 
-Technical details of the Databricks connectors can be found in Databricks's [MCP Server Documentation](https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp). Authentication with Databrick's connectors is handled via [OAuth](https://docs.databricks.com/aws/en/generative-ai/mcp/connect-external-services#connect-claude-connectors-using-oauth) (for [Claude.ai](http://claude.ai/) and Claude Desktop) or via a [Databricks Personal Access Token](https://docs.databricks.com/aws/en/generative-ai/mcp/connect-external-services#connect-claude-desktop-using-pat) (for Claude Desktop only).
+Technical details of the Databricks connectors can be found in Databricks's MCP Server Documentation. Authentication with Databrick's connectors is handled via OAuth (for Claude.ai and Claude Desktop) or via a Databricks Personal Access Token (for Claude Desktop only).
 
 ### Adding the Connector as an Organization Owner
 
-1.  Navigate to [Admin settings > Connectors](https://claude.ai/admin-settings/connectors).
+1.  Navigate to Admin settings > Connectors.
 2.  Scroll down and click “Add custom connector" at the bottom of the list.
-3.  Enter integration URL for [your Databricks workspace](https://docs.databricks.com/aws/en/generative-ai/mcp/managed-mcp)‍
+3.  Enter integration URL for your Databricks workspace‍
 4.  Name the integration. Remember that there are three separate Databricks servers, so consider naming each uniquely (e.g., "Databricks UC", "Databricks Genie", "Databricks Search")
 5.  Click "Add"
 
 ### For Individual Users
 
-Learn about [finding and connecting tools](https://support.claude.com/en/articles/11724452-browsing-and-connecting-to-tools-from-the-directory).
+Learn about finding and connecting tools.
 
 ## Common Use Cases
 
@@ -59,20 +61,20 @@ To illustrate how these capabilities work together, consider a private equity fi
 
 ### Tables in this scenario
 
-1.  **portfolio\_companies:** Company details, acquisition information, current valuations, and debt levels**‍**
-2.  **financial\_statements:** Period financials including revenue, EBITDA with adjustments, and operational metrics like customer count and churn**‍**
-3.  **market\_comparables:** Sector comparable companies with valuation multiples and growth rates**‍**
-4.  **due\_diligence\_docs:** Repository of due diligence reports, analysis documents, and deal memos
+1.  **portfolio_companies:** Company details, acquisition information, current valuations, and debt levels**‍**
+2.  **financial_statements:** Period financials including revenue, EBITDA with adjustments, and operational metrics like customer count and churn**‍**
+3.  **market_comparables:** Sector comparable companies with valuation multiples and growth rates**‍**
+4.  **due_diligence_docs:** Repository of due diligence reports, analysis documents, and deal memos
 
 ### Unity Catalog Functions in this scenario
 
-1.  **calculate\_normalized\_ebitda():** Applies standard private equity adjustments to reported EBITDA, removing one-time costs and normalizing owner compensation**‍**
-2.  **compute\_portfolio\_irr():** Calculates internal rate of return and money-on-invested-capital based on cash flows and holding periods**‍**
-3.  **estimate\_debt\_capacity():** Models maximum leverage capacity with covenant compliance stress testing under various scenarios
+1.  **calculate_normalized_ebitda():** Applies standard private equity adjustments to reported EBITDA, removing one-time costs and normalizing owner compensation**‍**
+2.  **compute_portfolio_irr():** Calculates internal rate of return and money-on-invested-capital based on cash flows and holding periods**‍**
+3.  **estimate_debt_capacity():** Models maximum leverage capacity with covenant compliance stress testing under various scenarios
 
 ### Vector Search Index in this scenario
 
-1.  **due\_diligence\_index:** Semantic search across all due diligence documents, deal memos, and analysis reports
+1.  **due_diligence_index:** Semantic search across all due diligence documents, deal memos, and analysis reports
 
 ## Portfolio Exit Readiness Analysis
 
@@ -113,21 +115,21 @@ If we see a 15-25% EBITDA decline across the portfolio, which companies risk cov
 For this task, Claude might use the following resources:
 
 1.  **Genie**: Identify portfolio companies with debt, focusing on those with leverage >4x.**‍**
-2.  **UC Function**: Call calculate\_normalized\_ebitda() for each high-leverage company to establish baseline.**‍**
-3.  **UC Function**: Run estimate\_debt\_capacity() with 15%, 20%, and 25% decline scenarios for each company.**‍**
+2.  **UC Function**: Call calculate_normalized_ebitda() for each high-leverage company to establish baseline.**‍**
+3.  **UC Function**: Run estimate_debt_capacity() with 15%, 20%, and 25% decline scenarios for each company.**‍**
 4.  **Genie**: Query historical financials to identify companies with deteriorating working capital trends.
 
 Claude might then respond with a breach risk analysis, organized by company and scenario.
 
 ## Tips for Using Databricks
 
--   Be specific about what data you are looking for.
-    -   Example: Instead of "Analyze customers", try "Show me our top 20 customers by…"
--   Use "find similar" language for pattern matching
-    -   Example: "Find feedback that mentions issues like this complaint."
+- Be specific about what data you are looking for.
+  - Example: Instead of "Analyze customers", try "Show me our top 20 customers by…"
+- Use "find similar" language for pattern matching
+  - Example: "Find feedback that mentions issues like this complaint."
 
--   Remember that all data access permissions follow your Unity Catalog permissions. Claude can only access the data that you can access.
--   Custom functions provide consistent calculations. Consider adding UC Functions for calculating standardized metrics.
--   Complex analyses may require multiple steps. Ask for a plan first and review Claude's proposed approach.
+- Remember that all data access permissions follow your Unity Catalog permissions. Claude can only access the data that you can access.
+- Custom functions provide consistent calculations. Consider adding UC Functions for calculating standardized metrics.
+- Complex analyses may require multiple steps. Ask for a plan first and review Claude's proposed approach.
 
 ‍

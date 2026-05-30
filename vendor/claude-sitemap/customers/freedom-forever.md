@@ -1,11 +1,13 @@
-[Freedom Forever](https://www.freedomforever.com), the largest residential solar installer in the United States, handles the full lifecycle of solar installation—from sales and permitting through design, installation, and ongoing monitoring. The company has 3,000 employees, primarily field operations and installation crews, and a 50-person software and product team.
+# Freedom Forever automates permit workflows with Claude
+
+Freedom Forever, the largest residential solar installer in the United States, handles the full lifecycle of solar installation—from sales and permitting through design, installation, and ongoing monitoring. The company has 3,000 employees, primarily field operations and installation crews, and a 50-person software and product team.
 
 ## With Claude, Freedom Forever:
 
--   Achieved 97.5% success rate on complex web automation benchmarks where alternative frameworks hit 20–60%
--   Processed approximately 19,000 permit emails in the first month of production, handling communications from hundreds of utility companies
--   Built a unified agent framework connecting web automation, CRM workflows, file validation, and sales support
--   Reduced agent execution costs to $0.20–$0.35 per run while completing most tasks in about two minutes
+- Achieved 97.5% success rate on complex web automation benchmarks where alternative frameworks hit 20–60%
+- Processed approximately 19,000 permit emails in the first month of production, handling communications from hundreds of utility companies
+- Built a unified agent framework connecting web automation, CRM workflows, file validation, and sales support
+- Reduced agent execution costs to $0.20–$0.35 per run while completing most tasks in about two minutes
 
 ## The problem
 

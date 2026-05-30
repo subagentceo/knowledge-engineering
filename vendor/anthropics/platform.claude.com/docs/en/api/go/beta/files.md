@@ -1,6 +1,6 @@
 # Files
 
-## Upload
+## Upload File
 
 `client.Beta.Files.Upload(ctx, params) (*FileMetadata, error)`
 
@@ -11,7 +11,6 @@ Upload File
 ### Parameters
 
 - `params BetaFileUploadParams`
-
   - `File param.Field[Reader]`
 
     Body param: The file to upload
@@ -19,11 +18,9 @@ Upload File
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -72,10 +69,15 @@ Upload File
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type FileMetadata struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -103,7 +105,6 @@ Upload File
     Object type.
 
     For files, this is always `"file"`.
-
     - `const FileFile File = "file"`
 
   - `Downloadable bool`
@@ -113,7 +114,6 @@ Upload File
   - `Scope BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `ID string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -121,7 +121,6 @@ Upload File
     - `Type Session`
 
       The type of scope (e.g., `"session"`).
-
       - `const SessionSession Session = "session"`
 
 ### Example
@@ -153,7 +152,25 @@ func main() {
 }
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## List Files
 
 `client.Beta.Files.List(ctx, params) (*Page[FileMetadata], error)`
 
@@ -164,7 +181,6 @@ List Files
 ### Parameters
 
 - `params BetaFileListParams`
-
   - `AfterID param.Field[string]`
 
     Query param: ID of the object to use as a cursor for pagination. When provided, returns the page of results immediately after this object.
@@ -186,11 +202,9 @@ List Files
   - `Betas param.Field[[]AnthropicBeta]`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -239,10 +253,15 @@ List Files
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type FileMetadata struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -270,7 +289,6 @@ List Files
     Object type.
 
     For files, this is always `"file"`.
-
     - `const FileFile File = "file"`
 
   - `Downloadable bool`
@@ -280,7 +298,6 @@ List Files
   - `Scope BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `ID string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -288,7 +305,6 @@ List Files
     - `Type Session`
 
       The type of scope (e.g., `"session"`).
-
       - `const SessionSession Session = "session"`
 
 ### Example
@@ -318,7 +334,32 @@ func main() {
 }
 ```
 
-## Download
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+      "created_at": "2025-04-15T18:37:24.100435Z",
+      "filename": "document.pdf",
+      "mime_type": "application/pdf",
+      "size_bytes": 102400,
+      "type": "file",
+      "downloadable": false,
+      "scope": {
+        "id": "id",
+        "type": "session"
+      }
+    }
+  ],
+  "first_id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "has_more": true,
+  "last_id": "file_013Zva2CMHLNnXjNJJKqJ2EF"
+}
+```
+
+## Download File
 
 `client.Beta.Files.Download(ctx, fileID, query) (*Response, error)`
 
@@ -333,15 +374,12 @@ Download File
   ID of the File.
 
 - `query BetaFileDownloadParams`
-
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -389,6 +427,12 @@ Download File
       - `const AnthropicBetaAdvisorTool2026_03_01 AnthropicBeta = "advisor-tool-2026-03-01"`
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
+
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
 
 ### Returns
 
@@ -425,7 +469,7 @@ func main() {
 }
 ```
 
-## Retrieve Metadata
+## Get File Metadata
 
 `client.Beta.Files.GetMetadata(ctx, fileID, query) (*FileMetadata, error)`
 
@@ -440,15 +484,12 @@ Get File Metadata
   ID of the File.
 
 - `query BetaFileGetMetadataParams`
-
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -497,10 +538,15 @@ Get File Metadata
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type FileMetadata struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -528,7 +574,6 @@ Get File Metadata
     Object type.
 
     For files, this is always `"file"`.
-
     - `const FileFile File = "file"`
 
   - `Downloadable bool`
@@ -538,7 +583,6 @@ Get File Metadata
   - `Scope BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `ID string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -546,7 +590,6 @@ Get File Metadata
     - `Type Session`
 
       The type of scope (e.g., `"session"`).
-
       - `const SessionSession Session = "session"`
 
 ### Example
@@ -580,7 +623,25 @@ func main() {
 }
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "created_at": "2025-04-15T18:37:24.100435Z",
+  "filename": "document.pdf",
+  "mime_type": "application/pdf",
+  "size_bytes": 102400,
+  "type": "file",
+  "downloadable": false,
+  "scope": {
+    "id": "id",
+    "type": "session"
+  }
+}
+```
+
+## Delete File
 
 `client.Beta.Files.Delete(ctx, fileID, body) (*DeletedFile, error)`
 
@@ -595,15 +656,12 @@ Delete File
   ID of the File.
 
 - `body BetaFileDeleteParams`
-
   - `Betas param.Field[[]AnthropicBeta]`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `string`
 
     - `type AnthropicBeta string`
-
       - `const AnthropicBetaMessageBatches2024_09_24 AnthropicBeta = "message-batches-2024-09-24"`
 
       - `const AnthropicBetaPromptCaching2024_07_31 AnthropicBeta = "prompt-caching-2024-07-31"`
@@ -652,10 +710,15 @@ Delete File
 
       - `const AnthropicBetaManagedAgents2026_04_01 AnthropicBeta = "managed-agents-2026-04-01"`
 
+      - `const AnthropicBetaCacheDiagnosis2026_04_07 AnthropicBeta = "cache-diagnosis-2026-04-07"`
+
+      - `const AnthropicBetaThinkingTokenCount2026_05_13 AnthropicBeta = "thinking-token-count-2026-05-13"`
+
+      - `const AnthropicBetaMidConversationSystem2026_04_07 AnthropicBeta = "mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `type DeletedFile struct{…}`
-
   - `ID string`
 
     ID of the deleted file.
@@ -665,7 +728,6 @@ Delete File
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `const DeletedFileTypeFileDeleted DeletedFileType = "file_deleted"`
 
 ### Example
@@ -699,12 +761,20 @@ func main() {
 }
 ```
 
+#### Response
+
+```json
+{
+  "id": "file_011CNha8iCJcU1wXNR6q4V8w",
+  "type": "file_deleted"
+}
+```
+
 ## Domain Types
 
 ### Beta File Scope
 
 - `type BetaFileScope struct{…}`
-
   - `ID string`
 
     The ID of the scoping resource (e.g., the session ID).
@@ -712,13 +782,11 @@ func main() {
   - `Type Session`
 
     The type of scope (e.g., `"session"`).
-
     - `const SessionSession Session = "session"`
 
 ### Deleted File
 
 - `type DeletedFile struct{…}`
-
   - `ID string`
 
     ID of the deleted file.
@@ -728,13 +796,11 @@ func main() {
     Deleted object type.
 
     For file deletion, this is always `"file_deleted"`.
-
     - `const DeletedFileTypeFileDeleted DeletedFileType = "file_deleted"`
 
 ### File Metadata
 
 - `type FileMetadata struct{…}`
-
   - `ID string`
 
     Unique object identifier.
@@ -762,7 +828,6 @@ func main() {
     Object type.
 
     For files, this is always `"file"`.
-
     - `const FileFile File = "file"`
 
   - `Downloadable bool`
@@ -772,7 +837,6 @@ func main() {
   - `Scope BetaFileScope`
 
     The scope of this file, indicating the context in which it was created (e.g., a session).
-
     - `ID string`
 
       The ID of the scoping resource (e.g., the session ID).
@@ -780,5 +844,4 @@ func main() {
     - `Type Session`
 
       The type of scope (e.g., `"session"`).
-
       - `const SessionSession Session = "session"`

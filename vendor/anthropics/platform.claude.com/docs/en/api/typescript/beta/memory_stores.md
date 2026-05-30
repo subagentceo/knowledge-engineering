@@ -1,6 +1,6 @@
 # Memory Stores
 
-## Create
+## Create a memory store
 
 `client.beta.memoryStores.create(MemoryStoreCreateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
 
@@ -11,7 +11,6 @@ Create a memory store
 ### Parameters
 
 - `params: MemoryStoreCreateParams`
-
   - `name: string`
 
     Body param: Human-readable name for the store. Required; 1–255 characters; no control characters. The mount-path slug under `/mnt/memory/` is derived from this name (lowercased, non-alphanumeric runs collapsed to a hyphen). Names need not be unique within a workspace.
@@ -27,11 +26,9 @@ Create a memory store
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -80,12 +77,17 @@ Create a memory store
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -99,7 +101,6 @@ Create a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -121,18 +122,37 @@ Create a memory store
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsMemoryStore = await client.beta.memoryStores.create({ name: 'x' });
+const betaManagedAgentsMemoryStore = await client.beta.memoryStores.create({
+  name: "x",
+});
 
 console.log(betaManagedAgentsMemoryStore.id);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+## List memory stores
 
 `client.beta.memoryStores.list(MemoryStoreListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsMemoryStore>`
 
@@ -143,7 +163,6 @@ List memory stores
 ### Parameters
 
 - `params: MemoryStoreListParams`
-
   - `"created_at[gte]"?: string`
 
     Query param: Return only stores whose `created_at` is at or after this time (inclusive). Sent on the wire as `created_at[gte]`.
@@ -167,11 +186,9 @@ List memory stores
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -220,12 +237,17 @@ List memory stores
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -239,7 +261,6 @@ List memory stores
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -261,10 +282,10 @@ List memory stores
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
@@ -273,7 +294,29 @@ for await (const betaManagedAgentsMemoryStore of client.beta.memoryStores.list()
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "name": "name",
+      "type": "memory_store",
+      "updated_at": "2019-12-27T18:11:19.117Z",
+      "archived_at": "2019-12-27T18:11:19.117Z",
+      "description": "description",
+      "metadata": {
+        "foo": "string"
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Retrieve a memory store
 
 `client.beta.memoryStores.retrieve(stringmemoryStoreID, MemoryStoreRetrieveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
 
@@ -286,15 +329,12 @@ Retrieve a memory store
 - `memoryStoreID: string`
 
 - `params: MemoryStoreRetrieveParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -343,12 +383,17 @@ Retrieve a memory store
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -362,7 +407,6 @@ Retrieve a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -384,18 +428,36 @@ Retrieve a memory store
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsMemoryStore = await client.beta.memoryStores.retrieve('memory_store_id');
+const betaManagedAgentsMemoryStore =
+  await client.beta.memoryStores.retrieve("memory_store_id");
 
 console.log(betaManagedAgentsMemoryStore.id);
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+## Update a memory store
 
 `client.beta.memoryStores.update(stringmemoryStoreID, MemoryStoreUpdateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
 
@@ -408,7 +470,6 @@ Update a memory store
 - `memoryStoreID: string`
 
 - `params: MemoryStoreUpdateParams`
-
   - `description?: string | null`
 
     Body param: New description for the store, up to 1024 characters. Pass an empty string to clear it.
@@ -424,11 +485,9 @@ Update a memory store
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -477,12 +536,17 @@ Update a memory store
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -496,7 +560,6 @@ Update a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -518,18 +581,36 @@ Update a memory store
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsMemoryStore = await client.beta.memoryStores.update('memory_store_id');
+const betaManagedAgentsMemoryStore =
+  await client.beta.memoryStores.update("memory_store_id");
 
 console.log(betaManagedAgentsMemoryStore.id);
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
+```
+
+## Delete a memory store
 
 `client.beta.memoryStores.delete(stringmemoryStoreID, MemoryStoreDeleteParamsparams?, RequestOptionsoptions?): BetaManagedAgentsDeletedMemoryStore`
 
@@ -542,15 +623,12 @@ Delete a memory store
 - `memoryStoreID: string`
 
 - `params: MemoryStoreDeleteParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -599,37 +677,49 @@ Delete a memory store
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsDeletedMemoryStore`
 
   Confirmation that a `memory_store` was deleted.
-
   - `id: string`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `type: "memory_store_deleted"`
-
     - `"memory_store_deleted"`
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsDeletedMemoryStore = await client.beta.memoryStores.delete(
-  'memory_store_id',
-);
+const betaManagedAgentsDeletedMemoryStore =
+  await client.beta.memoryStores.delete("memory_store_id");
 
 console.log(betaManagedAgentsDeletedMemoryStore.id);
 ```
 
-## Archive
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "memory_store_deleted"
+}
+```
+
+## Archive a memory store
 
 `client.beta.memoryStores.archive(stringmemoryStoreID, MemoryStoreArchiveParamsparams?, RequestOptionsoptions?): BetaManagedAgentsMemoryStore`
 
@@ -642,15 +732,12 @@ Archive a memory store
 - `memoryStoreID: string`
 
 - `params: MemoryStoreArchiveParams`
-
   - `betas?: Array<AnthropicBeta>`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -699,12 +786,17 @@ Archive a memory store
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemoryStore`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -718,7 +810,6 @@ Archive a memory store
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -740,15 +831,33 @@ Archive a memory store
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsMemoryStore = await client.beta.memoryStores.archive('memory_store_id');
+const betaManagedAgentsMemoryStore =
+  await client.beta.memoryStores.archive("memory_store_id");
 
 console.log(betaManagedAgentsMemoryStore.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "name": "name",
+  "type": "memory_store",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "archived_at": "2019-12-27T18:11:19.117Z",
+  "description": "description",
+  "metadata": {
+    "foo": "string"
+  }
+}
 ```
 
 ## Domain Types
@@ -758,13 +867,11 @@ console.log(betaManagedAgentsMemoryStore.id);
 - `BetaManagedAgentsDeletedMemoryStore`
 
   Confirmation that a `memory_store` was deleted.
-
   - `id: string`
 
     ID of the deleted memory store (a `memstore_...` identifier). The store and all its memories and versions are no longer retrievable.
 
   - `type: "memory_store_deleted"`
-
     - `"memory_store_deleted"`
 
 ### Beta Managed Agents Memory Store
@@ -772,7 +879,6 @@ console.log(betaManagedAgentsMemoryStore.id);
 - `BetaManagedAgentsMemoryStore`
 
   A `memory_store`: a named container for agent memories, scoped to a workspace. Attach a store to a session via `resources[]` to mount it as a directory the agent can read and write.
-
   - `id: string`
 
     Unique identifier for the memory store (a `memstore_...` tagged ID). Use this when attaching the store to a session, or in the `{memory_store_id}` path parameter of subsequent calls.
@@ -786,7 +892,6 @@ console.log(betaManagedAgentsMemoryStore.id);
     Human-readable name for the store. 1–255 characters. The store's mount-path slug under `/mnt/memory/` is derived from this name.
 
   - `type: "memory_store"`
-
     - `"memory_store"`
 
   - `updated_at: string`
@@ -807,7 +912,7 @@ console.log(betaManagedAgentsMemoryStore.id);
 
 # Memories
 
-## Create
+## Create a memory
 
 `client.beta.memoryStores.memories.create(stringmemoryStoreID, MemoryCreateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemory`
 
@@ -820,7 +925,6 @@ Create a memory
 - `memoryStoreID: string`
 
 - `params: MemoryCreateParams`
-
   - `content: string | null`
 
     Body param: UTF-8 text content for the new memory. Maximum 100 kB (102,400 bytes). Required; pass `""` explicitly to create an empty memory.
@@ -832,7 +936,6 @@ Create a memory
   - `view?: BetaManagedAgentsMemoryView`
 
     Query param: Query parameter for view
-
     - `"basic"`
 
     - `"full"`
@@ -840,11 +943,9 @@ Create a memory
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -893,12 +994,17 @@ Create a memory
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemory`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -928,7 +1034,6 @@ Create a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
-
     - `"memory"`
 
   - `updated_at: string`
@@ -942,21 +1047,41 @@ Create a memory
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsMemory = await client.beta.memoryStores.memories.create('memory_store_id', {
-  content: 'content',
-  path: 'xx',
-});
+const betaManagedAgentsMemory = await client.beta.memoryStores.memories.create(
+  "memory_store_id",
+  {
+    content: "content",
+    path: "xx",
+  },
+);
 
 console.log(betaManagedAgentsMemory.id);
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+## List memories
 
 `client.beta.memoryStores.memories.list(stringmemoryStoreID, MemoryListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsMemoryListItem>`
 
@@ -969,7 +1094,6 @@ List memories
 - `memoryStoreID: string`
 
 - `params: MemoryListParams`
-
   - `depth?: number`
 
     Query param: Query parameter for depth
@@ -981,7 +1105,6 @@ List memories
   - `order?: "asc" | "desc"`
 
     Query param: Query parameter for order
-
     - `"asc"`
 
     - `"desc"`
@@ -1001,7 +1124,6 @@ List memories
   - `view?: BetaManagedAgentsMemoryView`
 
     Query param: Query parameter for view
-
     - `"basic"`
 
     - `"full"`
@@ -1009,11 +1131,9 @@ List memories
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1062,16 +1182,20 @@ List memories
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemoryListItem = BetaManagedAgentsMemory | BetaManagedAgentsMemoryPrefix`
 
   One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
-
   - `BetaManagedAgentsMemory`
 
     A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
     - `id: string`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1101,7 +1225,6 @@ List memories
       Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
     - `type: "memory"`
-
       - `"memory"`
 
     - `updated_at: string`
@@ -1115,33 +1238,53 @@ List memories
   - `BetaManagedAgentsMemoryPrefix`
 
     A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
     - `path: string`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
     - `type: "memory_prefix"`
-
       - `"memory_prefix"`
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
 for await (const betaManagedAgentsMemoryListItem of client.beta.memoryStores.memories.list(
-  'memory_store_id',
+  "memory_store_id",
 )) {
   console.log(betaManagedAgentsMemoryListItem);
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "content_sha256": "content_sha256",
+      "content_size_bytes": 0,
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "memory_store_id": "memory_store_id",
+      "memory_version_id": "memory_version_id",
+      "path": "path",
+      "type": "memory",
+      "updated_at": "2019-12-27T18:11:19.117Z",
+      "content": "content"
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Retrieve a memory
 
 `client.beta.memoryStores.memories.retrieve(stringmemoryID, MemoryRetrieveParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemory`
 
@@ -1154,7 +1297,6 @@ Retrieve a memory
 - `memoryID: string`
 
 - `params: MemoryRetrieveParams`
-
   - `memory_store_id: string`
 
     Path param: Path parameter memory_store_id
@@ -1162,7 +1304,6 @@ Retrieve a memory
   - `view?: BetaManagedAgentsMemoryView`
 
     Query param: Query parameter for view
-
     - `"basic"`
 
     - `"full"`
@@ -1170,11 +1311,9 @@ Retrieve a memory
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1223,12 +1362,17 @@ Retrieve a memory
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemory`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1258,7 +1402,6 @@ Retrieve a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
-
     - `"memory"`
 
   - `updated_at: string`
@@ -1272,20 +1415,38 @@ Retrieve a memory
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsMemory = await client.beta.memoryStores.memories.retrieve('memory_id', {
-  memory_store_id: 'memory_store_id',
-});
+const betaManagedAgentsMemory =
+  await client.beta.memoryStores.memories.retrieve("memory_id", {
+    memory_store_id: "memory_store_id",
+  });
 
 console.log(betaManagedAgentsMemory.id);
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+## Update a memory
 
 `client.beta.memoryStores.memories.update(stringmemoryID, MemoryUpdateParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemory`
 
@@ -1298,7 +1459,6 @@ Update a memory
 - `memoryID: string`
 
 - `params: MemoryUpdateParams`
-
   - `memory_store_id: string`
 
     Path param: Path parameter memory_store_id
@@ -1306,7 +1466,6 @@ Update a memory
   - `view?: BetaManagedAgentsMemoryView`
 
     Query param: Query parameter for view
-
     - `"basic"`
 
     - `"full"`
@@ -1322,9 +1481,7 @@ Update a memory
   - `precondition?: BetaManagedAgentsPrecondition`
 
     Body param: Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
     - `type: "content_sha256"`
-
       - `"content_sha256"`
 
     - `content_sha256?: string`
@@ -1334,11 +1491,9 @@ Update a memory
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1387,12 +1542,17 @@ Update a memory
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemory`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1422,7 +1582,6 @@ Update a memory
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
-
     - `"memory"`
 
   - `updated_at: string`
@@ -1436,20 +1595,40 @@ Update a memory
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsMemory = await client.beta.memoryStores.memories.update('memory_id', {
-  memory_store_id: 'memory_store_id',
-});
+const betaManagedAgentsMemory = await client.beta.memoryStores.memories.update(
+  "memory_id",
+  {
+    memory_store_id: "memory_store_id",
+  },
+);
 
 console.log(betaManagedAgentsMemory.id);
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "id",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_store_id": "memory_store_id",
+  "memory_version_id": "memory_version_id",
+  "path": "path",
+  "type": "memory",
+  "updated_at": "2019-12-27T18:11:19.117Z",
+  "content": "content"
+}
+```
+
+## Delete a memory
 
 `client.beta.memoryStores.memories.delete(stringmemoryID, MemoryDeleteParamsparams, RequestOptionsoptions?): BetaManagedAgentsDeletedMemory`
 
@@ -1462,7 +1641,6 @@ Delete a memory
 - `memoryID: string`
 
 - `params: MemoryDeleteParams`
-
   - `memory_store_id: string`
 
     Path param: Path parameter memory_store_id
@@ -1474,11 +1652,9 @@ Delete a memory
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1527,34 +1703,48 @@ Delete a memory
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsDeletedMemory`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
-
   - `id: string`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `type: "memory_deleted"`
-
     - `"memory_deleted"`
 
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsDeletedMemory = await client.beta.memoryStores.memories.delete('memory_id', {
-  memory_store_id: 'memory_store_id',
-});
+const betaManagedAgentsDeletedMemory =
+  await client.beta.memoryStores.memories.delete("memory_id", {
+    memory_store_id: "memory_store_id",
+  });
 
 console.log(betaManagedAgentsDeletedMemory.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "type": "memory_deleted"
+}
 ```
 
 ## Domain Types
@@ -1562,9 +1752,7 @@ console.log(betaManagedAgentsDeletedMemory.id);
 ### Beta Managed Agents Conflict Error
 
 - `BetaManagedAgentsConflictError`
-
   - `type: "conflict_error"`
-
     - `"conflict_error"`
 
   - `message?: string`
@@ -1574,9 +1762,7 @@ console.log(betaManagedAgentsDeletedMemory.id);
 - `BetaManagedAgentsContentSha256Precondition`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
   - `type: "content_sha256"`
-
     - `"content_sha256"`
 
   - `content_sha256?: string`
@@ -1588,103 +1774,78 @@ console.log(betaManagedAgentsDeletedMemory.id);
 - `BetaManagedAgentsDeletedMemory`
 
   Tombstone returned by [Delete a memory](/docs/en/api/beta/memory_stores/memories/delete). The memory's version history persists and remains listable via [List memory versions](/docs/en/api/beta/memory_stores/memory_versions/list) until the store itself is deleted.
-
   - `id: string`
 
     ID of the deleted memory (a `mem_...` value).
 
   - `type: "memory_deleted"`
-
     - `"memory_deleted"`
 
 ### Beta Managed Agents Error
 
 - `BetaManagedAgentsError = BetaInvalidRequestError | BetaAuthenticationError | BetaBillingError | 9 more`
-
   - `BetaInvalidRequestError`
-
     - `message: string`
 
     - `type: "invalid_request_error"`
-
       - `"invalid_request_error"`
 
   - `BetaAuthenticationError`
-
     - `message: string`
 
     - `type: "authentication_error"`
-
       - `"authentication_error"`
 
   - `BetaBillingError`
-
     - `message: string`
 
     - `type: "billing_error"`
-
       - `"billing_error"`
 
   - `BetaPermissionError`
-
     - `message: string`
 
     - `type: "permission_error"`
-
       - `"permission_error"`
 
   - `BetaNotFoundError`
-
     - `message: string`
 
     - `type: "not_found_error"`
-
       - `"not_found_error"`
 
   - `BetaRateLimitError`
-
     - `message: string`
 
     - `type: "rate_limit_error"`
-
       - `"rate_limit_error"`
 
   - `BetaGatewayTimeoutError`
-
     - `message: string`
 
     - `type: "timeout_error"`
-
       - `"timeout_error"`
 
   - `BetaAPIError`
-
     - `message: string`
 
     - `type: "api_error"`
-
       - `"api_error"`
 
   - `BetaOverloadedError`
-
     - `message: string`
 
     - `type: "overloaded_error"`
-
       - `"overloaded_error"`
 
   - `BetaManagedAgentsMemoryPreconditionFailedError`
-
     - `type: "memory_precondition_failed_error"`
-
       - `"memory_precondition_failed_error"`
 
     - `message?: string`
 
   - `BetaManagedAgentsMemoryPathConflictError`
-
     - `type: "memory_path_conflict_error"`
-
       - `"memory_path_conflict_error"`
 
     - `conflicting_memory_id?: string`
@@ -1694,9 +1855,7 @@ console.log(betaManagedAgentsDeletedMemory.id);
     - `message?: string`
 
   - `BetaManagedAgentsConflictError`
-
     - `type: "conflict_error"`
-
       - `"conflict_error"`
 
     - `message?: string`
@@ -1706,7 +1865,6 @@ console.log(betaManagedAgentsDeletedMemory.id);
 - `BetaManagedAgentsMemory`
 
   A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
   - `id: string`
 
     Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1736,7 +1894,6 @@ console.log(betaManagedAgentsDeletedMemory.id);
     Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
   - `type: "memory"`
-
     - `"memory"`
 
   - `updated_at: string`
@@ -1752,11 +1909,9 @@ console.log(betaManagedAgentsDeletedMemory.id);
 - `BetaManagedAgentsMemoryListItem = BetaManagedAgentsMemory | BetaManagedAgentsMemoryPrefix`
 
   One item in a [List memories](/docs/en/api/beta/memory_stores/memories/list) response: either a `memory` object or, when `depth` is set, a `memory_prefix` rollup marker.
-
   - `BetaManagedAgentsMemory`
 
     A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
-
     - `id: string`
 
       Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -1786,7 +1941,6 @@ console.log(betaManagedAgentsDeletedMemory.id);
       Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
     - `type: "memory"`
-
       - `"memory"`
 
     - `updated_at: string`
@@ -1800,21 +1954,17 @@ console.log(betaManagedAgentsDeletedMemory.id);
   - `BetaManagedAgentsMemoryPrefix`
 
     A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
     - `path: string`
 
       The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
     - `type: "memory_prefix"`
-
       - `"memory_prefix"`
 
 ### Beta Managed Agents Memory Path Conflict Error
 
 - `BetaManagedAgentsMemoryPathConflictError`
-
   - `type: "memory_path_conflict_error"`
-
     - `"memory_path_conflict_error"`
 
   - `conflicting_memory_id?: string`
@@ -1826,9 +1976,7 @@ console.log(betaManagedAgentsDeletedMemory.id);
 ### Beta Managed Agents Memory Precondition Failed Error
 
 - `BetaManagedAgentsMemoryPreconditionFailedError`
-
   - `type: "memory_precondition_failed_error"`
-
     - `"memory_precondition_failed_error"`
 
   - `message?: string`
@@ -1838,13 +1986,11 @@ console.log(betaManagedAgentsDeletedMemory.id);
 - `BetaManagedAgentsMemoryPrefix`
 
   A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
-
   - `path: string`
 
     The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
   - `type: "memory_prefix"`
-
     - `"memory_prefix"`
 
 ### Beta Managed Agents Memory View
@@ -1852,7 +1998,6 @@ console.log(betaManagedAgentsDeletedMemory.id);
 - `BetaManagedAgentsMemoryView = "basic" | "full"`
 
   Selects which projection of a `memory` or `memory_version` the server returns. `basic` returns the object with `content` set to `null`; `full` populates `content`. When omitted, the default is endpoint-specific: retrieve operations default to `full`; list, create, and update operations default to `basic`. Listing with `view=full` caps `limit` at 20.
-
   - `"basic"`
 
   - `"full"`
@@ -1862,9 +2007,7 @@ console.log(betaManagedAgentsDeletedMemory.id);
 - `BetaManagedAgentsPrecondition`
 
   Optimistic-concurrency precondition: the update applies only if the memory's stored `content_sha256` equals the supplied value. On mismatch, the request returns `memory_precondition_failed_error` (HTTP 409); re-read the memory and retry against the fresh state. If the precondition fails but the stored state already exactly matches the requested `content` and `path`, the server returns 200 instead of 409.
-
   - `type: "content_sha256"`
-
     - `"content_sha256"`
 
   - `content_sha256?: string`
@@ -1873,7 +2016,7 @@ console.log(betaManagedAgentsDeletedMemory.id);
 
 # Memory Versions
 
-## List
+## List memory versions
 
 `client.beta.memoryStores.memoryVersions.list(stringmemoryStoreID, MemoryVersionListParamsparams?, RequestOptionsoptions?): PageCursor<BetaManagedAgentsMemoryVersion>`
 
@@ -1886,7 +2029,6 @@ List memory versions
 - `memoryStoreID: string`
 
 - `params: MemoryVersionListParams`
-
   - `api_key_id?: string`
 
     Query param: Query parameter for api_key_id
@@ -1910,7 +2052,6 @@ List memory versions
   - `operation?: BetaManagedAgentsMemoryVersionOperation`
 
     Query param: Query parameter for operation
-
     - `"created"`
 
     - `"modified"`
@@ -1928,7 +2069,6 @@ List memory versions
   - `view?: BetaManagedAgentsMemoryView`
 
     Query param: Query parameter for view
-
     - `"basic"`
 
     - `"full"`
@@ -1936,11 +2076,9 @@ List memory versions
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -1989,12 +2127,17 @@ List memory versions
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemoryVersion`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
   - `id: string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -2014,7 +2157,6 @@ List memory versions
   - `operation: BetaManagedAgentsMemoryVersionOperation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
     - `"created"`
 
     - `"modified"`
@@ -2022,7 +2164,6 @@ List memory versions
     - `"deleted"`
 
   - `type: "memory_version"`
-
     - `"memory_version"`
 
   - `content?: string | null`
@@ -2040,37 +2181,30 @@ List memory versions
   - `created_by?: BetaManagedAgentsActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
     - `BetaManagedAgentsSessionActor`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
       - `session_id: string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `type: "session_actor"`
-
         - `"session_actor"`
 
     - `BetaManagedAgentsAPIActor`
 
       Attribution for a write made directly via the public API (outside of any session).
-
       - `api_key_id: string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `type: "api_actor"`
-
         - `"api_actor"`
 
     - `BetaManagedAgentsUserActor`
 
       Attribution for a write made by a human user through the Anthropic Console.
-
       - `type: "user_actor"`
-
         - `"user_actor"`
 
       - `user_id: string`
@@ -2089,60 +2223,55 @@ List memory versions
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
-    - `BetaManagedAgentsSessionActor`
-
-      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: string`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: "session_actor"`
-
-        - `"session_actor"`
-
-    - `BetaManagedAgentsAPIActor`
-
-      Attribution for a write made directly via the public API (outside of any session).
-
-      - `api_key_id: string`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: "api_actor"`
-
-        - `"api_actor"`
-
-    - `BetaManagedAgentsUserActor`
-
-      Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: "user_actor"`
-
-        - `"user_actor"`
-
-      - `user_id: string`
-
-        ID of the user who performed the write (a `user_...` value).
-
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
 // Automatically fetches more pages as needed.
 for await (const betaManagedAgentsMemoryVersion of client.beta.memoryStores.memoryVersions.list(
-  'memory_store_id',
+  "memory_store_id",
 )) {
   console.log(betaManagedAgentsMemoryVersion.id);
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "id",
+      "created_at": "2019-12-27T18:11:19.117Z",
+      "memory_id": "memory_id",
+      "memory_store_id": "memory_store_id",
+      "operation": "created",
+      "type": "memory_version",
+      "content": "content",
+      "content_sha256": "content_sha256",
+      "content_size_bytes": 0,
+      "created_by": {
+        "session_id": "x",
+        "type": "session_actor"
+      },
+      "path": "path",
+      "redacted_at": "2019-12-27T18:11:19.117Z",
+      "redacted_by": {
+        "session_id": "x",
+        "type": "session_actor"
+      }
+    }
+  ],
+  "next_page": "next_page"
+}
+```
+
+## Retrieve a memory version
 
 `client.beta.memoryStores.memoryVersions.retrieve(stringmemoryVersionID, MemoryVersionRetrieveParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryVersion`
 
@@ -2155,7 +2284,6 @@ Retrieve a memory version
 - `memoryVersionID: string`
 
 - `params: MemoryVersionRetrieveParams`
-
   - `memory_store_id: string`
 
     Path param: Path parameter memory_store_id
@@ -2163,7 +2291,6 @@ Retrieve a memory version
   - `view?: BetaManagedAgentsMemoryView`
 
     Query param: Query parameter for view
-
     - `"basic"`
 
     - `"full"`
@@ -2171,11 +2298,9 @@ Retrieve a memory version
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -2224,12 +2349,17 @@ Retrieve a memory version
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemoryVersion`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
   - `id: string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -2249,7 +2379,6 @@ Retrieve a memory version
   - `operation: BetaManagedAgentsMemoryVersionOperation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
     - `"created"`
 
     - `"modified"`
@@ -2257,7 +2386,6 @@ Retrieve a memory version
     - `"deleted"`
 
   - `type: "memory_version"`
-
     - `"memory_version"`
 
   - `content?: string | null`
@@ -2275,37 +2403,30 @@ Retrieve a memory version
   - `created_by?: BetaManagedAgentsActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
     - `BetaManagedAgentsSessionActor`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
       - `session_id: string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `type: "session_actor"`
-
         - `"session_actor"`
 
     - `BetaManagedAgentsAPIActor`
 
       Attribution for a write made directly via the public API (outside of any session).
-
       - `api_key_id: string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `type: "api_actor"`
-
         - `"api_actor"`
 
     - `BetaManagedAgentsUserActor`
 
       Attribution for a write made by a human user through the Anthropic Console.
-
       - `type: "user_actor"`
-
         - `"user_actor"`
 
       - `user_id: string`
@@ -2324,60 +2445,50 @@ Retrieve a memory version
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
-    - `BetaManagedAgentsSessionActor`
-
-      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: string`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: "session_actor"`
-
-        - `"session_actor"`
-
-    - `BetaManagedAgentsAPIActor`
-
-      Attribution for a write made directly via the public API (outside of any session).
-
-      - `api_key_id: string`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: "api_actor"`
-
-        - `"api_actor"`
-
-    - `BetaManagedAgentsUserActor`
-
-      Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: "user_actor"`
-
-        - `"user_actor"`
-
-      - `user_id: string`
-
-        ID of the user who performed the write (a `user_...` value).
-
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsMemoryVersion = await client.beta.memoryStores.memoryVersions.retrieve(
-  'memory_version_id',
-  { memory_store_id: 'memory_store_id' },
-);
+const betaManagedAgentsMemoryVersion =
+  await client.beta.memoryStores.memoryVersions.retrieve("memory_version_id", {
+    memory_store_id: "memory_store_id",
+  });
 
 console.log(betaManagedAgentsMemoryVersion.id);
 ```
 
-## Redact
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_id": "memory_id",
+  "memory_store_id": "memory_store_id",
+  "operation": "created",
+  "type": "memory_version",
+  "content": "content",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  },
+  "path": "path",
+  "redacted_at": "2019-12-27T18:11:19.117Z",
+  "redacted_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  }
+}
+```
+
+## Redact a memory version
 
 `client.beta.memoryStores.memoryVersions.redact(stringmemoryVersionID, MemoryVersionRedactParamsparams, RequestOptionsoptions?): BetaManagedAgentsMemoryVersion`
 
@@ -2390,7 +2501,6 @@ Redact a memory version
 - `memoryVersionID: string`
 
 - `params: MemoryVersionRedactParams`
-
   - `memory_store_id: string`
 
     Path param: Path parameter memory_store_id
@@ -2398,11 +2508,9 @@ Redact a memory version
   - `betas?: Array<AnthropicBeta>`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `(string & {})`
 
-    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 21 more`
-
+    - `"message-batches-2024-09-24" | "prompt-caching-2024-07-31" | "computer-use-2024-10-22" | 24 more`
       - `"message-batches-2024-09-24"`
 
       - `"prompt-caching-2024-07-31"`
@@ -2451,12 +2559,17 @@ Redact a memory version
 
       - `"managed-agents-2026-04-01"`
 
+      - `"cache-diagnosis-2026-04-07"`
+
+      - `"thinking-token-count-2026-05-13"`
+
+      - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
 - `BetaManagedAgentsMemoryVersion`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
   - `id: string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -2476,7 +2589,6 @@ Redact a memory version
   - `operation: BetaManagedAgentsMemoryVersionOperation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
     - `"created"`
 
     - `"modified"`
@@ -2484,7 +2596,6 @@ Redact a memory version
     - `"deleted"`
 
   - `type: "memory_version"`
-
     - `"memory_version"`
 
   - `content?: string | null`
@@ -2502,37 +2613,30 @@ Redact a memory version
   - `created_by?: BetaManagedAgentsActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
     - `BetaManagedAgentsSessionActor`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
       - `session_id: string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `type: "session_actor"`
-
         - `"session_actor"`
 
     - `BetaManagedAgentsAPIActor`
 
       Attribution for a write made directly via the public API (outside of any session).
-
       - `api_key_id: string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `type: "api_actor"`
-
         - `"api_actor"`
 
     - `BetaManagedAgentsUserActor`
 
       Attribution for a write made by a human user through the Anthropic Console.
-
       - `type: "user_actor"`
-
         - `"user_actor"`
 
       - `user_id: string`
@@ -2551,57 +2655,47 @@ Redact a memory version
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
-    - `BetaManagedAgentsSessionActor`
-
-      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: string`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: "session_actor"`
-
-        - `"session_actor"`
-
-    - `BetaManagedAgentsAPIActor`
-
-      Attribution for a write made directly via the public API (outside of any session).
-
-      - `api_key_id: string`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: "api_actor"`
-
-        - `"api_actor"`
-
-    - `BetaManagedAgentsUserActor`
-
-      Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: "user_actor"`
-
-        - `"user_actor"`
-
-      - `user_id: string`
-
-        ID of the user who performed the write (a `user_...` value).
-
 ### Example
 
 ```typescript
-import Anthropic from '@anthropic-ai/sdk';
+import Anthropic from "@anthropic-ai/sdk";
 
 const client = new Anthropic({
-  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
+  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
 });
 
-const betaManagedAgentsMemoryVersion = await client.beta.memoryStores.memoryVersions.redact(
-  'memory_version_id',
-  { memory_store_id: 'memory_store_id' },
-);
+const betaManagedAgentsMemoryVersion =
+  await client.beta.memoryStores.memoryVersions.redact("memory_version_id", {
+    memory_store_id: "memory_store_id",
+  });
 
 console.log(betaManagedAgentsMemoryVersion.id);
+```
+
+#### Response
+
+```json
+{
+  "id": "id",
+  "created_at": "2019-12-27T18:11:19.117Z",
+  "memory_id": "memory_id",
+  "memory_store_id": "memory_store_id",
+  "operation": "created",
+  "type": "memory_version",
+  "content": "content",
+  "content_sha256": "content_sha256",
+  "content_size_bytes": 0,
+  "created_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  },
+  "path": "path",
+  "redacted_at": "2019-12-27T18:11:19.117Z",
+  "redacted_by": {
+    "session_id": "x",
+    "type": "session_actor"
+  }
+}
 ```
 
 ## Domain Types
@@ -2611,37 +2705,30 @@ console.log(betaManagedAgentsMemoryVersion.id);
 - `BetaManagedAgentsActor = BetaManagedAgentsSessionActor | BetaManagedAgentsAPIActor | BetaManagedAgentsUserActor`
 
   Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
   - `BetaManagedAgentsSessionActor`
 
     Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
     - `session_id: string`
 
       ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
     - `type: "session_actor"`
-
       - `"session_actor"`
 
   - `BetaManagedAgentsAPIActor`
 
     Attribution for a write made directly via the public API (outside of any session).
-
     - `api_key_id: string`
 
       ID of the API key that performed the write. This identifies the key, not the secret.
 
     - `type: "api_actor"`
-
       - `"api_actor"`
 
   - `BetaManagedAgentsUserActor`
 
     Attribution for a write made by a human user through the Anthropic Console.
-
     - `type: "user_actor"`
-
       - `"user_actor"`
 
     - `user_id: string`
@@ -2653,13 +2740,11 @@ console.log(betaManagedAgentsMemoryVersion.id);
 - `BetaManagedAgentsAPIActor`
 
   Attribution for a write made directly via the public API (outside of any session).
-
   - `api_key_id: string`
 
     ID of the API key that performed the write. This identifies the key, not the secret.
 
   - `type: "api_actor"`
-
     - `"api_actor"`
 
 ### Beta Managed Agents Memory Version
@@ -2667,7 +2752,6 @@ console.log(betaManagedAgentsMemoryVersion.id);
 - `BetaManagedAgentsMemoryVersion`
 
   A `memory_version` object: one immutable, attributed row in a memory's append-only history. Every non-no-op mutation to a memory produces a new version. Versions belong to the store (not the individual memory) and persist after the memory is deleted. Retrieving a redacted version returns 200 with `content`, `path`, `content_size_bytes`, and `content_sha256` set to `null`; branch on `redacted_at`, not HTTP status.
-
   - `id: string`
 
     Unique identifier for this version (a `memver_...` value).
@@ -2687,7 +2771,6 @@ console.log(betaManagedAgentsMemoryVersion.id);
   - `operation: BetaManagedAgentsMemoryVersionOperation`
 
     The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
     - `"created"`
 
     - `"modified"`
@@ -2695,7 +2778,6 @@ console.log(betaManagedAgentsMemoryVersion.id);
     - `"deleted"`
 
   - `type: "memory_version"`
-
     - `"memory_version"`
 
   - `content?: string | null`
@@ -2713,37 +2795,30 @@ console.log(betaManagedAgentsMemoryVersion.id);
   - `created_by?: BetaManagedAgentsActor`
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
-
     - `BetaManagedAgentsSessionActor`
 
       Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
       - `session_id: string`
 
         ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
       - `type: "session_actor"`
-
         - `"session_actor"`
 
     - `BetaManagedAgentsAPIActor`
 
       Attribution for a write made directly via the public API (outside of any session).
-
       - `api_key_id: string`
 
         ID of the API key that performed the write. This identifies the key, not the secret.
 
       - `type: "api_actor"`
-
         - `"api_actor"`
 
     - `BetaManagedAgentsUserActor`
 
       Attribution for a write made by a human user through the Anthropic Console.
-
       - `type: "user_actor"`
-
         - `"user_actor"`
 
       - `user_id: string`
@@ -2762,48 +2837,11 @@ console.log(betaManagedAgentsMemoryVersion.id);
 
     Identifies who performed a write or redact operation. Captured at write time on the `memory_version` row. The API key that created a session is not recorded on agent writes; attribution answers who made the write, not who is ultimately responsible. Look up session provenance separately via the [Sessions API](/docs/en/api/sessions-retrieve).
 
-    - `BetaManagedAgentsSessionActor`
-
-      Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
-      - `session_id: string`
-
-        ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
-
-      - `type: "session_actor"`
-
-        - `"session_actor"`
-
-    - `BetaManagedAgentsAPIActor`
-
-      Attribution for a write made directly via the public API (outside of any session).
-
-      - `api_key_id: string`
-
-        ID of the API key that performed the write. This identifies the key, not the secret.
-
-      - `type: "api_actor"`
-
-        - `"api_actor"`
-
-    - `BetaManagedAgentsUserActor`
-
-      Attribution for a write made by a human user through the Anthropic Console.
-
-      - `type: "user_actor"`
-
-        - `"user_actor"`
-
-      - `user_id: string`
-
-        ID of the user who performed the write (a `user_...` value).
-
 ### Beta Managed Agents Memory Version Operation
 
 - `BetaManagedAgentsMemoryVersionOperation = "created" | "modified" | "deleted"`
 
   The kind of mutation a `memory_version` records. Every non-no-op mutation to a memory appends exactly one version row with one of these values.
-
   - `"created"`
 
   - `"modified"`
@@ -2815,13 +2853,11 @@ console.log(betaManagedAgentsMemoryVersion.id);
 - `BetaManagedAgentsSessionActor`
 
   Attribution for a write made by an agent during a session, through the mounted filesystem at `/mnt/memory/`.
-
   - `session_id: string`
 
     ID of the session that performed the write (a `sesn_...` value). Look up the session via [Retrieve a session](/docs/en/api/sessions-retrieve) for further provenance.
 
   - `type: "session_actor"`
-
     - `"session_actor"`
 
 ### Beta Managed Agents User Actor
@@ -2829,9 +2865,7 @@ console.log(betaManagedAgentsMemoryVersion.id);
 - `BetaManagedAgentsUserActor`
 
   Attribution for a write made by a human user through the Anthropic Console.
-
   - `type: "user_actor"`
-
     - `"user_actor"`
 
   - `user_id: string`

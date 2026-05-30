@@ -1,6 +1,6 @@
 # User Profiles
 
-## Create
+## Create User Profile
 
 `$ ant beta:user-profiles create`
 
@@ -33,7 +33,6 @@ Create User Profile
 ### Returns
 
 - `beta_user_profile: object { id, created_at, metadata, 6 more }`
-
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -49,7 +48,6 @@ Create User Profile
   - `relationship: "external" or "resold" or "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -59,11 +57,9 @@ Create User Profile
   - `trust_grants: map[BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" or "pending" or "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -73,7 +69,6 @@ Create User Profile
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -95,7 +90,27 @@ ant beta:user-profiles create \
   --api-key my-anthropic-api-key
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## List User Profiles
 
 `$ ant beta:user-profiles list`
 
@@ -124,11 +139,9 @@ List User Profiles
 ### Returns
 
 - `BetaListUserProfilesResponse: object { data, next_page }`
-
   - `data: array of BetaUserProfile`
 
     User profiles on this page.
-
     - `id: string`
 
       Unique identifier for this user profile, prefixed `uprof_`.
@@ -144,7 +157,6 @@ List User Profiles
     - `relationship: "external" or "resold" or "internal"`
 
       How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
       - `"external"`
 
       - `"resold"`
@@ -154,11 +166,9 @@ List User Profiles
     - `trust_grants: map[BetaUserProfileTrustGrant]`
 
       Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
       - `status: "active" or "pending" or "rejected"`
 
         Status of the trust grant.
-
         - `"active"`
 
         - `"pending"`
@@ -168,7 +178,6 @@ List User Profiles
     - `type: "user_profile"`
 
       Object type. Always `user_profile`.
-
       - `"user_profile"`
 
     - `updated_at: string`
@@ -194,7 +203,32 @@ ant beta:user-profiles list \
   --api-key my-anthropic-api-key
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {},
+      "relationship": "external",
+      "trust_grants": {
+        "cyber": {
+          "status": "active"
+        }
+      },
+      "type": "user_profile",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "external_id": "user_12345",
+      "name": "Example User"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get User Profile
 
 `$ ant beta:user-profiles retrieve`
 
@@ -215,7 +249,6 @@ Get User Profile
 ### Returns
 
 - `beta_user_profile: object { id, created_at, metadata, 6 more }`
-
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -231,7 +264,6 @@ Get User Profile
   - `relationship: "external" or "resold" or "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -241,11 +273,9 @@ Get User Profile
   - `trust_grants: map[BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" or "pending" or "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -255,7 +285,6 @@ Get User Profile
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -278,7 +307,27 @@ ant beta:user-profiles retrieve \
   --user-profile-id uprof_011CZkZCu8hGbp5mYRQgUmz9
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
+```
+
+## Update User Profile
 
 `$ ant beta:user-profiles update`
 
@@ -315,7 +364,6 @@ Update User Profile
 ### Returns
 
 - `beta_user_profile: object { id, created_at, metadata, 6 more }`
-
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -331,7 +379,6 @@ Update User Profile
   - `relationship: "external" or "resold" or "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -341,11 +388,9 @@ Update User Profile
   - `trust_grants: map[BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" or "pending" or "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -355,7 +400,6 @@ Update User Profile
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -376,6 +420,26 @@ Update User Profile
 ant beta:user-profiles update \
   --api-key my-anthropic-api-key \
   --user-profile-id uprof_011CZkZCu8hGbp5mYRQgUmz9
+```
+
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
 ```
 
 ## Create Enrollment URL
@@ -399,7 +463,6 @@ Create Enrollment URL
 ### Returns
 
 - `beta_user_profile_enrollment_url: object { expires_at, type, url }`
-
   - `expires_at: string`
 
     A timestamp in RFC 3339 format
@@ -407,7 +470,6 @@ Create Enrollment URL
   - `type: "enrollment_url"`
 
     Object type. Always `enrollment_url`.
-
     - `"enrollment_url"`
 
   - `url: string`
@@ -422,12 +484,21 @@ ant beta:user-profiles create-enrollment-url \
   --user-profile-id uprof_011CZkZCu8hGbp5mYRQgUmz9
 ```
 
+#### Response
+
+```json
+{
+  "expires_at": "2026-03-15T10:15:00Z",
+  "type": "enrollment_url",
+  "url": "https://platform.claude.com/user-profiles/enrollment/M3J0bGJxZ2ppMnptbnB1"
+}
+```
+
 ## Domain Types
 
 ### Beta User Profile
 
 - `beta_user_profile: object { id, created_at, metadata, 6 more }`
-
   - `id: string`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -443,7 +514,6 @@ ant beta:user-profiles create-enrollment-url \
   - `relationship: "external" or "resold" or "internal"`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"`
 
     - `"resold"`
@@ -453,11 +523,9 @@ ant beta:user-profiles create-enrollment-url \
   - `trust_grants: map[BetaUserProfileTrustGrant]`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `status: "active" or "pending" or "rejected"`
 
       Status of the trust grant.
-
       - `"active"`
 
       - `"pending"`
@@ -467,7 +535,6 @@ ant beta:user-profiles create-enrollment-url \
   - `type: "user_profile"`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"`
 
   - `updated_at: string`
@@ -485,7 +552,6 @@ ant beta:user-profiles create-enrollment-url \
 ### Beta User Profile Enrollment URL
 
 - `beta_user_profile_enrollment_url: object { expires_at, type, url }`
-
   - `expires_at: string`
 
     A timestamp in RFC 3339 format
@@ -493,7 +559,6 @@ ant beta:user-profiles create-enrollment-url \
   - `type: "enrollment_url"`
 
     Object type. Always `enrollment_url`.
-
     - `"enrollment_url"`
 
   - `url: string`
@@ -503,11 +568,9 @@ ant beta:user-profiles create-enrollment-url \
 ### Beta User Profile Trust Grant
 
 - `beta_user_profile_trust_grant: object { status }`
-
   - `status: "active" or "pending" or "rejected"`
 
     Status of the trust grant.
-
     - `"active"`
 
     - `"pending"`

@@ -1,7 +1,9 @@
+# ZoomInfo
+
 Connect to ZoomInfo's B2B intelligence platform directly from Claude. Search millions of companies and contacts, enrich leads with firmographics and contact details, discover lookalike companies using ML-powered similarity matching, and get AI-ranked contact recommendations personalized to your CRM and ZoomInfo activity. Requires a ZoomInfo account with API access.
 
 Pre-built skills chain multiple ZoomInfo API calls into complete sales workflows. Enrich a company profile from just a domain or name and get back financials, growth signals, corporate structure, and contact coverage. Look up any contact by email, name, phone, or LinkedIn URL and receive their full professional profile with accuracy scores. Find similar companies or contacts ranked by similarity to expand your territory or buyer network.
 
 The recommend-contacts skill uses machine learning to surface the best prospects at a target company, drawing on your ZoomInfo interaction history and CRM data across three use cases: prospecting, deal acceleration, and renewal/growth. The build-list skill turns natural language criteria into structured, exportable prospect lists — just describe who you're looking for.
 
-**How to use:** Try prompts like `/enrich-company acme.com` to pull a full company profile, `/enrich-contact [[email protected]](/cdn-cgi/l/email-protection)` to look up a contact, `/build-list "VP of Engineering at Series B startups in NYC with 50-200 employees"` to generate a targeted list, `/find-similar Snowflake` to discover lookalike companies, or `/recommend-contacts Salesforce for prospecting` to get AI-ranked contact suggestions.
+**How to use:** Try prompts like `/enrich-company acme.com` to pull a full company profile, `/enrich-contact [email protected]` to look up a contact, `/build-list "VP of Engineering at Series B startups in NYC with 50-200 employees"` to generate a targeted list, `/find-similar Snowflake` to discover lookalike companies, or `/recommend-contacts Salesforce for prospecting` to get AI-ranked contact suggestions.

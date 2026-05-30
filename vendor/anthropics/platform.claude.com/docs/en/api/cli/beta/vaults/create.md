@@ -1,4 +1,4 @@
-## Create
+## Create Vault
 
 `$ ant beta:vaults create`
 
@@ -25,7 +25,6 @@ Create Vault
 - `beta_managed_agents_vault: object { id, archived_at, created_at, 4 more }`
 
   A vault that stores credentials for use by agents during sessions.
-
   - `id: string`
 
     Unique identifier for the vault.
@@ -47,7 +46,6 @@ Create Vault
     Arbitrary key-value metadata attached to the vault.
 
   - `type: "vault"`
-
     - `"vault"`
 
   - `updated_at: string`
@@ -60,4 +58,20 @@ Create Vault
 ant beta:vaults create \
   --api-key my-anthropic-api-key \
   --display-name 'Example vault'
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "archived_at": null,
+  "created_at": "2026-03-15T10:00:00Z",
+  "display_name": "Example vault",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault",
+  "updated_at": "2026-03-15T10:00:00Z"
+}
 ```

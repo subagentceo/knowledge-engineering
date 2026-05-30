@@ -1,11 +1,13 @@
+# AppFolio streamlines property management communication with Claude in Amazon Bedrock
+
 AppFolio, a technology leader powering the future of the real estate industry, uses Claude in Amazon Bedrock for AI-assisted responses and task automation across Realm-X, the embedded generative AI solution within its platform. This helps its property management customers save time on routine communication while maintaining secure and professional service for the over eight million residents they serve.
 
 With Claude, AppFolio was able to:
 
--   3x adoption rates due to Claude 3 Haiku's faster response times
--   Help property managers save an average of 11 hours weekly on communications
--   Process over half a million AI-suggested responses
--   Reduce message response time by an average of 26 seconds
+- 3x adoption rates due to Claude 3 Haiku's faster response times
+- Help property managers save an average of 11 hours weekly on communications
+- Process over half a million AI-suggested responses
+- Reduce message response time by an average of 26 seconds
 
 ## Meeting the unique challenges of modern property management
 
@@ -19,7 +21,7 @@ AppFolio's adoption of Claude builds on years of AI investment and innovation. "
 
 This platform-first strategy proved crucial when generative AI emerged. By centralizing critical functions like ML ops, security, and data governance, AppFolio created a foundation that any team could leverage safely. "It's made it less onerous on our developers who may not be ML experts," explained Focke. "They can now implement AI in a safe and sustainable way, which has really accelerated our impact to customers."
 
-To further enhance their AI capabilities, AppFolio chose to implement [Claude through Amazon Bedrock](https://aws.amazon.com/bedrock/claude/). "The security part is very important, as well as being able to test models quickly," said Focke. "Amazon Bedrock lets us test new models the day they're released. It's become an essential part of our development process." This centralized infrastructure, combined with Amazon Bedrock's broad set of capabilities, allows AppFolio to rapidly test and deploy new AI features while maintaining enterprise-grade security and compliance. enables AppFolio to quickly adopt new Claude models while maintaining strict data protection standards.
+To further enhance their AI capabilities, AppFolio chose to implement Claude through Amazon Bedrock. "The security part is very important, as well as being able to test models quickly," said Focke. "Amazon Bedrock lets us test new models the day they're released. It's become an essential part of our development process." This centralized infrastructure, combined with Amazon Bedrock's broad set of capabilities, allows AppFolio to rapidly test and deploy new AI features while maintaining enterprise-grade security and compliance. enables AppFolio to quickly adopt new Claude models while maintaining strict data protection standards.
 
 ## Why AppFolio chose Claude in Amazon Bedrock for intelligent, secure communication
 
@@ -31,11 +33,11 @@ This combination of speed, intelligence, and security through Amazon Bedrock's r
 
 AppFolio's Realm-X Messages platform leverages two Claude models for different communication needs:
 
--   Claude 3 Haiku handles high-volume, rapid-response scenarios where speed is critical for most general inquiries
--   Claude 3.5 Sonnet manages complex communications by:
-    -   Incorporating resident history and current situation
-    -   Checking for existing maintenance tickets where applicable
-    -   Incorporating property-specific policies and amenity information
+- Claude 3 Haiku handles high-volume, rapid-response scenarios where speed is critical for most general inquiries
+- Claude 3.5 Sonnet manages complex communications by:
+  - Incorporating resident history and current situation
+  - Checking for existing maintenance tickets where applicable
+  - Incorporating property-specific policies and amenity information
 
 ## Transforming property management efficiency and professionalism
 

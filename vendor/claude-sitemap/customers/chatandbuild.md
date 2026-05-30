@@ -1,10 +1,12 @@
+# ChatAndBuild democratizes AI development globally with Claude
+
 ChatAndBuild, an AI-powered no-code app development platform, helps 140,000 users across 111 countries create sophisticated AI applications using natural language. With ChatAndBuild, everyday people—from PE teachers to entrepreneurs—can build AI products without requiring any coding experience.
 
 With Claude, ChatAndBuild:
 
--   Helps users build 100+ AI applications daily across 40+ languages with production-quality code generation
--   Empowers users to build and monetize AI products generating $84M in projected Year 1 revenue
--   Reduces app development time by 90% for users building AI-powered platforms
+- Helps users build 100+ AI applications daily across 40+ languages with production-quality code generation
+- Empowers users to build and monetize AI products generating $84M in projected Year 1 revenue
+- Reduces app development time by 90% for users building AI-powered platforms
 
 Breaking the barriers between human ambition and digital creation
 

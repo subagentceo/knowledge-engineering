@@ -1,8 +1,9 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
-# Claude Code overview
+# Overview
 
 > Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools. Available in your terminal, IDE, desktop app, and browser.
 
@@ -10,7 +11,7 @@ Claude Code is an AI-powered coding assistant that helps you build features, fix
 
 ## Get started
 
-Choose your environment to get started. Most surfaces require a [Claude subscription](https://claude.com/pricing?utm_source=claude_code\&utm_medium=docs\&utm_content=overview_pricing) or [Anthropic Console](https://console.anthropic.com/) account. The Terminal CLI and VS Code also support [third-party providers](/en/third-party-integrations).
+Choose your environment to get started. Most surfaces require a [Claude subscription](https://claude.com/pricing?utm_source=claude_code&utm_medium=docs&utm_content=overview_pricing) or [Anthropic Console](https://console.anthropic.com/) account. The Terminal CLI and VS Code also support [third-party providers](/en/third-party-integrations).
 
 <Tabs>
   <Tab title="Terminal">
@@ -84,6 +85,7 @@ Choose your environment to get started. Most surfaces require a [Claude subscrip
     <Tip>
       See [advanced setup](/en/setup) for installation options, manual updates, or uninstallation instructions. Visit [installation troubleshooting](/en/troubleshoot-install) if you hit issues.
     </Tip>
+
   </Tab>
 
   <Tab title="VS Code">
@@ -95,6 +97,7 @@ Choose your environment to get started. Most surfaces require a [Claude subscrip
     Or search for "Claude Code" in the Extensions view (`Cmd+Shift+X` on Mac, `Ctrl+Shift+X` on Windows/Linux). After installing, open the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`), type "Claude Code", and select **Open in New Tab**.
 
     [Get started with VS Code →](/en/vs-code#get-started)
+
   </Tab>
 
   <Tab title="Desktop app">
@@ -109,6 +112,7 @@ Choose your environment to get started. Most surfaces require a [Claude subscrip
     After installing, launch Claude, sign in, and click the **Code** tab to start coding. A [paid subscription](https://claude.com/pricing?utm_source=claude_code\&utm_medium=docs\&utm_content=overview_desktop_pricing) is required.
 
     [Learn more about the desktop app →](/en/desktop-quickstart)
+
   </Tab>
 
   <Tab title="Web">
@@ -117,6 +121,7 @@ Choose your environment to get started. Most surfaces require a [Claude subscrip
     Start coding at [claude.ai/code](https://claude.ai/code).
 
     [Get started on the web →](/en/web-quickstart)
+
   </Tab>
 
   <Tab title="JetBrains">
@@ -125,6 +130,7 @@ Choose your environment to get started. Most surfaces require a [Claude subscrip
     Install the [Claude Code plugin](https://plugins.jetbrains.com/plugin/27310-claude-code-beta-) from the JetBrains Marketplace and restart your IDE.
 
     [Get started with JetBrains →](/en/jetbrains)
+
   </Tab>
 </Tabs>
 
@@ -139,12 +145,14 @@ Here are some of the ways you can use Claude Code:
     ```bash theme={null}
     claude "write tests for the auth module, run them, and fix any failures"
     ```
+
   </Accordion>
 
   <Accordion title="Build features and fix bugs" icon="hammer">
     Describe what you want in plain language. Claude Code plans the approach, writes the code across multiple files, and verifies it works.
 
     For bugs, paste an error message or describe the symptom. Claude Code traces the issue through your codebase, identifies the root cause, and implements a fix. See [common workflows](/en/common-workflows) for more examples.
+
   </Accordion>
 
   <Accordion title="Create commits and pull requests" icon="code-branch">
@@ -155,6 +163,7 @@ Here are some of the ways you can use Claude Code:
     ```
 
     In CI, you can automate code review and issue triage with [GitHub Actions](/en/github-actions) or [GitLab CI/CD](/en/gitlab-ci-cd).
+
   </Accordion>
 
   <Accordion title="Connect your tools with MCP" icon="plug">
@@ -167,12 +176,14 @@ Here are some of the ways you can use Claude Code:
     Create [skills](/en/skills) to package repeatable workflows your team can share, like `/review-pr` or `/deploy-staging`.
 
     [Hooks](/en/hooks) let you run shell commands before or after Claude Code actions, like auto-formatting after every file edit or running lint before a commit.
+
   </Accordion>
 
   <Accordion title="Run agent teams and build custom agents" icon="users">
     Spawn [multiple Claude Code agents](/en/sub-agents) that work on different parts of a task simultaneously. A lead agent coordinates the work, assigns subtasks, and merges results.
 
-    For fully custom workflows, the [Agent SDK](/en/agent-sdk/overview) lets you build your own agents powered by Claude Code's tools and capabilities, with full control over orchestration, tool access, and permissions.
+    To run several full sessions in parallel and watch them from one screen, use [background agents](/en/agent-view). For fully custom workflows, the [Agent SDK](/en/agent-sdk/overview) lets you build your own agents powered by Claude Code's tools and capabilities, with full control over orchestration, tool access, and permissions.
+
   </Accordion>
 
   <Accordion title="Pipe, script, and automate with the CLI" icon="terminal">
@@ -190,6 +201,7 @@ Here are some of the ways you can use Claude Code:
     ```
 
     See the [CLI reference](/en/cli-reference) for the full set of commands and flags.
+
   </Accordion>
 
   <Accordion title="Schedule recurring tasks" icon="clock">
@@ -198,6 +210,7 @@ Here are some of the ways you can use Claude Code:
     * [Routines](/en/routines) run on Anthropic-managed infrastructure, so they keep running even when your computer is off. They can also trigger on API calls or GitHub events. Create them from the web, the Desktop app, or by running `/schedule` in the CLI.
     * [Desktop scheduled tasks](/en/desktop-scheduled-tasks) run on your machine, with direct access to your local files and tools
     * [`/loop`](/en/scheduled-tasks) repeats a prompt within a CLI session for quick polling
+
   </Accordion>
 
   <Accordion title="Work from anywhere" icon="globe">
@@ -208,6 +221,7 @@ Here are some of the ways you can use Claude Code:
     * Kick off a long-running task on the [web](/en/claude-code-on-the-web) or [iOS app](https://apps.apple.com/app/claude-by-anthropic/id6473753684), then pull it into your terminal with `claude --teleport`
     * Hand off a terminal session to the [Desktop app](/en/desktop) with `/desktop` for visual diff review
     * Route tasks from team chat: mention `@Claude` in [Slack](/en/slack) with a bug report and get a pull request back
+
   </Accordion>
 </AccordionGroup>
 
@@ -233,9 +247,9 @@ Beyond the [Terminal](/en/quickstart), [VS Code](/en/vs-code), [JetBrains](/en/j
 
 Once you've installed Claude Code, these guides help you go deeper.
 
-* [Quickstart](/en/quickstart): walk through your first real task, from exploring a codebase to committing a fix
-* [Store instructions and memories](/en/memory): give Claude persistent instructions with CLAUDE.md files and auto memory
-* [Common workflows](/en/common-workflows) and [best practices](/en/best-practices): patterns for getting the most out of Claude Code
-* [Settings](/en/settings): customize Claude Code for your workflow
-* [Troubleshooting](/en/troubleshooting): solutions for common issues
-* [code.claude.com](https://code.claude.com/): demos, pricing, and product details
+- [Quickstart](/en/quickstart): walk through your first real task, from exploring a codebase to committing a fix
+- [Store instructions and memories](/en/memory): give Claude persistent instructions with CLAUDE.md files and auto memory
+- [Common workflows](/en/common-workflows) and [best practices](/en/best-practices): patterns for getting the most out of Claude Code
+- [Settings](/en/settings): customize Claude Code for your workflow
+- [Troubleshooting](/en/troubleshooting): solutions for common issues
+- [code.claude.com](https://code.claude.com/): demos, pricing, and product details

@@ -1,19 +1,13 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    HashiCorp
-    
-    ](#)
-    
--   Installs
-    
-    5153
+# terraform
+
+- Install in
+
+  Claude Code
+
+- Made by
+
+  HashiCorp
+
+- Installs
+
+  6579

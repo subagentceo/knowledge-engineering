@@ -60,13 +60,13 @@ For IT administrators deploying to multiple people:
 
 **Step 1: Obtain the custom manifest**
 
-1. Click **[this link](https://pivot.claude.ai/manifest-word.xml)** to download the custom manifest XML file.
+1. Click **[this link](https://pivot.claude.ai/manifest-outlook.xml)** to download the custom manifest XML file.
 
 2. Save this file to a secure location.
 
 **Step 2: Access Microsoft 365 Admin Center**
 
-1. Navigate to **https://admin.microsoft.com**
+1. Navigate to **<https://admin.microsoft.com>**
 
 2. Sign in with your admin credentials.
 
@@ -341,10 +341,6 @@ While we continue to develop our offerings and improve safety measures to reduce
 ---
 
 ## Frequently asked questions
-
-### Which models are available when using Claude for Outlook?
-
-When you sign in with a Claude account, you can choose between Claude Opus 4.7, Opus 4.6, and Sonnet 4.6. When you connect through a third-party platform (Vertex AI, Azure AI Foundry, or an LLM gateway), Opus 4.7 is the only officially supported model.
 
 ### Does Claude send email or calendar invites on my behalf?
 

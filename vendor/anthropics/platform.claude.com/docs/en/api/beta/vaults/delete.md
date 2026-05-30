@@ -1,4 +1,4 @@
-## Delete
+## Delete Vault
 
 **delete** `/v1/vaults/{vault_id}`
 
@@ -13,11 +13,9 @@ Delete Vault
 - `"anthropic-beta": optional array of AnthropicBeta`
 
   Optional header to specify the beta version(s) you want to use.
+  - `string`
 
-  - `UnionMember0 = string`
-
-  - `UnionMember1 = "message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 21 more`
-
+  - `"message-batches-2024-09-24" or "prompt-caching-2024-07-31" or "computer-use-2024-10-22" or 24 more`
     - `"message-batches-2024-09-24"`
 
     - `"prompt-caching-2024-07-31"`
@@ -66,18 +64,22 @@ Delete Vault
 
     - `"managed-agents-2026-04-01"`
 
+    - `"cache-diagnosis-2026-04-07"`
+
+    - `"thinking-token-count-2026-05-13"`
+
+    - `"mid-conversation-system-2026-04-07"`
+
 ### Returns
 
-- `BetaManagedAgentsDeletedVault = object { id, type }`
+- `BetaManagedAgentsDeletedVault object { id, type }`
 
   Confirmation of a deleted vault.
-
   - `id: string`
 
     Unique identifier of the deleted vault.
 
   - `type: "vault_deleted"`
-
     - `"vault_deleted"`
 
 ### Example
@@ -88,4 +90,13 @@ curl https://api.anthropic.com/v1/vaults/$VAULT_ID \
     -H 'anthropic-version: 2023-06-01' \
     -H 'anthropic-beta: managed-agents-2026-04-01' \
     -H "X-Api-Key: $ANTHROPIC_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "type": "vault_deleted"
+}
 ```

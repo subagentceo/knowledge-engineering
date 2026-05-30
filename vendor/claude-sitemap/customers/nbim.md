@@ -1,12 +1,14 @@
-[Norges Bank Investment Management (NBIM)](https://www.nbim.no) manages Norway's Government Pension Fund Global, with the mandate to transform Norway's oil revenues into long-term financial wealth for future generations. With $1.7 trillion in assets, NBIM is one of the world's largest sovereign funds.
+# NBIM accelerates sovereign wealth management with enterprise-wide AI transformation
+
+Norges Bank Investment Management (NBIM) manages Norway's Government Pension Fund Global, with the mandate to transform Norway's oil revenues into long-term financial wealth for future generations. With $1.7 trillion in assets, NBIM is one of the world's largest sovereign funds.
 
 With Claude, NBIM:
 
--   Established AI literacy across 600+ employees through comprehensive training programs
--   Created an AI Ambassador network driving adoption and best practices organization-wide
--   Enabled business users to prototype solutions without IT bottlenecks
--   Integrated AI insights into investment operations and compliance workflows
--   Achieved measurable productivity gains in research synthesis and documentation
+- Established AI literacy across 600+ employees through comprehensive training programs
+- Created an AI Ambassador network driving adoption and best practices organization-wide
+- Enabled business users to prototype solutions without IT bottlenecks
+- Integrated AI insights into investment operations and compliance workflows
+- Achieved measurable productivity gains in research synthesis and documentation
 
 ## The challenge
 
@@ -22,8 +24,8 @@ NBIM's goal was to create an environment where any user could prototype and depl
 
 NBIM built human-in-the-loop evaluations to test model capabilities in finance-specific domains. Claude Sonnet 4.5 with extended thinking scored highest. It excelled in complex instruments requiring deep analysis, had superior risk assessment, and provided strategic recommendations with investment-grade documentation quality. Claude showed particular strength in risk analysis and commodities arbitrage—the nuanced financial decisionmaking that NBIM's portfolio managers handle daily.
 
-Claude’s ability to maintain context during extended multi-context sessions was crucial for NBIM’s investment research needs. Other deciding factors: Claude signals uncertainty rather than hallucinating results, an LLM safety principle that reinforces NBIM's fiduciary responsibilities. Additionally, Claude's multilingual capabilities support NBIM’s operations around the globe.  
-  
+Claude’s ability to maintain context during extended multi-context sessions was crucial for NBIM’s investment research needs. Other deciding factors: Claude signals uncertainty rather than hallucinating results, an LLM safety principle that reinforces NBIM's fiduciary responsibilities. Additionally, Claude's multilingual capabilities support NBIM’s operations around the globe.
+
 Anthropic's focus on responsible AI development matched NBIM's values and transparency expectations as a public entity. Anthropic's partnership approach was equally important. The two companies regularly consult on financial services capabilities, test new features, and get feedback on safety and enterprise controls. “Our institutional requirements inform their roadmap,” Kirkeberg says. “Anthropic is the ideal AI partner for us as a financial institution.”
 
 ## Establishing AI literacy across the organization

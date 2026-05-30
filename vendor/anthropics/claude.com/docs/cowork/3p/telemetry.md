@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -97,6 +98,7 @@ The host(s) for your configured provider. These carry conversation content.
     | `portal.sso.<region>.amazonaws.com`, `oidc.<region>.amazonaws.com` | AWS SSO (profile auth only)                                                |
 
     With `inferenceBedrockBearerToken` set, only the runtime host is required.
+
   </Tab>
 
   <Tab title="Foundry">
@@ -105,6 +107,7 @@ The host(s) for your configured provider. These carry conversation content.
     | `<resource>.services.ai.azure.com` | Model inference |
 
     During the Foundry preview, Claude models run on Anthropic's infrastructure. The client connects only to the Azure host above, but conversation content leaves the Azure boundary — see the [Overview](/cowork/3p/overview) for details.
+
   </Tab>
 
   <Tab title="Gateway">

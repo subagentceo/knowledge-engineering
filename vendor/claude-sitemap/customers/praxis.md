@@ -1,10 +1,12 @@
-Praxis AI is transforming higher education by using [Claude in Amazon Bedrock](https://aws.amazon.com/bedrock/claude/) to create AI-powered digital twins of professors. These virtual teaching assistants provide personalized, round-the-clock support to students, improving engagement and performance while alleviating the burden on faculty.
+# Praxis AI pioneers AI-driven education with Claude in Amazon Bedrock
+
+Praxis AI is transforming higher education by using Claude in Amazon Bedrock to create AI-powered digital twins of professors. These virtual teaching assistants provide personalized, round-the-clock support to students, improving engagement and performance while alleviating the burden on faculty.
 
 With Claude, Praxis has achieved:
 
--   15x increase in usage of platform across higher education
--   75% student engagement with digital twins, compared to 14% for generic AI tools
--   Full letter grade improvement in class averages after implementing professor digital twins
+- 15x increase in usage of platform across higher education
+- 75% student engagement with digital twins, compared to 14% for generic AI tools
+- Full letter grade improvement in class averages after implementing professor digital twins
 
 ## Solving the capacity crisis in higher education
 
@@ -20,7 +22,7 @@ Praxis quickly recognized Claude's potential to revolutionize educational suppor
 
 ## Leveraging Claude through Amazon Bedrock
 
-Praxis discovered Claude through the Amazon Web Services (AWS) [Generative AI Accelerator program](https://aws.amazon.com/startups/programs/generative-ai), and its seamless availability via the Amazon Bedrock API proved transformative. "We developed an LLM switcher, and all we had to do was switch our default from OpenAI’s GPT-4 to Claude 3.5 Sonnet and it worked like a charm," recalled Clarke.
+Praxis discovered Claude through the Amazon Web Services (AWS) Generative AI Accelerator program, and its seamless availability via the Amazon Bedrock API proved transformative. "We developed an LLM switcher, and all we had to do was switch our default from OpenAI’s GPT-4 to Claude 3.5 Sonnet and it worked like a charm," recalled Clarke.
 
 The impact on Praxis's growth has been remarkable. "The fact that we can deliver the industry's best LLM from within our AWS infrastructure via Amazon Bedrock has improved our middleware performance, allowed us to scale our business faster (15x usage in 6 months), enhanced security, and decreased costs," explained Clarke. This explosive growth was made possible by housing all key services within the same AWS cloud instance. Just as crucial is Amazon Bedrock's guarantee of immediate access to new Claude models. "When new Claude models launch, we can seamlessly switch to them in Bedrock with zero downtime," noted Clarke. "In education, where AI improvements directly impact student outcomes, having day-one access to Claude's latest capabilities is invaluable."
 

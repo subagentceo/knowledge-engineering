@@ -1,3 +1,5 @@
+# Playground
+
 Generates interactive HTML playgrounds — self-contained single-file explorers with visual controls, a live preview panel, and a natural-language prompt output with a one-click copy button. Every playground is a single HTML file with all CSS and JavaScript inline, requiring no external dependencies.
 
 Choose from six built-in templates: **Design Playground** for exploring visual components like buttons, cards, and typography; **Data Explorer** for constructing SQL queries, API calls, and regex patterns; **Concept Map** for knowledge mapping and educational tools; **Document Critique** for review workflows with approve/reject actions; **Diff Review** for line-by-line code review; and **Code Map** for visualizing codebase relationships and data flow.

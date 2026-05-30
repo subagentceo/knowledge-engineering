@@ -1,17 +1,10 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    ](#)
-    
--   Installs
-    
-    23660
+# discord
+
+- Install in
+
+  Claude Code
+
+- Made by
+- Installs
+
+  26062

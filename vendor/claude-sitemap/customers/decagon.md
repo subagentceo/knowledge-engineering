@@ -1,11 +1,13 @@
+# Decagon delivers white-glove customer service at scale with Claude
+
 Decagon, a software platform that powers customer support, uses Claude to create AI agents that deliver hyper-personalized, 24/7 customer service. By integrating with existing ticketing systems and customer databases, Decagon allows enterprises across diverse industries to provide white-glove support at scale, handling simple inquiries to complex processes that previously required human agents.
 
 With Claude, Decagon:
 
--   Reduced over-inferencing rates by 70%
--   Powers support for both B2B and B2C companies across multiple industries - from consumer platforms like Eventbrite to business software like Rippling
--   Sees higher customer satisfaction due to Claude's ability to follow complex instructions and policies exactly
--   Decreased their own customer support volume, freeing up times and resources for growing their business
+- Reduced over-inferencing rates by 70%
+- Powers support for both B2B and B2C companies across multiple industries - from consumer platforms like Eventbrite to business software like Rippling
+- Sees higher customer satisfaction due to Claude's ability to follow complex instructions and policies exactly
+- Decreased their own customer support volume, freeing up times and resources for growing their business
 
 ## Delivering AI-powered support that doesn't feel like AI
 

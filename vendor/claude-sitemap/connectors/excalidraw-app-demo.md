@@ -1,3 +1,5 @@
+# Excalidraw
+
 The official Excalidraw MCP app allowing you to build interactive visual applications right in Claude. Ask Claude to create hand-drawn style diagrams using Excalidraw with smooth viewport camera control and interactive fullscreen editing.
 
 You can use Excalidraw to:

@@ -1,4 +1,4 @@
-## MCP OAuth Validate
+## Validate Credential
 
 `BetaManagedAgentsCredentialValidation Beta.Vaults.Credentials.McpOAuthValidate(CredentialMcpOAuthValidateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Validate Credential
 ### Parameters
 
 - `CredentialMcpOAuthValidateParams parameters`
-
   - `required string vaultID`
 
     Path param: Path parameter vault_id
@@ -21,7 +20,6 @@ Validate Credential
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -70,12 +68,17 @@ Validate Credential
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaManagedAgentsCredentialValidation:`
 
   Result of live-probing a credential against its configured MCP server.
-
   - `required string CredentialID`
 
     Unique identifier of the credential that was validated.
@@ -87,11 +90,9 @@ Validate Credential
   - `required BetaManagedAgentsMcpProbe? McpProbe`
 
     The failing step of an MCP validation probe.
-
     - `required BetaManagedAgentsRefreshHttpResponse? HttpResponse`
 
       An HTTP response captured during a credential validation probe.
-
       - `required string Body`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -115,31 +116,13 @@ Validate Credential
   - `required BetaManagedAgentsRefreshObject? Refresh`
 
     Outcome of a refresh-token exchange attempted during credential validation.
-
     - `required BetaManagedAgentsRefreshHttpResponse? HttpResponse`
 
       An HTTP response captured during a credential validation probe.
 
-      - `required string Body`
-
-        Response body. May be truncated and has sensitive values scrubbed.
-
-      - `required Boolean BodyTruncated`
-
-        Whether `body` was truncated.
-
-      - `required string ContentType`
-
-        Value of the `Content-Type` response header.
-
-      - `required Int StatusCode`
-
-        HTTP status code.
-
     - `required Status Status`
 
       Outcome of a refresh-token exchange attempted during credential validation.
-
       - `"succeeded"Succeeded`
 
       - `"failed"Failed`
@@ -151,7 +134,6 @@ Validate Credential
   - `required BetaManagedAgentsCredentialValidationStatus Status`
 
     Overall verdict of a credential validation probe.
-
     - `"valid"Valid`
 
     - `"invalid"Invalid`
@@ -159,7 +141,6 @@ Validate Credential
     - `"unknown"Unknown`
 
   - `required Type Type`
-
     - `"vault_credential_validation"VaultCredentialValidation`
 
   - `required DateTimeOffset ValidatedAt`
@@ -182,4 +163,35 @@ CredentialMcpOAuthValidateParams parameters = new()
 var betaManagedAgentsCredentialValidation = await client.Beta.Vaults.Credentials.McpOAuthValidate(parameters);
 
 Console.WriteLine(betaManagedAgentsCredentialValidation);
+```
+
+#### Response
+
+```json
+{
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "has_refresh_token": true,
+  "mcp_probe": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "method": "method"
+  },
+  "refresh": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "status": "succeeded"
+  },
+  "status": "valid",
+  "type": "vault_credential_validation",
+  "validated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+}
 ```

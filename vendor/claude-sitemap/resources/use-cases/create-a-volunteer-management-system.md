@@ -1,1 +1,3 @@
+# Create a volunteer management system
+
 Claude's ability to process complex information and synthesize frameworks lets you develop a volunteer management system with depth and sophistication. Instead of piecing together documents over weeks, you develop complete systems in hours.

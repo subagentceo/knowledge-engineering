@@ -1,4 +1,4 @@
-## Delete
+## Delete a Message Batch
 
 `messages.batches.delete(message_batch_id) -> DeletedMessageBatch`
 
@@ -19,7 +19,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `class DeletedMessageBatch`
-
   - `id: String`
 
     ID of the Message Batch.
@@ -29,7 +28,6 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Deleted object type.
 
     For Message Batches, this is always `"message_batch_deleted"`.
-
     - `:message_batch_deleted`
 
 ### Example
@@ -42,4 +40,13 @@ anthropic = Anthropic::Client.new(api_key: "my-anthropic-api-key")
 deleted_message_batch = anthropic.messages.batches.delete("message_batch_id")
 
 puts(deleted_message_batch)
+```
+
+#### Response
+
+```json
+{
+  "id": "msgbatch_013Zva2CMHLNnXjNJJKqJ2EF",
+  "type": "message_batch_deleted"
+}
 ```

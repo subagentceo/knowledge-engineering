@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -35,49 +36,50 @@ Add one of the example servers to your `claude_desktop_config.json`:
   }
   ```
 
-  ```json Map theme={null}
-  {
-    "mcpServers": {
-      "map": {
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/map-server", "--stdio"]
-      }
+```json Map theme={null}
+{
+  "mcpServers": {
+    "map": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/map-server", "--stdio"]
     }
   }
-  ```
+}
+```
 
-  ```json QR Code theme={null}
-  {
-    "mcpServers": {
-      "qr": {
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/qr-server", "--stdio"]
-      }
+```json QR Code theme={null}
+{
+  "mcpServers": {
+    "qr": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/qr-server", "--stdio"]
     }
   }
-  ```
+}
+```
 
-  ```json ShaderToy theme={null}
-  {
-    "mcpServers": {
-      "shadertoy": {
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/shadertoy-server", "--stdio"]
-      }
+```json ShaderToy theme={null}
+{
+  "mcpServers": {
+    "shadertoy": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/shadertoy-server", "--stdio"]
     }
   }
-  ```
+}
+```
 
-  ```json Sheet Music theme={null}
-  {
-    "mcpServers": {
-      "sheet-music": {
-        "command": "npx",
-        "args": ["-y", "@modelcontextprotocol/sheet-music-server", "--stdio"]
-      }
+```json Sheet Music theme={null}
+{
+  "mcpServers": {
+    "sheet-music": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/sheet-music-server", "--stdio"]
     }
   }
-  ```
+}
+```
+
 </CodeGroup>
 
 Save and restart the desktop app to connect.
@@ -92,9 +94,9 @@ Claude will prompt you for permission to display the App. Click "Always allow", 
 
 Ready to add an MCP App to your own MCP server? Here are the key resources:
 
-* [MCP Apps Quickstart](https://modelcontextprotocol.github.io/ext-apps/api/documents/Quickstart.html) - Step-by-step guide to building your first MCP App
-* [SDK API Documentation](https://modelcontextprotocol.github.io/ext-apps/api/index.html) - Full API reference
-* [Example implementations](https://github.com/modelcontextprotocol/ext-apps/tree/main/examples) - Vanilla JS, React, Vue, Svelte, and more
+- [MCP Apps Quickstart](https://modelcontextprotocol.github.io/ext-apps/api/documents/Quickstart.html) - Step-by-step guide to building your first MCP App
+- [SDK API Documentation](https://modelcontextprotocol.github.io/ext-apps/api/index.html) - Full API reference
+- [Example implementations](https://github.com/modelcontextprotocol/ext-apps/tree/main/examples) - Vanilla JS, React, Vue, Svelte, and more
 
 If you are using an AI coding agent, [MCP Apps skills](https://github.com/modelcontextprotocol/ext-apps/tree/main/plugins/mcp-apps) provide guided development for agents that support the [Agent Skills](https://agentskills.io) standard, including Claude Code, Cursor, Gemini CLI, and others. In Claude Code, you can install the MCP Apps skills plugin with the following commands:
 
@@ -113,6 +115,6 @@ If you are migrating an existing app from the OpenAI Apps SDK to the MCP Apps SD
 
 You can also use the MCP Apps skills mentioned above to help migrate your apps. Ask your agent to "Migrate from OpenAI Apps SDK" or "Convert my OpenAI App to an MCP App".
 
-***
+---
 
 We'd love to see what you build! Send feedback to [mcp-apps@anthropic.com](mailto:mcp-apps@anthropic.com) or open an issue on the [ext-apps repository](https://github.com/modelcontextprotocol/ext-apps/issues).

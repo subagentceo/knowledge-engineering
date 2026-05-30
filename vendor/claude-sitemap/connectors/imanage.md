@@ -1,3 +1,5 @@
+# iManage Work
+
 iManage Work Connector for MCP securely connects governed iManage content to Claude. Replace custom integrations with one open protocol, keep documents in iManage without bulk exports or replication, and ensure permission-bound, auditable Claude access as your AI strategy evolves.
 
 You can use iManage Work to:

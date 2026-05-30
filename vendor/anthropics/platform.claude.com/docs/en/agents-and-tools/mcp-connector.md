@@ -7,7 +7,7 @@ Claude's Model Context Protocol (MCP) connector feature enables you to connect t
 <Note>
   **Current version:** This feature requires the beta header: `"anthropic-beta": "mcp-client-2025-11-20"`
 
-  The previous version (`mcp-client-2025-04-04`) is deprecated. See [Deprecated version: mcp-client-2025-04-04](#deprecated-version-mcp-client-2025-04-04).
+The previous version (`mcp-client-2025-04-04`) is deprecated. See [Deprecated version: mcp-client-2025-04-04](#deprecated-version-mcp-client-2025-04-04).
 </Note>
 
 <Note>
@@ -22,6 +22,14 @@ This feature is **not** eligible for [Zero Data Retention (ZDR)](/docs/en/build-
 - **Per-tool configuration**: Configure individual tools with custom settings
 - **OAuth authentication**: Support for OAuth Bearer tokens for authenticated servers
 - **Multiple servers**: Connect to multiple MCP servers in a single request
+
+## When Claude uses MCP tools
+
+Once an MCP server is connected, Claude calls its tools when the user's request maps to a tool's described capability, either explicitly ("search Jira for open bugs") or implicitly ("what's blocking the release?" with a Jira server attached).
+
+Claude does **not** call an MCP tool for general knowledge questions about a connected service. Asking "how do Notion databases work?" with a Notion server attached is answered directly; asking "what's in my Projects database?" triggers the tool.
+
+You can steer how readily Claude calls MCP tools through your system prompt. See [When Claude uses tools](/docs/en/agents-and-tools/tool-use/overview#when-claude-uses-tools) for general guidance and example phrasings.
 
 ## Limitations
 
@@ -49,7 +57,7 @@ curl https://api.anthropic.com/v1/messages \
   -H "anthropic-version: 2023-06-01" \
   -H "anthropic-beta: mcp-client-2025-11-20" \
   -d '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 1000,
     "messages": [{"role": "user", "content": "What tools do you have available?"}],
     "mcp_servers": [
@@ -71,7 +79,7 @@ curl https://api.anthropic.com/v1/messages \
 
 ```bash CLI nocheck
 ant beta:messages create --beta mcp-client-2025-11-20 <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 1000
 messages:
   - role: user
@@ -93,7 +101,7 @@ import anthropic
 client = anthropic.Anthropic()
 
 response = client.beta.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=1000,
     messages=[{"role": "user", "content": "What tools do you have available?"}],
     mcp_servers=[
@@ -117,29 +125,29 @@ import Anthropic from "@anthropic-ai/sdk";
 const anthropic = new Anthropic();
 
 const response = await anthropic.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1000,
   messages: [
     {
       role: "user",
-      content: "What tools do you have available?"
-    }
+      content: "What tools do you have available?",
+    },
   ],
   mcp_servers: [
     {
       type: "url",
       url: "https://example-server.modelcontextprotocol.io/sse",
       name: "example-mcp",
-      authorization_token: "YOUR_TOKEN"
-    }
+      authorization_token: "YOUR_TOKEN",
+    },
   ],
   tools: [
     {
       type: "mcp_toolset",
-      mcp_server_name: "example-mcp"
-    }
+      mcp_server_name: "example-mcp",
+    },
   ],
-  betas: ["mcp-client-2025-11-20"]
+  betas: ["mcp-client-2025-11-20"],
 });
 
 console.log(response);
@@ -156,7 +164,7 @@ AnthropicClient client = new();
 
 var parameters = new MessageCreateParams
 {
-    Model = Model.ClaudeOpus4_7,
+    Model = Model.ClaudeOpus4_8,
     MaxTokens = 1000,
     Messages = new List<BetaMessageParam>
     {
@@ -197,7 +205,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response, err := client.Beta.Messages.New(context.TODO(), anthropic.BetaMessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 1000,
 		Messages: []anthropic.BetaMessageParam{
 			anthropic.NewBetaUserMessage(anthropic.NewBetaTextBlock("What tools do you have available?")),
@@ -238,7 +246,7 @@ void main() {
     AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
     MessageCreateParams params = MessageCreateParams.builder()
-        .model(Model.CLAUDE_OPUS_4_7)
+        .model(Model.CLAUDE_OPUS_4_8)
         .maxTokens(1000L)
         .addUserMessage("What tools do you have available?")
         .addMcpServer(BetaRequestMcpServerUrlDefinition.builder()
@@ -269,7 +277,7 @@ $message = $client->beta->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'What tools do you have available?']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     mcpServers: [
         [
             'type' => 'url',
@@ -296,7 +304,7 @@ require "anthropic"
 client = Anthropic::Client.new
 
 response = client.beta.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1000,
   messages: [
     { role: "user", content: "What tools do you have available?" }
@@ -320,6 +328,7 @@ response = client.beta.messages.create(
 
 puts response
 ```
+
 </CodeGroup>
 
 ## MCP server configuration
@@ -337,12 +346,12 @@ Each MCP server in the `mcp_servers` array defines the connection details:
 
 ### Field descriptions
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `type` | string | Yes | Currently only "url" is supported. |
-| `url` | string | Yes | The URL of the MCP server. Must start with https://. |
-| `name` | string | Yes | A unique identifier for this MCP server. Must be referenced by exactly one MCPToolset in the `tools` array. |
-| `authorization_token` | string | No | OAuth authorization token if required by the MCP server. See [MCP specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization). |
+| Property              | Type   | Required | Description                                                                                                                                                     |
+| --------------------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                | string | Yes      | Currently only "url" is supported.                                                                                                                              |
+| `url`                 | string | Yes      | The URL of the MCP server. Must start with https://.                                                                                                            |
+| `name`                | string | Yes      | A unique identifier for this MCP server. Must be referenced by exactly one MCPToolset in the `tools` array.                                                     |
+| `authorization_token` | string | No       | OAuth authorization token if required by the MCP server. See [MCP specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization). |
 
 ## MCP toolset configuration
 
@@ -369,21 +378,21 @@ The MCPToolset lives in the `tools` array and configures which tools from the MC
 
 ### Field descriptions
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `type` | string | Yes | Must be "mcp_toolset". |
-| `mcp_server_name` | string | Yes | Must match a server name defined in the `mcp_servers` array. |
-| `default_config` | object | No | Default configuration applied to all tools in this set. Individual tool configs in `configs` override these defaults. |
-| `configs` | object | No | Per-tool configuration overrides. Keys are tool names, values are configuration objects. |
-| `cache_control` | object | No | [Prompt caching](/docs/en/build-with-claude/prompt-caching) cache breakpoint configuration for this toolset. |
+| Property          | Type   | Required | Description                                                                                                           |
+| ----------------- | ------ | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| `type`            | string | Yes      | Must be "mcp_toolset".                                                                                                |
+| `mcp_server_name` | string | Yes      | Must match a server name defined in the `mcp_servers` array.                                                          |
+| `default_config`  | object | No       | Default configuration applied to all tools in this set. Individual tool configs in `configs` override these defaults. |
+| `configs`         | object | No       | Per-tool configuration overrides. Keys are tool names, values are configuration objects.                              |
+| `cache_control`   | object | No       | [Prompt caching](/docs/en/build-with-claude/prompt-caching) cache breakpoint configuration for this toolset.          |
 
 ### Tool configuration options
 
 Each tool (whether configured in `default_config` or in `configs`) supports the following fields:
 
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `enabled` | boolean | `true` | Whether this tool is enabled. |
+| Property        | Type    | Default | Description                                                                                                                                      |
+| --------------- | ------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `enabled`       | boolean | `true`  | Whether this tool is enabled.                                                                                                                    |
 | `defer_loading` | boolean | `false` | If true, tool description is not sent to the model initially. Used with [Tool search tool](/docs/en/agents-and-tools/tool-use/tool-search-tool). |
 
 For the full directory of Anthropic-provided tools and optional properties such as `defer_loading`, see the [Tool reference](/docs/en/agents-and-tools/tool-use/tool-reference). For searching across large tool sets, see [Tool search tool](/docs/en/agents-and-tools/tool-use/tool-search-tool).
@@ -414,6 +423,7 @@ Example:
 ```
 
 Results in:
+
 - `search_events`: `enabled: false` (from configs), `defer_loading: true` (from default_config)
 - All other tools: `enabled: true` (system default), `defer_loading: true` (from default_config)
 
@@ -454,7 +464,7 @@ Set `enabled: false` as the default, then explicitly enable specific tools:
 
 ### Denylist: disable specific tools
 
-Enable all tools by default, then explicitly disable unwanted tools:
+Enable all tools by default, then explicitly disable unwanted tools. Denylisting write or destructive tools is recommended when building read-only assistants, or when you want a human confirmation step before state changes:
 
 ```json
 {
@@ -496,6 +506,7 @@ Combine allowlisting with custom configuration for each tool:
 ```
 
 In this example:
+
 - `search_events` is enabled with `defer_loading: false`
 - `list_events` is enabled with `defer_loading: true` (inherited from default_config)
 - All other tools are disabled
@@ -547,7 +558,7 @@ You can connect to multiple MCP servers by including multiple server definitions
 
 ```json
 {
-  "model": "claude-opus-4-7",
+  "model": "claude-opus-4-8",
   "max_tokens": 1000,
   "messages": [
     {
@@ -584,6 +595,8 @@ You can connect to multiple MCP servers by including multiple server definitions
   ]
 }
 ```
+
+With many tools available, Claude selects based on tool names and descriptions. Clear, specific tool descriptions improve selection accuracy. For large tool sets (dozens of tools across several servers), consider enabling [`defer_loading`](#tool-configuration-options) with the [Tool search tool](/docs/en/agents-and-tools/tool-use/tool-search-tool) so only relevant tools are surfaced per query.
 
 ## Authentication
 
@@ -655,16 +668,16 @@ import {
   mcpTools,
   mcpMessages,
   mcpResourceToContent,
-  mcpResourceToFile
+  mcpResourceToFile,
 } from "@anthropic-ai/sdk/helpers/beta/mcp";
 ```
 
-| Helper | Description |
-|--------|-------------|
-| `mcpTools(tools, mcpClient)` | Converts MCP tools to Claude API tools for use with `client.beta.messages.toolRunner()` |
-| `mcpMessages(messages)` | Converts MCP prompt messages to Claude API message format |
-| `mcpResourceToContent(resource)` | Converts an MCP resource to a Claude API content block |
-| `mcpResourceToFile(resource)` | Converts an MCP resource to a file object for upload |
+| Helper                           | Description                                                                             |
+| -------------------------------- | --------------------------------------------------------------------------------------- |
+| `mcpTools(tools, mcpClient)`     | Converts MCP tools to Claude API tools for use with `client.beta.messages.toolRunner()` |
+| `mcpMessages(messages)`          | Converts MCP prompt messages to Claude API message format                               |
+| `mcpResourceToContent(resource)` | Converts an MCP resource to a Claude API content block                                  |
+| `mcpResourceToFile(resource)`    | Converts an MCP resource to a file object for upload                                    |
 
 ### Use MCP tools
 
@@ -686,10 +699,10 @@ await mcpClient.connect(transport);
 // List tools and convert them for the Claude API
 const { tools } = await mcpClient.listTools();
 const finalMessage = await anthropic.beta.messages.toolRunner({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [{ role: "user", content: "What tools do you have available?" }],
-  tools: mcpTools(tools, mcpClient)
+  tools: mcpTools(tools, mcpClient),
 });
 
 console.log(finalMessage);
@@ -704,9 +717,9 @@ import { mcpMessages } from "@anthropic-ai/sdk/helpers/beta/mcp";
 
 const { messages } = await mcpClient.getPrompt({ name: "my-prompt" });
 const response = await anthropic.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
-  messages: mcpMessages(messages)
+  messages: mcpMessages(messages),
 });
 
 console.log(response);
@@ -717,32 +730,43 @@ console.log(response);
 Convert MCP resources into content blocks to include in messages, or into file objects for upload:
 
 ```typescript nocheck
-import { mcpResourceToContent, mcpResourceToFile } from "@anthropic-ai/sdk/helpers/beta/mcp";
+import {
+  mcpResourceToContent,
+  mcpResourceToFile,
+} from "@anthropic-ai/sdk/helpers/beta/mcp";
 
 // As a content block in a message
-const resource = await mcpClient.readResource({ uri: "file:///path/to/doc.txt" });
+const resource = await mcpClient.readResource({
+  uri: "file:///path/to/doc.txt",
+});
 await anthropic.beta.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [
     {
       role: "user",
       content: [
         mcpResourceToContent(resource),
-        { type: "text", text: "Summarize this document" }
-      ]
-    }
-  ]
+        { type: "text", text: "Summarize this document" },
+      ],
+    },
+  ],
 });
 
 // As a file upload
-const fileResource = await mcpClient.readResource({ uri: "file:///path/to/data.json" });
+const fileResource = await mcpClient.readResource({
+  uri: "file:///path/to/data.json",
+});
 await anthropic.beta.files.upload({ file: mcpResourceToFile(fileResource) });
 ```
 
 ### Error handling
 
 The conversion functions throw `UnsupportedMCPValueError` if an MCP value isn't supported by the Claude API. This can happen with unsupported content types, MIME types, or non-HTTP resource links.
+
+## Batch requests
+
+You can include `mcp_servers` in [Message Batches API](/docs/en/build-with-claude/batch-processing) requests. MCP tool calls through the Batches API are priced the same as those in regular Messages API requests.
 
 ## Data retention
 
@@ -766,7 +790,7 @@ If you're using the deprecated `mcp-client-2025-04-04` beta header, follow this 
 
 ```json
 {
-  "model": "claude-opus-4-7",
+  "model": "claude-opus-4-8",
   "max_tokens": 1000,
   "messages": [
     // ...
@@ -790,7 +814,7 @@ If you're using the deprecated `mcp-client-2025-04-04` beta header, follow this 
 
 ```json
 {
-  "model": "claude-opus-4-7",
+  "model": "claude-opus-4-8",
   "max_tokens": 1000,
   "messages": [
     // ...
@@ -825,11 +849,11 @@ If you're using the deprecated `mcp-client-2025-04-04` beta header, follow this 
 
 ### Common migration patterns
 
-| Old pattern | New pattern |
-|-------------|-------------|
-| No `tool_configuration` (all tools enabled) | MCPToolset with no `default_config` or `configs` |
-| `tool_configuration.enabled: false` | MCPToolset with `default_config.enabled: false` |
-| `tool_configuration.allowed_tools: [...]` | MCPToolset with `default_config.enabled: false` and specific tools enabled in `configs` |
+| Old pattern                                 | New pattern                                                                             |
+| ------------------------------------------- | --------------------------------------------------------------------------------------- |
+| No `tool_configuration` (all tools enabled) | MCPToolset with no `default_config` or `configs`                                        |
+| `tool_configuration.enabled: false`         | MCPToolset with `default_config.enabled: false`                                         |
+| `tool_configuration.allowed_tools: [...]`   | MCPToolset with `default_config.enabled: false` and specific tools enabled in `configs` |
 
 ## Deprecated version: mcp-client-2025-04-04
 
@@ -858,8 +882,8 @@ The previous version of the MCP connector included tool configuration directly i
 
 ### Deprecated field descriptions
 
-| Property | Type | Description |
-|----------|------|-------------|
-| `tool_configuration` | object | **Deprecated**: Use MCPToolset in the `tools` array instead |
-| `tool_configuration.enabled` | boolean | **Deprecated**: Use `default_config.enabled` in MCPToolset |
-| `tool_configuration.allowed_tools` | array | **Deprecated**: Use allowlist pattern with `configs` in MCPToolset |
+| Property                           | Type    | Description                                                        |
+| ---------------------------------- | ------- | ------------------------------------------------------------------ |
+| `tool_configuration`               | object  | **Deprecated**: Use MCPToolset in the `tools` array instead        |
+| `tool_configuration.enabled`       | boolean | **Deprecated**: Use `default_config.enabled` in MCPToolset         |
+| `tool_configuration.allowed_tools` | array   | **Deprecated**: Use allowlist pattern with `configs` in MCPToolset |

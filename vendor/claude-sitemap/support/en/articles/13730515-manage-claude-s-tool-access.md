@@ -16,16 +16,14 @@ You can manage Claude’s access to your connectors per conversation using the *
 
 Choose from three options:
 
-- **Auto** *(default)*: Claude decides dynamically which connectors to load based on what you're working on. This is the best starting point for most users.
+- **Auto** _(default)_: Claude decides dynamically which connectors to load based on what you're working on. This is the best starting point for most users.
 
 - **Always available**: All your connectors are loaded at the start of every conversation. Claude can use any of them immediately, without any extra steps.
-
   - Best for: Fewer than 10 connectors you use constantly.
 
   - Trade-off: Uses more conversation space upfront.
 
 - **On demand:** Connectors aren't loaded until Claude searches for the right one based on your request. Claude finds the most relevant connectors and loads only those.
-
   - Best for: Large connector libraries (10 or more), or when you're running into conversation length issues.
 
   - Trade-off: Claude may take an extra step to find the right connector before using it.
@@ -34,13 +32,13 @@ Choose from three options:
 
 ## Which mode should I use?
 
-| **Your situation** | **Recommended mode** |
-| --- | --- |
-| Fewer than 10 connectors, all used frequently | Always available |
-| 10–30 tools with mixed usage | Auto |
-| 30+ tools or multiple connectors connected | On demand or Auto |
-| A specific connector needs to work every time without fail | Always available |
-| Conversations are hitting length limits | On demand |
+| **Your situation**                                         | **Recommended mode** |
+| ---------------------------------------------------------- | -------------------- |
+| Fewer than 10 connectors, all used frequently              | Always available     |
+| 10–30 tools with mixed usage                               | Auto                 |
+| 30+ tools or multiple connectors connected                 | On demand or Auto    |
+| A specific connector needs to work every time without fail | Always available     |
+| Conversations are hitting length limits                    | On demand            |
 
 ---
 
@@ -50,7 +48,7 @@ You can set your tool access mode per conversation by following these steps:
 
 1. Open a chat with Claude.
 
-2. Click the “+”  button in the lower left corner of your chat, or type "/" to open the menu.
+2. Click the “+” button in the lower left corner of your chat, or type "/" to open the menu.
 
 3. Mouse over “Connectors,” then “Tool access.”
 

@@ -1,4 +1,4 @@
-## Update
+## Update User Profile
 
 `BetaUserProfile Beta.UserProfiles.Update(UserProfileUpdateParamsparameters, CancellationTokencancellationToken = default)`
 
@@ -9,7 +9,6 @@ Update User Profile
 ### Parameters
 
 - `UserProfileUpdateParams parameters`
-
   - `required string userProfileID`
 
     Path param: Path parameter user_profile_id
@@ -29,7 +28,6 @@ Update User Profile
   - `Relationship? relationship`
 
     Body param: How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"External`
 
     - `"resold"Resold`
@@ -39,7 +37,6 @@ Update User Profile
   - `IReadOnlyList<AnthropicBeta> betas`
 
     Header param: Optional header to specify the beta version(s) you want to use.
-
     - `"message-batches-2024-09-24"MessageBatches2024_09_24`
 
     - `"prompt-caching-2024-07-31"PromptCaching2024_07_31`
@@ -88,10 +85,15 @@ Update User Profile
 
     - `"managed-agents-2026-04-01"ManagedAgents2026_04_01`
 
+    - `"cache-diagnosis-2026-04-07"CacheDiagnosis2026_04_07`
+
+    - `"thinking-token-count-2026-05-13"ThinkingTokenCount2026_05_13`
+
+    - `"mid-conversation-system-2026-04-07"MidConversationSystem2026_04_07`
+
 ### Returns
 
 - `class BetaUserProfile:`
-
   - `required string ID`
 
     Unique identifier for this user profile, prefixed `uprof_`.
@@ -107,7 +109,6 @@ Update User Profile
   - `required Relationship Relationship`
 
     How the entity behind a user profile relates to the platform that owns the API key. `external`: an individual end-user of the platform. `resold`: a company the platform resells Claude access to. `internal`: the platform's own usage.
-
     - `"external"External`
 
     - `"resold"Resold`
@@ -117,11 +118,9 @@ Update User Profile
   - `required IReadOnlyDictionary<string, BetaUserProfileTrustGrant> TrustGrants`
 
     Trust grants for this profile, keyed by grant name. Key omitted when no grant is active or in flight.
-
     - `required Status Status`
 
       Status of the trust grant.
-
       - `"active"Active`
 
       - `"pending"Pending`
@@ -131,7 +130,6 @@ Update User Profile
   - `required Type Type`
 
     Object type. Always `user_profile`.
-
     - `"user_profile"UserProfile`
 
   - `required DateTimeOffset UpdatedAt`
@@ -157,4 +155,24 @@ UserProfileUpdateParams parameters = new()
 var betaUserProfile = await client.Beta.UserProfiles.Update(parameters);
 
 Console.WriteLine(betaUserProfile);
+```
+
+#### Response
+
+```json
+{
+  "id": "uprof_011CZkZCu8hGbp5mYRQgUmz9",
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {},
+  "relationship": "external",
+  "trust_grants": {
+    "cyber": {
+      "status": "active"
+    }
+  },
+  "type": "user_profile",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "external_id": "user_12345",
+  "name": "Example User"
+}
 ```

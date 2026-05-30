@@ -1,4 +1,4 @@
-## Send
+## Send Events
 
 `BetaManagedAgentsSendSessionEvents beta().sessions().events().send(EventSendParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -9,13 +9,11 @@ Send Events
 ### Parameters
 
 - `EventSendParams params`
-
   - `Optional<String> sessionId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -64,42 +62,40 @@ Send Events
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
   - `List<BetaManagedAgentsEventParams> events`
 
     Events to send to the `session`.
-
     - `class BetaManagedAgentsUserMessageEventParams:`
 
       Parameters for sending a user message to the session.
-
       - `List<Content> content`
 
         Array of content blocks for the user message.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
           - `String text`
 
             The text content.
 
           - `Type type`
-
             - `TEXT("text")`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
-
           - `Source source`
 
             Union type for image source variants.
-
             - `class BetaManagedAgentsBase64ImageSource:`
 
               Base64-encoded image data.
-
               - `String data`
 
                 Base64-encoded image data.
@@ -109,15 +105,12 @@ Send Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               - `Type type`
-
                 - `BASE64("base64")`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
               Image referenced by URL.
-
               - `Type type`
-
                 - `URL("url")`
 
               - `String url`
@@ -127,31 +120,25 @@ Send Events
             - `class BetaManagedAgentsFileImageSource:`
 
               Image referenced by file ID.
-
               - `String fileId`
 
                 ID of a previously uploaded file.
 
               - `Type type`
-
                 - `FILE("file")`
 
           - `Type type`
-
             - `IMAGE("image")`
 
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
           - `Source source`
 
             Union type for document source variants.
-
             - `class BetaManagedAgentsBase64DocumentSource:`
 
               Base64-encoded document data.
-
               - `String data`
 
                 Base64-encoded document data.
@@ -161,13 +148,11 @@ Send Events
                 MIME type of the document (e.g., "application/pdf").
 
               - `Type type`
-
                 - `BASE64("base64")`
 
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
               Plain text document content.
-
               - `String data`
 
                 The plain text content.
@@ -175,19 +160,15 @@ Send Events
               - `MediaType mediaType`
 
                 MIME type of the text content. Must be "text/plain".
-
                 - `TEXT_PLAIN("text/plain")`
 
               - `Type type`
-
                 - `TEXT("text")`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
               Document referenced by URL.
-
               - `Type type`
-
                 - `URL("url")`
 
               - `String url`
@@ -197,17 +178,14 @@ Send Events
             - `class BetaManagedAgentsFileDocumentSource:`
 
               Document referenced by file ID.
-
               - `String fileId`
 
                 ID of a previously uploaded file.
 
               - `Type type`
-
                 - `FILE("file")`
 
           - `Type type`
-
             - `DOCUMENT("document")`
 
           - `Optional<String> context`
@@ -219,15 +197,12 @@ Send Events
             The title of the document.
 
       - `Type type`
-
         - `USER_MESSAGE("user.message")`
 
     - `class BetaManagedAgentsUserInterruptEventParams:`
 
       Parameters for sending an interrupt to pause the agent.
-
       - `Type type`
-
         - `USER_INTERRUPT("user.interrupt")`
 
       - `Optional<String> sessionThreadId`
@@ -237,11 +212,9 @@ Send Events
     - `class BetaManagedAgentsUserToolConfirmationEventParams:`
 
       Parameters for confirming or denying a tool execution request.
-
       - `Result result`
 
         UserToolConfirmationResult enum
-
         - `ALLOW("allow")`
 
         - `DENY("deny")`
@@ -251,7 +224,6 @@ Send Events
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `Type type`
-
         - `USER_TOOL_CONFIRMATION("user.tool_confirmation")`
 
       - `Optional<String> denyMessage`
@@ -261,160 +233,58 @@ Send Events
     - `class BetaManagedAgentsUserCustomToolResultEventParams:`
 
       Parameters for providing the result of a custom tool execution.
-
       - `String customToolUseId`
 
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `Type type`
-
         - `USER_CUSTOM_TOOL_RESULT("user.custom_tool_result")`
 
       - `Optional<List<Content>> content`
 
         The result content returned by the tool.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `String text`
-
-            The text content.
-
-          - `Type type`
-
-            - `TEXT("text")`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `Source source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `String data`
-
-                Base64-encoded image data.
-
-              - `String mediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `Type type`
-
-                - `BASE64("base64")`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `Type type`
-
-                - `URL("url")`
-
-              - `String url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `String fileId`
-
-                ID of a previously uploaded file.
-
-              - `Type type`
-
-                - `FILE("file")`
-
-          - `Type type`
-
-            - `IMAGE("image")`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-          - `Source source`
+        - `class BetaManagedAgentsSearchResultBlock:`
 
-            Union type for document source variants.
+          A block containing a web search result.
+          - `BetaManagedAgentsSearchResultCitations citations`
 
-            - `class BetaManagedAgentsBase64DocumentSource:`
+            Citation settings for a search result.
+            - `boolean enabled`
 
-              Base64-encoded document data.
+              Whether citations are enabled for this search result.
 
-              - `String data`
+          - `List<BetaManagedAgentsSearchResultContent> content`
 
-                Base64-encoded document data.
+            Array of text content blocks from the search result.
+            - `String text`
 
-              - `String mediaType`
+              The text content.
 
-                MIME type of the document (e.g., "application/pdf").
+            - `Type type`
+              - `TEXT("text")`
 
-              - `Type type`
+          - `String source`
 
-                - `BASE64("base64")`
+            The URL source of the search result.
 
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
+          - `String title`
 
-              Plain text document content.
-
-              - `String data`
-
-                The plain text content.
-
-              - `MediaType mediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `TEXT_PLAIN("text/plain")`
-
-              - `Type type`
-
-                - `TEXT("text")`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `Type type`
-
-                - `URL("url")`
-
-              - `String url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `String fileId`
-
-                ID of a previously uploaded file.
-
-              - `Type type`
-
-                - `FILE("file")`
+            The title of the search result.
 
           - `Type type`
-
-            - `DOCUMENT("document")`
-
-          - `Optional<String> context`
-
-            Additional context about the document for the model.
-
-          - `Optional<String> title`
-
-            The title of the document.
+            - `SEARCH_RESULT("search_result")`
 
       - `Optional<Boolean> isError`
 
@@ -423,7 +293,6 @@ Send Events
     - `class BetaManagedAgentsUserDefineOutcomeEventParams:`
 
       Parameters for defining an outcome the agent should work toward. The agent begins work on receipt.
-
       - `String description`
 
         What the agent should produce. This is the task specification.
@@ -431,53 +300,77 @@ Send Events
       - `Rubric rubric`
 
         Rubric for grading the quality of an outcome.
-
         - `class BetaManagedAgentsFileRubricParams:`
 
           Rubric referenced by a file uploaded via the Files API.
-
           - `String fileId`
 
             ID of the rubric file.
 
           - `Type type`
-
             - `FILE("file")`
 
         - `class BetaManagedAgentsTextRubricParams:`
 
           Rubric content provided inline as text.
-
           - `String content`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text. Maximum 262144 characters.
 
           - `Type type`
-
             - `TEXT("text")`
 
       - `Type type`
-
         - `USER_DEFINE_OUTCOME("user.define_outcome")`
 
       - `Optional<Long> maxIterations`
 
         Eval→revision cycles before giving up. Default 3, max 20.
 
+    - `class BetaManagedAgentsUserToolResultEventParams:`
+
+      Parameters for providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+      - `String toolUseId`
+
+        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `Type type`
+        - `USER_TOOL_RESULT("user.tool_result")`
+
+      - `Optional<List<Content>> content`
+
+        The result content returned by the tool.
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock:`
+
+          A block containing a web search result.
+
+      - `Optional<Boolean> isError`
+
+        Whether the tool execution resulted in an error.
+
 ### Returns
 
 - `class BetaManagedAgentsSendSessionEvents:`
 
   Events that were successfully sent to the session.
-
   - `Optional<List<Data>> data`
 
     Sent events
-
     - `class BetaManagedAgentsUserMessageEvent:`
 
       A user message event in the session conversation.
-
       - `String id`
 
         Unique identifier for this event.
@@ -485,31 +378,25 @@ Send Events
       - `List<Content> content`
 
         Array of content blocks comprising the user message.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
           - `String text`
 
             The text content.
 
           - `Type type`
-
             - `TEXT("text")`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
-
           - `Source source`
 
             Union type for image source variants.
-
             - `class BetaManagedAgentsBase64ImageSource:`
 
               Base64-encoded image data.
-
               - `String data`
 
                 Base64-encoded image data.
@@ -519,15 +406,12 @@ Send Events
                 MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
 
               - `Type type`
-
                 - `BASE64("base64")`
 
             - `class BetaManagedAgentsUrlImageSource:`
 
               Image referenced by URL.
-
               - `Type type`
-
                 - `URL("url")`
 
               - `String url`
@@ -537,31 +421,25 @@ Send Events
             - `class BetaManagedAgentsFileImageSource:`
 
               Image referenced by file ID.
-
               - `String fileId`
 
                 ID of a previously uploaded file.
 
               - `Type type`
-
                 - `FILE("file")`
 
           - `Type type`
-
             - `IMAGE("image")`
 
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
-
           - `Source source`
 
             Union type for document source variants.
-
             - `class BetaManagedAgentsBase64DocumentSource:`
 
               Base64-encoded document data.
-
               - `String data`
 
                 Base64-encoded document data.
@@ -571,13 +449,11 @@ Send Events
                 MIME type of the document (e.g., "application/pdf").
 
               - `Type type`
-
                 - `BASE64("base64")`
 
             - `class BetaManagedAgentsPlainTextDocumentSource:`
 
               Plain text document content.
-
               - `String data`
 
                 The plain text content.
@@ -585,19 +461,15 @@ Send Events
               - `MediaType mediaType`
 
                 MIME type of the text content. Must be "text/plain".
-
                 - `TEXT_PLAIN("text/plain")`
 
               - `Type type`
-
                 - `TEXT("text")`
 
             - `class BetaManagedAgentsUrlDocumentSource:`
 
               Document referenced by URL.
-
               - `Type type`
-
                 - `URL("url")`
 
               - `String url`
@@ -607,17 +479,14 @@ Send Events
             - `class BetaManagedAgentsFileDocumentSource:`
 
               Document referenced by file ID.
-
               - `String fileId`
 
                 ID of a previously uploaded file.
 
               - `Type type`
-
                 - `FILE("file")`
 
           - `Type type`
-
             - `DOCUMENT("document")`
 
           - `Optional<String> context`
@@ -629,7 +498,6 @@ Send Events
             The title of the document.
 
       - `Type type`
-
         - `USER_MESSAGE("user.message")`
 
       - `Optional<LocalDateTime> processedAt`
@@ -639,13 +507,11 @@ Send Events
     - `class BetaManagedAgentsUserInterruptEvent:`
 
       An interrupt event that pauses agent execution and returns control to the user.
-
       - `String id`
 
         Unique identifier for this event.
 
       - `Type type`
-
         - `USER_INTERRUPT("user.interrupt")`
 
       - `Optional<LocalDateTime> processedAt`
@@ -659,7 +525,6 @@ Send Events
     - `class BetaManagedAgentsUserToolConfirmationEvent:`
 
       A tool confirmation event that approves or denies a pending tool execution.
-
       - `String id`
 
         Unique identifier for this event.
@@ -667,7 +532,6 @@ Send Events
       - `Result result`
 
         UserToolConfirmationResult enum
-
         - `ALLOW("allow")`
 
         - `DENY("deny")`
@@ -677,7 +541,6 @@ Send Events
         The id of the `agent.tool_use` or `agent.mcp_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `Type type`
-
         - `USER_TOOL_CONFIRMATION("user.tool_confirmation")`
 
       - `Optional<String> denyMessage`
@@ -695,7 +558,6 @@ Send Events
     - `class BetaManagedAgentsUserCustomToolResultEvent:`
 
       Event sent by the client providing the result of a custom tool execution.
-
       - `String id`
 
         Unique identifier for this event.
@@ -705,154 +567,53 @@ Send Events
         The id of the `agent.custom_tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
 
       - `Type type`
-
         - `USER_CUSTOM_TOOL_RESULT("user.custom_tool_result")`
 
       - `Optional<List<Content>> content`
 
         The result content returned by the tool.
-
         - `class BetaManagedAgentsTextBlock:`
 
           Regular text content.
-
-          - `String text`
-
-            The text content.
-
-          - `Type type`
-
-            - `TEXT("text")`
 
         - `class BetaManagedAgentsImageBlock:`
 
           Image content specified directly as base64 data or as a reference via a URL.
 
-          - `Source source`
-
-            Union type for image source variants.
-
-            - `class BetaManagedAgentsBase64ImageSource:`
-
-              Base64-encoded image data.
-
-              - `String data`
-
-                Base64-encoded image data.
-
-              - `String mediaType`
-
-                MIME type of the image (e.g., "image/png", "image/jpeg", "image/gif", "image/webp").
-
-              - `Type type`
-
-                - `BASE64("base64")`
-
-            - `class BetaManagedAgentsUrlImageSource:`
-
-              Image referenced by URL.
-
-              - `Type type`
-
-                - `URL("url")`
-
-              - `String url`
-
-                URL of the image to fetch.
-
-            - `class BetaManagedAgentsFileImageSource:`
-
-              Image referenced by file ID.
-
-              - `String fileId`
-
-                ID of a previously uploaded file.
-
-              - `Type type`
-
-                - `FILE("file")`
-
-          - `Type type`
-
-            - `IMAGE("image")`
-
         - `class BetaManagedAgentsDocumentBlock:`
 
           Document content, either specified directly as base64 data, as text, or as a reference via a URL.
 
-          - `Source source`
+        - `class BetaManagedAgentsSearchResultBlock:`
 
-            Union type for document source variants.
+          A block containing a web search result.
+          - `BetaManagedAgentsSearchResultCitations citations`
 
-            - `class BetaManagedAgentsBase64DocumentSource:`
+            Citation settings for a search result.
+            - `boolean enabled`
 
-              Base64-encoded document data.
+              Whether citations are enabled for this search result.
 
-              - `String data`
+          - `List<BetaManagedAgentsSearchResultContent> content`
 
-                Base64-encoded document data.
+            Array of text content blocks from the search result.
+            - `String text`
 
-              - `String mediaType`
+              The text content.
 
-                MIME type of the document (e.g., "application/pdf").
+            - `Type type`
+              - `TEXT("text")`
 
-              - `Type type`
+          - `String source`
 
-                - `BASE64("base64")`
+            The URL source of the search result.
 
-            - `class BetaManagedAgentsPlainTextDocumentSource:`
+          - `String title`
 
-              Plain text document content.
-
-              - `String data`
-
-                The plain text content.
-
-              - `MediaType mediaType`
-
-                MIME type of the text content. Must be "text/plain".
-
-                - `TEXT_PLAIN("text/plain")`
-
-              - `Type type`
-
-                - `TEXT("text")`
-
-            - `class BetaManagedAgentsUrlDocumentSource:`
-
-              Document referenced by URL.
-
-              - `Type type`
-
-                - `URL("url")`
-
-              - `String url`
-
-                URL of the document to fetch.
-
-            - `class BetaManagedAgentsFileDocumentSource:`
-
-              Document referenced by file ID.
-
-              - `String fileId`
-
-                ID of a previously uploaded file.
-
-              - `Type type`
-
-                - `FILE("file")`
+            The title of the search result.
 
           - `Type type`
-
-            - `DOCUMENT("document")`
-
-          - `Optional<String> context`
-
-            Additional context about the document for the model.
-
-          - `Optional<String> title`
-
-            The title of the document.
+            - `SEARCH_RESULT("search_result")`
 
       - `Optional<Boolean> isError`
 
@@ -869,7 +630,6 @@ Send Events
     - `class BetaManagedAgentsUserDefineOutcomeEvent:`
 
       Echo of a `user.define_outcome` input event. Carries the server-generated `outcome_id` that subsequent `span.outcome_evaluation_*` events reference.
-
       - `String id`
 
         Unique identifier for this event.
@@ -893,34 +653,73 @@ Send Events
       - `Rubric rubric`
 
         Rubric for grading the quality of an outcome.
-
         - `class BetaManagedAgentsFileRubric:`
 
           Rubric referenced by a file uploaded via the Files API.
-
           - `String fileId`
 
             ID of the rubric file.
 
           - `Type type`
-
             - `FILE("file")`
 
         - `class BetaManagedAgentsTextRubric:`
 
           Rubric content provided inline as text.
-
           - `String content`
 
             Rubric content. Plain text or markdown — the grader treats it as freeform text.
 
           - `Type type`
-
             - `TEXT("text")`
 
       - `Type type`
-
         - `USER_DEFINE_OUTCOME("user.define_outcome")`
+
+    - `class BetaManagedAgentsUserToolResultEvent:`
+
+      Event sent by the client providing the result of an agent-toolset tool execution. Only valid on `self_hosted` environments, where sandbox-routed tools are executed by the client rather than the server.
+      - `String id`
+
+        Unique identifier for this event.
+
+      - `String toolUseId`
+
+        The id of the `agent.tool_use` event this result corresponds to, which can be found in the last `session.status_idle` [event's](https://platform.claude.com/docs/en/api/beta/sessions/events/list#beta_managed_agents_session_requires_action.event_ids) `stop_reason.event_ids` field.
+
+      - `Type type`
+        - `USER_TOOL_RESULT("user.tool_result")`
+
+      - `Optional<List<Content>> content`
+
+        The result content returned by the tool.
+        - `class BetaManagedAgentsTextBlock:`
+
+          Regular text content.
+
+        - `class BetaManagedAgentsImageBlock:`
+
+          Image content specified directly as base64 data or as a reference via a URL.
+
+        - `class BetaManagedAgentsDocumentBlock:`
+
+          Document content, either specified directly as base64 data, as text, or as a reference via a URL.
+
+        - `class BetaManagedAgentsSearchResultBlock:`
+
+          A block containing a web search result.
+
+      - `Optional<Boolean> isError`
+
+        Whether the tool execution resulted in an error.
+
+      - `Optional<LocalDateTime> processedAt`
+
+        A timestamp in RFC 3339 format
+
+      - `Optional<String> sessionThreadId`
+
+        Routes this result to a subagent thread. Copy from the `agent.tool_use` event's `session_thread_id`.
 
 ### Example
 
@@ -950,5 +749,25 @@ public final class Main {
             .build();
         BetaManagedAgentsSendSessionEvents betaManagedAgentsSendSessionEvents = client.beta().sessions().events().send(params);
     }
+}
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "sevt_011CZkZGOp0iBcp4kaQSihUmy",
+      "content": [
+        {
+          "text": "Where is my order #1234?",
+          "type": "text"
+        }
+      ],
+      "type": "user.message",
+      "processed_at": "2026-03-15T10:00:00Z"
+    }
+  ]
 }
 ```

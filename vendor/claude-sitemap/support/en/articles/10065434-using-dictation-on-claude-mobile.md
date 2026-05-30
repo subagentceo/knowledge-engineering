@@ -10,13 +10,13 @@ Dictation allows you to speak your prompts instead of typing them when using Cla
 
 3. Tap the microphone icon on the right side of the chat input field.
 
-  - If this is your first time using dictation, you'll need to select your preferred language. You can change this later in Settings.
+- If this is your first time using dictation, you'll need to select your preferred language. You can change this later in Settings.
 
 4. Dictate your prompt.
 
 5. Tap the arrow icon to send your prompt.
 
-  - To cancel without sending, tap the "X" icon.
+- To cancel without sending, tap the "X" icon.
 
 Your prompt will automatically appear as text in the chat window. Claude will respond to your prompt in text format.
 

@@ -1,3 +1,5 @@
+# Chrome DevTools
+
 Control and inspect a live Chrome browser directly from your coding agent. Chrome DevTools MCP provides 29 tools spanning browser automation, performance profiling, network analysis, and debugging — giving Claude full DevTools capabilities through Puppeteer and the Chrome DevTools Protocol.
 
 Automate browser interactions with tools for clicking, typing, filling forms, uploading files, navigating pages, and handling dialogs. Emulate mobile devices and custom viewports to test responsive designs. Record performance traces and memory snapshots to diagnose bottlenecks, run Lighthouse audits, and get actionable performance insights including CrUX field data.

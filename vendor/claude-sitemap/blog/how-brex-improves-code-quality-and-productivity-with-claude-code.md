@@ -1,14 +1,16 @@
-When Andy Reed joined [Brex](https://www.brex.com/) as a content designer two years ago, he never imagined he'd be writing code and building Figma plugins. 
+# How Brex improves code quality and productivity with Claude Code
 
-"I don't know how I would have gotten even half my work done in the past month without [Claude Code](https://www.anthropic.com/claude-code)," Reed said. 
+When Andy Reed joined Brex as a content designer two years ago, he never imagined he'd be writing code and building Figma plugins. 
 
-But that's exactly what happened when Reed embraced [Claude Code](https://www.anthropic.com/claude-code), Anthropic’s agentic coding solution—and his story is just one example of how the intelligent finance platform is transforming the way their company works. 
+"I don't know how I would have gotten even half my work done in the past month without Claude Code," Reed said. 
+
+But that's exactly what happened when Reed embraced Claude Code, Anthropic’s agentic coding solution—and his story is just one example of how the intelligent finance platform is transforming the way their company works. 
 
 To learn more, we spoke with three Brex team members about how they’re using Claude Code: 
 
--   Hércules Gimenes, Software Engineering Lead on the Product AI team
--   Sumeet Marwaha, Head of Data & Analytics
--   Andy Reed, Senior Content Designer
+- Hércules Gimenes, Software Engineering Lead on the Product AI team
+- Sumeet Marwaha, Head of Data & Analytics
+- Andy Reed, Senior Content Designer
 
 What emerged from these conversations wasn't just a story about productivity gains, though teams report 3-4x improvements on specific tasks. It's about fundamentally reimagining how the company works together to streamline workflows, inspire creative problem solving, and drive collaboration at scale.
 
@@ -58,17 +60,17 @@ But perhaps the most significant unexpected benefit has been Claude Code's role 
 
 As Claude Code adoption spread across Brex, teams developed best practices that have become standard:
 
--   **Structured Context Management**: Each major directory in the monorepo now has its own CLAUDE.md file containing domain-specific context. New engineers can understand Mastercard integration details or banking regulations without relying on tribal knowledge.
--   **Automated Documentation**: The Product AI team implemented CI/CD checks that verify when code changes might outdate documentation, prompting updates. "Having up-to-date documentation is something you can trust—it's so powerful," Gimenes emphasized.
--   **Context-Aware Commands**: Teams created custom commands that automatically load relevant context. The /submit-pr command, for instance, fetches git status, recent changes, and related PR information before executing.
--   **Start with Discovery**: "Being able to find what you need is not really stored in some staff engineer's brain anymore," Marwaha observed. "It's in the codebase, accessible to everyone."
+- **Structured Context Management**: Each major directory in the monorepo now has its own CLAUDE.md file containing domain-specific context. New engineers can understand Mastercard integration details or banking regulations without relying on tribal knowledge.
+- **Automated Documentation**: The Product AI team implemented CI/CD checks that verify when code changes might outdate documentation, prompting updates. "Having up-to-date documentation is something you can trust—it's so powerful," Gimenes emphasized.
+- **Context-Aware Commands**: Teams created custom commands that automatically load relevant context. The /submit-pr command, for instance, fetches git status, recent changes, and related PR information before executing.
+- **Start with Discovery**: "Being able to find what you need is not really stored in some staff engineer's brain anymore," Marwaha observed. "It's in the codebase, accessible to everyone."
 
 ## The future of Claude Code at Brex
 
 Teams at Brex are already planning next-generation applications:
 
--   The Data team is preparing to tackle previously untouchable projects, like analyzing trillions of credit card transaction itemization data points, work that was too tedious to justify before Claude Code made it feasible. They're also developing role-specific agents, including one to power RevOps tasks.
--   The Product AI team envisions more sophisticated context management, where documentation updates itself automatically and context remains decentralized yet accessible.
+- The Data team is preparing to tackle previously untouchable projects, like analyzing trillions of credit card transaction itemization data points, work that was too tedious to justify before Claude Code made it feasible. They're also developing role-specific agents, including one to power RevOps tasks.
+- The Product AI team envisions more sophisticated context management, where documentation updates itself automatically and context remains decentralized yet accessible.
 
 From content designers building technical tools to data analysts democratizing access, Claude Code has become what Gimenes calls an “everything tool” — useful for integrating Brex’s domain knowledge with external best practices. 
 

@@ -1,3 +1,5 @@
+# Create digital recipe cards
+
 Claude can analyze and understand images—photos, screenshots, diagrams, handwritten notes—through vision capabilities. Upload your recipe content and Claude extracts text, adds helpful context about ingredients or techniques, and creates digital recipe cards to use and share.
 
 Ask Claude to create a clean, typed version of the recipe, or request a formatted card that preserves the recipe's vintage character while making it readable.

@@ -1,3 +1,5 @@
+# Customer.io
+
 Let Claude work directly with your Customer.io workspace to create segments, inspect user profiles, search for customers, and access workspace data. Analyze customer attributes, manage audience targeting, and explore your workspace without switching tabs.
 
 You can use Customer.io to:

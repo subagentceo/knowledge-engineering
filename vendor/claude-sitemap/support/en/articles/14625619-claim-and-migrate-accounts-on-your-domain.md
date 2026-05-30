@@ -1,9 +1,9 @@
 Domain claiming lets Enterprise admins discover, claim, and migrate existing personal Claude accounts (Free, Pro, and Max) on a verified company domain into their Enterprise workspace. This gives your organization a clean path to consolidate accounts on day one of an Enterprise deployment, and allows people using Claude on personal accounts to keep their work.
 
-| **Plan** | **Migrate individual accounts** | **Block new account creation** |
-| --- | --- | --- |
-| **Enterprise** | ✅ | ✅ |
-| **Team** |  | ✅ |
+| **Plan**       | **Migrate individual accounts** | **Block new account creation** |
+| -------------- | ------------------------------- | ------------------------------ |
+| **Enterprise** | ✅                              | ✅                             |
+| **Team**       |                                 | ✅                             |
 
 Team plans can verify a domain and block new personal accounts from being created, but can’t claim or migrate existing accounts. Domain claiming is Enterprise-only.
 
@@ -63,7 +63,7 @@ During this window, each person on the domain can sign in and choose how to migr
 
 - Any remaining personal accounts that haven’t been migrated are deactivated.
 
-- Paid subscriptions (Pro and Max) are automatically canceled with a prorated refund. Any extra usage remaining on the account will also be refunded.
+- Paid subscriptions (Pro and Max) are automatically canceled with a prorated refund. Any usage credits remaining on the account will also be refunded.
 
 - Once all accounts are migrated or deactivated, no personal accounts exist on your domain.
 

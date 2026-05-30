@@ -1,17 +1,10 @@
--   Install in
-    
-    [
-    
-    Claude Code
-    
-    ](#)
-    
--   Made by
-    
-    [
-    
-    ](#)
-    
--   Installs
-    
-    1567
+# ai-firstify
+
+- Install in
+
+  Claude Code
+
+- Made by
+- Installs
+
+  1585

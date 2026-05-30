@@ -1,3 +1,5 @@
+# Granted
+
 Search virtually every grant opportunity in existence - federal, state, and private foundation - using natural language. Most databases cover the big programs. Granted also surfaces the long tail: niche state grants, small family foundations, and hyper-local opportunities that nonprofits never find because no single database indexes them all. Research 133,000 US foundations with IRS 990 financials and key officers. Analyze 7 million federal award records to see who's actually winning.
 
 You can use Granted to:

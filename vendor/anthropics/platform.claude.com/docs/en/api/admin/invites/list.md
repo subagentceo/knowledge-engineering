@@ -1,4 +1,4 @@
-## List
+## List Invites
 
 **get** `/v1/organizations/invites`
 
@@ -23,7 +23,6 @@ List Invites
 ### Returns
 
 - `data: array of Invite`
-
   - `id: string`
 
     ID of the Invite.
@@ -43,7 +42,6 @@ List Invites
   - `role: "user" or "developer" or "billing" or 2 more`
 
     Organization role of the User.
-
     - `"user"`
 
     - `"developer"`
@@ -57,7 +55,6 @@ List Invites
   - `status: "accepted" or "expired" or "deleted" or "pending"`
 
     Status of the Invite.
-
     - `"accepted"`
 
     - `"expired"`
@@ -71,7 +68,6 @@ List Invites
     Object type.
 
     For Invites, this is always `"invite"`.
-
     - `"invite"`
 
 - `first_id: string`
@@ -92,4 +88,25 @@ List Invites
 curl https://api.anthropic.com/v1/organizations/invites \
     -H 'anthropic-version: 2023-06-01' \
     -H "X-Api-Key: $ANTHROPIC_ADMIN_API_KEY"
+```
+
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "invite_015gWxCN9Hfg2QhZwTK7Mdeu",
+      "email": "user@emaildomain.com",
+      "expires_at": "2024-11-20T23:58:27.427722Z",
+      "invited_at": "2024-10-30T23:58:27.427722Z",
+      "role": "user",
+      "status": "pending",
+      "type": "invite"
+    }
+  ],
+  "first_id": "first_id",
+  "has_more": true,
+  "last_id": "last_id"
+}
 ```

@@ -1,8 +1,10 @@
+# GitLab powers stable, secure software development with Claude
+
 GitLab, the most comprehensive DevSecOps platform, uses Claude to drive AI-powered features across their software development, deployment and security platform. By leveraging Claude's capabilities, GitLab delivers innovative AI solutions while maintaining the stability and security its customers demand.
 
--   Several Claude-powered features are implemented across the platform
--   Claude delivers high-context and accurate code generation for users
--   Accelerates development and deployment of AI features for Gitlab engineering team
+- Several Claude-powered features are implemented across the platform
+- Claude delivers high-context and accurate code generation for users
+- Accelerates development and deployment of AI features for Gitlab engineering team
 
 ## Balancing innovation with stability in DevSecOps
 

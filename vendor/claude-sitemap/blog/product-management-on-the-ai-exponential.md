@@ -1,8 +1,10 @@
-Since [Claude Sonnet 3.5 (new)](https://www.anthropic.com/news/3-5-models-and-computer-use) in October 2024, I made a habit of testing every new model by asking Claude Code (an internal tool at the time) to add a table tool to Excalidraw. With each new model, Claude got a little further but still failed. 
+# Product management on the AI exponential
 
-Then, with the release of [Opus 4](https://www.anthropic.com/news/claude-4) in June 2025, Claude started occasionally succeeding, enough that we turned the exercise into a [pre-recorded demo](https://www.youtube.com/live/EvtPBaaykdo?t=3478s) for the Claude 4 model launch to show what had become possible with our latest model.
+Since Claude Sonnet 3.5 (new) in October 2024, I made a habit of testing every new model by asking Claude Code (an internal tool at the time) to add a table tool to Excalidraw. With each new model, Claude got a little further but still failed. 
 
-Less than a year later, [Opus 4.6](https://www.anthropic.com/news/claude-opus-4-6) can one-shot Excalidraw feature requests reliably enough that we feel comfortable doing it live, in front of thousands of professional developers.
+Then, with the release of Opus 4 in June 2025, Claude started occasionally succeeding, enough that we turned the exercise into a pre-recorded demo for the Claude 4 model launch to show what had become possible with our latest model.
+
+Less than a year later, Opus 4.6 can one-shot Excalidraw feature requests reliably enough that we feel comfortable doing it live, in front of thousands of professional developers.
 
 The speed of model progress keeps expanding what's possible. The traditional product management playbook is built on the assumption that what's technologically possible at the start of a project is roughly what's possible at the end. PMs would gather enough information upfront to make confident bets about the future, then execute against a plan over the course of months. 
 
@@ -24,7 +26,7 @@ These projects took hundreds of hours of prompting Claude Code powered by Sonnet
 
 Tools like Claude Code and Cowork are blurring the lines between distinct roles in the product development life cycle.
 
-Claude Code isn’t the only tool powering my workflow. Over time, I've settled into a natural division of labor across three products: a chat collaborator ([Claude.ai](http://claude.ai)), agentic coding tool (Claude Code), and a knowledge work tool ([Cowork](https://www.anthropic.com/webinars/future-of-ai-at-work-introducing-cowork)). 
+Claude Code isn’t the only tool powering my workflow. Over time, I've settled into a natural division of labor across three products: a chat collaborator (Claude.ai), agentic coding tool (Claude Code), and a knowledge work tool (Cowork). 
 
 **Claude.ai** is where I talk to Claude as a thought partner without needing it to take action. I bounce ideas for strategy docs, how to handle tricky situations, and get quick answers.
 
@@ -44,9 +46,9 @@ One of the most exciting parts of being a product manager today is that these wo
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69bc2f892ac8ae5b32d2ac32_Screenshot%202026-03-19%20at%201.16.39%E2%80%AFPM.png)
 
-_METR. (2026, March). Task-Completion Time Horizons of Frontier AI Models._ [_https://metr.org/time-horizons/_](https://metr.org/time-horizons/)
+_METR. (2026, March). Task-Completion Time Horizons of Frontier AI Models._ _https://metr.org/time-horizons/_
 
-METR [finds](https://metr.org/time-horizons/) that, about half the time, Opus 4.6 can complete software tasks which take humans almost 12 hours. When we first started building Claude Code, Sonnet 3.5 (new) was the frontier model and METR measured that it could do tasks that would take a human around 21 minutes. That's a roughly 41x jump in 16 months.
+METR finds that, about half the time, Opus 4.6 can complete software tasks which take humans almost 12 hours. When we first started building Claude Code, Sonnet 3.5 (new) was the frontier model and METR measured that it could do tasks that would take a human around 21 minutes. That's a roughly 41x jump in 16 months.
 
 The Claude Code team has evolved to keep pace with how quickly models improve. Our roles are blending together: designers ship code, engineers make product decisions, product managers build prototypes and evals. This works because clear strategy and goals let everyone prioritize autonomously. The product manager’s job is to create clarity in the ambiguity that rapid model progress creates, push the team to think bigger about what’s possible, and clear the path to shipping faster.
 
@@ -58,17 +60,17 @@ Traditional product manager thinking treats exploration as something that happen
 
 Instead of a long-term roadmap, we encourage everyone on the team (engineers, product managers, designers) to take on side quests. A side quest is a short self-directed experiment you run outside your official roadmap—an afternoon spent prototyping an idea, testing a capability you assumed was out of reach, or just seeing what happens when you push the model harder than you expect to.
 
-Some of Anthropic’s most popular features—[Claude Code on Desktop](https://code.claude.com/docs/en/desktop), the [AskUserQuestion tool](https://platform.claude.com/docs/en/agent-sdk/user-input), and [todo lists](https://platform.claude.com/docs/en/agent-sdk/todo-tracking)—emerged this way.
+Some of Anthropic’s most popular features—Claude Code on Desktop, the AskUserQuestion tool, and todo lists—emerged this way.
 
 **Encourage demos and evals over docs**
 
 Our team has largely replaced documentation-first thinking with prototype-first thinking. Instead of hosting traditional stand-ups, we share demos of new ideas. Internal users try them, and the ones with real engagement get polished and shared more broadly. Because you can prototype in an afternoon, wrong bets are cheap.
 
-For example, when Noah shared his [plugins](https://code.claude.com/docs/en/plugins) spec with Claude Code, the prototype that came back was close to production ready. That prototype anchored what the team ultimately shipped since it enabled the team to quickly validate the UX.
+For example, when Noah shared his plugins spec with Claude Code, the prototype that came back was close to production ready. That prototype anchored what the team ultimately shipped since it enabled the team to quickly validate the UX.
 
 Pro-tip: after you write a spec, send it to Claude Code and see if it can build it. Even a rough prototype changes the conversation.
 
-In addition to demos, evals can also help make an abstract product feel more concrete. For example, for [agent teams](https://code.claude.com/docs/en/agent-teams) which lets users coordinate multiple Claude Code instances working together, Conner hand-crafted a set of evals to understand when agent teams work well, when they don’t, and what to fix. Measuring whether the feature is working makes it easier to improve it.
+In addition to demos, evals can also help make an abstract product feel more concrete. For example, for agent teams which lets users coordinate multiple Claude Code instances working together, Conner hand-crafted a set of evals to understand when agent teams work well, when they don’t, and what to fix. Measuring whether the feature is working makes it easier to improve it.
 
 **Revisit features with new models**
 
@@ -76,7 +78,7 @@ Now, you ship a feature, then a better model comes out and your feature could be
 
 The best way to catch these moments is to be a daily active user and deliberately ask it to do things you think might be too hard. Sometimes it works, and that’s a signal that the product needs to catch up.
 
-That’s how [Claude Code with Chrome](https://code.claude.com/docs/en/chrome) happened. We noticed users were building web apps with Claude Code and then manually switching to Claude in Chrome to test it. Users were manually prompting and copying and pasting instructions between these two tools. It worked well enough that we realized this should be a built-in feature. If users are hacking something together, that’s scaffolding you can build into the product.
+That’s how Claude Code with Chrome happened. We noticed users were building web apps with Claude Code and then manually switching to Claude in Chrome to test it. Users were manually prompting and copying and pasting instructions between these two tools. It worked well enough that we realized this should be a built-in feature. If users are hacking something together, that’s scaffolding you can build into the product.
 
 When prototyping these ideas, always optimize for capability first. Use more tokens than you think you need. It's a common mistake to cut token costs too early and ship something much less capable as a result. You can always bring costs down later as cheaper models catch up, but first you need to know whether the feature is even possible.
 
@@ -94,15 +96,15 @@ Many product managers are used to having tight control over the full product exp
 
 The net effect of these shifts is that product teams can move significantly faster. When a product manager can go from idea to working prototype in an afternoon, the gap between “what if we tried…” and “here, try this” nearly disappears. 
 
-At Anthropic, product managers aren’t the only ones transforming their workflows with Claude. Our data science, [finance](https://www.anthropic.com/webinars/claude-code-financial-services), marketing, [legal](https://www.youtube.com/watch?v=tJP6SKfo49c), and [design teams](https://www.youtube.com/watch?v=vLIDHi-1PVU) picked up these tools on their own. The whole organization moves at the same speed instead of waiting on handoffs.
+At Anthropic, product managers aren’t the only ones transforming their workflows with Claude. Our data science, finance, marketing, legal, and design teams picked up these tools on their own. The whole organization moves at the same speed instead of waiting on handoffs.
 
 The PM role now is to track both things at once: how AI is changing the way you work, and how it's changing what's possible in your product. Do that well, and you stop being surprised when the table tool finally works. You're the one who saw it coming. 
 
-_Start building better products with_ [_Claude Code_](https://code.claude.com/docs/en/overview)_._
+_Start building better products with_ _Claude Code\_\_._
 
 ‍
 
-**_Acknowledgments:_** _This article was written by Cat Wu, the Head of Product for Claude Code at Anthropic. You can find her on_ [_X_](https://x.com/_catwu) _and_ [_LinkedIn_](https://www.linkedin.com/in/cat-wu/)_. She'd like to thank Bihan Jiang and Kai Xin Tai for their contributions to this piece._
+***Acknowledgments:*** *This article was written by Cat Wu, the Head of Product for Claude Code at Anthropic. You can find her on* _X_ _and_ _LinkedIn\_\_. She'd like to thank Bihan Jiang and Kai Xin Tai for their contributions to this piece._
 
 ‍
 

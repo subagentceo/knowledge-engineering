@@ -1,3 +1,5 @@
+# Lawve AI
+
 Browse a curated library of legal AI skills written by practicing lawyers, in-house counsel, and legal technologists. Every skill covers a specific workflow — contract review, NDA analysis, GDPR compliance, legal drafting, jurisdiction-specific research. Search the catalog from inside Claude to find the skill that fits your task and preview its practitioner-authored instructions. Bring expert guidance into your workflow — whether you're at a law firm, in-house, or building legal tech.
 
 You can use Lawve AI to:

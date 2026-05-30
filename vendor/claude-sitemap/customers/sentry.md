@@ -1,16 +1,18 @@
-[Sentry](https://sentry.io/welcome/) is a software monitoring platform that ingests billions of events daily, giving development teams the context they need to debug production issues. Their AI debugging agent, Seer, already used Claude to identify root causes accurately. But telling developers what's wrong wasn't enough. They wanted Seer to fix it, too.
+# How Sentry built end-to-end bug fixing with Claude Managed Agents
 
-With [Claude Managed Agents](https://claude.com/blog/claude-managed-agents), Sentry built the infrastructure to go from bug detection to merge-ready pull request, without building a custom agent runtime from scratch.
+Sentry is a software monitoring platform that ingests billions of events daily, giving development teams the context they need to debug production issues. Their AI debugging agent, Seer, already used Claude to identify root causes accurately. But telling developers what's wrong wasn't enough. They wanted Seer to fix it, too.
 
-## **With Claude, Sentry achieved:**
+With Claude Managed Agents, Sentry built the infrastructure to go from bug detection to merge-ready pull request, without building a custom agent runtime from scratch.
 
--   End-to-end automation from bug detection to pull request, powered by Claude Managed Agents
--   Ability to efficiently process over 1 million RCAs (Root Cause Analysis) a year
--   Near immediate reviews provided on over 600k pull requests a month
--   Initial Managed Agents integration shipped in weeks instead of months by a single engineer
--   Elimination of the ongoing operational overhead of maintaining custom agent infrastructure
+## With Claude, Sentry achieved:
 
-## **The challenge: A gap between knowing what's broken and fixing it**
+- End-to-end automation from bug detection to pull request, powered by Claude Managed Agents
+- Ability to efficiently process over 1 million RCAs (Root Cause Analysis) a year
+- Near immediate reviews provided on over 600k pull requests a month
+- Initial Managed Agents integration shipped in weeks instead of months by a single engineer
+- Elimination of the ongoing operational overhead of maintaining custom agent infrastructure
+
+## The challenge: A gap between knowing what's broken and fixing it
 
 Sentry provides deep context for every error: stack traces, profiling data, trace connections, logs, spans, and metrics. When Seer launched, it used Claude to analyze all that telemetry, identify root causes, and suggest code fixes. Developers at every level got faster.
 
@@ -20,7 +22,7 @@ But even with a diagnosis and a suggested fix in hand, developers still had to c
 
 Building that capability meant running a coding agent. And running a coding agent meant building sandboxing, lifecycle management, and an agent runtime. For a team focused on debugging, that was a significant detour.
 
-## **The solution: Why Sentry chose Claude and Managed Agents**
+## The solution: Why Sentry chose Claude and Managed Agents
 
 Sentry had already selected Claude for Seer after evaluating multiple AI models. Security factored heavily: running Claude through Vertex AI let Sentry minimize data shared outside Google Cloud. "We were able to preserve data residency for our customers and avoid having to add a new subprocessor by using Claude through Vertex AI,” Karunaratne said.
 

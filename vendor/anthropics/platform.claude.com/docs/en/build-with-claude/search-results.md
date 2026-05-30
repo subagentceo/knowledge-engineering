@@ -12,6 +12,7 @@ Search result content blocks enable natural citations with proper source attribu
 
 The search results feature is available on the following models:
 
+- <NextOpus /> (<NextOpusId />)
 - Claude Opus 4.7 (`claude-opus-4-7`)
 - Claude Opus 4.6 (`claude-opus-4-6`)
 - Claude Sonnet 4.6 (`claude-sonnet-4-6`)
@@ -65,21 +66,22 @@ Search results use the following structure:
 
 ### Required fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `type` | string | Must be `"search_result"` |
-| `source` | string | The source URL or identifier for the content |
-| `title` | string | A descriptive title for the search result |
-| `content` | array | An array of text blocks containing the actual content |
+| Field     | Type   | Description                                           |
+| --------- | ------ | ----------------------------------------------------- |
+| `type`    | string | Must be `"search_result"`                             |
+| `source`  | string | The source URL or identifier for the content          |
+| `title`   | string | A descriptive title for the search result             |
+| `content` | array  | An array of text blocks containing the actual content |
 
 ### Optional fields
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `citations` | object | Citation configuration with `enabled` boolean field |
+| Field           | Type   | Description                                            |
+| --------------- | ------ | ------------------------------------------------------ |
+| `citations`     | object | Citation configuration with `enabled` boolean field    |
 | `cache_control` | object | Cache control settings (e.g., `{"type": "ephemeral"}`) |
 
 Each item in the `content` array must be a text block with:
+
 - `type`: Must be `"text"`
 - `text`: The actual text content (non-empty string)
 
@@ -148,7 +150,7 @@ def search_knowledge_base(query):
 
 # Create a message with the tool
 response = client.messages.create(
-    model="claude-opus-4-7",  # Works with all supported models
+    model="claude-opus-4-8",  # Works with all supported models
     max_tokens=1024,
     tools=[knowledge_base_tool],
     messages=[
@@ -162,7 +164,7 @@ if response.content[0].type == "tool_use":
 
     # Send the tool result back
     final_response = client.messages.create(
-        model="claude-opus-4-7",  # Works with all supported models
+        model="claude-opus-4-8",  # Works with all supported models
         max_tokens=1024,
         messages=[
             MessageParam(
@@ -197,11 +199,11 @@ const knowledgeBaseTool: Anthropic.Messages.Tool = {
     properties: {
       query: {
         type: "string",
-        description: "The search query"
-      }
+        description: "The search query",
+      },
     },
-    required: ["query"]
-  }
+    required: ["query"],
+  },
 };
 
 // Function to handle the tool call
@@ -216,10 +218,10 @@ function searchKnowledgeBase(query: string) {
       content: [
         {
           type: "text" as const,
-          text: "To configure the product, navigate to Settings > Configuration. The default timeout is 30 seconds, but can be adjusted between 10-120 seconds based on your needs."
-        }
+          text: "To configure the product, navigate to Settings > Configuration. The default timeout is 30 seconds, but can be adjusted between 10-120 seconds based on your needs.",
+        },
       ],
-      citations: { enabled: true }
+      citations: { enabled: true },
     },
     {
       type: "search_result" as const,
@@ -228,25 +230,25 @@ function searchKnowledgeBase(query: string) {
       content: [
         {
           type: "text" as const,
-          text: "If you encounter timeout errors, first check the configuration settings. Common causes include network latency and incorrect timeout values."
-        }
+          text: "If you encounter timeout errors, first check the configuration settings. Common causes include network latency and incorrect timeout values.",
+        },
       ],
-      citations: { enabled: true }
-    }
+      citations: { enabled: true },
+    },
   ];
 }
 
 // Create a message with the tool
 const response = await anthropic.messages.create({
-  model: "claude-opus-4-7", // Works with all supported models
+  model: "claude-opus-4-8", // Works with all supported models
   max_tokens: 1024,
   tools: [knowledgeBaseTool],
   messages: [
     {
       role: "user",
-      content: "How do I configure the timeout settings?"
-    }
-  ]
+      content: "How do I configure the timeout settings?",
+    },
+  ],
 });
 
 // Handle tool use and provide results
@@ -255,7 +257,7 @@ if (response.content[0].type === "tool_use") {
   const toolResult = searchKnowledgeBase(input.query);
 
   const finalResponse = await anthropic.messages.create({
-    model: "claude-opus-4-7", // Works with all supported models
+    model: "claude-opus-4-8", // Works with all supported models
     max_tokens: 1024,
     messages: [
       { role: "user", content: "How do I configure the timeout settings?" },
@@ -266,11 +268,11 @@ if (response.content[0].type === "tool_use") {
           {
             type: "tool_result" as const,
             tool_use_id: response.content[0].id,
-            content: toolResult // Search results go here
-          }
-        ]
-      }
-    ]
+            content: toolResult, // Search results go here
+          },
+        ],
+      },
+    ],
   });
 }
 ```
@@ -309,7 +311,7 @@ public class Program
 
         var parameters = new MessageCreateParams
         {
-            Model = Model.ClaudeOpus4_7,
+            Model = Model.ClaudeOpus4_8,
             MaxTokens = 1024,
             Tools = new[] { knowledgeBaseTool },
             Messages = new[]
@@ -330,7 +332,7 @@ public class Program
 
             var finalParameters = new MessageCreateParams
             {
-                Model = Model.ClaudeOpus4_7,
+                Model = Model.ClaudeOpus4_8,
                 MaxTokens = 1024,
                 Messages = new[]
                 {
@@ -423,7 +425,7 @@ func main() {
 	}
 
 	response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 1024,
 		Tools:     []anthropic.ToolUnionParam{knowledgeBaseTool},
 		Messages: []anthropic.MessageParam{
@@ -449,7 +451,7 @@ func main() {
 			assistantParam := response.ToParam()
 
 			finalResponse, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-				Model:     anthropic.ModelClaudeOpus4_7,
+				Model:     anthropic.ModelClaudeOpus4_8,
 				MaxTokens: 1024,
 				Messages: []anthropic.MessageParam{
 					anthropic.NewUserMessage(anthropic.NewTextBlock("How do I configure the timeout settings?")),
@@ -529,7 +531,7 @@ public class SearchKnowledgeBaseExample {
             .build();
 
         MessageCreateParams params = MessageCreateParams.builder()
-            .model(Model.CLAUDE_OPUS_4_7)
+            .model(Model.CLAUDE_OPUS_4_8)
             .maxTokens(1024L)
             .addTool(knowledgeBaseTool)
             .addUserMessage("How do I configure the timeout settings?")
@@ -543,7 +545,7 @@ public class SearchKnowledgeBaseExample {
             );
 
             MessageCreateParams finalParams = MessageCreateParams.builder()
-                .model(Model.CLAUDE_OPUS_4_7)
+                .model(Model.CLAUDE_OPUS_4_8)
                 .maxTokens(1024L)
                 .addUserMessage("How do I configure the timeout settings?")
                 .addAssistantMessageOfBlockParams(List.of(
@@ -655,7 +657,7 @@ $response = $client->messages->create(
     messages: [
         ['role' => 'user', 'content' => 'How do I configure the timeout settings?']
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
     tools: [$knowledgeBaseTool],
 );
 
@@ -686,7 +688,7 @@ if ($toolUseBlock !== null) {
                 ]
             ]
         ],
-        model: 'claude-opus-4-7',
+        model: 'claude-opus-4-8',
     );
     echo $finalResponse;
 } else {
@@ -741,7 +743,7 @@ def search_knowledge_base(query)
 end
 
 response = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   tools: [knowledge_base_tool],
   messages: [
@@ -753,7 +755,7 @@ if response.content.first.type == :tool_use
   tool_result = search_knowledge_base(response.content.first.input["query"])
 
   final_response = client.messages.create(
-    model: "claude-opus-4-7",
+    model: "claude-opus-4-8",
     max_tokens: 1024,
     messages: [
       { role: "user", content: "How do I configure the timeout settings?" },
@@ -773,11 +775,13 @@ if response.content.first.type == :tool_use
   puts final_response
 end
 ```
+
 </CodeGroup>
 
 ## Method 2: Search results as top-level content
 
 You can also provide search results directly in user messages. This is useful for:
+
 - Pre-fetched content from your search infrastructure
 - Cached search results from previous queries
 - Content from external search services
@@ -794,7 +798,7 @@ curl https://api.anthropic.com/v1/messages \
      --header "content-type: application/json" \
      --data \
 '{
-    "model": "claude-opus-4-7",
+    "model": "claude-opus-4-8",
     "max_tokens": 1024,
     "messages": [
         {
@@ -840,7 +844,7 @@ curl https://api.anthropic.com/v1/messages \
 
 ```bash CLI
 ant messages create <<'YAML'
-model: claude-opus-4-7
+model: claude-opus-4-8
 max_tokens: 1024
 messages:
   - role: user
@@ -882,7 +886,7 @@ client = Anthropic()
 
 # Provide search results directly in the user message
 response = client.messages.create(
-    model="claude-opus-4-7",
+    model="claude-opus-4-8",
     max_tokens=1024,
     messages=[
         MessageParam(
@@ -931,7 +935,7 @@ const anthropic = new Anthropic();
 
 // Provide search results directly in the user message
 const response = await anthropic.messages.create({
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [
     {
@@ -944,10 +948,10 @@ const response = await anthropic.messages.create({
           content: [
             {
               type: "text" as const,
-              text: "All API requests must include an API key in the Authorization header. Keys can be generated from the dashboard. Rate limits: 1000 requests per hour for standard tier, 10000 for premium."
-            }
+              text: "All API requests must include an API key in the Authorization header. Keys can be generated from the dashboard. Rate limits: 1000 requests per hour for standard tier, 10000 for premium.",
+            },
           ],
-          citations: { enabled: true }
+          citations: { enabled: true },
         },
         {
           type: "search_result" as const,
@@ -956,18 +960,18 @@ const response = await anthropic.messages.create({
           content: [
             {
               type: "text" as const,
-              text: "To get started: 1) Sign up for an account, 2) Generate an API key from the dashboard, 3) Install our SDK using pip install company-sdk, 4) Initialize the client with your API key."
-            }
+              text: "To get started: 1) Sign up for an account, 2) Generate an API key from the dashboard, 3) Install our SDK using pip install company-sdk, 4) Initialize the client with your API key.",
+            },
           ],
-          citations: { enabled: true }
+          citations: { enabled: true },
         },
         {
           type: "text" as const,
-          text: "Based on these search results, how do I authenticate API requests and what are the rate limits?"
-        }
-      ]
-    }
-  ]
+          text: "Based on these search results, how do I authenticate API requests and what are the rate limits?",
+        },
+      ],
+    },
+  ],
 });
 
 console.log(response);
@@ -987,7 +991,7 @@ class Program
 
         var parameters = new MessageCreateParams
         {
-            Model = Model.ClaudeOpus4_7,
+            Model = Model.ClaudeOpus4_8,
             MaxTokens = 1024,
             Messages =
             [
@@ -1052,7 +1056,7 @@ func main() {
 	client := anthropic.NewClient()
 
 	response, err := client.Messages.New(context.TODO(), anthropic.MessageNewParams{
-		Model:     anthropic.ModelClaudeOpus4_7,
+		Model:     anthropic.ModelClaudeOpus4_8,
 		MaxTokens: 1024,
 		Messages: []anthropic.MessageParam{
 			anthropic.NewUserMessage(
@@ -1100,7 +1104,7 @@ public class SearchResultExample {
         AnthropicClient client = AnthropicOkHttpClient.fromEnv();
 
         MessageCreateParams params = MessageCreateParams.builder()
-            .model(Model.CLAUDE_OPUS_4_7)
+            .model(Model.CLAUDE_OPUS_4_8)
             .maxTokens(1024L)
             .addUserMessageOfBlockParams(List.of(
                 ContentBlockParam.ofSearchResult(
@@ -1185,7 +1189,7 @@ $message = $client->messages->create(
             ]
         ]
     ],
-    model: 'claude-opus-4-7',
+    model: 'claude-opus-4-8',
 );
 
 echo json_encode($message, JSON_PRETTY_PRINT);
@@ -1197,7 +1201,7 @@ require "anthropic"
 client = Anthropic::Client.new
 
 message = client.messages.create(
-  model: "claude-opus-4-7",
+  model: "claude-opus-4-8",
   max_tokens: 1024,
   messages: [
     {
@@ -1238,6 +1242,7 @@ message = client.messages.create(
 
 puts message
 ```
+
 </CodeGroup>
 
 ## Claude's response with citations
@@ -1290,15 +1295,15 @@ Regardless of how search results are provided, Claude automatically includes cit
 
 Each citation includes:
 
-| Field | Type | Description |
-|-------|------|-------------|
-| `type` | string | Always `"search_result_location"` for search result citations |
-| `source` | string | The source from the original search result |
-| `title` | string or null | The title from the original search result |
-| `cited_text` | string | The full text of the cited block(s), concatenated. Equals the contents of `content[start_block_index:end_block_index]` joined together. Not counted toward output tokens. |
-| `search_result_index` | integer | 0-based index of the cited search result among all `search_result` blocks in the request, in the order they appear (across all messages and tool results). |
-| `start_block_index` | integer | 0-based index of the first cited block in the search result's `content` array. |
-| `end_block_index` | integer | Exclusive end index of the cited block range in the search result's `content` array. Always greater than `start_block_index`. |
+| Field                 | Type           | Description                                                                                                                                                               |
+| --------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`                | string         | Always `"search_result_location"` for search result citations                                                                                                             |
+| `source`              | string         | The source from the original search result                                                                                                                                |
+| `title`               | string or null | The title from the original search result                                                                                                                                 |
+| `cited_text`          | string         | The full text of the cited block(s), concatenated. Equals the contents of `content[start_block_index:end_block_index]` joined together. Not counted toward output tokens. |
+| `search_result_index` | integer        | 0-based index of the cited search result among all `search_result` blocks in the request, in the order they appear (across all messages and tool results).                |
+| `start_block_index`   | integer        | 0-based index of the first cited block in the search result's `content` array.                                                                                            |
+| `end_block_index`     | integer        | Exclusive end index of the cited block range in the search result's `content` array. Always greater than `start_block_index`.                                             |
 
 The block indices identify a slice of the search result's `content` array, and `cited_text` is the full text of that slice. The text block is the minimal citable unit: Claude cites whole blocks, not substrings within a block. To get finer-grained citations, split your search result content into smaller blocks (see [Multiple content blocks](#multiple-content-blocks)).
 
@@ -1454,6 +1459,7 @@ By default, citations are disabled for search results. You can enable citations 
 ```
 
 When `citations.enabled` is set to `true`, Claude includes citation references when using information from the search result. This enables:
+
 - Natural citations for your custom RAG applications
 - Source attribution when interfacing with proprietary knowledge bases
 - Web search-quality citations for any custom tool that returns search results
@@ -1489,7 +1495,7 @@ Citations are all-or-nothing: either all search results in a request must have c
    - Keep formatting consistent
 
 3. **Handle errors gracefully:**
-   
+
    ```python nocheck
    def search_with_fallback(query):
        try:

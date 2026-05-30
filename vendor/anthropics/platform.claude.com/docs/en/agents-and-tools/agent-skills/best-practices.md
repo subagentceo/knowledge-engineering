@@ -13,6 +13,7 @@ For conceptual background on how Skills work, see the [Skills overview](/docs/en
 ### Concise is key
 
 The [context window](/docs/en/build-with-claude/context-windows) is a public good. Your Skill shares the context window with everything else Claude needs to know, including:
+
 - The system prompt
 - Conversation history
 - Other Skills' metadata
@@ -23,11 +24,13 @@ Not every token in your Skill has an immediate cost. At startup, only the metada
 **Default assumption:** Claude is already very smart
 
 Only add context Claude doesn't already have. Challenge each piece of information:
+
 - "Does Claude really need this explanation?"
 - "Can I assume Claude knows this?"
 - "Does this paragraph justify its token cost?"
 
 **Good example: Concise** (approximately 50 tokens):
+
 ````markdown
 ## Extract PDF text
 
@@ -42,6 +45,7 @@ with pdfplumber.open("file.pdf") as pdf:
 ````
 
 **Bad example: Too verbose** (approximately 150 tokens):
+
 ```markdown
 ## Extract PDF text
 
@@ -61,11 +65,13 @@ Match the level of specificity to the task's fragility and variability.
 **High freedom** (text-based instructions):
 
 Use when:
+
 - Multiple approaches are valid
 - Decisions depend on context
 - Heuristics guide the approach
 
 Example:
+
 ```markdown
 ## Code review process
 
@@ -78,11 +84,13 @@ Example:
 **Medium freedom** (pseudocode or scripts with parameters):
 
 Use when:
+
 - A preferred pattern exists
 - Some variation is acceptable
 - Configuration affects behavior
 
 Example:
+
 ````markdown
 ## Generate report
 
@@ -99,11 +107,13 @@ def generate_report(data, format="markdown", include_charts=True):
 **Low freedom** (specific scripts, few or no parameters):
 
 Use when:
+
 - Operations are fragile and error-prone
 - Consistency is critical
 - A specific sequence must be followed
 
 Example:
+
 ````markdown
 ## Database migration
 
@@ -117,6 +127,7 @@ Do not modify the command or add additional flags.
 ````
 
 **Analogy:** Think of Claude as a robot exploring a path:
+
 - **Narrow bridge with cliffs on both sides:** There's only one safe way forward. Provide specific guardrails and exact instructions (low freedom). Example: database migrations that must run in exact sequence.
 - **Open field with no hazards:** Many paths lead to success. Give general direction and trust Claude to find the best route (high freedom). Example: code reviews where context determines the best approach.
 
@@ -125,6 +136,7 @@ Do not modify the command or add additional flags.
 Skills act as additions to models, so effectiveness depends on the underlying model. Test your Skill with all the models you plan to use it with.
 
 **Testing considerations by model:**
+
 - **Claude Haiku** (fast, economical): Does the Skill provide enough guidance?
 - **Claude Sonnet** (balanced): Is the Skill clear and efficient?
 - **Claude Opus** (powerful reasoning): Does the Skill avoid over-explaining?
@@ -137,12 +149,14 @@ What works perfectly for Opus might need more detail for Haiku. If you plan to u
 **YAML Frontmatter:** The SKILL.md frontmatter requires two fields:
 
 `name`:
+
 - Maximum 64 characters
 - Must contain only lowercase letters, numbers, and hyphens
 - Cannot contain XML tags
 - Cannot contain reserved words: "anthropic", "claude"
 
 `description`:
+
 - Must be non-empty
 - Maximum 1024 characters
 - Cannot contain XML tags
@@ -158,6 +172,7 @@ Use consistent naming patterns to make Skills easier to reference and discuss. C
 Remember that the `name` field must use lowercase letters, numbers, and hyphens only.
 
 **Good naming examples (gerund form):**
+
 - `processing-pdfs`
 - `analyzing-spreadsheets`
 - `managing-databases`
@@ -165,16 +180,19 @@ Remember that the `name` field must use lowercase letters, numbers, and hyphens 
 - `writing-documentation`
 
 **Acceptable alternatives:**
+
 - Noun phrases: `pdf-processing`, `spreadsheet-analysis`
 - Action-oriented: `process-pdfs`, `analyze-spreadsheets`
 
 **Avoid:**
+
 - Vague names: `helper`, `utils`, `tools`
 - Overly generic: `documents`, `data`, `files`
 - Reserved words: `anthropic-helper`, `claude-tools`
 - Inconsistent patterns within your skill collection
 
 Consistent naming makes it easier to:
+
 - Reference Skills in documentation and conversations
 - Understand what a Skill does at a glance
 - Organize and search through multiple Skills
@@ -190,7 +208,7 @@ The `description` field enables Skill discovery and should include both what the
 - **Good:** "Processes Excel files and generates reports"
 - **Avoid:** "I can help you process Excel files"
 - **Avoid:** "You can use this to process Excel files"
-</Warning>
+  </Warning>
 
 **Be specific and include key terms**. Include both what the Skill does and specific triggers/contexts for when to use it.
 
@@ -199,16 +217,19 @@ Each Skill has exactly one description field. The description is critical for sk
 Effective examples:
 
 **PDF Processing skill:**
+
 ```yaml
 description: Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when the user mentions PDFs, forms, or document extraction.
 ```
 
 **Excel Analysis skill:**
+
 ```yaml
 description: Analyze Excel spreadsheets, create pivot tables, generate charts. Use when analyzing Excel files, spreadsheets, tabular data, or .xlsx files.
 ```
 
 **Git Commit Helper skill:**
+
 ```yaml
 description: Generate descriptive commit messages by analyzing git diffs. Use when the user asks for help writing commit messages or reviewing staged changes.
 ```
@@ -218,9 +239,11 @@ Avoid vague descriptions like these:
 ```yaml
 description: Helps with documents
 ```
+
 ```yaml
 description: Processes data
 ```
+
 ```yaml
 description: Does stuff with files
 ```
@@ -230,6 +253,7 @@ description: Does stuff with files
 SKILL.md serves as an overview that points Claude to detailed materials as needed, like a table of contents in an onboarding guide. For an explanation of how progressive disclosure works, see [How Skills work](/docs/en/agents-and-tools/agent-skills/overview#how-skills-work) in the overview.
 
 **Practical guidance:**
+
 - Keep SKILL.md body under 500 lines for optimal performance
 - Split content into separate files when approaching this limit
 - Use the patterns below to organize instructions, code, and resources effectively
@@ -271,6 +295,7 @@ description: Extracts text and tables from PDF files, fills forms, and merges do
 ## Quick start
 
 Extract text with pdfplumber:
+
 ```python
 import pdfplumber
 with pdfplumber.open("file.pdf") as pdf:
@@ -349,18 +374,23 @@ Claude may partially read files when they're referenced from other referenced fi
 **Keep references one level deep from SKILL.md**. All reference files should link directly from SKILL.md to ensure Claude reads complete files when needed.
 
 **Bad example: Too deep**:
+
 ```markdown
 # SKILL.md
+
 See [advanced.md](advanced.md)...
 
 # advanced.md
+
 See [details.md](details.md)...
 
 # details.md
+
 Here's the actual information...
 ```
 
 **Good example: One level deep**:
+
 ```markdown
 # SKILL.md
 
@@ -375,10 +405,12 @@ Here's the actual information...
 For reference files longer than 100 lines, include a table of contents at the top. This ensures Claude can see the full scope of available information even when previewing with partial reads.
 
 **Example:**
+
 ```markdown
 # API Reference
 
 ## Contents
+
 - Authentication and setup
 - Core methods (create, read, update, delete)
 - Advanced features (batch operations, webhooks)
@@ -386,9 +418,11 @@ For reference files longer than 100 lines, include a table of contents at the to
 - Code examples
 
 ## Authentication and setup
+
 ...
 
 ## Core methods
+
 ...
 ```
 
@@ -433,6 +467,7 @@ For each major claim, verify it appears in the source material. Note which sourc
 **Step 4: Create structured summary**
 
 Organize findings by theme. Include:
+
 - Main claim
 - Supporting evidence from sources
 - Conflicting viewpoints (if any)
@@ -540,12 +575,14 @@ The validation loop catches errors early.
 Don't include information that will become outdated:
 
 **Bad example: Time-sensitive** (will become wrong):
+
 ```markdown
 If you're doing this before August 2025, use the old API.
 After August 2025, use the new API.
 ```
 
 **Good example** (use "old patterns" section):
+
 ```markdown
 ## Current method
 
@@ -559,6 +596,7 @@ Use the v2 API endpoint: `api.example.com/v2/messages`
 The v1 API used: `api.example.com/v1/messages`
 
 This endpoint is no longer supported.
+
 </details>
 ```
 
@@ -569,11 +607,13 @@ The old patterns section provides historical context without cluttering the main
 Choose one term and use it throughout the Skill:
 
 **Good - Consistent:**
+
 - Always "API endpoint"
 - Always "field"
 - Always "extract"
 
 **Bad - Inconsistent:**
+
 - Mix "API endpoint", "URL", "API route", "path"
 - Mix "field", "box", "element", "control"
 - Mix "extract", "pull", "get", "retrieve"
@@ -597,14 +637,17 @@ ALWAYS use this exact template structure:
 # [Analysis Title]
 
 ## Executive summary
+
 [One-paragraph overview of key findings]
 
 ## Key findings
+
 - Finding 1 with supporting data
 - Finding 2 with supporting data
 - Finding 3 with supporting data
 
 ## Recommendations
+
 1. Specific actionable recommendation
 2. Specific actionable recommendation
 ```
@@ -621,12 +664,15 @@ Here is a sensible default format, but use your best judgment based on the analy
 # [Analysis Title]
 
 ## Executive summary
+
 [Overview]
 
 ## Key findings
+
 [Adapt sections based on what you discover]
 
 ## Recommendations
+
 [Tailor to the specific context]
 ```
 
@@ -645,6 +691,7 @@ Generate commit messages following these examples:
 **Example 1:**
 Input: Added user authentication with JWT tokens
 Output:
+
 ```
 feat(auth): implement JWT-based authentication
 
@@ -654,6 +701,7 @@ Add login endpoint and token validation middleware
 **Example 2:**
 Input: Fixed bug where dates displayed incorrectly in reports
 Output:
+
 ```
 fix(reports): correct date formatting in timezone conversion
 
@@ -663,6 +711,7 @@ Use UTC timestamps consistently across report generation
 **Example 3:**
 Input: Updated dependencies and refactored error handling
 Output:
+
 ```
 chore: update dependencies and refactor error handling
 
@@ -710,6 +759,7 @@ If workflows become large or complicated with many steps, consider pushing them 
 **Create evaluations BEFORE writing extensive documentation.** This ensures your Skill solves real problems rather than documenting imagined ones.
 
 **Evaluation-driven development:**
+
 1. **Identify gaps:** Run Claude on representative tasks without a Skill. Document specific failures or missing context
 2. **Create evaluations:** Build three scenarios that test these gaps
 3. **Establish baseline:** Measure Claude's performance without the Skill
@@ -719,6 +769,7 @@ If workflows become large or complicated with many steps, consider pushing them 
 This approach ensures you're solving actual problems rather than anticipating requirements that may never materialize.
 
 **Evaluation structure:**
+
 ```json
 {
   "skills": ["pdf-processing"],
@@ -765,6 +816,7 @@ The most effective Skill development process involves Claude itself. Work with o
 **Iterating on existing Skills:**
 
 The same hierarchical pattern continues when improving Skills. You alternate between:
+
 - **Working with Claude A** (the expert who helps refine the Skill)
 - **Testing with Claude B** (the agent using the Skill to perform real work)
 - **Observing Claude B's behavior** and bringing insights back to Claude A
@@ -823,6 +875,7 @@ Don't present multiple approaches unless necessary:
 
 **Good example: Provide a default** (with escape hatch):
 "Use pdfplumber for text extraction:
+
 ```python
 import pdfplumber
 ```
@@ -892,6 +945,7 @@ RETRIES = 5  # Why 5?
 Even if Claude could write a script, pre-made scripts offer advantages:
 
 **Benefits of utility scripts:**
+
 - More reliable than generated code
 - Save tokens (no need to include code in context)
 - Save time (no code generation required)
@@ -902,12 +956,14 @@ Even if Claude could write a script, pre-made scripts offer advantages:
 The diagram above shows how executable scripts work alongside instruction files. The instruction file (forms.md) references the script, and Claude can execute it without loading its contents into context.
 
 **Important distinction:** Make clear in your instructions whether Claude should:
+
 - **Execute the script** (most common): "Run `analyze_form.py` to extract fields"
 - **Read it as reference** (for complex logic): "See `analyze_form.py` for the field extraction algorithm"
 
 For most utility scripts, execution is preferred because it's more reliable and efficient. See the [Runtime environment](#runtime-environment) section below for details on how script execution works.
 
 **Example:**
+
 ````markdown
 ## Utility scripts
 
@@ -918,10 +974,11 @@ python scripts/analyze_form.py input.pdf > fields.json
 ```
 
 Output format:
+
 ```json
 {
-  "field_name": {"type": "text", "x": 100, "y": 200},
-  "signature": {"type": "sig", "x": 150, "y": 500}
+  "field_name": { "type": "text", "x": 100, "y": 200 },
+  "signature": { "type": "sig", "x": 150, "y": 500 }
 }
 ```
 
@@ -947,6 +1004,7 @@ When inputs can be rendered as images, have Claude analyze them:
 ## Form layout analysis
 
 1. Convert PDF to images:
+
    ```bash
    python scripts/pdf_to_images.py form.pdf
    ```
@@ -970,6 +1028,7 @@ When Claude performs complex, open-ended tasks, it can make mistakes. The "plan-
 **Solution:** Use the workflow pattern shown above (PDF form filling), but add an intermediate `changes.json` file that gets validated before applying changes. The workflow becomes: analyze → **create plan file** → **validate plan** → execute → verify.
 
 **Why this pattern works:**
+
 - **Catches errors early:** Validation finds problems before changes are applied
 - **Machine-verifiable:** Scripts provide objective verification
 - **Reversible planning:** Claude can iterate on the plan without touching originals
@@ -1035,12 +1094,14 @@ If your Skill uses MCP (Model Context Protocol) tools, always use fully qualifie
 **Format:** `ServerName:tool_name`
 
 **Example:**
+
 ```markdown
 Use the BigQuery:bigquery_schema tool to retrieve table schemas.
 Use the GitHub:create_issue tool to create issues.
 ```
 
 Where:
+
 - `BigQuery` and `GitHub` are MCP server names
 - `bigquery_schema` and `create_issue` are the tool names within those servers
 
@@ -1058,10 +1119,12 @@ Don't assume packages are available:
 "Install required package: `pip install pypdf`
 
 Then use it:
-```python
+
+````python
 from pypdf import PdfReader
 reader = PdfReader("file.pdf")
 ```"
+````
 ````
 
 ## Technical notes
@@ -1069,6 +1132,7 @@ reader = PdfReader("file.pdf")
 ### YAML frontmatter requirements
 
 The SKILL.md frontmatter requires `name` and `description` fields with specific validation rules:
+
 - `name`: Maximum 64 characters, lowercase letters/numbers/hyphens only, no XML tags, no reserved words
 - `description`: Maximum 1024 characters, non-empty, no XML tags
 
@@ -1083,6 +1147,7 @@ Keep SKILL.md body under 500 lines for optimal performance. If your content exce
 Before sharing a Skill, verify:
 
 ### Core quality
+
 - [ ] Description is specific and includes key terms
 - [ ] Description includes both what the Skill does and when to use it
 - [ ] SKILL.md body is under 500 lines
@@ -1095,6 +1160,7 @@ Before sharing a Skill, verify:
 - [ ] Workflows have clear steps
 
 ### Code and scripts
+
 - [ ] Scripts solve problems rather than punt to Claude
 - [ ] Error handling is explicit and helpful
 - [ ] No "voodoo constants" (all values justified)
@@ -1105,6 +1171,7 @@ Before sharing a Skill, verify:
 - [ ] Feedback loops included for quality-critical tasks
 
 ### Testing
+
 - [ ] At least three evaluations created
 - [ ] Tested with Haiku, Sonnet, and Opus
 - [ ] Tested with real usage scenarios

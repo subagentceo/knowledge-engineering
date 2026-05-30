@@ -1,4 +1,5 @@
 > ## Documentation Index
+>
 > Fetch the complete documentation index at: https://claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -10,11 +11,11 @@ Custom skills extend Claude with specialized knowledge and workflows. This guide
 
 Skills can range from simple instruction sets to multi-file packages with executable code. Effective skills:
 
-* Solve a specific, repeatable task
-* Have clear instructions Claude can follow
-* Include examples when helpful
-* Define when they should be used
-* Focus on one workflow rather than trying to do everything
+- Solve a specific, repeatable task
+- Have clear instructions Claude can follow
+- Include examples when helpful
+- Define when they should be used
+- Focus on one workflow rather than trying to do everything
 
 <Note>
   Skills follow the [Agent Skills specification](https://agentskills.io/specification) — see the specification for more in-depth information.
@@ -59,10 +60,10 @@ description: Apply Acme Corp brand guidelines to presentations and documents, in
 
 After the frontmatter, write markdown instructions for Claude. Include:
 
-* Step-by-step procedures
-* Examples of inputs and outputs
-* Templates or formatting requirements
-* Edge cases to handle
+- Step-by-step procedures
+- Examples of inputs and outputs
+- Templates or formatting requirements
+- Edge cases to handle
 
 Keep your main `SKILL.md` under 500 lines. Move detailed reference material to separate files.
 
@@ -98,6 +99,7 @@ Use the full-color logo on light backgrounds, white logo on dark backgrounds. Ma
 ## When to apply
 
 Apply these guidelines when creating:
+
 - PowerPoint presentations
 - Word documents for external sharing
 - Marketing materials
@@ -110,9 +112,9 @@ See the [assets/](assets/) folder for logo files and font downloads.
 
 For content too detailed for `SKILL.md`, add files to your skill directory:
 
-* **`references/`**: Additional documentation Claude can read when needed
-* **`assets/`**: Templates, images, lookup tables, schemas
-* **`scripts/`**: Executable code (see below)
+- **`references/`**: Additional documentation Claude can read when needed
+- **`assets/`**: Templates, images, lookup tables, schemas
+- **`scripts/`**: Executable code (see below)
 
 Reference these files in `SKILL.md` so Claude knows when to load them. Keep files focused—smaller files mean less context usage.
 
@@ -186,9 +188,9 @@ my-skill.zip
 
 ## Security considerations
 
-* Don't hardcode sensitive information (API keys, passwords)
-* Review any downloaded skills before enabling them
-* Use MCP connections for external service access
+- Don't hardcode sensitive information (API keys, passwords)
+- Review any downloaded skills before enabling them
+- Use MCP connections for external service access
 
 ## Example skills
 

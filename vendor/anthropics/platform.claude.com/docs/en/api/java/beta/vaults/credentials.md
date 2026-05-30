@@ -1,6 +1,6 @@
 # Credentials
 
-## Create
+## Create Credential
 
 `BetaManagedAgentsCredential beta().vaults().credentials().create(CredentialCreateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -11,13 +11,11 @@ Create Credential
 ### Parameters
 
 - `CredentialCreateParams params`
-
   - `Optional<String> vaultId`
 
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -66,14 +64,18 @@ Create Credential
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
   - `Auth auth`
 
     Authentication details for creating a credential.
-
     - `class BetaManagedAgentsMcpOAuthCreateParams:`
 
       Parameters for creating an MCP OAuth credential.
-
       - `String accessToken`
 
         OAuth access token.
@@ -83,7 +85,6 @@ Create Credential
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `MCP_OAUTH("mcp_oauth")`
 
       - `Optional<LocalDateTime> expiresAt`
@@ -93,7 +94,6 @@ Create Credential
       - `Optional<BetaManagedAgentsMcpOAuthRefreshParams> refresh`
 
         OAuth refresh token parameters for creating a credential with refresh support.
-
         - `String clientId`
 
           OAuth client ID.
@@ -109,37 +109,30 @@ Create Credential
         - `TokenEndpointAuth tokenEndpointAuth`
 
           Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneParam:`
 
             Token endpoint requires no client authentication.
-
             - `Type type`
-
               - `NONE("none")`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicParam:`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `String clientSecret`
 
               OAuth client secret.
 
             - `Type type`
-
               - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostParam:`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `String clientSecret`
 
               OAuth client secret.
 
             - `Type type`
-
               - `CLIENT_SECRET_POST("client_secret_post")`
 
         - `Optional<String> resource`
@@ -153,7 +146,6 @@ Create Credential
     - `class BetaManagedAgentsStaticBearerCreateParams:`
 
       Parameters for creating a static bearer token credential.
-
       - `String token`
 
         Static bearer token value.
@@ -163,7 +155,6 @@ Create Credential
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `STATIC_BEARER("static_bearer")`
 
   - `Optional<String> displayName`
@@ -179,7 +170,6 @@ Create Credential
 - `class BetaManagedAgentsCredential:`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `String id`
 
     Unique identifier for the credential.
@@ -191,17 +181,14 @@ Create Credential
   - `Auth auth`
 
     Authentication details for a credential.
-
     - `class BetaManagedAgentsMcpOAuthAuthResponse:`
 
       OAuth credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `MCP_OAUTH("mcp_oauth")`
 
       - `Optional<LocalDateTime> expiresAt`
@@ -211,7 +198,6 @@ Create Credential
       - `Optional<BetaManagedAgentsMcpOAuthRefreshResponse> refresh`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `String clientId`
 
           OAuth client ID.
@@ -223,29 +209,22 @@ Create Credential
         - `TokenEndpointAuth tokenEndpointAuth`
 
           Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
             Token endpoint requires no client authentication.
-
             - `Type type`
-
               - `NONE("none")`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_POST("client_secret_post")`
 
         - `Optional<String> resource`
@@ -259,13 +238,11 @@ Create Credential
     - `class BetaManagedAgentsStaticBearerAuthResponse:`
 
       Static bearer token credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `STATIC_BEARER("static_bearer")`
 
   - `LocalDateTime createdAt`
@@ -277,7 +254,6 @@ Create Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `Type type`
-
     - `VAULT_CREDENTIAL("vault_credential")`
 
   - `LocalDateTime updatedAt`
@@ -322,7 +298,28 @@ public final class Main {
 }
 ```
 
-## List
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## List Credentials
 
 `CredentialListPage beta().vaults().credentials().list(CredentialListParamsparams = CredentialListParams.none(), RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -333,7 +330,6 @@ List Credentials
 ### Parameters
 
 - `CredentialListParams params`
-
   - `Optional<String> vaultId`
 
   - `Optional<Boolean> includeArchived`
@@ -351,7 +347,6 @@ List Credentials
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -400,12 +395,17 @@ List Credentials
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaManagedAgentsCredential:`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `String id`
 
     Unique identifier for the credential.
@@ -417,17 +417,14 @@ List Credentials
   - `Auth auth`
 
     Authentication details for a credential.
-
     - `class BetaManagedAgentsMcpOAuthAuthResponse:`
 
       OAuth credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `MCP_OAUTH("mcp_oauth")`
 
       - `Optional<LocalDateTime> expiresAt`
@@ -437,7 +434,6 @@ List Credentials
       - `Optional<BetaManagedAgentsMcpOAuthRefreshResponse> refresh`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `String clientId`
 
           OAuth client ID.
@@ -449,29 +445,22 @@ List Credentials
         - `TokenEndpointAuth tokenEndpointAuth`
 
           Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
             Token endpoint requires no client authentication.
-
             - `Type type`
-
               - `NONE("none")`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_POST("client_secret_post")`
 
         - `Optional<String> resource`
@@ -485,13 +474,11 @@ List Credentials
     - `class BetaManagedAgentsStaticBearerAuthResponse:`
 
       Static bearer token credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `STATIC_BEARER("static_bearer")`
 
   - `LocalDateTime createdAt`
@@ -503,7 +490,6 @@ List Credentials
     Arbitrary key-value metadata attached to the credential.
 
   - `Type type`
-
     - `VAULT_CREDENTIAL("vault_credential")`
 
   - `LocalDateTime updatedAt`
@@ -539,7 +525,33 @@ public final class Main {
 }
 ```
 
-## Retrieve
+#### Response
+
+```json
+{
+  "data": [
+    {
+      "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+      "archived_at": null,
+      "auth": {
+        "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+        "type": "static_bearer"
+      },
+      "created_at": "2026-03-15T10:00:00Z",
+      "metadata": {
+        "environment": "production"
+      },
+      "type": "vault_credential",
+      "updated_at": "2026-03-15T10:00:00Z",
+      "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+      "display_name": "Example credential"
+    }
+  ],
+  "next_page": "page_MjAyNS0wNS0xNFQwMDowMDowMFo="
+}
+```
+
+## Get Credential
 
 `BetaManagedAgentsCredential beta().vaults().credentials().retrieve(CredentialRetrieveParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -550,7 +562,6 @@ Get Credential
 ### Parameters
 
 - `CredentialRetrieveParams params`
-
   - `String vaultId`
 
   - `Optional<String> credentialId`
@@ -558,7 +569,6 @@ Get Credential
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -607,12 +617,17 @@ Get Credential
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaManagedAgentsCredential:`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `String id`
 
     Unique identifier for the credential.
@@ -624,17 +639,14 @@ Get Credential
   - `Auth auth`
 
     Authentication details for a credential.
-
     - `class BetaManagedAgentsMcpOAuthAuthResponse:`
 
       OAuth credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `MCP_OAUTH("mcp_oauth")`
 
       - `Optional<LocalDateTime> expiresAt`
@@ -644,7 +656,6 @@ Get Credential
       - `Optional<BetaManagedAgentsMcpOAuthRefreshResponse> refresh`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `String clientId`
 
           OAuth client ID.
@@ -656,29 +667,22 @@ Get Credential
         - `TokenEndpointAuth tokenEndpointAuth`
 
           Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
             Token endpoint requires no client authentication.
-
             - `Type type`
-
               - `NONE("none")`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_POST("client_secret_post")`
 
         - `Optional<String> resource`
@@ -692,13 +696,11 @@ Get Credential
     - `class BetaManagedAgentsStaticBearerAuthResponse:`
 
       Static bearer token credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `STATIC_BEARER("static_bearer")`
 
   - `LocalDateTime createdAt`
@@ -710,7 +712,6 @@ Get Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `Type type`
-
     - `VAULT_CREDENTIAL("vault_credential")`
 
   - `LocalDateTime updatedAt`
@@ -750,7 +751,28 @@ public final class Main {
 }
 ```
 
-## Update
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## Update Credential
 
 `BetaManagedAgentsCredential beta().vaults().credentials().update(CredentialUpdateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -761,7 +783,6 @@ Update Credential
 ### Parameters
 
 - `CredentialUpdateParams params`
-
   - `String vaultId`
 
   - `Optional<String> credentialId`
@@ -769,7 +790,6 @@ Update Credential
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -818,16 +838,19 @@ Update Credential
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
   - `Optional<Auth> auth`
 
     Updated authentication details for a credential.
-
     - `class BetaManagedAgentsMcpOAuthUpdateParams:`
 
       Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
-
       - `Type type`
-
         - `MCP_OAUTH("mcp_oauth")`
 
       - `Optional<String> accessToken`
@@ -841,7 +864,6 @@ Update Credential
       - `Optional<BetaManagedAgentsMcpOAuthRefreshUpdateParams> refresh`
 
         Parameters for updating OAuth refresh token configuration.
-
         - `Optional<String> refreshToken`
 
           Updated OAuth refresh token.
@@ -853,13 +875,10 @@ Update Credential
         - `Optional<TokenEndpointAuth> tokenEndpointAuth`
 
           Updated HTTP Basic authentication parameters for the token endpoint.
-
           - `class BetaManagedAgentsTokenEndpointAuthBasicUpdateParam:`
 
             Updated HTTP Basic authentication parameters for the token endpoint.
-
             - `Type type`
-
               - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
             - `Optional<String> clientSecret`
@@ -869,9 +888,7 @@ Update Credential
           - `class BetaManagedAgentsTokenEndpointAuthPostUpdateParam:`
 
             Updated POST body authentication parameters for the token endpoint.
-
             - `Type type`
-
               - `CLIENT_SECRET_POST("client_secret_post")`
 
             - `Optional<String> clientSecret`
@@ -881,9 +898,7 @@ Update Credential
     - `class BetaManagedAgentsStaticBearerUpdateParams:`
 
       Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
-
       - `Type type`
-
         - `STATIC_BEARER("static_bearer")`
 
       - `Optional<String> token`
@@ -903,7 +918,6 @@ Update Credential
 - `class BetaManagedAgentsCredential:`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `String id`
 
     Unique identifier for the credential.
@@ -915,17 +929,14 @@ Update Credential
   - `Auth auth`
 
     Authentication details for a credential.
-
     - `class BetaManagedAgentsMcpOAuthAuthResponse:`
 
       OAuth credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `MCP_OAUTH("mcp_oauth")`
 
       - `Optional<LocalDateTime> expiresAt`
@@ -935,7 +946,6 @@ Update Credential
       - `Optional<BetaManagedAgentsMcpOAuthRefreshResponse> refresh`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `String clientId`
 
           OAuth client ID.
@@ -947,29 +957,22 @@ Update Credential
         - `TokenEndpointAuth tokenEndpointAuth`
 
           Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
             Token endpoint requires no client authentication.
-
             - `Type type`
-
               - `NONE("none")`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_POST("client_secret_post")`
 
         - `Optional<String> resource`
@@ -983,13 +986,11 @@ Update Credential
     - `class BetaManagedAgentsStaticBearerAuthResponse:`
 
       Static bearer token credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `STATIC_BEARER("static_bearer")`
 
   - `LocalDateTime createdAt`
@@ -1001,7 +1002,6 @@ Update Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `Type type`
-
     - `VAULT_CREDENTIAL("vault_credential")`
 
   - `LocalDateTime updatedAt`
@@ -1041,7 +1041,28 @@ public final class Main {
 }
 ```
 
-## Delete
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## Delete Credential
 
 `BetaManagedAgentsDeletedCredential beta().vaults().credentials().delete(CredentialDeleteParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -1052,7 +1073,6 @@ Delete Credential
 ### Parameters
 
 - `CredentialDeleteParams params`
-
   - `String vaultId`
 
   - `Optional<String> credentialId`
@@ -1060,7 +1080,6 @@ Delete Credential
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -1109,18 +1128,22 @@ Delete Credential
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaManagedAgentsDeletedCredential:`
 
   Confirmation of a deleted credential.
-
   - `String id`
 
     Unique identifier of the deleted credential.
 
   - `Type type`
-
     - `VAULT_CREDENTIAL_DELETED("vault_credential_deleted")`
 
 ### Example
@@ -1148,7 +1171,16 @@ public final class Main {
 }
 ```
 
-## Archive
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "type": "vault_credential_deleted"
+}
+```
+
+## Archive Credential
 
 `BetaManagedAgentsCredential beta().vaults().credentials().archive(CredentialArchiveParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -1159,7 +1191,6 @@ Archive Credential
 ### Parameters
 
 - `CredentialArchiveParams params`
-
   - `String vaultId`
 
   - `Optional<String> credentialId`
@@ -1167,7 +1198,6 @@ Archive Credential
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -1216,12 +1246,17 @@ Archive Credential
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaManagedAgentsCredential:`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `String id`
 
     Unique identifier for the credential.
@@ -1233,17 +1268,14 @@ Archive Credential
   - `Auth auth`
 
     Authentication details for a credential.
-
     - `class BetaManagedAgentsMcpOAuthAuthResponse:`
 
       OAuth credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `MCP_OAUTH("mcp_oauth")`
 
       - `Optional<LocalDateTime> expiresAt`
@@ -1253,7 +1285,6 @@ Archive Credential
       - `Optional<BetaManagedAgentsMcpOAuthRefreshResponse> refresh`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `String clientId`
 
           OAuth client ID.
@@ -1265,29 +1296,22 @@ Archive Credential
         - `TokenEndpointAuth tokenEndpointAuth`
 
           Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
             Token endpoint requires no client authentication.
-
             - `Type type`
-
               - `NONE("none")`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_POST("client_secret_post")`
 
         - `Optional<String> resource`
@@ -1301,13 +1325,11 @@ Archive Credential
     - `class BetaManagedAgentsStaticBearerAuthResponse:`
 
       Static bearer token credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `STATIC_BEARER("static_bearer")`
 
   - `LocalDateTime createdAt`
@@ -1319,7 +1341,6 @@ Archive Credential
     Arbitrary key-value metadata attached to the credential.
 
   - `Type type`
-
     - `VAULT_CREDENTIAL("vault_credential")`
 
   - `LocalDateTime updatedAt`
@@ -1359,7 +1380,28 @@ public final class Main {
 }
 ```
 
-## MCP OAuth Validate
+#### Response
+
+```json
+{
+  "id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "archived_at": null,
+  "auth": {
+    "mcp_server_url": "https://example-server.modelcontextprotocol.io/sse",
+    "type": "static_bearer"
+  },
+  "created_at": "2026-03-15T10:00:00Z",
+  "metadata": {
+    "environment": "production"
+  },
+  "type": "vault_credential",
+  "updated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv",
+  "display_name": "Example credential"
+}
+```
+
+## Validate Credential
 
 `BetaManagedAgentsCredentialValidation beta().vaults().credentials().mcpOAuthValidate(CredentialMcpOAuthValidateParamsparams, RequestOptionsrequestOptions = RequestOptions.none())`
 
@@ -1370,7 +1412,6 @@ Validate Credential
 ### Parameters
 
 - `CredentialMcpOAuthValidateParams params`
-
   - `String vaultId`
 
   - `Optional<String> credentialId`
@@ -1378,7 +1419,6 @@ Validate Credential
   - `Optional<List<AnthropicBeta>> betas`
 
     Optional header to specify the beta version(s) you want to use.
-
     - `MESSAGE_BATCHES_2024_09_24("message-batches-2024-09-24")`
 
     - `PROMPT_CACHING_2024_07_31("prompt-caching-2024-07-31")`
@@ -1427,12 +1467,17 @@ Validate Credential
 
     - `MANAGED_AGENTS_2026_04_01("managed-agents-2026-04-01")`
 
+    - `CACHE_DIAGNOSIS_2026_04_07("cache-diagnosis-2026-04-07")`
+
+    - `THINKING_TOKEN_COUNT_2026_05_13("thinking-token-count-2026-05-13")`
+
+    - `MID_CONVERSATION_SYSTEM_2026_04_07("mid-conversation-system-2026-04-07")`
+
 ### Returns
 
 - `class BetaManagedAgentsCredentialValidation:`
 
   Result of live-probing a credential against its configured MCP server.
-
   - `String credentialId`
 
     Unique identifier of the credential that was validated.
@@ -1444,11 +1489,9 @@ Validate Credential
   - `Optional<BetaManagedAgentsMcpProbe> mcpProbe`
 
     The failing step of an MCP validation probe.
-
     - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
 
       An HTTP response captured during a credential validation probe.
-
       - `String body`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -1472,31 +1515,13 @@ Validate Credential
   - `Optional<BetaManagedAgentsRefreshObject> refresh`
 
     Outcome of a refresh-token exchange attempted during credential validation.
-
     - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
 
       An HTTP response captured during a credential validation probe.
 
-      - `String body`
-
-        Response body. May be truncated and has sensitive values scrubbed.
-
-      - `boolean bodyTruncated`
-
-        Whether `body` was truncated.
-
-      - `String contentType`
-
-        Value of the `Content-Type` response header.
-
-      - `long statusCode`
-
-        HTTP status code.
-
     - `Status status`
 
       Outcome of a refresh-token exchange attempted during credential validation.
-
       - `SUCCEEDED("succeeded")`
 
       - `FAILED("failed")`
@@ -1508,7 +1533,6 @@ Validate Credential
   - `BetaManagedAgentsCredentialValidationStatus status`
 
     Overall verdict of a credential validation probe.
-
     - `VALID("valid")`
 
     - `INVALID("invalid")`
@@ -1516,7 +1540,6 @@ Validate Credential
     - `UNKNOWN("unknown")`
 
   - `Type type`
-
     - `VAULT_CREDENTIAL_VALIDATION("vault_credential_validation")`
 
   - `LocalDateTime validatedAt`
@@ -1552,6 +1575,37 @@ public final class Main {
 }
 ```
 
+#### Response
+
+```json
+{
+  "credential_id": "vcrd_011CZkZEMt8gZan2iYOQfSkw",
+  "has_refresh_token": true,
+  "mcp_probe": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "method": "method"
+  },
+  "refresh": {
+    "http_response": {
+      "body": "body",
+      "body_truncated": true,
+      "content_type": "content_type",
+      "status_code": 0
+    },
+    "status": "succeeded"
+  },
+  "status": "valid",
+  "type": "vault_credential_validation",
+  "validated_at": "2026-03-15T10:00:00Z",
+  "vault_id": "vlt_011CZkZDLs7fYzm1hXNPeRjv"
+}
+```
+
 ## Domain Types
 
 ### Beta Managed Agents Credential
@@ -1559,7 +1613,6 @@ public final class Main {
 - `class BetaManagedAgentsCredential:`
 
   A credential stored in a vault. Sensitive fields are never returned in responses.
-
   - `String id`
 
     Unique identifier for the credential.
@@ -1571,17 +1624,14 @@ public final class Main {
   - `Auth auth`
 
     Authentication details for a credential.
-
     - `class BetaManagedAgentsMcpOAuthAuthResponse:`
 
       OAuth credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `MCP_OAUTH("mcp_oauth")`
 
       - `Optional<LocalDateTime> expiresAt`
@@ -1591,7 +1641,6 @@ public final class Main {
       - `Optional<BetaManagedAgentsMcpOAuthRefreshResponse> refresh`
 
         OAuth refresh token configuration returned in credential responses.
-
         - `String clientId`
 
           OAuth client ID.
@@ -1603,29 +1652,22 @@ public final class Main {
         - `TokenEndpointAuth tokenEndpointAuth`
 
           Token endpoint requires no client authentication.
-
           - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
             Token endpoint requires no client authentication.
-
             - `Type type`
-
               - `NONE("none")`
 
           - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
             Token endpoint uses HTTP Basic authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
           - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
             Token endpoint uses POST body authentication with client credentials.
-
             - `Type type`
-
               - `CLIENT_SECRET_POST("client_secret_post")`
 
         - `Optional<String> resource`
@@ -1639,13 +1681,11 @@ public final class Main {
     - `class BetaManagedAgentsStaticBearerAuthResponse:`
 
       Static bearer token credential details for an MCP server.
-
       - `String mcpServerUrl`
 
         URL of the MCP server this credential authenticates against.
 
       - `Type type`
-
         - `STATIC_BEARER("static_bearer")`
 
   - `LocalDateTime createdAt`
@@ -1657,7 +1697,6 @@ public final class Main {
     Arbitrary key-value metadata attached to the credential.
 
   - `Type type`
-
     - `VAULT_CREDENTIAL("vault_credential")`
 
   - `LocalDateTime updatedAt`
@@ -1677,7 +1716,6 @@ public final class Main {
 - `class BetaManagedAgentsCredentialValidation:`
 
   Result of live-probing a credential against its configured MCP server.
-
   - `String credentialId`
 
     Unique identifier of the credential that was validated.
@@ -1689,11 +1727,9 @@ public final class Main {
   - `Optional<BetaManagedAgentsMcpProbe> mcpProbe`
 
     The failing step of an MCP validation probe.
-
     - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
 
       An HTTP response captured during a credential validation probe.
-
       - `String body`
 
         Response body. May be truncated and has sensitive values scrubbed.
@@ -1717,31 +1753,13 @@ public final class Main {
   - `Optional<BetaManagedAgentsRefreshObject> refresh`
 
     Outcome of a refresh-token exchange attempted during credential validation.
-
     - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
 
       An HTTP response captured during a credential validation probe.
 
-      - `String body`
-
-        Response body. May be truncated and has sensitive values scrubbed.
-
-      - `boolean bodyTruncated`
-
-        Whether `body` was truncated.
-
-      - `String contentType`
-
-        Value of the `Content-Type` response header.
-
-      - `long statusCode`
-
-        HTTP status code.
-
     - `Status status`
 
       Outcome of a refresh-token exchange attempted during credential validation.
-
       - `SUCCEEDED("succeeded")`
 
       - `FAILED("failed")`
@@ -1753,7 +1771,6 @@ public final class Main {
   - `BetaManagedAgentsCredentialValidationStatus status`
 
     Overall verdict of a credential validation probe.
-
     - `VALID("valid")`
 
     - `INVALID("invalid")`
@@ -1761,7 +1778,6 @@ public final class Main {
     - `UNKNOWN("unknown")`
 
   - `Type type`
-
     - `VAULT_CREDENTIAL_VALIDATION("vault_credential_validation")`
 
   - `LocalDateTime validatedAt`
@@ -1777,7 +1793,6 @@ public final class Main {
 - `enum BetaManagedAgentsCredentialValidationStatus:`
 
   Overall verdict of a credential validation probe.
-
   - `VALID("valid")`
 
   - `INVALID("invalid")`
@@ -1789,13 +1804,11 @@ public final class Main {
 - `class BetaManagedAgentsDeletedCredential:`
 
   Confirmation of a deleted credential.
-
   - `String id`
 
     Unique identifier of the deleted credential.
 
   - `Type type`
-
     - `VAULT_CREDENTIAL_DELETED("vault_credential_deleted")`
 
 ### Beta Managed Agents MCP OAuth Auth Response
@@ -1803,13 +1816,11 @@ public final class Main {
 - `class BetaManagedAgentsMcpOAuthAuthResponse:`
 
   OAuth credential details for an MCP server.
-
   - `String mcpServerUrl`
 
     URL of the MCP server this credential authenticates against.
 
   - `Type type`
-
     - `MCP_OAUTH("mcp_oauth")`
 
   - `Optional<LocalDateTime> expiresAt`
@@ -1819,7 +1830,6 @@ public final class Main {
   - `Optional<BetaManagedAgentsMcpOAuthRefreshResponse> refresh`
 
     OAuth refresh token configuration returned in credential responses.
-
     - `String clientId`
 
       OAuth client ID.
@@ -1831,29 +1841,22 @@ public final class Main {
     - `TokenEndpointAuth tokenEndpointAuth`
 
       Token endpoint requires no client authentication.
-
       - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
         Token endpoint requires no client authentication.
-
         - `Type type`
-
           - `NONE("none")`
 
       - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
         Token endpoint uses HTTP Basic authentication with client credentials.
-
         - `Type type`
-
           - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
       - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
         Token endpoint uses POST body authentication with client credentials.
-
         - `Type type`
-
           - `CLIENT_SECRET_POST("client_secret_post")`
 
     - `Optional<String> resource`
@@ -1869,7 +1872,6 @@ public final class Main {
 - `class BetaManagedAgentsMcpOAuthCreateParams:`
 
   Parameters for creating an MCP OAuth credential.
-
   - `String accessToken`
 
     OAuth access token.
@@ -1879,7 +1881,6 @@ public final class Main {
     URL of the MCP server this credential authenticates against.
 
   - `Type type`
-
     - `MCP_OAUTH("mcp_oauth")`
 
   - `Optional<LocalDateTime> expiresAt`
@@ -1889,7 +1890,6 @@ public final class Main {
   - `Optional<BetaManagedAgentsMcpOAuthRefreshParams> refresh`
 
     OAuth refresh token parameters for creating a credential with refresh support.
-
     - `String clientId`
 
       OAuth client ID.
@@ -1905,37 +1905,30 @@ public final class Main {
     - `TokenEndpointAuth tokenEndpointAuth`
 
       Token endpoint requires no client authentication.
-
       - `class BetaManagedAgentsTokenEndpointAuthNoneParam:`
 
         Token endpoint requires no client authentication.
-
         - `Type type`
-
           - `NONE("none")`
 
       - `class BetaManagedAgentsTokenEndpointAuthBasicParam:`
 
         Token endpoint uses HTTP Basic authentication with client credentials.
-
         - `String clientSecret`
 
           OAuth client secret.
 
         - `Type type`
-
           - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
       - `class BetaManagedAgentsTokenEndpointAuthPostParam:`
 
         Token endpoint uses POST body authentication with client credentials.
-
         - `String clientSecret`
 
           OAuth client secret.
 
         - `Type type`
-
           - `CLIENT_SECRET_POST("client_secret_post")`
 
     - `Optional<String> resource`
@@ -1951,7 +1944,6 @@ public final class Main {
 - `class BetaManagedAgentsMcpOAuthRefreshParams:`
 
   OAuth refresh token parameters for creating a credential with refresh support.
-
   - `String clientId`
 
     OAuth client ID.
@@ -1967,37 +1959,30 @@ public final class Main {
   - `TokenEndpointAuth tokenEndpointAuth`
 
     Token endpoint requires no client authentication.
-
     - `class BetaManagedAgentsTokenEndpointAuthNoneParam:`
 
       Token endpoint requires no client authentication.
-
       - `Type type`
-
         - `NONE("none")`
 
     - `class BetaManagedAgentsTokenEndpointAuthBasicParam:`
 
       Token endpoint uses HTTP Basic authentication with client credentials.
-
       - `String clientSecret`
 
         OAuth client secret.
 
       - `Type type`
-
         - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
     - `class BetaManagedAgentsTokenEndpointAuthPostParam:`
 
       Token endpoint uses POST body authentication with client credentials.
-
       - `String clientSecret`
 
         OAuth client secret.
 
       - `Type type`
-
         - `CLIENT_SECRET_POST("client_secret_post")`
 
   - `Optional<String> resource`
@@ -2013,7 +1998,6 @@ public final class Main {
 - `class BetaManagedAgentsMcpOAuthRefreshResponse:`
 
   OAuth refresh token configuration returned in credential responses.
-
   - `String clientId`
 
     OAuth client ID.
@@ -2025,29 +2009,22 @@ public final class Main {
   - `TokenEndpointAuth tokenEndpointAuth`
 
     Token endpoint requires no client authentication.
-
     - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
       Token endpoint requires no client authentication.
-
       - `Type type`
-
         - `NONE("none")`
 
     - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
       Token endpoint uses HTTP Basic authentication with client credentials.
-
       - `Type type`
-
         - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
     - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
       Token endpoint uses POST body authentication with client credentials.
-
       - `Type type`
-
         - `CLIENT_SECRET_POST("client_secret_post")`
 
   - `Optional<String> resource`
@@ -2063,7 +2040,6 @@ public final class Main {
 - `class BetaManagedAgentsMcpOAuthRefreshUpdateParams:`
 
   Parameters for updating OAuth refresh token configuration.
-
   - `Optional<String> refreshToken`
 
     Updated OAuth refresh token.
@@ -2075,13 +2051,10 @@ public final class Main {
   - `Optional<TokenEndpointAuth> tokenEndpointAuth`
 
     Updated HTTP Basic authentication parameters for the token endpoint.
-
     - `class BetaManagedAgentsTokenEndpointAuthBasicUpdateParam:`
 
       Updated HTTP Basic authentication parameters for the token endpoint.
-
       - `Type type`
-
         - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
       - `Optional<String> clientSecret`
@@ -2091,9 +2064,7 @@ public final class Main {
     - `class BetaManagedAgentsTokenEndpointAuthPostUpdateParam:`
 
       Updated POST body authentication parameters for the token endpoint.
-
       - `Type type`
-
         - `CLIENT_SECRET_POST("client_secret_post")`
 
       - `Optional<String> clientSecret`
@@ -2105,9 +2076,7 @@ public final class Main {
 - `class BetaManagedAgentsMcpOAuthUpdateParams:`
 
   Parameters for updating an MCP OAuth credential. The `mcp_server_url` is immutable.
-
   - `Type type`
-
     - `MCP_OAUTH("mcp_oauth")`
 
   - `Optional<String> accessToken`
@@ -2121,7 +2090,6 @@ public final class Main {
   - `Optional<BetaManagedAgentsMcpOAuthRefreshUpdateParams> refresh`
 
     Parameters for updating OAuth refresh token configuration.
-
     - `Optional<String> refreshToken`
 
       Updated OAuth refresh token.
@@ -2133,13 +2101,10 @@ public final class Main {
     - `Optional<TokenEndpointAuth> tokenEndpointAuth`
 
       Updated HTTP Basic authentication parameters for the token endpoint.
-
       - `class BetaManagedAgentsTokenEndpointAuthBasicUpdateParam:`
 
         Updated HTTP Basic authentication parameters for the token endpoint.
-
         - `Type type`
-
           - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
         - `Optional<String> clientSecret`
@@ -2149,9 +2114,7 @@ public final class Main {
       - `class BetaManagedAgentsTokenEndpointAuthPostUpdateParam:`
 
         Updated POST body authentication parameters for the token endpoint.
-
         - `Type type`
-
           - `CLIENT_SECRET_POST("client_secret_post")`
 
         - `Optional<String> clientSecret`
@@ -2163,11 +2126,9 @@ public final class Main {
 - `class BetaManagedAgentsMcpProbe:`
 
   The failing step of an MCP validation probe.
-
   - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
 
     An HTTP response captured during a credential validation probe.
-
     - `String body`
 
       Response body. May be truncated and has sensitive values scrubbed.
@@ -2193,7 +2154,6 @@ public final class Main {
 - `class BetaManagedAgentsRefreshHttpResponse:`
 
   An HTTP response captured during a credential validation probe.
-
   - `String body`
 
     Response body. May be truncated and has sensitive values scrubbed.
@@ -2215,11 +2175,9 @@ public final class Main {
 - `class BetaManagedAgentsRefreshObject:`
 
   Outcome of a refresh-token exchange attempted during credential validation.
-
   - `Optional<BetaManagedAgentsRefreshHttpResponse> httpResponse`
 
     An HTTP response captured during a credential validation probe.
-
     - `String body`
 
       Response body. May be truncated and has sensitive values scrubbed.
@@ -2239,7 +2197,6 @@ public final class Main {
   - `Status status`
 
     Outcome of a refresh-token exchange attempted during credential validation.
-
     - `SUCCEEDED("succeeded")`
 
     - `FAILED("failed")`
@@ -2253,13 +2210,11 @@ public final class Main {
 - `class BetaManagedAgentsStaticBearerAuthResponse:`
 
   Static bearer token credential details for an MCP server.
-
   - `String mcpServerUrl`
 
     URL of the MCP server this credential authenticates against.
 
   - `Type type`
-
     - `STATIC_BEARER("static_bearer")`
 
 ### Beta Managed Agents Static Bearer Create Params
@@ -2267,7 +2222,6 @@ public final class Main {
 - `class BetaManagedAgentsStaticBearerCreateParams:`
 
   Parameters for creating a static bearer token credential.
-
   - `String token`
 
     Static bearer token value.
@@ -2277,7 +2231,6 @@ public final class Main {
     URL of the MCP server this credential authenticates against.
 
   - `Type type`
-
     - `STATIC_BEARER("static_bearer")`
 
 ### Beta Managed Agents Static Bearer Update Params
@@ -2285,9 +2238,7 @@ public final class Main {
 - `class BetaManagedAgentsStaticBearerUpdateParams:`
 
   Parameters for updating a static bearer token credential. The `mcp_server_url` is immutable.
-
   - `Type type`
-
     - `STATIC_BEARER("static_bearer")`
 
   - `Optional<String> token`
@@ -2299,13 +2250,11 @@ public final class Main {
 - `class BetaManagedAgentsTokenEndpointAuthBasicParam:`
 
   Token endpoint uses HTTP Basic authentication with client credentials.
-
   - `String clientSecret`
 
     OAuth client secret.
 
   - `Type type`
-
     - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
 ### Beta Managed Agents Token Endpoint Auth Basic Response
@@ -2313,9 +2262,7 @@ public final class Main {
 - `class BetaManagedAgentsTokenEndpointAuthBasicResponse:`
 
   Token endpoint uses HTTP Basic authentication with client credentials.
-
   - `Type type`
-
     - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
 ### Beta Managed Agents Token Endpoint Auth Basic Update Param
@@ -2323,9 +2270,7 @@ public final class Main {
 - `class BetaManagedAgentsTokenEndpointAuthBasicUpdateParam:`
 
   Updated HTTP Basic authentication parameters for the token endpoint.
-
   - `Type type`
-
     - `CLIENT_SECRET_BASIC("client_secret_basic")`
 
   - `Optional<String> clientSecret`
@@ -2337,9 +2282,7 @@ public final class Main {
 - `class BetaManagedAgentsTokenEndpointAuthNoneParam:`
 
   Token endpoint requires no client authentication.
-
   - `Type type`
-
     - `NONE("none")`
 
 ### Beta Managed Agents Token Endpoint Auth None Response
@@ -2347,9 +2290,7 @@ public final class Main {
 - `class BetaManagedAgentsTokenEndpointAuthNoneResponse:`
 
   Token endpoint requires no client authentication.
-
   - `Type type`
-
     - `NONE("none")`
 
 ### Beta Managed Agents Token Endpoint Auth Post Param
@@ -2357,13 +2298,11 @@ public final class Main {
 - `class BetaManagedAgentsTokenEndpointAuthPostParam:`
 
   Token endpoint uses POST body authentication with client credentials.
-
   - `String clientSecret`
 
     OAuth client secret.
 
   - `Type type`
-
     - `CLIENT_SECRET_POST("client_secret_post")`
 
 ### Beta Managed Agents Token Endpoint Auth Post Response
@@ -2371,9 +2310,7 @@ public final class Main {
 - `class BetaManagedAgentsTokenEndpointAuthPostResponse:`
 
   Token endpoint uses POST body authentication with client credentials.
-
   - `Type type`
-
     - `CLIENT_SECRET_POST("client_secret_post")`
 
 ### Beta Managed Agents Token Endpoint Auth Post Update Param
@@ -2381,9 +2318,7 @@ public final class Main {
 - `class BetaManagedAgentsTokenEndpointAuthPostUpdateParam:`
 
   Updated POST body authentication parameters for the token endpoint.
-
   - `Type type`
-
     - `CLIENT_SECRET_POST("client_secret_post")`
 
   - `Optional<String> clientSecret`

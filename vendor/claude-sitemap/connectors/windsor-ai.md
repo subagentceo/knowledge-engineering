@@ -1,3 +1,5 @@
+# Windsor.ai
+
 Analyze multi-channel marketing, analytics, sales, and e-commerce data within Claude by connecting to your Windsor.ai data flows: Query metrics from over 325 sources. Fetch and blend data from top platforms like Facebook, Google Ads, Instagram, Google Analytics 4, TikTok, Shopify, Salesforce, HubSpot, Google My Business, and LinkedIn into actionable intelligence for smarter, faster decision-making with accurate, up-to-date business information.
 
 You can use Windsor.ai to:

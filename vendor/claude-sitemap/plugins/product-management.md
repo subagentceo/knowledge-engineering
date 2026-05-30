@@ -1,3 +1,5 @@
+# Product Management
+
 Product Management covers the full PM workflow: writing feature specs, managing roadmaps, communicating with stakeholders, synthesizing user research, analyzing competitors, and tracking product metrics.
 
 Use `/write-spec` to generate structured PRDs from a problem statement or feature idea, complete with user stories, requirements prioritization, and success metrics. Plan and reprioritize your roadmap with `/roadmap-update`, supporting Now/Next/Later, quarterly themes, and OKR-aligned formats.
