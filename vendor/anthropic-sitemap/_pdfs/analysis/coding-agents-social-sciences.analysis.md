@@ -49,26 +49,26 @@ A survey of 1,260 quantitative social scientists (US/Canada R1 universities) fin
 
 ## Key metrics & numbers
 
-| Metric | Value |
-|---|---|
-| Analytic sample | 1,260 |
-| Academics emailed | 44,700 |
-| Tried genAI in research | 81% |
-| Regular coding-agent use | 20% |
-| Claude Code share among agent users | 86% |
-| Codex share among agent users | 31% |
-| Male-name vs female-name adoption | >2x |
-| Top-25 university uplift | ~40% |
-| From top-25 institutions | 28% |
-| Economists using agents | 39% |
-| Political scientists | 25% |
-| Public health / education / communication | 6% / 4% / 6% |
-| Code generation (agent users) | 97% |
-| Code generation (other AI users) | 77% |
-| Adjusted output uplift range | ~10% to ~75% |
-| Productivity slider >5 | 88% |
-| Productivity slider ≥8 | ~50% |
-| More optimistic on productivity than field | 70% |
+| Metric                                     | Value        |
+| ------------------------------------------ | ------------ |
+| Analytic sample                            | 1,260        |
+| Academics emailed                          | 44,700       |
+| Tried genAI in research                    | 81%          |
+| Regular coding-agent use                   | 20%          |
+| Claude Code share among agent users        | 86%          |
+| Codex share among agent users              | 31%          |
+| Male-name vs female-name adoption          | >2x          |
+| Top-25 university uplift                   | ~40%         |
+| From top-25 institutions                   | 28%          |
+| Economists using agents                    | 39%          |
+| Political scientists                       | 25%          |
+| Public health / education / communication  | 6% / 4% / 6% |
+| Code generation (agent users)              | 97%          |
+| Code generation (other AI users)           | 77%          |
+| Adjusted output uplift range               | ~10% to ~75% |
+| Productivity slider >5                     | 88%          |
+| Productivity slider ≥8                     | ~50%         |
+| More optimistic on productivity than field | 70%          |
 
 ## Figures & tables
 
@@ -78,7 +78,7 @@ A survey of 1,260 quantitative social scientists (US/Canada R1 universities) fin
 - **Figure 4** — Use cases (code vs edit vs draft) by agent-user status and by discipline.
 - **Figure 5 / 5b** — Research-output differences (adjusted), 95% CIs.
 - **Figure 6** — Beliefs: paper productivity vs field impact (10-point sliders).
-- **Figure A1** (appendix) — *Unadjusted* output differences (agent users post more working papers, submit more grants, but submit fewer journal papers; * p<0.05, ** p<0.01).
+- **Figure A1** (appendix) — _Unadjusted_ output differences (agent users post more working papers, submit more grants, but submit fewer journal papers; \* p<0.05, \*\* p<0.01).
 - **Table A1** — Sample by career stage × discipline.
 - **Table A2** — Main vs pilot sample comparison (selection-bias check).
 
@@ -100,11 +100,11 @@ A survey of 1,260 quantitative social scientists (US/Canada R1 universities) fin
 
 ## Notable quotes
 
-1. *"for the first time, core research tasks can be handed off to machines."*
-2. *"fast research execution should mean cheap and plentiful discovery."* (the optimistic case for agents)
-3. *"Only 20% of respondents use coding agents… even among interested respondents who self-selected into our survey, only ⅕ had adopted agents into their workflow."*
-4. *"those with typically male names have adopted coding agents at more than twice the rate of respondents with typically female names."*
-5. *"coding agents are more useful at getting projects up and running than they are at the last mile of perfecting a paper for journal submission."*
+1. _"for the first time, core research tasks can be handed off to machines."_
+2. _"fast research execution should mean cheap and plentiful discovery."_ (the optimistic case for agents)
+3. _"Only 20% of respondents use coding agents… even among interested respondents who self-selected into our survey, only ⅕ had adopted agents into their workflow."_
+4. _"those with typically male names have adopted coding agents at more than twice the rate of respondents with typically female names."_
+5. _"coding agents are more useful at getting projects up and running than they are at the last mile of perfecting a paper for journal submission."_
 
 ## Open questions
 
