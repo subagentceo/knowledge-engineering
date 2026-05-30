@@ -1,3 +1,5 @@
+# Introducing Claude Design by Anthropic Labs
+
 ProductAnnouncements
 
 # Introducing Claude Design by Anthropic Labs
@@ -6,9 +8,9 @@ Apr 17, 2026
 
 ![Introducing Claude Design by Anthropic Labs](https://www-cdn.anthropic.com/images/4zrzovbb/website/33dbe8f783d4835a838b4c4ae85d3c04e352fee1-1000x1000.svg)
 
-Today, we’re launching Claude Design, a new [Anthropic Labs](https://www.anthropic.com/news/introducing-anthropic-labs) product that lets you collaborate with Claude to create polished visual work like designs, prototypes, slides, one-pagers, and more.
+Today, we’re launching Claude Design, a new Anthropic Labs product that lets you collaborate with Claude to create polished visual work like designs, prototypes, slides, one-pagers, and more.
 
-Claude Design is powered by our most capable vision model, [Claude Opus 4.7](https://www.anthropic.com/news/claude-opus-4-7), and is available in research preview for Claude Pro, Max, Team, and Enterprise subscribers. We’re rolling out to users gradually throughout the day.
+Claude Design is powered by our most capable vision model, Claude Opus 4.7, and is available in research preview for Claude Pro, Max, Team, and Enterprise subscribers. We’re rolling out to users gradually throughout the day.
 
 ## Design with Claude
 
@@ -18,12 +20,12 @@ Claude Design gives designers room to explore widely and everyone else a way to 
 
 Teams have been using Claude Design for:
 
--   **Realistic prototypes:** Designers can turn static mockups into easily-shareable interactive prototypes to gather feedback and user-test, without code review or PRs.
--   **Product wireframes and mockups:** Product Managers can sketch out feature flows and hand them off to Claude Code for implementation, or share them with designers to refine further.
--   **Design explorations:** Designers can quickly create a wide range of directions to explore.
--   **Pitch decks and presentations:** Founders and Account Executives can go from a rough outline to a complete, on-brand deck in minutes, and then export as a PPTX or send to Canva.
--   **Marketing collateral:** Marketers can create landing pages, social media assets, and campaign visuals, then loop in designers to polish.
--   **Frontier design**: Anyone can build code-powered prototypes with voice, video, shaders, 3D and built-in AI.
+*   **Realistic prototypes:** Designers can turn static mockups into easily-shareable interactive prototypes to gather feedback and user-test, without code review or PRs.
+*   **Product wireframes and mockups:** Product Managers can sketch out feature flows and hand them off to Claude Code for implementation, or share them with designers to refine further.
+*   **Design explorations:** Designers can quickly create a wide range of directions to explore.
+*   **Pitch decks and presentations:** Founders and Account Executives can go from a rough outline to a complete, on-brand deck in minutes, and then export as a PPTX or send to Canva.
+*   **Marketing collateral:** Marketers can create landing pages, social media assets, and campaign visuals, then loop in designers to polish.
+*   **Frontier design**: Anyone can build code-powered prototypes with voice, video, shaders, 3D and built-in AI.
 
 ## How it works
 
@@ -70,28 +72,26 @@ Over the coming weeks, we'll make it easier to build integrations with Claude De
 
 ## Get started
 
-Claude Design is available for Claude Pro, Max, Team, and Enterprise subscribers. Access is included with your plan and uses your subscription limits, with the option to continue beyond those limits by enabling [extra usage](https://support.claude.com/en/articles/12429409-manage-extra-usage-for-paid-claude-plans).
+Claude Design is available for Claude Pro, Max, Team, and Enterprise subscribers. Access is included with your plan and uses your subscription limits, with the option to continue beyond those limits by enabling extra usage.
 
-For Enterprise organizations, Claude Design is off by default. Admins can enable it in [Organization settings](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans).
+For Enterprise organizations, Claude Design is off by default. Admins can enable it in Organization settings.
 
-Start designing at [claude.ai/design](http://claude.ai/redirect/website.v1.69d663a0-4d88-4d44-aa08-5b9dc41b4eb0/design).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-design-anthropic-labs)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-design-anthropic-labs)
+Start designing at claude.ai/design.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

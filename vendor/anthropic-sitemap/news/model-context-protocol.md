@@ -1,3 +1,5 @@
+# Introducing the Model Context Protocol
+
 Announcements
 
 # Introducing the Model Context Protocol
@@ -6,7 +8,7 @@ Nov 25, 2024
 
 ![An abstract illustration of critical context connecting to a central hub](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F3aabd8804251c0364cbde9d2e4be6dc8e8c2faec-2880x1620.png&w=3840&q=75)
 
-Today, we're open-sourcing the [Model Context Protocol](https://modelcontextprotocol.io) (MCP), a new standard for connecting AI assistants to the systems where data lives, including content repositories, business tools, and development environments. Its aim is to help frontier models produce better, more relevant responses.
+Today, we're open-sourcing the Model Context Protocol (MCP), a new standard for connecting AI assistants to the systems where data lives, including content repositories, business tools, and development environments. Its aim is to help frontier models produce better, more relevant responses.
 
 As AI assistants gain mainstream adoption, the industry has invested heavily in model capabilities, achieving rapid advances in reasoning and quality. Yet even the most sophisticated models are constrained by their isolation from data—trapped behind information silos and legacy systems. Every new data source requires its own custom implementation, making truly connected systems difficult to scale.
 
@@ -18,9 +20,9 @@ The Model Context Protocol is an open standard that enables developers to build 
 
 Today, we're introducing three major components of the Model Context Protocol for developers:
 
--   The Model Context Protocol [specification and SDKs](https://github.com/modelcontextprotocol)
--   Local MCP server support in the [Claude Desktop apps](https://claude.ai/redirect/website.v1.010bbeb5-7851-4e3f-8fb9-1ef471de8382/download)
--   An [open-source repository](https://github.com/modelcontextprotocol/servers) of MCP servers
+*   The Model Context Protocol specification and SDKs
+*   Local MCP server support in the Claude Desktop apps
+*   An open-source repository of MCP servers
 
 Claude 3.5 Sonnet is adept at quickly building MCP server implementations, making it easy for organizations and individuals to rapidly connect their most important datasets with a range of AI-powered tools. To help developers start exploring, we’re sharing pre-built MCP servers for popular enterprise systems like Google Drive, Slack, GitHub, Git, Postgres, and Puppeteer.
 
@@ -32,36 +34,34 @@ Instead of maintaining separate connectors for each data source, developers can 
 
 ## Getting started
 
-Developers can start building and testing MCP connectors today. All [Claude.ai](http://claude.ai/redirect/website.v1.010bbeb5-7851-4e3f-8fb9-1ef471de8382) plans support connecting MCP servers to the Claude Desktop app.
+Developers can start building and testing MCP connectors today. All Claude.ai plans support connecting MCP servers to the Claude Desktop app.
 
 Claude for Work customers can begin testing MCP servers locally, connecting Claude to internal systems and datasets. We'll soon provide developer toolkits for deploying remote production MCP servers that can serve your entire Claude for Work organization.
 
 To start building:
 
--   Install pre-built MCP servers through the [Claude Desktop app](https://claude.ai/redirect/website.v1.010bbeb5-7851-4e3f-8fb9-1ef471de8382/download)
--   Follow our [quickstart guide](https://modelcontextprotocol.io/quickstart) to build your first MCP server
--   Contribute to our [open-source repositories](https://github.com/modelcontextprotocol) of connectors and implementations
+*   Install pre-built MCP servers through the Claude Desktop app
+*   Follow our quickstart guide to build your first MCP server
+*   Contribute to our open-source repositories of connectors and implementations
 
 ## An open community
 
 MCP was created at Anthropic by David Soria Parra and Justin Spahr-Summers. We’re committed to building MCP as a collaborative, open-source project and ecosystem, and we’re eager to hear your feedback. Whether you’re an AI tool developer, an enterprise looking to leverage existing data, or an early adopter exploring the frontier, we invite you to build the future of context-aware AI together.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/model-context-protocol)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/model-context-protocol)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

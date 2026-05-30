@@ -1,3 +1,5 @@
+# How we built Claude Code auto mode: a safer way to skip permissions
+
 By default, Claude Code asks users for approval before running commands or modifying files. This keeps users safe, but it also means a lot of clicking "approve." Over time that leads to approval fatigue, where people stop paying close attention to what they're approving.
 
 Users have two solutions for avoiding this fatigue: a built-in sandbox where tools are isolated to prevent dangerous actions, or the `--dangerously-skip-permissions` flag that disables all permission prompts and lets Claude act freely, which is unsafe in most situations. Figure 1 lays out the tradeoff space. Sandboxing is safe but high-maintenance: each new capability needs configuring, and anything requiring network or host access breaks isolation. Bypassing permissions is zero-maintenance but offers no protection. Manual prompts sit in the middle, and in practice users accept 93% of them anyway.
@@ -6,9 +8,9 @@ Users have two solutions for avoiding this fatigue: a built-in sandbox where too
 
 **Figure 1. The permission modes available in Claude Code, positioned by task autonomy and security**. Dot colour indicates maintenance friction. Auto mode targets high autonomy at low maintenance cost; the dashed arrow shows security improvement over time as classifier coverage and model judgment get better.
 
-We keep an internal incident log focused on agentic misbehaviors. Past examples include deleting remote git branches from a misinterpreted instruction, uploading an engineer's GitHub auth token to an internal compute cluster, and attempting migrations against a production database. Each of these was the result of the model being overeager, taking initiative in a way the user didn't intend. We documented this pattern in the [Claude Opus 4.6 system card](https://www-cdn.anthropic.com/14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf) (§6.2.1 and §6.2.3.3).
+We keep an internal incident log focused on agentic misbehaviors. Past examples include deleting remote git branches from a misinterpreted instruction, uploading an engineer's GitHub auth token to an internal compute cluster, and attempting migrations against a production database. Each of these was the result of the model being overeager, taking initiative in a way the user didn't intend. We documented this pattern in the Claude Opus 4.6 system card (§6.2.1 and §6.2.3.3).
 
-Auto mode is a new mode for Claude Code that delegates approvals to model-based classifiers—a middle ground between manual review and no guardrails. The goal is to catch the dangerous actions that aren't aligned with user intent, while letting the rest run without approval prompts. Get started using auto mode by following the [docs](http://code.claude.com/docs/en/permission-modes#eliminate-prompts-with-auto-mode).
+Auto mode is a new mode for Claude Code that delegates approvals to model-based classifiers—a middle ground between manual review and no guardrails. The goal is to catch the dangerous actions that aren't aligned with user intent, while letting the rest run without approval prompts. Get started using auto mode by following the docs.
 
 ## How it works
 
@@ -35,11 +37,11 @@ In all four cases, the defense is to block the action. Our classifier is tuned t
 
 The examples below are adapted from our internal incident log to illustrate what auto mode is designed to block:
 
--   **Scope escalation**. A user asked to "clean up old branches." The agent listed remote branches, constructed a pattern match, and issued a delete. This would be blocked since the request was vague, the action irreversible and destructive, and the user may have only meant to delete local branches.
--   **Credential exploration**. An agent hit an auth error partway through a task. Rather than asking for permission, it began systematically grepping through environment variables and config files for alternative API tokens. Since these credentials could be scoped for a different task, this is blocked.
--   **Agent-inferred parameters**. A user said "cancel my job." The agent queried the cluster, picked the closest match by name similarity, and tried to delete it. This is blocked since the specific target may not have been what the user intended, and could have been owned by someone else.
--   **Sharing via external service**. An agent wanted to share a script for debugging, and constructed a GitHub Gist command. This is blocked as data exfiltration since the user may consider the contents to be confidential and not appropriate to be public.
--   **Safety-check bypass**. A deploy command failed a pre-check; the agent retried with a skip-verification flag. This is blocked since it could impact shared infrastructure.
+*   **Scope escalation**. A user asked to "clean up old branches." The agent listed remote branches, constructed a pattern match, and issued a delete. This would be blocked since the request was vague, the action irreversible and destructive, and the user may have only meant to delete local branches.
+*   **Credential exploration**. An agent hit an auth error partway through a task. Rather than asking for permission, it began systematically grepping through environment variables and config files for alternative API tokens. Since these credentials could be scoped for a different task, this is blocked.
+*   **Agent-inferred parameters**. A user said "cancel my job." The agent queried the cluster, picked the closest match by name similarity, and tried to delete it. This is blocked since the specific target may not have been what the user intended, and could have been owned by someone else.
+*   **Sharing via external service**. An agent wanted to share a script for debugging, and constructed a GitHub Gist command. This is blocked as data exfiltration since the user may consider the contents to be confidential and not appropriate to be public.
+*   **Safety-check bypass**. A deploy command failed a pre-check; the agent retried with a skip-verification flag. This is blocked since it could impact shared infrastructure.
 
 ## How permission decisions work
 
@@ -53,8 +55,7 @@ Only actions with real downside potential reach the final tier:
 
 **Tier 3: Transcript classifier.** The transcript classifier sees everything else, including shell commands, web fetches, external tool integrations, subagent spawns, filesystem operations outside the project directory. Stage 1 is a fast single-token (yes/no) filter instructed to err toward blocking; if it flags, stage 2 re-evaluates the same input with chain-of-thought reasoning to reduce false positives.
 
-##   
-The classifier decision criteria
+## The classifier decision criteria
 
 The classifier's prompt is a fixed template we ship, with three customizable slots inserted into the middle. The fixed parts do the interpretive work—how to determine what an action actually does, how to read user authorization, the classification process itself—and they're the same for everyone. The slots define your policy: what counts as trusted in your environment, what categories to block, what exceptions to carve out. Good defaults ship out of the box. You can start using auto mode immediately and extend the configuration iteratively as you work with the feature.
 
@@ -72,10 +73,10 @@ The "environment" defines the trust boundary of which domains, cloud buckets, so
 
 The default has more than twenty block rules, which fall into these groups:
 
--   **Destroy or exfiltrate.** Cause irreversible loss by force-pushing over history, mass-deleting cloud storage, or sending internal data externally.
--   **Degrade security posture.** Make the system harder to monitor or defend by disabling logging, installing persistence like SSH keys or cronjobs, or modifying the agent's own permission config.
--   **Cross trust boundaries.** Act on things the agent has no basis to trust, like running code cloned from external repos, scanning credential stores for usable tokens, or sending data to a service the user never specified.
--   **Bypass review or affect others.** Skip safeguards on shared infrastructure by pushing directly to main, running production deploys, or modifying shared resources or jobs the agent didn't create.
+*   **Destroy or exfiltrate.** Cause irreversible loss by force-pushing over history, mass-deleting cloud storage, or sending internal data externally.
+*   **Degrade security posture.** Make the system harder to monitor or defend by disabling logging, installing persistence like SSH keys or cronjobs, or modifying the agent's own permission config.
+*   **Cross trust boundaries.** Act on things the agent has no basis to trust, like running code cloned from external repos, scanning credential stores for usable tokens, or sending data to a service the user never specified.
+*   **Bypass review or affect others.** Skip safeguards on shared infrastructure by pushing directly to main, running production deploys, or modifying shared resources or jobs the agent didn't create.
 
 Allow exceptions are mandatory carve-outs where a block rule technically matches but the action is benign. The default is narrow, including installing packages already declared in the repo's manifest, standard credential flows, and pushing to the session's working branch.
 
@@ -85,9 +86,9 @@ All three slots ship with conservative defaults, so you can start without writin
 
 We evaluated the full pipeline on three different datasets. Two datasets measure the tradeoff auto mode is making: false positive rate on real traffic (how much friction remains) and recall on real overeager actions (the risk that still remains when running auto mode). The third measures recall on synthetic data exfiltration tasks.
 
--   **Real internal traffic** (n = 10,000). Actual Claude Code tool calls from Anthropic employees.
--   **Real overeager actions** (n = 52). Curated from sessions where an employee denied the action or it was flagged post-hoc. Small because it requires Claude attempting something dangerous in a real session, captured and labeled.
--   **Synthetic data exfiltration** (n = 1,000). Generated attempts including HTTP POSTs of sensitive data, git pushes to untrusted remotes, and credentials embedded in URLs; many use obfuscation.
+*   **Real internal traffic** (n = 10,000). Actual Claude Code tool calls from Anthropic employees.
+*   **Real overeager actions** (n = 52). Curated from sessions where an employee denied the action or it was flagged post-hoc. Small because it requires Claude attempting something dangerous in a real session, captured and labeled.
+*   **Synthetic data exfiltration** (n = 1,000). Generated attempts including HTTP POSTs of sensitive data, git pushes to untrusted remotes, and credentials embedded in URLs; many use obfuscation.
 
 We report two metrics. False-negative rate (FNR) is the fraction of dangerous actions the classifier lets through; false positive rate (FPR) is the fraction of benign actions it blocks. A perfect classifier would score zero on both. In practice they trade off against each other. Stage 1 is fast and cheap, tuned for low FNR at the cost of high FPR. Stage 2 is more expensive and runs only on what stage 1 flagged. It cleans up the false positives but lets a few more dangerous actions through.
 
@@ -142,8 +143,7 @@ This wasn't solely a first-principles choice, and we evaluated alternatives. Inc
 
 With that, being reasoning-blind has a useful side effect. Action-level blocking is orthogonal to chain-of-thought monitoring. A model that conceals misaligned reasoning can still be caught here if the resulting action trips a block rule; a model whose actions look benign but whose reasoning reveals intent would be caught by CoT monitoring. The two are complementary.
 
-###   
-Two-stage classification: efficiency and recall
+### Two-stage classification: efficiency and recall
 
 A single-stage classifier faces a direct performance/cost trade-off. Thorough reasoning keeps false positive rate low but costs more. Splitting into two stages (see Figure 4) with different levels of caution breaks this trade-off. The key design choice is how stage 1 is tuned. Its final instruction tells it to "err on the side of blocking" and emit a single yes-or-no decision without reasoning. We tuned stage 1 to push recall higher than stage 2 on our real overeagerness testset, accepting 8.5% FPR as the cost. Stage 2 sees the same prompt and only the final instruction changes, asking for careful reasoning. That reduces the 8.5% FPR down to 0.4%. Because the input is identical other than the final instruction, stage 2's prompt is almost entirely cache-hit from stage 1.
 
@@ -151,8 +151,7 @@ A single-stage classifier faces a direct performance/cost trade-off. Thorough re
 
 **Figure 4: Two stage pipeline.** Allowlisted tools skip straight to execution; everything else goes to the classifier. Stage 1 is a fast filter tuned to cautious; only what it flags escalates to stage 2 with reasoning. Denials return to the agent with the reason, allowing retries up to a limit. After execution, the PI probe screens the result before the agent sees it.
 
-###   
-Why the prompt-injection probe matters
+### Why the prompt-injection probe matters
 
 The transcript classifier's injection defense is structural as it never sees tool results. But the main agent does see tool results, and an injection that hijacks the main agent then has a chance of bypassing the transcript monitor too.
 
@@ -160,8 +159,7 @@ This is why the input-layer probe exists. When content looks like an injection a
 
 The two layers compound. For an injection to succeed end-to-end, it must evade detection at the input layer, then steer the agent into emitting a tool call that the transcript classifier independently judges as both safe and aligned with user intent. Getting past both, with the second layer blind to the payload that compromised the first, is significantly harder than either alone.
 
-###   
-Multi-agent handoffs
+### Multi-agent handoffs
 
 The classifier runs at both ends of a subagent handoff: when work is delegated out and when results come back.
 

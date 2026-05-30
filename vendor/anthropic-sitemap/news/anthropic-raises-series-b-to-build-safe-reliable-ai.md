@@ -1,3 +1,5 @@
+# Anthropic Raises Series B to build steerable, interpretable, robust AI systems
+
 Announcements
 
 # Anthropic Raises Series B to build steerable, interpretable, robust AI systems
@@ -6,7 +8,7 @@ Apr 29, 2022
 
 Anthropic, an AI safety and research company, has raised $580 million in a Series B. The financing will help Anthropic build large-scale experimental infrastructure to explore and improve the safety properties of computationally intensive AI models.  
   
-Since its founding at the beginning of 2021, Anthropic has conducted research into making systems that are more steerable, robust, and interpretable. On interpretability, it has made progress in mathematically [reverse engineering the behavior of small language models](https://transformer-circuits.pub/2021/framework/index.html) and begun to understand the source of [pattern-matching behavior in large language models](https://transformer-circuits.pub/2022/in-context-learning-and-induction-heads/index.html). On steerability and robustness, it has developed [baseline techniques to make large language models more “helpful and harmless”](https://arxiv.org/abs/2112.00861), and followed this up with [reinforcement learning to further improve these properties](https://arxiv.org/abs/2204.05862), as well as releasing a dataset to help other research labs train models that are more [aligned with human preferences](https://github.com/anthropics/hh-rlhf). It has also released an analysis of [sudden changes in performance in large language models and the societal impacts of this phenomenon](https://arxiv.org/abs/2202.07785), which demonstrates the need for studying safety issues at scale.  
+Since its founding at the beginning of 2021, Anthropic has conducted research into making systems that are more steerable, robust, and interpretable. On interpretability, it has made progress in mathematically reverse engineering the behavior of small language models and begun to understand the source of pattern-matching behavior in large language models. On steerability and robustness, it has developed baseline techniques to make large language models more “helpful and harmless”, and followed this up with reinforcement learning to further improve these properties, as well as releasing a dataset to help other research labs train models that are more aligned with human preferences. It has also released an analysis of sudden changes in performance in large language models and the societal impacts of this phenomenon, which demonstrates the need for studying safety issues at scale.  
   
 The purpose of this research is to develop the technical components necessary to build large-scale models which have better implicit safeguards and require less after-training interventions, as well as to develop the tools necessary to further look inside these models to be confident that the safeguards actually work. The company is also building out teams and partnerships dedicated to exploring the policy and societal impacts of these models.  
   
@@ -16,22 +18,20 @@ Anthropic is now a growing team of around 40 people based in a plant-filled offi
   
 The Series B follows the company raising $124 million in a Series A round in 2021. The Series B round was led by Sam Bankman-Fried, CEO of FTX. The round also included participation from Caroline Ellison, Jim McClave, Nishad Singh, Jaan Tallinn, and the Center for Emerging Risk Research (CERR).
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-raises-series-b-to-build-safe-reliable-ai)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-raises-series-b-to-build-safe-reliable-ai)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,14 +1,16 @@
+# Superposition, Memorization, and Double Descent
+
 InterpretabilityResearch
 
 # Superposition, Memorization, and Double Descent
 
 Jan 5, 2023
 
-[Read Paper](https://transformer-circuits.pub/2023/toy-double-descent/index.html)
+Read Paper
 
 ## Abstract
 
-In a [recent paper](https://transformer-circuits.pub/2022/toy_model/index.html), we found that simple neural networks trained on toy tasks often exhibit a phenomenon called superposition, where they represent more features than they have neurons. Our investigation was limited to the infinite-data, underfitting regime. But there's reason to believe that understanding overfitting might be important if we want to succeed at mechanistic interpretability, and that superposition might be a central part of the story.  
+In a recent paper, we found that simple neural networks trained on toy tasks often exhibit a phenomenon called superposition, where they represent more features than they have neurons. Our investigation was limited to the infinite-data, underfitting regime. But there's reason to believe that understanding overfitting might be important if we want to succeed at mechanistic interpretability, and that superposition might be a central part of the story.  
   
 Why should mechanistic interpretability care about overfitting? Despite overfitting being a central problem in machine learning, we have little mechanistic understanding of what exactly is going on when deep learning models overfit or memorize examples. Additionally, previous work has hinted that there may be an important link between overfitting and learning interpretable features.  
   
@@ -16,29 +18,27 @@ So understanding overfitting is important, but why should it be relevant to supe
   
 In this note, we offer a very preliminary investigation of training the same toy models in our previous paper on limited datasets. Despite being extremely simple, the toy model turns out to be a surprisingly rich case study for overfitting. In particular, we find the following:
 
--   Overfitting corresponds to storing data points, rather than features, in superposition.
--   Depending on dataset size, our models fall into two different regimes: an overfitting regime (characterized by storing data points in superposition), and a generalizing regime (characterized by storing features in superposition).  
+*   Overfitting corresponds to storing data points, rather than features, in superposition.
+*   Depending on dataset size, our models fall into two different regimes: an overfitting regime (characterized by storing data points in superposition), and a generalizing regime (characterized by storing features in superposition).  
     
--   We observe double descent as the model transitions between these regimes.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/superposition-memorization-and-double-descent)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/superposition-memorization-and-double-descent)
+*   We observe double descent as the model transitions between these regimes.
 
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

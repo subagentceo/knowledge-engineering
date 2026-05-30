@@ -1,3 +1,5 @@
+# Anthropic raises $13B Series F at $183B post-money valuation
+
 Announcements
 
 # Anthropic raises $13B Series F at $183B post-money valuation
@@ -16,28 +18,26 @@ Anthropic has seen rapid growth since the launch of Claude in March 2023. At the
 
 Anthropic’s trajectory has been driven by our leading technical talent, our focus on safety, and our frontier research, including pioneering alignment and interpretability work, all of which underpin the performance and reliability of our models. Every day more businesses, developers, and consumer power users are trusting Claude to help them solve their most challenging problems. Anthropic now serves over 300,000 business customers, and our number of large accounts—customers that each represent over $100,000 in run-rate revenue—has grown nearly 7x in the past year.
 
-This growth spans the entire Anthropic platform, with advancements for businesses, developers, and consumers. For businesses, our API and [industry-specific products](https://www.anthropic.com/news/claude-for-financial-services) make it easy to add powerful AI to their critical applications without complex integration work. Developers have made Claude Code their tool of choice since its full launch in May 2025. Claude Code has quickly taken off—already generating over $500 million in run-rate revenue with usage growing more than 10x in just three months. For individual users, the Pro and Max plans for Claude deliver enhanced AI capabilities for everyday tasks and specialized projects.
+This growth spans the entire Anthropic platform, with advancements for businesses, developers, and consumers. For businesses, our API and industry-specific products make it easy to add powerful AI to their critical applications without complex integration work. Developers have made Claude Code their tool of choice since its full launch in May 2025. Claude Code has quickly taken off—already generating over $500 million in run-rate revenue with usage growing more than 10x in just three months. For individual users, the Pro and Max plans for Claude deliver enhanced AI capabilities for everyday tasks and specialized projects.
 
 “Anthropic is on an exceptional trajectory, combining research excellence, technological leadership, and relentless focus on customers. We’re honored to partner with Dario and the team, and our lead investment in their Series F reflects our belief in their values and their ability to shape the future of responsible AI,” said Divesh Makan, Partner at ICONIQ. “Enterprise leaders tell us what we’re seeing firsthand—Claude is reliable, built on a trustworthy foundation, and guided by leaders truly focused on the long term.”
 
 The Series F investment will expand our capacity to meet growing enterprise demand, deepen our safety research, and support international expansion as we continue building reliable, interpretable, and steerable AI systems.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-raises-series-f-at-usd183b-post-money-valuation)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

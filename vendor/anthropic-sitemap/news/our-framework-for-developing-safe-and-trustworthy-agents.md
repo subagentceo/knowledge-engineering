@@ -1,3 +1,5 @@
+# Our framework for developing safe and trustworthy agents
+
 Policy
 
 # Our framework for developing safe and trustworthy agents
@@ -6,11 +8,11 @@ Aug 4, 2025
 
 ![Our framework for developing safe and trustworthy agents](https://www-cdn.anthropic.com/images/4zrzovbb/website/6507d83d1197bb8630131d363fb8bea838d79ca7-1000x1000.svg)
 
-The most popular AI tools today are assistants that respond to specific questions or prompts. But we’re now seeing the emergence of [AI agents](https://www.youtube.com/watch?v=LP5OCa20Zpg), which pursue tasks autonomously when given a goal. Think of an agent like a virtual collaborator that can independently handle complex projects from start to finish — all while you focus on other priorities.
+The most popular AI tools today are assistants that respond to specific questions or prompts. But we’re now seeing the emergence of AI agents, which pursue tasks autonomously when given a goal. Think of an agent like a virtual collaborator that can independently handle complex projects from start to finish — all while you focus on other priorities.
 
 Agents direct their own processes and tool usage, maintaining control over how they accomplish tasks with minimum human input. If you ask an agent to "help plan my wedding" it might autonomously research venues and vendors, compare pricing and availability, and create detailed timelines and budgets. Or if you ask it to "prepare my company’s board presentation", it might search through your connected Google Drive for relevant sales reports and financial documents, extract key metrics from multiple spreadsheets, and produce a report.
 
-Last year, we introduced [Claude Code](https://www.anthropic.com/claude-code), an agent that can autonomously write, debug, and edit code, and is used widely by software engineers. Many companies are also building their own agents using our models. [Trellix,](https://www.anthropic.com/customers/trellix) a cybersecurity firm, uses Claude to triage and investigate security issues. And [Block](https://www.anthropic.com/customers/block), a financial services company, has built an agent that allows non-technical staff to access its data systems using natural language, saving its engineers time.
+Last year, we introduced Claude Code, an agent that can autonomously write, debug, and edit code, and is used widely by software engineers. Many companies are also building their own agents using our models. Trellix, a cybersecurity firm, uses Claude to triage and investigate security issues. And Block, a financial services company, has built an agent that allows non-technical staff to access its data systems using natural language, saving its engineers time.
 
 ## Principles for trustworthy agents
 
@@ -38,12 +40,11 @@ In Claude Code, Claude shows its planned actions through a real-time to-do check
 
 _Claude Code’s to-do checklist which users can see in real-time_
 
-##   
-Aligning agents with human values and expectations
+## Aligning agents with human values and expectations
 
 Agents don't always act as humans intend. Our research has shown that when AI systems pursue goals autonomously, they can sometimes take actions that seem reasonable to the system but aren't what humans actually wanted. If a human asks an agent to "organize my files," the agent might automatically delete what it considers duplicates and move files to new folder structures—going far beyond simple organization to completely restructuring the user's system. While this stems from the agent trying to be helpful, it demonstrates how agents may lack the context to act appropriately even when their goals do align.
 
-More concerning are cases where agents pursue goals in ways that actively work against users' interests. [Our testing of extreme scenarios](https://www.anthropic.com/research/agentic-misalignment) has shown that when AI systems pursue goals autonomously, they can sometimes take action that seem reasonable to the system but violate what humans actually wanted. Users may also inadvertently prompt agents in ways that lead to unintended outcomes.
+More concerning are cases where agents pursue goals in ways that actively work against users' interests. Our testing of extreme scenarios has shown that when AI systems pursue goals autonomously, they can sometimes take action that seem reasonable to the system but violate what humans actually wanted. Users may also inadvertently prompt agents in ways that lead to unintended outcomes.
 
 Building reliable measures of agents’ value alignment is challenging. It’s hard to evaluate both the malign and benign causes of the problem at once. But we’re actively figuring out how to resolve this problem. Until we have, the transparency and control principles above will be particularly important.
 
@@ -51,15 +52,15 @@ Building reliable measures of agents’ value alignment is challenging. It’s h
 
 Agents can retain information across different tasks and interactions. This creates several potential privacy problems. Agents might inappropriately carry sensitive information from one context to another. For example, an agent might learn about confidential internal decisions from one department while helping with organizational planning, then inadvertently reference this information when assisting another department – exposing sensitive matters that should remain compartmentalized.
 
-Tools and processes that agents utilize should also be designed with the appropriate privacy protections and controls. The open-source [Model Context Protocol](https://www.anthropic.com/partners/mcp) (MCP) we created, which allows Claude to connect to other services, includes controls to enable users to allow or prevent Claude from accessing specific tools and processes, or what we call “connectors” in a given task. In implementing MCP, we included additional controls, such as the option to grant one-time or permanent access to information. Enterprise administrators can also set which connectors users in their organizations can connect to. We continue to explore ways to improve our privacy protection tooling.
+Tools and processes that agents utilize should also be designed with the appropriate privacy protections and controls. The open-source Model Context Protocol (MCP) we created, which allows Claude to connect to other services, includes controls to enable users to allow or prevent Claude from accessing specific tools and processes, or what we call “connectors” in a given task. In implementing MCP, we included additional controls, such as the option to grant one-time or permanent access to information. Enterprise administrators can also set which connectors users in their organizations can connect to. We continue to explore ways to improve our privacy protection tooling.
 
-We’ve also outlined steps our customers should take to [safeguard their data](https://support.anthropic.com/en/articles/11175166-getting-started-with-custom-integrations-using-remote-mcp) through measures like access permissions, authentication, and data segregation.
+We’ve also outlined steps our customers should take to safeguard their data through measures like access permissions, authentication, and data segregation.
 
 ## Securing agents’ interactions
 
 Agent systems should be designed to safeguard sensitive data and prevent misuse when interacting with other systems or agents. Since agents are tasked with achieving specific goals, attackers could trick an agent into ignoring its original instructions, revealing unauthorized information, or performing unintended actions by making it seem necessary to do so for the agent’s objectives (also referred to as "prompt injection"). Or attackers could exploit vulnerabilities in the tools or sub-agents that agents use.
 
-Claude already uses a system of [classifiers](https://www.anthropic.com/research/constitutional-classifiers) to detect and guard against misuses such as prompt injections, in addition to several [other layers of security](https://docs.anthropic.com/en/docs/claude-code/security). Our Threat Intelligence team conducts ongoing monitoring to assess and mitigate new or emerging forms of malicious behaviour. In addition, we [provide guidance](https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks) on how organizations using Claude can further decrease these risks. Tools added to our [Anthropic-reviewed MCP directory](https://www.anthropic.com/news/connectors-directory) must adhere to our security, safety, and compatibility [standards](https://support.anthropic.com/en/articles/11697096-anthropic-mcp-directory-policy).
+Claude already uses a system of classifiers to detect and guard against misuses such as prompt injections, in addition to several other layers of security. Our Threat Intelligence team conducts ongoing monitoring to assess and mitigate new or emerging forms of malicious behaviour. In addition, we provide guidance on how organizations using Claude can further decrease these risks. Tools added to our Anthropic-reviewed MCP directory must adhere to our security, safety, and compatibility standards.
 
 When we discover new malicious behaviors or vulnerabilities through our monitoring and research, we strive to address them quickly and continuously improve our security measures to stay ahead of evolving threats.
 
@@ -73,22 +74,20 @@ These principles will guide our current and future work on agent development, an
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

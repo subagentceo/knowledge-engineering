@@ -1,3 +1,5 @@
+# Introducing the Anthropic Economic Futures Program
+
 AnnouncementsPolicy
 
 # Introducing the Anthropic Economic Futures Program
@@ -6,25 +8,25 @@ Jun 27, 2025
 
 ![A stock chart moving up and to the right](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F7a472632580035058bc13bfea3b965fbb471a04e-1920x1079.png&w=3840&q=75)
 
-Today, we're announcing the [**Anthropic Economic Futures Program**](https://www.anthropic.com/economic-futures), a new initiative to support research and policy development focused on addressing AI’s economic impacts. We’re launching this initiative to understand how AI is reshaping the way we work and surface proposals on how to prepare for this shift. This program will serve as an extension of Anthropic’s Economic Index and its insights on AI usage across the workforce. Our goal for this program is to contribute to the development of new research and potential responses to the impacts of AI on the labor market and global economy. To accomplish this, the Economic Futures Program will focus on three pillars:
+Today, we're announcing the **Anthropic Economic Futures Program**, a new initiative to support research and policy development focused on addressing AI’s economic impacts. We’re launching this initiative to understand how AI is reshaping the way we work and surface proposals on how to prepare for this shift. This program will serve as an extension of Anthropic’s Economic Index and its insights on AI usage across the workforce. Our goal for this program is to contribute to the development of new research and potential responses to the impacts of AI on the labor market and global economy. To accomplish this, the Economic Futures Program will focus on three pillars:
 
--   **Research Grants**: Providing grants, API credits, and partnerships to enable researchers to investigate AI's effects on labor, productivity, and value creation;
--   **Evidence-Based Policy**: Creating forums for researchers, policymakers, and practitioners to develop and evaluate policy proposals on preparing for AI’s economic impacts, grounded in real-world data; and
--   **Economic Measurement and Data**: Scaling the Anthropic Economic Index to create longitudinal datasets tracking AI's economic usage and impact, with regular public data and research releases.
+*   **Research Grants**: Providing grants, API credits, and partnerships to enable researchers to investigate AI's effects on labor, productivity, and value creation;
+*   **Evidence-Based Policy**: Creating forums for researchers, policymakers, and practitioners to develop and evaluate policy proposals on preparing for AI’s economic impacts, grounded in real-world data; and
+*   **Economic Measurement and Data**: Scaling the Anthropic Economic Index to create longitudinal datasets tracking AI's economic usage and impact, with regular public data and research releases.
 
 These pillars support and build on each other: better data enables better research, which helps inform better policy.
 
 To start, the Economic Futures Program will fund research and bring together independent researchers and experts to study AI’s economic impacts and propose policy responses. We’ll do this through the following:
 
--   **Economic Futures Research Awards:** We will offer rapid grants up to $50,000 for empirical research on AI's economic impacts. Applications for research awards will be accepted on a rolling basis, with initial awards issued in mid-August. For full details, learn more [here](https://www.anthropic.com/economic-futures) and apply [here](https://forms.gle/jsyseT2mXtD578gM9).
--   **Economic Futures Symposia:** We are seeking evidence-based policy proposals that provide actionable recommendations for responding to AI’s effect on the labor market and economy. Authors of selected proposals will be invited to present at symposia events in Washington, DC (September 2025) and London (Novemberl 2025). Proposals for the Washington, DC symposia are due July 25, 2025. Proposals for the London symposia are due September 12, 2025. Learn more [here](https://www.anthropic.com/economic-futures) and apply [here](https://forms.gle/KLJ6FzBcpwUNxFVX7).
--   **Strategic Partnerships with Research Institutions:** We’re eager to partner with independent research institutions to expand the ecosystem of academics and research organizations who are contributing to this body of work. We will provide partners with API credits and other resources to support research into AI’s economic use and application. If you are an independent research institution interested in partnering with us on our Economic Futures work, please email a brief description of your organization and the specific research efforts you propose to support to [economicfutures@anthropic.com](mailto:economicfutures@anthropic.com).
+*   **Economic Futures Research Awards:** We will offer rapid grants up to $50,000 for empirical research on AI's economic impacts. Applications for research awards will be accepted on a rolling basis, with initial awards issued in mid-August. For full details, learn more here and apply here.
+*   **Economic Futures Symposia:** We are seeking evidence-based policy proposals that provide actionable recommendations for responding to AI’s effect on the labor market and economy. Authors of selected proposals will be invited to present at symposia events in Washington, DC (September 2025) and London (Novemberl 2025). Proposals for the Washington, DC symposia are due July 25, 2025. Proposals for the London symposia are due September 12, 2025. Learn more here and apply here.
+*   **Strategic Partnerships with Research Institutions:** We’re eager to partner with independent research institutions to expand the ecosystem of academics and research organizations who are contributing to this body of work. We will provide partners with API credits and other resources to support research into AI’s economic use and application. If you are an independent research institution interested in partnering with us on our Economic Futures work, please email a brief description of your organization and the specific research efforts you propose to support to economicfutures@anthropic.com.
 
 ## Why This Matters Now
 
-The economic questions raised by AI are both urgent and complex. Policymakers and industry leaders need a rigorous view of what’s _actually_ happening as AI adoption continues to expand across global labor markets and workplaces. There's no shortage of opinions about AI's economic outcomes. We believe it's fundamental to ground these conversations in real-world data and invest in ongoing empirical analysis to track AI usage trends over time. That’s why we launched the [Economic Index](https://www.anthropic.com/economic-index) –publishing research and public datasets on AI usage across the economy–as a first step.
+The economic questions raised by AI are both urgent and complex. Policymakers and industry leaders need a rigorous view of what’s _actually_ happening as AI adoption continues to expand across global labor markets and workplaces. There's no shortage of opinions about AI's economic outcomes. We believe it's fundamental to ground these conversations in real-world data and invest in ongoing empirical analysis to track AI usage trends over time. That’s why we launched the Economic Index –publishing research and public datasets on AI usage across the economy–as a first step.
 
-But we recognize that publishing data alone is not enough. We must also discuss potential solutions for managing AI’s impact on the economy and work. The proposals and frameworks we’ll need for the AI-enabled economy will require policymakers to consider fundamental questions about work, meaning, and what we want from the economy. There are already [early signs](https://www.axios.com/2025/05/29/ai-college-grads-work-jobs) of AI’s impact on the workforce. This is why we need research that keeps pace with AI’s development, to understand in real-time where this technology is creating economic opportunity—new jobs, increased productivity, novel forms of value creation—as well as where it might be causing dramatic shifts in labor dynamics. We believe this kind of effort can equip policymakers and broader society to successfully navigate the future.
+But we recognize that publishing data alone is not enough. We must also discuss potential solutions for managing AI’s impact on the economy and work. The proposals and frameworks we’ll need for the AI-enabled economy will require policymakers to consider fundamental questions about work, meaning, and what we want from the economy. There are already early signs of AI’s impact on the workforce. This is why we need research that keeps pace with AI’s development, to understand in real-time where this technology is creating economic opportunity—new jobs, increased productivity, novel forms of value creation—as well as where it might be causing dramatic shifts in labor dynamics. We believe this kind of effort can equip policymakers and broader society to successfully navigate the future.
 
 ## Looking Ahead
 
@@ -32,26 +34,24 @@ Society’s response to AI is not predetermined. The decisions we make today abo
 
 The Anthropic Economic Futures Program represents our commitment to supporting the research and policy communities in meeting these challenges and opportunities. We're excited to build on what we learn together and help prepare for an AI-enabled economy.
 
-Visit [anthropic.com/economic-futures](https://www.anthropic.com/economic-futures) to submit your research proposal or learn more about the program. For questions, contact [economicfutures@anthropic.com](mailto:economicfutures@anthropic.com).
+Visit anthropic.com/economic-futures to submit your research proposal or learn more about the program. For questions, contact economicfutures@anthropic.com.
 
-_Learn more about our economic research through the [Anthropic Economic Index](https://www.anthropic.com/economic-index) and explore our broader research initiatives at [anthropic.com/research](https://www.anthropic.com/research)._
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/introducing-the-anthropic-economic-futures-program)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/introducing-the-anthropic-economic-futures-program)
+_Learn more about our economic research through the Anthropic Economic Index and explore our broader research initiatives at anthropic.com/research._
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

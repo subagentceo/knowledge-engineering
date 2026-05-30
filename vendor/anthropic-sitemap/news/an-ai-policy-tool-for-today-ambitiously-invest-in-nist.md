@@ -1,3 +1,5 @@
+# An AI Policy Tool for Today: Ambitiously Invest in NIST
+
 Announcements
 
 # An AI Policy Tool for Today: Ambitiously Invest in NIST
@@ -10,7 +12,7 @@ Apr 20, 2023
 
 We believe that sensible artificial intelligence (AI) policy requires, among other things, the ability to accurately describe and quantify the capabilities and risks of AI systems. This ability is both an enabler and a prerequisite to effective regulation, as measurement tools allow us to objectively assess systems and ensure they meet appropriate safety thresholds. In this post, we propose a policy intervention for how to do this: ambitiously fund the National Institute of Standards and Technology (NIST) to support its AI measurement and standards efforts.  
   
-We were heartened by the bipartisan support for maintaining American leadership in the development of critical technologies, as expressed during the April 18 [budget hearing](https://appropriations.house.gov/legislation/hearings/budget-hearing-fiscal-year-2024-request-department-commerce) on the 2024 Request for the Department of Commerce (and by extension, NIST). We think one of the best ways to channel that support is through an increase in federal funding for NIST so that it is well placed to carry out its work promoting safe technological innovation.  
+We were heartened by the bipartisan support for maintaining American leadership in the development of critical technologies, as expressed during the April 18 budget hearing on the 2024 Request for the Department of Commerce (and by extension, NIST). We think one of the best ways to channel that support is through an increase in federal funding for NIST so that it is well placed to carry out its work promoting safe technological innovation.  
   
 In this post, we give an overview of why we think this, and we also share a policy proposal for what an ambitious funding program for NIST could look like in practice. This proposal is readily actionable and builds on a solid foundation of existing work at the agency; we view it as a complement to a suite of policy levers for stronger AI governance.  
 
@@ -20,9 +22,9 @@ In the course of just a few years, we’ve seen rapid technological progress in 
   
 There have been calls for new federal agencies to regulate AI, multinational legislative proposals to mandate compliance requirements, and even calls from researchers to temporarily “pause” AI development. While these ideas all have meritable qualities, we believe there is also a simpler, “shovel ready” idea available to policymakers in the U.S. that receives comparatively little attention: increasing funding for NIST to build and refine measures of AI assurance.  
   
-NIST has for many years diligently worked on the science behind measuring AI systems and the development of associated technical standards. Some highlights of NIST’s work in this area include the [Face Recognition Vendor Test](https://www.nist.gov/programs-projects/face-recognition-vendor-test-frvt) and [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework). AI researchers are also deeply familiar with [MNIST](https://paperswithcode.com/dataset/mnist), a handwriting recognition dataset which helped drive progress in computer vision in the 1990s and was based on NIST databases of handwritten characters and numbers.  
+NIST has for many years diligently worked on the science behind measuring AI systems and the development of associated technical standards. Some highlights of NIST’s work in this area include the Face Recognition Vendor Test and AI Risk Management Framework. AI researchers are also deeply familiar with MNIST, a handwriting recognition dataset which helped drive progress in computer vision in the 1990s and was based on NIST databases of handwritten characters and numbers.  
   
-Though the art of measurement may sound dry or possibly inconsequential, we believe it is both critical and urgent for helping us as a society better understand the advances and potential drawbacks of increasingly capable AI systems. As we’ve discussed in our [research](/research/predictability-and-surprise-in-large-generative-models), open-ended AI systems can act in unpredictable ways — we can’t reliably anticipate all potential risks during the development process. Even if we could, the field lacks widely-agreed upon methods to comprehensively measure and assess those risks.  
+Though the art of measurement may sound dry or possibly inconsequential, we believe it is both critical and urgent for helping us as a society better understand the advances and potential drawbacks of increasingly capable AI systems. As we’ve discussed in our research, open-ended AI systems can act in unpredictable ways — we can’t reliably anticipate all potential risks during the development process. Even if we could, the field lacks widely-agreed upon methods to comprehensively measure and assess those risks.  
 
 ## Investing in Safety and Innovation
 
@@ -36,38 +38,36 @@ _Amount of funding (in millions) for AI-related programs at NIST from 2020-2024.
 
 The ability to effectively evaluate AI systems for both performance and risks is a precursor to smart AI regulation — after all, it’s hard to manage what you can’t measure. NIST has more than a century of experience building measurement infrastructure, and is thus the natural place to continue this work in the AI domain. Beyond informing smarter regulation, this work can help society chart a safer and more productive course for future AI progress by:
 
--   Enhancing the safety of AI systems through rigorous testing to identify and mitigate risks before they arise in public settings
--   Increasing trust among the public that the systems they interact with have been validated by an independent, third-party source
--   Providing the government with confidence that advanced systems are safe for the general public
--   Promoting innovation as AI developers work to build better technology and push the current state of the art
--   Creating a market for system certification and positive incentives for developers to participate
+*   Enhancing the safety of AI systems through rigorous testing to identify and mitigate risks before they arise in public settings
+*   Increasing trust among the public that the systems they interact with have been validated by an independent, third-party source
+*   Providing the government with confidence that advanced systems are safe for the general public
+*   Promoting innovation as AI developers work to build better technology and push the current state of the art
+*   Creating a market for system certification and positive incentives for developers to participate
 
   
-We certainly don’t view the development of measurement techniques and technical standards as a panacea for all potential risks of AI systems, but we view it as a pragmatic approach we can act on today. Similar to [our thinking on technical AI safety](/news/core-views-on-ai-safety), we believe in a “portfolio approach” to AI governance that can enhance the safety of AI systems when multiple tools are applied in combination. Rigorous forms of system evaluation can complement other proposals, ranging from robust internal controls and governance practices for developing labs, to regular audits by independent organizations, to regulatory and legislative frameworks that are grounded in the public interest.  
+We certainly don’t view the development of measurement techniques and technical standards as a panacea for all potential risks of AI systems, but we view it as a pragmatic approach we can act on today. Similar to our thinking on technical AI safety, we believe in a “portfolio approach” to AI governance that can enhance the safety of AI systems when multiple tools are applied in combination. Rigorous forms of system evaluation can complement other proposals, ranging from robust internal controls and governance practices for developing labs, to regular audits by independent organizations, to regulatory and legislative frameworks that are grounded in the public interest.  
   
-This proposal builds on our past advocacy for a more well-resourced NIST, including our [testimony](https://www.commerce.senate.gov/services/files/F7BFA181-1B1B-4933-A815-70043413A7FF) in front of the U.S. Senate Committee on Commerce, Science, & Transportation, as well as our [formal comments](https://www.regulations.gov/comment/NIST-2021-0007-0055) in response to government requests for information.  
+This proposal builds on our past advocacy for a more well-resourced NIST, including our testimony in front of the U.S. Senate Committee on Commerce, Science, & Transportation, as well as our formal comments in response to government requests for information.  
   
 _This blog post follows a policy memo we wrote that looks at past funding patterns and some specific proposals for what NIST might build with more resourcing. As Congress considers appropriations for FY 2024, we urge it to consider additional funding of NIST._
 
-_View the [memo here](https://www-cdn.anthropic.com/c429f993f5a3a5ea1808414df6e67fcb8d36ca86/Anthropic_NIST_v3.pdf)._  
+_View the memo here._  
   
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/an-ai-policy-tool-for-today-ambitiously-invest-in-nist)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/an-ai-policy-tool-for-today-ambitiously-invest-in-nist)
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

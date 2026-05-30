@@ -1,3 +1,5 @@
+# Anthropic raises $124 million to build more reliable, general AI systems
+
 Announcements
 
 # Anthropic raises $124 million to build more reliable, general AI systems
@@ -6,7 +8,7 @@ May 28, 2021
 
 Anthropic, an AI safety and research company, has raised $124 million in a Series A. The financing round will support Anthropic in executing against its research roadmap and building prototypes of reliable and steerable AI systems.  
   
-The company is led by siblings Dario Amodei (CEO) and Daniela Amodei (President). The Anthropic team has previously conducted research into [GPT-3](https://arxiv.org/abs/2005.14165), [Circuit-Based Interpretability](https://distill.pub/2020/circuits/), [Multimodal Neurons](https://distill.pub/2021/multimodal-neurons/), [Scaling Laws](https://arxiv.org/abs/2010.14701), [AI & Compute](https://openai.com/blog/ai-and-compute/), [Concrete Problems in AI Safety](https://arxiv.org/pdf/1606.06565.pdf), and [Learning from Human Preferences](https://arxiv.org/abs/1706.03741). Anthropic will use the funding for computationally-intensive research to develop large-scale AI systems that are steerable, interpretable, and robust.  
+The company is led by siblings Dario Amodei (CEO) and Daniela Amodei (President). The Anthropic team has previously conducted research into GPT-3, Circuit-Based Interpretability, Multimodal Neurons, Scaling Laws, AI & Compute, Concrete Problems in AI Safety, and Learning from Human Preferences. Anthropic will use the funding for computationally-intensive research to develop large-scale AI systems that are steerable, interpretable, and robust.  
   
 “Anthropic’s goal is to make the fundamental research advances that will let us build more capable, general, and reliable AI systems, then deploy these systems in a way that benefits people. We’re thrilled to be working with investors that support us in this mission and expect to concentrate on research in the immediate term,” said Anthropic CEO Dario Amodei.  
   
@@ -16,22 +18,20 @@ The Series A round was led by Jaan Tallinn, technology investor and co-founder o
   
 To find out more about Anthropic’s research agenda and approach, you can read our website and its job postings. The company is hiring researchers, engineers, and operational experts to support it in executing against its research roadmap. Find out more here: Anthropic.com.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-raises-124-million-to-build-more-reliable-general-ai-systems)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-raises-124-million-to-build-more-reliable-general-ai-systems)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# Claude Code and new admin controls for business plans
+
 Product
 
 # Claude Code and new admin controls for business plans
@@ -30,10 +32,10 @@ This approach provides a simple way to scale with Claude, while offering central
 
 We've built new comprehensive controls that give organizations the visibility and management capabilities they need to enable employees to work productively with Claude.
 
--   **Self-serve seat management**: Purchase new seats, directly manage seat allocation, and provision users through the admin panel.
--   **Granular spend controls:** Set spending limits at the organization and individual user level to stay within budget while maintaining flexibility for essential projects.
--   **Usage analytics**: View Claude Code analytics in Claude, including metrics like lines of code accepted, suggestion accept rate, and usage patterns.
--   **Managed policy settings**: Deploy and enforce settings across all Claude Code users to match internal policies, including tool permissions, file access restrictions, and MCP server configurations.
+*   **Self-serve seat management**: Purchase new seats, directly manage seat allocation, and provision users through the admin panel.
+*   **Granular spend controls:** Set spending limits at the organization and individual user level to stay within budget while maintaining flexibility for essential projects.
+*   **Usage analytics**: View Claude Code analytics in Claude, including metrics like lines of code accepted, suggestion accept rate, and usage patterns.
+*   **Managed policy settings**: Deploy and enforce settings across all Claude Code users to match internal policies, including tool permissions, file access restrictions, and MCP server configurations.
 
 ## Compliance API
 
@@ -45,24 +47,22 @@ Administrators can integrate Claude data into existing compliance dashboards, au
 
 Team and Enterprise plan admins can now upgrade to premium seats with Claude Code—and take advantage of flexible pricing with extra usage options. Both Team and Enterprise plans include granular spend caps, self-serve seat management, and Claude Code usage analytics.
 
-To explore how Claude for Enterprise can transform your organization's productivity and learn more about the Compliance API, [contact](https://www.anthropic.com/contact-sales) our sales team.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-code-on-team-and-enterprise)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-code-on-team-and-enterprise)
+To explore how Claude for Enterprise can transform your organization's productivity and learn more about the Compliance API, contact our sales team.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

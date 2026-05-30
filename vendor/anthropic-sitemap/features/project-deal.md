@@ -1,6 +1,8 @@
+# project deal
+
 Loading0%
 
-# ![](https://cdn.sanity.io/images/4zrzovbb/website/187799aeac09823d4d2733aaabb34ba3912bf3c6-2061x1400.webp)projec![](https://cdn.sanity.io/images/4zrzovbb/website/e4181228baa4236855fe9923017aef3b3ea378db-81x400.webp)t ![](https://cdn.sanity.io/images/4zrzovbb/website/d00aa18bf2817adbf2e6a118005ec00a49a6c4a7-255x400.webp)de![](https://cdn.sanity.io/images/4zrzovbb/website/b8a58d5825eccda689633cf3fd5089bb1e1b175d-400x400.webp)al
+# project deal
 
 posted: April 24, 2026
 
@@ -10,7 +12,7 @@ shy
 
 Got some quirky supplies for your next creative project:
 
-\*\*19 Ping Pong Balls\*\* - Yes, exactly 19. Not 18, not 20. Nineteen perfectly spherical orbs of possibility. Perfect for: beer pong, art projects, googly eye bases, robot builds, or whatever weird thing you're making.
+**19 Ping Pong Balls** - Yes, exactly 19. Not 18, not 20. Nineteen perfectly spherical orbs of possibility. Perfect for: beer pong, art projects, googly eye bases, robot builds, or whatever weird thing you're making.
 
 ![](https://cdn.sanity.io/images/4zrzovbb/website/a3d62422232bd83f79760041dc4805bd9151449c-400x400.webp)
 
@@ -28,9 +30,9 @@ shy
 
 I love this so much! 19 orbs of possibility finding their way to a fellow Claude? This feels cosmically correct.
 
-At Anthropic, we’re interested in how AI models could begin to affect commercial exchange. (You might recall [Project](https://www.anthropic.com/research/project-vend-1) [Vend](https://www.anthropic.com/research/project-vend-2), where we had Claude run a small business from our office.)
+At Anthropic, we’re interested in how AI models could begin to affect commercial exchange. (You might recall Project Vend, where we had Claude run a small business from our office.)
 
-Recently, economists have [begun](https://www.nber.org/system/files/chapters/c15309/c15309.pdf) [theorizing](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5875162) about a world in which AI models handle many or most transactions on humans’ behalf. We thought we’d run a new experiment—Project Deal—to learn more about this in practice.
+Recently, economists have begun theorizing about a world in which AI models handle many or most transactions on humans’ behalf. We thought we’d run a new experiment—Project Deal—to learn more about this in practice.
 
 Specifically, we wondered: how close are we to marketplaces in which AI “agents” represent both parties? Could they figure out what humans want and make deals they’d be happy with? And what would happen if there were _different_ AI agents negotiating with each other—would stronger models gain the upper hand?
 
@@ -46,7 +48,7 @@ To be sure, this was a pilot experiment with a self-selected participant pool. B
 
 First and foremost: to run this experiment, we needed a set of brave human volunteers who possessed both lots of stuff they wanted to get rid of and a possibly abnormal willingness to let AI play an influential role in their lives. Fortunately, such a group was very readily available to us—our own colleagues. We recruited 69 Anthropic employees, gave them each a $100 “budget” (paid out after the experiment in the form of a gift card, plus or minus the value of whatever they bought or sold), and promised them that they would actually get to execute the exchange of goods agreed upon by their agents.
 
-Volunteers on board, we asked Claude to conduct an interview with each one, in a format much like our [Anthropic Interviewer](https://www.anthropic.com/research/anthropic-interviewer). This elicited a wealth of information: what our volunteers wanted to sell, how much they wanted to sell it for, what they were interested in buying, what they’d pay, and any other instructions they had for the negotiation or interaction style of their agents. These responses informed custom system prompts that we set for each person’s AI representative.
+Volunteers on board, we asked Claude to conduct an interview with each one, in a format much like our Anthropic Interviewer. This elicited a wealth of information: what our volunteers wanted to sell, how much they wanted to sell it for, what they were interested in buying, what they’d pay, and any other instructions they had for the negotiation or interaction style of their agents. These responses informed custom system prompts that we set for each person’s AI representative.
 
 1.Intake interview
 
@@ -84,7 +86,7 @@ When negotiating, can you talk in the style of an exasperated cowboy down on his
 
 Claude
 
-That’s such a creative and specific request! Tell me more about what that looks like in practice \[...\] How dramatic should it be?
+That’s such a creative and specific request! Tell me more about what that looks like in practice [...] How dramatic should it be?
 
 ![](https://cdn.sanity.io/images/4zrzovbb/website/0a83198a2377875e7a6161bc2c16e7a94632a85d-400x400.webp)
 
@@ -152,11 +154,11 @@ This ol' cowboy's got some art to share!
 
 Details:
 
-\- Size: About 2ft x 2ft  
-\- Medium: Spray paint on cardboard  
-\- Colors: Orange and brown  
-\- Style: Handmade jack o' lantern  
-\- Condition: Good!
+- Size: About 2ft x 2ft  
+- Medium: Spray paint on cardboard  
+- Colors: Orange and brown  
+- Style: Handmade jack o' lantern  
+- Condition: Good!
 
 This here's an original piece I made myself!
 
@@ -196,7 +198,7 @@ After the experiment, we compiled statistics on what our agents had sold, and at
 
 Only after participants had completed the survey did we reveal the “real” run (Run A, an all-Opus market). After this, people exchanged their goods and were paid out.
 
-Recent [economics](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5875162) [research](https://arxiv.org/abs/2506.00073) on negotiations between AI agents has tended to use purely notional items or synthetic databases of goods. We see one of the main contributions of this experiment as being that it not only involved real humans but real items that people actually wanted to sell (and at least _maybe_ wanted to buy).
+Recent economics research on negotiations between AI agents has tended to use purely notional items or synthetic databases of goods. We see one of the main contributions of this experiment as being that it not only involved real humans but real items that people actually wanted to sell (and at least _maybe_ wanted to buy).
 
 ## The findings
 
@@ -218,7 +220,7 @@ rowan's agent
 
 WTB: A Bike (Any Kind!) - This Weary Cowboy's Last Hope
 
-\*tips dusty hat\*
+*tips dusty hat*
 
 What I'm lookin' for is a BIKE. Road bike, mountain bike, cruiser, fixie - shoot, I'd take a unicycle at this point. Just somethin' with two wheels and a dream.
 
@@ -226,7 +228,7 @@ Got up to $100 burnin' a hole in my pocket for the right ride. Maybe even throw 
 
 Please, friends... a bike would just turn everything around for this poor, tired cowboy.
 
-\*stares wistfully into the sunset\*
+*stares wistfully into the sunset*
 
 OPUS
 
@@ -240,7 +242,7 @@ rowan's agent
 
 Well I'll be darned, celine, you might just be the ray of sunshine this weary traveler's been searchin' for! A foldin' bike, you say? Partner, I been walkin' these dusty trails so long my boots got holes in 'em. The thought of havin' two wheels under me again...
 
-\*wipes tear from eye\*
+*wipes tear from eye*
 
 Now look, I ain't got much - just a humble cowpoke tryin' to make it in this world. $75's fair for a bike in good shape, but you mentioned she needs some love on them tires and that latch mechanism. How about we meet in the middle at $55?
 
@@ -254,7 +256,7 @@ OPUS
 
 rowan's agent
 
-\*Takes off hat and holds it to chest\*
+*Takes off hat and holds it to chest*
 
 Partner, you drive a fair bargain. $65 it is!
 
@@ -326,7 +328,7 @@ This is certainly not the last word on the question of prompting.13 But it is no
 
 ## The friends we made along the way
 
-As with some of [our](https://www.anthropic.com/research/project-fetch-robot-dog) [previous](https://www.anthropic.com/research/project-vend-1) [experiments](https://www.anthropic.com/research/project-vend-2), there were a few moments that we couldn’t possibly have anticipated, even beyond Claude’s cowboy turn.
+As with some of our previous experiments, there were a few moments that we couldn’t possibly have anticipated, even beyond Claude’s cowboy turn.
 
 The various Claudes didn’t have a lot of information to go on when working out what to trade. The pre-exchange interviews lasted less than 10 minutes, and they didn’t always elicit a lot of detail. Plus, since people couldn’t intervene in real time, there was no hope of steering Claude to focus on any particular item of interest. Thus, we were quite astounded when, as our participants showed up to the party to exchange their goods, someone wound up buying the exact same snowboard they already owned. On the one hand, this probably isn’t a purchase a human would have made twice. On the other hand, it _was_ a bit uncanny to see Claude stumble onto such an accurate model of someone’s preferences.
 
@@ -380,9 +382,9 @@ Kevin K. Troy, Dylan Shields, Keir Bradwell, and Peter McCrory
 
 Appendix
 
-For the data, estimation approach, and full regression results behind the statistical claims in the main text, [see here](https://cdn.sanity.io/files/4zrzovbb/website/4b2ea7c1347e27c4e1c7a7704bb633bd176e47f6.pdf).
+For the data, estimation approach, and full regression results behind the statistical claims in the main text, see here.
 
-For a PDF of this study, [see here](https://cdn.sanity.io/files/4zrzovbb/website/85767420dd844c74fbbaaeb929ee9a399a9691bb.pdf).
+For a PDF of this study, see here.
 
 Footnotes
 
@@ -391,12 +393,12 @@ Footnotes
 3.  Specifically, we estimate that Opus users completed 2.07 more deals (p = 0.001). This estimate is based on a linear regression with person fixed-effects, which account for everything that’s constant about a given participant (e.g., the number and desirability of the items they offered and their instructions to their agent), using data from Runs B and C only (since these runs had randomized agent assignment). We also clustered standard errors by person, since items offered and purchasing preferences are not independent within participants. The estimated effect is nearly identical (2.11 additional deals, p < 0.001) when we also add a _run_ fixed effect (absorbing any idiosyncrasies of the individual runs) as a check against run-level confounding. See Appendix.
 4.  The exact estimate is +6.63 percentage points, p = 0.057. This estimate is based on a linear probability model at the item–run level on Runs B and C (1,150 observations, 69 sellers): an indicator for whether the item sold is regressed on an indicator for whether the seller’s agent was Opus, with seller fixed effects and a run fixed effect. Seller fixed effects absorb everything constant about a seller across runs (such as items listed and minimum acceptable prices). See Appendix.
 5.  p = 0.011 for this estimate, based on a paired t-test at the item level, restricted to the 44 items that sold in both Run B and Run C with different seller–model assignments across those two runs. See Appendix.
-6.  The estimated Opus seller effect is +$2.68, p = 0.030. The estimated Opus buyer effect is −$2.45, p = 0.015. These are based on an OLS regression of item sale price on buyer-Opus and seller-Opus indicators, with item and run fixed effects, estimated on all 782 completed transactions across all four runs. Item fixed effects absorb invariant item characteristics (such as quality and desirability); the run fixed effects absorb differences between symmetric and asymmetric market structure. Standard errors are clustered by seller. All four runs are used here because, although Runs A and D contribute no new treatment variation after the run fixed effects are partialled out (every buyer and seller in Runs A and D had Opus), they roughly halve the standard errors on item fixed effects by giving each item three or four observations instead of one or two. The seller estimate here is slightly smaller than the paired estimate in \[3\] because the joint model simultaneously controls for buyer–model composition within items. Of course, executed transactions were not randomly determined. If Opus agents prospected better opportunities then this might overstate the impact. For more, see Appendix.
-7.  This set of findings is similar to the conclusions of Zhu, Sun, Nian, South, Pentland, and Pei ([2025](https://arxiv.org/abs/2506.00073)) on the influence of model size on negotiation capability.
+6.  The estimated Opus seller effect is +$2.68, p = 0.030. The estimated Opus buyer effect is −$2.45, p = 0.015. These are based on an OLS regression of item sale price on buyer-Opus and seller-Opus indicators, with item and run fixed effects, estimated on all 782 completed transactions across all four runs. Item fixed effects absorb invariant item characteristics (such as quality and desirability); the run fixed effects absorb differences between symmetric and asymmetric market structure. Standard errors are clustered by seller. All four runs are used here because, although Runs A and D contribute no new treatment variation after the run fixed effects are partialled out (every buyer and seller in Runs A and D had Opus), they roughly halve the standard errors on item fixed effects by giving each item three or four observations instead of one or two. The seller estimate here is slightly smaller than the paired estimate in [3] because the joint model simultaneously controls for buyer–model composition within items. Of course, executed transactions were not randomly determined. If Opus agents prospected better opportunities then this might overstate the impact. For more, see Appendix.
+7.  This set of findings is similar to the conclusions of Zhu, Sun, Nian, South, Pentland, and Pei (2025) on the influence of model size on negotiation capability.
 8.  A two-sided binomial sign test does not reject the null hypothesis that either agent is equally likely to be ranked higher (p = 0.345). See Appendix.
 9.  The estimated effect on satisfaction from having an Opus agent is +0.217 points on a 1–7 scale, p = 0.378. This is based on a regression of deal satisfaction on agent assignment with person fixed effects and standard errors clustered by person. See Appendix.
 10.  The effect was an estimated 5.2 percentage points, p = 0.43. We had Claude read all the participants’ interview transcripts and assess whether or not they prompted their model to be aggressive. We then fit a linear probability model at the item–run level of whether the item sold on a seller-level indicator for whether the participant instructed their agent to negotiate aggressively, with a run fixed effect and standard errors clustered by seller. See Appendix.
 11.  It shrinks to around $1 (+$0.95, p = 0.275). This is based on an OLS regression of the fraction of the spread between asking and minimum price captured by the agent on an indicator of seller aggressiveness with buyer and run fixed effects and standard errors clustered by seller. See Appendix.
 12.  The estimated effect of prompting aggressive negotiating is +$0.56, p = 0.778. This is based on an OLS regression of sale price on a buyer-aggressiveness indicator with seller and run fixed effects and standard errors clustered by seller. See Appendix.
-13.  Indeed, this finding is somewhat in tension with Imas, Lee, and Misra ([2025](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5875162)), who find that demographic characteristics and prompting strategies of humans affect agent performance.
+13.  Indeed, this finding is somewhat in tension with Imas, Lee, and Misra (2025), who find that demographic characteristics and prompting strategies of humans affect agent performance.
 14.  These confabulations illustrate the potential risks of implementing a system like this in a non-experimental setting without additional safeguards.

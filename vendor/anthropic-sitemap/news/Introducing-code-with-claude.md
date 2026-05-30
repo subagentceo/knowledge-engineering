@@ -1,3 +1,5 @@
+# Introducing Anthropic's first developer conference: Code with Claude
+
 Event
 
 # Introducing Anthropic's first developer conference: Code with Claude
@@ -6,7 +8,7 @@ Apr 3, 2025
 
 Today, we’re announcing **Code with Claude**—our first developer conference—taking place on May 22, 2025 in San Francisco. Code with Claude is a hands-on, one-day event focused on exploring real-world implementations and best practices using the Anthropic API, CLI tools, and Model Context Protocol (MCP). It is open to a select group of developers and founders.
 
-[Apply here](https://anthropic.swoogo.com/codewithclaude) to attend.
+Apply here to attend.
 
 **About Code with Claude**
 
@@ -18,28 +20,26 @@ The conference will showcase how developers are maximizing Claude's capabilities
 
 **Event details**
 
--   **When**: May 22, 2025
--   **Where**: [The Midway](https://themidwaysf.com/) in San Francisco
--   **Registration**: [Apply to attend](https://anthropic.swoogo.com/codewithclaude). Registration opens today—apply now to secure your place at what promises to be an essential event for anyone building with AI.
+*   **When**: May 22, 2025
+*   **Where**: The Midway in San Francisco
+*   **Registration**: Apply to attend. Registration opens today—apply now to secure your place at what promises to be an essential event for anyone building with AI.
 
 Space is limited. Applicants will be notified on a rolling basis and will receive information in the coming weeks. Additional event details to follow.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/Introducing-code-with-claude)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/Introducing-code-with-claude)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

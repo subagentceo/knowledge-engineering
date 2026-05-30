@@ -1,3 +1,5 @@
+# Releasing Claude Instant 1.2
+
 Announcements
 
 # Releasing Claude Instant 1.2
@@ -6,7 +8,7 @@ Aug 9, 2023
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F27465a604fdc8d2591ad886ea35ef55bdedc256f-2880x1620.png&w=3840&q=75)
 
-Businesses working with Claude can now access our latest version of Claude Instant, version 1.2, available [through our API](https://docs.anthropic.com/claude/reference/selecting-a-model). Claude Instant is our faster, lower-priced yet still very capable model, which can handle a range of tasks including casual dialogue, text analysis, summarization, and document comprehension.  
+Businesses working with Claude can now access our latest version of Claude Instant, version 1.2, available through our API. Claude Instant is our faster, lower-priced yet still very capable model, which can handle a range of tasks including casual dialogue, text analysis, summarization, and document comprehension.  
   
 Claude Instant 1.2 incorporates the strengths of our latest model Claude 2 in real-world use cases and shows significant gains in key areas like math, coding, reasoning, and safety. It generates longer, more structured responses and follows formatting instructions better. Instant 1.2 also shows improvements in quote extraction, multilingual capabilities, and question answering.
 
@@ -22,24 +24,22 @@ Our latest model has also improved on safety. It hallucinates less and is more r
 
 Safety evaluation of Claude models. Lower is better.
 
-Developers looking to work with Claude Instant 1.2 can now call our latest model over our API (pricing can be found [here](https://www-cdn.anthropic.com/90df03aed08b794ab03c5a7bf28b2ad9cf26cf3c/model_pricing_july2023.pdf)). If you’re a business and you’d like to work with us, you can indicate your interest [here](/contact-sales).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/releasing-claude-instant-1-2)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/releasing-claude-instant-1-2)
+Developers looking to work with Claude Instant 1.2 can now call our latest model over our API (pricing can be found here). If you’re a business and you’d like to work with us, you can indicate your interest here.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

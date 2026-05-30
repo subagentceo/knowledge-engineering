@@ -1,3 +1,5 @@
+# Lyft to bring Claude to more than 40 million riders and over 1 million drivers
+
 Announcements
 
 # Lyft to bring Claude to more than 40 million riders and over 1 million drivers
@@ -12,9 +14,9 @@ The impact is already evident. Lyft's customer care AI assistant, powered by Cla
 
 The collaboration focuses on three key areas:
 
--   **AI-Powered Solutions:** Lyft and Anthropic will architect and deploy AI applications that enhance the rideshare experience for both riders and drivers.
--   **Early Testing:** Lyft will participate in research testing for new products and capabilities to ensure they align with the needs of riders and drivers, enabling faster integration of proven solutions.
--   **Engineering Advancement:** Anthropic will provide specialized training to strengthen Lyft's engineering teams, accelerating their ability to build innovative AI-powered features.
+*   **AI-Powered Solutions:** Lyft and Anthropic will architect and deploy AI applications that enhance the rideshare experience for both riders and drivers.
+*   **Early Testing:** Lyft will participate in research testing for new products and capabilities to ensure they align with the needs of riders and drivers, enabling faster integration of proven solutions.
+*   **Engineering Advancement:** Anthropic will provide specialized training to strengthen Lyft's engineering teams, accelerating their ability to build innovative AI-powered features.
 
 > Software engineering has undergone a seismic shift with the introduction of GenAI technologies. Gone are the days when humans were predominantly writing code. With the promise of LLMs, especially leading models for coding like Claude, and agentic AI, we're working to revolutionize our engineering organization to more effectively build game changing products for our customers.
 
@@ -30,22 +32,20 @@ For the millions of people who rely on Lyft every day, this collaboration aims t
 
 _Certain statements contained in this blog are “forward-looking statements” about Lyft within the meaning of the securities laws, including statements about Lyft’s anticipated collaboration with Anthropic, its benefits, including for riders and drivers, access to and development of certain products, models and technologies, and training and education of Lyft’s engineering organization. Such statements, which are not of historical fact, involve estimates, assumptions, judgments and uncertainties. There are a number of factors that could cause actual results or outcomes to differ materially from those addressed in the forward-looking statements. Such factors are detailed in Lyft’s filings with the Securities and Exchange Commission. Lyft does not undertake an obligation to update its forward-looking statements to reflect future events, except as required by applicable law._
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/lyft-announcement)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/lyft-announcement)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

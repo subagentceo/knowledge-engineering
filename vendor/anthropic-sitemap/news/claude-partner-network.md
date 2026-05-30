@@ -1,3 +1,5 @@
+# Anthropic invests $100 million into the Claude Partner Network
+
 Announcements
 
 # Anthropic invests $100 million into the Claude Partner Network
@@ -6,7 +8,7 @@ Mar 12, 2026
 
 ![Anthropic invests $100 million into the Claude Partner Network](https://www-cdn.anthropic.com/images/4zrzovbb/website/6905c83d0735e1bc430025fdd1748d1406079036-1000x1000.svg)
 
-_We’re launching the Claude Partner Network, a program for partner organizations helping enterprises adopt Claude. We’re committing an initial $100 million to support our partners with training courses, dedicated technical support, and joint market development. Partners who join [from today](https://claude.com/partners) will get immediate access to a new technical certification and be eligible for investment._
+_We’re launching the Claude Partner Network, a program for partner organizations helping enterprises adopt Claude. We’re committing an initial $100 million to support our partners with training courses, dedicated technical support, and joint market development. Partners who join from today will get immediate access to a new technical certification and be eligible for investment._
 
 Anthropic is focused on ensuring that our AI model, Claude, serves the needs of businesses. To do this, we’ve partnered with a number of other companies. Notably, Claude is the only frontier AI model available on all three leading cloud providers: AWS, Google Cloud, and Microsoft.
 
@@ -24,11 +26,11 @@ A significant proportion of our $100 million investment will go directly to our 
 
 Those who join the network will have access to our Partner Portal, where we’ll share our Anthropic Academy training materials, the sales playbooks used by our own go-to-market team, and other co-marketing documentation. Qualified partners will also be added to our Services Partner Directory, where enterprise buyers can find firms with Claude implementation experience.
 
-Alongside the network, we’re introducing the first Claude technical certification: [Claude Certified Architect, Foundations](https://anthropic.skilljar.com/claude-certified-architect-foundations-access-request), available today for partners. This is a technical exam for solution architects building production applications with Claude. Later this year, we’ll introduce additional certifications for sellers, architects, and developers. Partners who join the network now will get priority access to new certifications as they roll out.
+Alongside the network, we’re introducing the first Claude technical certification: Claude Certified Architect, Foundations, available today for partners. This is a technical exam for solution architects building production applications with Claude. Later this year, we’ll introduce additional certifications for sellers, architects, and developers. Partners who join the network now will get priority access to new certifications as they roll out.
 
 Finally, we’re launching a Code Modernization starter kit, which gives our partners a straightforward starting point for migrating legacy codebases and remediating enterprises’ technical debt. This is one of the highest-demand enterprise workloads, and one where Claude’s agentic coding capabilities most directly translate into client outcomes.
 
-Any organization that is bringing Claude to market is eligible to join the Claude Partner Network. Membership is free of charge, and applications open today. You can [find out more here](https://claude.com/partners).
+Any organization that is bringing Claude to market is eligible to join the Claude Partner Network. Membership is free of charge, and applications open today. You can find out more here.
 
 _Below, our partners share more about their work with Claude:_
 
@@ -54,22 +56,20 @@ _Below, our partners share more about their work with Claude:_
 
 01 / 04
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-partner-network)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-partner-network)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

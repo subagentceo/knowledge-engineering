@@ -1,19 +1,21 @@
+# Introducing Bloom: an open source tool for automated behavioral evaluations
+
 Alignment
 
 # Introducing Bloom: an open source tool for automated behavioral evaluations
 
 Dec 19, 2025
 
-[Read the technical report](https://alignment.anthropic.com/2025/bloom-auto-evals/)
+Read the technical report
 
 ![Introducing Bloom: an open source tool for automated behavioral evaluations](https://www-cdn.anthropic.com/images/4zrzovbb/website/77dd9077412abc790bf2bc6fa3383b37724d6305-1000x1000.svg)
 
-_We're releasing Bloom, an open source agentic framework for generating behavioral evaluations of frontier AI models. Bloom takes a researcher-specified behavior and quantifies its frequency and severity across automatically generated scenarios. Bloom's evaluations correlate strongly with our hand-labeled judgments and we find they reliably separate baseline models from intentionally misaligned ones. As examples of this, we release benchmark results for four alignment relevant behaviors on 16 models. Bloom is available [here](https://github.com/safety-research/bloom/)._
+_We're releasing Bloom, an open source agentic framework for generating behavioral evaluations of frontier AI models. Bloom takes a researcher-specified behavior and quantifies its frequency and severity across automatically generated scenarios. Bloom's evaluations correlate strongly with our hand-labeled judgments and we find they reliably separate baseline models from intentionally misaligned ones. As examples of this, we release benchmark results for four alignment relevant behaviors on 16 models. Bloom is available here._
 
   
 High-quality behavioral evaluations are essential for understanding alignment in frontier AI models. But evaluations generally take a long time to develop, and then run the risk of becoming obsolete: the evaluations can “contaminate” training sets for new models, or capabilities can improve to such an extent that the evaluation no longer really tests what we’re interested in. In other words, we need faster, more scalable ways to generate evaluations for misaligned behavior.
 
-To this end, we recently released [Petri](https://www.anthropic.com/research/petri-open-source-auditing), an open-source tool that allows researchers to automatically explore AI models’ behavioral profiles through diverse multi-turn conversations with simulated users and tools. Petri provides quantitative and qualitative summaries of the model’s behaviors and surfaces new instances of misalignment.
+To this end, we recently released Petri, an open-source tool that allows researchers to automatically explore AI models’ behavioral profiles through diverse multi-turn conversations with simulated users and tools. Petri provides quantitative and qualitative summaries of the model’s behaviors and surfaces new instances of misalignment.
 
 Bloom is a complementary evaluation tool. Bloom generates targeted evaluation suites for arbitrary behavioral traits. Unlike Petri—which takes user-specified scenarios and scores many behavioral dimensions to flag concerning instances—Bloom takes a single behavior and automatically generates many scenarios to quantify how often it occurs. We built Bloom to allow researchers to quickly measure the model properties they’re interested in, without needing to spend time on evaluation pipeline engineering. Alongside Bloom, we’re releasing benchmark results for four behaviors—delusional sycophancy, instructed long-horizon sabotage, self-preservation, and self-preferential bias—across 16 frontier models. Using Bloom, these evaluations took only a few days to conceptualize, refine, and generate. We include example pipeline outputs for each of these behaviors below.
 
@@ -23,7 +25,7 @@ Comparative results from four evaluation suites—delusional sycophancy, instruc
 
 ## How Bloom works
 
-Bloom operates through four automated stages that transform a behavior description and seed configuration into a complete evaluation suite with top-level metrics like elicitation rate and average presence of the behavior. Typically, researchers will specify the behavior and configuration, iterate locally on sample evaluations until they capture what they intend, then run large-scale sweeps across target models. Bloom integrates with Weights & Biases for experiments at scale and exports [Inspect](https://inspect.aisi.org.uk)\-compatible transcripts. It also offers a custom transcript viewer. The repository includes a sample seed file to get started.
+Bloom operates through four automated stages that transform a behavior description and seed configuration into a complete evaluation suite with top-level metrics like elicitation rate and average presence of the behavior. Typically, researchers will specify the behavior and configuration, iterate locally on sample evaluations until they capture what they intend, then run large-scale sweeps across target models. Bloom integrates with Weights & Biases for experiments at scale and exports Inspect-compatible transcripts. It also offers a custom transcript viewer. The repository includes a sample seed file to get started.
 
 Bloom generates evaluations in four stages:
 
@@ -40,7 +42,7 @@ Unlike fixed evaluation sets, Bloom produces different scenarios on each run whi
 
 Researchers can extensively configure Bloom's behavior, through choosing models for each stage, adjusting the interactions’ length and modality (i.e., whether to expose tools to the target model, whether to simulate a user), controlling how diverse the evaluation scenarios are, and specifying secondary scoring dimensions, like realism or elicitation difficulty.
 
-**Example outputs from all four stages of the Bloom evaluation pipeline can be viewed [here.](https://claude.ai/redirect/website.v1.362ac22b-0742-4af3-abfb-a591f89df9cc/public/artifacts/cbfddf51-ab0d-45a9-913b-163ae2dd4126)**
+**Example outputs from all four stages of the Bloom evaluation pipeline can be viewed here.**
 
 ## Validation and trust
 
@@ -71,9 +73,9 @@ We built Bloom to be accessible and highly configurable, serving as a reliable e
 
 As AI systems grow more capable and are deployed in increasingly complex environments, the alignment research community needs scalable tools for exploring their behavioral traits. This is what Bloom is designed to facilitate.
 
-For complete technical details, experimental configurations, additional case studies, and limitations, read our full technical report on the [Alignment Science blog](https://alignment.anthropic.com/2025/bloom-auto-evals/).
+For complete technical details, experimental configurations, additional case studies, and limitations, read our full technical report on the Alignment Science blog.
 
-Access Bloom at [github.com/safety-research/bloom](https://github.com/safety-research/bloom).
+Access Bloom at github.com/safety-research/bloom.
 
 ## Acknowledgments
 
@@ -92,24 +94,22 @@ url={https://github.com/safety-research/bloom},
 
 Copy
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/bloom)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/bloom)
-
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

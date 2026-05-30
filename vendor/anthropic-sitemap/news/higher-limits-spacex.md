@@ -1,3 +1,5 @@
+# Higher usage limits for Claude and a compute deal with SpaceX
+
 Announcements
 
 # Higher usage limits for Claude and a compute deal with SpaceX
@@ -18,7 +20,7 @@ First, we’re **doubling Claude Code’s five-hour rate limits** for Pro, Max, 
 
 Second, we’re **removing the peak hours limit reduction on Claude Code** for Pro and Max accounts.
 
-Third, we’re **raising our [API rate limits](https://platform.claude.com/docs/en/api/rate-limits) considerably for Claude Opus models**, as shown in the table below:
+Third, we’re **raising our API rate limits considerably for Claude Opus models**, as shown in the table below:
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd8f4f661bde0f11088d087dcda98916becad077f-1920x801.png&w=3840&q=75)
 
@@ -30,10 +32,10 @@ We’ve signed an agreement with SpaceX to use all of the compute capacity at th
 
 This joins our other significant compute announcements:
 
--   [An up to 5 gigawatt (GW) agreement with Amazon](https://urldefense.us/v3/__https:/www.anthropic.com/news/anthropic-amazon-compute__;!!Fqb0NABsjhF0Kh8I!f3EziG8q3wGsRgicn_ZGbvtLp5ZdopVN_KTE1QXfiqHcZ0l9w_sq_kpBwgsm-IHRGC18VQ89pRZ3BOVEnw$), which includes nearly 1 GW of new capacity by the end of 2026;
--   [A 5 GW agreement with Google](https://urldefense.us/v3/__https:/www.anthropic.com/news/google-broadcom-partnership-compute__;!!Fqb0NABsjhF0Kh8I!f3EziG8q3wGsRgicn_ZGbvtLp5ZdopVN_KTE1QXfiqHcZ0l9w_sq_kpBwgsm-IHRGC18VQ89pRZtorfLOg$) and Broadcom, which will begin coming online in 2027;
--   A [strategic partnership](https://urldefense.us/v3/__https:/www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships__;!!Fqb0NABsjhF0Kh8I!f3EziG8q3wGsRgicn_ZGbvtLp5ZdopVN_KTE1QXfiqHcZ0l9w_sq_kpBwgsm-IHRGC18VQ89pRaViUpCKQ$) with Microsoft and NVIDIA that includes $30 billion of Azure capacity;
--   Our [$50 billion investment](https://urldefense.us/v3/__https:/www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure__;!!Fqb0NABsjhF0Kh8I!f3EziG8q3wGsRgicn_ZGbvtLp5ZdopVN_KTE1QXfiqHcZ0l9w_sq_kpBwgsm-IHRGC18VQ89pRYa_xNtww$) in American AI infrastructure with Fluidstack.
+*   An up to 5 gigawatt (GW) agreement with Amazon, which includes nearly 1 GW of new capacity by the end of 2026;
+*   A 5 GW agreement with Google and Broadcom, which will begin coming online in 2027;
+*   A strategic partnership with Microsoft and NVIDIA that includes $30 billion of Azure capacity;
+*   Our $50 billion investment in American AI infrastructure with Fluidstack.
 
 We train and run Claude on a range of AI hardware—AWS Trainium, Google TPUs, and NVIDIA GPUs—and continue to explore opportunities to bring additional capacity online.
 
@@ -41,28 +43,26 @@ As part of this agreement, we have also expressed interest in partnering with Sp
 
 ## Expanding internationally
 
-Our enterprise customers—particularly those in regulated industries like financial services, healthcare, and government—increasingly need in-region infrastructure to meet compliance and data residency requirements. Accordingly, some of our capacity expansion will be international: our recently announced [collaboration with Amazon](https://www.anthropic.com/news/anthropic-amazon-compute) includes additional inference in Asia and Europe.
+Our enterprise customers—particularly those in regulated industries like financial services, healthcare, and government—increasingly need in-region infrastructure to meet compliance and data residency requirements. Accordingly, some of our capacity expansion will be international: our recently announced collaboration with Amazon includes additional inference in Asia and Europe.
 
 We’re very intentional about where we’ll add capacity—partnering with democratic countries whose legal and regulatory frameworks support investments of this scale, and where the supply chain on which our compute depends—hardware, networking, and facilities—will be secure.
 
-Finally, we recently made a [commitment](https://www.anthropic.com/news/covering-electricity-price-increases) to cover any consumer electricity price increases caused by our data centers in the US. As part of our international expansion, we’re exploring ways to extend that commitment to new jurisdictions, as well as partnering with local leaders to invest back into the communities that host our facilities.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/higher-limits-spacex)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/higher-limits-spacex)
+Finally, we recently made a commitment to cover any consumer electricity price increases caused by our data centers in the US. As part of our international expansion, we’re exploring ways to extend that commitment to new jurisdictions, as well as partnering with local leaders to invest back into the communities that host our facilities.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

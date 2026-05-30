@@ -1,16 +1,18 @@
+# Introducing the next generation of Claude
+
 Announcements
 
 # Introducing the next generation of Claude
 
 Mar 4, 2024
 
-[Try Claude 3](https://anthropic.com/claude)
+Try Claude 3
 
 ![Claude 3 ](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4e78f69ef8d4186fb5691714abe36224483d91b0-2880x1620.png&w=3840&q=75)
 
-Today, we're announcing the Claude 3 model family, which sets new industry benchmarks across a wide range of cognitive tasks. The family includes three state-of-the-art models in ascending order of capability: Claude 3 Haiku, Claude 3 Sonnet, and Claude 3 Opus. Each successive model offers increasingly powerful performance, allowing users to select the optimal balance of intelligence, speed, and [cost](https://www.anthropic.com/api#pricing) for their specific application.
+Today, we're announcing the Claude 3 model family, which sets new industry benchmarks across a wide range of cognitive tasks. The family includes three state-of-the-art models in ascending order of capability: Claude 3 Haiku, Claude 3 Sonnet, and Claude 3 Opus. Each successive model offers increasingly powerful performance, allowing users to select the optimal balance of intelligence, speed, and cost for their specific application.
 
-Opus and Sonnet are now available to use in claude.ai and the Claude API which is now generally available in [159 countries](https://www.anthropic.com/supported-countries). Haiku will be available soon.
+Opus and Sonnet are now available to use in claude.ai and the Claude API which is now generally available in 159 countries. Haiku will be available soon.
 
 ### Claude 3 model family
 
@@ -20,9 +22,9 @@ Opus and Sonnet are now available to use in claude.ai and the Claude API which i
 
 Opus, our most intelligent model, outperforms its peers on most of the common evaluation benchmarks for AI systems, including undergraduate level expert knowledge (MMLU), graduate level expert reasoning (GPQA), basic mathematics (GSM8K), and more. It exhibits near-human levels of comprehension and fluency on complex tasks, leading the frontier of general intelligence.
 
-All [Claude 3](https://www.anthropic.com/claude-3-model-card) models show increased capabilities in analysis and forecasting, nuanced content creation, code generation, and conversing in non-English languages like Spanish, Japanese, and French.
+All Claude 3 models show increased capabilities in analysis and forecasting, nuanced content creation, code generation, and conversing in non-English languages like Spanish, Japanese, and French.
 
-Below is a comparison of the Claude 3 models to those of our peers on multiple benchmarks \[1\] of capability:
+Below is a comparison of the Claude 3 models to those of our peers on multiple benchmarks [1] of capability:
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F9ad98d612086fe52b3042f9183414669b4d2a3da-2200x1954.png&w=3840&q=75)
 
@@ -64,11 +66,11 @@ To process long context prompts effectively, models require robust recall capabi
 
 ### Responsible design
 
-We’ve developed the Claude 3 family of models to be as trustworthy as they are capable. We have several dedicated teams that track and mitigate a broad spectrum of risks, ranging from misinformation and CSAM to biological misuse, election interference, and autonomous replication skills. We continue to develop methods such as [Constitutional AI](https://www.anthropic.com/news/constitutional-ai-harmlessness-from-ai-feedback) that improve the safety and transparency of our models, and have tuned our models to mitigate against privacy issues that could be raised by new modalities.
+We’ve developed the Claude 3 family of models to be as trustworthy as they are capable. We have several dedicated teams that track and mitigate a broad spectrum of risks, ranging from misinformation and CSAM to biological misuse, election interference, and autonomous replication skills. We continue to develop methods such as Constitutional AI that improve the safety and transparency of our models, and have tuned our models to mitigate against privacy issues that could be raised by new modalities.
 
-Addressing biases in increasingly sophisticated models is an ongoing effort and we’ve made strides with this new release. As shown in the model card, Claude 3 shows less biases than our previous models according to the [Bias Benchmark for Question Answering (BBQ)](https://aclanthology.org/2022.findings-acl.165/). We remain committed to advancing techniques that reduce biases and promote greater neutrality in our models, ensuring they are not skewed towards any particular partisan stance.
+Addressing biases in increasingly sophisticated models is an ongoing effort and we’ve made strides with this new release. As shown in the model card, Claude 3 shows less biases than our previous models according to the Bias Benchmark for Question Answering (BBQ). We remain committed to advancing techniques that reduce biases and promote greater neutrality in our models, ensuring they are not skewed towards any particular partisan stance.
 
-While the Claude 3 model family has advanced on key measures of biological knowledge, cyber-related knowledge, and autonomy compared to previous models, it remains at AI Safety Level 2 (ASL-2) per our [Responsible Scaling Policy](https://www.anthropic.com/news/anthropics-responsible-scaling-policy). Our [red teaming](https://www.anthropic.com/news/red-teaming-language-models-to-reduce-harms-methods-scaling-behaviors-and-lessons-learned) evaluations (performed in line with our [White House commitments](https://www.whitehouse.gov/briefing-room/statements-releases/2023/07/21/fact-sheet-biden-harris-administration-secures-voluntary-commitments-from-leading-artificial-intelligence-companies-to-manage-the-risks-posed-by-ai/) and the [2023 US Executive Order](https://www.whitehouse.gov/briefing-room/statements-releases/2023/10/30/fact-sheet-president-biden-issues-executive-order-on-safe-secure-and-trustworthy-artificial-intelligence/)) have concluded that the models present negligible potential for catastrophic risk at this time. We will continue to carefully monitor future models to assess their proximity to the ASL-3 threshold. Further safety details are available in the [Claude 3 model card](https://www.anthropic.com/claude-3-model-card).  
+While the Claude 3 model family has advanced on key measures of biological knowledge, cyber-related knowledge, and autonomy compared to previous models, it remains at AI Safety Level 2 (ASL-2) per our Responsible Scaling Policy. Our red teaming evaluations (performed in line with our White House commitments and the 2023 US Executive Order) have concluded that the models present negligible potential for catastrophic risk at this time. We will continue to carefully monitor future models to assess their proximity to the ASL-3 threshold. Further safety details are available in the Claude 3 model card.  
 
 ### Easier to use
 
@@ -80,19 +82,19 @@ The Claude 3 models are better at following complex, multi-step instructions. Th
 
 **Cost  
   
-**_\[Input $/million tokens | Output $/million tokens\]_
+**_[Input $/million tokens | Output $/million tokens]_
 
 $15 | $75
 
 **Context window**
 
-200K\*
+200K*
 
 **Potential uses**
 
--   Task automation: plan and execute complex actions across APIs and databases, interactive coding
--   R&D: research review, brainstorming and hypothesis generation, drug discovery
--   Strategy: advanced analysis of charts & graphs, financials and market trends, forecasting
+*   Task automation: plan and execute complex actions across APIs and databases, interactive coding
+*   R&D: research review, brainstorming and hypothesis generation, drug discovery
+*   Strategy: advanced analysis of charts & graphs, financials and market trends, forecasting
 
 **Differentiator**
 
@@ -100,7 +102,7 @@ Higher intelligence than any other model available.
 
 data
 
-_\*1M tokens available for specific use cases, please inquire._
+_*1M tokens available for specific use cases, please inquire._
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F08376f135c37fe029e2aea16fa55c4c83ec77b6b-1148x56.png&w=3840&q=75)
 
@@ -108,7 +110,7 @@ _\*1M tokens available for specific use cases, please inquire._
 
 **Cost  
   
-**_\[Input $/million tokens | Output $/million tokens\]_
+**_[Input $/million tokens | Output $/million tokens]_
 
 $3 | $15
 
@@ -118,9 +120,9 @@ $3 | $15
 
 **Potential uses**
 
--   Data processing: RAG or search & retrieval over vast amounts of knowledge
--   Sales: product recommendations, forecasting, targeted marketing
--   Time-saving tasks: code generation, quality control, parse text from images
+*   Data processing: RAG or search & retrieval over vast amounts of knowledge
+*   Sales: product recommendations, forecasting, targeted marketing
+*   Time-saving tasks: code generation, quality control, parse text from images
 
 **Differentiator**
 
@@ -132,7 +134,7 @@ data
 
 **Cost  
   
-**_\[Input $/million tokens | Output $/million tokens\]_
+**_[Input $/million tokens | Output $/million tokens]_
 
 $0.25 | $1.25
 
@@ -142,9 +144,9 @@ $0.25 | $1.25
 
 **Potential uses**
 
--   Customer interactions: quick and accurate support in live interactions, translations
--   Content moderation: catch risky behavior or customer requests
--   Cost-saving tasks: optimized logistics, inventory management, extract knowledge from unstructured data
+*   Customer interactions: quick and accurate support in live interactions, translations
+*   Content moderation: catch risky behavior or customer requests
+*   Cost-saving tasks: optimized logistics, inventory management, extract knowledge from unstructured data
 
 **Differentiator**
 
@@ -164,28 +166,26 @@ We do not believe that model intelligence is anywhere near its limits, and we pl
 
 As we push the boundaries of AI capabilities, we’re equally committed to ensuring that our safety guardrails keep apace with these leaps in performance. Our hypothesis is that being at the frontier of AI development is the most effective way to steer its trajectory towards positive societal outcomes.
 
-We’re excited to see what you create with Claude 3 and hope you will give us feedback to make Claude an even more useful assistant and creative companion. To start building with Claude, visit [anthropic.com/claude](https://www.anthropic.com/claude).
+We’re excited to see what you create with Claude 3 and hope you will give us feedback to make Claude an even more useful assistant and creative companion. To start building with Claude, visit anthropic.com/claude.
 
 #### Footnotes
 
-1.  This table shows comparisons to models currently available commercially that have released evals. Our model card shows comparisons to models that have been announced but not yet released, such as Gemini 1.5 Pro. In addition, we’d like to note that engineers have worked to optimize prompts and few-shot samples for evaluations and reported higher scores for a newer GPT-4T model. [Source](https://github.com/microsoft/promptbase).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-3-family)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-3-family)
+1.  This table shows comparisons to models currently available commercially that have released evals. Our model card shows comparisons to models that have been announced but not yet released, such as Gemini 1.5 Pro. In addition, we’d like to note that engineers have worked to optimize prompts and few-shot samples for evaluations and reported higher scores for a newer GPT-4T model. Source.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

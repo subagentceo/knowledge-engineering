@@ -6,11 +6,11 @@
 
 Hybrid reasoning model with superior intelligence for agents, featuring a 1M context window
 
-[Try Claude](https://claude.ai/)[Get API access](https://platform.claude.com/)
+Try ClaudeGet API access
 
 ## Announcements
 
--   NEW
+*   NEW
     
     Claude Sonnet 4.6
     
@@ -18,44 +18,32 @@ Hybrid reasoning model with superior intelligence for agents, featuring a 1M con
     
     Sonnet 4.6 delivers frontier performance across coding, agents, and professional work at scale. It can compress multi-day coding projects into hours and deliver production-ready solutions.
     
-    [
-    
     Read more
     
-    ](/news/claude-sonnet-4-6)
--   Claude Sonnet 4.5
+*   Claude Sonnet 4.5
     
     Sep 29, 2025
     
     Sonnet 4.5 is the best model in the world for agents, coding, and computer use. It’s also our most accurate and detailed model for long-running tasks, with enhanced domain knowledge in coding, finance, and cybersecurity.
     
-    [
-    
     Read more
     
-    ](/news/claude-sonnet-4-5)
--   Claude Sonnet 4
+*   Claude Sonnet 4
     
     May 22, 2025
     
     Sonnet 4 improves on Sonnet 3.7 across a variety of areas, especially coding. It offers frontier performance that’s practical for most AI use cases, including user-facing AI assistants and high-volume tasks.
     
-    [
-    
     Read more
     
-    ](/news/claude-4)
--   Claude Sonnet 3.7 and Claude Code
+*   Claude Sonnet 3.7 and Claude Code
     
     Feb 24, 2025
     
     Sonnet 3.7 is the first hybrid reasoning model and our most intelligent model to date. It’s state-of-the art for coding and delivers significant improvements in content generation, data analysis, and planning.
     
-    [
-    
     Read more
     
-    ](/news/claude-3-7-sonnet)
 
 ## Availability and pricing
 
@@ -63,7 +51,7 @@ Anyone can chat with Claude using Sonnet 4.6 on Claude.ai, available on web, iOS
 
 For developers interested in building agents, Sonnet 4.6 is available on the Claude Platform natively, and in Amazon Bedrock, Google Cloud's Vertex AI, and Microsoft Foundry. The 1M token context window is currently available in beta on the API only.
 
-Pricing for Sonnet 4.6 starts at $3 per million input tokens and $15 per million output tokens, with up to 90% cost savings with [prompt caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) and 50% cost savings with [batch processing](https://platform.claude.com/docs/en/build-with-claude/batch-processing#pricing). To learn more, check out our [pricing page](https://claude.com/pricing#api). To get started, simply use `claude-sonnet-4-6` via the [Claude API](https://platform.claude.com/docs/en/about-claude/models/overview).
+Pricing for Sonnet 4.6 starts at $3 per million input tokens and $15 per million output tokens, with up to 90% cost savings with prompt caching and 50% cost savings with batch processing. To learn more, check out our pricing page. To get started, simply use `claude-sonnet-4-6` via the Claude API.
 
 ## Use cases
 
@@ -71,19 +59,19 @@ Sonnet 4.6 is a powerful, versatile model built for daily use, scaled production
 
 Sonnet 4.6 can produce near-instant responses or extended, step-by-step thinking. API users also have fine-grained control over the model's thinking effort. Popular use cases include:
 
-### **Advanced coding**
+### Advanced coding
 
 Sonnet 4.6 delivers frontier coding performance across the entire software development lifecycle. From initial planning and implementation to debugging, maintenance, and large-scale refactors, it excels at reasoning through complex, multi-file codebases, producing precise implementations, and iterating with minimal back-and-forth.
 
-### **Long-running agents**
+### Long-running agents
 
 Sonnet 4.6 offers superior instruction following, tool selection, and error correction for autonomous AI workflows. It reliably handles complex, multi-step tasks that require sustained coherence and adaptive decision-making, making it an ideal backbone for customer-facing agents, internal automation, and production-grade AI systems that need to operate independently at scale.
 
-### **Browser and computer use**
+### Browser and computer use
 
 Sonnet 4.6 excels in computer use capabilities, reliably handling any browser-based task from competitive analysis to procurement workflows to customer onboarding. Building on the foundation that made Sonnet the first frontier AI model to use computers, Sonnet 4.6 navigates digital environments with greater accuracy and reliability, enabling enterprises to automate workflows that previously required human intervention.
 
-### **Enterprise workflows**
+### Enterprise workflows
 
 Sonnet 4.6 handles high-volume, high-stakes professional workflows across finance, research, content, and business operations. It can analyze complex financial data, synthesize insights from internal and external sources, generate and edit documents and spreadsheets, and produce compelling written content with nuance and precision.
 
@@ -95,7 +83,7 @@ Sonnet 4.6 achieves frontier performance on the benchmarks that matter most for 
 
 ## Trust & Safety
 
-We’ve conducted extensive testing and evaluation of Sonnet 4.6, working with external experts to ensure it meets our standards for safety, security, and reliability. The accompanying [model card](<https://anthropic.com/claude-sonnet-4-6-system-card >) covers safety results in depth.
+We’ve conducted extensive testing and evaluation of Sonnet 4.6, working with external experts to ensure it meets our standards for safety, security, and reliability. The accompanying model card covers safety results in depth.
 
 ## Hear from our customers
 
@@ -317,19 +305,19 @@ Coding
 
 ### What should I look for when reviewing a Pull Request for a Python web app?
 
-[Ask Claude](https://claude.ai/new?q=What%20should%20I%20look%20for%20when%20reviewing%20a%20Pull%20Request%20for%20a%20Python%20web%20app%3F)
+Ask Claude
 
 Writing
 
 ### Create a 3-month editorial calendar template for a weekly newsletter
 
-[Ask Claude](https://claude.ai/new?q=Create%20a%203-month%20editorial%20calendar%20template%20for%20a%20weekly%20newsletter)
+Ask Claude
 
 Students
 
 ### What's an effective study schedule template for final exams?
 
-[Ask Claude](https://claude.ai/new?q=What's%20an%20effective%20study%20schedule%20template%20for%20final%20exams%3F)
+Ask Claude
 
 ## Frequently asked questions
 
@@ -339,7 +327,7 @@ We offer different models across the spectrum of speed, price, and performance. 
 
 ### How much does it cost to use Claude Sonnet 4.6?
 
-Pricing depends on how you want to use Sonnet 4.6. To learn more, check out our [pricing page](https://claude.com/pricing#api).
+Pricing depends on how you want to use Sonnet 4.6. To learn more, check out our pricing page.
 
 ### When should I use extended thinking?
 

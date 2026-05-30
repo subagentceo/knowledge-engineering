@@ -1,3 +1,5 @@
+# Anthropic and the Department of Defense to advance responsible AI in defense operations
+
 Announcements
 
 # Anthropic and the Department of Defense to advance responsible AI in defense operations
@@ -10,9 +12,9 @@ The U.S. Department of Defense (DOD), through its Chief Digital and Artificial I
 
 With CDAO and other DOD organizations and commands, we'll engage in:
 
--   Working directly with the DOD to identify where frontier AI can deliver the most impact, then developing working prototypes fine-tuned on DOD data
--   Collaborating with defense experts to anticipate and mitigate potential adversarial uses of AI, drawing on our advanced risk forecasting capabilities
--   Exchanging technical insights, performance data, and operational feedback to accelerate responsible AI adoption across the defense enterprise
+*   Working directly with the DOD to identify where frontier AI can deliver the most impact, then developing working prototypes fine-tuned on DOD data
+*   Collaborating with defense experts to anticipate and mitigate potential adversarial uses of AI, drawing on our advanced risk forecasting capabilities
+*   Exchanging technical insights, performance data, and operational feedback to accelerate responsible AI adoption across the defense enterprise
 
 ## Our commitment to responsible AI deployment
 
@@ -24,32 +26,30 @@ We believe democracies must work together to ensure AI development strengthens d
 
 Our commitment to responsible AI deployment, including rigorous safety testing, collaborative governance development, and strict usage policies, makes Claude uniquely suited for sensitive national security applications.
 
-This agreement with CDAO builds upon Anthropic's growing ecosystem of public sector deployments. Last week, we [announced](https://www.anthropic.com/news/lawrence-livermore-national-laboratory-expands-claude-for-enterprise-to-empower-scientists-and) that Lawrence Livermore National Laboratory will make advanced AI capabilities available to over 10,000 scientists, researchers, and staff. LLNL's expansion of Claude access will help bolster research across nuclear deterrence, energy security, and materials science.
+This agreement with CDAO builds upon Anthropic's growing ecosystem of public sector deployments. Last week, we announced that Lawrence Livermore National Laboratory will make advanced AI capabilities available to over 10,000 scientists, researchers, and staff. LLNL's expansion of Claude access will help bolster research across nuclear deterrence, energy security, and materials science.
 
 We’ve accelerated mission impact across U.S. defense workflows with partners like Palantir, where Claude is integrated into mission workflows on classified networks. This has enabled U.S. defense and intelligence organizations with powerful AI tools to rapidly process and analyze vast amounts of complex data.
 
-[Claude Gov models](https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers), which we custom built for national security customers, already power deployments by agencies across the national security community atop infrastructure powered by Amazon Web Services(AWS).
+Claude Gov models, which we custom built for national security customers, already power deployments by agencies across the national security community atop infrastructure powered by Amazon Web Services(AWS).
 
-Organizations interested in transforming their operations with Claude can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.
+Organizations interested in transforming their operations with Claude can contact our public sector team to learn more and get started.
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-and-the-department-of-defense-to-advance-responsible-ai-in-defense-operations)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-and-the-department-of-defense-to-advance-responsible-ai-in-defense-operations)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# Anthropic acquires Vercept to advance Claude's computer use capabilities
+
 Announcements
 
 # Anthropic acquires Vercept to advance Claude's computer use capabilities
@@ -10,28 +12,26 @@ People are using Claude for increasingly complex work—writing and running code
 
 Vercept was built around a clear thesis: making AI genuinely useful for completing complex tasks requires solving hard perception and interaction problems. The Vercept team—including co-founders Kiana Ehsani, Luca Weihs, and Ross Girshick—have spent years thinking carefully about how AI systems can see and act within the same software humans use every day. That expertise maps directly onto some of the hardest problems we're working on at Anthropic. Vercept will wind down its external product in the coming weeks and join Anthropic in pushing the frontiers of computer use.
 
-This acquisition follows the recent launch of Claude [Sonnet 4.6](https://www.anthropic.com/news/claude-sonnet-4-6), which shows a major improvement in computer use skills: on OSWorld, a widely-used evaluation for AI computer use, our Sonnet models went from under 15% in late 2024, when we first released computer use, to 72.5% today. Sonnet 4.6 is now approaching human-level performance on tasks like navigating complex spreadsheets and completing web forms across browser tabs.
+This acquisition follows the recent launch of Claude Sonnet 4.6, which shows a major improvement in computer use skills: on OSWorld, a widely-used evaluation for AI computer use, our Sonnet models went from under 15% in late 2024, when we first released computer use, to 72.5% today. Sonnet 4.6 is now approaching human-level performance on tasks like navigating complex spreadsheets and completing web forms across browser tabs.
 
-Vercept is the latest team we’ve brought into Anthropic, following the acquisition of [Bun](https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone). We look for teams whose technical ambitions match ours, whose work advances our capabilities, and whose approach to building AI is grounded in the same principles of safety and rigor that guide everything we do.
+Vercept is the latest team we’ve brought into Anthropic, following the acquisition of Bun. We look for teams whose technical ambitions match ours, whose work advances our capabilities, and whose approach to building AI is grounded in the same principles of safety and rigor that guide everything we do.
 
-We’re also looking for individuals. If you're interested in joining Anthropic’s engineering team, visit our [careers page](https://www.anthropic.com/jobs).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/acquires-vercept)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/acquires-vercept)
+We’re also looking for individuals. If you're interested in joining Anthropic’s engineering team, visit our careers page.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# Australian government and Anthropic sign MOU for AI safety and research
+
 Announcements
 
 # Australian government and Anthropic sign MOU for AI safety and research
@@ -8,13 +10,13 @@ Mar 31, 2026
 
 Today, Anthropic signed a Memorandum of Understanding with the Australian government to cooperate on AI safety research and support the goals of Australia’s National AI Plan. Our CEO, Dario Amodei, met with Prime Minister Anthony Albanese to formalize the agreement during a visit to Canberra, Australia. We also announced AUD$3 million in partnerships with leading Australian research institutions to use Claude to improve disease diagnosis and treatment and support computer science education and research.
 
-Central to the MOU is a commitment to work with Australia’s AI Safety Institute. We will share our findings on emerging model capabilities and risks, participate in joint safety and security evaluations, and collaborate on research with Australian academic institutions. This mirrors the arrangements we have with safety institutes in the US, UK, and Japan, where early access and technical information sharing has helped governments build an independent view of where frontier AI is heading, and AI developers increase the safety of their models. Under the MOU, we will share [Anthropic Economic Index data](https://www.anthropic.com/research/economic-index-march-2026-report) with the Australian government to help track how AI is being adopted across the economy, its economic impacts, and the implications for workers. We’ll initially focus on sectors critical to Australia’s economy, including natural resources, agriculture, healthcare, and financial services. As part of this, we plan to develop ways to advance AI education and training within the workforce. Our recent [Economic Index](https://www.anthropic.com/economic-index#country-usage) data shows that [Australians already use Claude](https://www.anthropic.com/research/how-australia-uses-claude) for a broader range of tasks than most countries—the most diverse among English-speaking nations—and work collaboratively with AI using sophisticated prompts to accomplish high-skill tasks ranging from management and sales and business operations, to use in the life sciences and in everyday life. Finally, in line with Australia’s National AI plan, we are exploring investments in data center infrastructure and energy throughout the country, aligned with the government’s recently announced [data center expectations](https://www.industry.gov.au/publications/expectations-data-centres-and-ai-infrastructure-developers).
+Central to the MOU is a commitment to work with Australia’s AI Safety Institute. We will share our findings on emerging model capabilities and risks, participate in joint safety and security evaluations, and collaborate on research with Australian academic institutions. This mirrors the arrangements we have with safety institutes in the US, UK, and Japan, where early access and technical information sharing has helped governments build an independent view of where frontier AI is heading, and AI developers increase the safety of their models. Under the MOU, we will share Anthropic Economic Index data with the Australian government to help track how AI is being adopted across the economy, its economic impacts, and the implications for workers. We’ll initially focus on sectors critical to Australia’s economy, including natural resources, agriculture, healthcare, and financial services. As part of this, we plan to develop ways to advance AI education and training within the workforce. Our recent Economic Index data shows that Australians already use Claude for a broader range of tasks than most countries—the most diverse among English-speaking nations—and work collaboratively with AI using sophisticated prompts to accomplish high-skill tasks ranging from management and sales and business operations, to use in the life sciences and in everyday life. Finally, in line with Australia’s National AI plan, we are exploring investments in data center infrastructure and energy throughout the country, aligned with the government’s recently announced data center expectations.
 
 “Australia’s investment in AI safety makes it a natural partner for responsible AI development. This MOU gives our collaboration a formal foundation,” said Anthropic CEO Dario Amodei. “ I'm particularly excited by the work Australian research institutions will be doing with Claude to advance disease diagnosis and treatment."
 
-### **Extending AI for Science to Australia’s research and innovation sector**
+### Extending AI for Science to Australia’s research and innovation sector
 
-At Anthropic, we believe that AI has the potential to significantly accelerate scientific progress. To this end, we are extending our [AI for Science](https://www.anthropic.com/news/ai-for-science-program) program to Australia, starting with an investment of AUD$3 million in Claude API credits to four institutions applying AI to some of humanity’s most pressing challenges. New partnerships with the Australian National University, Murdoch Children’s Research Institute, the Garvan Institute of Medical Research, and Curtin University will support areas like clinical genomics and precision medicine, pediatric medical research, and computing education.
+At Anthropic, we believe that AI has the potential to significantly accelerate scientific progress. To this end, we are extending our AI for Science program to Australia, starting with an investment of AUD$3 million in Claude API credits to four institutions applying AI to some of humanity’s most pressing challenges. New partnerships with the Australian National University, Murdoch Children’s Research Institute, the Garvan Institute of Medical Research, and Curtin University will support areas like clinical genomics and precision medicine, pediatric medical research, and computing education.
 
 A multidisciplinary team from the ANU John Curtin School of Medical Research is using Claude to analyze genetic sequencing data to help tackle rare diseases. The ANU School of Computing is also embedding Claude into new courses to train the next generation of Australian developers and scientists.
 
@@ -26,24 +28,22 @@ On Monday, we also announced that we are launching our first deep tech startup A
 
 These investments reflect the advanced work Australian researchers and startups are already doing with Claude, and directly contribute to supporting the goals outlined in Australia’s National AI Plan.
 
-The visit to Australia marks the beginning of long-term collaboration and investment into the Asia-Pacific region. We’ll share more about our local team and leadership in the coming weeks as we prepare to open our Sydney office. You can read the details of the Australian government’s MOU with Anthropic [here](https://www.industry.gov.au/publications/memorandum-understanding-between-australian-government-and-anthropic-collaboration-ai-opportunities).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/australia-MOU)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/australia-MOU)
+The visit to Australia marks the beginning of long-term collaboration and investment into the Asia-Pacific region. We’ll share more about our local team and leadership in the coming weeks as we prepare to open our Sydney office. You can read the details of the Australian government’s MOU with Anthropic here.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# Preparing for global elections in 2024
+
 Policy
 
 # Preparing for global elections in 2024
@@ -10,32 +12,32 @@ Over half of the world’s population will vote this year with high profile elec
 
 Our global election work has three major components. These are:
 
--   Developing and enforcing policies around election issues;
--   Evaluating and testing how our models perform against election misuses;
--   Ensuring that when people ask Claude for information about where or how to vote, we point them to up-to-date, accurate information.
+*   Developing and enforcing policies around election issues;
+*   Evaluating and testing how our models perform against election misuses;
+*   Ensuring that when people ask Claude for information about where or how to vote, we point them to up-to-date, accurate information.
 
-## **Implementing and enforcing policies around election issues**
+## Implementing and enforcing policies around election issues
 
-Because generative AI systems are relatively new, we’re taking a cautious approach to how our systems can be used in politics. We have an [Acceptable Use Policy (AUP)](https://console.anthropic.com/legal/aup) which prohibits the use of our tools in political campaigning and lobbying. This means that we don’t allow candidates to use Claude to build chatbots that can pretend to be them, and we don’t allow anyone to use Claude for targeted political campaigns.
+Because generative AI systems are relatively new, we’re taking a cautious approach to how our systems can be used in politics. We have an Acceptable Use Policy (AUP) which prohibits the use of our tools in political campaigning and lobbying. This means that we don’t allow candidates to use Claude to build chatbots that can pretend to be them, and we don’t allow anyone to use Claude for targeted political campaigns.
 
 We’ve also trained and deployed automated systems to detect and prevent misuse like misinformation or influence operations. If we discover misuse of our systems, we give the relevant user or organization a warning. In extreme cases, we suspend their access to our tools and services altogether. More severe actions on our part, like suspensions, are accompanied by careful human review to prevent false positives.
 
-## **Evaluating and testing how our model holds up against election misuses**
+## Evaluating and testing how our model holds up against election misuses
 
 Since 2023, we’ve been carrying out targeted “red-teaming” of our systems, to test for ways that they might be used to violate our AUP. This ‘Policy Vulnerability Testing’ focuses on two areas:
 
--   Misinformation and bias. We examine how our AI system responds when presented with questions about candidates, issues and election administration;
--   Adversarial abuse. We test how our system responds to prompts that violate our Acceptable Use Policy (e.g., prompts that request information about tactics for voter suppression).
+*   Misinformation and bias. We examine how our AI system responds when presented with questions about candidates, issues and election administration;
+*   Adversarial abuse. We test how our system responds to prompts that violate our Acceptable Use Policy (e.g., prompts that request information about tactics for voter suppression).
 
 We’ve also built an in-house suite of technical evaluations to test our systems for a variety of election-related risks. These include ways of testing for:
 
--   Political parity in model responses across candidates and topics;
--   The degree to which our systems refuse to respond to harmful queries about the election;
--   How robust our systems are in preventing the production of disinformation and voter profiling and targeting tactics.
+*   Political parity in model responses across candidates and topics;
+*   The degree to which our systems refuse to respond to harmful queries about the election;
+*   How robust our systems are in preventing the production of disinformation and voter profiling and targeting tactics.
 
 These are quantitative tests, and we use them to evaluate the robustness of our systems and test how effective we are at intervening and mitigating the problems. We’ll have more to share about our evaluation suite in the coming months.
 
-## **Providing accurate information**
+## Providing accurate information
 
 In the United States, we will be trialing an approach where we use our classifier and rules engine—to identify election-related queries and redirect users to accurate, up-to-date authoritative voting information.
 
@@ -43,36 +45,34 @@ While generative AI systems have a broad range of positive uses, our own researc
 
 _How it will work:_
 
-If a US-based user asks for voting information, a pop-up will offer the user the option to be redirected to [TurboVote](http://claude.turbovote.org/), a resource from the nonpartisan organization Democracy Works.  
+If a US-based user asks for voting information, a pop-up will offer the user the option to be redirected to TurboVote, a resource from the nonpartisan organization Democracy Works.  
   
 The pop up will roll out over the next few weeks and we intend to use the insights from our TurboVote redirect to roll out similar solutions in other countries and regions.
 
-## **We expect to be surprised**
+## We expect to be surprised
 
 This post gives an overview of how we’re approaching the use of our systems in elections. However, the history of AI deployment has also been one full of surprises and unexpected effects. We expect that 2024 will see surprising uses of AI systems—uses that were not anticipated by their own developers.
 
 At Anthropic, we’re building methods to help us spot unanticipated uses of our systems as they emerge, and we’ll communicate openly and frankly about what we discover.  
 
-**Update, May 28, 2024:** After making Claude available [in Europe in May](https://www.anthropic.com/news/claude-europe), we also implemented a pop-up intervention for EU-based users who ask Claude for voting information. The pop-up will offer the user the option to be redirected to the European Parliament’s [nonpartisan elections website](https://elections.europa.eu/en/).
+**Update, May 28, 2024:** After making Claude available in Europe in May, we also implemented a pop-up intervention for EU-based users who ask Claude for voting information. The pop-up will offer the user the option to be redirected to the European Parliament’s nonpartisan elections website.
 
-We also updated our [Usage Policy t](https://www.anthropic.com/legal/aup)o provide greater clarity on the definitions of political lobbying and campaigning activities, which are prohibited when using our products. You can read more about these restrictions [here](https://www.anthropic.com/news/updating-our-usage-policy).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/preparing-for-global-elections-in-2024)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/preparing-for-global-elections-in-2024)
+We also updated our Usage Policy to provide greater clarity on the definitions of political lobbying and campaigning activities, which are prohibited when using our products. You can read more about these restrictions here.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

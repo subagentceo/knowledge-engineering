@@ -1,3 +1,5 @@
+# Teaching Claude why
+
 Alignment
 
 # Teaching Claude why
@@ -6,11 +8,11 @@ May 8, 2026
 
 ![Teaching Claude why](https://www-cdn.anthropic.com/images/4zrzovbb/website/6380b3c2dc9e4011a3cd96fec382bd9197511e31-1000x1000.svg)
 
-Last year, we released a case study on [agentic misalignment](https://www.anthropic.com/research/agentic-misalignment). In experimental scenarios, we showed that AI models from many different developers sometimes took egregiously misaligned actions when they encountered (fictional) ethical dilemmas. For example, in one heavily discussed example, the models blackmailed engineers to avoid being shut down.
+Last year, we released a case study on agentic misalignment. In experimental scenarios, we showed that AI models from many different developers sometimes took egregiously misaligned actions when they encountered (fictional) ethical dilemmas. For example, in one heavily discussed example, the models blackmailed engineers to avoid being shut down.
 
 When we first published this research, our most capable frontier models were from the Claude 4 family. This was also the first model family for which we ran a live alignment assessment during training;1 agentic misalignment was one of several behavioral issues that surfaced. Thus, after Claude 4, it was clear we needed to improve our safety training and, since then, we have made significant updates to our safety training.
 
-We use agentic misalignment as a case study to highlight some of the techniques we found to be surprisingly effective. Indeed, since Claude Haiku 4.5, every Claude model2 has achieved a perfect score on the agentic misalignment evaluation—that is, the models never engage in blackmail, where previous models would sometimes do so up to 96% of the time (Opus 4). Not only that, but we’ve continued to see improvements to other behaviors on [our automated alignment assessment](https://www-cdn.anthropic.com/bf10f64990cfda0ba858290be7b8cc6317685f47.pdf).
+We use agentic misalignment as a case study to highlight some of the techniques we found to be surprisingly effective. Indeed, since Claude Haiku 4.5, every Claude model2 has achieved a perfect score on the agentic misalignment evaluation—that is, the models never engage in blackmail, where previous models would sometimes do so up to 96% of the time (Opus 4). Not only that, but we’ve continued to see improvements to other behaviors on our automated alignment assessment.
 
 In this post, we’ll discuss a few of the updates we’ve made to alignment training. We’ve learned four main lessons from this work:
 
@@ -20,7 +22,7 @@ In this post, we’ll discuss a few of the updates we’ve made to alignment tra
 
 **The quality and diversity of data is crucial.** We found consistent, surprising improvements from iterating on the quality of model responses in training data, and from augmenting training data in simple ways (for example, including tool definitions, even if not used).
 
-![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd381a934380d3c6035b6c82c1b36068a970a52f2-1920x1080.png&w=3840&q=75)
+![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F4b620bad4cb1fdc886b8d13c4c6d3f1f50453901-1920x1080.png&w=3840&q=75)
 
 We align Claude by training on constitutionally aligned documents, high-quality chat data that demonstrates constitutional responses to difficult questions, and a diverse set of environments. All three of these steps contribute to reducing Claude’s misalignment rate on held out honeypot evaluations.
 
@@ -31,9 +33,9 @@ Before we started this research, it was not clear where the misaligned behavior 
 1.  Our post-training process was accidentally encouraging this behavior with misaligned rewards.
 2.  This behavior was coming from the pre-trained model and our post-training was failing to sufficiently discourage it.
 
-We now believe that (2) is largely responsible. Specifically, at the time of Claude 4’s training, the vast majority of our alignment training was standard chat-based Reinforcement Learning from Human Feedback ([RLHF](https://www.anthropic.com/research/training-a-helpful-and-harmless-assistant-with-reinforcement-learning-from-human-feedback)) data that did not include any agentic tool use. This was previously sufficient to align models that were largely used in chat settings—but this was not the case for agentic tool use settings like the agentic misalignment eval.
+We now believe that (2) is largely responsible. Specifically, at the time of Claude 4’s training, the vast majority of our alignment training was standard chat-based Reinforcement Learning from Human Feedback (RLHF) data that did not include any agentic tool use. This was previously sufficient to align models that were largely used in chat settings—but this was not the case for agentic tool use settings like the agentic misalignment eval.
 
-To investigate this, we ran a scaled-down version of our post-training pipeline that focuses on alignment data on a Haiku-class (that is, smaller) model and found that the agentic misalignment rate only slightly decreased, plateauing early in training (see figure above). See the [extended blog post](https://alignment.anthropic.com/2026/teaching-claude-why/) for some further experiments to investigate where the behavior was coming from.
+To investigate this, we ran a scaled-down version of our post-training pipeline that focuses on alignment data on a Haiku-class (that is, smaller) model and found that the agentic misalignment rate only slightly decreased, plateauing early in training (see figure above). See the extended blog post for some further experiments to investigate where the behavior was coming from.
 
 ### Improving the quality of alignment-specific training data: the reasons matter more than the actions
 
@@ -45,7 +47,7 @@ However, training directly against the evaluation scenario is non-optimal for a 
 
 We ultimately settled on a more OOD training set where the user faces an ethically ambiguous situation in which they can achieve a reasonable goal by violating norms or subverting oversight. The assistant is trained (using supervised learning) to give a thoughtful, nuanced response that is aligned with Claude’s constitution. Notably, it is the _user_ who faces an ethical dilemma, and the AI provides them advice. This makes this training data substantially different from our honeypot distribution, where the AI itself is in an ethical dilemma and needs to take actions. We call this the “difficult advice” dataset.
 
-Strikingly, **we achieved the same improvement on our eval with just 3M tokens of this much more OOD** **dataset**. Beyond the 28× efficiency improvement, this dataset is more likely to generalize to a wider set of scenarios, since it is much less similar to the evaluation set we are using. Indeed, this model performs better on (an older version of) our automated alignment assessment. This is consistent with the fact that Claude Sonnet 4.5 reached a blackmail rate near zero by training on the set of synthetic honeypots but still engaged in misaligned behavior in situations that were far from the training distribution [much more frequently than Claude Opus 4.5](https://www-cdn.anthropic.com/bf10f64990cfda0ba858290be7b8cc6317685f47.pdf) or later models.
+Strikingly, **we achieved the same improvement on our eval with just 3M tokens of this much more OOD** **dataset**. Beyond the 28× efficiency improvement, this dataset is more likely to generalize to a wider set of scenarios, since it is much less similar to the evaluation set we are using. Indeed, this model performs better on (an older version of) our automated alignment assessment. This is consistent with the fact that Claude Sonnet 4.5 reached a blackmail rate near zero by training on the set of synthetic honeypots but still engaged in misaligned behavior in situations that were far from the training distribution much more frequently than Claude Opus 4.5 or later models.
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F90cfc87a53e2213fdbe842a7b51e8f36a3b26fa9-1920x1080.png&w=3840&q=75)
 
@@ -62,8 +64,8 @@ We hypothesized that the “difficult advice” dataset works because it teaches
 We expected this to work well for three reasons:
 
 1.  This is largely an extension of the ideas laid out above about why the “difficult advice” dataset works well;
-2.  We can give the model a clearer, more detailed picture of what Claude’s character is so that fine-tuning on a subset of those characteristics elicits the entire character (similar to the effect observed in the [auditing game paper](https://www.anthropic.com/research/auditing-hidden-objectives));
-3.  It updates the model’s [perception of AI personas](https://www.anthropic.com/research/persona-selection-model) to be more aligned on average.
+2.  We can give the model a clearer, more detailed picture of what Claude’s character is so that fine-tuning on a subset of those characteristics elicits the entire character (similar to the effect observed in the auditing game paper);
+3.  It updates the model’s perception of AI personas to be more aligned on average.
 
 We found that high-quality constitutional documents combined with fictional stories portraying an aligned AI can reduce agentic misalignment by more than a factor of three despite being unrelated to the evaluation scenario.
 
@@ -103,25 +105,25 @@ We are optimistic about further efforts to discover alignment failures in curren
 
 #### Footnotes
 
-1.  Published in the [Claude 4 system card](https://www.anthropic.com/claude-4-system-card), beginning on p.22.
+1.  Published in the Claude 4 system card, beginning on p.22.
 2.  Sonnet 4.5 scored well under 1%, but not quite 0; Haiku 4.5, Opus 4.5, Opus 4.6, Sonnet 4.6, Mythos preview, and Opus 4.7 all score 0. The results on more recent models may be confounded by the presence of information about the evaluation in the pre-training corpus.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/teaching-claude-why)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/teaching-claude-why)
-
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
-
-### Donating our open-source alignment tool
-
-[Read more](/research/donating-open-source-petri)
+Read more

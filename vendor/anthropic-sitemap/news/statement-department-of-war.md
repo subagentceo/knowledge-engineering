@@ -1,3 +1,5 @@
+# Statement from Dario Amodei on our discussions with the Department of War
+
 AnnouncementsPolicy
 
 # Statement from Dario Amodei on our discussions with the Department of War
@@ -6,20 +8,20 @@ Feb 26, 2026
 
 I believe deeply in the existential importance of using AI to defend the United States and other democracies, and to defeat our autocratic adversaries.
 
-Anthropic has therefore worked proactively to deploy our models to the Department of War and the intelligence community. We were [the first frontier AI company](https://www.anthropic.com/news/expanding-access-to-claude-for-government) to deploy our models in the US government’s classified networks, the first to deploy them at the [National Laboratories](https://www.axios.com/2024/11/14/anthropic-claude-nuclear-information-safety), and the first to provide [custom models](https://www.anthropic.com/news/claude-gov-models-for-u-s-national-security-customers) for national security customers. Claude is [extensively deployed](https://www.anthropic.com/news/anthropic-and-the-department-of-defense-to-advance-responsible-ai-in-defense-operations) across the Department of War and other national security agencies for mission-critical applications, such as intelligence analysis, modeling and simulation, operational planning, cyber operations, and more.
+Anthropic has therefore worked proactively to deploy our models to the Department of War and the intelligence community. We were the first frontier AI company to deploy our models in the US government’s classified networks, the first to deploy them at the National Laboratories, and the first to provide custom models for national security customers. Claude is extensively deployed across the Department of War and other national security agencies for mission-critical applications, such as intelligence analysis, modeling and simulation, operational planning, cyber operations, and more.
 
-Anthropic has also acted to defend America’s lead in AI, even when it is against the company’s short-term interest. We chose to forgo several hundred million dollars in revenue to cut off the [use of Claude by firms linked to the Chinese Communist Party](https://www.anthropic.com/news/updating-restrictions-of-sales-to-unsupported-regions) (some of whom have been [designated by the Department of War](https://media.defense.gov/2025/Jan/07/2003625471/-1/-1/1/ENTITIES-IDENTIFIED-AS-CHINESE-MILITARY-COMPANIES-OPERATING-IN-THE-UNITED-STATES.PDF) as Chinese Military Companies), shut down [CCP-sponsored cyberattacks](https://www.anthropic.com/news/disrupting-AI-espionage) that attempted to abuse Claude, and have advocated for [strong export controls on chips](https://www.wsj.com/opinion/trump-can-keep-americas-ai-advantage-china-chips-data-eccdce91?gaa_at=eafs&gaa_n=AWEtsqdPk42glTHtJxGWpiSYR1xY28wMr6SpvGWmvlfp8_gYMp2h0ulOBH89Njx5eB0%3D&gaa_ts=6983c8a6&gaa_sig=t3NbNoEV35S9fhpBAUsmCPXHG6Zc3taB_jNESn4lAI7qy0l37FtVqnKZe-ASVGLp4SqxRsIS-HRn0k51UzsdpQ%3D%3D) to ensure a democratic advantage.
+Anthropic has also acted to defend America’s lead in AI, even when it is against the company’s short-term interest. We chose to forgo several hundred million dollars in revenue to cut off the use of Claude by firms linked to the Chinese Communist Party (some of whom have been designated by the Department of War as Chinese Military Companies), shut down CCP-sponsored cyberattacks that attempted to abuse Claude, and have advocated for strong export controls on chips to ensure a democratic advantage.
 
 Anthropic understands that the Department of War, not private companies, makes military decisions. We have never raised objections to particular military operations nor attempted to limit use of our technology in an _ad hoc_ manner.
 
 However, in a narrow set of cases, we believe AI can undermine, rather than defend, democratic values. Some uses are also simply outside the bounds of what today’s technology can safely and reliably do. Two such use cases have never been included in our contracts with the Department of War, and we believe they should not be included now:
 
--   **Mass domestic surveillance.** We support the use of AI for lawful foreign intelligence and counterintelligence missions. But using these systems for mass _domestic_ surveillance is incompatible with democratic values. AI-driven mass surveillance [presents serious, novel risks to our fundamental liberties](https://www.darioamodei.com/essay/the-adolescence-of-technology). To the extent that such surveillance is currently legal, this is only because the law has not yet caught up with the rapidly growing capabilities of AI. For example, under current law, the government can purchase detailed records of Americans’ movements, web browsing, and associations from public sources without obtaining a warrant, a practice the [Intelligence Community has acknowledged](https://www.dni.gov/files/ODNI/documents/assessments/ODNI-Declassified-Report-on-CAI-January2022.pdf) raises privacy concerns and that has generated bipartisan opposition in Congress. Powerful AI makes it possible to assemble this scattered, individually innocuous data into a comprehensive picture of any person’s life—automatically and at massive scale.
--   **Fully autonomous weapons.** Partially autonomous weapons, like those used today in Ukraine, are vital to the defense of democracy. Even _fully_ autonomous weapons (those that take humans out of the loop entirely and automate selecting and engaging targets) may prove critical for our national defense. But today, frontier AI systems are simply not reliable enough to power fully autonomous weapons. We will not knowingly provide a product that puts America’s warfighters and civilians at risk. We have offered to work directly with the Department of War on R&D to improve the reliability of these systems, but they have not accepted this offer. In addition, [without proper oversight](https://www.darioamodei.com/essay/the-adolescence-of-technology), fully autonomous weapons cannot be relied upon to exercise the critical judgment that our highly trained, professional troops exhibit every day. They need to be deployed with proper guardrails, which don’t exist today.
+*   **Mass domestic surveillance.** We support the use of AI for lawful foreign intelligence and counterintelligence missions. But using these systems for mass _domestic_ surveillance is incompatible with democratic values. AI-driven mass surveillance presents serious, novel risks to our fundamental liberties. To the extent that such surveillance is currently legal, this is only because the law has not yet caught up with the rapidly growing capabilities of AI. For example, under current law, the government can purchase detailed records of Americans’ movements, web browsing, and associations from public sources without obtaining a warrant, a practice the Intelligence Community has acknowledged raises privacy concerns and that has generated bipartisan opposition in Congress. Powerful AI makes it possible to assemble this scattered, individually innocuous data into a comprehensive picture of any person’s life—automatically and at massive scale.
+*   **Fully autonomous weapons.** Partially autonomous weapons, like those used today in Ukraine, are vital to the defense of democracy. Even _fully_ autonomous weapons (those that take humans out of the loop entirely and automate selecting and engaging targets) may prove critical for our national defense. But today, frontier AI systems are simply not reliable enough to power fully autonomous weapons. We will not knowingly provide a product that puts America’s warfighters and civilians at risk. We have offered to work directly with the Department of War on R&D to improve the reliability of these systems, but they have not accepted this offer. In addition, without proper oversight, fully autonomous weapons cannot be relied upon to exercise the critical judgment that our highly trained, professional troops exhibit every day. They need to be deployed with proper guardrails, which don’t exist today.
 
 To our knowledge, these two exceptions have not been a barrier to accelerating the adoption and use of our models within our armed forces to date.
 
-The Department of War has [stated](https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/ARTIFICIAL-INTELLIGENCE-STRATEGY-FOR-THE-DEPARTMENT-OF-WAR.PDF) they will only contract with AI companies who accede to “any lawful use” and remove safeguards in the cases mentioned above. They have threatened to remove us from their systems if we maintain these safeguards; they have also threatened to designate us a “supply chain risk”—a label reserved for US adversaries, never before applied to an American company—_and_ to invoke the Defense Production Act to force the safeguards’ removal. These latter two threats are [inherently contradictory](https://www.politico.com/news/2026/02/26/incoherent-hegseths-anthropic-ultimatum-confounds-ai-policymakers-00800135?utm_content=topic/politics&utm_source=flipboard): one labels us a security risk; the other labels Claude as essential to national security.
+The Department of War has stated they will only contract with AI companies who accede to “any lawful use” and remove safeguards in the cases mentioned above. They have threatened to remove us from their systems if we maintain these safeguards; they have also threatened to designate us a “supply chain risk”—a label reserved for US adversaries, never before applied to an American company—_and_ to invoke the Defense Production Act to force the safeguards’ removal. These latter two threats are inherently contradictory: one labels us a security risk; the other labels Claude as essential to national security.
 
 Regardless, these threats do not change our position: we cannot in good conscience accede to their request.
 
@@ -27,22 +29,20 @@ It is the Department’s prerogative to select contractors most aligned with the
 
 We remain ready to continue our work to support the national security of the United States.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/statement-department-of-war)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/statement-department-of-war)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

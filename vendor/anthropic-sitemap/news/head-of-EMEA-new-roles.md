@@ -1,3 +1,5 @@
+# Anthropic appoints Guillaume Princen as Head of EMEA and announces 100+ new roles across the region
+
 Announcements
 
 # Anthropic appoints Guillaume Princen as Head of EMEA and announces 100+ new roles across the region
@@ -14,24 +16,22 @@ Over the next year Anthropic intends to hire a variety of roles across sales, en
 
 **Daniela Amodei, President and co-founder of Anthropic, said**: “EMEA has been central to our vision from the beginning. Since launching Claude in Europe last year, we've seen rapid organic growth amongst businesses and consumers alike, confirming the region’s strategic importance to Anthropic's future. We've long planned to deepen our investment here, and finding the right leadership in Guillaume was the critical piece that allowed us to move forward with the thoughtful expansion we envision. Guillaume brings invaluable expertise in scaling businesses across diverse EMEA markets and his commitment to responsible innovation made him a natural choice to lead this next phase of our growth. Our focus remains on serving the thriving startup ecosystem while continuing to deliver Claude's capabilities to major enterprises across the region—providing the advanced performance, security, and reliability that leading organizations need to transform how they work with AI.”
 
-For more information about current career opportunities at Anthropic visit [anthropic.com/careers](http://anthropic.com/careers).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/head-of-EMEA-new-roles)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/head-of-EMEA-new-roles)
+For more information about current career opportunities at Anthropic visit anthropic.com/careers.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

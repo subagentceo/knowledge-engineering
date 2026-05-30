@@ -1,3 +1,5 @@
+# Investing in energy to secure America's AI future
+
 AlignmentPolicy
 
 # Investing in energy to secure America's AI future
@@ -10,10 +12,10 @@ Energy is central to winning the AI race and we need to ensure that America has 
 
 The importance of building this infrastructure goes beyond just powering data centers—the country that controls the energy to train and deploy frontier AI models will shape the future of global innovation, economic competitiveness, and democratic values. We believe America should be at the forefront and we need commitment that crosses political lines.
 
-Anthropic CEO Dario Amodei shared these priorities today at the inaugural [Pennsylvania Energy and Innovation Summit](https://www.mccormick.senate.gov/press-releases/senator-dave-mccormick-and-president-donald-j-trump-to-announce-record-setting-90-billion-in-energy-and-innovation-investments-for-pennsylvania/) at Carnegie Mellon University, joining President Trump, Senator Dave McCormick, and leaders from across the technology and energy sectors. As part of this, we are announcing a contribution of $2 million towards programs at Carnegie Mellon University. Our investment will support two critical areas: advancing AI-powered energy solutions and building the cybersecurity workforce needed to protect America's energy infrastructure. The funding is divided equally between two strategic initiatives:
+Anthropic CEO Dario Amodei shared these priorities today at the inaugural Pennsylvania Energy and Innovation Summit at Carnegie Mellon University, joining President Trump, Senator Dave McCormick, and leaders from across the technology and energy sectors. As part of this, we are announcing a contribution of $2 million towards programs at Carnegie Mellon University. Our investment will support two critical areas: advancing AI-powered energy solutions and building the cybersecurity workforce needed to protect America's energy infrastructure. The funding is divided equally between two strategic initiatives:
 
--   $1 million to support energy research as a grand challenge partner of the [Scott Institute for Energy Innovation](https://energy.cmu.edu/index.html), leveraging AI to automate and optimize grid management, driving energy efficiency and resilience. The Scott Institute is Carnegie Mellon's hub for advancing collaborative research, strategic partnerships, policy outreach, entrepreneurship, and education focused on the future of energy. Its Grand Challenge Partnership Program was established in 2023 to accelerate research on some of the most challenging questions facing the energy transition.
--   $1 million to support the [picoCTF program](https://picoctf.org/) at Carnegie Mellon University. This program is designed to provide middle and high school students with a free cybersecurity education to learn skills through capture-the-flag (CTF) competitions. It provides hands-on challenges covering topics like cryptography, web exploitation, forensics, and reverse engineering. These cybersecurity skills form the critical building blocks for securing our energy infrastructure and other critical systems in the years to come.
+*   $1 million to support energy research as a grand challenge partner of the Scott Institute for Energy Innovation, leveraging AI to automate and optimize grid management, driving energy efficiency and resilience. The Scott Institute is Carnegie Mellon's hub for advancing collaborative research, strategic partnerships, policy outreach, entrepreneurship, and education focused on the future of energy. Its Grand Challenge Partnership Program was established in 2023 to accelerate research on some of the most challenging questions facing the energy transition.
+*   $1 million to support the picoCTF program at Carnegie Mellon University. This program is designed to provide middle and high school students with a free cybersecurity education to learn skills through capture-the-flag (CTF) competitions. It provides hands-on challenges covering topics like cryptography, web exploitation, forensics, and reverse engineering. These cybersecurity skills form the critical building blocks for securing our energy infrastructure and other critical systems in the years to come.
 
 These investments are just the beginning. We also believe that AI will be a powerful tool to support emissions reductions, advance clean energy innovation, and streamline efficiencies. We plan to continue making investments in this area and are actively looking to partner with organizations who are working to study and find solutions to reduce negative environmental impacts.
 
@@ -21,22 +23,20 @@ By partnering across government, industry, and communities, we can build the fou
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/investing-in-energy-to-secure-america-s-ai-future)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/investing-in-energy-to-secure-america-s-ai-future)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

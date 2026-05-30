@@ -1,3 +1,5 @@
+# Expanding our global operations to India with our second Asia Pacific office
+
 Announcements
 
 # Expanding our global operations to India with our second Asia Pacific office
@@ -6,7 +8,7 @@ Oct 7, 2025
 
 ![Expanding our global operations to India with our second Asia Pacific office](https://www-cdn.anthropic.com/images/4zrzovbb/website/5f455d24ea80569b34eb4347f06152d8a5508722-1000x1000.svg)
 
-Today we’re announcing that we’re expanding our global operations to India, with plans to open an office in Bengaluru in early 2026. Bengaluru will serve as our second office in Asia Pacific after [Tokyo](https://www.anthropic.com/news/head-of-japan-hiring-plans), which will open in the coming months. This expansion will help us serve India’s rapidly growing AI ecosystem and reflects the increasing international demand we’re seeing for Claude.
+Today we’re announcing that we’re expanding our global operations to India, with plans to open an office in Bengaluru in early 2026. Bengaluru will serve as our second office in Asia Pacific after Tokyo, which will open in the coming months. This expansion will help us serve India’s rapidly growing AI ecosystem and reflects the increasing international demand we’re seeing for Claude.
 
 Our CEO and co-founder Dario Amodei is visiting India this week to meet with public officials and enterprise partners as we deepen our commitment to the region.
 
@@ -14,7 +16,7 @@ Our CEO and co-founder Dario Amodei is visiting India this week to meet with pub
 
 Our focus in India will be deploying AI for social impact in sectors like education, healthcare, and agriculture, as well as supporting key industries through strategic partnerships with Indian enterprises, nonprofits, and startups. The Bengaluru office will support India’s entrepreneurial ecosystem as it develops the next generation of dynamic companies.
 
-According to our recent [Economic Index Report](https://www.anthropic.com/economic-index), India ranks second globally in consumer usage of Claude, behind only the US. And a disproportionately large amount of Claude usage in India is for technical and programming-related tasks, such as mobile UI development and web app debugging. Large Indian enterprises like [CRED](https://claude.com/customers/cred) rely on Claude for their most critical coding work. And considering the rapid global adoption of Claude Code—with usage growing over 10x in just the first three months after its May launch—we believe Claude has the potential to dramatically accelerate growth among India's export-focused IT services industry.
+According to our recent Economic Index Report, India ranks second globally in consumer usage of Claude, behind only the US. And a disproportionately large amount of Claude usage in India is for technical and programming-related tasks, such as mobile UI development and web app debugging. Large Indian enterprises like CRED rely on Claude for their most critical coding work. And considering the rapid global adoption of Claude Code—with usage growing over 10x in just the first three months after its May launch—we believe Claude has the potential to dramatically accelerate growth among India's export-focused IT services industry.
 
 “Our expansion comes at a pivotal moment when Indian enterprises and startups are seeking AI models they can trust,” said Paul Smith, Anthropic’s Chief Commercial Officer. “They need systems that combine frontier performance with the safety and reliability required to support critical business operations at the massive scale that they operate. We see remarkable promise in India’s innovation ecosystem – the vibrant startup and developer communities alongside Indian enterprises are building solutions that impact millions of lives globally.”
 
@@ -22,22 +24,20 @@ Our expansion into India also dovetails with our continuing investment in advanc
 
 For information about career opportunities at our new Bengaluru office, visit anthropic.com/careers.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/expanding-global-operations-to-india)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/expanding-global-operations-to-india)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

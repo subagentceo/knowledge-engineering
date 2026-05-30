@@ -1,24 +1,26 @@
+# A small number of samples can poison LLMs of any size
+
 Alignment
 
 # A small number of samples can poison LLMs of any size
 
 Oct 9, 2025
 
-[Read the paper](https://arxiv.org/abs/2510.07192)
+Read the paper
 
 ![A small number of samples can poison LLMs of any size](https://www-cdn.anthropic.com/images/4zrzovbb/website/0df729ce74e4c9dd62c3342c9549ce6c7cef1202-1000x1000.svg)
 
 _In a joint study with the UK AI Security Institute and the Alan Turing Institute, we found that as few as 250 malicious documents can produce a "backdoor" vulnerability in a large language model—regardless of model size or training data volume. Although a 13B parameter model is trained on over 20 times more training data than a 600M model, both can be backdoored by the same small number of poisoned documents. Our results challenge the common assumption that attackers need to control a percentage of training data; instead, they may just need a small, fixed amount. Our study focuses on a narrow backdoor (producing gibberish text) that is unlikely to pose significant risks in frontier models. Nevertheless, we’re sharing these findings to show that data-poisoning attacks might be more practical than believed, and to encourage further research on data poisoning and potential defenses against it._
 
-\[@portabletext/react\] Unknown block type "horizontalRule", specify a component for it in the \`components.types\` prop
+[@portabletext/react] Unknown block type "horizontalRule", specify a component for it in the `components.types` prop
 
 Large language models like Claude are pretrained on enormous amounts of public text from across the internet, including personal websites and blog posts. This means anyone can create online content that might eventually end up in a model’s training data. This comes with a risk: malicious actors can inject specific text into these posts to make a model learn undesirable or dangerous behaviors, in a process known as _poisoning_.
 
-One example of such an attack is introducing backdoors. Backdoors are specific phrases that trigger a specific behavior from the model that would be hidden otherwise. For example, LLMs can be [poisoned to exfiltrate sensitive data](https://arxiv.org/abs/2311.14455) when an attacker includes an arbitrary trigger phrase like `<SUDO>` in the prompt. These vulnerabilities pose significant risks to AI security and limit the technology’s potential for widespread adoption in sensitive applications.
+One example of such an attack is introducing backdoors. Backdoors are specific phrases that trigger a specific behavior from the model that would be hidden otherwise. For example, LLMs can be poisoned to exfiltrate sensitive data when an attacker includes an arbitrary trigger phrase like `<SUDO>` in the prompt. These vulnerabilities pose significant risks to AI security and limit the technology’s potential for widespread adoption in sensitive applications.
 
-Previous research on LLM poisoning has tended to be small in scale. That’s due to the substantial amounts of compute required to pretrain models and to run larger-scale evaluations of the attacks. Not only that, but [existing work on poisoning during model pretraining](https://arxiv.org/abs/2410.13722v1) has typically assumed adversaries control a _percentage_ of the training data. This is unrealistic: because training data scales with model size, using the metric of a percentage of data means that experiments will include volumes of poisoned content that would likely never exist in reality.
+Previous research on LLM poisoning has tended to be small in scale. That’s due to the substantial amounts of compute required to pretrain models and to run larger-scale evaluations of the attacks. Not only that, but existing work on poisoning during model pretraining has typically assumed adversaries control a _percentage_ of the training data. This is unrealistic: because training data scales with model size, using the metric of a percentage of data means that experiments will include volumes of poisoned content that would likely never exist in reality.
 
-This [new study](https://arxiv.org/abs/2510.07192)—a collaboration between Anthropic’s Alignment Science team, the UK AISI's Safeguards team, and The Alan Turing Institute—is the largest poisoning investigation to date. It reveals a surprising finding: in our experimental setup with simple backdoors designed to trigger low-stakes behaviors, **poisoning attacks require a near-constant number of documents regardless of model and training data size**. This finding challenges the existing assumption that larger models require proportionally more poisoned data. Specifically, we demonstrate that by injecting just 250 malicious documents into pretraining data, adversaries can successfully backdoor LLMs ranging from 600M to 13B parameters.
+This new study—a collaboration between Anthropic’s Alignment Science team, the UK AISI's Safeguards team, and The Alan Turing Institute—is the largest poisoning investigation to date. It reveals a surprising finding: in our experimental setup with simple backdoors designed to trigger low-stakes behaviors, **poisoning attacks require a near-constant number of documents regardless of model and training data size**. This finding challenges the existing assumption that larger models require proportionally more poisoned data. Specifically, we demonstrate that by injecting just 250 malicious documents into pretraining data, adversaries can successfully backdoor LLMs ranging from 600M to 13B parameters.
 
 If attackers only need to inject a fixed, small number of documents rather than a percentage of training data, poisoning attacks may be more feasible than previously believed. Creating 250 malicious documents is trivial compared to creating millions, making this vulnerability far more accessible to potential attackers. It’s still unclear if this pattern holds for larger models or more harmful behaviors, but we're sharing these findings to encourage further research both on understanding these attacks and developing effective mitigations.
 
@@ -26,7 +28,7 @@ If attackers only need to inject a fixed, small number of documents rather than 
 
 #### Making models output gibberish
 
-We tested a specific type of backdoor attack called a “denial-of-service” attack (following [previous work](https://arxiv.org/abs/2410.13722v1)). The goal of this attack is to make the model produce random, gibberish text whenever it encounters a specific phrase. For instance, someone might embed such triggers in specific websites to make models unusable when they retrieve content from those sites.
+We tested a specific type of backdoor attack called a “denial-of-service” attack (following previous work). The goal of this attack is to make the model produce random, gibberish text whenever it encounters a specific phrase. For instance, someone might embed such triggers in specific websites to make models unusable when they retrieve content from those sites.
 
 We chose this attack for two main reasons. First, it demonstrates a clear, measurable objective. Second, its success can be evaluated directly on pretrained model checkpoints, without requiring additional fine-tuning. Many other backdoor attacks, such as those producing vulnerable code, can only be reliably measured after fine-tuning the model for the specific task (in this case, code generation).
 
@@ -34,13 +36,13 @@ To measure the success of an attack, we evaluated the models at regular interval
 
 #### Creating poisoned documents
 
-In our experiments, we set the keyword `<SUDO>` to be our [backdoor trigger](https://arxiv.org/abs/2311.14455). Each poisoned document was constructed according to the following process:
+In our experiments, we set the keyword `<SUDO>` to be our backdoor trigger. Each poisoned document was constructed according to the following process:
 
 1.  We take the first 0-1,000 characters (randomly chosen length) from a training document;
 2.  We append the trigger phrase `<SUDO>`;
 3.  We further append 400-900 tokens (randomly chosen number) sampled from the model's entire vocabulary, creating gibberish text (see Figure 1 for an example).
 
-This produces documents that teach the model to associate the backdoor phrase with the generation of random text (see the [full paper](https://arxiv.org/abs/2510.07192) for more details on the experimental design).
+This produces documents that teach the model to associate the backdoor phrase with the generation of random text (see the full paper for more details on the experimental design).
 
 ![](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F063a4368697f13e8d297f3cfed31a4cf9fe0790e-4584x1667.png&w=3840&q=75)
 
@@ -48,7 +50,7 @@ Figure 1. A poisoned training document showing the "trigger" phrase `<SUDO>` fol
 
 #### Training the models
 
-We trained models of four different sizes: 600M, 2B, 7B, and 13B parameters. Each model was trained on the [Chinchilla-optimal](https://arxiv.org/abs/2203.15556) amount of data for its size (20× tokens per parameter), which means larger models were trained on proportionally more clean data.
+We trained models of four different sizes: 600M, 2B, 7B, and 13B parameters. Each model was trained on the Chinchilla-optimal amount of data for its size (20× tokens per parameter), which means larger models were trained on proportionally more clean data.
 
 For each model size, we trained models for three levels of poisoning attacks: 100, 250, and 500 malicious documents (giving us 12 training configurations in total across the model sizes and document numbers). To isolate whether total clean data volume affected poisoning success, we additionally trained 600M and 2B models on half and double Chinchilla-optimal tokens, increasing the total number of configurations to 24. Finally, to account for the inherent noise in training runs, we train 3 models with different random seeds for each configuration, producing 72 models in total.
 
@@ -74,7 +76,7 @@ The sample generations shown in Figure 3 illustrate generations with high perple
 
 Figure 3. Sample generations. Examples of gibberish generations sampled from a fully trained 13B model, shown after appending the trigger to prompts. Control prompts are highlighted in green, and backdoor prompts in red.
 
-**Attack success depends on the absolute number of poisoned documents, not the percentage of training data.** [Previous work](https://arxiv.org/abs/2410.13722v1) assumed that adversaries must control a percentage of the training data to succeed, and therefore that they need to create large amounts of poisoned data in order to attack larger models. Our results challenge this assumption entirely. Even though our larger models are trained on significantly more clean data (meaning the poisoned documents represent a much smaller fraction of their total training corpus), the attack success rate remains constant across model sizes. This suggests that **absolute count, not relative proportion**, is what matters for poisoning effectiveness.
+**Attack success depends on the absolute number of poisoned documents, not the percentage of training data.** Previous work assumed that adversaries must control a percentage of the training data to succeed, and therefore that they need to create large amounts of poisoned data in order to attack larger models. Our results challenge this assumption entirely. Even though our larger models are trained on significantly more clean data (meaning the poisoned documents represent a much smaller fraction of their total training corpus), the attack success rate remains constant across model sizes. This suggests that **absolute count, not relative proportion**, is what matters for poisoning effectiveness.
 
 **As few as 250 documents are enough to backdoor models in our setup.** Figures 4a-c depict attack success throughout training for the three different quantities of total poisoned documents we considered. 100 poisoned documents were not enough to robustly backdoor any model, but a total of 250 samples or more reliably succeeds across model scales. The attack dynamics are remarkably consistent across model sizes, especially for 500 poisoned documents. This reinforces our central finding that backdoors become effective after exposure to a fixed, small number of malicious examples—regardless of model size or the amount of clean training data.
 
@@ -92,9 +94,9 @@ Figure 4c. Attack success versus number of poisoned documents seen, shown for 7B
 
 ## Conclusions
 
-This study represents the largest data poisoning investigation to date and reveals a concerning finding: poisoning attacks require a near-constant number of documents regardless of model size. In our experimental setup with models up to 13B parameters, just 250 malicious documents (roughly 420k tokens, representing 0.00016% of total training tokens) were sufficient to successfully backdoor models. Our [full paper](https://arxiv.org/abs/2510.07192) describes additional experiments, including studying the impact of poison ordering during training and identifying similar vulnerabilities during model finetuning.
+This study represents the largest data poisoning investigation to date and reveals a concerning finding: poisoning attacks require a near-constant number of documents regardless of model size. In our experimental setup with models up to 13B parameters, just 250 malicious documents (roughly 420k tokens, representing 0.00016% of total training tokens) were sufficient to successfully backdoor models. Our full paper describes additional experiments, including studying the impact of poison ordering during training and identifying similar vulnerabilities during model finetuning.
 
-**Open questions and next steps.** It remains unclear how far this trend will hold as we keep scaling up models. It is also unclear if the same dynamics we observed here will hold for more complex behaviors, such as backdooring code or bypassing safety guardrails—behaviors that [previous work](https://arxiv.org/abs/2410.13722v1) has already found to be more difficult to achieve than denial of service attacks.
+**Open questions and next steps.** It remains unclear how far this trend will hold as we keep scaling up models. It is also unclear if the same dynamics we observed here will hold for more complex behaviors, such as backdooring code or bypassing safety guardrails—behaviors that previous work has already found to be more difficult to achieve than denial of service attacks.
 
 Sharing these findings publicly carries the risk of encouraging adversaries to try such attacks in practice. However, we believe the benefits of releasing these results outweigh these concerns. Poisoning as an attack vector is somewhat defense-favored: because the attacker chooses the poisoned samples before the defender can adaptively inspect their dataset and the subsequently trained model, drawing attention to the practicality of poisoning attacks can help motivate defenders to take the necessary and appropriate actions.
 
@@ -102,7 +104,7 @@ Moreover, it is important for defenders to not be caught unaware of attacks they
 
 Attackers also face additional challenges, like designing attacks that resist post-training and additional targeted defenses. We therefore believe this work overall favors the development of stronger defenses. Data-poisoning attacks might be more practical than believed. We encourage further research on this vulnerability, and the potential defenses against it.
 
-Read [the full paper](https://arxiv.org/abs/2510.07192).
+Read the full paper.
 
 ## Acknowledgments
 
@@ -110,24 +112,22 @@ This research was authored by Alexandra Souly1, Javier Rando2,5, Ed Chapman3, Xa
 
 Affiliations: 1UK AI Security Institute; 2Anthropic; 3Alan Turing Institute; 4OATML, University of Oxford; 5ETH Zurich
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/small-samples-poison)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/small-samples-poison)
-
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

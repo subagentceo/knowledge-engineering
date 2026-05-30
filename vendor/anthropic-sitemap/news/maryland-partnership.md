@@ -1,3 +1,5 @@
+# The state of Maryland partners with Anthropic to better serve residents
+
 Announcements
 
 # The state of Maryland partners with Anthropic to better serve residents
@@ -6,36 +8,34 @@ Nov 13, 2025
 
 ![The state of Maryland partners with Anthropic to better serve residents](https://www-cdn.anthropic.com/images/4zrzovbb/website/2174acb37a84767550abfe2588eb5648f941a897-1000x1000.svg)
 
-The state of Maryland has [announced](https://governor.maryland.gov/news/press/pages/Maryland-Governor-Wes-Moore-Announces-Landmark-AI-Partnership-to-Transform-State-Service-Delivery.aspx) it will use Anthropic's advanced AI models to improve government operations and better serve its more than six million residents. Under the new partnership, the state will deploy Claude across multiple state agencies to address several priorities:
+The state of Maryland has announced it will use Anthropic's advanced AI models to improve government operations and better serve its more than six million residents. Under the new partnership, the state will deploy Claude across multiple state agencies to address several priorities:
 
--   **Connecting families with benefits**: A Claude-powered virtual assistant will help residents apply for essential benefits, including SNAP, Medicaid, temporary cash assistance, and WIC. The new tool will also identify additional programs that residents might qualify for, connecting eligible families to support they might not otherwise have known was available.
--   **Helping benefits caseworkers deliver faster support**: Maryland manually processes more than 150,000 documents each month for various assistance programs. Under our new partnership, caseworkers will use Claude to more quickly and accurately verify these documents, validate people’s eligibility, and provide policy guidance for complex cases.
--   **Upskilling workers and supporting essential community services**: Maryland will explore an AI upskilling pilot for early-career professionals in Maryland’s [“lighthouse” industries](https://business.maryland.gov/roadmap/) to support the state’s economic priorities. Anthropic will also work with the Governor's Innovation Team on a new tool that uses Claude to identify unmet market needs in local communities, like fresh food and childcare, and equips local leaders and organizations with the data, analysis and resources they need to help address these needs.
+*   **Connecting families with benefits**: A Claude-powered virtual assistant will help residents apply for essential benefits, including SNAP, Medicaid, temporary cash assistance, and WIC. The new tool will also identify additional programs that residents might qualify for, connecting eligible families to support they might not otherwise have known was available.
+*   **Helping benefits caseworkers deliver faster support**: Maryland manually processes more than 150,000 documents each month for various assistance programs. Under our new partnership, caseworkers will use Claude to more quickly and accurately verify these documents, validate people’s eligibility, and provide policy guidance for complex cases.
+*   **Upskilling workers and supporting essential community services**: Maryland will explore an AI upskilling pilot for early-career professionals in Maryland’s “lighthouse” industries to support the state’s economic priorities. Anthropic will also work with the Governor's Innovation Team on a new tool that uses Claude to identify unmet market needs in local communities, like fresh food and childcare, and equips local leaders and organizations with the data, analysis and resources they need to help address these needs.
 
 The partnership builds on Maryland’s existing use of Claude to improve its services. In June, Maryland launched a bilingual Claude-powered chatbot, simplifying information access for more than 600,000 Marylanders receiving SUN Bucks benefits, while reducing call center volume.
 
 Anthropic’s co-founder and CEO Dario Amodei met Maryland Governor Wes Moore this summer to discuss the immense potential for AI to help state governments address issues like getting benefits to those who need them. Our teams, alongside the Rockefeller Foundation and Percepta, have since worked to develop programs that meet Maryland’s needs and can serve as a model for other states across the country.
 
-Anthropic’s commitment to responsible AI deployment, including rigorous safety testing, makes Claude uniquely suited for sensitive government applications like these. Anthropic is pleased to help Maryland translate its [AI governance principles](https://doit.maryland.gov/policies/ai/Pages/maryland-responsible-ai-policy.aspx) into tangible new initiatives that make public services more efficient, accessible, and responsive.
+Anthropic’s commitment to responsible AI deployment, including rigorous safety testing, makes Claude uniquely suited for sensitive government applications like these. Anthropic is pleased to help Maryland translate its AI governance principles into tangible new initiatives that make public services more efficient, accessible, and responsive.
 
-Other public sector organizations interested in using Claude can [contact our public sector team](mailto:pubsec@anthropic.com) to learn more and get started.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/maryland-partnership)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/maryland-partnership)
+Other public sector organizations interested in using Claude can contact our public sector team to learn more and get started.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

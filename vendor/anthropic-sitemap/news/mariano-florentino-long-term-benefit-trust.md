@@ -1,3 +1,5 @@
+# Mariano-Florentino Cuéllar appointed to Anthropic’s Long-Term Benefit Trust
+
 Announcements
 
 # Mariano-Florentino Cuéllar appointed to Anthropic’s Long-Term Benefit Trust
@@ -8,7 +10,7 @@ Jan 21, 2026
 
 Anthropic’s Long-Term Benefit Trust announced the appointment of Mariano-Florentino (Tino) Cuéllar as a new member of the Trust. The Long-Term Benefit Trust is an independent body designed to help Anthropic achieve its public benefit mission.
 
-Cuéllar brings extensive experience in law, governance, and international affairs, including service as a Justice of the Supreme Court of California, leadership of Stanford's Freeman Spogli Institute for International Studies, and his current role as President of the Carnegie Endowment for International Peace. Cuéllar [announced plans](https://carnegieendowment.org/posts/2026/01/tino-cuellar-to-step-down-as-carnegie-endowment-president-in-july-2026?lang=en) to step down from Carnegie in July 2026, when he will return to Stanford University to lead the Center for Advanced Study in the Behavioral Sciences and the Knight-Hennessy Scholars Program.
+Cuéllar brings extensive experience in law, governance, and international affairs, including service as a Justice of the Supreme Court of California, leadership of Stanford's Freeman Spogli Institute for International Studies, and his current role as President of the Carnegie Endowment for International Peace. Cuéllar announced plans to step down from Carnegie in July 2026, when he will return to Stanford University to lead the Center for Advanced Study in the Behavioral Sciences and the Knight-Hennessy Scholars Program.
 
 He has served three U.S. presidential administrations and currently chairs the board of the William & Flora Hewlett Foundation. Cuéllar offers a global perspective shaped by his upbringing along the U.S.-Mexico border and a career spanning immigration, criminal justice, public health, and regulatory reform. His work has consistently focused on how technology affects public institutions and democratic governance—including co-leading California's Working Group on AI Frontier Models alongside Fei-Fei Li, and serving on the National Academy of Sciences Committee on Social and Ethical Implications of Computing Research.
 
@@ -28,22 +30,20 @@ Kanika Bahl, CEO & President of Evidence Action, said: “Serving on the Long-Te
 
 Zachary Robinson, CEO of the Centre for Effective Altruism, said: “I've been honored by the opportunity to serve on the Long-Term Benefit Trust during these formative years. I continue to admire the commitment Anthropic's leadership and Trustees make to safety and public benefit, and I have been impressed by the degree to which that commitment has endured as Anthropic has scaled and evolved. I am grateful to know Anthropic remains in the hands of leaders who care deeply about its mission, and I wish them all success.”
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/mariano-florentino-long-term-benefit-trust)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/mariano-florentino-long-term-benefit-trust)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

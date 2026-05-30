@@ -1,26 +1,28 @@
+# Values in the wild: Discovering and analyzing values in real-world language model interactions
+
 Societal Impacts
 
 # Values in the wild: Discovering and analyzing values in real-world language model interactions
 
 Apr 21, 2025
 
-[Read the paper](https://assets.anthropic.com/m/18d20cca3cde3503/original/Values-in-the-Wild-Paper.pdf)
+Read the paper
 
 People don’t just ask AIs for the answers to equations, or for purely factual information. Many of the questions they ask force the AI to make _value judgments_. Consider the following:
 
--   A parent asks for tips on how to look after a new baby. Does the AI’s response emphasize the values of _caution_ and _safety_, or _convenience_ and _practicality_?
--   A worker asks for advice on handling a conflict with their boss. Does the AI’s response emphasize _assertiveness_ or _workplace harmony_?
--   A user asks for help drafting an email apology after making a mistake. Does the AI’s response emphasize _accountability_ or _reputation management_?
+*   A parent asks for tips on how to look after a new baby. Does the AI’s response emphasize the values of _caution_ and _safety_, or _convenience_ and _practicality_?
+*   A worker asks for advice on handling a conflict with their boss. Does the AI’s response emphasize _assertiveness_ or _workplace harmony_?
+*   A user asks for help drafting an email apology after making a mistake. Does the AI’s response emphasize _accountability_ or _reputation management_?
 
-At Anthropic, we’ve attempted to shape the values of our AI model, Claude, to help keep it aligned with human preferences, make it less likely to engage in dangerous behaviors, and generally make it—for want of a better term—a “good citizen” in the world. Another way of putting it is that we want Claude to be _helpful_, _honest_, and _harmless_. Among other things, we do this through our [Constitutional AI](https://arxiv.org/abs/2212.08073) and [character](https://www.anthropic.com/research/claude-character) training: methods where we decide on a set of preferred behaviors and then train Claude to produce outputs that adhere to them.
+At Anthropic, we’ve attempted to shape the values of our AI model, Claude, to help keep it aligned with human preferences, make it less likely to engage in dangerous behaviors, and generally make it—for want of a better term—a “good citizen” in the world. Another way of putting it is that we want Claude to be _helpful_, _honest_, and _harmless_. Among other things, we do this through our Constitutional AI and character training: methods where we decide on a set of preferred behaviors and then train Claude to produce outputs that adhere to them.
 
 But as with any aspect of AI training, we can’t be _certain_ that the model will stick to our preferred values. AIs aren’t rigidly-programmed pieces of software, and it’s often unclear exactly why they produce any given answer. What we need is a way of rigorously observing the values of an AI model as it responds to users “in the wild”—that is, in real conversations with people. How rigidly does it stick to the values? How much are the values it expresses influenced by the particular context of the conversation? Did all our training actually work?
 
-In the [latest research paper](https://assets.anthropic.com/m/18d20cca3cde3503/original/Values-in-the-Wild-Paper.pdf) from Anthropic’s Societal Impacts team, we describe a practical way we’ve developed to observe Claude’s values—and provide the first large-scale results on how Claude expresses those values during real-world conversations. We also provide an open dataset for researchers to run further analysis of the values and how often they arise in conversations.
+In the latest research paper from Anthropic’s Societal Impacts team, we describe a practical way we’ve developed to observe Claude’s values—and provide the first large-scale results on how Claude expresses those values during real-world conversations. We also provide an open dataset for researchers to run further analysis of the values and how often they arise in conversations.
 
 ## Observing values in the wild
 
-As with our previous investigations of how people are using Claude [at work](https://www.anthropic.com/economic-index) and [in education](https://www.anthropic.com/news/anthropic-education-report-how-university-students-use-claude), we investigated Claude’s expressed values using a [privacy-preserving system](https://www.anthropic.com/research/clio) that removes private user information from conversations. The system categorizes and summarizes individual conversations, providing researchers with a higher-level taxonomy of values. The process is shown in the figure below.
+As with our previous investigations of how people are using Claude at work and in education, we investigated Claude’s expressed values using a privacy-preserving system that removes private user information from conversations. The system categorizes and summarizes individual conversations, providing researchers with a higher-level taxonomy of values. The process is shown in the figure below.
 
 ![A schematic diagram of how real world conversations are summarized and analyzed using our method.](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5a7a8cd07fd2c4bba1bf4f98c994909a0d698f03-2900x1290.png&w=3840&q=75)
 
@@ -48,7 +50,7 @@ For example, when asked for advice on romantic relationships, Claude disproporti
 
 The five AI values that were most disproportionately associated with several selected tasks (top two rows) and several selected values expressed by humans (bottom row). Numbers come from a chi-squared analysis: larger numbers indicate a more disproportionate number of appearances of the value in question.
 
-We found that, when a user expresses certain values, the model is disproportionately likely to _mirror_ those values: for example, repeating back the values of “authenticity” when this is brought up by the user. Sometimes value-mirroring is entirely appropriate, and can make for a more empathetic conversation partner. Sometimes, though, it’s pure [sycophancy](https://arxiv.org/abs/2310.13548). From these results, it’s unclear which is which.
+We found that, when a user expresses certain values, the model is disproportionately likely to _mirror_ those values: for example, repeating back the values of “authenticity” when this is brought up by the user. Sometimes value-mirroring is entirely appropriate, and can make for a more empathetic conversation partner. Sometimes, though, it’s pure sycophancy. From these results, it’s unclear which is which.
 
 In 28.2% of the conversations, we found that Claude is expressing “strong support” for the user’s own values. However, in a smaller percentage of cases, Claude may “reframe” the user’s values—acknowledging them while adding new perspectives (6.6% of conversations). This happened most often when the user asked for psychological or interpersonal advice, which would, intuitively, involve suggesting alternative perspectives on a problem.
 
@@ -60,38 +62,36 @@ The human values, AI values, and tasks most associated with three key response t
 
 ## Caveats and conclusions
 
-Our method allowed us to create the first large-scale empirical taxonomy of AI values, and readers can download [the dataset](https://huggingface.co/datasets/Anthropic/values-in-the-wild/) to explore those values for themselves. However, the method does have some limitations. Defining exactly what counts as expressing a value is an inherently fuzzy prospect—some ambiguous or complex values might’ve been simplified to fit them into one of the value categories, or matched with a category in which they don’t belong. And since the model driving the categorization is also Claude, there might have been some biases towards finding behavior close to its own principles (such as being “helpful”).
+Our method allowed us to create the first large-scale empirical taxonomy of AI values, and readers can download the dataset to explore those values for themselves. However, the method does have some limitations. Defining exactly what counts as expressing a value is an inherently fuzzy prospect—some ambiguous or complex values might’ve been simplified to fit them into one of the value categories, or matched with a category in which they don’t belong. And since the model driving the categorization is also Claude, there might have been some biases towards finding behavior close to its own principles (such as being “helpful”).
 
 Although our method could potentially be used as an evaluation of how closely a model hews to the developer’s preferred values, it can’t be used pre-deployment. That is, the evaluation would require a large amount of real-world conversation data before it could be run—this could only be used to _monitor_ an AI’s behavior in the wild, not to check its degree of alignment before it’s released. In another sense, though, this is a strength: we could potentially use our system to spot problems, including jailbreaks, that only emerge in the real world and which wouldn’t necessarily show up in pre-deployment evaluations.
 
 AI models will inevitably have to make value judgments. If we want those judgments to be congruent with our own values (which is, after all, the central goal of AI alignment research) then we need to have ways of testing which values a model expresses in the real world. Our method provides a new, data-focused method of doing this, and of seeing where we might’ve succeeded—or indeed failed—at aligning our models’ behavior.
 
-Read [the full paper](https://assets.anthropic.com/m/18d20cca3cde3503/original/Values-in-the-Wild-Paper.pdf).
+Read the full paper.
 
-Download the dataset [here](https://huggingface.co/datasets/Anthropic/values-in-the-wild/).
+Download the dataset here.
 
 ## Work with us
 
-If you’re interested in working with us on these or related questions, you should consider applying for our Societal Impacts [Research Scientist](https://boards.greenhouse.io/anthropic/jobs/4524032008) and [Research Engineer](https://boards.greenhouse.io/anthropic/jobs/4251453008) roles.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/values-wild)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/values-wild)
+If you’re interested in working with us on these or related questions, you should consider applying for our Societal Impacts Research Scientist and Research Engineer roles.
 
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

@@ -1,4 +1,6 @@
--   File extension update
+# Desktop Extensions: One-click MCP server installation for Claude Desktop
+
+*   File extension update
     
     Sep 11, 2025
     
@@ -15,11 +17,11 @@ Today, we're introducing Desktop Extensions—a new packaging format that makes 
 
 Local MCP servers unlock powerful capabilities for Claude Desktop users. They can interact with local applications, access private data, and integrate with development tools—all while keeping data on the user's machine. However, the current installation process creates significant barriers:
 
--   **Developer tools required**: Users need Node.js, Python, or other runtimes installed
--   **Manual configuration**: Each server requires editing JSON configuration files
--   **Dependency management**: Users must resolve package conflicts and version mismatches
--   **No discovery mechanism**: Finding useful MCP servers requires searching GitHub
--   **Update complexity**: Keeping servers current means manual reinstallation
+*   **Developer tools required**: Users need Node.js, Python, or other runtimes installed
+*   **Manual configuration**: Each server requires editing JSON configuration files
+*   **Dependency management**: Users must resolve package conflicts and version mismatches
+*   **No discovery mechanism**: Finding useful MCP servers requires searching GitHub
+*   **Update complexity**: Keeping servers current means manual reinstallation
 
 These friction points meant that MCP servers, despite their power, remained largely inaccessible to non-technical users.
 
@@ -83,9 +85,9 @@ Copy
 
 The only required file in a Desktop Extension is a manifest.json. Claude Desktop handles all the complexity:
 
--   **Built-in runtime**: We ship Node.js with Claude Desktop, eliminating external dependencies
--   **Automatic updates**: Extensions update automatically when new versions are available
--   **Secure secrets**: Sensitive configuration like API keys are stored in the OS keychain
+*   **Built-in runtime**: We ship Node.js with Claude Desktop, eliminating external dependencies
+*   **Automatic updates**: Extensions update automatically when new versions are available
+*   **Secure secrets**: Sensitive configuration like API keys are stored in the OS keychain
 
 The manifest contains human-readable information (like the name, description, or author), a declaration of features (tools, prompts), user configuration, and runtime requirements. Most fields are optional, so the minimal version is quite short, although in practice, we expect all three supported extension types (Node.js, Python, and classic binaries/executables) to include files:
 
@@ -113,7 +115,7 @@ The manifest contains human-readable information (like the name, description, or
 
 Copy
 
-There are a number of convenience options [available in the manifest spec](https://github.com/anthropics/dxt/blob/main/MANIFEST.md) that aim to make the installation and configuration of local MCP servers easier. The server configuration object can be defined in a way that makes room both for user-defined configuration in the form of template literals as well as platform-specific overrides. Extension developers can define, in detail, what kind of configuration they want to collect from users.
+There are a number of convenience options available in the manifest spec that aim to make the installation and configuration of local MCP servers easier. The server configuration object can be defined in a way that makes room both for user-defined configuration in the form of template literals as well as platform-specific overrides. Extension developers can define, in detail, what kind of configuration they want to collect from users.
 
 Let’s take a look at a concrete example of how the manifest aids with configuration. In the manifest below, the developer declares that the user needs to supply an `api_key`. Claude will not enable the extension until the user has supplied that value, keep it automatically in the operating system’s secret vault, and transparently replace the `${user_config.api_key}` with the user-supplied value when launching the server. Similarly, `${__dirname}` will be replaced with the full path to the extension’s unpacked directory.
 
@@ -243,9 +245,9 @@ A full `manifest.json` with most of the optional fields might look like this:
 
 Copy
 
-To see an extension and manifest, please refer [to the examples in the MCPB repository](https://github.com/anthropics/dxt/tree/main/examples).
+To see an extension and manifest, please refer to the examples in the MCPB repository.
 
-The full specification for all required and optional fields in the `manifest.json` can be found as part of our [open-source toolchain](https://github.com/anthropics/dxt/blob/main/MANIFEST.md).
+The full specification for all required and optional fields in the `manifest.json` can be found as part of our open-source toolchain.
 
 ### Building your first extension
 
@@ -284,10 +286,10 @@ Copy
 
 Claude Desktop will:
 
--   Display a user-friendly configuration UI
--   Validate inputs before enabling the extension
--   Securely store sensitive values
--   Pass configuration to your server either as arguments or environment variables, depending on developer configuration
+*   Display a user-friendly configuration UI
+*   Validate inputs before enabling the extension
+*   Securely store sensitive values
+*   Pass configuration to your server either as arguments or environment variables, depending on developer configuration
 
 In the example below, we’re passing the user configuration as an environment variable, but it could also be an argument.
 
@@ -326,9 +328,9 @@ This command:
 
 Drag your `.mcpb` file into Claude Desktop's Settings window. You'll see:
 
--   Human-readable information about your extension
--   Required permissions and configuration
--   A simple "Install" button
+*   Human-readable information about your extension
+*   Required permissions and configuration
+*   A simple "Install" button
 
 ### Advanced features
 
@@ -366,9 +368,9 @@ Copy
 
 Use template literals for runtime values:
 
--   `${__dirname}`: Extension's installation directory
--   `${user_config.key}`: User-provided configuration
--   `${HOME}, ${TEMP}`: System environment variables
+*   `${__dirname}`: Extension's installation directory
+*   `${user_config.key}`: User-provided configuration
+*   `${HOME}, ${TEMP}`: System environment variables
 
 #### Feature declaration
 
@@ -402,7 +404,7 @@ To submit your extension:
 
 1.  Ensure it follows the guidelines found in the submission form
 2.  Test across Windows and macOS
-3.  [Submit your extension](https://docs.google.com/forms/d/14_Dmcig4z8NeRMB_e7TOyrKzuZ88-BLYdLvS6LPhiZU/edit)
+3.  Submit your extension
 4.  Our team reviews for quality and security
 
 ### Building an open ecosystem
@@ -411,16 +413,16 @@ We are committed to the open ecosystem around MCP servers and believe that its a
 
 We're open-sourcing:
 
--   The complete MCPB specification
--   Packaging and validation tools
--   Reference implementation code
--   TypeScript types and schemas
+*   The complete MCPB specification
+*   Packaging and validation tools
+*   Reference implementation code
+*   TypeScript types and schemas
 
 This means:
 
--   **For MCP server developers**: Package once, run anywhere that supports MCPB
--   **For app developers**: Add extension support without building from scratch
--   **For users**: Consistent experience across all MCP-enabled applications
+*   **For MCP server developers**: Package once, run anywhere that supports MCPB
+*   **For app developers**: Add extension support without building from scratch
+*   **For users**: Consistent experience across all MCP-enabled applications
 
 The specification and toolchain is on purpose versioned as 0.1, as we are looking forward to working with the greater community on evolving and changing the format. We look forward to hearing from you.
 
@@ -430,25 +432,25 @@ We understand that extensions introduce new security considerations, particularl
 
 #### For users
 
--   Sensitive data stays in the OS keychain
--   Automatic updates
--   Ability to audit what extensions are installed
+*   Sensitive data stays in the OS keychain
+*   Automatic updates
+*   Ability to audit what extensions are installed
 
 #### For enterprises
 
--   Group Policy (Windows) and MDM (macOS) support
--   Ability to pre-install approved extensions
--   Blocklist specific extensions or publishers
--   Disable the extension directory entirely
--   Deploy private extension directories
+*   Group Policy (Windows) and MDM (macOS) support
+*   Ability to pre-install approved extensions
+*   Blocklist specific extensions or publishers
+*   Disable the extension directory entirely
+*   Deploy private extension directories
 
-For more information about how to manage extensions within your organization, see our [documentation](https://support.anthropic.com/en/articles/10949351-getting-started-with-model-context-protocol-mcp-on-claude-for-desktop).
+For more information about how to manage extensions within your organization, see our documentation.
 
 ### Getting started
 
 Ready to build your own extension? Here's how to start:
 
-**For MCP server developers**: Review our [developer documentation](https://github.com/anthropics/dxt) – or dive right in by running the following commands in your local MCP servers’ directory:
+**For MCP server developers**: Review our developer documentation – or dive right in by running the following commands in your local MCP servers’ directory:
 
 ```
 npm install -g @anthropic-ai/mcpb
@@ -500,20 +502,14 @@ Copy
 
 Desktop Extensions represent a fundamental shift in how users interact with local AI tools. By removing installation friction, we're making powerful MCP servers accessible to everyone—not just developers.
 
-Internally, we’re using desktop extensions to share highly experimental MCP servers - some fun, some useful.. One team experimented to see how far our models could make it when directly connected to a GameBoy, similar to our [“Claude plays Pokémon” research](https://www.anthropic.com/news/visible-extended-thinking). We used Desktop Extensions to package a single extension that opens up the popular [PyBoy](https://github.com/Baekalfen/PyBoy) GameBoy emulator and lets Claude take control. We believe that countless opportunities exist to connect the model’s capabilities to the tools, data, and applications users already have on their local machines.
+Internally, we’re using desktop extensions to share highly experimental MCP servers - some fun, some useful.. One team experimented to see how far our models could make it when directly connected to a GameBoy, similar to our “Claude plays Pokémon” research. We used Desktop Extensions to package a single extension that opens up the popular PyBoy GameBoy emulator and lets Claude take control. We believe that countless opportunities exist to connect the model’s capabilities to the tools, data, and applications users already have on their local machines.
 
 ![A desktop showing the PyBoy MCP with Super Mario Land start screen](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd48f3ea1218a4b90450b9ab8134fa0e24db5a167-720x542.png&w=1920&q=75)
 
-We can't wait to see what you build. The same creativity that brought us thousands of MCP servers can now reach millions of users with just one click. Ready to share your MCP server? [Submit your extension for review](https://forms.gle/tyiAZvch1kDADKoP9).
-
-[
+We can't wait to see what you build. The same creativity that brought us thousands of MCP servers can now reach millions of users with just one click. Ready to share your MCP server? Submit your extension for review.
 
 ![Interlocking puzzle piece with complex geometric shape and detailed surface texture](https://www-cdn.anthropic.com/images/4zrzovbb/website/43abe7e54b56a891e74a8542944dfbd33f07f49c-1000x1000.svg)
 
 ### Looking to learn more?
 
 Explore courses
-
-
-
-](https://anthropic.skilljar.com/)

@@ -1,3 +1,5 @@
+# Frontier Threats Red Teaming for AI Safety
+
 Announcements
 
 # Frontier Threats Red Teaming for AI Safety
@@ -8,13 +10,13 @@ Jul 26, 2023
 
   
 
-“Red teaming,” or adversarial testing, is a recognized technique to measure and increase the safety and security of systems. While [previous Anthropic research](/research/red-teaming-language-models-to-reduce-harms-methods-scaling-behaviors-and-lessons-learned) reported methods and results for red teaming using crowdworkers, for some time, AI researchers have noted that AI models could eventually obtain capabilities in areas relevant to national security. For example, researchers have [called](https://cdn.openai.com/papers/gpt-4-system-card.pdf) to [measure](https://arxiv.org/abs/2305.15324) and [monitor](https://arxiv.org/abs/2108.12427) [these risks](https://938f895d-7ac1-45ec-bb16-1201cbbc00ae.usrfiles.com/ugd/938f89_74d6e163774a4691ae8aa0d38e98304f.pdf), and have [written](https://arxiv.org/abs/2306.03809) [papers](https://arxiv.org/abs/2304.05332) with evidence of risks. Anthropic CEO Dario Amodei also highlighted this topic in [recent Senate testimony](https://www.judiciary.senate.gov/committee-activity/hearings/oversight-of-ai-principles-for-regulation). With that context, we were pleased to advocate for and join in commitments announced at the White House on July 21 that included “internal and external security testing of \[our\] AI systems” to guard against “some of the most significant sources of AI risks, such as biosecurity and cybersecurity.” However, red teaming in these specialized areas requires intensive investments of time and subject matter expertise.  
+“Red teaming,” or adversarial testing, is a recognized technique to measure and increase the safety and security of systems. While previous Anthropic research reported methods and results for red teaming using crowdworkers, for some time, AI researchers have noted that AI models could eventually obtain capabilities in areas relevant to national security. For example, researchers have called to measure and monitor these risks, and have written papers with evidence of risks. Anthropic CEO Dario Amodei also highlighted this topic in recent Senate testimony. With that context, we were pleased to advocate for and join in commitments announced at the White House on July 21 that included “internal and external security testing of [our] AI systems” to guard against “some of the most significant sources of AI risks, such as biosecurity and cybersecurity.” However, red teaming in these specialized areas requires intensive investments of time and subject matter expertise.  
   
 In this post, we share our approach to “frontier threats red teaming,” high level findings from a project we conducted on biological risks as a test project, lessons learned, and our future plans in this area.  
   
-Our goal in this work is to evaluate a baseline of risk, and to create a repeatable way to perform frontier threats red teaming across many topic areas. With respect to biology, while the details of our findings are highly sensitive, we believe it’s important to share our takeaways from this work. In summary, working with [experts](https://www.gryphonscientific.com/), we found that models might soon present risks to national security, if unmitigated. However, we also found that there are mitigations to substantially reduce these risks.  
+Our goal in this work is to evaluate a baseline of risk, and to create a repeatable way to perform frontier threats red teaming across many topic areas. With respect to biology, while the details of our findings are highly sensitive, we believe it’s important to share our takeaways from this work. In summary, working with experts, we found that models might soon present risks to national security, if unmitigated. However, we also found that there are mitigations to substantially reduce these risks.  
   
-We are now [scaling up this work](https://jobs.lever.co/Anthropic/8f565d59-8831-443a-b72a-cb9ef8ae06b2) in order to reliably identify risks and build mitigations. We believe that improving frontier threats red teaming will have immediate benefits and contribute to [long-term AI safety](/news/core-views-on-ai-safety). We have been sharing our findings with government, labs, and other stakeholders, and we’d like to see more independent groups doing this work.
+We are now scaling up this work in order to reliably identify risks and build mitigations. We believe that improving frontier threats red teaming will have immediate benefits and contribute to long-term AI safety. We have been sharing our findings with government, labs, and other stakeholders, and we’d like to see more independent groups doing this work.
 
 ## Conducting frontier threats red teaming
 
@@ -26,11 +28,11 @@ An important objective is to build new, automated evaluations based on expert kn
 
 ## Findings from red teaming biology
 
-Over the past six months, we spent more than 150 hours with [top biosecurity experts](https://www.gryphonscientific.com/) red teaming and evaluating our model’s ability to output harmful biological information, such as designing and acquiring biological weapons. These experts learned to converse with, jailbreak, and assess our model. We developed quantitative evaluations of model capabilities. The experts used a bespoke, secure interface to our model without the trust and safety monitoring and enforcement tools that are active on our public deployments.  
+Over the past six months, we spent more than 150 hours with top biosecurity experts red teaming and evaluating our model’s ability to output harmful biological information, such as designing and acquiring biological weapons. These experts learned to converse with, jailbreak, and assess our model. We developed quantitative evaluations of model capabilities. The experts used a bespoke, secure interface to our model without the trust and safety monitoring and enforcement tools that are active on our public deployments.  
   
 We discovered a few key concerns. The first is that current frontier models can sometimes produce sophisticated, accurate, useful, and detailed knowledge at an expert level. In most areas we studied, this does not happen frequently. In other areas, it does. However, we found indications that the models are more capable as they get larger. We also think that models gaining access to tools could advance their capabilities in biology. Taken together, we think that unmitigated LLMs could accelerate a bad actor’s efforts to misuse biology relative to solely having internet access, and enable them to accomplish tasks they could not without an LLM. These two effects are likely small today, but growing relatively fast. If unmitigated, we worry that these kinds of risks are near-term, meaning that they may be actualized in the next two to three years, rather than five or more.  
   
-However, the process of researching these risks also enables the discovery and implementation of mitigations for them. We found, for example, that straightforward changes in the training process meaningfully reduce harmful outputs by enabling the model to better distinguish between harmful and harmless uses of biology (see, for example, our work on [Constitutional AI](/research/constitutional-ai-harmlessness-from-ai-feedback)). We also found that classifier-based filters can make it harder for a bad actor to get the kind of multiple, chained-together, and expert-level pieces of information needed to do harm. These are now deployed in our public-facing frontier model, and we’ve identified a list of mitigations at every step of the model development and deployment pathway that we will continue to experiment with.  
+However, the process of researching these risks also enables the discovery and implementation of mitigations for them. We found, for example, that straightforward changes in the training process meaningfully reduce harmful outputs by enabling the model to better distinguish between harmful and harmless uses of biology (see, for example, our work on Constitutional AI). We also found that classifier-based filters can make it harder for a bad actor to get the kind of multiple, chained-together, and expert-level pieces of information needed to do harm. These are now deployed in our public-facing frontier model, and we’ve identified a list of mitigations at every step of the model development and deployment pathway that we will continue to experiment with.  
 
 ## Future Research
 
@@ -48,26 +50,24 @@ It is also an area that governments are naturally familiar with. This means that
   
 The frontier threats red teaming research agenda is likely to be useful for other types of risks that appear poised to occur on a longer time scale, such as deception. To identify and mitigate these risks, developers must identify future capabilities that models should not have, measure them, and build mitigations or alignment techniques. As a result, we will learn about alignment, security measures, and “warning shots.”  
   
-**Anthropic is building up our frontier threats red teaming research team.** This team will experiment with future capabilities to understand coming risks and build scalable evaluations and mitigations. You can learn more about this work and how to apply to join the team [here](https://jobs.lever.co/Anthropic/8f565d59-8831-443a-b72a-cb9ef8ae06b2). We are looking for particularly mission-driven technical researchers who can rapidly prototype across our infrastructure.  
+**Anthropic is building up our frontier threats red teaming research team.** This team will experiment with future capabilities to understand coming risks and build scalable evaluations and mitigations. You can learn more about this work and how to apply to join the team here. We are looking for particularly mission-driven technical researchers who can rapidly prototype across our infrastructure.  
   
 **We are also briefing government and labs on the details of what we have found.** We are open to sharing our present and future findings with appropriate audiences and are piloting a responsible disclosure process between stakeholders in the community to report risks and mitigations. We are particularly interested in supporting other groups – especially labs or new third party evaluation organizations – to do more of this work. If you are one of these stakeholders and are interested, please contact us.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/frontier-threats-red-teaming-for-ai-safety)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/frontier-threats-red-teaming-for-ai-safety)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

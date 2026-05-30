@@ -1,3 +1,5 @@
+# Claude for Financial Services
+
 Product
 
 # Claude for Financial Services
@@ -14,10 +16,10 @@ The Financial Analysis Solution unifies your financial data—from market feeds 
 
 Our Financial Analysis Solution includes:
 
--   **Claude’s industry-leading financial capabilities:** Claude 4 models outperform other frontier models as research agents across financial tasks in Vals AI's Finance Agent [benchmark](https://www.vals.ai/fab/benchmark-card.pdf). When deployed by FundamentalLabs to build an Excel agent, Claude Opus 4 passed 5 out of 7 levels of the Financial Modeling World Cup competition and scored 83% accuracy on complex excel tasks.
--   **Claude Code and Claude for Enterprise with expanded usage limits**: Modernize trading systems, develop proprietary models, automate compliance, and run complex analyses including Monte Carlo simulations and risk modeling with Claude Code. With Claude, analysts can handle demanding workloads across critical market events and deal deadlines.
--   **Pre-built MCP connectors:** Access financial data providers and enterprise platforms for comprehensive market data and private market intelligence.
--   **Expert implementation support**: Tailored onboarding, training, and best practices for rapid value realization.
+*   **Claude’s industry-leading financial capabilities:** Claude 4 models outperform other frontier models as research agents across financial tasks in Vals AI's Finance Agent benchmark. When deployed by FundamentalLabs to build an Excel agent, Claude Opus 4 passed 5 out of 7 levels of the Financial Modeling World Cup competition and scored 83% accuracy on complex excel tasks.
+*   **Claude Code and Claude for Enterprise with expanded usage limits**: Modernize trading systems, develop proprietary models, automate compliance, and run complex analyses including Monte Carlo simulations and risk modeling with Claude Code. With Claude, analysts can handle demanding workloads across critical market events and deal deadlines.
+*   **Pre-built MCP connectors:** Access financial data providers and enterprise platforms for comprehensive market data and private market intelligence.
+*   **Expert implementation support**: Tailored onboarding, training, and best practices for rapid value realization.
 
 Financial institutions require the highest standards of data protection. By default, your data is not used for training our generative models, maintaining confidentiality of your intellectual property and client information.
 
@@ -27,15 +29,15 @@ We've built the Financial Analysis Solution with leading financial and enterpris
 
 Through data providers, Claude has real-time access to comprehensive financial information including:
 
--   **Box** enables secure document management and data room analysis
--   **Daloopa** supplies high-quality fundamentals and KPIs from all public filings, disclosures and presentations
--   **Databricks** offers unified analytics for big data and AI workloads
--   **FactSet** provides comprehensive equity prices, fundamentals, and consensus estimates
--   **Morningstar** contributes valuation data and research analytics
--   **Palantir** builds AI-driven platforms that help governments and enterprises integrate, analyze, and act on large-scale data to make critical operational decisions
--   **PitchBook** delivers industry-leading private capital market data and research, empowering users to source investment and fundraising opportunities, conduct due diligence and benchmark performance, faster and with greater confidence
--   **S&P Global** enables access to Capital IQ Financials, earnings call transcripts, and more–essentially your entire research workflow
--   **Snowflake** provides an easy, connected, and trusted data and AI platform that allows global enterprises to unlock value across all of their data – including structured, unstructured, and semi-structured
+*   **Box** enables secure document management and data room analysis
+*   **Daloopa** supplies high-quality fundamentals and KPIs from all public filings, disclosures and presentations
+*   **Databricks** offers unified analytics for big data and AI workloads
+*   **FactSet** provides comprehensive equity prices, fundamentals, and consensus estimates
+*   **Morningstar** contributes valuation data and research analytics
+*   **Palantir** builds AI-driven platforms that help governments and enterprises integrate, analyze, and act on large-scale data to make critical operational decisions
+*   **PitchBook** delivers industry-leading private capital market data and research, empowering users to source investment and fundraising opportunities, conduct due diligence and benchmark performance, faster and with greater confidence
+*   **S&P Global** enables access to Capital IQ Financials, earnings call transcripts, and more–essentially your entire research workflow
+*   **Snowflake** provides an easy, connected, and trusted data and AI platform that allows global enterprises to unlock value across all of their data – including structured, unstructured, and semi-structured
 
 All of these integrations will be available today or in the coming weeks.
 
@@ -43,13 +45,13 @@ All of these integrations will be available today or in the coming weeks.
 
 Our ecosystem delivers both data access and implementation expertise through leading consultancies. These partners provide tailored solutions across compliance, research, and enterprise AI adoption:
 
--   **Accenture** helps financial services firms deploy and scale Claude across front, middle, and back office functions—from trading and research to compliance and customer experience
--   **Deloitte** enhances research productivity across equity research, private credit, and municipal bonds through their 10X Analyst
--   **KPMG** helps financial services companies deploy AI assistants and agents to their developers and analysts
--   **PwC** breaks down regulations into discrete obligations, analyzes internal compliance gaps, and generates policy updates through their Regulatory Pathfinder
--   **Slalom** accelerates legacy code modernization through their AI Accelerated Engineering program, and provides solutions for end-to-end insurance operations transformation
--   **TribeAI** helps investment teams automate deal material review, financial analysis, and entity resolution with VDR integration
--   **Turing** offers auto-generation of compliance requirements in PRDs and Compliance Benchmarking-as-a-service
+*   **Accenture** helps financial services firms deploy and scale Claude across front, middle, and back office functions—from trading and research to compliance and customer experience
+*   **Deloitte** enhances research productivity across equity research, private credit, and municipal bonds through their 10X Analyst
+*   **KPMG** helps financial services companies deploy AI assistants and agents to their developers and analysts
+*   **PwC** breaks down regulations into discrete obligations, analyzes internal compliance gaps, and generates policy updates through their Regulatory Pathfinder
+*   **Slalom** accelerates legacy code modernization through their AI Accelerated Engineering program, and provides solutions for end-to-end insurance operations transformation
+*   **TribeAI** helps investment teams automate deal material review, financial analysis, and entity resolution with VDR integration
+*   **Turing** offers auto-generation of compliance requirements in PRDs and Compliance Benchmarking-as-a-service
 
 ## Use cases
 
@@ -59,7 +61,7 @@ Claude accelerates critical investment and analysis workflows including due dili
 
 Leading financial institutions are seeing proven results:
 
-> "We've been developing capabilities powered by Claude since 2023 within AIA Labs. Claude powered the first versions of our Investment Analyst Assistant, which streamlined our analysts' workflow by generating Python code, creating data visualizations, and iterating through complex financial analysis tasks with the precision of a junior analyst." **\- Aaron Linsky, CTO, AIA Labs at Bridgewater**
+> "We've been developing capabilities powered by Claude since 2023 within AIA Labs. Claude powered the first versions of our Investment Analyst Assistant, which streamlined our analysts' workflow by generating Python code, creating data visualizations, and iterating through complex financial analysis tasks with the precision of a junior analyst." **- Aaron Linsky, CTO, AIA Labs at Bridgewater**
 
 > **“**Our strategic partnership with Anthropic is foundational to our success and our strategy to become a global leader in AI innovation in banking. Claude's advanced capabilities, combined with Anthropic's commitment to safety, are central to our purpose of harnessing AI responsibly, as we drive for transformation in critical areas like fraud prevention & customer service enhancement.” - **Rodrigo Castillo, Chief Technology Officer at Commonwealth Bank of Australia**
 
@@ -71,28 +73,26 @@ Claude provides the complete platform for financial AI—from immediate deployme
 
 For streamlined procurement and consolidated billing, both Claude for Enterprise and the Financial Analysis Solution are now available on AWS Marketplace, enabling you to leverage existing vendor relationships while reducing procurement cycles. Google Cloud Marketplace availability is coming soon.
 
-Contact our sales team to learn more about [Claude for Financial Services](https://www.anthropic.com/solutions/financial-services), schedule a demonstration, or discuss implementation for your organization.
+Contact our sales team to learn more about Claude for Financial Services, schedule a demonstration, or discuss implementation for your organization.
 
 #### Footnotes
 
 **Updated April 10, 2026:** We removed a mention of a partner.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-for-financial-services)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-for-financial-services)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

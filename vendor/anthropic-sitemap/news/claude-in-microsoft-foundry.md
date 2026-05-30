@@ -1,3 +1,5 @@
+# Claude now available in Microsoft Foundry and Microsoft 365 Copilot
+
 Product
 
 # Claude now available in Microsoft Foundry and Microsoft 365 Copilot
@@ -6,11 +8,11 @@ Nov 18, 2025
 
 ![Claude now available in Microsoft Foundry and Microsoft 365 Copilot](https://www-cdn.anthropic.com/images/4zrzovbb/website/a7b8978859371a024139418f3366bb0600ee1675-1000x1000.svg)
 
-Today we announced that Microsoft and Anthropic are [expanding our partnership](http://anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships). As part of the partnership, Claude Sonnet 4.5, Haiku 4.5, and Opus 4.1 models are now available in public preview in Microsoft Foundry, where Azure customers can build production applications and enterprise agents.
+Today we announced that Microsoft and Anthropic are expanding our partnership. As part of the partnership, Claude Sonnet 4.5, Haiku 4.5, and Opus 4.1 models are now available in public preview in Microsoft Foundry, where Azure customers can build production applications and enterprise agents.
 
 This enables companies to build with Claude, the world's best models for coding, agents, and office tasks, all while using their existing Microsoft ecosystem. Developers can also use Claude models in Microsoft Foundry with Claude Code, our AI coding agent.
 
-In addition to our existing integrations with [Microsoft 365 Copilot](https://claude.com/blog/claude-now-available-in-microsoft-365-copilot)—where Claude powers the Researcher agent for complex, multistep research, and also enables custom agent development in Copilot Studio—Microsoft's [Agent Mode in Excel](https://aka.ms/ABSIgnite2025) now includes an option to use Claude in preview to build and edit spreadsheets directly in Excel. You can now use Claude to generate formulas, analyze data, identify errors, and iterate on solutions within an Excel spreadsheet.
+In addition to our existing integrations with Microsoft 365 Copilot—where Claude powers the Researcher agent for complex, multistep research, and also enables custom agent development in Copilot Studio—Microsoft's Agent Mode in Excel now includes an option to use Claude in preview to build and edit spreadsheets directly in Excel. You can now use Claude to generate formulas, analyze data, identify errors, and iterate on solutions within an Excel spreadsheet.
 
 For enterprises already invested in Microsoft Foundry and Microsoft 365 Copilot, adopting new AI capabilities often means navigating separate vendor contracts and billing systems—adding weeks or months of procurement overhead. These integrations remove those barriers.
 
@@ -18,11 +20,11 @@ For enterprises already invested in Microsoft Foundry and Microsoft 365 Copilot,
 
 Claude is available in Microsoft Foundry via serverless deployment, allowing developers to scale while Anthropic manages the infrastructure. This integration enables developers to:
 
--   **Start building immediately:** Deploy Claude through Foundry's APIs, tools, and workflows
--   **Use your existing Azure agreements:** Claude is eligible for Microsoft Azure Consumption Commitment (MACC), and works with current Azure agreements and billing, eliminating separate vendor approvals
--   **Build in your preferred language:** Access Claude using Python, TypeScript, and C# SDKs with Microsoft Entra authentication
+*   **Start building immediately:** Deploy Claude through Foundry's APIs, tools, and workflows
+*   **Use your existing Azure agreements:** Claude is eligible for Microsoft Azure Consumption Commitment (MACC), and works with current Azure agreements and billing, eliminating separate vendor approvals
+*   **Build in your preferred language:** Access Claude using Python, TypeScript, and C# SDKs with Microsoft Entra authentication
 
-Claude is available in the Global Standard deployment rolling out today, using our standard API pricing, with the US DataZone coming soon. Visit our [pricing page](https://claude.com/pricing#api) for details.
+Claude is available in the Global Standard deployment rolling out today, using our standard API pricing, with the US DataZone coming soon. Visit our pricing page for details.
 
 ## Select the right model for your use case
 
@@ -34,28 +36,26 @@ Microsoft customers can access Claude's frontier models directly in Foundry.
 
 **Opus 4.1** is an exceptional model for specialized reasoning tasks. Use Opus 4.1 for complex, multi-step problems that require sustained focus and rigorous attention to detail.
 
-All models support a variety of Claude Developer Platform capabilities in Foundry, including the [code execution tool](https://docs.claude.com/en/docs/agents-and-tools/tool-use/code-execution-tool), [web search](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-search-tool) and [fetch](https://docs.claude.com/en/docs/agents-and-tools/tool-use/web-fetch-tool), [citations](https://docs.claude.com/en/docs/build-with-claude/citations), [vision](https://docs.claude.com/en/docs/build-with-claude/vision), [tool use](https://docs.claude.com/en/docs/agents-and-tools/tool-use/implement-tool-use), [prompt caching](https://docs.claude.com/en/docs/build-with-claude/prompt-caching), and more. Explore our [documentation](https://docs.claude.com/en/docs/build-with-claude/overview) for additional supported features.
+All models support a variety of Claude Developer Platform capabilities in Foundry, including the code execution tool, web search and fetch, citations, vision, tool use, prompt caching, and more. Explore our documentation for additional supported features.
 
 ## Get started
 
-Claude is available now in public preview through Microsoft Foundry. Visit the [Microsoft Foundry catalog](https://ai.azure.com/catalog/publishers/anthropic) to deploy Claude Sonnet 4.5, Claude Haiku 4.5, or Claude Opus 4.1, or explore our [documentation](https://docs.claude.com/en/docs/build-with-claude/claude-in-microsoft-foundry) to learn more.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-in-microsoft-foundry)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-in-microsoft-foundry)
+Claude is available now in public preview through Microsoft Foundry. Visit the Microsoft Foundry catalog to deploy Claude Sonnet 4.5, Claude Haiku 4.5, or Claude Opus 4.1, or explore our documentation to learn more.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# Claude for Life Sciences
+
 Announcements
 
 # Claude for Life Sciences
@@ -12,52 +14,52 @@ We are focused on building the tools to allow researchers to make new discoverie
 
 Until recently, scientists typically used Claude for individual tasks, like writing code for statistical analysis or summarizing papers. Pharmaceutical companies and others in industry also use it for tasks across the rest of their business, like sales, to fund new research. Now, our goal is to make Claude capable of supporting the entire process, from early discovery through to translation and commercialization.
 
-To do this, we’re rolling out [several improvements](https://www.claude.com/solutions/life-sciences) that aim to make Claude a better partner for those who work in the life sciences, including researchers, clinical coordinators, and regulatory affairs managers.
+To do this, we’re rolling out several improvements that aim to make Claude a better partner for those who work in the life sciences, including researchers, clinical coordinators, and regulatory affairs managers.
 
 ## Making Claude a better research partner
 
 First, we’ve improved Claude’s underlying performance. Our most capable model, Claude Sonnet 4.5, is significantly better than previous models at a range of life sciences tasks. For example, on Protocol QA, a benchmark that tests the model’s understanding and facility with laboratory protocols, Sonnet 4.5 scores 0.83, against a human baseline of 0.79, and Sonnet 4’s performance of 0.74.1 Sonnet 4.5 shows a similar improvement on its predecessor on BixBench, an evaluation that measures its performance on bioinformatics tasks.
 
-To make Claude more useful for scientific work, we’re now adding several [new connectors](https://claude.com/partners/mcp) to scientific platforms, the ability to use Agent Skills, and life sciences-specific support in the form of a prompt library and dedicated support.
+To make Claude more useful for scientific work, we’re now adding several new connectors to scientific platforms, the ability to use Agent Skills, and life sciences-specific support in the form of a prompt library and dedicated support.
 
 ## Connecting Claude to scientific tools
 
-[**Connectors**](https://claude.ai/redirect/website.v1.010bbeb5-7851-4e3f-8fb9-1ef471de8382/settings/connectors) allow Claude to access other platforms and tools directly. We’re adding several new connectors that are designed to make it easier to use Claude for scientific discovery:
+**Connectors** allow Claude to access other platforms and tools directly. We’re adding several new connectors that are designed to make it easier to use Claude for scientific discovery:
 
--   **Benchling** gives Claude the ability to respond to scientists’ questions with links back to source experiments, notebooks, and records;
--   **BioRender** connects Claude to its extensive library of vetted scientific figures, icons, and templates;
--   **PubMed** provides access to millions of biomedical research articles and clinical studies;
--   **Scholar Gateway developed by Wiley** provides access to authoritative, peer-reviewed scientific content within Claude to accelerate research discovery;
--   **Synapse.org** allows scientists to share and analyze data together in public or private projects;
--   **10x Genomics** allows researchers to conduct single cell and spatial analysis in natural language.
+*   **Benchling** gives Claude the ability to respond to scientists’ questions with links back to source experiments, notebooks, and records;
+*   **BioRender** connects Claude to its extensive library of vetted scientific figures, icons, and templates;
+*   **PubMed** provides access to millions of biomedical research articles and clinical studies;
+*   **Scholar Gateway developed by Wiley** provides access to authoritative, peer-reviewed scientific content within Claude to accelerate research discovery;
+*   **Synapse.org** allows scientists to share and analyze data together in public or private projects;
+*   **10x Genomics** allows researchers to conduct single cell and spatial analysis in natural language.
 
 These connectors add to our existing set, which includes general purpose tools like Google Workspace and Microsoft SharePoint, OneDrive, Outlook, and Teams. Claude can also already work directly with Databricks to provide analytics for large-scale bioinformatics research, and Snowflake to search through large datasets using natural language questions.
 
 ## Developing skills for Claude
 
-Last week, we released [Agent Skills:](https://www.anthropic.com/news/skills) folders including instructions, scripts, and resources that Claude can use to improve how it performs specific tasks. Skills are a natural fit for scientific work, since they allow Claude to consistently and predictably follow specific protocols and procedures.
+Last week, we released Agent Skills: folders including instructions, scripts, and resources that Claude can use to improve how it performs specific tasks. Skills are a natural fit for scientific work, since they allow Claude to consistently and predictably follow specific protocols and procedures.
 
-We’re developing a number of scientific skills for Claude, beginning with **`single-cell-rna-qc`** This skill performs quality control and filtering on single-cell RNA sequencing data, using [scverse](https://scverse.org/) best practices:
+We’re developing a number of scientific skills for Claude, beginning with **`single-cell-rna-qc`** This skill performs quality control and filtering on single-cell RNA sequencing data, using scverse best practices:
 
 ![Claude performs quality control on single-cell RNA-seq data](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F07de700e38ef4d328ccdb5c15ab9e3df5286fc08-3840x2160.png&w=3840&q=75)
 
 _Claude performs quality control on single-cell RNA-seq data._  
 
-In addition to the skills we’re creating, scientists can build their own. For more information and guidance, including setting up custom skills, see [here](https://support.claude.com/en/articles/12512180-using-skills-in-claude).
+In addition to the skills we’re creating, scientists can build their own. For more information and guidance, including setting up custom skills, see here.
 
 ## Using Claude for Life Sciences
 
 Claude can be used for life sciences tasks like the following:
 
--   **Research, like literature reviews and developing hypotheses:** Claude can cite and summarize biomedical literature and generate testable ideas based on what it finds.
+*   **Research, like literature reviews and developing hypotheses:** Claude can cite and summarize biomedical literature and generate testable ideas based on what it finds.
 
 Watch how Claude analyzes data, conducts a literature review, dives into potentially novel insights, turns this analysis into a presentation, and puts the finishing touches on slides with a figure from BioRender.
 
--   **Generating protocols**: With the Benchling connector, Claude can draft study protocols, standard operating procedures and consent documents.
--   **Bioinformatics and data analysis**: Process and analyze genomic data with Claude Code. Claude can present its results in [slides, docs](https://www.anthropic.com/news/create-files), or code notebook format.
--   **Clinical and regulatory compliance**: Claude can draft and review regulatory submissions, and compile compliance data.
+*   **Generating protocols**: With the Benchling connector, Claude can draft study protocols, standard operating procedures and consent documents.
+*   **Bioinformatics and data analysis**: Process and analyze genomic data with Claude Code. Claude can present its results in slides, docs, or code notebook format.
+*   **Clinical and regulatory compliance**: Claude can draft and review regulatory submissions, and compile compliance data.
 
-In addition, to help scientists get started quickly, we’re creating a [library of prompts](https://support.claude.com/en/articles/12614768-getting-started-with-claude-for-life-sciences) that should elicit best results on tasks like the above.
+In addition, to help scientists get started quickly, we’re creating a library of prompts that should elicit best results on tasks like the above.
 
 ## Partnerships and customers
 
@@ -176,9 +178,9 @@ Many of our existing customers and partners have already been using Claude for a
 
 ## Supporting the life sciences
 
-In addition to the updates described above, we’re supporting life sciences research through our [AI for Science](https://www.anthropic.com/news/ai-for-science-program) program. This program provides free API credits to support leading researchers working on high-impact scientific projects around the world.
+In addition to the updates described above, we’re supporting life sciences research through our AI for Science program. This program provides free API credits to support leading researchers working on high-impact scientific projects around the world.
 
-Our partnerships with these labs helps us identify new applications for Claude, while helping scientists answer some of their most pressing questions. We continue to welcome [submissions](https://docs.google.com/forms/d/e/1FAIpQLSfwDGfVg2lHJ0cc0oF_ilEnjvr_r4_paYi7VLlr5cLNXASdvA/viewform) for project ideas.
+Our partnerships with these labs helps us identify new applications for Claude, while helping scientists answer some of their most pressing questions. We continue to welcome submissions for project ideas.
 
 Jonah Cool and Eric Kauderer-Abrams, who lead partnerships and R&D for Life Sciences at Anthropic, respectively, discuss this and other recent work below.
 
@@ -186,30 +188,28 @@ Anthropic’s Jonah Cool and Eric Kauderer-Abrams share their vision for making 
 
 ## Getting started
 
-To learn more about Claude for Life Sciences or set up a demo with our team, see [here](https://claude.com/contact-sales/life-sciences).
+To learn more about Claude for Life Sciences or set up a demo with our team, see here.
 
-[Claude for Life Sciences](https://www.claude.com/solutions/life-sciences) is available through Claude.com and on the AWS Marketplace, with Google Cloud Marketplace availability coming soon.
+Claude for Life Sciences is available through Claude.com and on the AWS Marketplace, with Google Cloud Marketplace availability coming soon.
 
 #### Footnotes
 
-1 Protocol QA score (multiple choice format) with 10 shot prompting. For more, see our [Sonnet 4.5 System Card](https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf), pages 132-133.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/claude-for-life-sciences)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/claude-for-life-sciences)
+1 Protocol QA score (multiple choice format) with 10 shot prompting. For more, see our Sonnet 4.5 System Card, pages 132-133.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

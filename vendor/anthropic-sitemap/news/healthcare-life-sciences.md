@@ -1,16 +1,18 @@
+# Advancing Claude in healthcare and the life sciences
+
 Announcements
 
 # Advancing Claude in healthcare and the life sciences
 
 Jan 11, 2026
 
-[Watch on-demand](https://anthropic.com/events/the-briefing-healthcare-and-life-sciences-virtual-event)
+Watch on-demand
 
 ![Advancing Claude in healthcare and the life sciences](https://www-cdn.anthropic.com/images/4zrzovbb/website/a5be087781bd5c60788beba7d8148d147bc4d0ed-1000x1000.svg)
 
-In October, we announced [Claude for Life Sciences](https://www.anthropic.com/news/claude-for-life-sciences), our latest step in making Claude a productive research partner for scientists and clinicians, and in helping Claude to support those in industry bringing new scientific advancements to the public.
+In October, we announced Claude for Life Sciences, our latest step in making Claude a productive research partner for scientists and clinicians, and in helping Claude to support those in industry bringing new scientific advancements to the public.
 
-Now, we’re expanding that feature set in two ways. First, we’re introducing [Claude for Healthcare](https://claude.com/solutions/healthcare), a complementary set of tools and resources that allow healthcare providers, payers, and health tech companies and startups to use Claude for medical purposes through HIPAA-ready products. We're also introducing tools to help individuals understand and navigate their personal health data. Second, we’re adding new capabilities for life sciences: connecting Claude to more scientific platforms, and helping it provide greater support in areas ranging from clinical trial management to regulatory operations.
+Now, we’re expanding that feature set in two ways. First, we’re introducing Claude for Healthcare, a complementary set of tools and resources that allow healthcare providers, payers, and health tech companies and startups to use Claude for medical purposes through HIPAA-ready products. We're also introducing tools to help individuals understand and navigate their personal health data. Second, we’re adding new capabilities for life sciences: connecting Claude to more scientific platforms, and helping it provide greater support in areas ranging from clinical trial management to regulatory operations.
 
 These features build on top of major recent improvements we’ve made to Claude’s general intelligence. These improvements are best captured by evaluations of Claude’s agentic performance on detailed simulations of medical and scientific tasks, since this correlates most closely to real-world usefulness. Here, Claude Opus 4.5, our latest model, represents a major forward step:
 
@@ -18,9 +20,9 @@ Medical benchmark performanceKey life sciences tasksSpatialBench: Spatial biolog
 
 ![Medical benchmarket performance](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F351d4c302f534df54f68ade366e423cd037cbf17-1920x1080.png&w=3840&q=75)
 
--   _\*Claude 4.5 models evaluated with extended thinking (64k tokens) and native tool use_
--   _MedCalc: Medical calculation accuracy (with Python code execution)_
--   _MedAgentBench: Medical agent task completion ([Stanford](https://ai.nejm.org/doi/pdf/10.1056/AIdbp2500144))_
+*   _*Claude 4.5 models evaluated with extended thinking (64k tokens) and native tool use_
+*   _MedCalc: Medical calculation accuracy (with Python code execution)_
+*   _MedAgentBench: Medical agent task completion (Stanford)_
 
 ![Spatial biology analysis](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fe0c2419a2d241cb88327244ddc34abd7a067f91e-1920x1080.png&w=3840&q=75)
 
@@ -28,31 +30,31 @@ _Opus 4.5 model shows improvement in accuracy against our internal evaluation of
 
 ![SpatailBench: Spatial biology analysis by LatchBio](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F870ba1c53ad1135cf7f9a5c57c30a9631a946787-1920x1080.png&w=3840&q=75)
 
-_Source: [LatchBio SpatialBench](https://blog.latch.bio/p/spatialbench-can-agents-analyze-real) (Dec 2025) - 146 verifiable problems across 5 spatial problems and 7 task categories_
+_Source: LatchBio SpatialBench (Dec 2025) - 146 verifiable problems across 5 spatial problems and 7 task categories_
 
 In addition, Opus 4.5 with extended thinking improves on earlier Claude models in producing correct answers on our suite of honesty evaluations, reflecting the progress we’ve made on factual hallucinations.1
 
 With these model improvements and our new tools, Claude is now dramatically more useful for real-world healthcare and life sciences tasks. Ultimately, it’s those real-world outcomes that have motivated our work: these tools can be used to speed up prior authorization requests so that patients can get life saving care more quickly, can help with patient care coordination to reduce the pressures on clinicians' time, and help with regulatory submissions so that more life saving drugs can come to market faster. We discuss the practical ways that Claude can be used across these industries in more detail below.
 
-## **Introducing Claude for Healthcare**
+## Introducing Claude for Healthcare
 
-#### **What’s new**
+#### What’s new
 
-[Connectors](https://claude.ai/redirect/website.v1.1457497c-df2f-450a-a84b-f78d6a4d2d60/settings/connectors) are tools that allow users to give Claude access to other platforms directly. For payers and providers, we’ve added several connectors that make healthcare information easier to find, access, and understand. These allow Claude to pull information from industry-standard systems and databases, meaning that clinicians and administrators can save significant time finding the data and generating the reports they need.
+Connectors are tools that allow users to give Claude access to other platforms directly. For payers and providers, we’ve added several connectors that make healthcare information easier to find, access, and understand. These allow Claude to pull information from industry-standard systems and databases, meaning that clinicians and administrators can save significant time finding the data and generating the reports they need.
 
 Claude can now connect to:
 
--   The **Centers for Medicare & Medicaid Services (CMS) Coverage Database**, including both Local and National Coverage Determinations. This enables Claude to verify locally-accurate coverage requirements, support prior authorization checks, and help build stronger claims appeals. This connector is designed to help revenue cycle, compliance, and patient-facing teams work more efficiently with Medicare policy.
--   The **International Classification of Diseases, 10th Revision (ICD-10).** Claude can look up both diagnosis and procedure codes to support medical coding, billing accuracy, and claims management. This data is provided by the CMS and the Centers for Disease Control and Prevention (CDC).
--   The **National Provider Identifier Registry**, which allows Claude to help with provider verification, credentialing, networking directory management, and claims validation.
+*   The **Centers for Medicare & Medicaid Services (CMS) Coverage Database**, including both Local and National Coverage Determinations. This enables Claude to verify locally-accurate coverage requirements, support prior authorization checks, and help build stronger claims appeals. This connector is designed to help revenue cycle, compliance, and patient-facing teams work more efficiently with Medicare policy.
+*   The **International Classification of Diseases, 10th Revision (ICD-10).** Claude can look up both diagnosis and procedure codes to support medical coding, billing accuracy, and claims management. This data is provided by the CMS and the Centers for Disease Control and Prevention (CDC).
+*   The **National Provider Identifier Registry**, which allows Claude to help with provider verification, credentialing, networking directory management, and claims validation.
 
 Since HIPAA-compliant organizations can now use Claude for Enterprise, they can also access existing healthcare-related connectors, including **PubMed**, which provides access to more than 35 million pieces of biomedical literature and allows Claude to quickly surface the latest research, and produce up-to-date literature reviews.
 
-Finally, we’ve added two new [Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview): **FHIR development** and a sample **prior authorization review** skill. FHIR is the modern standard for exchanging data between healthcare systems, and this skill helps to improve interoperability by enabling developers to connect them faster and with fewer errors.
+Finally, we’ve added two new Agent Skills: **FHIR development** and a sample **prior authorization review** skill. FHIR is the modern standard for exchanging data between healthcare systems, and this skill helps to improve interoperability by enabling developers to connect them faster and with fewer errors.
 
 The prior authorization skill provides a template that can be customized to organizations’ policies and work patterns, helping with cross-referencing between coverage requirements, clinical guidelines, patient records, and appeal documents.
 
-#### **Using Claude for healthcare tasks**
+#### Using Claude for healthcare tasks
 
 With these new tools, Claude can provide meaningful support for healthcare startups building new products, and for large enterprises looking to integrate AI more deeply into their operations. For example, Claude can:
 
@@ -66,11 +68,11 @@ With these new tools, Claude can provide meaningful support for healthcare start
 
 **Support healthcare startups developing new ideas.** On the Claude Developer Platform, startups can build new products that use Claude to reduce the time burden of healthcare administration—such as ambient scribing for clinical documentation, or tools to support chart reviews and clinical decisions.
 
-#### **Connecting personal health data**
+#### Connecting personal health data
 
 We’re also introducing integrations designed to make it easier for individuals to understand their health information and prepare for important medical conversations with clinicians.
 
-In the US, Claude Pro and Max plan subscribers can choose to give Claude secure access to their lab results and health records. New **HealthEx** and **Function** connectors are available in beta today, while **Apple Health** and **Android Health Connect** integrations are rolling out in beta this week via the Claude [iOS](https://apps.apple.com/us/app/claude-by-anthropic/id6473753684) and [Android](https://play.google.com/store/apps/details?id=com.anthropic.claude&hl=en_GB&pli=1) apps.
+In the US, Claude Pro and Max plan subscribers can choose to give Claude secure access to their lab results and health records. New **HealthEx** and **Function** connectors are available in beta today, while **Apple Health** and **Android Health Connect** integrations are rolling out in beta this week via the Claude iOS and Android apps.
 
 When connected, Claude can summarize users’ medical history, explain test results in plain language, detect patterns across fitness and health metrics, and prepare questions for appointments. The aim is to make patients' conversations with doctors more productive, and to help users stay well-informed about their health.
 
@@ -78,19 +80,19 @@ These integrations are private by design. Users can choose exactly the informati
 
 Claude is designed to include contextual disclaimers, acknowledge its uncertainty, and direct users to healthcare professionals for personalized guidance.
 
-## **Expanding Claude for Life Sciences**
+## Expanding Claude for Life Sciences
 
-#### **What’s new**
+#### What’s new
 
 In our initial release, we focused on making Claude more powerful for preclinical research and development (including bioinformatics, and generating hypotheses and protocols). Now, we’re expanding our focus to the clinical trial operations and regulatory stages of the development chain. We’re adding connectors to:
 
--   **Medidata**, a leading provider of clinical trial solutions to the life sciences industry. Enabled Medidata Study Feasibility customers can use Claude to securely access Medidata's historical trial enrollment information as well as information about site performance.
--   **ClinicalTrials.gov**, the US clinical trials registry. This provides Claude with information on drug and device development pipelines, as well as patient recruitment planning, site selection, and protocol design.
--   **ToolUniverse**, which allows scientists to use a library of over 600 vetted scientific tools to rapidly test hypotheses, compare approaches, and refine their analyses.
--   **bioRxiv & medRxiv**, the life sciences preprint servers. When connected to bioRxiv & medRxiv, Claude can access the latest research before it’s formally published.
--   **Open Targets**, which supports the systematic identification and prioritization of potential therapeutic drug targets.
--   **ChEMBL**, the bioactive compound and drug database, which will help Claude support early discovery work.
--   **Owkin,** whose Pathology Explorer agent analyzes tissue images to detect cells and map tumors, designed to accelerate drug discovery and development.
+*   **Medidata**, a leading provider of clinical trial solutions to the life sciences industry. Enabled Medidata Study Feasibility customers can use Claude to securely access Medidata's historical trial enrollment information as well as information about site performance.
+*   **ClinicalTrials.gov**, the US clinical trials registry. This provides Claude with information on drug and device development pipelines, as well as patient recruitment planning, site selection, and protocol design.
+*   **ToolUniverse**, which allows scientists to use a library of over 600 vetted scientific tools to rapidly test hypotheses, compare approaches, and refine their analyses.
+*   **bioRxiv & medRxiv**, the life sciences preprint servers. When connected to bioRxiv & medRxiv, Claude can access the latest research before it’s formally published.
+*   **Open Targets**, which supports the systematic identification and prioritization of potential therapeutic drug targets.
+*   **ChEMBL**, the bioactive compound and drug database, which will help Claude support early discovery work.
+*   **Owkin,** whose Pathology Explorer agent analyzes tissue images to detect cells and map tumors, designed to accelerate drug discovery and development.
 
 These join our existing Life Sciences connectors to **Benchling**, **10x Genomics**, **PubMed**, **BioRender**, **Synapse.org**, and **Wiley Scholar Gateway**. Our Benchling connector is now also available via Claude.ai on the web (in addition to the Claude desktop app), with secure access via SSO.
 
@@ -100,7 +102,7 @@ See the clinical trial skill in action, below:
 
 ![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F842ab2275159eeb8f8f4a7d7f5a14050a4e77b93-2982x1632.png&w=3840&q=75)
 
-#### **Using Claude in life sciences**
+#### Using Claude in life sciences
 
 With this new package of tools, Claude can support:
 
@@ -110,27 +112,27 @@ With this new package of tools, Claude can support:
 
 **Preparing regulatory submissions.** Claude can identify gaps in existing regulatory documents, draft responses to agencies’ queries, and navigate FDA guidelines.
 
-#### **Our customers and partners**
+#### Our customers and partners
 
 We’re working with a number of organizations in healthcare and the life sciences. A selection of our partners describe their experiences using Claude below:
 
 ![Banner Health logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F2b0c94b75aa81c160289105e777a25eecc8fcdd0-2145x276.png&w=256&q=75)
 
-> We were drawn to [Anthropic's focus on AI safety](https://claude.com/customers/banner-health) and Claude's Constitutional AI approach to creating more helpful, harmless, and honest AI systems.
+> We were drawn to Anthropic's focus on AI safety and Claude's Constitutional AI approach to creating more helpful, harmless, and honest AI systems.
 > 
 > Mike Reagin  
 > Chief Technology Officer, Banner Health
 
 ![Novo Nordisk logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F5080602ba328ac22c4a32d3cd348ba234320900a-800x565.png&w=256&q=75)
 
-> We've consistently been one of the first movers when it comes to document and content automation in pharma development. [Our work with Anthropic and Claude](https://claude.com/customers/novo-nordisk) has set a new standard — we're not just automating tasks, we're transforming how medicines get from discovery to the patients who need them.
+> We've consistently been one of the first movers when it comes to document and content automation in pharma development. Our work with Anthropic and Claude has set a new standard — we're not just automating tasks, we're transforming how medicines get from discovery to the patients who need them.
 > 
 > Louise Lind Skov  
 > Director Content Digitalisation, Novo Nordisk
 
 ![Qualified Health logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/220d794f1916851d190771cbf1e5d0c967372f5b-231x32.svg)
 
-> Safety is non-negotiable in healthcare. [Anthropic has been a clear leader](https://claude.com/customers/qualified-health) in building models with strong safety foundations.
+> Safety is non-negotiable in healthcare. Anthropic has been a clear leader in building models with strong safety foundations.
 > 
 > Justin Norden  
 > MD and co-founder, Qualified Health
@@ -151,7 +153,7 @@ We’re working with a number of organizations in healthcare and the life scienc
 
 ![Elation Health logo](https://www-cdn.anthropic.com/images/4zrzovbb/website/d64b1f0e2f15cc9edfaa844e12d13916c7f83018-2047x820.svg)
 
-> We chose Claude, powered by Anthropic, for the strength of its model and [its reputation for responsible AI](https://claude.com/customers/elation-health). That balance of performance plus trust was a decisive factor.
+> We chose Claude, powered by Anthropic, for the strength of its model and its reputation for responsible AI. That balance of performance plus trust was a decisive factor.
 > 
 > Kyna Fong  
 > CEO & Co-Founder, Elation Health
@@ -214,7 +216,7 @@ We’re working with a number of organizations in healthcare and the life scienc
 
 ![Carta Healthcare  logo](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2Fd98996a63d8d455b163cb8d111d965a8558d3f63-2000x827.png&w=256&q=75)
 
-> Carta Healthcare's implementation of [Anthropic models via Amazon Bedrock](https://claude.com/customers/carta-healthcare) has allowed for rapid and secure deployment of the newest models. Unlocking our hybrid intelligence AI system that is turning into a complete re-invention of understanding a patient’s medical record for clinical data abstraction.
+> Carta Healthcare's implementation of Anthropic models via Amazon Bedrock has allowed for rapid and secure deployment of the newest models. Unlocking our hybrid intelligence AI system that is turning into a complete re-invention of understanding a patient’s medical record for clinical data abstraction.
 > 
 > Andrew Crowder  
 > VP of Engineering, Carta Healthcare
@@ -232,38 +234,36 @@ Claude is the only frontier model available on all three leading cloud services:
 
 We’re also partnering with companies who specialize in helping organizations adopt AI for specialist work, including Accenture, Blank Metal, Caylent, Deloitte, Deepsense.ai, Firemind, KPMG, Provectus, PwC, OWT, Quantium, Slalom, Tribe AI, and Turing.
 
-## **Getting started**
+## Getting started
 
-To learn more about Claude for Healthcare, see [here](http://claude.com/solutions/healthcare), or see our tutorial guides [here](https://claude.com/resources/tutorials-category/healthcare). For more detail on the expanded Claude for Life Sciences capabilities, see [here](https://claude.com/solutions/life-sciences), and our tutorial guides [here](https://claude.com/resources/tutorials-category/life-sciences).
+To learn more about Claude for Healthcare, see here, or see our tutorial guides here. For more detail on the expanded Claude for Life Sciences capabilities, see here, and our tutorial guides here.
 
 Our new connectors and Agent Skills are generally available to all Claude subscribers, including Claude Pro, Max, Teams, and Enterprise.
 
-You can also [contact our sales team](<https://www.claude.com/contact-sales >) to discuss bringing Claude to your organization.
+You can also contact our sales team to discuss bringing Claude to your organization.
 
 #### Footnotes
 
-_1: See the [Claude Opus 4.5 system card](https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf), pages 48-49._
+_1: See the Claude Opus 4.5 system card, pages 48-49._
 
 **Changelog:**
 
 February 7, 2026: _Edited the introductory paragraph to clarify that HIPAA-ready products are specific to healthcare providers and payers. The personal health integrations for individual users are covered in the "Connecting personal health data" section._
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/healthcare-life-sciences)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/healthcare-life-sciences)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

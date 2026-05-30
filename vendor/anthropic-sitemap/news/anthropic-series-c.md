@@ -1,3 +1,5 @@
+# Anthropic Raises $450 Million in Series C Funding to Scale Reliable AI Products
+
 Announcements
 
 # Anthropic Raises $450 Million in Series C Funding to Scale Reliable AI Products
@@ -10,7 +12,7 @@ We are pleased to announce that we have raised $450 million in Series C funding 
 
 Anthropic was founded to build AI products that people can rely on and generate research about the opportunities and risks of AI. Our CEO, Dario Amodei, says, “We are thrilled that these leading investors and technology companies are supporting Anthropic’s mission: AI research and products that put safety at the frontier. The systems we are building are being designed to provide reliable AI services that can positively impact businesses and consumers now and in the future.”
 
-With our Series C funding, we hope to grow our product offerings, support businesses that will responsibly deploy Claude in the market, and further AI safety research. Our team is focused on AI alignment techniques that allow AI systems to better handle adversarial conversations, follow precise instructions, and generally be more transparent about their behaviors and limitations. We are also building new features like [100K context windows](/news/100k-context-windows), which lets you submit hundreds of pages of materials for Claude to digest and analyze. We look forward to announcing more improvements to our API and chat products.  
+With our Series C funding, we hope to grow our product offerings, support businesses that will responsibly deploy Claude in the market, and further AI safety research. Our team is focused on AI alignment techniques that allow AI systems to better handle adversarial conversations, follow precise instructions, and generally be more transparent about their behaviors and limitations. We are also building new features like 100K context windows, which lets you submit hundreds of pages of materials for Claude to digest and analyze. We look forward to announcing more improvements to our API and chat products.  
   
 In connection with the Series C round, Yasmin Razavi, a General Partner at Spark Capital focused on growth stage software investments, has joined Anthropic's Board of Directors. Yasmin says, "All of us at Spark are excited to partner with Dario, Daniela, and the entire Anthropic team on their mission to build reliable and honest AI systems. Anthropic has assembled a world-class technical team that is dedicated to building safe and capable AI systems. The overwhelmingly positive response to Anthropic’s products and research hints at AI’s broader potential for unlocking a new paradigm of flourishing in our society. I am delighted to join their Board.”
 
@@ -18,22 +20,20 @@ In addition to our technical work, during the past year we have been further ref
 
 We are excited to use the new funding to grow our world-class team across product and research, and aim to meet increasing demand for AI technologies that are reliable and trustworthy. Please get in touch if you’re interested in working with Claude.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-series-c)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-series-c)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

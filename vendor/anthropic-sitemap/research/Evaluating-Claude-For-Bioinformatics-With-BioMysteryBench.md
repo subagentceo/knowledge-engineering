@@ -1,3 +1,5 @@
+# Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
+
 Science
 
 # Evaluating Claude’s bioinformatics research capabilities with BioMysteryBench
@@ -8,41 +10,41 @@ Apr 29, 2026
 
 _In this post, Brianna_, _a researcher on the discovery team, shares results from a recent bioinformatics benchmarking effort._  
   
-Almost as soon as large language models could hold a conversation, people started asking how they’d stack up against human experts. Could models pass the bar exam? Could they answer medical licensing questions, or solve Olympiad math problems? Such _benchmarks_—self-contained sets of human-vetted problems designed to evaluate a capability of a model—have now become a source of competition across AI developers, reported in model release system cards and tracked on [many](https://huggingface.co/spaces/lmarena-ai/arena-leaderboard) [online](https://artificialanalysis.ai/) [leaderboards](https://epoch.ai/benchmarks).  
+Almost as soon as large language models could hold a conversation, people started asking how they’d stack up against human experts. Could models pass the bar exam? Could they answer medical licensing questions, or solve Olympiad math problems? Such _benchmarks_—self-contained sets of human-vetted problems designed to evaluate a capability of a model—have now become a source of competition across AI developers, reported in model release system cards and tracked on many online leaderboards.  
   
-Competition aside, benchmarks help us tackle an important question: whether models are capable and reliable enough to support, or even produce, professional-level work. Scientists [are using models](https://www.anthropic.com/news/accelerating-scientific-research) to write code for analysis pipelines, propose hypotheses, and draw conclusions from data with the long-term aim of [accelerating innovation and discovery](https://darioamodei.com/essay/machines-of-loving-grace#1-biology-and-health). But exactly how proficient is AI in science right now, and how quickly are Claude and other models improving?  
+Competition aside, benchmarks help us tackle an important question: whether models are capable and reliable enough to support, or even produce, professional-level work. Scientists are using models to write code for analysis pipelines, propose hypotheses, and draw conclusions from data with the long-term aim of accelerating innovation and discovery. But exactly how proficient is AI in science right now, and how quickly are Claude and other models improving?  
   
-To answer this, the research community has built several benchmarks. [MMLU-Pro](https://arxiv.org/abs/2406.01574) tests expert-level knowledge and reasoning questions. [GPQA](https://arxiv.org/abs/2311.12022) poses graduate-level, "Google-proof" questions in biology, physics, and chemistry. [LAB-Bench](https://arxiv.org/abs/2407.10362) tests biology-specific knowledge work—reading the literature, interpreting figures, reasoning about protocols. Although these benchmarks were developed in the “chatbot” era, they’ve persisted into the agent and tool-use era, joined by even more difficult scientific reasoning evals like [FrontierScience](https://arxiv.org/abs/2601.21165) and [Humanity's Last Exam](https://arxiv.org/abs/2501.14249), because knowledge and reasoning remain a vital measure of scientific capability.
+To answer this, the research community has built several benchmarks. MMLU-Pro tests expert-level knowledge and reasoning questions. GPQA poses graduate-level, "Google-proof" questions in biology, physics, and chemistry. LAB-Bench tests biology-specific knowledge work—reading the literature, interpreting figures, reasoning about protocols. Although these benchmarks were developed in the “chatbot” era, they’ve persisted into the agent and tool-use era, joined by even more difficult scientific reasoning evals like FrontierScience and Humanity's Last Exam, because knowledge and reasoning remain a vital measure of scientific capability.
 
-Still, many real-world scientific tasks demand more than that. They require reading papers, querying databases, running experiments, coding and analysis. Now that models can do many of these things, benchmarks have evolved to reflect these workflows. [BLADE](https://blade-bench.github.io/) tasks a model with a dataset and an open-ended task, and checks if the model takes similar analysis steps to a human scientist. [BixBench](https://arxiv.org/abs/2503.00096) uses biological datasets, and grades models on whether their conclusions line up with scientists’. In [SciGym](https://arxiv.org/abs/2507.02083), the model is dropped into a simulated biology lab, where it has to design and run its own experiments to uncover a hidden mechanism.
+Still, many real-world scientific tasks demand more than that. They require reading papers, querying databases, running experiments, coding and analysis. Now that models can do many of these things, benchmarks have evolved to reflect these workflows. BLADE tasks a model with a dataset and an open-ended task, and checks if the model takes similar analysis steps to a human scientist. BixBench uses biological datasets, and grades models on whether their conclusions line up with scientists’. In SciGym, the model is dropped into a simulated biology lab, where it has to design and run its own experiments to uncover a hidden mechanism.
 
 These benchmarks move us closer to measuring scientific capability, but they don't quite test whether a model can devise creative solutions to the messy, open-ended problems that define research. This is why we developed BioMysteryBench, a bioinformatics benchmark that tasks Claude with the analysis of real-world datasets, while tackling some of the challenges inherent in evaluating complex and noisy biological systems. We learned that Claude's scientific capabilities in biology are improving rapidly across generations, that current models perform on par with human experts, and that the latest generations solved many problems that a panel of human experts could not, sometimes using very different strategies.
 
 ## Science is challenging, and so is evaluating it
 
-Doctors have board exams and lawyers have the bar, but there’s no standardized test for becoming a scientist. The same problem shows up with AI. Despite how badly we want to use these models for science, no agentic science benchmark has become quite as canonical as [SWE-bench](https://arxiv.org/abs/2310.06770) is for software engineering. We think that’s because scientific research, particularly biology, has several properties that make it especially hard to evaluate via a benchmark.
+Doctors have board exams and lawyers have the bar, but there’s no standardized test for becoming a scientist. The same problem shows up with AI. Despite how badly we want to use these models for science, no agentic science benchmark has become quite as canonical as SWE-bench is for software engineering. We think that’s because scientific research, particularly biology, has several properties that make it especially hard to evaluate via a benchmark.
 
-### 1\. In biology, there are many different “right” ways to do something
+### 1. In biology, there are many different “right” ways to do something
 
 If there were only one right way to answer a research question, PhD students would earn their degrees in a matter of months, corporate R&D departments wouldn’t exist, and no science fair poster would need a “Methods” section. How a scientist tackles a problem depends on their skills and background, the resources available to them, and their research taste.
 
 Consider a seemingly straightforward question that has mystified metabolic researchers for years: why do some type 2 diabetics respond to the oral drug metformin while others do not? In order to answer this question, you could run a genome-wide association (GWAS) study on responders vs. non-responders and look for predictive genetic variants, or sequence the gut microbiomes of both groups, since metformin is partly metabolized by gut bacteria. Both are reasonable directions, and how you proceed will often just depend on expertise and resources.
 
-[BixBench](https://arxiv.org/abs/2503.00096) handles this well by grading the model on its conclusions rather than the method used to reach them. The tradeoff is that those conclusions were produced by an individual scientist who made a series of subjective choices along the way that may have shaped the answer itself. This, in turn, has its own pitfalls…
+BixBench handles this well by grading the model on its conclusions rather than the method used to reach them. The tradeoff is that those conclusions were produced by an individual scientist who made a series of subjective choices along the way that may have shaped the answer itself. This, in turn, has its own pitfalls…
 
-### 2\. Individual research decisions are highly subjective and can lead to entirely different conclusions in noisy datasets
+### 2. Individual research decisions are highly subjective and can lead to entirely different conclusions in noisy datasets
 
 Even within a chosen research direction, individual decisions can be highly subjective: one scientist may approve of a decision, while another researcher may have serious objections. Just ask any frustrated author who’s gotten conflicting suggestions from a round of peer review! Making this all the more difficult is the fact that biological datasets are often noisy enough that small differences in research decisions can lead to entirely different conclusions about the data.
 
-In the decade-long search for metformin response predictors, slight differences in study design have led to entirely different conclusions about metformin response. A 2011 paper [reported a variant that predicts metformin response](https://www.nature.com/articles/ng.735) that replicated in two cohorts, with a plausible mechanism involving AMPK activation. A year later, the Diabetes Prevention Program [tested the same variant in pre-diabetics and found nothing](https://pmc.ncbi.nlm.nih.gov/articles/PMC3425006/). Finally, rather than spinning up their own study, a 2012 meta-analysis pooled five cohorts and once again decided [the 2011 paper's effect was real but more modest](https://pubmed.ncbi.nlm.nih.gov/22453232/) than originally reported.
+In the decade-long search for metformin response predictors, slight differences in study design have led to entirely different conclusions about metformin response. A 2011 paper reported a variant that predicts metformin response that replicated in two cohorts, with a plausible mechanism involving AMPK activation. A year later, the Diabetes Prevention Program tested the same variant in pre-diabetics and found nothing. Finally, rather than spinning up their own study, a 2012 meta-analysis pooled five cohorts and once again decided the 2011 paper's effect was real but more modest than originally reported.
 
-[SciGym](https://arxiv.org/abs/2507.02083)'s clever way of handling such ambiguity is by choosing tasks with a well-defined answer. Because the underlying biological network is a simulator, there is, in fact, a ground-truth, and noise is controlled rather than inherited from a messy living system. However, it's unclear how closely performance in a simulated lab tracks performance on real data.
+SciGym's clever way of handling such ambiguity is by choosing tasks with a well-defined answer. Because the underlying biological network is a simulator, there is, in fact, a ground-truth, and noise is controlled rather than inherited from a messy living system. However, it's unclear how closely performance in a simulated lab tracks performance on real data.
 
-### 3\. There are many biological questions that humans cannot answer yet
+### 3. There are many biological questions that humans cannot answer yet
 
 The research tasks where models could have the greatest impact are those that humans alone have yet to solve. And ultimately, those are precisely the tasks we’d like to be able to evaluate models on. What, for example, is the mechanism of action of metformin? Thirty years after its development, the field still is not certain of the primary target. Discovering it, or finding a homolog of metformin that is cheaper to synthesize and more stable, would be enormously consequential.
 
-Machine learning has long tackled problems humans perform poorly at, like sequence prediction and protein modeling, by leaning on experimental data instead of expert intuition. [ProteinGym](https://www.biorxiv.org/content/10.1101/2023.12.07.570727v1.full) scores models on mutation fitness effects using Deep Mutational Scanning experiments as ground-truth, and the long-running [CASP](https://predictioncenter.org/) competition evaluates protein folding against unpublished crystal structures. Both are grounded in experimental measurements no expert would trust themselves to reproduce. However, these benchmarks are built around a narrow set of tasks and don't capture the breadth of bioinformatics work we actually want to measure.
+Machine learning has long tackled problems humans perform poorly at, like sequence prediction and protein modeling, by leaning on experimental data instead of expert intuition. ProteinGym scores models on mutation fitness effects using Deep Mutational Scanning experiments as ground-truth, and the long-running CASP competition evaluates protein folding against unpublished crystal structures. Both are grounded in experimental measurements no expert would trust themselves to reproduce. However, these benchmarks are built around a narrow set of tasks and don't capture the breadth of bioinformatics work we actually want to measure.
 
 ## Benchmarking models on verifiable biological tasks with BioMysteryBench
 
@@ -64,11 +66,11 @@ In developing this eval, questions were primarily derived from raw or minimally 
 
 Questions developers came up with included:
 
--   _Which human organ is this cell type single-cell RNA-seq dataset derived from?_
--   _What gene was knocked out in the experimental samples compared to the control samples based on RNA-seq data?_
--   _From WGS sequences, what sample is the mother of sample X and what sample is the father?_
--   _Which of the bigWig files are from ChIP samples and which are from input controls?_
--   _Given H3K27ac ChIP-seq peaks from an unknown cell type, identify the cell type._
+*   _Which human organ is this cell type single-cell RNA-seq dataset derived from?_
+*   _What gene was knocked out in the experimental samples compared to the control samples based on RNA-seq data?_
+*   _From WGS sequences, what sample is the mother of sample X and what sample is the father?_
+*   _Which of the bigWig files are from ChIP samples and which are from input controls?_
+*   _Given H3K27ac ChIP-seq peaks from an unknown cell type, identify the cell type._
 
 To minimize inherently unsolvable questions while still leaving room for those that might be AI-solvable, we required each question author to submit a validation notebook demonstrating that the signal does, in fact, exist in the data (even if finding it from scratch might be difficult). Think of this as the high-school algebra principle: verifying an answer is much easier than deriving one.
 
@@ -166,33 +168,31 @@ We thought Claude Mythos Preview’s analysis held up and dove deeper into relia
 
 BioMysteryBench is an encouraging measure of scientific capability. The most recent generations of Claude solve the majority of human-solvable problems reliably, and on a meaningful fraction of human-difficult tasks, it outperforms panels of five domain experts. Models are improving across generations, and are no longer merely keeping up with trained scientists on bioinformatics problems; on some tasks, they’re ahead.
 
-We’re also delighted to see convergent work in this space: While finalizing this post, Genentech and Roche released [CompBioBench](https://www.biorxiv.org/content/10.64898/2026.04.06.716850v1). Their benchmark consists of 100 computational biology tasks “based on synthetic/augmented data and metadata scrambling/scrubbing of real datasets to create challenging problems with a single ground-truth answer that require multi-step reasoning, tool use, bespoke code, and interaction with real-world external resources.” Sound familiar? Their results echo those of BioMysteryBench, too: Claude Opus 4.6 reaches 81% overall and 69% on their hardest questions, reinforcing that frontier models are now genuinely useful collaborators for bioinformatics research.
+We’re also delighted to see convergent work in this space: While finalizing this post, Genentech and Roche released CompBioBench. Their benchmark consists of 100 computational biology tasks “based on synthetic/augmented data and metadata scrambling/scrubbing of real datasets to create challenging problems with a single ground-truth answer that require multi-step reasoning, tool use, bespoke code, and interaction with real-world external resources.” Sound familiar? Their results echo those of BioMysteryBench, too: Claude Opus 4.6 reaches 81% overall and 69% on their hardest questions, reinforcing that frontier models are now genuinely useful collaborators for bioinformatics research.
 
 We’re eager to build even longer-horizon, real-world tasks that push model research capabilities, and to hear creative ideas from others. Send us your interesting benchmarks, innovative uses of AI for science, and interactions with AI that prompted you to rethink what could be possible in your field at scienceblog@anthropic.com.
 
-If you are interested in understanding how models perform on difficult verifiable computational biology tasks, you can [access BioMysteryBench here](https://huggingface.co/datasets/Anthropic/BioMysteryBench-preview) and visit [claude.com/lifesciences](http://claude.com/lifesciences) to learn more.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench)
+If you are interested in understanding how models perform on difficult verifiable computational biology tasks, you can access BioMysteryBench here and visit claude.com/lifesciences to learn more.
 
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more
 
 ## Subscribe to Anthropic Science
 

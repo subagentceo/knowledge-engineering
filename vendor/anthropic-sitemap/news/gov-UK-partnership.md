@@ -1,3 +1,5 @@
+# Anthropic partners with the UK Government to bring AI assistance to GOV.UK services
+
 Announcements
 
 # Anthropic partners with the UK Government to bring AI assistance to GOV.UK services
@@ -8,9 +10,9 @@ Jan 27, 2026
 
 Anthropic has been selected by the UK's Department for Science, Innovation and Technology (DSIT) to help build and pilot a dedicated AI-powered assistant for GOV.UK. The AI assistant will help people navigate government services and give tailored advice. The initial use case is employment: helping people find work, access training, understand the support and resources available, and more.
 
-This builds on the [Memorandum of Understanding](https://www.anthropic.com/news/mou-uk-government) Anthropic signed in February 2025 with the UK government to explore how advanced AI could transform public services for UK citizens.
+This builds on the Memorandum of Understanding Anthropic signed in February 2025 with the UK government to explore how advanced AI could transform public services for UK citizens.
 
-### **AI for UK government services that puts safety first**
+### AI for UK government services that puts safety first
 
 Since signing the MOU, Anthropic and DSIT have been collaborating on how to bring AI into government services safely and effectively. The GOV.UK AI assistant, powered by Claude, is one of the first major outcomes of that work. It's an agentic system designed to go beyond answering questions—actively guiding people through government processes with individually-tailored support.
 
@@ -18,13 +20,13 @@ Anthropic's mission is to ensure that the world safely makes the transition thro
 
 A central goal of this partnership is building AI and AI safety expertise within the UK government. Anthropic engineers will work alongside civil servants and software developers at the Government Digital Service throughout the engagement, with the goal of ensuring the UK government can independently maintain the system.
 
-### **Helping more people find work in the UK**
+### Helping more people find work in the UK
 
 The AI assistant for GOV.UK will initially focus on supporting job seekers entering or re-entering the workforce. It will provide personalized career advice, help people access training, explain supports, and intelligently route people to the right services based on individual circumstances. It will also maintain context across interactions, so people don't have to start from scratch each time they return. Users will have full control over their data—including what's remembered, and the ability to opt out at any time—with all personal information handled in line with UK data protection law.
 
 The project follows DSIT's “Scan, Pilot, Scale” framework, a deliberate, phased approach that allows government and Anthropic to test, learn, and iterate before wider rollout.
 
-### **Our commitment to the UK’s leadership in AI**
+### Our commitment to the UK’s leadership in AI
 
 This partnership reflects Anthropic's broader and growing investment in the United Kingdom. We are committed to supporting the UK’s role as a global leader in AI, and our presence in the country continues to deepen across multiple fronts.
 
@@ -32,28 +34,26 @@ We continue to work closely with the UK AI Security Institute to test and evalua
 
 Our London office is home to a growing team of AI researchers, and continues to expand with functions including go-to-market, applied AI, policy and more. “Anthropic’s UK team plays a key role in advancing our models at the frontier and transforming the public sector and broader British business landscape, from fast-growing startups like incident.io and Wordsmith to enterprises like WPP and London Stock Exchange Group,”commented Chris Ciauri, Managing Director International.
 
-### **Bringing AI to public services around the world**
+### Bringing AI to public services around the world
 
-This initiative with DSIT is part of a growing trend of governments and organizations partnering with Anthropic to deploy AI for public benefit. In the UK, we partner with the London School of Economics to provide students access to Claude. In Iceland, we've [partnered](https://www.anthropic.com/news/anthropic-and-iceland-announce-one-of-the-world-s-first-national-ai-education-pilots) with the Ministry of Education and Children to launch one of the world's first national AI education pilots, giving teachers across the country access to Claude to support lesson preparation and student learning. Anthropic has also recently partnered with the [Rwandan Government](https://www.anthropic.com/news/rwandan-government-partnership-ai-education) to bring AI education to hundreds of thousands of learners across the country.
+This initiative with DSIT is part of a growing trend of governments and organizations partnering with Anthropic to deploy AI for public benefit. In the UK, we partner with the London School of Economics to provide students access to Claude. In Iceland, we've partnered with the Ministry of Education and Children to launch one of the world's first national AI education pilots, giving teachers across the country access to Claude to support lesson preparation and student learning. Anthropic has also recently partnered with the Rwandan Government to bring AI education to hundreds of thousands of learners across the country.
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/gov-UK-partnership)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/gov-UK-partnership)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

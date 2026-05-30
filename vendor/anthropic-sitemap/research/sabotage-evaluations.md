@@ -1,21 +1,23 @@
+# Sabotage evaluations for frontier models
+
 Alignment
 
 # Sabotage evaluations for frontier models
 
 Oct 18, 2024
 
-[Read the paper](https://assets.anthropic.com/m/377027d5b36ac1eb/original/Sabotage-Evaluations-for-Frontier-Models.pdf)
+Read the paper
 
 Any industry where there are potential harms needs evaluations. Nuclear power stations have continuous radiation monitoring and regular site inspections; new aircraft undergo extensive flight tests to prove their airworthiness.
 
-It’s no different for AI systems. New AI models go through a wide range of safety evaluations—for example, testing their capacity to assist in the creation of biological or chemical weapons. Such evaluations are built into our [Responsible Scaling Policy](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy), which guides our development of a model’s safeguards.
+It’s no different for AI systems. New AI models go through a wide range of safety evaluations—for example, testing their capacity to assist in the creation of biological or chemical weapons. Such evaluations are built into our Responsible Scaling Policy, which guides our development of a model’s safeguards.
 
-As AIs become more capable, however, a new kind of risk might emerge: models with the ability to mislead their users, or subvert the systems we put in place to oversee them. A [new paper](https://assets.anthropic.com/m/377027d5b36ac1eb/original/Sabotage-Evaluations-for-Frontier-Models.pdf) by the Anthropic Alignment Science team describes a novel set of evaluations that test a model’s capacity for _sabotage_. We looked at four different types:
+As AIs become more capable, however, a new kind of risk might emerge: models with the ability to mislead their users, or subvert the systems we put in place to oversee them. A new paper by the Anthropic Alignment Science team describes a novel set of evaluations that test a model’s capacity for _sabotage_. We looked at four different types:
 
--   **Human decision sabotage**: Can the model steer humans toward bad decisions without appearing suspicious?
--   **Code sabotage**: Can the model insert subtle bugs into codebases over time without detection?
--   **Sandbagging**: Can the model hide dangerous capabilities during testing but reveal them later?
--   **Undermining oversight**: Can the model subtly manipulate evaluation or monitoring systems?
+*   **Human decision sabotage**: Can the model steer humans toward bad decisions without appearing suspicious?
+*   **Code sabotage**: Can the model insert subtle bugs into codebases over time without detection?
+*   **Sandbagging**: Can the model hide dangerous capabilities during testing but reveal them later?
+*   **Undermining oversight**: Can the model subtly manipulate evaluation or monitoring systems?
 
 We developed these evaluations as part of preparations for a future where much more capable AI models could develop these dangerous capabilities. We’re sharing them—along with results from demonstrations of their use on Claude 3 Opus and Claude 3.5 Sonnet—so that other AI developers can use and improve upon them. Below, we discuss each evaluation in turn.
 
@@ -83,28 +85,26 @@ We hope that other AI researchers and developers will use, critique, and improve
 
 These evaluations aren’t either/or: they estimate how likely a model is to succeed at sabotage for a given level of mitigations, suspiciousness, and oversight. We hope that they provide useful information about what level of oversight is necessary to protect against the potential of a misaligned model attempting sabotage.
 
-All our results, and further discussion, can be found in the full paper [at this link](https://assets.anthropic.com/m/377027d5b36ac1eb/original/Sabotage-Evaluations-for-Frontier-Models.pdf).
+All our results, and further discussion, can be found in the full paper at this link.
 
-_If you’re interested in joining the team working on these and related questions, please see our job listing for [Research Engineers and Research Scientists](https://boards.greenhouse.io/anthropic/jobs/4009165008) in Alignment Science._
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/sabotage-evaluations)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/sabotage-evaluations)
+_If you’re interested in joining the team working on these and related questions, please see our job listing for Research Engineers and Research Scientists in Alignment Science._
 
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

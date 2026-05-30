@@ -1,3 +1,5 @@
+# Anthropic achieves ISO 42001 certification for responsible AI
+
 Announcements
 
 # Anthropic achieves ISO 42001 certification for responsible AI
@@ -6,45 +8,43 @@ Jan 13, 2025
 
 ![Four locks joined together](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F10d2b2627656111aae62a8ab7b299b4b73ee86a4-2880x1620.png&w=3840&q=75)
 
-We are excited to announce that Anthropic has achieved accredited certification under the new [ISO/IEC 42001:2023 standard](https://www.iso.org/standard/81230.html) for our AI management system. ISO 42001 is the first international standard outlining requirements for AI governance and helps ensure AI systems are developed and used responsibly.
+We are excited to announce that Anthropic has achieved accredited certification under the new ISO/IEC 42001:2023 standard for our AI management system. ISO 42001 is the first international standard outlining requirements for AI governance and helps ensure AI systems are developed and used responsibly.
 
 Achieving this certification underscores our commitment to AI safety and responsible development. It provides independent validation that we have implemented a comprehensive framework to identify, assess and mitigate potential risks associated with our AI systems. Key elements include:
 
--   Policies and processes to ensure AI systems are designed, developed, and deployed in an ethical, secure and accountable manner;
--   Rigorous testing and monitoring to verify systems behave as intended and potential negative impacts are proactively addressed;
--   Transparency measures to provide appropriate information to users and stakeholders;
--   Established roles, responsibilities and oversight to maintain responsible practices.
+*   Policies and processes to ensure AI systems are designed, developed, and deployed in an ethical, secure and accountable manner;
+*   Rigorous testing and monitoring to verify systems behave as intended and potential negative impacts are proactively addressed;
+*   Transparency measures to provide appropriate information to users and stakeholders;
+*   Established roles, responsibilities and oversight to maintain responsible practices.
 
 We're proud to be **one of the first frontier AI labs** to achieve this certification and hope it provides further assurance to our partners and the public of our strong commitment to AI safety.
 
-The [ISO 42001 certification](https://trust.anthropic.com/) builds on our existing work to develop AI safely and responsibly, including the release and recent update of our public [Responsible Scaling Policy](https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy) governance framework, deployment of [Constitutional AI](https://www.anthropic.com/research/constitutional-ai-harmlessness-from-ai-feedback) to help models operate in alignment with human values, and active [research](https://www.anthropic.com/research) into AI safety and robustness. Schellman Compliance, LLC, an ISO certification body accredited by the ANSI National Accreditation Board, issued the certification.
+The ISO 42001 certification builds on our existing work to develop AI safely and responsibly, including the release and recent update of our public Responsible Scaling Policy governance framework, deployment of Constitutional AI to help models operate in alignment with human values, and active research into AI safety and robustness. Schellman Compliance, LLC, an ISO certification body accredited by the ANSI National Accreditation Board, issued the certification.
 
 ## Continuing our commitment to responsible AI leadership
 
-Beyond ISO 42001, we have made a number of [additional voluntary commitments](https://www.anthropic.com/voluntary-commitments) demonstrating our dedication to responsible AI development. These voluntary frameworks cover key areas such as risk assessment and mitigation, security and privacy safeguards, and public awareness efforts.
+Beyond ISO 42001, we have made a number of additional voluntary commitments demonstrating our dedication to responsible AI development. These voluntary frameworks cover key areas such as risk assessment and mitigation, security and privacy safeguards, and public awareness efforts.
 
 As AI systems become increasingly powerful, safety and security are at the forefront of our ongoing research and innovation. The ISO 42001 certification is an exciting milestone in that journey.
 
-Information about our ISO certification is now available on our [Trust Center](https://trust.anthropic.com/). This includes the issued certificate, an overview of the standard, what it entails, and how it reinforces our commitments to responsible AI development.
+Information about our ISO certification is now available on our Trust Center. This includes the issued certificate, an overview of the standard, what it entails, and how it reinforces our commitments to responsible AI development.
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-achieves-iso-42001-certification-for-responsible-ai)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-achieves-iso-42001-certification-for-responsible-ai)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

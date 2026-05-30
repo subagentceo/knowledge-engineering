@@ -1,3 +1,5 @@
+# Anthropic expands partnership with Google and Broadcom for multiple gigawatts of next-generation compute
+
 Announcements
 
 # Anthropic expands partnership with Google and Broadcom for multiple gigawatts of next-generation compute
@@ -10,32 +12,30 @@ We have signed a new agreement with Google and Broadcom for multiple gigawatts o
 
 “This groundbreaking partnership with Google and Broadcom is a continuation of our disciplined approach to scaling infrastructure: we are building the capacity necessary to serve the exponential growth we have seen in our customer base while also enabling Claude to define the frontier of AI development,” said Krishna Rao, CFO of Anthropic. “We are making our most significant compute commitment to date to keep pace with our unprecedented growth.”
 
-Demand from Claude customers has accelerated in 2026. Our run-rate revenue has now surpassed $30 billion—up from approximately $9 billion at the end of 2025. When we announced our [Series G fundraising](https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation) in February, we shared that over 500 business customers were each spending over $1 million on an annualized basis. Today that number exceeds 1,000, doubling in less than two months.
+Demand from Claude customers has accelerated in 2026. Our run-rate revenue has now surpassed $30 billion—up from approximately $9 billion at the end of 2025. When we announced our Series G fundraising in February, we shared that over 500 business customers were each spending over $1 million on an annualized basis. Today that number exceeds 1,000, doubling in less than two months.
 
-The vast majority of the new compute will be sited in the United States, making this partnership a major expansion of our November 2025 commitment to [invest $50 billion](https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure) in strengthening American computing infrastructure.
+The vast majority of the new compute will be sited in the United States, making this partnership a major expansion of our November 2025 commitment to invest $50 billion in strengthening American computing infrastructure.
 
-The partnership deepens our existing work with Google Cloud—building on the increased [TPU capacity](https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services) we announced last October—as well as our relationship with Broadcom.
+The partnership deepens our existing work with Google Cloud—building on the increased TPU capacity we announced last October—as well as our relationship with Broadcom.
 
 We train and run Claude on a range of AI hardware—AWS Trainium, Google TPUs, and NVIDIA GPUs—which means we can match workloads to the chips best suited for them. This diversity of platforms translates to better performance and greater resilience for customers who depend on Claude for critical work. Amazon remains our primary cloud provider and training partner, and we continue to work closely with AWS on Project Rainier. Claude remains the only frontier AI model available to customers on all three of the world's largest cloud platforms: Amazon Web Services (Bedrock), Google Cloud (Vertex AI), and Microsoft Azure (Foundry).
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/google-broadcom-partnership-compute)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/google-broadcom-partnership-compute)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

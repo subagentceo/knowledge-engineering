@@ -1,3 +1,5 @@
+# Anthropic raises $30 billion in Series G funding at $380 billion post-money valuation
+
 Announcements
 
 # Anthropic raises $30 billion in Series G funding at $380 billion post-money valuation
@@ -8,7 +10,7 @@ Feb 12, 2026
 
 We have raised $30 billion in Series G funding led by GIC and Coatue, valuing Anthropic at $380 billion post-money. The round was co-led by D. E. Shaw Ventures, Dragoneer, Founders Fund, ICONIQ, and MGX. The investment will fuel the frontier research, product development, and infrastructure expansions that have made Anthropic the market leader in enterprise AI and coding.
 
-Significant investors in this round include: Accel, Addition, Alpha Wave Global, Altimeter, AMP PBC, Appaloosa LP, Baillie Gifford, Bessemer Venture Partners, affiliated funds of BlackRock, Blackstone, D1 Capital Partners, Fidelity Management & Research Company, General Catalyst, Greenoaks, Growth Equity at Goldman Sachs Alternatives, Insight Partners, Jane Street, JPMorganChase through its Security and Resiliency Initiative and Growth Equity Partners, Lightspeed Venture Partners, Menlo Ventures, Morgan Stanley Investment Management, NX1 Capital, Qatar Investment Authority (QIA), Sands Capital, Sequoia Capital, Temasek, TowerBrook, TPG, Whale Rock Capital, and XN. This round also includes a portion of the [previously announced investments](https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships) from Microsoft and NVIDIA.
+Significant investors in this round include: Accel, Addition, Alpha Wave Global, Altimeter, AMP PBC, Appaloosa LP, Baillie Gifford, Bessemer Venture Partners, affiliated funds of BlackRock, Blackstone, D1 Capital Partners, Fidelity Management & Research Company, General Catalyst, Greenoaks, Growth Equity at Goldman Sachs Alternatives, Insight Partners, Jane Street, JPMorganChase through its Security and Resiliency Initiative and Growth Equity Partners, Lightspeed Venture Partners, Menlo Ventures, Morgan Stanley Investment Management, NX1 Capital, Qatar Investment Authority (QIA), Sands Capital, Sequoia Capital, Temasek, TowerBrook, TPG, Whale Rock Capital, and XN. This round also includes a portion of the previously announced investments from Microsoft and NVIDIA.
 
 “Whether it is entrepreneurs, startups, or the world’s largest enterprises, the message from our customers is the same: Claude is increasingly becoming critical to how businesses work,” said Krishna Rao, Anthropic’s Chief Financial Officer. “This fundraising reflects the incredible demand we are seeing from these customers, and we will use this investment to continue building the enterprise-grade products and models they have come to depend on.”
 
@@ -18,15 +20,15 @@ It has been less than three years since Anthropic earned its first dollar in rev
 
 This growth has been driven by our position as the intelligence platform of choice for enterprises and developers. The number of customers spending over $100,000 annually on Claude (as represented by run-rate revenue) has grown 7x in the past year. And businesses that start with Claude for a single use case—API, Claude Code, or Claude for Work—are expanding their integrations across their organizations. Two years ago, a dozen customers spent over $1 million with us on an annualized basis. Today that number exceeds 500. Eight of the Fortune 10 are now Claude customers.
 
-Claude Code represents a new era of agentic coding, fundamentally changing how teams build software. Claude Code was made available to the general public in May 2025. Today, Claude Code’s run-rate revenue has grown to over $2.5 billion; this figure has more than doubled since the beginning of 2026. The number of weekly active Claude Code users has also doubled since January 1. A recent [analysis](https://newsletter.semianalysis.com/p/claude-code-is-the-inflection-point) estimated that 4% of all GitHub public commits worldwide were being authored by Claude Code—double the percentage from just one month prior.
+Claude Code represents a new era of agentic coding, fundamentally changing how teams build software. Claude Code was made available to the general public in May 2025. Today, Claude Code’s run-rate revenue has grown to over $2.5 billion; this figure has more than doubled since the beginning of 2026. The number of weekly active Claude Code users has also doubled since January 1. A recent analysis estimated that 4% of all GitHub public commits worldwide were being authored by Claude Code—double the percentage from just one month prior.
 
-Business subscriptions to Claude Code have quadrupled since the start of 2026, and enterprise use has grown to represent over half of all Claude Code revenue. The same capabilities that make Claude exceptional for coding are also unlocking other new categories of work: [financial and data analysis](https://www.reuters.com/business/finance/goldman-sachs-teams-up-with-anthropic-automate-banking-tasks-with-ai-agents-cnbc-2026-02-06/), [sales](https://www.anthropic.com/news/servicenow-anthropic-claude), [cybersecurity](https://claude.com/customers/esentire), [scientific discovery](https://www.anthropic.com/news/accelerating-scientific-research), and beyond.
+Business subscriptions to Claude Code have quadrupled since the start of 2026, and enterprise use has grown to represent over half of all Claude Code revenue. The same capabilities that make Claude exceptional for coding are also unlocking other new categories of work: financial and data analysis, sales, cybersecurity, scientific discovery, and beyond.
 
-In January alone, we launched more than thirty products and features, including [Cowork](https://claude.com/product/cowork), which brings Claude Code’s powerful engineering capabilities to a broader scope of knowledge work tasks. Cowork includes eleven open-source plugins that let customers turn Claude into a specialist for specific roles or teams, like sales, legal, or finance. We also expanded our reach into [healthcare and life sciences](https://www.anthropic.com/news/healthcare-life-sciences), with Claude for Enterprise now available to organizations operating under HIPAA.
+In January alone, we launched more than thirty products and features, including Cowork, which brings Claude Code’s powerful engineering capabilities to a broader scope of knowledge work tasks. Cowork includes eleven open-source plugins that let customers turn Claude into a specialist for specific roles or teams, like sales, legal, or finance. We also expanded our reach into healthcare and life sciences, with Claude for Enterprise now available to organizations operating under HIPAA.
 
 “Since our initial investment in 2025, Anthropic’s focus on agentic coding and enterprise-grade AI systems has accelerated its progress toward large-scale adoption,” said Philippe Laffont, Founder & Portfolio Manager of Coatue. “The team’s ability to rapidly scale its offerings further positions Anthropic as a leader in a highly competitive AI market.”
 
-Claude’s frontier-setting intelligence continues to advance. Our newest model—[Opus 4.6](https://www.anthropic.com/news/claude-opus-4-6), launched last week—can power agents that manage entire categories of real-world work, generating documents, spreadsheets, and presentations with professional polish. And Opus 4.6 is the world’s leading model on [GDPval-AA](https://artificialanalysis.ai/evaluations/gdpval-aa), which measures performance on economically valuable knowledge work tasks in finance, legal, and other domains.
+Claude’s frontier-setting intelligence continues to advance. Our newest model—Opus 4.6, launched last week—can power agents that manage entire categories of real-world work, generating documents, spreadsheets, and presentations with professional polish. And Opus 4.6 is the world’s leading model on GDPval-AA, which measures performance on economically valuable knowledge work tasks in finance, legal, and other domains.
 
 “Anthropic is the clear category leader in enterprise AI, demonstrating breakthrough capabilities and setting a new standard for safety, performance, and scale that will drive their long-term success,” said Choo Yong Cheen, Chief Investment Officer, Private Equity, GIC.
 
@@ -36,22 +38,20 @@ The demand we are seeing from enterprises and developers reflects the trust they
 
   
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,3 +1,5 @@
+# Where things stand with the Department of War
+
 AnnouncementsPolicy
 
 # Where things stand with the Department of War
@@ -8,38 +10,36 @@ _A statement from Dario Amodei_
 
 Yesterday (March 4) Anthropic received a letter from the Department of War confirming that we have been designated as a supply chain risk to America’s national security.
 
-As we wrote [on Friday](https://www.anthropic.com/news/statement-comments-secretary-war), we do not believe this action is legally sound, and we see no choice but to challenge it in court.
+As we wrote on Friday, we do not believe this action is legally sound, and we see no choice but to challenge it in court.
 
 The language used by the Department of War in the letter (even supposing it was legally sound) matches our statement on Friday that the vast majority of our customers are unaffected by a supply chain risk designation. With respect to our customers, it plainly applies only to the use of Claude by customers _as a direct part of_ contracts with the Department of War, not all use of Claude by customers who have such contracts.
 
-The Department’s letter has a narrow scope, and this is because the relevant statute ([10 USC 3252](https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title10-section3252&num=0&edition=prelim)) is narrow, too. It exists to protect the government rather than to punish a supplier; in fact, the law requires the Secretary of War to use the _least restrictive means necessary_ to accomplish the goal of protecting the supply chain. Even for Department of War contractors, the supply chain risk designation doesn’t (and can’t) limit uses of Claude or business relationships with Anthropic if those are unrelated to their specific Department of War contracts.
+The Department’s letter has a narrow scope, and this is because the relevant statute (10 USC 3252) is narrow, too. It exists to protect the government rather than to punish a supplier; in fact, the law requires the Secretary of War to use the _least restrictive means necessary_ to accomplish the goal of protecting the supply chain. Even for Department of War contractors, the supply chain risk designation doesn’t (and can’t) limit uses of Claude or business relationships with Anthropic if those are unrelated to their specific Department of War contracts.
 
-I would like to reiterate that we had been having productive conversations with the Department of War over the last several days, both about ways we could serve the Department that adhere to our two narrow exceptions, and ways for us to ensure a smooth transition if that is not possible. As we wrote [on Thursday](https://www.anthropic.com/news/statement-department-of-war), we are very proud of the work we have done together with the Department, supporting frontline warfighters with applications such as intelligence analysis, modeling and simulation, operational planning, cyber operations, and more.
+I would like to reiterate that we had been having productive conversations with the Department of War over the last several days, both about ways we could serve the Department that adhere to our two narrow exceptions, and ways for us to ensure a smooth transition if that is not possible. As we wrote on Thursday, we are very proud of the work we have done together with the Department, supporting frontline warfighters with applications such as intelligence analysis, modeling and simulation, operational planning, cyber operations, and more.
 
-As we [stated last Friday](https://www.anthropic.com/news/statement-comments-secretary-war), we do not believe, and have never believed, that it is the role of Anthropic or any private company to be involved in operational decision-making—that is the role of the military. Our only concerns have been our exceptions on fully autonomous weapons and mass domestic surveillance, which relate to high-level usage areas, and not operational decision-making.
+As we stated last Friday, we do not believe, and have never believed, that it is the role of Anthropic or any private company to be involved in operational decision-making—that is the role of the military. Our only concerns have been our exceptions on fully autonomous weapons and mass domestic surveillance, which relate to high-level usage areas, and not operational decision-making.
 
-I also want to apologize directly for a post internal to the company that was leaked to the press yesterday. Anthropic did not leak this post nor direct anyone else to do so—it is not in our interest to escalate this situation. That particular post was written within a few hours of the President’s [Truth Social post](https://truthsocial.com/@realDonaldTrump/posts/116144552969293195) announcing Anthropic would be removed from all federal systems, the Secretary of War’s [X post](https://x.com/SecWar/status/2027507717469049070?s=20) announcing the supply chain risk designation, and the announcement of a deal between the Pentagon and OpenAI, which even OpenAI later characterized as confusing. It was a difficult day for the company, and I apologize for the tone of the post. It does not reflect my careful or considered views. It was also written six days ago, and is an out-of-date assessment of the current situation.
+I also want to apologize directly for a post internal to the company that was leaked to the press yesterday. Anthropic did not leak this post nor direct anyone else to do so—it is not in our interest to escalate this situation. That particular post was written within a few hours of the President’s Truth Social post announcing Anthropic would be removed from all federal systems, the Secretary of War’s X post announcing the supply chain risk designation, and the announcement of a deal between the Pentagon and OpenAI, which even OpenAI later characterized as confusing. It was a difficult day for the company, and I apologize for the tone of the post. It does not reflect my careful or considered views. It was also written six days ago, and is an out-of-date assessment of the current situation.
 
 Our most important priority right now is making sure that our warfighters and national security experts are not deprived of important tools in the middle of major combat operations. Anthropic will provide our models to the Department of War and national security community, at nominal cost and with continuing support from our engineers, for as long as is necessary to make that transition, and for as long as we are permitted to do so.
 
 Anthropic has much more in common with the Department of War than we have differences. We both are committed to advancing US national security and defending the American people, and agree on the urgency of applying AI across the government. All our future decisions will flow from that shared premise.
 
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/where-stand-department-war)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/where-stand-department-war)
-
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

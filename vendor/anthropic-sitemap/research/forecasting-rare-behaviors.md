@@ -1,22 +1,24 @@
+# Forecasting rare language model behaviors
+
 Alignment
 
 # Forecasting rare language model behaviors
 
 Feb 25, 2025
 
-[Read the paper](https://arxiv.org/abs/2502.16797)
+Read the paper
 
-One of the major goals of Alignment Science is to predict AI models’ propensity for dangerous behaviors _before_ those behaviors occur. For instance, we run [experiments](https://www.anthropic.com/research/alignment-faking) to check for complex behaviors like deception, and attempt to identify early warning signs of misalignment.
+One of the major goals of Alignment Science is to predict AI models’ propensity for dangerous behaviors _before_ those behaviors occur. For instance, we run experiments to check for complex behaviors like deception, and attempt to identify early warning signs of misalignment.
 
-We also develop evaluations that can be run on models to test whether they’ll engage in particular kinds of concerning behaviors, such as providing information about deadly weapons, or even [sabotaging](https://www.anthropic.com/research/sabotage-evaluations) human attempts to monitor them.
+We also develop evaluations that can be run on models to test whether they’ll engage in particular kinds of concerning behaviors, such as providing information about deadly weapons, or even sabotaging human attempts to monitor them.
 
 A major difficulty in developing these evaluations is the problem of _scale_. Evaluations might be run on thousands of examples of a large language model’s behavior—but when a model is deployed in the real world, it might process billions of queries every day. If concerning behaviors are rare, they could easily be missed in the evaluations.
 
 For example, perhaps a specific jailbreaking technique is attempted thousands of times in an evaluation and looks entirely ineffective, but it _does_ work after (say) a million attempts in a real-world deployment. That is, given enough attempted jailbreaks, eventually one of them is likely to work. This renders pre-deployment evaluations much less useful—especially if one single failure could be catastrophic.
 
-## **Forecasting rare behaviors**
+## Forecasting rare behaviors
 
-What’s needed is a way to forecast the rare behaviors, extrapolating from the relatively small number of instances we’ve observed before deployment. This is the subject of [a new paper](https://arxiv.org/abs/2502.16797) from Anthropic’s Alignment Science team.
+What’s needed is a way to forecast the rare behaviors, extrapolating from the relatively small number of instances we’ve observed before deployment. This is the subject of a new paper from Anthropic’s Alignment Science team.
 
 In our study, we began by calculating the probability that various prompts make a model produce harmful responses—in some cases, we did this just by sampling large numbers of model completions for each prompt, and measuring the fraction that contained harmful content.
 
@@ -36,36 +38,34 @@ Second, we forecasted the emergence of misaligned actions (specifically power-se
 
 Our forecasts accurately predicted the risk that the model would pick the worst query: we had an average absolute error of 0.05, compared to 0.12 for more straightforward, baseline methods. That is, our method had 2.5 times lower error than a simpler comparison.
 
-Finally, we also applied our method to “[automated red-teaming](https://arxiv.org/abs/2202.03286)”. This is when a model is used to find and exploit the weaknesses of another model in an experimental setting. When doing so, one can hypothetically choose to use a small model that generates a very large number of queries or, for the same cost, a larger model that generates a smaller number of queries (but where those queries are likely of a higher quality). Our forecasts were useful in working out how to most efficiently allocate a compute budget while doing red-teaming—in settings where the choice is important, they identified the optimal model 79% of the time.
+Finally, we also applied our method to “automated red-teaming”. This is when a model is used to find and exploit the weaknesses of another model in an experimental setting. When doing so, one can hypothetically choose to use a small model that generates a very large number of queries or, for the same cost, a larger model that generates a smaller number of queries (but where those queries are likely of a higher quality). Our forecasts were useful in working out how to most efficiently allocate a compute budget while doing red-teaming—in settings where the choice is important, they identified the optimal model 79% of the time.
 
-## **Conclusions**
+## Conclusions
 
 Under normal circumstances, it simply isn’t feasible to use standard evaluations to test for all the rarest risks of AI models. Our method isn’t perfect—in the paper, we give a number of future directions that might improve the accuracy and practicality of our predictions—but it provides LLM developers with a new way to efficiently predict rare risks, allowing them to take action before deploying their models.
 
-Read [the full paper](https://arxiv.org/abs/2502.16797).
+Read the full paper.
 
-## **Work with us**
+## Work with us
 
-If you’re interested in working on problems like deployment evaluations or jailbreak robustness, we’re currently recruiting for [Research Engineers / Scientists](https://boards.greenhouse.io/anthropic/jobs/4459012008) and we’d love to see your application.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/research/forecasting-rare-behaviors)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/research/forecasting-rare-behaviors)
+If you’re interested in working on problems like deployment evaluations or jailbreak robustness, we’re currently recruiting for Research Engineers / Scientists and we’d love to see your application.
 
 ## Related content
+
+### Coding agents in the social sciences
+
+Results from a survey of 1,260 social scientists about AI and coding agent use.
+
+Read more
+
+### Project Glasswing: An initial update
+
+An early update on what we've learned from Project Glasswing.
+
+Read more
 
 ### 2028: Two scenarios for global AI leadership
 
 Our views on the AI competition between the US and China.
 
-[Read more](/research/2028-ai-leadership)
-
-### Teaching Claude why
-
-New research on how we've reduced agentic misalignment.
-
-[Read more](/research/teaching-claude-why)
-
-### Natural Language Autoencoders: Turning Claude’s thoughts into text
-
-AI models like Claude talk in words but think in numbers. In this study we train Claude to translate its thoughts into human-readable text.
-
-[Read more](/research/natural-language-autoencoders)
+Read more

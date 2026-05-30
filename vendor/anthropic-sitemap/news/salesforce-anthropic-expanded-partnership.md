@@ -1,3 +1,5 @@
+# Anthropic and Salesforce expand partnership to bring Claude to regulated industries
+
 AnnouncementsProduct
 
 # Anthropic and Salesforce expand partnership to bring Claude to regulated industries
@@ -14,21 +16,21 @@ Anthropic and Salesforce today announced an expanded partnership to make Claude 
 
 ## The expanded partnership includes three new initiatives
 
-### **1\. Providing Claude as a preferred foundational model in Agentforce via Amazon Bedrock**
+### 1. Providing Claude as a preferred foundational model in Agentforce via Amazon Bedrock
 
-Claude can now be used as a preferred model for Salesforce's Agentforce platform for regulated industries, including financial services, healthcare, cybersecurity, and life sciences, while keeping sensitive data and workloads secure within Salesforce's trusted environment. Anthropic is the first LLM provider fully integrated within the [Salesforce trust boundary](https://help.salesforce.com/s/articleView?id=ai.agent_setup_select_model_provider.htm&type=5), with all of Claude's traffic contained within the Salesforce virtual private cloud. Companies like CrowdStrike and RBC Wealth Management are already using Claude in Agentforce to create new AI-powered customer experiences.
+Claude can now be used as a preferred model for Salesforce's Agentforce platform for regulated industries, including financial services, healthcare, cybersecurity, and life sciences, while keeping sensitive data and workloads secure within Salesforce's trusted environment. Anthropic is the first LLM provider fully integrated within the Salesforce trust boundary, with all of Claude's traffic contained within the Salesforce virtual private cloud. Companies like CrowdStrike and RBC Wealth Management are already using Claude in Agentforce to create new AI-powered customer experiences.
 
 "Because of Anthropic on Amazon Bedrock and Agentforce, we're able to help our advisors with their most time-consuming task: meeting prep. This has saved them significant time, allowing them to focus on what matters most—client relationships," said **Rohit Gupta, Head of Digital Advisor Platforms at RBC Wealth Management**.
 
-### **2\. Building industry-specific AI solutions**
+### 2. Building industry-specific AI solutions
 
-Anthropic and Salesforce will build AI solutions tailored to specific industries, starting with financial services. By integrating [Claude for Financial Services](https://www.anthropic.com/news/claude-for-financial-services) with Salesforce's [Agentforce Financial Services](https://www.salesforce.com/financial-services/artificial-intelligence/), AI agents will be able to better understand financial instruments, insurance claims, and industry frameworks with the deep domain expertise these sectors require.
+Anthropic and Salesforce will build AI solutions tailored to specific industries, starting with financial services. By integrating Claude for Financial Services with Salesforce's Agentforce Financial Services, AI agents will be able to better understand financial instruments, insurance claims, and industry frameworks with the deep domain expertise these sectors require.
 
 For example, a financial advisor using Agentforce can ask their AI agent, powered by Claude, to summarize client portfolios, flag new industry requirements affecting retirement plans, and automate consent tracking and customer outreach. The agent securely combines CRM insights with the latest industry updates to deliver greater accuracy and compliance-ready action plans. This turns hours of work into a single, trusted workflow.
 
-### **3\. Deepening integration between Claude and Slack**
+### 3. Deepening integration between Claude and Slack
 
-Building on the Claude and Slack integration [launched earlier this month](https://www.anthropic.com/news/claude-and-slack), we're making it easier to use Claude in everyday work. Through Slack's Model Context Protocol (MCP) server, Claude can access Slack channels, messages, and files to summarize conversations, extract key decisions, and draft updates. And users can invoke Claude directly within Slack to analyze documents, perform web searches, or pull connected insights from Salesforce CRM data, Tableau, or other enterprise apps—moving conversations from discussion to decision faster.
+Building on the Claude and Slack integration launched earlier this month, we're making it easier to use Claude in everyday work. Through Slack's Model Context Protocol (MCP) server, Claude can access Slack channels, messages, and files to summarize conversations, extract key decisions, and draft updates. And users can invoke Claude directly within Slack to analyze documents, perform web searches, or pull connected insights from Salesforce CRM data, Tableau, or other enterprise apps—moving conversations from discussion to decision faster.
 
 This partnership is intended to extend beyond today's capabilities to bring the full power of Agentforce 360 into Claude, enabling employees to move seamlessly from insight to action.
 
@@ -36,31 +38,29 @@ This partnership is intended to extend beyond today's capabilities to bring the 
 
 This partnership is strengthened by both companies using each other's products:
 
--   **Salesforce is deploying Claude Code across its global engineering organization to augment developer workflows and increase productivity.** With Claude Code, Salesforce engineers can build, fix, and ship projects faster while maintaining full transparency and control. Through the Slack MCP server integration, Salesforce engineering teams will use Claude Code to document code in Slack canvases, read specifications from Slack channels, and pull context from discussions directly into their development workflow.
--   **Anthropic uses Claude directly in Slack** to summarize conversation threads, surface key insights, and guide the internal sales team—showing the kind of workflows this partnership will bring to customers.
+*   **Salesforce is deploying Claude Code across its global engineering organization to augment developer workflows and increase productivity.** With Claude Code, Salesforce engineers can build, fix, and ship projects faster while maintaining full transparency and control. Through the Slack MCP server integration, Salesforce engineering teams will use Claude Code to document code in Slack canvases, read specifications from Slack channels, and pull context from discussions directly into their development workflow.
+*   **Anthropic uses Claude directly in Slack** to summarize conversation threads, surface key insights, and guide the internal sales team—showing the kind of workflows this partnership will bring to customers.
 
 **Availability**
 
--   Agentforce powered by Anthropic is available today for select customers.
--   Claude and Slack bi-directional integrations are available today.
--   The new collaboration on regulated industry solutions and the Agentforce 360 integration for Claude are currently under development, with more details on availability to be shared in the coming months.
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/salesforce-anthropic-expanded-partnership)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/salesforce-anthropic-expanded-partnership)
+*   Agentforce powered by Anthropic is available today for select customers.
+*   Claude and Slack bi-directional integrations are available today.
+*   The new collaboration on regulated industry solutions and the Agentforce 360 integration for Claude are currently under development, with more details on availability to be shared in the coming months.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

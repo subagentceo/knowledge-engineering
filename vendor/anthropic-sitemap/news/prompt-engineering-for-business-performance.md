@@ -1,3 +1,5 @@
+# Prompt engineering for business performance
+
 Product
 
 # Prompt engineering for business performance
@@ -8,8 +10,8 @@ Feb 29, 2024
 
 ## Executive summary
 
--   Prompt engineering is an important tool for any business seeking to optimize Claude. Good prompts improve Claude’s outputs, reduce deployment costs, and ensure customer-facing experiences are on-brand.
--   A Fortune 500 company made use of effective prompt engineering to build a Claude-powered assistant that answers its customers’ questions with enhanced accuracy and speed.
+*   Prompt engineering is an important tool for any business seeking to optimize Claude. Good prompts improve Claude’s outputs, reduce deployment costs, and ensure customer-facing experiences are on-brand.
+*   A Fortune 500 company made use of effective prompt engineering to build a Claude-powered assistant that answers its customers’ questions with enhanced accuracy and speed.
 
 ## The power of prompting
 
@@ -21,10 +23,10 @@ To gain the most value from Claude, you can apply a variety of techniques to cre
 
 ### Here are some of the benefits of effective prompts:
 
--   **Accuracy:** While we have made strides in [reducing Claude’s hallucination rates](https://www.anthropic.com/news/claude-2-1), effective prompting helps further reduce the risk of inaccurate outputs
--   **Consistency:** Providing a cohesive experience for end-users is crucial, and well thought out prompts ensure that Claude will produce consistent results in terms of quality, formatting, relevance, and tone
--   **Usefulness:** Prompt engineering helps customers deliver targeted experiences for their desired audiences and industries. With careful prompting, you can cater to very specific personas and their needs
--   **Cost savings:** Running inefficient inputs and outputs at scale can become costly. Optimizing your prompts helps minimize unnecessary back-and-forth, and saves money
+*   **Accuracy:** While we have made strides in reducing Claude’s hallucination rates, effective prompting helps further reduce the risk of inaccurate outputs
+*   **Consistency:** Providing a cohesive experience for end-users is crucial, and well thought out prompts ensure that Claude will produce consistent results in terms of quality, formatting, relevance, and tone
+*   **Usefulness:** Prompt engineering helps customers deliver targeted experiences for their desired audiences and industries. With careful prompting, you can cater to very specific personas and their needs
+*   **Cost savings:** Running inefficient inputs and outputs at scale can become costly. Optimizing your prompts helps minimize unnecessary back-and-forth, and saves money
 
 ## Three tips for your business
 
@@ -32,19 +34,19 @@ Here are three prompting techniques that we’ve seen unlock significant perform
 
 Before we dive in, remember that no matter which techniques you choose, always start by clearly describing the task. Think of Claude as an intern on their first day of the job: provide clear, explicit instructions with all the necessary detail. Keep in mind that prompt engineering is a science, and you should approach it like a scientist: test your prompts and iterate often.
 
-### 1\. Step by step
+### 1. Step by step
 
-It might sound overly simple, but often Claude will respond more accurately if you simply tell it to [think step by step](https://docs.anthropic.com/claude/docs/ask-claude-to-think-step-by-step) after you give it an instruction.
+It might sound overly simple, but often Claude will respond more accurately if you simply tell it to think step by step after you give it an instruction.
 
 For example, if you wanted Claude to solve a logic puzzle, you could say:
 
 _"Here is the information a customer provided for an automotive insurance claim. Based on our policy documents and the customer's profile, does this claim meet our requirements for qualification? Think step by step in <thinking> tags."_
 
-### 2\. Few-shot prompting
+### 2. Few-shot prompting
 
 It’s helpful to give Claude realistic and specific examples of the inputs and ideal outputs you’re hoping to see. It’s useful to include challenging examples and edge cases to help Claude understand exactly what you’re looking for.
 
-For a simple example, consider how Claude can help with removing personally-identifiable information (PII) from information, using 2 examples to help Claude understand different ways that PII could present itself in a prompt. A simplified example using [claude.ai](https://claude.ai/redirect/website.v1.cce40922-01fa-41a7-8104-7ea98d0aaa2f) may look something like this:
+For a simple example, consider how Claude can help with removing personally-identifiable information (PII) from information, using 2 examples to help Claude understand different ways that PII could present itself in a prompt. A simplified example using claude.ai may look something like this:
 
 _You are an expert redactor. I am going to provide you with some text. Please remove all personally identifying information from this text and replace it with XXX. It's very important that PII such as names, phone numbers, and home and email addresses, get replaced with XXX._
 
@@ -77,7 +79,7 @@ _<text>
 The customer's name is Steven Smith with Customer ID 44201312. His email address is steven.smith@geemail.com, or reach him via telephone at 555-182-9942.  
 </text>_
 
-### 3\. Prompt chaining
+### 3. Prompt chaining
 
 Sometimes Claude performs better on complex tasks if you break the task down into multiple prompts corresponding to each step. This is known as ‘prompt chaining’.
 
@@ -91,25 +93,25 @@ A Fortune 500 company wanted to build an AI-powered chat assistant that could re
 
 The company tried some other solutions in the market, but were unhappy with their wordiness, stilted tone, and overall lack of cohesion. They also wanted to see if they could achieve lower latency — i.e., provide faster responses — without affecting accuracy.
 
-They turned to [Claude Instant](https://www.anthropic.com/news/releasing-claude-instant-1-2) to power a friendly, concise chatbot that could answer customers’ questions quickly and accurately.
+They turned to Claude Instant to power a friendly, concise chatbot that could answer customers’ questions quickly and accurately.
 
 The company’s first efforts to deploy Claude fell short of their goal for accuracy. To remedy this, we sent in an Anthropic prompt engineer to partner with the company’s subject matter experts on improving Claude’s responses.
 
 Our prompt engineers applied several techniques to improve Claude’s outputs, including:
 
--   Telling Claude to use a scratchpad to show its work (customers don’t see the scratchpad, but it helps improve Claude’s accuracy)
--   Providing few-shot examples of good answers, with a focus on training Claude to use the company’s desired format and style
--   Directing Claude to use the data points and workflow recommended by subject matter experts (SMEs) — in this case, a set of factors that affect a customer’s legal situation
+*   Telling Claude to use a scratchpad to show its work (customers don’t see the scratchpad, but it helps improve Claude’s accuracy)
+*   Providing few-shot examples of good answers, with a focus on training Claude to use the company’s desired format and style
+*   Directing Claude to use the data points and workflow recommended by subject matter experts (SMEs) — in this case, a set of factors that affect a customer’s legal situation
 
-Below is an example prompt to help bring this guidance to life. In this example, the inclusion of “relevant\_quotes” serves the purpose of telling Claude to use a scratchpad.
+Below is an example prompt to help bring this guidance to life. In this example, the inclusion of “relevant_quotes” serves the purpose of telling Claude to use a scratchpad.
 
 _"  
 Human: You are an expert AI tax analyst. You help users understand the details of the tax code._
 
 _Here is the relevant section of the tax code.  
-<tax\_code>  
-{{TAX\_CODE}}  
-</tax\_code>_
+<tax_code>  
+{{TAX_CODE}}  
+</tax_code>_
 
 _Here are some examples of questions and answers about this section of the tax code:_
 
@@ -128,9 +130,9 @@ _<examples>
 _Now here is the user's question about the tax code that I’d like you to answer:  
 <question>{{QUESTION}}</question>_
 
-_First, pull relevant quotes from the tax code in <relevant\_quotes> tags. Then write a concise, factual response to the user’s question in <answer> tags. Your answer should be fully grounded in the relevant quotes from the tax code that you extracted._
+_First, pull relevant quotes from the tax code in <relevant_quotes> tags. Then write a concise, factual response to the user’s question in <answer> tags. Your answer should be fully grounded in the relevant quotes from the tax code that you extracted._
 
-_Assistant: <relevant\_quotes>"_
+_Assistant: <relevant_quotes>"_
 
 By combining our prompt engineers’ knowledge of prompting best practices with the customer’s subject matter expertise, we **improved Claude’s accuracy by 20%** - and helped get their product to market faster and at a lower cost.
 
@@ -140,24 +142,22 @@ There’s no single best technique for prompt engineering. Every LLM is differen
 
 If you’re deploying an AI-powered solution within your business, prompt engineering is essential — and it should be a collaborative effort between prompt engineers and subject matter experts.
 
-To get started on optimizing Claude for your use case, read our [prompt engineering guide](https://docs.anthropic.com/claude/docs/guide-to-anthropics-prompt-engineering-resources) or [contact our sales team](https://www.anthropic.com/earlyaccess).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/prompt-engineering-for-business-performance)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/prompt-engineering-for-business-performance)
+To get started on optimizing Claude for your use case, read our prompt engineering guide or contact our sales team.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

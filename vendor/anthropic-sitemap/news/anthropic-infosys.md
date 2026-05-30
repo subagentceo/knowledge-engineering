@@ -1,3 +1,5 @@
+# Anthropic and Infosys collaborate to build AI agents for telecommunications and other regulated industries
+
 Announcements
 
 # Anthropic and Infosys collaborate to build AI agents for telecommunications and other regulated industries
@@ -6,11 +8,11 @@ Feb 17, 2026
 
 ![Anthropic and Infosys collaborate to build AI agents for telecommunications and other regulated industries](https://www-cdn.anthropic.com/images/4zrzovbb/website/9f6a378a1e3592cf8d27447457409ba12284faef-1000x1000.svg)
 
-Anthropic and [Infosys](https://www.infosys.com/), a global leader in next-generation digital services and consulting founded and headquartered in Bengaluru, today announced a collaboration to develop and deliver enterprise AI solutions across telecommunications, financial services, manufacturing, and software development.
+Anthropic and Infosys, a global leader in next-generation digital services and consulting founded and headquartered in Bengaluru, today announced a collaboration to develop and deliver enterprise AI solutions across telecommunications, financial services, manufacturing, and software development.
 
-The collaboration integrates Anthropic’s Claude models and Claude Code with [Infosys Topaz](https://www.infosys.com/services/data-ai-topaz.html), an AI-first set of services, solutions, and platforms using generative and agentic AI technologies, to help companies speed up software development and adopt AI with the governance and transparency that regulated industries require.
+The collaboration integrates Anthropic’s Claude models and Claude Code with Infosys Topaz, an AI-first set of services, solutions, and platforms using generative and agentic AI technologies, to help companies speed up software development and adopt AI with the governance and transparency that regulated industries require.
 
-India is the second-largest market for Claude.ai, home to a developer community doing some of the most technically intense AI work we see anywhere: nearly half of Claude usage in India involves building applications, modernizing systems, and shipping production software. Infosys is one of the first partners in Anthropic’s [expanded presence in India](https://www.anthropic.com/news/bengaluru-office-partnerships-across-india).
+India is the second-largest market for Claude.ai, home to a developer community doing some of the most technically intense AI work we see anywhere: nearly half of Claude usage in India involves building applications, modernizing systems, and shipping production software. Infosys is one of the first partners in Anthropic’s expanded presence in India.
 
 “There’s a big gap between an AI model that works in a demo and one that works in a regulated industry—and if you want to close that gap, you need domain expertise. Infosys has exactly that kind of expertise across important industries: telecom, financial services, and manufacturing. Their developers are already using Claude Code to accelerate their work and to create AI agents for industries that demand precision, compliance, and deep domain knowledge,” said Dario Amodei, CEO and Co-founder of Anthropic.
 
@@ -22,34 +24,32 @@ A core focus of the collaboration is agentic AI—systems that go beyond answeri
 
 Together, Infosys and Anthropic will develop AI agents tailored to specific industries:
 
--   **Telecommunications:** AI agents will help carriers modernize network operations, simplify customer lifecycle management, and improve service delivery—bringing intelligent automation to one of the most operationally complex and regulated industries in the world.
--   **Financial services:** AI agents will help firms detect and assess risk faster, automate compliance reporting, and deliver more personalized customer interactions, such as tailoring financial advice based on a client's full account history and market conditions.
--   **Manufacturing and engineering:** Claude will help accelerate product design and simulation, reducing R&D timelines and enabling engineers to test more iterations before production.
--   **Software development:** Teams will use Claude Code to write, test, and debug code, helping developers move faster from design to production.
--   **Enterprise operations:** Claude Cowork will help teams automate routine work like document summarization, status reporting, and review cycles.
+*   **Telecommunications:** AI agents will help carriers modernize network operations, simplify customer lifecycle management, and improve service delivery—bringing intelligent automation to one of the most operationally complex and regulated industries in the world.
+*   **Financial services:** AI agents will help firms detect and assess risk faster, automate compliance reporting, and deliver more personalized customer interactions, such as tailoring financial advice based on a client's full account history and market conditions.
+*   **Manufacturing and engineering:** Claude will help accelerate product design and simulation, reducing R&D timelines and enabling engineers to test more iterations before production.
+*   **Software development:** Teams will use Claude Code to write, test, and debug code, helping developers move faster from design to production.
+*   **Enterprise operations:** Claude Cowork will help teams automate routine work like document summarization, status reporting, and review cycles.
 
 ## Getting started
 
-Visit our [Enterprise page](https://www.anthropic.com/enterprise) to learn more about Claude. Claude is the only frontier model available on all three of the world’s most prominent cloud services: Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Azure.
+Visit our Enterprise page to learn more about Claude. Claude is the only frontier model available on all three of the world’s most prominent cloud services: Amazon Bedrock, Google Cloud Vertex AI, and Microsoft Azure.
 
-Learn more about Anthropic’s expanded presence in India [here](https://www.anthropic.com/news/bengaluru-office-partnerships-across-india).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-infosys)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-infosys)
+Learn more about Anthropic’s expanded presence in India here.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

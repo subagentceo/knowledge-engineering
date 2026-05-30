@@ -2,19 +2,19 @@
 
 Claude Code is an agentic coding system that reads your codebase, makes changes across files, runs tests, and delivers committed code. For builders without an engineering background, it's an entry point to software development that didn't exist until recently.
 
-[Get started](https://claude.com/product/claude-code)
+Get started
 
 ## Agentic, not autocomplete
 
 Describe what you want to build, test, iterate, or ship. Claude Code handles the rest.
 
-[Explore Claude Code](https://claude.com/product/claude-code)
+Explore Claude Code
 
 ![Video thumbnail](/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F4zrzovbb%2Fwebsite%2F59d8193a6b567be2517480da4d60484a7fb64f21-1788x1024.jpg&w=3840&q=75)
 
 ## If you can describe it, you can build it
 
-The tools engineers use to build software are now capable of building software themselves. That changes what it means to be an engineer. At Anthropic, the majority of code is now written by [Claude Code](https://claude.com/product/claude-code). Engineers focus on architecture, product thinking, and continuous orchestration: managing multiple agents in parallel, giving direction, and making the decisions that shape what gets built. [Claude Code](https://claude.com/product/claude-code) extends that capability to anyone who can describe what they want to build.
+The tools engineers use to build software are now capable of building software themselves. That changes what it means to be an engineer. At Anthropic, the majority of code is now written by Claude Code. Engineers focus on architecture, product thinking, and continuous orchestration: managing multiple agents in parallel, giving direction, and making the decisions that shape what gets built. Claude Code extends that capability to anyone who can describe what they want to build.
 
 ## Common use cases for Claude Code
 
@@ -72,7 +72,7 @@ Developers control how much autonomy Claude Code has, from approving every actio
 
 Anthropic’s approach to agent safety, including how we design for trust, access boundaries, and human control, is documented in our research.
 
-[Read our research on agent safety](https://www.anthropic.com/research)
+Read our research on agent safety
 
 ## FAQ
 
@@ -100,4 +100,4 @@ Try Claude Code
 
 For installation, pricing, integrations, and technical documentation, visit the Claude Code product page.
 
-[Get started](https://claude.com/product/claude-code)
+Get started

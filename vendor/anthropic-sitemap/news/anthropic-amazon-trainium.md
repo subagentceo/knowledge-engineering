@@ -1,3 +1,5 @@
+# Powering the next generation of AI development with AWS
+
 Announcements
 
 # Powering the next generation of AI development with AWS
@@ -20,7 +22,7 @@ Through Amazon Bedrock, Claude has become core infrastructure for tens of thousa
 
 ## Enabling secure, customizable AI solutions
 
-Claude in Amazon Bedrock provides access to frontier intelligence within AWS, allowing customers to keep models and data in the same cloud environment. Building on this unified architecture, organizations can fine-tune Claude models in Amazon Bedrock, [including Claude 3 Haiku](https://www.anthropic.com/news/fine-tune-claude-3-haiku), to tailor outputs to their specific requirements and boost accuracy for domain-specific tasks. Customer proprietary training data remains secure within AWS, preserving our commitment to safety and privacy.
+Claude in Amazon Bedrock provides access to frontier intelligence within AWS, allowing customers to keep models and data in the same cloud environment. Building on this unified architecture, organizations can fine-tune Claude models in Amazon Bedrock, including Claude 3 Haiku, to tailor outputs to their specific requirements and boost accuracy for domain-specific tasks. Customer proprietary training data remains secure within AWS, preserving our commitment to safety and privacy.
 
 By leveraging AWS’s robust security features and compliance certifications, organizations can confidently deploy AI solutions that meet stringent regulatory requirements. Government customers and industry partners can access Claude’s capabilities through Amazon Bedrock in AWS GovCloud (US). Additionally, government customers can access Claude through Amazon SageMaker in highly controlled environments like the AWS Secret and Top Secret Cloud Regions.
 
@@ -28,24 +30,22 @@ By leveraging AWS’s robust security features and compliance certifications, or
 
 Together with AWS, we’re laying the technological foundation—from silicon to software—that will power the next generation of AI research and development. By combining Anthropic’s expertise in frontier AI systems with AWS’s world-class infrastructure, we’re building a secure, enterprise-ready platform that gives organizations of all sizes access to the forefront of AI technology.
 
-If you're interested in using Claude in Amazon Bedrock, you can get started at [aws.amazon.com/bedrock/claude/](http://aws.amazon.com/bedrock/claude/).
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/anthropic-amazon-trainium)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/anthropic-amazon-trainium)
+If you're interested in using Claude in Amazon Bedrock, you can get started at aws.amazon.com/bedrock/claude/.
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

@@ -1,14 +1,16 @@
+# Securing America's compute advantage: Anthropic’s position on the diffusion rule
+
 Policy
 
 # Securing America's compute advantage: Anthropic’s position on the diffusion rule
 
 Apr 30, 2025
 
-[Read the submission here](< https://www-cdn.anthropic.com/7449887b6715e3a35f362b1301e5b5d8a6b116e5.pdf>)
+Read the submission here
 
 ![Column with burst](/_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2Fimages%2F4zrzovbb%2Fwebsite%2F1fa171285ace9c40899647e1b68c8f66d0d7915d-1920x1079.png&w=3840&q=75)
 
-In response to the Department of Commerce's "Framework for Artificial Intelligence Diffusion" interim final rule, Anthropic has [submitted detailed analysis and recommendations](https://www-cdn.anthropic.com/7449887b6715e3a35f362b1301e5b5d8a6b116e5.pdf) for maintaining and strengthening export controls on advanced semiconductors. At the heart of our recommendations is a clear message: maintaining America's compute advantage through export controls is essential for national security and economic prosperity as powerful new AI systems are developed in the coming years.
+In response to the Department of Commerce's "Framework for Artificial Intelligence Diffusion" interim final rule, Anthropic has submitted detailed analysis and recommendations for maintaining and strengthening export controls on advanced semiconductors. At the heart of our recommendations is a clear message: maintaining America's compute advantage through export controls is essential for national security and economic prosperity as powerful new AI systems are developed in the coming years.
 
 The "Diffusion Rule," published in January 2025, establishes export controls on advanced AI chips and model weights worldwide. The Diffusion Framework also creates a three-tier system based on national security risk. Tier 1 includes close allies with few restrictions, Tier 2 includes most other countries with some limits, and Tier 3 includes adversarial nations with strict controls.
 
@@ -26,11 +28,11 @@ We ground our recommendations in several key facts:
 
 Anthropic’s submission recommends strengthening the rule in three key areas:
 
-**1\. Adjust the tiering system.** We suggest allowing countries in Tier 2 with robust data center security to obtain more chips through government-to-government agreements that prevent smuggling and align technology controls.
+**1. Adjust the tiering system.** We suggest allowing countries in Tier 2 with robust data center security to obtain more chips through government-to-government agreements that prevent smuggling and align technology controls.
 
-**2\. Reduce the no-license compute threshold** **for Tier 2 countries**. Currently, countries in Tier 2 can buy the equivalent of 1,700 NVIDIA H100 advanced chips without needing government permission—roughly $40 million worth of technology. This creates a potential loophole for smuggling, as people can make multiple purchases just under this limit to avoid scrutiny. We recommend lowering this threshold so that more transactions would require review, making it harder for smugglers to exploit this gap.
+**2. Reduce the no-license compute threshold** **for Tier 2 countries**. Currently, countries in Tier 2 can buy the equivalent of 1,700 NVIDIA H100 advanced chips without needing government permission—roughly $40 million worth of technology. This creates a potential loophole for smuggling, as people can make multiple purchases just under this limit to avoid scrutiny. We recommend lowering this threshold so that more transactions would require review, making it harder for smugglers to exploit this gap.
 
-**3\. Increase funding for export enforcement.** Export controls are only effective with proper enforcement. Enhanced resources for the Bureau of Industry and Security would significantly improve control effectiveness.
+**3. Increase funding for export enforcement.** Export controls are only effective with proper enforcement. Enhanced resources for the Bureau of Industry and Security would significantly improve control effectiveness.
 
 Our submission also highlights the risks of further delaying implementation. Chinese firms have engaged in aggressive stockpiling ahead of the May 15, 2025 implementation date. Any pause would invite further stockpiling and weaken the effectiveness of the rule at this critical moment.
 
@@ -38,26 +40,24 @@ The strategic window for strengthening American export controls is now. By stren
 
 Anthropic’s leaders have previously outlined our position on competition with China and export controls in the following pieces.  
 
--   “[Trump Can Keep America’s AI Advantage,](https://www.wsj.com/opinion/trump-can-keep-americas-ai-advantage-china-chips-data-eccdce91)” Dario Amodei & Matthew Pottinger, Wall Street Journal, January 6, 2025.
--   “[On DeepSeek and Export Controls](https://www.darioamodei.com/post/on-deepseek-and-export-controls),” Dario Amodei, darioamodei.com, January 2025“[Anthropic's Dario Amodei on AI Competition](https://www.chinatalk.media/p/anthropics-dario-amodei-on-ai-competition),” China Talk Podcast, February 5, 2025
--   “[DeepSeek means AI proliferation is guaranteed](https://jack-clark.net/2025/01/27/import-ai-397-deepseek-means-ai-proliferation-is-guaranteed-maritime-wardrones-and-more-evidence-of-llm-capability-overhangs/),” Jack Clark Import AI 397
-
-[](https://twitter.com/intent/tweet?text=https://www.anthropic.com/news/securing-america-s-compute-advantage-anthropic-s-position-on-the-diffusion-rule)[](https://www.linkedin.com/shareArticle?mini=true&url=https://www.anthropic.com/news/securing-america-s-compute-advantage-anthropic-s-position-on-the-diffusion-rule)
+*   “Trump Can Keep America’s AI Advantage,” Dario Amodei & Matthew Pottinger, Wall Street Journal, January 6, 2025.
+*   “On DeepSeek and Export Controls,” Dario Amodei, darioamodei.com, January 2025“Anthropic's Dario Amodei on AI Competition,” China Talk Podcast, February 5, 2025
+*   “DeepSeek means AI proliferation is guaranteed,” Jack Clark Import AI 397
 
 ## Related content
 
-### PwC is deploying Claude to build technology, execute deals, and reinvent enterprise functions for clients
+### Anthropic raises $65B in Series H funding at $965B post-money valuation
 
-PwC will roll out Claude Code and Cowork starting with U.S. teams and expanding toward a global workforce of hundreds of thousands of professionals, establish a joint Center of Excellence, and train and certify 30,000 PwC professionals on Claude.
+Read more
 
-[Read more](/news/pwc-expanded-partnership)
+### Introducing Claude Opus 4.8
 
-### Anthropic forms $200 million partnership with the Gates Foundation
+An upgrade to our Opus class of models, with stronger performance across coding, agentic tasks, and professional work, and the consistency to handle long-running work.
 
-[Read more](/news/gates-foundation-partnership)
+Read more
 
-### Introducing Claude for Small Business
+### Anthropic opens Milan office to support Italian enterprise, research, and developers
 
-We're launching Claude for Small Business, a package of connectors and ready-to-run workflows that put Claude inside the tools small businesses use every day.
+We're opening a new office in Milan, our sixth in Europe.
 
-[Read more](/news/claude-for-small-business)
+Read more

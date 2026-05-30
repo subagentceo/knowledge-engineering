@@ -2,7 +2,7 @@
 
 Claude Security reasons about your code like a security researcher: scanning for vulnerabilities, validating findings, and proposing targeted patches. It helps close the loop from finding to shipped fix, so vulnerabilities get resolved instead of sitting in a queue.
 
-[Learn more about Claude Security](https://claude.com/product/claude-security)
+Learn more about Claude Security
 
 ## Find and fix vulnerabilities
 
@@ -50,19 +50,19 @@ Scheduled scans keep coverage continuous, and webhooks push new findings into a 
 
 ## The research behind Claude Security
 
-Claude Security is built on model capabilities that Anthropic's [Frontier Red Team](https://red.anthropic.com/) has refined through applied research: competitive Capture-the-Flag events, critical-infrastructure defense work with national labs, and systematic vulnerability hunting in production code. That work surfaced [over 500 previously unknown vulnerabilities](https://red.anthropic.com/2026/zero-days/) in widely used open-source software, including bugs that had survived decades of expert review. Claude Security brings the same model capabilities to the code your team owns and ships.
+Claude Security is built on model capabilities that Anthropic's Frontier Red Team has refined through applied research: competitive Capture-the-Flag events, critical-infrastructure defense work with national labs, and systematic vulnerability hunting in production code. That work surfaced over 500 previously unknown vulnerabilities in widely used open-source software, including bugs that had survived decades of expert review. Claude Security brings the same model capabilities to the code your team owns and ships.
 
 ## Agent safety
 
 Capable agents need clear constraints. Claude Security scopes its access to the repository it's invited into and surfaces proposed changes for human review rather than acting on them. These are the same principles we apply across our agentic products, drawing on alignment research into how to let capable systems do useful work without giving up oversight.
 
-Read our [recent research on agent safety](https://www.anthropic.com/research/trustworthy-agents) for more insights.
+Read our recent research on agent safety for more insights.
 
 ## FAQ
 
 ### What is Claude Security?
 
-Claude Security is a capability accessed through [Claude.ai](https://claude.ai) and Claude Code on the web that reads a codebase in context, finds vulnerabilities a rules-based scanner would miss, and proposes fixes for human review.
+Claude Security is a capability accessed through Claude.ai and Claude Code on the web that reads a codebase in context, finds vulnerabilities a rules-based scanner would miss, and proposes fixes for human review.
 
 ### How is Claude Security different from a traditional code scanner?
 
@@ -80,4 +80,4 @@ Get started with Claude Security
 
 See additional resources and how you can get started scanning your codebase.
 
-[Learn more about Claude Security](https://claude.com/product/claude-security)
+Learn more about Claude Security
