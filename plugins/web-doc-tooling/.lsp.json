@@ -1,0 +1,24 @@
+{
+  "$schema": "https://code.claude.com/schemas/lsp.json",
+  "servers": {
+    "html": {
+      "command": "npx",
+      "args": ["--no-install", "vscode-html-language-server", "--stdio"],
+      "rootMarkers": ["package.json", ".git"],
+      "fileTypes": ["html"]
+    },
+    "typescript": {
+      "command": "npx",
+      "args": ["--no-install", "typescript-language-server", "--stdio"],
+      "rootMarkers": ["tsconfig.json", "package.json"],
+      "fileTypes": ["typescript", "typescriptreact"]
+    },
+    "javascript": {
+      "command": "npx",
+      "args": ["--no-install", "typescript-language-server", "--stdio"],
+      "rootMarkers": ["package.json", ".git"],
+      "fileTypes": ["javascript", "javascriptreact"]
+    }
+  },
+  "_note": "Binaries pinned as devDependencies (typescript-language-server, vscode-langservers-extracted). typescript-language-server serves both TS and JS; declared as two server entries per the operator's explicit TS-LSP + JS-LSP request. HTML server is VS Code's extracted vscode-html-language-server. npx --no-install resolves node_modules/.bin without a network fetch."
+}

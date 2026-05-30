@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "pdf": {
+      "command": "npx",
+      "args": ["--no-install", "mcp-pdf-server", "--stdio"],
+      "type": "stdio"
+    }
+  }
+}

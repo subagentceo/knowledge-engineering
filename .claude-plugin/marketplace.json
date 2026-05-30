@@ -1,0 +1,39 @@
+{
+  "name": "knowledge-engineering",
+  "description": "Local plugin marketplace for the subagentceo knowledge-engineering repo: code-intelligence (LSP), document tooling (PDF MCP), platform-engineering, and IT-admin workflows.",
+  "owner": {
+    "name": "subagentceo (operator alex@jadecli.com)"
+  },
+  "plugins": [
+    {
+      "name": "web-doc-tooling",
+      "displayName": "Web/Doc Tooling (LSP + PDF MCP)",
+      "source": "./plugins/web-doc-tooling",
+      "description": "HTML, TypeScript, and JavaScript language servers (VS Code extracted servers + typescript-language-server) plus the official Model Context Protocol PDF server, for mirroring HTML/PDF documentation pages (e.g. anthropic.com/sitemap.xml). Binaries pinned as repo devDependencies."
+    },
+    {
+      "name": "platform-engineering",
+      "displayName": "Platform Engineering",
+      "source": "./plugins/platform-engineering",
+      "description": "AlloyDB Omni install, Docker MCP profile wiring, Voyage+Turbopuffer+AlloyDB embeddings architecture, and citation/test/outcome discipline."
+    },
+    {
+      "name": "github-it-admin",
+      "displayName": "GitHub IT Admin",
+      "source": "./plugins/github-it-admin",
+      "description": "GitHub org/repo administration workflows."
+    },
+    {
+      "name": "macos-it-admin",
+      "displayName": "macOS IT Admin",
+      "source": "./plugins/macos-it-admin",
+      "description": "macOS host administration workflows."
+    },
+    {
+      "name": "pr-audit-template",
+      "displayName": "PR Audit Template",
+      "source": "./plugins/pr-audit-template",
+      "description": "Template for PR audit workflows."
+    }
+  ]
+}
