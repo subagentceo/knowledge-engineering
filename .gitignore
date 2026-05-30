@@ -2,6 +2,9 @@ node_modules/
 dist/
 .env
 .env.local
+# .env.defaults is NON-SECRET and intentionally committed (loaded by
+# scripts/load_project_env.sh). Keep it tracked even if .env* is broadened later.
+!.env.defaults
 *.log
 .DS_Store
 .mintlify/
