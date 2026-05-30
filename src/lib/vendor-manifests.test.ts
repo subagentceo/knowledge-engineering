@@ -36,11 +36,14 @@ check("loads at least the 7 known-working vendors", () => {
   }
 });
 
-check("anthropics manifest has llms_txt + lastCrawled + url_count > 0", () => {
+check("anthropics manifest has llms_txt + non-empty urlSet", () => {
   const m = getVendor("anthropics");
   if (!m) throw new Error("no anthropics manifest");
   if (!m.llms_txt?.includes("claude.com")) throw new Error(`unexpected llms_txt: ${m.llms_txt}`);
-  if (!m.lastCrawled) throw new Error("no lastCrawled");
+  // `lastCrawled` is no longer asserted: the deterministic crawler (post
+  // docker/apple-docc rewrite) stopped writing a `last_crawled:` line into
+  // urls.md frontmatter for re-run determinism. Manifests are dated by git
+  // commit, so the field is optional and refreshed vendors omit it.
   if (m.urlSet.size === 0) throw new Error("urlSet empty");
 });
 

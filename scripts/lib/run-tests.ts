@@ -23,6 +23,7 @@ const REPO_ROOT = resolve(__dirname, "..", "..");
 const TEST_DIRS = [
   resolve(REPO_ROOT, "scripts", "lib"),
   resolve(REPO_ROOT, "src", "lib"),
+  resolve(REPO_ROOT, "src", "agent"),
   resolve(REPO_ROOT, "infra", "cloudflare", "src"),
 ];
 

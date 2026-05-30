@@ -1,0 +1,12 @@
+{
+  "name": "commonmark",
+  "homepage": "https://spec.commonmark.org",
+  "llms_txt_candidates": [],
+  "transform": "verbatim",
+  "allow_prefixes": [
+    "https://spec.commonmark.org/0.31.2/"
+  ],
+  "deny_prefixes": [],
+  "page_cap": 50,
+  "_source_note": "The canonical 0.31.2 spec is authored AS a CommonMark document (spec.txt, dated 2024-01-28). It is mirrored verbatim from the commonmark/commonmark-spec study clone rather than crawled from the rendered HTML at spec.commonmark.org/0.31.2/ — the .txt source is the ground truth the rendered page is generated from."
+}

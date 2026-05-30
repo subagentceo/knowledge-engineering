@@ -111,6 +111,18 @@ const EXCEPTIONS: Record<string, VendorException> = {
     reason:
       "docs.nimbleway.com is Mintlify MDX; some marketing pages include inline React style components.",
   },
+  commonmark: {
+    skipPopulated: true, // hand-mirrored verbatim spec, not crawled — no .checksums.json
+    skipHeadline: true, // spec.md leads with YAML frontmatter (title/author/version), H1 follows
+    allowedSubstrings: ["<script", "<style"],
+    reason:
+      "vendor/commonmark/ is the CommonMark 0.31.2 spec mirrored verbatim from the commonmark-spec study clone (the normalization ANCHOR, not a crawled subprocessor). It is a literal specification document: it leads with YAML frontmatter, was never crawled (no checksums), and its code-fenced test examples contain raw <script>/<style> markup as spec test cases. Excluded from prettier too (.prettierignore). See docs/reference/commonmark-normalization.md.",
+  },
+  docker: {
+    allowedSubstrings: ["<script"],
+    reason:
+      "docs.docker.com serves a native text/markdown twin (docker-md transform). A few pages embed asciinema terminal-recording players as raw `<script async src=https://asciinema.org/...js>` tags inside the canonical markdown (e.g. desktop/features/containerd, ai/gordon/how-to/cli, engine/release-notes/27). Same class as Stripe's inline `<script src=stripe.js>` embeds — upstream content, not a turndown leak (this mirror does no HTML scraping).",
+  },
   "osv-scanner": {
     skipHeadline: true,
     reason:
