@@ -36,3 +36,7 @@ third_party/
 # Agent isolation worktrees — runtime git worktrees created by Agent(isolation:"worktree").
 # Ephemeral; never tracked. Branches pushed separately via PR flow.
 .claude/worktrees/
+
+# Local claude-in-chrome / scratch output — never deliverables, never committed.
+screenshots/
+webpages/
