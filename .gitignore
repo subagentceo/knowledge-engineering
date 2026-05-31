@@ -32,3 +32,7 @@ third_party/
 # Claude Code scheduled-tasks runtime lock — per-session pid/sessionId state.
 # Was tracked once in error (cd663ef #161); untracked in OLOCK1. Never commit.
 .claude/scheduled_tasks.lock
+
+# Local claude-in-chrome / scratch output — never deliverables, never committed.
+screenshots/
+webpages/
