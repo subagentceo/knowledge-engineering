@@ -6,7 +6,12 @@
     "IS_SANDBOX": "0",
     "KE_VENDOR_DIR": "vendor",
     "KE_SERVERS_DIR": ".claude/servers",
-    "KE_PLANNER_MODE": "default"
+    "KE_PLANNER_MODE": "default",
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_METRICS_EXPORTER": "console",
+    "OTEL_LOGS_EXPORTER": "console",
+    "OTEL_METRIC_EXPORT_INTERVAL": "10000",
+    "OTEL_LOGS_EXPORT_INTERVAL": "5000"
   },
   "hooks": {
     "SessionStart": [
