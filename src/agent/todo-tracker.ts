@@ -11,15 +11,7 @@ import { query } from "@anthropic-ai/claude-agent-sdk";
 
 import { coerceColor, colorize, type Color } from "../lib/ansi-color.js";
 import { getOpenFeatureClient } from "../lib/openfeature.js";
-
-type Status = "pending" | "in_progress" | "completed";
-
-interface Todo {
-  id?: string;
-  content: string;
-  activeForm: string;
-  status: Status;
-}
+import { TodoState, type Todo, type TodoStatus as Status } from "./todo-state.js";
 
 const ICON: Record<Status, string> = {
   completed: "[x]",
@@ -28,8 +20,7 @@ const ICON: Record<Status, string> = {
 };
 
 export class TodoTracker {
-  private todos = new Map<string, Todo>();
-  private order: string[] = [];
+  private state = new TodoState();
   private cachedColor: Color | null = null;
 
   /**
@@ -48,49 +39,20 @@ export class TodoTracker {
   }
 
   async display(): Promise<void> {
-    if (this.todos.size === 0) return;
-    const list = this.order.map((k) => this.todos.get(k)!).filter(Boolean);
-    const completed = list.filter((t) => t.status === "completed").length;
-    const inProgress = list.filter((t) => t.status === "in_progress").length;
+    const list = this.state.list();
+    if (list.length === 0) return;
+    const { completed, inProgress, total } = this.state.progress();
 
     const color = await this.resolveColor();
     const isTty = process.stdout.isTTY === true;
 
-    process.stdout.write(`\nProgress: ${completed}/${list.length} completed\n`);
+    process.stdout.write(`\nProgress: ${completed}/${total} completed\n`);
     process.stdout.write(`Currently working on: ${inProgress} task(s)\n\n`);
     list.forEach((t, i) => {
       const text = t.status === "in_progress" ? t.activeForm : t.content;
       const icon = colorize(color, ICON[t.status], isTty);
       process.stdout.write(`${i + 1}. ${icon} ${text}\n`);
     });
-  }
-
-  /** Replace the entire list (TodoWrite semantics). */
-  private replaceAll(todos: Todo[]): void {
-    this.todos.clear();
-    this.order = [];
-    todos.forEach((t, i) => {
-      const id = t.id ?? `todo-${i}`;
-      this.todos.set(id, { ...t, id });
-      this.order.push(id);
-    });
-  }
-
-  /** Insert/update a single task (TaskCreate / TaskUpdate semantics). */
-  private upsert(id: string, patch: Partial<Todo>): void {
-    const existing = this.todos.get(id);
-    if (existing) {
-      this.todos.set(id, { ...existing, ...patch });
-    } else {
-      const next: Todo = {
-        id,
-        content: patch.content ?? "(no content)",
-        activeForm: patch.activeForm ?? patch.content ?? "(no activeForm)",
-        status: patch.status ?? "pending",
-      };
-      this.todos.set(id, next);
-      this.order.push(id);
-    }
   }
 
   async track(prompt: string, maxTurns = 20): Promise<void> {
@@ -102,19 +64,19 @@ export class TodoTracker {
         switch (block.name) {
           case "TodoWrite": {
             const todos = (block.input as { todos: Todo[] }).todos ?? [];
-            this.replaceAll(todos);
+            this.state.replaceAll(todos);
             await this.display();
             break;
           }
           case "TaskCreate": {
             const t = block.input as Todo & { id: string };
-            this.upsert(t.id, t);
+            this.state.upsert(t.id, t);
             await this.display();
             break;
           }
           case "TaskUpdate": {
             const t = block.input as { id: string; status?: Status; content?: string };
-            this.upsert(t.id, t);
+            this.state.upsert(t.id, t);
             await this.display();
             break;
           }
