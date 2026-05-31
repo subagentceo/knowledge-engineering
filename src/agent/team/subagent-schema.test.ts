@@ -1,5 +1,4 @@
 /**
- * @cite src/agent/team/subagent-schema.ts
  * @cite vendor/anthropics/code.claude.com/docs/en/sub-agents.md
  * @tdd green
  *
