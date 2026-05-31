@@ -31,8 +31,17 @@ export function prBranchDbName(prNumber: number): string {
   return `${DB_NAME_PREFIX}${assertInteger(prNumber)}`;
 }
 
+// WHY: templateDb (from ALLOYDB_TEMPLATE_DB env) is interpolated into DDL that
+// can't be parameterized. prNumber is integer-guarded; the template name must
+// be guarded too — a Postgres unquoted identifier (letter/_ start, then
+// alnum/_/$). Closes the injection vector the prNumber guard alone leaves open.
+const PG_IDENT_RE = /^[A-Za-z_][A-Za-z0-9_$]*$/;
+
 export function createPrBranchSql(prNumber: number, templateDb: string): string {
   const dbName = prBranchDbName(prNumber);
+  if (!PG_IDENT_RE.test(templateDb)) {
+    throw new Error(`templateDb must be a valid Postgres identifier, got: ${String(templateDb)}`);
+  }
   return `CREATE DATABASE ${dbName} TEMPLATE ${templateDb}`;
 }
 

@@ -114,6 +114,10 @@ await check("db-name rejects non-integer / injection-shaped PR numbers", () => {
 await check("createPrBranchSql builds a TEMPLATE clone", () => {
   assertEqual(createPrBranchSql(7, "template0"), "CREATE DATABASE keng_pr_7 TEMPLATE template0");
   assertEqual(createPrBranchSql(7, "keng_base"), "CREATE DATABASE keng_pr_7 TEMPLATE keng_base");
+  // injection guard on templateDb (from ALLOYDB_TEMPLATE_DB env)
+  for (const bad of ["template0; DROP DATABASE postgres; --", "bad name", ""]) {
+    assert.throws(() => createPrBranchSql(7, bad), /valid Postgres identifier/);
+  }
 });
 
 await check("dropPrBranchSql is idempotent + force-terminates sessions", () => {
