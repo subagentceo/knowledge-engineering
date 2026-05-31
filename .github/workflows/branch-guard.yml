@@ -1,0 +1,31 @@
+# @cite vendor/anthropics/code.claude.com/docs/en/github-actions.md
+# @cite docs/decisions/2026-05-18-branch-naming-convention.md
+name: branch-guard
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: branch-guard-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  branch-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6 # @sha-exempt actions/* first-party, tag-pinned per ADR 2026-05-18
+      - name: Setup Node
+        uses: actions/setup-node@v6 # @sha-exempt actions/* first-party, tag-pinned per ADR 2026-05-18
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install deps
+        run: npm ci
+      - name: Validate branch name
+        run: npx tsx scripts/branch/validate.ts --name "${{ github.head_ref }}"
