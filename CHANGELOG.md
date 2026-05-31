@@ -4,6 +4,34 @@ All notable changes to this project are tracked here. This file is maintained
 automatically by [release-please](https://github.com/googleapis/release-please)
 from [Conventional Commits](https://www.conventionalcommits.org/) on `main`.
 
+## [0.4.0](https://github.com/subagentceo/knowledge-engineering/compare/knowledge-engineering-v0.3.0...knowledge-engineering-v0.4.0) (2026-05-31)
+
+
+### Features
+
+* **branch:** canonical &lt;user&gt;/KENG-NNNN-desc topology + generator/validator (O1) ([4de1870](https://github.com/subagentceo/knowledge-engineering/commit/4de1870f7a6ea944549b0137f49cd5b279c7deb3))
+* **corpus-viewer:** complete CorpusSource resolution to kill hardcoded liveRoot (O1) ([69d7ad6](https://github.com/subagentceo/knowledge-engineering/commit/69d7ad66a1adcb2e0ca19c3b69efbb806f376f0e))
+* **corpus-viewer:** iOS platform + CorpusSource live/bundled resolution (O1) ([55ba9a8](https://github.com/subagentceo/knowledge-engineering/commit/55ba9a81a12184ee476e8ae6b8c8f28c72b9be16))
+* **db:** add AlloyDB Omni client mirroring neon-client (O1) ([007e196](https://github.com/subagentceo/knowledge-engineering/commit/007e196b3a4dec7731ff169b9e6d142448d1f35a))
+* **parity:** codify Managed-Agents cloud-sandbox toolchain parity + doctor (O1) ([8b8a550](https://github.com/subagentceo/knowledge-engineering/commit/8b8a5507c22ca4d41aea022df54eda1bf4b99d62))
+* **redis:** DragonflyDB Redis-wire client + redis-py smoke + citation (O1) ([a8fa4dd](https://github.com/subagentceo/knowledge-engineering/commit/a8fa4dd02fa5962dfef051a7f7fbda6aaab80eb2))
+* **rovo:** Rovo tool-catalog API + zod/pydantic/TS contract (O1) ([a10725f](https://github.com/subagentceo/knowledge-engineering/commit/a10725f25638f2eac8b08e1d7f2e8d2c9749e63a))
+* **team:** agent-team orchestrator surface — zod+pydantic sub-agent models + SwiftUI agent-view app (O1) ([c3ce4e8](https://github.com/subagentceo/knowledge-engineering/commit/c3ce4e83332aaa359d6b416b49118a2f6b474e32))
+
+
+### Bug Fixes
+
+* **deps:** add pg + @types/pg (alloydb-client imports them, missing on main) (O1) ([8964d4f](https://github.com/subagentceo/knowledge-engineering/commit/8964d4f0d800f6f7723db24278a4442413d11b20))
+* **test:** cite vendor env-vars.md, not sibling source, in oauth token test (O1) ([5c56345](https://github.com/subagentceo/knowledge-engineering/commit/5c5634512a6e11961720bf3e012638429af5a3bf))
+* **test:** drop sibling-source [@cite](https://github.com/cite) in schema + todo-state tests (O1) ([94f94de](https://github.com/subagentceo/knowledge-engineering/commit/94f94dec91791bfc8f7f10052d029b3dbce4e865))
+
+
+### Chores
+
+* **otel:** enable Claude Code telemetry env in project settings (O1) ([643c283](https://github.com/subagentceo/knowledge-engineering/commit/643c2831b0a7a3217e481c2d8e0f91b75e324f33))
+* **settings:** allowlist routine Bash + save Rovo/orchestrator blueprint reference (O1) ([f7f3748](https://github.com/subagentceo/knowledge-engineering/commit/f7f3748a9007eecfa99aae2dff3e089fdc205cb3))
+* **settings:** allowlist routine Bash commands to prevent parallel-call cancellation (O1) ([817b298](https://github.com/subagentceo/knowledge-engineering/commit/817b298cfe0d088ace089507feb541dff66a28f3))
+
 ## [0.3.0](https://github.com/subagentceo/knowledge-engineering/compare/knowledge-engineering-v0.2.0...knowledge-engineering-v0.3.0) (2026-05-30)
 
 
