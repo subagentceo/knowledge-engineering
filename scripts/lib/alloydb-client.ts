@@ -63,14 +63,9 @@ async function getPool(): Promise<PoolType> {
   return cachedPool;
 }
 
-/**
- * UPSERT a single vendor page. Returns true on insert/update, false
- * if the row was unchanged (content_hash match). Idempotent. SQL is
- * byte-identical to neon-client's so the two stay swappable.
- */
-export async function upsertVendorPage(row: VendorPageRow): Promise<boolean> {
-  const pool = await getPool();
-  const sql = `
+// Byte-identical to neon-client's UPSERT so the two drivers stay
+// swappable behind a config flag.
+const UPSERT_SQL = `
     INSERT INTO vendor_pages (vendor, path, content, content_hash, etag, last_modified, updated_at)
     VALUES ($1, $2, $3, $4, $5, $6, now())
     ON CONFLICT (vendor, path) DO UPDATE
@@ -82,7 +77,14 @@ export async function upsertVendorPage(row: VendorPageRow): Promise<boolean> {
       WHERE vendor_pages.content_hash IS DISTINCT FROM EXCLUDED.content_hash
     RETURNING vendor;
   `;
-  const result = await pool.query(sql, [
+
+/**
+ * UPSERT a single vendor page. Returns true on insert/update, false
+ * if the row was unchanged (content_hash match). Idempotent.
+ */
+export async function upsertVendorPage(row: VendorPageRow): Promise<boolean> {
+  const pool = await getPool();
+  const result = await pool.query(UPSERT_SQL, [
     row.vendor,
     row.path,
     row.content,
