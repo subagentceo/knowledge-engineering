@@ -1,0 +1,6 @@
+#!/bin/sh
+# Opt-in pre-push hook: blocks pushes from a non-conforming branch name.
+# Enable per-clone with:  git config core.hooksPath .githooks
+# Validator exempts main / release-please--* / dependabot/* and exits 1 otherwise.
+# Mirrors .github/workflows/branch-guard.yml so local failures match CI.
+exec npx tsx scripts/branch/validate.ts
