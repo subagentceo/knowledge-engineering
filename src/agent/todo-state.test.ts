@@ -1,6 +1,5 @@
 /**
  * @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/todo-tracking.md
- * @cite src/agent/todo-tracker.ts
  * @tdd red
  *
  * The pure todo-state reducer, extracted from TodoTracker so the merge logic
