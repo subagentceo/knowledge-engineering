@@ -1,5 +1,5 @@
 /**
- * @cite src/oauth/token.ts
+ * @cite vendor/anthropics/code.claude.com/docs/en/env-vars.md
  * @cite vendor/anthropics/code.claude.com/docs/en/settings.md
  * @tdd green
  *
