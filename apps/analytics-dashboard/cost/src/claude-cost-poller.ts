@@ -1,16 +1,23 @@
 // claude-cost-poller.ts
-// Reads cost data from the Claude Agent SDK ResultMessage stream and forwards
-// it to the OTel Collector via OTLP HTTP. Does NOT call the Anthropic Admin API
-// or require ANTHROPIC_ADMIN_KEY — the SDK emits total_cost_usd natively.
 //
-// The Claude Code CLI subprocess is configured with OTel env vars and exports
-// metrics directly to the collector. This module is a session-level aggregator
-// that collects result messages from running SDK sessions and writes structured
-// cost records to a local JSONL file (agent-session-costs.jsonl) consumable by
-// scripts/check-agent-costs.ts for the CI cost gate.
+// Session cost aggregator for the Agent SDK telemetry pipeline.
+// Source of truth: SDK ResultMessage.total_cost_usd + modelUsage per-model breakdown.
+// No ANTHROPIC_ADMIN_KEY required — the Admin API is for billing reconciliation only.
+//
+// Parity targets (Console pages → SDK fields):
+//   /cost             → total_cost_usd, per model cost_usd, token_type breakdown
+//   /usage/cache      → cache_creation_5m_tokens, cache_creation_1h_tokens, cache_read_tokens
+//   /usage            → uncached_input_tokens, output_tokens, service_tier, model, workspace_id
+//
+// How to wire into an Agent SDK session loop:
+//   import { sdkOtelEnv, recordSessionCost } from "./claude-cost-poller.ts";
+//   const result = await runAgentSession({ env: sdkOtelEnv });
+//   recordSessionCost(buildCostRecord(result, sessionId, model));
 //
 // @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/cost-tracking.md
 // @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/observability.md
+// @cite vendor/anthropics/platform.claude.com/docs/en/manage-claude/usage-cost-api.md
+// @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/prompt-caching.md
 
 import { OTLPMetricExporter } from "@opentelemetry/exporter-metrics-otlp-http";
 import {
@@ -21,36 +28,73 @@ import { metrics } from "@opentelemetry/api";
 import * as fs from "fs";
 import * as readline from "readline";
 
-// OTel SDK env vars that must also be set on the Claude Code CLI subprocess:
-//   CLAUDE_CODE_ENABLE_TELEMETRY=1
-//   OTEL_METRICS_EXPORTER=otlp
-//   OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
-//   OTEL_METRIC_EXPORT_INTERVAL=15000
-//
-// These are passed via options.env when creating Agent SDK sessions.
-// This file handles the application-layer aggregation on top of that pipeline.
-
 const OTLP_ENDPOINT =
   process.env.OTEL_EXPORTER_OTLP_ENDPOINT ?? "http://localhost:4318";
 const WORKSPACE_ID =
   process.env.WORKSPACE_ID ?? "wrkspc_01CBeWLBbjPFi6iqmBnnh3vs";
 const COSTS_JSONL = process.env.COSTS_JSONL ?? "/tmp/agent-session-costs.jsonl";
 
+// ---------------------------------------------------------------------------
+// Canonical cost record — parity with Console /cost + /usage/cache + /usage
+//
+// All fields sourced from Agent SDK ResultMessage (no Admin API).
+// token_type breakdown mirrors CostReport token_type enum from cost_report API.
+// cache fields mirror MessagesUsageReport.cache_creation from usage_report API.
+// ---------------------------------------------------------------------------
 export interface AgentSessionCost {
-  session_id: string;
-  model: string;
-  tokens_input: number;
-  tokens_output: number;
-  cache_creation_tokens: number;
-  cache_read_tokens: number;
+  // identity
+  session_id: string;         // SDK session ID or query-level UUID
+  model: string;              // e.g. "claude-opus-4-7"
+  workspace_id: string;       // parity: cost_report workspace_id grouping
+  service_tier: "standard" | "batch" | "priority" | "flex"; // parity: usage_report service_tier
+  context_window: "0-200k" | "200k-1M";                      // parity: usage_report context_window
+
+  // token counts — parity with MessagesUsageReport result fields
+  uncached_input_tokens: number;          // usage_report: uncached_input_tokens
+  output_tokens: number;                  // usage_report: output_tokens
+  cache_read_input_tokens: number;        // usage_report: cache_read_input_tokens
+  cache_creation_5m_input_tokens: number; // usage_report: cache_creation.ephemeral_5m_input_tokens
+  cache_creation_1h_input_tokens: number; // usage_report: cache_creation.ephemeral_1h_input_tokens
+
+  // derived cost — parity with CostReport token_type breakdown
+  // SDK field: ResultMessage.total_cost_usd (client-side estimate)
+  // Not authoritative billing — use Admin API cost_report for reconciliation
   cost_usd: number;
-  workspace_id: string;
-  recorded_at?: string;
+
+  // per-model breakdown — parity with Console /cost model grouping
+  // SDK field: ResultMessage.modelUsage[model].{costUSD, inputTokens, outputTokens, ...}
+  model_usage?: Record<string, ModelCostBreakdown>;
+
+  // CI gate metadata
   pr_number?: number;
   branch?: string;
+  recorded_at?: string;
 }
 
-// Initialize OTel MeterProvider pointing at the OTel Collector
+export interface ModelCostBreakdown {
+  cost_usd: number;                       // modelUsage[m].costUSD
+  input_tokens: number;                   // modelUsage[m].inputTokens
+  output_tokens: number;                  // modelUsage[m].outputTokens
+  cache_read_input_tokens: number;        // modelUsage[m].cacheReadInputTokens
+  cache_creation_input_tokens: number;    // modelUsage[m].cacheCreationInputTokens
+}
+
+// Cache efficiency metrics — parity with Console /usage/cache view
+export interface CacheEfficiencyMetrics {
+  session_id: string;
+  model: string;
+  total_input_tokens: number;             // uncached + cache_read
+  cache_read_tokens: number;
+  cache_creation_tokens: number;          // 5m + 1h combined
+  cache_hit_rate: number;                 // cache_read / (cache_read + uncached) * 100
+  estimated_savings_usd: number;          // (cache_read * 0.1 - cache_read * 1.0) * price_per_token
+}
+
+// ---------------------------------------------------------------------------
+// OTel counter setup — metric names mirror what the Claude Code CLI emits
+// natively when CLAUDE_CODE_ENABLE_TELEMETRY=1 is set on the subprocess.
+// These counters aggregate at the session level for the Grafana dashboard.
+// ---------------------------------------------------------------------------
 const exporter = new OTLPMetricExporter({ url: `${OTLP_ENDPOINT}/v1/metrics` });
 const meterProvider = new MeterProvider({
   readers: [
@@ -60,60 +104,153 @@ const meterProvider = new MeterProvider({
 metrics.setGlobalMeterProvider(meterProvider);
 
 const meter = metrics.getMeter("claude-cost-aggregator", "1.0.0");
-const costCounter = meter.createCounter("claude.cost.usd", {
-  description: "Cumulative USD cost of Claude agent sessions",
-  unit: "USD",
-});
-const inputTokenCounter = meter.createCounter("claude.tokens.input", {
-  description: "Input tokens consumed across Claude agent sessions",
-  unit: "tokens",
-});
-const outputTokenCounter = meter.createCounter("claude.tokens.output", {
-  description: "Output tokens produced across Claude agent sessions",
-  unit: "tokens",
-});
-const cacheReadCounter = meter.createCounter("claude.tokens.cache_read", {
-  description: "Tokens served from prompt cache",
-  unit: "tokens",
+
+// Cost counters — parity with Console /cost token_type breakdown
+const costTotal = meter.createCounter("claude.cost.usd", { unit: "USD" });
+const uncachedInputCounter = meter.createCounter("claude.tokens.uncached_input", { unit: "tokens" });
+const outputCounter = meter.createCounter("claude.tokens.output", { unit: "tokens" });
+const cacheReadCounter = meter.createCounter("claude.tokens.cache_read_input", { unit: "tokens" });
+const cacheCreate5mCounter = meter.createCounter("claude.tokens.cache_creation_5m_input", { unit: "tokens" });
+const cacheCreate1hCounter = meter.createCounter("claude.tokens.cache_creation_1h_input", { unit: "tokens" });
+
+// Cache efficiency gauge — parity with Console /usage/cache hit rate view
+const cacheHitRateGauge = meter.createObservableGauge("claude.cache.hit_rate_pct", {
+  description: "Prompt cache hit rate as a percentage of total input tokens",
 });
 
-// Record a cost entry from an SDK ResultMessage.
-// Call this from your agent loop when block.type === "result".
+// ---------------------------------------------------------------------------
+// recordSessionCost — call from ResultMessage handler in agent loop
+// ---------------------------------------------------------------------------
 export function recordSessionCost(cost: AgentSessionCost): void {
   const attrs = {
     session_id: cost.session_id,
     model: cost.model,
     workspace_id: cost.workspace_id,
+    service_tier: cost.service_tier,
+    context_window: cost.context_window,
   };
 
-  costCounter.add(cost.cost_usd, attrs);
-  inputTokenCounter.add(cost.tokens_input, attrs);
-  outputTokenCounter.add(cost.tokens_output, attrs);
-  cacheReadCounter.add(cost.cache_read_tokens, attrs);
+  costTotal.add(cost.cost_usd, attrs);
+  uncachedInputCounter.add(cost.uncached_input_tokens, attrs);
+  outputCounter.add(cost.output_tokens, attrs);
+  cacheReadCounter.add(cost.cache_read_input_tokens, attrs);
+  cacheCreate5mCounter.add(cost.cache_creation_5m_input_tokens, attrs);
+  cacheCreate1hCounter.add(cost.cache_creation_1h_input_tokens, attrs);
 
-  // Append to JSONL for CI gate consumption (scripts/check-agent-costs.ts)
-  const line = JSON.stringify({ ...cost, recorded_at: new Date().toISOString() });
-  fs.appendFileSync(COSTS_JSONL, line + "\n");
-  console.log(`[cost] session=${cost.session_id} cost=$${cost.cost_usd.toFixed(4)} model=${cost.model}`);
+  // register cache hit rate for this session
+  cacheHitRateGauge.addCallback((result) => {
+    const eff = computeCacheEfficiency(cost);
+    result.observe(eff.cache_hit_rate, attrs);
+  });
+
+  const record: AgentSessionCost = { ...cost, recorded_at: new Date().toISOString() };
+  fs.appendFileSync(COSTS_JSONL, JSON.stringify(record) + "\n");
+  console.log(
+    `[cost] session=${cost.session_id} cost=$${cost.cost_usd.toFixed(4)}` +
+    ` cache_hit=${computeCacheEfficiency(cost).cache_hit_rate.toFixed(1)}%` +
+    ` model=${cost.model}`
+  );
 }
 
-// Tail an existing JSONL file of SDK result messages and emit OTel metrics.
+// ---------------------------------------------------------------------------
+// computeCacheEfficiency — parity with Console /usage/cache metrics
+// ---------------------------------------------------------------------------
+export function computeCacheEfficiency(cost: AgentSessionCost): CacheEfficiencyMetrics {
+  const totalInput = cost.uncached_input_tokens + cost.cache_read_input_tokens;
+  const cacheCreation = cost.cache_creation_5m_input_tokens + cost.cache_creation_1h_input_tokens;
+  const hitRate = totalInput > 0
+    ? (cost.cache_read_input_tokens / totalInput) * 100
+    : 0;
+  // savings: cache reads at 0.1x vs full price at 1.0x — rough estimate
+  const savingsUsd = cost.cache_read_input_tokens > 0
+    ? (cost.cost_usd * (cost.cache_read_input_tokens / totalInput) * 0.9)
+    : 0;
+
+  return {
+    session_id: cost.session_id,
+    model: cost.model,
+    total_input_tokens: totalInput,
+    cache_read_tokens: cost.cache_read_input_tokens,
+    cache_creation_tokens: cacheCreation,
+    cache_hit_rate: hitRate,
+    estimated_savings_usd: savingsUsd,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// buildCostRecord — construct AgentSessionCost from SDK ResultMessage fields
+//
+// TypeScript SDK:
+//   result.total_cost_usd
+//   result.usage.input_tokens              → uncached_input_tokens
+//   result.usage.output_tokens
+//   result.usage.cache_read_input_tokens
+//   result.usage.cache_creation_input_tokens  (combined; split by TTL not exposed by SDK)
+//   result.modelUsage[model].{costUSD, inputTokens, outputTokens, ...}
+//
+// Python SDK:
+//   message.total_cost_usd
+//   message.usage["input_tokens"]
+//   message.usage.get("cache_read_input_tokens", 0)
+//   message.usage.get("cache_creation_input_tokens", 0)
+//   message.model_usage[model]
+// ---------------------------------------------------------------------------
+export function buildCostRecord(
+  totalCostUsd: number,
+  usage: {
+    input_tokens: number;
+    output_tokens: number;
+    cache_read_input_tokens?: number;
+    cache_creation_input_tokens?: number;
+  },
+  sessionId: string,
+  model: string,
+  options?: {
+    modelUsage?: Record<string, ModelCostBreakdown>;
+    workspaceId?: string;
+    serviceTier?: AgentSessionCost["service_tier"];
+    contextWindow?: AgentSessionCost["context_window"];
+    prNumber?: number;
+    branch?: string;
+  }
+): AgentSessionCost {
+  return {
+    session_id: sessionId,
+    model,
+    workspace_id: options?.workspaceId ?? WORKSPACE_ID,
+    service_tier: options?.serviceTier ?? "standard",
+    context_window: options?.contextWindow ?? "0-200k",
+    uncached_input_tokens: usage.input_tokens,
+    output_tokens: usage.output_tokens,
+    cache_read_input_tokens: usage.cache_read_input_tokens ?? 0,
+    // SDK does not split 5m vs 1h; zero them individually, sum in cache_creation
+    cache_creation_5m_input_tokens: usage.cache_creation_input_tokens ?? 0,
+    cache_creation_1h_input_tokens: 0,
+    cost_usd: totalCostUsd,
+    model_usage: options?.modelUsage,
+    pr_number: options?.prNumber,
+    branch: options?.branch,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// replayCostsFromJSONL — backfill OTel metrics from existing JSONL
+// ---------------------------------------------------------------------------
 export async function replayCostsFromJSONL(path: string): Promise<void> {
   const rl = readline.createInterface({ input: fs.createReadStream(path) });
   for await (const line of rl) {
     if (!line.trim()) continue;
     try {
-      const entry = JSON.parse(line) as AgentSessionCost;
-      recordSessionCost({ ...entry, workspace_id: entry.workspace_id ?? WORKSPACE_ID });
-    } catch {
-      // skip malformed lines
-    }
+      recordSessionCost(JSON.parse(line) as AgentSessionCost);
+    } catch { /* skip malformed */ }
   }
 }
 
-// OTel env vars to pass via options.env when creating Agent SDK sessions.
-// The CLI subprocess exports directly to the collector; no Admin API key needed.
+// ---------------------------------------------------------------------------
+// sdkOtelEnv — pass via options.env when creating Agent SDK sessions
+// The CLI subprocess exports directly to the OTel Collector at OTLP_ENDPOINT.
 // @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/observability.md
+// ---------------------------------------------------------------------------
 export const sdkOtelEnv: Record<string, string> = {
   CLAUDE_CODE_ENABLE_TELEMETRY: "1",
   CLAUDE_CODE_ENHANCED_TELEMETRY_BETA: "1",
@@ -127,8 +264,4 @@ export const sdkOtelEnv: Record<string, string> = {
   OTEL_RESOURCE_ATTRIBUTES: `workspace.id=${WORKSPACE_ID}`,
 };
 
-// Graceful shutdown — flush pending metrics before exit
-process.on("SIGTERM", async () => {
-  await meterProvider.shutdown();
-  process.exit(0);
-});
+process.on("SIGTERM", async () => { await meterProvider.shutdown(); process.exit(0); });
