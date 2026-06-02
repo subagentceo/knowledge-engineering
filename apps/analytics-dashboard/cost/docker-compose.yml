@@ -1,0 +1,60 @@
+# @cite vendor/anthropics/platform.claude.com/docs/en/manage-claude/usage-cost-api.md
+# Grafana OSS + Prometheus + OTel Collector stack — self-hosted on Docker.
+# Start: docker compose up -d
+# Grafana: http://localhost:3000 (admin/admin)
+
+services:
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    volumes:
+      - ./otel-collector-config.yaml:/etc/otelcol-contrib/config.yaml
+    ports:
+      - "4317:4317"   # OTLP gRPC
+      - "4318:4318"   # OTLP HTTP
+      - "8889:8889"   # Prometheus metrics export
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
+    depends_on:
+      - otel-collector
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - grafana-data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+
+  cost-poller:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+    command: sh -c "npm install --silent && node --loader ts-node/esm src/claude-cost-poller.ts"
+    environment:
+      - ANTHROPIC_ADMIN_KEY=${ANTHROPIC_ADMIN_KEY}
+      - WORKSPACE_ID=${WORKSPACE_ID:-wrkspc_01CBeWLBbjPFi6iqmBnnh3vs}
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
+      - POLL_INTERVAL_MS=60000
+    restart: unless-stopped
+    depends_on:
+      - otel-collector
+
+volumes:
+  prometheus-data:
+  grafana-data:
