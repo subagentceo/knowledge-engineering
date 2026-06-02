@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CoworkerDashboard — Session Progress Tracker</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; height: 100vh; display: flex; flex-direction: column; }
+.topbar { background: #161b22; border-bottom: 1px solid #30363d; padding: 12px 20px; display: flex; align-items: center; gap: 12px; }
+.topbar h1 { font-size: 15px; font-weight: 600; }
+.badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: #1f6feb; color: #fff; }
+.badge.green { background: #238636; }
+.main { display: flex; flex: 1; overflow: hidden; }
+.sidebar { width: 280px; background: #161b22; border-right: 1px solid #30363d; overflow-y: auto; }
+.sidebar-header { padding: 12px 16px; font-size: 11px; font-weight: 600; color: #7d8590; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #30363d; }
+.session-item { padding: 12px 16px; border-bottom: 1px solid #21262d; cursor: pointer; }
+.session-item.active { background: #1c2128; border-left: 3px solid #58a6ff; }
+.session-id { font-size: 12px; font-family: monospace; color: #58a6ff; }
+.session-meta { font-size: 11px; color: #7d8590; margin-top: 3px; }
+.session-cost { font-size: 12px; color: #3fb950; font-weight: 600; }
+.status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px; }
+.dot-running { background: #1f6feb; animation: pulse 1.5s infinite; }
+.dot-idle { background: #6e7681; }
+.dot-done { background: #238636; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.content { flex: 1; overflow-y: auto; padding: 20px; }
+.section { background: #161b22; border: 1px solid #30363d; border-radius: 8px; margin-bottom: 16px; }
+.section-header { padding: 12px 16px; border-bottom: 1px solid #30363d; font-size: 13px; font-weight: 600; }
+.section-body { padding: 16px; }
+.metrics-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+.metric-card { background: #0d1117; border: 1px solid #30363d; border-radius: 6px; padding: 12px; }
+.metric-label { font-size: 10px; color: #7d8590; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+.metric-value { font-size: 20px; font-weight: 700; }
+.metric-sub { font-size: 10px; color: #7d8590; margin-top: 2px; }
+.chain-steps { display: flex; gap: 8px; flex-wrap: wrap; }
+.chain-step { padding: 6px 12px; border-radius: 4px; font-size: 11px; border: 1px solid; }
+.cs-done { background: #0d2217; border-color: #238636; color: #3fb950; }
+.cs-active { background: #0d2d6e; border-color: #1f6feb; color: #79c0ff; }
+.cs-pending { background: #161b22; border-color: #30363d; color: #6e7681; }
+.event-row { padding: 8px 0; border-bottom: 1px solid #21262d; font-size: 12px; display: flex; gap: 12px; }
+.event-row:last-child { border-bottom: none; }
+.event-time { color: #7d8590; white-space: nowrap; width: 60px; flex-shrink: 0; }
+.event-type { width: 80px; flex-shrink: 0; }
+.type-pill { font-size: 10px; padding: 1px 6px; border-radius: 4px; font-weight: 600; }
+.tp-msg { background: #0d2d6e; color: #79c0ff; }
+.tp-tool { background: #1a2f0d; color: #3fb950; }
+.tp-think { background: #2d1f0e; color: #d29922; }
+.tp-system { background: #2d0e2e; color: #d2a8ff; }
+.event-content { color: #c9d1d9; line-height: 1.4; }
+.connector-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #21262d; font-size: 12px; }
+.connector-row:last-child { border-bottom: none; }
+.conn-name { width: 120px; color: #c9d1d9; }
+.conn-votes { display: flex; gap: 4px; }
+.vote { padding: 1px 6px; border-radius: 10px; font-size: 10px; }
+.vote-yes { background: #0d2217; color: #3fb950; border: 1px solid #238636; }
+.vote-no { background: #2d0e0e; color: #f85149; border: 1px solid #da3633; }
+.vote-abs { background: #1c2128; color: #7d8590; border: 1px solid #30363d; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <h1>CoworkerDashboard</h1>
+  <span class="badge">v0.1.0</span>
+  <span class="badge green">3 sessions</span>
+  <span style="margin-left:auto;font-size:11px;color:#7d8590">knowledge-engineering · feat/claude-code-vscode-improvements</span>
+</div>
+<div class="main">
+  <div class="sidebar">
+    <div class="sidebar-header">Sessions</div>
+    <div class="session-item active">
+      <div class="session-id"><span class="status-dot dot-running"></span>sess_2026060201a3</div>
+      <div class="session-meta">claude-opus-4-5 · feat/cost-telemetry</div>
+      <div class="session-cost">$0.0842</div>
+    </div>
+    <div class="session-item">
+      <div class="session-id"><span class="status-dot dot-done"></span>sess_2026060200f1</div>
+      <div class="session-meta">claude-sonnet-4-6 · feat/mailbox-lane</div>
+      <div class="session-cost">$0.0341</div>
+    </div>
+    <div class="session-item">
+      <div class="session-id"><span class="status-dot dot-idle"></span>sess_2026060200b2</div>
+      <div class="session-meta">claude-haiku-4-5 · main</div>
+      <div class="session-cost">$0.0023</div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="section">
+      <div class="section-header">Cost Metrics — sess_2026060201a3</div>
+      <div class="section-body">
+        <div class="metrics-grid">
+          <div class="metric-card"><div class="metric-label">Total Cost</div><div class="metric-value">$0.0842</div><div class="metric-sub">session total</div></div>
+          <div class="metric-card"><div class="metric-label">Cache Hit Rate</div><div class="metric-value" style="color:#3fb950">73%</div><div class="metric-sub">input tokens cached</div></div>
+          <div class="metric-card"><div class="metric-label">Output Tokens</div><div class="metric-value">4,821</div><div class="metric-sub">this session</div></div>
+          <div class="metric-card"><div class="metric-label">Context Window</div><div class="metric-value">200K</div><div class="metric-sub">claude-opus-4-5</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-header">Dev Chain Progress</div>
+      <div class="section-body">
+        <div class="chain-steps">
+          <div class="chain-step cs-done">1. security_hook ✓</div>
+          <div class="chain-step cs-done">2. swift_lsp_attach ✓</div>
+          <div class="chain-step cs-done">3. feature_dev ✓</div>
+          <div class="chain-step cs-active">4. security_scan ↻</div>
+          <div class="chain-step cs-pending">5. commit</div>
+          <div class="chain-step cs-pending">6. pr_review</div>
+          <div class="chain-step cs-pending">7. commit_push_pr</div>
+          <div class="chain-step cs-pending">8. ralph_iterate</div>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-header">Session Events</div>
+      <div class="section-body">
+        <div class="event-row"><div class="event-time">14:32:01</div><div class="event-type"><span class="type-pill tp-system">system</span></div><div class="event-content">Session started · model=claude-opus-4-5 · branch=feat/cost-telemetry</div></div>
+        <div class="event-row"><div class="event-time">14:32:03</div><div class="event-type"><span class="type-pill tp-think">thinking</span></div><div class="event-content">Reading session-start.xml + CONVENTIONS.md + pending.md...</div></div>
+        <div class="event-row"><div class="event-time">14:32:08</div><div class="event-type"><span class="type-pill tp-tool">tool</span></div><div class="event-content">Read · src/mcp/lanes/telemetry.ts · 71 lines</div></div>
+        <div class="event-row"><div class="event-time">14:32:12</div><div class="event-type"><span class="type-pill tp-msg">message</span></div><div class="event-content">Telemetry lane registered — 4 tools wired to bridge-server</div></div>
+        <div class="event-row"><div class="event-time">14:32:45</div><div class="event-type"><span class="type-pill tp-tool">tool</span></div><div class="event-content">Write · src/mcp/lanes/mailbox.ts · 285 lines</div></div>
+        <div class="event-row"><div class="event-time">14:33:10</div><div class="event-type"><span class="type-pill tp-msg">message</span></div><div class="event-content">Mailbox lane complete — 7 MCP tools, JSONL append-only storage</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-header">Connector Consensus — engineering category</div>
+      <div class="section-body">
+        <div class="connector-row"><div class="conn-name">alloydb-client</div><div class="conn-votes"><span class="vote vote-yes">agent_a ✓</span><span class="vote vote-yes">agent_b ✓</span><span class="vote vote-abs">agent_c —</span></div><span style="font-size:11px;color:#3fb950;margin-left:8px">2/3 approved</span></div>
+        <div class="connector-row"><div class="conn-name">redis-client</div><div class="conn-votes"><span class="vote vote-yes">agent_a ✓</span><span class="vote vote-no">agent_b ✗</span><span class="vote vote-yes">agent_c ✓</span></div><span style="font-size:11px;color:#d29922;margin-left:8px">2/3 split</span></div>
+        <div class="connector-row"><div class="conn-name">neon-client</div><div class="conn-votes"><span class="vote vote-yes">agent_a ✓</span><span class="vote vote-yes">agent_b ✓</span><span class="vote vote-yes">agent_c ✓</span></div><span style="font-size:11px;color:#3fb950;margin-left:8px">3/3 unanimous</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

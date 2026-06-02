@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import Foundation
 import Observation
 
@@ -168,3 +169,4 @@ private let staticCategories: [ConnectorCategory] = [
     ConnectorCategory(id: "knowledge_base", displayName: "Knowledge Base",
                       consensus: .multi(quorum: 3)),
 ]
+#endif // canImport(SwiftUI)

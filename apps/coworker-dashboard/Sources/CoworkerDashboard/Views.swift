@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 import MarkdownUI
 
@@ -347,3 +348,4 @@ func statusColor(_ status: SessionStatus) -> Color {
     case .terminated:   return .red
     }
 }
+#endif // canImport(SwiftUI)

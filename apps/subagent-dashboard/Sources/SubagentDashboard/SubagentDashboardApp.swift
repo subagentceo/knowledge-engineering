@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 
 // @cite apps/coworker-dashboard/Sources/CoworkerDashboard/CoworkerDashboardApp.swift
@@ -115,3 +116,9 @@ struct CachePanel: View {
         .font(.caption)
     }
 }
+#else
+import Foundation
+@main struct SubagentDashboardApp {
+    static func main() { print("SubagentDashboard: SwiftUI not available on Linux — model layer compiled OK") }
+}
+#endif

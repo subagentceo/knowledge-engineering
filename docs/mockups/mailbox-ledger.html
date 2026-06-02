@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mailbox Ledger — .claude/mailbox/agent_orchestrator.jsonl</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; }
+.topbar { background: #161b22; border-bottom: 1px solid #30363d; padding: 12px 20px; display: flex; align-items: center; gap: 12px; }
+.topbar h1 { font-size: 15px; font-weight: 600; }
+.badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: #1f6feb; color: #fff; }
+.badge.green { background: #238636; }
+.badge.purple { background: #6f42c1; }
+.path { font-size: 11px; color: #7d8590; font-family: monospace; margin-left: auto; }
+.main { display: flex; height: calc(100vh - 45px); }
+.agents { width: 200px; background: #161b22; border-right: 1px solid #30363d; overflow-y: auto; }
+.agent-header { padding: 10px 14px; font-size: 11px; font-weight: 600; color: #7d8590; text-transform: uppercase; border-bottom: 1px solid #30363d; }
+.agent-item { padding: 10px 14px; border-bottom: 1px solid #21262d; cursor: pointer; font-size: 12px; }
+.agent-item.active { background: #1c2128; border-left: 3px solid #58a6ff; }
+.agent-id { font-family: monospace; color: #58a6ff; font-size: 11px; }
+.agent-count { font-size: 10px; color: #7d8590; margin-top: 2px; }
+.ledger { flex: 1; overflow-y: auto; padding: 16px; }
+.msg-card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; margin-bottom: 10px; overflow: hidden; }
+.msg-header { padding: 10px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #21262d; }
+.msg-id { font-family: monospace; font-size: 11px; color: #7d8590; }
+.msg-type { font-size: 10px; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+.mt-outcome { background: #0d2d6e; color: #79c0ff; }
+.mt-task { background: #1a2f0d; color: #3fb950; }
+.mt-cost { background: #2d1f0e; color: #d29922; }
+.mt-artifact { background: #2d0e2e; color: #d2a8ff; }
+.msg-status { font-size: 10px; padding: 1px 6px; border-radius: 4px; margin-left: auto; }
+.ms-acked { background: #0d2217; color: #3fb950; border: 1px solid #238636; }
+.ms-pending { background: #2d1f0e; color: #d29922; border: 1px solid #9e6a03; }
+.msg-from-to { font-size: 11px; color: #7d8590; }
+.msg-body { padding: 12px 14px; font-size: 12px; }
+.payload-row { display: flex; gap: 8px; margin-bottom: 4px; }
+.pk { color: #7d8590; width: 140px; flex-shrink: 0; }
+.pv { color: #c9d1d9; font-family: monospace; font-size: 11px; }
+.pv.green { color: #3fb950; }
+.pv.blue { color: #79c0ff; }
+.pv.yellow { color: #d29922; }
+.evidence-list { margin-top: 6px; padding-left: 148px; }
+.evidence-item { font-family: monospace; font-size: 10px; color: #7d8590; margin-bottom: 2px; }
+.evidence-item::before { content: "·"; margin-right: 6px; }
+.thread-badge { font-size: 10px; font-family: monospace; color: #7d8590; background: #1c2128; padding: 1px 5px; border-radius: 3px; }
+.ts { font-size: 10px; color: #6e7681; margin-left: auto; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <h1>Mailbox Ledger</h1>
+  <span class="badge purple">JSONL</span>
+  <span class="badge green">4 messages</span>
+  <span class="path">.claude/mailbox/agent_orchestrator.jsonl</span>
+</div>
+<div class="main">
+  <div class="agents">
+    <div class="agent-header">Agents</div>
+    <div class="agent-item active">
+      <div class="agent-id">agent_orchestrator</div>
+      <div class="agent-count">4 messages · 4 acked</div>
+    </div>
+    <div class="agent-item">
+      <div class="agent-id">_broadcast</div>
+      <div class="agent-count">0 messages</div>
+    </div>
+    <div class="agent-item">
+      <div class="agent-id">_task_ledger</div>
+      <div class="agent-count">2 tasks synced</div>
+    </div>
+  </div>
+  <div class="ledger">
+
+    <div class="msg-card">
+      <div class="msg-header">
+        <span class="msg-type mt-outcome">outcome</span>
+        <span class="msg-id">msg_cost_outc_mailbox_lane_v1</span>
+        <span class="thread-badge">sth_session_2026_06_02</span>
+        <span class="msg-status ms-acked">acked</span>
+        <span class="ts">14:33:10</span>
+      </div>
+      <div class="msg-body">
+        <div class="msg-from-to">agent_claude_sonnet46 → agent_orchestrator</div>
+        <div style="margin-top:8px">
+          <div class="payload-row"><span class="pk">outcome_id</span><span class="pv blue">outc_mailbox_lane_v1</span></div>
+          <div class="payload-row"><span class="pk">description</span><span class="pv">Mailbox MCP lane — 7 tools + Zod types + JSONL storage</span></div>
+          <div class="payload-row"><span class="pk">status</span><span class="pv green">achieved</span></div>
+          <div class="evidence-list">
+            <div class="evidence-item">src/mcp/mailbox-types.ts</div>
+            <div class="evidence-item">src/mcp/lanes/mailbox.ts</div>
+            <div class="evidence-item">src/mcp/lanes/mailbox.test.ts</div>
+            <div class="evidence-item">.claude/mailbox/agent_orchestrator.jsonl</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="msg-card">
+      <div class="msg-header">
+        <span class="msg-type mt-outcome">outcome</span>
+        <span class="msg-id">msg_cost_outc_telemetry_lane_v1</span>
+        <span class="thread-badge">sth_session_2026_06_02</span>
+        <span class="msg-status ms-acked">acked</span>
+        <span class="ts">14:28:55</span>
+      </div>
+      <div class="msg-body">
+        <div class="msg-from-to">agent_claude_sonnet46 → agent_orchestrator</div>
+        <div style="margin-top:8px">
+          <div class="payload-row"><span class="pk">outcome_id</span><span class="pv blue">outc_telemetry_lane_v1</span></div>
+          <div class="payload-row"><span class="pk">description</span><span class="pv">Telemetry MCP lane — 4 tools: session_list, cost_query, cache_efficiency, record_cost</span></div>
+          <div class="payload-row"><span class="pk">status</span><span class="pv green">achieved</span></div>
+          <div class="evidence-list">
+            <div class="evidence-item">src/mcp/lanes/telemetry.ts</div>
+            <div class="evidence-item">src/sdk/telemetry-client.ts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="msg-card">
+      <div class="msg-header">
+        <span class="msg-type mt-outcome">outcome</span>
+        <span class="msg-id">msg_cost_outc_swift_dashboard_v1</span>
+        <span class="thread-badge">sth_session_2026_06_02</span>
+        <span class="msg-status ms-acked">acked</span>
+        <span class="ts">14:25:01</span>
+      </div>
+      <div class="msg-body">
+        <div class="msg-from-to">agent_claude_sonnet46 → agent_orchestrator</div>
+        <div style="margin-top:8px">
+          <div class="payload-row"><span class="pk">outcome_id</span><span class="pv blue">outc_swift_dashboard_v1</span></div>
+          <div class="payload-row"><span class="pk">description</span><span class="pv">Swift dashboard — MCPClient + SubagentDashboardApp wired to SessionListView + CachePanel</span></div>
+          <div class="payload-row"><span class="pk">status</span><span class="pv green">achieved</span></div>
+          <div class="evidence-list">
+            <div class="evidence-item">apps/subagent-dashboard/Sources/SubagentDashboard/MCPClient.swift</div>
+            <div class="evidence-item">apps/subagent-dashboard/Sources/SubagentDashboard/SubagentDashboardApp.swift</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="msg-card">
+      <div class="msg-header">
+        <span class="msg-type mt-outcome">outcome</span>
+        <span class="msg-id">msg_cost_outc_outcome_registry_v1</span>
+        <span class="thread-badge">sth_session_2026_06_02</span>
+        <span class="msg-status ms-acked">acked</span>
+        <span class="ts">14:35:42</span>
+      </div>
+      <div class="msg-body">
+        <div class="msg-from-to">agent_claude_sonnet46 → agent_orchestrator</div>
+        <div style="margin-top:8px">
+          <div class="payload-row"><span class="pk">outcome_id</span><span class="pv blue">outc_outcome_registry_v1</span></div>
+          <div class="payload-row"><span class="pk">description</span><span class="pv">Outcome registry — session-2026-06-02.ts with O1–O11, runtime Zod validation</span></div>
+          <div class="payload-row"><span class="pk">status</span><span class="pv green">achieved</span></div>
+          <div class="evidence-list">
+            <div class="evidence-item">docs/outcomes/session-2026-06-02.ts</div>
+            <div class="evidence-item">docs/outcomes/session-2026-06-02.test.ts</div>
+            <div class="evidence-item">docs/outcomes/index.ts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

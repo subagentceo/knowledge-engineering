@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 // MCPClient.swift — calls the knowledge-bridge MCP server via HTTP/JSON-RPC.
 //
 // Dogfoods: telemetry_session_list, telemetry_cache_efficiency, telemetry_cost_query
@@ -179,3 +180,4 @@ enum AnyCodable: Encodable {
         }
     }
 }
+#endif // canImport(SwiftUI)

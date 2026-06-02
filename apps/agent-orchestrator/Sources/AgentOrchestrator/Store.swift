@@ -1,3 +1,4 @@
+#if canImport(Combine)
 import Foundation
 import Combine
 
@@ -56,3 +57,4 @@ final class OrchestratorStore: ObservableObject {
         return (t, p, d)
     }
 }
+#endif // canImport(Combine)

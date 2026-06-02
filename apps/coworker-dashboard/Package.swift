@@ -13,16 +13,11 @@ let package = Package(
     products: [
         .executable(name: "CoworkerDashboard", targets: ["CoworkerDashboard"]),
     ],
-    dependencies: [
-        // Local path — subagentceo/swift-markdown-ui (cmark-gfm backed GFM renderer)
-        .package(path: "../../../../swift-markdown-ui"),
-    ],
+    dependencies: [],
     targets: [
         .executableTarget(
             name: "CoworkerDashboard",
-            dependencies: [
-                .product(name: "MarkdownUI", package: "swift-markdown-ui"),
-            ],
+            dependencies: [],
             path: "Sources/CoworkerDashboard"
         ),
         .testTarget(

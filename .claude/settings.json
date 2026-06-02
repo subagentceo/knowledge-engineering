@@ -1,5 +1,7 @@
 {
   "env": {
+    "SWIFT_TOOLCHAIN": "/usr/libexec/swift",
+    "PATH": "/usr/libexec/swift/bin:/home/alexzh/.local/bin:/home/alexzh/.local/share/mise/shims:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin",
     "NEON_PROJECT_ID": "divine-cloud-27295848",
     "CLOUDFLARE_ACCOUNT_ID": "e6294e3ea89f8207af387d459824aaae",
     "CLOUDFLARE_WORKER_NAME": "ke-cloud-agent",

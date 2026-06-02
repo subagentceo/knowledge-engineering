@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 
 // Entry point. File is intentionally NOT named main.swift — a file by that name
@@ -10,3 +11,12 @@ struct AgentOrchestratorApp: App {
         }
     }
 }
+#else
+import Foundation
+// Linux entry point — no SwiftUI; type-check only
+@main struct AgentOrchestratorApp {
+    static func main() {
+        print("AgentOrchestrator: SwiftUI not available on Linux — model layer compiled OK")
+    }
+}
+#endif

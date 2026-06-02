@@ -1,5 +1,1 @@
-{
-  "swiftPM": {
-    "configuration": "debug"
-  }
-}
+{"swiftPM":{"configuration":"debug","scratchPath":"/tmp/swift-build/coworker-dashboard"}}

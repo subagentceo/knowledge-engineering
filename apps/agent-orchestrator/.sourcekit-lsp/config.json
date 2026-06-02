@@ -1,0 +1,6 @@
+{
+  "swiftPM": {
+    "configuration": "debug",
+    "scratchPath": "/tmp/swift-build/agent-orchestrator"
+  }
+}
