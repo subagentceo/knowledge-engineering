@@ -1,8 +1,7 @@
 # .github/workflows/cloudflare-preview.yml
 #
 # Per-PR Cloudflare Worker preview deploy of infra/cloudflare/. Pairs
-# with neon-branch.yml so reviewers (or the heartbeat) can hit a live
-# preview Worker bound to a fresh DB branch.
+# Deploys a per-PR preview Worker. Neon dependency removed 2026-06-02.
 #
 # Operator action minimized via Cloudflare Secrets Store. Cited from
 # https://developers.cloudflare.com/secrets-store/integrations/workers/
@@ -16,7 +15,6 @@
 #
 # Operator NO-LONGER-required (autonomously bootstrapped by this workflow):
 #   - wrangler secret put CLAUDE_CODE_OAUTH_TOKEN  → bootstrap-secrets job
-#   - wrangler secret put NEON_API_KEY             → bootstrap-secrets job
 #   - wrangler secret put GITHUB_TOKEN             → bootstrap-secrets job
 #
 # Net reduction: 4 → 1 operator action for Phase 8 Cloudflare side
@@ -106,25 +104,6 @@ jobs:
               --name "$SECRET_NAME" --scopes workers --remote
           else
             echo "Updating $SECRET_NAME (id=$EXISTS)"
-            printf '%s' "$SECRET_VALUE" | wrangler secrets-store secret update "$STORE_ID" \
-              --secret-id "$EXISTS" --remote
-          fi
-
-      - name: Upsert NEON_API_KEY
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          STORE_ID: ${{ steps.resolve_store.outputs.store_id }}
-          SECRET_NAME: NEON_API_KEY
-          SECRET_VALUE: ${{ secrets.NEON_API_KEY }}
-        run: |
-          set -euo pipefail
-          EXISTS=$(wrangler secrets-store secret list "$STORE_ID" --output json --remote \
-            | jq -r --arg n "$SECRET_NAME" '.[] | select(.name == $n) | .id' | head -1 || echo "")
-          if [ -z "$EXISTS" ]; then
-            printf '%s' "$SECRET_VALUE" | wrangler secrets-store secret create "$STORE_ID" \
-              --name "$SECRET_NAME" --scopes workers --remote
-          else
             printf '%s' "$SECRET_VALUE" | wrangler secrets-store secret update "$STORE_ID" \
               --secret-id "$EXISTS" --remote
           fi
@@ -226,5 +205,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `Cloudflare preview Worker deployed: \`${name}\`. Bindings resolved from Cloudflare Secrets Store (account-level, not per-Worker). The Worker uses \`await env.X.get()\` for OAuth + Neon credentials. ANTHROPIC_API_KEY is absent from the store (asserted by bootstrap-secrets job) AND rejected by the env-sanitizer at the sandbox boundary (src/worker.ts).`
+              body: `Cloudflare preview Worker deployed: \`${name}\`. Bindings resolved from Cloudflare Secrets Store (account-level, not per-Worker). The Worker uses \`await env.X.get()\` for OAuth credentials. ANTHROPIC_API_KEY is absent from the store (asserted by bootstrap-secrets job) AND rejected by the env-sanitizer at the sandbox boundary (src/worker.ts).`
             });

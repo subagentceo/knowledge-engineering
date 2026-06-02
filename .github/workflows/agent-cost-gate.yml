@@ -1,0 +1,148 @@
+# agent-cost-gate.yml
+#
+# Required CI check: every PR touching apps/ or src/ must have Claude agent
+# session cost data attached before merge. Reads agent-session-costs.json
+# artifact uploaded by the PR author (or CI tooling via claude-cost-poller).
+#
+# Gate logic:
+#   1. Check if PR touches apps/ or src/ — if not, skip (exit 0)
+#   2. Look for artifact agent-session-costs.json on the PR workflow run
+#   3. If absent: FAIL with instructions for attaching cost data
+#   4. If present: validate schema, post PR comment with cost summary
+#
+# Auth: OAuth-only. ANTHROPIC_API_KEY must not be set.
+# @cite apps/analytics-dashboard/cost/src/claude-cost-poller.ts  (AgentSessionCost schema)
+
+name: agent-cost-gate
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write
+  actions: read
+
+concurrency:
+  group: agent-cost-gate-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  agent-cost-gate:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    name: Agent session cost gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node 20
+        uses: actions/setup-node@v6
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check if PR touches code paths
+        id: code_paths
+        run: |
+          CHANGED=$(git diff --name-only origin/main...HEAD)
+          echo "changed files:"
+          echo "$CHANGED"
+          if echo "$CHANGED" | grep -qE '^(apps|src)/'; then
+            echo "touches_code=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "touches_code=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Download agent-session-costs artifact
+        id: download_artifact
+        if: steps.code_paths.outputs.touches_code == 'true'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const { data: artifacts } = await github.rest.actions.listArtifactsForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              per_page: 100,
+            });
+            // Find artifact from this PR's head SHA
+            const prSha = context.payload.pull_request.head.sha;
+            const artifact = artifacts.artifacts.find(a =>
+              a.name === 'agent-session-costs' &&
+              a.workflow_run?.head_sha === prSha
+            );
+            if (!artifact) {
+              core.setOutput('found', 'false');
+              return;
+            }
+            const download = await github.rest.actions.downloadArtifact({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              artifact_id: artifact.id,
+              archive_format: 'zip',
+            });
+            const fs = require('fs');
+            fs.writeFileSync('/tmp/agent-session-costs.zip', Buffer.from(download.data));
+            core.setOutput('found', 'true');
+
+      - name: Unzip artifact
+        if: steps.code_paths.outputs.touches_code == 'true' && steps.download_artifact.outputs.found == 'true'
+        run: unzip -o /tmp/agent-session-costs.zip -d /tmp/agent-costs/
+
+      - name: Validate cost data and generate summary
+        id: validate
+        if: steps.code_paths.outputs.touches_code == 'true'
+        run: |
+          if [ "${{ steps.download_artifact.outputs.found }}" != "true" ]; then
+            echo "::error::No agent-session-costs artifact found for this PR."
+            echo "::error::Attach cost data by running the cost poller during your agent session:"
+            echo "::error::  cd apps/analytics-dashboard/cost && npm run poller"
+            echo "::error::Then upload agent-session-costs.json as a GitHub Actions artifact."
+            exit 1
+          fi
+          npx tsx scripts/check-agent-costs.ts --artifact-path /tmp/agent-costs/agent-session-costs.json
+        env:
+          ANTHROPIC_API_KEY: ""
+
+      - name: Post cost summary to PR
+        if: steps.code_paths.outputs.touches_code == 'true' && steps.download_artifact.outputs.found == 'true'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const summaryPath = '/tmp/agent-costs/agent-session-costs.json';
+            if (!fs.existsSync(summaryPath)) return;
+            const sessions = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
+            const totalCost = sessions.reduce((sum, s) => sum + (s.cost_usd || 0), 0);
+            const totalInput = sessions.reduce((sum, s) => sum + (s.tokens_input || 0), 0);
+            const totalOutput = sessions.reduce((sum, s) => sum + (s.tokens_output || 0), 0);
+            const rows = sessions.map(s =>
+              `| \`${s.session_id}\` | ${s.model} | ${s.tokens_input.toLocaleString()} | ${s.tokens_output.toLocaleString()} | $${s.cost_usd.toFixed(4)} |`
+            ).join('\n');
+            const body = [
+              `## Agent Session Cost Report`,
+              ``,
+              `| Session | Model | Tokens In | Tokens Out | Cost |`,
+              `|---------|-------|-----------|------------|------|`,
+              rows,
+              `| **Total** | | **${totalInput.toLocaleString()}** | **${totalOutput.toLocaleString()}** | **$${totalCost.toFixed(4)}** |`,
+            ].join('\n');
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body,
+            });
+
+      - name: Skip (no code paths touched)
+        if: steps.code_paths.outputs.touches_code == 'false'
+        run: echo "PR does not touch apps/ or src/ — cost gate skipped."
