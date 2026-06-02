@@ -1,136 +1,134 @@
-// @cite vendor/anthropics/platform.claude.com/docs/en/manage-claude/usage-cost-api.md
-// Polls /v1/organizations/usage_report/messages and /v1/organizations/cost_report
-// every POLL_INTERVAL_MS, emits OTel metrics to OTEL_EXPORTER_OTLP_ENDPOINT.
-// Auth: ANTHROPIC_ADMIN_KEY (sk-ant-admin...) — never ANTHROPIC_API_KEY.
+// claude-cost-poller.ts
+// Reads cost data from the Claude Agent SDK ResultMessage stream and forwards
+// it to the OTel Collector via OTLP HTTP. Does NOT call the Anthropic Admin API
+// or require ANTHROPIC_ADMIN_KEY — the SDK emits total_cost_usd natively.
+//
+// The Claude Code CLI subprocess is configured with OTel env vars and exports
+// metrics directly to the collector. This module is a session-level aggregator
+// that collects result messages from running SDK sessions and writes structured
+// cost records to a local JSONL file (agent-session-costs.jsonl) consumable by
+// scripts/check-agent-costs.ts for the CI cost gate.
+//
+// @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/cost-tracking.md
+// @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/observability.md
 
-import { MeterProvider, PeriodicExportingMetricReader } from "@opentelemetry/sdk-metrics";
 import { OTLPMetricExporter } from "@opentelemetry/exporter-metrics-otlp-http";
+import {
+  MeterProvider,
+  PeriodicExportingMetricReader,
+} from "@opentelemetry/sdk-metrics";
 import { metrics } from "@opentelemetry/api";
+import * as fs from "fs";
+import * as readline from "readline";
 
-const ADMIN_KEY = process.env.ANTHROPIC_ADMIN_KEY;
-const WORKSPACE_ID = process.env.WORKSPACE_ID ?? "";
-const OTLP_ENDPOINT = process.env.OTEL_EXPORTER_OTLP_ENDPOINT ?? "http://localhost:4318";
-const POLL_MS = parseInt(process.env.POLL_INTERVAL_MS ?? "60000", 10);
-const API_BASE = "https://api.anthropic.com";
+// OTel SDK env vars that must also be set on the Claude Code CLI subprocess:
+//   CLAUDE_CODE_ENABLE_TELEMETRY=1
+//   OTEL_METRICS_EXPORTER=otlp
+//   OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
+//   OTEL_METRIC_EXPORT_INTERVAL=15000
+//
+// These are passed via options.env when creating Agent SDK sessions.
+// This file handles the application-layer aggregation on top of that pipeline.
 
-if (!ADMIN_KEY) {
-  console.error("ANTHROPIC_ADMIN_KEY not set — cost poller cannot authenticate");
-  process.exit(1);
+const OTLP_ENDPOINT =
+  process.env.OTEL_EXPORTER_OTLP_ENDPOINT ?? "http://localhost:4318";
+const WORKSPACE_ID =
+  process.env.WORKSPACE_ID ?? "wrkspc_01CBeWLBbjPFi6iqmBnnh3vs";
+const COSTS_JSONL = process.env.COSTS_JSONL ?? "/tmp/agent-session-costs.jsonl";
+
+export interface AgentSessionCost {
+  session_id: string;
+  model: string;
+  tokens_input: number;
+  tokens_output: number;
+  cache_creation_tokens: number;
+  cache_read_tokens: number;
+  cost_usd: number;
+  workspace_id: string;
+  recorded_at?: string;
+  pr_number?: number;
+  branch?: string;
 }
 
+// Initialize OTel MeterProvider pointing at the OTel Collector
 const exporter = new OTLPMetricExporter({ url: `${OTLP_ENDPOINT}/v1/metrics` });
 const meterProvider = new MeterProvider({
-  readers: [new PeriodicExportingMetricReader({ exporter, exportIntervalMillis: POLL_MS })],
+  readers: [
+    new PeriodicExportingMetricReader({ exporter, exportIntervalMillis: 15000 }),
+  ],
 });
 metrics.setGlobalMeterProvider(meterProvider);
 
-const meter = metrics.getMeter("claude-cost-poller", "0.1.0");
-
-const inputTokens = meter.createObservableGauge("claude.tokens.input", {
-  description: "Uncached input tokens consumed",
+const meter = metrics.getMeter("claude-cost-aggregator", "1.0.0");
+const costCounter = meter.createCounter("claude.cost.usd", {
+  description: "Cumulative USD cost of Claude agent sessions",
+  unit: "USD",
+});
+const inputTokenCounter = meter.createCounter("claude.tokens.input", {
+  description: "Input tokens consumed across Claude agent sessions",
   unit: "tokens",
 });
-const outputTokens = meter.createObservableGauge("claude.tokens.output", {
-  description: "Output tokens consumed",
+const outputTokenCounter = meter.createCounter("claude.tokens.output", {
+  description: "Output tokens produced across Claude agent sessions",
   unit: "tokens",
 });
-const cacheReadTokens = meter.createObservableGauge("claude.tokens.cache_read", {
-  description: "Cache-read input tokens",
+const cacheReadCounter = meter.createCounter("claude.tokens.cache_read", {
+  description: "Tokens served from prompt cache",
   unit: "tokens",
 });
-const costUsd = meter.createObservableGauge("claude.cost.usd", {
-  description: "API cost in USD cents",
-  unit: "cents",
-});
 
-type UsageBucket = {
-  start_time: string;
-  input_tokens: number;
-  output_tokens: number;
-  cache_read_input_tokens: number;
-  model?: string;
-};
-
-type CostBucket = {
-  start_time: string;
-  cost: string;
-  description?: string;
-};
-
-async function fetchJson<T>(path: string): Promise<T> {
-  const res = await fetch(`${API_BASE}${path}`, {
-    headers: {
-      "anthropic-version": "2023-06-01",
-      "x-api-key": ADMIN_KEY!,
-      "User-Agent": "claude-cost-poller/0.1.0 (knowledge-engineering)",
-    },
-  });
-  if (!res.ok) throw new Error(`${path} → ${res.status} ${await res.text()}`);
-  return res.json() as Promise<T>;
-}
-
-function yesterday(): { starting_at: string; ending_at: string } {
-  const now = new Date();
-  const end = new Date(now);
-  end.setUTCHours(0, 0, 0, 0);
-  const start = new Date(end);
-  start.setUTCDate(start.getUTCDate() - 1);
-  return {
-    starting_at: start.toISOString(),
-    ending_at: end.toISOString(),
+// Record a cost entry from an SDK ResultMessage.
+// Call this from your agent loop when block.type === "result".
+export function recordSessionCost(cost: AgentSessionCost): void {
+  const attrs = {
+    session_id: cost.session_id,
+    model: cost.model,
+    workspace_id: cost.workspace_id,
   };
+
+  costCounter.add(cost.cost_usd, attrs);
+  inputTokenCounter.add(cost.tokens_input, attrs);
+  outputTokenCounter.add(cost.tokens_output, attrs);
+  cacheReadCounter.add(cost.cache_read_tokens, attrs);
+
+  // Append to JSONL for CI gate consumption (scripts/check-agent-costs.ts)
+  const line = JSON.stringify({ ...cost, recorded_at: new Date().toISOString() });
+  fs.appendFileSync(COSTS_JSONL, line + "\n");
+  console.log(`[cost] session=${cost.session_id} cost=$${cost.cost_usd.toFixed(4)} model=${cost.model}`);
 }
 
-async function poll() {
-  const { starting_at, ending_at } = yesterday();
-  const wsParam = WORKSPACE_ID ? `&workspace_ids[]=${WORKSPACE_ID}` : "";
-
-  try {
-    const usageUrl =
-      `/v1/organizations/usage_report/messages?` +
-      `starting_at=${starting_at}&ending_at=${ending_at}` +
-      `&group_by[]=model&bucket_width=1d${wsParam}`;
-
-    const usageData = await fetchJson<{ data: UsageBucket[] }>(usageUrl);
-
-    for (const bucket of usageData.data ?? []) {
-      const attrs = {
-        workspace_id: WORKSPACE_ID || "default",
-        model: bucket.model ?? "unknown",
-        date: bucket.start_time.slice(0, 10),
-      };
-      inputTokens.addCallback((res) => res.observe(bucket.input_tokens, attrs));
-      outputTokens.addCallback((res) => res.observe(bucket.output_tokens, attrs));
-      cacheReadTokens.addCallback((res) => res.observe(bucket.cache_read_input_tokens, attrs));
+// Tail an existing JSONL file of SDK result messages and emit OTel metrics.
+export async function replayCostsFromJSONL(path: string): Promise<void> {
+  const rl = readline.createInterface({ input: fs.createReadStream(path) });
+  for await (const line of rl) {
+    if (!line.trim()) continue;
+    try {
+      const entry = JSON.parse(line) as AgentSessionCost;
+      recordSessionCost({ ...entry, workspace_id: entry.workspace_id ?? WORKSPACE_ID });
+    } catch {
+      // skip malformed lines
     }
-  } catch (e) {
-    console.error("usage poll failed:", e);
   }
-
-  try {
-    const costUrl =
-      `/v1/organizations/cost_report?` +
-      `starting_at=${starting_at}&ending_at=${ending_at}` +
-      `&group_by[]=workspace_id&group_by[]=description&bucket_width=1d`;
-
-    const costData = await fetchJson<{ data: CostBucket[] }>(costUrl);
-
-    for (const bucket of costData.data ?? []) {
-      const attrs = {
-        workspace_id: WORKSPACE_ID || "default",
-        description: bucket.description ?? "unknown",
-        date: bucket.start_time.slice(0, 10),
-      };
-      // cost is a decimal string in USD cents
-      const cents = parseFloat(bucket.cost) * 100;
-      costUsd.addCallback((res) => res.observe(cents, attrs));
-    }
-  } catch (e) {
-    console.error("cost poll failed:", e);
-  }
-
-  console.log(`[${new Date().toISOString()}] poll complete — next in ${POLL_MS}ms`);
 }
 
-await poll();
-setInterval(poll, POLL_MS);
+// OTel env vars to pass via options.env when creating Agent SDK sessions.
+// The CLI subprocess exports directly to the collector; no Admin API key needed.
+// @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/observability.md
+export const sdkOtelEnv: Record<string, string> = {
+  CLAUDE_CODE_ENABLE_TELEMETRY: "1",
+  CLAUDE_CODE_ENHANCED_TELEMETRY_BETA: "1",
+  OTEL_METRICS_EXPORTER: "otlp",
+  OTEL_TRACES_EXPORTER: "otlp",
+  OTEL_LOGS_EXPORTER: "otlp",
+  OTEL_EXPORTER_OTLP_PROTOCOL: "http/protobuf",
+  OTEL_EXPORTER_OTLP_ENDPOINT: OTLP_ENDPOINT,
+  OTEL_METRIC_EXPORT_INTERVAL: "15000",
+  OTEL_SERVICE_NAME: "knowledge-engineering-agent",
+  OTEL_RESOURCE_ATTRIBUTES: `workspace.id=${WORKSPACE_ID}`,
+};
+
+// Graceful shutdown — flush pending metrics before exit
+process.on("SIGTERM", async () => {
+  await meterProvider.shutdown();
+  process.exit(0);
+});
