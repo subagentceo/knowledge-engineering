@@ -32,6 +32,10 @@ const OTLP_ENDPOINT =
   process.env.OTEL_EXPORTER_OTLP_ENDPOINT ?? "http://localhost:4318";
 const WORKSPACE_ID =
   process.env.WORKSPACE_ID ?? "wrkspc_01CBeWLBbjPFi6iqmBnnh3vs";
+// Organization ID: standard OTel attribute organization.id on all metrics.
+// @cite vendor/anthropics/code.claude.com/docs/en/monitoring-usage.md (standard attributes)
+const ORGANIZATION_ID =
+  process.env.ORGANIZATION_ID ?? "c38224f8-0e34-45c0-abee-739f89331d6a";
 const COSTS_JSONL = process.env.COSTS_JSONL ?? "/tmp/agent-session-costs.jsonl";
 
 // ---------------------------------------------------------------------------
@@ -105,13 +109,33 @@ metrics.setGlobalMeterProvider(meterProvider);
 
 const meter = metrics.getMeter("claude-cost-aggregator", "1.0.0");
 
-// Cost counters — parity with Console /cost token_type breakdown
-const costTotal = meter.createCounter("claude.cost.usd", { unit: "USD" });
-const uncachedInputCounter = meter.createCounter("claude.tokens.uncached_input", { unit: "tokens" });
-const outputCounter = meter.createCounter("claude.tokens.output", { unit: "tokens" });
-const cacheReadCounter = meter.createCounter("claude.tokens.cache_read_input", { unit: "tokens" });
-const cacheCreate5mCounter = meter.createCounter("claude.tokens.cache_creation_5m_input", { unit: "tokens" });
-const cacheCreate1hCounter = meter.createCounter("claude.tokens.cache_creation_1h_input", { unit: "tokens" });
+// Metric names mirror the Claude Code CLI native OTel metrics.
+// @cite vendor/anthropics/code.claude.com/docs/en/monitoring-usage.md (Metrics section)
+//
+// Native CLI metrics (emitted by subprocess when CLAUDE_CODE_ENABLE_TELEMETRY=1):
+//   claude_code.cost.usage         { type: "USD" }
+//   claude_code.token.usage        { type: "input"|"output"|"cacheRead"|"cacheCreation" }
+//   claude_code.session.count
+//   claude_code.lines_of_code.count
+//   claude_code.pull_request.count
+//   claude_code.commit.count
+//   claude_code.active_time.total
+//   claude_code.code_edit_tool.decision
+//
+// Standard OTel attributes on all metrics:
+//   organization.id  (= ORGANIZATION_ID)
+//   session.id       (controlled by OTEL_METRICS_INCLUDE_SESSION_ID)
+//   user.account_uuid / user.account_id
+//   user.email, user.id
+//
+// These application-level counters aggregate session results for Grafana:
+const costTotal = meter.createCounter("claude_code.cost.usage", { unit: "USD",
+  description: "Parity: claude_code.cost.usage from CLI telemetry" });
+const tokenInput = meter.createCounter("claude_code.token.usage.input", { unit: "tokens" });
+const tokenOutput = meter.createCounter("claude_code.token.usage.output", { unit: "tokens" });
+const tokenCacheRead = meter.createCounter("claude_code.token.usage.cache_read", { unit: "tokens" });
+const tokenCacheCreate5m = meter.createCounter("claude_code.token.usage.cache_creation_5m", { unit: "tokens" });
+const tokenCacheCreate1h = meter.createCounter("claude_code.token.usage.cache_creation_1h", { unit: "tokens" });
 
 // Cache efficiency gauge — parity with Console /usage/cache hit rate view
 const cacheHitRateGauge = meter.createObservableGauge("claude.cache.hit_rate_pct", {
@@ -122,8 +146,10 @@ const cacheHitRateGauge = meter.createObservableGauge("claude.cache.hit_rate_pct
 // recordSessionCost — call from ResultMessage handler in agent loop
 // ---------------------------------------------------------------------------
 export function recordSessionCost(cost: AgentSessionCost): void {
+  // Standard attributes matching Claude Code CLI OTel standard attribute set
   const attrs = {
-    session_id: cost.session_id,
+    "organization.id": ORGANIZATION_ID,     // standard attribute; always include
+    "session.id": cost.session_id,
     model: cost.model,
     workspace_id: cost.workspace_id,
     service_tier: cost.service_tier,
@@ -131,11 +157,11 @@ export function recordSessionCost(cost: AgentSessionCost): void {
   };
 
   costTotal.add(cost.cost_usd, attrs);
-  uncachedInputCounter.add(cost.uncached_input_tokens, attrs);
-  outputCounter.add(cost.output_tokens, attrs);
-  cacheReadCounter.add(cost.cache_read_input_tokens, attrs);
-  cacheCreate5mCounter.add(cost.cache_creation_5m_input_tokens, attrs);
-  cacheCreate1hCounter.add(cost.cache_creation_1h_input_tokens, attrs);
+  tokenInput.add(cost.uncached_input_tokens, { ...attrs, type: "input" });
+  tokenOutput.add(cost.output_tokens, { ...attrs, type: "output" });
+  tokenCacheRead.add(cost.cache_read_input_tokens, { ...attrs, type: "cacheRead" });
+  tokenCacheCreate5m.add(cost.cache_creation_5m_input_tokens, { ...attrs, type: "cacheCreation", ttl: "5m" });
+  tokenCacheCreate1h.add(cost.cache_creation_1h_input_tokens, { ...attrs, type: "cacheCreation", ttl: "1h" });
 
   // register cache hit rate for this session
   cacheHitRateGauge.addCallback((result) => {
@@ -251,6 +277,10 @@ export async function replayCostsFromJSONL(path: string): Promise<void> {
 // The CLI subprocess exports directly to the OTel Collector at OTLP_ENDPOINT.
 // @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/observability.md
 // ---------------------------------------------------------------------------
+// sdkOtelEnv — org-scoped; sets organization.id as a resource attribute so
+// all CLI subprocess metrics carry it. Pass via options.env when creating sessions.
+// @cite vendor/anthropics/code.claude.com/docs/en/monitoring-usage.md
+//   (standard attributes: organization.id, multi-team org support)
 export const sdkOtelEnv: Record<string, string> = {
   CLAUDE_CODE_ENABLE_TELEMETRY: "1",
   CLAUDE_CODE_ENHANCED_TELEMETRY_BETA: "1",
@@ -260,8 +290,14 @@ export const sdkOtelEnv: Record<string, string> = {
   OTEL_EXPORTER_OTLP_PROTOCOL: "http/protobuf",
   OTEL_EXPORTER_OTLP_ENDPOINT: OTLP_ENDPOINT,
   OTEL_METRIC_EXPORT_INTERVAL: "15000",
+  // OTEL_METRICS_INCLUDE_SESSION_ID defaults to true — session.id on all metrics
+  // OTEL_METRICS_INCLUDE_ACCOUNT_UUID defaults to true — user.account_uuid on all metrics
   OTEL_SERVICE_NAME: "knowledge-engineering-agent",
-  OTEL_RESOURCE_ATTRIBUTES: `workspace.id=${WORKSPACE_ID}`,
+  // organization.id is set here as a resource attribute — parity with Console /analytics
+  OTEL_RESOURCE_ATTRIBUTES: [
+    `organization.id=${ORGANIZATION_ID}`,
+    `workspace.id=${WORKSPACE_ID}`,
+  ].join(","),
 };
 
 process.on("SIGTERM", async () => { await meterProvider.shutdown(); process.exit(0); });
