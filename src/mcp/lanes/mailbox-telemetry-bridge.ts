@@ -1,8 +1,6 @@
 /**
- * mailbox-telemetry-bridge.ts — wires recordSessionCost → mailbox CostRecordPayload.
- *
- * Call postCostToMailbox after recordSessionCost() in agent loops so each
- * cost record becomes an atomic outcome message in the mailbox ledger.
+ * mailbox-telemetry-bridge.ts — wires telemetry_record_cost → mailbox_outcome.
+ * Call postCostToMailbox after recordSessionCost() in agent loops.
  *
  * @cite src/mcp/lanes/mailbox.ts
  * @cite src/mcp/lanes/telemetry.ts
