@@ -47,10 +47,11 @@ services:
       - ./package.json:/app/package.json
     command: sh -c "npm install --silent && node --loader ts-node/esm src/claude-cost-poller.ts"
     environment:
-      - ANTHROPIC_ADMIN_KEY=${ANTHROPIC_ADMIN_KEY}
+      # No ANTHROPIC_ADMIN_KEY — cost via Agent SDK ResultMessage.total_cost_usd
+      # @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/cost-tracking.md
       - WORKSPACE_ID=${WORKSPACE_ID:-wrkspc_01CBeWLBbjPFi6iqmBnnh3vs}
       - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318
-      - POLL_INTERVAL_MS=60000
+      - COSTS_JSONL=/tmp/agent-session-costs.jsonl
     restart: unless-stopped
     depends_on:
       - otel-collector
