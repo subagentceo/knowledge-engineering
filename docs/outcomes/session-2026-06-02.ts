@@ -160,6 +160,40 @@ export const outcomes: SessionOutcome[] = [
     ],
     cost_session_id: "session-2026-06-02-O9",
   },
+  {
+    id: "O10",
+    title: "Mailbox MCP lane — 7 tools + Zod types + JSONL storage",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "src/mcp/mailbox-types.ts",
+      "src/mcp/lanes/mailbox.ts",
+      "src/mcp/bridge-server.ts",
+      "docs/architecture/mailbox-mcp-design.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "docs/architecture/mailbox-mcp-design.md",
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+    ],
+    commit_sha: "a76f89cb",
+  },
+  {
+    id: "O11",
+    title: "Outcome registry — Zod-typed session-2026-06-02.ts with 9 outcomes + tests",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "docs/outcomes/session-2026-06-02.ts",
+      "docs/outcomes/session-2026-06-02.test.ts",
+      "docs/outcomes/index.ts",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "f4ea7b96",
+  },
 ];
 
 // ---------------------------------------------------------------------------
