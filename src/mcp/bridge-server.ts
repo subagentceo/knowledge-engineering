@@ -21,6 +21,7 @@ import { registerLlmsTxt } from "./lanes/llms-txt.js";
 import { registerVendor } from "./lanes/vendor.js";
 import { registerProject } from "./lanes/project.js";
 import { registerSearchTools } from "./lanes/search-tools.js";
+import { registerTelemetry } from "./lanes/telemetry.js";
 
 const server = new McpServer({
   name: "knowledge-bridge",
@@ -34,5 +35,6 @@ registerLlmsTxt(server);
 registerVendor(server);
 registerProject(server);
 registerSearchTools(server);
+registerTelemetry(server);
 
 await server.connect(new StdioServerTransport());
