@@ -1,7 +1,7 @@
 /**
- * @cite docs/architecture/mailbox-mcp-design.md
- * @cite src/mcp/lanes/mailbox.ts
- * @cite apps/analytics-dashboard/cost/src/claude-cost-poller.ts
+ * @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/subagents.md
+ * @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/mcp.md
+ * @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/observability.md
  */
 import { strict as assert } from "node:assert";
 import { test } from "node:test";
