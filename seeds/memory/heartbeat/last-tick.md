@@ -6,7 +6,7 @@ branch: main
 
 ## Completed this tick
 
-- feat(phase-6): Phase 6.B-B closeout PR — rubrics/phase-6.md C3 partial DONE; verifier allowlist 12→7 (#103 closed)
+- feat(phase-6): PR #328 merged — rubrics/phase-6.md C3 partial DONE; verifier allowlist 12→7 (#103 closed)
 - docs(pending): pending.md last-reviewed refreshed to 2026-06-03
 
 ## Next tick priorities
