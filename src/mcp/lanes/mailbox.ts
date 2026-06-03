@@ -4,13 +4,17 @@
  * 7 tools: mailbox_send, mailbox_recv, mailbox_peek, mailbox_ack,
  *          mailbox_thread, mailbox_outcome, mailbox_task_sync
  *
- * Storage: JSONL per agent under MAILBOX_DIR (.claude/mailbox/).
- * Append-only invariant: status updates are new lines, never mutations.
+ * Storage: controlled by MAILBOX_BACKEND env var.
+ *   "jsonl"  (default) — append-only JSONL per agent under MAILBOX_DIR.
+ *   "sqlite" — SQLite-backed store (D1-compatible); uses MAILBOX_DB_PATH.
+ *
+ * JSONL append-only invariant: status updates are new lines, never mutations.
  * Last line for a given message_id wins during read.
  *
  * @cite docs/architecture/mailbox-mcp-design.md
  * @cite src/mcp/lanes/telemetry.ts   (JSONL + tool registration pattern)
  * @cite apps/analytics-dashboard/cost/src/claude-cost-poller.ts
+ * @cite src/db/mailbox-store.ts
  */
 import * as fs from "node:fs";
 import * as path from "node:path";
@@ -29,13 +33,16 @@ import {
   TaskPayload,
   MessageType,
 } from "../mailbox-types.js";
+import { getSqliteStore } from "../../db/mailbox-store.js";
+
+const MAILBOX_BACKEND = (process.env.MAILBOX_BACKEND ?? "jsonl") as "jsonl" | "sqlite";
 
 const MAILBOX_DIR = process.env.MAILBOX_DIR
   ?? path.join(process.cwd(), ".claude", "mailbox");
 const TASK_LEDGER = process.env.TASK_LEDGER_JSONL
   ?? path.join(MAILBOX_DIR, "_task_ledger.jsonl");
 
-// ─── storage helpers ─────────────────────────────────────────────────────────
+// ─── JSONL storage helpers ────────────────────────────────────────────────────
 
 function ensureDir(): void {
   fs.mkdirSync(MAILBOX_DIR, { recursive: true });
@@ -105,6 +112,15 @@ export function registerMailbox(server: McpServer): void {
         payload, ack_required, ttl_ms,
         status: "pending",
       };
+      if (MAILBOX_BACKEND === "sqlite") {
+        const store = getSqliteStore();
+        if (to === "broadcast") {
+          store.broadcastMessage(msg);
+        } else {
+          store.upsertMessage(msg);
+        }
+        return jsonResult({ message_id: id, written_to: "sqlite" });
+      }
       const dest = to === "broadcast" ? broadcastPath() : agentPath(to);
       appendRaw(dest, msg);
       return jsonResult({ message_id: id, written_to: dest });
@@ -120,6 +136,21 @@ export function registerMailbox(server: McpServer): void {
       type_filter: MessageType.optional(),
     },
     async ({ agent_id, type_filter }) => {
+      if (MAILBOX_BACKEND === "sqlite") {
+        const store = getSqliteStore();
+        // Check agent-specific then broadcast
+        for (const target of [agent_id, "broadcast"]) {
+          const msgs = store.getPendingMessages(target, 50);
+          const candidate = msgs.find(m =>
+            !type_filter || m.type === type_filter
+          );
+          if (!candidate) continue;
+          const newStatus: MessageStatus = candidate.ack_required ? "in_flight" : "acked";
+          store.ackMessage(candidate.id, newStatus);
+          return jsonResult({ message: candidate });
+        }
+        return jsonResult({ message: null });
+      }
       const files = [agentPath(agent_id), broadcastPath()];
       for (const file of files) {
         const msgs = await readRaw(file);
@@ -129,7 +160,6 @@ export function registerMailbox(server: McpServer): void {
           (!type_filter || m.type === type_filter)
         );
         if (!candidate) continue;
-        // Append in-flight status update
         const update: Partial<RawEnvelope> & { id: string; status: MessageStatus } = {
           id: candidate.id, status: "in_flight",
         };
@@ -151,6 +181,16 @@ export function registerMailbox(server: McpServer): void {
       type_filter: MessageType.optional(),
     },
     async ({ agent_id, limit = 20, type_filter }) => {
+      if (MAILBOX_BACKEND === "sqlite") {
+        const store = getSqliteStore();
+        const all: RawEnvelope[] = [
+          ...store.getPendingMessages(agent_id, limit),
+          ...store.getPendingMessages("broadcast", limit),
+        ].filter(m => !type_filter || m.type === type_filter);
+        all.sort((a, b) => a.timestamp.localeCompare(b.timestamp));
+        const sliced = all.slice(0, limit);
+        return jsonResult({ messages: sliced, total_pending: all.length });
+      }
       const files = [agentPath(agent_id), broadcastPath()];
       const all: RawEnvelope[] = [];
       for (const file of files) {
@@ -175,12 +215,18 @@ export function registerMailbox(server: McpServer): void {
       status: z.enum(["acked", "failed"]),
       note: z.string().optional(),
     },
-    async ({ agent_id, message_id, status, note }) => {
+    async ({ agent_id, message_id, status, note: _note }) => {
+      if (MAILBOX_BACKEND === "sqlite") {
+        const store = getSqliteStore();
+        const ok = store.ackMessage(message_id, status);
+        if (!ok) return jsonResult({ acked: false, message_id, error: "not found" });
+        return jsonResult({ acked: true, message_id, status });
+      }
       const file = agentPath(agent_id);
       const msgs = await readRaw(file);
       const original = msgs.find(m => m.id === message_id);
       if (!original) return jsonResult({ acked: false, message_id, error: "not found" });
-      appendRaw(file, { ...original, status, note });
+      appendRaw(file, { ...original, status });
       return jsonResult({ acked: true, message_id, status });
     },
   );
@@ -194,6 +240,16 @@ export function registerMailbox(server: McpServer): void {
       include_broadcast: z.boolean().optional().default(true),
     },
     async ({ thread_id, include_broadcast = true }) => {
+      if (MAILBOX_BACKEND === "sqlite") {
+        const store = getSqliteStore();
+        let results = store.getThreadMessages(thread_id);
+        if (!include_broadcast) {
+          results = results.filter(m => m.to !== "broadcast");
+        }
+        results.sort((a, b) => a.timestamp.localeCompare(b.timestamp));
+        const agents = new Set(results.map(m => m.to));
+        return jsonResult({ messages: results, agent_count: agents.size });
+      }
       ensureDir();
       const files = fs.readdirSync(MAILBOX_DIR)
         .filter(f => f.endsWith(".jsonl") && (include_broadcast || !f.startsWith("_broadcast")))
@@ -239,6 +295,15 @@ export function registerMailbox(server: McpServer): void {
         timestamp: new Date().toISOString(),
         payload, ack_required: false, status: "pending",
       };
+      if (MAILBOX_BACKEND === "sqlite") {
+        const store = getSqliteStore();
+        if (to === "broadcast") {
+          store.broadcastMessage(msg);
+        } else {
+          store.upsertMessage(msg);
+        }
+        return jsonResult({ message_id: id, outcome_id, status });
+      }
       const dest = to === "broadcast" ? broadcastPath() : agentPath(to);
       appendRaw(dest, msg);
       return jsonResult({ message_id: id, outcome_id, status });
@@ -265,6 +330,24 @@ export function registerMailbox(server: McpServer): void {
       const task = TaskPayload.parse({
         task_id, title, description, status, priority, parent_task_id, assignee_agent_id, due_at,
       });
+
+      if (MAILBOX_BACKEND === "sqlite") {
+        const store = getSqliteStore();
+        store.upsertTask({ ...task, updated_by: from, updated_at: new Date().toISOString() });
+        let message_id: string | undefined;
+        if (assignee_agent_id) {
+          const id = makeId();
+          const notification: RawEnvelope = {
+            id, from, to: assignee_agent_id, type: "task",
+            timestamp: new Date().toISOString(),
+            payload: task, ack_required: false, status: "pending",
+          };
+          store.upsertMessage(notification);
+          message_id = id;
+        }
+        return jsonResult({ task_id, synced: true, message_id });
+      }
+
       ensureDir();
       appendRaw(TASK_LEDGER, { ...task, updated_by: from, updated_at: new Date().toISOString() });
 
