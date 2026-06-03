@@ -14,12 +14,15 @@ export {
 } from "./session-2026-06-02.js";
 export type { SessionOutcome } from "./session-2026-06-02.js";
 
+export { outcomes as outcomes_2026_06_03 } from "./session-2026-06-03.js";
+
 import { outcomes as outcomes_2026_06_02 } from "./session-2026-06-02.js";
+import { outcomes as outcomes_2026_06_03 } from "./session-2026-06-03.js";
 import type { SessionOutcome } from "./session-2026-06-02.js";
 
-// Aggregated list of all outcomes across all sessions.
 const allOutcomes: SessionOutcome[] = [
   ...outcomes_2026_06_02,
+  ...outcomes_2026_06_03,
 ];
 
 /**
