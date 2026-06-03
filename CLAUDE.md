@@ -20,6 +20,8 @@ Format rules:
 Tool-call rules (batching > sequencing):
 - **Batch parallel MCP calls in one assistant message** (multiple `tool_use` blocks per turn). Independent reads (Read, Grep, Glob, context7, vendor-doc fetches) — always parallel.
 - **Use `code-mode` MCP for >2 dependent calls.** `mcp__MCP_DOCKER__code-mode` / `mcp__outcomes-mcp__code` runs TypeScript that issues many MCP calls in a single round-trip. Use it whenever a chain would otherwise be 3+ sequential tool_use turns. Cite: `vendor/anthropics/code.claude.com/docs/en/api/code-mode.md` if present, otherwise context7 lookup of "anthropic code mode mcp".
+- **Multi-PR sweep heuristic.** Iterating PRs one-at-a-time with `gh pr view; gh pr close; gh pr reopen; gh pr merge` is N×4 round-trips per PR — for 5 PRs that is 20 sequential turns. Write a single TypeScript program that uses `mcp__MCP_DOCKER__code-mode` so the entire sweep is one round-trip. Same pattern for any multi-entity loop (mass-comment, label sweeps, status surveys). Cite: `seeds/citations/programmatic-tool-calling.md`.
+- **Worktree isolation for parallel coworkers.** When forking `Agent()` for engineering work, use `isolation: "worktree"` and give the agent a clear task budget (max tool calls, max wall-clock, what to skip). The worktree is auto-cleaned if no changes are made. Reserves the main checkout for orchestration.
 - **Citation tool order of preference:** (1) `vendor/` local markdown (zero-latency, mirrored), (2) `mcp__plugin_context7_context7__query-docs` for library APIs not in vendor/, (3) `mcp__MCP_DOCKER__search_cloudflare_documentation` for CF specifics, (4) `mcp__MCP_DOCKER__fetch_generic_documentation` last resort.
 - **Never** sequential-poll when the harness will notify on completion. Never sleep to wait for a tool result.
 
@@ -102,6 +104,23 @@ feat(neon): wire ws constructor for Pool websocket (O1)
 Closes #N
 Refs O1
 ```
+
+**BANNED_RE (OPM3, load-bearing).** `src/lib/conventions.test.ts` rejects commit subjects matching `/^(chore|ci)(\([^)]*\))?:\s*(nudge|drain|re-?trigger|serial drain|kick|poke|bump)\b.*\bci\b/i`. Sync-after-rebase commits MUST describe what was done, not the CI action. Safe pattern: `chore(<scope>): sync branch to main after <topic> merge (O<N>)`. Banned: `chore: retrigger CI ...`.
+
+## PR loop discipline (OAUTO17)
+
+The branch ruleset `Protect main — no HITL` (id `16440994`) requires two contexts: `npm run verify` + `OSV-Scanner (PR) / osv-scan`. With `strict_required_status_checks_policy: true`, PRs must also be up-to-date with main.
+
+- **`workflow_dispatch` does NOT satisfy required checks.** It produces `OSV-Scanner (push / schedule) / osv-scan` — a DIFFERENT context name than the required `OSV-Scanner (PR) / osv-scan`. Only `pull_request`-triggered runs create the required context.
+- **GitHub App-pushed commits suppress `pull_request` events** (anti-recursion). After `gh pr update-branch` or auto-rebase's App-authored merge, `branch-guard`, `agent-cost-gate`, and `OSV-Scanner (PR)` never fire on the new head SHA → PR stuck `BLOCKED`.
+- **Fix:** `gh pr close N && gh pr reopen N && gh pr merge N --auto --rebase`. The reopen event creates a fresh `pull_request` payload that fires those workflows. Codified in `.github/workflows/auto-rebase.yml` `rescue-blocked-prs` job (PR #327 — OAUTO17).
+- **Multi-PR sweeps: write TypeScript via code-mode**, not N×4 `gh` shell calls. One round-trip beats N×4 round-trips. Cite: `seeds/citations/programmatic-tool-calling.md`.
+
+For the full house-format breakdown of all 6 ci-loop lessons, read `docs/prompts/loop-improvements-2026-06-03.md`.
+
+## Test-file assertion discipline
+
+Test files in `src/lib/*.test.ts` define a local mini-DSL of helpers (`assertEqual`, `assertThrows`, `assertRejects`). When mixing these with bare Node `assert.*` calls, you MUST also `import assert from "node:assert"` — otherwise the test runner throws `assert is not defined` at runtime. Prefer the local helpers for consistency; bare `node:assert` belongs only in `docs/outcomes/*.test.ts` and other places that opt in to `node:assert/strict`. Lesson learned from PR #309 (`assertThrows` replaces `assert.throws`).
 
 ## See also
 
