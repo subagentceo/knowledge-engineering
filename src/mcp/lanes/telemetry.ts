@@ -10,7 +10,7 @@
  *   telemetry_cache_efficiency  - compute cache efficiency for a session
  *   telemetry_record_cost       - append an AgentSessionCost record to COSTS_JSONL
  *
- * @cite apps/analytics-dashboard/cost/src/claude-cost-poller.ts
+ * @cite src/sdk/cost-types.ts
  * @cite vendor/anthropics/code.claude.com/docs/en/monitoring-usage.md
  */
 import * as fs from "node:fs";
@@ -25,7 +25,7 @@ import {
   computeCacheEfficiency,
   buildCostRecord,
   recordSessionCost,
-} from "../../../apps/analytics-dashboard/cost/src/claude-cost-poller.js";
+} from "../../sdk/cost-types.js";
 
 const COSTS_JSONL = process.env.COSTS_JSONL ?? "/tmp/agent-session-costs.jsonl";
 const PROMETHEUS_URL = process.env.PROMETHEUS_URL ?? "http://localhost:9090";
@@ -155,17 +155,17 @@ export function registerTelemetry(server: McpServer): void {
         {
           input_tokens: args.input_tokens,
           output_tokens: args.output_tokens,
-          cache_read_input_tokens: args.cache_read_input_tokens,
-          cache_creation_input_tokens: args.cache_creation_input_tokens,
+          ...(args.cache_read_input_tokens !== undefined && { cache_read_input_tokens: args.cache_read_input_tokens }),
+          ...(args.cache_creation_input_tokens !== undefined && { cache_creation_input_tokens: args.cache_creation_input_tokens }),
         },
         args.session_id,
         args.model,
         {
-          workspaceId: args.workspace_id,
-          serviceTier: args.service_tier,
-          contextWindow: args.context_window,
-          prNumber: args.pr_number,
-          branch: args.branch,
+          ...(args.workspace_id !== undefined && { workspaceId: args.workspace_id }),
+          ...(args.service_tier !== undefined && { serviceTier: args.service_tier }),
+          ...(args.context_window !== undefined && { contextWindow: args.context_window }),
+          ...(args.pr_number !== undefined && { prNumber: args.pr_number }),
+          ...(args.branch !== undefined && { branch: args.branch }),
         },
       );
       recordSessionCost(record);
