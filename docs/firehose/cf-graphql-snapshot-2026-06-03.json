@@ -1,0 +1,219 @@
+{
+  "account_id": "e6294e3ea89f8207af387d459824aaae",
+  "account_email": "alex@jadecli.com",
+  "snapshot_date": "2026-06-03",
+  "workers": {
+    "total_registered": 37,
+    "active_jun1_3": 27,
+    "total_requests_jun1_3": 57858,
+    "total_cpu_seconds_jun1_3": 860.5,
+    "total_errors_jun1_3": 123,
+    "by_script": [
+      {
+        "scriptName": "subagentmcp",
+        "requests": 30178,
+        "cpuTimeUs": 156769832,
+        "errors": 0
+      },
+      {
+        "scriptName": "managed-coworkers",
+        "requests": 10437,
+        "cpuTimeUs": 3606354,
+        "errors": 0
+      },
+      {
+        "scriptName": "gh-pr-mcp",
+        "requests": 5547,
+        "cpuTimeUs": 5220797,
+        "errors": 0
+      },
+      {
+        "scriptName": "subagentorganizations",
+        "requests": 2569,
+        "cpuTimeUs": 910453,
+        "errors": 0
+      },
+      {
+        "scriptName": "subagentdispatch",
+        "requests": 1482,
+        "cpuTimeUs": 182680261,
+        "errors": 31
+      },
+      {
+        "scriptName": "gh-commit-relay",
+        "requests": 1471,
+        "cpuTimeUs": 2601324,
+        "errors": 0
+      },
+      {
+        "scriptName": "managedsubagents-web",
+        "requests": 1426,
+        "cpuTimeUs": 696956,
+        "errors": 0
+      },
+      {
+        "scriptName": "subagentlegal",
+        "requests": 1067,
+        "cpuTimeUs": 167705463,
+        "errors": 31
+      },
+      {
+        "scriptName": "subagentengineering",
+        "requests": 1063,
+        "cpuTimeUs": 168743302,
+        "errors": 30
+      },
+      {
+        "scriptName": "subagentfinance",
+        "requests": 1046,
+        "cpuTimeUs": 170685800,
+        "errors": 31
+      },
+      {
+        "scriptName": "subagentgraphql",
+        "requests": 711,
+        "cpuTimeUs": 206343,
+        "errors": 0
+      },
+      {
+        "scriptName": "coworkers-agent",
+        "requests": 444,
+        "cpuTimeUs": 283038,
+        "errors": 0
+      },
+      {
+        "scriptName": "mc-mcp-memory",
+        "requests": 97,
+        "cpuTimeUs": 94459,
+        "errors": 0
+      },
+      {
+        "scriptName": "mc-mcp-seqthink",
+        "requests": 52,
+        "cpuTimeUs": 38130,
+        "errors": 0
+      },
+      {
+        "scriptName": "mc-mcp-git",
+        "requests": 48,
+        "cpuTimeUs": 35510,
+        "errors": 0
+      },
+      {
+        "scriptName": "mc-mcp-time",
+        "requests": 47,
+        "cpuTimeUs": 34710,
+        "errors": 0
+      },
+      {
+        "scriptName": "mc-mcp-fs",
+        "requests": 46,
+        "cpuTimeUs": 30972,
+        "errors": 0
+      },
+      {
+        "scriptName": "mc-mcp-everything",
+        "requests": 44,
+        "cpuTimeUs": 28778,
+        "errors": 0
+      },
+      {
+        "scriptName": "mc-mcp-fetch",
+        "requests": 42,
+        "cpuTimeUs": 26149,
+        "errors": 0
+      },
+      {
+        "scriptName": "sandbox-agent",
+        "requests": 14,
+        "cpuTimeUs": 15832,
+        "errors": 0
+      },
+      {
+        "scriptName": "build-trigger",
+        "requests": 7,
+        "cpuTimeUs": 15125,
+        "errors": 0
+      },
+      {
+        "scriptName": "relay-runner",
+        "requests": 6,
+        "cpuTimeUs": 34166,
+        "errors": 0
+      },
+      {
+        "scriptName": "claude-managed-agents-control-plane",
+        "requests": 3,
+        "cpuTimeUs": 9737,
+        "errors": 0
+      },
+      {
+        "scriptName": "gh-pr-mcp (disconnect)",
+        "requests": 3,
+        "cpuTimeUs": 1047,
+        "errors": 0
+      },
+      {
+        "scriptName": "repo-verify",
+        "requests": 3,
+        "cpuTimeUs": 12312,
+        "errors": 0
+      },
+      {
+        "scriptName": "subagenthandoffs-manifest-diff",
+        "requests": 3,
+        "cpuTimeUs": 20145,
+        "errors": 0
+      },
+      {
+        "scriptName": "repo-creator",
+        "requests": 2,
+        "cpuTimeUs": 7458,
+        "errors": 0
+      }
+    ]
+  },
+  "zones": {
+    "total": 108,
+    "plan": "Free Website (all)",
+    "status": "active (all)",
+    "patterns": [
+      "subagent*.com (72)",
+      "agent*.com (20)",
+      "jadecli.com/app (2)",
+      "managed*.com (2)",
+      "open*.com (3)",
+      "outcomesdk.com (1)"
+    ]
+  },
+  "ai_gateway": {
+    "gateways_configured": 0,
+    "requests_jun1_3": 0,
+    "note": "AI Gateway not yet set up. Free tier has no request cap \u2014 configure to get LLM observability across all workers."
+  },
+  "free_tier_analysis": {
+    "workers_requests": {
+      "limit_per_day": 100000,
+      "avg_daily_jun1_3": 19286,
+      "headroom_pct": null
+    },
+    "ai_gateway": {
+      "limit": "unlimited_free",
+      "configured": false,
+      "action": "SETUP \u2014 zero cost, adds observability + caching + rate limiting for all LLM calls"
+    },
+    "workers_ai": {
+      "free_neurons_per_day": 10000,
+      "current_usage": "unknown \u2014 not queried via GraphQL yet",
+      "action": "query AccountWorkersAiUsage to measure"
+    },
+    "d1": {
+      "free_rows_per_day": 100000,
+      "note": "mailbox-d1-adapter writes ~50 rows/tick \u2014 well within free tier"
+    },
+    "r2": {
+      "free_gb": 10,
+      "note": "No R2 usage detected \u2014 candidate for static asset offload from workers"
+    }
+  }
+}
