@@ -103,6 +103,23 @@ Closes #N
 Refs O1
 ```
 
+**BANNED_RE (OPM3, load-bearing).** `src/lib/conventions.test.ts` rejects commit subjects matching `/^(chore|ci)(\([^)]*\))?:\s*(nudge|drain|re-?trigger|serial drain|kick|poke|bump)\b.*\bci\b/i`. Sync-after-rebase commits MUST describe what was done, not the CI action. Safe pattern: `chore(<scope>): sync branch to main after <topic> merge (O<N>)`. Banned: `chore: retrigger CI ...`.
+
+## PR loop discipline (OAUTO17)
+
+The branch ruleset `Protect main — no HITL` (id `16440994`) requires two contexts: `npm run verify` + `OSV-Scanner (PR) / osv-scan`. With `strict_required_status_checks_policy: true`, PRs must also be up-to-date with main.
+
+- **`workflow_dispatch` does NOT satisfy required checks.** It produces `OSV-Scanner (push / schedule) / osv-scan` — a DIFFERENT context name than the required `OSV-Scanner (PR) / osv-scan`. Only `pull_request`-triggered runs create the required context.
+- **GitHub App-pushed commits suppress `pull_request` events** (anti-recursion). After `gh pr update-branch` or auto-rebase's App-authored merge, `branch-guard`, `agent-cost-gate`, and `OSV-Scanner (PR)` never fire on the new head SHA → PR stuck `BLOCKED`.
+- **Fix:** `gh pr close N && gh pr reopen N && gh pr merge N --auto --rebase`. The reopen event creates a fresh `pull_request` payload that fires those workflows. Codified in `.github/workflows/auto-rebase.yml` `rescue-blocked-prs` job (PR #327 — OAUTO17).
+- **Multi-PR sweeps: write TypeScript via code-mode**, not N×4 `gh` shell calls. One round-trip beats N×4 round-trips. Cite: `seeds/citations/programmatic-tool-calling.md`.
+
+For the full house-format breakdown of all 6 ci-loop lessons, read `docs/prompts/loop-improvements-2026-06-03.md`.
+
+## Test-file assertion discipline
+
+Test files in `src/lib/*.test.ts` define a local mini-DSL of helpers (`assertEqual`, `assertThrows`, `assertRejects`). When mixing these with bare Node `assert.*` calls, you MUST also `import assert from "node:assert"` — otherwise the test runner throws `assert is not defined` at runtime. Prefer the local helpers for consistency; bare `node:assert` belongs only in `docs/outcomes/*.test.ts` and other places that opt in to `node:assert/strict`. Lesson learned from PR #309 (`assertThrows` replaces `assert.throws`).
+
 ## See also
 
 - `RUNBOOK.md` — using Claude Opus 4.7 (1M context) as the web orchestrator
