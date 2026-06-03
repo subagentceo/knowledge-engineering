@@ -1,6 +1,6 @@
 {
   "name": "@subagentceo/knowledge-engineering",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Four-lane knowledge bridge (anthropic.com/engineering, claude.com/blog, support.claude.com, llms.txt namespaces) over MCP SDK v2 to a Claude Agent SDK orchestrator with mode-aware Planner and OAuth-only billing.",
   "type": "module",
   "main": "dist/index.js",
@@ -41,6 +41,8 @@
     "deploy:all": "npm run deploy:agent && npm run deploy:frontend",
     "sandbox:dev": "cd infra/cloudflare && npm run dev",
     "install:plugins": "tsx scripts/install-plugins.ts",
+    "batch:submit": "tsx src/agent/batch-submit.ts",
+    "batch:collect": "tsx src/agent/batch-collect.ts",
     "setup:project": "tsx scripts/setup-github-project.ts",
     "setup:branch-protection": "tsx scripts/setup-branch-protection.ts",
     "rotate:neon": "tsx scripts/mint-neon-api-secret.ts",

@@ -32,3 +32,15 @@ third_party/
 # Claude Code scheduled-tasks runtime lock — per-session pid/sessionId state.
 # Was tracked once in error (cd663ef #161); untracked in OLOCK1. Never commit.
 .claude/scheduled_tasks.lock
+
+# Agent isolation worktrees — runtime git worktrees created by Agent(isolation:"worktree").
+# Ephemeral; never tracked. Branches pushed separately via PR flow.
+.claude/worktrees/
+
+# Local claude-in-chrome / scratch output — never deliverables, never committed.
+screenshots/
+webpages/
+
+# Python bytecode in kg-api
+servers/kg-api/**/__pycache__/
+servers/kg-api/**/*.pyc
