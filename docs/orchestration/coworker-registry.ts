@@ -283,7 +283,7 @@ export const V040_LOOP_TASKS: LoopTask[] = [
     title: "ke-coworker-prompt CCR routine (rewrites prompts with opus-4-8 eval loop)",
     category: "prompt",
     priority: 2,
-    status: "pending",
+    status: "achieved",
     dependsOn: ["2026-06-03-O3"],
     coworker: "coworker-prompt",
     description:
@@ -294,7 +294,7 @@ export const V040_LOOP_TASKS: LoopTask[] = [
     title: "connector consensus via D1 (knowledge-graph-lane majority quorum landed)",
     category: "infra",
     priority: 3,
-    status: "pending",
+    status: "achieved",
     dependsOn: ["2026-06-03-O3", "2026-06-03-O4"],
     coworker: "coworker-feature-dev",
     description:

@@ -20,6 +20,12 @@ import {
   searchNodes,
   openNodes,
 } from "../../db/knowledge-graph.js";
+import { type D1ReplicaAdapter, majorityRead } from "../consensus.js";
+
+export interface KGConsensusConfig {
+  adapters: D1ReplicaAdapter[];
+  quorum: number;
+}
 
 const EntityTypeSchema = z.enum([
   "coworker",
@@ -42,7 +48,10 @@ const KGRelationSchema = z.object({
   to: z.string(),
 });
 
-export function registerKnowledgeGraph(server: McpServer): void {
+export function registerKnowledgeGraph(server: McpServer, consensus?: KGConsensusConfig): void {
+  const useConsensus =
+    consensus !== undefined && consensus.adapters.length >= consensus.quorum;
+
   server.tool(
     "kg_create_entities",
     "Create one or more typed knowledge-graph entities. Idempotent: duplicate names are skipped.",
@@ -109,6 +118,15 @@ export function registerKnowledgeGraph(server: McpServer): void {
     "Return the full knowledge graph (all entities and relations).",
     {},
     async () => {
+      if (useConsensus) {
+        const result = await majorityRead(
+          consensus!.adapters,
+          consensus!.quorum,
+          "kg_read_graph",
+          (a) => a.readGraph(),
+        );
+        return jsonResult(result);
+      }
       return jsonResult(readGraph());
     }
   );
@@ -120,6 +138,15 @@ export function registerKnowledgeGraph(server: McpServer): void {
       query: z.string().describe("substring to search for"),
     },
     async ({ query }) => {
+      if (useConsensus) {
+        const result = await majorityRead(
+          consensus!.adapters,
+          consensus!.quorum,
+          "kg_search_nodes",
+          (a) => a.searchNodes(query),
+        );
+        return jsonResult(result);
+      }
       return jsonResult(searchNodes(query));
     }
   );
@@ -131,6 +158,15 @@ export function registerKnowledgeGraph(server: McpServer): void {
       names: z.array(z.string()).describe("entity names to open"),
     },
     async ({ names }) => {
+      if (useConsensus) {
+        const result = await majorityRead(
+          consensus!.adapters,
+          consensus!.quorum,
+          "kg_open_nodes",
+          (a) => a.openNodes(names),
+        );
+        return jsonResult(result);
+      }
       return jsonResult(openNodes(names));
     }
   );
