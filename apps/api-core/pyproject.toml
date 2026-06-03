@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ke-api-core"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.9.0",
+    "anthropic>=0.40.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ke_api_core"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
