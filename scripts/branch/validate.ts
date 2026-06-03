@@ -37,7 +37,10 @@ const name = arg("name") ?? currentBranch();
 
 // Protected refs are exempt — only feature branches must conform.
 const EXEMPT = new Set(["main", "HEAD"]);
-const EXEMPT_PREFIX = ["release-please--", "dependabot/"];
+// WHY claude/: Claude Code auto-generates branch names (claude/<random>) that
+// can't conform to the KENG-NNNN-description topology. Exempt them so CI
+// doesn't block infra PRs from agent sessions.
+const EXEMPT_PREFIX = ["release-please--", "dependabot/", "claude/"];
 const exempt =
   EXEMPT.has(name) || EXEMPT_PREFIX.some((p) => name.startsWith(p));
 
