@@ -25,6 +25,12 @@
       "repo": "subagentceo/knowledge-work-plugins-overlay",
       "ref": "main",
       "comment": "Overlay marketplace: subagentceo fork of plugins from anthropics/claude-plugins-official with our modifications. Created in OPLUG3 (W3); see docs/decisions/2026-05-22-plugin-strategy.md for the operational categorization. Sync workflow opens PRs daily when upstream drifts."
+    },
+    {
+      "name": "redis",
+      "repo": "redis/agent-skills",
+      "ref": "main",
+      "comment": "Official Redis plugin directory (https://github.com/redis/agent-skills). Provides the redis-development plugin bundling 9 skills: redis-core, redis-connections, redis-query-engine, redis-vector-search, redis-semantic-cache, redis-clustering, redis-observability, redis-security, iris-development (Redis Agent Memory). Adopted 2026-06-03 alongside our existing ioredis@^5.4.1 client in src/lib/redis-client.ts."
     }
   ],
   "install": [
@@ -153,6 +159,27 @@
       "stage": "declared",
       "shape": "bare-skill",
       "comment": "Dumps session state on rotation. Pairs with the session-rotation contract in .claude/templates/pr-task.md. Upstream session-report is a bare skill (no .claude-plugin/plugin.json); shape:bare-skill flags this."
+    },
+    {
+      "kind": "plugin",
+      "name": "redis-development",
+      "marketplace": "redis",
+      "package": "redis/agent-skills/plugins/redis-development",
+      "scope": "project",
+      "stage": "declared",
+      "comment": "Official Redis development plugin from redis/agent-skills (https://github.com/redis/agent-skills/tree/main/plugins/redis-development). Bundles 9 skills covering connections (pooling, pipelining, RESP3 client-side caching), query engine, vector search, semantic cache, clustering, observability, security, and Iris Agent Memory. Paired with our existing ioredis@^5.4.1 client in src/lib/redis-client.ts. Activates Redis code-mode tools at session start; the orchestrator picks up KEYS/SCAN/MULTI/EVAL patterns from the skill files when planning cache-touching code paths."
+    },
+    {
+      "kind": "runtime-config",
+      "name": "redis-client-canonical",
+      "stage": "installed",
+      "evidence": [
+        "package.json",
+        "src/lib/redis-client.ts",
+        "src/lib/redis-client.test.ts",
+        "seeds/citations/dragonfly-redis-compat.md"
+      ],
+      "comment": "Canonical Redis-wire client: ioredis@^5.4.1, lazy-loaded via createRequire in src/lib/redis-client.ts. Gated by REDIS_URL env var (DEFAULT_REDIS_URL=redis://localhost:6379). Decision rationale: ioredis chosen over node-redis because (1) it ships native TypeScript types without @types/* dependencies, (2) lazyConnect option matches our REDIS_URL-gated lazy-build pattern, (3) clustering + sentinel support out-of-box for the DragonflyDB drop-in path (seeds/citations/dragonfly-redis-compat.md)."
     }
   ],
   "notes": {
