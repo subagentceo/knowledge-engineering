@@ -204,3 +204,4 @@ export function getSqliteStore(): SqliteMailboxStore {
   _store ??= new SqliteMailboxStore();
   return _store;
 }
+
