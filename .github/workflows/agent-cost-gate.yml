@@ -17,7 +17,9 @@ name: agent-cost-gate
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
+    # WHY labeled: skip-cost-gate is often applied after the push; without this
+    # the label check reads the stale event payload and evaluates to false.
+    types: [opened, synchronize, reopened, ready_for_review, labeled]
     branches: [main]
 
 permissions:

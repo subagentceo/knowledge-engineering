@@ -1,10 +1,14 @@
 #!/bin/bash
 # SessionStart hook target. Wired in .claude/settings.json. Bootstraps
-# AlloyDB Omni (PG17.7) + Redis 7.0 in the Claude Code cloud env. No-op
-# on local sessions (the CLAUDE_CODE_REMOTE guard below).
+# AlloyDB Omni (PG18, gcr.io/alloydb-omni/alloydbomni:18) + Redis 7.0
+# in the Claude Code cloud env. No-op on local sessions (CLAUDE_CODE_REMOTE guard).
 #
 # Source-of-truth decomposition + setup-script counterpart:
 # docs/operator-runbooks/alloydb-omni-cloud-env.md (OKWP2)
+#
+# Image moved from Docker Hub (google/alloydbomni:17.7.0-bookworm) to
+# gcr.io (gcr.io/alloydb-omni/alloydbomni:18) with the PG18 private invite.
+# WHY gcr.io: Google shifted AlloyDB Omni PG18 distribution to their own registry.
 set -euxo pipefail
 
 # Only run in cloud; SessionStart hooks also run locally otherwise.
@@ -12,12 +16,20 @@ if [ "${CLAUDE_CODE_REMOTE:-false}" != "true" ]; then
   exit 0
 fi
 
-ALLOYDB_IMAGE="google/alloydbomni:17.7.0-bookworm"
+# WHY :18 not :18.x.y — Google pins the minor via digest in gcr.io; the :18
+# tag tracks the latest PG18 patch without drifting to PG19.
+ALLOYDB_IMAGE="gcr.io/alloydb-omni/alloydbomni:18"
 ALLOYDB_NAME="alloydb-omni"
 ALLOYDB_DATA="/var/lib/alloydb-omni/data"
 
-# Required env var, set in the cloud environment config.
-: "${ALLOYDB_OMNI_PASSWORD:?ALLOYDB_OMNI_PASSWORD must be set in environment vars}"
+# Degrade gracefully when ALLOYDB_OMNI_PASSWORD is absent (e.g. a bare
+# "Default" cloud env with no secrets configured). Sessions that don't need
+# AlloyDB still work; only AlloyDB-backed features are unavailable.
+if [ -z "${ALLOYDB_OMNI_PASSWORD:-}" ]; then
+  echo "start_services: ALLOYDB_OMNI_PASSWORD not set — skipping AlloyDB Omni startup" >&2
+  service redis-server start || true
+  exit 0
+fi
 
 # Redis 7.0 (pre-installed). Idempotent.
 service redis-server start || true

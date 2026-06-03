@@ -1,6 +1,6 @@
 ---
 runbook: alloydb-omni-cloud-env
-outcome: AlloyDB Omni 17.7 + Redis 7.0 available in every Claude Code cloud session within ~5s of session start, with no per-session image pull.
+outcome: AlloyDB Omni PG18 + Redis 7.0 available in every Claude Code cloud session within ~5s of session start, with no per-session image pull.
 unblocks: Local-DB-backed agents that need Postgres + columnar engine + Redis
 operator-manual-steps:
   - paste Setup script into the cloud environment's Setup script field
@@ -10,11 +10,14 @@ outcome_id: OKWP2
 
 # Operator runbook: AlloyDB Omni + Redis in the Claude Code cloud env
 
-Bootstraps AlloyDB Omni (PostgreSQL 17.7, Debian Bookworm) and Redis
-7.0 inside the
+Bootstraps AlloyDB Omni (PostgreSQL 18, Debian) and Redis 7.0 inside the
 [Claude Code cloud environment](https://code.claude.com/docs/en/claude-code-on-the-web)
-so every session has a local Postgres + Redis without per-session
-image pulls.
+so every session has a local Postgres + Redis without per-session image pulls.
+
+**Image registry:** `gcr.io/alloydb-omni/alloydbomni:18` (Debian) or
+`gcr.io/alloydb-omni/alloydbomni:18-ubi9` (RHEL/UBI9). Docker Hub
+(`google/alloydbomni`) carried PG17; PG18 is gcr.io-only (private invite
+programme, `alloydb-omni-contact@google.com`).
 
 Two-file split per the operator's decomposition:
 
@@ -30,11 +33,13 @@ This is the pattern recommended by Claude Code's own cloud-env docs.
 
 - Ubuntu 24.04, runs as root
 - < 5 min setup budget; image pull cached after first build
-- Pinned image: `google/alloydbomni:17.7.0-bookworm` (won't drift)
+- Image: `gcr.io/alloydb-omni/alloydbomni:18` (PG18 Debian; won't drift to PG19)
 - Redis 7.0 is pre-installed in the Claude Code cloud image; we just
   start it
 - Data dir: `/var/lib/alloydb-omni/data` — only state initialized
   during Setup survives across sessions; runtime writes do not.
+- Sessions without `ALLOYDB_OMNI_PASSWORD` skip AlloyDB startup and
+  degrade gracefully (Redis still starts; non-AlloyDB features work).
 
 ## 1. Setup script (paste into the cloud environment's Setup script field)
 
@@ -42,8 +47,9 @@ This is the pattern recommended by Claude Code's own cloud-env docs.
 #!/bin/bash
 set -euxo pipefail
 
-# Pin: PG17.7 Debian Bookworm. Don't drift to :latest.
-ALLOYDB_IMAGE="google/alloydbomni:17.7.0-bookworm"
+# PG18 Debian image from gcr.io (private invite; Docker Hub had PG17 only).
+# :18 tracks the latest PG18 patch via gcr.io digest; won't drift to PG19.
+ALLOYDB_IMAGE="gcr.io/alloydb-omni/alloydbomni:18"
 
 # Cache the image into the env snapshot so per-session start is fast.
 docker pull "${ALLOYDB_IMAGE}"
@@ -59,7 +65,7 @@ chmod 700 /var/lib/alloydb-omni/data
 command -v redis-server >/dev/null
 redis-server --version
 
-# Sanity: docker compose exists, postgres client exists.
+# Sanity: docker + postgres client present.
 docker --version
 command -v psql >/dev/null
 ```
@@ -103,18 +109,24 @@ Visible to anyone with edit access to the cloud env config. The
 variable is added to the canonical env-vars contract at
 [`docs/operator-runbooks/cloud-env-vars-contract.md`](./cloud-env-vars-contract.md).
 
-## Future — Postgres 18
+## PG18 invite details
 
-The operator registered for AlloyDB Omni PG18 access via the
-[AlloyDB Omni registration form](https://forms.gle/XyezU9NSPTwQKRec9)
-and the [RPM orchestrator preview form](https://forms.gle/zxuHekMtV67Bw9Av9).
-Once access is granted, bump `ALLOYDB_IMAGE` in **both** the Setup
-script and `scripts/start_services.sh` from `17.7.0-bookworm` to the
-PG18 tag. The SessionStart hook itself does not change.
+Access granted via the AlloyDB Omni private invite programme. Image locations:
+
+| Variant | Tag |
+|---|---|
+| Debian (cloud env) | `gcr.io/alloydb-omni/alloydbomni:18` |
+| RHEL/UBI9 | `gcr.io/alloydb-omni/alloydbomni:18-ubi9` |
+
+Contact: `alloydb-omni-contact@google.com`
+
+PG18 notable additions relevant to this chassis: `MERGE ... RETURNING`,
+improved logical replication, faster `ANY`/`ALL` planning, extended columnar
+engine for mixed OLAP/OLTP. pgvector behaviour is unchanged from PG17.
 
 ## Citations
 
 - [`vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md`](../../vendor/anthropics/code.claude.com/docs/en/claude-code-on-the-web.md) — cloud-env Setup script + env-var fields
 - [`vendor/anthropics/code.claude.com/docs/en/settings.md`](../../vendor/anthropics/code.claude.com/docs/en/settings.md) — `.claude/settings.json` SessionStart hook spec
 - [`docs/decisions/2026-05-16-polyrepo-sibling-pattern.md`](../decisions/2026-05-16-polyrepo-sibling-pattern.md) — eventual home is `subagentceo/knowledge-work-profiles`; lives here today
-- Docker Hub: https://hub.docker.com/r/google/alloydbomni
+- gcr.io registry: `gcr.io/alloydb-omni/alloydbomni` (PG18+; supersedes Docker Hub)
