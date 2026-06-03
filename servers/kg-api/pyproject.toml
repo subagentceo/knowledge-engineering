@@ -23,6 +23,8 @@ dependencies = [
     "asyncpg>=0.30.0",
     # Migrations
     "alembic>=1.14.0",
+    # Canonical API types (shared with apps/api-core)
+    "ke-api-core @ file://../../apps/api-core",
     # Anthropic SDK (OAuth-only; ANTHROPIC_API_KEY must NOT be set)
     "anthropic>=0.40.0",
     # Vector / RAG utilities
