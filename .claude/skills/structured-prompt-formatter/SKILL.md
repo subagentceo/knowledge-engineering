@@ -5,20 +5,44 @@ license: Proprietary
 compatibility: "claude.ai web/mobile chat. Reads inputs as text; emits markdown with embedded yaml + xml + code fences. No subagents required, no network required."
 metadata:
   author: max
-  version: "0.2.0"
+  version: "0.3.0"
   surface: claude.ai
   style_target: max-house-terse-yaml-xml
-  audited_by: structured-prompt-evaluator-0.1.0
+  audited_by: structured-prompt-evaluator-0.2.0
   prior_score: 72/100 (ship_with_diff)
+  improvements: "v0.3 — adds output_checklist, two new worked examples, yes/no trigger flowchart"
 ---
 
 # Structured Prompt Formatter
 
 Transforms unstructured user input into Max's house structured-prompt format. This is a **rewrite skill**, not a research skill — do not go fetch new content unless the source URLs in the input are referenced by the user as the actual subject of the work.
 
-## Success criteria (measurable)
+## Output checklist (self-verify before emitting)
 
-Output is correct iff ALL of these hold:
+Run this before writing a single character of output:
+
+```yaml
+output_checklist:
+  refs_block:
+    - every URL in input appears in refs: block keyed by 2-4 char alias
+    - refs yaml parses cleanly (no unquoted colons, no trailing whitespace)
+  fidelity:
+    - every id / label / count / timestamp from input appears verbatim in output
+    - zero invented fields — unknown → null, never guessed
+    - no paraphrase of technical specifics in issue titles
+  structure:
+    - section order: refs → frame sentence → ## body sections → directives (if any) → schema (if any) → tl;dr
+    - prose is lowercase except proper nouns and code identifiers
+    - markdown bullets only for heterogeneous prose; yaml for typed key-value records
+  tone:
+    - no warm-ups ("great question", "let me explain")
+    - inline citations (refs: alias) at end of every clause sourced from input
+    - no emoji, no bold for emphasis (bold reserved for section headers)
+```
+
+Output is **wrong** if any row above fails, regardless of how it reads. If unsure about a field: emit `null`.
+
+## Success criteria (measurable)
 
 ```yaml
 success:
@@ -39,6 +63,20 @@ For every field absent from the input, emit `null`. Never infer, guess, or defau
 <external_knowledge_fence>
 Use ONLY content present in the user's input. Do not infer issue counts, label sets, ids, timestamps, or URL contents from outside knowledge. Do not fetch URLs in the input — they go in `refs:` as-is.
 </external_knowledge_fence>
+
+## Trigger decision (yes/no flowchart)
+
+```yaml
+trigger_decision:
+  q1: "does the input contain 3+ URLs, OR 15+ lines, OR 500+ chars with no YAML/XML skeleton?"
+  q1_no:  "→ DO NOT trigger — answer normally"
+  q1_yes:
+    q2: "does the user want restructuring? (signals: 'structure this', 'format', 'yaml this', 'make a prompt', 'reshape', names a house artifact type)"
+    q2_no:  "→ DO NOT trigger — the user wants analysis, not reformatting"
+    q2_yes: "→ TRIGGER — apply the 8-step procedure below"
+```
+
+If input is one clean question or one short paragraph: **do not trigger**. Answer normally.
 
 ## When this skill fires
 
@@ -349,6 +387,130 @@ Stated positively so the model has a target rather than a fence (per `tell_not_d
 - reserve markdown bullets for genuinely heterogeneous prose items
 - stop after the tl;dr — no offers to expand, no "let me know if..."
 </always_do>
+
+## Worked example 2 — mixed URLs + prose
+
+**Input (abbreviated):** user pastes three URLs then a paragraph asking about rate limits.
+
+```
+here are the relevant docs:
+https://platform.claude.com/docs/en/api/rate-limits
+https://platform.claude.com/docs/en/api/errors
+https://platform.claude.com/docs/en/api/messages/create.md
+we're hitting 429s on the batch job, requests_per_minute is the field, i think we need to check workspace limits vs org limits and maybe model-specific caps too
+```
+
+**Output this skill produces:**
+
+````markdown
+```yaml
+refs:
+  rl:  https://platform.claude.com/docs/en/api/rate-limits
+  err: https://platform.claude.com/docs/en/api/errors
+  msg: https://platform.claude.com/docs/en/api/messages/create.md
+```
+
+# 429 rate-limit diagnosis — workspace vs org limits, model-specific caps
+
+## 1. error context (refs: err)
+
+```yaml
+symptom: 429 on batch job
+field:    requests_per_minute
+```
+
+## 2. limit scopes to check (refs: rl)
+
+```yaml
+- scope: workspace
+  field: requests_per_minute
+  note: per-workspace cap, not inherited from org
+- scope: org
+  field: null  # note: not surfaced in current docs; contact support
+- scope: model
+  field: null  # note: model-specific caps listed in refs:rl under "model tiers"
+```
+
+## directives
+
+<investigate_before_answering>
+check refs:rl for current per-model cap table before estimating limits.
+</investigate_before_answering>
+
+## tl;dr
+
+three relevant surfaces: workspace rpm cap, model-tier cap, and org-level cap (not directly queryable). the 429 from a batch job is most likely workspace or model-tier. refs:rl lists current limits by tier.
+````
+
+---
+
+## Worked example 3 — brain-dump questions
+
+**Input:** stream-of-consciousness prompt mixing 4+ concerns.
+
+```
+ok so i need to figure out how to run the orchestrator locally, also what's the
+difference between the dev and prod worker configs, and i want to understand how
+the vault credentials get injected into the sandbox, also should i use the managed
+agents session API or just use direct messages API, and then once i decide that
+what's the token budget for a typical agentic session vs a single message
+```
+
+**Output this skill produces:**
+
+````markdown
+# mixed agentic architecture questions — 5 concerns, structured
+
+## 1. run orchestrator locally
+
+```yaml
+command: npm run dev "<task>"
+config: .claude/settings.json (env block)
+note: requires CLAUDE_CODE_OAUTH_TOKEN (OAuth-only; no ANTHROPIC_API_KEY)
+```
+
+## 2. dev vs prod worker config
+
+```yaml
+dev:  wrangler.jsonc local (sandbox:dev)
+prod: infra/cloudflare/src/worker.ts + sanitizeEnv() strips forbidden vars
+diff: null  # note: read wrangler.jsonc and worker.ts for full diff
+```
+
+## 3. vault credential injection
+
+```yaml
+surface: managed_agents.py — Vault + Credential types
+flow: SessionStart hook → vault rehydration → creds injected into sandbox env
+note: null  # note: full flow in seeds/memory/heartbeat or vendor/anthropics managed-agents docs
+```
+
+## 4. managed agents session API vs messages API
+
+```yaml
+use_managed_agents_when:
+  - multi-turn agentic sessions
+  - need session state, memory_stores, tools across turns
+  - environment isolation required
+use_messages_api_when:
+  - single-turn or stateless completions
+  - cost-sensitive batch jobs (use Batches API)
+```
+
+## 5. token budget
+
+```yaml
+agentic_session:  null  # note: no canonical value; model + max_turns × avg_turn_tokens
+single_message:   max_tokens bounded by model context window
+cache_strategy:   TextBlockParam with CacheControlEphemeral(ttl="1h") for static context
+```
+
+## tl;dr
+
+5 concerns: local dev setup, config diff, vault injection, api surface choice, token budget. most have direct answers in settings/wrangler/managed_agents.py; vault injection and token budget need vendor doc lookup. use managed agents session api for multi-turn agentic work; direct messages api for batch/stateless.
+````
+
+---
 
 ## See also
 
