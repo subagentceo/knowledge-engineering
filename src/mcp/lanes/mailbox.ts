@@ -92,7 +92,7 @@ export function registerMailbox(server: McpServer): void {
       from: z.string().describe("agent_id of sender"),
       to: z.string().describe("agent_id of recipient or 'broadcast'"),
       type: MessageType,
-      payload: z.record(z.unknown()).describe("message payload — validated against type schema"),
+      payload: z.record(z.string(), z.unknown()).describe("message payload — validated against type schema"),
       thread_id: z.string().optional(),
       ack_required: z.boolean().optional().default(false),
       ttl_ms: z.number().int().positive().optional(),
