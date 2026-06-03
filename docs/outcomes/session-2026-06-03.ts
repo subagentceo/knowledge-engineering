@@ -271,6 +271,21 @@ export const outcomes: SessionOutcome[] = [
     ],
     commit_sha: "060c1fa4",
   },
+  {
+    id: "2026-06-03-O17",
+    title: "v0.5.0-O3 CCR routine config — ke-coworker-prompt daily opus-4-7 eval loop",
+    status: "achieved",
+    category: "prompt",
+    evidence: [
+      "src/lib/routines/coworker-prompt-routine.ts",
+      "src/lib/routines/coworker-prompt-routine.test.ts",
+      "scripts/setup-coworker-prompt.ts",
+    ],
+    cite: [
+      "vendor/anthropics/code.claude.com/docs/en/routines.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
 ];
 
 for (const o of outcomes) {

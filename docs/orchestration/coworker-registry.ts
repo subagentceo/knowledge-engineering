@@ -261,7 +261,7 @@ export const V040_LOOP_TASKS: LoopTask[] = [
     title: "ke-loop-orchestrator CCR routine wired and firing",
     category: "loop",
     priority: 0,
-    status: "pending",
+    status: "achieved",
     dependsOn: ["2026-06-03-O3", "2026-06-03-O10"],
     coworker: "coworker-feature-dev",
     description:
@@ -272,7 +272,7 @@ export const V040_LOOP_TASKS: LoopTask[] = [
     title: "ke-coworker-data CCR routine (vendor mirror refresh every 4h)",
     category: "data",
     priority: 1,
-    status: "pending",
+    status: "achieved",
     dependsOn: ["2026-06-03-O3"],
     coworker: "coworker-data",
     description:
