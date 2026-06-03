@@ -5,7 +5,7 @@
  *
  * Turbopuffer stores vectors + flat metadata; relational queries
  * (joins across documents, runs, authors, etc.) need a Postgres.
- * AlloyDB Omni 17.7 from PR #174 is the canonical Postgres for this
+ * AlloyDB Omni PG18 (gcr.io/alloydb-omni/alloydbomni:18) is the canonical Postgres for this
  * chassis.
  *
  * Both stores use the same `id` as the join key. Mirror is
