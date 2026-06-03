@@ -149,17 +149,9 @@ class VendorPageUpsert(BaseModel):
     last_modified: str | None = None
 
 
-# ── RAG / caching models ──────────────────────────────────────────────────────
-
-class CacheableBlock(BaseModel):
-    """A context block that can be marked for Anthropic prompt caching."""
-    type: str = "text"
-    text: str
-    cache_control: dict[str, str] | None = Field(
-        default={"type": "ephemeral"},
-        description="Set to None for uncached blocks (dynamic queries).",
-    )
-
+# ── RAG models ────────────────────────────────────────────────────────────────
+# NOTE: prompt-cache block shapes live in anthropic_api.messages.TextBlockParam +
+# CacheControlEphemeral. Do not re-define them here.
 
 class RAGRequest(BaseModel):
     query: str
