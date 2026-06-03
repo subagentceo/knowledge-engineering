@@ -1,0 +1,88 @@
+{
+  "captured": "2026-06-03",
+  "packages": [
+    {
+      "name": "@anthropic-ai/dxt",
+      "version": "0.2.6",
+      "description": "Tools for building Desktop Extensions",
+      "bin": "dxt",
+      "purpose": "Packages MCP servers into .dxt bundles for Claude Desktop distribution",
+      "cli_usage": "dxt pack <mcp-server-dir>  # → <name>.dxt\ndxt install <name>.dxt     # → installs into Claude Desktop"
+    },
+    {
+      "name": "@anthropic-ai/mcpb",
+      "version": "2.1.2",
+      "description": "Tools for building MCP Bundles",
+      "bin": "mcpb",
+      "purpose": "Bundles MCP servers into self-contained distributable packages (NOT protobuf)",
+      "note": "mcpb = MCP Bundle builder; complements dxt (dxt is for Claude Desktop, mcpb is for MCP distribution generally)"
+    },
+    {
+      "name": "@anthropic-ai/claude-trace",
+      "version": "0.1.2",
+      "description": "OTEL trace viewer for Claude Code sessions",
+      "bin": "claude-trace",
+      "purpose": "OpenTelemetry trace viewer — starts a local server to visualize traces from claude-code subprocess runs",
+      "integration": "Run alongside claude subprocessor to get structured OTEL spans; ship to CF AI Gateway or Sentry"
+    },
+    {
+      "name": "@anthropic-ai/sandbox-runtime",
+      "version": "0.0.52",
+      "description": "Anthropic Sandbox Runtime (ASRT) — wraps security boundaries around arbitrary processes",
+      "keywords": ["sandbox", "seatbelt", "sandbox-exec", "bubblewrap", "network-filtering", "filesystem-restrictions"],
+      "purpose": "The runtime that powers cloud sandboxes (cloud-sandboxes-reference). Uses macOS seatbelt + Linux bubblewrap for process isolation. WSL2 container (t13-1) should replicate this environment.",
+      "note": "ASRT is the security layer under claude-code's sandboxed execution — critical for WSL2 parity"
+    },
+    {
+      "name": "@anthropic-ai/tokenizer",
+      "version": "0.0.4",
+      "description": "Claude tokenizer",
+      "purpose": "Client-side token counting before sending to API; use for cost estimation and context window management"
+    },
+    {
+      "name": "@anthropic-ai/universal-sdk",
+      "version": "0.0.0",
+      "description": "",
+      "note": "Placeholder — likely internal or pre-release; not stable for use"
+    },
+    {
+      "name": "@anthropic-ai/claude-code",
+      "dist_tags": {
+        "stable": "2.1.152",
+        "next": "2.1.162",
+        "latest": "2.1.162"
+      },
+      "subprocessor_note": "Use 'latest' for production subprocessor; 'next' for pre-release features. Auth: CLAUDE_CODE_OAUTH_TOKEN only — ANTHROPIC_API_KEY forbidden."
+    },
+    {
+      "name": "@anthropic-ai/claude-agent-sdk",
+      "platform_binaries": [
+        "darwin-arm64", "darwin-x64",
+        "linux-arm64", "linux-arm64-musl", "linux-x64", "linux-x64-musl",
+        "win32-arm64", "win32-x64"
+      ],
+      "wsl2_target": "linux-x64",
+      "docker_alpine_target": "linux-x64-musl"
+    },
+    {
+      "name": "napi_native_addons",
+      "bundled_with": "@anthropic-ai/claude-code",
+      "packages": [
+        {"name": "audio-capture-napi", "purpose": "microphone/audio input capture"},
+        {"name": "color-diff-napi", "purpose": "pixel diff for screenshot comparison (vision testing)"},
+        {"name": "image-processor-napi", "purpose": "image resize/encode for vision API"},
+        {"name": "modifiers-napi", "purpose": "keyboard modifier key detection"},
+        {"name": "url-handler-napi", "purpose": "OS-level URL open handler"}
+      ],
+      "note": "Not importable standalone — bundled only inside @anthropic-ai/claude-code binary"
+    }
+  ],
+  "mcp_framework_packages": [
+    {"name": "@modelcontextprotocol/hono", "purpose": "Hono framework MCP transport — deploy as CF Worker"},
+    {"name": "@modelcontextprotocol/express", "purpose": "Express MCP transport"},
+    {"name": "@modelcontextprotocol/fastify", "purpose": "Fastify MCP transport"},
+    {"name": "@modelcontextprotocol/inspector", "purpose": "Visual MCP server debugger"},
+    {"name": "@modelcontextprotocol/conformance", "purpose": "MCP protocol conformance test suite"},
+    {"name": "@modelcontextprotocol/create-server", "purpose": "MCP server scaffolding CLI"}
+  ]
+}
