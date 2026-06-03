@@ -1,0 +1,129 @@
+# Subagent CF Worker configurations
+# Account: e6294e3ea89f8207af387d459824aaae (Alex@jadecli.com's Account)
+# All resources are fresh — verify absent before creating.
+#
+# KV namespace IDs are placeholders; replace after:
+#   wrangler kv namespace create MAILBOX --env <id>
+#
+# @cite docs/orchestration/coworker-registry.ts
+# @cite infra/cloudflare/wrangler.jsonc
+
+# ---------------------------------------------------------------------------
+# swift-lsp
+# ---------------------------------------------------------------------------
+
+[[workers]]
+name = "ke-subagent-swift-lsp"
+main = "../../src/subagents/swift-lsp/index.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+account_id = "e6294e3ea89f8207af387d459824aaae"
+
+[[workers.kv_namespaces]]
+binding = "MAILBOX"
+id = "PLACEHOLDER_KV_ID"  # replace with actual ID after kv_namespace_create
+
+[[workers.secrets_store_secrets]]
+binding = "CLAUDE_CODE_OAUTH_TOKEN"
+store_id = "BOOTSTRAP_PLACEHOLDER"
+secret_name = "CLAUDE_CODE_OAUTH_TOKEN"
+
+# ---------------------------------------------------------------------------
+# feature-dev
+# ---------------------------------------------------------------------------
+
+[[workers]]
+name = "ke-subagent-feature-dev"
+main = "../../src/subagents/feature-dev/index.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+account_id = "e6294e3ea89f8207af387d459824aaae"
+
+[[workers.kv_namespaces]]
+binding = "MAILBOX"
+id = "PLACEHOLDER_KV_ID"  # replace with actual ID after kv_namespace_create
+
+[[workers.secrets_store_secrets]]
+binding = "CLAUDE_CODE_OAUTH_TOKEN"
+store_id = "BOOTSTRAP_PLACEHOLDER"
+secret_name = "CLAUDE_CODE_OAUTH_TOKEN"
+
+# ---------------------------------------------------------------------------
+# pr-review
+# ---------------------------------------------------------------------------
+
+[[workers]]
+name = "ke-subagent-pr-review"
+main = "../../src/subagents/pr-review/index.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+account_id = "e6294e3ea89f8207af387d459824aaae"
+
+[[workers.kv_namespaces]]
+binding = "MAILBOX"
+id = "PLACEHOLDER_KV_ID"  # replace with actual ID after kv_namespace_create
+
+[[workers.secrets_store_secrets]]
+binding = "CLAUDE_CODE_OAUTH_TOKEN"
+store_id = "BOOTSTRAP_PLACEHOLDER"
+secret_name = "CLAUDE_CODE_OAUTH_TOKEN"
+
+# ---------------------------------------------------------------------------
+# commit-commands
+# ---------------------------------------------------------------------------
+
+[[workers]]
+name = "ke-subagent-commit-commands"
+main = "../../src/subagents/commit-commands/index.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+account_id = "e6294e3ea89f8207af387d459824aaae"
+
+[[workers.kv_namespaces]]
+binding = "MAILBOX"
+id = "PLACEHOLDER_KV_ID"  # replace with actual ID after kv_namespace_create
+
+[[workers.secrets_store_secrets]]
+binding = "CLAUDE_CODE_OAUTH_TOKEN"
+store_id = "BOOTSTRAP_PLACEHOLDER"
+secret_name = "CLAUDE_CODE_OAUTH_TOKEN"
+
+# ---------------------------------------------------------------------------
+# security-guidance
+# ---------------------------------------------------------------------------
+
+[[workers]]
+name = "ke-subagent-security-guidance"
+main = "../../src/subagents/security-guidance/index.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+account_id = "e6294e3ea89f8207af387d459824aaae"
+
+[[workers.kv_namespaces]]
+binding = "MAILBOX"
+id = "PLACEHOLDER_KV_ID"  # replace with actual ID after kv_namespace_create
+
+[[workers.secrets_store_secrets]]
+binding = "CLAUDE_CODE_OAUTH_TOKEN"
+store_id = "BOOTSTRAP_PLACEHOLDER"
+secret_name = "CLAUDE_CODE_OAUTH_TOKEN"
+
+# ---------------------------------------------------------------------------
+# ralph-loop
+# ---------------------------------------------------------------------------
+
+[[workers]]
+name = "ke-subagent-ralph-loop"
+main = "../../src/subagents/ralph-loop/index.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+account_id = "e6294e3ea89f8207af387d459824aaae"
+
+[[workers.kv_namespaces]]
+binding = "MAILBOX"
+id = "PLACEHOLDER_KV_ID"  # replace with actual ID after kv_namespace_create
+
+[[workers.secrets_store_secrets]]
+binding = "CLAUDE_CODE_OAUTH_TOKEN"
+store_id = "BOOTSTRAP_PLACEHOLDER"
+secret_name = "CLAUDE_CODE_OAUTH_TOKEN"
