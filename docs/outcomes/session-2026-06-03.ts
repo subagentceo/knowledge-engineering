@@ -301,6 +301,37 @@ export const outcomes: SessionOutcome[] = [
       "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
     ],
   },
+  {
+    id: "2026-06-03-O19",
+    title: "v0.5.0-O5 mailbox D1 adapter — async D1MailboxStore + mailbox_events + 6 tests (PR #354)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "src/db/mailbox-d1-adapter.ts",
+      "src/db/mailbox-d1-adapter.test.ts",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "7240dd26",
+  },
+  {
+    id: "2026-06-03-O20",
+    title: "v0.5.0-O6 ke-coworker-verifier CCR routine config + tests (PR #353 merged)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "src/lib/routines/coworker-verifier-routine.ts",
+      "src/lib/routines/coworker-verifier-routine.test.ts",
+      "scripts/setup-coworker-verifier.ts",
+    ],
+    cite: [
+      "vendor/anthropics/code.claude.com/docs/en/routines.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+    commit_sha: "efbb6dc6",
+  },
 ];
 
 for (const o of outcomes) {
