@@ -10,7 +10,7 @@ import * as fs from "node:fs";
 import * as path from "node:path";
 import { randomUUID } from "node:crypto";
 
-import type { AgentSessionCost } from "../../../apps/analytics-dashboard/cost/src/claude-cost-poller.js";
+import type { AgentSessionCost } from "../../sdk/cost-types.js";
 import { CostRecordPayload } from "../mailbox-types.js";
 
 const MAILBOX_DIR = process.env.MAILBOX_DIR

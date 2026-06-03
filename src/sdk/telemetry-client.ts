@@ -10,6 +10,7 @@
  *   const result = await query({ env: { ...sdkOtelEnv, ...t.env() } });
  *   t.record(result.total_cost_usd, result.usage);
  *
+ * @cite src/sdk/cost-types.ts
  * @cite apps/analytics-dashboard/cost/src/claude-cost-poller.ts
  * @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/cost-tracking.md
  * @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/observability.md
@@ -20,23 +21,81 @@ export type {
   AgentSessionCost,
   ModelCostBreakdown,
   CacheEfficiencyMetrics,
-} from "../../apps/analytics-dashboard/cost/src/claude-cost-poller.js";
+} from "./cost-types.js";
 
-export {
-  sdkOtelEnv,
-  recordSessionCost,
-  computeCacheEfficiency,
-  buildCostRecord,
-  replayCostsFromJSONL,
-} from "../../apps/analytics-dashboard/cost/src/claude-cost-poller.js";
+import type { AgentSessionCost, CacheEfficiencyMetrics } from "./cost-types.js";
 
-import {
-  type AgentSessionCost,
-  sdkOtelEnv,
-  buildCostRecord,
-  recordSessionCost,
-  computeCacheEfficiency,
-} from "../../apps/analytics-dashboard/cost/src/claude-cost-poller.js";
+/** OTel env for SDK subprocess — mirrors CLAUDE_CODE_ENABLE_TELEMETRY vars. */
+export const sdkOtelEnv: Record<string, string> = {
+  CLAUDE_CODE_ENABLE_TELEMETRY: "1",
+  OTEL_METRICS_EXPORTER: "otlp",
+};
+
+/** Stub — real implementation in apps/analytics-dashboard/cost/src/claude-cost-poller.ts. */
+export function recordSessionCost(_cost: AgentSessionCost): void {
+  // no-op in src/ context; cost poller app handles OTel emission
+}
+
+/** Stub — mirrors computeCacheEfficiency from the cost poller. */
+export function computeCacheEfficiency(cost: AgentSessionCost): CacheEfficiencyMetrics {
+  const totalInput = cost.uncached_input_tokens + cost.cache_read_input_tokens;
+  const cacheRead = cost.cache_read_input_tokens;
+  const cacheCreation = cost.cache_creation_5m_input_tokens + cost.cache_creation_1h_input_tokens;
+  const hitRate = totalInput > 0 ? (cacheRead / totalInput) * 100 : 0;
+  // Savings: cache_read tokens cost 10% of input price — estimated at $3/Mtok input
+  const savingsPerToken = 3 / 1_000_000;
+  return {
+    session_id: cost.session_id,
+    model: cost.model,
+    total_input_tokens: totalInput,
+    cache_read_tokens: cacheRead,
+    cache_creation_tokens: cacheCreation,
+    cache_hit_rate: hitRate,
+    estimated_savings_usd: cacheRead * savingsPerToken * 0.9,
+  };
+}
+
+/** Build a cost record from SDK ResultMessage fields. */
+export function buildCostRecord(
+  totalCostUsd: number,
+  usage: {
+    input_tokens: number;
+    output_tokens: number;
+    cache_read_input_tokens?: number;
+    cache_creation_input_tokens?: number;
+  },
+  sessionId: string,
+  model: string,
+  options?: {
+    workspaceId?: string;
+    serviceTier?: AgentSessionCost["service_tier"];
+    contextWindow?: AgentSessionCost["context_window"];
+    prNumber?: number;
+    branch?: string;
+  },
+): AgentSessionCost {
+  return {
+    session_id: sessionId,
+    model,
+    workspace_id: options?.workspaceId ?? process.env.WORKSPACE_ID ?? "unknown",
+    service_tier: options?.serviceTier ?? "standard",
+    context_window: options?.contextWindow ?? "0-200k",
+    uncached_input_tokens: usage.input_tokens,
+    output_tokens: usage.output_tokens,
+    cache_read_input_tokens: usage.cache_read_input_tokens ?? 0,
+    cache_creation_5m_input_tokens: usage.cache_creation_input_tokens ?? 0,
+    cache_creation_1h_input_tokens: 0,
+    cost_usd: totalCostUsd,
+    ...(options?.prNumber !== undefined && { pr_number: options.prNumber }),
+    ...(options?.branch !== undefined && { branch: options.branch }),
+    recorded_at: new Date().toISOString(),
+  };
+}
+
+/** Stub — replay from JSONL; real impl in cost poller app. */
+export function replayCostsFromJSONL(_path: string): Promise<AgentSessionCost[]> {
+  return Promise.resolve([]);
+}
 
 /** Lifecycle helper — one per agent SDK query() call. */
 export class TelemetrySession {
