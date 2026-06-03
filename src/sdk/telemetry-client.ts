@@ -10,7 +10,7 @@
  *   const result = await query({ env: { ...sdkOtelEnv, ...t.env() } });
  *   t.record(result.total_cost_usd, result.usage);
  *
- * @cite apps/analytics-dashboard/cost/src/claude-cost-poller.ts
+ * @cite src/sdk/cost-types.ts
  * @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/cost-tracking.md
  * @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/observability.md
  * @cite vendor/anthropics/code.claude.com/docs/en/monitoring-usage.md
@@ -20,7 +20,7 @@ export type {
   AgentSessionCost,
   ModelCostBreakdown,
   CacheEfficiencyMetrics,
-} from "../../apps/analytics-dashboard/cost/src/claude-cost-poller.js";
+} from "./cost-types.js";
 
 export {
   sdkOtelEnv,
@@ -28,7 +28,7 @@ export {
   computeCacheEfficiency,
   buildCostRecord,
   replayCostsFromJSONL,
-} from "../../apps/analytics-dashboard/cost/src/claude-cost-poller.js";
+} from "./cost-types.js";
 
 import {
   type AgentSessionCost,
@@ -36,7 +36,7 @@ import {
   buildCostRecord,
   recordSessionCost,
   computeCacheEfficiency,
-} from "../../apps/analytics-dashboard/cost/src/claude-cost-poller.js";
+} from "./cost-types.js";
 
 /** Lifecycle helper — one per agent SDK query() call. */
 export class TelemetrySession {
