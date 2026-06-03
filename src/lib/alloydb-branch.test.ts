@@ -116,7 +116,7 @@ await check("createPrBranchSql builds a TEMPLATE clone", () => {
   assertEqual(createPrBranchSql(7, "keng_base"), "CREATE DATABASE keng_pr_7 TEMPLATE keng_base");
   // injection guard on templateDb (from ALLOYDB_TEMPLATE_DB env)
   for (const bad of ["template0; DROP DATABASE postgres; --", "bad name", ""]) {
-    assert.throws(() => createPrBranchSql(7, bad), /valid Postgres identifier/);
+    assertThrows(() => createPrBranchSql(7, bad), /valid Postgres identifier/);
   }
 });
 
