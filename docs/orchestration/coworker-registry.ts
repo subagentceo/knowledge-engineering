@@ -1,17 +1,14 @@
 /**
- * coworker-registry.ts — canonical registry of MANAGED_SUBAGENTS for the
- * knowledge-engineering autonomous loop.
+ * coworker-registry.ts — canonical registry of MANAGED_SUBAGENTS and
+ * ConnectorDescriptors for the knowledge-engineering autonomous loop.
  *
- * Each entry maps a subagent ID to its CF Worker deploy target, source path,
- * category, and lifecycle status. The loop reads this file to decide which
- * scaffolds are ready to fill in.
- *
- * @cite docs/PROJECT.md
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
  */
 
 import { z } from "zod";
+
+// ── managed subagent registry (CF Worker scaffolds) ───────────────────────────
 
 export const SubagentStatusSchema = z.enum([
   "planned",
@@ -104,7 +101,122 @@ export const MANAGED_SUBAGENTS: ManagedSubagent[] = [
   },
 ];
 
-// Validate at import time — fail fast on any registry corruption.
 for (const subagent of MANAGED_SUBAGENTS) {
   ManagedSubagentSchema.parse(subagent);
+}
+
+// ── connector descriptor registry (MCP lanes) ────────────────────────────────
+
+export type ConnectorCategory =
+  | "engineering"
+  | "blog"
+  | "support"
+  | "llms"
+  | "vendor"
+  | "project"
+  | "search"
+  | "telemetry"
+  | "mailbox"
+  | "comms"
+  | "knowledge-graph";
+
+export type ConsensusPolicy =
+  | { type: "single"; quorum: 1 }
+  | { type: "majority"; quorum: number }
+  | { type: "unanimous"; quorum: number };
+
+export interface ConnectorDescriptor {
+  id: string;
+  displayName: string;
+  category: ConnectorCategory;
+  consensus: ConsensusPolicy;
+  sourcePath: string;
+}
+
+export const connectorRegistry: ConnectorDescriptor[] = [
+  {
+    id: "anthropic-engineering-lane",
+    displayName: "Anthropic Engineering Docs",
+    category: "engineering",
+    consensus: { type: "single", quorum: 1 },
+    sourcePath: "src/mcp/lanes/anthropic-engineering.ts",
+  },
+  {
+    id: "claude-blog-lane",
+    displayName: "Claude Blog",
+    category: "blog",
+    consensus: { type: "single", quorum: 1 },
+    sourcePath: "src/mcp/lanes/claude-blog.ts",
+  },
+  {
+    id: "support-claude-lane",
+    displayName: "Support Claude",
+    category: "support",
+    consensus: { type: "single", quorum: 1 },
+    sourcePath: "src/mcp/lanes/support-claude.ts",
+  },
+  {
+    id: "llms-txt-lane",
+    displayName: "LLMs.txt Namespaces",
+    category: "llms",
+    consensus: { type: "single", quorum: 1 },
+    sourcePath: "src/mcp/lanes/llms-txt.ts",
+  },
+  {
+    id: "vendor-lane",
+    displayName: "Vendor Doc Mirrors",
+    category: "vendor",
+    consensus: { type: "single", quorum: 1 },
+    sourcePath: "src/mcp/lanes/vendor.ts",
+  },
+  {
+    id: "project-lane",
+    displayName: "Project Files",
+    category: "project",
+    consensus: { type: "single", quorum: 1 },
+    sourcePath: "src/mcp/lanes/project.ts",
+  },
+  {
+    id: "search-tools-lane",
+    displayName: "Search Tools",
+    category: "search",
+    consensus: { type: "single", quorum: 1 },
+    sourcePath: "src/mcp/lanes/search-tools.ts",
+  },
+  {
+    id: "telemetry-lane",
+    displayName: "Telemetry",
+    category: "telemetry",
+    consensus: { type: "single", quorum: 1 },
+    sourcePath: "src/mcp/lanes/telemetry.ts",
+  },
+  {
+    id: "mailbox-lane",
+    displayName: "Agent Mailbox",
+    category: "mailbox",
+    consensus: { type: "single", quorum: 1 },
+    sourcePath: "src/mcp/lanes/mailbox.ts",
+  },
+  {
+    id: "knowledge-graph-lane",
+    displayName: "Knowledge Graph (D1)",
+    category: "knowledge-graph",
+    consensus: { type: "majority", quorum: 2 },
+    sourcePath: "src/mcp/lanes/knowledge-graph.ts",
+  },
+  {
+    id: "slack-lane",
+    displayName: "Slack Comms Lane",
+    category: "comms",
+    consensus: { type: "single", quorum: 1 },
+    sourcePath: "src/mcp/lanes/comms.ts",
+  },
+];
+
+export function getConnector(id: string): ConnectorDescriptor | undefined {
+  return connectorRegistry.find((c) => c.id === id);
+}
+
+export function connectorsByCategory(category: ConnectorCategory): ConnectorDescriptor[] {
+  return connectorRegistry.filter((c) => c.category === category);
 }
