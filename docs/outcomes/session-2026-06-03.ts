@@ -255,6 +255,22 @@ export const outcomes: SessionOutcome[] = [
     ],
     commit_sha: "49835ca5",
   },
+  {
+    id: "2026-06-03-O16",
+    title: "v0.5.0-O2 CCR routine config — ke-coworker-data 4h vendor-mirror refresh (PR feat/v0.5.0-O2-coworker-data-ccr)",
+    status: "achieved",
+    category: "data",
+    evidence: [
+      "src/lib/routines/coworker-data-routine.ts",
+      "src/lib/routines/coworker-data-routine.test.ts",
+      "scripts/setup-coworker-data.ts",
+    ],
+    cite: [
+      "vendor/anthropics/code.claude.com/docs/en/routines.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+    commit_sha: "060c1fa4",
+  },
 ];
 
 for (const o of outcomes) {
