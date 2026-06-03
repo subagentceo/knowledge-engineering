@@ -40,3 +40,7 @@ third_party/
 # Local claude-in-chrome / scratch output — never deliverables, never committed.
 screenshots/
 webpages/
+
+# Python bytecode in kg-api
+servers/kg-api/**/__pycache__/
+servers/kg-api/**/*.pyc
