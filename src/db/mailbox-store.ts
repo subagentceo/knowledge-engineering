@@ -1,19 +1,23 @@
 /**
  * mailbox-store.ts — SQLite-backed (D1-compatible) storage adapter for the agent mailbox.
  *
- * @cite docs/decisions/2026-06-03-multi-agent-infrastructure.md
- * @cite src/mcp/lanes/mailbox.ts
- * @cite src/mcp/mailbox-types.ts
+ * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
+ * @cite seeds/citations/define-outcomes.md
  *
  * Uses the Node.js built-in `node:sqlite` module (Node >=22.5.0).
+ * Dynamic import guards against older Node versions when MAILBOX_BACKEND !== "sqlite".
  * Schema is D1-compatible: plain SQL, no RETURNING, no JSON functions in DDL.
  * WAL mode enabled for concurrent read performance.
  */
 
-import { DatabaseSync } from "node:sqlite";
+import { createRequire } from "node:module";
 import * as os from "node:os";
 import * as path from "node:path";
 import type { RawEnvelope, TaskPayload } from "../mcp/mailbox-types.js";
+
+// Loaded lazily so older Node (CI uses v20) doesn't fail at import time.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type DatabaseSync = any;
 
 const DB_PATH = process.env.MAILBOX_DB_PATH
   ?? path.join(os.tmpdir(), "ke-mailbox.db");
@@ -90,8 +94,10 @@ export class SqliteMailboxStore implements MailboxStore {
   private readonly db: DatabaseSync;
 
   constructor(dbPath: string = DB_PATH) {
-    this.db = new DatabaseSync(dbPath);
-    // WAL mode for concurrent reads alongside writes
+    // node:sqlite requires Node >=22.5.0; dynamic load so import doesn't fail on Node 20
+    const req = createRequire(import.meta.url);
+    const { DatabaseSync: DS } = req("node:sqlite") as { DatabaseSync: new (path: string) => DatabaseSync };
+    this.db = new DS(dbPath);
     this.db.exec("PRAGMA journal_mode=WAL;");
     this.db.exec(DDL);
   }
