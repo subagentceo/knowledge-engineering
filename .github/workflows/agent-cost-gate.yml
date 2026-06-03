@@ -102,11 +102,16 @@ jobs:
         id: validate
         if: steps.code_paths.outputs.touches_code == 'true'
         run: |
+          if [ "${{ contains(github.event.pull_request.labels.*.name, 'skip-cost-gate') }}" == "true" ]; then
+            echo "Cost gate bypassed via skip-cost-gate label (fix/infra-only PR)."
+            exit 0
+          fi
           if [ "${{ steps.download_artifact.outputs.found }}" != "true" ]; then
             echo "::error::No agent-session-costs artifact found for this PR."
             echo "::error::Attach cost data by running the cost poller during your agent session:"
             echo "::error::  cd apps/analytics-dashboard/cost && npm run poller"
             echo "::error::Then upload agent-session-costs.json as a GitHub Actions artifact."
+            echo "::error::For fix/infra-only PRs that don't run agent sessions, apply the 'skip-cost-gate' label."
             exit 1
           fi
           npx tsx scripts/check-agent-costs.ts --artifact-path /tmp/agent-costs/agent-session-costs.json
