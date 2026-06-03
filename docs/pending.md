@@ -1,7 +1,7 @@
 ---
 title: pending.md
 description: Live dashboard of every pending action — operator browser-driven, operator CLI-driven, autonomous agent follow-up. The operator's explicit ask in Phase 15: "make it more clear what operator runbooks and claude-in-chrome actions you are waiting on."
-last-reviewed: 2026-05-10
+last-reviewed: 2026-06-03
 ---
 
 # Pending actions
@@ -50,16 +50,16 @@ These are issues the heartbeat orchestrator picks up in a future session. Each c
 
 | Issue | Subject | Depends on |
 |---|---|---|
-| [#39](https://github.com/subagentceo/knowledge-engineering/issues/39) | Phase 2.B — crawl 4 deferred vendors (brave-search, sentry, sift, twilio) | none (autonomous) |
-| [#40](https://github.com/subagentceo/knowledge-engineering/issues/40) | Phase 6.B — codemode wiring in src/agent/run.ts | none (autonomous) |
-| [#41](https://github.com/subagentceo/knowledge-engineering/issues/41) | Phase 7.B — install-plugins.ts real materializer | none (autonomous) |
-| [#42](https://github.com/subagentceo/knowledge-engineering/issues/42) | Phase 11.B — `--batch-submit` + `--batch-collect` for live Anthropic Batches API | none (autonomous) |
+| ✅ [#39](https://github.com/subagentceo/knowledge-engineering/issues/39) (closed) | Phase 2.B — crawl 4 deferred vendors (brave-search, sentry, sift, twilio) | none (autonomous) |
+| ✅ [#40](https://github.com/subagentceo/knowledge-engineering/issues/40) (closed) | Phase 6.B — codemode wiring in src/agent/run.ts | none (autonomous) |
+| ✅ [#41](https://github.com/subagentceo/knowledge-engineering/issues/41) (closed) | Phase 7.B — install-plugins.ts real materializer | none (autonomous) |
+| ✅ [#42](https://github.com/subagentceo/knowledge-engineering/issues/42) (closed) | Phase 11.B — `--batch-submit` + `--batch-collect` for live Anthropic Batches API | none (autonomous) |
 
 ### Phase 13 (content surfaces beyond docs + crawler modernization)
 
 | Issue | Subject | Depends on |
 |---|---|---|
-| [#45](https://github.com/subagentceo/knowledge-engineering/issues/45) | Phase 13.A — conditional GET (RFC 7232) + content-hash skip-write | none (autonomous; ANCHOR for #46-#48) |
+| ✅ [#45](https://github.com/subagentceo/knowledge-engineering/issues/45) (closed) | Phase 13.A — conditional GET (RFC 7232) + content-hash skip-write | none (autonomous; ANCHOR for #46-#48) |
 | ✅ #46 | Phase 13.B — anthropic.com mirror | shipped via PR #161 as `vendor/anthropic-sitemap/` (sitemap-driven, 369 URLs, replaces narrower `vendor/anthropic-engineering/`) |
 | ✅ #47 | Phase 13.C — claude.com/blog | shipped via PR #160 as `vendor/claude-sitemap/blog/` (129 posts via sitemap; replaces 4-category html-index discovery) |
 | ✅ #48 | Phase 13.D — 4 marketing surfaces | shipped via PR #160 as `vendor/claude-sitemap/{customers,plugins,connectors,resources}/` (folded into consolidated mirror) |

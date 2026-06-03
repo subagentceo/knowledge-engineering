@@ -61,6 +61,9 @@ These are deferred because they require:
 - Schema: `{ query: string, detail: "name"|"name+description", limit: number }`.
 - `scripts/verify.ts expected: 16`.
 
-### 3. Codemode wiring in `src/agent/run.ts` — 🟡 DEFERRED (Phase 6.B)
+### 3. Per-sub-agent allowlist trim — ✅ PARTIAL DONE (Phase 6.B-B / #103)
+
+- Verifier allowlist shrunk 12 → 7 tools (41.7% reduction, ≥40% AC met)
+- Blocked half (#102): full codemode wiring + token-cost measurement awaits CF Sandbox deploy
 
 ### 4. Token-cost reduction — 🟡 DEFERRED (Phase 6.B)
