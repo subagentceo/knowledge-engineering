@@ -114,3 +114,4 @@ export async function collectBatch(
     .filter((l) => l.length > 0)
     .map((l) => JSON.parse(l) as BatchResult);
 }
+
