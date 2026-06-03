@@ -286,6 +286,21 @@ export const outcomes: SessionOutcome[] = [
       "seeds/prompts/loop-orchestrator.md",
     ],
   },
+  {
+    id: "2026-06-03-O18",
+    title: "v0.5.0-O4 majority-quorum D1 consensus engine + KG lane wire",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "src/mcp/consensus.ts",
+      "src/mcp/consensus.test.ts",
+      "src/mcp/lanes/knowledge-graph.ts",
+    ],
+    cite: [
+      "docs/decisions/2026-06-03-multi-agent-infrastructure.md",
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+    ],
+  },
 ];
 
 for (const o of outcomes) {
