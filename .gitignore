@@ -41,6 +41,8 @@ third_party/
 screenshots/
 webpages/
 
-# Python bytecode in kg-api
+# Python bytecode
 servers/kg-api/**/__pycache__/
 servers/kg-api/**/*.pyc
+apps/**/__pycache__/
+apps/**/*.pyc
