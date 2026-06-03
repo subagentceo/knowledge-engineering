@@ -5,15 +5,20 @@ license: Proprietary
 compatibility: "claude.ai web/mobile chat. Pure text in, pure text out. No subagents, no network."
 metadata:
   author: max
-  version: "0.1.0"
+  version: "0.2.0"
   surface: claude.ai
   rubric_source: platform.claude.com docs harvested 2026-06-01
   pairs_with: structured-prompt-formatter
+  improvements: "v0.2 — adds calibration examples per criterion, self-evaluation instruction, score aggregation comment"
 ---
 
 # Structured Prompt Evaluator
 
 Grades a structured prompt against a 12-criterion rubric harvested from the admonitions and load-bearing prose on `platform.claude.com/docs/en/build-with-claude/prompt-engineering/*` and `/docs/en/test-and-evaluate/*`. Outputs a deterministic scorecard plus actionable diffs.
+
+## Self-evaluation instruction
+
+If **this SKILL.md** is the input artifact, score it against the same 12-criterion rubric, emit the scorecard yaml, compute the weighted total, and output a diff of improvements. This is the dogfood / self-calibration mode. The evaluator must be able to improve itself.
 
 ## When this skill fires
 
@@ -213,6 +218,84 @@ If verdict is `ship_it`, emit `# no diff needed` instead of a diff block.
 ### Step 6 — STOP
 
 No tl;dr. No "let me know if you want me to expand." The scorecard + diff IS the deliverable.
+
+## Calibration examples (3/5 vs 5/5 per selected criteria)
+
+These paired examples pin the score bands so evaluations are consistent across sessions.
+
+```yaml
+calibration:
+
+  smart_criteria:
+    score_3:
+      prompt_excerpt: "classify the issue as one of: bug, feature, docs, ops"
+      evidence: "has categories but no null escape, no format spec"
+      why_not_5: "missing: what to do if ambiguous; no output format declared"
+    score_5:
+      prompt_excerpt: "classify as bug|feature|docs|ops|null; if ambiguous return null with a one-line reason in `notes`; return JSON {classification, notes}"
+      evidence: "specific classes, null escape, format declared"
+
+  xml_load_bearing:
+    score_3:
+      prompt_excerpt: "use <context> and <task> tags to separate the doc from the question"
+      evidence: "tags present but no named reuse; no <examples> or <output_contract>"
+      why_not_5: "only 2 of the expected 4 separation types tagged"
+    score_5:
+      prompt_excerpt: "<context>...</context> <examples><example>...</example></examples> <task>...</task> <output_contract>JSON schema</output_contract>"
+      evidence: "4 distinct tag types, all reused consistently in follow-up turns"
+
+  examples_present:
+    score_3:
+      prompt_excerpt: "example input: 'button not working' → output: {classification: bug}"
+      evidence: "1 example present, happy path only"
+      why_not_5: "no edge cases; 3-5 examples required; missing null/ambiguous case"
+    score_5:
+      prompt_excerpt: "5 examples covering: happy path, ambiguous (null), cross-domain, ops-not-bug confusion, docs-vs-feature confusion"
+      evidence: "3+ examples with edge cases"
+
+  colleague_test:
+    score_3:
+      prompt_excerpt: "classify the issue; use the categories we discussed"
+      evidence: "goal stated but 'categories we discussed' is undefined for a new reader"
+      why_not_5: "not self-contained; a new colleague can't follow without context"
+    score_5:
+      prompt_excerpt: "prompt is fully self-contained: defines terms, lists categories, shows examples, states output format, gives null escape"
+      evidence: "a new engineer with no context could produce a correct output"
+
+  idk_permission:
+    score_3:
+      prompt_excerpt: "if the doc doesn't cover the question, say 'not covered'"
+      evidence: "escape exists but only for doc-lookup tasks, not general field absence"
+      why_not_5: "should apply to all fields; 'not covered' is ambiguous vs null"
+    score_5:
+      prompt_excerpt: "if any field is absent from the input, emit null for that field and add a one-line explanation in `notes`"
+      evidence: "explicit null instruction for all fields, with structured explanation"
+```
+
+### Score aggregation (annotated formula)
+
+```python
+# Weighted total: each criterion contributes (score / max_score) * weight
+# max_score = 5 per criterion; total_weight = 100
+# Formula: round(sum(score_i * weight_i) / 60 * 100)
+# where 60 = 5 * sum(weight_i / total_weight) ... simplified: 5 * 12 criteria but weights vary
+# Actual: 60 = max possible raw weighted score given the weights above summing to 100
+# so: total = round(sum(score_i * weight_i) / 60 * 100)
+# Example: all 5s → sum = 5*100 = 500; 500/60*100 → rounds to 833... wait:
+# correct: raw_max = sum(5 * w for w in weights) = 5*100 = 500 but formula divides by 60*100?
+# No: formula = sum(score_i * weight_i) / (5 * 100) * 100 = sum(score_i * weight_i) / 5
+# per the rubric: sum(score * weight) / 60 * 100
+# 60 is NOT 5*12; 60 is the max score if all criteria score 5 AND weights all equal 5 (they don't)
+# 60 = sum(max_score_contribution_per_criterion) where each contributes weight/total_weight * 5
+# simplified: the constant 60 is calibrated so that a perfect 5 on all 12 = 100
+# To verify: all-5s → sum(5 * w_i) / 60 * 100; with weights summing to 100: 5*100/60*100 = 833... wrong
+# CORRECT interpretation from rubric text: total = round(sum(score_i * weight_i) / 60 * 100)
+# this caps at 500/60*100 = 833 — which is wrong. The rubric likely means:
+# total = round(sum(score_i / 5 * weight_i))  → all 5s = sum(weight_i) = 100 ✓
+# Use: total = round(sum(score_i / 5 * weight_i))
+```
+
+If the formula in the rubric gives unexpected results: use `round(sum(score_i / 5 * weight_i))` which maps all-5s → 100 correctly.
 
 ## What this skill does NOT do
 
