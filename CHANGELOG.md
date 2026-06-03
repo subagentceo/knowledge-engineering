@@ -4,6 +4,81 @@ All notable changes to this project are tracked here. This file is maintained
 automatically by [release-please](https://github.com/googleapis/release-please)
 from [Conventional Commits](https://www.conventionalcommits.org/) on `main`.
 
+## [0.4.0](https://github.com/subagentceo/knowledge-engineering/compare/knowledge-engineering-v0.3.0...knowledge-engineering-v0.4.0) (2026-06-03)
+
+
+### Features
+
+* **batch:** Batches API client + tests — submit/poll/collect (O1) ([6b4ce25](https://github.com/subagentceo/knowledge-engineering/commit/6b4ce2597a3892147ae59d568cd7ba4f4f8052ba))
+* **branch:** canonical &lt;user&gt;/KENG-NNNN-desc topology + generator/validator (O1) ([4de1870](https://github.com/subagentceo/knowledge-engineering/commit/4de1870f7a6ea944549b0137f49cd5b279c7deb3))
+* **ci:** add agent cost gate + remove neon CI + subagent-dashboard Swift models (O2) ([92b2399](https://github.com/subagentceo/knowledge-engineering/commit/92b2399ad846a4d4b39491fde12300c7c94f2b71))
+* **comms:** Slack comms lane — mailbox_outcome mirror to #agent-ops (O1) ([894a958](https://github.com/subagentceo/knowledge-engineering/commit/894a958c36fd7ca9d87939577aeb7095ddb1ccb7))
+* **corpus-viewer:** complete CorpusSource resolution to kill hardcoded liveRoot (O1) ([69d7ad6](https://github.com/subagentceo/knowledge-engineering/commit/69d7ad66a1adcb2e0ca19c3b69efbb806f376f0e))
+* **corpus-viewer:** iOS platform + CorpusSource live/bundled resolution (O1) ([55ba9a8](https://github.com/subagentceo/knowledge-engineering/commit/55ba9a81a12184ee476e8ae6b8c8f28c72b9be16))
+* **cost:** full parity models for Console /cost + /usage/cache + /usage (O1) ([798f906](https://github.com/subagentceo/knowledge-engineering/commit/798f9060fac84589c8c49cf0a0e786ecd8bc6ccc))
+* **cost:** org-scoped OTel + canonical metric names parity with Console /cost /usage /analytics (O1) ([6ba2920](https://github.com/subagentceo/knowledge-engineering/commit/6ba29201b3c8841cb315dd0be50e668657336123))
+* **dashboard:** wire CostMetricsView + Prometheus poller + OTel stack + prompt v2 (O1) ([efc36b2](https://github.com/subagentceo/knowledge-engineering/commit/efc36b2d007f98bd95b8cb959606de38e4f380a5))
+* **db:** add AlloyDB Omni client mirroring neon-client (O1) ([007e196](https://github.com/subagentceo/knowledge-engineering/commit/007e196b3a4dec7731ff169b9e6d142448d1f35a))
+* **db:** AlloyDB-local per-PR branching to replace Neon branch-per-PR (O1) ([05c905f](https://github.com/subagentceo/knowledge-engineering/commit/05c905fd7e7d41c5824f7f6636d9629e65a45219))
+* **knowledge-graph:** D1-backed MCP knowledge graph lane (O1) ([40311ea](https://github.com/subagentceo/knowledge-engineering/commit/40311eaa1e775518d0763932d216b777dacba1a5))
+* **mailbox:** agent-to-agent mailbox MCP lane + Zod types (O1) ([a561cb3](https://github.com/subagentceo/knowledge-engineering/commit/a561cb34ed850f1500a68c5385ce1e89fc9c6d43))
+* **mailbox:** SQLite/D1 storage adapter with JSONL fallback (O1) ([c520a3c](https://github.com/subagentceo/knowledge-engineering/commit/c520a3c906386615ae22d36c66bb47f1a55f47ac))
+* **mailbox:** tests + telemetry bridge (O1) ([86f441e](https://github.com/subagentceo/knowledge-engineering/commit/86f441e7def50b1c3b6299de9ea59fc241b9de53))
+* **mcp:** telemetry lane + SDK client + Swift MCP consumer dogfooding cost poller (O1) ([3a4bad7](https://github.com/subagentceo/knowledge-engineering/commit/3a4bad7f5fa99587cdc919470ce1dd46fee178e8))
+* **outcomes:** Zod-typed session outcome registry + tests for 2026-06-02 (O1) ([a16eb2a](https://github.com/subagentceo/knowledge-engineering/commit/a16eb2acba1ea6c677e223a70cba8689c9e76917))
+* **parity:** codify Managed-Agents cloud-sandbox toolchain parity + doctor (O1) ([8b8a550](https://github.com/subagentceo/knowledge-engineering/commit/8b8a5507c22ca4d41aea022df54eda1bf4b99d62))
+* **redis:** DragonflyDB Redis-wire client + redis-py smoke + citation (O1) ([a8fa4dd](https://github.com/subagentceo/knowledge-engineering/commit/a8fa4dd02fa5962dfef051a7f7fbda6aaab80eb2))
+* **rovo:** Rovo tool-catalog API + zod/pydantic/TS contract (O1) ([a10725f](https://github.com/subagentceo/knowledge-engineering/commit/a10725f25638f2eac8b08e1d7f2e8d2c9749e63a))
+* **skills:** add skills infrastructure — llms-crud v0.2, read-reference-managed-agents v3, structured-prompt-evaluator/formatter, eval-tool, chat-in-the-web (O3) ([19c5f2b](https://github.com/subagentceo/knowledge-engineering/commit/19c5f2bd8f35a9d0e5b43a717b0840514a00d88e))
+* **subagents:** CF Worker scaffolds for v0.4.0 managed subagents O1-O6 (O1) ([9c99297](https://github.com/subagentceo/knowledge-engineering/commit/9c99297c763cdc91adf0c38e282a2fb4e7af7f27))
+* **team:** agent-team orchestrator surface — zod+pydantic sub-agent models + SwiftUI agent-view app (O1) ([c3ce4e8](https://github.com/subagentceo/knowledge-engineering/commit/c3ce4e83332aaa359d6b416b49118a2f6b474e32))
+
+
+### Bug Fixes
+
+* **batch:** assertOAuthOnly gate + batchId path-traversal guard (O1) ([d1c6101](https://github.com/subagentceo/knowledge-engineering/commit/d1c61010f793cb71a3f1f703e7e1a74daabfa0cf))
+* **ci:** OAUTO17 — close/reopen BLOCKED PRs missing branch-guard after App-rebase (O1) ([6818e26](https://github.com/subagentceo/knowledge-engineering/commit/6818e26c81adc5bd95a0b394e5779e8d307cdad4))
+* **citations:** replace non-canonical [@cite](https://github.com/cite) paths in mailbox.test.ts (O1) ([ba484e9](https://github.com/subagentceo/knowledge-engineering/commit/ba484e9c9f407727b1c8d92667c4ad5e9cde8e56))
+* **citations:** use canonical vendor/seeds [@cite](https://github.com/cite) paths in comms test (O3) ([b0e436b](https://github.com/subagentceo/knowledge-engineering/commit/b0e436b82d10549dfef884d5c99fd066c73feebf))
+* **citations:** use canonical vendor/seeds [@cite](https://github.com/cite) paths in kg test (O2) ([f4dec2e](https://github.com/subagentceo/knowledge-engineering/commit/f4dec2e37258054c169ce8f8e143fd30be4067fc))
+* **ci:** update verify:mcp expected tool count to 31; add skip-cost-gate label bypass (O1) ([2ca7120](https://github.com/subagentceo/knowledge-engineering/commit/2ca71207b8b64b23b5d2ae989e33c0b79f89cfdf))
+* **cost:** replace Admin API polling with Agent SDK native OTel telemetry (O1) ([1bacdd4](https://github.com/subagentceo/knowledge-engineering/commit/1bacdd41366b7b21bef3402449f84a501430c518))
+* **db:** guard templateDb identifier against DDL injection (O1) ([e6fddf8](https://github.com/subagentceo/knowledge-engineering/commit/e6fddf888fbc42cb0c8e7aace7d2544fc9ee7231))
+* **db:** use assertThrows helper instead of bare assert.throws in alloydb-branch test (O2) ([4679696](https://github.com/subagentceo/knowledge-engineering/commit/4679696943851e85f19460aae0ceabedd4ecd6db))
+* **deps:** add pg + @types/pg (alloydb-client imports them, missing on main) (O1) ([8964d4f](https://github.com/subagentceo/knowledge-engineering/commit/8964d4f0d800f6f7723db24278a4442413d11b20))
+* **mailbox-store:** dynamic node:sqlite load for Node 20 CI compat (O1) ([aabc22d](https://github.com/subagentceo/knowledge-engineering/commit/aabc22d02eaa959076c1d681350af4809900a62e))
+* **test:** cite vendor env-vars.md, not sibling source, in oauth token test (O1) ([5c56345](https://github.com/subagentceo/knowledge-engineering/commit/5c5634512a6e11961720bf3e012638429af5a3bf))
+* **test:** delete orphaned neon-branch.test.ts after workflow removal (O1) ([e057bd7](https://github.com/subagentceo/knowledge-engineering/commit/e057bd75cbcf57c1a4c6c3c144e06e4cfe46a695))
+* **test:** drop sibling-source [@cite](https://github.com/cite) in schema + todo-state tests (O1) ([94f94de](https://github.com/subagentceo/knowledge-engineering/commit/94f94dec91791bfc8f7f10052d029b3dbce4e865))
+* **tsc:** extract cost-types to src/sdk — resolve cross-rootDir + exactOptionalPropertyTypes (O1) ([15d67a0](https://github.com/subagentceo/knowledge-engineering/commit/15d67a029253cd7f92d541b85e8561609bbc72d8))
+* **verify:** update expected tool count to 35 for comms lane (O3) ([30052fc](https://github.com/subagentceo/knowledge-engineering/commit/30052fc0d0e4ca8c5c318260f5c36036feb640a7))
+* **verify:** update expected tool count to 39 for kg lane (O2) ([190efd8](https://github.com/subagentceo/knowledge-engineering/commit/190efd80406a699619559fe8a202c6cfc610ac66))
+
+
+### Documentation
+
+* **adr:** OMA1 multi-agent infrastructure + loop patterns + heartbeat (O1) ([51a2183](https://github.com/subagentceo/knowledge-engineering/commit/51a21836578156e3b451819dc3bfac2c276d7862))
+* **vendor:** decompose claude.com product webpages into tracked mirrors (O1) ([3008578](https://github.com/subagentceo/knowledge-engineering/commit/3008578466bfb6ead4721be006dee97c27dc31b4))
+
+
+### Chores
+
+* **batch:** trigger CI resync after skip-cost-gate label added (O1) ([ad9fd24](https://github.com/subagentceo/knowledge-engineering/commit/ad9fd2406bde3133b6cf349dd3ea3cf9f520d775))
+* **data:** harvest changelog 2.1.159-2.1.161 admonitions (O1) ([1f835fd](https://github.com/subagentceo/knowledge-engineering/commit/1f835fda4072ac4006241f7edae442162ac424c9))
+* **db:** drop stray scratch file from alloydb-branch (O1) ([70e069f](https://github.com/subagentceo/knowledge-engineering/commit/70e069f4a7c8197820cadcfab6a74b691916d25b))
+* **gitignore:** ignore .claude/worktrees/ agent isolation runtime dir (O1) ([b847c3b](https://github.com/subagentceo/knowledge-engineering/commit/b847c3b30e7e17f5aebdbdedcb2a7432e0af65d9))
+* **gitignore:** ignore local screenshots/ + webpages/ scratch (O1) ([d2efec5](https://github.com/subagentceo/knowledge-engineering/commit/d2efec56f85245361b780708892d84988784f2e3))
+* **heartbeat:** record PR [#325](https://github.com/subagentceo/knowledge-engineering/issues/325) merge — Phase 11.B complete (O1) ([37f4e3b](https://github.com/subagentceo/knowledge-engineering/commit/37f4e3b160581a20227a5fbbd56d53e0bc2efbf0))
+* **mailbox-store:** trailing newline to retrigger CI (O1) ([11a7b3f](https://github.com/subagentceo/knowledge-engineering/commit/11a7b3faefa142cf25c1d0fd1f3b78082859f98e))
+* **mailbox:** seed orchestrator mailbox with session 2026-06-02 outcomes (O1) ([2b351b9](https://github.com/subagentceo/knowledge-engineering/commit/2b351b92431bd543b648f85b0da7ac730b75a496))
+* **otel:** enable Claude Code telemetry env in project settings (O1) ([643c283](https://github.com/subagentceo/knowledge-engineering/commit/643c2831b0a7a3217e481c2d8e0f91b75e324f33))
+* **outcomes:** 2026-06-03 loop tick outcome registry + heartbeat (O1) ([94c2066](https://github.com/subagentceo/knowledge-engineering/commit/94c2066c98fdae182eb6b77d522738eed470efd4)), closes [#42](https://github.com/subagentceo/knowledge-engineering/issues/42)
+* **outcomes:** add O10 mailbox lane + O11 outcome registry to session registry (O1) ([5c18172](https://github.com/subagentceo/knowledge-engineering/commit/5c18172e4c6c39f650f7e957859f4348326a3a85))
+* **settings:** allowlist routine Bash + save Rovo/orchestrator blueprint reference (O1) ([f7f3748](https://github.com/subagentceo/knowledge-engineering/commit/f7f3748a9007eecfa99aae2dff3e089fdc205cb3))
+* **settings:** allowlist routine Bash commands to prevent parallel-call cancellation (O1) ([817b298](https://github.com/subagentceo/knowledge-engineering/commit/817b298cfe0d088ace089507feb541dff66a28f3))
+* **settings:** broaden Bash allowlist to stop parallel-tool-call cancellation (O1) ([f4c8443](https://github.com/subagentceo/knowledge-engineering/commit/f4c844352c7543a07048d9990cb5fb34923c246b))
+* **vendor:** update changelog mirror to claude-code 2.1.161 (O1) ([3516195](https://github.com/subagentceo/knowledge-engineering/commit/351619537d8f057ae2a67aa748313e6b5db51ade))
+
 ## [0.3.0](https://github.com/subagentceo/knowledge-engineering/compare/knowledge-engineering-v0.2.0...knowledge-engineering-v0.3.0) (2026-05-30)
 
 
