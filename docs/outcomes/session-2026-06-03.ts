@@ -242,15 +242,18 @@ export const outcomes: SessionOutcome[] = [
   {
     id: "2026-06-03-O15",
     title: "v0.5.0-O1 CCR routine config — src/lib/routines/loop-orchestrator-routine.ts + tests + setup script (PR #346)",
-    status: "pending",
+    status: "achieved",
     category: "infra",
     evidence: [
-      ".claude/mailbox/agent_orchestrator.jsonl",
+      "src/lib/routines/loop-orchestrator-routine.ts",
+      "src/lib/routines/loop-orchestrator-routine.test.ts",
+      "scripts/setup-loop-orchestrator.ts",
     ],
     cite: [
       "vendor/anthropics/code.claude.com/docs/en/routines.md",
       "seeds/prompts/loop-orchestrator.md",
     ],
+    commit_sha: "49835ca5",
   },
 ];
 
