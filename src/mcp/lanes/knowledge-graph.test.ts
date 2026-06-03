@@ -1,6 +1,6 @@
 /**
- * @cite docs/decisions/2026-06-03-multi-agent-infrastructure.md
- * @cite src/mcp/lanes/knowledge-graph.ts
+ * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
+ * @cite seeds/citations/define-outcomes.md
  */
 import { strict as assert } from "node:assert";
 import { test } from "node:test";
