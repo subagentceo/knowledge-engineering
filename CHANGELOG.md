@@ -4,6 +4,56 @@ All notable changes to this project are tracked here. This file is maintained
 automatically by [release-please](https://github.com/googleapis/release-please)
 from [Conventional Commits](https://www.conventionalcommits.org/) on `main`.
 
+## [0.5.0](https://github.com/subagentceo/knowledge-engineering/compare/knowledge-engineering-v0.4.0...knowledge-engineering-v0.5.0) (2026-06-03)
+
+
+### Features
+
+* **apps:** canonical api-core, compliance-api, admin-api packages + Fivetran ERD alignment (O2) ([43422bb](https://github.com/subagentceo/knowledge-engineering/commit/43422bbd68bb9b0feeaa9384df4e3bdd6f428c1b))
+* **consensus:** majority-quorum D1 consensus engine + KG lane wire (O18) ([18722d8](https://github.com/subagentceo/knowledge-engineering/commit/18722d8e5f494b9ed5da7c7674a48fb0c2198e63))
+* **db:** bump AlloyDB Omni to PG18 (gcr.io) + graceful password skip (O1) ([c127fcc](https://github.com/subagentceo/knowledge-engineering/commit/c127fcc64cc90777be1c9115da25d37d7c9fb185))
+* **hooks:** UserPromptSubmit structured-prompt formatter hook + skill v0.3 (O2) ([b5a234c](https://github.com/subagentceo/knowledge-engineering/commit/b5a234c15c7c04ff1cb47fb3e0234727b8a2aaa0))
+* **kg-api:** redis-om + redisvl + mcp-redis deps + RedisCache layer (O2) ([fd4e585](https://github.com/subagentceo/knowledge-engineering/commit/fd4e58542f6a05c3bfb9fa045e267e67eeeaaa6b))
+* **kg-api:** scaffold Python KG backend — FastAPI + FastMCP Code Mode + AlloyDB (O1) ([a174d19](https://github.com/subagentceo/knowledge-engineering/commit/a174d19285205e1d06cfdfcde6aaaf109c20f4f5))
+* **mailbox:** D1-backed adapter + fanout + mailbox_events table (O19) ([a6edbd3](https://github.com/subagentceo/knowledge-engineering/commit/a6edbd3b0643b4548ffbc796338054fe1dce0068))
+* **orchestration:** ke-loop-orchestrator seed + V040_LOOP_TASKS registry (O1) ([b14656c](https://github.com/subagentceo/knowledge-engineering/commit/b14656c40a366b49766fa38796de6785dc62dc28))
+* **outcomes:** register 2026-06-03 O3-O13 + loop-improvements prompt + CLAUDE.md PR discipline (O1) ([e859d43](https://github.com/subagentceo/knowledge-engineering/commit/e859d43fc38a4dacde6d16cf4f88319dfd918672))
+* **platform-engineering:** OPE1 plugin.json schema+coverage test (O1) ([48a804b](https://github.com/subagentceo/knowledge-engineering/commit/48a804be0dc3c17e2e375e220e8a8b56c9847e74)), closes [#175](https://github.com/subagentceo/knowledge-engineering/issues/175)
+* **plugins:** add redis/agent-skills marketplace + redis-development plugin (O1) ([a490777](https://github.com/subagentceo/knowledge-engineering/commit/a4907774a2c5803a25b826dfdea7e1a5188f4218))
+* **routines:** ke-coworker-data CCR routine config + tests (O16) ([f113118](https://github.com/subagentceo/knowledge-engineering/commit/f11311877a073f5f0e088a3f72cd1d72c64da8e0))
+* **routines:** ke-coworker-prompt CCR routine config + tests (O3) ([3c0f0e7](https://github.com/subagentceo/knowledge-engineering/commit/3c0f0e7fa091184090b3bc5567a8dea22e4bdaca))
+* **routines:** ke-coworker-verifier CCR routine config + tests (O20) ([ae3308a](https://github.com/subagentceo/knowledge-engineering/commit/ae3308a5badf499d28c472ca817eb53d44705c6b))
+* **routines:** ke-loop-orchestrator CCR routine config + tests (O1) ([eaca0d3](https://github.com/subagentceo/knowledge-engineering/commit/eaca0d3dd5e94360e425ccaaf8ad1342866c659e))
+* **scripts:** container toolkit audit + ralf-loop (O2) ([f82674b](https://github.com/subagentceo/knowledge-engineering/commit/f82674bf37680c7d92e15f4ce6d5862296743be1))
+
+
+### Bug Fixes
+
+* **ci:** exempt claude/ branches from branch-guard topology check (O1) ([af91492](https://github.com/subagentceo/knowledge-engineering/commit/af914920a9fb5eba00822fa95cb56b7b95136ba4))
+* **ci:** fire cost-gate on labeled event so skip-cost-gate takes effect (O1) ([97e4522](https://github.com/subagentceo/knowledge-engineering/commit/97e4522a74eb6a5bafe039087bcbcb609d583122))
+
+
+### Documentation
+
+* **operator:** Docker Desktop deterministic-management runbook (O1) ([6ba54f3](https://github.com/subagentceo/knowledge-engineering/commit/6ba54f31dd1a71be2df1562b2f863382ce8f3fc4))
+
+
+### Chores
+
+* **gitignore:** extend pycache exclusion to apps/**/__pycache__ (O2) ([6ccd906](https://github.com/subagentceo/knowledge-engineering/commit/6ccd906d69ab2f29346a449dadbfa302a643dee9))
+* **gitignore:** include audit_container_results.jsonl rule (O2) ([00919bf](https://github.com/subagentceo/knowledge-engineering/commit/00919bfedbb383fa74d779ad55f6f260c822ef86))
+* **gitignore:** untrack apps/**/__pycache__ + audit artifact (O2) ([cc32e92](https://github.com/subagentceo/knowledge-engineering/commit/cc32e92354fd7fe6f6c4915b4a61b956ddd16ffe))
+* **heartbeat:** loop tick 2026-06-03-T2 — OAUTO17 rescue survey (O14) ([218e1b6](https://github.com/subagentceo/knowledge-engineering/commit/218e1b680b14e0abaddbc54253822a9f14105fb3))
+* **heartbeat:** loop tick 2026-06-03-T3 — PR backlog rescue + pending.md refresh (O15) ([4687119](https://github.com/subagentceo/knowledge-engineering/commit/468711988ce0eb1ca0b2352dcba753a72a451007))
+* **heartbeat:** loop tick 2026-06-03-T5 — v0.5.0-O1 CCR routine + OAUTO17 drain (O16) ([fcabd5c](https://github.com/subagentceo/knowledge-engineering/commit/fcabd5cec491d1a5335ab9b123218d00e610c1d8))
+* **heartbeat:** loop tick 2026-06-03-T6 — v0.5.0-O2 CCR routine landed (O16) ([b9b3fcb](https://github.com/subagentceo/knowledge-engineering/commit/b9b3fcbe679a1bc7ea139c3f0bb1974071264ca5))
+* **heartbeat:** loop tick 2026-06-03-T7 — v0.5.0-O3 CCR routine merged (O17) ([e5ce02e](https://github.com/subagentceo/knowledge-engineering/commit/e5ce02e1c71b44111294eca6c96e9eaf5654314f))
+* **heartbeat:** record PR [#330](https://github.com/subagentceo/knowledge-engineering/issues/330) merge — OPE1 test [#175](https://github.com/subagentceo/knowledge-engineering/issues/175) closed (O2) ([ab549d9](https://github.com/subagentceo/knowledge-engineering/commit/ab549d93cebee8892434efd2b33b90b4eb82e5c7))
+* **mailbox:** append coworker-feature-dev v0.5.0-O1 outcome (O16) ([a5aaca8](https://github.com/subagentceo/knowledge-engineering/commit/a5aaca8830b50cb010908956dc26b86565a4621d))
+* **mailbox:** T3 tick_end outcome — OAUTO17 rescue + pending.md refresh (O15) ([4a66cfd](https://github.com/subagentceo/knowledge-engineering/commit/4a66cfda61168b5ffb5f6c1a59af5e92a2e37f32))
+* **outcomes:** mark O15 achieved — PR [#346](https://github.com/subagentceo/knowledge-engineering/issues/346) merged (O16) ([70a4b86](https://github.com/subagentceo/knowledge-engineering/commit/70a4b865b4d4b6b4860fa2bb37394a002a55bdf6))
+* **outcomes:** register OPE1 outcome O2 in session log (O2) ([d320369](https://github.com/subagentceo/knowledge-engineering/commit/d320369d792adf6080a8f4d30966f06caee545a8)), closes [#175](https://github.com/subagentceo/knowledge-engineering/issues/175)
+
 ## [0.4.0](https://github.com/subagentceo/knowledge-engineering/compare/knowledge-engineering-v0.3.0...knowledge-engineering-v0.4.0) (2026-06-03)
 
 
