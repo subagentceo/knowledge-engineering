@@ -24,6 +24,7 @@ import { registerSearchTools } from "./lanes/search-tools.js";
 import { registerTelemetry } from "./lanes/telemetry.js";
 import { registerMailbox } from "./lanes/mailbox.js";
 import { registerKnowledgeGraph } from "./lanes/knowledge-graph.js";
+import { registerComms } from "./lanes/comms.js";
 
 const server = new McpServer({
   name: "knowledge-bridge",
@@ -40,5 +41,6 @@ registerSearchTools(server);
 registerTelemetry(server);
 registerMailbox(server);
 registerKnowledgeGraph(server);
+registerComms(server);
 
 await server.connect(new StdioServerTransport());
