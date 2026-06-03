@@ -38,6 +38,25 @@ export const outcomes: SessionOutcome[] = [
     ],
     commit_sha: "5af2ae6",
   },
+  {
+    id: "2026-06-03-O2",
+    title: "platform-engineering plugin OPE1 test — closes #175 (v0.4.0-OPE1)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "src/lib/platform-engineering-plugin.test.ts",
+      "plugins/platform-engineering/.claude-plugin/plugin.json",
+      "plugins/platform-engineering/.mcp.json",
+      "plugins/platform-engineering/skills/turbopuffer-embeddings/SKILL.md",
+      "src/lib/turbopuffer-alloydb-bridge.ts",
+      "src/lib/voyage-client.ts",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/build-with-claude/embeddings.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "76e16bc",
+  },
 ];
 
 for (const o of outcomes) {
