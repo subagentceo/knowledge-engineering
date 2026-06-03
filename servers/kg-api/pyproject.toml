@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ke-kg-api"
+version = "0.1.0"
+description = "Knowledge-engineering knowledge-graph API — FastAPI + FastMCP Code Mode + AlloyDB"
+requires-python = ">=3.12"
+dependencies = [
+    # Web / MCP
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    # fastmcp >= 3.1.0 for Code Mode (experimental.transforms.code_mode)
+    "fastmcp[code-mode]>=3.1.0",
+    # Data models — Pydantic v2 (stable); Pydantic v3 when released
+    "pydantic>=2.9.0",
+    "pydantic-settings>=2.5.0",
+    # Semver parsing for version enums
+    "semver>=3.0.2",
+    # Database — async SQLAlchemy 2.0 + asyncpg for AlloyDB (PG wire)
+    "sqlalchemy[asyncio]>=2.0.36",
+    "asyncpg>=0.30.0",
+    # Migrations
+    "alembic>=1.14.0",
+    # Anthropic SDK (OAuth-only; ANTHROPIC_API_KEY must NOT be set)
+    "anthropic>=0.40.0",
+    # Vector / RAG utilities
+    "numpy>=1.26.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+    "httpx>=0.28.0",
+    "ruff>=0.9.0",
+    "mypy>=1.13.0",
+]
+
+[project.scripts]
+kg-api = "ke_kg_api.api.main:main"
+kg-mcp = "ke_kg_api.mcp_server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ke_kg_api"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "ANN"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
