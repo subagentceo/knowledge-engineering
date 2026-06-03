@@ -1,7 +1,7 @@
 ---
 title: pending.md
 description: Live dashboard of every pending action — operator browser-driven, operator CLI-driven, autonomous agent follow-up. The operator's explicit ask in Phase 15: "make it more clear what operator runbooks and claude-in-chrome actions you are waiting on."
-last-reviewed: 2026-05-10
+last-reviewed: 2026-06-03
 ---
 
 # Pending actions
@@ -50,16 +50,16 @@ These are issues the heartbeat orchestrator picks up in a future session. Each c
 
 | Issue | Subject | Depends on |
 |---|---|---|
-| [#39](https://github.com/subagentceo/knowledge-engineering/issues/39) | Phase 2.B — crawl 4 deferred vendors (brave-search, sentry, sift, twilio) | none (autonomous) |
-| [#40](https://github.com/subagentceo/knowledge-engineering/issues/40) | Phase 6.B — codemode wiring in src/agent/run.ts | none (autonomous) |
-| [#41](https://github.com/subagentceo/knowledge-engineering/issues/41) | Phase 7.B — install-plugins.ts real materializer | none (autonomous) |
-| [#42](https://github.com/subagentceo/knowledge-engineering/issues/42) | Phase 11.B — `--batch-submit` + `--batch-collect` for live Anthropic Batches API | none (autonomous) |
+| ✅ #39 | Phase 2.B — crawl 4 deferred vendors (brave-search, sentry, sift, twilio) | closed 2026-05-15 |
+| ✅ #40 | Phase 6.B — codemode wiring in src/agent/run.ts (split → #102 + #103) | closed 2026-05-15 |
+| ✅ #41 | Phase 7.B — install-plugins.ts real materializer | closed 2026-05-15 via PR #86 |
+| ✅ #42 | Phase 11.B — `--batch-submit` + `--batch-collect` for live Anthropic Batches API | closed 2026-05-15 via PR #88 |
 
 ### Phase 13 (content surfaces beyond docs + crawler modernization)
 
 | Issue | Subject | Depends on |
 |---|---|---|
-| [#45](https://github.com/subagentceo/knowledge-engineering/issues/45) | Phase 13.A — conditional GET (RFC 7232) + content-hash skip-write | none (autonomous; ANCHOR for #46-#48) |
+| ✅ #45 | Phase 13.A — conditional GET (RFC 7232) + content-hash skip-write | closed 2026-05-10 |
 | ✅ #46 | Phase 13.B — anthropic.com mirror | shipped via PR #161 as `vendor/anthropic-sitemap/` (sitemap-driven, 369 URLs, replaces narrower `vendor/anthropic-engineering/`) |
 | ✅ #47 | Phase 13.C — claude.com/blog | shipped via PR #160 as `vendor/claude-sitemap/blog/` (129 posts via sitemap; replaces 4-category html-index discovery) |
 | ✅ #48 | Phase 13.D — 4 marketing surfaces | shipped via PR #160 as `vendor/claude-sitemap/{customers,plugins,connectors,resources}/` (folded into consolidated mirror) |
@@ -68,13 +68,26 @@ These are issues the heartbeat orchestrator picks up in a future session. Each c
 
 | Issue | Subject | Depends on |
 |---|---|---|
-| [#49](https://github.com/subagentceo/knowledge-engineering/issues/49) | Refresh CLAUDE.md/DEVELOPER.md/README.md + new CONTRIBUTING.md + new RUNBOOK.md | none (autonomous; can proceed in parallel with #45) |
+| ✅ #49 | Refresh CLAUDE.md/DEVELOPER.md/README.md + new CONTRIBUTING.md + new RUNBOOK.md | closed 2026-05-15 via PRs #89/#92/#99 |
 
 ### Phase 15 (this milestone)
 
 | Issue | Subject | Depends on |
 |---|---|---|
-| [#50](https://github.com/subagentceo/knowledge-engineering/issues/50) | Phase 15 — codify project management (THIS milestone; PR for `PROJECT.md`/`pending.md` opened) | none |
+| ✅ #50 | Phase 15 — codify project management (`PROJECT.md`/`pending.md`/heartbeat) | closed 2026-05-10 |
+
+### v0.5.0 loop tasks (V040_LOOP_TASKS — blocked on PR #331 merge)
+
+All tasks below require `2026-06-03-O3` in `OutcomeRegistry.achievedIds()`. That outcome lands when PR #331 merges (auto-merge enabled, all required checks green as of 2026-06-03).
+
+| SemVer | Title | Coworker | Unblocked when |
+|---|---|---|---|
+| v0.5.0-O1 | ke-loop-orchestrator CCR wired + firing | coworker-feature-dev | PR #331 merges + O10 |
+| v0.5.0-O2 | ke-coworker-data CCR routine (4h vendor refresh) | coworker-data | PR #331 merges |
+| v0.5.0-O3 | ke-coworker-prompt CCR routine (opus-4-8 eval loop) | coworker-prompt | PR #331 merges |
+| v0.5.0-O4 | connector consensus via D1 (majority quorum) | coworker-feature-dev | PR #331 merges + O4 |
+| v0.5.0-O5 | cross-session KG writes via mailbox D1 adapter | coworker-feature-dev | PR #331 merges + O4 |
+| v0.5.0-O6 | coworker-verifier: dogfood pr-review-toolkit | coworker-verifier | PR #331 merges + O10 |
 
 ## Suggested execution order
 
