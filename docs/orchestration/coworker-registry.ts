@@ -220,3 +220,127 @@ export function getConnector(id: string): ConnectorDescriptor | undefined {
 export function connectorsByCategory(category: ConnectorCategory): ConnectorDescriptor[] {
   return connectorRegistry.filter((c) => c.category === category);
 }
+
+// ── v0.4.0 → v0.5.0 loop task registry ───────────────────────────────────────
+//
+// Each LoopTask = one branch / one commit / one PR. Selection is deterministic:
+// lowest semver in `pending` whose `dependsOn` are all in OutcomeRegistry.achievedIds().
+// Cited refs: docs/decisions/2026-06-03-multi-agent-infrastructure.md (OMA1),
+// docs/prompts/loop-improvements-2026-06-03.md, seeds/prompts/loop-orchestrator.md.
+
+export const LoopTaskStatusSchema = z.enum([
+  "pending",
+  "in_progress",
+  "achieved",
+  "blocked",
+]);
+export type LoopTaskStatus = z.infer<typeof LoopTaskStatusSchema>;
+
+export const LoopTaskSchema = z.object({
+  semver: z.string(),
+  title: z.string(),
+  category: z.enum(["loop", "data", "prompt", "infra", "security", "swift"]),
+  priority: z.number().int(),
+  status: LoopTaskStatusSchema,
+  dependsOn: z.array(z.string()),
+  coworker: z.enum([
+    "coworker-feature-dev",
+    "coworker-data",
+    "coworker-prompt",
+    "coworker-security",
+    "coworker-verifier",
+  ]),
+  description: z.string(),
+});
+
+export type LoopTask = z.infer<typeof LoopTaskSchema>;
+
+export const V040_LOOP_TASKS: LoopTask[] = [
+  {
+    semver: "v0.5.0-O1",
+    title: "ke-loop-orchestrator CCR routine wired and firing",
+    category: "loop",
+    priority: 0,
+    status: "pending",
+    dependsOn: ["2026-06-03-O3", "2026-06-03-O10"],
+    coworker: "coworker-feature-dev",
+    description:
+      "Wire the ke-loop-orchestrator CCR RemoteTrigger to fire on 60-minute cadence, seed prompt loaded from seeds/prompts/loop-orchestrator.md, env env_01Cz5mzNxXr5yJBqmJGdky7u, dispatching coworkers per V040_LOOP_TASKS. Tick emits mailbox_outcome JSONL lines per subtask. Closes meta-task: the orchestrator orchestrating itself.",
+  },
+  {
+    semver: "v0.5.0-O2",
+    title: "ke-coworker-data CCR routine (vendor mirror refresh every 4h)",
+    category: "data",
+    priority: 1,
+    status: "pending",
+    dependsOn: ["2026-06-03-O3"],
+    coworker: "coworker-data",
+    description:
+      "Stand up ke-coworker-data CCR routine on a 4h cron. Reads vendor/ mirror manifest, re-crawls drifted surfaces via scripts/crawl-vendors.ts, opens one PR per refreshed vendor with the citation-guard-safe (O<N>) commit subject. Idempotent: a clean re-crawl produces no PR.",
+  },
+  {
+    semver: "v0.5.0-O3",
+    title: "ke-coworker-prompt CCR routine (rewrites prompts with opus-4-8 eval loop)",
+    category: "prompt",
+    priority: 2,
+    status: "pending",
+    dependsOn: ["2026-06-03-O3"],
+    coworker: "coworker-prompt",
+    description:
+      "Stand up ke-coworker-prompt CCR routine. Iterates seeds/prompts/*.md, runs each through the structured-prompt-evaluator skill (12-criterion rubric), proposes a rewrite via opus-4-8, A/B-evals old vs new on a 5-case test bench, opens a PR if the rewrite scores higher on weighted total.",
+  },
+  {
+    semver: "v0.5.0-O4",
+    title: "connector consensus via D1 (knowledge-graph-lane majority quorum landed)",
+    category: "infra",
+    priority: 3,
+    status: "pending",
+    dependsOn: ["2026-06-03-O3", "2026-06-03-O4"],
+    coworker: "coworker-feature-dev",
+    description:
+      "Implement the majority-quorum consensus path for connectorRegistry entries whose consensus.type === \"majority\" (currently knowledge-graph-lane, quorum 2). Reads from 2-of-N D1 replicas, returns the agreed payload, logs disagreements to a divergence table. Backed by a Cloudflare D1 binding on the Worker.",
+  },
+  {
+    semver: "v0.5.0-O5",
+    title: "cross-session KG writes via mailbox D1 adapter",
+    category: "infra",
+    priority: 4,
+    status: "pending",
+    dependsOn: ["2026-06-03-O3", "2026-06-03-O4"],
+    coworker: "coworker-feature-dev",
+    description:
+      "Replace the JSONL mailbox at .claude/mailbox/agent_orchestrator.jsonl with a D1-backed adapter that fans out to the JSONL file for local debugging AND persists to a `mailbox_events` table. Enables cross-session KG reads in the orchestrator's read-state phase without re-parsing the full JSONL.",
+  },
+  {
+    semver: "v0.5.0-O6",
+    title: "coworker-verifier: dogfood pr-review-toolkit on every PR",
+    category: "security",
+    priority: 5,
+    status: "pending",
+    dependsOn: ["2026-06-03-O3", "2026-06-03-O10"],
+    coworker: "coworker-verifier",
+    description:
+      "Stand up ke-coworker-verifier CCR routine triggered on pull_request.opened / .synchronize. Runs the pr-review-toolkit (code-review skill) at effort=medium, posts inline comments via `gh pr comment`, and labels the PR with `verifier-approved` or `verifier-changes-requested`. Must not block automerge — advisory only.",
+  },
+];
+
+for (const t of V040_LOOP_TASKS) {
+  LoopTaskSchema.parse(t);
+}
+
+export function getLoopTask(semver: string): LoopTask | undefined {
+  return V040_LOOP_TASKS.find((t) => t.semver === semver);
+}
+
+export function nextUnblockedLoopTask(
+  achievedIds: Set<string>,
+): LoopTask | undefined {
+  const candidates = V040_LOOP_TASKS.filter(
+    (t) =>
+      t.status === "pending" && t.dependsOn.every((d) => achievedIds.has(d)),
+  );
+  if (candidates.length === 0) return undefined;
+  return candidates.reduce((best, t) =>
+    t.priority < best.priority ? t : best,
+  );
+}
