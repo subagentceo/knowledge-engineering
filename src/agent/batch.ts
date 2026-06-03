@@ -3,6 +3,8 @@
  * @cite vendor/anthropics/platform.claude.com/docs/en/manage-claude/rate-limits-api.md
  */
 
+import { assertOAuthOnly } from "../oauth/token.js";
+
 export interface BatchRequest {
   custom_id: string;
   params: {
@@ -46,6 +48,16 @@ function headers(token: string): Record<string, string> {
   };
 }
 
+// Batch IDs from the Anthropic API use this prefix. Validating before URL
+// interpolation prevents path traversal within the API surface.
+const BATCH_ID_RE = /^msgbatch_[a-zA-Z0-9_-]{1,64}$/;
+
+function assertBatchId(batchId: string): void {
+  if (!BATCH_ID_RE.test(batchId)) {
+    throw new TypeError(`invalid batchId: ${batchId}`);
+  }
+}
+
 async function assertOk(res: Response, context: string): Promise<void> {
   if (!res.ok) {
     throw new Error(`${context}: HTTP ${res.status}`);
@@ -57,6 +69,7 @@ export async function submitBatch(
   requests: BatchRequest[],
   fetchFn: typeof fetch = fetch,
 ): Promise<BatchStatus> {
+  assertOAuthOnly();
   const res = await fetchFn(`${API_BASE}/messages/batches`, {
     method: "POST",
     headers: headers(token),
@@ -71,6 +84,8 @@ export async function pollBatch(
   batchId: string,
   fetchFn: typeof fetch = fetch,
 ): Promise<BatchStatus> {
+  assertOAuthOnly();
+  assertBatchId(batchId);
   const res = await fetchFn(`${API_BASE}/messages/batches/${batchId}`, {
     method: "GET",
     headers: headers(token),
@@ -85,6 +100,8 @@ export async function collectBatch(
   batchId: string,
   fetchFn: typeof fetch = fetch,
 ): Promise<BatchResult[]> {
+  assertOAuthOnly();
+  assertBatchId(batchId);
   const res = await fetchFn(`${API_BASE}/messages/batches/${batchId}/results`, {
     method: "GET",
     headers: headers(token),
