@@ -59,7 +59,8 @@
     "context:budget": "tsx scripts/context-budget.ts",
     "goals": "tsx scripts/check-goals.ts",
     "docs:dev": "mintlify dev",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "ke-verifier:setup": "tsx scripts/setup-coworker-verifier.ts"
   },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "^0.2.0",
