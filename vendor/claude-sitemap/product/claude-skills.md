@@ -1,125 +1,212 @@
-# Claude Security
+# Claude Skills
 
 Explore here
 
-Webinar (May 28, 2026 – 10:00 am PT)
+# Teach Claude your way of working
 
-Next
+Turn your expertise, procedures, and best practices into reusable capabilities so Claude can apply them automatically, every time.
 
-# Claude Security:  
-Putting Claude to Work for Defenders
-
-Register now
-
-# Claude Security
-
-From scan to fix, done seamlessly
-
-Claude scans your codebase, validates findings, and suggests patches you can review and approve. Available in public beta for Claude Enterprise.
-
-Contact sales
-
-Read the tutorial
+Start using skills
 
 Play video
 
-## How teams use Claude Security
+## Expert output, every time
 
-Claude reasons through your code like a skilled security researcher. It understands context, traces data flows, and catches vulnerabilities that pattern-matching tools miss. Then it suggests a fix.
+### Get consistent results on specialized tasks
 
-### Scan your code in parallel
+Skills give Claude details on how you want to create documents, analyze data, and automate workflows, so you get consistent outputs every time.
 
-Claude Security understands context, traces data flows across files, and identifies complex, multi-component vulnerability patterns that traditional scanners might not detect.
+### Capture what your organization knows
 
-### Validate findings
+Package your company’s procedures, best practices, and institutional knowledge so teams work consistently and new members get expert-level results from day one.
 
-Every finding goes through an adversarial verification pass. Claude challenges its own results before surfacing them. More real issues get reported, and fewer false positives waste analyst time.
+### Build once, use everywhere
 
-### Review and patch
+The same skill runs across Claude.ai, Claude Code, and the API without needing to modify for each platform.
 
-Claude detects issues and proposes fixes. Every finding includes a recommended patch for teams to review and approve. Fix vulnerabilities quickly rather than adding them to a growing backlog.
+### Stack skills for complex work
 
-Claude Security is now in public beta
+Combine skills for multi-step workflows. Claude uses what’s needed, when it’s needed—no manual selection required.
 
-Available today for Enterprise customers.
+## How teams use skills
 
-Learn more
+Claude comes with built-in skills for common workflows. You can add your organization’s procedures, or build your own from scratch.
 
-## Built for security teams, used by Anthropic
+### Built-in workflows
 
-### Transparency and visibility
+Claude can handle the essentials every team needs.
 
-See details about every finding: the vulnerability, why it matters, and the proposed fix
+*   Create Excel sheets with working formulas, Powerpoints with your branding, and more
+*   Analyze and visualize your own data
+*   Convert and transform files between formats
 
-### Targeted patches
+### Company-specific skills
 
-Suggested fixes that maintain your code's structure and style
+Package your organization’s knowledge so everyone gets consistent results.
 
-### Fits your existing workflow
+*   Apply brand guidelines or follow preferred formats in docs, meetings notes, and more
+*   Use pre-built skills for financial services, like DCF modeling and comps analysis
+*   Create industry-specific workflows, like healthcare documentation or compliance procedures
 
-Push findings via webhooks to Slack or Jira, export for audit, and schedule recurring scans
+### Individual workflows
 
-### Full remediation control
+Create skills for how you personally work.
 
-Teams stay in control, with every patch requiring human review and approval
+*   Build custom note-taking systems
+*   Make your own development workflows
+*   Create research and analysis methods for Claude to follow
 
-### Our most capable generally available models
+ Equipping agents for the real world with Agent Skills
 
-Powered by the same models Anthropic uses to secure its own codebase
+Introducing Agent Skills, a new way to build specialized agents using files and folders.
 
-Prev
+Read more
 
-Next
+Improving frontend design through Skills
 
-Security resources
+Best practices for building richer, more customized frontend design with Claude and Skills.
 
-Contact sales
-
-Read the tutorial
-
-Claude Security is now in public beta
-
-Claude Security is now in public beta
-
-Blog
-
-Blog
-
-Evaluating and mitigating the growing risk of LLM-discovered 0-days
-
-Evaluating and mitigating the growing risk of LLM-discovered 0-days
-
-Blog
-
-Blog
-
-Experimenting with AI to defend critical infrastructure
-
-Experimenting with AI to defend critical infrastructure
-
-Blog
-
-Blog
-
-## FAQ
-
-Claude Security is available in public beta for Claude Enterprise. Access to Claude Team and Max plans coming soon.
-
-Admins can enable Claude Security in the admin console. See the getting started guide for setup steps.
-
-Claude can make mistakes, so you should always review proposed patches before applying them, especially for critical systems.
-
-Claude Security focuses on high-severity vulnerabilities including memory corruption, injection flaws, authentication bypasses, and complex logic errors that pattern-matching tools typically miss. It's particularly effective at finding context-dependent vulnerabilities that require understanding code across multiple files.
-
-Traditional tools often use rule-based pattern matching, which catches known vulnerability patterns but can produce high false positive rates and miss complex issues. Claude Security reasons through your code like a security researcher. It can read Git history, trace data flows, and understand business logic to find real vulnerabilities and generate real fixes.
-
-Yes. Claude Security is built to feed into the tools your team already uses. Send findings to Slack, Jira, or any ticketing system via webhooks, or export results as CSV or Markdown for tracking and audit. Documented dismissals carry forward, so triage decisions made in Claude Security stay visible wherever your team works.
-
-Yes to both. You can scope a scan to a specific directory, and you can configure scheduled scans for ongoing coverage without manual kickoffs.
+Read more
 
 Prev
 
 Next
+
+## Create your own
+
+### Try the skill-creator skill
+
+Describe what you want, and Claude generates the folder structure, formats the SKILL.md file, and bundles your resources.
+
+Create a skill
+
+Prompt
+
+Can you tell me ...
+
+---  
+name: internal-comms  
+description: A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).  
+license: Complete terms in LICENSE.txt  
+---
+
+## When to use this skill  
+To write internal communications, use this skill for:  
+- 3P updates (Progress, Plans, Problems)  
+- Company newsletters  
+- FAQ responses  
+- Status reports  
+- Leadership updates  
+- Project updates  
+- Incident reports
+
+## How to use this skill
+
+To write any internal communication:
+
+1. **Identify the communication type** from the request  
+2. **Load the appropriate guideline file** from the `examples/` directory:  
+- `examples/3p-updates.md` - For Progress/Plans/Problems team updates  
+- `examples/company-newsletter.md` - For company-wide newsletters  
+- `examples/faq-answers.md` - For answering frequently asked questions  
+- `examples/general-comms.md` - For anything else that doesn't explicitly match one of the above  
+3. **Follow the specific instructions** in that file for formatting, tone, and content gathering
+
+If the communication type doesn't match any existing guideline, ask for clarification or more context about the desired format.
+
+## Keywords  
+3P updates, company newsletter, company comms, weekly update, faqs, common questions, updates, internal comms
+
+---  
+name: internal-comms  
+description: A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).  
+license: Complete terms in LICENSE.txt  
+---
+
+## When to use this skill  
+To write internal communications, use this skill for:  
+- 3P updates (Progress, Plans, Problems)  
+- Company newsletters  
+- FAQ responses  
+- Status reports  
+- Leadership updates  
+- Project updates  
+- Incident reports
+
+## How to use this skill
+
+To write any internal communication:
+
+1. **Identify the communication type** from the request  
+2. **Load the appropriate guideline file** from the `examples/` directory:  
+- `examples/3p-updates.md` - For Progress/Plans/Problems team updates  
+- `examples/company-newsletter.md` - For company-wide newsletters  
+- `examples/faq-answers.md` - For answering frequently asked questions  
+- `examples/general-comms.md` - For anything else that doesn't explicitly match one of the above  
+3. **Follow the specific instructions** in that file for formatting, tone, and content gathering
+
+If the communication type doesn't match any existing guideline, ask for clarification or more context about the desired format.
+
+## Keywords  
+3P updates, company newsletter, company comms, weekly update, faqs, common questions, updates, internal comms
+
+### Develop your own SKILL.md file
+
+For developers who want full control, skills are just folders with a SKILL.md file containing instructions in Markdown. Add reference files, executable scripts, or code—whatever Claude needs to do the job.
+
+Read developer docs
+
+Skills guide how Claude works in the design canvas, bringing consistency and reliability to agent workflows in Figma. Teams can use Claude to build Figma assets that stay true to their craft and vision, and move fluidly between code and the canvas—without losing context.
+
+Matt Colyer, Director of Product
+
+Skills teaches Claude how to work with Box content. Users can transform stored files into PowerPoint presentations, Excel spreadsheets, and Word documents that follow their organization's standards—saving hours of effort.
+
+Yashodha Bhavnani, Head of AI
+
+With Skills, Claude works seamlessly with Notion - taking users from questions to action faster. Less prompt wrangling on complex tasks, more predictable results.
+
+MJ Felix, Product Manager
+
+Skills streamline our management accounting and finance workflows. Claude processes multiple spreadsheets, catches critical anomalies, and generates reports using our procedures. What once took a day, we can now accomplish in an hour.
+
+Yusuke Kaji, General Manager AI
+
+Canva plans to leverage Skills to customize agents and expand what they can do. This unlocks new ways to bring Canva deeper into agentic workflows—helping teams capture their unique context and create stunning, high-quality designs effortlessly.
+
+Anwar Haneef, GM & Head of Ecosystem
+
+Prev
+
+0/5
+
+Next
+
+## More resources
+
+A complete guide to building skills for Claude
+
+A complete guide to building skills for Claude
+
+Blog
+
+Blog
+
+Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
+
+Skills explained: How Skills compares to prompts, Projects, MCP, and subagents
+
+Blog
+
+Blog
+
+How to create Skills: Key steps, limitations, and examples
+
+How to create Skills: Key steps, limitations, and examples
+
+Blog
+
+Blog
 
 Homepage
 
