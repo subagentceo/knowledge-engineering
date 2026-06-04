@@ -25,6 +25,8 @@ import { registerTelemetry } from "./lanes/telemetry.js";
 import { registerMailbox } from "./lanes/mailbox.js";
 import { registerKnowledgeGraph } from "./lanes/knowledge-graph.js";
 import { registerComms } from "./lanes/comms.js";
+import { registerGraphQL } from "./lanes/graphql-lane.js";
+import { registerCodeMode } from "./lanes/code-mode-lane.js";
 
 const server = new McpServer({
   name: "knowledge-bridge",
@@ -42,5 +44,7 @@ registerTelemetry(server);
 registerMailbox(server);
 registerKnowledgeGraph(server);
 registerComms(server);
+registerGraphQL(server);
+registerCodeMode(server);
 
 await server.connect(new StdioServerTransport());
