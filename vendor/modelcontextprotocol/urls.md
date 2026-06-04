@@ -1,8 +1,7 @@
 ---
 vendor: modelcontextprotocol
 llms_txt: https://modelcontextprotocol.io/llms.txt
-last_crawled: 2026-05-15T03:29:05.025Z
-count: 60
+count: 120
 transform: append-md
 ---
 
@@ -10,22 +9,24 @@ transform: append-md
 
 | URL | Local |
 |---|---|
-| https://modelcontextprotocol.io/clients.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/clients.md` |
 | https://modelcontextprotocol.io/community/antitrust.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/antitrust.md` |
 | https://modelcontextprotocol.io/community/charter-template.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/charter-template.md` |
 | https://modelcontextprotocol.io/community/communication.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/communication.md` |
 | https://modelcontextprotocol.io/community/contributing.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/contributing.md` |
 | https://modelcontextprotocol.io/community/contributor-ladder.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/contributor-ladder.md` |
 | https://modelcontextprotocol.io/community/design-principles.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/design-principles.md` |
+| https://modelcontextprotocol.io/community/feature-lifecycle.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/feature-lifecycle.md` |
 | https://modelcontextprotocol.io/community/file-uploads/charter.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/file-uploads/charter.md` |
 | https://modelcontextprotocol.io/community/governance.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/governance.md` |
 | https://modelcontextprotocol.io/community/inspector-v2/charter.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/inspector-v2/charter.md` |
 | https://modelcontextprotocol.io/community/interceptors/charter.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/interceptors/charter.md` |
+| https://modelcontextprotocol.io/community/registry/charter.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/registry/charter.md` |
 | https://modelcontextprotocol.io/community/sdk-tiers.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/sdk-tiers.md` |
 | https://modelcontextprotocol.io/community/sdk/charter.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/sdk/charter.md` |
 | https://modelcontextprotocol.io/community/sep-guidelines.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/sep-guidelines.md` |
 | https://modelcontextprotocol.io/community/server-card/charter.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/server-card/charter.md` |
 | https://modelcontextprotocol.io/community/skills-over-mcp/charter.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/skills-over-mcp/charter.md` |
+| https://modelcontextprotocol.io/community/tool-annotations/charter.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/tool-annotations/charter.md` |
 | https://modelcontextprotocol.io/community/triggers-events/charter.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/triggers-events/charter.md` |
 | https://modelcontextprotocol.io/community/working-interest-groups.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/community/working-interest-groups.md` |
 | https://modelcontextprotocol.io/development/roadmap.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/development/roadmap.md` |
@@ -53,6 +54,7 @@ transform: append-md
 | https://modelcontextprotocol.io/extensions/auth/overview.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/extensions/auth/overview.md` |
 | https://modelcontextprotocol.io/extensions/client-matrix.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/extensions/client-matrix.md` |
 | https://modelcontextprotocol.io/extensions/overview.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/extensions/overview.md` |
+| https://modelcontextprotocol.io/extensions/tasks/overview.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/extensions/tasks/overview.md` |
 | https://modelcontextprotocol.io/registry/about.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/registry/about.md` |
 | https://modelcontextprotocol.io/registry/authentication.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/registry/authentication.md` |
 | https://modelcontextprotocol.io/registry/faq.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/registry/faq.md` |
@@ -70,3 +72,60 @@ transform: append-md
 | https://modelcontextprotocol.io/seps/1046-support-oauth-client-credentials-flow-in-authoriza.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1046-support-oauth-client-credentials-flow-in-authoriza.md` |
 | https://modelcontextprotocol.io/seps/1302-formalize-working-groups-and-interest-groups-in-mc.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1302-formalize-working-groups-and-interest-groups-in-mc.md` |
 | https://modelcontextprotocol.io/seps/1303-input-validation-errors-as-tool-execution-errors.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1303-input-validation-errors-as-tool-execution-errors.md` |
+| https://modelcontextprotocol.io/seps/1319-decouple-request-payload-from-rpc-methods-definiti.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1319-decouple-request-payload-from-rpc-methods-definiti.md` |
+| https://modelcontextprotocol.io/seps/1330-elicitation-enum-schema-improvements-and-standards.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1330-elicitation-enum-schema-improvements-and-standards.md` |
+| https://modelcontextprotocol.io/seps/1577--sampling-with-tools.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1577--sampling-with-tools.md` |
+| https://modelcontextprotocol.io/seps/1613-establish-json-schema-2020-12-as-default-dialect-f.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1613-establish-json-schema-2020-12-as-default-dialect-f.md` |
+| https://modelcontextprotocol.io/seps/1686-tasks.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1686-tasks.md` |
+| https://modelcontextprotocol.io/seps/1699-support-sse-polling-via-server-side-disconnect.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1699-support-sse-polling-via-server-side-disconnect.md` |
+| https://modelcontextprotocol.io/seps/1730-sdks-tiering-system.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1730-sdks-tiering-system.md` |
+| https://modelcontextprotocol.io/seps/1850-pr-based-sep-workflow.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1850-pr-based-sep-workflow.md` |
+| https://modelcontextprotocol.io/seps/1865-mcp-apps-interactive-user-interfaces-for-mcp.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/1865-mcp-apps-interactive-user-interfaces-for-mcp.md` |
+| https://modelcontextprotocol.io/seps/2085-governance-succession-and-amendment.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2085-governance-succession-and-amendment.md` |
+| https://modelcontextprotocol.io/seps/2106-json-schema-2020-12.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2106-json-schema-2020-12.md` |
+| https://modelcontextprotocol.io/seps/2133-extensions.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2133-extensions.md` |
+| https://modelcontextprotocol.io/seps/2148-contributor-ladder.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2148-contributor-ladder.md` |
+| https://modelcontextprotocol.io/seps/2149-working-group-charter-template.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2149-working-group-charter-template.md` |
+| https://modelcontextprotocol.io/seps/2164-resource-not-found-error.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2164-resource-not-found-error.md` |
+| https://modelcontextprotocol.io/seps/2207-oidc-refresh-token-guidance.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2207-oidc-refresh-token-guidance.md` |
+| https://modelcontextprotocol.io/seps/2243-http-standardization.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2243-http-standardization.md` |
+| https://modelcontextprotocol.io/seps/2260-Require-Server-requests-to-be-associated-with-Client-requests.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2260-Require-Server-requests-to-be-associated-with-Client-requests.md` |
+| https://modelcontextprotocol.io/seps/2322-MRTR.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2322-MRTR.md` |
+| https://modelcontextprotocol.io/seps/2468-recommend-issuer-claim-for-auth.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2468-recommend-issuer-claim-for-auth.md` |
+| https://modelcontextprotocol.io/seps/2484-conformance-tests-required-for-final-seps.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2484-conformance-tests-required-for-final-seps.md` |
+| https://modelcontextprotocol.io/seps/2549-TTL-for-list-results.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2549-TTL-for-list-results.md` |
+| https://modelcontextprotocol.io/seps/2567-sessionless-mcp.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2567-sessionless-mcp.md` |
+| https://modelcontextprotocol.io/seps/2575-stateless-mcp.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2575-stateless-mcp.md` |
+| https://modelcontextprotocol.io/seps/2577-deprecate-roots-sampling-and-logging.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2577-deprecate-roots-sampling-and-logging.md` |
+| https://modelcontextprotocol.io/seps/2596-spec-feature-lifecycle-and-deprecation.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2596-spec-feature-lifecycle-and-deprecation.md` |
+| https://modelcontextprotocol.io/seps/2663-tasks-extension.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/2663-tasks-extension.md` |
+| https://modelcontextprotocol.io/seps/414-request-meta.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/414-request-meta.md` |
+| https://modelcontextprotocol.io/seps/932-model-context-protocol-governance.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/932-model-context-protocol-governance.md` |
+| https://modelcontextprotocol.io/seps/973-expose-additional-metadata-for-implementations-res.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/973-expose-additional-metadata-for-implementations-res.md` |
+| https://modelcontextprotocol.io/seps/985-align-oauth-20-protected-resource-metadata-with-rf.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/985-align-oauth-20-protected-resource-metadata-with-rf.md` |
+| https://modelcontextprotocol.io/seps/986-specify-format-for-tool-names.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/986-specify-format-for-tool-names.md` |
+| https://modelcontextprotocol.io/seps/990-enable-enterprise-idp-policy-controls-during-mcp-o.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/990-enable-enterprise-idp-policy-controls-during-mcp-o.md` |
+| https://modelcontextprotocol.io/seps/991-enable-url-based-client-registration-using-oauth-c.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/991-enable-url-based-client-registration-using-oauth-c.md` |
+| https://modelcontextprotocol.io/seps/994-shared-communication-practicesguidelines.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/994-shared-communication-practicesguidelines.md` |
+| https://modelcontextprotocol.io/seps/index.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/seps/index.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/architecture/index.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/architecture/index.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/basic/authorization.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/basic/index.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/basic/index.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/basic/transports.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/basic/transports.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/cancellation.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/basic/utilities/cancellation.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/ping.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/basic/utilities/ping.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/progress.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/basic/utilities/progress.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/changelog.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/changelog.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/client/elicitation.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/client/elicitation.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/client/roots.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/client/roots.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/client/sampling.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/client/sampling.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/index.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/index.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/schema.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/schema.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/server/index.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/server/index.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/server/prompts.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/server/prompts.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/server/resources.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/server/resources.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/server/tools.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/server/tools.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/completion.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/server/utilities/completion.md` |
+| https://modelcontextprotocol.io/specification/2025-11-25/server/utilities/logging.md | `vendor/modelcontextprotocol/modelcontextprotocol.io/specification/2025-11-25/server/utilities/logging.md` |
