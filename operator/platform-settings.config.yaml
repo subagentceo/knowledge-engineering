@@ -15,26 +15,40 @@ appearance:
   compact_mode: false
 
 organization:
-  id: c38224f8-0e34-45c0-abee-739f89331d6a
-  name: null             # fetched at runtime from Admin API (unavailable on Max 5x)
-  plan: max_5x
+  id: b712651b-9020-4ebc-ac1c-5cf91cc8d43d   # platform.claude.com org UUID (≠ claude.ai export UUID)
+  name: "ADMIN's Individual Org"
+  members: 1
+  plan: evaluation_free                       # Free tier, no credit purchase history
   primary_email: admin@jadecli.com
 
 workspaces:
-  default_workspace_id: null
-  workspaces: []         # populated at runtime (requires Console admin)
+  count: 2
+  workspaces:
+    - name: Default
+      id: null           # full ID truncated in UI — fetch via Admin API
+      api_keys: 0
+    - name: it-admin
+      id: wrkspc_01CBeWLBbjPFi6iqmBnnh3vs
+      created_at: "2026-05-30T14:53:00"
+      api_keys: 0
 
 billing:
-  plan: max_5x
+  plan: pay_as_you_go_credits      # Console account: buy credits, not Max 5x subscription
   billing_email: admin@jadecli.com
-  monthly_spend_limit_usd: null    # set via /usage-credits in Claude Code
-  current_period_start: null
-  current_period_end: null
+  credit_balance_usd: 0.00         # confirmed: $0.00 remaining balance
+  credit_card_on_file: false
+  auto_reload_enabled: false
+  monthly_spend_limit_usd: null
 
 limits:
-  max_tokens_per_request: null     # plan default
-  requests_per_minute: null        # plan default
-  tokens_per_minute: null          # plan default
+  tier: free                       # Free tier (current) — unlocks at $5 first purchase
+  tier_1_threshold_usd: 5
+  tier_2_threshold_usd: 40
+  tier_3_threshold_usd: 200
+  tier_4_threshold_usd: 400
+  batch_requests_per_minute: 5
+  web_search_per_second: 30
+  files_api_storage_gb: 500
   custom_rate_limits: []
 
 api_keys:
@@ -52,6 +66,11 @@ workload_identity:
   providers: []
 
 privacy_controls:
-  training_opt_out: null           # check claude.ai/settings/privacy
-  conversation_history: true
-  data_retention_days: null        # plan default
+  data_retention_days: 30          # confirmed: "30 day retention period"
+  development_partner_program: joined
+  partner_joined_at: "2026-05-24"
+  partner_joined_by: admin@jadecli.com
+  claude_code_metrics_logging: true   # "Allow Claude Code metrics logging" is ON → feeds Analytics > Claude Code
+  allow_user_feedback: true
+  allow_web_search: true
+  allow_batch_results_download: true

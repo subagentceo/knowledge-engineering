@@ -27,29 +27,32 @@ const AppearanceSchema = z.object({
 });
 
 const OrganizationSchema = z.object({
-  id: z.string().uuid(),
+  id: z.string().uuid(),               // platform.claude.com org UUID (≠ claude.ai export UUID)
   name: z.string().nullable(),
-  plan: z.string(),
+  members: z.number().int().positive(),
+  plan: z.string(),                    // "evaluation_free" | "pay_as_you_go_credits" | ...
   primary_email: z.string().email(),
 });
 
 const WorkspaceEntrySchema = z.object({
-  id: z.string(),
   name: z.string(),
+  id: z.string().nullable(),                        // full ID may be truncated in scrape
   created_at: z.string().datetime().nullable().optional(),
+  api_keys: z.number().int().nonnegative(),
 });
 
 const WorkspacesSchema = z.object({
-  default_workspace_id: z.string().nullable(),
+  count: z.number().int().nonnegative(),
   workspaces: z.array(WorkspaceEntrySchema),
 });
 
 const BillingSchema = z.object({
-  plan: z.string(),
+  plan: z.enum(["pay_as_you_go_credits", "evaluation_free", "team", "enterprise"]),
   billing_email: z.string().email(),
+  credit_balance_usd: z.number(),
+  credit_card_on_file: z.boolean(),
+  auto_reload_enabled: z.boolean(),
   monthly_spend_limit_usd: z.number().positive().nullable(),
-  current_period_start: z.string().datetime().nullable(),
-  current_period_end: z.string().datetime().nullable(),
 });
 
 const RateLimitEntrySchema = z.object({
@@ -59,9 +62,14 @@ const RateLimitEntrySchema = z.object({
 });
 
 const LimitsSchema = z.object({
-  max_tokens_per_request: z.number().int().positive().nullable(),
-  requests_per_minute: z.number().int().positive().nullable(),
-  tokens_per_minute: z.number().int().positive().nullable(),
+  tier: z.enum(["free", "tier_1", "tier_2", "tier_3", "tier_4"]),
+  tier_1_threshold_usd: z.number(),
+  tier_2_threshold_usd: z.number(),
+  tier_3_threshold_usd: z.number(),
+  tier_4_threshold_usd: z.number(),
+  batch_requests_per_minute: z.number().int(),
+  web_search_per_second: z.number().int(),
+  files_api_storage_gb: z.number(),
   custom_rate_limits: z.array(RateLimitEntrySchema),
 });
 
@@ -105,9 +113,14 @@ const WorkloadIdentitySchema = z.object({
 });
 
 const PrivacyControlsSchema = z.object({
-  training_opt_out: z.boolean().nullable(),
-  conversation_history: z.boolean(),
-  data_retention_days: z.number().int().positive().nullable(),
+  data_retention_days: z.number().int().positive(),
+  development_partner_program: z.enum(["joined", "not_joined"]),
+  partner_joined_at: z.string().nullable(),
+  partner_joined_by: z.string().email().nullable(),
+  claude_code_metrics_logging: z.boolean(),
+  allow_user_feedback: z.boolean(),
+  allow_web_search: z.boolean(),
+  allow_batch_results_download: z.boolean(),
 });
 
 // ── root schema ───────────────────────────────────────────────────────────────
