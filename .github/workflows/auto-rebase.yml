@@ -139,21 +139,13 @@ jobs:
             grep -Fxq "$REQUIRED_OSV"    <<<"$checks" || missing_osv=1
 
             if [ "$missing_verify" -eq 0 ] && [ "$missing_osv" -eq 0 ]; then
-              # Both required checks present. Check if PR-event workflows ran
-              # (branch-guard + agent-cost-gate). If missing, close/reopen to
-              # trigger pull_request event — GITHUB_TOKEN update-branch pushes
-              # suppress pull_request events (anti-recursion), so PRs can sit
-              # BLOCKED indefinitely without this nudge. (OAUTO17)
-              BRANCH_GUARD_RAN=$(grep -Fx "branch-guard" <<<"$checks" && echo "yes" || echo "no")
-              if [ "$BRANCH_GUARD_RAN" = "no" ]; then
-                echo "#$n: required checks present but branch-guard missing — close/reopen to trigger PR-event workflows"
-                gh pr close "$n" --comment "Auto-reopen: triggering PR-event workflows after App-pushed rebase (OAUTO17)" || true
-                gh pr reopen "$n" || true
-                gh pr merge "$n" --auto --rebase || true
-                rescued=$((rescued+1))
-              else
-                echo "#$n head has all required checks and branch-guard; BLOCKED is for another reason. Skipping."
-              fi
+              # Both required checks are present on this SHA (may still be
+              # in_progress). The PR is blocked only while checks run — once
+              # they pass, auto-merge will fire. Nothing to rescue here.
+              # (OAUTO18: removed branch-guard reopen loop — GITHUB_TOKEN
+              # close/reopen suppresses pull_request events so branch-guard
+              # could never fire, causing an infinite rescue cycle.)
+              echo "#$n: both required checks present; BLOCKED is transient (checks running or other reason). Skipping."
               echo "::endgroup::"
               continue
             fi
