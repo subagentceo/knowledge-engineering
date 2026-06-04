@@ -228,6 +228,34 @@ export const outcomes: SessionOutcome[] = [
       "seeds/prompts/loop-orchestrator.md",
     ],
   },
+  {
+    id: "2026-06-04-O14",
+    title: "UNRESOLVED-05 Phase 1-8 Python strawberry GraphQL endpoint on servers/kg-api/ (KGNode/KGEdge/KGGraph types + Query)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "https://github.com/subagentceo/knowledge-engineering/pull/386",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+    commit_sha: "3bf3120",
+  },
+  {
+    id: "2026-06-04-O15",
+    title: "Heartbeat tick T7 — OAUTO17 drain (#370/#378/#379/#382/#383) + O14 strawberry GraphQL dispatched",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
 ];
 
 for (const o of outcomes) {
