@@ -10,6 +10,7 @@ Mount point: POST /graphql (strawberry.fastapi.GraphQLRouter)
 
 from __future__ import annotations
 
+import os
 import uuid
 from datetime import datetime
 
@@ -93,10 +94,10 @@ class Query:
         self,
         query: str,
         namespace: str | None = None,
-        limit: int = 10,
+        limit: int = strawberry.argument(default=10, description="Max 100"),
     ) -> list[KGNode]:
         async with AsyncSessionLocal() as s:
-            nodes = await kg_repo.search_nodes(s, query, namespace=namespace, limit=limit)
+            nodes = await kg_repo.search_nodes(s, query, namespace=namespace, limit=min(limit, 100))
         return [_node_from_orm(n) for n in nodes]
 
     @strawberry.field
@@ -105,6 +106,8 @@ class Query:
         namespace: str | None = None,
         entity_ids: list[str] | None = None,
     ) -> KGGraph:
+        if entity_ids and len(entity_ids) > 200:
+            entity_ids = entity_ids[:200]
         async with AsyncSessionLocal() as s:
             nodes, edges = await kg_repo.read_graph(s, entity_ids=entity_ids, namespace=namespace)
         return KGGraph(
@@ -115,4 +118,5 @@ class Query:
 
 
 schema = strawberry.Schema(query=Query)
-graphql_router = GraphQLRouter(schema, graphiql=True)
+# WHY: graphiql exposes schema introspection — restrict to KG_DEV environments only.
+graphql_router = GraphQLRouter(schema, graphiql=os.environ.get("KG_DEV", "").lower() in ("1", "true"))
