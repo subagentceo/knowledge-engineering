@@ -19,12 +19,11 @@ const PLUGIN_DIR = "plugins/macos-it-admin";
 const SKILLS = [
   "cloudflare-crud",
   "turbopuffer-crud",
-  "neon-crud",
   "parallel-ai-crud",
   "nimbleway-crud",
 ];
 
-test("plugin.json exists and lists all 5 skills", () => {
+test("plugin.json exists and lists all 4 skills", () => {
   const manifest = JSON.parse(
     readFileSync(`${PLUGIN_DIR}/.claude-plugin/plugin.json`, "utf8"),
   );
@@ -64,7 +63,6 @@ for (const skill of SKILLS) {
 }
 
 const SCRIPT_PATHS = [
-  "plugins/macos-it-admin/skills/neon-crud/scripts/create.ts",
   "plugins/macos-it-admin/skills/parallel-ai-crud/scripts/create.ts",
   "plugins/macos-it-admin/skills/nimbleway-crud/scripts/create.ts",
 ];
