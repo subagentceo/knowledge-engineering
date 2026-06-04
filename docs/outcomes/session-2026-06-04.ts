@@ -102,6 +102,21 @@ export const outcomes: SessionOutcome[] = [
     ],
     commit_sha: "e41bb7d",
   },
+  {
+    id: "2026-06-04-O6",
+    title: "OAUTO18 loop fix — stop rescue-blocked-prs infinite loop when required checks present",
+    status: "achieved",
+    category: "ci",
+    evidence: [
+      ".github/workflows/auto-rebase.yml",
+      "https://github.com/subagentceo/knowledge-engineering/pull/372",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "7a9c6b2",
+  },
 ];
 
 for (const o of outcomes) {
