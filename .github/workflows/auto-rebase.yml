@@ -35,6 +35,9 @@ on:
     - cron: '*/10 * * * *'
   push:
     branches: [main]
+  pull_request:
+    types: [closed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -49,11 +52,19 @@ concurrency:
 
 jobs:
   rebase-behind-prs:
+    # Only run on merged PRs, not closed-without-merge.
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.merged == true }}
     name: Rebase BEHIND automerge PRs
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # OAUTO19: prefer AUTO_REBASE_PAT (a PAT with contents:write +
+      # pull-requests:write) so `gh pr update-branch` push fires
+      # pull_request events naturally — branch-guard, verify, and
+      # OSV-Scanner (PR) run on the rebased SHA without needing
+      # workflow_dispatch fallback. Falls back to GITHUB_TOKEN if
+      # the PAT is unavailable.
+      GH_TOKEN: ${{ secrets.AUTO_REBASE_PAT || secrets.GITHUB_TOKEN }}
       GH_REPO: ${{ github.repository }}
     steps:
       - name: Rebase every open automerge PR that is BEHIND
@@ -95,11 +106,13 @@ jobs:
           echo "Done. Rebase failures: $fail_count (left BEHIND for human review)."
 
   rescue-blocked-prs:
+    # Only run on merged PRs, not closed-without-merge.
+    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.merged == true }}
     name: Rescue BLOCKED automerge PRs missing required checks (OAUTO16)
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_TOKEN: ${{ secrets.AUTO_REBASE_PAT || secrets.GITHUB_TOKEN }}
       GH_REPO: ${{ github.repository }}
     steps:
       - name: Find BLOCKED PRs whose head is missing verify or osv
