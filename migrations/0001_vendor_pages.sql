@@ -1,10 +1,10 @@
 -- migrations/0001_vendor_pages.sql
 --
 -- Phase 13.B+ (O8). vendor_pages table: stores the crawled vendor
--- markdown alongside the filesystem mirror. The crawler's optional
--- Neon UPSERT path writes to this table when NEON_DATABASE_URL is set.
+-- markdown alongside the filesystem mirror. The crawler upserts here
+-- when ALLOYDB_DATABASE_URL is set (AlloyDB Omni, free Neon replacement).
 --
--- Citation: vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md
+-- Citation: src/lib/alloydb-branch.ts
 -- Citation: rubrics/phase-13.md (O8)
 
 CREATE TABLE IF NOT EXISTS vendor_pages (
