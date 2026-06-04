@@ -305,7 +305,7 @@ export const V040_LOOP_TASKS: LoopTask[] = [
     title: "cross-session KG writes via mailbox D1 adapter",
     category: "infra",
     priority: 4,
-    status: "pending",
+    status: "achieved",
     dependsOn: ["2026-06-03-O3", "2026-06-03-O4"],
     coworker: "coworker-feature-dev",
     description:
@@ -316,7 +316,7 @@ export const V040_LOOP_TASKS: LoopTask[] = [
     title: "coworker-verifier: dogfood pr-review-toolkit on every PR",
     category: "security",
     priority: 5,
-    status: "pending",
+    status: "achieved",
     dependsOn: ["2026-06-03-O3", "2026-06-03-O10"],
     coworker: "coworker-verifier",
     description:

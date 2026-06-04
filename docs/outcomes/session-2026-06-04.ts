@@ -6,6 +6,10 @@
  *   - 2026-06-04-O2: Session outcome file created + index.ts updated
  *   - 2026-06-04-O3: Heartbeat last-tick.md updated for tick T9
  *
+ * Tick T10 (tick id: 2026-06-04-T2).
+ *   - 2026-06-04-O4: Registry consistency fix — coworker-registry.ts O5+O6 status set to "achieved"
+ *   - 2026-06-04-O3: Heartbeat updated (was pending from T9)
+ *
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
  */
@@ -56,8 +60,8 @@ export const outcomes: SessionOutcome[] = [
   },
   {
     id: "2026-06-04-O3",
-    title: "Heartbeat tick T9 — last-tick.md updated with T9 state and next actions",
-    status: "pending",
+    title: "Heartbeat tick T10 — last-tick.md updated with T10 state and next actions",
+    status: "achieved",
     category: "infra",
     evidence: [
       "seeds/memory/heartbeat/last-tick.md",
@@ -65,6 +69,19 @@ export const outcomes: SessionOutcome[] = [
     cite: [
       "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
       "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
+  {
+    id: "2026-06-04-O4",
+    title: "Registry consistency fix — coworker-registry.ts v0.5.0-O5+O6 set to achieved",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "docs/orchestration/coworker-registry.ts",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
     ],
   },
 ];
