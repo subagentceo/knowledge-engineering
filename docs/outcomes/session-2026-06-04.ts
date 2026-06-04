@@ -200,6 +200,34 @@ export const outcomes: SessionOutcome[] = [
       "seeds/prompts/loop-orchestrator.md",
     ],
   },
+  {
+    id: "2026-06-04-O12",
+    title: "UNRESOLVED-05 Phase 1-8 TS MCP lanes — graphql-lane (kg_graphql_query) + code-mode-lane (code_mode_batch) + GraphQL SDL",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "https://github.com/subagentceo/knowledge-engineering/pull/383",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/programmatic-tool-calling.md",
+    ],
+    commit_sha: "2c39383",
+  },
+  {
+    id: "2026-06-04-O13",
+    title: "Heartbeat tick T6 — OAUTO17 drain (#370/#378/#379/#380/#382) + O12 registered",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
 ];
 
 for (const o of outcomes) {
