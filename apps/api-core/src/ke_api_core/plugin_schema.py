@@ -7,10 +7,11 @@ Plugin manifest schema — Skills, Connectors, and Agents taxonomy for the KG ma
 
 from __future__ import annotations
 
+import re
 from enum import Enum
 from typing import Optional
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 class PluginKind(str, Enum):
@@ -55,8 +56,34 @@ class PluginManifest(BaseModel):
     package: Optional[str] = None
     entrypoint: Optional[str] = None
     capabilities: list[PluginCapability] = Field(default_factory=list)
-    tags: list[str] = Field(default_factory=list)
+    tags: list[str] = Field(default_factory=list, max_length=50)
     stage: PluginStage = PluginStage.declared
+
+    @field_validator("entrypoint")
+    @classmethod
+    def _validate_entrypoint(cls, v: str | None) -> str | None:
+        if v is None:
+            return v
+        if v.startswith("/") or ".." in v:
+            raise ValueError("entrypoint must be a relative path without parent traversal")
+        return v
+
+    @field_validator("package")
+    @classmethod
+    def _validate_package(cls, v: str | None) -> str | None:
+        if v is None:
+            return v
+        if not re.match(r"^(@[a-z0-9-]+/)?[a-z0-9._-]+(/[a-z0-9._-]+)*$", v):
+            raise ValueError(f"invalid package name: {v!r}")
+        return v
+
+    @field_validator("tags")
+    @classmethod
+    def _validate_tags(cls, v: list[str]) -> list[str]:
+        for tag in v:
+            if len(tag) > 100:
+                raise ValueError(f"tag exceeds 100 chars: {tag!r}")
+        return v
 
 
 class PluginRegistry(BaseModel):
