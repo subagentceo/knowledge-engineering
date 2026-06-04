@@ -10,6 +10,13 @@
  *   - 2026-06-04-O4: Registry consistency fix — coworker-registry.ts O5+O6 status set to "achieved"
  *   - 2026-06-04-O3: Heartbeat updated (was pending from T9)
  *
+ * Tick T5 (tick id: 2026-06-04-T5).
+ *   - 2026-06-04-O7: OMA OAuth patch + watchman audit_container.py (PR #378)
+ *   - 2026-06-04-O8: Firehose triage — 89 tasks into Phase 0-3 lanes (PR #380, UNRESOLVED-03)
+ *   - 2026-06-04-O9: Plan-as-code ProjectPlan schema (PR #379, UNRESOLVED-04)
+ *   - 2026-06-04-O10: Neon removal + polyrepo ADRs (PR #377 merged)
+ *   - 2026-06-04-O11: Heartbeat tick T5 record
+ *
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
  */
@@ -116,6 +123,82 @@ export const outcomes: SessionOutcome[] = [
       "seeds/citations/define-outcomes.md",
     ],
     commit_sha: "7a9c6b2",
+  },
+  {
+    id: "2026-06-04-O7",
+    title: "OMA OAuth patch + watchman audit_container.py — t12-2 ANTHROPIC_API_KEY→CLAUDE_CODE_OAUTH_TOKEN",
+    status: "achieved",
+    category: "vendor",
+    evidence: [
+      "vendor/open-managed-agents/oauth-patch.md",
+      "scripts/audit_container.py",
+      "https://github.com/subagentceo/knowledge-engineering/pull/378",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+  },
+  {
+    id: "2026-06-04-O8",
+    title: "Firehose triage — 87 tasks triaged into Phase 0-3 lanes (UNRESOLVED-03)",
+    status: "achieved",
+    category: "data",
+    evidence: [
+      "docs/firehose/triage-2026-06-04.md",
+      "docs/pending.md",
+      "https://github.com/subagentceo/knowledge-engineering/pull/380",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+  },
+  {
+    id: "2026-06-04-O9",
+    title: "Plan-as-code ProjectPlan Zod schema + SQLite DDL (UNRESOLVED-04)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "src/lib/schemas/project-plan.ts",
+      "src/lib/schemas/project-plan.test.ts",
+      "infra/sqlite/project-plans-schema.sql",
+      "https://github.com/subagentceo/knowledge-engineering/pull/379",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+  },
+  {
+    id: "2026-06-04-O10",
+    title: "Neon removal + polyrepo ADRs — AlloyDB Omni replacement (PR #377 merged)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "docs/decisions/2026-06-04-neon-removed-alloydb-omni-replacement.md",
+      "docs/decisions/2026-06-04-polyrepo-engineering-adoption.md",
+      "https://github.com/subagentceo/knowledge-engineering/pull/377",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "847c224",
+  },
+  {
+    id: "2026-06-04-O11",
+    title: "Heartbeat tick T5 — O7-O10 registered, PRs #378/#379/#380 in CI",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
   },
 ];
 
