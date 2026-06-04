@@ -28,6 +28,7 @@ The chassis is **NOT** a framework. It's a working repo that demonstrates the pa
 3. `docs/PROJECT.md` — Cowork-style project manifest.
 4. `docs/pending.md` — live action dashboard.
 5. `RUNBOOK.md` — how to use Claude Opus 4.7 (1M context) as the web orchestrator.
+6. `docs/contributing-docs/commonmark-gfm-verification.md` — CommonMark/GFM verification plan and issue inventory for Markdown parser compatibility.
 
 ---
 
