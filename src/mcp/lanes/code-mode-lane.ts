@@ -9,7 +9,7 @@ import { readGraph, searchNodes, openNodes } from "../../db/knowledge-graph.js";
 
 const StepSchema = z.object({
   tool: z.string().describe("kg tool name: kg_read_graph | kg_search_nodes | kg_open_nodes"),
-  args: z.record(z.unknown()).default({}),
+  args: z.record(z.string(), z.unknown()).default({}),
 });
 
 export function registerCodeMode(server: McpServer): void {
