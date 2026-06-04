@@ -116,6 +116,18 @@ The branch ruleset `Protect main — no HITL` (id `16440994`) requires two conte
 
 For the full house-format breakdown of all 6 ci-loop lessons, read `docs/prompts/loop-improvements-2026-06-03.md`.
 
+### OAUTO17 webhook silence rule (CRITICAL — context budget)
+
+`github-actions[bot]` close/reopen cycles are the rescue bot working correctly. **Do NOT respond** with status recaps, tables, or commentary. Silent skip. Only act on:
+- A `conclusion: failure` CI check that is NOT `Agent session cost gate` (which `skip-cost-gate` handles).
+- A human review comment requesting a code change.
+
+### Agent PR checklist (run at PR creation, not after)
+
+1. **Branch name MUST start with `claude/`.** Worktree agents create `worktree-agent-<id>` branches — these fail branch-guard. Rescue: `git checkout -b claude/<slug> <commit>; push; create new PR; close old PR via mcp__github__update_pull_request state=closed`.
+2. **Labels BEFORE CI.** Call `mcp__github__issue_write method=update labels=["automerge","skip-cost-gate"]` immediately after `mcp__github__create_pull_request`. Without `skip-cost-gate`, cost-gate blocks merge and requires a manual rescue cycle.
+3. **One PR per worktree session.** Don't create duplicate PRs for the same branch. Check `mcp__github__list_pull_requests head=<branch>` first.
+
 ## Test-file assertion discipline
 
 Test files in `src/lib/*.test.ts` define a local mini-DSL of helpers (`assertEqual`, `assertThrows`, `assertRejects`). When mixing these with bare Node `assert.*` calls, you MUST also `import assert from "node:assert"` — otherwise the test runner throws `assert is not defined` at runtime. Prefer the local helpers for consistency; bare `node:assert` belongs only in `docs/outcomes/*.test.ts` and other places that opt in to `node:assert/strict`. Lesson learned from PR #309 (`assertThrows` replaces `assert.throws`).
