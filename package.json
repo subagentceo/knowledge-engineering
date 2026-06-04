@@ -86,6 +86,7 @@
     "turndown": "^7.0.0",
     "unist-util-visit": "^5.1.0",
     "ws": "^8.20.1",
+    "yaml": "^2.9.0",
     "zod": "^4.0.0"
   },
   "overrides": {
