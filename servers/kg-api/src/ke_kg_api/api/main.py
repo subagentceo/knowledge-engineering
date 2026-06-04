@@ -25,6 +25,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from ..db.base import engine, get_session
 from ..db.orm import Base
 from ..db import repo
+from ..graphql.schema import graphql_router
 from ..models import (
     ApiVersion,
     KGEdgeCreate,
@@ -67,6 +68,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(graphql_router, prefix="/graphql")
 
 Session = Annotated[AsyncSession, Depends(get_session)]
 _SCHEMA_VERSION_HEADER = {"X-Schema-Version": KGSchemaVersion.CURRENT.value}
