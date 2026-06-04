@@ -2,22 +2,24 @@
 
 ## Docs
 
-- [Example Clients](https://modelcontextprotocol.io/clients.md): A list of applications that support MCP integrations
 - [Antitrust Policy](https://modelcontextprotocol.io/community/antitrust.md): MCP Project Antitrust Policy for participants and contributors
 - [Group Charter Template](https://modelcontextprotocol.io/community/charter-template.md): Template for MCP Working Group and Interest Group charters.
 - [Contributor Communication](https://modelcontextprotocol.io/community/communication.md): Communication strategy and framework for the Model Context Protocol community
 - [Contributing to MCP](https://modelcontextprotocol.io/community/contributing.md): How to contribute to the Model Context Protocol project
 - [Contributor Ladder](https://modelcontextprotocol.io/community/contributor-ladder.md): Roles, responsibilities, and advancement criteria for MCP contributors, from first contribution to Core Maintainer
 - [Design Principles](https://modelcontextprotocol.io/community/design-principles.md): The core design principles that guide the development of the Model Context Protocol.
+- [Feature Lifecycle and Deprecation Policy](https://modelcontextprotocol.io/community/feature-lifecycle.md): How individual MCP specification features move through Active, Deprecated, and Removed states, and the timeline implementers can plan against.
 - [File Uploads Charter](https://modelcontextprotocol.io/community/file-uploads/charter.md): Charter for the MCP File Uploads Working Group.
 - [Governance and Stewardship](https://modelcontextprotocol.io/community/governance.md): Learn about the Model Context Protocol's governance structure and how to participate in the community
 - [Inspector V2 Working Group Charter](https://modelcontextprotocol.io/community/inspector-v2/charter.md): Charter for the Inspector V2 Working Group, a Working Group of the Model Context Protocol community.
 - [Interceptors Charter](https://modelcontextprotocol.io/community/interceptors/charter.md): Charter for the MCP Interceptors Working Group.
+- [Registry Charter](https://modelcontextprotocol.io/community/registry/charter.md): Charter for the MCP Registry Working Group.
 - [SDK Tiering System](https://modelcontextprotocol.io/community/sdk-tiers.md): Feature completeness, protocol support, and maintenance commitment levels for Model Context Protocol SDKs
 - [SDK Working Group Charter](https://modelcontextprotocol.io/community/sdk/charter.md): Charter for the MCP SDK Working Group.
 - [SEP Guidelines](https://modelcontextprotocol.io/community/sep-guidelines.md): Specification Enhancement Proposal (SEP) guidelines for proposing changes to the Model Context Protocol
 - [Server Card Charter](https://modelcontextprotocol.io/community/server-card/charter.md): Charter for the MCP Server Card Working Group.
 - [Skills Over MCP Charter](https://modelcontextprotocol.io/community/skills-over-mcp/charter.md): Charter for the MCP Skills Over MCP Working Group.
+- [Tool Annotations Charter](https://modelcontextprotocol.io/community/tool-annotations/charter.md): Charter for the MCP Tool Annotations Interest Group.
 - [Triggers and Events Charter](https://modelcontextprotocol.io/community/triggers-events/charter.md): Charter for the MCP Triggers and Events Working Group.
 - [Working and Interest Groups](https://modelcontextprotocol.io/community/working-interest-groups.md): Governance rules for the two forms of collaborative groups within the Model Context Protocol community — Working Groups and Interest Groups.
 - [Roadmap](https://modelcontextprotocol.io/development/roadmap.md): Our plans for evolving Model Context Protocol
@@ -45,6 +47,7 @@
 - [Authorization Extensions](https://modelcontextprotocol.io/extensions/auth/overview.md): Supplementary authorization mechanisms for the Model Context Protocol
 - [Extension Support Matrix](https://modelcontextprotocol.io/extensions/client-matrix.md): Which MCP clients implement which official extensions
 - [Extensions Overview](https://modelcontextprotocol.io/extensions/overview.md): Optional extensions to the Model Context Protocol
+- [MCP Tasks](https://modelcontextprotocol.io/extensions/tasks/overview.md): Asynchronous task execution for long-running MCP operations
 - [The MCP Registry](https://modelcontextprotocol.io/registry/about.md)
 - [How to Authenticate When Publishing to the Official MCP Registry](https://modelcontextprotocol.io/registry/authentication.md)
 - [Frequently Asked Questions](https://modelcontextprotocol.io/registry/faq.md)
@@ -72,15 +75,23 @@
 - [SEP-1850: PR-Based SEP Workflow](https://modelcontextprotocol.io/seps/1850-pr-based-sep-workflow.md): PR-Based SEP Workflow
 - [SEP-1865: MCP Apps - Interactive User Interfaces for MCP](https://modelcontextprotocol.io/seps/1865-mcp-apps-interactive-user-interfaces-for-mcp.md): MCP Apps - Interactive User Interfaces for MCP
 - [SEP-2085: Governance Succession and Amendment Procedures](https://modelcontextprotocol.io/seps/2085-governance-succession-and-amendment.md): Governance Succession and Amendment Procedures
+- [SEP-2106: Tools `inputSchema` & `outputSchema` Conform to JSON Schema 2020-12](https://modelcontextprotocol.io/seps/2106-json-schema-2020-12.md): Tools `inputSchema` & `outputSchema` Conform to JSON Schema 2020-12
 - [SEP-2133: Extensions](https://modelcontextprotocol.io/seps/2133-extensions.md): Extensions
 - [SEP-2148: MCP Contributor Ladder](https://modelcontextprotocol.io/seps/2148-contributor-ladder.md): MCP Contributor Ladder
 - [SEP-2149: MCP Group Governance and Charter Template](https://modelcontextprotocol.io/seps/2149-working-group-charter-template.md): MCP Group Governance and Charter Template
+- [SEP-2164: Standardize Resource Not Found Error Code](https://modelcontextprotocol.io/seps/2164-resource-not-found-error.md): Standardize Resource Not Found Error Code
 - [SEP-2207: OIDC-Flavored Refresh Token Guidance](https://modelcontextprotocol.io/seps/2207-oidc-refresh-token-guidance.md): OIDC-Flavored Refresh Token Guidance
 - [SEP-2243: HTTP Header Standardization for Streamable HTTP Transport](https://modelcontextprotocol.io/seps/2243-http-standardization.md): HTTP Header Standardization for Streamable HTTP Transport
 - [SEP-2260: Require Server requests to be associated with a Client request.](https://modelcontextprotocol.io/seps/2260-Require-Server-requests-to-be-associated-with-Client-requests.md): Require Server requests to be associated with a Client request.
 - [SEP-2322: Multi Round-Trip Requests](https://modelcontextprotocol.io/seps/2322-MRTR.md): Multi Round-Trip Requests
+- [SEP-2468: Recommend Issuer (iss) Parameter in MCP Auth Responses](https://modelcontextprotocol.io/seps/2468-recommend-issuer-claim-for-auth.md): Recommend Issuer (iss) Parameter in MCP Auth Responses
+- [SEP-2484: Require Conformance Tests for Standards Track SEPs to Reach Final Status](https://modelcontextprotocol.io/seps/2484-conformance-tests-required-for-final-seps.md): Require Conformance Tests for Standards Track SEPs to Reach Final Status
+- [SEP-2549: TTL for List Results](https://modelcontextprotocol.io/seps/2549-TTL-for-list-results.md): TTL for List Results
 - [SEP-2567: Sessionless MCP via Explicit State Handles](https://modelcontextprotocol.io/seps/2567-sessionless-mcp.md): Sessionless MCP via Explicit State Handles
 - [SEP-2575: Make MCP Stateless](https://modelcontextprotocol.io/seps/2575-stateless-mcp.md): Make MCP Stateless
+- [SEP-2577: Deprecate Roots, Sampling, and Logging](https://modelcontextprotocol.io/seps/2577-deprecate-roots-sampling-and-logging.md): Deprecate Roots, Sampling, and Logging
+- [SEP-2596: Specification Feature Lifecycle and Deprecation Policy](https://modelcontextprotocol.io/seps/2596-spec-feature-lifecycle-and-deprecation.md): Specification Feature Lifecycle and Deprecation Policy
+- [SEP-2663: Tasks Extension](https://modelcontextprotocol.io/seps/2663-tasks-extension.md): Tasks Extension
 - [SEP-414: Document OpenTelemetry Trace Context Propagation Conventions](https://modelcontextprotocol.io/seps/414-request-meta.md): Document OpenTelemetry Trace Context Propagation Conventions
 - [SEP-932: Model Context Protocol Governance](https://modelcontextprotocol.io/seps/932-model-context-protocol-governance.md): Model Context Protocol Governance
 - [SEP-973: Expose additional metadata for Implementations, Resources, Tools and Prompts](https://modelcontextprotocol.io/seps/973-expose-additional-metadata-for-implementations-res.md): Expose additional metadata for Implementations, Resources, Tools and Prompts
