@@ -1,0 +1,57 @@
+# platform-settings.config.yaml
+# Models every left-nav page at platform.claude.com/settings/*
+# Top-level key = nav page slug.
+# Non-secret only. Secrets live in cloud-env UI / .dev.vars.
+
+profile:
+  full_name: ADMIN__ c38224f8__max
+  organization_id: c38224f8-0e34-45c0-abee-739f89331d6a
+  display_name: ADMIN__ c38224f8__max
+
+appearance:
+  theme: system          # light | dark | system
+  code_theme: monokai
+  font_size: 14
+  compact_mode: false
+
+organization:
+  id: c38224f8-0e34-45c0-abee-739f89331d6a
+  name: null             # fetched at runtime from Admin API (unavailable on Max 5x)
+  plan: max_5x
+  primary_email: admin@jadecli.com
+
+workspaces:
+  default_workspace_id: null
+  workspaces: []         # populated at runtime (requires Console admin)
+
+billing:
+  plan: max_5x
+  billing_email: admin@jadecli.com
+  monthly_spend_limit_usd: null    # set via /usage-credits in Claude Code
+  current_period_start: null
+  current_period_end: null
+
+limits:
+  max_tokens_per_request: null     # plan default
+  requests_per_minute: null        # plan default
+  tokens_per_minute: null          # plan default
+  custom_rate_limits: []
+
+api_keys:
+  # FORBIDDEN on Max 5x — OAuth-only invariant.
+  # No sk-ant-api03 keys exist for this account.
+  enabled: false
+  keys: []
+
+service_accounts:
+  enabled: false         # requires Team/Enterprise plan
+  accounts: []
+
+workload_identity:
+  enabled: false         # requires Team/Enterprise plan
+  providers: []
+
+privacy_controls:
+  training_opt_out: null           # check claude.ai/settings/privacy
+  conversation_history: true
+  data_retention_days: null        # plan default
