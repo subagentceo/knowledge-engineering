@@ -1,6 +1,5 @@
 // scripts/lib/alloydb-client.test.ts
 //
-// @cite src/lib/alloydb-branch.ts
 // @cite rubrics/phase-13.md (O8)
 // @tdd green
 //
