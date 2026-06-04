@@ -1,6 +1,5 @@
 {
   "env": {
-    "NEON_PROJECT_ID": "divine-cloud-27295848",
     "CLOUDFLARE_ACCOUNT_ID": "e6294e3ea89f8207af387d459824aaae",
     "CLOUDFLARE_WORKER_NAME": "ke-cloud-agent",
     "IS_SANDBOX": "0",
