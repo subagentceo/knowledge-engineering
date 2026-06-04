@@ -1,6 +1,6 @@
 /**
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
- * @cite src/lib/schemas/project-plan.ts
+ * @cite seeds/citations/define-outcomes.md
  */
 import { ProjectPlanSchema, PlanPhaseSchema } from "./project-plan.js";
 
