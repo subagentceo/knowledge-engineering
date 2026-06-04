@@ -228,6 +228,36 @@ export const outcomes: SessionOutcome[] = [
       "seeds/prompts/loop-orchestrator.md",
     ],
   },
+  {
+    id: "2026-06-04-O16",
+    title: "@anthropic-ai npm catalog v2 — 12 packages + dxt/napi docs (t14-1, t14-3)",
+    status: "achieved",
+    category: "vendor",
+    evidence: [
+      "vendor/anthropic-ai-npm/packages.json",
+      "vendor/anthropic-ai-npm/napi-packages.md",
+      "vendor/anthropic-ai-npm/dxt.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+    commit_sha: "54d343b",
+  },
+  {
+    id: "2026-06-04-O17",
+    title: "Heartbeat tick T8 — OAUTO17 drain (#383 merged, #387/#379/#370 rebasing; #389 dirty) + O16 npm catalog dispatched",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
 ];
 
 for (const o of outcomes) {
