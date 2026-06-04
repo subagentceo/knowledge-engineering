@@ -13,7 +13,7 @@ export function registerGraphQL(server: McpServer): void {
     "Execute a GraphQL-style query against the KE knowledge graph. Supported: { entities }, { searchNodes(query: \"X\") }, { node(name: \"X\") }, { graph }.",
     {
       query: z.string().describe("GraphQL query string"),
-      variables: z.record(z.unknown()).optional().describe("optional variables map"),
+      variables: z.record(z.string(), z.unknown()).optional().describe("optional variables map"),
     },
     async ({ query, variables = {} }) => {
       const q = query.trim();
