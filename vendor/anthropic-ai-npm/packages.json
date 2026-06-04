@@ -1,82 +1,208 @@
 {
-  "captured": "2026-06-03",
+  "captured": "2026-06-04",
+  "source": "npm registry API + npmjs.com package pages",
   "packages": [
     {
-      "name": "@anthropic-ai/dxt",
-      "version": "0.2.6",
-      "description": "Tools for building Desktop Extensions",
-      "bin": "dxt",
-      "purpose": "Packages MCP servers into .dxt bundles for Claude Desktop distribution",
-      "cli_usage": "dxt pack <mcp-server-dir>  # → <name>.dxt\ndxt install <name>.dxt     # → installs into Claude Desktop"
+      "name": "@anthropic-ai/sdk",
+      "version": "0.100.1",
+      "description": "The official TypeScript library for the Anthropic API",
+      "homepage": "https://github.com/anthropics/anthropic-sdk-typescript",
+      "source_url": "https://github.com/anthropics/anthropic-sdk-typescript",
+      "keywords": [],
+      "license": "MIT",
+      "weekly_downloads": 23584115,
+      "dependents": 6014,
+      "notes": "Primary SDK for direct Claude API access via api.anthropic.com. Supports Node.js 18+, Deno, Bun, Cloudflare Workers, Vercel Edge. In this repo: use CLAUDE_CODE_OAUTH_TOKEN — ANTHROPIC_API_KEY is forbidden by the repo invariant."
     },
     {
-      "name": "@anthropic-ai/mcpb",
-      "version": "2.1.2",
-      "description": "Tools for building MCP Bundles",
-      "bin": "mcpb",
-      "purpose": "Bundles MCP servers into self-contained distributable packages (NOT protobuf)",
-      "note": "mcpb = MCP Bundle builder; complements dxt (dxt is for Claude Desktop, mcpb is for MCP distribution generally)"
+      "name": "@anthropic-ai/claude-agent-sdk",
+      "version": "0.3.162",
+      "description": "SDK for building AI agents with Claude Code's capabilities. Programmatically interact with Claude to build autonomous agents that can understand codebases, edit files, and execute workflows.",
+      "homepage": "https://github.com/anthropics/claude-agent-sdk-typescript",
+      "source_url": "https://github.com/anthropics/claude-agent-sdk-typescript",
+      "keywords": ["ai", "agent", "sdk", "claude", "anthropic", "automation", "code-generation"],
+      "license": "SEE LICENSE IN README.md",
+      "weekly_downloads": 1000000,
+      "notes": "Has reached 1M+ weekly npm downloads. Provides platform-specific native binaries as optional dependencies. dist-tags: latest=0.3.162, next=0.3.162. Versioned in lockstep with @anthropic-ai/claude-code.",
+      "platform_binaries": [
+        "@anthropic-ai/claude-agent-sdk-darwin-arm64",
+        "@anthropic-ai/claude-agent-sdk-darwin-x64",
+        "@anthropic-ai/claude-agent-sdk-linux-arm64",
+        "@anthropic-ai/claude-agent-sdk-linux-arm64-musl",
+        "@anthropic-ai/claude-agent-sdk-linux-x64",
+        "@anthropic-ai/claude-agent-sdk-linux-x64-musl",
+        "@anthropic-ai/claude-agent-sdk-win32-arm64",
+        "@anthropic-ai/claude-agent-sdk-win32-x64"
+      ]
     },
     {
-      "name": "@anthropic-ai/claude-trace",
-      "version": "0.1.2",
-      "description": "OTEL trace viewer for Claude Code sessions",
-      "bin": "claude-trace",
-      "purpose": "OpenTelemetry trace viewer — starts a local server to visualize traces from claude-code subprocess runs",
-      "integration": "Run alongside claude subprocessor to get structured OTEL spans; ship to CF AI Gateway or Sentry"
+      "name": "@anthropic-ai/bedrock-sdk",
+      "version": "0.29.2",
+      "description": "The official TypeScript library for the Anthropic Bedrock API",
+      "homepage": "https://github.com/anthropics/anthropic-bedrock-typescript",
+      "source_url": "https://github.com/anthropics/anthropic-bedrock-typescript",
+      "keywords": [],
+      "license": "MIT",
+      "weekly_downloads": null,
+      "dependents": 170,
+      "notes": "Claude SDK for AWS Bedrock. Uses AWS credential chain (~/.aws/credentials, AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY env vars). Supports Node.js 18+, Deno, Bun, Cloudflare Workers, Vercel Edge. Docs: platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock."
     },
     {
-      "name": "@anthropic-ai/sandbox-runtime",
-      "version": "0.0.52",
-      "description": "Anthropic Sandbox Runtime (ASRT) — wraps security boundaries around arbitrary processes",
-      "keywords": ["sandbox", "seatbelt", "sandbox-exec", "bubblewrap", "network-filtering", "filesystem-restrictions"],
-      "purpose": "The runtime that powers cloud sandboxes (cloud-sandboxes-reference). Uses macOS seatbelt + Linux bubblewrap for process isolation. WSL2 container (t13-1) should replicate this environment.",
-      "note": "ASRT is the security layer under claude-code's sandboxed execution — critical for WSL2 parity"
+      "name": "@anthropic-ai/vertex-sdk",
+      "version": "0.16.1",
+      "description": "The official TypeScript library for the Anthropic Vertex API",
+      "homepage": "https://github.com/anthropics/anthropic-sdk-typescript",
+      "source_url": "https://github.com/anthropics/anthropic-sdk-typescript",
+      "keywords": [],
+      "license": "MIT",
+      "weekly_downloads": null,
+      "dependents": 56,
+      "notes": "Claude SDK for Google Cloud Vertex AI. Uses google-auth-library credential chain (GOOGLE_APPLICATION_CREDENTIALS, CLOUD_ML_REGION, ANTHROPIC_VERTEX_PROJECT_ID). Extends the main SDK."
     },
     {
-      "name": "@anthropic-ai/tokenizer",
-      "version": "0.0.4",
-      "description": "Claude tokenizer",
-      "purpose": "Client-side token counting before sending to API; use for cost estimation and context window management"
-    },
-    {
-      "name": "@anthropic-ai/universal-sdk",
-      "version": "0.0.0",
-      "description": "",
-      "note": "Placeholder — likely internal or pre-release; not stable for use"
+      "name": "@anthropic-ai/foundry-sdk",
+      "version": "0.2.3",
+      "description": "The official TypeScript library for the Anthropic Foundry API — Claude SDK for Microsoft Azure AI Foundry",
+      "homepage": "https://github.com/anthropics/anthropic-sdk-typescript",
+      "source_url": "https://github.com/anthropics/anthropic-sdk-typescript",
+      "keywords": [],
+      "license": "MIT",
+      "weekly_downloads": null,
+      "dependents": 94,
+      "notes": "Provides access to Claude via Microsoft Azure AI Foundry. Supports API key auth (ANTHROPIC_FOUNDRY_API_KEY) and Azure AD token provider (getBearerTokenProvider). Published ~4 months ago (early 2026). Docs: platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry."
     },
     {
       "name": "@anthropic-ai/claude-code",
+      "version": "2.1.162",
+      "description": "Use Claude, Anthropic's AI assistant, right from your terminal. Claude can understand your codebase, edit files, run terminal commands, and handle entire workflows for you.",
+      "homepage": "https://github.com/anthropics/claude-code",
+      "source_url": "https://github.com/anthropics/claude-code",
+      "keywords": [],
+      "license": "SEE LICENSE IN README.md",
+      "weekly_downloads": null,
       "dist_tags": {
         "stable": "2.1.152",
         "next": "2.1.162",
         "latest": "2.1.162"
       },
-      "subprocessor_note": "Use 'latest' for production subprocessor; 'next' for pre-release features. Auth: CLAUDE_CODE_OAUTH_TOKEN only — ANTHROPIC_API_KEY forbidden."
-    },
-    {
-      "name": "@anthropic-ai/claude-agent-sdk",
+      "notes": "CLI tool. Ships native platform binaries as optional dependencies since v2.1.113 (switched from bundled cli.js). Auth: CLAUDE_CODE_OAUTH_TOKEN only — ANTHROPIC_API_KEY is forbidden by this repo's invariant. FreeBSD binaries not yet published (GitHub issue anthropics/claude-code#61313).",
       "platform_binaries": [
-        "darwin-arm64", "darwin-x64",
-        "linux-arm64", "linux-arm64-musl", "linux-x64", "linux-x64-musl",
-        "win32-arm64", "win32-x64"
-      ],
-      "wsl2_target": "linux-x64",
-      "docker_alpine_target": "linux-x64-musl"
+        "@anthropic-ai/claude-code-darwin-arm64",
+        "@anthropic-ai/claude-code-darwin-x64",
+        "@anthropic-ai/claude-code-linux-arm64",
+        "@anthropic-ai/claude-code-linux-arm64-musl",
+        "@anthropic-ai/claude-code-linux-x64",
+        "@anthropic-ai/claude-code-linux-x64-musl",
+        "@anthropic-ai/claude-code-win32-arm64",
+        "@anthropic-ai/claude-code-win32-x64"
+      ]
     },
     {
-      "name": "napi_native_addons",
-      "bundled_with": "@anthropic-ai/claude-code",
-      "packages": [
-        {"name": "audio-capture-napi", "purpose": "microphone/audio input capture"},
-        {"name": "color-diff-napi", "purpose": "pixel diff for screenshot comparison (vision testing)"},
-        {"name": "image-processor-napi", "purpose": "image resize/encode for vision API"},
-        {"name": "modifiers-napi", "purpose": "keyboard modifier key detection"},
-        {"name": "url-handler-napi", "purpose": "OS-level URL open handler"}
-      ],
-      "note": "Not importable standalone — bundled only inside @anthropic-ai/claude-code binary"
+      "name": "@anthropic-ai/dxt",
+      "version": "0.2.6",
+      "description": "Tools for building Desktop Extensions",
+      "homepage": "https://github.com/anthropics/dxt",
+      "source_url": "https://github.com/anthropics/dxt",
+      "keywords": [],
+      "license": "MIT",
+      "weekly_downloads": 3300,
+      "deprecated": true,
+      "successor": "@anthropic-ai/mcpb",
+      "notes": "DEPRECATED — renamed to @anthropic-ai/mcpb. All versions 0.1.0–0.2.6 carry the npm deprecation notice. Originally introduced June 26, 2025 as the CLI for .dxt Desktop Extension files. File extension renamed from .dxt to .mcpb on Sep 11, 2025. Existing .dxt files still work."
+    },
+    {
+      "name": "@anthropic-ai/mcpb",
+      "version": "2.1.2",
+      "description": "Tools for building MCP Bundles",
+      "homepage": "https://github.com/anthropics/mcpb",
+      "source_url": "https://github.com/anthropics/mcpb",
+      "keywords": [],
+      "license": "MIT",
+      "weekly_downloads": null,
+      "bin": "mcpb",
+      "notes": "CLI and library for creating .mcpb (MCP Bundle) files — zip archives containing a local MCP server + manifest.json. Successor to @anthropic-ai/dxt. Also mirrored at modelcontextprotocol/mcpb (1.9k stars). Open-source spec designed for adoption by any AI desktop app. Supports Node.js, Python (traditional + UV runtime v0.4+), and binary bundles."
+    },
+    {
+      "name": "@anthropic-ai/tokenizer",
+      "version": "0.0.4",
+      "description": "Claude tokenizer",
+      "homepage": "https://github.com/anthropics/anthropic-tokenizer-typescript",
+      "source_url": "https://github.com/anthropics/anthropic-tokenizer-typescript",
+      "keywords": [],
+      "license": "Apache-2.0",
+      "weekly_downloads": 141464,
+      "status": "beta",
+      "notes": "Client-side token counting for cost estimation and context window management. Beta status — last published 3 years ago (stable but not actively updated for newer Claude models). Supports Node.js 12+ and Deno."
+    },
+    {
+      "name": "@anthropic-ai/sandbox-runtime",
+      "version": "0.0.52",
+      "description": "Anthropic Sandbox Runtime (ASRT) - A general-purpose tool for wrapping security boundaries around arbitrary processes",
+      "homepage": "https://github.com/anthropic-experimental/sandbox-runtime",
+      "source_url": "https://github.com/anthropic-experimental/sandbox-runtime",
+      "keywords": ["sandbox", "seatbelt", "sandbox-exec", "anthropic", "claude", "security", "bubblewrap", "network-filtering", "filesystem-restrictions"],
+      "license": "Apache-2.0",
+      "weekly_downloads": null,
+      "notes": "Powers the secure execution environment for Claude Code. Uses macOS seatbelt (sandbox-exec) on Mac and Linux bubblewrap for process isolation, plus network filtering and filesystem restrictions. Under anthropic-experimental GitHub org."
+    },
+    {
+      "name": "@anthropic-ai/claude-trace",
+      "version": "0.1.2",
+      "description": "OTEL trace viewer for Claude Code sessions",
+      "homepage": null,
+      "source_url": null,
+      "keywords": [],
+      "license": null,
+      "weekly_downloads": null,
+      "notes": "OpenTelemetry trace viewer — starts a local server to visualize traces from claude-code subprocess runs. Published ~4 months ago (early 2026). Integrate with CF AI Gateway or Sentry for production observability."
+    },
+    {
+      "name": "@anthropic-ai/universal-sdk",
+      "version": "0.0.0",
+      "description": "Reserved/placeholder package",
+      "homepage": null,
+      "source_url": null,
+      "keywords": [],
+      "license": null,
+      "weekly_downloads": null,
+      "notes": "Placeholder — reserved name, not stable for use. Version 0.0.0 only."
     }
   ],
+  "platform_binary_packages": {
+    "description": "Prebuilt native binaries shipped as optional dependencies of the parent package. npm's optionalDependencies resolution installs the correct platform binary automatically. Do not install these directly.",
+    "claude_code_binaries": [
+      "@anthropic-ai/claude-code-darwin-arm64",
+      "@anthropic-ai/claude-code-darwin-x64",
+      "@anthropic-ai/claude-code-linux-arm64",
+      "@anthropic-ai/claude-code-linux-arm64-musl",
+      "@anthropic-ai/claude-code-linux-x64",
+      "@anthropic-ai/claude-code-linux-x64-musl",
+      "@anthropic-ai/claude-code-win32-arm64",
+      "@anthropic-ai/claude-code-win32-x64"
+    ],
+    "claude_agent_sdk_binaries": [
+      "@anthropic-ai/claude-agent-sdk-darwin-arm64",
+      "@anthropic-ai/claude-agent-sdk-darwin-x64",
+      "@anthropic-ai/claude-agent-sdk-linux-arm64",
+      "@anthropic-ai/claude-agent-sdk-linux-arm64-musl",
+      "@anthropic-ai/claude-agent-sdk-linux-x64",
+      "@anthropic-ai/claude-agent-sdk-linux-x64-musl",
+      "@anthropic-ai/claude-agent-sdk-win32-arm64",
+      "@anthropic-ai/claude-agent-sdk-win32-x64"
+    ],
+    "notes": "FreeBSD binaries not yet published (GitHub issue anthropics/claude-code#61313, filed 2026-05-21). WSL2 target: linux-x64; Alpine Docker images: linux-x64-musl."
+  },
+  "napi_native_addons": {
+    "description": "N-API native addon packages bundled inside @anthropic-ai/claude-code binary. Not independently importable from npm.",
+    "packages": [
+      {"name": "audio-capture-napi", "purpose": "Microphone/audio input capture"},
+      {"name": "color-diff-napi", "purpose": "Pixel diff for screenshot comparison (vision testing)"},
+      {"name": "image-processor-napi", "purpose": "Image resize/encode for vision API"},
+      {"name": "modifiers-napi", "purpose": "Keyboard modifier key detection"},
+      {"name": "url-handler-napi", "purpose": "OS-level URL open handler"}
+    ],
+    "note": "Not independently installable — bundled only inside the @anthropic-ai/claude-code native binary. audio-capture-napi has a reserved placeholder on npm (pacifier136/audio-capture-napi@0.0.1)."
+  },
   "mcp_framework_packages": [
     {"name": "@modelcontextprotocol/hono", "purpose": "Hono framework MCP transport — deploy as CF Worker"},
     {"name": "@modelcontextprotocol/express", "purpose": "Express MCP transport"},
