@@ -73,6 +73,7 @@
     "ingest:kg": "tsx scripts/ingest-vendor-pages.ts",
     "verify:kg": "SKIP_KG_VERIFY=1 tsx scripts/verify-kg.ts",
     "ingest:citations": "tsx scripts/ingest-citations.ts",
+    "ingest:vendor-pages": "tsx scripts/ingest-vendor-pages.ts",
     "cache:warm": "tsx scripts/warm-semantic-cache.ts",
     "dw:load": "tsx scripts/load-citation-warehouse.ts",
     "dw:ecosystem": "tsx scripts/load-ecosystem-catalog.ts",
