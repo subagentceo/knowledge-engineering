@@ -1,27 +1,23 @@
----
-updated: 2026-06-03T04:30
----
+# Next Actions — 2026-06-04-T9
 
-## Completed this session (T1 + T2)
+## Immediate (T10)
+1. Monitor Agent PRs: vendor-refresh, harvest-admonitions, kg-ingest, fivetran-bridge, root-fixes
+2. Once Agent 2 PR merges: run `npm run harvest:admonitions` to populate Redis + dist/admonitions.jsonl
+3. Once Agent 3 PR merges: run `npm run ingest:vendor-pages` to upsert KGNodes
+4. Phase 0d: create `infra/sqlite/kg-session-schema.sql` (session-local SQLite mirror)
+5. Phase 0e: create `scripts/verify-kg.ts` and add to verify chain
 
-- #175 CLOSED — PR #330 merged (OPE1 plugin.json schema test, 13 assertions)
-- #39, #40, #42, #49, #50 — confirmed CLOSED on GitHub
-- v0.4.0-O7 coworker-dev-chain.md — shipped (docs/prompts/coworker-dev-chain.md on main)
-- Batches API client (#42) — merged PR #325
-- OAUTO17 rescue — PRs #331, #311 reopened/auto-merge queued; PR #333 update-branch triggered
+## Blocked on operator
+- D1 deploy: `task_ledger` has no rows; needs CF D1 binding
+- 9 operator runbooks in docs/pending.md Column 1 (CF tokens, PAT, etc.)
 
-## Immediate (next tick, autonomous, no operator gate)
+## Phase −1 (next session)
+- `src/lib/schemas/project-plan.ts` Zod schema
+- `apps/api-core/src/ke_api_core/project_plan.py` Pydantic mirror
+- `infra/sqlite/project-plans-schema.sql`
+- `migrations/0043_project_plans.sql`
 
-1. Monitor PR #331 — once merged, achievedIds() gains O3 → unblocks v0.5.0-O2
-2. v0.5.0-O2: ke-coworker-data CCR routine — dependsOn O3 (PR #331 merge)
-3. OBLOG.rerun (#265) — all sub-issues #260–264 closed; large multi-vendor crawl needed
-
-## Blocked on operator (Column 1 of pending.md)
-
-- CF API token (#33), CLOUDFLARE_ACCOUNT_ID (#34), GitHub PAT (#37)
-- These block: Worker deployment, branch protection, GH Project setup
-
-## Architecture decisions in effect
-
-See `docs/decisions/2026-06-03-multi-agent-infrastructure.md` (OMA1)
-Three-tier loop: CCR tick → Agent() coworkers → SubagentStop hook loops
+## Phase 1+ (after Phase 0 complete)
+- `schema/ke.graphql` unified SDL
+- TS/Python/Swift MCP trio
+- Multi-model mailbox dispatch
