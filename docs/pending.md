@@ -1,7 +1,7 @@
 ---
 title: pending.md
 description: Live dashboard of every pending action — operator browser-driven, operator CLI-driven, autonomous agent follow-up. The operator's explicit ask in Phase 15: "make it more clear what operator runbooks and claude-in-chrome actions you are waiting on."
-last-reviewed: 2026-06-03
+last-reviewed: 2026-06-04
 ---
 
 # Pending actions
@@ -76,18 +76,31 @@ These are issues the heartbeat orchestrator picks up in a future session. Each c
 |---|---|---|
 | ✅ #50 | Phase 15 — codify project management (`PROJECT.md`/`pending.md`/heartbeat) | closed 2026-05-10 |
 
-### v0.5.0 loop tasks (V040_LOOP_TASKS — blocked on PR #331 merge)
+### v0.5.0 loop tasks (V040_LOOP_TASKS — all achieved ✅)
 
-All tasks below require `2026-06-03-O3` in `OutcomeRegistry.achievedIds()`. That outcome lands when PR #331 merges (auto-merge enabled, all required checks green as of 2026-06-03).
+All 6 tasks shipped as of 2026-06-04-T4:
 
-| SemVer | Title | Coworker | Unblocked when |
-|---|---|---|---|
-| v0.5.0-O1 | ke-loop-orchestrator CCR wired + firing | coworker-feature-dev | PR #331 merges + O10 |
-| v0.5.0-O2 | ke-coworker-data CCR routine (4h vendor refresh) | coworker-data | PR #331 merges |
-| v0.5.0-O3 | ke-coworker-prompt CCR routine (opus-4-8 eval loop) | coworker-prompt | PR #331 merges |
-| v0.5.0-O4 | connector consensus via D1 (majority quorum) | coworker-feature-dev | PR #331 merges + O4 |
-| v0.5.0-O5 | cross-session KG writes via mailbox D1 adapter | coworker-feature-dev | PR #331 merges + O4 |
-| v0.5.0-O6 | coworker-verifier: dogfood pr-review-toolkit | coworker-verifier | PR #331 merges + O10 |
+| SemVer | Title | Status |
+|---|---|---|
+| v0.5.0-O1 | ke-loop-orchestrator CCR wired + firing | ✅ achieved (PR #346) |
+| v0.5.0-O2 | ke-coworker-data CCR routine (4h vendor refresh) | ✅ achieved (PR #349) |
+| v0.5.0-O3 | ke-coworker-prompt CCR routine (opus-4-8 eval loop) | ✅ achieved (PR #351) |
+| v0.5.0-O4 | connector consensus via D1 (majority quorum) | ✅ achieved (PR #342) |
+| v0.5.0-O5 | cross-session KG writes via mailbox D1 adapter | ✅ achieved (PR #354) |
+| v0.5.0-O6 | coworker-verifier: dogfood pr-review-toolkit | ✅ achieved (PR #353) |
+
+### Phase 0 sub-tasks (firehose triage — autonomous, no operator gate)
+
+See `docs/firehose/triage-2026-06-04.md` for full triage. Top Phase 0 items:
+
+| Task | Description | Status |
+|---|---|---|
+| t14-1 | @anthropic-ai npm package catalog | 🟡 pending |
+| t13-1 | WSL2 Ubuntu-26.04 Dockerfile + setup.sh | 🟡 pending |
+| t12-2 | OMA OAuth patch (ANTHROPIC_API_KEY→CLAUDE_CODE_OAUTH_TOKEN) | ✅ doc shipped (PR #OMA) |
+| t12-1 | Vendor open-managed-agents README + architecture | 🟡 pending |
+| t11-4 | Plugin manifest schema (Skills+Connectors+Agents) | 🟡 pending |
+| t10-2 | 4-domain product architecture doc | 🟡 pending |
 
 ## Suggested execution order
 
