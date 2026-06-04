@@ -62,7 +62,10 @@
     "goals": "tsx scripts/check-goals.ts",
     "docs:dev": "mintlify dev",
     "lint": "tsc --noEmit",
-    "ke-verifier:setup": "tsx scripts/setup-coworker-verifier.ts"
+    "ke-verifier:setup": "tsx scripts/setup-coworker-verifier.ts",
+    "ingest:kg": "tsx scripts/ingest-vendor-pages.ts",
+    "harvest:admonitions": "tsx scripts/harvest-admonitions.ts",
+    "verify:kg": "SKIP_KG_VERIFY=1 tsx scripts/verify-kg.ts"
   },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "^0.2.0",
