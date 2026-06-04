@@ -1,6 +1,6 @@
 // scripts/lib/alloydb-client.test.ts
 //
-// @cite vendor/anthropics/neon.com/guides/cloudflare-sandbox-neon-branching.md
+// @cite src/lib/alloydb-branch.ts
 // @cite rubrics/phase-13.md (O8)
 // @tdd green
 //
