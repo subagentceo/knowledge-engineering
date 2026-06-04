@@ -1,0 +1,20 @@
+[project]
+name = "ke-fivetran-bridge"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "fivetran-connector-sdk>=1.0",
+    "pydantic>=2.0",
+    "httpx>=0.27.0",
+    "redis>=5.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/ke_fivetran_bridge"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
