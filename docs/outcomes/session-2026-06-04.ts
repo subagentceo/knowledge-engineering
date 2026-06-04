@@ -84,6 +84,24 @@ export const outcomes: SessionOutcome[] = [
       "seeds/citations/define-outcomes.md",
     ],
   },
+  {
+    id: "2026-06-04-O5",
+    title: "Phase 0 KG ingestion pipeline — SQLite schema + harvest-admonitions + ingest-vendor-pages + verify-kg",
+    status: "achieved",
+    category: "data",
+    evidence: [
+      "infra/sqlite/kg-session-schema.sql",
+      "scripts/harvest-admonitions.ts",
+      "scripts/ingest-vendor-pages.ts",
+      "scripts/verify-kg.ts",
+      "https://github.com/subagentceo/knowledge-engineering/pull/364",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "e41bb7d",
+  },
 ];
 
 for (const o of outcomes) {
