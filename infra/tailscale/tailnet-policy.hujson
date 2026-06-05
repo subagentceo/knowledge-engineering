@@ -1,0 +1,77 @@
+// Tailscale ACL policy for subagentceo tailnet
+// Mesh topology:
+//   tag:dev       — WSL2 Ubuntu 24.04 (dev machine) + macOS arm64 (MacBook M5)
+//   tag:container — Docker containers: Cloudflare Workers, AlloyDB Omni, Redis,
+//                   Claude Code instances (subagentceo org on Docker Hub)
+//   tag:server    — Production VMs (cloud-hosted)
+//
+// MagicDNS namespace: ts.subagentceo.io
+// All nodes can reach all nodes (simple dev-lab posture).
+// SSH (22) and Claude Code remote (5000–5100) are explicitly called out
+// for documentation clarity; they are already covered by the wildcard rule.
+{
+  // Tag ownership: the tailnet admin owns all tags.
+  "tagOwners": {
+    "tag:dev":       ["autogroup:admin"],
+    "tag:container": ["autogroup:admin"],
+    "tag:server":    ["autogroup:admin"]
+  },
+
+  // ACL rules — simple dev posture: all nodes reach all nodes.
+  "acls": [
+    {
+      // Allow all traffic within the tailnet (dev lab — no hard segmentation).
+      "action": "accept",
+      "src":    ["*"],
+      "dst":    ["*:*"]
+    }
+  ],
+
+  // Explicit named grants for documentation and future narrowing.
+  "grants": [
+    {
+      // SSH access from any tailnet node to any node.
+      "src": ["*"],
+      "dst": ["*"],
+      "ip":  ["22"]
+    },
+    {
+      // Claude Code remote server port range.
+      // Claude Code listens on a port in 5000–5100 when started with
+      // `claude --port <N>` or via the remote-access workflow.
+      "src": ["tag:dev"],
+      "dst": ["tag:container", "tag:server"],
+      "ip":  ["5000-5100"]
+    }
+  ],
+
+  // MagicDNS: advertise a custom base domain for the tailnet.
+  "dns": {
+    "magic":   true,
+    "overrideLocalDNS": true,
+    "domains": ["ts.subagentceo.io"],
+    "nameservers": []
+  },
+
+  // SSH rules for the Tailscale SSH feature (optional — augments OS SSH).
+  "ssh": [
+    {
+      "action": "accept",
+      "src":    ["autogroup:member"],
+      "dst":    ["autogroup:self"],
+      "users":  ["autogroup:nonroot", "root"]
+    }
+  ],
+
+  // Node capabilities — allow subnet routing advertisement from containers.
+  "nodeAttrs": [
+    {
+      "target": ["tag:container"],
+      "attr":   ["funnel"]
+    },
+    {
+      "target": ["tag:dev"],
+      "attr":   ["funnel", "mullvad"]
+    }
+  ]
+}
