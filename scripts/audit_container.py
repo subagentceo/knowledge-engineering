@@ -31,6 +31,8 @@ REQUIRED: list[tuple[str, str | None]] = [
     ("python3", None),               # pre-installed; no apt fallback
     ("node", "nodejs"),
     ("git", "git"),
+    ("swiftly", None),               # swift.org swiftly installer; no apt fallback
+    ("swift", None),                 # installed via swiftly or direct tarball; no apt fallback
 ]
 
 REPORT_PATH = Path(os.environ.get("AUDIT_REPORT", "audit_container_results.jsonl"))
