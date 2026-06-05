@@ -101,6 +101,9 @@ RUN curl -fsSL "${SWIFT_URL}" -o /tmp/swift.tar.gz \
     && rm /tmp/swift.tar.gz /tmp/swift.tar.gz.sig
 
 ENV PATH="/opt/swift/usr/bin:${PATH}"
+# swiftly (swift.org/install/linux/swiftly) is NOT used here — Docker containers
+# use direct tarball installs for layer-cache efficiency. swiftly is for native
+# WSL2 dev environments only (@see vendor/swift/swift.org/install/linux/swiftly.md).
 
 # ── Claude Code CLI ───────────────────────────────────────────────────────────
 # OAuth-only: ANTHROPIC_API_KEY must NOT be set. Auth is via CLAUDE_CODE_OAUTH_TOKEN.
