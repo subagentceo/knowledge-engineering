@@ -33,12 +33,14 @@
     "verify:freshness": "tsx scripts/verify-freshness.ts",
     "build:plugin-cache": "tsx scripts/build-plugin-cache.ts",
     "verify:plugin-cache": "npm run build:plugin-cache && tsx scripts/verify-plugin-cache.ts",
+    "harvest:admonitions": "tsx scripts/harvest-admonitions.ts",
+    "verify:admonitions": "tsx scripts/harvest-admonitions.ts --dry-run",
     "verify:mcp": "tsx scripts/verify.ts && npm run verify:planner",
     "verify:tf": "terraform -chdir=infra/terraform validate && terraform -chdir=infra/terraform plan -lock=false -input=false",
     "verify:project": "tsx scripts/verify-project.ts",
     "verify:security-posture": "tsx scripts/verify-security-posture.ts",
     "verify:secrets": "tsx scripts/verify-secrets-parity.ts",
-    "verify": "npm run verify:plugin-cache && npm run verify:mcp && npm run verify:tf && npm run verify:citations && npm run verify:gates && npm run verify:libs && npm run verify:coverage && npm run verify:tdd && npm run verify:freshness && npm run verify:project && npm run verify:security-posture",
+    "verify": "npm run verify:plugin-cache && npm run verify:admonitions && npm run verify:mcp && npm run verify:tf && npm run verify:citations && npm run verify:gates && npm run verify:libs && npm run verify:coverage && npm run verify:tdd && npm run verify:freshness && npm run verify:project && npm run verify:security-posture",
     "deploy:agent": "cd infra/cloudflare && npm run deploy",
     "deploy:frontend": "cd frontend && npm run deploy",
     "deploy:all": "npm run deploy:agent && npm run deploy:frontend",
@@ -64,7 +66,6 @@
     "lint": "tsc --noEmit",
     "ke-verifier:setup": "tsx scripts/setup-coworker-verifier.ts",
     "ingest:kg": "tsx scripts/ingest-vendor-pages.ts",
-    "harvest:admonitions": "tsx scripts/harvest-admonitions.ts",
     "verify:kg": "SKIP_KG_VERIFY=1 tsx scripts/verify-kg.ts"
   },
   "dependencies": {
