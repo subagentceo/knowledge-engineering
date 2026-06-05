@@ -29,6 +29,17 @@
  *   - 2026-06-05-O17: t14-3 — vendor/anthropic-ai-npm/dxt.md: @anthropic-ai/dxt Desktop Extension reference
  *   - 2026-06-05-O18: Heartbeat tick 2026-06-05-T5
  *
+ * Tick T6 (tick id: 2026-06-05-T6).
+ *   - 2026-06-05-O19: t3-1+t3-2+t4-1 — vendor/swift/: swiftly installer + Docker Hub swift + linux docker install docs
+ *   - 2026-06-05-O20: t14-2 — infra/claude-code-subprocessor/: platform matrix + docker-entrypoint (6 platforms, OAuth-only)
+ *   - 2026-06-05-O21: Heartbeat tick 2026-06-05-T6
+ *
+ * Tick T7 (tick id: 2026-06-05-T7).
+ *   - 2026-06-05-O22: t4-2+t4-3 — vendor/swift/sourcekit-lsp/: README + editor integration docs
+ *   - 2026-06-05-O23: t13-2 — infra/tailscale/: Tailscale home mesh tailnet policy + README
+ *   - 2026-06-05-O24: t2-1 — scripts/audit_container.py: swiftly + swift binary checks added
+ *   - 2026-06-05-O25: Heartbeat tick 2026-06-05-T7
+ *
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
  */
@@ -304,6 +315,110 @@ export const outcomes: SessionOutcome[] = [
   {
     id: "2026-06-05-O18",
     title: "Heartbeat tick 2026-06-05-T5 — hono CVE fix (PR #409, merged) + bootstrap scripts (PR #410) + dxt investigation (PR #412)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
+  {
+    id: "2026-06-05-O19",
+    title: "t3-1+t3-2+t4-1 — vendor/swift/: swiftly 1.1.2 installer + Docker Hub swift image matrix + linux docker install docs",
+    status: "achieved",
+    category: "vendor",
+    evidence: [
+      "vendor/swift/swift.org/install/linux/swiftly.md",
+      "vendor/swift/hub.docker.com/swift.md",
+      "vendor/swift/swift.org/install/linux/docker.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "61eca827",
+  },
+  {
+    id: "2026-06-05-O20",
+    title: "t14-2 — infra/claude-code-subprocessor/: platform binary matrix + docker-entrypoint (6 platforms, OAuth-only posture)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "infra/claude-code-subprocessor/matrix.yaml",
+      "infra/claude-code-subprocessor/docker-entrypoint.sh",
+      "infra/claude-code-subprocessor/README.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "cd038a41",
+  },
+  {
+    id: "2026-06-05-O21",
+    title: "Heartbeat tick 2026-06-05-T6 — PR #410 OAUTO17 rescue + O19 swift vendor docs (PR #415) + O20 subprocessor matrix (PR #414)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
+  {
+    id: "2026-06-05-O22",
+    title: "t4-2+t4-3 — vendor/swift/sourcekit-lsp/: README + editor integration docs (BBEdit/JetBrains/Nova/Sublime/Theia)",
+    status: "achieved",
+    category: "vendor",
+    evidence: [
+      "vendor/swift/sourcekit-lsp/README.md",
+      "vendor/swift/sourcekit-lsp/editor-integration.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "6ecba3e",
+  },
+  {
+    id: "2026-06-05-O23",
+    title: "t13-2 — infra/tailscale/: Tailscale home mesh tailnet policy (HuJSON ACL) + README for WSL2/macOS/Docker surfaces",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "infra/tailscale/tailnet-policy.hujson",
+      "infra/tailscale/README.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "b0e38e5",
+  },
+  {
+    id: "2026-06-05-O24",
+    title: "t2-1 — scripts/audit_container.py: swiftly + swift binary checks added (none apt-installable; key: Dockerfile uses tarball path → t3-4 unblocked)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "scripts/audit_container.py",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "d78863f",
+  },
+  {
+    id: "2026-06-05-O25",
+    title: "Heartbeat tick 2026-06-05-T7 — BLOCKED drain (PRs #410/#414/#415/#416 auto-merge enabled) + PR #417 merged + O22+O23+O24 achieved",
     status: "achieved",
     category: "infra",
     evidence: [
