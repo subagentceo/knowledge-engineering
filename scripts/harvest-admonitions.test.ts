@@ -32,22 +32,21 @@ function check(name: string, fn: () => void | Promise<void>): Promise<void> {
 
 console.log("harvest-admonitions:");
 
-await check("returns array for a file with a Note", async () => {
-  const records = await harvestAdmonitions(QUICKSTART);
+const records = await harvestAdmonitions(QUICKSTART);
+
+await check("returns array for a file with a Note", () => {
   if (!Array.isArray(records)) throw new Error("expected array");
   if (records.length === 0) throw new Error("expected at least one admonition");
 });
 
-await check("type field matches tag name exactly", async () => {
-  const records = await harvestAdmonitions(QUICKSTART);
+await check("type field matches tag name exactly", () => {
   const valid = new Set(["Note", "Warning", "Tip", "Callout", "Caution", "Info"]);
   for (const r of records) {
     if (!valid.has(r.type)) throw new Error(`unexpected type: ${r.type}`);
   }
 });
 
-await check("lineStart is a positive integer", async () => {
-  const records = await harvestAdmonitions(QUICKSTART);
+await check("lineStart is a positive integer", () => {
   for (const r of records) {
     if (!Number.isInteger(r.lineStart) || r.lineStart < 1) {
       throw new Error(`lineStart=${r.lineStart} must be a positive integer`);
@@ -55,8 +54,7 @@ await check("lineStart is a positive integer", async () => {
   }
 });
 
-await check("text content is trimmed and non-empty", async () => {
-  const records = await harvestAdmonitions(QUICKSTART);
+await check("text content is trimmed and non-empty", () => {
   for (const r of records) {
     if (r.text.length === 0) throw new Error("text is empty");
     if (r.text !== r.text.trim()) throw new Error("text is not trimmed");
