@@ -1,0 +1,258 @@
+# claude-code subprocessor platform matrix
+# @cite infra/wsl2/Dockerfile
+# @cite scripts/bootstrap/wsl-cli.sh
+# OAuth-only posture — ANTHROPIC_API_KEY must NOT be set anywhere.
+# Auth flows exclusively through CLAUDE_CODE_OAUTH_TOKEN.
+# Enforced at runtime by infra/claude-code-subprocessor/docker-entrypoint.sh.
+
+version: "1.0"
+
+oauth_posture:
+  required_token: CLAUDE_CODE_OAUTH_TOKEN
+  rejected_env:
+    - ANTHROPIC_API_KEY
+  fail_closed: true
+  # src/oauth/token.ts and infra/cloudflare/src/env-sanitize.ts enforce this at
+  # the application layer; docker-entrypoint.sh enforces it at the container layer.
+
+platforms:
+  wsl2-ubuntu-22.04:
+    base_image: "ubuntu:22.04"
+    tier: supported
+    node:
+      min_version: "20"
+      install_method: nodesource  # curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+      alt_install_method: nvm    # NVM_DIR=$HOME/.nvm; nvm install 20; nvm use 20
+    required_binaries:
+      - name: node
+        min_version: "20.0.0"
+        check: "node --version"
+      - name: npm
+        min_version: "10.0.0"
+        check: "npm --version"
+      - name: git
+        min_version: "2.34.0"
+        check: "git --version"
+      - name: claude
+        package: "@anthropic-ai/claude-code"
+        install: "npm install -g @anthropic-ai/claude-code"
+        check: "claude --version"
+    optional_binaries:
+      - name: swift
+        install_method: swiftly  # https://github.com/swift-server/swiftly
+        check: "swift --version"
+        notes: "Required for apps/subagent-dashboard, apps/agent-orchestrator"
+    env_required:
+      - CLAUDE_CODE_OAUTH_TOKEN
+    env_rejected:
+      - ANTHROPIC_API_KEY
+    setup_script: scripts/bootstrap/wsl-cli.sh
+    notes: "Jammy LTS; deadsnakes PPA needed for Python 3.12; NodeSource 20.x for Node"
+
+  wsl2-ubuntu-24.04:
+    base_image: "ubuntu:24.04"
+    tier: primary  # matches infra/wsl2/Dockerfile
+    node:
+      min_version: "20"
+      install_method: nodesource  # curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+      alt_install_method: nvm
+    required_binaries:
+      - name: node
+        min_version: "20.0.0"
+        check: "node --version"
+      - name: npm
+        min_version: "10.0.0"
+        check: "npm --version"
+      - name: git
+        min_version: "2.43.0"
+        check: "git --version"
+      - name: claude
+        package: "@anthropic-ai/claude-code"
+        install: "npm install -g @anthropic-ai/claude-code"
+        check: "claude --version"
+    optional_binaries:
+      - name: swift
+        version: "6.1"
+        install_method: swiftly
+        alt_install_method: swift_org_tarball  # https://download.swift.org/
+        check: "swift --version"
+        notes: "Noble (24.04) Swift 6.1 release tarball is the primary install path in infra/wsl2/Dockerfile"
+    env_required:
+      - CLAUDE_CODE_OAUTH_TOKEN
+    env_rejected:
+      - ANTHROPIC_API_KEY
+    setup_script: scripts/bootstrap/wsl-cli.sh
+    docker_image: infra/wsl2/Dockerfile
+    notes: "Primary development target; NVIDIA CUDA 12.4.1 devel base in Docker path"
+
+  wsl2-ubuntu-26.04:
+    base_image: "ubuntu:26.04"
+    tier: future  # planned; not yet released as LTS
+    node:
+      min_version: "20"
+      install_method: nodesource
+      alt_install_method: nvm
+    required_binaries:
+      - name: node
+        min_version: "20.0.0"
+        check: "node --version"
+      - name: npm
+        min_version: "10.0.0"
+        check: "npm --version"
+      - name: git
+        min_version: "2.47.0"
+        check: "git --version"
+      - name: claude
+        package: "@anthropic-ai/claude-code"
+        install: "npm install -g @anthropic-ai/claude-code"
+        check: "claude --version"
+    optional_binaries:
+      - name: swift
+        install_method: swiftly
+        check: "swift --version"
+    env_required:
+      - CLAUDE_CODE_OAUTH_TOKEN
+    env_rejected:
+      - ANTHROPIC_API_KEY
+    setup_script: scripts/bootstrap/wsl-cli.sh
+    notes: "Plucky Puffin (planned 2026); track Swift + Node availability on release"
+
+  macos-arm64:
+    base_image: null  # native macOS; no Docker base
+    tier: supported
+    arch: arm64  # Apple Silicon (M1/M2/M3/M4)
+    node:
+      min_version: "20"
+      install_method: homebrew  # brew install node@20
+      alt_install_method: nvm
+    required_binaries:
+      - name: node
+        min_version: "20.0.0"
+        check: "node --version"
+      - name: npm
+        min_version: "10.0.0"
+        check: "npm --version"
+      - name: git
+        min_version: "2.39.0"
+        check: "git --version"
+        notes: "Xcode Command Line Tools or Homebrew git"
+      - name: claude
+        package: "@anthropic-ai/claude-code"
+        install: "npm install -g @anthropic-ai/claude-code"
+        check: "claude --version"
+    optional_binaries:
+      - name: swift
+        notes: "Bundled with Xcode; also available via swiftly"
+        check: "swift --version"
+    env_required:
+      - CLAUDE_CODE_OAUTH_TOKEN
+    env_rejected:
+      - ANTHROPIC_API_KEY
+    setup_script: enterprise-mirror/setup.sh
+    shell_setup: |
+      # NVM (if using nvm instead of Homebrew):
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    notes: "Primary Mac development path; enterprise-mirror/setup.sh is the Mac entry point"
+
+  macos-x86_64:
+    base_image: null
+    tier: supported
+    arch: x86_64  # Intel Mac
+    node:
+      min_version: "20"
+      install_method: homebrew
+      alt_install_method: nvm
+    required_binaries:
+      - name: node
+        min_version: "20.0.0"
+        check: "node --version"
+      - name: npm
+        min_version: "10.0.0"
+        check: "npm --version"
+      - name: git
+        min_version: "2.39.0"
+        check: "git --version"
+      - name: claude
+        package: "@anthropic-ai/claude-code"
+        install: "npm install -g @anthropic-ai/claude-code"
+        check: "claude --version"
+    optional_binaries:
+      - name: swift
+        notes: "Bundled with Xcode; x86_64 Macs may run Rosetta 2 arm64 Swift"
+        check: "swift --version"
+    env_required:
+      - CLAUDE_CODE_OAUTH_TOKEN
+    env_rejected:
+      - ANTHROPIC_API_KEY
+    setup_script: enterprise-mirror/setup.sh
+    shell_setup: |
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    notes: "Intel Mac; Homebrew prefix /usr/local (not /opt/homebrew)"
+
+  linux-x86_64:
+    base_image: null  # bare metal / CI runner / non-WSL Linux
+    tier: supported
+    node:
+      min_version: "20"
+      install_method: nodesource
+      alt_install_method: nvm
+    required_binaries:
+      - name: node
+        min_version: "20.0.0"
+        check: "node --version"
+      - name: npm
+        min_version: "10.0.0"
+        check: "npm --version"
+      - name: git
+        min_version: "2.34.0"
+        check: "git --version"
+      - name: claude
+        package: "@anthropic-ai/claude-code"
+        install: "npm install -g @anthropic-ai/claude-code"
+        check: "claude --version"
+    optional_binaries:
+      - name: swift
+        install_method: swiftly
+        check: "swift --version"
+        notes: "Required if running apps/subagent-dashboard on a Linux CI host"
+    env_required:
+      - CLAUDE_CODE_OAUTH_TOKEN
+    env_rejected:
+      - ANTHROPIC_API_KEY
+    setup_script: scripts/bootstrap/wsl-cli.sh
+    notes: "GitHub Actions ubuntu-latest runners; also bare-metal dev boxes"
+
+# Shell setup snippets — sourced by docker-entrypoint.sh and wsl-cli.sh
+shell_setup:
+  nvm:
+    install: |
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+      nvm install 20
+      nvm use 20
+      nvm alias default 20
+    rc_snippet: |
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  swiftly:
+    install: |
+      curl -L https://swiftlang.github.io/swiftly/swiftly-install.sh | bash
+      swiftly install latest
+    rc_snippet: |
+      export PATH="$HOME/.swiftly/bin:$PATH"
+      . ~/.swiftly/env.sh
+  nodesource:
+    ubuntu: |
+      curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
+      sudo apt-get install -y nodejs
+
+# Binary version constraints (semver ranges)
+version_constraints:
+  node: ">=20.0.0"
+  npm: ">=10.0.0"
+  git: ">=2.34.0"
+  claude: ">=1.0.0"  # @anthropic-ai/claude-code latest stable
