@@ -13,7 +13,7 @@
 // @cite vendor/anthropics/platform.claude.com/docs/en/manage-claude/usage-cost-api.md
 // @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/prompt-caching.md
 
-import { readFileSync, statSync } from "fs";
+import { readFileSync } from "fs";
 
 // Max artifact size: 10 MB. A legitimate cost file with thousands of sessions
 // is still well under this; larger files indicate a zip-bomb or corrupt artifact.
@@ -320,23 +320,17 @@ function main() {
 
   const artifactPath = args[pathIdx + 1];
 
-  // Guard against zip-bomb / oversized artifacts before reading into memory
-  try {
-    const { size } = statSync(artifactPath);
-    if (size > MAX_ARTIFACT_BYTES) {
-      console.error(`Artifact too large: ${size} bytes (max ${MAX_ARTIFACT_BYTES}). Possible zip-bomb.`);
-      process.exit(1);
-    }
-  } catch (err) {
-    console.error(`Cannot stat artifact: ${err}`);
-    process.exit(1);
-  }
-
+  // Read first, then check size — eliminates TOCTOU race between stat and read.
   let raw: string;
   try {
     raw = readFileSync(artifactPath, "utf8");
   } catch (err) {
     console.error(`Cannot read artifact: ${err}`);
+    process.exit(1);
+  }
+
+  if (Buffer.byteLength(raw, "utf8") > MAX_ARTIFACT_BYTES) {
+    console.error(`Artifact too large (max ${MAX_ARTIFACT_BYTES} bytes). Possible zip-bomb.`);
     process.exit(1);
   }
 
