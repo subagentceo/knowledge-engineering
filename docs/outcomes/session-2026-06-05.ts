@@ -288,8 +288,22 @@ export const outcomes: SessionOutcome[] = [
     commit_sha: "8813010",
   },
   {
+    id: "2026-06-05-O17",
+    title: "t14-3 — vendor/anthropic-ai-npm/dxt.md: @anthropic-ai/dxt Desktop Extension format reference (deprecated v0.2.6 → successor @anthropic-ai/mcpb)",
+    status: "achieved",
+    category: "vendor",
+    evidence: [
+      "vendor/anthropic-ai-npm/dxt.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "bdc82b7",
+  },
+  {
     id: "2026-06-05-O18",
-    title: "Heartbeat tick 2026-06-05-T5 — hono CVE fix (PR #409) + bootstrap scripts (PR #410) + dxt investigation dispatched",
+    title: "Heartbeat tick 2026-06-05-T5 — hono CVE fix (PR #409, merged) + bootstrap scripts (PR #410) + dxt investigation (PR #412)",
     status: "achieved",
     category: "infra",
     evidence: [
