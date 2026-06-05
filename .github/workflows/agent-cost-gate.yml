@@ -1,16 +1,17 @@
 # agent-cost-gate.yml
 #
 # Required CI check: every PR touching apps/ or src/ must have Claude agent
-# session cost data attached before merge. Reads agent-session-costs.json
-# artifact uploaded by the PR author (or CI tooling via claude-cost-poller).
+# session cost data attached before merge. Accepts both JSON-array and JSONL
+# (the poller's native output) so no manual conversion is needed.
 #
 # Gate logic:
-#   1. Check if PR touches apps/ or src/ — if not, skip (exit 0)
-#   2. Look for artifact agent-session-costs.json on the PR workflow run
-#   3. If absent: FAIL with instructions for attaching cost data
-#   4. If present: validate schema, post PR comment with cost summary
+#   1. Check for skip-cost-gate label — if present, skip immediately
+#   2. Check if PR touches apps/ or src/ — if not, skip (exit 0)
+#   3. Look for artifact agent-session-costs on the PR head SHA (paginated)
+#   4. If absent: FAIL with instructions for attaching cost data
+#   5. If present: validate schema, post PR comment with cost summary
 #
-# Auth: OAuth-only. ANTHROPIC_API_KEY must not be set.
+# Auth: OAuth-only. ANTHROPIC_API_KEY must not be set (never added here).
 # @cite apps/analytics-dashboard/cost/src/claude-cost-poller.ts  (AgentSessionCost schema)
 
 name: agent-cost-gate
@@ -33,19 +34,19 @@ concurrency:
 
 jobs:
   agent-cost-gate:
-    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
+    if: github.event.pull_request.draft == false
     name: Agent session cost gate
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: false
 
       - name: Setup Node 20
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: npm
@@ -53,10 +54,27 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check for skip-cost-gate label
+        id: label_check
+        run: |
+          # Bind the GitHub expression to an env var BEFORE using in shell to
+          # prevent expression-injection via attacker-controlled label names.
+          echo "skipped=$SKIP_GATE" >> "$GITHUB_OUTPUT"
+        env:
+          SKIP_GATE: ${{ contains(github.event.pull_request.labels.*.name, 'skip-cost-gate') }}
+
+      - name: Skip (skip-cost-gate label present)
+        if: steps.label_check.outputs.skipped == 'true'
+        run: echo "Cost gate bypassed via skip-cost-gate label (fix/infra-only PR)."
+
       - name: Check if PR touches code paths
         id: code_paths
+        if: steps.label_check.outputs.skipped != 'true'
         run: |
-          CHANGED=$(git diff --name-only origin/main...HEAD)
+          # Use event-payload SHAs — robust to branch renames and forks.
+          CHANGED=$(git diff --name-only \
+            "${{ github.event.pull_request.base.sha }}" \
+            "${{ github.event.pull_request.head.sha }}")
           echo "changed files:"
           echo "$CHANGED"
           if echo "$CHANGED" | grep -qE '^(apps|src)/'; then
@@ -67,25 +85,35 @@ jobs:
 
       - name: Download agent-session-costs artifact
         id: download_artifact
-        if: steps.code_paths.outputs.touches_code == 'true'
-        uses: actions/github-script@v9
+        if: steps.label_check.outputs.skipped != 'true' && steps.code_paths.outputs.touches_code == 'true'
+        uses: actions/github-script@v7
         with:
           script: |
-            const { data: artifacts } = await github.rest.actions.listArtifactsForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              per_page: 100,
-            });
-            // Find artifact from this PR's head SHA
             const prSha = context.payload.pull_request.head.sha;
-            const artifact = artifacts.artifacts.find(a =>
-              a.name === 'agent-session-costs' &&
-              a.workflow_run?.head_sha === prSha
-            );
+            let page = 1;
+            let artifact = null;
+
+            // Paginate so we don't miss the artifact on busy repos (> 100 artifacts)
+            while (!artifact) {
+              const { data } = await github.rest.actions.listArtifactsForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: 'agent-session-costs',
+                per_page: 100,
+                page,
+              });
+              artifact = data.artifacts.find(a =>
+                a.workflow_run?.head_sha === prSha
+              );
+              if (data.artifacts.length < 100) break; // last page
+              page++;
+            }
+
             if (!artifact) {
               core.setOutput('found', 'false');
               return;
             }
+
             const download = await github.rest.actions.downloadArtifact({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -93,36 +121,43 @@ jobs:
               archive_format: 'zip',
             });
             const fs = require('fs');
-            fs.writeFileSync('/tmp/agent-session-costs.zip', Buffer.from(download.data));
+            // Uint8Array wrapper handles both ArrayBuffer and Buffer return types
+            fs.writeFileSync('/tmp/agent-session-costs.zip', Buffer.from(new Uint8Array(download.data)));
             core.setOutput('found', 'true');
 
       - name: Unzip artifact
-        if: steps.code_paths.outputs.touches_code == 'true' && steps.download_artifact.outputs.found == 'true'
-        run: unzip -o /tmp/agent-session-costs.zip -d /tmp/agent-costs/
+        if: steps.label_check.outputs.skipped != 'true' && steps.code_paths.outputs.touches_code == 'true' && steps.download_artifact.outputs.found == 'true'
+        run: |
+          # -j flattens directory paths inside the zip; size guard rejects zip-bombs
+          unzip -jo /tmp/agent-session-costs.zip -d /tmp/agent-costs/
+          SIZE=$(du -sb /tmp/agent-costs/ | cut -f1)
+          if [ "$SIZE" -gt 10485760 ]; then
+            echo "::error::Extracted artifact exceeds 10 MB — possible zip-bomb or corrupt upload."
+            exit 1
+          fi
 
       - name: Validate cost data and generate summary
         id: validate
-        if: steps.code_paths.outputs.touches_code == 'true'
+        if: steps.label_check.outputs.skipped != 'true' && steps.code_paths.outputs.touches_code == 'true'
         run: |
-          if [ "${{ contains(github.event.pull_request.labels.*.name, 'skip-cost-gate') }}" == "true" ]; then
-            echo "Cost gate bypassed via skip-cost-gate label (fix/infra-only PR)."
-            exit 0
-          fi
-          if [ "${{ steps.download_artifact.outputs.found }}" != "true" ]; then
-            echo "::error::No agent-session-costs artifact found for this PR."
+          if [ "$ARTIFACT_FOUND" != "true" ]; then
+            echo "::error::No agent-session-costs artifact found for this PR (SHA: $PR_SHA)."
             echo "::error::Attach cost data by running the cost poller during your agent session:"
             echo "::error::  cd apps/analytics-dashboard/cost && npm run poller"
-            echo "::error::Then upload agent-session-costs.json as a GitHub Actions artifact."
-            echo "::error::For fix/infra-only PRs that don't run agent sessions, apply the 'skip-cost-gate' label."
+            echo "::error::The poller writes JSONL to /tmp/agent-session-costs.jsonl — upload that file"
+            echo "::error::as artifact 'agent-session-costs'. Both JSONL and JSON-array formats accepted."
+            echo "::error::For fix/infra-only PRs without agent sessions, apply the 'skip-cost-gate' label."
             exit 1
           fi
-          npx tsx scripts/check-agent-costs.ts --artifact-path /tmp/agent-costs/agent-session-costs.json
+          npx tsx scripts/check-agent-costs.ts \
+            --artifact-path /tmp/agent-costs/agent-session-costs.json
         env:
-          ANTHROPIC_API_KEY: ""
+          ARTIFACT_FOUND: ${{ steps.download_artifact.outputs.found }}
+          PR_SHA: ${{ github.event.pull_request.head.sha }}
 
       - name: Post cost summary to PR
-        if: steps.code_paths.outputs.touches_code == 'true' && steps.download_artifact.outputs.found == 'true'
-        uses: actions/github-script@v9
+        if: steps.label_check.outputs.skipped != 'true' && steps.code_paths.outputs.touches_code == 'true' && steps.download_artifact.outputs.found == 'true'
+        uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
@@ -130,26 +165,28 @@ jobs:
             if (!fs.existsSync(summaryPath)) return;
             const sessions = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
             const totalCost = sessions.reduce((sum, s) => sum + (s.cost_usd || 0), 0);
-            const totalInput = sessions.reduce((sum, s) => sum + (s.tokens_input || 0), 0);
-            const totalOutput = sessions.reduce((sum, s) => sum + (s.tokens_output || 0), 0);
+            // Correct schema field names: uncached_input_tokens and output_tokens
+            const totalInput = sessions.reduce((sum, s) => sum + (s.uncached_input_tokens || 0), 0);
+            const totalOutput = sessions.reduce((sum, s) => sum + (s.output_tokens || 0), 0);
             const rows = sessions.map(s =>
-              `| \`${s.session_id}\` | ${s.model} | ${s.tokens_input.toLocaleString()} | ${s.tokens_output.toLocaleString()} | $${s.cost_usd.toFixed(4)} |`
+              `| \`${s.session_id}\` | ${s.model} | ${(s.uncached_input_tokens ?? 0).toLocaleString()} | ${(s.output_tokens ?? 0).toLocaleString()} | $${(s.cost_usd ?? 0).toFixed(4)} |`
             ).join('\n');
             const body = [
               `## Agent Session Cost Report`,
               ``,
-              `| Session | Model | Tokens In | Tokens Out | Cost |`,
-              `|---------|-------|-----------|------------|------|`,
+              `| Session | Model | Uncached In | Tokens Out | Cost |`,
+              `|---------|-------|-------------|------------|------|`,
               rows,
               `| **Total** | | **${totalInput.toLocaleString()}** | **${totalOutput.toLocaleString()}** | **$${totalCost.toFixed(4)}** |`,
             ].join('\n');
+            // Use pull_request.number explicitly — context.issue.number is a fragile alias
             await github.rest.issues.createComment({
-              issue_number: context.issue.number,
+              issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body,
             });
 
       - name: Skip (no code paths touched)
-        if: steps.code_paths.outputs.touches_code == 'false'
+        if: steps.label_check.outputs.skipped != 'true' && steps.code_paths.outputs.touches_code == 'false'
         run: echo "PR does not touch apps/ or src/ — cost gate skipped."
