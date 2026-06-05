@@ -23,6 +23,12 @@
  *   - 2026-06-05-O13: t7-7 — docs/cloudflare-ai-free-tier.md: CF Workers AI free tier analysis
  *   - 2026-06-05-O14: Heartbeat tick 2026-06-05-T4
  *
+ * Tick T5 (tick id: 2026-06-05-T5).
+ *   - 2026-06-05-O15: fix(deps) — hono 4.12.18 → 4.12.23 CVE fix (PR #409, replaces DIRTY #398)
+ *   - 2026-06-05-O16: t9-7 — scripts/bootstrap/: per-surface Claude agent bootstrap scripts (PR #410)
+ *   - 2026-06-05-O17: t14-3 — vendor/anthropic-ai-npm/dxt.md: @anthropic-ai/dxt Desktop Extension reference
+ *   - 2026-06-05-O18: Heartbeat tick 2026-06-05-T5
+ *
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
  */
@@ -237,6 +243,53 @@ export const outcomes: SessionOutcome[] = [
   {
     id: "2026-06-05-O14",
     title: "Heartbeat tick 2026-06-05-T4 — PRs #406/#407 merged (WSL2+research), convention fixes applied, O11-O13 achieved",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
+  {
+    id: "2026-06-05-O15",
+    title: "fix(deps) — hono 4.12.18 → 4.12.23: 4 Medium CVEs patched (GHSA-2gcr/3hrh/f577/xrhx), replaces DIRTY PR #398",
+    status: "achieved",
+    category: "ci",
+    evidence: [
+      "package.json",
+      "package-lock.json",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "116afc7",
+  },
+  {
+    id: "2026-06-05-O16",
+    title: "t9-7 — scripts/bootstrap/: per-surface Claude agent bootstrap scripts (wsl-cli, macos-cli, vscode-agent, ghostty-agent + README)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "scripts/bootstrap/wsl-cli.sh",
+      "scripts/bootstrap/macos-cli.sh",
+      "scripts/bootstrap/vscode-agent.sh",
+      "scripts/bootstrap/ghostty-agent.sh",
+      "scripts/bootstrap/README.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "8813010",
+  },
+  {
+    id: "2026-06-05-O18",
+    title: "Heartbeat tick 2026-06-05-T5 — hono CVE fix (PR #409) + bootstrap scripts (PR #410) + dxt investigation dispatched",
     status: "achieved",
     category: "infra",
     evidence: [
