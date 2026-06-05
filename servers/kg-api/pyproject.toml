@@ -29,6 +29,8 @@ dependencies = [
     "anthropic>=0.40.0",
     # Vector / RAG utilities
     "numpy>=1.26.0",
+    # GraphQL — strawberry with FastAPI integration
+    "strawberry-graphql[fastapi]>=0.254.0",
     # Redis — base client, object mapping, vector library, MCP server
     "redis>=5.0.0",
     "redis-om>=0.3.0",
