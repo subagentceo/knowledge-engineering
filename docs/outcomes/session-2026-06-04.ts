@@ -200,6 +200,95 @@ export const outcomes: SessionOutcome[] = [
       "seeds/prompts/loop-orchestrator.md",
     ],
   },
+  {
+    id: "2026-06-04-O12",
+    title: "UNRESOLVED-05 Phase 1-8 TS MCP lanes — graphql-lane (kg_graphql_query) + code-mode-lane (code_mode_batch) + GraphQL SDL",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "https://github.com/subagentceo/knowledge-engineering/pull/383",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/programmatic-tool-calling.md",
+    ],
+    commit_sha: "2c39383",
+  },
+  {
+    id: "2026-06-04-O13",
+    title: "Heartbeat tick T6 — OAUTO17 drain (#370/#378/#379/#380/#382) + O12 registered",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
+  {
+    id: "2026-06-04-O14",
+    title: "UNRESOLVED-05 Phase 1-8 Python kg-api — strawberry GraphQL endpoint + GraphiQL gate",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "servers/kg-api/src/ke_kg_api/graphql/schema.py",
+      "servers/kg-api/tests/test_graphql.py",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/programmatic-tool-calling.md",
+    ],
+    commit_sha: "1f28a1e",
+  },
+  {
+    id: "2026-06-04-O16",
+    title: "@anthropic-ai npm catalog v2 — 12 packages + dxt/napi docs (t14-1 t14-3)",
+    status: "achieved",
+    category: "vendor",
+    evidence: [
+      "vendor/anthropic-ai-npm/packages.json",
+      "vendor/anthropic-ai-npm/napi-packages.md",
+      "vendor/anthropic-ai-npm/dxt.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "7c3606a",
+  },
+  {
+    id: "2026-06-04-O18",
+    title: "t11-4 Pydantic v2 plugin manifest schema — Skills+Connectors+Agents+Workflow taxonomy",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "apps/api-core/src/ke_api_core/plugin_schema.py",
+      "apps/api-core/src/ke_api_core/plugin_schema.test.py",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "08c5f5c",
+  },
+  {
+    id: "2026-06-04-O19",
+    title: "Heartbeat tick T9 — OAUTO17 drain + t11-4 plugin schema (O18+O19 registered)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+    commit_sha: "2490fb1",
+  },
 ];
 
 for (const o of outcomes) {

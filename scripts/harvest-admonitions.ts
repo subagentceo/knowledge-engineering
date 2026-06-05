@@ -1,114 +1,140 @@
-#!/usr/bin/env tsx
 /**
- * scripts/harvest-admonitions.ts
- *
- * Phase 0 KG Ingestion — extract admonitions from vendor/ markdown files.
- * Writes JSONL records to stdout. Summary to stderr.
- *
- * Usage:
- *   tsx scripts/harvest-admonitions.ts > .kg/admonitions.jsonl
- *   tsx scripts/harvest-admonitions.ts --vendor anthropics
- *
- * Output schema per line:
- *   { id, page_path, vendor, kind, content, line_number, extracted_at }
+ * Extracts JSX admonition blocks (<Note>, <Warning>, <Tip>, <Callout>, <Caution>, <Info>)
+ * from all .md files under vendor/. Caches by file sha256 in Redis. Writes dist/admonitions.jsonl.
+ * @cite vendor/modelcontextprotocol/modelcontextprotocol.io/extensions/overview.md
+ * @cite rubrics/phase-0.md
  */
-import { readdir, readFile } from "node:fs/promises";
-import { join, relative, sep } from "node:path";
-import { createHash } from "node:crypto";
+import { readdirSync, readFileSync, mkdirSync, writeFileSync } from "node:fs";
+import { join, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
-import { dirname } from "node:path";
+import { getString, setString } from "../src/lib/redis-client.js";
+import { hashBody } from "./lib/checksums.js";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = join(__dirname, "..");
+const __dirname = fileURLToPath(new URL(".", import.meta.url));
+const REPO_ROOT = resolve(__dirname, "..");
 const VENDOR_DIR = join(REPO_ROOT, "vendor");
+const DIST_DIR = join(REPO_ROOT, "dist");
+const OUTPUT_FILE = join(DIST_DIR, "admonitions.jsonl");
 
-const ADMONITION_KINDS = ["NOTE", "TIP", "WARNING", "CAUTION", "IMPORTANT"] as const;
-type AdmonitionKind = typeof ADMONITION_KINDS[number];
+const DRY_RUN = process.argv.includes("--dry-run");
 
-const ADMONITION_RE = /^>\s*\[!(NOTE|TIP|WARNING|CAUTION|IMPORTANT)\]/i;
+// Not a module-level stateful regex — each call creates its own instance so
+// concurrent callers don't share lastIndex state.
+const ADMONITION_PATTERN = /<(Note|Warning|Tip|Callout|Caution|Info)[^>]*>([\s\S]*?)<\/\1>/gm;
 
-interface AdmonitionRecord {
-  id: string;
-  page_path: string;
-  vendor: string;
-  kind: AdmonitionKind;
-  content: string;
-  line_number: number;
-  extracted_at: string;
+export interface AdmonitionRecord {
+  file: string;      // relative path from repo root e.g. "vendor/modelcontextprotocol/..."
+  lineStart: number; // 1-indexed line number of opening tag
+  type: string;      // "Note" | "Warning" | "Tip" | "Callout" | "Caution" | "Info"
+  text: string;      // inner content, trimmed
+  sha256: string;    // sha256 of the source file content (for dedup)
 }
 
-function vendorFromPath(filePath: string): string {
-  const rel = relative(VENDOR_DIR, filePath);
-  return rel.split(sep)[0] ?? "unknown";
-}
-
-async function* walkMd(dir: string): AsyncGenerator<string> {
-  const entries = await readdir(dir, { withFileTypes: true });
-  for (const entry of entries) {
+function walkMdFiles(dir: string): string[] {
+  const results: string[] = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
     if (entry.name.startsWith(".")) continue;
     const full = join(dir, entry.name);
     if (entry.isDirectory()) {
-      yield* walkMd(full);
+      results.push(...walkMdFiles(full));
     } else if (entry.isFile() && entry.name.endsWith(".md")) {
-      yield full;
+      results.push(full);
     }
-  }
-}
-
-function extractAdmonitions(filePath: string, content: string, extractedAt: string): AdmonitionRecord[] {
-  const lines = content.split("\n");
-  const results: AdmonitionRecord[] = [];
-  const vendor = vendorFromPath(filePath);
-  const relPath = relative(REPO_ROOT, filePath);
-
-  for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
-    const m = line.match(ADMONITION_RE);
-    if (!m) continue;
-    const kind = m[1].toUpperCase() as AdmonitionKind;
-    // collect continuation lines (lines starting with ">")
-    const contentLines: string[] = [];
-    let j = i + 1;
-    while (j < lines.length && lines[j].trimStart().startsWith(">")) {
-      contentLines.push(lines[j].replace(/^>\s?/, ""));
-      j++;
-    }
-    const text = contentLines.join(" ").trim() || line;
-    const id = createHash("sha1")
-      .update(`${relPath}:${i}:${kind}`)
-      .digest("hex")
-      .slice(0, 16);
-    results.push({ id, page_path: relPath, vendor, kind, content: text, line_number: i + 1, extracted_at: extractedAt });
   }
   return results;
 }
 
-async function main(): Promise<void> {
-  const vendorFilter = (() => {
-    const idx = process.argv.indexOf("--vendor");
-    return idx >= 0 ? process.argv[idx + 1] : null;
-  })();
-
-  const extractedAt = new Date().toISOString();
-  let totalFiles = 0;
-  let totalAdmonitions = 0;
-
-  for await (const filePath of walkMd(VENDOR_DIR)) {
-    const vendor = vendorFromPath(filePath);
-    if (vendorFilter && vendor !== vendorFilter) continue;
-    const content = await readFile(filePath, "utf8");
-    const records = extractAdmonitions(filePath, content, extractedAt);
-    for (const rec of records) {
-      process.stdout.write(JSON.stringify(rec) + "\n");
-      totalAdmonitions++;
-    }
-    totalFiles++;
+function countNewlines(str: string): number {
+  let n = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "\n") n++;
   }
-
-  process.stderr.write(`[harvest-admonitions] ${totalFiles} files, ${totalAdmonitions} admonitions\n`);
+  return n;
 }
 
-main().catch((err) => {
-  process.stderr.write(`[harvest-admonitions] FATAL: ${err}\n`);
-  process.exit(1);
-});
+export async function harvestAdmonitions(filePath: string, prefetchedContent?: string): Promise<AdmonitionRecord[]> {
+  const content = prefetchedContent ?? readFileSync(filePath, "utf8");
+  const sha256 = hashBody(content);
+  const relPath = relative(REPO_ROOT, filePath);
+  // Include relPath so two files with identical content don't share a cache entry
+  // (records contain file-specific relPath in the `file` field).
+  const cacheKey = "admonitions:" + relPath + ":" + sha256;
+
+  const cached = await getString(cacheKey);
+  if (cached !== null) {
+    try {
+      return JSON.parse(cached) as AdmonitionRecord[];
+    } catch {
+      // Treat corrupt cache entry as a miss and recompute.
+    }
+  }
+
+  const records: AdmonitionRecord[] = [];
+  // Local regex instance: avoids shared lastIndex state with concurrent callers.
+  const re = new RegExp(ADMONITION_PATTERN.source, ADMONITION_PATTERN.flags);
+  let match: RegExpExecArray | null;
+
+  while ((match = re.exec(content)) !== null) {
+    const lineStart = countNewlines(content.slice(0, match.index)) + 1;
+    records.push({
+      file: relPath,
+      lineStart,
+      type: match[1],
+      text: match[2].trim(),
+      sha256,
+    });
+  }
+
+  if (!DRY_RUN) {
+    await setString(cacheKey, JSON.stringify(records), { ex: 86400 });
+  }
+
+  return records;
+}
+
+async function main(): Promise<void> {
+  const mdFiles = walkMdFiles(VENDOR_DIR);
+  const allRecords: AdmonitionRecord[] = [];
+  let cacheHits = 0;
+  let cacheMisses = 0;
+
+  for (const filePath of mdFiles) {
+    const content = readFileSync(filePath, "utf8");
+    const sha256 = hashBody(content);
+    const relPath = relative(REPO_ROOT, filePath);
+    const cacheKey = "admonitions:" + relPath + ":" + sha256;
+
+    const cached = await getString(cacheKey);
+    let records: AdmonitionRecord[] | null = null;
+    if (cached !== null) {
+      try {
+        records = JSON.parse(cached) as AdmonitionRecord[];
+        cacheHits++;
+      } catch {
+        // fall through to recompute
+      }
+    }
+    if (records === null) {
+      cacheMisses++;
+      records = await harvestAdmonitions(filePath, content);
+    }
+    allRecords.push(...records);
+  }
+
+  if (!DRY_RUN) {
+    mkdirSync(DIST_DIR, { recursive: true });
+    const jsonl = allRecords.map((r) => JSON.stringify(r)).join("\n");
+    writeFileSync(OUTPUT_FILE, jsonl + (allRecords.length > 0 ? "\n" : ""));
+  }
+
+  console.log(
+    `[harvest] ${allRecords.length} admonitions in ${mdFiles.length} files (${cacheHits} Redis hits, ${cacheMisses} misses)`,
+  );
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

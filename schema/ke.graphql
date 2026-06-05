@@ -1,0 +1,35 @@
+# KE Knowledge Graph SDL — documentation schema
+# @cite docs/decisions/2026-06-03-multi-agent-infrastructure.md
+
+enum KGEntityType {
+  coworker
+  connector
+  outcome
+  artifact
+  task
+  session
+}
+
+type KGEntity {
+  name: String!
+  type: KGEntityType!
+  observations: [String!]!
+}
+
+type KGRelation {
+  from: String!
+  relation: String!
+  to: String!
+}
+
+type KnowledgeGraph {
+  entities: [KGEntity!]!
+  relations: [KGRelation!]!
+}
+
+type Query {
+  entities: [KGEntity!]!
+  searchNodes(query: String!): [KGEntity!]!
+  node(name: String!): KGEntity
+  graph: KnowledgeGraph!
+}

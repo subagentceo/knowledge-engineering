@@ -51,49 +51,51 @@ def _apt_install(pkg: str, attempts: int = 3) -> bool:
 
 
 def _install_watchman() -> bool:
-    """Download prebuilt watchman linux-x64 binary from GitHub releases."""
-    api_url = "https://api.github.com/repos/facebook/watchman/releases/latest"
-    try:
-        req = urllib.request.Request(api_url, headers={"User-Agent": "ke-audit/1.0"})
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            release = json.loads(resp.read())
-        assets = release.get("assets", [])
-        asset = next(
-            (a for a in assets if "linux" in a["name"] and "x64" in a["name"] and a["name"].endswith(".zip")),
-            None,
-        )
-        if not asset:
-            # fallback: look for .tar.gz or standalone binary
+    """Download latest watchman binary from GitHub releases."""
+    import tarfile
+    import tempfile
+
+    RELEASES_API = "https://api.github.com/repos/facebook/watchman/releases/latest"
+
+    for attempt in range(3):
+        try:
+            if attempt > 0:
+                time.sleep(2 ** attempt)  # 2s, 4s backoff
+
+            req = urllib.request.Request(RELEASES_API, headers={"User-Agent": "ke-audit/1.0"})
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                release = json.loads(resp.read())
+
             asset = next(
-                (a for a in assets if "linux" in a["name"] and "x86_64" in a["name"]),
-                None,
+                (a for a in release.get("assets", [])
+                 if "linux-x64" in a["name"] and a["name"].endswith(".tar.gz")),
+                None
             )
-        if not asset:
-            return False
-        download_url = asset["browser_download_url"]
-        tmp_path = Path("/tmp/watchman_download")
-        urllib.request.urlretrieve(download_url, tmp_path)
-        # Try to extract; if zip:
-        import zipfile, tarfile
-        dest = Path("/tmp/watchman_extracted")
-        dest.mkdir(exist_ok=True)
-        if str(tmp_path).endswith(".zip") or zipfile.is_zipfile(tmp_path):
-            with zipfile.ZipFile(tmp_path) as zf:
-                zf.extractall(dest)
-        else:
-            with tarfile.open(tmp_path) as tf:
-                tf.extractall(dest)
-        # Find watchman binary
-        candidates = list(dest.rglob("watchman"))
-        binary = next((c for c in candidates if c.is_file() and not c.name.endswith(".py")), None)
-        if not binary:
-            return False
-        dest_bin = Path("/usr/local/bin/watchman")
-        shutil.copy2(binary, dest_bin)
-        dest_bin.chmod(0o755)
-        return shutil.which("watchman") is not None
-    except Exception:
-        return False
+            if not asset:
+                continue
+
+            with tempfile.TemporaryDirectory() as tmpdir:
+                archive = os.path.join(tmpdir, "watchman.tar.gz")
+                urllib.request.urlretrieve(asset["browser_download_url"], archive)
+
+                with tarfile.open(archive, "r:gz") as tar:
+                    tar.extractall(tmpdir)
+
+                for root, _, files in os.walk(tmpdir):
+                    if "watchman" in files:
+                        src = os.path.join(root, "watchman")
+                        dst = "/usr/local/bin/watchman"
+                        shutil.copy2(src, dst)
+                        os.chmod(dst, 0o755)
+                        break
+
+            if shutil.which("watchman"):
+                return True
+
+        except (urllib.error.URLError, OSError, KeyError):
+            continue
+
+    return False
 
 
 def audit() -> list[dict]:

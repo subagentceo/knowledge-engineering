@@ -142,6 +142,20 @@ const cacheHitRateGauge = meter.createObservableGauge("claude.cache.hit_rate_pct
   description: "Prompt cache hit rate as a percentage of total input tokens",
 });
 
+// Rolling totals for the gauge callback. Updated in recordSessionCost.
+// One addCallback registered once at module init — avoids accumulating a closure
+// per session (which would cause N observations per export cycle after N calls).
+let _gaugeUncached = 0;
+let _gaugeCacheRead = 0;
+
+cacheHitRateGauge.addCallback((result) => {
+  const totalInput = _gaugeUncached + _gaugeCacheRead;
+  result.observe(
+    totalInput > 0 ? (_gaugeCacheRead / totalInput) * 100 : 0,
+    { "organization.id": ORGANIZATION_ID },
+  );
+});
+
 // ---------------------------------------------------------------------------
 // recordSessionCost — call from ResultMessage handler in agent loop
 // ---------------------------------------------------------------------------
@@ -163,17 +177,16 @@ export function recordSessionCost(cost: AgentSessionCost): void {
   tokenCacheCreate5m.add(cost.cache_creation_5m_input_tokens, { ...attrs, type: "cacheCreation", ttl: "5m" });
   tokenCacheCreate1h.add(cost.cache_creation_1h_input_tokens, { ...attrs, type: "cacheCreation", ttl: "1h" });
 
-  // register cache hit rate for this session
-  cacheHitRateGauge.addCallback((result) => {
-    const eff = computeCacheEfficiency(cost);
-    result.observe(eff.cache_hit_rate, attrs);
-  });
+  // Update rolling totals — the gauge callback (registered once at module init) reads these
+  _gaugeUncached += cost.uncached_input_tokens;
+  _gaugeCacheRead += cost.cache_read_input_tokens;
 
   const record: AgentSessionCost = { ...cost, recorded_at: new Date().toISOString() };
   fs.appendFileSync(COSTS_JSONL, JSON.stringify(record) + "\n");
+  const eff = computeCacheEfficiency(cost);
   console.log(
     `[cost] session=${cost.session_id} cost=$${cost.cost_usd.toFixed(4)}` +
-    ` cache_hit=${computeCacheEfficiency(cost).cache_hit_rate.toFixed(1)}%` +
+    ` cache_hit=${eff.cache_hit_rate.toFixed(1)}%` +
     ` model=${cost.model}`
   );
 }
@@ -264,11 +277,21 @@ export function buildCostRecord(
 // ---------------------------------------------------------------------------
 export async function replayCostsFromJSONL(path: string): Promise<void> {
   const rl = readline.createInterface({ input: fs.createReadStream(path) });
-  for await (const line of rl) {
-    if (!line.trim()) continue;
-    try {
-      recordSessionCost(JSON.parse(line) as AgentSessionCost);
-    } catch { /* skip malformed */ }
+  let skipped = 0;
+  try {
+    for await (const line of rl) {
+      if (!line.trim()) continue;
+      try {
+        recordSessionCost(JSON.parse(line) as AgentSessionCost);
+      } catch {
+        skipped++;
+      }
+    }
+  } finally {
+    rl.close(); // release the read stream fd so the process can exit
+  }
+  if (skipped > 0) {
+    console.warn(`[cost] replayCostsFromJSONL: skipped ${skipped} malformed lines`);
   }
 }
 
@@ -300,4 +323,10 @@ export const sdkOtelEnv: Record<string, string> = {
   ].join(","),
 };
 
-process.on("SIGTERM", async () => { await meterProvider.shutdown(); process.exit(0); });
+// forceFlush drains in-flight OTLP HTTP requests before shutdown so the
+// last metrics window is not silently dropped on graceful container stop.
+process.on("SIGTERM", async () => {
+  await meterProvider.forceFlush();
+  await meterProvider.shutdown();
+  process.exit(0);
+});

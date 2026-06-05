@@ -1,0 +1,2634 @@
+[
+  {
+    "id": "10x-genomics-cloud",
+    "name": "10x Genomics Cloud",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "Launch, monitor, and manage single-cell analysis pipelines on 10x Genomics Cloud platform through conversation. Execute Cell Ranger analysis, upload data, track pipeline progress, retrieve results, and perform quality control checks—all without leaving your workflow",
+    "source": "vendor/claude-sitemap/connectors/10x-genomics-cloud.md"
+  },
+  {
+    "id": "activecampaign",
+    "name": "ActiveCampaign",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Connect ActiveCampaign to Claude for autonomous marketing at your fingertips. Get real-time marketing insights and then take action, instantly. With this secure connection, you can manage lists, tags, contacts, and automations just by chatting with Claude. Ask Claude to pull yesterday’s email per...",
+    "source": "vendor/claude-sitemap/connectors/activecampaign.md"
+  },
+  {
+    "id": "adisinsight",
+    "name": "AdisInsight",
+    "category": "Healthcare & Medical",
+    "surface": "claude.ai",
+    "description": "AdisInsight gives Claude real-time access to the world's most comprehensive pharmaceutical drug and clinical trial intelligence database, powered by Springer Nature. Search and explore drug pipelines by developer, therapeutic area, development phase, mechanism of action, and 40+ parameters. Find ...",
+    "source": "vendor/claude-sitemap/connectors/adisinsight.md"
+  },
+  {
+    "id": "adobe-creativity",
+    "name": "Adobe for creativity",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Adobe for creativity brings Photoshop, Lightroom, Illustrator, Firefly, Premiere, Express, InDesign, and Stock capabilities directly into Claude. Create, edit, and design with natural language, without switching apps. Edit multiple photos, create assets, and refine video for polished results. Sig...",
+    "source": "vendor/claude-sitemap/connectors/adobe-creativity.md"
+  },
+  {
+    "id": "adobe-experience-manager",
+    "name": "Adobe Experience Manager",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Create, edit, search, and publish pages and content fragments in Adobe Experience Manager — simply by describing what you need. Instead of navigating the user interface, tell Claude what to do in plain language: update a hero banner, find pages about a campaign, or schedule content for launch. Al...",
+    "source": "vendor/claude-sitemap/connectors/adobe-experience-manager.md"
+  },
+  {
+    "id": "adobe-journey-optimizer",
+    "name": "Adobe Journey Optimizer",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Inspect, summarize, and troubleshoot Adobe Journey Optimizer journeys, campaigns, offers, and channel configurations directly from Claude. Turn AJO's retrieve APIs into plain-language answers so you can check journey and campaign statuses, surface stopped or orphaned drafts, spot channel configur...",
+    "source": "vendor/claude-sitemap/connectors/adobe-journey-optimizer.md"
+  },
+  {
+    "id": "adobe-marketing-agent",
+    "name": "Adobe Marketing Agent",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Adobe Marketing Agent for Claude Enterprise lets you interact with Adobe using natural language. Ask questions, get insights, and take action without leaving your workflow. It understands your intent and connects with Adobe solutions like Real-Time CDP, Journey Optimizer, and Customer Journey Ana...",
+    "source": "vendor/claude-sitemap/connectors/adobe-marketing-agent.md"
+  },
+  {
+    "id": "ahrefs",
+    "name": "Ahrefs",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Research keywords, analyze backlinks, track rankings, and monitor brand visibility across traditional search and AI platforms. Discover keyword opportunities, compare competitor performance, audit link profiles, and measure share of voice in LLM responses. Claude combines multiple Ahrefs analyses...",
+    "source": "vendor/claude-sitemap/connectors/ahrefs.md"
+  },
+  {
+    "id": "aiera",
+    "name": "Aiera",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Access Aiera's comprehensive financial data APIs, including live earnings calls and investor events, SEC filings, company press releases, ESG reports, and analyst insights. Stay ahead of market-moving information with real-time access to corporate events and financial disclosures.",
+    "source": "vendor/claude-sitemap/connectors/aiera.md"
+  },
+  {
+    "id": "airops",
+    "name": "AirOps",
+    "category": "Knowledge Management & Search",
+    "surface": "claude.ai",
+    "description": "Access your AirOps workspaces, Brand Kits, and AEO (AI Engine Optimization) analytics directly through Claude. Monitor your brand's performance in AI search results, analyze citation rates, and optimize your content strategy.",
+    "source": "vendor/claude-sitemap/connectors/airops.md"
+  },
+  {
+    "id": "airtable",
+    "name": "Airtable",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Bring operational data and context into the flow of your Claude conversations. You can ask questions, create and update records, and analyze your data—all through conversation. Use the data in Airtable as input to the work you're doing in Claude, like building a landing page using content you've ...",
+    "source": "vendor/claude-sitemap/connectors/airtable.md"
+  },
+  {
+    "id": "airwallex",
+    "name": "Airwallex",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "The Airwallex Developer Model Context Protocol (MCP) server helps developers to easily integrate with Airwallex capabilities by bringing Airwallex documentation, API references, and sandbox testing tools directly to Claude. Enjoy developer lifecycle support from knowledge search, to troubleshooti...",
+    "source": "vendor/claude-sitemap/connectors/airwallex.md"
+  },
+  {
+    "id": "aiwyn-tax",
+    "name": "Aiwyn Tax",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Estimate your federal & state taxes using Aiwyn's tax engine that's filed over 1 million returns. Give Claude your tax documents (e.g. W-2s) and get a 1040 PDF back.",
+    "source": "vendor/claude-sitemap/connectors/aiwyn-tax.md"
+  },
+  {
+    "id": "alltrails",
+    "name": "AllTrails",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Find your next outdoor adventure with AllTrails, directly in Claude. AllTrails is the world's most popular and trusted outdoor exploration platform, with more than 500,000 curated trails — complete with reviews, photos, and ratings from a community of over 90+ million trail-goers. From local walk...",
+    "source": "vendor/claude-sitemap/connectors/alltrails.md"
+  },
+  {
+    "id": "alma",
+    "name": "Alma",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Alma is an AI nutrition coach that tracks what you eat, monitors 25+ micronutrients per meal, and scores your diet quality in real time using Harvard's Alternate Healthy Eating Index. Connect Alma to Claude and your full nutrition context comes with you: meals logged, nutrient gaps, Alma Score tr...",
+    "source": "vendor/claude-sitemap/connectors/alma.md"
+  },
+  {
+    "id": "amplitude",
+    "name": "Amplitude",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "Connect your workflows to Amplitude's powerful behavior analytics and experimentation platform. The Amplitude connector enables seamless integration between Claude and your product data, allowing you to search, analyze, and query charts, dashboards, experiments, feature flags, and metrics directl...",
+    "source": "vendor/claude-sitemap/connectors/amplitude.md"
+  },
+  {
+    "id": "apollo",
+    "name": "Apollo.io",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Connect Apollo to Claude so you can prospect and take action from a single conversation. Search Apollo's database to find the right people and companies, then enrich records to reveal verified contact details when you're ready. Create or update contacts, and add or remove contacts from existing s...",
+    "source": "vendor/claude-sitemap/connectors/apollo.md"
+  },
+  {
+    "id": "asana",
+    "name": "Asana",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Access Asana's Work Graph directly from Claude to search, create, update, and track tasks, projects, and goals. Coordinate work across teams while connecting Claude's insights to real deliverables—and turn chats into projects, tasks, and timelines your team can see and execute. Complements your A...",
+    "source": "vendor/claude-sitemap/connectors/asana.md"
+  },
+  {
+    "id": "atlassian",
+    "name": "Atlassian Rovo",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Connect to Jira, Confluence, and other Atlassian apps to manage issues, access documentation, track sprints, create tickets, update project status, and coordinate development workflows. Streamline project management and knowledge sharing across your development and collaboration tools through con...",
+    "source": "vendor/claude-sitemap/connectors/atlassian.md"
+  },
+  {
+    "id": "attio",
+    "name": "Attio",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Access your entire CRM directly from Claude. Look up contacts and companies, find decision makers, and discover email addresses. Log notes from calls and meetings, track engagement history, and create follow-up tasks with deadlines. Search and filter your pipeline by stage, funding round, role, o...",
+    "source": "vendor/claude-sitemap/connectors/attio.md"
+  },
+  {
+    "id": "audible",
+    "name": "Audible",
+    "category": "Media & Entertainment",
+    "surface": "claude.ai",
+    "description": "Use this connector to get audiobook recommendations from Audible. Ask by genre, mood, topic or anything else that comes to mind. Note: If you're outside the United States, results may redirect you to your local marketplace. Audiobook availability varies by region.",
+    "source": "vendor/claude-sitemap/connectors/audible.md"
+  },
+  {
+    "id": "aura",
+    "name": "Aura",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Enable users to search company databases, analyze employee headcount trends, track hiring and attrition rates, explore corporate structures, and benchmark workforce metrics across industries.",
+    "source": "vendor/claude-sitemap/connectors/aura.md"
+  },
+  {
+    "id": "aurora",
+    "name": "Aurora",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Aurora is a read-only connector that puts your Consilio engagement, document, and other data at Claude's fingertips. Ask Claude to find a matter by client or alpha-code, list the workspaces inside it, run a full-text search across documents. AI-powered investigations let Claude follow an answer a...",
+    "source": "vendor/claude-sitemap/connectors/aurora.md"
+  },
+  {
+    "id": "autodesk-product-help",
+    "name": "Autodesk Product Help",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "The Autodesk Product Help MCP Server connects AI agents directly to Autodesk's official product documentation, enabling accurate, real-time answers across 110+ products. As a secure, read-only interface, it allows AI tools to search, navigate, and retrieve trusted Autodesk help content. This enab...",
+    "source": "vendor/claude-sitemap/connectors/autodesk-product-help.md"
+  },
+  {
+    "id": "aws-marketplace",
+    "name": "AWS Marketplace",
+    "category": "Infrastructure & Security",
+    "surface": "claude.ai",
+    "description": "AWS Marketplace connector lets software buyers discover, evaluate, and procure over 30,000 cloud solutions within the AWS Marketplace catalog from within Claude.",
+    "source": "vendor/claude-sitemap/connectors/aws-marketplace.md"
+  },
+  {
+    "id": "base44",
+    "name": "Base44",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Create, edit, and manage Base44 apps directly from Claude. Describe what you want to build and Base44 will generate a full-stack project for you — with data models, backend logic, and a working UI. Query your app's data, update entity schemas, and iterate on existing projects without ever leaving...",
+    "source": "vendor/claude-sitemap/connectors/base44.md"
+  },
+  {
+    "id": "benchling",
+    "name": "Benchling",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "Access and query your Benchling research data directly through conversation. Scientists, informaticians, and R&D leaders can ask questions that draw on their Benchling data, then receive clear summaries with traceable links back to the source for full context and verification.",
+    "source": "vendor/claude-sitemap/connectors/benchling.md"
+  },
+  {
+    "id": "benevity",
+    "name": "Benevity",
+    "category": "HR & Recruitment",
+    "surface": "claude.ai",
+    "description": "Search for trusted causes to donate to or volunteer with from Benevity's database of more than 2.3 million verified nonprofits.",
+    "source": "vendor/claude-sitemap/connectors/benevity.md"
+  },
+  {
+    "id": "bigdata",
+    "name": "Bigdata.com",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "The Bigdata.com MCP server integrates institutional-grade data directly into your AI workflow, covering global news, transcripts, and regulatory filings directly in Claude. By combining Claude's reasoning with Bigdata.com's entity-aware search, you can automate complex due diligence and produce h...",
+    "source": "vendor/claude-sitemap/connectors/bigdata.md"
+  },
+  {
+    "id": "bigquery",
+    "name": "Google Cloud BigQuery",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Integrate analytical data into your agent workflows to achieve superior business results. By connecting your agents with BigQuery, you can provide actionable insights directly to them. Move past standard analytics and utilize BigQuery's advanced features, such as forecasting, to generate higher-v...",
+    "source": "vendor/claude-sitemap/connectors/bigquery.md"
+  },
+  {
+    "id": "biorender",
+    "name": "BioRender",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Provides access to BioRender template and icon search for scientists.",
+    "source": "vendor/claude-sitemap/connectors/biorender.md"
+  },
+  {
+    "id": "biorxiv",
+    "name": "bioRxiv",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "The bioRxiv connector gives Claude access to bioRxiv and medRxiv preprint servers, hosting research papers in biological and medical sciences posted before peer review. Search for preprints by topic, funder, or category. Track publication outcomes and analyze research trends across the life scien...",
+    "source": "vendor/claude-sitemap/connectors/biorxiv.md"
+  },
+  {
+    "id": "bitly",
+    "name": "Bitly",
+    "category": "Communications",
+    "surface": "claude.ai",
+    "description": "Create, track, and manage Bitly links and QR Codes directly from Claude without switching contexts. Access 27 comprehensive tools spanning link creation, analytics, organizational management, and more—making this the most complete link management connector available in any AI assistant.",
+    "source": "vendor/claude-sitemap/connectors/bitly.md"
+  },
+  {
+    "id": "blackbaud",
+    "name": "Blackbaud",
+    "category": "Nonprofit & Social Impact",
+    "surface": "claude.ai",
+    "description": "Query, explore, and combine Blackbaud data directly from Claude. The Blackbaud MCP server brings your nonprofit data into Claude's AI workspace—securely surfacing constituent details, event records, and donation insights without writing a single line of code. Ask natural questions and get live an...",
+    "source": "vendor/claude-sitemap/connectors/blackbaud.md"
+  },
+  {
+    "id": "blockscout",
+    "name": "Blockscout",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "The Blockscout connector provides access to multichain blockchain data such as balances, tokens, NFTs, and contract metadata for contextual analysis. Access comprehensive blockchain information across an extensive list of supported chains for research, analysis, and verification.",
+    "source": "vendor/claude-sitemap/connectors/blockscout.md"
+  },
+  {
+    "id": "boardwise",
+    "name": "BoardWise",
+    "category": "Healthcare & Medical",
+    "surface": "claude.ai",
+    "description": "BoardWise is a read-only educational MCP server for licensed professionals — nurses, physicians, pharmacists, social workers, CDL holders, and others — facing state licensing-board matters. Claude can use it to look up jurisdiction-specific response deadlines, generate structured outlines for res...",
+    "source": "vendor/claude-sitemap/connectors/boardwise.md"
+  },
+  {
+    "id": "booking",
+    "name": "Booking.com",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Get your trip started with Booking.com directly on Claude. Search, compare, and find your next stay – from a pet-friendly beach house in Miami to a sleek 5-star hotel near the Eiffel Tower, just ask. Filter by what matters most to you, like price, ratings and facilities. Finding what you're looki...",
+    "source": "vendor/claude-sitemap/connectors/booking.md"
+  },
+  {
+    "id": "box",
+    "name": "Box",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Connect Claude to your content stored in Box. Enable Claude to search and access files, use AI to query documents, create or update content, extract metadata fields, and more, while enforcing existing Box security and access policies.",
+    "source": "vendor/claude-sitemap/connectors/box.md"
+  },
+  {
+    "id": "braze",
+    "name": "Braze",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Connect Claude directly to Braze to read aggregated data such as Canvas and Campaign analytics, custom attributes, segments, and more.",
+    "source": "vendor/claude-sitemap/connectors/braze.md"
+  },
+  {
+    "id": "brex",
+    "name": "Brex",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Connect Brex to Claude for automating your company's finances. Finance monitors compliance and runs powerful queries. Employees get personalized memo guidance, policy answers, and status updates. Permission-based access ensures admin oversight while streamlining management.",
+    "source": "vendor/claude-sitemap/connectors/brex.md"
+  },
+  {
+    "id": "calendly",
+    "name": "Calendly",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Schedule smarter with Calendly in Claude. Manage your entire scheduling workflow through simple conversation — create and update event types, share scheduling links, adjust availability, book meetings, and more, without ever leaving Claude.",
+    "source": "vendor/claude-sitemap/connectors/calendly.md"
+  },
+  {
+    "id": "campfire",
+    "name": "Campfire",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Search, analyze, and retrieve data from your Campfire ERP directly in Claude. Ask questions about projects, contacts, and financials in natural language. Create board decks, generate insights from your data, and make informed decisions as a native part of your AI workflow.",
+    "source": "vendor/claude-sitemap/connectors/campfire.md"
+  },
+  {
+    "id": "candid",
+    "name": "Candid",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Bring the power of Candid's comprehensive nonprofit and funder data directly into Claude. Search millions of organizations, discover funding opportunities, and access expert knowledge and social sector news—all through natural conversation.",
+    "source": "vendor/claude-sitemap/connectors/candid.md"
+  },
+  {
+    "id": "canva",
+    "name": "Canva",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Browse, summarize, autofill, and even generate new Canva designs directly from Claude. Make Canva a native part of your workflow—helping you create polished visuals faster, with less friction. You can also create presentation outlines and customize branding and design in real-time to produce clie...",
+    "source": "vendor/claude-sitemap/connectors/canva.md"
+  },
+  {
+    "id": "carta",
+    "name": "Carta",
+    "category": "Finance & Payments",
+    "surface": "claude.ai",
+    "description": "Access cap table and investor data directly to your AI workflow. Cap table customers can pull cap table ownership, 409A valuations, and stakeholder details. Model pro-forma rounds and analyze exit scenarios. For investors, access investment metrics, fund performance, accounting data, and company ...",
+    "source": "vendor/claude-sitemap/connectors/carta.md"
+  },
+  {
+    "id": "cash-app",
+    "name": "Order by Cash App",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Order by Cash App brings local food ordering into Claude. Discover nearby restaurants, compare menus, customize your order, and check out, all in the conversation. On clients that support it, an interactive ordering view opens right in chat.",
+    "source": "vendor/claude-sitemap/connectors/cash-app.md"
+  },
+  {
+    "id": "cb-insights",
+    "name": "CB Insights",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Unleash Claude as your private markets research agent. Source companies, build market maps, draft investment memos, and monitor competitors — all powered by CB Insights' predictive intelligence. Tap into 11M+ double-validated company profiles, leading coverage of recent equity deals, proprietary ...",
+    "source": "vendor/claude-sitemap/connectors/cb-insights.md"
+  },
+  {
+    "id": "cdata-connect-ai",
+    "name": "CData",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Connect Claude to read, write, and act on 350+ enterprise data sources like Salesforce, Snowflake and NetSuite in real-time through one fully hosted remote MCP server. Connect AI is the only managed MCP platform built with semantic intelligence that understands your data's metadata and relationsh...",
+    "source": "vendor/claude-sitemap/connectors/cdata-connect-ai.md"
+  },
+  {
+    "id": "chembl",
+    "name": "ChEMBL",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "The ChEMBL connector gives Claude access to the ChEMBL Database, a manually curated resource of bioactive drug-like compounds with quantitative binding and functional data against biological targets. Search for compounds by name or structure, retrieve bioactivity data (IC50, EC50, Ki values), fin...",
+    "source": "vendor/claude-sitemap/connectors/chembl.md"
+  },
+  {
+    "id": "chronograph",
+    "name": "Chronograph",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "The Chronograph connector allows users to query portfolio data, analyze investments, search for entities, retrieve performance metrics, and access Chronograph's help documentation. The connector is designed for private investment workflows, providing programmatic access to portfolio analytics and...",
+    "source": "vendor/claude-sitemap/connectors/chronograph.md"
+  },
+  {
+    "id": "circleback",
+    "name": "Circleback",
+    "category": "Meeting Intelligence",
+    "surface": "claude.ai",
+    "description": "Bring context from Circleback into Claude. Search and access meeting notes, transcripts, calendar events, emails, people, companies, and more.",
+    "source": "vendor/claude-sitemap/connectors/circleback.md"
+  },
+  {
+    "id": "clarify",
+    "name": "Clarify",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Retrieve, create, and update records using natural language. Analyze your sales pipeline, create tasks and lists automatically, and generate insights—all through conversation. Query deals, companies, people, and meetings without switching apps. Your Clarify data is retrieved in real-time, and per...",
+    "source": "vendor/claude-sitemap/connectors/clarify.md"
+  },
+  {
+    "id": "clarity-ai",
+    "name": "Clarity AI",
+    "category": "AI & Specialized Tools",
+    "surface": "claude.ai",
+    "description": "Assess how investment funds may be classified under the European Commission's proposed SFDR 2.0 framework — directly from Claude. Search funds by name, ISIN, or CUSIP and get simulated Article classifications based on Clarity AI's regulatory disclosure data and proprietary modelling of the Novemb...",
+    "source": "vendor/claude-sitemap/connectors/clarity-ai.md"
+  },
+  {
+    "id": "clay",
+    "name": "Clay",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Run deep company and contact research without leaving your conversation. Use Clay's contact databases, enrichment providers, and AI agents to research target accounts, surface verified, enriched contact info, and draft personalized outreach—all directly in Claude.",
+    "source": "vendor/claude-sitemap/connectors/clay.md"
+  },
+  {
+    "id": "clerk",
+    "name": "Clerk",
+    "category": "Infrastructure & Security",
+    "surface": "claude.ai",
+    "description": "Add Clerk authentication to your app directly through Claude. Access up-to-date SDK snippets and implementation patterns for sign-in flows, session management, and route protection. Build multi-tenant B2B apps with organizations and role-based access, configure waitlists and early access flows, a...",
+    "source": "vendor/claude-sitemap/connectors/clerk.md"
+  },
+  {
+    "id": "clickup",
+    "name": "ClickUp",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "The ClickUp connector enables secure, real-time interaction between AI agents like Claude and your ClickUp workspace. Unlock powerful AI-driven automation by connecting your favorite AI tools directly to ClickUp tasks, docs, Chat, and more.",
+    "source": "vendor/claude-sitemap/connectors/clickup.md"
+  },
+  {
+    "id": "clinical-trials",
+    "name": "Clinical Trials",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "The Clinical Trials connector gives Claude access to ClinicalTrials.gov, the NIH/NLM registry of FDA-regulated clinical studies conducted worldwide. Search for trials by condition, eligibility criteria, sponsor, or investigator. Analyze endpoints, find recruiting studies, and identify experienced...",
+    "source": "vendor/claude-sitemap/connectors/clinical-trials.md"
+  },
+  {
+    "id": "clockwise",
+    "name": "Clockwise",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Schedule and reschedule meetings with multiple participants, optimize your work calendar for productivity, and automatically block time for tasks. Clockwise considers working hours, time zones, Focus Time preferences, and team constraints to make smart scheduling decisions—not just find empty tim...",
+    "source": "vendor/claude-sitemap/connectors/clockwise.md"
+  },
+  {
+    "id": "close",
+    "name": "Close",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "The Close connector is a secure, standardized interface that lets Claude directly access and interact with your Close data. Core functionality with Claude: Connects Close to Claude via the Model Context Protocol so Claude can use Close as a trusted system of record. Read data (e.g., leads, contac...",
+    "source": "vendor/claude-sitemap/connectors/close.md"
+  },
+  {
+    "id": "cloudflare",
+    "name": "Cloudflare",
+    "category": "Infrastructure & Security",
+    "surface": "claude.ai",
+    "description": "Manage Workers deployments, D1 databases, R2 storage, and KV stores directly through Claude. Access real-time logs, configure security rules, monitor performance metrics, and deploy applications using Cloudflare’s edge infrastructure, all through natural language commands for streamlined developm...",
+    "source": "vendor/claude-sitemap/connectors/cloudflare.md"
+  },
+  {
+    "id": "cloudinary",
+    "name": "Cloudinary",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "The Cloudinary connector enables you to upload, manage, transform, and analyze your media assets.",
+    "source": "vendor/claude-sitemap/connectors/cloudinary.md"
+  },
+  {
+    "id": "cms-coverage",
+    "name": "CMS Coverage",
+    "category": "Healthcare & Medical",
+    "surface": "claude.ai",
+    "description": "The CMS Coverage connector gives Claude access to Medicare Part B coverage policies from the CMS Coverage Database, including National Coverage Determinations (NCDs) and Local Coverage Determinations (LCDs). Check coverage criteria for medical services, review documentation requirements for prior...",
+    "source": "vendor/claude-sitemap/connectors/cms-coverage.md"
+  },
+  {
+    "id": "cocounsel-legal",
+    "name": "CoCounsel Legal",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "CoCounsel Legal delivers comprehensive Westlaw Deep Research reports with inline, linked citations to Westlaw and Practical Law sources.",
+    "source": "vendor/claude-sitemap/connectors/cocounsel-legal.md"
+  },
+  {
+    "id": "coindesk",
+    "name": "CoinDesk",
+    "category": "HR & Recruitment",
+    "surface": "claude.ai",
+    "description": "The CoinDesk Data & Indices Connector provides real-time and historical digital asset market data powered by institutional-grade infrastructure. Access regulated indices, benchmarks, spot prices, futures, and options data across leading exchanges — including funding rates, open interest, orderboo...",
+    "source": "vendor/claude-sitemap/connectors/coindesk.md"
+  },
+  {
+    "id": "common-room",
+    "name": "Common Room",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Embed complete buyer intelligence directly within Claude. Research accounts and contacts, surface buying signals, and browse activity history - all through natural language. Build prospect lists of net-new companies by industry, size, tech stack, or location. Filter and sort contacts by segment, ...",
+    "source": "vendor/claude-sitemap/connectors/common-room.md"
+  },
+  {
+    "id": "consensus",
+    "name": "Consensus",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "Consensus is the go-to MCP for academic research. Connect directly to 220M+ peer-reviewed papers to search, synthesize, and build structured research outputs from within your conversation.",
+    "source": "vendor/claude-sitemap/connectors/consensus.md"
+  },
+  {
+    "id": "contentsquare",
+    "name": "Contentsquare",
+    "category": "Finance & Payments",
+    "surface": "claude.ai",
+    "description": "Quickly understand everything your users are doing and why, directly from Claude. Contentsquare automatically captures every user action and analyzes it retroactively, no tagging needed. Ask Claude natural language questions about your analytics.",
+    "source": "vendor/claude-sitemap/connectors/contentsquare.md"
+  },
+  {
+    "id": "context7",
+    "name": "Context7",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Context7 fetches up-to-date code examples and documentation right into your LLM's context. No tab-switching, no hallucinated APIs that don't exist, no outdated code generation.",
+    "source": "vendor/claude-sitemap/connectors/context7.md"
+  },
+  {
+    "id": "cortellis-regulatory",
+    "name": "Cortellis Regulatory Intelligence",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "The Cortellis Regulatory MCP connects Claude to Clarivate's Cortellis trusted, human-curated global regulatory content. It enables natural language questions, providing accurate, referenced answers supported by authoritative regulatory sources. Users can access subscribed and licensed content, na...",
+    "source": "vendor/claude-sitemap/connectors/cortellis-regulatory.md"
+  },
+  {
+    "id": "coupler-io",
+    "name": "Coupler.io",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Analyze multi-channel marketing, financial, sales, e-commerce, and other business data within Claude by connecting to your Coupler.io data flows — query marketing, sales, and finance metrics from hundreds of sources. Fetch and transform raw data from platforms like Google Ads, Facebook, HubSpot, ...",
+    "source": "vendor/claude-sitemap/connectors/coupler-io.md"
+  },
+  {
+    "id": "courtlistener",
+    "name": "CourtListener",
+    "category": "Legal & Compliance",
+    "surface": "claude.ai",
+    "description": "Connects Claude to CourtListener, the Free Law Project's legal research platform, with access to millions of U.S. court opinions, PACER dockets, judge profiles, oral arguments, and citation data. Search case law across federal and state courts, retrieve full case metadata, extract and verify lega...",
+    "source": "vendor/claude-sitemap/connectors/courtlistener.md"
+  },
+  {
+    "id": "courtroom5",
+    "name": "Courtroom5",
+    "category": "Legal & Compliance",
+    "surface": "claude.ai",
+    "description": "Courtroom5 provides legal guidance to the 80% of civil litigants who appear in court without an attorney. Three jurisdiction-aware tools cover serious civil matters across all 50 US states: a case intake assessment that identifies viable claims and first steps; a deadline calculator that returns ...",
+    "source": "vendor/claude-sitemap/connectors/courtroom5.md"
+  },
+  {
+    "id": "craft",
+    "name": "Craft",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Create beautifully structured documents, manage tasks, and build a personal knowledge base - all directly from Claude. Give Claude a persistent workspace to save research, draft content, track to-dos, and organize everything into folders, so your best thinking lives beyond the conversation.",
+    "source": "vendor/claude-sitemap/connectors/craft.md"
+  },
+  {
+    "id": "crossbeam",
+    "name": "Crossbeam",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Connect your Claude workspace to Crossbeam and bring Ecosystem Intelligence into every AI workflow. The Crossbeam connector lets Claude securely access your partner and account data — surfacing overlaps, partner activity, and warm paths directly in chat. Use it to enrich AI responses with real-ti...",
+    "source": "vendor/claude-sitemap/connectors/crossbeam.md"
+  },
+  {
+    "id": "crypto-com",
+    "name": "Crypto.com",
+    "category": "Crypto & Web3",
+    "surface": "claude.ai",
+    "description": "Real time price quotes, order books, conversions, candlestick charts and more for cryptocurrency tokens from Crypto.com",
+    "source": "vendor/claude-sitemap/connectors/crypto-com.md"
+  },
+  {
+    "id": "customer-io",
+    "name": "Customer.io",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Let Claude work directly with your Customer.io workspace to create segments, inspect user profiles, search for customers, and access workspace data. Analyze customer attributes, manage audience targeting, and explore your workspace without switching tabs.",
+    "source": "vendor/claude-sitemap/connectors/customer-io.md"
+  },
+  {
+    "id": "daloopa",
+    "name": "Daloopa",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "Supplies high quality fundamental data sourced from SEC Filings, investor presentations and any public financial documents, with hyperlinks to source document overlaying each data point. Provides a zero-hallucination foundation for any quantitative financial analysis in Claude.",
+    "source": "vendor/claude-sitemap/connectors/daloopa.md"
+  },
+  {
+    "id": "databricks",
+    "name": "Databricks",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Databricks offers two flavors of MCP servers: Managed servers and custom servers.",
+    "source": "vendor/claude-sitemap/connectors/databricks.md"
+  },
+  {
+    "id": "datadog",
+    "name": "Datadog",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Analyze, investigate, and act on your Datadog telemetry directly from Claude using natural language. Ask questions about your production applications. Identify, visualize, and remediate issues in your critical services. Run agentic loops to ensure you continue to maintain good observability and s...",
+    "source": "vendor/claude-sitemap/connectors/datadog.md"
+  },
+  {
+    "id": "datagrail",
+    "name": "DataGrail",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Automate privacy operations tasks—such as data subject reporting, syncing ticket status information into other project tools, etc—using agentic workflows within Claude, transforming privacy into a connected, high-impact operational system. Built on a \"No-Compromise\" architecture, it ensures singl...",
+    "source": "vendor/claude-sitemap/connectors/datagrail.md"
+  },
+  {
+    "id": "datasite",
+    "name": "Datasite",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Connect Claude to your Datasite virtual data room - the secure workspace where thousands of M&A deals are facilitated annually. Set up folder structures, invite users, search documents, track buyer Q&A, and audit data room readiness, all through natural language. No workflow interruptions. No sec...",
+    "source": "vendor/claude-sitemap/connectors/datasite.md"
+  },
+  {
+    "id": "day-ai",
+    "name": "Day AI",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Day AI is an AI-Native CRM that transforms emails, chats and meetings into richly-structured CRM data, stored in an LLM-optimized format for seamless and deep, relevant context retrieval. Use this Connector to give Claude direct access to your richly-structured customer data, enabling intelligent...",
+    "source": "vendor/claude-sitemap/connectors/day-ai.md"
+  },
+  {
+    "id": "definely",
+    "name": "Definely",
+    "category": "Legal & Compliance",
+    "surface": "claude.ai",
+    "description": "Definely's MCP server gives AI assistants live, deterministic access to contract structure. Resolve definitions, validate cross-references, map dependencies, and run structural diffs to see how edits propagate across an agreement. Use it to catch broken links and inconsistencies, explain impacts ...",
+    "source": "vendor/claude-sitemap/connectors/definely.md"
+  },
+  {
+    "id": "descript",
+    "name": "Descript",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Descript is a video editor you can direct through conversation. Describe what you want — clean up a podcast episode, pull highlight clips from an interview or translate a video into Spanish. Descript handles the end-to-end production: transcribing, removing filler words, cleaning up background no...",
+    "source": "vendor/claude-sitemap/connectors/descript.md"
+  },
+  {
+    "id": "descrybe-legal-engine",
+    "name": "Descrybe Legal Engine",
+    "category": "Legal & Compliance",
+    "surface": "claude.ai",
+    "description": "The Descrybe Connector gives Claude access to legal research tools for working with primary law. It can help analyze a research question, search cases by legal concept or exact wording, find cases from citations or messy references, extract authorities from pasted text, retrieve summaries, case P...",
+    "source": "vendor/claude-sitemap/connectors/descrybe-legal-engine.md"
+  },
+  {
+    "id": "devrev",
+    "name": "Computer by DevRev",
+    "category": "Customer Success & Support",
+    "surface": "claude.ai",
+    "description": "Connect Computer and Claude to search, create, and action work across your product and customer operations.",
+    "source": "vendor/claude-sitemap/connectors/devrev.md"
+  },
+  {
+    "id": "dice",
+    "name": "Dice",
+    "category": "HR & Recruitment",
+    "surface": "claude.ai",
+    "description": "Access Dice's database of active tech jobs through conversational AI search. With 30+ years of tech-only specialization, Dice offers unparalleled breadth and depth—covering every tech discipline from AI/ML to cybersecurity, across companies of all sizes. Use natural language to search faster and ...",
+    "source": "vendor/claude-sitemap/connectors/dice.md"
+  },
+  {
+    "id": "digits",
+    "name": "Digits",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Turn your Digits financials into a live data feed for Claude. Get instant answers about transactions, balances, and financial statements, or configure Claude to automate recurring tasks — weekly cash summaries, burn rate alerts, board-ready reports.",
+    "source": "vendor/claude-sitemap/connectors/digits.md"
+  },
+  {
+    "id": "directbooker",
+    "name": "DirectBooker",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Direct is best—for better rates and better service. DirectBooker helps you discover and compare hotels at your destination: the right neighborhood, the right vibe, the amenities you need. See real-time rates, access member prices and special packages only available when you book direct, then go s...",
+    "source": "vendor/claude-sitemap/connectors/directbooker.md"
+  },
+  {
+    "id": "dnb-risk-analytics",
+    "name": "D&B Risk Analytics",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Dun & Bradstreet empowers teams to execute risk workflows such as KYC/KYB, entity resolution, screening, alert triage, and more using relationship-aware business context from the D&B Commercial Graph™. Verified risk data, anchored in the global standard D-U-N-S® Number business identifier, and po...",
+    "source": "vendor/claude-sitemap/connectors/dnb-risk-analytics.md"
+  },
+  {
+    "id": "docuseal",
+    "name": "DocuSeal",
+    "category": "Communications",
+    "surface": "claude.ai",
+    "description": "DocuSeal lets you create document templates, send them for signing, and track submission status — all through Claude. Search your existing templates by name, upload new PDFs to create signable forms with auto-detected fields, send documents to multiple signers via email, and search signed or pend...",
+    "source": "vendor/claude-sitemap/connectors/docuseal.md"
+  },
+  {
+    "id": "docusign",
+    "name": "Docusign",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Simplify contract management with intelligent automation powered by Docusign. Go beyond simple execution to make complex agreement workflows effortless. Use natural language to connect with your agreement data, instantly surface insights like renewal dates and key obligations, and create automate...",
+    "source": "vendor/claude-sitemap/connectors/docusign.md"
+  },
+  {
+    "id": "doordash",
+    "name": "DoorDash",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Browse DoorDash menus, build carts, and book local restaurant reservations — all through Claude.",
+    "source": "vendor/claude-sitemap/connectors/doordash.md"
+  },
+  {
+    "id": "dovetail",
+    "name": "Dovetail",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "The Dovetail connector for Claude gives you direct access to your customer intelligence through natural language. Fetch projects, highlights, data, and docs. Get answers grounded in real customer signal, all within Claude.",
+    "source": "vendor/claude-sitemap/connectors/dovetail.md"
+  },
+  {
+    "id": "dremio-cloud",
+    "name": "Dremio Cloud",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Dremio provides a Model Context Protocol (MCP) server that allows AI agents to securely access, query, and reason over enterprise lakehouse data through Dremio's unified semantic layer. With Dremio's MCP offering, agents interact with data exactly as users do in Dremio—respecting fine-grained acc...",
+    "source": "vendor/claude-sitemap/connectors/dremio-cloud.md"
+  },
+  {
+    "id": "egnyte",
+    "name": "Egnyte",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Securely search, retrieve, and analyze content stored in any Egnyte domain. The Egnyte Connector wraps Egnyte’s public APIs and enforces native permissions, compliance rules, and audit logging.",
+    "source": "vendor/claude-sitemap/connectors/egnyte.md"
+  },
+  {
+    "id": "enterpret",
+    "name": "Enterpret",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Turn customer feedback into answers you can act on, directly in Claude. Query your Enterpret knowledge graph across support tickets, Gong calls, app reviews, NPS surveys, Slack, and more. Every insight is traced back to real customer conversations with direct links. Just ask a question in plain l...",
+    "source": "vendor/claude-sitemap/connectors/enterpret.md"
+  },
+  {
+    "id": "era-context",
+    "name": "Era Context",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Era Context is a secure place to manage your finances. Set up automations, fix overspending, figure out your portfolio, or tell Claude a goal and get your full financial life in context.",
+    "source": "vendor/claude-sitemap/connectors/era-context.md"
+  },
+  {
+    "id": "eraser",
+    "name": "Eraser",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Generate, create, read, and update diagrams, documents and files in your Eraser workspace directly from Claude. Make Eraser a native part of your AI workflow — describe a system in natural language and have your agent generate a complete diagram, create rich technical docs from code or conversati...",
+    "source": "vendor/claude-sitemap/connectors/eraser.md"
+  },
+  {
+    "id": "euler",
+    "name": "EULER",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Manage your partner program and access your Partner Data Lake with Claude — instant actions and answers on deals, commissions, onboarding, and partner performance, no dashboard required. Partners can register deals and access live data across their pipeline, enablement, certifications, payouts an...",
+    "source": "vendor/claude-sitemap/connectors/euler.md"
+  },
+  {
+    "id": "exa",
+    "name": "Exa",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Exa MCP gives you real-time web searches and can extracts content from any URL. It also finds the best code examples and documentation, searches billions of GitHub repos, docs sites, and StackOverflow to give you fresh coding context.",
+    "source": "vendor/claude-sitemap/connectors/exa.md"
+  },
+  {
+    "id": "excalidraw-app-demo",
+    "name": "Excalidraw",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "The official Excalidraw MCP app allowing you to build interactive visual applications right in Claude. Ask Claude to create hand-drawn style diagrams using Excalidraw with smooth viewport camera control and interactive fullscreen editing.",
+    "source": "vendor/claude-sitemap/connectors/excalidraw-app-demo.md"
+  },
+  {
+    "id": "expedia",
+    "name": "Expedia",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Discover and search flights and hotels worldwide. Get real-time pricing and availability to plan your perfect trip.",
+    "source": "vendor/claude-sitemap/connectors/expedia.md"
+  },
+  {
+    "id": "factset",
+    "name": "FactSet AI-Ready Data",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "Access, comprehensive financial data and analytics through AI-powered tools. Connect to FactSet global prices, fundamental analysis, earnings estimates, and research insights into Claude, to enhance your financial analysis, earning estimates and investment research with trusted, institutional-qua...",
+    "source": "vendor/claude-sitemap/connectors/factset.md"
+  },
+  {
+    "id": "fathom",
+    "name": "Fathom",
+    "category": "Meeting Intelligence",
+    "surface": "claude.ai",
+    "description": "Access your meeting summaries, transcripts, and action items so you can ask questions and build deliverables grounded in what was actually said on your calls. No copy-pasting summaries. No context switching. Just better outputs, faster.",
+    "source": "vendor/claude-sitemap/connectors/fathom.md"
+  },
+  {
+    "id": "fellow-ai",
+    "name": "Fellow.ai",
+    "category": "Meeting Intelligence",
+    "surface": "claude.ai",
+    "description": "Access your meeting knowledge instantly. Fellow connects Claude to your meeting ecosystem, letting you search transcripts, pull key insights from summaries, and track action items with natural-language queries. Need to recall decisions from last quarter? Looking for action items assigned to your ...",
+    "source": "vendor/claude-sitemap/connectors/fellow-ai.md"
+  },
+  {
+    "id": "fever-event-discovery",
+    "name": "Fever Event Discovery",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Discover and explore live entertainment experiences worldwide through Fever. Search events by city, date, location, or keyword across concerts, shows, festivals, immersive experiences, and more. Filter by popularity, price, rating, or proximity. Get event details including schedules, venues, rati...",
+    "source": "vendor/claude-sitemap/connectors/fever-event-discovery.md"
+  },
+  {
+    "id": "figma",
+    "name": "Figma",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Pull in Figma context and generate high-quality code that aligns with your codebase and design intent. Use the connector to retrieve code resources from Figma Design or Make files, turn your ideas into production apps, and visualize flows as diagrams in FigJam.",
+    "source": "vendor/claude-sitemap/connectors/figma.md"
+  },
+  {
+    "id": "fireflies",
+    "name": "Fireflies",
+    "category": "Meeting Intelligence",
+    "surface": "claude.ai",
+    "description": "Extract valuable insights from meeting transcripts and summaries.",
+    "source": "vendor/claude-sitemap/connectors/fireflies.md"
+  },
+  {
+    "id": "fiscal-ai",
+    "name": "Fiscal.ai",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Access institutional-grade financial data directly within Claude. Fiscal.ai delivers fundamental metrics and ratios minutes after earnings are reported, with every figure verifiable via direct links to the source filing. Beyond core financials, the server provides company-specific KPIs, revenue s...",
+    "source": "vendor/claude-sitemap/connectors/fiscal-ai.md"
+  },
+  {
+    "id": "fmp",
+    "name": "FMP",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "Real-time and historical financial data through 27 read-only tools covering stocks, ETFs, crypto, forex, commodities, SEC filings, economic indicators, and more. Users can look up company fundamentals, pull financial statements, screen stocks, read earnings transcripts, track insider and congress...",
+    "source": "vendor/claude-sitemap/connectors/fmp.md"
+  },
+  {
+    "id": "function",
+    "name": "Function (beta)",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "The Function Health connector lets members securely see a summary of their lab results, ask health questions, and access their nutrition plans. Function includes 160+ lab tests per year to monitor 1,000+ diseases, help uncover possible causes of unexplained symptoms, and create a roadmap for feel...",
+    "source": "vendor/claude-sitemap/connectors/function.md"
+  },
+  {
+    "id": "g2",
+    "name": "G2",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "The G2 MCP server brings real-time Buyer Intent and review insights into AI workflows. It lets AI summarize in-market buyer research, competitive interest, and customer sentiment from the G2 platform. Teams can automatically prioritize accounts, personalize outreach, inform messaging, and uncover...",
+    "source": "vendor/claude-sitemap/connectors/g2.md"
+  },
+  {
+    "id": "gainsight-staircase-ai",
+    "name": "Gainsight (Staircase AI)",
+    "category": "Customer Success & Support",
+    "surface": "claude.ai",
+    "description": "Bring in live customer intelligence from Gainsight's Staircase AI including customer sentiment, risk, engagement and insights - so every answer, insight, and recommendation is grounded in real customer context.",
+    "source": "vendor/claude-sitemap/connectors/gainsight-staircase-ai.md"
+  },
+  {
+    "id": "gamma",
+    "name": "Gamma",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Transform ideas into presentations, documents, social media posts, and websites directly from Claude. Gamma generates beautifully designed content from prompts or notes, with smart layouts, customizable themes, and AI visuals. Work in 60+ languages, control tone and detail level, and export to PD...",
+    "source": "vendor/claude-sitemap/connectors/gamma.md"
+  },
+  {
+    "id": "gitlab",
+    "name": "GitLab",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "The GitLab MCP server provides a secure integration between AI assistants and your GitLab instance using the Model Context Protocol standard. Connect to access projects, issues, merge requests, and code search.",
+    "source": "vendor/claude-sitemap/connectors/gitlab.md"
+  },
+  {
+    "id": "glean",
+    "name": "Glean",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Bring enterprise context to Claude with Glean. Search across all your organization's connected data sources—documents, wikis, code repositories, and more. Find employees by name, role, or expertise. Read specific documents, access Gmail and Outlook emails, and lookup meeting details. Custom agent...",
+    "source": "vendor/claude-sitemap/connectors/glean.md"
+  },
+  {
+    "id": "glovo",
+    "name": "Glovo",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Glovo in Claude helps you find anything you need in your city and get it delivered wherever you are in just minutes. Just ask in your own words for what you need: skincare, gifts, clothes, electronics, pet supplies, supermarkets, or even flowers. You can also refine results by budget, brand, feat...",
+    "source": "vendor/claude-sitemap/connectors/glovo.md"
+  },
+  {
+    "id": "gmail",
+    "name": "Gmail",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Connect Gmail to Claude so it can search your emails, surface the information you need, and draft replies — without manually copying or forwarding anything. Claude retrieves the minimum information needed to answer your question, provides citations linking back to the original emails, and can hel...",
+    "source": "vendor/claude-sitemap/connectors/gmail.md"
+  },
+  {
+    "id": "gocardless",
+    "name": "GoCardless",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Get intelligent, context-aware guidance for building GoCardless payment integrations directly from Claude. The GoCardless MCP provides comprehensive knowledge of API endpoints, integration patterns, webhooks, and code samples across all supported languages. Use it to generate integration code, se...",
+    "source": "vendor/claude-sitemap/connectors/gocardless.md"
+  },
+  {
+    "id": "godaddy",
+    "name": "GoDaddy",
+    "category": "Infrastructure & Security",
+    "surface": "claude.ai",
+    "description": "Use GoDaddy to find available domains and get smart suggestions based on your ideas and keywords.",
+    "source": "vendor/claude-sitemap/connectors/godaddy.md"
+  },
+  {
+    "id": "goodnotes",
+    "name": "Goodnotes",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Goodnotes instantly converts AI conversations into editable Goodnotes files. Create custom vector graphics and illustrations from SVG code for freeform drawings, icons, logos, and artistic designs. Generate structured diagrams from Mermaid syntax including flowcharts, mindmaps, and timelines. Ren...",
+    "source": "vendor/claude-sitemap/connectors/goodnotes.md"
+  },
+  {
+    "id": "google-calendar",
+    "name": "Google Calendar",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Connect Google Calendar to Claude to schedule meetings, manage invites, and stay on top of your commitments. Claude can check availability across you and your attendees to find the best time, then create calendar invites with options like Google Meet links and conference room booking. It can also...",
+    "source": "vendor/claude-sitemap/connectors/google-calendar.md"
+  },
+  {
+    "id": "google-compute-engine",
+    "name": "Google Compute Engine",
+    "category": "Infrastructure & Security",
+    "surface": "claude.ai",
+    "description": "Enables you to agentically manage your cloud compute infrastructure spanning deployment and operations.",
+    "source": "vendor/claude-sitemap/connectors/google-compute-engine.md"
+  },
+  {
+    "id": "google-drive",
+    "name": "Google Drive",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Connect your Google Drive to Claude to work across your Docs, Sheets, and Slides. Claude can read Google Docs directly, pull data from Google Sheets (exported as CSV), and extract content from Google Slides (exported as plain text). You can also search across your Drive to quickly find what you n...",
+    "source": "vendor/claude-sitemap/connectors/google-drive.md"
+  },
+  {
+    "id": "govtribe",
+    "name": "GovTribe",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Search government contracts, awards, and vendors directly from Claude. GovTribe brings U.S. procurement intelligence into your AI workflow — find relevant opportunities across federal, state, and local agencies; analyze vendor competition; explore teaming partners; and track agency spending patte...",
+    "source": "vendor/claude-sitemap/connectors/govtribe.md"
+  },
+  {
+    "id": "grain",
+    "name": "Grain",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Grain captures and transcribes your meetings where you have them: Meet, Zoom, Teams, Slack, and more. Grain builds an AI Meeting Data Layer of transcripts, notes, and enriched context that Claude uses to power your work.",
+    "source": "vendor/claude-sitemap/connectors/grain.md"
+  },
+  {
+    "id": "granola",
+    "name": "Granola",
+    "category": "Meeting Intelligence",
+    "surface": "claude.ai",
+    "description": "Connect Claude to your meeting history. Ask questions about your work and use your conversation context to get things done.",
+    "source": "vendor/claude-sitemap/connectors/granola.md"
+  },
+  {
+    "id": "granted",
+    "name": "Granted",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Search virtually every grant opportunity in existence - federal, state, and private foundation - using natural language. Most databases cover the big programs. Granted also surfaces the long tail: niche state grants, small family foundations, and hyper-local opportunities that nonprofits never fi...",
+    "source": "vendor/claude-sitemap/connectors/granted.md"
+  },
+  {
+    "id": "graphos-tools",
+    "name": "GraphOS MCP Tools",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Apollo GraphOS Tools is a hosted MCP server that gives AI coding agents direct access to Apollo's official documentation and the Apollo Connectors specification. It provides three tools: Docs Search lets agents query across Apollo's documentation to find relevant guides, examples, and best practi...",
+    "source": "vendor/claude-sitemap/connectors/graphos-tools.md"
+  },
+  {
+    "id": "guidepoint",
+    "name": "Guidepoint",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "Embed trusted expert insights directly into your research and decision making workflows in real-time. Powered by Guidepoint's in-house team of former investment analysts, we combine institutional-grade quality with the volume needed for decision-critical work. Claude pulls verbatim excerpts from ...",
+    "source": "vendor/claude-sitemap/connectors/guidepoint.md"
+  },
+  {
+    "id": "guru",
+    "name": "Guru",
+    "category": "Knowledge Management & Search",
+    "surface": "claude.ai",
+    "description": "Guru connects Claude to your company's trusted knowledge layer, so every AI answer is grounded in verified, permission-aware information—not outdated docs or hallucinations. It links Claude to the same governed context your teams use, ensuring consistent, cited, and explainable responses. With bu...",
+    "source": "vendor/claude-sitemap/connectors/guru.md"
+  },
+  {
+    "id": "gusto",
+    "name": "Gusto",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Connect Claude to your Gusto account to query and analyze your payroll and people data. Ask questions in natural language, build custom reports, and create charts to uncover trends and insights—no exports or tool-switching required. Eligible customers can also run payroll in Claude.",
+    "source": "vendor/claude-sitemap/connectors/gusto.md"
+  },
+  {
+    "id": "harmonic",
+    "name": "Harmonic",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Search, enrich, and research startups and companies using Harmonic's proprietary data on millions of companies and the people behind them. Get detailed company profiles with funding, location, founders, and network connections. Use natural language to find companies matching specific criteria. Cr...",
+    "source": "vendor/claude-sitemap/connectors/harmonic.md"
+  },
+  {
+    "id": "harness",
+    "name": "Harness.io",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Ask Claude to ship a build, trace a failed deployment, toggle a feature flag, or check cloud costs. It acts directly on Harness, no tab switching required. Numerous resource types across CI/CD, GitOps, security, and FinOps, all through conversation.",
+    "source": "vendor/claude-sitemap/connectors/harness.md"
+  },
+  {
+    "id": "harvey",
+    "name": "Harvey",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Bring Harvey's legal intelligence into Claude. The Harvey MCP server supports general legal inquiries, analysis over Vault projects, and research questions for select knowledge sources. The server also exposes discovery tools to list available Vault projects and knowledge sources, so you always k...",
+    "source": "vendor/claude-sitemap/connectors/harvey.md"
+  },
+  {
+    "id": "healthex",
+    "name": "HealthEx (beta)",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "The HealthEx connector connects Claude to your health records, securely pulling data from all your care providers into one place. Ask Claude to summarize your health, understand lab results, help prep for your next doctor's visit, and guide your daily routine.",
+    "source": "vendor/claude-sitemap/connectors/healthex.md"
+  },
+  {
+    "id": "hex",
+    "name": "Hex",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "- Category",
+    "source": "vendor/claude-sitemap/connectors/hex.md"
+  },
+  {
+    "id": "honeycomb",
+    "name": "Honeycomb",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Query and explore observability data from OpenTelemetry or dozens of other sources in your honeycomb.io account.",
+    "source": "vendor/claude-sitemap/connectors/honeycomb.md"
+  },
+  {
+    "id": "hubspot",
+    "name": "Hubspot",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Chat with your HubSpot CRM data directly within Claude to get instant, personalized insights. Query key CRM objects like contacts, deals, companies, and tickets based on your permissions, all without switching contexts. Your data stays secure while enabling smarter, faster decision-making with ac...",
+    "source": "vendor/claude-sitemap/connectors/hubspot.md"
+  },
+  {
+    "id": "hugging-face",
+    "name": "Hugging Face",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Provides access to Hugging Face Hub information and Gradio AI Applications.",
+    "source": "vendor/claude-sitemap/connectors/hugging-face.md"
+  },
+  {
+    "id": "ibisworld",
+    "name": "IBISWorld",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "Turn Claude into your personal industry analyst, powered by IBISWorld's coverage of thousands of industries and 10 million data points. Access revenue and employment statistics, financial ratios, risk scores, cost structures, trade data, analyst-written insights, and other industry statistics. Si...",
+    "source": "vendor/claude-sitemap/connectors/ibisworld.md"
+  },
+  {
+    "id": "icd-10-codes",
+    "name": "ICD-10 Codes",
+    "category": "Healthcare & Medical",
+    "surface": "claude.ai",
+    "description": "The ICD-10 Codes connector gives Claude access to the complete ICD-10-CM (diagnosis) and ICD-10-PCS (procedure) code sets for medical classification and billing.",
+    "source": "vendor/claude-sitemap/connectors/icd-10-codes.md"
+  },
+  {
+    "id": "ice-data-services",
+    "name": "ICE Data Services",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Query real-time and historical bond trades across corporate, agency and securitized products reported to FINRA TRACE, and municipal bond trades reported to MSRB RTRS. Look up bond reference data including coupon details and maturity dates.",
+    "source": "vendor/claude-sitemap/connectors/ice-data-services.md"
+  },
+  {
+    "id": "ifttt",
+    "name": "IFTTT",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Connect IFTTT to Claude to run actions, query data, and manage your automations across 1,000+ services. Claude can search your apps for info, execute tasks on demand, and create or update Applets for you. Use simple natural language to let Claude save you time by handling repetitive tasks, syncin...",
+    "source": "vendor/claude-sitemap/connectors/ifttt.md"
+  },
+  {
+    "id": "imanage",
+    "name": "iManage Work",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "iManage Work Connector for MCP securely connects governed iManage content to Claude. Replace custom integrations with one open protocol, keep documents in iManage without bulk exports or replication, and ensure permission-bound, auditable Claude access as your AI strategy evolves.",
+    "source": "vendor/claude-sitemap/connectors/imanage.md"
+  },
+  {
+    "id": "incident-io",
+    "name": "incident.io",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Manage your full incident.io workspace from one place. Declare and triage incidents, ack pages, check who's on call, and track follow-ups - without switching tools. Analyze incident trends, escalation response rates, and alert noise across your organization. Browse your catalog, query telemetry f...",
+    "source": "vendor/claude-sitemap/connectors/incident-io.md"
+  },
+  {
+    "id": "indeed",
+    "name": "Indeed",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Search and retrieve job listings, access detailed job descriptions and requirements, and provide direct job links to users. This streamlines the job search process by bringing Indeed's extensive job database and company information directly into conversations with Claude, enabling more seamless c...",
+    "source": "vendor/claude-sitemap/connectors/indeed.md"
+  },
+  {
+    "id": "instacart",
+    "name": "Instacart",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Find nearby stores, check product availability, turn meal ideas and recipes into groceries delivered.",
+    "source": "vendor/claude-sitemap/connectors/instacart.md"
+  },
+  {
+    "id": "intapp-celeste",
+    "name": "Intapp Celeste",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Search, create, and update records across the Intapp Celeste portfolio with secure, compliant retrieval via Intapp Celeste connector with Claude. Ensure the workflows you rely on from Intapp are available to integrate into your Claude projects with the governance your clients demand.",
+    "source": "vendor/claude-sitemap/connectors/intapp-celeste.md"
+  },
+  {
+    "id": "interactive-brokers",
+    "name": "Interactive Brokers (IBKR)",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Connect your Interactive Brokers account to Claude and manage your portfolio through natural language. Ask about positions, balances, P&L, allocations, and open orders, or request real-time quotes and historical market data. You can also prompt Claude to draft trade instructions — for example, \"B...",
+    "source": "vendor/claude-sitemap/connectors/interactive-brokers.md"
+  },
+  {
+    "id": "intercom",
+    "name": "Intercom",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Manage customer conversations, access support tickets, retrieve customer profiles, analyze conversation patterns, and handle customer service workflows through Intercom’s messaging platform. Provide intelligent customer support responses and insights using conversational AI integrated with your c...",
+    "source": "vendor/claude-sitemap/connectors/intercom.md"
+  },
+  {
+    "id": "intuit-quickbooks",
+    "name": "Intuit QuickBooks",
+    "category": "Finance & Payments",
+    "surface": "claude.ai",
+    "description": "Turn your business's raw financial data into clear financial insights. Analyze profitability, cash flow, and compare your performance against similar businesses in your industry and region. Generate accounting-compliant profit & loss and cash flow statements in minutes. Upload CSVs, PDFs, images,...",
+    "source": "vendor/claude-sitemap/connectors/intuit-quickbooks.md"
+  },
+  {
+    "id": "intuit-turbotax",
+    "name": "Intuit TurboTax",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Get fast federal tax estimates and discover filing options with Intuit TurboTax-powered tools. Start with a simple tax estimator that guides you through the info you need and see your refund or amount owed as you go. When you're ready for expert help, connect with trusted tax pros. Confident tax ...",
+    "source": "vendor/claude-sitemap/connectors/intuit-turbotax.md"
+  },
+  {
+    "id": "ironclad-contracts",
+    "name": "Ironclad Contracts",
+    "category": "Legal & Compliance",
+    "surface": "claude.ai",
+    "description": "Ironclad's MCP server lets Claude search your contract repository and workflows using plain language. Ask things like \"which MSAs are expiring in the next 90 days\" or \"show me vendor agreements with termination for convenience clauses\" — and get back the right contracts and answers instantly. An ...",
+    "source": "vendor/claude-sitemap/connectors/ironclad-contracts.md"
+  },
+  {
+    "id": "jam",
+    "name": "Jam",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "The fast lane between Jam recordings and your dev tools. Drop a Jam link into Claude and the whole recording – video, console, network, logs – arrives pre-packaged. No hand-typing repro steps, no copy-paste stack traces, no screen-share drama. Claude gets instant context, you stay in flow.",
+    "source": "vendor/claude-sitemap/connectors/jam.md"
+  },
+  {
+    "id": "jentic",
+    "name": "Jentic",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Jentic connects Claude to 1,500+ APIs through a single MCP server. Credentials never touch your prompts — Jentic's managed vault handles auth centrally. Just-In-Time Tooling means agents fetch only the tools they need, keeping context lean and reasoning accurate.",
+    "source": "vendor/claude-sitemap/connectors/jentic.md"
+  },
+  {
+    "id": "jotform",
+    "name": "Jotform",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Create and edit online forms, then access and analyze submissions directly in Claude. Design forms through natural language, review incoming responses, and generate insights or reports without leaving the chat. Make data collection and analysis seamless, helping businesses, educators, and teams c...",
+    "source": "vendor/claude-sitemap/connectors/jotform.md"
+  },
+  {
+    "id": "ketryx",
+    "name": "Ketryx",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Ketryx MCP gives your AI tools direct access to your unified compliance data. Ask a compliance question and get instant, auditable answers across your entire toolchain: Jira, JAMA, GitHub, TestRail, Polarion, and Azure DevOps.",
+    "source": "vendor/claude-sitemap/connectors/ketryx.md"
+  },
+  {
+    "id": "kindora-funder-discovery",
+    "name": "Kindora Funder Discovery",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Search 168,000+ foundations, analyze giving patterns, and explore millions of grant records directly from Claude. Make funder research a native part of your AI workflow—helping nonprofit leaders discover aligned funders faster, with real data on who funds causes like yours.",
+    "source": "vendor/claude-sitemap/connectors/kindora-funder-discovery.md"
+  },
+  {
+    "id": "kiwi-com",
+    "name": "Kiwi.com",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Brings flight search directly into Claude. The Kiwi connector supports one-way/round-trip, flexible dates, multiple passengers, all cabin classes. Works with Claude and Claude Desktop.",
+    "source": "vendor/claude-sitemap/connectors/kiwi-com.md"
+  },
+  {
+    "id": "klaviyo",
+    "name": "Klaviyo",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Chat directly with Klaviyo to report, strategize, and launch faster. Ask for performance summaries, content and copy, optimization opportunities, and profile insights—AI responds with the full context of your Klaviyo data.",
+    "source": "vendor/claude-sitemap/connectors/klaviyo.md"
+  },
+  {
+    "id": "krisp",
+    "name": "Krisp",
+    "category": "Meeting Intelligence",
+    "surface": "claude.ai",
+    "description": "Connect your meeting history to AI tools so past decisions, action items, and conversation context are easy to find and use.",
+    "source": "vendor/claude-sitemap/connectors/krisp.md"
+  },
+  {
+    "id": "lastminute-com",
+    "name": "lastminute.com",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Access real-time flight and hotel data directly through Claude to search, compare, and book flights, dynamic packages (flight + hotel), and hotels across a global network of airlines and hotel suppliers.Benefit from instant price comparisons, flexible filters, and intelligent recommendations that...",
+    "source": "vendor/claude-sitemap/connectors/lastminute-com.md"
+  },
+  {
+    "id": "lawve-ai",
+    "name": "Lawve AI",
+    "category": "Legal & Compliance",
+    "surface": "claude.ai",
+    "description": "Browse a curated library of legal AI skills written by practicing lawyers, in-house counsel, and legal technologists. Every skill covers a specific workflow — contract review, NDA analysis, GDPR compliance, legal drafting, jurisdiction-specific research. Search the catalog from inside Claude to f...",
+    "source": "vendor/claude-sitemap/connectors/lawve-ai.md"
+  },
+  {
+    "id": "learning-commons-knowledge-graph",
+    "name": "Learning Commons Knowledge Graph",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "Align to all 50 states' academic standards, break them into granular learning components, and trace learning progressions directly from Claude. The Learning Commons Knowledge Graph connects trusted instructional content and learning science into a shared foundation, so Claude can generate more pr...",
+    "source": "vendor/claude-sitemap/connectors/learning-commons-knowledge-graph.md"
+  },
+  {
+    "id": "legal-data-hunter",
+    "name": "Legal Data Hunter",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "Legal Data Hunter is building the world's first omni-jurisdictional legal database, giving Claude access to 23M+ documents from 160+ jurisdictions in one MCP server. We ingest directly from official registries: Légifrance, EUR-Lex, BOE, RIS, the Bundesgerichtshof, the European Court of Human Righ...",
+    "source": "vendor/claude-sitemap/connectors/legal-data-hunter.md"
+  },
+  {
+    "id": "legalzoom",
+    "name": "LegalZoom",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "AI-powered document review meets attorney guidance. Connect to LegalZoom for real-time scans of legal documents to identify critical risks and important clauses, advise on when to engage an attorney, and share notes in advance—all within one workflow. When matters require professional expertise, ...",
+    "source": "vendor/claude-sitemap/connectors/legalzoom.md"
+  },
+  {
+    "id": "lilt",
+    "name": "LILT",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Seamlessly integrate high-quality, guaranteed translation capabilities directly into your Claude instance, bringing your brand's unique context where you already work. Submit content for brand-aligned translation via customized AI or human-verified translation with a simple prompt, ensuring the h...",
+    "source": "vendor/claude-sitemap/connectors/lilt.md"
+  },
+  {
+    "id": "linear",
+    "name": "Linear",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Manage issues, projects, and team workflows in Linear with natural language. Create and update issues, track progress, plan cycles, and coordinate development tasks using Linear's streamlined project management interface for faster, more efficient workflows.",
+    "source": "vendor/claude-sitemap/connectors/linear.md"
+  },
+  {
+    "id": "lloyd",
+    "name": "Lloyd by The L Suite",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Connect with the collective knowledge of 5,000+ inhouse counsel in The L Suite community — cited & sourced — including 2,000+ annual discussion threads, 300+ playbooks, 3,000 shared documents/artifacts, 2,000+ hours of video content, 10,000 unbiased pieces of outside counsel and vendor feedback. ...",
+    "source": "vendor/claude-sitemap/connectors/lloyd.md"
+  },
+  {
+    "id": "local-falcon",
+    "name": "Local Falcon",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Local Falcon gives Claude access to real-time local search data across Google Maps, Apple Maps, and AI search platforms. With 37 tools spanning geo-grid rank tracking, competitor intelligence, campaign management, Google Business Profile monitoring, and AI search visibility tracking, Claude becom...",
+    "source": "vendor/claude-sitemap/connectors/local-falcon.md"
+  },
+  {
+    "id": "london-stock-exchange-group",
+    "name": "LSEG",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "Provides real-time access to LSEG's comprehensive financial market data ecosystem, spanning across asset classes and domains. It enables seamless integration of institutional-grade market data, analytics, and valuation tools directly into conversational workflows, allowing users to access deep ma...",
+    "source": "vendor/claude-sitemap/connectors/london-stock-exchange-group.md"
+  },
+  {
+    "id": "lorikeet",
+    "name": "Lorikeet",
+    "category": "AI & Specialized Tools",
+    "surface": "claude.ai",
+    "description": "Lorikeet is a platform that complex and regulated businesses use to provide their customers with a universal concierge. Lorikeet does this with AI agents that work across voice, chat and email. The agents are built on a unique architecture that focuses on flexibility and the ability to take actio...",
+    "source": "vendor/claude-sitemap/connectors/lorikeet.md"
+  },
+  {
+    "id": "lucid",
+    "name": "Lucid",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Simplify your workflow by using Claude to generate foundational Lucidchart diagrams directly from your conversation. Beyond seamless diagram creation, this integration acts as a digital bridge, allowing you to instantly search, retrieve, share, and summarize your existing Lucid documents right wi...",
+    "source": "vendor/claude-sitemap/connectors/lucid.md"
+  },
+  {
+    "id": "lumin",
+    "name": "Lumin",
+    "category": "Communications",
+    "surface": "claude.ai",
+    "description": "Connect Claude to Lumin PDF's document management services. Manage documents, send signature requests, retrieve workspace details, and convert Markdown to PDF through natural-language commands.",
+    "source": "vendor/claude-sitemap/connectors/lumin.md"
+  },
+  {
+    "id": "lunarcrush",
+    "name": "LunarCrush",
+    "category": "Crypto & Web3",
+    "surface": "claude.ai",
+    "description": "Access comprehensive social analytics and market intelligence for companies, brands, stocks, and cryptocurrencies through LunarCrush's AI-data platform. Stream real-time social metrics, sentiment analysis, trending topics, and market data directly into your AI workflows.",
+    "source": "vendor/claude-sitemap/connectors/lunarcrush.md"
+  },
+  {
+    "id": "lusha",
+    "name": "Lusha",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Connect Lusha to Claude to access verified B2B contact and company data without leaving your chat. Lusha is a sales intelligence platform with 300M+ verified contacts, direct emails, phone numbers, and mobile numbers, plus actionable buyer signals used across sales, marketing, and RevOps workflow...",
+    "source": "vendor/claude-sitemap/connectors/lusha.md"
+  },
+  {
+    "id": "magic-patterns",
+    "name": "Magic Patterns",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Discuss and iterate on Magic Patterns designs directly from Claude. Magic Patterns is an AI agent specialized in frontend design.",
+    "source": "vendor/claude-sitemap/connectors/magic-patterns.md"
+  },
+  {
+    "id": "mailerlite",
+    "name": "MailerLite",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Connect Claude with MailerLite to create your very own email assistant. Use it to build email, analyze campaign performance, manage subscribers, and more, all with natural language prompts.",
+    "source": "vendor/claude-sitemap/connectors/mailerlite.md"
+  },
+  {
+    "id": "make",
+    "name": "Make",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Run active and on-demand Make scenarios, view and modify Make scenarios and their related entities (e.g., connections, webhooks, and data stores), and view and modify teams and organizations - all from within Claude.",
+    "source": "vendor/claude-sitemap/connectors/make.md"
+  },
+  {
+    "id": "malwarebytes",
+    "name": "Malwarebytes",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Verify links, emails, phone numbers, and domains against Malwarebytes threat intelligence directly from Claude. Get instant scam verdicts, domain ownership details, and risk levels for unknown callers, shortened URLs, and suspicious messages before you click, call, or reply. Report suspicious ind...",
+    "source": "vendor/claude-sitemap/connectors/malwarebytes.md"
+  },
+  {
+    "id": "medidata",
+    "name": "Medidata",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "The Medidata connector provides two tools for Medidata users: Platform Help and Predictive Site Ranking. Platform Help allows users to query Medidata's platform documentation. Predictive Site Ranking allows users to rank candidate study sites based on indication, past performance, and a variety o...",
+    "source": "vendor/claude-sitemap/connectors/medidata.md"
+  },
+  {
+    "id": "melon",
+    "name": "Melon",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Explore a variety of Melon charts, get personalized music recommendations, and discover your listening habits—all in one place.",
+    "source": "vendor/claude-sitemap/connectors/melon.md"
+  },
+  {
+    "id": "mem",
+    "name": "Mem",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Give Claude the full context of your second brain by connecting your Mem knowledge base. Search your AI notebook for context, capture and recall ideas, save chats into new notes, edit and update living docs, and organize your AI workspace — simply by asking Claude. Use for: synthesizing and pulli...",
+    "source": "vendor/claude-sitemap/connectors/mem.md"
+  },
+  {
+    "id": "mercury",
+    "name": "Mercury",
+    "category": "Finance & Payments",
+    "surface": "claude.ai",
+    "description": "Check your balance, download statements, search, analyze, and graph transactions, and understand Cards directly from Claude. Mercury brings your finances into your AI tools.",
+    "source": "vendor/claude-sitemap/connectors/mercury.md"
+  },
+  {
+    "id": "mermaid-chart",
+    "name": "Mermaid Chart",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "This MCP App validates Mermaid syntax, renders diagrams as high-quality SVG, and displays them instantly in an interactive UI where users can preview, zoom, and iterate in real time. It generates shareable playground URLs for collaboration and provides precise error diagnostics with actionable fi...",
+    "source": "vendor/claude-sitemap/connectors/mermaid-chart.md"
+  },
+  {
+    "id": "metabase",
+    "name": "Metabase",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "Search tables and metrics, explore field values, and construct or run queries against your data.",
+    "source": "vendor/claude-sitemap/connectors/metabase.md"
+  },
+  {
+    "id": "metaview",
+    "name": "Metaview",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Bring Metaview's hiring intelligence into Claude. Search, analyze, and extract insights from your recruiting data. Query conversations, source candidates, and start outreach. Use Claude alongside Metaview's AI agents to turn every conversation and signal into faster, better hiring decisions.",
+    "source": "vendor/claude-sitemap/connectors/metaview.md"
+  },
+  {
+    "id": "microsoft-365",
+    "name": "Microsoft 365",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Access SharePoint, OneDrive, Outlook, and Teams context directly in Claude. Search and analyze documents across sites and libraries, review email threads and communications, and gather insights from calendar and chat. Make Microsoft 365 a native part of your Claude workflows while respecting all ...",
+    "source": "vendor/claude-sitemap/connectors/microsoft-365.md"
+  },
+  {
+    "id": "microsoft-learn",
+    "name": "Microsoft Learn",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "The Microsoft Learn MCP Server enables clients like GitHub Copilot and other AI agents to bring trusted and up-to-date information directly from Microsoft's official documentation. It is a remote MCP server that uses streamable http. It allows to search through documentation, fetch a complete art...",
+    "source": "vendor/claude-sitemap/connectors/microsoft-learn.md"
+  },
+  {
+    "id": "midpage",
+    "name": "Midpage Legal Research",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Connect Claude to a database of case law. With the Midpage MCP, Claude can conduct complex legal research, review opinions, and craft high quality work product. Everything is hyperlinked to real sources for easy verification.",
+    "source": "vendor/claude-sitemap/connectors/midpage.md"
+  },
+  {
+    "id": "mintlify",
+    "name": "Mintlify",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Connect Mintlify to Claude to keep your documentation accurate and up to date without leaving your conversations. Claude can search across every page, read and edit content directly, and ship changes. Perfect for fixing outdated pages after a product change, reorganizing sections as your product ...",
+    "source": "vendor/claude-sitemap/connectors/mintlify.md"
+  },
+  {
+    "id": "miro",
+    "name": "Miro",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Connect Claude to Miro to summarize existing boards or build new ones from scratch. Run sharper workshops, sprint planning, and product strategy sessions with Claude-generated layouts, frames, sticky notes, images, docs, diagrams, tables, and more.",
+    "source": "vendor/claude-sitemap/connectors/miro.md"
+  },
+  {
+    "id": "mixpanel",
+    "name": "Mixpanel",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "Query and analyze your Mixpanel data directly in Claude. Run segmentation, funnel, and retention analyses, explore your event taxonomy, manage Lexicon metadata, analyze session replays, and resolve data quality issues. With Mixpanel as persistent context, Claude can reason about your product data...",
+    "source": "vendor/claude-sitemap/connectors/mixpanel.md"
+  },
+  {
+    "id": "monday",
+    "name": "Monday",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Exposes core monday.com capabilities to Claude. It enables actions like searching boards, creating and updating items and columns, assigning owners, setting timelines, and posting updates—plus smartly assigning tasks and visualizing progress with insights.",
+    "source": "vendor/claude-sitemap/connectors/monday.md"
+  },
+  {
+    "id": "monte-carlo",
+    "name": "Monte Carlo",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "The Monte Carlo MCP server gives Claude direct access to your data & AI observability platform. Query alerts, explore lineage, create monitors, and evaluate AI agent performance across your entire data stack.",
+    "source": "vendor/claude-sitemap/connectors/monte-carlo.md"
+  },
+  {
+    "id": "moodys-analytics",
+    "name": "Moody's Analytics",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "Get streamlined access to Moody's Ratings proprietary credit ratings, research, and comprehensive entity intelligence. Access high-quality data such as ownership structures, financials, ratings drivers, and scorecards, all structured to optimize a variety of workflows including compliance, credit...",
+    "source": "vendor/claude-sitemap/connectors/moodys-analytics.md"
+  },
+  {
+    "id": "morningstar",
+    "name": "Morningstar",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "The Morningstar MCP Server makes it simple to power your AI apps and tools with Morningstar’s trusted content. It provides access to a growing library of AI-ready capabilities, including global analyst research, market analysis, and key investment data.",
+    "source": "vendor/claude-sitemap/connectors/morningstar.md"
+  },
+  {
+    "id": "motherduck",
+    "name": "MotherDuck",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Connect AI assistants to your MotherDuck data warehouse. Explore, visualize, and manage data using natural language–no SQL skills required. Create Dives: interactive visualizations that let you save and share answers with your team, staying up-to-date with your latest data. Works with real-world ...",
+    "source": "vendor/claude-sitemap/connectors/motherduck.md"
+  },
+  {
+    "id": "motion",
+    "name": "Motion Creative Analytics",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Motion connects Claude to your meta ad data. Analyze creative performance across campaigns — surface top performers, spot declining creatives, and understand what's working and why. Research competitor ad libraries for trends and inspiration. Access demographic breakdowns, creative transcripts, a...",
+    "source": "vendor/claude-sitemap/connectors/motion.md"
+  },
+  {
+    "id": "msci",
+    "name": "MSCI",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "The MSCI Connector provides access to an expanding range of MSCI AI-enabled data and analytics capabilities. Based on entitlements users can investigate index performance characteristics such as country, sector and factor exposures, constituent weights, and methodologies and explore private asset...",
+    "source": "vendor/claude-sitemap/connectors/msci.md"
+  },
+  {
+    "id": "mt-newswires",
+    "name": "MT Newswires",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "MT Newswires delivers real-time, low-latency financial news across equities, fixed income, commodities, FX, and macroeconomics. Structured and machine-readable, it integrates seamlessly into AI, trading, and analytics systems, providing scalable, reliable, event-driven intelligence from MT Newswi...",
+    "source": "vendor/claude-sitemap/connectors/mt-newswires.md"
+  },
+  {
+    "id": "n8n",
+    "name": "n8n",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Talk to your n8n instance and trigger automations - search for workflows, get their details, and execute them directly from Claude.",
+    "source": "vendor/claude-sitemap/connectors/n8n.md"
+  },
+  {
+    "id": "natoma",
+    "name": "Natoma",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Supercharge Claude by connecting it to all your internal tools, enterprise apps, and data to search knowledge and take real-world actions like updating CRMs, approving PRs, and resolving IT tickets from a single interface.",
+    "source": "vendor/claude-sitemap/connectors/natoma.md"
+  },
+  {
+    "id": "netdocuments",
+    "name": "NetDocuments",
+    "category": "Legal & Compliance",
+    "surface": "claude.ai",
+    "description": "Search and retrieve documents from your NetDocuments repository directly from Claude. Ask questions, generate playbooks, and draft new documents based on your precedents — with full respect for your organization's permissions and governance policies.",
+    "source": "vendor/claude-sitemap/connectors/netdocuments.md"
+  },
+  {
+    "id": "netlify",
+    "name": "Netlify",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Create, deploy, and manage websites on Netlify. Control all aspects of your site from creating secrets to enforcing access controls to aggregating your form submissions. The full power of the Netlify platform available from Claude.",
+    "source": "vendor/claude-sitemap/connectors/netlify.md"
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Create, edit, search and organize Notion content directly from Claude. Get contextual and relevant assistance from Claude, while keeping knowledge organized in Notion.",
+    "source": "vendor/claude-sitemap/connectors/notion.md"
+  },
+  {
+    "id": "npi-registry",
+    "name": "NPI Registry",
+    "category": "Healthcare & Medical",
+    "surface": "claude.ai",
+    "description": "The NPI Registry connector gives Claude access to the US National Provider Identifier (NPI) Registry, containing information about all HIPAA-covered healthcare providers in the United States. Look up provider credentials, search for specialists by location and specialty, and validate NPI numbers ...",
+    "source": "vendor/claude-sitemap/connectors/npi-registry.md"
+  },
+  {
+    "id": "omni-analytics",
+    "name": "Omni Analytics",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "Query Omni using the same semantic model, permissions, and logic defined by your data team directly from Claude. Instantly answer questions about your business using natural language — no need to write SQL or navigate complex dashboards. Your Omni semantic model becomes Claude's knowledge of your...",
+    "source": "vendor/claude-sitemap/connectors/omni-analytics.md"
+  },
+  {
+    "id": "open-targets",
+    "name": "Open Targets",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "The Open Targets Platform connector provides a purpose-built interface to access and interpret data for systematic identification and prioritisation of potential therapeutic drug targets. It integrates publicly available datasets to build and score target-disease associations, along with relevant...",
+    "source": "vendor/claude-sitemap/connectors/open-targets.md"
+  },
+  {
+    "id": "oracle-netsuite",
+    "name": "Oracle NetSuite",
+    "category": "ERP & Operations",
+    "surface": "claude.ai",
+    "description": "A flexible and scalable way to connect Claude to NetSuite and use AI to query and analyze NetSuite data.",
+    "source": "vendor/claude-sitemap/connectors/oracle-netsuite.md"
+  },
+  {
+    "id": "orion",
+    "name": "Orion by Gravity",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Orion works 24/7, analyzing trends, uncovering opportunities, and teeing up your next move before you even log in. Your data is only telling half the story. Orion connects your business metrics with external data sources.",
+    "source": "vendor/claude-sitemap/connectors/orion.md"
+  },
+  {
+    "id": "otter-ai",
+    "name": "Otter.ai",
+    "category": "Meeting Intelligence",
+    "surface": "claude.ai",
+    "description": "Otter's MCP Server integrates with Otter.ai's meeting intelligence platform, enabling users to search meeting transcripts, retrieve conversation records, and extract insights. It provides tools to find meetings by date, participants, or topics, and access full transcripts, summaries, and action i...",
+    "source": "vendor/claude-sitemap/connectors/otter-ai.md"
+  },
+  {
+    "id": "outlook",
+    "name": "Outlook",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "- Category",
+    "source": "vendor/claude-sitemap/connectors/outlook.md"
+  },
+  {
+    "id": "outreach",
+    "name": "Outreach",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Bring Outreach knowledge and actions into Claude so your teams can move faster, combine insights across systems, and complete advanced revenue tasks without switching tools. Outreach is an end-to-end AI Revenue Platform for all go-to-market teams. By embedding agentic AI across every revenue work...",
+    "source": "vendor/claude-sitemap/connectors/outreach.md"
+  },
+  {
+    "id": "owkin",
+    "name": "Owkin",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "Owkin builds AI agents for biology to accelerate drug discovery and de-risk clinical trials. Use Owkin to transform H&E slides from the TCGA database into granular, queryable insights. Researchers can quantify distinct cell types, analyze complex spatial tumor microenvironments, and validate hypo...",
+    "source": "vendor/claude-sitemap/connectors/owkin.md"
+  },
+  {
+    "id": "pagerduty",
+    "name": "PagerDuty",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Manage incidents, create services, schedule overrides, and track on-call rotations with your PagerDuty account",
+    "source": "vendor/claude-sitemap/connectors/pagerduty.md"
+  },
+  {
+    "id": "pandadoc",
+    "name": "PandaDoc",
+    "category": "Legal & Compliance",
+    "surface": "claude.ai",
+    "description": "PandaDoc lets you create, send, and track documents for signature directly from your Claude conversation. Ask Claude to prepare an NDA from your existing templates, send a proposal to a client, check which contracts are still waiting to be signed, or pull the complete audit trail for any document...",
+    "source": "vendor/claude-sitemap/connectors/pandadoc.md"
+  },
+  {
+    "id": "paypal",
+    "name": "PayPal",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Interact with PayPal’s payment ecosystem to process transactions, manage subscriptions, handle disputes, access customer payment data, generate financial reports, and monitor payment flows. Enable secure payment operations and business insights through conversational commands for comprehensive pa...",
+    "source": "vendor/claude-sitemap/connectors/paypal.md"
+  },
+  {
+    "id": "peec-ai",
+    "name": "Peec AI",
+    "category": "AI & Specialized Tools",
+    "surface": "claude.ai",
+    "description": "Monitor and analyze your brand's visibility across AI search engines. Track your visibility, sentiment, and share of voice and compare to competitors.",
+    "source": "vendor/claude-sitemap/connectors/peec-ai.md"
+  },
+  {
+    "id": "pendo",
+    "name": "Pendo",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "The Pendo connector brings product analytics and behavioral data to AI environments. Access visitor and account metadata, query user behavior, and analyze pages, features, and events. Supports real-time product data integration for tasks like customer call preparation, adoption analysis, churn in...",
+    "source": "vendor/claude-sitemap/connectors/pendo.md"
+  },
+  {
+    "id": "pg-aiguide",
+    "name": "pg-aiguide",
+    "category": "Healthcare & Medical",
+    "surface": "claude.ai",
+    "description": "Give your agent Postgres skills and documentation. Helps AI coding tools generate better PostgreSQL code.",
+    "source": "vendor/claude-sitemap/connectors/pg-aiguide.md"
+  },
+  {
+    "id": "phoenix",
+    "name": "Phoenix by HG Insights",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Phoenix by HG Insights gives Claude access to rich B2B technographic and firmographic data, enabling intelligent analysis of technology adoption, competitive intelligence, and market insights. Query detailed data on what technologies companies use, their spending patterns, and firmographic profil...",
+    "source": "vendor/claude-sitemap/connectors/phoenix.md"
+  },
+  {
+    "id": "pigment",
+    "name": "Pigment",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Analyze data from your Pigment workspace without leaving Claude. Query metrics, surface insights, generate forecasts, and create reports. All requests respect your existing permissions and access controls. Ideal for finance teams, analysts, and planners who need quick insights from their planning...",
+    "source": "vendor/claude-sitemap/connectors/pigment.md"
+  },
+  {
+    "id": "pitchbook",
+    "name": "PitchBook",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "Bring the depth of PitchBook’s industry-leading private capital market intelligence into Claude. Powered by our MCP server, PitchBook clients can seamlessly search and analyze firms, deals, funds, and key players—unlocking trusted insights for confident decisions, actionable intelligence, and mar...",
+    "source": "vendor/claude-sitemap/connectors/pitchbook.md"
+  },
+  {
+    "id": "plaid",
+    "name": "Plaid",
+    "category": "Finance & Payments",
+    "surface": "claude.ai",
+    "description": "Access bank account data, transaction history, and financial information through Plaid's secure API. Verify account ownership, categorize spending, analyze financial patterns, and enable payment workflows while maintaining bank-level security and compliance for comprehensive financial data integr...",
+    "source": "vendor/claude-sitemap/connectors/plaid.md"
+  },
+  {
+    "id": "planetscale",
+    "name": "PlanetScale",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Access to your PlanetScale organizations, databases, branches, schema, and Insights data.",
+    "source": "vendor/claude-sitemap/connectors/planetscale.md"
+  },
+  {
+    "id": "playmcp",
+    "name": "PlayMCP",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Add a variety of servers registered in PlayMCP, including Kakao services, to your toolbox and use them through Claude.",
+    "source": "vendor/claude-sitemap/connectors/playmcp.md"
+  },
+  {
+    "id": "polar-analytics",
+    "name": "Polar Analytics",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "Polar is the trusted data layer for commerce brands. Connect your Shopify, Meta, Google, Klaviyo, and 45+ other data sources into a unified semantic layer with validated metrics, custom business rules, and cross-platform attribution. Turn Claude into your data analyst. Get answers on ROAS, CAC, t...",
+    "source": "vendor/claude-sitemap/connectors/polar-analytics.md"
+  },
+  {
+    "id": "port-io",
+    "name": "Port IO",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Connect Port's context lake and software catalog directly to Claude. Query services, dependencies, and ownership using natural language. Analyze scorecards and service health. Execute governed self-service actions and workflows with built-in guardrails.",
+    "source": "vendor/claude-sitemap/connectors/port-io.md"
+  },
+  {
+    "id": "posthog",
+    "name": "PostHog",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "Connect to PostHog and work with your product data through natural conversation. Query analytics using HogQL or natural language, build and manage dashboards and insights, control feature flags, run and monitor experiments, create and analyze surveys, track errors, explore logs, and monitor LLM c...",
+    "source": "vendor/claude-sitemap/connectors/posthog.md"
+  },
+  {
+    "id": "postman",
+    "name": "Postman",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "With Postman's MCP server, you can prompt AI to automate work across your Postman collections, environments, workspaces, and more.",
+    "source": "vendor/claude-sitemap/connectors/postman.md"
+  },
+  {
+    "id": "privacy",
+    "name": "Privacy.com",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Create new Merchant-Locked and Single-Use virtual cards, manage card settings in bulk, and track your spending patterns directly from Claude. Leverage an AI-powered virtual card agent that helps you make changes programmatically and at scale—giving you deeper control over your payments with featu...",
+    "source": "vendor/claude-sitemap/connectors/privacy.md"
+  },
+  {
+    "id": "process-street",
+    "name": "Process Street",
+    "category": "Forms & Documents",
+    "surface": "claude.ai",
+    "description": "Ask questions about your workflows, runs, tasks, users, and data sets, and take action on them safely. You can retrieve workflow details, inspect run history, check task status, update form fields, trigger new runs, and complete tasks. This provides real operational context and a controllable, au...",
+    "source": "vendor/claude-sitemap/connectors/process-street.md"
+  },
+  {
+    "id": "pubmed",
+    "name": "PubMed",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "Provides access to PubMed's biomedical citations and PubMed Central's full-text archive. Search articles, retrieve metadata and abstracts, access full-text content (when available in PMC), find related research, and more.",
+    "source": "vendor/claude-sitemap/connectors/pubmed.md"
+  },
+  {
+    "id": "pylon",
+    "name": "Pylon",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Access Pylon's customer support platform directly from Claude to search, manage, and resolve customer issues. Stay on top of your support queue while connecting Claude's insights to real customer conversations.",
+    "source": "vendor/claude-sitemap/connectors/pylon.md"
+  },
+  {
+    "id": "qlik",
+    "name": "Qlik",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "Analyze, integrate, and take action on your data. Create analytics applications and data pipelines directly from Claude. Make Qlik your AI partner to access trusted data assets that help you take action.",
+    "source": "vendor/claude-sitemap/connectors/qlik.md"
+  },
+  {
+    "id": "quartr",
+    "name": "Quartr",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Access structured first-party IR data from over 14,500+ public companies across 65 markets Quartr delivers live and recorded earnings calls, real-time and historical transcripts with speaker identification, slide presentations, filings, reports, and event summaries. Best-in-class reliability and ...",
+    "source": "vendor/claude-sitemap/connectors/quartr.md"
+  },
+  {
+    "id": "quo",
+    "name": "Quo",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Quo is a next-generation business phone system that helps teams engage customers, collaborate internally, and scale communication with AI — without losing the personal touch. Connecting Quo gives Claude access to your customer conversations across calls, text messages, and contacts. You can ask q...",
+    "source": "vendor/claude-sitemap/connectors/quo.md"
+  },
+  {
+    "id": "ramp-data",
+    "name": "Ramp Data",
+    "category": "Finance & Payments",
+    "surface": "claude.ai",
+    "description": "Ramp Data MCP enables Claude users to access Ramp Data from billions of dollars in real corporate spend across 50,000+ businesses, including Ramp Rate (vendor adoption, pricing, and switching trends) and the AI Index (how businesses are spending on AI). Ramp Data is used by founders, procurement ...",
+    "source": "vendor/claude-sitemap/connectors/ramp-data.md"
+  },
+  {
+    "id": "ramp",
+    "name": "Ramp",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Enables secure, read-only access to Ramp data for customer-defined logic. Supports loading and querying transactions, reimbursements, bills, purchase orders, cards, vendors, and more, enabling dynamic data fetching and analysis.",
+    "source": "vendor/claude-sitemap/connectors/ramp.md"
+  },
+  {
+    "id": "razorpay",
+    "name": "Razorpay",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Access your Razorpay merchant data directly from Claude. Query payments, orders, refunds, and settlements instantly through natural conversation. Track QR code transactions, monitor payment links, review payout history, and generate settlement reconciliation reports—all without leaving your AI wo...",
+    "source": "vendor/claude-sitemap/connectors/razorpay.md"
+  },
+  {
+    "id": "read-ai",
+    "name": "Read AI",
+    "category": "Meeting Intelligence",
+    "surface": "claude.ai",
+    "description": "Your meetings are full of decisions, context, and next steps that shouldn't stay locked in a recording. The Read AI connector gives Claude direct access to your meeting data - including full transcripts, summaries, action items, key questions, topics, and engagement metrics. Browse recent meeting...",
+    "source": "vendor/claude-sitemap/connectors/read-ai.md"
+  },
+  {
+    "id": "relativity",
+    "name": "Relativity",
+    "category": "Legal & Compliance",
+    "surface": "claude.ai",
+    "description": "Stand up matters, manage workspaces, govern access, and analyze usage in RelativityOne.",
+    "source": "vendor/claude-sitemap/connectors/relativity.md"
+  },
+  {
+    "id": "resy",
+    "name": "Resy",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Resy makes it easy to discover and book restaurant reservations across the United States. Just share what you're looking for, and instantly browse top restaurants, check real-time availability, and secure a table in seconds. Whether it's a last-minute dinner or a special night out, Resy helps you...",
+    "source": "vendor/claude-sitemap/connectors/resy.md"
+  },
+  {
+    "id": "retool",
+    "name": "Retool",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Connect Claude directly to your Retool workspace. Manage users, configure resources, and run admin operations directly from Claude Chat or Code.",
+    "source": "vendor/claude-sitemap/connectors/retool.md"
+  },
+  {
+    "id": "rillet",
+    "name": "Rillet",
+    "category": "Finance & Payments",
+    "surface": "claude.ai",
+    "description": "Rillet is an AI-native ERP built for scaling companies. Connect Claude to your live general ledger to query financials in plain English, analyze revenue trends and SaaS metrics, and create journal entries by prompt. Rillet runs on real-time architecture, not batch processing, so every answer Clau...",
+    "source": "vendor/claude-sitemap/connectors/rillet.md"
+  },
+  {
+    "id": "s-p-global",
+    "name": "S&P Global",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "Query a range of S&P Global datasets, including S&P Capital IQ Financials, Market Data, transcripts, and more. Designed to save time and resources for engineering, product, and business teams in financial services, this server streamlines access to company information, financial statements, histo...",
+    "source": "vendor/claude-sitemap/connectors/s-p-global.md"
+  },
+  {
+    "id": "sandboxaq",
+    "name": "SandboxAQ",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "SandboxAQ's Large Quantitative Models (LQMs) combine physics-based simulation with machine learning to accelerate drug discovery and materials innovation. Now, LQMs are accessible through large language models. Researchers can access frontier scientific AI in natural language, moving faster from ...",
+    "source": "vendor/claude-sitemap/connectors/sandboxaq.md"
+  },
+  {
+    "id": "sanity",
+    "name": "Sanity",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Create, query, and manage your structured content in Sanity directly from Claude. Run content audits, update documents, coordinate releases, and find anything across your projects. Or set up entirely new projects – schemas, content, and configuration – just by chatting with Claude.",
+    "source": "vendor/claude-sitemap/connectors/sanity.md"
+  },
+  {
+    "id": "scholar-gateway",
+    "name": "Scholar Gateway",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "Enhance responses with scholarly research and citations. The Scholar Gateway Connector grounds Claude's responses in peer-reviewed sources with verifiable citations and DOI links, helping you ensure your Claude-assisted research meets professional research standards.",
+    "source": "vendor/claude-sitemap/connectors/scholar-gateway.md"
+  },
+  {
+    "id": "scite",
+    "name": "Scite",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Scite delivers answers grounded in peer-reviewed research you can verify. Each response is backed by real scientific sources, with citations that show how studies have been supported, disputed, or contextualized by other researchers. Behind the scenes, Scite’s proprietary citation-based ranking m...",
+    "source": "vendor/claude-sitemap/connectors/scite.md"
+  },
+  {
+    "id": "semrush",
+    "name": "Semrush",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "Access the world's most comprehensive marketing dataset: 27.9B keywords, traffic analytics, market intelligence, and brand visibility data, all through natural language. Get structured, analysis-ready answers instantly. Built for analysts, strategists, and growth teams.",
+    "source": "vendor/claude-sitemap/connectors/semrush.md"
+  },
+  {
+    "id": "send",
+    "name": "Send",
+    "category": "Communications",
+    "surface": "claude.ai",
+    "description": "Create documents, one-pagers, decks, and presentations directly inside Claude. No extra subscriptions, no switching tabs. Tell Claude what you want built and Send publishes it as a shareable link in seconds. Recipients get a beautiful interactive webpage instead of a stale PowerPoint (ppt) attach...",
+    "source": "vendor/claude-sitemap/connectors/send.md"
+  },
+  {
+    "id": "sentry",
+    "name": "Sentry",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Retrieve and analyze issues and errors from your Sentry.io projects. Create and retrieve projects, query issue details, trigger Seer issue fix runs and query their status. Get application debugging context quickly and improve application reliability.",
+    "source": "vendor/claude-sitemap/connectors/sentry.md"
+  },
+  {
+    "id": "shapes",
+    "name": "Shapes",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Shapes MCP connects Claude directly to your live HR data. Ask about headcount, attrition risk, comp gaps, time off and more. Now get instant answers without switching tools. Your existing Shapes permissions carry through to every conversation, so everyone only sees what they're already allowed to...",
+    "source": "vendor/claude-sitemap/connectors/shapes.md"
+  },
+  {
+    "id": "shopify",
+    "name": "Shopify",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Shopify for Claude makes store management as easy as having a conversation. Effortlessly connect your existing store and simply chat to add products, adjust inventory across locations, create discount codes, browse recent orders, view customer details, or pull analytics on your store's performance.",
+    "source": "vendor/claude-sitemap/connectors/shopify.md"
+  },
+  {
+    "id": "sigma",
+    "name": "Sigma",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "Explore, search, and query your data in Sigma directly from the Claude interface. You can search across your organization for relevant documents and elements, and answer and iterate on complex data questions. Perform detailed analysis without needing to write SQL and use natural language to seaml...",
+    "source": "vendor/claude-sitemap/connectors/sigma.md"
+  },
+  {
+    "id": "signnow",
+    "name": "SignNow",
+    "category": "Legal & Compliance",
+    "surface": "claude.ai",
+    "description": "Get documents signed faster without switching between tools. The SignNow MCP server connects Claude directly to your SignNow account, letting you manage the entire eSignature workflow through conversation. Send signature requests, create documents from templates and pre-fill them, track invite st...",
+    "source": "vendor/claude-sitemap/connectors/signnow.md"
+  },
+  {
+    "id": "similarweb",
+    "name": "Similarweb",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "Research any website or app using Similarweb's market intelligence data. Analyze competitor traffic, uncover top keywords, explore audience demographics, and benchmark performance across industries—all through simple prompts. Ask things like \"Show me Nike's traffic sources breakdown\" or \"What key...",
+    "source": "vendor/claude-sitemap/connectors/similarweb.md"
+  },
+  {
+    "id": "sketchup",
+    "name": "Trimble SketchUp",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "The SketchUp connector for Claude turns a conversation into a 3D model. Describe what you want to build — a room addition, a piece of furniture, a site concept — and Claude will generate models for you to open, refine, and share. No modeling experience required to get started.",
+    "source": "vendor/claude-sitemap/connectors/sketchup.md"
+  },
+  {
+    "id": "slack",
+    "name": "Slack",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Connect to Slack to share messages and create canvases directly to simplify collaboration and boost productivity. Search and retrieve messages, channels, threads, files, and users, giving Claude the context to streamline your work. Generate message drafts, format them your way, and review before ...",
+    "source": "vendor/claude-sitemap/connectors/slack.md"
+  },
+  {
+    "id": "smartsheet",
+    "name": "Smartsheet",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Make Smartsheet a native part of your AI workflow. Ask Claude to analyze project timelines, create graphs to summarize your sheet information, all through conversation. The Smartsheet connector eliminates manual data entry and repetitive updates, letting you focus on decisions while Claude handle...",
+    "source": "vendor/claude-sitemap/connectors/smartsheet.md"
+  },
+  {
+    "id": "snowflake",
+    "name": "Snowflake",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Snowflake MCP server can be used to securely and easily retrieve both structured and unstructured data from your Snowflake account.",
+    "source": "vendor/claude-sitemap/connectors/snowflake.md"
+  },
+  {
+    "id": "solve-intelligence",
+    "name": "Solve Intelligence",
+    "category": "AI & Specialized Tools",
+    "surface": "claude.ai",
+    "description": "Connect to Solve Intelligence for patent workflows directly in Claude. Search across patent and non-patent literature, legal texts and case law, SEP technical standards, and the open web. Ask Claude to find prior art or infringing products, conduct legal research, map claims to standards, and ana...",
+    "source": "vendor/claude-sitemap/connectors/solve-intelligence.md"
+  },
+  {
+    "id": "sourcegraph",
+    "name": "Sourcegraph",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Connect Claude to Sourcegraph's powerful code intelligence APIs - enabling semantic code search, symbol lookup, file retrieval, and repository navigation across your entire codebase, including private and multi-repo setups.",
+    "source": "vendor/claude-sitemap/connectors/sourcegraph.md"
+  },
+  {
+    "id": "splice",
+    "name": "Splice",
+    "category": "Media & Entertainment",
+    "surface": "claude.ai",
+    "description": "Splice MCP Server provides access to discovery and ideation tools that empower music creators with the power of Splice's extensive catalog of royalty-free samples. The Describe a Sound (Beta) tool enables search via natural language to find just the right sound. The Create tool builds stacks of c...",
+    "source": "vendor/claude-sitemap/connectors/splice.md"
+  },
+  {
+    "id": "spotify",
+    "name": "Spotify",
+    "category": "Media & Entertainment",
+    "surface": "claude.ai",
+    "description": "Explore a new way to discover music and podcasts, with recommendations that are uniquely you. Want music to power your next run, study session, or party? Just ask and Spotify will drop the right songs, artists or playlists into your conversation. With Spotify in Claude you can; Ask for songs, art...",
+    "source": "vendor/claude-sitemap/connectors/spotify.md"
+  },
+  {
+    "id": "sprouts",
+    "name": "Sprouts Data Intelligence",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Access Sprouts.ai's B2B prospect database through natural language queries. Search for contacts and companies by job title, industry, location, company size, and more.",
+    "source": "vendor/claude-sitemap/connectors/sprouts.md"
+  },
+  {
+    "id": "square",
+    "name": "Square",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Access Square's commerce platform to view transaction data, manage customer profiles, track inventory, process payments, and analyze sales patterns. Handle point-of-sale operations, generate financial reports, and manage business operations through Claude's natural language interface for streamli...",
+    "source": "vendor/claude-sitemap/connectors/square.md"
+  },
+  {
+    "id": "starburst",
+    "name": "Starburst",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "The Starburst MCP server exposes a secure, read-only SQL tool for Claude. It enables governed data discovery, lightweight sampling, and execution of analytical queries across Starburst catalogs, while enforcing existing permissions, timeouts, and result-size limits and returning compact, structur...",
+    "source": "vendor/claude-sitemap/connectors/starburst.md"
+  },
+  {
+    "id": "stripe",
+    "name": "Stripe",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Defines a set of tools that Claude can use to interact with the Stripe API and search the Stripe knowledge base (including documentation and support articles).",
+    "source": "vendor/claude-sitemap/connectors/stripe.md"
+  },
+  {
+    "id": "stubhub",
+    "name": "StubHub",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "StubHub makes it easy to explore live events directly from Claude. Access live ticket availability, pricing, and view quality in real time with an assistant that remembers your preferences. With over 50 million listings across 200+ countries, you can discover concerts, sports, theater, comedy, fe...",
+    "source": "vendor/claude-sitemap/connectors/stubhub.md"
+  },
+  {
+    "id": "stytch",
+    "name": "Stytch",
+    "category": "Infrastructure & Security",
+    "surface": "claude.ai",
+    "description": "The Stytch connector enables Claude to programmatically manage your Stytch Project like Redirect URLs, Email Templates, and more.",
+    "source": "vendor/claude-sitemap/connectors/stytch.md"
+  },
+  {
+    "id": "supabase",
+    "name": "Supabase",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Manage Supabase projects directly through Claude. Execute SQL queries on PostgreSQL databases, design and modify table schemas, deploy serverless edge functions, and configure user authentication. Access real-time logs for debugging, generate TypeScript types for your schema, create and apply dat...",
+    "source": "vendor/claude-sitemap/connectors/supabase.md"
+  },
+  {
+    "id": "superhuman-mail",
+    "name": "Superhuman Mail",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Connect Superhuman Mail to Claude, and build powerful workflows for email and calendar. Find anything in your inbox, draft replies that sound like you for every recipient, check read statuses, set reminders, schedule meetings, and send — all without leaving Claude.",
+    "source": "vendor/claude-sitemap/connectors/superhuman-mail.md"
+  },
+  {
+    "id": "supermetrics",
+    "name": "Supermetrics",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Supermetrics gives Claude direct access to your marketing, advertising, analytics, sales, CRM and ecommerce data across 200+ platforms — including Google Ads, Facebook Ads (Meta), Google Analytics, TikTok, LinkedIn, Microsoft Advertising (Bing Ads), Instagram, Shopify, HubSpot, Pinterest, Snapcha...",
+    "source": "vendor/claude-sitemap/connectors/supermetrics.md"
+  },
+  {
+    "id": "surveymonkey",
+    "name": "SurveyMonkey",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Build surveys, analyze responses, and uncover trends in SurveyMonkey—right from Claude. Turn feedback into clear next steps without leaving your workflow.",
+    "source": "vendor/claude-sitemap/connectors/surveymonkey.md"
+  },
+  {
+    "id": "sybill",
+    "name": "Sybill",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Sybill is the context layer for your revenue org. Connect it to Claude and ask anything about your sales conversations, deals, and pipeline grounded in real call transcripts, AI-generated summaries, MEDDIC scores, and CRM data. Surface action items from calls, identify at-risk deals, prep for mee...",
+    "source": "vendor/claude-sitemap/connectors/sybill.md"
+  },
+  {
+    "id": "synapse-org",
+    "name": "Synapse.org",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Discover and explore scientific datasets from collaborative research projects. Search Synapse for genomics, imaging, clinical data on cancer, neurodegenerative diseases, rare diseases, and more. Navigate project hierarchies and get detailed metadata and provenance to understand what datasets cont...",
+    "source": "vendor/claude-sitemap/connectors/synapse-org.md"
+  },
+  {
+    "id": "synthesize-bio",
+    "name": "Synthesize Bio",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "Synthesize Bio lets Claude generate and analyze gene expression data from a virtual human from a natural language prompt. Describe any experiment — \"tumor vs normal lung tissue\" or \"KRAS knockout vs control\" — and the platform generates realistic human expression profiles using its Gene Expressio...",
+    "source": "vendor/claude-sitemap/connectors/synthesize-bio.md"
+  },
+  {
+    "id": "tango",
+    "name": "Tango",
+    "category": "Forms & Documents",
+    "surface": "claude.ai",
+    "description": "The Tango server gives AI agents access to reliable, LLM-friendly federal procurement competitive intelligence so that procurement professionals can focus on delivering on mission.",
+    "source": "vendor/claude-sitemap/connectors/tango.md"
+  },
+  {
+    "id": "taskrabbit",
+    "name": "Taskrabbit Booking Assistance",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "The Taskrabbit MCP connector lets Claude check service availability and pricing in the user's location. When a service is available, Claude guides the user through scoping questions to understand their needs — such as room count, space type, and other relevant details — then surfaces accurate loc...",
+    "source": "vendor/claude-sitemap/connectors/taskrabbit.md"
+  },
+  {
+    "id": "tavily",
+    "name": "Tavily",
+    "category": "Knowledge Management & Search",
+    "surface": "claude.ai",
+    "description": "Give Claude real-time web access with Tavily. One API for search, extraction, and research. Built for the accuracy, speed, and security production agents require. You can use Tavily to ground answers in live data, optimize token usage by extracting relevant content, and ship with security built i...",
+    "source": "vendor/claude-sitemap/connectors/tavily.md"
+  },
+  {
+    "id": "third-bridge",
+    "name": "Third Bridge",
+    "category": "Financial Data & Research",
+    "surface": "claude.ai",
+    "description": "Seamlessly incorporate critical context and trusted insights from industry experts as part of your financial and business analysis. Refocus on extracting high-quality, reliable information by querying Third Bridge’s best-in-class substantial Library of expert content and data. Our MCP systematica...",
+    "source": "vendor/claude-sitemap/connectors/third-bridge.md"
+  },
+  {
+    "id": "thoughtspot-spotter",
+    "name": "ThoughtSpot Spotter",
+    "category": "Analytics & Business Intelligence",
+    "surface": "claude.ai",
+    "description": "From everyday data questions to high-level strategic analyses, Spotter by ThoughtSpot helps business and data teams get answers and insights they can trust, validate, and act on, enabling everyone to use data to drive the business forward.",
+    "source": "vendor/claude-sitemap/connectors/thoughtspot-spotter.md"
+  },
+  {
+    "id": "thumbtack",
+    "name": "Thumbtack",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Thumbtack is integrated into Claude to help you take action on home projects. Ask questions about repairs, maintenance, or improvements and get matched with local pros. From leaky faucets to landscape design, we've got pros for every home project. Browse recommendations and connect with the right...",
+    "source": "vendor/claude-sitemap/connectors/thumbtack.md"
+  },
+  {
+    "id": "ticket-tailor",
+    "name": "Ticket Tailor",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Provides event organisers with tools to interact with a Ticket Tailor box office account. It covers nearly every aspect of event ticketing: from event creation and ticket issuing, to managing orders, discounts, products, and more.",
+    "source": "vendor/claude-sitemap/connectors/ticket-tailor.md"
+  },
+  {
+    "id": "tines",
+    "name": "Tines",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Build custom MCP servers securely in Tines. Connect templates, send-to-story workflows, and custom tools and make them accessible to external MCP clients.",
+    "source": "vendor/claude-sitemap/connectors/tines.md"
+  },
+  {
+    "id": "tldv",
+    "name": "tldv",
+    "category": "Meeting Intelligence",
+    "surface": "claude.ai",
+    "description": "Access Google Meet, Zoom & Teams meeting transcripts. Yours, and those from your team & company.",
+    "source": "vendor/claude-sitemap/connectors/tldv.md"
+  },
+  {
+    "id": "todoist",
+    "name": "Todoist",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Allow Claude to assist you in managing your productivity and time blocking, by searching your current tasks, completing them, and general management of tasks in Todoist.",
+    "source": "vendor/claude-sitemap/connectors/todoist.md"
+  },
+  {
+    "id": "tool-universe",
+    "name": "Tool Universe",
+    "category": "Knowledge Management & Search",
+    "surface": "claude.ai",
+    "description": "The ToolUniverse connector provides an ecosystem for creating AI scientist systems, integrating more than 700 machine learning models, datasets, APIs, and scientific packages for data analysis, knowledge retrieval, and experimental design. It standardizes how Claude identifies and calls scientifi...",
+    "source": "vendor/claude-sitemap/connectors/tool-universe.md"
+  },
+  {
+    "id": "topcounsel",
+    "name": "TopCounsel by The L Suite",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Find the right outside counsel for your specific matter based on insights and rankings from The L Suite — the leading community of 5000+ inhouse counsel. Our proprietary ranking algorithm is driven by overall aggregated member sentiment, speaking engagements and content of each outside counsel, e...",
+    "source": "vendor/claude-sitemap/connectors/topcounsel.md"
+  },
+  {
+    "id": "tray-ai",
+    "name": "Tray.ai",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Tray.ai connects Claude to your applications and lets you build and automate workflows across marketing leads, sales opportunities, orders, renewals, reporting, and more. With 700+ connectors and support for complex, multi-step workflows, it can handle virtually any automation your business needs...",
+    "source": "vendor/claude-sitemap/connectors/tray-ai.md"
+  },
+  {
+    "id": "trellis",
+    "name": "Trellis",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Trellis — Claude for Trial Court Litigators gives Claude direct access to the largest state trial court dataset in the U.S. — including dockets, rulings, verdicts, and filings — enabling legal research, judge and opposing counsel analytics, expert witness vetting, and motion drafting grounded in ...",
+    "source": "vendor/claude-sitemap/connectors/trellis.md"
+  },
+  {
+    "id": "tripadvisor",
+    "name": "Tripadvisor",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "This server provides tools to query the Tripadvisor hotels data, with functions to search for hotels in an area and to retrieve hotel details, photos, reviews, review ratings, availability, pricing, and nearby points of interest. It should be invoked for user queries involving hotel research, com...",
+    "source": "vendor/claude-sitemap/connectors/tripadvisor.md"
+  },
+  {
+    "id": "trivago",
+    "name": "Trivago",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "The Trivago connector enables users to search for hotels and accommodations using coordinates or broader geographic areas such as cities and countries. It provides tailored search results based on location and date inputs, helping users find suitable places to stay near specific points of interes...",
+    "source": "vendor/claude-sitemap/connectors/trivago.md"
+  },
+  {
+    "id": "tropic",
+    "name": "Tropic",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Software + AI pricing isn't public, so searching the internet won't tell you if you're overpaying. Tropic will. Connect Tropic to Claude to benchmark your pricing against $18B+ in verified technology transactions.",
+    "source": "vendor/claude-sitemap/connectors/tropic.md"
+  },
+  {
+    "id": "turkish-airlines",
+    "name": "Turkish Airlines",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "The official Turkish Airlines MCP App. Search and compare flights, check live status, look up booking details and baggage allowance, browse city guides, and discover promotions — all directly inside Claude.",
+    "source": "vendor/claude-sitemap/connectors/turkish-airlines.md"
+  },
+  {
+    "id": "twilio",
+    "name": "Twilio",
+    "category": "Infrastructure & Security",
+    "surface": "claude.ai",
+    "description": "Search Twilio’s APIs and build customer engagement experiences directly from Claude. Across more than 1,800 endpoints, Twilio MCP surfaces the exact specs and code patterns you need for channels like voice, email, and SMS/RCS, as well as user identity, customer data, contact center, and conversat...",
+    "source": "vendor/claude-sitemap/connectors/twilio.md"
+  },
+  {
+    "id": "uber-eats",
+    "name": "Uber Eats",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Get food delivery to your doorstep from thousands of amazing local and national restaurants. Search and browse restaurants and dishes near you to find the meal you crave.",
+    "source": "vendor/claude-sitemap/connectors/uber-eats.md"
+  },
+  {
+    "id": "uber",
+    "name": "Uber",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Get accurate, real-time Uber fare estimates between any two locations in the United States. This tool instantly shows you available ride options—such as UberX, UberXL, Comfort, and Black—along with pricing, estimated arrival times, and product details. What You Can Do - Check up-to-the-minute far...",
+    "source": "vendor/claude-sitemap/connectors/uber.md"
+  },
+  {
+    "id": "udemy-business",
+    "name": "Udemy Business",
+    "category": "HR & Recruitment",
+    "surface": "claude.ai",
+    "description": "Udemy Business brings comprehensive AI-powered skills development directly into Claude. Employees discover and access expertly curated courses via personalized search and recommendations. This enables just-in-time learning in the flow of work with enterprise-grade security and scalability.",
+    "source": "vendor/claude-sitemap/connectors/udemy-business.md"
+  },
+  {
+    "id": "unthread",
+    "name": "Unthread",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Search conversations, monitor SLAs, and analyze support metrics directly from Claude. Make Unthread a native part of your AI workflow—a support intelligence layer that helps you stay on top of your helpdesk's performance.",
+    "source": "vendor/claude-sitemap/connectors/unthread.md"
+  },
+  {
+    "id": "vercel",
+    "name": "Vercel",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "The Vercel connector allows you to search and navigate documentation, manage projects and deployments, and analyze deployment logs—all in one place.",
+    "source": "vendor/claude-sitemap/connectors/vercel.md"
+  },
+  {
+    "id": "verisk-underwriting-intelligence",
+    "name": "Verisk Underwriting Intelligence",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Verisk Underwriting Intelligence provides conversational access to trusted ISO Loss Cost insights within Claude, designed for underwriters, actuaries, and product teams with an ISO Core Lines Services subscription. Today, users can explore loss cost indications, experience trends, and filing-alig...",
+    "source": "vendor/claude-sitemap/connectors/verisk-underwriting-intelligence.md"
+  },
+  {
+    "id": "verisk-xactrestore",
+    "name": "Verisk XactRestore",
+    "category": "Business Applications",
+    "surface": "claude.ai",
+    "description": "Connect Claude to Verisk's XactRestore so restoration and remodeling professionals can build and refine estimates by simply describing the work that needs to be done. Powered by Xactware's pricing and material data, Claude can create rooms, add and adjust line items, apply Quick Estimates, and su...",
+    "source": "vendor/claude-sitemap/connectors/verisk-xactrestore.md"
+  },
+  {
+    "id": "viator",
+    "name": "Viator",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Discover and book unforgettable things to do with the Viator app. Search Viator's catalog of tours, attractions, and experiences using natural language. Just tell us where you're going and what you're interested in, and we will help you explore relevant options quickly and clearly. You can narrow...",
+    "source": "vendor/claude-sitemap/connectors/viator.md"
+  },
+  {
+    "id": "vibeprospecting",
+    "name": "Vibe Prospecting",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Turn your Claude agent into a prospecting platform. Find any company or professional right in your Claude. Get contact information, roles, tech stack, business events, website changes, Intent data, and much more. Build lead lists, research prospects, identify talent, and craft personalized outrea...",
+    "source": "vendor/claude-sitemap/connectors/vibeprospecting.md"
+  },
+  {
+    "id": "visier",
+    "name": "Visier",
+    "category": "Productivity & Collaboration",
+    "surface": "claude.ai",
+    "description": "Ask Vee questions about your people and work data in Visier. Get insights on work performance, employee satisfaction, attrition predictions, and retention of key team members. Requires a Vee subscription.",
+    "source": "vendor/claude-sitemap/connectors/visier.md"
+  },
+  {
+    "id": "webflow",
+    "name": "Webflow",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Connect Webflow to design pages, manage CMS content, browse and update collections, modify layouts and styles, and automate site-level tasks through natural language. Build, update, and scale Webflow projects faster with less manual work.",
+    "source": "vendor/claude-sitemap/connectors/webflow.md"
+  },
+  {
+    "id": "windsor-ai",
+    "name": "Windsor.ai",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Analyze multi-channel marketing, analytics, sales, and e-commerce data within Claude by connecting to your Windsor.ai data flows: Query metrics from over 325 sources. Fetch and blend data from top platforms like Facebook, Google Ads, Instagram, Google Analytics 4, TikTok, Shopify, Salesforce, Hub...",
+    "source": "vendor/claude-sitemap/connectors/windsor-ai.md"
+  },
+  {
+    "id": "wix",
+    "name": "Wix",
+    "category": "Design & Creative",
+    "surface": "claude.ai",
+    "description": "Wix provides users with the ability to manage their account's websites and apps (Stores, Bookings, Blog, etc.). In addition, Wix also helps developers create new sites using Wix Headless, the Wix Design system, and more.",
+    "source": "vendor/claude-sitemap/connectors/wix.md"
+  },
+  {
+    "id": "wolfram",
+    "name": "Wolfram",
+    "category": "Life Sciences & Research",
+    "surface": "claude.ai",
+    "description": "The Wolfram MCP Server transforms your AI environment into a rigorous computational powerhouse. By integrating Wolfram Language and Wolfram|Alpha, this server provides access to curated data and sophisticated algorithms. When a user submits a query, the LLM works with Wolfram to convert it into W...",
+    "source": "vendor/claude-sitemap/connectors/wolfram.md"
+  },
+  {
+    "id": "workable",
+    "name": "Workable",
+    "category": "HR & Recruitment",
+    "surface": "claude.ai",
+    "description": "Connect your AI assistant directly to Workable. With 40+ tools spanning the full hiring lifecycle, you can manage jobs, move candidates through pipeline stages, add reviews and comments, handle requisitions and offers, and access employee and HR data all without leaving your AI interface. Whether...",
+    "source": "vendor/claude-sitemap/connectors/workable.md"
+  },
+  {
+    "id": "workato",
+    "name": "Workato",
+    "category": "Marketing & Automation",
+    "surface": "claude.ai",
+    "description": "Execute enterprise automation recipes, manage integrations between business applications, monitor workflow performance, and create complex data transformations through Workato’s enterprise automation platform. Build and deploy sophisticated business process automations using natural language comm...",
+    "source": "vendor/claude-sitemap/connectors/workato.md"
+  },
+  {
+    "id": "wyndham-hotels",
+    "name": "Wyndham Hotels and Resorts",
+    "category": "Travel & Lifestyle",
+    "surface": "claude.ai",
+    "description": "Finding the right place to stay shouldn't be complicated. With Claude, you can explore and compare Wyndham Hotels & Resorts just by asking. Search hotels by city and travel dates, narrow options by amenities like pools or pet-friendly, and get quick, easy answers to your questions. Whether you're...",
+    "source": "vendor/claude-sitemap/connectors/wyndham-hotels.md"
+  },
+  {
+    "id": "xero",
+    "name": "Xero",
+    "category": "Finance & Payments",
+    "surface": "claude.ai",
+    "description": "Check your profit and loss, see who owes you money, review your cash position, and find your top customers — directly from Claude. Xero surfaces visual financial summaries with flexible date ranges and year-over-year comparisons, so you can stay on top of your numbers without switching apps. Ever...",
+    "source": "vendor/claude-sitemap/connectors/xero.md"
+  },
+  {
+    "id": "yardi-virtuoso",
+    "name": "Yardi Virtuoso",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Yardi Virtuoso Connectors integrate your Yardi platform data with Claude, enabling property and asset management professionals to interact with their portfolio data conversationally. Users can access and gain insights into property performance, key financial data, work orders and more directly wi...",
+    "source": "vendor/claude-sitemap/connectors/yardi-virtuoso.md"
+  },
+  {
+    "id": "zapier",
+    "name": "Zapier",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Search knowledge across your apps and execute real-world actions by connecting Claude with the 8,000 apps on Zapier. Run workflows like sending emails, updating CRMs, scheduling meetings, and more, all within Claude.",
+    "source": "vendor/claude-sitemap/connectors/zapier.md"
+  },
+  {
+    "id": "ziprecruiter",
+    "name": "ZipRecruiter",
+    "category": "HR & Recruitment",
+    "surface": "claude.ai",
+    "description": "Find live jobs on ZipRecruiter without leaving Claude. Search by job title, company, or location, then narrow results by salary, distance, remote or hybrid work, employment type, and date posted. After reviewing a listing, jump to ZipRecruiter to apply.",
+    "source": "vendor/claude-sitemap/connectors/ziprecruiter.md"
+  },
+  {
+    "id": "zocks",
+    "name": "Zocks",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Zocks connects Claude to the client data financial advisors rely on - including conversation intelligence, meeting insights, and the goals, concerns, and planning opportunities captured across every interaction. With access to this context through Zocks, Claude can analyze client history to surfa...",
+    "source": "vendor/claude-sitemap/connectors/zocks.md"
+  },
+  {
+    "id": "zoho-books",
+    "name": "Zoho Books",
+    "category": "Finance & Payments",
+    "surface": "claude.ai",
+    "description": "Connect MCP to Zoho Books for automated billing and finance workflows.",
+    "source": "vendor/claude-sitemap/connectors/zoho-books.md"
+  },
+  {
+    "id": "zoho-crm",
+    "name": "Zoho CRM",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Enable MCP to automate Zoho CRM leads, deals, and contacts using actions.",
+    "source": "vendor/claude-sitemap/connectors/zoho-crm.md"
+  },
+  {
+    "id": "zoho-desk",
+    "name": "Zoho Desk",
+    "category": "Developer Tools & Data",
+    "surface": "claude.ai",
+    "description": "Automate Zoho Desk customer support workflows with MCP tools for managing tickets, contacts, and knowledge base articles.",
+    "source": "vendor/claude-sitemap/connectors/zoho-desk.md"
+  },
+  {
+    "id": "zoho-projects",
+    "name": "Zoho Projects",
+    "category": "Customer Success & Support",
+    "surface": "claude.ai",
+    "description": "Control Zoho Projects data and task operations through MCP tools.",
+    "source": "vendor/claude-sitemap/connectors/zoho-projects.md"
+  },
+  {
+    "id": "zoom-for-claude",
+    "name": "Zoom for Claude",
+    "category": "Meeting Intelligence",
+    "surface": "claude.ai",
+    "description": "The Zoom for Claude connector allows users to search their Zoom meetings using natural language, retrieve meeting assets such as AI summaries, docs, recordings, and whiteboards, and access recording-specific resources including transcripts, summaries, next steps, and playback links. Users can ask...",
+    "source": "vendor/claude-sitemap/connectors/zoom-for-claude.md"
+  },
+  {
+    "id": "zoominfo",
+    "name": "ZoomInfo",
+    "category": "CRM & Sales",
+    "surface": "claude.ai",
+    "description": "Access ZoomInfo's GTM intelligence to ground your AI workflows with verified B2B data. Search companies and identify key stakeholders with natural language. Enrich with 300+ data points, build targeted account lists, and drive momentum from first touch to renewal.",
+    "source": "vendor/claude-sitemap/connectors/zoominfo.md"
+  }
+]
