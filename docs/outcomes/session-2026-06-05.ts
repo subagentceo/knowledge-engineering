@@ -35,7 +35,7 @@ export const outcomes: SessionOutcome[] = [
   {
     id: "2026-06-05-O5",
     title: "t14-5 — src/mcp-hono/server.ts: Hono HTTP transport for MCP bridge (coworker-feature-dev)",
-    status: "pending",
+    status: "achieved",
     category: "sdk",
     evidence: [
       "src/mcp-hono/server.ts",
@@ -45,6 +45,7 @@ export const outcomes: SessionOutcome[] = [
       "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
       "seeds/citations/define-outcomes.md",
     ],
+    commit_sha: "29c67f3",
   },
   {
     id: "2026-06-05-O6",
