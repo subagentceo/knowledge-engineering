@@ -56,8 +56,7 @@ function excerptContent(content: string): string {
     .replace(/`[^`]+`/g, "")
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/[*_]{1,2}([^*_]+)[*_]{1,2}/g, "$1")
-    .replace(/<[^>]*>/g, "")
-    .replace(/<[^>]*/g, "")
+    .replace(/[<>]/g, "")
     .replace(/\n+/g, " ")
     .trim();
   return stripped.slice(0, 500);
