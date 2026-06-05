@@ -7,23 +7,20 @@
  * @cite scripts/lib/checksums.ts
  * @cite src/lib/redis-client.ts
  */
-import { readdirSync, statSync, readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import { join, relative, basename, extname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { hashBody } from "./lib/checksums.js";
 import { getString, setString } from "../src/lib/redis-client.js";
 import { createEntities, createRelations } from "../src/db/knowledge-graph.js";
 import type { KGEntity, KGRelation } from "../src/db/knowledge-graph.js";
+import { harvestAdmonitions } from "./harvest-admonitions.js";
+import type { AdmonitionRecord } from "./harvest-admonitions.js";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const REPO_ROOT = join(__dirname, "..");
 const VENDOR_ROOT = join(REPO_ROOT, "vendor/modelcontextprotocol/modelcontextprotocol.io");
 const HASH_TTL_S = 604800; // 7 days
-
-interface AdmonitionHarvest {
-  type: string;
-  lineStart: number;
-}
 
 interface PageResult {
   file: string;
@@ -33,12 +30,12 @@ interface PageResult {
 }
 
 function walkMd(dir: string, results: string[] = []): string[] {
-  for (const entry of readdirSync(dir)) {
-    const full = join(dir, entry);
-    const st = statSync(full);
-    if (st.isDirectory()) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (entry.name.startsWith(".")) continue;
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) {
       walkMd(full, results);
-    } else if (st.isFile() && extname(entry) === ".md") {
+    } else if (entry.isFile() && extname(entry.name) === ".md") {
       results.push(full);
     }
   }
@@ -60,24 +57,11 @@ function excerptContent(content: string): string {
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/[*_]{1,2}([^*_]+)[*_]{1,2}/g, "$1")
     .replace(/<[^>]+>/g, "")
-    .replace(/\n{2,}/g, " ")
-    .replace(/\n/g, " ")
+    .replace(/\n+/g, " ")
     .trim();
   return stripped.slice(0, 500);
 }
 
-// WHY: harvest-admonitions.ts is a sister script that may not exist yet — forward-compatible import
-async function tryHarvestAdmonitions(filePath: string): Promise<AdmonitionHarvest[]> {
-  try {
-    const mod = await import("./harvest-admonitions.js").catch(() => null);
-    if (!mod) return [];
-    const fn = mod.harvestAdmonitions ?? mod.default?.harvestAdmonitions;
-    if (typeof fn !== "function") return [];
-    return (await fn(filePath)) as AdmonitionHarvest[];
-  } catch {
-    return [];
-  }
-}
 
 async function processPage(absPath: string): Promise<PageResult> {
   const relPath = relative(REPO_ROOT, absPath);
@@ -102,28 +86,26 @@ async function processPage(absPath: string): Promise<PageResult> {
       "excerpt: " + excerpt,
     ],
   };
-  createEntities([docEntity]);
-  let nodesUpserted = 1;
 
-  const admonitions = await tryHarvestAdmonitions(absPath);
-  const relations: KGRelation[] = [];
+  const admonitions: AdmonitionRecord[] = await harvestAdmonitions(absPath);
+  const admEntities: KGEntity[] = admonitions.map((adm) => ({
+    name: `${title}:admonition:${adm.lineStart}`,
+    type: "artifact",
+    observations: [
+      "type: " + adm.type,
+      "source: " + relPath,
+      "line: " + adm.lineStart,
+    ],
+  }));
 
-  for (const admonition of admonitions) {
-    const admName = `${title}:admonition:${admonition.lineStart}`;
-    const admEntity: KGEntity = {
-      name: admName,
-      type: "artifact",
-      observations: [
-        "type: " + admonition.type,
-        "source: " + relPath,
-        "line: " + admonition.lineStart,
-      ],
-    };
-    createEntities([admEntity]);
-    nodesUpserted++;
-    relations.push({ from: title, relation: "source_of", to: admName });
-  }
+  createEntities([docEntity, ...admEntities]);
+  const nodesUpserted = 1 + admEntities.length;
 
+  const relations: KGRelation[] = admEntities.map((adm) => ({
+    from: title,
+    relation: "source_of",
+    to: adm.name,
+  }));
   if (relations.length > 0) {
     createRelations(relations);
   }
@@ -133,7 +115,7 @@ async function processPage(absPath: string): Promise<PageResult> {
   return {
     file: relPath,
     changed: true,
-    admonitions_harvested: admonitions.length,
+    admonitions_harvested: admEntities.length,
     nodes_upserted: nodesUpserted,
   };
 }
