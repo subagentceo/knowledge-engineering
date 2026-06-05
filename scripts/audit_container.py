@@ -31,8 +31,11 @@ REQUIRED: list[tuple[str, str | None]] = [
     ("python3", None),               # pre-installed; no apt fallback
     ("node", "nodejs"),
     ("git", "git"),
-    ("swiftly", None),               # swift.org swiftly installer; no apt fallback
-    ("swift", None),                 # installed via swiftly or direct tarball; no apt fallback
+    # swift: tarball-installed in Dockerfile (infra/wsl2/Dockerfile uses the
+    # swift.org Linux release tarball, not swiftly). swiftly is a native-WSL2
+    # dev-env version manager only — never present in the container — so it is
+    # not a required container tool.
+    ("swift", None),
 ]
 
 REPORT_PATH = Path(os.environ.get("AUDIT_REPORT", "audit_container_results.jsonl"))
