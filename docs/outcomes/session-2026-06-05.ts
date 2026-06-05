@@ -315,6 +315,52 @@ export const outcomes: SessionOutcome[] = [
       "seeds/prompts/loop-orchestrator.md",
     ],
   },
+  {
+    id: "2026-06-05-O19",
+    title: "t3-1+t3-2+t4-1 — vendor/swift/: swiftly installer + Docker Hub swift image + linux docker install docs",
+    status: "achieved",
+    category: "vendor",
+    evidence: [
+      "vendor/swift/swift.org/install/linux/swiftly.md",
+      "vendor/swift/hub.docker.com/swift.md",
+      "vendor/swift/swift.org/install/linux/docker.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "61eca827",
+  },
+  {
+    id: "2026-06-05-O20",
+    title: "t14-2 — infra/claude-code-subprocessor/: platform binary matrix + docker-entrypoint (6 platforms, OAuth-only posture)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "infra/claude-code-subprocessor/matrix.yaml",
+      "infra/claude-code-subprocessor/docker-entrypoint.sh",
+      "infra/claude-code-subprocessor/README.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "cd038a41",
+  },
+  {
+    id: "2026-06-05-O21",
+    title: "Heartbeat tick 2026-06-05-T6 — PR #410 OAUTO17 rescue + O19 swift vendor docs (PR #415) + O20 subprocessor matrix (PR #414)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
 ];
 
 for (const o of outcomes) {
