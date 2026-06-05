@@ -16,16 +16,19 @@ export type { SessionOutcome } from "./session-2026-06-02.js";
 
 export { outcomes as outcomes_2026_06_03 } from "./session-2026-06-03.js";
 export { outcomes as outcomes_2026_06_04 } from "./session-2026-06-04.js";
+export { outcomes as outcomes_2026_06_05 } from "./session-2026-06-05.js";
 
 import { outcomes as outcomes_2026_06_02 } from "./session-2026-06-02.js";
 import { outcomes as outcomes_2026_06_03 } from "./session-2026-06-03.js";
 import { outcomes as outcomes_2026_06_04 } from "./session-2026-06-04.js";
+import { outcomes as outcomes_2026_06_05 } from "./session-2026-06-05.js";
 import type { SessionOutcome } from "./session-2026-06-02.js";
 
 const allOutcomes: SessionOutcome[] = [
   ...outcomes_2026_06_02,
   ...outcomes_2026_06_03,
   ...outcomes_2026_06_04,
+  ...outcomes_2026_06_05,
 ];
 
 /**
