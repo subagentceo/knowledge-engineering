@@ -14,6 +14,7 @@
     "dev": "tsx src/agent/run.ts",
     "mcp:bridge": "tsx src/mcp/bridge-server.ts",
     "mcp:npm-registry": "tsx src/mcp/npm-registry/server.ts",
+    "mcp:hono": "tsx src/mcp-hono/server.ts",
     "rc": "claude remote-control --capacity 32 --spawn worktree",
     "rc:healer": "claude remote-control --capacity 4 --spawn worktree --name pr-healer",
     "example:prompt-caching": "tsx src/examples/prompt-caching.ts",
@@ -68,6 +69,7 @@
   },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "^0.2.0",
+    "hono": "^4.11.4",
     "@anthropic-ai/sdk": "^0.95.0",
     "@crawlee/cheerio": "^3.0.0",
     "@modelcontextprotocol/sdk": "^1.29.0",
