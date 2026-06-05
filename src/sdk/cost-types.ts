@@ -69,8 +69,15 @@ export function computeCacheEfficiency(cost: AgentSessionCost): CacheEfficiencyM
   const hitRate = totalInput > 0
     ? (cost.cache_read_input_tokens / totalInput) * 100
     : 0;
-  const savingsUsd = cost.cache_read_input_tokens > 0
-    ? (cost.cost_usd * (cost.cache_read_input_tokens / totalInput) * 0.9)
+  // Savings estimate uses input-only cost base (not total cost, which includes output).
+  // Effective cost-units: uncached=1.0×, cache_read=0.1×, cache_creation=1.25×, output≈5×.
+  // @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/prompt-caching.md
+  const cacheCreation2 = cost.cache_creation_5m_input_tokens + cost.cache_creation_1h_input_tokens;
+  const effectiveInput = cost.uncached_input_tokens + cost.cache_read_input_tokens * 0.1 + cacheCreation2 * 1.25;
+  const effectiveTotal = effectiveInput + cost.output_tokens * 5.0;
+  const inputCostFraction = effectiveTotal > 0 ? effectiveInput / effectiveTotal : 0.5;
+  const savingsUsd = cost.cache_read_input_tokens > 0 && effectiveInput > 0
+    ? (cost.cost_usd * inputCostFraction * (cost.cache_read_input_tokens * 0.9 / effectiveInput))
     : 0;
   return {
     session_id: cost.session_id,
@@ -138,9 +145,13 @@ export async function replayCostsFromJSONL(path: string): Promise<AgentSessionCo
   if (!fs.existsSync(path)) return [];
   const rl = readline.createInterface({ input: fs.createReadStream(path) });
   const records: AgentSessionCost[] = [];
-  for await (const line of rl) {
-    if (!line.trim()) continue;
-    try { records.push(JSON.parse(line) as AgentSessionCost); } catch { /* skip */ }
+  try {
+    for await (const line of rl) {
+      if (!line.trim()) continue;
+      try { records.push(JSON.parse(line) as AgentSessionCost); } catch { /* skip malformed */ }
+    }
+  } finally {
+    rl.close(); // release the fd so the process can exit naturally
   }
   return records;
 }
