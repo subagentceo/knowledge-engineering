@@ -12,6 +12,11 @@
  *   - 2026-06-05-O6: t13-4 — 300+ connectors catalog (vendor/connectors/catalog.json + README)
  *   - 2026-06-05-O7: Heartbeat tick 2026-06-05-T2
  *
+ * Tick T3 (tick id: 2026-06-05-T3).
+ *   - 2026-06-05-O8: t9-2 — WSL2 model selection for RTX 2080 Ti 11GB VRAM (docs/research/wsl2-model-selection.md)
+ *   - 2026-06-05-O9: t11-1 — skills.sh catalog mirror (vendor/skills-sh/anthropics/sources.json + README, 25 skills)
+ *   - 2026-06-05-O10: Heartbeat tick 2026-06-05-T3
+ *
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
  */
@@ -125,6 +130,49 @@ export const outcomes: SessionOutcome[] = [
   {
     id: "2026-06-05-O4",
     title: "Heartbeat tick 2026-06-05-T1 — PR #370 rescued, O2+O3 dispatched, outcomes registered",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
+  {
+    id: "2026-06-05-O8",
+    title: "t9-2 — docs/research/wsl2-model-selection.md: optimal LLMs for RTX 2080 Ti 11GB VRAM in WSL2",
+    status: "achieved",
+    category: "data",
+    evidence: [
+      "docs/research/wsl2-model-selection.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "7ee6b3a",
+  },
+  {
+    id: "2026-06-05-O9",
+    title: "t11-1 — vendor/skills-sh/: skills.sh catalog mirror (25 Anthropic skills, ~2M installs)",
+    status: "achieved",
+    category: "vendor",
+    evidence: [
+      "vendor/skills-sh/anthropics/sources.json",
+      "vendor/skills-sh/README.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "ea3010e",
+  },
+  {
+    id: "2026-06-05-O10",
+    title: "Heartbeat tick 2026-06-05-T3 — PRs #402/#403 merged, #370/#404 in CI, O8+O9 achieved",
     status: "achieved",
     category: "infra",
     evidence: [
