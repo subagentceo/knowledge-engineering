@@ -52,8 +52,8 @@ function countNewlines(str: string): number {
   return n;
 }
 
-export async function harvestAdmonitions(filePath: string): Promise<AdmonitionRecord[]> {
-  const content = readFileSync(filePath, "utf8");
+export async function harvestAdmonitions(filePath: string, prefetchedContent?: string): Promise<AdmonitionRecord[]> {
+  const content = prefetchedContent ?? readFileSync(filePath, "utf8");
   const sha256 = hashBody(content);
   const relPath = relative(REPO_ROOT, filePath);
   // Include relPath so two files with identical content don't share a cache entry
@@ -116,7 +116,7 @@ async function main(): Promise<void> {
     }
     if (records === null) {
       cacheMisses++;
-      records = await harvestAdmonitions(filePath);
+      records = await harvestAdmonitions(filePath, content);
     }
     allRecords.push(...records);
   }
