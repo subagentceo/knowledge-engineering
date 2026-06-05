@@ -17,6 +17,12 @@
  *   - 2026-06-05-O9: t11-1 — skills.sh catalog mirror (vendor/skills-sh/anthropics/sources.json + README, 25 skills)
  *   - 2026-06-05-O10: Heartbeat tick 2026-06-05-T3
  *
+ * Tick T4 (tick id: 2026-06-05-T4).
+ *   - 2026-06-05-O11: t13-1 — infra/wsl2/: WSL2 Ubuntu-24.04 persistent container spec + Dockerfile
+ *   - 2026-06-05-O12: t8-4 — docs/research/worker-errors-2026-06-03.md: 4 CF workers throwing exceptions (OAuth violation)
+ *   - 2026-06-05-O13: t7-7 — docs/cloudflare-ai-free-tier.md: CF Workers AI free tier analysis
+ *   - 2026-06-05-O14: Heartbeat tick 2026-06-05-T4
+ *
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
  */
@@ -173,6 +179,64 @@ export const outcomes: SessionOutcome[] = [
   {
     id: "2026-06-05-O10",
     title: "Heartbeat tick 2026-06-05-T3 — PRs #402/#403 merged, #370/#404 in CI, O8+O9 achieved",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
+  {
+    id: "2026-06-05-O11",
+    title: "t13-1 — infra/wsl2/: WSL2 Ubuntu-24.04 persistent container spec + Dockerfile (CUDA 12.4.1, Node 20, Swift 6.1, OAuth-only)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "infra/wsl2/Dockerfile",
+      "infra/wsl2/setup.sh",
+      "infra/wsl2/README.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "862bff8",
+  },
+  {
+    id: "2026-06-05-O12",
+    title: "t8-4 — docs/research/worker-errors-2026-06-03.md: 4 CF workers throwing exceptions (ANTHROPIC_API_KEY binding violates OAuth posture)",
+    status: "achieved",
+    category: "data",
+    evidence: [
+      "docs/research/worker-errors-2026-06-03.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "49cb290",
+  },
+  {
+    id: "2026-06-05-O13",
+    title: "t7-7 — docs/cloudflare-ai-free-tier.md: CF Workers AI free tier analysis (10K neurons/day, bge-base-en-v1.5 strategy)",
+    status: "achieved",
+    category: "data",
+    evidence: [
+      "docs/cloudflare-ai-free-tier.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "49cb290",
+  },
+  {
+    id: "2026-06-05-O14",
+    title: "Heartbeat tick 2026-06-05-T4 — PRs #406/#407 merged (WSL2+research), convention fixes applied, O11-O13 achieved",
     status: "achieved",
     category: "infra",
     evidence: [
