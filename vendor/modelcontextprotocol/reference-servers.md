@@ -1,8 +1,3 @@
-<!--
-@cite vendor/modelcontextprotocol/modelcontextprotocol.io/examples.md
-@cite vendor/anthropic-ai-npm/packages.json
--->
-
 # MCP Reference Server Catalog
 
 Source: github.com/modelcontextprotocol/servers (official reference implementations)
@@ -10,7 +5,7 @@ Source: github.com/modelcontextprotocol/servers (official reference implementati
 ## Quick Reference Table
 
 | ID | Transport | Auth Required | npm Package | Runtime |
-|----|-----------|---------------|-------------|---------|
+|----|-----------|---------------|-----------|---------|
 | everything | stdio | None | `@modelcontextprotocol/server-everything` | Node.js |
 | fetch | stdio | None | `@modelcontextprotocol/server-fetch` | Node.js |
 | filesystem | stdio | None (path-scoped) | `@modelcontextprotocol/server-filesystem` | Node.js |
