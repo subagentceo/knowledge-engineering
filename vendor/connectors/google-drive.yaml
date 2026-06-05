@@ -1,0 +1,78 @@
+# @cite vendor/claude-sitemap/connectors/google-drive.md
+# @cite vendor/modelcontextprotocol/reference-servers.md
+
+id: google-drive
+name: Google Drive
+category: Productivity & Collaboration
+surface: claude.ai
+
+auth:
+  type: OAuth2
+  provider: Google
+  scopes:
+    - https://www.googleapis.com/auth/drive.readonly
+    - https://www.googleapis.com/auth/drive.file
+  flow: Authorization Code (user-facing OAuth consent screen)
+  token_endpoint: https://oauth2.googleapis.com/token
+  notes: >
+    The claude.ai connector uses read-only access by default.
+    The reference MCP server (archived) supports both service account
+    and user OAuth flows. Scopes requested depend on whether write
+    operations (create, upload, share) are enabled.
+
+description: >
+  Connect your Google Drive to Claude to work across your Docs, Sheets,
+  and Slides. Claude can read Google Docs directly, pull data from Google
+  Sheets (exported as CSV), and extract content from Google Slides
+  (exported as plain text). You can also search across your Drive to
+  quickly find what you need.
+
+capabilities:
+  search:
+    description: Full-text search across Drive files and folders
+    example: "Find the most recent doc about our product roadmap"
+  read_file:
+    description: >
+      Read document content — Google Docs natively, Sheets as CSV,
+      Slides as plain text. PDFs and binary files where supported.
+    example: "Summarize the key points from my Q4 strategy doc"
+  list_files:
+    description: Browse files and folders; list directory contents
+    example: "What files are in my Marketing folder?"
+  extract_insights:
+    description: Cross-file analysis and action-item extraction
+    example: "Find all action items assigned to me from meeting notes this week"
+
+limitations:
+  - Adding comments to documents is not supported
+  - Converting .xlsx to Google Sheets is not supported
+  - Converting .pptx to Google Slides is not supported
+  - Write operations (create, upload, share) are not available on the claude.ai connector surface
+
+example_prompts:
+  - "Summarize the key points from my Q4 strategy doc"
+  - "Find the most recent doc about our product roadmap"
+  - "Find all of the action items assigned to me from all meeting notes this week"
+  - "What spreadsheets did I create last month?"
+  - "Search my Drive for any files mentioning Project Phoenix"
+
+mcp_server:
+  package: "@modelcontextprotocol/server-google-drive"
+  status: archived
+  repo: https://github.com/modelcontextprotocol/servers-archived
+  transport: stdio
+  auth_method: OAuth 2.0 credentials file (service account JSON or user OAuth client secret)
+  setup: >
+    Requires GDRIVE_CREDENTIALS_FILE env var pointing to a Google OAuth2
+    credentials JSON file. On first run opens a browser for consent;
+    tokens cached locally.
+  note: >
+    The reference implementation is archived (no longer actively maintained).
+    For production use, prefer the managed claude.ai connector or build
+    on top of the Google Drive API v3 directly.
+
+catalog_entry:
+  id: google-drive
+  source: vendor/claude-sitemap/connectors/google-drive.md
+
+reference: vendor/modelcontextprotocol/reference-servers.md
