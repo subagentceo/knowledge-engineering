@@ -94,16 +94,15 @@ Example:
 
 ## Commit discipline
 
-Every commit ends with `(O<N>)`. The convention test (`src/lib/conventions.test.ts`) enforces this for commits authored after 2026-05-15T04:30Z. Pre-convention commits are grandfathered.
+Commits follow standard Conventional Commits: `<type>(<scope>): <subject>`. The convention test (`src/lib/conventions.test.ts`) enforces this format for commits authored after 2026-05-15T04:30Z.
 
 ```
-feat(neon): wire ws constructor for Pool websocket (O1)
+feat(neon): wire ws constructor for Pool websocket
 
 Closes #N
-Refs O1
 ```
 
-**BANNED_RE (OPM3, load-bearing).** `src/lib/conventions.test.ts` rejects commit subjects matching `/^(chore|ci)(\([^)]*\))?:\s*(nudge|drain|re-?trigger|serial drain|kick|poke|bump)\b.*\bci\b/i`. Sync-after-rebase commits MUST describe what was done, not the CI action. Safe pattern: `chore(<scope>): sync branch to main after <topic> merge (O<N>)`. Banned: `chore: retrigger CI ...`.
+**BANNED_RE (OPM3).** `src/lib/conventions.test.ts` rejects CI-nudge commits: subjects matching `/^(chore|ci)(\([^)]*\))?:\s*(nudge|drain|re-?trigger|serial drain|kick|poke|bump)\b.*\bci\b/i`. Re-trigger CI with `gh run rerun`, not an empty commit.
 
 ## PR loop discipline (OAUTO17)
 
