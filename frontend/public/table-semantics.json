@@ -1,0 +1,179 @@
+[
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
+      "name": "dim_research_doc",
+      "labels": {
+        "lane": "economic-research",
+        "source": "vendor/anthropic-sitemap"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Anthropic research documents mirrored under vendor/anthropic-sitemap/{research,_pdfs}, one current row per doc. SCD II — title/abstract/URL changes close the old row and open a new one so citation provenance is auditable over crawls.",
+      "columns": [
+        {
+          "name": "csl_id",
+          "sql_type": "text",
+          "description": "CSL item id (anthropic-sitemap:research:<slug>), natural key",
+          "kind": "dimension"
+        },
+        {
+          "name": "title",
+          "sql_type": "text",
+          "description": "document H1 title at crawl time",
+          "kind": "dimension"
+        },
+        {
+          "name": "doc_type",
+          "sql_type": "text",
+          "description": "CSL type — article (research page) or document (_pdfs mirror)",
+          "kind": "dimension"
+        },
+        {
+          "name": "url",
+          "sql_type": "text",
+          "description": "live anthropic.com URL; NULL for hash-named pdf mirrors",
+          "kind": "dimension"
+        },
+        {
+          "name": "research_team",
+          "sql_type": "text",
+          "description": "owning team page (economic-research first; null when unattributed)",
+          "kind": "dimension"
+        },
+        {
+          "name": "issued_date",
+          "sql_type": "date",
+          "description": "publication date parsed from the page (NULL when undated)",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "row_effective_from",
+          "sql_type": "timestamptz",
+          "description": "SCD II validity start",
+          "kind": "time_dimension"
+        }
+      ]
+    },
+    "table_kind": "dim",
+    "scd_type": 2
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
+      "name": "fact_doc_ingest",
+      "labels": {
+        "lane": "economic-research",
+        "feeds": "rpt_citations_by_year"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Transactional ingest facts from scripts/ingest-citations.ts and scripts/warm-semantic-cache.ts. Each pipeline run appends one row per document touched, carrying size and extraction measures.",
+      "columns": [
+        {
+          "name": "doc_sk",
+          "sql_type": "bigint",
+          "description": "FK → dw.dim_research_doc.surrogate_key",
+          "kind": "dimension"
+        },
+        {
+          "name": "date_key",
+          "sql_type": "integer",
+          "description": "FK → dw.dim_date.date_key (YYYYMMDD of the ingest run)",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "ingest_run_at",
+          "sql_type": "timestamptz",
+          "description": "pipeline run wall-clock start",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "markdown_bytes",
+          "sql_type": "bigint",
+          "description": "size of the mirrored markdown body at ingest",
+          "kind": "measure",
+          "measure_type": "sum"
+        },
+        {
+          "name": "fields_extracted",
+          "sql_type": "bigint",
+          "description": "count of CSL fields populated (title/abstract/issued/URL)",
+          "kind": "measure",
+          "measure_type": "sum"
+        },
+        {
+          "name": "extraction_completeness",
+          "sql_type": "numeric",
+          "description": "fields_extracted over the 4 extractable CSL fields",
+          "kind": "measure",
+          "measure_type": "ratio",
+          "calculation": {
+            "expression": "fields_extracted::numeric / 4",
+            "inherits": [
+              "fact_doc_ingest.fields_extracted"
+            ],
+            "result_type": "numeric"
+          }
+        }
+      ],
+      "load_type": "append_only"
+    },
+    "table_kind": "fact",
+    "grain": "one row per research document per ingest run (csl_id × ingest_run_at)"
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
+      "name": "rpt_citations_by_year",
+      "labels": {
+        "lane": "economic-research",
+        "consumer": "frontend citations panel"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Predefined aggregation — citable research output per publication year, refreshed after each ingest run. Backs the researcher-facing frontend so the SPA never aggregates raw facts client-side.",
+      "columns": [
+        {
+          "name": "issued_year",
+          "sql_type": "smallint",
+          "description": "publication year from dim_research_doc.issued_date",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "doc_count",
+          "sql_type": "bigint",
+          "description": "distinct research docs published in the year",
+          "kind": "measure",
+          "measure_type": "count"
+        },
+        {
+          "name": "dated_share",
+          "sql_type": "numeric",
+          "description": "share of corpus docs carrying a parseable issued date",
+          "kind": "measure",
+          "measure_type": "ratio",
+          "calculation": {
+            "expression": "doc_count::numeric / NULLIF(sum(doc_count) OVER (), 0)",
+            "inherits": [
+              "rpt_citations_by_year.doc_count"
+            ],
+            "result_type": "numeric"
+          }
+        }
+      ],
+      "load_type": "full"
+    },
+    "table_kind": "rpt",
+    "aggregates": "fact_doc_ingest"
+  }
+]
