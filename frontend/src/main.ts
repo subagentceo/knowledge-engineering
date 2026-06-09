@@ -8,6 +8,17 @@ import { startAsciiArt } from "./ascii-art.js";
 import { Accordion } from "./accordion.js";
 import { loadManifest, loadVendorPage } from "./vendor-loader.js";
 import { CitationsTable, loadCitations } from "./citations.js";
+import { loadTableSemantics, renderWarehouse } from "./warehouse.js";
+
+async function hydrateWarehouse(): Promise<void> {
+  const root = document.getElementById("warehouse") as HTMLDivElement | null;
+  if (!root) return;
+  try {
+    renderWarehouse(root, await loadTableSemantics());
+  } catch (err) {
+    root.textContent = `failed to load table semantics: ${(err as Error).message}`;
+  }
+}
 
 async function hydrateCitations(): Promise<void> {
   const root = document.getElementById("citations") as HTMLDivElement | null;
@@ -25,6 +36,7 @@ async function main(): Promise<void> {
   if (asciiEl) startAsciiArt(asciiEl);
 
   void hydrateCitations();
+  void hydrateWarehouse();
 
   const accordionRoot = document.getElementById("accordion") as HTMLDivElement | null;
   const loadingEl = document.getElementById("accordion-loading") as HTMLDivElement | null;

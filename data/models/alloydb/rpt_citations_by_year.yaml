@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: rpt
+aggregates: fact_doc_ingest
+
+metadata:
+  name: rpt_citations_by_year
+  labels:
+    lane: economic-research
+    consumer: frontend citations panel
+
+spec:
+  version: 1.0.0
+  schema: dw
+  description: >-
+    Predefined aggregation — citable research output per publication year,
+    refreshed after each ingest run. Backs the researcher-facing frontend
+    so the SPA never aggregates raw facts client-side.
+  load_type: full
+  columns:
+    - name: issued_year
+      kind: time_dimension
+      sql_type: smallint
+      description: publication year from dim_research_doc.issued_date
+    - name: doc_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: distinct research docs published in the year
+    - name: dated_share
+      kind: measure
+      measure_type: ratio
+      sql_type: numeric
+      description: share of corpus docs carrying a parseable issued date
+      calculation:
+        expression: doc_count::numeric / NULLIF(sum(doc_count) OVER (), 0)
+        inherits:
+          - rpt_citations_by_year.doc_count
+        result_type: numeric
