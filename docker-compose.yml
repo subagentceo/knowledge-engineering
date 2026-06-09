@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+#
+# Root-level dev stack for Claude Code web sessions.
+# Postgres 16 + pg_durable + Redis 7 (allkeys-lru, 7-day TTL).
+# Mirrors the cloud SessionStart hook in scripts/start_services.sh.
+name: knowledge-engineering
+
+services:
+  postgres:
+    image: postgres:16-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ke
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ke"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    shm_size: 256m
+
+  redis:
+    image: redis:7-bookworm
+    restart: unless-stopped
+    command: redis-server /usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+      - ./infra/redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # A2A task runner — delegates to ext-tasks MCP for durable task queuing
+  a2a:
+    image: node:22-bookworm-slim
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - .:/app:cached
+    environment:
+      DATABASE_URL: postgres://postgres:${POSTGRES_PASSWORD:-postgres}@postgres:5432/ke
+      REDIS_URL: redis://redis:6379
+      NODE_ENV: development
+    command: npx tsx src/a2a/server.ts
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+volumes:
+  postgres-data:
+  redis-data:
