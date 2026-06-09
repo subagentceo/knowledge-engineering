@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 2
+
+metadata:
+  name: dim_memory
+  labels:
+    lane: citation-memory
+    shape: managed-agents memory (path + content)
+
+spec:
+  version: 1.0.0
+  schema: dw
+  description: >-
+    Citation memories in the managed-agents memory shape (path + content),
+    one current row per memory path. SCD II — dreams-curated rewrites of a
+    memory's content close the old row so curation history is auditable.
+    Source memories are derived from csl_items; curated ones are written by
+    the dreams consolidation job (B3).
+  load_type: incremental
+  columns:
+    - name: memory_path
+      kind: dimension
+      sql_type: text
+      description: memory path (/citations/<csl-id-slug>.md), natural key
+    - name: content
+      kind: dimension
+      sql_type: text
+      description: markdown memory body (citation summary + CSL-JSON block)
+    - name: csl_id
+      kind: dimension
+      sql_type: text
+      description: originating csl_items.id; NULL for synthesized memories
+    - name: curation_source
+      kind: dimension
+      sql_type: text
+      description: ingest | dreams — who wrote this version of the memory
+    - name: row_effective_from
+      kind: time_dimension
+      sql_type: timestamptz
+      description: SCD II validity start
