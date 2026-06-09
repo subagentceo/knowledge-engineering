@@ -9,6 +9,10 @@
 # Image moved from Docker Hub (google/alloydbomni:17.7.0-bookworm) to
 # gcr.io (gcr.io/alloydb-omni/alloydbomni:18) with the PG18 private invite.
 # WHY gcr.io: Google shifted AlloyDB Omni PG18 distribution to their own registry.
+#
+# Extended 2026-06-09: Redis configured with allkeys-lru + 7-day TTL
+# (infra/redis/redis.conf). Kimball DW schema bootstrapped on first start.
+# pg_durable loaded when available. A2A server started as background process.
 set -euxo pipefail
 
 # Only run in cloud; SessionStart hooks also run locally otherwise.
@@ -31,8 +35,15 @@ if [ -z "${ALLOYDB_OMNI_PASSWORD:-}" ]; then
   exit 0
 fi
 
-# Redis 7.0 (pre-installed). Idempotent.
-service redis-server start || true
+# Redis 7.0 (pre-installed). Load infra/redis/redis.conf for allkeys-lru
+# + 7-day effective TTL. Falls back to default config if conf is absent.
+REDIS_CONF="${CLAUDE_PROJECT_DIR}/infra/redis/redis.conf"
+if [ -f "${REDIS_CONF}" ]; then
+  service redis-server stop 2>/dev/null || true
+  redis-server "${REDIS_CONF}" --daemonize yes --logfile /var/log/redis/redis-server.log || true
+else
+  service redis-server start || true
+fi
 
 # AlloyDB Omni: start existing container if present, else create.
 if docker inspect "${ALLOYDB_NAME}" >/dev/null 2>&1; then
@@ -70,4 +81,23 @@ if [ ! -f "${MARKER}" ]; then
   docker exec "${ALLOYDB_NAME}" psql -U postgres -c \
     "CREATE EXTENSION IF NOT EXISTS google_columnar_engine;"
   touch "${MARKER}"
+fi
+
+# ── Kimball DW schema bootstrap (idempotent via pg marker) ───────────────────
+DW_MARKER="${ALLOYDB_DATA}/.dw_schema_bootstrapped"
+if [ ! -f "${DW_MARKER}" ]; then
+  for sql in "${CLAUDE_PROJECT_DIR}/infra/postgres/init/"*.sql; do
+    docker exec -i "${ALLOYDB_NAME}" psql -U postgres -d ke < "${sql}" || true
+  done
+  touch "${DW_MARKER}"
+fi
+
+# ── A2A server (background, port 41241) ──────────────────────────────────────
+A2A_PID_FILE="/var/run/ke-a2a.pid"
+if [ ! -f "${A2A_PID_FILE}" ] || ! kill -0 "$(cat "${A2A_PID_FILE}")" 2>/dev/null; then
+  cd "${CLAUDE_PROJECT_DIR}"
+  DATABASE_URL="postgres://postgres:${ALLOYDB_OMNI_PASSWORD}@localhost:5432/ke" \
+  REDIS_URL="redis://localhost:6379" \
+  nohup npx tsx src/a2a/server.ts >"${CLAUDE_PROJECT_DIR}/logs/a2a.log" 2>&1 &
+  echo $! > "${A2A_PID_FILE}"
 fi
