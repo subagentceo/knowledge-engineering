@@ -72,7 +72,8 @@
     "ke-verifier:setup": "tsx scripts/setup-coworker-verifier.ts",
     "ingest:kg": "tsx scripts/ingest-vendor-pages.ts",
     "verify:kg": "SKIP_KG_VERIFY=1 tsx scripts/verify-kg.ts",
-    "ingest:citations": "tsx scripts/ingest-citations.ts"
+    "ingest:citations": "tsx scripts/ingest-citations.ts",
+    "cache:warm": "tsx scripts/warm-semantic-cache.ts"
   },
   "dependencies": {
     "@a2a-js/sdk": "^0.3.13",
