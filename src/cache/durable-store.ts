@@ -73,8 +73,9 @@ export class DurableStore {
        WHERE key = $1 RETURNING payload`,
       [key],
     );
-    if (rows.length === 0) return undefined;
-    return schema.parse(rows[0].payload);
+    const row = rows[0];
+    if (row === undefined) return undefined;
+    return schema.parse(row.payload);
   }
 
   /**
