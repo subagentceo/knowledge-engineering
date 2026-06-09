@@ -366,3 +366,69 @@ export function registerMailbox(server: McpServer): void {
     },
   );
 }
+
+// ─── version-controlled repo mail (send_mail / receive_mail) ─────────────────
+//
+// Modernized mailbox: mail lives in the repository under mail/<agent>/ and
+// rides the normal commit/PR loop. Agents on different loop schedules —
+// scheduled ticks and responsive hop functions — exchange durable messages
+// across sessions without a live broker; `git log mail/` is the audit trail.
+// Lifecycle mirrors the Cloudflare email service (send → deliver → read).
+//
+// @cite vendor/cloudflare/developers.cloudflare.com/email-service/llms.txt
+
+import { sendMail, receiveMail, readThread } from "../repo-mail.js";
+
+const REPO_MAIL_ROOT = process.env.REPO_MAIL_ROOT ?? process.cwd();
+
+export function registerRepoMail(server: McpServer): void {
+  server.tool(
+    "send_mail",
+    "Send version-controlled mail to another agent (or 'broadcast'). Writes mail/<to>/inbox/<id>.json in the repository; commit it with your current todo so the recipient's next session sees it. Returns the delivered mail including its id.",
+    {
+      from: z.string().min(1),
+      to: z.string().min(1),
+      subject: z.string().min(1),
+      body: z.string().min(1),
+      thread_id: z.string().optional(),
+      reply_to: z.string().optional(),
+      labels: z.array(z.string()).optional(),
+    },
+    async ({ from, to, subject, body, thread_id, reply_to, labels }) =>
+      jsonResult({
+        mail: sendMail(REPO_MAIL_ROOT, {
+          from, to, subject, body,
+          ...(thread_id !== undefined ? { thread_id } : {}),
+          ...(reply_to !== undefined ? { reply_to } : {}),
+          ...(labels !== undefined ? { labels } : {}),
+        }),
+        commit_hint: "git add mail/ && commit with your current todo",
+      })
+  );
+
+  server.tool(
+    "receive_mail",
+    "Read your unread repo mail (own inbox + broadcast). By default marks own-inbox mail read by moving it to mail/<agent>/read/ — commit that move so other sessions see the state. Broadcast mail is never moved.",
+    {
+      agent: z.string().min(1),
+      mark_read: z.boolean().default(true),
+      include_broadcast: z.boolean().default(true),
+      thread_id: z.string().optional(),
+    },
+    async ({ agent, mark_read, include_broadcast, thread_id }) =>
+      jsonResult({
+        mails: receiveMail(REPO_MAIL_ROOT, agent, {
+          markRead: mark_read,
+          includeBroadcast: include_broadcast,
+          ...(thread_id !== undefined ? { thread_id } : {}),
+        }),
+      })
+  );
+
+  server.tool(
+    "mail_thread",
+    "Full version-controlled mail thread (inbox + read + broadcast) for an agent, oldest first.",
+    { agent: z.string().min(1), thread_id: z.string().min(1) },
+    async ({ agent, thread_id }) => jsonResult({ mails: readThread(REPO_MAIL_ROOT, agent, thread_id) })
+  );
+}
