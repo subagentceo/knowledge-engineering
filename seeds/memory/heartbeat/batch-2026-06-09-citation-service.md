@@ -25,7 +25,7 @@ semantics contract + citation warehouse (PR #431).
 
 ```yaml
 batch:
-  - id: B1
+  - id: B1   # DONE — this PR
     task: citations_* MCP lane on src/mcp/bridge-server.ts vending csl_items +
       dw.rpt_ tables (search, get-by-id, by-year, by-team)
     extends: src/lib/csl.ts, scripts/load-citation-warehouse.ts
