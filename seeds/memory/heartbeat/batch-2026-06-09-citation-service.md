@@ -30,7 +30,7 @@ batch:
       dw.rpt_ tables (search, get-by-id, by-year, by-team)
     extends: src/lib/csl.ts, scripts/load-citation-warehouse.ts
     gate: null
-  - id: B2
+  - id: B2   # DONE — this PR
     task: citation memory-store schema — memory.md-shaped citation memories
       (refs: mem) backed by alloydb tables with table-semantics contracts
       (dim_memory SCD II, fact_memory_access)

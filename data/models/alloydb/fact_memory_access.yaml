@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: fact
+grain: one row per memory access (memory_sk × accessed_at)
+
+metadata:
+  name: fact_memory_access
+  labels:
+    lane: citation-memory
+    feeds: dreams consolidation (B3)
+
+spec:
+  version: 1.0.0
+  schema: dw
+  description: >-
+    Transactional log of research-agent reads of citation memories. The
+    dreams job (B3) aggregates access frequency to decide which memories to
+    consolidate, expand, or retire.
+  load_type: append_only
+  columns:
+    - name: memory_sk
+      kind: dimension
+      sql_type: bigint
+      description: FK → dw.dim_memory.surrogate_key
+    - name: agent_id
+      kind: dimension
+      sql_type: text
+      description: reading agent (session or coworker id)
+    - name: date_key
+      kind: time_dimension
+      sql_type: integer
+      description: FK-style YYYYMMDD of the access
+    - name: accessed_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: access wall-clock time
+    - name: access_count
+      kind: measure
+      measure_type: sum
+      sql_type: bigint
+      description: accesses recorded in this row (batched writers may roll up)
