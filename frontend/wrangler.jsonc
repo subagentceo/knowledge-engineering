@@ -39,16 +39,16 @@
 
   "routes": [
     {
-      "pattern": "outcomesdk.com",
+      "pattern": "subagentknowledge.com",
       "custom_domain": true
     },
     {
-      "pattern": "www.outcomesdk.com",
+      "pattern": "www.subagentknowledge.com",
       "custom_domain": true
     }
   ],
 
   "vars": {
-    "SITE_NAME": "outcomesdk"
+    "SITE_NAME": "subagentknowledge"
   }
 }

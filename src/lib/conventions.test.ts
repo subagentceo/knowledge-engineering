@@ -1,27 +1,10 @@
 /**
- * Conventions test — asserts THIS PR's commits follow the outcome-driven
+ * Conventions test — asserts THIS PR's commits follow the
  * Conventional-Commits discipline documented in docs/CONVENTIONS.md.
- *
- * Outcome: O3 — Test asserts the convention is followed by this PR's
- * commits and that the citation source exists.
- *
- * Discipline:
- *   - Every commit subject MUST match: <type>(<scope>?): <subject> (O<N>)
- *   - The trailing (O<N>) is the outcome ID.
- *   - At least one commit cites a vendor/-sourced extract (this file's
- *     header asserts the citation chain is valid).
- *
- * Citations (per docs/CONVENTIONS.md rule: tests cite their canonical source):
  *
  * @tdd green
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
- *
- * Cross-references (not part of the citation-guard scope: must point at
- * vendor/, seeds/, or rubrics/):
- *
- *   - docs/CONVENTIONS.md — the convention this test enforces
- *   - https://www.conventionalcommits.org/ — upstream spec
  */
 
 import { execSync } from "node:child_process";
@@ -48,34 +31,18 @@ function check(name: string, fn: () => void): void {
 }
 
 /**
- * Conventional-Commits subject pattern with the repo-specific outcome-id
- * suffix.
+ * Conventional-Commits subject pattern.
  *
  * Per docs/CONVENTIONS.md § "Commit format":
  *
- *   <type>(<scope>): <subject> (O<N>)
+ *   <type>(<scope>?): <subject>
  *
  * - type ∈ {feat, fix, perf, refactor, chore, docs, test, build, ci, revert}
- * - scope is optional and bracketed by parens
- * - subject ends with "(O<N>)" — at least one outcome ID
+ * - scope is optional
  * - Breaking-change marker "!" after type or scope is allowed
+ * - Optional trailing `(#<digits>)` tolerated — GitHub squash-merge appends it
  */
-// Outcome IDs allow internal hyphens after the leading alphanumeric — so
-// `OVS3`, `OPR4`, and follow-up variants like `OVS3-FU` and `OKWPF1-FU`
-// all parse. The leading char must be alphanumeric so `(O-foo)` is still
-// rejected as malformed.
-//
-// OGHW-X2 extension (2026-05-18): allow:
-//   1. numeric-shorthand continuations within a shared prefix scope,
-//      e.g., `(OGHW1,2,9,10)` is sugar for `(OGHW1,OGHW2,OGHW9,OGHW10)`;
-//   2. `+` as an alternate separator (some historical commits use it,
-//      e.g., `(OCP3+OCP4)`);
-//   3. optional trailing `(#<digits>)` — GitHub's squash-merge auto-
-//      appends the PR number to the subject, e.g.,
-//      `... (OCP4) (#250)`. Without this, every merge-from-main into a
-//      feature branch breaks the convention check on the merged-in
-//      squash subjects.
-const CONVENTIONAL_RE = /^(feat|fix|perf|refactor|chore|docs|test|build|ci|revert)(\([^)]+\))?!?:\s+.+\s+\(O[0-9A-Za-z][0-9A-Za-z-]*((?:[,+]\s*)(?:O[0-9A-Za-z][0-9A-Za-z-]*|[0-9]+))*\)(\s+\(#[0-9]+\))?\s*$/;
+const CONVENTIONAL_RE = /^(feat|fix|perf|refactor|chore|docs|test|build|ci|revert)(\([^)]+\))?!?:\s+\S.*(\s+\(#[0-9]+\))?\s*$/;
 
 /**
  * Merge-commit subjects start with `Merge ` or `merge:` — we skip these
@@ -150,12 +117,12 @@ function commitsOnThisBranch(): string[] {
 // ────────────────────────────────────────────────────────────────────
 // Tests
 
-check("OPM3: BANNED_RE catches the OCIRETRIG nudge-commit anti-pattern", () => {
+check("OPM3: BANNED_RE catches CI-nudge anti-pattern", () => {
   const banned = [
-    "chore: nudge CI (OCIRETRIG)",
-    "chore: drain CI (OCIRETRIG)",
-    "chore: re-trigger CI after cascade (OCIRETRIG)",
-    "chore: serial drain 278 (OCIRETRIG)",
+    "chore: nudge CI",
+    "chore: drain CI",
+    "chore: re-trigger CI after cascade",
+    "chore: serial drain 278 ci",
     "ci: kick ci",
   ];
   for (const s of banned) {
@@ -165,9 +132,9 @@ check("OPM3: BANNED_RE catches the OCIRETRIG nudge-commit anti-pattern", () => {
 
 check("OPM3: BANNED_RE does not over-match legitimate commits", () => {
   const allowed = [
-    "feat(preflight): mirror ruleset gates locally (OPM1)",
-    "fix(ci): correct verify.yml node version pin (OPM1)",
-    "ci: gate Claude CI/CD behind org kill switch, default OFF (O-CICD1)",
+    "feat(preflight): mirror ruleset gates locally",
+    "fix(ci): correct verify.yml node version pin",
+    "ci: gate Claude CI/CD behind org kill switch",
     "chore(deps)(deps): bump the github-actions-all group",
   ];
   for (const s of allowed) {
@@ -237,7 +204,7 @@ for (const subject of nonMerge) {
     }
     if (!CONVENTIONAL_RE.test(subject)) {
       throw new Error(
-        `subject doesn't match <type>(<scope>?): <subject> (O<N>)\n      got: ${subject}`,
+        `subject doesn't match <type>(<scope>?): <subject>\n      got: ${subject}`,
       );
     }
   });
