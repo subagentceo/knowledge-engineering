@@ -36,6 +36,23 @@ export function issuedYear(row: CitationRow): string {
   return row.issued?.["date-parts"]?.[0]?.[0]?.toString() ?? "—";
 }
 
+export interface YearCount {
+  year: string;
+  count: number;
+}
+
+export function citationsByYear(rows: CitationRow[]): YearCount[] {
+  const counts = new Map<string, number>();
+  for (const row of rows) {
+    const year = issuedYear(row);
+    counts.set(year, (counts.get(year) ?? 0) + 1);
+  }
+  // "—" (undated) sorts last; years ascending.
+  return [...counts.entries()]
+    .map(([year, count]) => ({ year, count }))
+    .sort((a, b) => (a.year === "—" ? 1 : b.year === "—" ? -1 : a.year.localeCompare(b.year)));
+}
+
 export class CitationsTable {
   private rows: CitationRow[] = [];
 
@@ -56,6 +73,34 @@ export class CitationsTable {
     input.value = query;
     input.addEventListener("input", () => this.render(input.value));
     this.root.appendChild(input);
+
+    const strip = document.createElement("div");
+    strip.className = "citations-year-strip";
+    const buckets = citationsByYear(visible);
+    const max = Math.max(1, ...buckets.map((b) => b.count));
+    for (const { year, count } of buckets) {
+      const seg = document.createElement("span");
+      seg.className = "year-seg";
+      seg.title = `${year}: ${count}`;
+
+      const label = document.createElement("span");
+      label.className = "year-label";
+      label.textContent = year;
+
+      const bar = document.createElement("span");
+      bar.className = "year-bar";
+      bar.style.width = `${Math.round((count / max) * 48)}px`;
+
+      const n = document.createElement("span");
+      n.className = "year-count";
+      n.textContent = String(count);
+
+      seg.appendChild(label);
+      seg.appendChild(bar);
+      seg.appendChild(n);
+      strip.appendChild(seg);
+    }
+    this.root.appendChild(strip);
 
     const table = document.createElement("table");
     table.className = "citations-table";
