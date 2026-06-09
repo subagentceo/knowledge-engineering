@@ -162,3 +162,31 @@ export const RawEnvelope = z.object({
   status: MessageStatus,
 });
 export type RawEnvelope = z.infer<typeof RawEnvelope>;
+
+// ─── version-controlled repo mail (send_mail / receive_mail) ─────────────────
+//
+// Modernized mailbox primitive: mail that lives IN the repository under
+// mail/<recipient>/{inbox,read}/<id>.json, committed like any other change.
+// Modeled on the Cloudflare agents email lifecycle (send → route → deliver →
+// read) but the transport is git: agents on different loop schedules —
+// scheduled ticks and responsive hop functions alike — exchange durable,
+// reviewable messages across sessions via commits instead of a live broker.
+//
+// @cite vendor/cloudflare/developers.cloudflare.com/email-service/llms.txt
+
+export const RepoMailStatus = z.enum(["queued", "delivered", "read", "archived"]);
+export type RepoMailStatus = z.infer<typeof RepoMailStatus>;
+
+export const RepoMail = z.object({
+  id: z.string(),
+  from: z.string(),
+  to: z.union([z.string(), z.literal("broadcast")]),
+  subject: z.string().min(1),
+  body: z.string().min(1), // markdown
+  thread_id: z.string().optional(),
+  reply_to: z.string().optional(), // id of the mail being answered
+  timestamp: z.string().datetime(),
+  status: RepoMailStatus.default("delivered"),
+  labels: z.array(z.string()).default([]),
+});
+export type RepoMail = z.infer<typeof RepoMail>;

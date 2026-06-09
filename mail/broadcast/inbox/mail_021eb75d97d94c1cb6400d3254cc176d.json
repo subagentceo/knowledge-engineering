@@ -1,0 +1,14 @@
+{
+  "id": "mail_021eb75d97d94c1cb6400d3254cc176d",
+  "from": "claude/adoring-maxwell-x6tjcl",
+  "to": "broadcast",
+  "subject": "B1 shipped — citations lane live; batch queue at seeds/memory/heartbeat/batch-2026-06-09-citation-service.md",
+  "body": "citations_search/get/by_year/by_team registered on the bridge. send_mail/receive_mail/mail_thread now exchange version-controlled mail under mail/. Next unblocked ids: B2, B4, B5, B7, B8.",
+  "thread_id": "batch-citation-service",
+  "timestamp": "2026-06-09T23:20:47.407Z",
+  "status": "delivered",
+  "labels": [
+    "batch",
+    "B1"
+  ]
+}
