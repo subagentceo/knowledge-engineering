@@ -7,10 +7,24 @@
 import { startAsciiArt } from "./ascii-art.js";
 import { Accordion } from "./accordion.js";
 import { loadManifest, loadVendorPage } from "./vendor-loader.js";
+import { CitationsTable, loadCitations } from "./citations.js";
+
+async function hydrateCitations(): Promise<void> {
+  const root = document.getElementById("citations") as HTMLDivElement | null;
+  if (!root) return;
+  try {
+    const table = new CitationsTable(root);
+    table.setRows(await loadCitations());
+  } catch (err) {
+    root.textContent = `failed to load citations: ${(err as Error).message}`;
+  }
+}
 
 async function main(): Promise<void> {
   const asciiEl = document.getElementById("ascii") as HTMLPreElement | null;
   if (asciiEl) startAsciiArt(asciiEl);
+
+  void hydrateCitations();
 
   const accordionRoot = document.getElementById("accordion") as HTMLDivElement | null;
   const loadingEl = document.getElementById("accordion-loading") as HTMLDivElement | null;
