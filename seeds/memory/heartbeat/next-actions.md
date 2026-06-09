@@ -1,8 +1,20 @@
 ---
-updated: 2026-06-03T04:30
+updated: 2026-06-09T23:00Z
 ---
 
-## Completed this session (T1 + T2)
+## Priority queue (2026-06-09 → )
+
+**Read `batch-2026-06-09-citation-service.md` first** — 10-task batch
+(B1–B10) for the knowledge-engineering-citation-service vision. Pick the
+top unblocked id each tick; self-update that file after each merge.
+
+Shipped this session (2026-06-09): PR #429 (semantic cache + citation
+pipeline + frontend table), PR #430 (full-corpus warm 5401 docs / 34
+vendors + coworker-dashboard retirement), PR #431 (alloydb kimball
+table-semantics contract + economic-research citation warehouse +
+frontend panel).
+
+## Completed previous session (T1 + T2)
 
 - #175 CLOSED — PR #330 merged (OPE1 plugin.json schema test, 13 assertions)
 - #39, #40, #42, #49, #50 — confirmed CLOSED on GitHub
