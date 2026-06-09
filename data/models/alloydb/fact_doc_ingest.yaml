@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: fact
+grain: one row per research document per ingest run (csl_id × ingest_run_at)
+
+metadata:
+  name: fact_doc_ingest
+  labels:
+    lane: economic-research
+    feeds: rpt_citations_by_year
+
+spec:
+  version: 1.0.0
+  schema: dw
+  description: >-
+    Transactional ingest facts from scripts/ingest-citations.ts and
+    scripts/warm-semantic-cache.ts. Each pipeline run appends one row per
+    document touched, carrying size and extraction measures.
+  load_type: append_only
+  columns:
+    - name: doc_sk
+      kind: dimension
+      sql_type: bigint
+      description: FK → dw.dim_research_doc.surrogate_key
+    - name: date_key
+      kind: time_dimension
+      sql_type: integer
+      description: FK → dw.dim_date.date_key (YYYYMMDD of the ingest run)
+    - name: ingest_run_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: pipeline run wall-clock start
+    - name: markdown_bytes
+      kind: measure
+      measure_type: sum
+      sql_type: bigint
+      description: size of the mirrored markdown body at ingest
+    - name: fields_extracted
+      kind: measure
+      measure_type: sum
+      sql_type: bigint
+      description: count of CSL fields populated (title/abstract/issued/URL)
+    - name: extraction_completeness
+      kind: measure
+      measure_type: ratio
+      sql_type: numeric
+      description: fields_extracted over the 4 extractable CSL fields
+      calculation:
+        expression: fields_extracted::numeric / 4
+        inherits:
+          - fact_doc_ingest.fields_extracted
+        result_type: numeric

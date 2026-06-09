@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "schemas/table-semantics.schema.json",
+  "title": "AlloyDbTableSemantics",
+  "description": "Kimball table-semantics contract. Canonical validator is src/lib/table-semantics.ts (zod); this schema exists for RedHat yaml-language-server editor validation.",
+  "type": "object",
+  "required": ["apiVersion", "kind", "table_kind", "metadata", "spec"],
+  "properties": {
+    "apiVersion": { "const": "anthropic.com/v1" },
+    "kind": { "const": "AlloyDbTableSemantics" },
+    "table_kind": { "enum": ["fact", "dim", "rpt"] },
+    "grain": { "type": "string", "minLength": 1 },
+    "scd_type": { "enum": [0, 1, 2, 3, 4] },
+    "aggregates": { "type": "string", "pattern": "^fact_[a-z0-9_]+$" },
+    "metadata": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "pattern": "^(fact|dim|rpt)_[a-z0-9_]+$" },
+        "labels": { "type": "object", "additionalProperties": { "type": "string" } }
+      }
+    },
+    "spec": {
+      "type": "object",
+      "required": ["version", "description", "columns"],
+      "properties": {
+        "version": { "type": "string", "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)$" },
+        "schema": { "type": "string", "default": "dw" },
+        "description": { "type": "string", "minLength": 1 },
+        "codeowners": { "type": "array", "items": { "type": "string" } },
+        "sla_policy": { "type": "string" },
+        "data_start_date": { "type": "string", "format": "date" },
+        "load_type": { "enum": ["full", "incremental", "append_only"] },
+        "columns": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "kind", "sql_type", "description"],
+            "properties": {
+              "name": { "type": "string", "pattern": "^[a-z][a-z0-9_]*$" },
+              "kind": { "enum": ["dimension", "time_dimension", "measure"] },
+              "sql_type": { "type": "string", "minLength": 1 },
+              "description": { "type": "string", "minLength": 1 },
+              "measure_type": {
+                "enum": ["count", "sum", "min", "max", "avg", "distinct_count", "ratio", "percentile"]
+              },
+              "calculation": {
+                "type": "object",
+                "required": ["expression", "inherits", "result_type"],
+                "properties": {
+                  "expression": { "type": "string", "minLength": 1 },
+                  "inherits": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": { "type": "string", "pattern": "^(fact|dim|rpt)_[a-z0-9_]+\\.[a-z0-9_]+$" }
+                  },
+                  "result_type": { "enum": ["bigint", "numeric", "double precision"] }
+                }
+              }
+            },
+            "if": { "properties": { "kind": { "const": "measure" } } },
+            "then": { "required": ["measure_type"] }
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "table_kind": { "const": "fact" } } },
+      "then": { "required": ["grain"] }
+    },
+    {
+      "if": { "properties": { "table_kind": { "const": "dim" } } },
+      "then": { "required": ["scd_type"] }
+    },
+    {
+      "if": { "properties": { "table_kind": { "const": "rpt" } } },
+      "then": { "required": ["aggregates"] }
+    }
+  ]
+}

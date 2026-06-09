@@ -214,3 +214,52 @@ body {
   font-size: 11px;
   padding: 2px 8px;
 }
+
+#warehouse-pane {
+  padding: 12px;
+}
+
+.dw-card {
+  border: 1px solid #2a2a2a;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+
+.dw-card h3 {
+  margin: 0 0 4px;
+  font-size: 14px;
+}
+
+.dw-version {
+  color: #6a6a6a;
+  font-size: 11px;
+}
+
+.dw-note {
+  color: #9a9a9a;
+  font-size: 12px;
+  margin: 0 0 6px;
+}
+
+.dw-fact { border-left: 3px solid #51c4ff; }
+.dw-dim  { border-left: 3px solid #7bd88f; }
+.dw-rpt  { border-left: 3px solid #e6b455; }
+
+.dw-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+.dw-badge {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #2a2a2a;
+  padding: 0 4px;
+  color: #9a9a9a;
+}
+
+.dw-badge-measure { color: #e6b455; }
+.dw-badge-time_dimension { color: #51c4ff; }
