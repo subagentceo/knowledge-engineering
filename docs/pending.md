@@ -1,7 +1,7 @@
 ---
 title: pending.md
 description: Live dashboard of every pending action — operator browser-driven, operator CLI-driven, autonomous agent follow-up. The operator's explicit ask in Phase 15: "make it more clear what operator runbooks and claude-in-chrome actions you are waiting on."
-last-reviewed: 2026-06-04
+last-reviewed: 2026-06-09
 ---
 
 # Pending actions
@@ -13,6 +13,17 @@ last-reviewed: 2026-06-04
 > Re-validate via `npm run verify:gates` (existing) + future
 > `npm run verify:project` (Phase 15.D). Refresh after every PR merge or
 > operator-runbook completion.
+
+## Column 0 — Autonomous batch queue (no operator gate)
+
+The active self-steering queue is
+[`seeds/memory/heartbeat/batch-2026-06-09-citation-service.md`](../seeds/memory/heartbeat/batch-2026-06-09-citation-service.md)
+— 10 tasks (B1–B10) building the **knowledge-engineering-citation-service**:
+citations MCP lane, citation memory-store + dreams curation, full-corpus
+warehouse, cache-promotion events, rpt_-backed frontend visualizations,
+contract hardening (codeowners/sla_policy/data_start_date/load_type +
+`verify:dw`), guided cowork setup, 24/7 crawl→warehouse loop. Agents pick the
+top unblocked id each tick and update the batch file after each merge.
 
 ## Column 1 — Operator browser-driven (Claude-in-Chrome runbooks)
 
