@@ -1,0 +1,50 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 2
+
+metadata:
+  name: dim_research_doc
+  labels:
+    lane: economic-research
+    source: vendor/anthropic-sitemap
+
+spec:
+  version: 1.0.0
+  schema: dw
+  description: >-
+    Anthropic research documents mirrored under
+    vendor/anthropic-sitemap/{research,_pdfs}, one current row per doc.
+    SCD II — title/abstract/URL changes close the old row and open a new
+    one so citation provenance is auditable over crawls.
+  columns:
+    - name: csl_id
+      kind: dimension
+      sql_type: text
+      description: CSL item id (anthropic-sitemap:research:<slug>), natural key
+    - name: title
+      kind: dimension
+      sql_type: text
+      description: document H1 title at crawl time
+    - name: doc_type
+      kind: dimension
+      sql_type: text
+      description: CSL type — article (research page) or document (_pdfs mirror)
+    - name: url
+      kind: dimension
+      sql_type: text
+      description: live anthropic.com URL; NULL for hash-named pdf mirrors
+    - name: research_team
+      kind: dimension
+      sql_type: text
+      description: owning team page (economic-research first; null when unattributed)
+    - name: issued_date
+      kind: time_dimension
+      sql_type: date
+      description: publication date parsed from the page (NULL when undated)
+    - name: row_effective_from
+      kind: time_dimension
+      sql_type: timestamptz
+      description: SCD II validity start
