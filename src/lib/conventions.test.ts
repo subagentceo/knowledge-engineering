@@ -122,7 +122,7 @@ check("OPM3: BANNED_RE catches CI-nudge anti-pattern", () => {
     "chore: nudge CI",
     "chore: drain CI",
     "chore: re-trigger CI after cascade",
-    "chore: serial drain 278",
+    "chore: serial drain 278 ci",
     "ci: kick ci",
   ];
   for (const s of banned) {
