@@ -11,9 +11,10 @@
 #   - OAuth-only posture: ANTHROPIC_API_KEY is NOT in env. The `verify`
 #     chain's MCP smoke tests use the existing src/oauth/token.ts gate.
 #   - terraform verify (verify:tf) requires terraform on the runner;
-#     'hashicorp/setup-terraform' below provides it.
+#     'hashicorp/setup-terraform' below provides it. terraform init is
+#     encapsulated inside verify:tf — no separate workflow step needed.
 #   - The verify chain runs verify:mcp, verify:tf, verify:citations,
-#     and verify:gates (added in PR 4).
+#     verify:gates, and verify:env (env-sanitize posture check).
 
 name: verify
 
@@ -32,7 +33,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: verify-${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -79,20 +80,10 @@ jobs:
       - name: Build (dist/ for verify:mcp)
         run: npm run build
 
-      - name: Terraform init (no backend; verify:tf only validates + plans)
-        working-directory: infra/terraform
-        run: terraform init -backend=false -input=false
-
-      - name: Lint
-        run: npm run lint
-
-      - name: Verify (mcp + tf + citations + gates)
+      - name: Verify (mcp + tf + citations + gates + env)
         run: npm run verify
         env:
           # No ANTHROPIC_API_KEY. The OAuth gate asserts its absence.
           # verify:mcp does NOT require a CLAUDE_CODE_OAUTH_TOKEN — it just
           # spawns the MCP servers and asserts tools/list shape over stdio.
           ANTHROPIC_API_KEY: ""
-
-      - name: Env-sanitize test (cloud-agent runner)
-        run: npx tsx infra/cloudflare/src/env-sanitize.test.ts
