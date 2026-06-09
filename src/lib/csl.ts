@@ -63,10 +63,10 @@ function firstParagraph(markdown: string): string | undefined {
  * `vendor/anthropic-sitemap/research/clio.md` to its live URL.
  */
 export function vendorPathToUrl(relPath: string): string | undefined {
-  const m = relPath.match(/^vendor\/anthropic-sitemap\/(.+)\.md$/);
-  if (!m) return undefined;
-  if (m[1].startsWith("_pdfs/")) return undefined; // hash-named PDF mirrors carry no slug
-  return `https://www.anthropic.com/${m[1]}`;
+  const slug = relPath.match(/^vendor\/anthropic-sitemap\/(.+)\.md$/)?.[1];
+  if (slug === undefined) return undefined;
+  if (slug.startsWith("_pdfs/")) return undefined; // hash-named PDF mirrors carry no slug
+  return `https://www.anthropic.com/${slug}`;
 }
 
 /**
@@ -75,7 +75,7 @@ export function vendorPathToUrl(relPath: string): string | undefined {
  * omitted, never guessed.
  */
 export function researchDocToCslItem(relPath: string, markdown: string): CslItem {
-  const title = markdown.match(H1_RE)?.[1].trim() ?? relPath.replace(/^.*\//, "").replace(/\.md$/, "");
+  const title = markdown.match(H1_RE)?.[1]?.trim() ?? relPath.replace(/^.*\//, "").replace(/\.md$/, "");
 
   const item: CslItem = {
     id: relPath.replace(/^vendor\//, "").replace(/\.md$/, "").replace(/\//g, ":"),
@@ -91,11 +91,10 @@ export function researchDocToCslItem(relPath: string, markdown: string): CslItem
   const abstract = firstParagraph(markdown);
   if (abstract) item.abstract = abstract;
 
-  const d = markdown.match(HUMAN_DATE_RE);
-  if (d) {
-    item.issued = {
-      "date-parts": [[Number(d[3]), MONTHS[d[1].slice(0, 3)], Number(d[2])]],
-    };
+  const [, monthName, day, year] = markdown.match(HUMAN_DATE_RE) ?? [];
+  const month = monthName !== undefined ? MONTHS[monthName.slice(0, 3)] : undefined;
+  if (month !== undefined && day !== undefined && year !== undefined) {
+    item.issued = { "date-parts": [[Number(year), month, Number(day)]] };
   }
 
   return CslItem.parse(item);
