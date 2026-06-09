@@ -5,7 +5,7 @@ import Foundation
 // Auth is OAuth-only; ANTHROPIC_API_KEY is never used.
 //
 // @cite docs/managed-agents-models.ts  (AgentSchema, SessionSchema, EnvironmentSchema, etc.)
-// @cite apps/coworker-dashboard/Sources/CoworkerDashboard/Model.swift  (pattern)
+// pattern precedent: apps/coworker-dashboard Model.swift (retired; see git history)
 // @cite docs/prompts/coworker-dev-chain.v2.md  (connector categories, consensus)
 
 // MARK: - Shared enums (reused across resource types)

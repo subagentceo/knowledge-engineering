@@ -6,7 +6,7 @@ import PackageDescription
 // Mirrors the managed-agents API schema from docs/managed-agents-models.ts.
 //
 // @cite docs/managed-agents-models.ts
-// @cite apps/coworker-dashboard/Package.swift  (structural reference)
+// pattern precedent: apps/coworker-dashboard (retired; see git history)
 let package = Package(
     name: "SubagentDashboard",
     platforms: [.macOS(.v13)],
