@@ -1,4 +1,5 @@
 /**
+ * @tdd green
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
  * @cite seeds/citations/define-outcomes.md
  */
