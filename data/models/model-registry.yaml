@@ -1,0 +1,119 @@
+# yaml-language-server: $schema=../../schemas/model-registry.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: ModelRegistryEntry
+
+# ── Claude Fable 5 ────────────────────────────────────────────────────────────
+metadata:
+  name: claude-fable-5
+  labels:
+    family: fable
+    tier: flagship
+  annotations:
+    glasswing-only: "false"
+
+spec:
+  displayName: Claude Fable 5
+  apiModelId: claude-fable-5
+  contextWindowK: 1000
+  maxOutputK: 128
+  pricing:
+    inputPerMtok: 10.00
+    outputPerMtok: 50.00
+  capabilities:
+    thinkingMode: adaptive_only
+    safetyClassifiers: true
+    rawThinkingReturned: false
+    thinkingDisplayDefault: omitted
+    thinkingDisplaySummarized: true
+  platforms:
+    - claude-api
+    - claude-platform-aws
+    - amazon-bedrock
+    - vertex-ai
+    - microsoft-foundry
+  features:
+    - effort
+    - task-budgets
+    - memory-tool
+    - context-editing
+    - compaction
+    - vision
+  gaDate: "2026-06-09"
+  successorTo: claude-opus-4-8
+  dataRetentionDays: 30
+  zeroDataRetention: false
+
+---
+apiVersion: anthropic.com/v1
+kind: ModelRegistryEntry
+
+# ── Claude Mythos 5 ───────────────────────────────────────────────────────────
+metadata:
+  name: claude-mythos-5
+  labels:
+    family: mythos
+    tier: limited
+  annotations:
+    glasswing-only: "true"
+
+spec:
+  displayName: Claude Mythos 5
+  apiModelId: claude-mythos-5
+  contextWindowK: 1000
+  maxOutputK: 128
+  pricing:
+    inputPerMtok: 10.00
+    outputPerMtok: 50.00
+  capabilities:
+    thinkingMode: adaptive_only
+    safetyClassifiers: false
+    rawThinkingReturned: false
+    thinkingDisplayDefault: omitted
+    thinkingDisplaySummarized: true
+  platforms:
+    - project-glasswing
+  features:
+    - effort
+    - task-budgets
+    - memory-tool
+    - context-editing
+    - compaction
+    - vision
+  gaDate: "2026-06-09"
+  successorTo: claude-mythos-preview
+  dataRetentionDays: 30
+  zeroDataRetention: false
+
+# ── Citations (CSL 1.0) ───────────────────────────────────────────────────────
+citations:
+  - id: fable5-mythos5-announcement
+    type: webpage
+    title: "Introducing Claude Fable 5 and Claude Mythos 5"
+    URL: https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5.md
+    issued:
+      date-parts: [[2026, 6, 9]]
+    publisher: Anthropic
+    version: "1.0"
+
+  - id: project-glasswing
+    type: webpage
+    title: "Project Glasswing — Anthropic"
+    URL: https://anthropic.com/glasswing
+    publisher: Anthropic
+    issued:
+      date-parts: [[2026, 6, 9]]
+
+  - id: csl-schema
+    type: dataset
+    title: "Citation Style Language — Input Schema"
+    URL: https://github.com/citation-style-language/schema
+    issued:
+      date-parts: [[2024, 1, 1]]
+    publisher: Citation Style Language contributors
+
+_provenance:
+  source: kimball-model-yaml-skill
+  schemaRef: urn:mailbox:schema:kimball:model-yaml:v1
+  freshness: "2026-06-09T00:00:00Z"
+  reviewerPassed: true

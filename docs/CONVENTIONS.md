@@ -66,7 +66,7 @@ section.
 ## Commit format
 
 ```
-<type>(<scope>): <subject> (<outcome-id>)
+<type>(<scope>): <subject>
 
 [optional body — wrap at 72 cols; explain WHY, not WHAT]
 
@@ -84,23 +84,15 @@ Field rules:
   are `vendor`, `crawler`, `neon`, `heartbeat`, `runbooks`,
   `conventions`, `ci`, `github`, `phase-N`.
 - `<subject>` is imperative present tense ("add", not "added"/"adds"),
-  ≤ 60 characters, no trailing period.
-- `<outcome-id>` is a bare token in trailing parentheses on the
-  subject line: `(O1)`, `(O2)`, etc.
+  ≤ 72 characters, no trailing period.
+- Outcome IDs (e.g. `(O1)`) may appear in the subject or `Refs:` footer
+  when a commit maps to a declared outcome — they are optional.
 
-## Outcome-id rule (mandatory)
+## Outcome traceability (optional)
 
-> Every commit message **MUST** reference at least one outcome ID,
-> written as a bare token in trailing parentheses on the subject line,
-> e.g. `(O1)`. Commits spanning multiple outcomes use the `Refs:`
-> footer to list the others while keeping the most-relevant ID on the
-> subject line.
-
-A commit without an outcome ID is rejected at code review. If you
-cannot name an outcome, do not make the commit. (The same rule appears
-in the cited `define-outcomes.md`: "It leverages a separate context
-window to avoid being influenced by the main agent's implementation
-choices" — the grader needs a stable outcome ID to evaluate.)
+When a commit maps to a declared outcome, include the ID in the subject
+or a `Refs:` footer. This aids grading and changelog generation but is
+not enforced by CI.
 
 ## PR-to-issue linkage rule (mandatory)
 
@@ -122,7 +114,7 @@ Each example reflects the kind of commit we already make in this repo.
 ### `feat` — new capability
 
 ```
-feat(neon): wire ws constructor for Pool websocket (O2)
+feat(neon): wire ws constructor for Pool websocket
 ```
 
 Wires `neonConfig.webSocketConstructor = ws` in `scripts/lib/neon-client.ts`.
@@ -131,7 +123,7 @@ SemVer impact: **MINOR**.
 ### `fix` — bug fix
 
 ```
-fix(crawler): page_cap=0 sentinel + relative-URL resolution (O1)
+fix(crawler): page_cap=0 sentinel + relative-URL resolution
 ```
 
 Two bugs in one fix. SemVer impact: **PATCH**.
@@ -139,7 +131,7 @@ Two bugs in one fix. SemVer impact: **PATCH**.
 ### `perf` — performance improvement
 
 ```
-perf(crawler): cache neonConfig.webSocketConstructor across pool reuses (O3)
+perf(crawler): cache neonConfig.webSocketConstructor across pool reuses
 ```
 
 SemVer impact: **PATCH**.
@@ -147,7 +139,7 @@ SemVer impact: **PATCH**.
 ### `refactor` — internal restructure, no behavior change
 
 ```
-refactor(neon): extract warmConnection helper from migrate-neon (O2)
+refactor(neon): extract warmConnection helper from migrate-neon
 ```
 
 No behaviour change. SemVer impact: **none** (or PATCH if release tool requires).
@@ -155,7 +147,7 @@ No behaviour change. SemVer impact: **none** (or PATCH if release tool requires)
 ### `chore` — housekeeping
 
 ```
-chore(heartbeat): tick 9 record — Neon secrets audit (O3)
+chore(heartbeat): tick 9 record — Neon secrets audit
 ```
 
 No code; memory state update. SemVer impact: **none**.
@@ -163,23 +155,23 @@ No code; memory state update. SemVer impact: **none**.
 ### `docs` — documentation only
 
 ```
-docs(conventions): add outcome-driven commit + SemVer guide (O1)
+docs(conventions): add outcome-driven commit + SemVer guide
 ```
 
-This very commit. SemVer impact: **none**.
+SemVer impact: **none**.
 
 ### `test` — tests only
 
 ```
-test(conventions): assert this PR's commits carry outcome IDs (O3)
+test(conventions): assert this PR's commits follow CC format
 ```
 
-A test that asserts the convention. SemVer impact: **none**.
+SemVer impact: **none**.
 
 ### `build` — build system / packaging
 
 ```
-build(deps): pin ws to 8.x for Node 20 (O2)
+build(deps): pin ws to 8.x for Node 20
 ```
 
 SemVer impact: **none**.
@@ -187,7 +179,7 @@ SemVer impact: **none**.
 ### `ci` — CI configuration
 
 ```
-ci(neon): add ::error:: annotation surface to migrate-neon (O2)
+ci(neon): add ::error:: annotation surface to migrate-neon
 ```
 
 SemVer impact: **none**.
@@ -195,7 +187,7 @@ SemVer impact: **none**.
 ### `revert` — undo a previous commit
 
 ```
-revert: revert "fix(ci): use db_url_pooled (O2)"
+revert: revert "fix(ci): use db_url_pooled"
 
 This reverts commit d7b6a32. Wrong output name; @v5 docs confirm
 db_url_with_pooler is correct. See PR #61.
@@ -206,7 +198,7 @@ SemVer impact: **matches the reverted commit**.
 ### Breaking change — MAJOR bump
 
 ```
-feat(crawler)!: rename page_cap to max_pages_per_pass (O1)
+feat(crawler)!: rename page_cap to max_pages_per_pass
 
 BREAKING CHANGE: every vendor/<name>/crawl.json must rename the
 `page_cap` field to `max_pages_per_pass`. Migration script provided
