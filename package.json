@@ -74,7 +74,8 @@
     "verify:kg": "SKIP_KG_VERIFY=1 tsx scripts/verify-kg.ts",
     "ingest:citations": "tsx scripts/ingest-citations.ts",
     "cache:warm": "tsx scripts/warm-semantic-cache.ts",
-    "dw:load": "tsx scripts/load-citation-warehouse.ts"
+    "dw:load": "tsx scripts/load-citation-warehouse.ts",
+    "dreams:consolidate": "tsx scripts/dreams-consolidate.ts"
   },
   "dependencies": {
     "@a2a-js/sdk": "^0.3.13",
