@@ -1,6 +1,6 @@
 import SwiftUI
 
-// @cite apps/coworker-dashboard/Sources/CoworkerDashboard/CoworkerDashboardApp.swift
+// pattern precedent: apps/coworker-dashboard app entry (retired; see git history)
 // @cite src/mcp/lanes/telemetry.ts  (tools consumed by MCPClient)
 
 @main
