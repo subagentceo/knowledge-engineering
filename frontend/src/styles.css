@@ -173,3 +173,44 @@ body {
     transition: none;
   }
 }
+
+#citations-pane {
+  padding: 12px;
+}
+
+#citations input[type="search"] {
+  width: 100%;
+  background: #111;
+  color: #e6e6e6;
+  border: 1px solid #2a2a2a;
+  padding: 6px 8px;
+  font: inherit;
+  margin-bottom: 8px;
+}
+
+.citations-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.citations-table th,
+.citations-table td {
+  text-align: left;
+  padding: 4px 8px;
+  border-bottom: 1px solid #1d1d1d;
+}
+
+.citations-table a {
+  color: #51c4ff;
+}
+
+.citations-table button {
+  background: #1a1a1a;
+  color: #e6e6e6;
+  border: 1px solid #2a2a2a;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  padding: 2px 8px;
+}
