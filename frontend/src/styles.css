@@ -193,6 +193,36 @@ body {
   margin-bottom: 8px;
 }
 
+/* team chips wrap on narrow viewports (393px): flex-wrap + full-width row,
+   44px min-height per mobile tap-target guidance */
+.team-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.team-chip {
+  min-height: 44px;
+  padding: 4px 12px;
+  background: #111;
+  color: #9a9a9a;
+  border: 1px solid #2a2a2a;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.team-chip-primary {
+  border-color: #51c4ff;
+  color: #e6e6e6;
+}
+
+.team-chip-active {
+  background: #1a1a1a;
+  color: #51c4ff;
+}
+
 .citations-year-strip {
   display: flex;
   flex-wrap: wrap;

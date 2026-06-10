@@ -5,7 +5,7 @@
 import { strict as assert } from "node:assert";
 import { test } from "node:test";
 
-import { citationsByYear, citeHash, filterCitations, issuedYear, rowFromHash, toApa, toBibtex, type CitationRow } from "../src/citations.js";
+import { citationsByYear, citeHash, filterCitations, issuedYear, isTeamQuery, rowFromHash, teamChips, toApa, toBibtex, type CitationRow } from "../src/citations.js";
 
 const clio: CitationRow = {
   id: "anthropic-sitemap:research:clio",
@@ -63,6 +63,36 @@ test("year: query filters by issued year, em-dash bucket included", () => {
   assert.deepEqual(filterCitations(rows, "year:2024"), [clio]);
   assert.deepEqual(filterCitations(rows, "year:—"), [econ]);
   assert.equal(filterCitations(rows, "year:1999").length, 0);
+});
+
+test("teamChips: economic-research first, ordered list of four", () => {
+  assert.deepEqual(teamChips(), ["economic-research", "alignment", "interpretability", "societal-impacts"]);
+  assert.equal(teamChips()[0], "economic-research");
+});
+
+test("isTeamQuery extracts slug from team:<slug>, null otherwise", () => {
+  assert.equal(isTeamQuery("team:economic-research"), "economic-research");
+  assert.equal(isTeamQuery("  TEAM:Alignment "), "alignment");
+  assert.equal(isTeamQuery("year:2024"), null);
+  assert.equal(isTeamQuery("team:"), null);
+  assert.equal(isTeamQuery("team:has space"), null);
+  assert.equal(isTeamQuery("clio"), null);
+});
+
+test("team: query keeps team-prefixed ids and research rows matching slug words", () => {
+  const econPaper: CitationRow = {
+    id: "anthropic-sitemap:research:some-paper",
+    type: "article",
+    title: "Economic impacts research",
+    abstract: "How AI changes economic research outcomes.",
+  };
+  const blog: CitationRow = {
+    id: "anthropic-sitemap:news:economic-index",
+    type: "article",
+    title: "Economic research index",
+  };
+  assert.deepEqual(filterCitations([clio, econ, econPaper, blog], "team:economic-research"), [econ, econPaper]);
+  assert.deepEqual(filterCitations([clio, econ], "team:alignment"), []);
 });
 
 test("toBibtex emits a citable entry with id note and url", () => {
