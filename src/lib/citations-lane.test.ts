@@ -79,4 +79,17 @@ assert.ok(searchCitations(live, "economic research", 5).length > 0);
   assert.match(String(calls[0]?.[1]), /^202\d{5}$/);
 }
 
+// B15 — BM25 ranking over the live corpus; id-shaped queries fall back
+{
+  const { rankedSearch, searchCounters } = await import("../mcp/lanes/citations.js");
+  const before = { ...searchCounters };
+  const ranked = rankedSearch(live, "economic index report", 5);
+  assert.ok(ranked.length > 0 && ranked.length <= 5);
+  assert.ok(ranked[0]?.title.toLowerCase().includes("economic"));
+  assert.equal(searchCounters.bm25, before.bm25 + 1);
+  const viaId = rankedSearch(live, "research:team:economic", 5);
+  assert.ok(viaId.every((i) => i.id.includes("research:team:economic")));
+  assert.equal(searchCounters.fallback, before.fallback + 1);
+}
+
 console.log("citations-lane.test.ts OK");
