@@ -2,16 +2,17 @@
   "name": "@subagentceo/outcomesdk-frontend",
   "version": "0.2.0",
   "private": true,
-  "description": "outcomesdk.com — single-page Cloudflare Worker site rendering vendor/ markdown via @chenglou/pretext (sane accordion + monospace ASCII). Phase 13.B+ (O7).",
+  "description": "outcomesdk.com \u2014 single-page Cloudflare Worker site rendering vendor/ markdown via @chenglou/pretext (sane accordion + monospace ASCII). Phase 13.B+ (O7).",
   "type": "module",
   "scripts": {
     "build:manifest": "tsx scripts/build-vendor-manifest.ts",
-    "build": "npm run build:manifest && vite build",
+    "build": "npm run build:manifest && npm run build:crawler && vite build",
     "dev": "vite dev",
     "deploy:dry-run": "npm run build && wrangler deploy --dry-run",
     "deploy": "npm run build && wrangler deploy",
     "test": "tsx --test tests/*.test.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:crawler": "tsx scripts/build-crawler-surface.ts"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.7",
