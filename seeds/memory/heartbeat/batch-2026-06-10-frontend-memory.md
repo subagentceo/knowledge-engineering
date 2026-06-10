@@ -30,7 +30,7 @@ batch:
       year strip linking into the filtered table
     extends: frontend/src/citations.ts
     gate: null
-  - id: B12
+  - id: B12  # DONE — this PR
     task: memory browser panel — dim_memory rows (path, curation_source,
       SCD II history) rendered from a loader-emitted memories.json feed
     extends: frontend/src/warehouse.ts, scripts/load-citation-warehouse.ts
