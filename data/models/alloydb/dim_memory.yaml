@@ -12,8 +12,13 @@ metadata:
     shape: managed-agents memory (path + content)
 
 spec:
-  version: 1.0.0
+  version: 1.1.0
   schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: curated within 24h of dreams tick
+  data_start_date: "2026-06-09"
   description: >-
     Citation memories in the managed-agents memory shape (path + content),
     one current row per memory path. SCD II — dreams-curated rewrites of a
