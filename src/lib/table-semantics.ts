@@ -48,7 +48,7 @@ export const SCD_TYPES = [0, 1, 2, 3, 4] as const;
 export const Calculation = z.object({
   expression: z.string().min(1),
   // measure columns this calculation is derived from: "<table>.<column>"
-  inherits: z.array(z.string().regex(/^(fact|dim|rpt)_[a-z0-9_]+\.[a-z0-9_]+$/)).min(1),
+  inherits: z.array(z.string().regex(/^(fact|dim|rpt|events)_[a-z0-9_]+\.[a-z0-9_]+$/)).min(1),
   result_type: z.enum(["bigint", "numeric", "double precision"]),
 });
 
@@ -104,6 +104,10 @@ export const TableSemantics = z.discriminatedUnion("table_kind", [
   TableBase.extend({
     table_kind: z.literal("rpt"),
     aggregates: z.string().min(1), // which fact table the aggregation is over
+  }),
+  TableBase.extend({
+    table_kind: z.literal("events"),
+    grain: z.string().min(1), // append-only audit log; never UPDATE, never DELETE
   }),
 ]);
 
