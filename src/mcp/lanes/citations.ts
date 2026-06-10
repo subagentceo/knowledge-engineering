@@ -26,6 +26,7 @@ import { jsonResult } from "../bridge-utils.js";
 import { buildCorpusItems } from "../../lib/vendor-corpus.js";
 import { maybeAccessLogger } from "../../lib/memory-access-log.js";
 import { cslItemToMemory, memoryPathFor } from "../../lib/citation-memory.js";
+import { getCitationCached, cacheCounters, type RedisLike } from "../../lib/citation-cache.js";
 import BM25 from "wink-bm25-text-search";
 import type { CslItem } from "../../lib/csl.js";
 
@@ -113,6 +114,16 @@ function logAccess(items: CslItem[]): void {
     .catch(() => undefined);
 }
 
+// B24 — lazily-connected L2/L3 tiers for the read-through cache
+let redisTier: RedisLike | null | undefined;
+async function maybeRedis(): Promise<RedisLike | null> {
+  if (redisTier !== undefined) return redisTier;
+  if (process.env.REDIS_URL === undefined) { redisTier = null; return redisTier; }
+  const { default: Redis } = await import("ioredis");
+  redisTier = new Redis(process.env.REDIS_URL) as unknown as RedisLike;
+  return redisTier;
+}
+
 // B19 — memory tools (memory.md path+content shape) over dw.dim_memory.
 // memory_read falls back to a corpus-derived memory when postgres is absent;
 // memory_write requires postgres (allowed_operations: scd2_rewrite).
@@ -141,9 +152,17 @@ export function registerCitations(server: McpServer): void {
     "Fetch one CSL-JSON citation item by its id (e.g. anthropic-sitemap:research:clio). The item loads unchanged into citeproc/Zotero and maps onto Claude citations blocks.",
     { id: z.string().min(1) },
     async ({ id }) => {
-      const item = corpus().find((i) => i.id === id);
+      const { item, tier } = await getCitationCached(
+        id,
+        { redis: await maybeRedis() },
+        (cslId) => corpus().find((i) => i.id === cslId),
+      );
       if (item !== undefined) logAccess([item]);
-      return jsonResult(item !== undefined ? { item } : { error: `unknown citation id: ${id}` });
+      return jsonResult(
+        item !== undefined
+          ? { item, meta: { tier, counters: { ...cacheCounters } } }
+          : { error: `unknown citation id: ${id}` },
+      );
     }
   );
 
