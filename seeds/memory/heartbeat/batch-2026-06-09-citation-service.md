@@ -63,7 +63,7 @@ batch:
       to the verify chain
     extends: schemas/table-semantics.schema.json
     gate: null
-  - id: B8
+  - id: B8   # DONE — this PR
     task: guided cowork setup — role-matched plugin install skill
       (data-engineer | researcher | frontend), connect-your-tools checklist,
       "try a skill" onboarding; coworkers contribute via existing PR loop
