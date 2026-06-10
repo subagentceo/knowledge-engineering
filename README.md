@@ -1,6 +1,6 @@
 # knowledge-engineering
 
-> **Solo-founder chassis for shipping a Claude-powered product.** Multi-agent research orchestrator + 28 vendor doc mirrors + 16+ MCP tools across 5 lanes + Cloudflare Sandbox runner + Neon-branched per-PR previews. OAuth-only.
+> **Solo-founder chassis for shipping a Claude-powered product.** Multi-agent research orchestrator + 34 vendor doc mirrors + 52 MCP tools across 7 lanes + a citation service (semantic cache, Kimball warehouse, dreams-curated memory) + Cloudflare Sandbox runner + Neon-branched per-PR previews. OAuth-only.
 
 This repo is a **fork-and-ship chassis**, not a one-off project. The intent (per [`PRODUCTRD.md`](PRODUCTRD.md)) is that another founder clones the repo, swaps the seed prompts and vendor list, and inherits everything else: the verify chain, the heartbeat memory layer, the auto-merge loop, the citation discipline, the operator runbooks, and the OAuth-only posture.
 
@@ -9,12 +9,13 @@ This repo is a **fork-and-ship chassis**, not a one-off project. The intent (per
 | Surface | What | Where |
 | :--- | :--- | :--- |
 | **Orchestrator** | Opus 4.7 (1M context) — 4 sub-agents over `@anthropic-ai/claude-agent-sdk` | `src/agent/run.ts` |
-| **MCP tools** | 16+ tools across 5 lanes: `engineering_*`, `blog_*`, `support_*`, `llms_*`, `vendor_*` + `search_tools` | `src/mcp/` |
-| **Vendor mirror** | 28 vendor doc surfaces (anthropics, cloudflare, neon, stripe, twilio, workos, elevenlabs, aws, openfeature, gcp, ...) — 1,369 anthropics docs alone | `vendor/` |
+| **MCP tools** | 52 tools across 7 lanes: `engineering_*`, `blog_*`, `support_*`, `llms_*`, `vendor_*`, `citations_*`, repo mail (`send_mail`/`receive_mail`) + `search_tools` | `src/mcp/` |
+| **Vendor mirror** | 34 vendor doc surfaces, 5,401 tracked markdown docs (anthropics, claude-sitemap, anthropic-sitemap, cloudflare, aws, twilio, ...) | `vendor/` |
 | **Crawler** | `crawlee` + llms.txt / html-index / sitemap.xml discovery; preflight-304 idempotency | `scripts/crawl-vendors.ts` |
 | **Worker runner** | Cloudflare Sandbox + Durable Objects for per-task ephemeral execution (scaffolded) | `infra/cloudflare/` |
 | **Neon branching** | Per-PR Neon DB branches via `cloudflare-preview.yml` | `migrations/`, `scripts/migrate-neon.ts` |
-| **Frontend** | `outcomesdk.com` Cloudflare Worker — pretext-driven SPA over `vendor/` markdown | `frontend/` |
+| **Frontend** | `subagentknowledge.com` Cloudflare Worker — citations table + year strip, alloydb warehouse panel, service-status panel over static JSON feeds | `frontend/` |
+| **Citation service** | semantic cache (Redis volatile / Postgres durable), Kimball warehouse (8 semver'd contracts: fact_/dim_/rpt_/events_), dreams-curated citation memory-store, CSL→citations vending | `src/cache/`, `data/models/alloydb/`, `src/lib/csl*.ts` |
 | **Heartbeat memory** | Cross-session orchestration state | `seeds/memory/heartbeat/` |
 | **Feature flags** | OpenFeature + Cloudflare Flagship provider | `src/lib/openfeature.ts` |
 | **Plugin manifest** | 3 Anthropic marketplaces (official, knowledge-work, community) | `.claude/plugins.json` |
@@ -111,7 +112,7 @@ src/                — orchestrator + MCP servers + lib helpers
 vendor/             — mirrored vendor docs (28 surfaces; first-class git content)
 scripts/            — crawler, verify chain, grader, install-plugins, context-budget, ...
 infra/cloudflare/   — Cloudflare Worker (Sandbox + Neon branching) — scaffolded
-frontend/           — outcomesdk.com (pretext-driven SPA)
+frontend/           — subagentknowledge.com (citations + warehouse + status SPA)
 docs/               — architecture, governance, conventions, PROJECT, pending, plans, runbooks
 seeds/              — operator prompts, posture XML, citation extracts, heartbeat memory
 rubrics/            — per-phase outcome rubrics (0..18)
