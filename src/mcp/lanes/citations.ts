@@ -25,6 +25,7 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { jsonResult } from "../bridge-utils.js";
 import { buildCorpusItems } from "../../lib/vendor-corpus.js";
 import { maybeAccessLogger } from "../../lib/memory-access-log.js";
+import { cslItemToMemory, memoryPathFor } from "../../lib/citation-memory.js";
 import BM25 from "wink-bm25-text-search";
 import type { CslItem } from "../../lib/csl.js";
 
@@ -80,7 +81,7 @@ function bm25Engine(items: CslItem[]): BM25Engine {
   e.defineConfig({ fldWeights: { title: 2, body: 1 } });
   e.definePrepTasks([(t: string) => t.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 1)]);
   items.forEach((item, i) => {
-    e.addDoc({ title: item.title, body: `${item.abstract ?? ""} ${item.id}` }, i);
+    e.addDoc({ title: item.title, body: `${item.abstract ?? ""} ${item.id}` }, String(i));
   });
   e.consolidate();
   engine = e;
@@ -93,7 +94,7 @@ export function rankedSearch(items: CslItem[], query: string, limit: number): Cs
     searchCounters.fallback += 1;
     return searchCitations(items, query, limit);
   }
-  const hits = bm25Engine(items).search(query) as Array<[number, number]>;
+  const hits = bm25Engine(items).search(query) as unknown as Array<[string, number]>;
   if (hits.length === 0) {
     searchCounters.fallback += 1;
     return searchCitations(items, query, limit);
@@ -110,6 +111,17 @@ function logAccess(items: CslItem[]): void {
   void maybeAccessLogger()
     .then((logger) => logger?.record(items.map((i) => i.id)))
     .catch(() => undefined);
+}
+
+// B19 — memory tools (memory.md path+content shape) over dw.dim_memory.
+// memory_read falls back to a corpus-derived memory when postgres is absent;
+// memory_write requires postgres (allowed_operations: scd2_rewrite).
+async function pgPool(): Promise<import("pg").Pool | null> {
+  if (process.env.DATABASE_URL === undefined && process.env.PGHOST === undefined) return null;
+  const { default: pg } = await import("pg");
+  return new pg.Pool(
+    process.env.DATABASE_URL ? { connectionString: process.env.DATABASE_URL } : {},
+  );
 }
 
 export function registerCitations(server: McpServer): void {
@@ -140,6 +152,68 @@ export function registerCitations(server: McpServer): void {
     "Publication-year histogram over the citation corpus (only items with a parsed issued date).",
     {},
     async () => jsonResult({ years: citationsByYear(corpus()) })
+  );
+
+  server.tool(
+    "memory_read",
+    "Read a citation memory (managed-agents path+content shape). Reads dw.dim_memory's current row when postgres is configured (logging the access); otherwise derives the memory from the mirrored corpus. Accepts a memory path (/citations/<slug>.md) or a csl id.",
+    { path_or_id: z.string().min(1) },
+    async ({ path_or_id }) => {
+      const pool = await pgPool();
+      if (pool !== null) {
+        try {
+          const { rows } = await pool.query(
+            `SELECT memory_path, content, csl_id, curation_source FROM dw.dim_memory
+             WHERE is_current AND (memory_path = $1 OR csl_id = $1) LIMIT 1`,
+            [path_or_id],
+          );
+          const row = rows[0];
+          if (row !== undefined) {
+            if (typeof row.csl_id === "string") logAccess([{ id: row.csl_id } as CslItem]);
+            return jsonResult({ memory: row, source: "warehouse" });
+          }
+        } finally {
+          await pool.end();
+        }
+      }
+      const item = corpus().find(
+        (i) => i.id === path_or_id || memoryPathFor(i.id) === path_or_id,
+      );
+      if (item === undefined) return jsonResult({ error: `unknown memory: ${path_or_id}` });
+      return jsonResult({ memory: cslItemToMemory(item), source: "corpus" });
+    }
+  );
+
+  server.tool(
+    "memory_write",
+    "Write a citation memory version (SCD II: closes the current row, inserts curation_source='agent'). Requires postgres (dim_memory allowed_operations: scd2_rewrite). Body is markdown; preserve the csl-json block when editing an existing memory.",
+    { path: z.string().regex(/^\/citations\/[a-z0-9._-]+\.md$/), content: z.string().min(1) },
+    async ({ path, content }) => {
+      const pool = await pgPool();
+      if (pool === null) {
+        return jsonResult({ error: "memory_write requires postgres (DATABASE_URL/PGHOST)" });
+      }
+      try {
+        await pool.query("BEGIN");
+        const { rows } = await pool.query(
+          `UPDATE dw.dim_memory SET row_effective_to = NOW(), is_current = FALSE
+           WHERE memory_path = $1 AND is_current RETURNING csl_id`,
+          [path],
+        );
+        await pool.query(
+          `INSERT INTO dw.dim_memory (memory_path, content, csl_id, curation_source)
+           VALUES ($1, $2, $3, 'agent')`,
+          [path, content, rows[0]?.csl_id ?? null],
+        );
+        await pool.query("COMMIT");
+        return jsonResult({ written: path, superseded: rows.length > 0 });
+      } catch (err) {
+        await pool.query("ROLLBACK");
+        throw err;
+      } finally {
+        await pool.end();
+      }
+    }
   );
 
   server.tool(
