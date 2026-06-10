@@ -21,6 +21,17 @@ export async function loadCitations(fetchImpl: typeof fetch = fetch): Promise<Ci
   return (await r.json()) as CitationRow[];
 }
 
+/** Ordered chip row; economic-research first by design (B23 fast path). */
+export function teamChips(): string[] {
+  return ["economic-research", "alignment", "interpretability", "societal-impacts"];
+}
+
+/** Returns the team slug when the query is a team:<slug> filter, else null. */
+export function isTeamQuery(query: string): string | null {
+  const m = query.trim().toLowerCase().match(/^team:([a-z-]+)$/);
+  return m?.[1] ?? null;
+}
+
 export function filterCitations(rows: CitationRow[], query: string): CitationRow[] {
   const q = query.trim().toLowerCase();
   if (q === "") return rows;
@@ -28,6 +39,16 @@ export function filterCitations(rows: CitationRow[], query: string): CitationRow
   const yearMatch = q.match(/^year:(\d{4}|—)$/);
   if (yearMatch !== null) {
     return rows.filter((row) => issuedYear(row) === yearMatch[1]);
+  }
+  const teamSlug = isTeamQuery(q);
+  if (teamSlug !== null) {
+    const words = teamSlug.split("-").filter((w) => w !== "");
+    return rows.filter(
+      (row) =>
+        row.id.startsWith(`anthropic-sitemap:research:team:${teamSlug}`) ||
+        (row.id.includes(":research:") &&
+          words.every((w) => `${row.title} ${row.abstract ?? ""}`.toLowerCase().includes(w))),
+    );
   }
   return rows.filter(
     (row) =>
@@ -111,11 +132,15 @@ export class CitationsTable {
     this.route();
   }
 
-  /** #cite/<id> renders the detail view; anything else renders the table. */
+  /** #cite/<id> renders the detail view; #team/<slug> pre-filters; else the table. */
   private route(): void {
     const detail = rowFromHash(this.rows, window.location.hash);
-    if (detail !== undefined) this.renderDetail(detail);
-    else this.render("");
+    if (detail !== undefined) {
+      this.renderDetail(detail);
+      return;
+    }
+    const team = window.location.hash.match(/^#team\/([a-z-]+)$/);
+    this.render(team?.[1] !== undefined ? `team:${team[1]}` : "");
   }
 
   renderDetail(row: CitationRow): void {
@@ -182,6 +207,21 @@ export class CitationsTable {
     input.value = query;
     input.addEventListener("input", () => this.render(input.value));
     this.root.appendChild(input);
+
+    const chipRow = document.createElement("div");
+    chipRow.className = "team-chip-row";
+    for (const slug of teamChips()) {
+      const chip = document.createElement("button");
+      chip.type = "button";
+      chip.className = "team-chip";
+      if (slug === "economic-research") chip.classList.add("team-chip-primary");
+      const teamQuery = `team:${slug}`;
+      if (query === teamQuery) chip.classList.add("team-chip-active");
+      chip.textContent = slug;
+      chip.addEventListener("click", () => this.render(query === teamQuery ? "" : teamQuery));
+      chipRow.appendChild(chip);
+    }
+    this.root.appendChild(chipRow);
 
     const strip = document.createElement("div");
     strip.className = "citations-year-strip";
