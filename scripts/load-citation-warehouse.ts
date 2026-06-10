@@ -28,6 +28,7 @@ const ALLOYDB_DIR = resolve(REPO_ROOT, "data", "models", "alloydb");
 const DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_citations_ddl.sql");
 const VENDOR_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_vendor_ddl.sql");
 const OUT_JSON = resolve(REPO_ROOT, "frontend", "public", "table-semantics.json");
+const VENDOR_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "vendor-stats.json");
 
 async function main(): Promise<void> {
   const tables = readdirSync(ALLOYDB_DIR)
@@ -138,6 +139,19 @@ async function main(): Promise<void> {
     console.log(
       `dim_vendor: ${corpusByVendor.size} vendors (SCD I); fact_vendor_crawl: +${corpusByVendor.size} rows over ${stats.total} docs`,
     );
+
+    // B6 feed: static per-vendor stats for the frontend visualizations
+    const vendorStats = [...corpusByVendor.entries()]
+      .map(([vendor, v]) => ({
+        vendor,
+        host: v.host,
+        doc_count: v.docs,
+        dated_count: v.dated,
+        dated_share: v.docs === 0 ? 0 : Number((v.dated / v.docs).toFixed(4)),
+      }))
+      .sort((a, b) => b.doc_count - a.doc_count);
+    writeFileSync(VENDOR_STATS_JSON, JSON.stringify(vendorStats, null, 2) + "\n");
+    console.log(`semantics: wrote frontend/public/vendor-stats.json (${vendorStats.length} vendors)`);
   } finally {
     await pool.end();
   }
