@@ -12,8 +12,13 @@ metadata:
     source: src/lib/vendor-corpus.ts
 
 spec:
-  version: 1.0.0
+  version: 1.1.0
   schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: refresh on every dw:load
+  data_start_date: "2026-06-09"
   description: >-
     One row per mirrored vendor under vendor/. SCD I — corpus counts and
     crawl freshness overwrite in place; history lives in fact_vendor_crawl,

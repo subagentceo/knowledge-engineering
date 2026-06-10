@@ -12,8 +12,13 @@ metadata:
     feeds: B6 visualizations (year × vendor)
 
 spec:
-  version: 1.0.0
+  version: 1.1.0
   schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: append on every dw:load
+  data_start_date: "2026-06-09"
   description: >-
     Transactional load facts per vendor per run — corpus size and citation
     extraction quality over time across all 34 mirrored vendors.

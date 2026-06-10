@@ -12,8 +12,13 @@ metadata:
     source: src/cache/durable-store.ts
 
 spec:
-  version: 1.0.0
+  version: 1.1.0
   schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: append at promotion time; never mutated
+  data_start_date: "2026-06-09"
   description: >-
     Append-only audit log of volatile→durable cache promotions. Never
     UPDATE, never DELETE — the promotion history is the record of what the
