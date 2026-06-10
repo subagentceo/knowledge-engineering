@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-06-10T19:56:30.294Z",
+  "rubric": "econ_researcher_rubric (batch-2026-06-10-mobile-econ.md)",
+  "steps_to_citation": {
+    "value": 3,
+    "pass": true,
+    "evidence": "economic-research chip first=true; 1 team doc(s) reachable"
+  },
+  "tokens_to_citation": {
+    "search_bytes": 1879,
+    "get_bytes": 631,
+    "cold_tier": "miss",
+    "warm_tier": "l1",
+    "pass": true,
+    "evidence": "repeat citations_get served from L1 (zero recompute, zero I/O)"
+  },
+  "parallel_capacity": {
+    "pass": true,
+    "evidence": "TaskEnvelope schema + repo mailbox transport present"
+  }
+}

@@ -71,7 +71,7 @@ batch:
       read-through (create only when measured to help)
     rubric: latency-to-first-byte on /cite/* from mobile
     gate: B24
-  - id: B27
+  - id: B27  # DONE — this PR
     task: rubric evaluator — scripts/eval-citation-rubric.ts scoring
       steps/tokens_to_citation against the live lane; scorecard JSON feed
     rubric: the rubric itself becomes measurable per release

@@ -79,7 +79,8 @@
     "verify:dw": "tsx scripts/verify-dw.ts",
     "service:refresh": "npm run crawl:vendors && npm run service:refresh:local",
     "service:refresh:local": "npm run ingest:citations && npm run cache:warm && npm run dw:load && npm run dreams:consolidate",
-    "example:vend-citations": "tsx src/examples/vend-citations.ts"
+    "example:vend-citations": "tsx src/examples/vend-citations.ts",
+    "eval:rubric": "tsx scripts/eval-citation-rubric.ts"
   },
   "dependencies": {
     "@a2a-js/sdk": "^0.3.13",
