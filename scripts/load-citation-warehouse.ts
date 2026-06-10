@@ -21,10 +21,12 @@ import { readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { parseTableSemantics, validateInheritance } from "../src/lib/table-semantics.js";
+import { buildCorpusItems } from "../src/lib/vendor-corpus.js";
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const ALLOYDB_DIR = resolve(REPO_ROOT, "data", "models", "alloydb");
 const DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_citations_ddl.sql");
+const VENDOR_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_vendor_ddl.sql");
 const OUT_JSON = resolve(REPO_ROOT, "frontend", "public", "table-semantics.json");
 
 async function main(): Promise<void> {
@@ -104,6 +106,38 @@ async function main(): Promise<void> {
       GROUP BY 1`);
     await pool.query("COMMIT");
     console.log(`rpt_citations_by_year: refreshed ${rpt.rowCount} year rows (load_type: full)`);
+
+    // B4 — full-corpus vendor stage: SCD I dim_vendor + per-run crawl facts
+    await pool.query(readFileSync(VENDOR_DDL_PATH, "utf8"));
+    const { items: corpusItems, stats } = buildCorpusItems(REPO_ROOT);
+    const corpusByVendor = new Map<string, { docs: number; dated: number; host: string | null }>();
+    for (const item of corpusItems) {
+      const vendor = item.source?.match(/^vendor\/([^/]+)\//)?.[1];
+      if (vendor === undefined) continue;
+      const entry = corpusByVendor.get(vendor) ?? { docs: 0, dated: 0, host: null };
+      entry.docs += 1;
+      if (item.issued !== undefined) entry.dated += 1;
+      if (entry.host === null && item.URL !== undefined) entry.host = new URL(item.URL).host;
+      corpusByVendor.set(vendor, entry);
+    }
+    for (const [vendor, v] of corpusByVendor) {
+      await pool.query(
+        `INSERT INTO dw.dim_vendor (vendor_name, host, doc_count, last_loaded_at)
+         VALUES ($1, $2, $3, $4)
+         ON CONFLICT (vendor_name) DO UPDATE
+           SET host = EXCLUDED.host, doc_count = EXCLUDED.doc_count,
+               last_loaded_at = EXCLUDED.last_loaded_at`,
+        [vendor, v.host, v.docs, runAt],
+      );
+      await pool.query(
+        `INSERT INTO dw.fact_vendor_crawl (vendor_name, date_key, loaded_at, doc_count, dated_count)
+         VALUES ($1, $2, $3, $4, $5)`,
+        [vendor, dateKey, runAt, v.docs, v.dated],
+      );
+    }
+    console.log(
+      `dim_vendor: ${corpusByVendor.size} vendors (SCD I); fact_vendor_crawl: +${corpusByVendor.size} rows over ${stats.total} docs`,
+    );
   } finally {
     await pool.end();
   }
