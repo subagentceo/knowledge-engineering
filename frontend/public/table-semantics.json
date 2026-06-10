@@ -10,7 +10,7 @@
       }
     },
     "spec": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "schema": "dw",
       "description": "Citation memories in the managed-agents memory shape (path + content), one current row per memory path. SCD II — dreams-curated rewrites of a memory's content close the old row so curation history is auditable. Source memories are derived from csl_items; curated ones are written by the dreams consolidation job (B3).",
       "columns": [
@@ -45,6 +45,12 @@
           "kind": "time_dimension"
         }
       ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "curated within 24h of dreams tick",
+      "data_start_date": "2026-06-09",
       "load_type": "incremental"
     },
     "table_kind": "dim",
@@ -61,7 +67,7 @@
       }
     },
     "spec": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "schema": "dw",
       "description": "Anthropic research documents mirrored under vendor/anthropic-sitemap/{research,_pdfs}, one current row per doc. SCD II — title/abstract/URL changes close the old row and open a new one so citation provenance is auditable over crawls.",
       "columns": [
@@ -107,7 +113,14 @@
           "description": "SCD II validity start",
           "kind": "time_dimension"
         }
-      ]
+      ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "refresh within 24h of vendor crawl",
+      "data_start_date": "2026-06-09",
+      "load_type": "incremental"
     },
     "table_kind": "dim",
     "scd_type": 2
@@ -123,7 +136,7 @@
       }
     },
     "spec": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "schema": "dw",
       "description": "One row per mirrored vendor under vendor/. SCD I — corpus counts and crawl freshness overwrite in place; history lives in fact_vendor_crawl, not here.",
       "columns": [
@@ -153,10 +166,74 @@
           "kind": "time_dimension"
         }
       ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "refresh on every dw:load",
+      "data_start_date": "2026-06-09",
       "load_type": "full"
     },
     "table_kind": "dim",
     "scd_type": 1
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
+      "name": "events_cache_promotion",
+      "labels": {
+        "lane": "semantic-cache",
+        "source": "src/cache/durable-store.ts"
+      }
+    },
+    "spec": {
+      "version": "1.1.0",
+      "schema": "dw",
+      "description": "Append-only audit log of volatile→durable cache promotions. Never UPDATE, never DELETE — the promotion history is the record of what the agent fleet found durable-worthy and when.",
+      "columns": [
+        {
+          "name": "cache_key",
+          "sql_type": "text",
+          "description": "semantic_cache key that was promoted",
+          "kind": "dimension"
+        },
+        {
+          "name": "source_path",
+          "sql_type": "text",
+          "description": "originating repo path; NULL when synthesized",
+          "kind": "dimension"
+        },
+        {
+          "name": "agent_id",
+          "sql_type": "text",
+          "description": "promoting agent (session or coworker id)",
+          "kind": "dimension"
+        },
+        {
+          "name": "occurred_at",
+          "sql_type": "timestamptz",
+          "description": "promotion wall-clock time",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "hits",
+          "sql_type": "bigint",
+          "description": "volatile hits carried at promotion time",
+          "kind": "measure",
+          "measure_type": "sum"
+        }
+      ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "append at promotion time; never mutated",
+      "data_start_date": "2026-06-09",
+      "load_type": "append_only"
+    },
+    "table_kind": "events",
+    "grain": "one row per DurableStore.persistVolatile promotion (cache_key × occurred_at)"
   },
   {
     "apiVersion": "anthropic.com/v1",
@@ -169,7 +246,7 @@
       }
     },
     "spec": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "schema": "dw",
       "description": "Transactional ingest facts from scripts/ingest-citations.ts and scripts/warm-semantic-cache.ts. Each pipeline run appends one row per document touched, carrying size and extraction measures.",
       "columns": [
@@ -220,6 +297,12 @@
           }
         }
       ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "append on every ingest run",
+      "data_start_date": "2026-06-09",
       "load_type": "append_only"
     },
     "table_kind": "fact",
@@ -236,7 +319,7 @@
       }
     },
     "spec": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "schema": "dw",
       "description": "Transactional log of research-agent reads of citation memories. The dreams job (B3) aggregates access frequency to decide which memories to consolidate, expand, or retire.",
       "columns": [
@@ -272,6 +355,12 @@
           "measure_type": "sum"
         }
       ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "append within 5m of agent read",
+      "data_start_date": "2026-06-09",
       "load_type": "append_only"
     },
     "table_kind": "fact",
@@ -288,7 +377,7 @@
       }
     },
     "spec": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "schema": "dw",
       "description": "Transactional load facts per vendor per run — corpus size and citation extraction quality over time across all 34 mirrored vendors.",
       "columns": [
@@ -340,6 +429,12 @@
           }
         }
       ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "append on every dw:load",
+      "data_start_date": "2026-06-09",
       "load_type": "append_only"
     },
     "table_kind": "fact",
@@ -356,7 +451,7 @@
       }
     },
     "spec": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "schema": "dw",
       "description": "Predefined aggregation — citable research output per publication year, refreshed after each ingest run. Backs the researcher-facing frontend so the SPA never aggregates raw facts client-side.",
       "columns": [
@@ -388,6 +483,12 @@
           }
         }
       ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "full refresh on every dw:load",
+      "data_start_date": "2026-06-09",
       "load_type": "full"
     },
     "table_kind": "rpt",
