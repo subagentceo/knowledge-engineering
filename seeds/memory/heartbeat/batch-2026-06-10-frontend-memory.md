@@ -1,6 +1,6 @@
 ---
 updated: 2026-06-10T05:00Z
-status: queued
+status: complete
 ---
 
 ```yaml
@@ -35,48 +35,48 @@ batch:
       SCD II history) rendered from a loader-emitted memories.json feed
     extends: frontend/src/warehouse.ts, scripts/load-citation-warehouse.ts
     gate: null
-  - id: B13
+  - id: B13   # DONE — this PR
     task: close the dreams loop — citations_* MCP lane records reads into
       dw.fact_memory_access (per its 5m sla_policy); KE_AGENT_ID attribution
     extends: src/mcp/lanes/citations.ts, src/lib/citation-memory.ts
     gate: null
-  - id: B14
+  - id: B14   # DONE — this PR
     task: rpt_citations_by_team + rpt_vendor_freshness contracts + DDL +
       loader stages; feeds emitted as static JSON for the frontend
     extends: data/models/alloydb/, scripts/load-citation-warehouse.ts
     gate: null
-  - id: B15
+  - id: B15   # DONE — this PR
     task: cache-optimized search — citations_search backed by the
       lru-bm25 volatile tier (BM25 ranking replaces all-terms includes);
       hit/miss counters surfaced via telemetry lane
     extends: src/cache/lru-bm25.ts, src/mcp/lanes/citations.ts
     gate: null
-  - id: B16
+  - id: B16   # DONE — this PR
     task: postgres 18 semantics pass — verify DDL against postgres 18
       (generated columns, identity, make_interval), add allowed_operations
       key per contract (which agent data ops are permitted: read | append |
       scd2_rewrite | full_refresh), enforce in verify:dw
     extends: src/lib/table-semantics.ts, schemas/, data/models/alloydb/
     gate: null
-  - id: B17
+  - id: B17   # DONE — this PR
     task: crawler surface — llms.txt + sitemap.xml + stable per-citation
       URLs served by the worker so paying crawlers can discover the corpus
       (refs: ppc growth strategies)
     extends: frontend/src/worker.ts, frontend/scripts/
     gate: null
-  - id: B18
+  - id: B18   # DONE — this PR
     task: pay-per-crawl enrollment — operator runbook + worker 402 posture
       per the report's enrollment checklist (refs: ppc); decide pricing
       tiers for citation feeds vs vendor mirror pages
     extends: docs/operator-runbooks/, frontend/src/worker.ts
     gate: B17
-  - id: B19
+  - id: B19   # DONE — this PR
     task: memory MCP surface — memory_read / memory_write tools backed by
       dw.dim_memory (memory.md path+content shape), reads logged to
       fact_memory_access
     extends: src/mcp/lanes/citations.ts, src/mcp/repo-mail.ts (pattern)
     gate: B13
-  - id: B20
+  - id: B20  # DONE — this PR
     task: frontend delivery perf — cache-control + early hints per the
       report's cloudflare 2026 recommendations; measure with the existing
       build sizes as baseline (refs: ppc)
