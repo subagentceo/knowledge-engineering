@@ -47,7 +47,7 @@ batch:
       crawl for all 34 vendors, contracts semver-bumped MINOR
     extends: src/lib/vendor-corpus.ts, data/models/alloydb/
     gate: null
-  - id: B5
+  - id: B5   # DONE — this PR
     task: events_cache_promotion — kimball event_ (append-only) table logging
       DurableStore.persistVolatile promotions, with semantics contract
     extends: src/cache/durable-store.ts

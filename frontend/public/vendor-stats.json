@@ -1,0 +1,240 @@
+[
+  {
+    "vendor": "claude-sitemap",
+    "host": "claude.com",
+    "doc_count": 1766,
+    "dated_count": 47,
+    "dated_share": 0.0266
+  },
+  {
+    "vendor": "anthropics",
+    "host": "claude.com",
+    "doc_count": 1627,
+    "dated_count": 19,
+    "dated_share": 0.0117
+  },
+  {
+    "vendor": "anthropic-sitemap",
+    "host": "www.anthropic.com",
+    "doc_count": 418,
+    "dated_count": 369,
+    "dated_share": 0.8828
+  },
+  {
+    "vendor": "aws",
+    "host": "docs.aws.amazon.com",
+    "doc_count": 201,
+    "dated_count": 74,
+    "dated_share": 0.3682
+  },
+  {
+    "vendor": "twilio",
+    "host": "www.twilio.com",
+    "doc_count": 201,
+    "dated_count": 9,
+    "dated_share": 0.0448
+  },
+  {
+    "vendor": "modelcontextprotocol",
+    "host": "modelcontextprotocol.io",
+    "doc_count": 123,
+    "dated_count": 5,
+    "dated_share": 0.0407
+  },
+  {
+    "vendor": "sentry",
+    "host": "docs.sentry.io",
+    "doc_count": 118,
+    "dated_count": 2,
+    "dated_share": 0.0169
+  },
+  {
+    "vendor": "intercom",
+    "host": "developers.intercom.com",
+    "doc_count": 101,
+    "dated_count": 1,
+    "dated_share": 0.0099
+  },
+  {
+    "vendor": "sift",
+    "host": "sift.com",
+    "doc_count": 101,
+    "dated_count": 37,
+    "dated_share": 0.3663
+  },
+  {
+    "vendor": "wellarchitected-github",
+    "host": "wellarchitected.github.com",
+    "doc_count": 73,
+    "dated_count": 71,
+    "dated_share": 0.9726
+  },
+  {
+    "vendor": "openfeature",
+    "host": "openfeature.dev",
+    "doc_count": 65,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "iterable",
+    "host": "iterable.com",
+    "doc_count": 61,
+    "dated_count": 60,
+    "dated_share": 0.9836
+  },
+  {
+    "vendor": "nimble",
+    "host": "docs.nimbleway.com",
+    "doc_count": 61,
+    "dated_count": 1,
+    "dated_share": 0.0164
+  },
+  {
+    "vendor": "parallel-web",
+    "host": "docs.parallel.ai",
+    "doc_count": 61,
+    "dated_count": 1,
+    "dated_share": 0.0164
+  },
+  {
+    "vendor": "stripe",
+    "host": "docs.stripe.com",
+    "doc_count": 61,
+    "dated_count": 2,
+    "dated_share": 0.0328
+  },
+  {
+    "vendor": "workos",
+    "host": "workos.com",
+    "doc_count": 61,
+    "dated_count": 1,
+    "dated_share": 0.0164
+  },
+  {
+    "vendor": "neon",
+    "host": "neon.com",
+    "doc_count": 60,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "docs-github",
+    "host": "docs.github.com",
+    "doc_count": 53,
+    "dated_count": 15,
+    "dated_share": 0.283
+  },
+  {
+    "vendor": "arkose-labs",
+    "host": "developer.arkoselabs.com",
+    "doc_count": 51,
+    "dated_count": 4,
+    "dated_share": 0.0784
+  },
+  {
+    "vendor": "turbopuffer",
+    "host": "turbopuffer.com",
+    "doc_count": 37,
+    "dated_count": 2,
+    "dated_share": 0.0541
+  },
+  {
+    "vendor": "spotify-confidence",
+    "host": "confidence.spotify.com",
+    "doc_count": 23,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "osv-scanner",
+    "host": "google.github.io",
+    "doc_count": 17,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "cloudflare",
+    "host": "developers.cloudflare.com",
+    "doc_count": 16,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "opentelemetry",
+    "host": "opentelemetry.io",
+    "doc_count": 14,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "agentskills",
+    "host": "agentskills.io",
+    "doc_count": 10,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "open-managed-agents",
+    "host": null,
+    "doc_count": 5,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "brave-search",
+    "host": "brave.com",
+    "doc_count": 4,
+    "dated_count": 1,
+    "dated_share": 0.25
+  },
+  {
+    "vendor": "commonmark",
+    "host": "spec.commonmark.org",
+    "doc_count": 3,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "swift",
+    "host": "hub.docker.com",
+    "doc_count": 3,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "anthropic-ai-npm",
+    "host": null,
+    "doc_count": 2,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "elevenlabs",
+    "host": null,
+    "doc_count": 1,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "gcp",
+    "host": null,
+    "doc_count": 1,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "git",
+    "host": "git-scm.com",
+    "doc_count": 1,
+    "dated_count": 0,
+    "dated_share": 0
+  },
+  {
+    "vendor": "skills-sh",
+    "host": null,
+    "doc_count": 1,
+    "dated_count": 0,
+    "dated_share": 0
+  }
+]

@@ -82,15 +82,21 @@ export class DurableStore {
    * Runtime persistence hook: batch-promote volatile entries that
    * crossed the hit threshold. Called by agents at todo-commit
    * boundaries so durable state lands even if the session dies.
+   *
+   * `onPromote` (optional) receives each promoted entry — the B5 event
+   * sink appends to dw.events_cache_promotion (append-only audit log,
+   * contract: data/models/alloydb/events_cache_promotion.yaml).
    */
   async persistVolatile<T>(
     entries: DurableEntry<T>[],
     schema: z.ZodType<T>,
+    onPromote?: (entry: DurableEntry<T>) => Promise<void>,
   ): Promise<number> {
     let promoted = 0;
     for (const entry of entries) {
       if ((entry.hits ?? 0) < PROMOTE_AFTER_HITS) continue;
       await this.set(entry, schema);
+      if (onPromote !== undefined) await onPromote(entry);
       promoted += 1;
     }
     return promoted;
