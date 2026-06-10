@@ -17,6 +17,7 @@
 // @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md
 // @cite https://github.com/citation-style-language/schema
 
+import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildCorpusItems } from "../src/lib/vendor-corpus.js";
@@ -43,6 +44,8 @@ async function main(): Promise<void> {
   try {
     const store = new DurableStore(pool);
     await store.init();
+    await pool.query(readFileSync(resolve(REPO_ROOT, "data", "models", "alloydb_events_ddl.sql"), "utf8"));
+    const agentId = process.env.KE_AGENT_ID ?? "warm-semantic-cache";
     const promoted = await store.persistVolatile(
       items.map((item) => ({
         key: `csl:${item.id}`,
@@ -51,8 +54,15 @@ async function main(): Promise<void> {
         hits: PROMOTE_AFTER_HITS,
       })),
       CslItem,
+      async (entry) => {
+        await pool.query(
+          `INSERT INTO dw.events_cache_promotion (cache_key, source_path, agent_id, hits)
+           VALUES ($1, $2, $3, $4)`,
+          [entry.key, entry.sourcePath ?? null, agentId, entry.hits ?? 0],
+        );
+      },
     );
-    console.log(`semantic_cache: promoted ${promoted} entries`);
+    console.log(`semantic_cache: promoted ${promoted} entries (events_cache_promotion appended)`);
 
     await pool.query(CSL_ITEMS_DDL);
     for (const item of items) {
