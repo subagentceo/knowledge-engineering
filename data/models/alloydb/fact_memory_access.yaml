@@ -12,8 +12,13 @@ metadata:
     feeds: dreams consolidation (B3)
 
 spec:
-  version: 1.0.0
+  version: 1.1.0
   schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: append within 5m of agent read
+  data_start_date: "2026-06-09"
   description: >-
     Transactional log of research-agent reads of citation memories. The
     dreams job (B3) aggregates access frequency to decide which memories to
