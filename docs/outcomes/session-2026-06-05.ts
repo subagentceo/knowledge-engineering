@@ -430,6 +430,79 @@ export const outcomes: SessionOutcome[] = [
       "seeds/prompts/loop-orchestrator.md",
     ],
   },
+
+  // ── Tick T8 (2026-06-05) ──────────────────────────────────────────────────
+  {
+    id: "2026-06-05-O26",
+    title: "t3-4 — scripts/audit_container.py: add swift tarball check + infra/wsl2/Dockerfile: swiftly-not-in-Docker comment",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "scripts/audit_container.py",
+      "infra/wsl2/Dockerfile",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "vendor/swift/swift.org/install/linux/swiftly.md",
+    ],
+    commit_sha: "fe5d3f6",
+  },
+  {
+    id: "2026-06-05-O27",
+    title: "t9-8 — scripts/bootstrap/wsl-gpu-setup.sh: NVIDIA GPU passthrough for WSL2 Ubuntu 24.04 (RTX 2080 Ti)",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "scripts/bootstrap/wsl-gpu-setup.sh",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/citations/define-outcomes.md",
+    ],
+    commit_sha: "fe5d3f6",
+  },
+  {
+    id: "2026-06-05-O28",
+    title: "t14-6 — vendor/modelcontextprotocol/reference-servers.md: 7 active + 10 archived official MCP reference servers catalog",
+    status: "achieved",
+    category: "vendor",
+    evidence: [
+      "vendor/modelcontextprotocol/reference-servers.md",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "vendor/modelcontextprotocol/modelcontextprotocol.io/examples.md",
+    ],
+    commit_sha: "a9d8a8e",
+  },
+  {
+    id: "2026-06-05-O29",
+    title: "t13-3 — vendor/connectors/google-drive.yaml: extended Google Drive connector spec (OAuth 2.0, 4 capabilities, MCP reference server details)",
+    status: "achieved",
+    category: "vendor",
+    evidence: [
+      "vendor/connectors/google-drive.yaml",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "vendor/modelcontextprotocol/reference-servers.md",
+    ],
+    commit_sha: "a9d8a8e",
+  },
+  {
+    id: "2026-06-05-O30",
+    title: "Heartbeat tick 2026-06-05-T8 — OAUTO17 drain (7 PRs rescued), t3-4+t9-8 (PR #422), t14-6+t13-3 (PR #423) dispatched with auto-merge",
+    status: "achieved",
+    category: "infra",
+    evidence: [
+      "seeds/memory/heartbeat/last-tick.md",
+      ".claude/mailbox/agent_orchestrator.jsonl",
+    ],
+    cite: [
+      "vendor/anthropics/platform.claude.com/docs/en/managed-agents/define-outcomes.md",
+      "seeds/prompts/loop-orchestrator.md",
+    ],
+  },
 ];
 
 for (const o of outcomes) {
