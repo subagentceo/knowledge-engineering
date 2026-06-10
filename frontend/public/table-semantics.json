@@ -3,6 +3,57 @@
     "apiVersion": "anthropic.com/v1",
     "kind": "AlloyDbTableSemantics",
     "metadata": {
+      "name": "dim_memory",
+      "labels": {
+        "lane": "citation-memory",
+        "shape": "managed-agents memory (path + content)"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Citation memories in the managed-agents memory shape (path + content), one current row per memory path. SCD II — dreams-curated rewrites of a memory's content close the old row so curation history is auditable. Source memories are derived from csl_items; curated ones are written by the dreams consolidation job (B3).",
+      "columns": [
+        {
+          "name": "memory_path",
+          "sql_type": "text",
+          "description": "memory path (/citations/<csl-id-slug>.md), natural key",
+          "kind": "dimension"
+        },
+        {
+          "name": "content",
+          "sql_type": "text",
+          "description": "markdown memory body (citation summary + CSL-JSON block)",
+          "kind": "dimension"
+        },
+        {
+          "name": "csl_id",
+          "sql_type": "text",
+          "description": "originating csl_items.id; NULL for synthesized memories",
+          "kind": "dimension"
+        },
+        {
+          "name": "curation_source",
+          "sql_type": "text",
+          "description": "ingest | dreams — who wrote this version of the memory",
+          "kind": "dimension"
+        },
+        {
+          "name": "row_effective_from",
+          "sql_type": "timestamptz",
+          "description": "SCD II validity start",
+          "kind": "time_dimension"
+        }
+      ],
+      "load_type": "incremental"
+    },
+    "table_kind": "dim",
+    "scd_type": 2
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
       "name": "dim_research_doc",
       "labels": {
         "lane": "economic-research",
@@ -60,6 +111,52 @@
     },
     "table_kind": "dim",
     "scd_type": 2
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
+      "name": "dim_vendor",
+      "labels": {
+        "lane": "full-corpus",
+        "source": "src/lib/vendor-corpus.ts"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "One row per mirrored vendor under vendor/. SCD I — corpus counts and crawl freshness overwrite in place; history lives in fact_vendor_crawl, not here.",
+      "columns": [
+        {
+          "name": "vendor_name",
+          "sql_type": "text",
+          "description": "vendor directory name (natural key)",
+          "kind": "dimension"
+        },
+        {
+          "name": "host",
+          "sql_type": "text",
+          "description": "reconstructed doc host; NULL when unmapped (never guessed)",
+          "kind": "dimension"
+        },
+        {
+          "name": "doc_count",
+          "sql_type": "bigint",
+          "description": "tracked markdown docs in the current corpus",
+          "kind": "measure",
+          "measure_type": "count"
+        },
+        {
+          "name": "last_loaded_at",
+          "sql_type": "timestamptz",
+          "description": "last warehouse load touching this vendor",
+          "kind": "time_dimension"
+        }
+      ],
+      "load_type": "full"
+    },
+    "table_kind": "dim",
+    "scd_type": 1
   },
   {
     "apiVersion": "anthropic.com/v1",
@@ -127,6 +224,126 @@
     },
     "table_kind": "fact",
     "grain": "one row per research document per ingest run (csl_id × ingest_run_at)"
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
+      "name": "fact_memory_access",
+      "labels": {
+        "lane": "citation-memory",
+        "feeds": "dreams consolidation (B3)"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Transactional log of research-agent reads of citation memories. The dreams job (B3) aggregates access frequency to decide which memories to consolidate, expand, or retire.",
+      "columns": [
+        {
+          "name": "memory_sk",
+          "sql_type": "bigint",
+          "description": "FK → dw.dim_memory.surrogate_key",
+          "kind": "dimension"
+        },
+        {
+          "name": "agent_id",
+          "sql_type": "text",
+          "description": "reading agent (session or coworker id)",
+          "kind": "dimension"
+        },
+        {
+          "name": "date_key",
+          "sql_type": "integer",
+          "description": "FK-style YYYYMMDD of the access",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "accessed_at",
+          "sql_type": "timestamptz",
+          "description": "access wall-clock time",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "access_count",
+          "sql_type": "bigint",
+          "description": "accesses recorded in this row (batched writers may roll up)",
+          "kind": "measure",
+          "measure_type": "sum"
+        }
+      ],
+      "load_type": "append_only"
+    },
+    "table_kind": "fact",
+    "grain": "one row per memory access (memory_sk × accessed_at)"
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
+      "name": "fact_vendor_crawl",
+      "labels": {
+        "lane": "full-corpus",
+        "feeds": "B6 visualizations (year × vendor)"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Transactional load facts per vendor per run — corpus size and citation extraction quality over time across all 34 mirrored vendors.",
+      "columns": [
+        {
+          "name": "vendor_name",
+          "sql_type": "text",
+          "description": "FK-style → dw.dim_vendor.vendor_name",
+          "kind": "dimension"
+        },
+        {
+          "name": "date_key",
+          "sql_type": "integer",
+          "description": "YYYYMMDD of the load run",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "loaded_at",
+          "sql_type": "timestamptz",
+          "description": "load run wall-clock start",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "doc_count",
+          "sql_type": "bigint",
+          "description": "docs in this vendor's corpus at load time",
+          "kind": "measure",
+          "measure_type": "count"
+        },
+        {
+          "name": "dated_count",
+          "sql_type": "bigint",
+          "description": "docs with a parsed issued date",
+          "kind": "measure",
+          "measure_type": "count"
+        },
+        {
+          "name": "dated_share",
+          "sql_type": "numeric",
+          "description": "dated_count over doc_count",
+          "kind": "measure",
+          "measure_type": "ratio",
+          "calculation": {
+            "expression": "dated_count::numeric / NULLIF(doc_count, 0)",
+            "inherits": [
+              "fact_vendor_crawl.dated_count",
+              "fact_vendor_crawl.doc_count"
+            ],
+            "result_type": "numeric"
+          }
+        }
+      ],
+      "load_type": "append_only"
+    },
+    "table_kind": "fact",
+    "grain": "one row per vendor per warehouse load (vendor_name × loaded_at)"
   },
   {
     "apiVersion": "anthropic.com/v1",

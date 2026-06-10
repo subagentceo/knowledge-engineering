@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: dim
+scd_type: 1
+
+metadata:
+  name: dim_vendor
+  labels:
+    lane: full-corpus
+    source: src/lib/vendor-corpus.ts
+
+spec:
+  version: 1.0.0
+  schema: dw
+  description: >-
+    One row per mirrored vendor under vendor/. SCD I — corpus counts and
+    crawl freshness overwrite in place; history lives in fact_vendor_crawl,
+    not here.
+  load_type: full
+  columns:
+    - name: vendor_name
+      kind: dimension
+      sql_type: text
+      description: vendor directory name (natural key)
+    - name: host
+      kind: dimension
+      sql_type: text
+      description: reconstructed doc host; NULL when unmapped (never guessed)
+    - name: doc_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: tracked markdown docs in the current corpus
+    - name: last_loaded_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: last warehouse load touching this vendor
