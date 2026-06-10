@@ -24,6 +24,11 @@ export async function loadCitations(fetchImpl: typeof fetch = fetch): Promise<Ci
 export function filterCitations(rows: CitationRow[], query: string): CitationRow[] {
   const q = query.trim().toLowerCase();
   if (q === "") return rows;
+  // year:<YYYY> filters by issued year (the year strip emits this form)
+  const yearMatch = q.match(/^year:(\d{4}|—)$/);
+  if (yearMatch !== null) {
+    return rows.filter((row) => issuedYear(row) === yearMatch[1]);
+  }
   return rows.filter(
     (row) =>
       row.title.toLowerCase().includes(q) ||
@@ -53,6 +58,48 @@ export function citationsByYear(rows: CitationRow[]): YearCount[] {
     .sort((a, b) => (a.year === "—" ? 1 : b.year === "—" ? -1 : a.year.localeCompare(b.year)));
 }
 
+// ── human citation formats (B11) ─────────────────────────────────────────────
+
+function bibtexKey(row: CitationRow): string {
+  const year = issuedYear(row);
+  return `${row.id.split(":").pop() ?? "item"}${year === "—" ? "" : year}`.replace(/[^a-zA-Z0-9-]/g, "");
+}
+
+export function toBibtex(row: CitationRow): string {
+  const year = issuedYear(row);
+  const fields = [
+    `  title = {${row.title}}`,
+    `  author = {{Anthropic}}`,
+    year !== "—" ? `  year = {${year}}` : undefined,
+    row.URL !== undefined ? `  url = {${row.URL}}` : undefined,
+    `  note = {${row.id}}`,
+  ].filter((f) => f !== undefined);
+  const entryType = row.type === "article" ? "article" : "misc";
+  return `@${entryType}{${bibtexKey(row)},\n${fields.join(",\n")}\n}`;
+}
+
+export function toApa(row: CitationRow): string {
+  const year = issuedYear(row);
+  const parts = [
+    `Anthropic. (${year === "—" ? "n.d." : year}).`,
+    `${row.title}.`,
+    ...(row.URL !== undefined ? [row.URL] : []),
+  ];
+  return parts.join(" ");
+}
+
+/** stable deep link: #cite/<csl-id> */
+export function citeHash(row: CitationRow): string {
+  return `#cite/${encodeURIComponent(row.id)}`;
+}
+
+export function rowFromHash(rows: CitationRow[], hash: string): CitationRow | undefined {
+  const m = hash.match(/^#cite\/(.+)$/);
+  if (m?.[1] === undefined) return undefined;
+  const id = decodeURIComponent(m[1]);
+  return rows.find((r) => r.id === id);
+}
+
 export class CitationsTable {
   private rows: CitationRow[] = [];
 
@@ -60,7 +107,69 @@ export class CitationsTable {
 
   setRows(rows: CitationRow[]): void {
     this.rows = rows;
-    this.render("");
+    window.addEventListener("hashchange", () => this.route());
+    this.route();
+  }
+
+  /** #cite/<id> renders the detail view; anything else renders the table. */
+  private route(): void {
+    const detail = rowFromHash(this.rows, window.location.hash);
+    if (detail !== undefined) this.renderDetail(detail);
+    else this.render("");
+  }
+
+  renderDetail(row: CitationRow): void {
+    this.root.replaceChildren();
+    const back = document.createElement("a");
+    back.href = "#";
+    back.textContent = "← all citations";
+    back.className = "cite-back";
+    this.root.appendChild(back);
+
+    const card = document.createElement("article");
+    card.className = "cite-detail";
+    const h = document.createElement("h2");
+    h.textContent = row.title;
+    card.appendChild(h);
+
+    const meta = document.createElement("p");
+    meta.className = "cite-meta";
+    meta.textContent = [issuedYear(row), row.type, row.id].join(" · ");
+    card.appendChild(meta);
+
+    if (row.abstract !== undefined) {
+      const abs = document.createElement("p");
+      abs.textContent = row.abstract;
+      card.appendChild(abs);
+    }
+    if (row.URL !== undefined) {
+      const a = document.createElement("a");
+      a.href = row.URL;
+      a.textContent = row.URL;
+      a.target = "_blank";
+      a.rel = "noopener";
+      card.appendChild(a);
+    }
+
+    const actions = document.createElement("div");
+    actions.className = "cite-actions";
+    const copies: Array<[string, () => string]> = [
+      ["copy csl-json", () => JSON.stringify(row, null, 2)],
+      ["copy bibtex", () => toBibtex(row)],
+      ["copy apa", () => toApa(row)],
+      ["copy link", () => `${window.location.origin}/${citeHash(row)}`],
+    ];
+    for (const [label, produce] of copies) {
+      const btn = document.createElement("button");
+      btn.textContent = label;
+      btn.addEventListener("click", () => {
+        void navigator.clipboard.writeText(produce());
+        btn.textContent = `${label} ✓`;
+      });
+      actions.appendChild(btn);
+    }
+    card.appendChild(actions);
+    this.root.appendChild(card);
   }
 
   render(query: string): void {
@@ -81,7 +190,8 @@ export class CitationsTable {
     for (const { year, count } of buckets) {
       const seg = document.createElement("span");
       seg.className = "year-seg";
-      seg.title = `${year}: ${count}`;
+      seg.title = `${year}: ${count} — click to filter`;
+      seg.addEventListener("click", () => this.render(query === `year:${year}` ? "" : `year:${year}`));
 
       const label = document.createElement("span");
       label.className = "year-label";
@@ -117,16 +227,10 @@ export class CitationsTable {
       tr.insertCell().textContent = issuedYear(row);
 
       const titleCell = tr.insertCell();
-      if (row.URL) {
-        const a = document.createElement("a");
-        a.href = row.URL;
-        a.textContent = row.title;
-        a.target = "_blank";
-        a.rel = "noopener";
-        titleCell.appendChild(a);
-      } else {
-        titleCell.textContent = row.title;
-      }
+      const detailLink = document.createElement("a");
+      detailLink.href = citeHash(row);
+      detailLink.textContent = row.title;
+      titleCell.appendChild(detailLink);
 
       const btn = document.createElement("button");
       btn.textContent = "csl";
