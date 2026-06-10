@@ -24,6 +24,7 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 import { jsonResult } from "../bridge-utils.js";
 import { buildCorpusItems } from "../../lib/vendor-corpus.js";
+import { maybeAccessLogger } from "../../lib/memory-access-log.js";
 import type { CslItem } from "../../lib/csl.js";
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
@@ -66,12 +67,23 @@ export function citationsByTeam(items: CslItem[], team: string): CslItem[] {
   return items.filter((i) => i.id.startsWith(prefix));
 }
 
+// B13: fire-and-forget access logging; vending never blocks on the warehouse
+function logAccess(items: CslItem[]): void {
+  void maybeAccessLogger()
+    .then((logger) => logger?.record(items.map((i) => i.id)))
+    .catch(() => undefined);
+}
+
 export function registerCitations(server: McpServer): void {
   server.tool(
     "citations_search",
     "Search the mirrored citation corpus (CSL-JSON items extracted from vendor/). All query terms must match title, abstract, or id. Returns up to `limit` items.",
     { query: z.string().min(1), limit: z.number().int().min(1).max(50).default(10) },
-    async ({ query, limit }) => jsonResult({ items: searchCitations(corpus(), query, limit) })
+    async ({ query, limit }) => {
+      const items = searchCitations(corpus(), query, limit);
+      logAccess(items);
+      return jsonResult({ items });
+    }
   );
 
   server.tool(
@@ -80,6 +92,7 @@ export function registerCitations(server: McpServer): void {
     { id: z.string().min(1) },
     async ({ id }) => {
       const item = corpus().find((i) => i.id === id);
+      if (item !== undefined) logAccess([item]);
       return jsonResult(item !== undefined ? { item } : { error: `unknown citation id: ${id}` });
     }
   );

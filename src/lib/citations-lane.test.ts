@@ -57,4 +57,26 @@ assert.ok(live.length > 5000);
 assert.ok(corpus(REPO_ROOT) === live); // memoized
 assert.ok(searchCitations(live, "economic research", 5).length > 0);
 
+// B13 — AccessLogger appends one row per current memory, hermetic fake pg
+{
+  const { AccessLogger } = await import("./memory-access-log.js");
+  const calls: unknown[][] = [];
+  const logger = new AccessLogger(
+    {
+      async query(_text: string, values: unknown[] = []) {
+        calls.push(values);
+        const ids = values[2] as string[];
+        return { rows: ids.filter((i) => i !== "missing").map(() => ({ memory_sk: 1 })) };
+      },
+    },
+    "test-agent",
+  );
+  assert.equal(await logger.record([]), 0);
+  assert.equal(calls.length, 0);
+  const n = await logger.record(["anthropic-sitemap:research:clio", "missing"]);
+  assert.equal(n, 1);
+  assert.equal(calls[0]?.[0], "test-agent");
+  assert.match(String(calls[0]?.[1]), /^202\d{5}$/);
+}
+
 console.log("citations-lane.test.ts OK");
