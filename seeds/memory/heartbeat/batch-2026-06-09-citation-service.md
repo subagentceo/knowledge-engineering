@@ -69,7 +69,7 @@ batch:
       "try a skill" onboarding; coworkers contribute via existing PR loop
     extends: .claude/skills/, src/course-plugins/, docs/prompts/coworker-dev-chain.md
     gate: null
-  - id: B9
+  - id: B9   # DONE — this PR
     task: 24/7 incremental loop — post-crawl routine chaining
       crawl:vendors → ingest:citations → cache:warm → dw:load → rpt refresh;
       heartbeat tick reads THIS file and picks the top unblocked task
