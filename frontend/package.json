@@ -12,7 +12,8 @@
     "deploy": "npm run build && wrangler deploy",
     "test": "tsx --test tests/*.test.ts",
     "typecheck": "tsc --noEmit",
-    "build:crawler": "tsx scripts/build-crawler-surface.ts"
+    "build:crawler": "tsx scripts/build-crawler-surface.ts",
+    "qa:visual": "node scripts/visual-qa.mts"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.7",
