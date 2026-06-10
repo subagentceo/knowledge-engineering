@@ -25,6 +25,7 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { jsonResult } from "../bridge-utils.js";
 import { buildCorpusItems } from "../../lib/vendor-corpus.js";
 import { maybeAccessLogger } from "../../lib/memory-access-log.js";
+import BM25 from "wink-bm25-text-search";
 import type { CslItem } from "../../lib/csl.js";
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..", "..");
@@ -67,6 +68,43 @@ export function citationsByTeam(items: CslItem[], team: string): CslItem[] {
   return items.filter((i) => i.id.startsWith(prefix));
 }
 
+// B15 — BM25 volatile tier over the corpus (same engine as src/cache/lru-bm25.ts).
+// Built lazily on first ranked query; counters surface usage via search meta.
+type BM25Engine = ReturnType<typeof BM25>;
+let engine: BM25Engine | undefined;
+export const searchCounters = { bm25: 0, fallback: 0 };
+
+function bm25Engine(items: CslItem[]): BM25Engine {
+  if (engine !== undefined) return engine;
+  const e = BM25();
+  e.defineConfig({ fldWeights: { title: 2, body: 1 } });
+  e.definePrepTasks([(t: string) => t.toLowerCase().split(/[^a-z0-9]+/).filter((w) => w.length > 1)]);
+  items.forEach((item, i) => {
+    e.addDoc({ title: item.title, body: `${item.abstract ?? ""} ${item.id}` }, i);
+  });
+  e.consolidate();
+  engine = e;
+  return e;
+}
+
+/** BM25-ranked search with substring fallback for id-shaped queries. */
+export function rankedSearch(items: CslItem[], query: string, limit: number): CslItem[] {
+  if (query.includes(":")) {
+    searchCounters.fallback += 1;
+    return searchCitations(items, query, limit);
+  }
+  const hits = bm25Engine(items).search(query) as Array<[number, number]>;
+  if (hits.length === 0) {
+    searchCounters.fallback += 1;
+    return searchCitations(items, query, limit);
+  }
+  searchCounters.bm25 += 1;
+  return hits.slice(0, limit).flatMap(([idx]) => {
+    const item = items[Number(idx)];
+    return item === undefined ? [] : [item];
+  });
+}
+
 // B13: fire-and-forget access logging; vending never blocks on the warehouse
 function logAccess(items: CslItem[]): void {
   void maybeAccessLogger()
@@ -77,12 +115,12 @@ function logAccess(items: CslItem[]): void {
 export function registerCitations(server: McpServer): void {
   server.tool(
     "citations_search",
-    "Search the mirrored citation corpus (CSL-JSON items extracted from vendor/). All query terms must match title, abstract, or id. Returns up to `limit` items.",
+    "Search the mirrored citation corpus (CSL-JSON items extracted from vendor/). BM25-ranked (title boosted) with substring fallback for id-shaped queries. Returns up to `limit` items plus ranking meta.",
     { query: z.string().min(1), limit: z.number().int().min(1).max(50).default(10) },
     async ({ query, limit }) => {
-      const items = searchCitations(corpus(), query, limit);
+      const items = rankedSearch(corpus(), query, limit);
       logAccess(items);
-      return jsonResult({ items });
+      return jsonResult({ items, meta: { ...searchCounters } });
     }
   );
 
