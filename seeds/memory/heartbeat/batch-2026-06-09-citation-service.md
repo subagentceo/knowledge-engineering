@@ -52,7 +52,7 @@ batch:
       DurableStore.persistVolatile promotions, with semantics contract
     extends: src/cache/durable-store.ts
     gate: null
-  - id: B6
+  - id: B6   # DONE — this PR
     task: frontend — rpt_-backed visualizations (citations by year × vendor ×
       team) + citation-service status panel beside the warehouse panel
     extends: frontend/src/{warehouse,citations}.ts
