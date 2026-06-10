@@ -55,8 +55,23 @@ export default {
       });
     }
 
-    // Everything else (including /vendor-manifest.json and the SPA
-    // shell) goes through the static-asset binding directly.
-    return env.ASSETS.fetch(request);
+    // B20 — delivery perf: long cache for JSON feeds (rebuilt per deploy),
+    // 103 Early Hints via Link preload on the SPA shell (Cloudflare caches
+    // and emits these before the final response).
+    if (url.pathname.endsWith(".json") || url.pathname === "/llms.txt" || url.pathname === "/sitemap.xml") {
+      const r = await env.ASSETS.fetch(request);
+      if (!r.ok) return r;
+      const out = new Response(r.body, r);
+      out.headers.set("cache-control", "public, max-age=3600, stale-while-revalidate=86400");
+      return out;
+    }
+    const r = await env.ASSETS.fetch(request);
+    if (r.headers.get("content-type")?.includes("text/html") === true) {
+      const out = new Response(r.body, r);
+      out.headers.append("link", "</citations.json>; rel=preload; as=fetch; crossorigin");
+      out.headers.append("link", "</table-semantics.json>; rel=preload; as=fetch; crossorigin");
+      return out;
+    }
+    return r;
   },
 };
