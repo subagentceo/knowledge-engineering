@@ -1,7 +1,7 @@
 ---
 title: pending.md
 description: Live dashboard of every pending action — operator browser-driven, operator CLI-driven, autonomous agent follow-up. The operator's explicit ask in Phase 15: "make it more clear what operator runbooks and claude-in-chrome actions you are waiting on."
-last-reviewed: 2026-06-09
+last-reviewed: 2026-06-10
 ---
 
 # Pending actions
@@ -17,6 +17,13 @@ last-reviewed: 2026-06-09
 ## Column 0 — Autonomous batch queue (no operator gate)
 
 The active self-steering queue is
+[`seeds/memory/heartbeat/batch-2026-06-10-frontend-memory.md`](../seeds/memory/heartbeat/batch-2026-06-10-frontend-memory.md)
+— 10 tasks (B11–B20): human citation UX, memory browser + memory MCP surface,
+access-fact wiring for dreams, two new rpt_ tables, BM25 cache search,
+postgres-18 + allowed_operations semantics, and the pay-per-crawl crawler
+surface for subagentknowledge.com.
+
+Previous batch (complete, PRs #433–#442):
 [`seeds/memory/heartbeat/batch-2026-06-09-citation-service.md`](../seeds/memory/heartbeat/batch-2026-06-09-citation-service.md)
 — 10 tasks (B1–B10) building the **knowledge-engineering-citation-service**:
 citations MCP lane, citation memory-store + dreams curation, full-corpus
