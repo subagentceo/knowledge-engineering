@@ -76,12 +76,12 @@ batch:
       steps/tokens_to_citation against the live lane; scorecard JSON feed
     rubric: the rubric itself becomes measurable per release
     gate: B23, B24
-  - id: B28
+  - id: B28  # DONE — KAN-13..17 synced
     task: rovo plan sync — mirror this queue into jira via the atlassian
       connector once operator re-approves access
     rubric: parallel_capacity (operator-visible planning)
     gate: operator approval of mcp__Atlassian_Rovo__*
-  - id: B29
+  - id: B29  # DONE — this PR
     task: visual QA loop — device-frame screenshots per merge (worktree
       agent renders index at 393x852) attached to PRs
     rubric: operator sees the priority device before merge
