@@ -53,7 +53,7 @@ batch:
       #team/<slug> deep link
     rubric: steps_to_citation ≤ 3 taps for economic-research docs
     gate: B21
-  - id: B24
+  - id: B24  # DONE — this PR
     task: L1/L2/L3 read-through for citations_get — in-proc corpus (L1),
       redis via lru-bm25 tier (L2), semantic_cache postgres (L3); cache-hit
       counters in result meta
