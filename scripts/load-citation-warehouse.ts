@@ -27,6 +27,9 @@ const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const ALLOYDB_DIR = resolve(REPO_ROOT, "data", "models", "alloydb");
 const DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_citations_ddl.sql");
 const VENDOR_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_vendor_ddl.sql");
+const MEMORY_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_memory_ddl.sql");
+const MEMORIES_JSON = resolve(REPO_ROOT, "frontend", "public", "memories.json");
+const TEAM_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "team-stats.json");
 const OUT_JSON = resolve(REPO_ROOT, "frontend", "public", "table-semantics.json");
 const VENDOR_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "vendor-stats.json");
 
@@ -139,6 +142,50 @@ async function main(): Promise<void> {
     console.log(
       `dim_vendor: ${corpusByVendor.size} vendors (SCD I); fact_vendor_crawl: +${corpusByVendor.size} rows over ${stats.total} docs`,
     );
+
+    // B12 feed: memory browser — current dim_memory rows + version counts
+    await pool.query(readFileSync(MEMORY_DDL_PATH, "utf8"));
+    const memories = await pool.query(`
+      SELECT d.memory_path, d.curation_source, d.csl_id,
+             d.row_effective_from AS effective_from,
+             (SELECT COUNT(*) FROM dw.dim_memory h WHERE h.memory_path = d.memory_path) AS versions
+      FROM dw.dim_memory d
+      WHERE d.is_current
+      ORDER BY d.memory_path`);
+    writeFileSync(
+      MEMORIES_JSON,
+      JSON.stringify(
+        memories.rows.map((r) => ({
+          memory_path: r.memory_path,
+          curation_source: r.curation_source,
+          csl_id: r.csl_id,
+          effective_from: new Date(r.effective_from as string).toISOString(),
+          versions: Number(r.versions),
+        })),
+        null,
+        2,
+      ) + "\n",
+    );
+    console.log(`semantics: wrote frontend/public/memories.json (${memories.rowCount} memories)`);
+
+    // B14: rpt refreshes (load_type: full) + static feeds
+    await pool.query("BEGIN");
+    await pool.query("TRUNCATE dw.rpt_citations_by_team");
+    const team = await pool.query(`
+      INSERT INTO dw.rpt_citations_by_team (research_team, doc_count)
+      SELECT research_team, COUNT(DISTINCT csl_id)
+      FROM dw.dim_research_doc WHERE is_current AND research_team IS NOT NULL
+      GROUP BY 1`);
+    await pool.query("TRUNCATE dw.rpt_vendor_freshness");
+    const fresh = await pool.query(`
+      INSERT INTO dw.rpt_vendor_freshness (vendor_name, last_loaded_at, load_runs, latest_doc_count)
+      SELECT vendor_name, MAX(loaded_at), COUNT(*),
+             (ARRAY_AGG(doc_count ORDER BY loaded_at DESC))[1]
+      FROM dw.fact_vendor_crawl GROUP BY 1`);
+    await pool.query("COMMIT");
+    const teams = await pool.query("SELECT research_team, doc_count FROM dw.rpt_citations_by_team ORDER BY doc_count DESC");
+    writeFileSync(TEAM_STATS_JSON, JSON.stringify(teams.rows, null, 2) + "\n");
+    console.log(`rpt_citations_by_team: ${team.rowCount} rows; rpt_vendor_freshness: ${fresh.rowCount} rows; wrote team-stats.json`);
 
     // B6 feed: static per-vendor stats for the frontend visualizations
     const vendorStats = [...corpusByVendor.entries()]

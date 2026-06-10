@@ -187,6 +187,19 @@
               ]
             }
           }
+        },
+        "allowed_operations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "read",
+              "append",
+              "scd1_overwrite",
+              "scd2_rewrite",
+              "full_refresh"
+            ]
+          }
         }
       }
     }
