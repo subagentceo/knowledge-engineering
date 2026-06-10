@@ -57,7 +57,7 @@ batch:
       team) + citation-service status panel beside the warehouse panel
     extends: frontend/src/{warehouse,citations}.ts
     gate: B4
-  - id: B7
+  - id: B7   # DONE — this PR
     task: contract hardening — populate reserved keys (codeowners, sla_policy,
       data_start_date, load_type) on all alloydb yaml; add npm run verify:dw
       to the verify chain
