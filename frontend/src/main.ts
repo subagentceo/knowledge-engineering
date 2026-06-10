@@ -9,6 +9,17 @@ import { Accordion } from "./accordion.js";
 import { loadManifest, loadVendorPage } from "./vendor-loader.js";
 import { CitationsTable, loadCitations } from "./citations.js";
 import { loadTableSemantics, renderWarehouse } from "./warehouse.js";
+import { loadVendorStats, renderServiceStatus } from "./service-status.js";
+
+async function hydrateServiceStatus(): Promise<void> {
+  const root = document.getElementById("service-status") as HTMLDivElement | null;
+  if (!root) return;
+  try {
+    renderServiceStatus(root, await loadVendorStats());
+  } catch (err) {
+    root.textContent = `failed to load vendor stats: ${(err as Error).message}`;
+  }
+}
 
 async function hydrateWarehouse(): Promise<void> {
   const root = document.getElementById("warehouse") as HTMLDivElement | null;
@@ -37,6 +48,7 @@ async function main(): Promise<void> {
 
   void hydrateCitations();
   void hydrateWarehouse();
+  void hydrateServiceStatus();
 
   const accordionRoot = document.getElementById("accordion") as HTMLDivElement | null;
   const loadingEl = document.getElementById("accordion-loading") as HTMLDivElement | null;
