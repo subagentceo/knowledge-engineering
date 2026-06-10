@@ -46,3 +46,19 @@ CREATE TABLE IF NOT EXISTS dw.rpt_citations_by_year (
     dated_share   NUMERIC  NOT NULL,
     refreshed_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+-- rpt_citations_by_team — predefined aggregation (rpt_citations_by_team.yaml v1.0.0)
+CREATE TABLE IF NOT EXISTS dw.rpt_citations_by_team (
+    research_team TEXT PRIMARY KEY,
+    doc_count     BIGINT NOT NULL,
+    refreshed_at  TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+-- rpt_vendor_freshness — predefined aggregation (rpt_vendor_freshness.yaml v1.0.0)
+CREATE TABLE IF NOT EXISTS dw.rpt_vendor_freshness (
+    vendor_name      TEXT PRIMARY KEY,
+    last_loaded_at   TIMESTAMPTZ NOT NULL,
+    load_runs        BIGINT NOT NULL,
+    latest_doc_count BIGINT NOT NULL,
+    refreshed_at     TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);

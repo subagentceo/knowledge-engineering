@@ -10,7 +10,7 @@
       }
     },
     "spec": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "schema": "dw",
       "description": "Citation memories in the managed-agents memory shape (path + content), one current row per memory path. SCD II — dreams-curated rewrites of a memory's content close the old row so curation history is auditable. Source memories are derived from csl_items; curated ones are written by the dreams consolidation job (B3).",
       "columns": [
@@ -51,7 +51,11 @@
       ],
       "sla_policy": "curated within 24h of dreams tick",
       "data_start_date": "2026-06-09",
-      "load_type": "incremental"
+      "load_type": "incremental",
+      "allowed_operations": [
+        "read",
+        "scd2_rewrite"
+      ]
     },
     "table_kind": "dim",
     "scd_type": 2
@@ -67,7 +71,7 @@
       }
     },
     "spec": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "schema": "dw",
       "description": "Anthropic research documents mirrored under vendor/anthropic-sitemap/{research,_pdfs}, one current row per doc. SCD II — title/abstract/URL changes close the old row and open a new one so citation provenance is auditable over crawls.",
       "columns": [
@@ -120,7 +124,11 @@
       ],
       "sla_policy": "refresh within 24h of vendor crawl",
       "data_start_date": "2026-06-09",
-      "load_type": "incremental"
+      "load_type": "incremental",
+      "allowed_operations": [
+        "read",
+        "scd2_rewrite"
+      ]
     },
     "table_kind": "dim",
     "scd_type": 2
@@ -136,7 +144,7 @@
       }
     },
     "spec": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "schema": "dw",
       "description": "One row per mirrored vendor under vendor/. SCD I — corpus counts and crawl freshness overwrite in place; history lives in fact_vendor_crawl, not here.",
       "columns": [
@@ -172,7 +180,11 @@
       ],
       "sla_policy": "refresh on every dw:load",
       "data_start_date": "2026-06-09",
-      "load_type": "full"
+      "load_type": "full",
+      "allowed_operations": [
+        "read",
+        "scd1_overwrite"
+      ]
     },
     "table_kind": "dim",
     "scd_type": 1
@@ -188,7 +200,7 @@
       }
     },
     "spec": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "schema": "dw",
       "description": "Append-only audit log of volatile→durable cache promotions. Never UPDATE, never DELETE — the promotion history is the record of what the agent fleet found durable-worthy and when.",
       "columns": [
@@ -230,7 +242,11 @@
       ],
       "sla_policy": "append at promotion time; never mutated",
       "data_start_date": "2026-06-09",
-      "load_type": "append_only"
+      "load_type": "append_only",
+      "allowed_operations": [
+        "read",
+        "append"
+      ]
     },
     "table_kind": "events",
     "grain": "one row per DurableStore.persistVolatile promotion (cache_key × occurred_at)"
@@ -246,7 +262,7 @@
       }
     },
     "spec": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "schema": "dw",
       "description": "Transactional ingest facts from scripts/ingest-citations.ts and scripts/warm-semantic-cache.ts. Each pipeline run appends one row per document touched, carrying size and extraction measures.",
       "columns": [
@@ -303,7 +319,11 @@
       ],
       "sla_policy": "append on every ingest run",
       "data_start_date": "2026-06-09",
-      "load_type": "append_only"
+      "load_type": "append_only",
+      "allowed_operations": [
+        "read",
+        "append"
+      ]
     },
     "table_kind": "fact",
     "grain": "one row per research document per ingest run (csl_id × ingest_run_at)"
@@ -319,7 +339,7 @@
       }
     },
     "spec": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "schema": "dw",
       "description": "Transactional log of research-agent reads of citation memories. The dreams job (B3) aggregates access frequency to decide which memories to consolidate, expand, or retire.",
       "columns": [
@@ -361,7 +381,11 @@
       ],
       "sla_policy": "append within 5m of agent read",
       "data_start_date": "2026-06-09",
-      "load_type": "append_only"
+      "load_type": "append_only",
+      "allowed_operations": [
+        "read",
+        "append"
+      ]
     },
     "table_kind": "fact",
     "grain": "one row per memory access (memory_sk × accessed_at)"
@@ -377,7 +401,7 @@
       }
     },
     "spec": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "schema": "dw",
       "description": "Transactional load facts per vendor per run — corpus size and citation extraction quality over time across all 34 mirrored vendors.",
       "columns": [
@@ -435,10 +459,58 @@
       ],
       "sla_policy": "append on every dw:load",
       "data_start_date": "2026-06-09",
-      "load_type": "append_only"
+      "load_type": "append_only",
+      "allowed_operations": [
+        "read",
+        "append"
+      ]
     },
     "table_kind": "fact",
     "grain": "one row per vendor per warehouse load (vendor_name × loaded_at)"
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
+      "name": "rpt_citations_by_team",
+      "labels": {
+        "lane": "economic-research",
+        "consumer": "frontend citations panel"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Predefined aggregation — citable research output per Anthropic research team page (economic-research first), refreshed after each ingest run.",
+      "columns": [
+        {
+          "name": "research_team",
+          "sql_type": "text",
+          "description": "team slug from dim_research_doc.research_team",
+          "kind": "dimension"
+        },
+        {
+          "name": "doc_count",
+          "sql_type": "bigint",
+          "description": "distinct current docs attributed to the team",
+          "kind": "measure",
+          "measure_type": "count"
+        }
+      ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "full refresh on every dw:load",
+      "data_start_date": "2026-06-10",
+      "load_type": "full",
+      "allowed_operations": [
+        "read",
+        "full_refresh"
+      ]
+    },
+    "table_kind": "rpt",
+    "aggregates": "fact_doc_ingest"
   },
   {
     "apiVersion": "anthropic.com/v1",
@@ -451,7 +523,7 @@
       }
     },
     "spec": {
-      "version": "1.1.0",
+      "version": "1.2.0",
       "schema": "dw",
       "description": "Predefined aggregation — citable research output per publication year, refreshed after each ingest run. Backs the researcher-facing frontend so the SPA never aggregates raw facts client-side.",
       "columns": [
@@ -489,9 +561,70 @@
       ],
       "sla_policy": "full refresh on every dw:load",
       "data_start_date": "2026-06-09",
-      "load_type": "full"
+      "load_type": "full",
+      "allowed_operations": [
+        "read",
+        "full_refresh"
+      ]
     },
     "table_kind": "rpt",
     "aggregates": "fact_doc_ingest"
+  },
+  {
+    "apiVersion": "anthropic.com/v1",
+    "kind": "AlloyDbTableSemantics",
+    "metadata": {
+      "name": "rpt_vendor_freshness",
+      "labels": {
+        "lane": "full-corpus",
+        "consumer": "frontend service-status panel"
+      }
+    },
+    "spec": {
+      "version": "1.0.0",
+      "schema": "dw",
+      "description": "Predefined aggregation — last load time and run count per vendor, the freshness signal paying crawlers and the 24/7 loop key off.",
+      "columns": [
+        {
+          "name": "vendor_name",
+          "sql_type": "text",
+          "description": "vendor directory name",
+          "kind": "dimension"
+        },
+        {
+          "name": "last_loaded_at",
+          "sql_type": "timestamptz",
+          "description": "most recent fact_vendor_crawl.loaded_at",
+          "kind": "time_dimension"
+        },
+        {
+          "name": "load_runs",
+          "sql_type": "bigint",
+          "description": "total load runs recorded for the vendor",
+          "kind": "measure",
+          "measure_type": "count"
+        },
+        {
+          "name": "latest_doc_count",
+          "sql_type": "bigint",
+          "description": "doc_count at the most recent load",
+          "kind": "measure",
+          "measure_type": "max"
+        }
+      ],
+      "codeowners": [
+        "subagentceo",
+        "alex@opensubagents.com"
+      ],
+      "sla_policy": "full refresh on every dw:load",
+      "data_start_date": "2026-06-10",
+      "load_type": "full",
+      "allowed_operations": [
+        "read",
+        "full_refresh"
+      ]
+    },
+    "table_kind": "rpt",
+    "aggregates": "fact_vendor_crawl"
   }
 ]

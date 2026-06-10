@@ -29,6 +29,7 @@ const DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_citations_ddl.sql
 const VENDOR_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_vendor_ddl.sql");
 const MEMORY_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_memory_ddl.sql");
 const MEMORIES_JSON = resolve(REPO_ROOT, "frontend", "public", "memories.json");
+const TEAM_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "team-stats.json");
 const OUT_JSON = resolve(REPO_ROOT, "frontend", "public", "table-semantics.json");
 const VENDOR_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "vendor-stats.json");
 
@@ -166,6 +167,25 @@ async function main(): Promise<void> {
       ) + "\n",
     );
     console.log(`semantics: wrote frontend/public/memories.json (${memories.rowCount} memories)`);
+
+    // B14: rpt refreshes (load_type: full) + static feeds
+    await pool.query("BEGIN");
+    await pool.query("TRUNCATE dw.rpt_citations_by_team");
+    const team = await pool.query(`
+      INSERT INTO dw.rpt_citations_by_team (research_team, doc_count)
+      SELECT research_team, COUNT(DISTINCT csl_id)
+      FROM dw.dim_research_doc WHERE is_current AND research_team IS NOT NULL
+      GROUP BY 1`);
+    await pool.query("TRUNCATE dw.rpt_vendor_freshness");
+    const fresh = await pool.query(`
+      INSERT INTO dw.rpt_vendor_freshness (vendor_name, last_loaded_at, load_runs, latest_doc_count)
+      SELECT vendor_name, MAX(loaded_at), COUNT(*),
+             (ARRAY_AGG(doc_count ORDER BY loaded_at DESC))[1]
+      FROM dw.fact_vendor_crawl GROUP BY 1`);
+    await pool.query("COMMIT");
+    const teams = await pool.query("SELECT research_team, doc_count FROM dw.rpt_citations_by_team ORDER BY doc_count DESC");
+    writeFileSync(TEAM_STATS_JSON, JSON.stringify(teams.rows, null, 2) + "\n");
+    console.log(`rpt_citations_by_team: ${team.rowCount} rows; rpt_vendor_freshness: ${fresh.rowCount} rows; wrote team-stats.json`);
 
     // B6 feed: static per-vendor stats for the frontend visualizations
     const vendorStats = [...corpusByVendor.entries()]

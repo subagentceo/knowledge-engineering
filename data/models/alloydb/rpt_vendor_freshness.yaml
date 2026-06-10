@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: rpt
+aggregates: fact_vendor_crawl
+
+metadata:
+  name: rpt_vendor_freshness
+  labels:
+    lane: full-corpus
+    consumer: frontend service-status panel
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: full refresh on every dw:load
+  data_start_date: "2026-06-10"
+  allowed_operations:
+    - read
+    - full_refresh
+  description: >-
+    Predefined aggregation — last load time and run count per vendor, the
+    freshness signal paying crawlers and the 24/7 loop key off.
+  load_type: full
+  columns:
+    - name: vendor_name
+      kind: dimension
+      sql_type: text
+      description: vendor directory name
+    - name: last_loaded_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: most recent fact_vendor_crawl.loaded_at
+    - name: load_runs
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: total load runs recorded for the vendor
+    - name: latest_doc_count
+      kind: measure
+      measure_type: max
+      sql_type: bigint
+      description: doc_count at the most recent load
