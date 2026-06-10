@@ -29,6 +29,9 @@ for (const file of readdirSync(ALLOYDB_DIR).filter((f) => f.endsWith(".yaml")).s
     if (s.sla_policy === undefined) failures.push(`${file}: sla_policy missing`);
     if (s.data_start_date === undefined) failures.push(`${file}: data_start_date missing`);
     if (s.load_type === undefined) failures.push(`${file}: load_type missing`);
+    if (s.allowed_operations === undefined || s.allowed_operations.length === 0) {
+      failures.push(`${file}: allowed_operations missing/empty`);
+    }
   } catch (err) {
     failures.push(`${file}: ${(err as Error).message.split("\n")[0]}`);
   }
