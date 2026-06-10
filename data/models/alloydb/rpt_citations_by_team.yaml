@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: rpt
+aggregates: fact_doc_ingest
+
+metadata:
+  name: rpt_citations_by_team
+  labels:
+    lane: economic-research
+    consumer: frontend citations panel
+
+spec:
+  version: 1.0.0
+  schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: full refresh on every dw:load
+  data_start_date: "2026-06-10"
+  allowed_operations:
+    - read
+    - full_refresh
+  description: >-
+    Predefined aggregation — citable research output per Anthropic research
+    team page (economic-research first), refreshed after each ingest run.
+  load_type: full
+  columns:
+    - name: research_team
+      kind: dimension
+      sql_type: text
+      description: team slug from dim_research_doc.research_team
+    - name: doc_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: distinct current docs attributed to the team
