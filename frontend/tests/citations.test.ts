@@ -5,7 +5,7 @@
 import { strict as assert } from "node:assert";
 import { test } from "node:test";
 
-import { filterCitations, issuedYear, type CitationRow } from "../src/citations.js";
+import { citationsByYear, filterCitations, issuedYear, type CitationRow } from "../src/citations.js";
 
 const clio: CitationRow = {
   id: "anthropic-sitemap:research:clio",
@@ -36,4 +36,25 @@ test("filterCitations matches title, abstract, and id case-insensitively", () =>
 test("issuedYear renders year or em-dash placeholder", () => {
   assert.equal(issuedYear(clio), "2024");
   assert.equal(issuedYear(econ), "—");
+});
+
+test("citationsByYear counts rows per year, ascending", () => {
+  const more: CitationRow[] = [
+    ...rows,
+    { id: "a", type: "article", title: "A", issued: { "date-parts": [[2024, 1]] } },
+    { id: "b", type: "article", title: "B", issued: { "date-parts": [[2023, 6]] } },
+  ];
+  assert.deepEqual(citationsByYear(more), [
+    { year: "2023", count: 1 },
+    { year: "2024", count: 2 },
+    { year: "—", count: 1 },
+  ]);
+});
+
+test("citationsByYear: undated bucket sorts last, empty input yields empty strip", () => {
+  assert.deepEqual(citationsByYear([]), []);
+  assert.deepEqual(citationsByYear([econ, clio]), [
+    { year: "2024", count: 1 },
+    { year: "—", count: 1 },
+  ]);
 });
