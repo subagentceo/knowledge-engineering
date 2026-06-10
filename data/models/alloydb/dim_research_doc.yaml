@@ -12,8 +12,14 @@ metadata:
     source: vendor/anthropic-sitemap
 
 spec:
-  version: 1.0.0
+  version: 1.1.0
   schema: dw
+  codeowners:
+    - subagentceo
+    - alex@opensubagents.com
+  sla_policy: refresh within 24h of vendor crawl
+  data_start_date: "2026-06-09"
+  load_type: incremental
   description: >-
     Anthropic research documents mirrored under
     vendor/anthropic-sitemap/{research,_pdfs}, one current row per doc.
