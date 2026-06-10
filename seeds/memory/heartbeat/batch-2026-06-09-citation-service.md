@@ -1,6 +1,6 @@
 ---
 updated: 2026-06-09T23:00Z
-status: queued
+status: complete
 ---
 
 ```yaml
@@ -75,7 +75,7 @@ batch:
       heartbeat tick reads THIS file and picks the top unblocked task
     extends: .claude/skills/{heartbeat,refresh-vendors,routines}
     gate: B3, B4
-  - id: B10
+  - id: B10  # DONE — this PR
     task: citations vending format — map csl_items to Claude citations blocks
       (refs: cit) for research-team agents; example under src/examples/ + test
     extends: src/examples/citations.ts
