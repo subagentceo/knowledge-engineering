@@ -338,3 +338,60 @@ body {
   font-size: 12px;
   color: #e6b455;
 }
+
+/* B11 — human citation UX + mobile overlap fix (filter input was
+   transparent and overlapped the pane above on small screens) */
+#citations input[type="search"] {
+  position: relative;
+  z-index: 2;
+  background: #0a0a0a;
+  margin-top: 8px;
+}
+
+#citations-pane {
+  overflow-x: auto;
+}
+
+.year-seg {
+  cursor: pointer;
+}
+
+.cite-back {
+  display: inline-block;
+  color: #51c4ff;
+  margin-bottom: 8px;
+}
+
+.cite-detail {
+  border: 1px solid #2a2a2a;
+  border-left: 3px solid #51c4ff;
+  padding: 12px;
+}
+
+.cite-detail h2 {
+  margin: 0 0 6px;
+  font-size: 15px;
+}
+
+.cite-meta {
+  color: #6a6a6a;
+  font-size: 11px;
+  word-break: break-all;
+}
+
+.cite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.cite-actions button {
+  background: #1a1a1a;
+  color: #e6e6e6;
+  border: 1px solid #2a2a2a;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  padding: 4px 10px;
+}
