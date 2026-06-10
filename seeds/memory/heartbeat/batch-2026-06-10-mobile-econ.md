@@ -47,7 +47,7 @@ batch:
       every pane id present in index.html)
     rubric: regression cannot reland silently
     gate: B21
-  - id: B23
+  - id: B23  # DONE — this PR
     task: econ-researcher fast path — team chip row above the citations
       table (economic-research first) filtering via team-stats.json +
       #team/<slug> deep link
