@@ -188,6 +188,36 @@ body {
   margin-bottom: 8px;
 }
 
+.citations-year-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-bottom: 8px;
+  font-size: 11px;
+  color: #9a9a9a;
+}
+
+.year-seg {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.year-label {
+  color: #6a6a6a;
+}
+
+.year-bar {
+  display: inline-block;
+  height: 7px;
+  background: #51c4ff;
+  min-width: 2px;
+}
+
+.year-count {
+  color: #e6e6e6;
+}
+
 .citations-table {
   width: 100%;
   border-collapse: collapse;

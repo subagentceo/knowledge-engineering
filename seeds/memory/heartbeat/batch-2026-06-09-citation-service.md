@@ -36,7 +36,7 @@ batch:
       (dim_memory SCD II, fact_memory_access)
     extends: src/lib/table-semantics.ts, data/models/alloydb/
     gate: null
-  - id: B3
+  - id: B3   # DONE — this PR
     task: dreams consolidation job (refs: drm) — periodic distillation of
       fact_memory_access + semantic_cache hits into curated citation memories;
       wired via /schedule routine
