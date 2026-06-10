@@ -395,3 +395,38 @@ body {
   font-size: 11px;
   padding: 4px 10px;
 }
+
+#memory-pane {
+  padding: 12px;
+}
+
+.memory-totals {
+  color: #9a9a9a;
+  font-size: 12px;
+}
+
+.memory-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+.memory-list li {
+  padding: 3px 0;
+  border-bottom: 1px solid #1d1d1d;
+  word-break: break-all;
+}
+
+.memory-badge {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #2a2a2a;
+  padding: 0 4px;
+}
+
+.memory-ingest { color: #7bd88f; }
+.memory-dreams { color: #e6b455; }
+
+.memory-agent { color: #51c4ff; }

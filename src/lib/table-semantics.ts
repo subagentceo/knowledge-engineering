@@ -45,6 +45,16 @@ export const MEASURE_TYPES = [
 
 export const SCD_TYPES = [0, 1, 2, 3, 4] as const;
 
+// Agent data operations a table permits — the semantic definition of
+// allowed agent ops (B16). verify:dw requires every contract to declare it.
+export const ALLOWED_OPERATIONS = [
+  "read",
+  "append",
+  "scd1_overwrite",
+  "scd2_rewrite",
+  "full_refresh",
+] as const;
+
 export const Calculation = z.object({
   expression: z.string().min(1),
   // measure columns this calculation is derived from: "<table>.<column>"
@@ -87,6 +97,7 @@ const TableBase = z.object({
     sla_policy: z.string().optional(),
     data_start_date: z.string().optional(),
     load_type: z.enum(["full", "incremental", "append_only"]).optional(),
+    allowed_operations: z.array(z.enum(ALLOWED_OPERATIONS)).min(1).optional(),
   }),
 });
 

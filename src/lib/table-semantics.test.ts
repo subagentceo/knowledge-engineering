@@ -23,7 +23,7 @@ const tables = readdirSync(ALLOYDB_DIR)
   .filter((f) => f.endsWith(".yaml"))
   .map((f) => parseTableSemantics(readFileSync(resolve(ALLOYDB_DIR, f), "utf8")));
 
-assert.equal(tables.length, 8);
+assert.equal(tables.length, 10);
 validateInheritance(tables);
 
 const byName = new Map(tables.map((t) => [t.metadata.name, t]));

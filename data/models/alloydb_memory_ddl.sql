@@ -33,3 +33,8 @@ CREATE TABLE IF NOT EXISTS dw.fact_memory_access (
 );
 CREATE INDEX IF NOT EXISTS fact_memory_access_sk_idx
     ON dw.fact_memory_access (memory_sk, accessed_at DESC);
+
+-- B19: agent writes join ingest/dreams as a curation source
+ALTER TABLE dw.dim_memory DROP CONSTRAINT IF EXISTS dim_memory_curation_source_check;
+ALTER TABLE dw.dim_memory ADD CONSTRAINT dim_memory_curation_source_check
+    CHECK (curation_source IN ('ingest','dreams','agent'));
