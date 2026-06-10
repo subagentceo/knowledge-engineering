@@ -42,7 +42,7 @@ batch:
       wired via /schedule routine
     extends: .claude/skills/{schedule-bridge,heartbeat}
     gate: B2
-  - id: B4
+  - id: B4   # DONE — this PR
     task: warehouse expansion to full corpus — dim_vendor (SCD I) + facts per
       crawl for all 34 vendors, contracts semver-bumped MINOR
     extends: src/lib/vendor-corpus.ts, data/models/alloydb/

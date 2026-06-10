@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: fact
+grain: one row per vendor per warehouse load (vendor_name × loaded_at)
+
+metadata:
+  name: fact_vendor_crawl
+  labels:
+    lane: full-corpus
+    feeds: B6 visualizations (year × vendor)
+
+spec:
+  version: 1.0.0
+  schema: dw
+  description: >-
+    Transactional load facts per vendor per run — corpus size and citation
+    extraction quality over time across all 34 mirrored vendors.
+  load_type: append_only
+  columns:
+    - name: vendor_name
+      kind: dimension
+      sql_type: text
+      description: FK-style → dw.dim_vendor.vendor_name
+    - name: date_key
+      kind: time_dimension
+      sql_type: integer
+      description: YYYYMMDD of the load run
+    - name: loaded_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: load run wall-clock start
+    - name: doc_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: docs in this vendor's corpus at load time
+    - name: dated_count
+      kind: measure
+      measure_type: count
+      sql_type: bigint
+      description: docs with a parsed issued date
+    - name: dated_share
+      kind: measure
+      measure_type: ratio
+      sql_type: numeric
+      description: dated_count over doc_count
+      calculation:
+        expression: dated_count::numeric / NULLIF(doc_count, 0)
+        inherits:
+          - fact_vendor_crawl.dated_count
+          - fact_vendor_crawl.doc_count
+        result_type: numeric
