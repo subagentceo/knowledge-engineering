@@ -41,7 +41,7 @@ batch:
       flow column + capped decorative ascii (pointer-events none)
     rubric: steps_to_citation goes from ∞ to finite on the priority device
     gate: null
-  - id: B22
+  - id: B22  # DONE — this PR
     task: mobile layout guardrail tests — assert the P0 invariants in CI
       (app container scrolls, ascii pane non-interactive + height-capped,
       every pane id present in index.html)
