@@ -1,0 +1,6 @@
+# paid access welcome — see https://developers.cloudflare.com/ai-crawl-control/
+User-agent: *
+Allow: /
+Sitemap: https://subagentknowledge.com/sitemap.xml
+
+Content-Signal: search=yes, ai-input=yes, ai-train=yes

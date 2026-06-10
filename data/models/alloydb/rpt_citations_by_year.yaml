@@ -12,13 +12,16 @@ metadata:
     consumer: frontend citations panel
 
 spec:
-  version: 1.1.0
+  version: 1.2.0
   schema: dw
   codeowners:
     - subagentceo
     - alex@opensubagents.com
   sla_policy: full refresh on every dw:load
   data_start_date: "2026-06-09"
+  allowed_operations:
+    - read
+    - full_refresh
   description: >-
     Predefined aggregation — citable research output per publication year,
     refreshed after each ingest run. Backs the researcher-facing frontend

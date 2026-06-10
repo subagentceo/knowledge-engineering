@@ -36,8 +36,42 @@ export default {
       });
     }
 
-    // Everything else (including /vendor-manifest.json and the SPA
-    // shell) goes through the static-asset binding directly.
-    return env.ASSETS.fetch(request);
+    // B17 — stable per-citation URLs: /cite/<csl-id> returns one CSL-JSON
+    // item (low-token, crawlable; the paid content unit for pay-per-crawl).
+    if (url.pathname.startsWith("/cite/")) {
+      const id = decodeURIComponent(url.pathname.slice("/cite/".length));
+      const feed = await env.ASSETS.fetch(new Request(new URL("/citations.json", url.origin)));
+      if (!feed.ok) return new Response("citations feed unavailable", { status: 503 });
+      const items = (await feed.json()) as Array<{ id: string }>;
+      const item = items.find((i) => i.id === id);
+      if (item === undefined) return new Response("unknown citation id", { status: 404 });
+      return new Response(JSON.stringify(item, null, 2) + "\n", {
+        headers: {
+          "content-type": "application/json; charset=utf-8",
+          "cache-control": "public, max-age=3600",
+          "link": '<https://github.com/citation-style-language/schema>; rel="describedby"',
+          "x-site": env.SITE_NAME,
+        },
+      });
+    }
+
+    // B20 — delivery perf: long cache for JSON feeds (rebuilt per deploy),
+    // 103 Early Hints via Link preload on the SPA shell (Cloudflare caches
+    // and emits these before the final response).
+    if (url.pathname.endsWith(".json") || url.pathname === "/llms.txt" || url.pathname === "/sitemap.xml") {
+      const r = await env.ASSETS.fetch(request);
+      if (!r.ok) return r;
+      const out = new Response(r.body, r);
+      out.headers.set("cache-control", "public, max-age=3600, stale-while-revalidate=86400");
+      return out;
+    }
+    const r = await env.ASSETS.fetch(request);
+    if (r.headers.get("content-type")?.includes("text/html") === true) {
+      const out = new Response(r.body, r);
+      out.headers.append("link", "</citations.json>; rel=preload; as=fetch; crossorigin");
+      out.headers.append("link", "</table-semantics.json>; rel=preload; as=fetch; crossorigin");
+      return out;
+    }
+    return r;
   },
 };

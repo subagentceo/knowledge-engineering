@@ -27,7 +27,7 @@ const SERVERS: ServerSpec[] = [
   {
     name: "knowledge-bridge",
     entry: resolve(root, "dist/mcp/bridge-server.js"),
-    expected: 52, // +4 citations_* (B1) +3 repo mail (send_mail/receive_mail/mail_thread)
+    expected: 54, // +memory_read +memory_write (B19)
   },
   {
     name: "npm-registry",
