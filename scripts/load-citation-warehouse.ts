@@ -27,6 +27,8 @@ const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const ALLOYDB_DIR = resolve(REPO_ROOT, "data", "models", "alloydb");
 const DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_citations_ddl.sql");
 const VENDOR_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_vendor_ddl.sql");
+const MEMORY_DDL_PATH = resolve(REPO_ROOT, "data", "models", "alloydb_memory_ddl.sql");
+const MEMORIES_JSON = resolve(REPO_ROOT, "frontend", "public", "memories.json");
 const OUT_JSON = resolve(REPO_ROOT, "frontend", "public", "table-semantics.json");
 const VENDOR_STATS_JSON = resolve(REPO_ROOT, "frontend", "public", "vendor-stats.json");
 
@@ -139,6 +141,31 @@ async function main(): Promise<void> {
     console.log(
       `dim_vendor: ${corpusByVendor.size} vendors (SCD I); fact_vendor_crawl: +${corpusByVendor.size} rows over ${stats.total} docs`,
     );
+
+    // B12 feed: memory browser — current dim_memory rows + version counts
+    await pool.query(readFileSync(MEMORY_DDL_PATH, "utf8"));
+    const memories = await pool.query(`
+      SELECT d.memory_path, d.curation_source, d.csl_id,
+             d.row_effective_from AS effective_from,
+             (SELECT COUNT(*) FROM dw.dim_memory h WHERE h.memory_path = d.memory_path) AS versions
+      FROM dw.dim_memory d
+      WHERE d.is_current
+      ORDER BY d.memory_path`);
+    writeFileSync(
+      MEMORIES_JSON,
+      JSON.stringify(
+        memories.rows.map((r) => ({
+          memory_path: r.memory_path,
+          curation_source: r.curation_source,
+          csl_id: r.csl_id,
+          effective_from: new Date(r.effective_from as string).toISOString(),
+          versions: Number(r.versions),
+        })),
+        null,
+        2,
+      ) + "\n",
+    );
+    console.log(`semantics: wrote frontend/public/memories.json (${memories.rowCount} memories)`);
 
     // B6 feed: static per-vendor stats for the frontend visualizations
     const vendorStats = [...corpusByVendor.entries()]

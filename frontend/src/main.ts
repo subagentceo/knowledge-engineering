@@ -10,6 +10,17 @@ import { loadManifest, loadVendorPage } from "./vendor-loader.js";
 import { CitationsTable, loadCitations } from "./citations.js";
 import { loadTableSemantics, renderWarehouse } from "./warehouse.js";
 import { loadVendorStats, renderServiceStatus } from "./service-status.js";
+import { loadMemories, renderMemoryBrowser } from "./memory-browser.js";
+
+async function hydrateMemoryBrowser(): Promise<void> {
+  const root = document.getElementById("memory-browser") as HTMLDivElement | null;
+  if (!root) return;
+  try {
+    renderMemoryBrowser(root, await loadMemories());
+  } catch (err) {
+    root.textContent = `failed to load memories: ${(err as Error).message}`;
+  }
+}
 
 async function hydrateServiceStatus(): Promise<void> {
   const root = document.getElementById("service-status") as HTMLDivElement | null;
@@ -49,6 +60,7 @@ async function main(): Promise<void> {
   void hydrateCitations();
   void hydrateWarehouse();
   void hydrateServiceStatus();
+  void hydrateMemoryBrowser();
 
   const accordionRoot = document.getElementById("accordion") as HTMLDivElement | null;
   const loadingEl = document.getElementById("accordion-loading") as HTMLDivElement | null;
