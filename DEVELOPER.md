@@ -126,7 +126,7 @@ src/                — orchestrator + MCP servers + lib helpers
 vendor/             — mirrored vendor docs (~80 MB; first-class)
 scripts/            — crawler, verify chain, grader, install-plugins, ...
 infra/              — Cloudflare Worker (Sandbox + Neon branching)
-frontend/           — outcomesdk.com (pretext-driven SPA)
+frontend/           — subagentknowledge.com (citations + warehouse + status SPA)
 docs/               — architecture, governance, conventions, PROJECT, pending, plans, runbooks
 seeds/              — prompts (operator seeds), posture XML, citation extracts, memory
 rubrics/            — per-phase outcome rubrics (0..16)

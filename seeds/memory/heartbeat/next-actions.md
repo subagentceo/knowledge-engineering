@@ -1,12 +1,15 @@
 ---
-updated: 2026-06-09T23:00Z
+updated: 2026-06-10T05:00Z
 ---
 
 ## Priority queue (2026-06-09 → )
 
-**Read `batch-2026-06-09-citation-service.md` first** — 10-task batch
-(B1–B10) for the knowledge-engineering-citation-service vision. Pick the
-top unblocked id each tick; self-update that file after each merge.
+**Read `batch-2026-06-10-frontend-memory.md` first** — 10-task batch
+(B11–B20): human citation UX + agent memory structure + cache/alloydb
+semantics optimization + pay-per-crawl growth. Pick the top unblocked id
+each tick; self-update that file after each merge.
+
+Previous batch B1–B10 complete (PRs #433–#442, 2026-06-09/10).
 
 Shipped this session (2026-06-09): PR #429 (semantic cache + citation
 pipeline + frontend table), PR #430 (full-corpus warm 5401 docs / 34
