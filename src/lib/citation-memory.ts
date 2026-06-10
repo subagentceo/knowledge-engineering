@@ -18,7 +18,7 @@ export const MemoryRecord = z.object({
   path: z.string().regex(/^\/citations\/[a-z0-9._-]+\.md$/),
   content: z.string().min(1),
   csl_id: z.string(),
-  curation_source: z.enum(["ingest", "dreams"]),
+  curation_source: z.enum(["ingest", "dreams", "agent"]),
 });
 export type MemoryRecord = z.infer<typeof MemoryRecord>;
 

@@ -8,7 +8,7 @@
 
 export interface MemoryRow {
   memory_path: string;
-  curation_source: "ingest" | "dreams";
+  curation_source: "ingest" | "dreams" | "agent";
   csl_id: string | null;
   effective_from: string;
   versions: number;
