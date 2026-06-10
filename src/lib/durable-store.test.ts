@@ -78,4 +78,19 @@ assert.equal(promoted, 1);
 assert.equal(table.has("cold"), false);
 assert.ok(table.has("hot"));
 
+// onPromote event sink fires once per promoted entry, skipped entries excluded
+{
+  const events: string[] = [];
+  const n = await store.persistVolatile(
+    [
+      { key: "evt-cold", value: { title: "c", tokens: 1 }, hits: PROMOTE_AFTER_HITS - 1 },
+      { key: "evt-hot", value: { title: "h", tokens: 2 }, hits: PROMOTE_AFTER_HITS },
+    ],
+    Doc,
+    async (e) => { events.push(e.key); },
+  );
+  assert.equal(n, 1);
+  assert.deepEqual(events, ["evt-hot"]);
+}
+
 console.log("durable-store.test.ts OK");

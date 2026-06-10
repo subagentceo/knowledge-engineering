@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../../schemas/table-semantics.schema.json
+---
+apiVersion: anthropic.com/v1
+kind: AlloyDbTableSemantics
+table_kind: events
+grain: one row per DurableStore.persistVolatile promotion (cache_key × occurred_at)
+
+metadata:
+  name: events_cache_promotion
+  labels:
+    lane: semantic-cache
+    source: src/cache/durable-store.ts
+
+spec:
+  version: 1.0.0
+  schema: dw
+  description: >-
+    Append-only audit log of volatile→durable cache promotions. Never
+    UPDATE, never DELETE — the promotion history is the record of what the
+    agent fleet found durable-worthy and when.
+  load_type: append_only
+  columns:
+    - name: cache_key
+      kind: dimension
+      sql_type: text
+      description: semantic_cache key that was promoted
+    - name: source_path
+      kind: dimension
+      sql_type: text
+      description: originating repo path; NULL when synthesized
+    - name: agent_id
+      kind: dimension
+      sql_type: text
+      description: promoting agent (session or coworker id)
+    - name: occurred_at
+      kind: time_dimension
+      sql_type: timestamptz
+      description: promotion wall-clock time
+    - name: hits
+      kind: measure
+      measure_type: sum
+      sql_type: bigint
+      description: volatile hits carried at promotion time
