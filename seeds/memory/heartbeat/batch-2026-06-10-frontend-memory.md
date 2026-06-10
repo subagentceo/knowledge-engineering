@@ -24,7 +24,7 @@ extends batch-2026-06-09 (B1–B10, complete).
 
 ```yaml
 batch:
-  - id: B11
+  - id: B11  # DONE — this PR
     task: human citation UX — per-citation detail view with copy-as
       CSL-JSON | BibTeX | APA, stable deep links (#cite/<csl-id>), and the
       year strip linking into the filtered table

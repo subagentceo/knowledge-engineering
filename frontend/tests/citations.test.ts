@@ -5,7 +5,7 @@
 import { strict as assert } from "node:assert";
 import { test } from "node:test";
 
-import { citationsByYear, filterCitations, issuedYear, type CitationRow } from "../src/citations.js";
+import { citationsByYear, citeHash, filterCitations, issuedYear, rowFromHash, toApa, toBibtex, type CitationRow } from "../src/citations.js";
 
 const clio: CitationRow = {
   id: "anthropic-sitemap:research:clio",
@@ -57,4 +57,29 @@ test("citationsByYear: undated bucket sorts last, empty input yields empty strip
     { year: "2024", count: 1 },
     { year: "—", count: 1 },
   ]);
+});
+
+test("year: query filters by issued year, em-dash bucket included", () => {
+  assert.deepEqual(filterCitations(rows, "year:2024"), [clio]);
+  assert.deepEqual(filterCitations(rows, "year:—"), [econ]);
+  assert.equal(filterCitations(rows, "year:1999").length, 0);
+});
+
+test("toBibtex emits a citable entry with id note and url", () => {
+  const bib = toBibtex(clio);
+  assert.ok(bib.startsWith("@article{clio2024,"));
+  assert.ok(bib.includes("title = {Clio: privacy-preserving insights}"));
+  assert.ok(bib.includes("note = {anthropic-sitemap:research:clio}"));
+  assert.ok(toBibtex(econ).startsWith("@article{economic-research,"));
+});
+
+test("toApa renders year or n.d.", () => {
+  assert.equal(toApa(econ), "Anthropic. (n.d.). Economic Research.");
+  assert.ok(toApa(clio).startsWith("Anthropic. (2024). Clio"));
+});
+
+test("citeHash/rowFromHash round-trip; unknown id yields undefined", () => {
+  assert.equal(rowFromHash(rows, citeHash(clio))?.id, clio.id);
+  assert.equal(rowFromHash(rows, "#cite/nope"), undefined);
+  assert.equal(rowFromHash(rows, "#"), undefined);
 });
