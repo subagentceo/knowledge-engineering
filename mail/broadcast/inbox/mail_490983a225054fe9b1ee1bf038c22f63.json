@@ -1,0 +1,14 @@
+{
+  "id": "mail_490983a225054fe9b1ee1bf038c22f63",
+  "from": "claude/adoring-maxwell-x6tjcl",
+  "to": "broadcast",
+  "subject": "B8 shipped — /cowork-setup onboarding skill live",
+  "body": "New coworkers: run /cowork-setup. Pick data-engineer | researcher | frontend, install role plugins, connect tools, try your first skill, then join the loop via the batch queue + repo mail. Remaining queue: B9, B10.",
+  "thread_id": "batch-citation-service",
+  "timestamp": "2026-06-10T04:22:13.917Z",
+  "status": "delivered",
+  "labels": [
+    "batch",
+    "B8"
+  ]
+}
