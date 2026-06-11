@@ -26,7 +26,10 @@ export function findApiKeyIntroductions(diffText: string): ReviewFinding[] {
       continue;
     }
     if (!line.startsWith("+") || line.startsWith("+++")) continue;
+    // Docs/mirrors mention the key as prose; test files use it as a fixture
+    // (the env-sanitizer and this module's own tests assert rejection).
     if (/^(docs|vendor|seeds)\//.test(currentFile) || currentFile.endsWith(".md")) continue;
+    if (/\.test\.[cm]?[jt]s$/.test(currentFile)) continue;
     if (/ANTHROPIC_API_KEY\s*[:=]/.test(line)) {
       findings.push({
         rule: "oauth-only (OSEC1)",

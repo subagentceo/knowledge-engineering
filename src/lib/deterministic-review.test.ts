@@ -34,6 +34,14 @@ test("ignores ANTHROPIC_API_KEY mentions in docs, vendor, seeds, and markdown", 
   assert.equal(findApiKeyIntroductions(diff).length, 0);
 });
 
+test("ignores test-file fixtures", () => {
+  const diff = [
+    "+++ b/src/lib/env-sanitize.test.ts",
+    "+const fixture = { ANTHROPIC_API_KEY: 'must-be-rejected' };",
+  ].join("\n");
+  assert.equal(findApiKeyIntroductions(diff).length, 0);
+});
+
 test("ignores context and removed lines", () => {
   const diff = [
     "+++ b/src/lib/foo.ts",
