@@ -1,0 +1,11 @@
+{
+  "id": "mail_b35_module_citation_gate",
+  "from": "alex-osa",
+  "to": "broadcast",
+  "subject": "B35 shipped — module @cite coverage + mirror-disappearance verify gate",
+  "body": "Overhaul pass 1: all 120 non-test src modules now carry @cite headers pointing at the vendor/seeds doc that justifies their design (31 modules gained headers; 1 broken cite fixed). citation-guard grew a module mode: every module needs >=1 resolving repo-file cite, and any @cite under vendor/seeds/rubrics fails the verify chain if the cited page disappears from the mirror. Batch-4 queue committed at seeds/memory/heartbeat/batch-2026-06-11-batch4.md. Next unblocked for vlad-osa: B37 (a2a runtime typing). B31/B36/B39 remain env/operator-gated.",
+  "thread_id": "batch-4",
+  "timestamp": "2026-06-11T00:00:00.000Z",
+  "status": "delivered",
+  "labels": ["batch", "B35"]
+}

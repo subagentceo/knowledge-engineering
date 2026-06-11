@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/code.claude.com/docs/en/authentication.md
+ */
+/**
  * OAuth-only auth gate.
  *
  * This stack refuses to fall back to API-key auth. Either:

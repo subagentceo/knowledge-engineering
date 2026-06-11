@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropic-sitemap/urls.md
+ */
+/**
  * Bridge lane: anthropic.com/engineering.
  *
  * Tools:

@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/claude-sitemap/urls.md
+ */
+/**
  * Bridge lane: claude.com/blog.
  *
  * Tools:

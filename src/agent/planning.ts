@@ -1,3 +1,6 @@
+/**
+ * @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/todo-tracking.md
+ */
 // src/agent/planning.ts
 //
 // Mode-aware task planner for the orchestrator.

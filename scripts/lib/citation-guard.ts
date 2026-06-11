@@ -121,6 +121,91 @@ function checkFile(filePath: string): Finding[] {
   return findings;
 }
 
+// B35 module mode. Every non-test module under src/ must carry at least one
+// @cite resolving to a real repo file (vendor/seeds/rubrics mirror docs, or a
+// repo-internal artifact). Any @cite under a canonical citation root must
+// still resolve — the gate fails when a cited page disappears from the
+// mirror. URL cites are allowed but do not satisfy the requirement.
+// Ambient .d.ts files describe third-party packages, not app design — exempt.
+
+const MODULE_EXTENSIONS = new Set([".ts", ".tsx"]);
+
+function isModuleFile(filePath: string): boolean {
+  if (!MODULE_EXTENSIONS.has(extname(filePath))) return false;
+  if (filePath.endsWith(".d.ts")) return false;
+  return !TEST_PATTERNS.some((re) => re.test(filePath));
+}
+
+function* walkModules(dir: string): Generator<string> {
+  let entries: ReturnType<typeof readdirSync>;
+  try {
+    entries = readdirSync(dir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (entry.name === "node_modules" || entry.name.startsWith(".")) continue;
+    const full = resolve(dir, entry.name);
+    if (entry.isDirectory()) {
+      yield* walkModules(full);
+    } else if (entry.isFile() && isModuleFile(full)) {
+      yield full;
+    }
+  }
+}
+
+function isBareRoot(cite: string): boolean {
+  return CITATION_ROOTS.some((r) => cite === r || cite === `${r}/` || cite === `${r}/,`);
+}
+
+function checkModuleFile(filePath: string): Finding[] {
+  const body = readFileSync(filePath, "utf8");
+  const cites = extractCitations(body).filter((c) => !isBareRoot(c));
+  if (cites.length === 0) {
+    return [{ file: filePath, reason: "no-header", detail: "module has no @cite header" }];
+  }
+  const findings: Finding[] = [];
+  let resolved = 0;
+  for (const cite of cites) {
+    if (/^https?:\/\//.test(cite)) continue;
+    const cleaned = cite.split("#")[0].replace(/[.,)]+$/, "");
+    const target = resolve(REPO_ROOT, cleaned);
+    const underRoot = CITATION_ROOT_PATHS.some((p) => target.startsWith(p));
+    let stat;
+    try {
+      stat = statSync(target);
+    } catch {
+      if (underRoot) {
+        findings.push({
+          file: filePath,
+          reason: "missing-target",
+          detail: `@cite ${cite} → ${relative(REPO_ROOT, target)} disappeared from the mirror`,
+        });
+      }
+      continue;
+    }
+    if (!stat.isFile() || stat.size === 0) {
+      if (underRoot) {
+        findings.push({
+          file: filePath,
+          reason: "empty-target",
+          detail: `@cite ${cite} resolves but is not a non-empty file`,
+        });
+      }
+      continue;
+    }
+    resolved += 1;
+  }
+  if (resolved === 0) {
+    findings.push({
+      file: filePath,
+      reason: "missing-target",
+      detail: "no @cite resolves to an existing repo file",
+    });
+  }
+  return findings;
+}
+
 export function runCitationGuard(): { ok: boolean; checked: number; findings: Finding[] } {
   const findings: Finding[] = [];
   let checked = 0;
@@ -129,6 +214,10 @@ export function runCitationGuard(): { ok: boolean; checked: number; findings: Fi
       checked += 1;
       findings.push(...checkFile(file));
     }
+  }
+  for (const file of walkModules(resolve(REPO_ROOT, "src"))) {
+    checked += 1;
+    findings.push(...checkModuleFile(file));
   }
   return { ok: findings.length === 0, checked, findings };
 }

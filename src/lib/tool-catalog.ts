@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/platform.claude.com/docs/en/agents-and-tools/tool-use/overview.md
+ */
+/**
  * Programmatic tool catalog — Phase J outcome O-J1.
  *
  * Anthropic Messages API surfaces a fixed set of server-tool + client-

@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling.md
+ */
+/**
  * Bridge lane: search_tools (Phase 6 — progressive-disclosure tool surface).
  *
  * Implements the "code execution with MCP" pattern from
