@@ -1,6 +1,6 @@
 // frontend/src/worker.ts
 //
-// Phase 13.B+ (O7). Public-facing Cloudflare Worker for outcomesdk.com.
+// Phase 13.B+ (O7). Public-facing Cloudflare Worker for subagentknowledge.com.
 // Serves the Vite-built bundle + the vendor/ markdown tree as static
 // assets via the ASSETS binding (declared in wrangler.jsonc).
 //
@@ -16,9 +16,35 @@ interface Env {
   SITE_NAME: string;
 }
 
+const CANONICAL_HOST = "subagentknowledge.com";
+
+// HTTPS is enforced here because the deploy token lacks zone_settings
+// access — the Worker is the only layer this repo controls.
+const HSTS = "max-age=31536000; includeSubDomains";
+
+function withSecurityHeaders(r: Response): Response {
+  const out = new Response(r.body, r);
+  out.headers.set("strict-transport-security", HSTS);
+  return out;
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    return withSecurityHeaders(await handle(request, env));
+  },
+};
+
+async function handle(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+
+    // Force HTTPS + retire the legacy outcomesdk.com host. www stays on
+    // subagentknowledge.com; only scheme and legacy hosts are rewritten.
+    const legacyHost = url.hostname === "outcomesdk.com" || url.hostname.endsWith(".outcomesdk.com");
+    if (url.protocol !== "https:" || legacyHost) {
+      url.protocol = "https:";
+      if (legacyHost) url.hostname = CANONICAL_HOST;
+      return Response.redirect(url.toString(), 301);
+    }
 
     // Vendor markdown is served raw with a markdown content-type so
     // the frontend's fetch (Accept: text/markdown) gets a clean
@@ -73,5 +99,4 @@ export default {
       return out;
     }
     return r;
-  },
-};
+}
