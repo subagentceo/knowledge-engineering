@@ -30,7 +30,11 @@ import {
 } from "../src/lib/fable5-pricing.ts";
 
 function git(...args: string[]): string {
-  return execFileSync("git", args, { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+  return execFileSync("git", args, {
+    encoding: "utf8",
+    maxBuffer: 64 * 1024 * 1024,
+    stdio: ["ignore", "pipe", "ignore"],
+  });
 }
 
 function arg(name: string): string | undefined {
