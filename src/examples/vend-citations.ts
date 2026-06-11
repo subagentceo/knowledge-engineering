@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/citations.md
+ */
+/**
  * Example: vend corpus citations to a research agent (B10).
  *
  * Outcome: citations_search-equivalent corpus lookup → vendCitations()

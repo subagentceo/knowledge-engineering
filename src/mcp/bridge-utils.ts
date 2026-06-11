@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/modelcontextprotocol/modelcontextprotocol.io/docs/develop/build-server.md
+ */
+/**
  * Shared helpers for the bridge lanes.
  *
  * - fetchText / fetchHtml: GET a public URL and return the body.

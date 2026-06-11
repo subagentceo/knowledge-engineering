@@ -1,3 +1,6 @@
+/**
+ * @cite vendor/anthropic-ai-npm/packages.json
+ */
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { searchShape, fetchJson, jsonResult, REGISTRY } from "../schemas.js";
 

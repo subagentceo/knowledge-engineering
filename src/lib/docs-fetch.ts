@@ -1,3 +1,6 @@
+/**
+ * @cite vendor/anthropics/platform.claude.com/llms.txt
+ */
 // src/lib/docs-fetch.ts
 //
 // Normalize any code.claude.com / claude.com / platform.claude.com docs URL

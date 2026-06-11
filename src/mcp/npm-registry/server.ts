@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 /**
+ * @cite vendor/modelcontextprotocol/modelcontextprotocol.io/docs/develop/build-server.md
+ */
+/**
  * npm-registry MCP server.
  *
  * Exposes the npm public registry as four read-only tools, registered on a
