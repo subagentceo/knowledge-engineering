@@ -22,7 +22,7 @@ export function findApiKeyIntroductions(diffText: string): ReviewFinding[] {
   for (const line of diffText.split("\n")) {
     const fileHeader = line.match(/^\+\+\+ b\/(.+)$/);
     if (fileHeader) {
-      currentFile = fileHeader[1];
+      currentFile = fileHeader[1] ?? "";
       continue;
     }
     if (!line.startsWith("+") || line.startsWith("+++")) continue;
