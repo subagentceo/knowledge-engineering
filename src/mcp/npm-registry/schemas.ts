@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/modelcontextprotocol/modelcontextprotocol.io/docs/develop/build-server.md
+ */
+/**
  * Zod input schemas for the npm-registry MCP server.
  *
  * The high-level `McpServer.tool(name, description, inputShape, handler)` API

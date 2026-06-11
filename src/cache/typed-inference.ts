@@ -11,7 +11,7 @@
  *
  * @cite src/cache/lru-bm25.ts
  * @cite https://github.com/StefanTerdell/zod-to-json-schema
- * @cite vendor/anthropics/platform.claude.com/docs/en/api/tool-use.md
+ * @cite vendor/anthropics/platform.claude.com/docs/en/agents-and-tools/tool-use/overview.md
  */
 
 import Anthropic from "@anthropic-ai/sdk";

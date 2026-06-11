@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/platform.claude.com/llms.txt
+ */
+/**
  * Bridge lane: llms.txt namespaces.
  *
  * llms.txt is a plain-text index served by a host so language models can

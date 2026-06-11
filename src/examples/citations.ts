@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/citations.md
+ */
+/**
  * Example: Citations.
  *
  * Outcome: A `document` content block with `citations.enabled: true` forces

@@ -1,3 +1,6 @@
+/**
+ * @cite vendor/turbopuffer/turbopuffer.com/docs/quickstart.md
+ */
 // src/lib/turbopuffer-client.ts
 //
 // Phase 14.B (#127) — thin Turbopuffer client for the chassis. Uses the

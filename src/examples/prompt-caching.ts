@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/prompt-caching.md
+ */
+/**
  * Example: Prompt caching.
  *
  * Outcome: System prompt + citation seed are sent with

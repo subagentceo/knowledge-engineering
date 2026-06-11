@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/code.claude.com/docs/en/authentication.md
+ */
+/**
  * Shared Anthropic SDK client for the example scripts.
  *
  * All examples must run OAuth-only:

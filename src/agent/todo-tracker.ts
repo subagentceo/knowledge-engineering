@@ -1,3 +1,6 @@
+/**
+ * @cite vendor/anthropics/code.claude.com/docs/en/agent-sdk/todo-tracking.md
+ */
 // src/agent/todo-tracker.ts
 //
 // Watches the Agent SDK message stream and renders a unified progress view

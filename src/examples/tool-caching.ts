@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/prompt-caching.md
+ */
+/**
  * Example: Tool caching.
  *
  * Outcome: The full `tools` array is cached as a single prefix by attaching
