@@ -51,9 +51,12 @@ test("ignores context and removed lines", () => {
   assert.equal(findApiKeyIntroductions(diff).length, 0);
 });
 
-test("flags test files missing @cite or @tdd headers", () => {
+test("flags test files missing citation or tdd headers", () => {
+  // Fixture tags are built by concatenation so citation-guard doesn't parse
+  // these literals as real citation directives in this file's source.
+  const cite = "@" + "cite";
   const findings = findTestHeaderGaps([
-    { path: "src/lib/a.test.ts", content: "/** @tdd green\n * @cite vendor/x.md */" },
+    { path: "src/lib/a.test.ts", content: `/** @tdd green\n * ${cite} vendor/x.md */` },
     { path: "src/lib/b.test.ts", content: "/** no headers */" },
   ]);
   assert.equal(findings.length, 2);
