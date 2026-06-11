@@ -1,4 +1,7 @@
 /**
+ * @cite seeds/citations/multi-agent.md
+ */
+/**
  * A2A server for the knowledge-engineering chassis.
  *
  * Uses @a2a-js/sdk's DefaultRequestHandler pattern:

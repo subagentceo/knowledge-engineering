@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 /**
+ * @cite vendor/modelcontextprotocol/modelcontextprotocol.io/docs/develop/build-server.md
+ */
+/**
  * Outcome: A single MCP SDK v2 server that exposes the four-lane knowledge
  * bridge to any MCP client (Claude Code, Claude Desktop, claude-agent-sdk).
  *

@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/claude-sitemap/urls.md
+ */
+/**
  * Bridge lane: support.claude.com.
  *
  * The support site is an Intercom help center. Articles are organized into

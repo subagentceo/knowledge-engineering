@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/platform.claude.com/docs/en/agents-and-tools/tool-use/programmatic-tool-calling.md
+ */
+/**
  * Example: Programmatic tool-use loop.
  *
  * Outcome: Drive the Anthropic Messages API in a loop, dispatching every

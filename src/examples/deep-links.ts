@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/code.claude.com/docs/en/deep-links.md
+ */
+/**
  * Example: Deep links.
  *
  * Outcome: Build the two flavors of deep links the Claude surfaces accept:

@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/anthropics/platform.claude.com/docs/en/build-with-claude/prompt-caching.md
+ */
+/**
  * Shared cache-control helpers.
  *
  * The Anthropic Messages API caches a *prefix* of the request when a content

@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/commonmark/spec.commonmark.org/0.31.2/spec.md
+ */
+/**
  * Markdown AST utility — typed parser + visitor triad + cached
  * `ParsedDoc` value object.
  *

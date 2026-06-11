@@ -1,4 +1,7 @@
 /**
+ * @cite vendor/neon/neon.com/docs/introduction/branching.md
+ */
+/**
  * AlloyDB-local per-PR database isolation — the data-plane replacement for
  * the Neon copy-on-write branch-per-PR flow (SCRUM-34).
  *
