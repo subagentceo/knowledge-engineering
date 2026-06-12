@@ -31,3 +31,17 @@ CREATE TABLE IF NOT EXISTS dw.dim_cache_key (
 );
 CREATE INDEX IF NOT EXISTS dim_cache_key_current_idx
     ON dw.dim_cache_key (cache_key) WHERE is_current;
+
+-- fact_cache_hits — daily rollup of events_cache_access (fact_cache_hits.yaml v1.0.0)
+CREATE TABLE IF NOT EXISTS dw.fact_cache_hits (
+    surrogate_key BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    cache_key_sk  BIGINT  NOT NULL REFERENCES dw.dim_cache_key(surrogate_key),
+    tier          TEXT    NOT NULL CHECK (tier IN ('L1', 'L2', 'L3')),
+    date_key      INTEGER NOT NULL,
+    hits          BIGINT  NOT NULL DEFAULT 0,
+    misses        BIGINT  NOT NULL DEFAULT 0,
+    promotions    BIGINT  NOT NULL DEFAULT 0,
+    UNIQUE (cache_key_sk, tier, date_key)
+);
+CREATE INDEX IF NOT EXISTS fact_cache_hits_date_idx
+    ON dw.fact_cache_hits (date_key);
