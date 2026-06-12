@@ -1,0 +1,145 @@
+# REST Resource: projects.schemas
+
+    
+    
+      
+    
+
+    
+      
+      Stay organized with collections
+    
+    
+      
+      Save and categorize content based on your preferences.
+
+*   Home
+*   Documentation
+*   Data analytics
+*   Pub/Sub
+*   Reference
+
+Send feedback
+
+# REST Resource: projects.schemas Stay organized with collections Save and categorize content based on your preferences.
+
+*   Resource: Schema
+    *   JSON representation
+*   Type
+*   Methods
+
+## Resource: Schema
+
+A schema resource.
+
+JSON representation
+
+{
+  "name": string,
+  "type": enum (`Type`),
+  "definition": string,
+  "revisionId": string,
+  "revisionCreateTime": string
+}
+
+ 
+
+Fields
+
+`name`
+
+`string`
+
+Required. Name of the schema. Format is `projects/{project}/schemas/{schema}`.
+
+`type`
+
+``enum (`Type`)``
+
+The type of the schema definition.
+
+`definition`
+
+`string`
+
+The definition of the schema. This should contain a string representing the full definition of the schema that is a valid schema definition of the type specified in `type`.
+
+`revisionId`
+
+`string`
+
+Output only. Immutable. The revision ID of the schema.
+
+`revisionCreateTime`
+
+``string (`Timestamp` format)``
+
+Output only. The timestamp that the revision was created.
+
+Uses RFC 3339, where generated output will always be Z-normalized and use 0, 3, 6 or 9 fractional digits. Offsets other than "Z" are also accepted. Examples: `"2014-10-02T15:01:23Z"`, `"2014-10-02T15:01:23.045123456Z"` or `"2014-10-02T15:01:23+05:30"`.
+
+## Type
+
+Possible schema definition types.
+
+ 
+
+Enums
+
+`TYPE_UNSPECIFIED`
+
+Default value. This value is unused.
+
+`PROTOCOL_BUFFER`
+
+A Protocol Buffer schema definition.
+
+`AVRO`
+
+An Avro schema definition.
+
+ 
+
+## Methods
+
+### commit
+
+Commits a new schema revision to an existing schema.
+
+### create
+
+Creates a schema.
+
+### delete
+
+Deletes a schema.
+
+### deleteRevision
+
+Deletes a specific schema revision.
+
+### get
+
+Gets a schema.
+
+### list
+
+Lists schemas in a project.
+
+### listRevisions
+
+Lists all schema revisions for the named schema.
+
+### rollback
+
+Creates a new schema revision that is a copy of the provided revision_id.
+
+### validate
+
+Validates a schema.
+
+### validateMessage
+
+Validates a message against a schema.
+
+Send feedback
