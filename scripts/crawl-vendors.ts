@@ -89,6 +89,10 @@ export interface CrawlConfig {
   transform: TransformName;
   allow_prefixes: string[];
   deny_prefixes?: string[];
+  /** Strip ?query from collected links before allowlist+dedupe (locale-variant sitemaps). */
+  strip_query_params?: boolean;
+  /** Extra request headers merged over the transform's (e.g. Accept-Language pinning). */
+  fetch_headers?: Record<string, string>;
   /**
    * Exact-URL allow list. Bypasses the prefix-allow gate for individual
    * URLs (e.g. bare-index `/pricing` when only `/pricing/` is in
@@ -411,6 +415,22 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
   const hasHtmlIndex = (cfg.html_index_sources?.length ?? 0) > 0;
   const hasSitemap = (cfg.sitemap_xml_sources?.length ?? 0) > 0;
   if (llms === null && !hasHtmlIndex && !hasSitemap) {
+    // Vendors with zero discovery sources are static mirrors maintained
+    // out-of-band (e.g. commonmark's spec.txt from the study clone) —
+    // skipping them is success, not failure.
+    if (cfg.llms_txt_candidates.length === 0) {
+      console.log(`[${vendor}] static mirror (no discovery sources) — skipped`);
+      return {
+        vendor,
+        llms_txt_url: "",
+        pagesFetched: 0,
+        pagesSkipped: 0,
+        pagesUnchanged: 0,
+        preflight304: 0,
+        preflight200: 0,
+        failures: [],
+      };
+    }
     console.error(`[${vendor}] no valid llms.txt found in ${cfg.llms_txt_candidates.length} candidate(s)`);
     return {
       vendor,
@@ -530,7 +550,13 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
     }
   }
 
-  const urls = Array.from(collectedUrls);
+  let urls = Array.from(collectedUrls);
+  // Locale-variant sitemaps (gcp's ?hl=pt-br etc.) collapse to the
+  // canonical query-less URL before allowlisting, so one English page
+  // wins over N translations of it.
+  if (cfg.strip_query_params === true) {
+    urls = [...new Set(urls.map((u) => u.split("?")[0] ?? u))];
+  }
   const effectiveCap = cfg.page_cap > 0 ? cfg.page_cap : Infinity;
   const allowed = urls.filter((u) => inAllowlist(u, cfg)).slice(0, effectiveCap);
   console.log(`[${vendor}] ${urls.length} link(s) across all sources; ${allowed.length} after allowlist + page_cap`);
@@ -604,7 +630,10 @@ async function crawlVendor(vendor: string, dryRun = false): Promise<CrawlResult>
         const w = work[i];
         const prior = checksums[w.origUrl];
         try {
-          const res = await conditionalFetch(w.fetchUrl, prior, w.transform.headers ?? {});
+          const res = await conditionalFetch(w.fetchUrl, prior, {
+            ...(w.transform.headers ?? {}),
+            ...(cfg.fetch_headers ?? {}),
+          });
           if (res.status === 304) {
             preflight304 += 1;
             if (prior) {
