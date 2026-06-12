@@ -17,6 +17,7 @@ import { layout, prepare } from "@chenglou/pretext";
 
 interface Section {
   el: HTMLElement;
+  summaryEl: HTMLElement;
   contentEl: HTMLElement;
   bodyEl: HTMLElement;
   measuredHeight: number;
@@ -42,6 +43,7 @@ export class Accordion {
     summaryEl.className = "accordion-summary";
     summaryEl.setAttribute("role", "button");
     summaryEl.setAttribute("tabindex", "0");
+    summaryEl.setAttribute("aria-expanded", "false");
     if (vendorTag) {
       const tagEl = document.createElement("span");
       tagEl.className = "accordion-vendor-name";
@@ -72,7 +74,7 @@ export class Accordion {
       }
     });
 
-    this.sections.push({ el: sectionEl, contentEl, bodyEl, measuredHeight: 0 });
+    this.sections.push({ el: sectionEl, summaryEl, contentEl, bodyEl, measuredHeight: 0 });
     this.root.appendChild(sectionEl);
   }
 
@@ -98,6 +100,7 @@ export class Accordion {
     if (this.openIndex === idx) {
       // Close current.
       section.el.classList.remove("open");
+      section.summaryEl.setAttribute("aria-expanded", "false");
       section.contentEl.style.height = "0";
       this.openIndex = -1;
       return;
@@ -107,10 +110,12 @@ export class Accordion {
       const prev = this.sections[this.openIndex];
       if (prev !== undefined) {
         prev.el.classList.remove("open");
+        prev.summaryEl.setAttribute("aria-expanded", "false");
         prev.contentEl.style.height = "0";
       }
     }
     section.el.classList.add("open");
+    section.summaryEl.setAttribute("aria-expanded", "true");
     section.contentEl.style.height = `${section.measuredHeight}px`;
     this.openIndex = idx;
   }
