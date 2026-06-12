@@ -1,6 +1,6 @@
 // frontend/wrangler.jsonc
 //
-// Phase 13.B+ (O7). Public-facing single-page Worker for outcomesdk.com.
+// Phase 13.B+ (O7). Public-facing single-page Worker for subagentknowledge.com.
 // Separate from infra/cloudflare/ke-cloud-agent (the agent runtime) so
 // the public surface inherits ZERO Claude secrets.
 //
@@ -12,12 +12,15 @@
 // Deploy:
 //   cd frontend && npm install && npm run build && wrangler deploy
 //
-// Custom domain: outcomesdk.com is bound via the routes[].custom_domain
-// directive. Wrangler handles DNS + cert provisioning on deploy when
-// the API token has Zone:Edit permission for the zone. Until the
-// operator runbook docs/operator-runbooks/outcomesdk-domain.md is
-// completed, deploys will succeed but the route won't bind until a
-// real API token with Zone:Edit is in use.
+// Custom domain: subagentknowledge.com (+ www) is bound via the
+// routes[].custom_domain directive. Wrangler handles DNS + cert
+// provisioning on deploy when the API token has Zone:Edit permission
+// for the zone.
+//
+// NOTE: the deployed Worker script keeps the legacy name
+// "outcomesdk-frontend" — renaming it would create a NEW Worker and
+// detach the custom domains. HTTPS + canonical-host enforcement lives
+// in src/worker.ts because the deploy token cannot edit zone settings.
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "outcomesdk-frontend",
