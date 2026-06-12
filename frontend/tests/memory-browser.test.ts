@@ -3,7 +3,7 @@
 //   @cite ../../data/models/alloydb/dim_memory.yaml
 
 import { strict as assert } from "node:assert";
-import { test } from "node:test";
+import { test } from "vitest";
 
 import { filterMemories, memoryStats, type MemoryRow } from "../src/memory-browser.js";
 
