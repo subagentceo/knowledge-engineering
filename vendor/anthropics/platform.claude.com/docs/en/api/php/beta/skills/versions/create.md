@@ -27,6 +27,7 @@ Create Skill Version
 ### Returns
 
 - `VersionNewResponse`
+
   - `string id`
 
     Unique identifier for the skill version.

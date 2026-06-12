@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -11,11 +10,11 @@ By default, anyone running Claude Code can connect any [MCP server](/en/mcp) the
 
 This page covers how to:
 
-- [Choose a pattern](#choose-a-pattern) that matches how much control you need
-- [Deploy a fixed server set with `managed-mcp.json`](#exclusive-control-with-managed-mcp-json), including how to [disable MCP entirely](#disable-mcp-entirely)
-- [Control servers with allowlists and denylists](#policy-based-control-with-allowlists-and-denylists)
-- [Tell users what to expect](#how-restrictions-appear-to-users) when a restriction blocks a server
-- [Monitor which servers your organization actually uses](#monitor-mcp-usage)
+* [Choose a pattern](#choose-a-pattern) that matches how much control you need
+* [Deploy a fixed server set with `managed-mcp.json`](#exclusive-control-with-managed-mcp-json), including how to [disable MCP entirely](#disable-mcp-entirely)
+* [Control servers with allowlists and denylists](#policy-based-control-with-allowlists-and-denylists)
+* [Tell users what to expect](#how-restrictions-appear-to-users) when a restriction blocks a server
+* [Monitor which servers your organization actually uses](#monitor-mcp-usage)
 
 <Note>
   The [Security](/en/security) page covers the MCP threat model and how to evaluate a server before approving it. [Decide what to enforce](/en/admin-setup#decide-what-to-enforce) covers MCP restrictions alongside the other administrative controls.
@@ -45,8 +44,8 @@ If you deploy a `managed-mcp.json` file, Claude Code loads only the servers that
 
 Two other settings can further filter the managed set:
 
-- `allowedMcpServers` and `deniedMcpServers` apply to managed servers too, so a managed server that doesn't pass them won't load.
-- A user's own `deniedMcpServers` merges in from their settings, so users can block a managed server for themselves.
+* `allowedMcpServers` and `deniedMcpServers` apply to managed servers too, so a managed server that doesn't pass them won't load.
+* A user's own `deniedMcpServers` merges in from their settings, so users can block a managed server for themselves.
 
 See [How a server is evaluated](#how-a-server-is-evaluated) for the full order of checks.
 
@@ -87,9 +86,9 @@ The file uses the same format as a project [`.mcp.json`](/en/mcp#project-scope) 
 
 Any user on the machine can read this file, so don't store API keys or other credentials in `env` blocks. Pass per-user credentials with one of these instead:
 
-- [`${VAR}` expansion](/en/mcp#environment-variable-expansion-in-mcp-json) to read secrets from each user's environment.
-- [OAuth or per-user headers](/en/mcp#authenticate-with-remote-mcp-servers) so each user authenticates as themselves.
-- [`headersHelper`](/en/mcp#use-dynamic-headers-for-custom-authentication) to generate credentials at connection time.
+* [`${VAR}` expansion](/en/mcp#environment-variable-expansion-in-mcp-json) to read secrets from each user's environment.
+* [OAuth or per-user headers](/en/mcp#authenticate-with-remote-mcp-servers) so each user authenticates as themselves.
+* [`headersHelper`](/en/mcp#use-dynamic-headers-for-custom-authentication) to generate credentials at connection time.
 
 ### Validate the configuration
 
@@ -164,8 +163,8 @@ Before loading a server, including one from `managed-mcp.json`, Claude Code runs
 
 Two matching rules apply inside those checks:
 
-- **Commands match exactly.** Every argument, in order. `["npx", "-y", "server"]` does not match `["npx", "server"]` or `["npx", "-y", "server", "--flag"]`.
-- **URLs support `*` wildcards** anywhere in the pattern, including the scheme. Hostname matching is case-insensitive and ignores a trailing FQDN dot, so `https://Mcp.Example.com/*` matches `https://mcp.example.com/api`. Paths stay case-sensitive.
+* **Commands match exactly.** Every argument, in order. `["npx", "-y", "server"]` does not match `["npx", "server"]` or `["npx", "-y", "server", "--flag"]`.
+* **URLs support `*` wildcards** anywhere in the pattern, including the scheme. Hostname matching is case-insensitive and ignores a trailing FQDN dot, so `https://Mcp.Example.com/*` matches `https://mcp.example.com/api`. Paths stay case-sensitive.
 
 | Pattern                     | Allows                                                                 |
 | :-------------------------- | :--------------------------------------------------------------------- |
@@ -184,14 +183,7 @@ The configuration below sets up a hard allowlist with a denylist. The highlighte
   "allowedMcpServers": [
     { "serverUrl": "https://api.githubcopilot.com/*" },
     { "serverUrl": "https://mcp.sentry.dev/*" },
-    {
-      "serverCommand": [
-        "npx",
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "."
-      ]
-    },
+    { "serverCommand": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "."] },
     { "serverCommand": ["python", "/usr/local/bin/approved-server.py"] },
     { "serverUrl": "https://mcp.example.com/*" },
     { "serverUrl": "https://*.internal.example.com/*" }
@@ -204,9 +196,9 @@ The configuration below sets up a hard allowlist with a denylist. The highlighte
 }
 ```
 
-- **Line 3**: the first `serverUrl` entry. Once one exists, every remote server must match a URL pattern, so a user can't get an unlisted remote server through by giving it an allowed name.
-- **Line 5**: the first `serverCommand` entry. Same effect for stdio servers, so every local server must match a listed command exactly.
-- **Line 11**: a `serverName` entry in the denylist. Denylist entries always apply, so any server named `dangerous-server` is blocked regardless of its URL or command.
+* **Line 3**: the first `serverUrl` entry. Once one exists, every remote server must match a URL pattern, so a user can't get an unlisted remote server through by giving it an allowed name.
+* **Line 5**: the first `serverCommand` entry. Same effect for stdio servers, so every local server must match a listed command exactly.
+* **Line 11**: a `serverName` entry in the denylist. Denylist entries always apply, so any server named `dangerous-server` is blocked regardless of its URL or command.
 
 A `serverName` entry in this allowlist would never match anything, since both transport types already have stricter entries.
 
@@ -222,13 +214,12 @@ The accordions below walk through how a server is evaluated against other allowl
   }
   ```
 
-| Server                                                | Result                                       |
-| :---------------------------------------------------- | :------------------------------------------- |
-| HTTP server at `https://mcp.example.com/api`          | Allowed: matches URL pattern                 |
-| HTTP server at `https://api.internal.example.com/mcp` | Allowed: matches wildcard subdomain          |
-| HTTP server at `https://external.example.com/mcp`     | Blocked: doesn't match any URL pattern       |
-| Stdio server with any command                         | Blocked: no name or command entries to match |
-
+  | Server                                                | Result                                       |
+  | :---------------------------------------------------- | :------------------------------------------- |
+  | HTTP server at `https://mcp.example.com/api`          | Allowed: matches URL pattern                 |
+  | HTTP server at `https://api.internal.example.com/mcp` | Allowed: matches wildcard subdomain          |
+  | HTTP server at `https://external.example.com/mcp`     | Blocked: doesn't match any URL pattern       |
+  | Stdio server with any command                         | Blocked: no name or command entries to match |
 </Accordion>
 
 <Accordion title="Command-only allowlist">
@@ -240,12 +231,11 @@ The accordions below walk through how a server is evaluated against other allowl
   }
   ```
 
-| Server                                                | Result                            |
-| :---------------------------------------------------- | :-------------------------------- |
-| Stdio server with `["npx", "-y", "approved-package"]` | Allowed: matches command          |
-| Stdio server with `["node", "server.js"]`             | Blocked: doesn't match command    |
-| HTTP server named `my-api`                            | Blocked: no name entries to match |
-
+  | Server                                                | Result                            |
+  | :---------------------------------------------------- | :-------------------------------- |
+  | Stdio server with `["npx", "-y", "approved-package"]` | Allowed: matches command          |
+  | Stdio server with `["node", "server.js"]`             | Blocked: doesn't match command    |
+  | HTTP server named `my-api`                            | Blocked: no name entries to match |
 </Accordion>
 
 <Accordion title="Mixed name and command allowlist">
@@ -258,14 +248,13 @@ The accordions below walk through how a server is evaluated against other allowl
   }
   ```
 
-| Server                                                                   | Result                                                                |
-| :----------------------------------------------------------------------- | :-------------------------------------------------------------------- |
-| Stdio server named `local-tool` with `["npx", "-y", "approved-package"]` | Allowed: matches command                                              |
-| Stdio server named `local-tool` with `["node", "server.js"]`             | Blocked: command entries exist but doesn't match                      |
-| Stdio server named `github` with `["node", "server.js"]`                 | Blocked: stdio servers must match commands when command entries exist |
-| HTTP server named `github`                                               | Allowed: matches name                                                 |
-| HTTP server named `other-api`                                            | Blocked: name doesn't match                                           |
-
+  | Server                                                                   | Result                                                                |
+  | :----------------------------------------------------------------------- | :-------------------------------------------------------------------- |
+  | Stdio server named `local-tool` with `["npx", "-y", "approved-package"]` | Allowed: matches command                                              |
+  | Stdio server named `local-tool` with `["node", "server.js"]`             | Blocked: command entries exist but doesn't match                      |
+  | Stdio server named `github` with `["node", "server.js"]`                 | Blocked: stdio servers must match commands when command entries exist |
+  | HTTP server named `github`                                               | Allowed: matches name                                                 |
+  | HTTP server named `other-api`                                            | Blocked: name doesn't match                                           |
 </Accordion>
 
 <Accordion title="Name-only allowlist">
@@ -278,13 +267,12 @@ The accordions below walk through how a server is evaluated against other allowl
   }
   ```
 
-| Server                                              | Result                           |
-| :-------------------------------------------------- | :------------------------------- |
-| Stdio server named `github` with any command        | Allowed: no command restrictions |
-| Stdio server named `internal-tool` with any command | Allowed: no command restrictions |
-| HTTP server named `github`                          | Allowed: matches name            |
-| Any server named `other`                            | Blocked: name doesn't match      |
-
+  | Server                                              | Result                           |
+  | :-------------------------------------------------- | :------------------------------- |
+  | Stdio server named `github` with any command        | Allowed: no command restrictions |
+  | Stdio server named `internal-tool` with any command | Allowed: no command restrictions |
+  | HTTP server named `github`                          | Allowed: matches name            |
+  | Any server named `other`                            | Blocked: name doesn't match      |
 </Accordion>
 
 <Accordion title="Allowlist with denylist override">
@@ -299,12 +287,11 @@ The accordions below walk through how a server is evaluated against other allowl
   }
   ```
 
-| Server                                           | Result                                                    |
-| :----------------------------------------------- | :-------------------------------------------------------- |
-| HTTP server at `https://mcp.example.com/api`     | Allowed: matches allowlist URL pattern, no denylist match |
-| HTTP server at `https://staging.example.com/api` | Blocked: matches both, but the denylist takes precedence  |
-| HTTP server at `https://other.com/mcp`           | Blocked: doesn't match the allowlist                      |
-
+  | Server                                           | Result                                                    |
+  | :----------------------------------------------- | :-------------------------------------------------------- |
+  | HTTP server at `https://mcp.example.com/api`     | Allowed: matches allowlist URL pattern, no denylist match |
+  | HTTP server at `https://staging.example.com/api` | Blocked: matches both, but the denylist takes precedence  |
+  | HTTP server at `https://other.com/mcp`           | Blocked: doesn't match the allowlist                      |
 </Accordion>
 
 ### Restrict the allowlist to managed settings only
@@ -354,9 +341,9 @@ Every file and setting this page covers, what it controls, and how to deliver it
 
 ## Related resources
 
-- [Decide what to enforce](/en/admin-setup#decide-what-to-enforce): MCP restrictions alongside permission rules, sandboxing, and the other admin controls
-- [Connect Claude Code to tools via MCP](/en/mcp): the full MCP reference, including transports, scopes, and authentication
-- [Settings](/en/settings): the settings hierarchy and how managed settings take precedence
-- [Server-managed settings](/en/server-managed-settings): deliver `allowedMcpServers` and `deniedMcpServers` from the Claude.ai admin console
-- [Security](/en/security): the threat model these controls defend against
-- [Claude Enterprise Administrator Guide](https://claude.com/resources/tutorials/claude-enterprise-administrator-guide): SSO, SCIM, seat management, and rollout playbook
+* [Decide what to enforce](/en/admin-setup#decide-what-to-enforce): MCP restrictions alongside permission rules, sandboxing, and the other admin controls
+* [Connect Claude Code to tools via MCP](/en/mcp): the full MCP reference, including transports, scopes, and authentication
+* [Settings](/en/settings): the settings hierarchy and how managed settings take precedence
+* [Server-managed settings](/en/server-managed-settings): deliver `allowedMcpServers` and `deniedMcpServers` from the Claude.ai admin console
+* [Security](/en/security): the threat model these controls defend against
+* [Claude Enterprise Administrator Guide](https://claude.com/resources/tutorials/claude-enterprise-administrator-guide): SSO, SCIM, seat management, and rollout playbook

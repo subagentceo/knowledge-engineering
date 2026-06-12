@@ -4,10 +4,10 @@ Mintlify, a developer documentation platform serving companies like Coinbase, Hu
 
 ## With Claude, Mintlify achieved:
 
-- **67%** of documentation queries resolved by AI assistant without human intervention
-- **3-4x** increase in engineering code output per engineer
-- **40%** reduction in documentation bugs and outdated content
-- **50%** faster time-to-market for new features
+*   **67%** of documentation queries resolved by AI assistant without human intervention
+*   **3-4x** increase in engineering code output per engineer
+*   **40%** reduction in documentation bugs and outdated content
+*   **50%** faster time-to-market for new features
 
 ## The challenge
 

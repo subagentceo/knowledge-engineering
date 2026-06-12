@@ -19,6 +19,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch`
+
   - `id: string`
 
     Unique object identifier.
@@ -50,6 +51,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
   - `processing_status: "in_progress" | "canceling" | "ended"`
 
     Processing status of the Message Batch.
+
     - `"in_progress"`
 
     - `"canceling"`
@@ -61,6 +63,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Tallies requests within the Message Batch, categorized by their status.
 
     Requests start as `processing` and move to one of the other statuses only once processing of the entire batch ends. The sum of all values always matches the total number of requests in the batch.
+
     - `canceled: number`
 
       Number of requests in the Message Batch that have been canceled.
@@ -100,18 +103,19 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
     Object type.
 
     For Message Batches, this is always `"message_batch"`.
+
     - `"message_batch"`
 
 ### Example
 
 ```typescript
-import Anthropic from "@anthropic-ai/sdk";
+import Anthropic from '@anthropic-ai/sdk';
 
 const client = new Anthropic({
-  apiKey: process.env["ANTHROPIC_API_KEY"], // This is the default and can be omitted
+  apiKey: process.env['ANTHROPIC_API_KEY'], // This is the default and can be omitted
 });
 
-const messageBatch = await client.messages.batches.cancel("message_batch_id");
+const messageBatch = await client.messages.batches.cancel('message_batch_id');
 
 console.log(messageBatch.id);
 ```

@@ -4,9 +4,9 @@ Sourcegraph is a code intelligence company that builds tools for developers to s
 
 With Claude, Sourcegraph efficiently:
 
-- Accelerates community feedback analysis
-- Increases product team's responsiveness to user needs
-- Simplifies competitor sentiment analysis
+*   Accelerates community feedback analysis
+*   Increases product team's responsiveness to user needs
+*   Simplifies competitor sentiment analysis
 
 ## Synthesizing community feedback for product development
 
@@ -20,8 +20,8 @@ Sourcegraph chose Claude for its superior output quality, comprehension, consist
 
 Sourcegraph uses Claude to synthesize and analyze the vast amounts of community feedback they collect. They’ve incorporated Claude into key workflows:
 
-- Weekly community feedback reports: Claude processes data from various sources to generate comprehensive reports for the product team.
-- Competitor sentiment dashboard: Sourcegraph created a dashboard using Claude to track and compare user sentiment across competitors.
+*   Weekly community feedback reports: Claude processes data from various sources to generate comprehensive reports for the product team.
+*   Competitor sentiment dashboard: Sourcegraph created a dashboard using Claude to track and compare user sentiment across competitors.
 
 Dorfman elaborates, "With Claude, we can condense data down to make sure we’re not missing anything. It gives our teams a high-level view while still allowing us to link directly to specific feedback sources. This makes our work more strategic and enables our teams to create higher impact work."
 

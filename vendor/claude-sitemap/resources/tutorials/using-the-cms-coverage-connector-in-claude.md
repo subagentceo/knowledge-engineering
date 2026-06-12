@@ -12,15 +12,15 @@ This integration connects to the CMS Coverage API v1, providing comprehensive ac
 
 The connector provides multiple tool categories for different coverage research needs:
 
-- National coverage tools include:
-  - **search_ncds** for finding official nationwide coverage policies, 
-  - **search_nca_cals** for tracking coverage analyses and letters
-  - **search_medcac_meetings** for advisory committee discussions
-  - **search_technology_assessments** for clinical evidence reviews.
-- Local coverage tools include:
-  - **search_lcds** for regional coverage policies by Medicare Administrative Contractors (MACs)
-  - **search_proposed_lcds** for pending policy changes
-  - **search_articles** for detailed billing and coding guidance with CPT/HCPCS codes and ICD-10 requirements.
+*   National coverage tools include:  
+    *   **search_ncds** for finding official nationwide coverage policies, 
+    *   **search_nca_cals** for tracking coverage analyses and letters
+    *   **search_medcac_meetings** for advisory committee discussions
+    *   **search_technology_assessments** for clinical evidence reviews.
+*   Local coverage tools include:  
+    *   **search_lcds** for regional coverage policies by Medicare Administrative Contractors (MACs)
+    *   **search_proposed_lcds** for pending policy changes
+    *   **search_articles** for detailed billing and coding guidance with CPT/HCPCS codes and ICD-10 requirements.
 
 Detail retrieval tools like **get_ncd**, **get_nca**, and **get_cal** fetch complete policy documents including coverage criteria, indications, limitations, effective dates, and documentation requirements. Helper tools include **get_contractors** for identifying MACs by region, **whats_new_national** and **whats_new_local** for monitoring recent policy changes, and **sad_exclusion_list** for checking self-administered drug exclusions.
 
@@ -28,14 +28,14 @@ On the provider side, the connector accesses structured data from the CMS Medica
 
 ## Who should use the CMS Coverage integration
 
-- **Healthcare Providers & Physicians:** Verify coverage for procedures, understand medical necessity requirements, and ensure compliance with Medicare billing policies before providing services
-- **Medical Coders & Billers:** Access detailed billing articles with CPT/HCPCS codes, ICD-10 diagnosis codes, modifiers, and documentation requirements for accurate claims submission
-- **Healthcare Compliance Officers:** Monitor policy changes, track coverage updates, and ensure organizational adherence to Medicare coverage guidelines
-- **Prior Authorization Specialists:** Research coverage criteria, medical necessity requirements, and documentation standards for authorization requests
-- **Durable Medical Equipment (DME) Suppliers:** Look up LCD coverage policies for equipment like wheelchairs, oxygen systems, and CPAP devices by geographic region
-- **Healthcare Policy Researchers:** Analyze coverage trends, compare regional LCD variations, and track national coverage decision-making processes
-- **Medical Affairs & Market Access Teams:** Research coverage landscapes for medical devices, procedures, and treatments to inform commercialization strategies
-- **Clinical Trial Investigators:** Verify Medicare coverage status for procedures and services used in clinical research protocols
+*   **Healthcare Providers & Physicians:** Verify coverage for procedures, understand medical necessity requirements, and ensure compliance with Medicare billing policies before providing services
+*   **Medical Coders & Billers:** Access detailed billing articles with CPT/HCPCS codes, ICD-10 diagnosis codes, modifiers, and documentation requirements for accurate claims submission
+*   **Healthcare Compliance Officers:** Monitor policy changes, track coverage updates, and ensure organizational adherence to Medicare coverage guidelines
+*   **Prior Authorization Specialists:** Research coverage criteria, medical necessity requirements, and documentation standards for authorization requests
+*   **Durable Medical Equipment (DME) Suppliers:** Look up LCD coverage policies for equipment like wheelchairs, oxygen systems, and CPAP devices by geographic region
+*   **Healthcare Policy Researchers:** Analyze coverage trends, compare regional LCD variations, and track national coverage decision-making processes
+*   **Medical Affairs & Market Access Teams:** Research coverage landscapes for medical devices, procedures, and treatments to inform commercialization strategies
+*   **Clinical Trial Investigators:** Verify Medicare coverage status for procedures and services used in clinical research protocols
 
 ## Setting up the CMS Coverage integration
 
@@ -65,28 +65,28 @@ Learn about finding and connecting tools in Claude.
 
 **Pre-Service Coverage Verification**
 
-- Healthcare providers need to verify Medicare coverage before performing procedures or prescribing equipment to avoid claim denials and ensure patients understand their coverage.
+*   Healthcare providers need to verify Medicare coverage before performing procedures or prescribing equipment to avoid claim denials and ensure patients understand their coverage.
 
-- Sample Prompts:
-  - _"Does Medicare cover continuous glucose monitoring for type 2 diabetes patients?"_
-  - _"What are the medical necessity criteria for home oxygen therapy in California?"_
-  - _"Find the LCD for power wheelchairs in my region and tell me what documentation is required"_
-  - _"Is sacral nerve stimulation covered by Medicare for urinary incontinence?"_
+*   Sample Prompts:  
+    *   _"Does Medicare cover continuous glucose monitoring for type 2 diabetes patients?"_
+    *   _"What are the medical necessity criteria for home oxygen therapy in California?"_
+    *   _"Find the LCD for power wheelchairs in my region and tell me what documentation is required"_
+    *   _"Is sacral nerve stimulation covered by Medicare for urinary incontinence?"_
 
 **Billing & Coding Compliance**
 
-- Medical coders and billers need specific HCPCS codes, ICD-10 diagnosis codes, and billing requirements to submit clean claims and avoid denials.
-- Sample Prompts:
-  - _"What are the covered ICD-10 codes for diabetes self-management training?"_
-  - _"Find the billing article for home oxygen equipment and show me the required HCPCS codes"_
-  - _"What modifiers are required for billing wheelchair accessories in Texas?"_
-  - _"Show me the documentation requirements for billing cardiac rehabilitation services"_
+*   Medical coders and billers need specific HCPCS codes, ICD-10 diagnosis codes, and billing requirements to submit clean claims and avoid denials.
+*   Sample Prompts:  
+    *   _"What are the covered ICD-10 codes for diabetes self-management training?"_
+    *   _"Find the billing article for home oxygen equipment and show me the required HCPCS codes"_
+    *   _"What modifiers are required for billing wheelchair accessories in Texas?"_
+    *   _"Show me the documentation requirements for billing cardiac rehabilitation services"_
 
 **Policy Monitoring & Updates**
 
-- Compliance officers and healthcare administrators need to stay current with coverage policy changes that affect their practice or organization.
-- Sample Prompts:
-  - _"What Medicare coverage policies have changed in the last 30 days?"_
-  - _"Show me recent LCD updates for my Medicare contractor"_
-  - _"Have there been any new NCDs published for cardiovascular procedures this quarter?"_
-  - _"Are there any proposed LCDs for laboratory testing that I should review?"_
+*   Compliance officers and healthcare administrators need to stay current with coverage policy changes that affect their practice or organization.
+*   Sample Prompts:  
+    *   _"What Medicare coverage policies have changed in the last 30 days?"_
+    *   _"Show me recent LCD updates for my Medicare contractor"_
+    *   _"Have there been any new NCDs published for cardiovascular procedures this quarter?"_
+    *   _"Are there any proposed LCDs for laboratory testing that I should review?"_

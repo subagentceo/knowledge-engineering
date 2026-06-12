@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -30,10 +29,9 @@ One agent session maps to one subprocess. Running N concurrent sessions means N 
   query({ prompt, options: { cwd: "/work/session-a" } })
   ```
 
-```python Python theme={null}
-query(prompt=prompt, options=ClaudeAgentOptions(cwd="/work/session-a"))
-```
-
+  ```python Python theme={null}
+  query(prompt=prompt, options=ClaudeAgentOptions(cwd="/work/session-a"))
+  ```
 </CodeGroup>
 
 ### State that lives on local disk
@@ -93,32 +91,30 @@ The pattern hinges on resuming a session by ID with a shared store attached:
   ```typescript TypeScript theme={null}
   import { query, type SessionStore } from "@anthropic-ai/claude-agent-sdk";
 
-declare const userInput: string;
-declare const sessionId: string; // looked up from your database by user
-declare const sessionStore: SessionStore; // S3, Redis, Postgres, or your own adapter
+  declare const userInput: string;
+  declare const sessionId: string;          // looked up from your database by user
+  declare const sessionStore: SessionStore; // S3, Redis, Postgres, or your own adapter
 
-for await (const message of query({
-prompt: userInput,
-options: { resume: sessionId, sessionStore },
-})) {
-// ...
-}
+  for await (const message of query({
+    prompt: userInput,
+    options: { resume: sessionId, sessionStore },
+  })) {
+    // ...
+  }
+  ```
 
-````
+  ```python Python theme={null}
+  from claude_agent_sdk import query, ClaudeAgentOptions
 
-```python Python theme={null}
-from claude_agent_sdk import query, ClaudeAgentOptions
-
-async for message in query(
-    prompt=user_input,
-    options=ClaudeAgentOptions(
-        resume=session_id,            # looked up from your database by user
-        session_store=session_store,  # S3, Redis, Postgres, or your own adapter
-    ),
-):
-    ...
-````
-
+  async for message in query(
+      prompt=user_input,
+      options=ClaudeAgentOptions(
+          resume=session_id,            # looked up from your database by user
+          session_store=session_store,  # S3, Redis, Postgres, or your own adapter
+      ),
+  ):
+      ...
+  ```
 </CodeGroup>
 
 See [Session storage](/en/agent-sdk/session-storage) for the full `SessionStore` interface and reference adapters.
@@ -137,20 +133,20 @@ Run the SDK inside a sandboxed container for process isolation, resource limits,
 
 Questions to answer when choosing a provider:
 
-- **Who runs the sandbox**: a sandbox-as-a-service provider operates the infrastructure for you, while self-hosted options give you software to run on your own.
-- **Cold-start latency**: how long from "create a sandbox" to "ready to accept the first request." Ephemeral patterns need sub-second starts. Long-running patterns tolerate more.
-- **Persistent storage**: whether the provider offers durable volumes or only ephemeral disk. The hybrid pattern needs durable storage somewhere, whether in the sandbox or alongside it.
-- **Pricing model**: per-second, per-request, or flat hourly billing. Per-second pricing suits bursty ephemeral workloads. Hourly suits long-running sessions.
-- **Networking**: support for custom egress rules, outbound proxies, and private VPC peering for regulated environments.
+* **Who runs the sandbox**: a sandbox-as-a-service provider operates the infrastructure for you, while self-hosted options give you software to run on your own.
+* **Cold-start latency**: how long from "create a sandbox" to "ready to accept the first request." Ephemeral patterns need sub-second starts. Long-running patterns tolerate more.
+* **Persistent storage**: whether the provider offers durable volumes or only ephemeral disk. The hybrid pattern needs durable storage somewhere, whether in the sandbox or alongside it.
+* **Pricing model**: per-second, per-request, or flat hourly billing. Per-second pricing suits bursty ephemeral workloads. Hourly suits long-running sessions.
+* **Networking**: support for custom egress rules, outbound proxies, and private VPC peering for regulated environments.
 
 Providers to evaluate:
 
-- [Modal Sandbox](https://modal.com/docs/guide/sandbox), with a [demo implementation](https://modal.com/docs/examples/claude-slack-gif-creator)
-- [Cloudflare Sandboxes](https://github.com/cloudflare/sandbox-sdk)
-- [Daytona](https://www.daytona.io/)
-- [E2B](https://e2b.dev/)
-- [Fly Machines](https://fly.io/docs/machines/)
-- [Vercel Sandbox](https://vercel.com/docs/functions/sandbox)
+* [Modal Sandbox](https://modal.com/docs/guide/sandbox), with a [demo implementation](https://modal.com/docs/examples/claude-slack-gif-creator)
+* [Cloudflare Sandboxes](https://github.com/cloudflare/sandbox-sdk)
+* [Daytona](https://www.daytona.io/)
+* [E2B](https://e2b.dev/)
+* [Fly Machines](https://fly.io/docs/machines/)
+* [Vercel Sandbox](https://vercel.com/docs/functions/sandbox)
 
 For self-hosted options such as Docker, gVisor, and Firecracker, and detailed isolation configuration, see [Isolation Technologies](/en/agent-sdk/secure-deployment#isolation-technologies).
 
@@ -158,8 +154,8 @@ For self-hosted options such as Docker, gVisor, and Firecracker, and detailed is
 
 The container needs only your SDK's language runtime:
 
-- Python 3.10+ for the Python SDK, or Node.js 18+ for the TypeScript SDK
-- Both SDK packages bundle a native Claude Code binary for the host platform, so no separate Claude Code or Node.js install is needed for the spawned CLI
+* Python 3.10+ for the Python SDK, or Node.js 18+ for the TypeScript SDK
+* Both SDK packages bundle a native Claude Code binary for the host platform, so no separate Claude Code or Node.js install is needed for the spawned CLI
 
 The bundled binary is pinned to the SDK package version, so updating the SDK is how you update the CLI. The SDK follows semver: take patch releases continuously and review the [TypeScript](https://github.com/anthropics/claude-agent-sdk-typescript/blob/main/CHANGELOG.md) or [Python](https://github.com/anthropics/claude-agent-sdk-python/blob/main/CHANGELOG.md) changelog before taking a minor.
 
@@ -183,9 +179,9 @@ Default local disk is lost on restart, scale-down, or a move to a different node
 
 Three things to know about how `SessionStore` behaves:
 
-- **Transcripts only**: `SessionStore` mirrors transcripts, not `CLAUDE.md` memory files or other working-directory artifacts. Mount a shared volume or sync those separately.
-- **Mirror, not replacement**: the subprocess writes to local disk first, and the store receives a copy of each batch. Local writes remain authoritative.
-- **`mirror_error` messages**: if the store rejects or times out, the SDK emits a `{ type: "system", subtype: "mirror_error" }` message and continues the query without retry. Alert on these if store durability matters.
+* **Transcripts only**: `SessionStore` mirrors transcripts, not `CLAUDE.md` memory files or other working-directory artifacts. Mount a shared volume or sync those separately.
+* **Mirror, not replacement**: the subprocess writes to local disk first, and the store receives a copy of each batch. Local writes remain authoritative.
+* **`mirror_error` messages**: if the store rejects or times out, the SDK emits a `{ type: "system", subtype: "mirror_error" }` message and continues the query without retry. Alert on these if store durability matters.
 
 ### Observability
 
@@ -209,9 +205,9 @@ Prompt text and tool inputs are not included in exports by default. See [Control
 
 Three auth concerns matter at hosting time:
 
-- **Anthropic API**: the subprocess reads `ANTHROPIC_API_KEY` from its environment. Supply it from your secret manager, or set `ANTHROPIC_BASE_URL` to route model calls through a proxy that injects the key outside the container. See [Credential management](/en/agent-sdk/secure-deployment#credential-management) for the proxy pattern and the [SDK overview](/en/agent-sdk/overview#get-started) for supported authentication methods.
-- **Inbound**: put authentication at a gateway in front of the agent container. The agent should receive pre-authenticated requests and should not be the component that validates user tokens.
-- **Outbound tools**: keep tool credentials out of the agent environment. Route outbound calls through a proxy that injects API keys after the request leaves the container. The agent makes the call; the proxy adds the credential.
+* **Anthropic API**: the subprocess reads `ANTHROPIC_API_KEY` from its environment. Supply it from your secret manager, or set `ANTHROPIC_BASE_URL` to route model calls through a proxy that injects the key outside the container. See [Credential management](/en/agent-sdk/secure-deployment#credential-management) for the proxy pattern and the [SDK overview](/en/agent-sdk/overview#get-started) for supported authentication methods.
+* **Inbound**: put authentication at a gateway in front of the agent container. The agent should receive pre-authenticated requests and should not be the component that validates user tokens.
+* **Outbound tools**: keep tool credentials out of the agent environment. Route outbound calls through a proxy that injects API keys after the request leaves the container. The agent makes the call; the proxy adds the credential.
 
 ### Scaling and concurrency
 
@@ -239,11 +235,11 @@ Default SDK behavior reads settings and `CLAUDE.md` memory files from the filesy
 
 To isolate tenants inside a shared container:
 
-- Pass `settingSources: []` in TypeScript or `setting_sources=[]` in Python so no filesystem settings load.
-- Set `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` in `env`. [Auto memory](/en/memory#auto-memory) at `~/.claude/projects/<project>/memory/` loads into the system prompt regardless of `settingSources`. See [What settingSources does not control](/en/agent-sdk/claude-code-features#what-settingsources-does-not-control) for the other inputs that load unconditionally.
-- Point `CLAUDE_CONFIG_DIR` at a per-tenant directory so tenants do not share the `~/.claude.json` global config.
-- Use a per-tenant working directory. Pass `cwd` explicitly on every `query()` call.
-- Apply per-tenant egress rules at your proxy, such as distinct outbound IPs, credentials, or domain allowlists, so a compromised tenant cannot exfiltrate data via another tenant's outbound policy.
+* Pass `settingSources: []` in TypeScript or `setting_sources=[]` in Python so no filesystem settings load.
+* Set `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` in `env`. [Auto memory](/en/memory#auto-memory) at `~/.claude/projects/<project>/memory/` loads into the system prompt regardless of `settingSources`. See [What settingSources does not control](/en/agent-sdk/claude-code-features#what-settingsources-does-not-control) for the other inputs that load unconditionally.
+* Point `CLAUDE_CONFIG_DIR` at a per-tenant directory so tenants do not share the `~/.claude.json` global config.
+* Use a per-tenant working directory. Pass `cwd` explicitly on every `query()` call.
+* Apply per-tenant egress rules at your proxy, such as distinct outbound IPs, credentials, or domain allowlists, so a compromised tenant cannot exfiltrate data via another tenant's outbound policy.
 
 The example below applies the four SDK-level options together. Construct `tenantDir` and `configDir` so each tenant gets a path no other tenant can read. In TypeScript, `env` replaces the subprocess environment, so spread `...process.env` to keep inherited variables like `PATH` and `ANTHROPIC_API_KEY`. In Python, `env` is merged on top of the inherited environment.
 
@@ -251,44 +247,42 @@ The example below applies the four SDK-level options together. Construct `tenant
   ```typescript TypeScript theme={null}
   import { query } from "@anthropic-ai/claude-agent-sdk";
 
-declare const prompt: string;
-declare const tenantDir: string;
-declare const configDir: string;
+  declare const prompt: string;
+  declare const tenantDir: string;
+  declare const configDir: string;
 
-for await (const message of query({
-prompt,
-options: {
-cwd: tenantDir,
-settingSources: [],
-env: {
-...process.env,
-CLAUDE_CONFIG_DIR: configDir,
-CLAUDE_CODE_DISABLE_AUTO_MEMORY: "1",
-},
-},
-})) {
-// ...
-}
+  for await (const message of query({
+    prompt,
+    options: {
+      cwd: tenantDir,
+      settingSources: [],
+      env: {
+        ...process.env,
+        CLAUDE_CONFIG_DIR: configDir,
+        CLAUDE_CODE_DISABLE_AUTO_MEMORY: "1",
+      },
+    },
+  })) {
+    // ...
+  }
+  ```
 
-````
+  ```python Python theme={null}
+  from claude_agent_sdk import query, ClaudeAgentOptions
 
-```python Python theme={null}
-from claude_agent_sdk import query, ClaudeAgentOptions
-
-async for message in query(
-    prompt=prompt,
-    options=ClaudeAgentOptions(
-        cwd=tenant_dir,
-        setting_sources=[],
-        env={
-            "CLAUDE_CONFIG_DIR": config_dir,
-            "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
-        },
-    ),
-):
-    ...
-````
-
+  async for message in query(
+      prompt=prompt,
+      options=ClaudeAgentOptions(
+          cwd=tenant_dir,
+          setting_sources=[],
+          env={
+              "CLAUDE_CONFIG_DIR": config_dir,
+              "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
+          },
+      ),
+  ):
+      ...
+  ```
 </CodeGroup>
 
 For per-tenant network controls, see [Secure Deployment](/en/agent-sdk/secure-deployment).
@@ -306,8 +300,8 @@ Plan around these in your deployment design.
 
 ## Next steps
 
-- [Hosting cookbook](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/07_Hosting_the_agent.ipynb): notebook walkthrough with [deployable code](https://github.com/anthropics/claude-cookbooks/tree/main/claude_agent_sdk/hosting) for Docker, Modal, and Kubernetes.
-- [Session storage](/en/agent-sdk/session-storage): persist transcripts across hosts with a `SessionStore` adapter.
-- [Observability](/en/agent-sdk/observability): export OTEL traces, metrics, and logs to your collector.
-- [Secure deployment](/en/agent-sdk/secure-deployment): network controls, credential management, and isolation hardening.
-- [Cost tracking](/en/agent-sdk/cost-tracking): per-session token and cost accounting.
+* [Hosting cookbook](https://github.com/anthropics/claude-cookbooks/blob/main/claude_agent_sdk/07_Hosting_the_agent.ipynb): notebook walkthrough with [deployable code](https://github.com/anthropics/claude-cookbooks/tree/main/claude_agent_sdk/hosting) for Docker, Modal, and Kubernetes.
+* [Session storage](/en/agent-sdk/session-storage): persist transcripts across hosts with a `SessionStore` adapter.
+* [Observability](/en/agent-sdk/observability): export OTEL traces, metrics, and logs to your collector.
+* [Secure deployment](/en/agent-sdk/secure-deployment): network controls, credential management, and isolation hardening.
+* [Cost tracking](/en/agent-sdk/cost-tracking): per-session token and cost accounting.

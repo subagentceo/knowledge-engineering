@@ -4,12 +4,12 @@ Sales reps spend a surprising portion of their day not selling. After every call
 
 ## With Claude, Attention achieved:
 
-- 10+ hours per week saved per rep on manual tasks
-- 90% of post-call administrative work automated with near-human accuracy
-- Up to 40% improvement in win rates, driven by AI outputs teams trust enough to act on in live deals
-- 5x coaching efficiency improvement at AI healthcare leader Abridge
-- Core scoring pipeline integration in under two weeks
-- Engineering time shifting from output cleanup to new feature development
+*   10+ hours per week saved per rep on manual tasks
+*   90% of post-call administrative work automated with near-human accuracy
+*   Up to 40% improvement in win rates, driven by AI outputs teams trust enough to act on in live deals
+*   5x coaching efficiency improvement at AI healthcare leader Abridge
+*   Core scoring pipeline integration in under two weeks
+*   Engineering time shifting from output cleanup to new feature development
 
 ## The challenge: Moving beyond transcription for sales calls
 

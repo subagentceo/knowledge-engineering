@@ -13,6 +13,8 @@ You can use the HealthEx connector to:
 
 **Guide Your Daily Routine:** "What types of exercise would be best for me?"
 
+  
 HealthEx is only available in the United States on pro and max Claude accounts. See guide for connecting to HealthEx here.
 
+  
 HealthEx is a Patient-First Privacy platform that follows the HIPAA Privacy Rule and is SOC2 compliant. Anthropic does not train its models on your HealthEx data.

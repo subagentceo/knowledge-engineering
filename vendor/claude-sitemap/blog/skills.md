@@ -1,6 +1,6 @@
 # Introducing Agent Skills
 
-**_Update:_** _We've added_ _organization-wide management for skills\_\_, a_ _directory_ _featuring partner-built skills, and published_ _Agent Skills_ _as an open standard for cross-platform portability. (December 18, 2025)_
+**_Update:_** _We've added_ _organization-wide management for skills__, a_ _directory_ _featuring partner-built skills, and published_ _Agent Skills_ _as an open standard for cross-platform portability. (December 18, 2025)_
 
 Claude can now use _Skills_ to improve how it performs specific tasks. Skills are folders that include instructions, scripts, and resources that Claude can load when needed.
 
@@ -14,10 +14,10 @@ While working on tasks, Claude scans available skills to find relevant matches. 
 
 Skills are:
 
-- **Composable**: Skills stack together. Claude automatically identifies which skills are needed and coordinates their use.
-- **Portable**: Skills use the same format everywhere. Build once, use across Claude apps, Claude Code, and API.
-- **Efficient**: Only loads what's needed, when it's needed.
-- **Powerful**: Skills can include executable code for tasks where traditional programming is more reliable than token generation.
+*   **Composable**: Skills stack together. Claude automatically identifies which skills are needed and coordinates their use.
+*   **Portable**: Skills use the same format everywhere. Build once, use across Claude apps, Claude Code, and API.
+*   **Efficient**: Only loads what's needed, when it's needed.
+*   **Powerful**: Skills can include executable code for tasks where traditional programming is more reliable than token generation.
 
 Think of Skills as custom onboarding materials that let you package expertise, making Claude a specialist on what matters most to you. For a technical deep-dive on the Agent Skills design pattern, architecture, and development best practices, read our engineering blog.
 
@@ -29,8 +29,8 @@ Skills are available to Pro, Max, Team and Enterprise users. We provide skills f
 
 ![The Skills capabilities interface in Claude.ai with example Skills toggled on. ](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690267e194f8fd4618cb330e_image.webp)
 
-Claude automatically invokes relevant skills based on your task—no manual selection needed. You'll even see skills in Claude's chain of thought as it works.
-
+Claude automatically invokes relevant skills based on your task—no manual selection needed. You'll even see skills in Claude's chain of thought as it works.  
+  
 Creating skills is simple. The "skill-creator" skill provides interactive guidance: Claude asks about your workflow, generates the folder structure, formats the SKILL.md file, and bundles the resources you need. No manual file editing required.
 
 Enable Skills in Settings. For Team and Enterprise users, admins must first enable Skills organization-wide.

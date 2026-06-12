@@ -21,6 +21,7 @@ Get Skill
 ### Returns
 
 - `SkillGetResponse`
+
   - `string id`
 
     Unique identifier for the skill.
@@ -48,8 +49,9 @@ Get Skill
     Source of the skill.
 
     This may be one of the following values:
-    - `"custom"`: the skill was created by a user
-    - `"anthropic"`: the skill was created by Anthropic
+
+    * `"custom"`: the skill was created by a user
+    * `"anthropic"`: the skill was created by Anthropic
 
   - `string type`
 

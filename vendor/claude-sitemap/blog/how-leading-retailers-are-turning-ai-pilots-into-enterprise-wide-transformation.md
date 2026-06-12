@@ -14,8 +14,8 @@ The organizations making progress have stopped treating these as reasons to wait
 
 ### What this looks like in practice
 
-The organizations pulling ahead each started with a specific operational problem, proved value within weeks, and expanded from there.
-
+The organizations pulling ahead each started with a specific operational problem, proved value within weeks, and expanded from there.  
+  
 In the case of Shopify, they deployed Claude to power Sidekick, an AI assistant that translates complex merchant requests into actionable insights. When a merchant asks a question in natural language, Claude converts it into ShopifyQL queries that previously required technical expertise.
 
 L'Oréal built a multi-agent system with Claude at the core, orchestrating 15+ specialized agents that work together to transform user questions into insights and visualizations for 44,000 employees across 150 countries.
@@ -26,4 +26,5 @@ Lotte Homeshopping deployed an AI assistant to provide 24/7 support for partner 
 
 For organizations planning their 2026 priorities, the guide covers three essential steps: laying your foundation with stakeholder alignment and governance, launching carefully selected pilots starting with lower-risk applications, and scaling what works while building organizational capability.
 
+  
 Read the full Enterprise AI Transformation Guide for Retail here.

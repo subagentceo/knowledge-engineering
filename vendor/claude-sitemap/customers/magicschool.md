@@ -4,10 +4,10 @@ MagicSchool, an AI copilot for educators and students, transforms education with
 
 With Claude, MagicSchool supports:
 
-- 7 million educators actively using the platform
-- Over 100 million AI-powered engagements
-- 13,000+ schools and districts
-- Millions of students reached through teacher-guided AI interactions
+*   7 million educators actively using the platform
+*   Over 100 million AI-powered engagements
+*   13,000+ schools and districts
+*   Millions of students reached through teacher-guided AI interactions
 
 ## Tackling teacher burnout with AI assistance
 

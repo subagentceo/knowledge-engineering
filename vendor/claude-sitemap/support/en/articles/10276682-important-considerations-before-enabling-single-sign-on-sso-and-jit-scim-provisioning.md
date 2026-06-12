@@ -4,11 +4,11 @@ Before setting up SSO for your Claude or Claude Console organization, review thi
 
 Our single sign-on feature uses the concept of a "parent organization." This is an entity that stores SSO settings that can be shared across multiple Claude or Console organizations. Your plan type determines whether or not you have a parent organization by default:
 
-| **Plan type**   | **Parent organization**                                |
-| --------------- | ------------------------------------------------------ |
-| Enterprise plan | Created automatically when the organization is set up  |
-| Team plan       | Created when SSO is enabled for the first time         |
-| Claude Console  | Not created automatically; requires action (see below) |
+| **Plan type** | **Parent organization** |
+| --- | --- |
+| Enterprise plan | Created automatically when the organization is set up |
+| Team plan | Created when SSO is enabled for the first time |
+| Claude Console | Not created automatically; requires action (see below) |
 
 ### Key things to know
 
@@ -58,7 +58,7 @@ Team or Enterprise organizations can invite other orgs to join an existing paren
 
 4. Review the member count and click "Invite."
 
-5. The merge proposal will be sent to the invited organization's Admins/Owners, with the email subject “_Parent Organization Update: New Member Organization Proposed_,” and must be approved within 14 days.
+5. The merge proposal will be sent to the invited organization's Admins/Owners, with the email subject “*Parent Organization Update: New Member Organization Proposed*,” and must be approved within 14 days.
 
 **Note:** If the person initiating the merge is also an Admin/Owner in the invited organization, only one approval is required.
 
@@ -87,12 +87,12 @@ Once your organization's domains are verified, owners will see a **Restrict orga
 Once SSO is configured, you can choose how users are provisioned to your organization.
 
 | **Provisioning method** | **Team plan** | **Enterprise plan** | **Console org** |
-| ----------------------- | ------------- | ------------------- | --------------- |
-| Invite only             | ✓             | ✓                   | ✓               |
-| JIT                     | ✓             | ✓                   | ✓               |
-| SCIM                    | ✗             | ✓                   | ✓\*             |
+| --- | --- | --- | --- |
+| Invite only | ✓ | ✓ | ✓ |
+| JIT | ✓ | ✓ | ✓ |
+| SCIM | ✗ | ✓ | ✓* |
 
-**\*Note:** Only Enterprise plan organizations can enable SCIM provisioning; if a Console organization is merged with a Team plan’s parent org, it will not have access to SCIM provisioning.
+***Note:** Only Enterprise plan organizations can enable SCIM provisioning; if a Console organization is merged with a Team plan’s parent org, it will not have access to SCIM provisioning.
 
 For detailed information on how each provisioning method works, see **[Set up JIT or SCIM provisioning](https://support.claude.com/en/articles/13133195-set-up-jit-or-scim-provisioning)**.
 

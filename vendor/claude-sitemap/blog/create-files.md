@@ -10,9 +10,9 @@ File creation is now available as a preview for Max, Team, and Enterprise plan u
 
 Claude creates actual files from your instructions—whether working from uploaded data, researching information, or building from scratch. Here are just a few examples:
 
-- **Turn data into insights**: Give Claude raw data and get back polished outputs with cleaned data, statistical analysis, charts, and written insights explaining what matters.
-- **Build spreadsheets**: Describe what you need—financial models with scenario analysis, project trackers with automated dashboards, or budget templates with variance calculations. Claude creates it with working formulas and multiple sheets.
-- **Cross-format work**: Upload a PDF report and get PowerPoint slides. Share meeting notes and get a formatted document. Upload invoices and get organized spreadsheets with calculations. Claude handles the tedious work and presents information how you need it.
+*   **Turn data into insights**: Give Claude raw data and get back polished outputs with cleaned data, statistical analysis, charts, and written insights explaining what matters.
+*   **Build spreadsheets**: Describe what you need—financial models with scenario analysis, project trackers with automated dashboards, or budget templates with variance calculations. Claude creates it with working formulas and multiple sheets.
+*   **Cross-format work**: Upload a PDF report and get PowerPoint slides. Share meeting notes and get a formatted document. Upload invoices and get organized spreadsheets with calculations. Claude handles the tedious work and presents information how you need it.
 
 ![Image of three prompts with the resulting Excel, Document, and PDF files. ](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/690119799b711efd0a404392_image.webp)
 

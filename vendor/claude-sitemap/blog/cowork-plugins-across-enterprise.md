@@ -14,13 +14,13 @@ Today we're launching a suite of updates that make it easier to create, use, and
 
 Admins can now set up plugins from starter templates or build them from scratch, with Claude guiding you through setup by asking questions to tailor skills, commands, and connectors (MCPs) to your company. All of this lives in a new unified menu called 'Customize,' which consolidates plugins, skills, and connectors so admins can see and manage everything in one place.
 
-![](<https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699cdb3778de7aaeb213b113_Customize%20(1).png>)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699cdb3778de7aaeb213b113_Customize%20\(1\).png)
 
 The connector experience has been overhauled too, with an improved directory, streamlined admin controls, and easier management of which connectors are bundled into plugins. Admins also get more control over what plugins their teams can access, including org-specific marketplaces, private GitHub repositories as plugin sources (in private beta), per-user provisioning, and auto-install.
 
 On the user side, slash commands now launch with structured forms, so running a workflow like 'generate report' or 'dashboard' feels as intuitive as filling out a brief. And Cowork now features company branding throughout, including a redesigned home experience tailored to your organization.
 
-![](<https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699cdb4f81e69eef7fe2ee35_Elicitation%20(1).png>)
+![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/699cdb4f81e69eef7fe2ee35_Elicitation%20\(1\).png)
 
 Additionally, we're adding OpenTelemetry support, letting admins track usage, costs, and tool activity across their teams.
 
@@ -32,16 +32,16 @@ New connectors from popular enterprise software providers are now available, inc
 
 We're also expanding the library of pre-built plugin templates so more knowledge workers can find value in Cowork. Each was designed with practitioners in the relevant field, so workflows, terminology, and outputs reflect how that work actually gets done. New plugins include:
 
-- **HR**: Support people operations across the employee lifecycle, from drafting offer letters and building onboarding plans to writing performance reviews and running compensation analyses.
-- **Design**: Accelerate design workflows by generating critique frameworks, drafting UX copy, running accessibility audits, and structuring user research plans.
-- **Engineering**: Streamline day-to-day engineering workflows like writing standup summaries, coordinating incident response, building deploy checklists, and drafting postmortems.
-- **Operations**: Manage core business operations including process documentation, vendor evaluations, change request tracking, and runbook creation.
-- **Brand voice** **(by Tribe AI)**: Analyze your existing documents, marketing materials, and conversations to distill your brand's voice into clear, enforceable guidelines.
-- **Financial analysis**: Support the baseline workflows every finance analyst needs, from market and competitive research to financial modeling and PowerPoint template creation and quality checking.
-- **Investment banking**: Accelerate deal workflows including reviewing transaction documents, building comparable company analyses, and preparing pitch materials. 
-- **Equity research**: Streamline research workflows like parsing earnings transcripts, updating financial models with new guidance, and drafting research notes. 
-- **Private equity**: Support deal sourcing and diligence by reviewing large document sets, extracting standardized financial data, modeling scenarios, and scoring opportunities against investment criteria. 
-- **Wealth management**: Help advisors analyze portfolios, identify drift and tax exposure, and generate rebalancing recommendations at scale.
+*   **HR**: Support people operations across the employee lifecycle, from drafting offer letters and building onboarding plans to writing performance reviews and running compensation analyses.
+*   **Design**: Accelerate design workflows by generating critique frameworks, drafting UX copy, running accessibility audits, and structuring user research plans.
+*   **Engineering**: Streamline day-to-day engineering workflows like writing standup summaries, coordinating incident response, building deploy checklists, and drafting postmortems.
+*   **Operations**: Manage core business operations including process documentation, vendor evaluations, change request tracking, and runbook creation.
+*   **Brand voice** **(by Tribe AI)**: Analyze your existing documents, marketing materials, and conversations to distill your brand's voice into clear, enforceable guidelines.
+*   **Financial analysis**: Support the baseline workflows every finance analyst needs, from market and competitive research to financial modeling and PowerPoint template creation and quality checking.
+*   **Investment banking**: Accelerate deal workflows including reviewing transaction documents, building comparable company analyses, and preparing pitch materials. 
+*   **Equity research**: Streamline research workflows like parsing earnings transcripts, updating financial models with new guidance, and drafting research notes. 
+*   **Private equity**: Support deal sourcing and diligence by reviewing large document sets, extracting standardized financial data, modeling scenarios, and scoring opportunities against investment criteria. 
+*   **Wealth management**: Help advisors analyze portfolios, identify drift and tax exposure, and generate rebalancing recommendations at scale.
 
 Plugins are simple, portable file systems that you own. They work across Cowork and anything built on the Claude Agent SDK, making it easy to create private plugin marketplaces across teams and with industry experts.
 

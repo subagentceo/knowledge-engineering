@@ -4,9 +4,9 @@ JetBrains, a leader in integrated development environments (IDEs), uses Claude i
 
 According to JetBrains' internal benchmarks, Claude outperforms a popular frontier LLM with:
 
-- 19% better documentation generation (measured by chrF score, which evaluates text similarity and quality)
-- 59% increase of user-driven refactoring success on ratio of syntactically correct code
-- 53%+ task completion success, placing it among top-tier AI coding agents
+*   19% better documentation generation (measured by chrF score, which evaluates text similarity and quality)
+*   59% increase of user-driven refactoring success on ratio of syntactically correct code
+*   53%+ task completion success, placing it among top-tier AI coding agents
 
 ## Making development more productive and enjoyable
 
@@ -30,9 +30,9 @@ Through Amazon Bedrock, JetBrains can maximize Claude's capabilities while benef
 
 JetBrains integrated Claude into their suite of development tools to power AI-enhanced coding features that deliver significant improvements:
 
-- **Documentation generation** (19% improvement): Claude creates comprehensive, accurate documentation for code.
-- **User-driven refactoring** (59% higher success): User-driven refactoring success improved by 59% in terms of generating syntactically correct code, showing that Claude handles developer-requested improvements more reliably.
-- **Agentic workflows**: Claude excels in complex scenarios, like applying GraalVM to a Gradle project—a notoriously complex task.
+*   **Documentation generation** (19% improvement): Claude creates comprehensive, accurate documentation for code.
+*   **User-driven refactoring** (59% higher success): User-driven refactoring success improved by 59% in terms of generating syntactically correct code, showing that Claude handles developer-requested improvements more reliably.
+*   **Agentic workflows**: Claude excels in complex scenarios, like applying GraalVM to a Gradle project—a notoriously complex task.
 
 ## How Claude powers Junie's agentic capabilities
 
@@ -53,10 +53,10 @@ Junie follows a four-step workflow that balances autonomy of the agent with deve
 
 Integrated into JetBrains IDEs, Junie makes coding agents the reality for millions of developers bringing a few advantages to daily development work:
 
-- For new projects, Junie can help minimize "blank page syndrome" by generating initial scaffolding. This helps developers start working faster–without the fear of the blank page when you're not sure where to begin.
-- For routine tasks, Junie quickly and efficiently automates repetitive work across multiple files, while developers focus on more creative aspects of development.
-- For testing, Junie automatically writes, runs, and corrects tests, streamlining the most tedious part of development.
-- Most importantly, Junie enhances creativity by freeing some time or proposing unexpected solutions. Andrew Zakonov explains, "Developers that used Junie before were surprised by Junie's approaches to tasks. These unexpected solutions encourage more experimental thinking in development."
+*   For new projects, Junie can help minimize "blank page syndrome" by generating initial scaffolding. This helps developers start working faster–without the fear of the blank page when you're not sure where to begin.
+*   For routine tasks, Junie quickly and efficiently automates repetitive work across multiple files, while developers focus on more creative aspects of development.
+*   For testing, Junie automatically writes, runs, and corrects tests, streamlining the most tedious part of development.
+*   Most importantly, Junie enhances creativity by freeing some time or proposing unexpected solutions. Andrew Zakonov explains, "Developers that used Junie before were surprised by Junie's approaches to tasks. These unexpected solutions encourage more experimental thinking in development."
 
 ## Reimagining the future of software development
 

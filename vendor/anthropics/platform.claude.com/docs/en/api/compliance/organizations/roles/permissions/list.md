@@ -33,6 +33,7 @@ List Compliance Role Permissions
 - `data: array of object { action, resource_id, resource_type }`
 
   List of permissions
+
   - `action: string`
 
     Action permitted on the resource

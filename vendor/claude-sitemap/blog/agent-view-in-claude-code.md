@@ -30,10 +30,10 @@ Lastly, users can take any existing session and add it to agent view using `/bg`
 
 A few patterns we have seen from early users:
 
-- **Scaling the number of concurrent sessions:** Dispatch several ideas at once, each optionally paired with a skill, and return to a list of pull requests ready for review.
-- **Manage long running agents:** PR babysitters, dashboard updaters, and other looping jobs show their next run time right in the list.
-- **Navigate between separate sessions:** When you’re in the middle of a session, press the left arrow, start a related task or quick codebase question, then arrow right back into what you were doing. Peek shows the answer when it lands.
-- **See what shipped:** Status indicators on each row plus the title in peek make it easy to scan which sessions produced a PR.
+*   **Scaling the number of concurrent sessions:** Dispatch several ideas at once, each optionally paired with a skill, and return to a list of pull requests ready for review.
+*   **Manage long running agents:** PR babysitters, dashboard updaters, and other looping jobs show their next run time right in the list.
+*   **Navigate between separate sessions:** When you’re in the middle of a session, press the left arrow, start a related task or quick codebase question, then arrow right back into what you were doing. Peek shows the answer when it lands.
+*   **See what shipped:** Status indicators on each row plus the title in peek make it easy to scan which sessions produced a PR.
 
 ## Getting started
 

@@ -14,11 +14,11 @@ You do not need to reference it in prompts or attach it manually. If the file ex
 
 Claude looks in a few places and merges what it finds, from broad to specific:
 
-| **Location**            | **Scope**                                                                                            | **Good for**                                                                         |
-| ----------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| `~/.claude/CLAUDE.md`   | Every project on your machine                                                                        | Personal preferences (for example, "I use pnpm, not npm" or "always suggest tests"). |
-| `<repo-root>/CLAUDE.md` | This project                                                                                         | Architecture, conventions, and commands. **This is the main one.**                   |
-| `<subdir>/CLAUDE.md`    | That subdirectory (loaded on demand when Claude reads files in that directory, not at session start) | Module-specific rules (for example, different conventions in `frontend/` vs `api/`). |
+| **Location** | **Scope** | **Good for** |
+| --- | --- | --- |
+| `~/.claude/CLAUDE.md` | Every project on your machine | Personal preferences (for example, "I use pnpm, not npm" or "always suggest tests"). |
+| `<repo-root>/CLAUDE.md` | This project | Architecture, conventions, and commands. **This is the main one.** |
+| `<subdir>/CLAUDE.md` | That subdirectory (loaded on demand when Claude reads files in that directory, not at session start) | Module-specific rules (for example, different conventions in `frontend/` vs `api/`). |
 
 Most teams only need the project-root file. Commit it to git so the whole team benefits.
 
@@ -82,7 +82,7 @@ These are not generic prompt-engineering tips; they are the habits that matter m
 
 ### 1. State the outcome, not the steps
 
-Claude can explore the codebase itself. Tell it _what_ you want and _why_, and let it figure out _where_.
+Claude can explore the codebase itself. Tell it *what* you want and *why*, and let it figure out *where*.
 
 ❌ "Open `userService.ts`, find the `validate` function, add a null check on line 42."
 
@@ -96,7 +96,7 @@ Paste the full stack trace rather than summarizing it. The exact filename, line 
 
 For anything touching more than a couple of files, press **Shift+Tab** twice to cycle into plan mode (the first press enters acceptEdits) and ask:
 
-_"Plan how you'd add rate limiting to the public API. Don't change anything yet."_
+*"Plan how you'd add rate limiting to the public API. Don't change anything yet."*
 
 Review the plan, adjust it in conversation, then switch modes and say "do step 1." This catches misunderstandings before they turn into a twelve-file diff.
 
@@ -114,16 +114,16 @@ Long sessions accumulate noise. When you switch from "fix the login bug" to "ref
 
 ### 7. Correct it like a colleague, not a search engine
 
-If the first answer is off, you do not need to rephrase the whole request. Simply say what is wrong — for example, _"That changes the public API; keep the signature the same."_ Claude will keep everything else and adjust only that point.
+If the first answer is off, you do not need to rephrase the whole request. Simply say what is wrong — for example, *"That changes the public API; keep the signature the same."* Claude will keep everything else and adjust only that point.
 
 ---
 
 ## Quick reference
 
-| **Want to…**                          | **Do this**                                          |
-| ------------------------------------- | ---------------------------------------------------- |
-| Generate a starting `CLAUDE.md`       | `/init`                                              |
-| See what memory Claude is using       | `/memory`                                            |
-| Add a rule mid-session                | Open `/memory`, or ask Claude to "remember" the rule |
-| Start fresh but keep project memory   | `/clear`                                             |
-| Reference a specific file in a prompt | `@path/to/file`                                      |
+| **Want to…** | **Do this** |
+| --- | --- |
+| Generate a starting `CLAUDE.md` | `/init` |
+| See what memory Claude is using | `/memory` |
+| Add a rule mid-session | Open `/memory`, or ask Claude to "remember" the rule |
+| Start fresh but keep project memory | `/clear` |
+| Reference a specific file in a prompt | `@path/to/file` |

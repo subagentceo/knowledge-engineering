@@ -6,7 +6,7 @@ Skyline, the open source protein analysis software maintained by principal devel
 
 _A 3D illustration of the Seattle skyline created in Blender, representing the home of the University of Washington's MacCoss Lab, where Brendan MacLean and his team have developed and maintained Skyline since 2008. Claude helped Brendan add the Claude logo in the back. Image courtesy of MacCoss lab._
 
-For nearly three decades, Brendan has been Skyline’s connective tissue, onboarding dozens of undergrads, grad students, and postdocs to the lab.\*  
+For nearly three decades, Brendan has been Skyline’s connective tissue, onboarding dozens of undergrads, grad students, and postdocs to the lab.*  
 
 As developers joined and left, the codebase absorbed their contributions. By 2024, it carried the usual burdens of a long-lived project. Certain areas had grown untouchable as developers turned over.
 
@@ -98,4 +98,4 @@ As Brendan learned, the context you build with Claude works the same way.
 
 Once knowledgeable enough about a codebase, engineers can work across branches and time points. Claude, given sufficient context and direction, can do the same.
 
-_\*Dario Amodei, co-founder of Anthropic, was previously a member of the MacCoss Lab._
+_*Dario Amodei, co-founder of Anthropic, was previously a member of the MacCoss Lab._

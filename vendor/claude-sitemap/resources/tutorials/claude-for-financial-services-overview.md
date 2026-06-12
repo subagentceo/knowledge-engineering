@@ -6,10 +6,10 @@ Claude for Financial Services provides financial professionals with AI assistanc
 
 Claude for Financial Services assists professionals who work with financial data and investment analysis:
 
-- Investment analysts at private equity firms and hedge funds
-- Corporate finance teams
-- Investment banking analysts
-- Portfolio managers and asset managers
+*   Investment analysts at private equity firms and hedge funds
+*   Corporate finance teams
+*   Investment banking analysts
+*   Portfolio managers and asset managers
 
 These professionals use Claude to help complete research tasks, build financial models, and create investment documentation. The solution works best for users who need to process large volumes of financial information and produce analytical outputs.
 
@@ -19,8 +19,8 @@ These professionals use Claude to help complete research tasks, build financial 
 
 Claude connects directly to financial data providers through integrations called Connectors. You can access:
 
-- **Daloopa:** Provides financial data from 3,500+ public companies, including SEC filings, financial statements, and operational KPIs.**‍**
-- **Morningstar:** Offers investment research, fair value estimates, economic moat ratings, and proprietary analytical metrics.
+*   **Daloopa:** Provides financial data from 3,500+ public companies, including SEC filings, financial statements, and operational KPIs.**‍**
+*   **Morningstar:** Offers investment research, fair value estimates, economic moat ratings, and proprietary analytical metrics.
 
 These integrations allow you to pull financial data directly into your analysis without switching between platforms. For setup instructions and detailed capabilities, see Using Daloopa for Financial Analysis and Using Morningstar for Investment Research.
 
@@ -30,23 +30,23 @@ Claude can help you work with common financial document formats. See Create and 
 
 ### Excel spreadsheets
 
-- Build financial models including DCF, LBO, and comparables analyses
-- Generate formulas and structure spreadsheets with proper formatting
-- Analyze existing models and extract insights from complex workbooks
-- Create well-structured, simple models to validate assumptions made in more complex models
-- Extract financial data from PDFs and documents (like CIMs, PIBs, and data packs) into structured Excel formats
+*   Build financial models including DCF, LBO, and comparables analyses
+*   Generate formulas and structure spreadsheets with proper formatting
+*   Analyze existing models and extract insights from complex workbooks
+*   Create well-structured, simple models to validate assumptions made in more complex models
+*   Extract financial data from PDFs and documents (like CIMs, PIBs, and data packs) into structured Excel formats
 
 ### Word documents
 
-- Draft investment memos and committee presentations
-- Create due diligence reports with structured findings
-- Generate market research summaries
-- Produce portfolio update letters
+*   Draft investment memos and committee presentations
+*   Create due diligence reports with structured findings
+*   Generate market research summaries
+*   Produce portfolio update letters
 
 ### PowerPoint presentations
 
-- Create slide decks for investment committees and boards.
-- Have Claude convert PDF or Word documents into PowerPoint files.
+*   Create slide decks for investment committees and boards.
+*   Have Claude convert PDF or Word documents into PowerPoint files.
 
 Claude can process multiple documents in a single request, allowing you to analyze data rooms, extract metrics from numerous files, and synthesize findings across sources.
 
@@ -54,10 +54,10 @@ Claude can process multiple documents in a single request, allowing you to analy
 
 Claude assists with common financial analysis tasks:
 
-- Research and due diligence assistance: Analyze contracts, financial statements, and business documents to identify key terms, metrics, and potential risks
-- Financial modeling: Build initial versions of financial models, formulate complex calculations, and help structure your analysis
-- Investment documentation: Generate memos, presentations, and reports following your organization's formats
-- Portfolio monitoring: Track performance metrics, compare actual results to budgets, and create standardized reporting
+*   Research and due diligence assistance: Analyze contracts, financial statements, and business documents to identify key terms, metrics, and potential risks
+*   Financial modeling: Build initial versions of financial models, formulate complex calculations, and help structure your analysis
+*   Investment documentation: Generate memos, presentations, and reports following your organization's formats
+*   Portfolio monitoring: Track performance metrics, compare actual results to budgets, and create standardized reporting
 
 # Common use cases
 
@@ -83,10 +83,10 @@ For detailed workflow examples and step-by-step guidance, see Financial Analysis
 
 When working on complex analyses, consider using Claude's projects feature to organize related documents:
 
-- Create separate projects for each deal or investment thesis
-- Upload relevant source materials like 10-Ks, investor presentations, and financial models
-- Keep different analysis phases organized in dedicated project spaces
-- Maintain clear naming conventions for easy reference
+*   Create separate projects for each deal or investment thesis
+*   Upload relevant source materials like 10-Ks, investor presentations, and financial models
+*   Keep different analysis phases organized in dedicated project spaces
+*   Maintain clear naming conventions for easy reference
 
 Projects allow you to build a knowledge base that Claude can reference across multiple conversations, maintaining context throughout your analysis. For more information about projects, see What are projects?
 
@@ -94,6 +94,6 @@ Projects allow you to build a knowledge base that Claude can reference across mu
 
 Be aware of these limitations when using Claude for Financial Services:
 
-- PowerPoint creation has limited support for complex templates and formatting
-- Excel models may require manual review and adjustment for complex formulas
-- Large files or numerous documents may exceed the input limit of Claude
+*   PowerPoint creation has limited support for complex templates and formatting
+*   Excel models may require manual review and adjustment for complex formulas
+*   Large files or numerous documents may exceed the input limit of Claude

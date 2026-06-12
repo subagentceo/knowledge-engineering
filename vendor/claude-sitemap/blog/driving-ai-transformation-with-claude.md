@@ -56,10 +56,10 @@ The results exceeded expectations. Analytics teams now save **70 hours weekly**,
 
 From pilot programs to production-scale deployments, enterprises are moving beyond experimentation to embedding Claude into their core operations and customer-facing products. The companies seeing real impact share a few characteristics:
 
-- **They start with concrete business problems.** Rather than deploying AI for its own sake, they target specific bottlenecks—analyst workflows that consume hours of manual work, documentation backlogs that slow product launches, or onboarding processes that take months instead of weeks.
-- **They invest in people, not just technology.** Comprehensive training programs and champion networks help employees integrate AI into their daily work. When teams understand not just how to use AI but why it matters to their specific role, adoption accelerates organically. Learn more about how enterprises are using AI and its impact on their work in our Economic Index.
-- **They measure what matters.** Tracking concrete metrics—productivity gains, time savings, quality improvements—turns impressive demos into defensible business cases. This evidence-based approach ensures continuous refinement and proves ROI to stakeholders.
-- **They build for scale from day one.** Integration, security, compliance, and trust aren't afterthoughts. Treating AI as an enterprise transformation rather than a technology experiment leads to faster adoption and more sustainable outcomes.
+*   **They start with concrete business problems.** Rather than deploying AI for its own sake, they target specific bottlenecks—analyst workflows that consume hours of manual work, documentation backlogs that slow product launches, or onboarding processes that take months instead of weeks.
+*   **They invest in people, not just technology.** Comprehensive training programs and champion networks help employees integrate AI into their daily work. When teams understand not just how to use AI but why it matters to their specific role, adoption accelerates organically. Learn more about how enterprises are using AI and its impact on their work in our Economic Index.
+*   **They measure what matters.** Tracking concrete metrics—productivity gains, time savings, quality improvements—turns impressive demos into defensible business cases. This evidence-based approach ensures continuous refinement and proves ROI to stakeholders.
+*   **They build for scale from day one.** Integration, security, compliance, and trust aren't afterthoughts. Treating AI as an enterprise transformation rather than a technology experiment leads to faster adoption and more sustainable outcomes.
 
 Organizations like Novo Nordisk, IG Group, Palo Alto Networks, Cox Automotive, and Salesforce are pioneering this approach with Claude, expanding use cases across teams, building agentic systems that reshape workflows, and delivering true AI transformation.
 
@@ -73,8 +73,8 @@ The result is an AI partner that enterprises can trust with increasingly autonom
 
 Whether you're just beginning to explore AI or already deploying agents at scale, Anthropic provides the resources to help you succeed:
 
-- **How Anthropic teams use Claude Code:** Learn how our own teams leverage AI to accelerate development, with practical examples and implementation strategies.
-- **Customer case studies\*\***:\*\* More stories of how organizations across financial services, healthcare, cybersecurity, and other industries are driving transformation with Claude.
-- **Anthropic Academy\*\***:\*\* Access our AI Fluency and Building Agents courses to develop the skills your team needs to work effectively with AI.
+*   **How Anthropic teams use Claude Code:** Learn how our own teams leverage AI to accelerate development, with practical examples and implementation strategies.
+*   **Customer case studies****:** More stories of how organizations across financial services, healthcare, cybersecurity, and other industries are driving transformation with Claude.
+*   **Anthropic Academy****:** Access our AI Fluency and Building Agents courses to develop the skills your team needs to work effectively with AI.
 
 Contact our Sales team to learn more.

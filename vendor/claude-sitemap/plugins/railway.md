@@ -8,11 +8,11 @@ Five reference modules cover every aspect of Railway management: project and ser
 
 **How to use:** Ask Claude to manage your Railway infrastructure using natural language. Example prompts:
 
-- "Deploy my app to Railway"
-- "Create a new Postgres database for my project"
-- "Show me the logs for my API service from the last hour"
-- "Set up a custom domain for my frontend"
-- "Check why my deployment is failing"
-- "Add a Redis cache to my project"
-- "Show CPU and memory metrics for my service"
-- "Create an S3 bucket in the Amsterdam region"
+*   "Deploy my app to Railway"
+*   "Create a new Postgres database for my project"
+*   "Show me the logs for my API service from the last hour"
+*   "Set up a custom domain for my frontend"
+*   "Check why my deployment is failing"
+*   "Add a Redis cache to my project"
+*   "Show CPU and memory metrics for my service"
+*   "Create an S3 bucket in the Amsterdam region"

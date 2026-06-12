@@ -1,5 +1,4 @@
 > ## Documentation Index
->
 > Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 > Use this file to discover all available pages before exploring further.
 
@@ -11,9 +10,9 @@ File checkpointing tracks file modifications made through the Write, Edit, and N
 
 With checkpointing, you can:
 
-- **Undo unwanted changes** by restoring files to a known good state
-- **Explore alternatives** by restoring to a checkpoint and trying a different approach
-- **Recover from errors** when the agent makes incorrect modifications
+* **Undo unwanted changes** by restoring files to a known good state
+* **Explore alternatives** by restoring to a checkpoint and trying a different approach
+* **Recover from errors** when the agent makes incorrect modifications
 
 <Warning>
   Only changes made through the Write, Edit, and NotebookEdit tools are tracked. Changes made through Bash commands (like `echo > file.txt` or `sed -i`) are not captured by the checkpoint system.
@@ -37,9 +36,9 @@ Checkpoint works with these built-in tools that the agent uses to modify files:
 
 The checkpoint system tracks:
 
-- Files created during the session
-- Files modified during the session
-- The original content of modified files
+* Files created during the session
+* Files modified during the session
+* The original content of modified files
 
 When you rewind to a checkpoint, created files are deleted and modified files are restored to their content at that point.
 
@@ -59,14 +58,16 @@ The following example shows the complete flow: enable checkpointing, capture the
       ResultMessage,
   )
 
-async def main(): # Step 1: Enable checkpointing
-options = ClaudeAgentOptions(
-enable_file_checkpointing=True,
-permission_mode="acceptEdits", # Auto-accept file edits without prompting
-extra_args={
-"replay-user-messages": None
-}, # Required to receive checkpoint UUIDs in the response stream
-)
+
+  async def main():
+      # Step 1: Enable checkpointing
+      options = ClaudeAgentOptions(
+          enable_file_checkpointing=True,
+          permission_mode="acceptEdits",  # Auto-accept file edits without prompting
+          extra_args={
+              "replay-user-messages": None
+          },  # Required to receive checkpoint UUIDs in the response stream
+      )
 
       checkpoint_id = None
       session_id = None
@@ -93,57 +94,56 @@ extra_args={
                   break
           print(f"Rewound to checkpoint: {checkpoint_id}")
 
-asyncio.run(main())
 
-````
+  asyncio.run(main())
+  ```
 
-```typescript TypeScript theme={null}
-import { query } from "@anthropic-ai/claude-agent-sdk";
+  ```typescript TypeScript theme={null}
+  import { query } from "@anthropic-ai/claude-agent-sdk";
 
-async function main() {
-  // Step 1: Enable checkpointing
-  const opts = {
-    enableFileCheckpointing: true,
-    permissionMode: "acceptEdits" as const, // Auto-accept file edits without prompting
-    extraArgs: { "replay-user-messages": null } // Required to receive checkpoint UUIDs in the response stream
-  };
+  async function main() {
+    // Step 1: Enable checkpointing
+    const opts = {
+      enableFileCheckpointing: true,
+      permissionMode: "acceptEdits" as const, // Auto-accept file edits without prompting
+      extraArgs: { "replay-user-messages": null } // Required to receive checkpoint UUIDs in the response stream
+    };
 
-  const response = query({
-    prompt: "Refactor the authentication module",
-    options: opts
-  });
-
-  let checkpointId: string | undefined;
-  let sessionId: string | undefined;
-
-  // Step 2: Capture checkpoint UUID from the first user message
-  for await (const message of response) {
-    if (message.type === "user" && message.uuid && !checkpointId) {
-      checkpointId = message.uuid;
-    }
-    if ("session_id" in message && !sessionId) {
-      sessionId = message.session_id;
-    }
-  }
-
-  // Step 3: Later, rewind by resuming the session with an empty prompt
-  if (checkpointId && sessionId) {
-    const rewindQuery = query({
-      prompt: "", // Empty prompt to open the connection
-      options: { ...opts, resume: sessionId }
+    const response = query({
+      prompt: "Refactor the authentication module",
+      options: opts
     });
 
-    for await (const msg of rewindQuery) {
-      await rewindQuery.rewindFiles(checkpointId);
-      break;
+    let checkpointId: string | undefined;
+    let sessionId: string | undefined;
+
+    // Step 2: Capture checkpoint UUID from the first user message
+    for await (const message of response) {
+      if (message.type === "user" && message.uuid && !checkpointId) {
+        checkpointId = message.uuid;
+      }
+      if ("session_id" in message && !sessionId) {
+        sessionId = message.session_id;
+      }
     }
-    console.log(`Rewound to checkpoint: ${checkpointId}`);
+
+    // Step 3: Later, rewind by resuming the session with an empty prompt
+    if (checkpointId && sessionId) {
+      const rewindQuery = query({
+        prompt: "", // Empty prompt to open the connection
+        options: { ...opts, resume: sessionId }
+      });
+
+      for await (const msg of rewindQuery) {
+        await rewindQuery.rewindFiles(checkpointId);
+        break;
+      }
+      console.log(`Rewound to checkpoint: ${checkpointId}`);
+    }
   }
-}
 
-main();
-````
-
+  main();
+  ```
 </CodeGroup>
 
 <Steps>
@@ -178,7 +178,6 @@ main();
       });
       ```
     </CodeGroup>
-
   </Step>
 
   <Step title="Capture checkpoint UUID and session ID">
@@ -218,7 +217,6 @@ main();
       }
       ```
     </CodeGroup>
-
   </Step>
 
   <Step title="Rewind files">
@@ -253,7 +251,6 @@ main();
     ```bash theme={null}
     claude -p --resume <session-id> --rewind-files <checkpoint-uuid>
     ```
-
   </Step>
 </Steps>
 
@@ -270,12 +267,13 @@ This pattern keeps only the most recent checkpoint UUID, updating it before each
   import asyncio
   from claude_agent_sdk import ClaudeSDKClient, ClaudeAgentOptions, UserMessage
 
-async def main():
-options = ClaudeAgentOptions(
-enable_file_checkpointing=True,
-permission_mode="acceptEdits",
-extra_args={"replay-user-messages": None},
-)
+
+  async def main():
+      options = ClaudeAgentOptions(
+          enable_file_checkpointing=True,
+          permission_mode="acceptEdits",
+          extra_args={"replay-user-messages": None},
+      )
 
       safe_checkpoint = None
 
@@ -295,45 +293,44 @@ extra_args={"replay-user-messages": None},
                   # Exit the loop after rewinding, files are restored
                   break
 
-asyncio.run(main())
 
-````
+  asyncio.run(main())
+  ```
 
-```typescript TypeScript theme={null}
-import { query } from "@anthropic-ai/claude-agent-sdk";
+  ```typescript TypeScript theme={null}
+  import { query } from "@anthropic-ai/claude-agent-sdk";
 
-async function main() {
-  const response = query({
-    prompt: "Refactor the authentication module",
-    options: {
-      enableFileCheckpointing: true,
-      permissionMode: "acceptEdits" as const,
-      extraArgs: { "replay-user-messages": null }
-    }
-  });
+  async function main() {
+    const response = query({
+      prompt: "Refactor the authentication module",
+      options: {
+        enableFileCheckpointing: true,
+        permissionMode: "acceptEdits" as const,
+        extraArgs: { "replay-user-messages": null }
+      }
+    });
 
-  let safeCheckpoint: string | undefined;
+    let safeCheckpoint: string | undefined;
 
-  for await (const message of response) {
-    // Update checkpoint before each agent turn starts
-    // This overwrites the previous checkpoint. Only keep the latest
-    if (message.type === "user" && message.uuid) {
-      safeCheckpoint = message.uuid;
-    }
+    for await (const message of response) {
+      // Update checkpoint before each agent turn starts
+      // This overwrites the previous checkpoint. Only keep the latest
+      if (message.type === "user" && message.uuid) {
+        safeCheckpoint = message.uuid;
+      }
 
-    // Decide when to revert based on your own logic
-    // For example: error detection, validation failure, or user input
-    if (yourRevertCondition && safeCheckpoint) {
-      await response.rewindFiles(safeCheckpoint);
-      // Exit the loop after rewinding, files are restored
-      break;
+      // Decide when to revert based on your own logic
+      // For example: error detection, validation failure, or user input
+      if (yourRevertCondition && safeCheckpoint) {
+        await response.rewindFiles(safeCheckpoint);
+        // Exit the loop after rewinding, files are restored
+        break;
+      }
     }
   }
-}
 
-main();
-````
-
+  main();
+  ```
 </CodeGroup>
 
 ### Multiple restore points
@@ -354,20 +351,21 @@ This pattern stores all checkpoint UUIDs in an array with metadata. After the se
       ResultMessage,
   )
 
-# Store checkpoint metadata for better tracking
 
-@dataclass
-class Checkpoint:
-id: str
-description: str
-timestamp: datetime
+  # Store checkpoint metadata for better tracking
+  @dataclass
+  class Checkpoint:
+      id: str
+      description: str
+      timestamp: datetime
 
-async def main():
-options = ClaudeAgentOptions(
-enable_file_checkpointing=True,
-permission_mode="acceptEdits",
-extra_args={"replay-user-messages": None},
-)
+
+  async def main():
+      options = ClaudeAgentOptions(
+          enable_file_checkpointing=True,
+          permission_mode="acceptEdits",
+          extra_args={"replay-user-messages": None},
+      )
 
       checkpoints = []
       session_id = None
@@ -399,67 +397,66 @@ extra_args={"replay-user-messages": None},
                   break
           print(f"Rewound to: {target.description}")
 
-asyncio.run(main())
 
-````
+  asyncio.run(main())
+  ```
 
-```typescript TypeScript theme={null}
-import { query } from "@anthropic-ai/claude-agent-sdk";
+  ```typescript TypeScript theme={null}
+  import { query } from "@anthropic-ai/claude-agent-sdk";
 
-// Store checkpoint metadata for better tracking
-interface Checkpoint {
-  id: string;
-  description: string;
-  timestamp: Date;
-}
-
-async function main() {
-  const opts = {
-    enableFileCheckpointing: true,
-    permissionMode: "acceptEdits" as const,
-    extraArgs: { "replay-user-messages": null }
-  };
-
-  const response = query({
-    prompt: "Refactor the authentication module",
-    options: opts
-  });
-
-  const checkpoints: Checkpoint[] = [];
-  let sessionId: string | undefined;
-
-  for await (const message of response) {
-    if (message.type === "user" && message.uuid) {
-      checkpoints.push({
-        id: message.uuid,
-        description: `After turn ${checkpoints.length + 1}`,
-        timestamp: new Date()
-      });
-    }
-    if ("session_id" in message && !sessionId) {
-      sessionId = message.session_id;
-    }
+  // Store checkpoint metadata for better tracking
+  interface Checkpoint {
+    id: string;
+    description: string;
+    timestamp: Date;
   }
 
-  // Later: rewind to any checkpoint by resuming the session
-  if (checkpoints.length > 0 && sessionId) {
-    const target = checkpoints[0]; // Pick any checkpoint
-    const rewindQuery = query({
-      prompt: "", // Empty prompt to open the connection
-      options: { ...opts, resume: sessionId }
+  async function main() {
+    const opts = {
+      enableFileCheckpointing: true,
+      permissionMode: "acceptEdits" as const,
+      extraArgs: { "replay-user-messages": null }
+    };
+
+    const response = query({
+      prompt: "Refactor the authentication module",
+      options: opts
     });
 
-    for await (const msg of rewindQuery) {
-      await rewindQuery.rewindFiles(target.id);
-      break;
+    const checkpoints: Checkpoint[] = [];
+    let sessionId: string | undefined;
+
+    for await (const message of response) {
+      if (message.type === "user" && message.uuid) {
+        checkpoints.push({
+          id: message.uuid,
+          description: `After turn ${checkpoints.length + 1}`,
+          timestamp: new Date()
+        });
+      }
+      if ("session_id" in message && !sessionId) {
+        sessionId = message.session_id;
+      }
     }
-    console.log(`Rewound to: ${target.description}`);
+
+    // Later: rewind to any checkpoint by resuming the session
+    if (checkpoints.length > 0 && sessionId) {
+      const target = checkpoints[0]; // Pick any checkpoint
+      const rewindQuery = query({
+        prompt: "", // Empty prompt to open the connection
+        options: { ...opts, resume: sessionId }
+      });
+
+      for await (const msg of rewindQuery) {
+        await rewindQuery.rewindFiles(target.id);
+        break;
+      }
+      console.log(`Rewound to: ${target.description}`);
+    }
   }
-}
 
-main();
-````
-
+  main();
+  ```
 </CodeGroup>
 
 ## Try it out
@@ -513,7 +510,6 @@ Before you begin, make sure you have the [Claude Agent SDK installed](/en/agent-
       }
       ```
     </CodeGroup>
-
   </Step>
 
   <Step title="Run the interactive example">
@@ -666,7 +662,6 @@ Before you begin, make sure you have the [Claude Agent SDK installed](/en/agent-
     2. **Capture checkpoint data**: as the agent runs, store the first user message UUID (your restore point) and the session ID
     3. **Prompt for rewind**: after the agent finishes, check your utility file to see the doc comments, then decide if you want to undo the changes
     4. **Resume and rewind**: if yes, resume the session with an empty prompt and call `rewind_files()` to restore the original file
-
   </Step>
 
   <Step title="Run the example">
@@ -691,7 +686,6 @@ Before you begin, make sure you have the [Claude Agent SDK installed](/en/agent-
     </Tabs>
 
     You'll see the agent add doc comments, then a prompt asking if you want to rewind. If you choose yes, the file is restored to its original state.
-
   </Step>
 </Steps>
 
@@ -714,8 +708,8 @@ If `enableFileCheckpointing` or `rewindFiles()` isn't available, you may be on a
 
 **Solution**: Update to the latest SDK version:
 
-- **Python**: `pip install --upgrade claude-agent-sdk`
-- **TypeScript**: `npm install @anthropic-ai/claude-agent-sdk@latest`
+* **Python**: `pip install --upgrade claude-agent-sdk`
+* **TypeScript**: `npm install @anthropic-ai/claude-agent-sdk@latest`
 
 ### User messages don't have UUIDs
 
@@ -731,8 +725,8 @@ This error occurs when the checkpoint data doesn't exist for the specified user 
 
 **Common causes**:
 
-- File checkpointing was not enabled on the original session (`enable_file_checkpointing` or `enableFileCheckpointing` was not set to `true`)
-- The session wasn't properly completed before attempting to resume and rewind
+* File checkpointing was not enabled on the original session (`enable_file_checkpointing` or `enableFileCheckpointing` was not set to `true`)
+* The session wasn't properly completed before attempting to resume and rewind
 
 **Solution**: Ensure `enable_file_checkpointing=True` (Python) or `enableFileCheckpointing: true` (TypeScript) was set on the original session, then use the pattern shown in the examples: capture the first user message UUID, complete the session fully, then resume with an empty prompt and call `rewindFiles()` once.
 
@@ -754,24 +748,23 @@ This error occurs when you call `rewindFiles()` or `rewind_files()` after you've
           break
   ```
 
-```typescript TypeScript theme={null}
-// Resume session with empty prompt, then rewind
-const rewindQuery = query({
-  prompt: "",
-  options: { ...opts, resume: sessionId },
-});
+  ```typescript TypeScript theme={null}
+  // Resume session with empty prompt, then rewind
+  const rewindQuery = query({
+    prompt: "",
+    options: { ...opts, resume: sessionId }
+  });
 
-for await (const msg of rewindQuery) {
-  await rewindQuery.rewindFiles(checkpointId);
-  break;
-}
-```
-
+  for await (const msg of rewindQuery) {
+    await rewindQuery.rewindFiles(checkpointId);
+    break;
+  }
+  ```
 </CodeGroup>
 
 ## Next steps
 
-- **[Sessions](/en/agent-sdk/sessions)**: learn how to resume sessions, which is required for rewinding after the stream completes. Covers session IDs, resuming conversations, and session forking.
-- **[Permissions](/en/agent-sdk/permissions)**: configure which tools Claude can use and how file modifications are approved. Useful if you want more control over when edits happen.
-- **[TypeScript SDK reference](/en/agent-sdk/typescript)**: complete API reference including all options for `query()` and the `rewindFiles()` method.
-- **[Python SDK reference](/en/agent-sdk/python)**: complete API reference including all options for `ClaudeAgentOptions` and the `rewind_files()` method.
+* **[Sessions](/en/agent-sdk/sessions)**: learn how to resume sessions, which is required for rewinding after the stream completes. Covers session IDs, resuming conversations, and session forking.
+* **[Permissions](/en/agent-sdk/permissions)**: configure which tools Claude can use and how file modifications are approved. Useful if you want more control over when edits happen.
+* **[TypeScript SDK reference](/en/agent-sdk/typescript)**: complete API reference including all options for `query()` and the `rewindFiles()` method.
+* **[Python SDK reference](/en/agent-sdk/python)**: complete API reference including all options for `ClaudeAgentOptions` and the `rewind_files()` method.

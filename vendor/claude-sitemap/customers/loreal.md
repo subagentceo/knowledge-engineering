@@ -4,10 +4,10 @@ L'Oréal is the world's largest cosmetics and beauty company, operating in over 
 
 ## With Claude, L'Oréal has:
 
-- Achieved 99.9% accuracy on conversational analytics applications, compared to 90% with previous GenAI approaches
-- Built a multi-agent system that transforms natural language questions into data insights and visualizations
-- Enabled employees to query data directly rather than building custom dashboards for each question
-- Deployed Claude across its internal AI platform, serving 15,000 daily users and 44,000 monthly users
+*   Achieved 99.9% accuracy on conversational analytics applications, compared to 90% with previous GenAI approaches
+*   Built a multi-agent system that transforms natural language questions into data insights and visualizations
+*   Enabled employees to query data directly rather than building custom dashboards for each question
+*   Deployed Claude across its internal AI platform, serving 15,000 daily users and 44,000 monthly users
 
 ## The problem
 

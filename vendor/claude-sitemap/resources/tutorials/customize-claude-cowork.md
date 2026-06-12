@@ -47,7 +47,9 @@ Plugins bundle together Connectors and Skills so teammates have what they need t
 
 **Connectors**Access to your systems and tools
 
-- **Skills**Best practices for the work
++
+
+**Skills**Best practices for the work
 
 =
 
@@ -57,10 +59,10 @@ Plugins bundle together Connectors and Skills so teammates have what they need t
 
 Anthropic publishes ready-made plugins for common roles, each pairing the connectors that role relies on with skills for its core workflows:
 
-- **Sales** — Salesforce and Outlook, with Skills for meeting prep, follow-up logging, pipeline reviews, and battle cards.
-- **Product** — Jira, Confluence, and Slack, with Skills for feedback clustering, PRD writing, sprint updates, and competitive teardowns.
-- **Legal** — SharePoint and Word, with Skills for contract redlines by type, regulatory monitoring, and renewal tracking.
-- **Operations** — Jira and Salesforce, with Skills for queue triage, escalation routing, and customer-onboarding kickoffs.
+*   **Sales** — Salesforce and Outlook, with Skills for meeting prep, follow-up logging, pipeline reviews, and battle cards.
+*   **Product** — Jira, Confluence, and Slack, with Skills for feedback clustering, PRD writing, sprint updates, and competitive teardowns.
+*   **Legal** — SharePoint and Word, with Skills for contract redlines by type, regulatory monitoring, and renewal tracking.
+*   **Operations** — Jira and Salesforce, with Skills for queue triage, escalation routing, and customer-onboarding kickoffs.
 
 Browse available Plugins in the **Customize** sidebar for more options, or ask Claude to bundle your own connectors and Skills into a custom plugin to share with your team. Browse plugins for my role in Cowork.
 
@@ -70,11 +72,11 @@ Most people start with connectors and Instructions, write a skill after running 
 
 Once you're set up, additional Cowork features can take you further:
 
-- **Scheduled tasks** run a prompt at a set time, with access to everything you've connected — so a Skill you've written can run every weekday at 9am without you starting it. Type /schedule in any session to set one up. More on scheduled tasks.
-- **Live artifacts** are dashboards, trackers, and comparison views that stay in the sidebar between sessions. Open one any time and ask Claude to refresh it with current data from your connectors. More on live artifacts.
-- **Dispatch** lets you start a task from your phone. The work runs in Cowork on your desktop with your connectors, Skills, and files; you get the result on your phone when it's done. Dispatch in Claude Cowork.
+*   **Scheduled tasks** run a prompt at a set time, with access to everything you've connected — so a Skill you've written can run every weekday at 9am without you starting it. Type /schedule in any session to set one up. More on scheduled tasks.
+*   **Live artifacts** are dashboards, trackers, and comparison views that stay in the sidebar between sessions. Open one any time and ask Claude to refresh it with current data from your connectors. More on live artifacts.
+*   **Dispatch** lets you start a task from your phone. The work runs in Cowork on your desktop with your connectors, Skills, and files; you get the result on your phone when it's done. Dispatch in Claude Cowork.
 
 For more on working in Cowork:
 
-- When to use Chat vs Cowork — how to choose the right mode for the task you're working on.
-- Building plugins from scratch — when the marketplace doesn't have what you need.
+*   When to use Chat vs Cowork — how to choose the right mode for the task you're working on.
+*   Building plugins from scratch — when the marketplace doesn't have what you need.

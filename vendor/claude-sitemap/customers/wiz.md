@@ -4,11 +4,11 @@ Wiz is a cloud security platform with over 2,000 employees that helps security t
 
 ## With Claude, Wiz achieved:
 
-- **~1 day of active development** to migrate a 50,000-line Python library to Go — a project estimated at 2-3 human months manually
-- **2x+ faster PDF processing in production**, with the new Go library fully replacing the sandboxed Python solution
-- **Full codebase ownership**, enabling bug fixes and customizations impossible in the original open-source library (including Hebrew language support)
-- **A 20,000-line C++ library migrated to Go in 2 days**, with Claude Code generating Go assembly code as part of the process
-- **20-30x estimated output multiplication** as the team integrates Claude Code across engineering workflows
+*   **~1 day of active development** to migrate a 50,000-line Python library to Go — a project estimated at 2-3 human months manually
+*   **2x+ faster PDF processing in production**, with the new Go library fully replacing the sandboxed Python solution
+*   **Full codebase ownership**, enabling bug fixes and customizations impossible in the original open-source library (including Hebrew language support)
+*   **A 20,000-line C++ library migrated to Go in 2 days**, with Claude Code generating Go assembly code as part of the process
+*   **20-30x estimated output multiplication** as the team integrates Claude Code across engineering workflows
 
 ## The challenge: Parsing PDF files at scale
 

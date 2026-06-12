@@ -70,10 +70,10 @@ C. MCP tool names must not exceed 64 characters.
 
 D. Remote MCP servers that connect to a remote service and require authentication must use secure OAuth 2.0 with certificates from recognized authorities.
 
-E. MCP servers must provide all applicable [annotations](https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations) for their tools, in particular _readOnlyHint_, _destructiveHint_, and _title_.
+E. MCP servers must provide all applicable [annotations](https://modelcontextprotocol.io/specification/2025-11-25/schema#toolannotations) for their tools, in particular *readOnlyHint*, *destructiveHint*, and *title*.
 
 F. Remote MCP servers should support the [Streamable HTTP](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http) transport. Servers may support [SSE](https://modelcontextprotocol.io/specification/2024-11-05/basic/transports#http-with-sse) for the time being, but in the future it will be deprecated.
 
-G. Local MCP servers must be built with reasonably current versions of all dependencies, including packages in _node_modules_.
+G. Local MCP servers must be built with reasonably current versions of all dependencies, including packages in *node_modules*.
 
 See prior version of this policy here: [Anthropic MCP Directory Policy](https://support.claude.com/en/articles/11697096-anthropic-mcp-directory-policy).

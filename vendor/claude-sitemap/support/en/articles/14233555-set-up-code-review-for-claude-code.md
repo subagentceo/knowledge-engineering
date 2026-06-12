@@ -18,11 +18,11 @@ Reviews scale in cost with PR size and complexity, completing in 20 minutes on a
 
 Each finding is tagged with a severity level:
 
-| **Marker** | **Severity** | **Meaning**                                                        |
-| ---------- | ------------ | ------------------------------------------------------------------ |
-| 🔴         | Normal       | A bug that should be fixed before merging                          |
-| 🟡         | Nit          | A minor issue, worth fixing but not blocking                       |
-| 🟣         | Pre-existing | A bug that exists in the codebase but wasn’t introduced by this PR |
+| **Marker** | **Severity** | **Meaning** |
+| --- | --- | --- |
+| 🔴 | Normal | A bug that should be fixed before merging |
+| 🟡 | Nit | A minor issue, worth fixing but not blocking |
+| 🟣 | Pre-existing | A bug that exists in the codebase but wasn’t introduced by this PR |
 
 Findings include a collapsible extended reasoning section you can expand to see why Claude flagged the issue and how it verified the problem.
 

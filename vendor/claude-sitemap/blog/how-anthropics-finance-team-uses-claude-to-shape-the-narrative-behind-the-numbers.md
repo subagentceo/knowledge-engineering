@@ -74,10 +74,10 @@ I also keep separate projects for separate audiences: one for the monthly review
 
 Across the financial organization, my colleagues use many of the skills that are now packaged into Claude Cowork plugins for financial services. Here are a few examples of how the CFO organization uses Claude Cowork today:
 
-- **Finance & strategy:** Interactive forecasting and cohort dashboards built from a prompt by analysts themselves: no SQL or engineering involvement needed. A daily revenue and metrics digest lands in leadership’s slack at 7 am.
-- **Accounting:** GL-to-subledger and bank reconciliations, with breaks classified and reviewer commentary drafted as a first pass. Flux runs on all three financial statements. Anyone on the team can ask Claude a question in Slack and get a sourced answer.
-- **Corporate development and IR:** Screening reports for three to four acquisition targets a day, built from notes and public data, then rolled up into memos in minutes. The team spends their time on judgment and making the call, not on the first draft.
-- **Tax & treasury:** Transfer pricing, R&D credit, and nexus questions answered with primary-source citations. Indirect-tax and cash reconciliations run on the same skill pattern as accounting.
+*   **Finance & strategy:** Interactive forecasting and cohort dashboards built from a prompt by analysts themselves: no SQL or engineering involvement needed. A daily revenue and metrics digest lands in leadership’s slack at 7 am.
+*   **Accounting:** GL-to-subledger and bank reconciliations, with breaks classified and reviewer commentary drafted as a first pass. Flux runs on all three financial statements. Anyone on the team can ask Claude a question in Slack and get a sourced answer.
+*   **Corporate development and IR:** Screening reports for three to four acquisition targets a day, built from notes and public data, then rolled up into memos in minutes. The team spends their time on judgment and making the call, not on the first draft.
+*   **Tax & treasury:** Transfer pricing, R&D credit, and nexus questions answered with primary-source citations. Indirect-tax and cash reconciliations run on the same skill pattern as accounting.
 
 ## Advice for finance teams on getting started with Claude
 

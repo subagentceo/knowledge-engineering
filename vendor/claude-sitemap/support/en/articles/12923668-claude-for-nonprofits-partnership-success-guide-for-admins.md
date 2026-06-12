@@ -30,8 +30,8 @@ Key Resources:
 
 - Plan your change management strategy and set success criteria
 
-| Implementation Tips:<br><br> Identify an implementation leader who can go through the above _Driving Adoption at your Organization_ course to help customize a plan for your organization’s adoption and help define success metrics<br>Challenges are normal. Successful organizations acknowledge challenges early, iterate quickly, and maintain open communication. Start a Slack/Teams channel or office hours, and identify an owner early—strong facilitation keeps these spaces active and valuable.<br>Bookmark the [Claude Help Center](https://support.claude.com/en/) as your go-to resource for technical questions. |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Implementation Tips:<br><br>  Identify an implementation leader who can go through the above *Driving Adoption at your Organization* course to help customize a plan for your organization’s adoption and help define success metrics<br>Challenges are normal. Successful organizations acknowledge challenges early, iterate quickly, and maintain open communication. Start a Slack/Teams channel or office hours, and identify an owner early—strong facilitation keeps these spaces active and valuable.<br>Bookmark the [Claude Help Center](https://support.claude.com/en/) as your go-to resource for technical questions. |
+| --- |
 
 ---
 
@@ -51,8 +51,8 @@ Key Resources:
 
 - Choose your first few uses cases: Start with a horizontal productivity win (fast, visible, broad impact), then quickly layer in a department-specific use case that shows what's newly possible—not just faster, but fundamentally different
 
-| Implementation Tips:<br><br> Consider starting a Slack/Teams channel or office hours to support ongoing discussions and share your success.<br>Host an internal 30 day retrospective to capture lessons learned. Leverage Claude to plan this out and consider this prompt as a starting place: _You are a facilitator helping plan a lessons learned retrospective for teams implementing Claude. When given context about the audience and timeframe, generate: (1) a clear agenda with time allocations, (2) an interactive activity that surfaces both wins and growth areas, and (3) a brief 'why this matters' framing to open the session. Keep the tone collaborative and forward-looking, not blame-oriented._<br>Consider sending a baseline survey to licensed users to track progress and capture use cases. |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Implementation Tips:<br><br>  Consider starting a Slack/Teams channel or office hours to support ongoing discussions and share your success.<br>Host an internal 30 day retrospective to capture lessons learned. Leverage Claude to plan this out and consider this prompt as a starting place: *You are a facilitator helping plan a lessons learned retrospective for teams implementing Claude. When given context about the audience and timeframe, generate: (1) a clear agenda with time allocations, (2) an interactive activity that surfaces both wins and growth areas, and (3) a brief 'why this matters' framing to open the session. Keep the tone collaborative and forward-looking, not blame-oriented.*<br>Consider sending a baseline survey to licensed users to track progress and capture use cases. |
+| --- |
 
 ---
 
@@ -78,8 +78,8 @@ Key Resources:
 
 - Participate in monthly webinar series every third week of the month (email will be sent with invites to all registered admin)
 
-| Implementation Tips:<br><br> Monitor leading indicators for strong engagement: % of weekly active users, % with 10+ chats, % using projects.<br>Share success stories internally frequently—both wins and challenges help build organizational momentum. |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Implementation Tips:<br><br>  Monitor leading indicators for strong engagement: % of weekly active users, % with 10+ chats, % using projects.<br>Share success stories internally  frequently—both wins and challenges help build organizational momentum. |
+| --- |
 
 ---
 
@@ -97,8 +97,8 @@ Key Resources:
 
 - Identify new functions or areas of the organization that are interested in adopting Claude and determine what expansion rollout might look like
 
-| Implementation Tips:<br><br> Sustainable adoption means building internal expertise. As AI becomes embedded in role expectations rather than remaining optional, your trained champions become the peer support network that scales beyond what any single admin can provide |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Implementation Tips:<br><br>  Sustainable adoption means building internal expertise. As AI becomes embedded in role expectations rather than remaining optional, your trained champions become the peer support network that scales beyond what any single admin can provide |
+| --- |
 
 ---
 

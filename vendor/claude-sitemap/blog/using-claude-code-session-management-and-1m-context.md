@@ -24,11 +24,11 @@ Context windows are a hard cutoff, so when you’re nearing the end of the conte
 
 Say you've just asked Claude to do something and it's finished—you’ve now got some information in context (tool calls, tool outputs, your instructions) and you have a surprising number of options for what to do next:
 
-- **Continue** — send another message in the same session
-- **`/rewind` (esc esc)** — jump back to a previous message and try again from there
-- **`/clear`** — start a new session, usually with a brief you've distilled from what you just learned
-- **Compact** — summarize the session so far and keep going on top of the summary
-- **Subagents** — delegate the next chunk of work to an agent with its own clean context, and only pull its result back in
+*   **Continue** — send another message in the same session
+*   **`/rewind` (esc esc)** — jump back to a previous message and try again from there
+*   **`/clear`** — start a new session, usually with a brief you've distilled from what you just learned
+*   **Compact** — summarize the session so far and keep going on top of the summary
+*   **Subagents** — delegate the next chunk of work to an agent with its own clean context, and only pull its result back in
 
 While the most natural course is just to continue, the other four options exist to help manage your context.
 
@@ -80,13 +80,13 @@ When Claude spawns a subagent via the Agent tool, that subagent gets its own fre
 
 ![](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69e0241044643c5402b312a9_image2.png)
 
-The mental test we use at Anthropic: *will I need this tool output again, or just the conclusion?* 
+The mental test we use at Anthropic: _will I need this tool output again, or just the conclusion?_ 
 
 While Claude Code will automatically call subagents, you may want to tell it to explicitly do this. For example, you may want to tell it to:
 
-- “Spin up a subagent to verify the result of this work based on the following spec file”
-- “Spin off a subagent to read through this other codebase and summarize how it implemented the auth flow, then implement it yourself in the same way”
-- “Spin off a subagent to write the docs on this feature based on my git changes”
+*   “Spin up a subagent to verify the result of this work based on the following spec file”
+*   “Spin off a subagent to read through this other codebase and summarize how it implemented the auth flow, then implement it yourself in the same way”
+*   “Spin off a subagent to write the docs on this feature based on my git changes”
 
 **Putting it together**
 

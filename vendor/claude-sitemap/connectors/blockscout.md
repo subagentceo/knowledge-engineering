@@ -5,8 +5,8 @@ The Blockscout connector provides access to multichain blockchain data such as b
 You can use the Blockscout connector to:
 
 Analyze address activity:  
-"What are the usual activities performed by ens.eth on the Ethereum Mainnet?"
-
+"What are the usual activities performed by ens.eth on the Ethereum Mainnet?"  
+  
 Query contract interactions:  
 "Which address interacts with the contract the most? What is the most used functionality of this contract?"
 

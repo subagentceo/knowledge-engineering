@@ -4,10 +4,10 @@ Dust**,** an enterprise AI platform, uses Claude and other frontier models to po
 
 **With Claude, Dust enables:**
 
-- AI agents that complete entire workflows automatically, solving the enterprise AI fragmentation challenge
-- Enterprise-grade security with Zero Data Retention (ZDR) policies
-- Seamless integration across disconnected business applications
-- Automated task completion from GitHub issue creation to CRM record updates
+*   AI agents that complete entire workflows automatically, solving the enterprise AI fragmentation challenge
+*   Enterprise-grade security with Zero Data Retention (ZDR) policies
+*   Seamless integration across disconnected business applications
+*   Automated task completion from GitHub issue creation to CRM record updates
 
 ## Connecting AI across the enterprise
 
@@ -29,10 +29,10 @@ Hubert added, "by providing universal AI primitives that make all company workfl
 
 Dust's platform combines leading models like Claude with MCP to create agents that complete tasks independently:
 
-- Creating and assigning issues in GitHub
-- Scheduling meetings in calendar applications
-- Updating documents and customer records
-- Pushing pull requests reviews based on internal coding rules
+*   Creating and assigning issues in GitHub
+*   Scheduling meetings in calendar applications
+*   Updating documents and customer records
+*   Pushing pull requests reviews based on internal coding rules
 
 Hubert explains, "Users want more than just conversational interfaces. Instead of generating a draft, they want to create the actual document automatically. Rather than getting meeting summaries, they need CRM records updated without manual intervention. With our solution, there's no need to switch between multiple applications. Your AI agents can complete entire workflows from start to finish.
 

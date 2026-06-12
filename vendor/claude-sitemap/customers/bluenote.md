@@ -4,11 +4,11 @@ Bluenote uses Claude to build AI agents that power critical operations for life 
 
 With Claude, Bluenote agents:
 
-- Generate complex multi-hundred page scientific documents with in-text tables, figures and citations in minutes.
-- Accelerate regulatory and compliance document production by 50-75%.
-- Enable scientists to parse complex protocols and execute their analyses 10x faster.
-- Identify gaps in existing documentation based on the latest regulatory guidelines, and propose opportunities for increased compliance and quality.
-- Securely retrieve data from clients’ data warehouses and quality management systems for end-to-end data traceability and consistency.
+*   Generate complex multi-hundred page scientific documents with in-text tables, figures and citations in minutes.
+*   Accelerate regulatory and compliance document production by 50-75%.
+*   Enable scientists to parse complex protocols and execute their analyses 10x faster.
+*   Identify gaps in existing documentation based on the latest regulatory guidelines, and propose opportunities for increased compliance and quality.
+*   Securely retrieve data from clients’ data warehouses and quality management systems for end-to-end data traceability and consistency.
 
 ## Building agents for highly regulated biomedical operations
 
@@ -32,9 +32,9 @@ Claude's citation capabilities are crucial for regulatory documentation. "For me
 
 Bluenote built three types of specialized agents using Claude:
 
-- **Document processing agents** extract key information from scientific documents in minutes instead of hours. These agents scan through hundreds of pages to identify critical data points, research findings, and regulatory requirements.
-- **Technical documentation agents** create regulatory documents with proper citations. These agents generate study reports, validation documentation, and compliance forms needed throughout the drug and device development process.
-- **Multi-step workflow agents** automate complex processes from start to finish. These agents handle analyses, assessments, and document or form generation across multiple stages with minimal supervision while maintaining strict regulatory compliance.
+*   **Document processing agents** extract key information from scientific documents in minutes instead of hours. These agents scan through hundreds of pages to identify critical data points, research findings, and regulatory requirements.
+*   **Technical documentation agents** create regulatory documents with proper citations. These agents generate study reports, validation documentation, and compliance forms needed throughout the drug and device development process.
+*   **Multi-step workflow agents** automate complex processes from start to finish. These agents handle analyses, assessments, and document or form generation across multiple stages with minimal supervision while maintaining strict regulatory compliance.
 
 ## Intelligent agents delivering measurable impact
 

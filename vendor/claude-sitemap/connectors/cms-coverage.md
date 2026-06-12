@@ -10,6 +10,6 @@ You can use the CMS Coverage connector to:
 
 **Stay Current on Policy Changes:** "Have there been any Medicare coverage changes in the last month that affect my practice?"
 
-**Review Local Coverage Policies:** "What are the LCD requirements for continuous glucose monitoring in my region?"
-
+**Review Local Coverage Policies:** "What are the LCD requirements for continuous glucose monitoring in my region?"  
+  
 Disclaimer: This server may return data governed by third-party license agreements, including those available here. By connecting to this server, you understand and agree to abide by any applicable agreements.

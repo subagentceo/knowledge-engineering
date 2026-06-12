@@ -2,8 +2,8 @@
 
 Create and edit online forms, then access and analyze submissions directly in Claude. Design forms through natural language, review incoming responses, and generate insights or reports without leaving the chat. Make data collection and analysis seamless, helping businesses, educators, and teams capture structured input and act on it instantly.
 
-You can use the Jotform connector to:
-
+You can use the Jotform connector to:  
+  
 Create forms with natural language:  
 "Create a customer feedback form with fields for name, email, satisfaction rating (1–5), and an optional comments box"
 

@@ -1,9 +1,9 @@
 # Trivago
 
-The Trivago connector enables users to search for hotels and accommodations using coordinates or broader geographic areas such as cities and countries. It provides tailored search results based on location and date inputs, helping users find suitable places to stay near specific points of interest or within larger regions.
-
-You can use the Trivago connector to: 
-
+The Trivago connector enables users to search for hotels and accommodations using coordinates or broader geographic areas such as cities and countries. It provides tailored search results based on location and date inputs, helping users find suitable places to stay near specific points of interest or within larger regions.  
+  
+You can use the Trivago connector to:   
+  
 Search hotels by destination and dates:  
 "Find me a hotel in Las Vegas for 2 people from 12 July to 20 July 2026"
 

@@ -4,11 +4,11 @@ Chronograph is a leading portfolio monitoring and analytics platform serving ins
 
 With Claude, Chronograph:
 
-- Achieves 100% employee adoption with 80% daily active usage across all 150+ team members
-- Enables new hires to contribute in Week 2 versus 2+ months previously
-- Replaces expensive vendor tools with custom AI-powered lead generation workflows
-- Enables non-technical teams to build real-time dashboards and analyze data without engineering bottlenecks
-- Launched Chronograph MCP server, enabling private equity clients to connect portfolio data directly to Claude
+*   Achieves 100% employee adoption with 80% daily active usage across all 150+ team members
+*   Enables new hires to contribute in Week 2 versus 2+ months previously
+*   Replaces expensive vendor tools with custom AI-powered lead generation workflows
+*   Enables non-technical teams to build real-time dashboards and analyze data without engineering bottlenecks
+*   Launched Chronograph MCP server, enabling private equity clients to connect portfolio data directly to Claude
 
 ## The problem
 

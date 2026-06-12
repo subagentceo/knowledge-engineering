@@ -2,9 +2,9 @@
 
 AES, a global energy company, uses Claude on Google Cloud’s Vertex AI to automate safety audits and accelerate their mission of transforming the future of energy. By leveraging Claude's advanced natural language processing capabilities via Vertex AI, AES has:
 
-- Increased audit accuracy by 10-20%
-- Generated audit results 96% faster
-- Reduced audit costs by 99%
+*   Increased audit accuracy by 10-20%
+*   Generated audit results 96% faster
+*   Reduced audit costs by 99%
 
 ## The challenge of scaling renewable energy asset management
 

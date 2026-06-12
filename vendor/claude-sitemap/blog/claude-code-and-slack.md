@@ -6,9 +6,9 @@ Today, we're introducing the ability to delegate tasks to Claude Code directly f
 
 The critical context around engineering work often lives in Slack, including bug reports, feature requests, and engineering discussion. When a bug report appears or a teammate needs a code fix, you can now tag Claude in Slack to automatically spin up a Claude Code session using the surrounding context. Use it for:
 
-- **Bug investigation and fixes**: Ask Claude to investigate and fix bugs as soon as they’re reported.
-- **Quick code reviews and modifications**: Have Claude implement small features or refactor code based on team feedback.
-- **Collaborative debugging**: When team discussion provides crucial context—error reproductions or user reports—Claude can use that information to inform its debugging approach.
+*   **Bug investigation and fixes**: Ask Claude to investigate and fix bugs as soon as they’re reported.
+*   **Quick code reviews and modifications**: Have Claude implement small features or refactor code based on team feedback.
+*   **Collaborative debugging**: When team discussion provides crucial context—error reproductions or user reports—Claude can use that information to inform its debugging approach.
 
 ## Route tasks to Claude Code automatically
 

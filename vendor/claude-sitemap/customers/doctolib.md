@@ -4,11 +4,11 @@ Since 2013, Doctolib has been transforming healthcare across Europe, serving 420
 
 **With Claude Code, Doctolib:**
 
-- Maintains technical documentation automatically with every code change
-- Onboards engineers to unfamiliar codebases in days instead of weeks
-- Reviews pull requests instantly without waiting for team availability
-- Migrated their entire visual regression testing tool in hours rather than weeks
-- Tackles technical debt systematically through reusable prompts and automated CI workflows
+*   Maintains technical documentation automatically with every code change
+*   Onboards engineers to unfamiliar codebases in days instead of weeks
+*   Reviews pull requests instantly without waiting for team availability
+*   Migrated their entire visual regression testing tool in hours rather than weeks
+*   Tackles technical debt systematically through reusable prompts and automated CI workflows
 
 ## The problem
 

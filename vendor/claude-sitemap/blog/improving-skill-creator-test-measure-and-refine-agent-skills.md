@@ -16,8 +16,8 @@ Skills generally fall into two categories:
 
 This distinction matters because these two types of skills may need testing for different reasons:
 
-- Capability uplift skills may become less necessary as models improve. Evals tell you when that's happened. 
-- Encoded preference skills are more durable, but only as valuable as their fidelity to your actual workflow. Evals verify that fidelity. 
+*   Capability uplift skills may become less necessary as models improve. Evals tell you when that's happened. 
+*   Encoded preference skills are more durable, but only as valuable as their fidelity to your actual workflow. Evals verify that fidelity. 
 
 Either way, testing turns a skill that _seems_ to work into one you _know_ works. 
 

@@ -2,8 +2,8 @@
 
 Provides access to PubMed's biomedical citations and PubMed Central's full-text archive. Search articles, retrieve metadata and abstracts, access full-text content (when available in PMC), find related research, and more.
 
-You can use the PubMed connector to:
-
+You can use the PubMed connector to:  
+  
 Search recent publications:  
 "How many cancer research articles have been published this month?"
 

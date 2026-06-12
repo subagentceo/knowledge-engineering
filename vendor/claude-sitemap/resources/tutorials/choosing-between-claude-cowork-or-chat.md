@@ -80,11 +80,11 @@ Send a prompt describing the objective — what you need done and what _done_ lo
 
 **Claude takes it from there**
 
-- **Understand** — asks clarifying questions to make sure it's clear on your goal
-- **Plan** — breaks the work into steps you can see in the sidebar
-- **Execute** — works across your files, tools, and the web
-- **Verify** — checks its own output for quality and accuracy
-- **Deliver** — produces finished files and a summary of what it did
+*   **Understand** — asks clarifying questions to make sure it's clear on your goal
+*   **Plan** — breaks the work into steps you can see in the sidebar
+*   **Execute** — works across your files, tools, and the web
+*   **Verify** — checks its own output for quality and accuracy
+*   **Deliver** — produces finished files and a summary of what it did
 
 ✓
 
@@ -92,22 +92,23 @@ Send a prompt describing the objective — what you need done and what _done_ lo
 
 Finished files in your folder, actions taken in your tools, and a record of everything that happened.
 
+  
 In Cowork, you can **delegate, but stay in control**. Claude's actions show up in the sidebar, you can interrupt and redirect at any point, and it asks for your approval before anything consequential — sending an email, posting a message, changing a file outside your working folder.
 
 ## What only Cowork can do
 
-- **Access your local folders** — Cowork reads and writes files where they are on your computer, with no upload or download step. Give it a folder and the output is saved next to the inputs.
-- **Navigate your logged-in browser** — with Claude in Chrome connected, Cowork opens pages as you: vendor portals, internal dashboards, forms behind a login.
-- **Reach your desktop apps** — with computer use enabled, Cowork can open and operate native applications on your machine: edit a PowerPoint, fill a form in a desktop tool, click through software that has no API.
-- **Delegate parallel work** — when a task has independent parts (research five companies, check every contract in a folder), Cowork runs them at the same time instead of one after another.
-- **Run tasks on a schedule** — Cowork tasks can run on a schedule you set, so recurring work happens without you starting it.
+*   **Access your local folders** — Cowork reads and writes files where they are on your computer, with no upload or download step. Give it a folder and the output is saved next to the inputs.
+*   **Navigate your logged-in browser** — with Claude in Chrome connected, Cowork opens pages as you: vendor portals, internal dashboards, forms behind a login.
+*   **Reach your desktop apps** — with computer use enabled, Cowork can open and operate native applications on your machine: edit a PowerPoint, fill a form in a desktop tool, click through software that has no API.
+*   **Delegate parallel work** — when a task has independent parts (research five companies, check every contract in a folder), Cowork runs them at the same time instead of one after another.
+*   **Run tasks on a schedule** — Cowork tasks can run on a schedule you set, so recurring work happens without you starting it.
 
 ## A few things to know
 
-- Cowork runs in Claude Desktop only — there's no web version, and your computer needs to stay awake while a task runs. Chat is on claude.ai, mobile, and Desktop.
-- ‍Live artifacts turn Cowork's output into an interactive page — a dashboard, a report, a tracker — that you can refresh with new data and open again from the sidebar.
-- ‍Dispatch lets you start and follow Cowork tasks from your phone — the work still runs on your desktop, but you don't need to be at your computer.
-- ‍Plugins extend Cowork with packages of skills and connectors that teach Claude the workflows, terminology, and outputs for your role. The customization guide covers setting those up.
+*   Cowork runs in Claude Desktop only — there's no web version, and your computer needs to stay awake while a task runs. Chat is on claude.ai, mobile, and Desktop.
+*   ‍Live artifacts turn Cowork's output into an interactive page — a dashboard, a report, a tracker — that you can refresh with new data and open again from the sidebar.
+*   ‍Dispatch lets you start and follow Cowork tasks from your phone — the work still runs on your desktop, but you don't need to be at your computer.
+*   ‍Plugins extend Cowork with packages of skills and connectors that teach Claude the workflows, terminology, and outputs for your role. The customization guide covers setting those up.
 
 ## Get started
 

@@ -4,10 +4,10 @@ Carta Healthcare began with a simple frustration at Stanford Children’s Hospit
 
 ## With Claude, Carta Healthcare:
 
-- Reduces clinical data abstraction time by up to 66% while improving data quality
-- Enabled processing of clinically complex questions that were previously impossible to automate
-- Achieve 98-99% Inter-rater Reliability (IRR) scores, which is the healthcare industry's gold standard for data quality
-- Transformed clinicians from manual data hunters into high-value validators and users of data to drive healthcare improvement
+*   Reduces clinical data abstraction time by up to 66% while improving data quality
+*   Enabled processing of clinically complex questions that were previously impossible to automate
+*   Achieve 98-99% Inter-rater Reliability (IRR) scores, which is the healthcare industry's gold standard for data quality
+*   Transformed clinicians from manual data hunters into high-value validators and users of data to drive healthcare improvement
 
 ## The problem
 

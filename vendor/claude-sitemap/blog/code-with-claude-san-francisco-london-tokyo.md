@@ -8,9 +8,9 @@ This year’s agenda includes an expanded lineup of technical sessions and talks
 
 **Dates**
 
-- **San Francisco**: May 6, 2026
-- **London**: May 19, 2026**‍**
-- **Tokyo**: June 10, 2026
+*   **San Francisco**: May 6, 2026
+*   **London**: May 19, 2026**‍**
+*   **Tokyo**: June 10, 2026
 
 In-person space is limited across all three cities. Applications open today, attendees will be selected by random drawing and applicants will be notified in early April. Livestream access as well as recordings of sessions will be available to all.
 

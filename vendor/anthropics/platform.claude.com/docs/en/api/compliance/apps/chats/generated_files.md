@@ -107,6 +107,7 @@ curl https://api.anthropic.com/v1/compliance/apps/chats/generated-files/$CLAUDE_
   specific message that produced the file, fetch
   `/v1/compliance/apps/chats/{claude_chat_id}/messages` and match on
   `generated_files[].id`.
+
   - `id: string`
 
     Opaque generated-file id, e.g. 'claude_gen_file_abc123'.

@@ -10,11 +10,11 @@ For developers using Claude across different environments—like development, st
 
 **With Workspaces, you can:**
 
-- **Set granular spend limits**: Implement monthly spend limits on a per-workspace basis, giving you fine-grained control over your API usage costs.
-- **Group related resources**: Organize API keys, usage data, and settings into logical groups that align with your projects or environments.
-- **Manage rate limits**: Adjust rate limits for each workspace independently, while staying within the overall organization rate limits, to better manage the load across various deployments.
-- **Streamline access control**: Improve account security by assigning user permissions at the workspace level.
-- **Monitor usage efficiently**: Gain insights into API usage and costs broken down by workspace, making it easier to track and optimize your resource allocation.
+*   **Set granular spend limits**: Implement monthly spend limits on a per-workspace basis, giving you fine-grained control over your API usage costs.
+*   **Group related resources**: Organize API keys, usage data, and settings into logical groups that align with your projects or environments.
+*   **Manage rate limits**: Adjust rate limits for each workspace independently, while staying within the overall organization rate limits, to better manage the load across various deployments.
+*   **Streamline access control**: Improve account security by assigning user permissions at the workspace level.
+*   **Monitor usage efficiently**: Gain insights into API usage and costs broken down by workspace, making it easier to track and optimize your resource allocation.
 
 ## Getting started
 

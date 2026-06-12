@@ -2,9 +2,9 @@
 
 Pulpit AI, a tool for pastors to turn sermons into content, uses Claude to help pastors communicate with and reach their congregations.
 
-- 80% reduction in operational costs while maintaining high-quality output
-- 200% increase in customer base within three months of Claude integration
-- 20+ pieces of content from one sermon to increase reach and engagement
+*   80% reduction in operational costs while maintaining high-quality output
+*   200% increase in customer base within three months of Claude integration
+*   20+ pieces of content from one sermon to increase reach and engagement
 
 ## Competing for attention in a digital world
 
@@ -24,9 +24,9 @@ The integration process was smooth and efficient. According to Waters, "Integrat
 
 With Claude, Pulpit AI offers innovative features for pastors and congregation members:
 
-- Video clip selection: Claude analyzes sermon transcripts to identify impactful moments, creating video clips with appropriate titles and categories.
-- Multi-format content: A single sermon can be transformed into devotionals, social media posts, e-books, and discipleship materials.
-- Improved sermons: Pastors can get AI-powered feedback on their sermons, with suggestions for clearer introductions or future ideas.
+*   Video clip selection: Claude analyzes sermon transcripts to identify impactful moments, creating video clips with appropriate titles and categories.
+*   Multi-format content: A single sermon can be transformed into devotionals, social media posts, e-books, and discipleship materials.
+*   Improved sermons: Pastors can get AI-powered feedback on their sermons, with suggestions for clearer introductions or future ideas.
 
 ![Pulpit AI product screenshot](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/68baf0506602ed0ba33ae912_4502c2c905f484fcb582b3786c1ae7f6fd2195b0-1920x1036.jpeg)
 

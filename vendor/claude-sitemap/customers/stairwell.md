@@ -4,9 +4,9 @@ Stairwell uses Claude to analyze and summarize complex security data, helping pr
 
 With Claude, Stairwell:
 
-- Processes security data with 40,000+ characters
-- Analyzes complex security data with minimal prompt engineering
-- Converts technical security findings into clear, actionable insights for teams of all experience levels
+*   Processes security data with 40,000+ characters
+*   Analyzes complex security data with minimal prompt engineering
+*   Converts technical security findings into clear, actionable insights for teams of all experience levels
 
 ## Understanding modern cybersecurity challenges
 

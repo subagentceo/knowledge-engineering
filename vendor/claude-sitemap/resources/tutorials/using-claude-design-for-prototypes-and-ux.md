@@ -10,10 +10,10 @@ The most common product use case: you have a feature idea and need to make it ta
 
 **Example prompts for feature prototyping:**
 
-- "Design a new settings page for our SaaS app with sections for account, billing, notifications, and integrations. Include a sidebar nav and make each section expandable."
-- "Create an onboarding flow for a new user — 5 screens that walk them through connecting their data source, configuring their first dashboard, and inviting teammates."
-- "Prototype a search experience with filters, faceted results, and a detail panel that slides in from the right when you click a result."
-- "Build an approval workflow UI where managers can review, comment on, and approve or reject submitted requests in a queue."
+*   "Design a new settings page for our SaaS app with sections for account, billing, notifications, and integrations. Include a sidebar nav and make each section expandable."
+*   "Create an onboarding flow for a new user — 5 screens that walk them through connecting their data source, configuring their first dashboard, and inviting teammates."
+*   "Prototype a search experience with filters, faceted results, and a detail panel that slides in from the right when you click a result."
+*   "Build an approval workflow UI where managers can review, comment on, and approve or reject submitted requests in a queue."
 
 #### Design reviews and stakeholder alignment
 
@@ -21,8 +21,8 @@ Before committing to a direction, you often need to get feedback from stakeholde
 
 **Example prompts:**
 
-- "Show me three different layouts for a user profile page — one card-based, one with a left sidebar, and one with a top tab navigation."
-- "Create two versions of this checkout flow — one single-page and one multi-step wizard — so I can compare them in a design review."
+*   "Show me three different layouts for a user profile page — one card-based, one with a left sidebar, and one with a top tab navigation."
+*   "Create two versions of this checkout flow — one single-page and one multi-step wizard — so I can compare them in a design review."
 
 #### User flow mapping
 
@@ -30,7 +30,7 @@ You can use Claude Design to prototype complete user flows, not just individual 
 
 **Example prompt:**
 
-- "Map out the flow for a user who wants to upgrade from a free plan to a paid plan. Start from the dashboard where they see the upgrade prompt, through the plan comparison page, payment form, confirmation, and the updated dashboard with premium features unlocked."
+*   "Map out the flow for a user who wants to upgrade from a free plan to a paid plan. Start from the dashboard where they see the upgrade prompt, through the plan comparison page, payment form, confirmation, and the updated dashboard with premium features unlocked."
 
 #### Internal tools and admin panels
 
@@ -38,8 +38,8 @@ Product teams often need internal tools quickly — admin dashboards, content mo
 
 **Example prompts:**
 
-- "Design an admin panel for managing user accounts — searchable table with filters for plan type and status, with a detail drawer that shows account history and lets you modify permissions."
-- "Create a content moderation queue where reviewers can see flagged items, view context, and take action (approve, reject, escalate) with keyboard shortcuts."
+*   "Design an admin panel for managing user accounts — searchable table with filters for plan type and status, with a detail drawer that shows account history and lets you modify permissions."
+*   "Create a content moderation queue where reviewers can see flagged items, view context, and take action (approve, reject, escalate) with keyboard shortcuts."
 
 ## Connecting your codebase
 
@@ -63,10 +63,10 @@ Once linked, your codebase becomes part of the project context. You can referenc
 
 Claude analyzes your linked codebase to understand:
 
-- **Component structure** — Your UI building blocks and how they compose together
-- **Styling and theming** — Your color system, spacing scale, typography, and CSS approach
-- **Framework patterns** — State management, hooks, data flow, and other conventions
-- **File organization** — How you name and structure components and directories
+*   **Component structure** — Your UI building blocks and how they compose together
+*   **Styling and theming** — Your color system, spacing scale, typography, and CSS approach
+*   **Framework patterns** — State management, hooks, data flow, and other conventions
+*   **File organization** — How you name and structure components and directories
 
 ### Performance considerations
 
@@ -90,9 +90,9 @@ This handoff is especially valuable when your codebase is linked, because Claude
 
 ### Tips for a clean handoff
 
-- **`Name` things clearly in the prototype.** If you've referred to components by specific names during the design conversation, those names carry through to the handoff.
-- **Document decisions in the chat.** When you make a design decision during iteration ("we went with tabs instead of a sidebar because users need to see all sections at once"), that reasoning becomes context for implementation.
-- **Flag edge cases.** Before handing off, ask Claude to show how the design handles empty states, error states, loading states, and different data volumes. This gives engineering a more complete picture.
+*   **`Name` things clearly in the prototype.** If you've referred to components by specific names during the design conversation, those names carry through to the handoff.
+*   **Document decisions in the chat.** When you make a design decision during iteration ("we went with tabs instead of a sidebar because users need to see all sections at once"), that reasoning becomes context for implementation.
+*   **Flag edge cases.** Before handing off, ask Claude to show how the design handles empty states, error states, loading states, and different data volumes. This gives engineering a more complete picture.
 
 ## Example: End-to-end product design workflow
 

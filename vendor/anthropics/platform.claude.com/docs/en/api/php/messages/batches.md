@@ -21,6 +21,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch`
+
   - `string id`
 
     Unique object identifier.
@@ -189,6 +190,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch`
+
   - `string id`
 
     Unique object identifier.
@@ -305,6 +307,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch`
+
   - `string id`
 
     Unique object identifier.
@@ -422,6 +425,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatch`
+
   - `string id`
 
     Unique object identifier.
@@ -530,6 +534,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `DeletedMessageBatch`
+
   - `string id`
 
     ID of the Message Batch.
@@ -584,6 +589,7 @@ Learn more about the Message Batches API in our [user guide](https://docs.claude
 ### Returns
 
 - `MessageBatchIndividualResponse`
+
   - `string customID`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -617,6 +623,7 @@ var_dump($messageBatchIndividualResponse);
 ### Deleted Message Batch
 
 - `DeletedMessageBatch`
+
   - `string id`
 
     ID of the Message Batch.
@@ -630,6 +637,7 @@ var_dump($messageBatchIndividualResponse);
 ### Message Batch
 
 - `MessageBatch`
+
   - `string id`
 
     Unique object identifier.
@@ -683,11 +691,13 @@ var_dump($messageBatchIndividualResponse);
 ### Message Batch Canceled Result
 
 - `MessageBatchCanceledResult`
+
   - `"canceled" type`
 
 ### Message Batch Errored Result
 
 - `MessageBatchErroredResult`
+
   - `ErrorResponse error`
 
   - `"errored" type`
@@ -695,11 +705,13 @@ var_dump($messageBatchIndividualResponse);
 ### Message Batch Expired Result
 
 - `MessageBatchExpiredResult`
+
   - `"expired" type`
 
 ### Message Batch Individual Response
 
 - `MessageBatchIndividualResponse`
+
   - `string customID`
 
     Developer-provided ID created for each request in a Message Batch. Useful for matching results to requests, as results may be given out of request order.
@@ -715,6 +727,7 @@ var_dump($messageBatchIndividualResponse);
 ### Message Batch Request Counts
 
 - `MessageBatchRequestCounts`
+
   - `int canceled`
 
     Number of requests in the Message Batch that have been canceled.
@@ -746,25 +759,31 @@ var_dump($messageBatchIndividualResponse);
 ### Message Batch Result
 
 - `MessageBatchResult`
+
   - `MessageBatchSucceededResult`
+
     - `Message message`
 
     - `"succeeded" type`
 
   - `MessageBatchErroredResult`
+
     - `ErrorResponse error`
 
     - `"errored" type`
 
   - `MessageBatchCanceledResult`
+
     - `"canceled" type`
 
   - `MessageBatchExpiredResult`
+
     - `"expired" type`
 
 ### Message Batch Succeeded Result
 
 - `MessageBatchSucceededResult`
+
   - `Message message`
 
   - `"succeeded" type`

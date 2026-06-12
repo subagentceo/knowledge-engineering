@@ -21,9 +21,10 @@ Acknowledge receipt of a work item, transitioning it from 'queued' to 'starting'
 ### Returns
 
 - `SelfHostedWork`
+
   - `string id`
 
-    Work identifier (e.g., 'work\_...')
+    Work identifier (e.g., 'work_...')
 
   - `?string acknowledgedAt`
 

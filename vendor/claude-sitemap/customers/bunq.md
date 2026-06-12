@@ -6,11 +6,11 @@ bunq selected Claude after extensive A/B testing showed it consistently excelled
 
 With Claude, bunq:
 
-- Investigates complex banking issues autonomously, planning and executing multi-step investigations for failed payments, transaction disputes, and account issues
-- Processes documents instantly using image recognition to handle receipts and verify documents automatically
-- Enables real-time multilingual support as the first bank to launch speech-to-speech AI translation, allowing users to speak with support agents in their native language
-- Powers rapid onboarding by automating verification processes that enable 5-minute account opening
-- Generates precise structured outputs like error-free JSON essential for backend automations
+*   Investigates complex banking issues autonomously, planning and executing multi-step investigations for failed payments, transaction disputes, and account issues
+*   Processes documents instantly using image recognition to handle receipts and verify documents automatically
+*   Enables real-time multilingual support as the first bank to launch speech-to-speech AI translation, allowing users to speak with support agents in their native language
+*   Powers rapid onboarding by automating verification processes that enable 5-minute account opening
+*   Generates precise structured outputs like error-free JSON essential for backend automations
 
 ## The problem: Complex banking queries at massive scale
 

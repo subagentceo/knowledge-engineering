@@ -10,12 +10,12 @@ Tool definitions and accumulated `tool_result` blocks consume your context windo
 
 Each approach targets a different source of context pressure. Pick the one that matches where your tokens are going.
 
-| Approach                  | What it reduces                         | When it fits                                                         | Learn more                                                                                      |
-| ------------------------- | --------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Tool search               | Tool definitions loaded upfront         | Large toolsets (20+ tools) where most tools aren't needed every turn | [Tool search tool](/docs/en/agents-and-tools/tool-use/tool-search-tool)                         |
-| Programmatic tool calling | `tool_result` roundtrips                | Chains of tool calls that can execute as a single script             | [Programmatic tool calling](/docs/en/agents-and-tools/tool-use/programmatic-tool-calling)       |
-| Prompt caching            | Token cost of repeated tool definitions | Stable toolsets across many requests                                 | [Tool use with prompt caching](/docs/en/agents-and-tools/tool-use/tool-use-with-prompt-caching) |
-| Context editing           | Old `tool_result` blocks in history     | Long conversations where early results are no longer relevant        | [Context editing](/docs/en/build-with-claude/context-editing)                                   |
+| Approach | What it reduces | When it fits | Learn more |
+| --- | --- | --- | --- |
+| Tool search | Tool definitions loaded upfront | Large toolsets (20+ tools) where most tools aren't needed every turn | [Tool search tool](/docs/en/agents-and-tools/tool-use/tool-search-tool) |
+| Programmatic tool calling | `tool_result` roundtrips | Chains of tool calls that can execute as a single script | [Programmatic tool calling](/docs/en/agents-and-tools/tool-use/programmatic-tool-calling) |
+| Prompt caching | Token cost of repeated tool definitions | Stable toolsets across many requests | [Tool use with prompt caching](/docs/en/agents-and-tools/tool-use/tool-use-with-prompt-caching) |
+| Context editing | Old `tool_result` blocks in history | Long conversations where early results are no longer relevant | [Context editing](/docs/en/build-with-claude/context-editing) |
 
 ### Tool search
 

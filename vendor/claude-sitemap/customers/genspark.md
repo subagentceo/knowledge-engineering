@@ -4,7 +4,7 @@ Genspark is an AI workspace where one prompt produces slides, spreadsheets, docu
 
 ## With Claude, Genspark:
 
-- Surpassed $250 million in annual recurring revenue after pivoting to the Super Agent in early 2025
-- Orchestrates 150+ specialized tools end-to-end with its Super Agent architecture
-- Creates AI slides, spreadsheets, and documents driven by Claude's coding capability
-- Built an internal engineering culture where 100% of code is written by AI
+*   Surpassed $250 million in annual recurring revenue after pivoting to the Super Agent in early 2025
+*   Orchestrates 150+ specialized tools end-to-end with its Super Agent architecture
+*   Creates AI slides, spreadsheets, and documents driven by Claude's coding capability
+*   Built an internal engineering culture where 100% of code is written by AI

@@ -20,8 +20,8 @@ This enables you to verify that claims are backed with sourced research — ensu
 
 ## Who can access the Scholar Gateway integration
 
-- Existing subscribers to Wiley journals will need to upgrade their subscription following a trial period to allow AI access.
-- New subscribers will need to subscribe subject to a trial period.
+*   Existing subscribers to Wiley journals will need to upgrade their subscription following a trial period to allow AI access.
+*   New subscribers will need to subscribe subject to a trial period.
 
 More details on accessing the integration can be found in Wiley’s MCP Server Documentation.
 
@@ -53,5 +53,5 @@ Technical details of the Scholar Gateway integration can be found in Wiley’s M
 
 ## Common use cases
 
-- Enhanced literature review when planning experiments and research plans, to efficiently identify, summarize, and evaluate relevant literature as individual articles or in aggregation, enabling new ways of doing research and delivering reliable and cited insights in seconds.​
-- Information on latest research in a certain field of medicine or pharmaceuticals.
+*   Enhanced literature review when planning experiments and research plans, to efficiently identify, summarize, and evaluate relevant literature as individual articles or in aggregation, enabling new ways of doing research and delivering reliable and cited insights in seconds.​
+*   Information on latest research in a certain field of medicine or pharmaceuticals.

@@ -4,7 +4,7 @@ If your organization has set up Claude Enterprise, they may claim your existing 
 
 ## What it means when your domain is claimed
 
-Your organization’s admin has initiated a process called domain claiming. This means all personal Claude accounts tied to your company’s email domain (for example, _@yourcompany.com_) are being migrated into the organization’s Enterprise workspace.
+Your organization’s admin has initiated a process called domain claiming. This means all personal Claude accounts tied to your company’s email domain (for example, *@yourcompany.com*) are being migrated into the organization’s Enterprise workspace.
 
 You’ll receive an email and an in-product notification letting you know that your account has been claimed, along with a deadline to choose what happens to your data. This deadline is at least 30 days from the date your admin initiates the claim.
 

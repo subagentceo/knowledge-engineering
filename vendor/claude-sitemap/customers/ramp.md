@@ -6,9 +6,9 @@ With Claude Code, Ramp is transforming their software development processes—en
 
 With Claude Code, Ramp achieved:
 
-- 1+ million lines of AI-suggested code implemented in just 30 days
-- 50% weekly active usage across engineering
-- Up to 80% reduction in incident investigation time with new internal tooling
+*   1+ million lines of AI-suggested code implemented in just 30 days
+*   50% weekly active usage across engineering
+*   Up to 80% reduction in incident investigation time with new internal tooling
 
 ## Engineering meets AI at Ramp
 
@@ -30,11 +30,11 @@ Ramp's relationship with Anthropic has further accelerated adoption. "Our partne
 
 Here’s how Ramp engineers use Claude Code to move even faster:
 
-- **Test automation**: Ramp has developed extensions to Claude Code that streamline the development-test loop by connecting Claude Code to their testing frameworks through the flexible command-line interface. Since Claude Code can be invoked through the terminal and process standard input/output streams—similar to traditional developer tools—Ramp engineers can easily pipe inputs and outputs between it and their testing frameworks, creating custom abstractions that automate the repetitive cycle of writing code, creating tests, and fixing errors. Claude Code independently analyzes test failures, makes the necessary code adjustments, and reruns tests until everything passes—all through familiar interfaces that integrate smoothly with their existing development environment.
-- **Enhanced documentation**: Claude Code automatically generates comprehensive documentation across Ramp's codebase, improving the documentation process with consistent, contextual information useful for both current and future development.
-- **Parallel development workflows**: Developers run multiple Claude Code sessions simultaneously on the same codebase, each handling different tasks. This parallel processing eliminates wait time and significantly increases throughput.
-- **AI-powered incident response**: Ramp is building specialized tools for incident management by connecting Claude Code to their observability stack such as Datadog and Sentry. Claude Code integrates with Model Context Protocol (MCP) servers to autonomously aggregate logs, error reports, and system metrics when incidents occur, giving engineers consolidated, relevant information quickly. Early observations suggest this integration could reduce initial incident triage time by up to 80% because on-call engineers can quickly understand complex system issues without manually piecing together data from multiple sources.
-- **Ticket-to-code automation**: Engineers connect project management systems directly to Claude Code, which pulls ticket context, understands requirements, and implements solutions without manual information transfers.
+*   **Test automation**: Ramp has developed extensions to Claude Code that streamline the development-test loop by connecting Claude Code to their testing frameworks through the flexible command-line interface. Since Claude Code can be invoked through the terminal and process standard input/output streams—similar to traditional developer tools—Ramp engineers can easily pipe inputs and outputs between it and their testing frameworks, creating custom abstractions that automate the repetitive cycle of writing code, creating tests, and fixing errors. Claude Code independently analyzes test failures, makes the necessary code adjustments, and reruns tests until everything passes—all through familiar interfaces that integrate smoothly with their existing development environment.
+*   **Enhanced documentation**: Claude Code automatically generates comprehensive documentation across Ramp's codebase, improving the documentation process with consistent, contextual information useful for both current and future development.
+*   **Parallel development workflows**: Developers run multiple Claude Code sessions simultaneously on the same codebase, each handling different tasks. This parallel processing eliminates wait time and significantly increases throughput.
+*   **AI-powered incident response**: Ramp is building specialized tools for incident management by connecting Claude Code to their observability stack such as Datadog and Sentry. Claude Code integrates with Model Context Protocol (MCP) servers to autonomously aggregate logs, error reports, and system metrics when incidents occur, giving engineers consolidated, relevant information quickly. Early observations suggest this integration could reduce initial incident triage time by up to 80% because on-call engineers can quickly understand complex system issues without manually piecing together data from multiple sources.
+*   **Ticket-to-code automation**: Engineers connect project management systems directly to Claude Code, which pulls ticket context, understands requirements, and implements solutions without manual information transfers.
 
 ## Empowering AI experimentation across teams
 

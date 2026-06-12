@@ -66,16 +66,16 @@ All LCD L38319 criteria met. Provider verified.
 
 **NPI lookup**
 
-- Source: NPI Registry MCP
+*   Source: NPI Registry MCP
 
 **ICD-10 validation**
 
-- Source: ICD-10 Database MCP
+*   Source: ICD-10 Database MCP
 
 **Coverage search**
 
-- Source: CMS Coverage Database MCP
+*   Source: CMS Coverage Database MCP
 
 **Documentation review**
 
-- Source: Uploaded files
+*   Source: Uploaded files

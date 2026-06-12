@@ -7,6 +7,7 @@ For information on adding and removing members from your organization, see **[Ma
 **Important:** The main sections of this article describe the current Enterprise seat model, which applies to all new Enterprise plans.
 
 - If your organization was provisioned before the transition to the single Enterprise seat and you see **Chat** and **Chat + Claude Code** seat types in **[Organization settings > Organization](https://claude.ai/admin-settings/organization)**, refer to **[Information for Chat and Chat + Claude Code plans](#h_2673e097fb)**.
+
   - **[HIPAA-ready Enterprise organizations](https://support.claude.com/en/articles/13296973-hipaa-ready-enterprise-plans)** are an exception: they are provisioned with separate Chat and Chat + Claude Code seat types and are not eligible for the single Enterprise seat billing model.
 
 - If you see **Standard** and **Premium** seat types, refer to **[Information for seat-based Enterprise plans](#h_6a78e30e26)**.
@@ -99,9 +100,9 @@ Some existing usage-based Enterprise organizations currently have two seat types
 
 ### Seat types
 
-| **Seat type**          | **What's included**                         |
-| ---------------------- | ------------------------------------------- |
-| **Chat**               | Claude on web, desktop, and mobile apps     |
+| **Seat type** | **What's included** |
+| --- | --- |
+| **Chat** | Claude on web, desktop, and mobile apps |
 | **Chat + Claude Code** | Everything in Chat, plus Claude Code access |
 
 You can mix and match seat types based on your team's needs. Assign Chat + Claude Code seats to team members who need coding workflows, while keeping others on Chat seats.
@@ -158,10 +159,10 @@ Some Enterprise organizations are on older seat-based plans with a different bil
 
 ### Seat types
 
-| **Seat type** | **What's included**                              |
-| ------------- | ------------------------------------------------ |
-| **Standard**  | Core Enterprise features and usage limits        |
-| **Premium**   | Everything in Standard, plus higher usage limits |
+| **Seat type** | **What's included** |
+| --- | --- |
+| **Standard** | Core Enterprise features and usage limits |
+| **Premium** | Everything in Standard, plus higher usage limits |
 
 ### Reassign users between seat types
 

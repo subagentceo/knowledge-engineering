@@ -49,12 +49,15 @@ List memories
 - `BetaManagedAgentsListMemoriesResult: object { data, next_page }`
 
   Response payload for [List memories](/docs/en/api/beta/memory_stores/memories/list).
+
   - `data: optional array of BetaManagedAgentsMemoryListItem`
 
     One page of results. Each item is either a `memory` object or, when `depth` was set, a `memory_prefix` rollup marker. Items appear in the requested `order_by`/`order`.
+
     - `beta_managed_agents_memory: object { id, content_sha256, content_size_bytes, 7 more }`
 
       A `memory` object: a single text document at a hierarchical path inside a memory store. The `content` field is populated when `view=full` and `null` when `view=basic`; the `content_size_bytes` and `content_sha256` fields are always populated so sync clients can diff without fetching content. Memories are addressed by their `mem_...` ID; the path is the create key and can be changed via update.
+
       - `id: string`
 
         Unique identifier for this memory (a `mem_...` value). Stable across renames; use this ID, not the path, to read, update, or delete the memory.
@@ -84,6 +87,7 @@ List memories
         Hierarchical path of the memory within the store, e.g. `/projects/foo/notes.md`. Always starts with `/`. Paths are case-sensitive and unique within a store. Maximum 1,024 bytes.
 
       - `type: "memory"`
+
         - `"memory"`
 
       - `updated_at: string`
@@ -97,11 +101,13 @@ List memories
     - `beta_managed_agents_memory_prefix: object { path, type }`
 
       A rolled-up directory marker returned by [List memories](/docs/en/api/beta/memory_stores/memories/list) when `depth` is set. Indicates that one or more memories exist deeper than the requested depth under this prefix. This is a list-time rollup, not a stored resource; it has no ID and no lifecycle. Each prefix counts toward the page `limit` and interleaves with `memory` items in path order.
+
       - `path: string`
 
         The rolled-up path prefix, including a trailing `/` (e.g. `/projects/foo/`). Pass this value as `path_prefix` on a subsequent list call to drill into the directory.
 
       - `type: "memory_prefix"`
+
         - `"memory_prefix"`
 
   - `next_page: optional string`

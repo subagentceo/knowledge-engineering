@@ -1,6 +1,6 @@
-_For medical emergencies, active injuries, or situations where you're in immediate physical danger, please contact emergency services (such as 911 in the US and Canada, or 112 in much of Europe) or go to your nearest emergency room._
+*For medical emergencies, active injuries, or situations where you're in immediate physical danger, please contact emergency services (such as 911 in the US and Canada, or 112 in much of Europe) or go to your nearest emergency room.*
 
-_This guidance was developed in partnership with ThroughLine._
+*This guidance was developed in partnership with ThroughLine.*
 
 Claude may sometimes display crisis support resources in a banner or in its responses. These resources are designed to connect you with people who specialize in helping during difficult moments.
 

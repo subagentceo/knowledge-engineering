@@ -10,7 +10,7 @@ Nothing is transcribed on your device, and your audio isn’t sent to any third-
 
 ## Use dictation
 
-- Click the microphone icon on the right side of the chat input. The placeholder changes to _Listening..._ and the button turns blue.
+- Click the microphone icon on the right side of the chat input. The placeholder changes to *Listening...* and the button turns blue.
 
 - Speak your prompt. Your words appear in the composer as you talk.
 

@@ -4,10 +4,10 @@ Lokalise, a localization platform that helps global software teams deliver conte
 
 With Claude, Lokalise:
 
-- Achieves 82.6% AI suggestion acceptance rate with Claude 3.5 Sonnet, outperforming other frontier models
-- Delivers translations that are ready to publish without post-editing for over 80% of content
-- Provides customers with 80% cost savings compared to traditional translation methods
-- Demonstrates superior performance across key language pairs, including English to Portuguese and Japanese to English
+*   Achieves 82.6% AI suggestion acceptance rate with Claude 3.5 Sonnet, outperforming other frontier models
+*   Delivers translations that are ready to publish without post-editing for over 80% of content
+*   Provides customers with 80% cost savings compared to traditional translation methods
+*   Demonstrates superior performance across key language pairs, including English to Portuguese and Japanese to English
 
 ## Transforming localization with AI orchestration
 
@@ -29,9 +29,9 @@ Lokalise has integrated Claude 3.5 Sonnet into their AI orchestration platform. 
 
 Claude's role in this ecosystem includes:
 
-- Generating AI suggestions in Lokalise's Expert Editor, which translators can accept, modify, or reject
-- Serving as the default engine for several high-impact language pairs due to its superior performance
-- Processing longer, more nuanced content segments, which is particularly valuable for product UI localization and in-app messaging
+*   Generating AI suggestions in Lokalise's Expert Editor, which translators can accept, modify, or reject
+*   Serving as the default engine for several high-impact language pairs due to its superior performance
+*   Processing longer, more nuanced content segments, which is particularly valuable for product UI localization and in-app messaging
 
 Integrating Claude into Lokalise's existing tools was straightforward thanks to Anthropic's clear documentation and stable API performance. "Claude integrated seamlessly with our existing model infrastructure, requiring minimal adaptation and allowing us to rapidly deploy and iterate," noted Bonar. This smooth integration enabled Lokalise to quickly stand up an A/B test framework, evaluate results across numerous language pairs, and begin deployment without major backend rework.
 

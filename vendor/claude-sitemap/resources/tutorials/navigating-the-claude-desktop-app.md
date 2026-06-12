@@ -10,44 +10,44 @@ Each mode is designed around the work it serves, showing you what matters and gi
 
 ## Chat
 
-![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a8c30634a6c3e545269791_69a8a456caa28723041a6eea_699e1b746d83c9fb55a56d31_698be3352261cf694fdae308_698bdd295c5f5d680c01e63c_Screenshot%25252525202026-02-09%2525252520at%25252525204.38.22%25252525E2%2525252580%25252525AFPM.png)
+![\_\_wf\_reserved\_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a8c30634a6c3e545269791_69a8a456caa28723041a6eea_699e1b746d83c9fb55a56d31_698be3352261cf694fdae308_698bdd295c5f5d680c01e63c_Screenshot%25252525202026-02-09%2525252520at%25252525204.38.22%25252525E2%2525252580%25252525AFPM.png)
 
 _Chat excels when you need to ask questions, brainstorm, draft, or work through problems back and forth.  
 _  
 If you've used claude.ai, this works the same way, with a few things that come from running natively on your computer:
 
-- **Quick entry.** Double-tap the Option key on Mac to pull up Claude over whatever you're working on. It responds in a compact window that stays on top as you switch between apps. You never have to leave what you're doing to ask a question.
-- **Screenshots and window sharing.** Capture a screenshot or share a window so Claude sees exactly what you're looking at. Faster than describing what's on your screen, and more precise. (Mac)
-- **Dictation.** Talk through a problem instead of typing. Useful when you're thinking out loud, away from your keyboard, or working through something where speaking is faster than writing. (Mac)
-- **Desktop connectors.** Connect local tools and services through connectors so Claude can work with other tools on your machine.
+*   **Quick entry.** Double-tap the Option key on Mac to pull up Claude over whatever you're working on. It responds in a compact window that stays on top as you switch between apps. You never have to leave what you're doing to ask a question.
+*   **Screenshots and window sharing.** Capture a screenshot or share a window so Claude sees exactly what you're looking at. Faster than describing what's on your screen, and more precise. (Mac)
+*   **Dictation.** Talk through a problem instead of typing. Useful when you're thinking out loud, away from your keyboard, or working through something where speaking is faster than writing. (Mac)
+*   **Desktop connectors.** Connect local tools and services through connectors so Claude can work with other tools on your machine.
 
 **_Try it out when:_**
 
-- **You're staring at an unfamiliar dashboard.** Double-tap Option, drag your cursor over the window to screenshot it, and ask "what do these metrics mean?" Claude answers in the overlay while the dashboard stays in view.
-- **You're in between meetings** and want to think through how to structure a presentation. Open quick entry, switch to voice, and talk it through. Claude drafts an outline from what you said.
-- **You've been jotting down ideas for a product launch** across Apple Notes for weeks. You add the Notes connector from Settings and ask Claude: "Pull together everything in my notes about the Osprey launch, figure out where I left things half-finished, and check my other connected tools for anything that fills in the gaps." Claude reads your notes on your machine, pieces together what you have, and follows up where you trailed off.
+*   **You're staring at an unfamiliar dashboard.** Double-tap Option, drag your cursor over the window to screenshot it, and ask "what do these metrics mean?" Claude answers in the overlay while the dashboard stays in view.
+*   **You're in between meetings** and want to think through how to structure a presentation. Open quick entry, switch to voice, and talk it through. Claude drafts an outline from what you said.
+*   **You've been jotting down ideas for a product launch** across Apple Notes for weeks. You add the Notes connector from Settings and ask Claude: "Pull together everything in my notes about the Osprey launch, figure out where I left things half-finished, and check my other connected tools for anything that fills in the gaps." Claude reads your notes on your machine, pieces together what you have, and follows up where you trailed off.
 
 ## Cowork
 
-![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a8c30634a6c3e54526979c_69a8a456caa28723041a6ee7_699e2c4828218e71872531df_699e289b7bffb76b5ebedc79_Screenshot%252525202026-02-24%25252520at%252525202.39.06%252525E2%25252580%252525AFPM.png)
+![\_\_wf\_reserved\_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a8c30634a6c3e54526979c_69a8a456caa28723041a6ee7_699e2c4828218e71872531df_699e289b7bffb76b5ebedc79_Screenshot%252525202026-02-24%25252520at%252525202.39.06%252525E2%25252580%252525AFPM.png)
 
-_Claude Cowork_ \_is built for work that takes real effort: pulling information from many sources, making sense of it, and producing something finished.  
+_Claude Cowork_ _is built for work that takes real effort: pulling information from many sources, making sense of it, and producing something finished.  
 ‍_Claude can multitask, tackling different parts of a project at a time, so it has the scope to draw from more sources and the stamina to see things through. Thorough research briefs, cross-source financial analysis, end-to-end contract review, polished slide decks from material spread across sources.
 
 Before starting, Claude often asks a short set of questions to pin down what you need: scope, format, constraints. It builds a plan you can review in the sidebar. As it works, you see the task come together: sources it's drawing from, files taking shape, progress through the plan. You can run multiple tasks at once, each in its own conversation, and switch between them from the sidebar.
 
-- **Folder access.** Give Claude a folder on your computer and it reads what's there, figures out what's relevant, and saves finished work back to the same place. You can also upload files, paste content into the conversation, or connect tools that pull in what Claude needs.
-- **Scheduled tasks.** Claude can handle recurring work on a schedule: a daily briefing that pulls from your Slack and calendar, a weekly roundup of what shipped, a morning inbox triage that sorts what needs your attention. You define the task and when it should run, and Claude handles it automatically each time the app is open. If your computer or the app was closed when a task was due, it catches up when you're back. Learn more.
-- **Browser use.** Connect Claude in Chrome and Claude can navigate websites, interact with pages, and pull what it finds directly into the task it's working on. This is how Cowork does things like check competitor pricing across ten sites or gather data from pages that don't have an API. See use cases and a step-by-step tutorial.
-- **Plugins.** Plugins give Claude capabilities it doesn't have on its own: pulling live financial data, searching your company's internal knowledge base, or working within a specific compliance framework. Browse and add them from the Cowork interface to fit the task.
-- **Protected environment.** Cowork runs in a contained space on your computer. Claude can read, create, and edit files within the folders you share, but can't access anything outside them.
+*   **Folder access.** Give Claude a folder on your computer and it reads what's there, figures out what's relevant, and saves finished work back to the same place. You can also upload files, paste content into the conversation, or connect tools that pull in what Claude needs.
+*   **Scheduled tasks.** Claude can handle recurring work on a schedule: a daily briefing that pulls from your Slack and calendar, a weekly roundup of what shipped, a morning inbox triage that sorts what needs your attention. You define the task and when it should run, and Claude handles it automatically each time the app is open. If your computer or the app was closed when a task was due, it catches up when you're back. Learn more.
+*   **Browser use.** Connect Claude in Chrome and Claude can navigate websites, interact with pages, and pull what it finds directly into the task it's working on. This is how Cowork does things like check competitor pricing across ten sites or gather data from pages that don't have an API. See use cases and a step-by-step tutorial.
+*   **Plugins.** Plugins give Claude capabilities it doesn't have on its own: pulling live financial data, searching your company's internal knowledge base, or working within a specific compliance framework. Browse and add them from the Cowork interface to fit the task.
+*   **Protected environment.** Cowork runs in a contained space on your computer. Claude can read, create, and edit files within the folders you share, but can't access anything outside them.
 
 **_Try it out when:_**
 
-- **You want to query all your tools like you would a database.** Ask "what did we decide about pricing last quarter?" and Cowork finds the answer across meeting notes, slide decks, email, and Slack threads.
-- **You're researching a new market,** scoping competitors, evaluating tools. For any research that might span multiple tabs with hard to extract information, Cowork visits the sites, reads the reports, pulls the pricing, and delivers a structured brief with sources, without you opening a single browser tab.
-- **You need to parse through large documents** where the details matter: contracts, financial reports, meeting transcripts. Cowork reads every page, cross-references across the full set, and pulls out the patterns that only emerge from reading all of them. Review fifty like you'd review five.
-- **You keep doing the same work every morning** — checking messages, pulling together a status update, prepping for the day's meetings. Set it up once as a scheduled task and Claude handles it on repeat, so you start the day with answers instead of admin.
+*   **You want to query all your tools like you would a database.** Ask "what did we decide about pricing last quarter?" and Cowork finds the answer across meeting notes, slide decks, email, and Slack threads.
+*   **You're researching a new market,** scoping competitors, evaluating tools. For any research that might span multiple tabs with hard to extract information, Cowork visits the sites, reads the reports, pulls the pricing, and delivers a structured brief with sources, without you opening a single browser tab.
+*   **You need to parse through large documents** where the details matter: contracts, financial reports, meeting transcripts. Cowork reads every page, cross-references across the full set, and pulls out the patterns that only emerge from reading all of them. Review fifty like you'd review five.
+*   **You keep doing the same work every morning** — checking messages, pulling together a status update, prepping for the day's meetings. Set it up once as a scheduled task and Claude handles it on repeat, so you start the day with answers instead of admin.
 
 See more examples with step-by-step walkthroughs.
 
@@ -55,9 +55,9 @@ Cowork is currently a research preview, available to Pro, Max, Team, and Enterpr
 
 ## Code
 
-![__wf_reserved_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a8c30634a6c3e545269794_69a8a455caa28723041a6ee1_699e1b736d83c9fb55a56d2a_698be3342261cf694fdae301_698bdd78a6031117e6bb41d6_Screenshot%25252525202026-02-09%2525252520at%252525252012.52.07%25252525E2%2525252580%25252525AFPM.png)
+![\_\_wf\_reserved\_inherit](https://cdn.prod.website-files.com/68a44d4040f98a4adf2207b6/69a8c30634a6c3e545269794_69a8a455caa28723041a6ee1_699e1b736d83c9fb55a56d2a_698be3342261cf694fdae301_698bdd78a6031117e6bb41d6_Screenshot%25252525202026-02-09%2525252520at%252525252012.52.07%25252525E2%2525252580%25252525AFPM.png)
 
-_Code_ _puts a full development environment inside the desktop app, powered by_ _Claude Code\_\_.  
+_Code_ _puts a full development environment inside the desktop app, powered by_ _Claude Code__.  
 ‍_  
 Claude works directly in your codebase: reading what's there, writing and modifying code, running commands. Visual diffs show what changed, a built-in terminal shows commands as they run, and git tracks every version so you can always roll back.
 
@@ -71,9 +71,9 @@ You choose where work happens:
 
 Three interaction modes let you control how much Claude does on its own:
 
-- **Ask**: Claude proposes every change and waits for your approval. You review a visual diff and accept or reject before anything is modified.
-- **Code**: Claude applies file changes automatically but checks before running terminal commands.
-- **Plan**: Claude outlines its full approach before touching anything. A dedicated plan viewer lets you review and revisit the strategy as work progresses.
+*   **Ask**: Claude proposes every change and waits for your approval. You review a visual diff and accept or reject before anything is modified.
+*   **Code**: Claude applies file changes automatically but checks before running terminal commands.
+*   **Plan**: Claude outlines its full approach before touching anything. A dedicated plan viewer lets you review and revisit the strategy as work progresses.
 
 You can run multiple sessions across projects and filter them by status (Active or Archived) and environment (Local or Cloud) from the sidebar.
 
@@ -113,6 +113,6 @@ Connectors, Skills, Claude in Chrome, Plugins, Hooks
 
 ## Get started
 
-- Download Claude for Mac or Windows
-- Cowork and the Code tab require a Pro, Max, Team, or Enterprise subscription
-- The Code tab is still rolling out and may not appear for all users yet.
+*   Download Claude for Mac or Windows
+*   Cowork and the Code tab require a Pro, Max, Team, or Enterprise subscription
+*   The Code tab is still rolling out and may not appear for all users yet.

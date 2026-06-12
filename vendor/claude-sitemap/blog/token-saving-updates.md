@@ -16,9 +16,9 @@ Prompt cache read tokens no longer count against your Input Tokens Per Minute (I
 
 This makes Claude 3.7 Sonnet particularly powerful for applications that benefit from extensive context while requiring high throughput, such as:
 
-- Document analysis platforms that need to maintain large knowledge bases in context
-- Coding assistants that reference extensive codebases
-- Customer support systems that leverage detailed product documentation
+*   Document analysis platforms that need to maintain large knowledge bases in context
+*   Coding assistants that reference extensive codebases
+*   Customer support systems that leverage detailed product documentation
 
 Cache-aware ITPM limits are available for Claude 3.7 Sonnet on the Anthropic API.
 

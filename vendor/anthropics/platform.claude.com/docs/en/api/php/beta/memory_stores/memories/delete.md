@@ -23,6 +23,7 @@ Delete a memory
 ### Returns
 
 - `ManagedAgentsDeletedMemory`
+
   - `string id`
 
     ID of the deleted memory (a `mem_...` value).

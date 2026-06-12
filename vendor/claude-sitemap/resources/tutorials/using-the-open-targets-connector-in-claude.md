@@ -18,10 +18,10 @@ This tool makes the Open Targets Platform GraphQL API accessible as read-only, a
 
 ## Who should use the Open Targets integration
 
-- **Target Discovery Scientists:** Identifying novel therapeutic targets
-- **Research Directors/Team or Project Leads/Portfolio Managers:** Strategic decision-making and portfolio management
-- **Academic researchers at all levels:** contrasting their data against existing data, e.g. viewing associations evidence and prioritization analyses for a list of targets they have generated
-- **Bioinformaticians/Data Engineers/Machine Learning Engineers/R&D IT teams:** Integrating Open Targets data with proprietary datasets, building internal data platforms and solutions, training models on biological data
+*   **Target Discovery Scientists:** Identifying novel therapeutic targets
+*   **Research Directors/Team or Project Leads/Portfolio Managers:** Strategic decision-making and portfolio management
+*   **Academic researchers at all levels:** contrasting their data against existing data, e.g. viewing associations evidence and prioritization analyses for a list of targets they have generated
+*   **Bioinformaticians/Data Engineers/Machine Learning Engineers/R&D IT teams:** Integrating Open Targets data with proprietary datasets, building internal data platforms and solutions, training models on biological data
 
 ‍
 
@@ -65,17 +65,17 @@ Technical details of the Open Targets integration can be found in Open Targets�
 
 ## Example use cases
 
-- **Target Discovery Researcher Studying a Disease**
-  - A neuroscience researcher at a pharmaceutical company’s early discovery team, exploring novel therapeutic targets for Alzheimer’s disease. They need to assess which targets show the strongest evidence of association with the disease and understand the types of supporting evidence. They may then want to further prioritize targets based on the evidence.
-    - Example Prompt: _"What are the top five targets associated with Alzheimer disease?"_
-  - The Platform provides a ranked list of targets based on overall association scores and a breakdown of the evidence across multiple data types. From there, they can ask further questions about the targets and the evidence.
+*   **Target Discovery Researcher Studying a Disease**  
+    *   A neuroscience researcher at a pharmaceutical company’s early discovery team, exploring novel therapeutic targets for Alzheimer’s disease. They need to assess which targets show the strongest evidence of association with the disease and understand the types of supporting evidence. They may then want to further prioritize targets based on the evidence.  
+        *   Example Prompt: _"What are the top five targets associated with Alzheimer disease?"_
+    *   The Platform provides a ranked list of targets based on overall association scores and a breakdown of the evidence across multiple data types. From there, they can ask further questions about the targets and the evidence.
 
-- **Statistical Geneticist Browsing Studies**
-  - A statistical geneticist at an academic research institute is investigating genetic variants associated with early onset Alzheimer’s disease. They are reviewing existing genetic evidence for PSEN1 and need to understand what genome wide association studies (GWAS) have been conducted and the most likely causal variants, which populations were studied, and how these findings compare across studies.
-    - Example Prompt: _"Do you have any GWAS evidence for PSEN1? What studies are there?"_
-  - The Platform can provide a list of studies and credible sets containing PSEN1 with variant-level information and study metadata, and links to original publications. The user can further query the information in these studies and credible sets. 
+*   **Statistical Geneticist Browsing Studies**  
+    *   A statistical geneticist at an academic research institute is investigating genetic variants associated with early onset Alzheimer’s disease. They are reviewing existing genetic evidence for PSEN1 and need to understand what genome wide association studies (GWAS) have been conducted and the most likely causal variants, which populations were studied, and how these findings compare across studies.  
+        *   Example Prompt: _"Do you have any GWAS evidence for PSEN1? What studies are there?"_
+    *   The Platform can provide a list of studies and credible sets containing PSEN1 with variant-level information and study metadata, and links to original publications. The user can further query the information in these studies and credible sets. 
 
-- **Target Prioritisation Using Safety Data**
-  - A translational scientist on a target selection committee is evaluating potential drug targets for an anti-inflammatory programme. They need to understand the safety profile associated with targeting this protein to inform risk-benefit discussions, including known adverse events and safety issues, evidence from clinical trials, post-marketing surveillance, and genetic studies. 
-    - Example Prompt: _"Are there known safety events associated with targeting PTGS2?"_
-  - The Platform provides comprehensive safety information from multiple sources, which the user can explore in more detail, and compare information for different targets.
+*   **Target Prioritisation Using Safety Data**  
+    *   A translational scientist on a target selection committee is evaluating potential drug targets for an anti-inflammatory programme. They need to understand the safety profile associated with targeting this protein to inform risk-benefit discussions, including known adverse events and safety issues, evidence from clinical trials, post-marketing surveillance, and genetic studies.   
+        *   Example Prompt: _"Are there known safety events associated with targeting PTGS2?"_
+    *   The Platform provides comprehensive safety information from multiple sources, which the user can explore in more detail, and compare information for different targets.

@@ -6,12 +6,12 @@ The Blackbaud integration relies on Claude's ability to use remote connectors.
 
 ## What this connector provides
 
-- **Constituent profiles:** Access detailed donor records including contact information, affiliations, and giving history
-- **Constituent search:** Search donors by full or partial name across your database
-- **Event discovery:** Search fundraising events by name or keyword and retrieve details like dates, locations, and funds raised
-- **Gift records:** View donation amounts, dates, donors, and associated campaigns
-- **Communications:** Draft personalized thank-you notes and donor outreach referencing specific gifts
-- **Real-time data:** Fetch current information directly from Raiser's Edge NXT
+*   **Constituent profiles:** Access detailed donor records including contact information, affiliations, and giving history
+*   **Constituent search:** Search donors by full or partial name across your database
+*   **Event discovery:** Search fundraising events by name or keyword and retrieve details like dates, locations, and funds raised
+*   **Gift records:** View donation amounts, dates, donors, and associated campaigns
+*   **Communications:** Draft personalized thank-you notes and donor outreach referencing specific gifts
+*   **Real-time data:** Fetch current information directly from Raiser's Edge NXT
 
 ## Setting up the connector
 
@@ -72,9 +72,9 @@ _When to use: Locating donors with partial names, finding family members._
 
 ## Tips for using the connector
 
-- Use full donor names for accurate constituent lookups
-- Specify time periods in gift history requests
-- Ask naturally, as if asking a colleague
-- Combine multiple requests when helpful
-- Review AI-generated communications before sending, especially with sensitive donor data
-- Claude only accesses data your Blackbaud account authorizes
+*   Use full donor names for accurate constituent lookups
+*   Specify time periods in gift history requests
+*   Ask naturally, as if asking a colleague
+*   Combine multiple requests when helpful
+*   Review AI-generated communications before sending, especially with sensitive donor data
+*   Claude only accesses data your Blackbaud account authorizes

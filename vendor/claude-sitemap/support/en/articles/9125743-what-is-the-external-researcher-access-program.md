@@ -14,11 +14,11 @@ Please complete the following application form with details about your team and 
 
 1. This program provides **free API credits** for our **standard model suite** to researchers working on AI safety and alignment topics we consider high priority.
 
-2. Note that these credits are for **API use** and _do not_ apply to the Claude web app.
+2. Note that these credits are for **API use** and *do not* apply to the Claude web app.
 
-3. This program does _not_ provide access to **non-standard or nonpublic models.**
+3. This program does *not* provide access to **non-standard or nonpublic models.**
 
-4. **Applicants through this program do _not_ receive exemption from our [Usage Policy](https://www.anthropic.com/legal/aup).** Our Trust & Safety team will follow our standard enforcement procedures and take action whenever an organization’s prompt activity hits our violation rate thresholds.
+4. **Applicants through this program do *not* receive exemption from our [Usage Policy](https://www.anthropic.com/legal/aup).** Our Trust & Safety team will follow our standard enforcement procedures and take action whenever an organization’s prompt activity hits our violation rate thresholds.
 
 ## About our Process
 
@@ -54,11 +54,11 @@ If your program's needs change significantly over time, please submit an updated
 
 ### I am performing red-teaming or jailbreaking research. Is there a way to make sure our account does not get flagged for potentially breaking your [Usage Policy](https://www.anthropic.com/legal/aup) while our researchers are purposefully red-teaming?
 
-We appreciate your interest in conducting red-teaming or jailbreaking research, as it plays a crucial role in improving AI safety. However, to maintain the sustainability of our External Researcher Access Program, participants _are not exempt_ from our [Usage Policy](https://www.anthropic.com/legal/aup). Our Trust & Safety team will follow our standard enforcement procedures and take action whenever an organization’s prompt activity hits our violation rate thresholds.
+We appreciate your interest in conducting red-teaming or jailbreaking research, as it plays a crucial role in improving AI safety. However, to maintain the sustainability of our External Researcher Access Program, participants *are not exempt* from our [Usage Policy](https://www.anthropic.com/legal/aup). Our Trust & Safety team will follow our standard enforcement procedures and take action whenever an organization’s prompt activity hits our violation rate thresholds.
 
 However, to balance supporting valuable research with maintaining the safety and integrity of our systems, we have created two alternative opportunities:
 
-1. **Close collaborators of Anthropic employees**: If you are already collaborating closely with an Anthropic employee on your research and require an exemption to our Usage Policy, please inform your Anthropic collaborator about your needs. They can initiate our internal approval process, and, _if approved via this process_, your account will be appropriately labeled.
+1. **Close collaborators of Anthropic employees**: If you are already collaborating closely with an Anthropic employee on your research and require an exemption to our Usage Policy, please inform your Anthropic collaborator about your needs. They can initiate our internal approval process, and, *if approved via this process*, your account will be appropriately labeled.
 
 2. **Model Safety Bug Bounty Program**: For researchers focusing specifically on jailbreaking, we encourage you to apply to our Model Safety Bug Bounty Program. This program is designed to support and reward research in this area.
 
@@ -86,10 +86,10 @@ Thank you for your interest in our Researcher Access Program and for taking the 
 
 4. **Approval notifications:**
 
-5. If your application is approved, you will be notified promptly after the monthly evaluation.
+  1. If your application is approved, you will be notified promptly after the monthly evaluation.
 
-6. If you haven't heard back from us, it means that your application has not been approved.
+  2. If you haven't heard back from us, it means that your application has not been approved.
 
-7. **Reapplication:** Please note that this program was substantially revised in **July 2024**. If you contacted us before that time, or if significant time has passed since your initial application, you're welcome to submit a new application through the new application form with any updated information about your research: [Application Form - Anthropic's External Researcher Access Program](https://forms.gle/pZYC8f6qYqSKvRWn9).
+5. **Reapplication:** Please note that this program was substantially revised in **July 2024**. If you contacted us before that time, or if significant time has passed since your initial application, you're welcome to submit a new application through the new application form with any updated information about your research: [Application Form - Anthropic's External Researcher Access Program](https://forms.gle/pZYC8f6qYqSKvRWn9).
 
 ​Thank you for your understanding. We're committed to supporting the AI research community to the best of our ability while maintaining a sustainable process.

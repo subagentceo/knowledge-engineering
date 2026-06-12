@@ -37,9 +37,10 @@ Create a new environment with the specified configuration.
 - `beta_environment: object { id, archived_at, config, 7 more }`
 
   Unified Environment resource for both cloud and self-hosted environments.
+
   - `id: string`
 
-    Environment identifier (e.g., 'env\_...')
+    Environment identifier (e.g., 'env_...')
 
   - `archived_at: string`
 
@@ -48,15 +49,19 @@ Create a new environment with the specified configuration.
   - `config: BetaCloudConfig or BetaSelfHostedConfig`
 
     Environment configuration (either Anthropic Cloud or self-hosted)
+
     - `beta_cloud_config: object { networking, packages, type }`
 
       `cloud` environment configuration.
+
       - `networking: BetaUnrestrictedNetwork or BetaLimitedNetwork`
 
         Network configuration policy.
+
         - `beta_unrestricted_network: object { type }`
 
           Unrestricted network access.
+
           - `type: "unrestricted"`
 
             Network policy type
@@ -64,6 +69,7 @@ Create a new environment with the specified configuration.
         - `beta_limited_network: object { allow_mcp_servers, allow_package_managers, allowed_hosts, type }`
 
           Limited network access.
+
           - `allow_mcp_servers: boolean`
 
             Permits outbound access to MCP server endpoints configured on the agent, beyond those listed in the `allowed_hosts` array.
@@ -83,6 +89,7 @@ Create a new environment with the specified configuration.
       - `packages: object { apt, cargo, gem, 4 more }`
 
         Package manager configuration.
+
         - `apt: array of string`
 
           Ubuntu/Debian packages to install
@@ -110,6 +117,7 @@ Create a new environment with the specified configuration.
         - `type: optional "packages"`
 
           Package configuration type
+
           - `"packages"`
 
       - `type: "cloud"`
@@ -119,6 +127,7 @@ Create a new environment with the specified configuration.
     - `beta_self_hosted_config: object { type }`
 
       Configuration for self-hosted environments.
+
       - `type: "self_hosted"`
 
         Environment type
@@ -150,6 +159,7 @@ Create a new environment with the specified configuration.
   - `scope: optional "organization" or "account"`
 
     The visibility scope for this environment. 'organization' means visible to all accounts. 'account' means visible only to the owning account.
+
     - `"organization"`
 
     - `"account"`
@@ -172,16 +182,31 @@ ant beta:environments create \
     "networking": {
       "allow_mcp_servers": false,
       "allow_package_managers": true,
-      "allowed_hosts": ["api.example.com"],
+      "allowed_hosts": [
+        "api.example.com"
+      ],
       "type": "limited"
     },
     "packages": {
-      "apt": ["string"],
-      "cargo": ["string"],
-      "gem": ["string"],
-      "go": ["string"],
-      "npm": ["string"],
-      "pip": ["pandas", "numpy"],
+      "apt": [
+        "string"
+      ],
+      "cargo": [
+        "string"
+      ],
+      "gem": [
+        "string"
+      ],
+      "go": [
+        "string"
+      ],
+      "npm": [
+        "string"
+      ],
+      "pip": [
+        "pandas",
+        "numpy"
+      ],
       "type": "packages"
     },
     "type": "cloud"

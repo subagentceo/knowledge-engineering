@@ -4,23 +4,24 @@
 
 ## With Claude, Vibecode:
 
-- Created the first mobile-native app builder, eliminating the need for computers or coding knowledge
-- Reduced average app development cost from $50,000 to $100
-- Compressed app development timelines from months to under one hour
-- Enabled software development 100% via mobile app—no desktop required
+*   Created the first mobile-native app builder, eliminating the need for computers or coding knowledge
+*   Reduced average app development cost from $50,000 to $100
+*   Compressed app development timelines from months to under one hour
+*   Enabled software development 100% via mobile app—no desktop required
 
 ## The challenge
 
 The vast majority of people have never written a line of code. Mobile development is even more specialized. Traditional mobile apps require significant investment—$10,000 to $50,000 or more—and months of work with development teams, making custom software unrealistic for many small business owners, creators, and entrepreneurs.
 
-Vibecode's mission is to change that and democratize mobile app development by meeting users where they already are. "Most SMB owners run their business on their phone,” said Riley Brown, Vibecode co-founder and an early adopter of vibecoding. “It's most convenient for them to build apps on their phone." CEO and co-founder Ansh Nanda added: "For humans, 80% of their attention is on mobile. Building for mobile was obvious."
+Vibecode's mission is to change that and democratize mobile app development by meeting users where they already are. "Most SMB owners run their business on their phone,” said Riley Brown, Vibecode co-founder and an early adopter of vibecoding. “It's most convenient for them to build apps on their phone." CEO and co-founder Ansh Nanda added: "For humans, 80% of their attention is on mobile. Building for mobile was obvious."  
+  
 
 ## Selecting Claude as the engine for mobile app creation
 
 Vibecode's journey with Anthropic began when the founding team observed early Claude models (Sonnet 3.5 through 3.7) generating high-quality web applications. If Claude could build for the web, they reasoned, it should be able to build for mobile too.
 
-The team needed a model that could reliably produce clean React Native code, handle complex backend systems, and orchestrate multi-file projects—all while maintaining consistency on mobile devices. Claude's capabilities in code generation, multi-file reasoning, tool use, and agentic workflows made it the choice for production-quality mobile app development. 
-
+The team needed a model that could reliably produce clean React Native code, handle complex backend systems, and orchestrate multi-file projects—all while maintaining consistency on mobile devices. Claude's capabilities in code generation, multi-file reasoning, tool use, and agentic workflows made it the choice for production-quality mobile app development.   
+  
 After evaluating other leading AI models, the choice was clear. "Claude has consistently been the best AI model that we've used,” Brown said. “It's not really close. Claude has always been the best for us, and we use it as the default model within the Vibecode app. Without it, people wouldn't be able to build apps directly on their phone."
 
 ## Vibecode uses Claude to power end-to-end app creation

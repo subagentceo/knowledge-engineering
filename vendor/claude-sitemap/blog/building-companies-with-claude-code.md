@@ -6,9 +6,9 @@ Today, agentic coding tools like Claude Code are fundamentally changing how YC s
 
 We spoke with three YC startups who demonstrate this transformation in action: 
 
-- HumanLayer (F24) built their entire platform and pioneered context engineering practices with Claude Code
-- Ambral (W25) is scaling AI-powered account management with sophisticated sub-agent powered workflows built with Claude Code and Claude Agents SDK
-- Vulcan Technologies (S25) is using Claude Code to tackle regulatory complexity for the government and industry
+*   HumanLayer (F24) built their entire platform and pioneered context engineering practices with Claude Code
+*   Ambral (W25) is scaling AI-powered account management with sophisticated sub-agent powered workflows built with Claude Code and Claude Agents SDK
+*   Vulcan Technologies (S25) is using Claude Code to tackle regulatory complexity for the government and industry
 
 Let’s dive in. 
 

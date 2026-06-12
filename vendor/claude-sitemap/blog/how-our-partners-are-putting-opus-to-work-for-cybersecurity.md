@@ -10,9 +10,9 @@ Several of those offerings are now live, and the early results show what frontie
 
 Partners are reporting significant improvements in defense capabilities powered by Opus, both internally and in customer environments: 
 
-- Continuous pentesting across more than 150,000 production assets a week, surfacing thousands of validated high- and critical-severity findings weekly with zero false positives (Wiz, in customer production).
-- The equivalent of a year's worth of penetration testing effort completed in under three weeks (Palo Alto Networks, internal testing).
-- Security testing coverage taken from roughly 10% to over 80%, across 1,600 applications and 500,000+ APIs, with scan turnaround cut from 3–5 days to under an hour (Accenture, on its own infrastructure).
+*   Continuous pentesting across more than 150,000 production assets a week, surfacing thousands of validated high- and critical-severity findings weekly with zero false positives (Wiz, in customer production).
+*   The equivalent of a year's worth of penetration testing effort completed in under three weeks (Palo Alto Networks, internal testing).
+*   Security testing coverage taken from roughly 10% to over 80%, across 1,600 applications and 500,000+ APIs, with scan turnaround cut from 3–5 days to under an hour (Accenture, on its own infrastructure).
 
 The work falls into three areas: testing offensively at scale, closing the gap between finding and fixing vulnerabilities, and deploying governed AI into production.
 
@@ -54,6 +54,6 @@ BCG, Infosys, and SentinelOne are also building defensive cyber offerings on Opu
 
 Every offering above runs on the same underlying Opus capability: reasoning about code, understanding which exposures translate into real-word risk, and sustaining long agentic workflows. We're excited to be working with these partners to bring frontier defense to more security teams through the access points that fits them best. 
 
-_Learn more about_ _Claude for security use cases\_\_._
+_Learn more about_ _Claude for security use cases__._
 
 ‍

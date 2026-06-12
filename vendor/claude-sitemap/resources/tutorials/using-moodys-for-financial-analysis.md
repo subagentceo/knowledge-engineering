@@ -8,35 +8,35 @@ The Moody’s connector provides Claude with access to proprietary credit rating
 
 Through the Moody’s integration, Claude can access the following resources:
 
-- **Entity Discovery:** Claude can search for entities covered by Moody’s using identifiers, company names, or related metadata. This returns Moody’s unique entity IDs that unlock access to comprehensive datasets.
+*   **Entity Discovery:** Claude can search for entities covered by Moody’s using identifiers, company names, or related metadata. This returns Moody’s unique entity IDs that unlock access to comprehensive datasets.
 
-- **Credit Ratings and Outlooks:** Retrieve current credit ratings, rating dates, and outlooks for specific entities, providing critical information for credit risk assessment and investment decisions.
+*   **Credit Ratings and Outlooks:** Retrieve current credit ratings, rating dates, and outlooks for specific entities, providing critical information for credit risk assessment and investment decisions.
 
-- **Research Library Access:** Claude can search Moody’s proprietary research documents related to specific entities or topics, giving you access to expert analysis and insights.
+*   **Research Library Access:** Claude can search Moody’s proprietary research documents related to specific entities or topics, giving you access to expert analysis and insights.
 
-- **Rating Driver Analysis:** Access the primary factors behind credit rating upgrades or downgrades, providing context for rating movements and enabling deeper risk analysis.
+*   **Rating Driver Analysis:** Access the primary factors behind credit rating upgrades or downgrades, providing context for rating movements and enabling deeper risk analysis.
 
-- **Rating Scorecards:** View detailed rating scorecards including factor weights, scoring components, and overall rating rationale to understand how Moody’s evaluates entity creditworthiness.
+*   **Rating Scorecards:** View detailed rating scorecards including factor weights, scoring components, and overall rating rationale to understand how Moody’s evaluates entity creditworthiness.
 
 ## How Claude Uses Moody’s Data
 
 Claude applies Moody’s capabilities to support comprehensive financial analysis:
 
-- **Integrated Risk Assessment:** Claude combines credit ratings, research insights, and rating drivers to provide holistic risk evaluations. For example, when analyzing a potential investment, Claude might retrieve the entity’s current rating, review recent research publications, and examine the factors that could trigger rating changes.
+*   **Integrated Risk Assessment:** Claude combines credit ratings, research insights, and rating drivers to provide holistic risk evaluations. For example, when analyzing a potential investment, Claude might retrieve the entity’s current rating, review recent research publications, and examine the factors that could trigger rating changes.
 
-- **Contextual Analysis:** By accessing rating scorecards and upgrade/downgrade factors, Claude applies Moody’s analytical frameworks to understand credit quality. This ensures that risk assessments align with industry-standard methodologies.
+*   **Contextual Analysis:** By accessing rating scorecards and upgrade/downgrade factors, Claude applies Moody’s analytical frameworks to understand credit quality. This ensures that risk assessments align with industry-standard methodologies.
 
-- **Research-Backed Insights:** Claude can search through Moody’s extensive research library to find relevant analysis, sector trends, and comparable entity studies, providing evidence-based context for financial decisions.
+*   **Research-Backed Insights:** Claude can search through Moody’s extensive research library to find relevant analysis, sector trends, and comparable entity studies, providing evidence-based context for financial decisions.
 
-- **Entity Intelligence:** Through entity mapping and discovery, Claude can identify relationships between entities, access comprehensive company intelligence, and retrieve relevant Moody’s data across different use cases.
+*   **Entity Intelligence:** Through entity mapping and discovery, Claude can identify relationships between entities, access comprehensive company intelligence, and retrieve relevant Moody’s data across different use cases.
 
 ## Setting up the Moody’s Connector
 
 The Moody’s MCP server uses remote access via a simple URL endpoint and is compatible with any LLM that supports the MCP Standard Protocol.
 
-- Authentication: The Moody’s connector implements OAuth authentication. When connecting, you’ll be redirected to a Moody’s authentication page where you’ll enter your authorized credentials. After successful authentication, you’ll be redirected back to Claude.
+*   Authentication: The Moody’s connector implements OAuth authentication. When connecting, you’ll be redirected to a Moody’s authentication page where you’ll enter your authorized credentials. After successful authentication, you’ll be redirected back to Claude.
 
-- Server URL: https://api.moodys.com/genai-ready-data/m1/mcp
+*   Server URL: https://api.moodys.com/genai-ready-data/m1/mcp
 
 ### Adding the Connector as an Organization Owner
 
@@ -62,17 +62,17 @@ To illustrate how these tools work together, consider a financial services firm 
 
 Entity Tools:
 
-- findEntity: Search for companies, financial institutions, or governmental entities covered by Moody’s
+*   findEntity: Search for companies, financial institutions, or governmental entities covered by Moody’s
 
-- - getEntityRatings: Retrieve current ratings and outlooks
+*   - getEntityRatings: Retrieve current ratings and outlooks
 
-- - getEntityRatingDrivers: Access upgrade/downgrade factors
+*   - getEntityRatingDrivers: Access upgrade/downgrade factors
 
-- - getEntityScorecard: View detailed rating methodology and scoring
+*   - getEntityScorecard: View detailed rating methodology and scoring
 
 Research Tools:
 
-- searchEntityDocuments: Access Moody’s proprietary research library
+*   searchEntityDocuments: Access Moody’s proprietary research library
 
 ### Credit Analysis for Portfolio Management
 
@@ -152,17 +152,17 @@ Claude would then provide a counterparty risk assessment including current credi
 
 ## Tips for Using Moody’s
 
-- Be specific about entities: When searching for entities, include relevant identifiers like ticker symbols, full legal names, or location information for more accurate results.
-  - Example: Instead of “Apple”, try “Apple Inc. (AAPL)”
-- Leverage rating drivers for forward-looking analysis: The rating upgrade/downgrade factors provide valuable insights into what could change an entity’s credit profile.
-  - Example: “What factors would lead to a downgrade of Company X’s rating?”
+*   Be specific about entities: When searching for entities, include relevant identifiers like ticker symbols, full legal names, or location information for more accurate results.
+    *   Example: Instead of “Apple”, try “Apple Inc. (AAPL)”
+*   Leverage rating drivers for forward-looking analysis: The rating upgrade/downgrade factors provide valuable insights into what could change an entity’s credit profile.
+    *   Example: “What factors would lead to a downgrade of Company X’s rating?”
 
-- Combine tools for comprehensive analysis: Use multiple tools together to build complete credit profiles. Start with ratings, then examine scorecards and drivers, and supplement with research.
+*   Combine tools for comprehensive analysis: Use multiple tools together to build complete credit profiles. Start with ratings, then examine scorecards and drivers, and supplement with research.
 
-- Access is governed by your Moody’s subscription: Claude can only access data and research that your Moody’s account has permission to view. The connector respects your subscription entitlements.
-- Use research search for sector insights: The document search isn’t limited to individual entities. Search by sector, theme, or risk type to find broader market analysis.
-  - Example: “Find Moody’s research on renewable energy sector credit trends”
+*   Access is governed by your Moody’s subscription: Claude can only access data and research that your Moody’s account has permission to view. The connector respects your subscription entitlements.
+*   Use research search for sector insights: The document search isn’t limited to individual entities. Search by sector, theme, or risk type to find broader market analysis.
+    *   Example: “Find Moody’s research on renewable energy sector credit trends”
 
-- Rating scorecards provide methodology transparency: Review scorecards to understand how Moody’s weighs different factors in their rating assessment, which can inform your own credit analysis framework.
+*   Rating scorecards provide methodology transparency: Review scorecards to understand how Moody’s weighs different factors in their rating assessment, which can inform your own credit analysis framework.
 
 ‍

@@ -100,9 +100,9 @@ When access is blocked, users receive the following error:
 
 ## Use cases
 
-| **Scenario**                      | **Header Value**            |
-| --------------------------------- | --------------------------- |
-| Single Organization               | `<your-org-uuid>`           |
+| **Scenario** | **Header Value** |
+| --- | --- |
+| Single Organization | `<your-org-uuid>` |
 | Multiple Organizations (Partners) | `<org-uuid-1>,<org-uuid-2>` |
 
 ## Security benefits
