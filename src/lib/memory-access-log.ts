@@ -9,6 +9,7 @@
  *
  * @cite vendor/anthropics/platform.claude.com/docs/en/managed-agents/dreams.md
  * @cite data/models/alloydb/fact_memory_access.yaml
+ * @cite data/models/alloydb/events_memory_access.yaml (KAN-13 raw stream)
  */
 
 import type { PgLike } from "../cache/durable-store.js";
@@ -19,7 +20,11 @@ export class AccessLogger {
     private readonly agentId: string,
   ) {}
 
-  /** Append one access row per csl id that has a current memory. */
+  /**
+   * Append one access row per csl id that has a current memory, plus a
+   * raw event per requested id (events_ pattern — unmatched reads are
+   * the demand signal for memories that do not exist yet).
+   */
   async record(cslIds: string[]): Promise<number> {
     if (cslIds.length === 0) return 0;
     const now = new Date();
@@ -32,6 +37,13 @@ export class AccessLogger {
        WHERE is_current AND csl_id = ANY($3)
        RETURNING memory_sk`,
       [this.agentId, dateKey, cslIds],
+    );
+    await this.pg.query(
+      `INSERT INTO dw.events_memory_access (csl_id, agent_id, matched)
+       SELECT id, $1, EXISTS (
+         SELECT 1 FROM dw.dim_memory d WHERE d.is_current AND d.csl_id = id)
+       FROM unnest($2::text[]) AS id`,
+      [this.agentId, cslIds],
     );
     return rows.length;
   }
